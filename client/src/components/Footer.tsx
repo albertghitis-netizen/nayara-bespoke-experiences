@@ -50,26 +50,23 @@ export default function Footer() {
               className="text-desert-cream/40 text-xs tracking-wide-editorial uppercase mb-6"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Explore
+              Destinations
             </p>
             <div className="flex flex-col gap-3">
-              {[
-                { label: "Main Website", url: "https://nayaraaltoatacama.com" },
-                { label: "Nayara Resorts", url: "https://nayararesorts.com" },
-                { label: "Blog & Stories", url: "https://blog.nayararesorts.com" },
-                { label: "Instagram", url: "https://instagram.com/nayaraaltoatacama" },
-              ].map((link) => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-desert-cream/40 hover:text-gold transition-colors text-sm"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-                >
-                  {link.label}
-                </a>
-              ))}
+              <Link
+                href="/"
+                className="text-desert-cream/40 hover:text-gold transition-colors text-sm"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                All Destinations
+              </Link>
+              <Link
+                href="/arenal"
+                className="text-desert-cream/40 hover:text-gold transition-colors text-sm"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                Nayara Arenal
+              </Link>
             </div>
           </motion.div>
 
@@ -87,13 +84,12 @@ export default function Footer() {
               Contact
             </p>
             <div className="flex flex-col gap-3">
-              <a
-                href="mailto:reservations@nayaraaltoatacama.com"
-                className="text-desert-cream/40 hover:text-gold transition-colors text-sm"
+              <span
+                className="text-desert-cream/40 text-sm"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 reservations@nayaraaltoatacama.com
-              </a>
+              </span>
               <span
                 className="text-desert-cream/40 text-sm"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}

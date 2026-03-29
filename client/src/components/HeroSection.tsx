@@ -1,14 +1,20 @@
 /*
  * Hero Section — Full-viewport cinematic intro
  * Uses real uploaded video as background
+ * Desktop: horizontal video | Mobile: vertical video
  * Editorial typography with "Bespoke Experiences" title
  */
 
 import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import { useIsMobile } from "@/hooks/useMobile";
 
-const VIDEO_URL =
+const VIDEO_DESKTOP =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Atacama_horizontal_1_20260320_142142_8751bdb3.mov";
+const VIDEO_MOBILE =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-aerial-vertical_73fb742f.mp4";
+const POSTER =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_ffc4f157.PNG";
 
 interface HeroSectionProps {
   onInView: () => void;
@@ -17,10 +23,13 @@ interface HeroSectionProps {
 export default function HeroSection({ onInView }: HeroSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.5 });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isInView) onInView();
   }, [isInView, onInView]);
+
+  const videoSrc = isMobile ? VIDEO_MOBILE : VIDEO_DESKTOP;
 
   return (
     <section
@@ -31,15 +40,16 @@ export default function HeroSection({ onInView }: HeroSectionProps) {
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
+          key={videoSrc}
           autoPlay
           muted
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_ffc4f157.PNG"
+          poster={POSTER}
         >
-          <source src={VIDEO_URL} type="video/quicktime" />
-          <source src={VIDEO_URL} type="video/mp4" />
+          <source src={videoSrc} type={isMobile ? "video/mp4" : "video/quicktime"} />
+          <source src={videoSrc} type="video/mp4" />
         </video>
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />

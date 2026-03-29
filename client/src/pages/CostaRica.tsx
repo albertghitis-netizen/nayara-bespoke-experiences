@@ -34,7 +34,7 @@ const gardens = properties.find((p) => p.id === "gardens")!;
 const springs = properties.find((p) => p.id === "springs")!;
 
 const CDN = {
-  toucan: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-toucan_a70ad74a.mp4",
+  hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-hero_feb62819.mp4",
   spa: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-spa-springs_89d85927.mp4",
 };
 
@@ -258,7 +258,7 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={CDN.toucan} type="video/mp4" />
+          <source src={CDN.hero} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
@@ -336,21 +336,18 @@ function PropertyIntro() {
       name: "Tented Camp",
       tagline: "Glamping in the Rainforest",
       description: "Luxury safari-style tents in the canopy. Wake to howler monkeys, fall asleep to tropical rain.",
-      website: tentedCamp.website,
       icon: <TreePine className="w-5 h-5" />,
     },
     {
       name: "Gardens",
       tagline: "Family Rainforest Retreat",
       description: "Spacious villas with private gardens, ideal for families exploring the Arenal region together.",
-      website: gardens.website,
       icon: <Leaf className="w-5 h-5" />,
     },
     {
       name: "Springs",
       tagline: "Adults-Only Sanctuary",
       description: "Private plunge pools fed by natural hot springs. Where volcanic warmth meets rainforest serenity.",
-      website: springs.website,
       icon: <Waves className="w-5 h-5" />,
     },
   ];
@@ -389,11 +386,8 @@ function PropertyIntro() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {propertyCards.map((prop, i) => (
-            <motion.a
+            <motion.div
               key={prop.name}
-              href={prop.website}
-              target="_blank"
-              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -423,14 +417,7 @@ function PropertyIntro() {
               >
                 {prop.description}
               </p>
-              <span
-                className="text-emerald-700/60 text-xs tracking-[0.2em] uppercase group-hover:text-emerald-700 transition-colors flex items-center gap-2"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Visit website
-                <ExternalLink className="w-3 h-3" />
-              </span>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -1075,26 +1062,21 @@ function ArenalFooter() {
               className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] uppercase mb-6"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Our Properties
+              Properties
             </p>
             <div className="flex flex-col gap-3">
               {[
-                { label: "Nayara Tented Camp", url: tentedCamp.website },
-                { label: "Nayara Gardens", url: gardens.website },
-                { label: "Nayara Springs", url: springs.website },
-                { label: "Nayara Resorts", url: "https://nayararesorts.com" },
-                { label: "Blog & Stories", url: "https://blog.nayararesorts.com" },
+                { label: "Nayara Tented Camp" },
+                { label: "Nayara Gardens" },
+                { label: "Nayara Springs" },
               ].map((link) => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#f7f5f0]/40 hover:text-emerald-400 transition-colors text-sm"
+                <span
+                  key={link.label}
+                  className="text-[#f7f5f0]/40 text-sm"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                 >
                   {link.label}
-                </a>
+                </span>
               ))}
             </div>
           </motion.div>
@@ -1113,13 +1095,12 @@ function ArenalFooter() {
               Contact
             </p>
             <div className="flex flex-col gap-3">
-              <a
-                href={`mailto:${tentedCamp.email}`}
-                className="text-[#f7f5f0]/40 hover:text-emerald-400 transition-colors text-sm"
+              <span
+                className="text-[#f7f5f0]/40 text-sm"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 {tentedCamp.email}
-              </a>
+              </span>
               <span
                 className="text-[#f7f5f0]/40 text-sm"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}

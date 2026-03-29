@@ -129,26 +129,12 @@ export default function Home() {
               &copy; {new Date().getFullYear()} All rights reserved.
             </p>
           </div>
-          <div className="flex items-center gap-6">
-            <a
-              href="https://nayararesorts.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-stone-400 hover:text-stone-600 text-xs transition-colors"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              NayaraResorts.com
-            </a>
-            <a
-              href="https://blog.nayararesorts.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-stone-400 hover:text-stone-600 text-xs transition-colors"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              Blog
-            </a>
-          </div>
+          <p
+            className="text-stone-400 text-xs"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+          >
+            Bespoke Experiences
+          </p>
         </div>
       </footer>
     </div>
