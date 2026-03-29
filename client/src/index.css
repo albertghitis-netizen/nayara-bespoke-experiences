@@ -53,7 +53,7 @@
   --color-gold-light: oklch(0.82 0.08 78);
   --color-lagoon: oklch(0.55 0.1 180);
 
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
 }
 

@@ -294,18 +294,16 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-10 max-w-[1400px] mx-auto">
+      {/* Content — centered at bottom */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Bespoke
-          <br />
-          Experiences
+          Bespoke Experiences
         </motion.h1>
       </div>
     </section>

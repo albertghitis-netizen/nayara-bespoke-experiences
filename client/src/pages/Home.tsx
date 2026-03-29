@@ -311,52 +311,17 @@ function HeroHeader() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-28 px-6 md:px-10 max-w-[1400px] mx-auto">
-        <motion.div
+      {/* Content — centered at bottom */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          <p
-            className="text-white/70 text-xs tracking-[0.35em] uppercase mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Nayara Resorts
-          </p>
-          <h1
-            className="text-white text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight mb-8"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-          >
-            Bespoke
-            <br />
-            Experiences
-          </h1>
-          <p
-            className="text-white/70 text-base md:text-lg max-w-2xl leading-relaxed mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-          >
-            From desert to rainforest to reef — curated excursions, wellness
-            rituals, and adventures across four extraordinary destinations.
-          </p>
-        </motion.div>
-
-        {/* Scroll hint */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="mt-12 flex items-center gap-3"
-        >
-          <div className="w-px h-8 bg-white/30 relative overflow-hidden">
-            <motion.div
-              className="w-full bg-white/60"
-              animate={{ height: ["0%", "100%", "0%"] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-              style={{ position: "absolute", top: 0 }}
-            />
-          </div>
-        </motion.div>
+          Bespoke Experiences
+        </motion.h1>
       </div>
     </section>
   );
