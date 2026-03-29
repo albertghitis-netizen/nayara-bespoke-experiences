@@ -126,8 +126,7 @@ export default function Home() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BRAND NAVIGATION — Landing page hamburger menu
-   Experiences, Wellness, Sustainability, Awards, Press, Journal, Podcast
+   BRAND NAVIGATION — Hamburger left, Reserve right
    ═══════════════════════════════════════════════════════════════ */
 function BrandNavigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -140,27 +139,26 @@ function BrandNavigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const brandNavItems = [
+  const navItems = [
+    { label: "Our Resorts", route: null },
+    { label: "Gallery", route: null },
     { label: "Experiences", route: null },
     { label: "Wellness", route: null },
     { label: "Sustainability", route: "/sustainability" },
     { label: "Awards", route: "/awards" },
     { label: "Press", route: null },
-    { label: "Journal", route: "/journal" },
-    { label: "Podcast", route: null },
+    { label: "Journal", route: null },
   ];
 
-  const handleClick = (item: { label: string; route: string | null }) => {
+  const handleNavClick = (item: { label: string; route: string | null }) => {
     setMenuOpen(false);
     if (item.route) {
       navigate(item.route);
     } else {
-      // For Experiences/Wellness, scroll to destinations section
-      if (item.label === "Experiences" || item.label === "Wellness") {
+      if (item.label === "Our Resorts" || item.label === "Experiences" || item.label === "Wellness") {
         const el = document.querySelector("section.py-16");
         if (el) el.scrollIntoView({ behavior: "smooth" });
       } else {
-        // Placeholder items
         import("sonner").then(({ toast }) => toast(item.label + " — Coming Soon"));
       }
     }
@@ -179,53 +177,10 @@ function BrandNavigation() {
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="flex items-center justify-between h-20">
-          {/* Brand */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex flex-col items-start"
-          >
-            <span
-              className={`text-xs tracking-[0.35em] uppercase transition-colors duration-500 ${
-                scrolled ? "text-stone-500" : "text-white/70"
-              }`}
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Nayara Resorts
-            </span>
-            <span
-              className={`text-lg tracking-wide transition-colors duration-500 ${
-                scrolled ? "text-stone-800" : "text-white"
-              }`}
-              style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-            >
-              Bespoke Experiences
-            </span>
-          </button>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {brandNavItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => handleClick(item)}
-                className={`text-sm tracking-[0.15em] uppercase transition-all duration-300 ${
-                  scrolled
-                    ? "text-stone-500 hover:text-stone-800"
-                    : "text-white/60 hover:text-white"
-                }`}
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* Hamburger */}
+          {/* Hamburger — Far Left */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`md:hidden flex flex-col gap-1.5 p-2 transition-colors ${
-              scrolled ? "text-stone-800" : "text-white"
-            }`}
+            className="flex flex-col gap-1.5 p-2 transition-colors flex-shrink-0"
           >
             <span
               className={`block w-6 h-px transition-all duration-300 ${
@@ -238,24 +193,65 @@ function BrandNavigation() {
               } ${scrolled ? "bg-stone-800" : "bg-white"}`}
             />
           </button>
+
+          {/* Centered Nav Items — Desktop only */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 absolute left-1/2 -translate-x-1/2">
+            {navItems.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item)}
+                className={`text-[11px] xl:text-xs tracking-[0.15em] uppercase transition-all duration-300 whitespace-nowrap ${
+                  scrolled
+                    ? "text-stone-500 hover:text-stone-800"
+                    : "text-white/60 hover:text-white"
+                }`}
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Reserve — Far Right */}
+          <button
+            onClick={() => {
+              import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"));
+            }}
+            className={`text-xs tracking-[0.25em] uppercase transition-colors duration-500 flex-shrink-0 ${
+              scrolled
+                ? "text-stone-700 hover:text-stone-900"
+                : "text-white/80 hover:text-white"
+            }`}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            Reserve
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Slide-out Menu (mobile + hamburger) */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#f7f5f0]/98 backdrop-blur-md border-t border-stone-200"
+            className={`${
+              scrolled
+                ? "bg-[#f7f5f0]/98 backdrop-blur-md border-t border-stone-200"
+                : "bg-black/80 backdrop-blur-md border-t border-white/10"
+            }`}
           >
-            <div className="px-6 py-6 flex flex-col gap-4">
-              {brandNavItems.map((item) => (
+            <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-8 flex flex-col gap-5">
+              {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => handleClick(item)}
-                  className="text-left text-sm tracking-[0.2em] uppercase text-stone-600 hover:text-stone-900 transition-colors"
+                  onClick={() => handleNavClick(item)}
+                  className={`text-left text-sm tracking-[0.2em] uppercase transition-colors ${
+                    scrolled
+                      ? "text-stone-600 hover:text-stone-900"
+                      : "text-white/60 hover:text-white"
+                  }`}
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   {item.label}
@@ -270,13 +266,22 @@ function BrandNavigation() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO HEADER
+   HERO HEADER — "Rooted in Nature" + six hotel names centered
    ═══════════════════════════════════════════════════════════════ */
+const hotelNames = [
+  "Alto Atacama",
+  "Gardens",
+  "Springs",
+  "Tented Camp",
+  "Hangaroa",
+  "Bocas del Toro",
+];
+
 function HeroHeader() {
   const isMobile = useIsMobile();
   const heroVideo = isMobile
     ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"; // TODO: replace with horizontal version when available
+    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -287,20 +292,38 @@ function HeroHeader() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
       </div>
 
-      {/* Content — centered at bottom */}
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+      {/* Content — vertically centered */}
+      <div className="relative z-10 h-full flex flex-col justify-center items-center px-6 md:px-10">
+        {/* "Rooted in Nature" */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide text-center"
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide text-center mb-12 md:mb-16"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Bespoke Experiences
+          Rooted in Nature
         </motion.h1>
+
+        {/* Six hotel names — centered row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-wrap justify-center items-center gap-x-6 md:gap-x-10 gap-y-3"
+        >
+          {hotelNames.map((name, i) => (
+            <span
+              key={name}
+              className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase hover:text-white transition-colors duration-300 cursor-default"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            >
+              {name}
+            </span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
