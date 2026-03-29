@@ -122,20 +122,23 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10 md:gap-6">
           {/* Logo — real image + NAYARA text */}
           <motion.div
-            className="col-span-2 md:col-span-1 flex flex-col items-start"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="col-span-2 md:col-span-1 flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <img
+            {/* Leaf with breathing pulse */}
+            <motion.img
               src={LOGO_URL}
               alt="Nayara"
-              className="w-32 md:w-40 mb-3"
+              className="w-36 md:w-44 mb-4"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
             <p
-              className="text-[#4a3a2a] tracking-[0.15em] uppercase text-lg md:text-xl"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              className="text-[#4a3a2a] uppercase text-xl md:text-2xl"
+              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, letterSpacing: "0.08em" }}
             >
               NAYARA
             </p>
