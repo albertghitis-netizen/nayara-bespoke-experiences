@@ -393,7 +393,7 @@ function PropertyIntro() {
             className="text-emerald-700 text-xs tracking-[0.35em] uppercase mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            Three Rainforest Properties, One Destination
+            Three Properties, One Rainforest
           </p>
           <h2
             className="text-emerald-950 text-3xl md:text-4xl lg:text-5xl leading-[1.1] mb-6 max-w-3xl"

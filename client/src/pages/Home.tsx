@@ -209,12 +209,6 @@ function HeroHeader() {
               style={{ position: "absolute", top: 0 }}
             />
           </div>
-          <span
-            className="text-white/60 text-xs tracking-[0.2em] uppercase"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Choose Desert, Rainforest, or Reef
-          </span>
         </motion.div>
       </div>
     </section>
