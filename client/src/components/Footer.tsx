@@ -1,9 +1,10 @@
 /*
- * Footer — Minimal editorial footer
+ * Footer — Minimal editorial footer for Alto Atacama
  * Contact info, links back to main site, brand identity
  */
 
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 export default function Footer() {
   return (
@@ -87,17 +88,17 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-3">
               <a
-                href="mailto:reservations@nayararesorts.com"
+                href="mailto:reservations@nayaraaltoatacama.com"
                 className="text-desert-cream/40 hover:text-gold transition-colors text-sm"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
-                reservations@nayararesorts.com
+                reservations@nayaraaltoatacama.com
               </a>
               <span
                 className="text-desert-cream/40 text-sm"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
-                +56 (2) 2912 3945
+                +56 55 257 8570
               </span>
             </div>
           </motion.div>
@@ -111,12 +112,13 @@ export default function Footer() {
           >
             &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
           </p>
-          <p
-            className="text-desert-cream/15 text-xs italic"
-            style={{ fontFamily: "var(--font-display)" }}
+          <Link
+            href="/"
+            className="text-desert-cream/20 hover:text-gold text-xs transition-colors"
+            style={{ fontFamily: "var(--font-body)" }}
           >
-            Life as you've dreamed it.
-          </p>
+            &larr; All Properties
+          </Link>
         </div>
       </div>
     </footer>

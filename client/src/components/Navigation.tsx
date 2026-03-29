@@ -2,16 +2,20 @@
  * Navigation — Minimal editorial top bar
  * Fixed, transparent over hero, solid on scroll
  * Nayara brand identity with section anchors
+ * Supports back-link to landing page for property pages
  */
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
+import { ArrowLeft } from "lucide-react";
 
 interface NavigationProps {
   activeSection: string;
+  showBackLink?: boolean;
 }
 
-export default function Navigation({ activeSection }: NavigationProps) {
+export default function Navigation({ activeSection, showBackLink = false }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -48,27 +52,39 @@ export default function Navigation({ activeSection }: NavigationProps) {
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo / Brand */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex flex-col items-start"
-          >
-            <span
-              className={`text-xs tracking-wide-editorial uppercase font-body transition-colors duration-500 ${
-                scrolled ? "text-volcanic/60" : "text-white/70"
-              }`}
-              style={{ fontFamily: "var(--font-body)" }}
+          <div className="flex items-center gap-4">
+            {showBackLink && (
+              <Link
+                href="/"
+                className={`transition-colors duration-500 ${
+                  scrolled ? "text-volcanic" : "text-white/80"
+                } hover:text-terracotta`}
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </Link>
+            )}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex flex-col items-start"
             >
-              Nayara Alto Atacama
-            </span>
-            <span
-              className={`text-lg font-display font-medium tracking-wide transition-colors duration-500 ${
-                scrolled ? "text-volcanic" : "text-white"
-              }`}
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Bespoke Experiences
-            </span>
-          </button>
+              <span
+                className={`text-xs tracking-wide-editorial uppercase font-body transition-colors duration-500 ${
+                  scrolled ? "text-volcanic/60" : "text-white/70"
+                }`}
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                Nayara Alto Atacama
+              </span>
+              <span
+                className={`text-lg font-display font-medium tracking-wide transition-colors duration-500 ${
+                  scrolled ? "text-volcanic" : "text-white"
+                }`}
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Bespoke Experiences
+              </span>
+            </button>
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10">
@@ -123,6 +139,15 @@ export default function Navigation({ activeSection }: NavigationProps) {
             className="md:hidden bg-desert-cream/98 backdrop-blur-md border-t border-desert-sand/30"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
+              {showBackLink && (
+                <Link
+                  href="/"
+                  className="text-left text-sm tracking-editorial uppercase text-volcanic/70 hover:text-terracotta transition-colors"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                >
+                  ← All Properties
+                </Link>
+              )}
               {navItems.map((item) => (
                 <button
                   key={item.id}
