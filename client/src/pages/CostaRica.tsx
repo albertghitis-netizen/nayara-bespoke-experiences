@@ -383,30 +383,17 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <Home className="w-4 h-4 text-emerald-400/70" />
-            <p
-              className="text-emerald-400/70 text-xs tracking-[0.35em] uppercase"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Explore Nayara
-            </p>
-          </div>
           <h2
-            className="text-[#f7f5f0] text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
+            className="text-[#f7f5f0] text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-3"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
-            Within Our
-            <br />
-            Grounds
+            Explore Nayara
           </h2>
           <p
-            className="text-[#f7f5f0]/50 text-base md:text-lg max-w-2xl leading-relaxed"
+            className="text-[#f7f5f0]/50 text-lg md:text-xl tracking-wide"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            On-property experiences that define the Nayara way of life — from
-            nocturnal frog tours and dawn birdwatching to cooking classes,
-            chocolate workshops, yoga, and volcanic hot springs.
+            Within Our Grounds
           </p>
         </motion.div>
 
