@@ -131,11 +131,11 @@ export default function Footer() {
             <img
               src={LOGO_URL}
               alt="Nayara"
-              className="w-24 md:w-28 mb-4"
+              className="w-32 md:w-40 mb-3"
             />
             <p
-              className="text-[#4a3a2a] tracking-[0.3em] uppercase text-sm"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+              className="text-[#4a3a2a] tracking-[0.15em] uppercase text-lg md:text-xl"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               NAYARA
             </p>
