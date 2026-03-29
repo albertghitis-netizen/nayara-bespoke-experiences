@@ -1,8 +1,8 @@
 /*
- * The World of Nayara — Textured section with subtle animations
- * Botanical texture background. Warm cream base.
- * Desktop: leaf logo left-aligned, heading pushed way down
- * Mobile: centered layout
+ * The World of Nayara — Compact textured section
+ * Botanical texture background. No wasted space.
+ * Desktop: BIG leaf logo left, heading right next to it. Tight.
+ * Mobile: centered, compact
  */
 
 import { useRef } from "react";
@@ -21,10 +21,7 @@ export default function ExploreOurWorld() {
     offset: ["start end", "end start"],
   });
 
-  // Very subtle parallax on the heading — moves ~20px total
-  const headingY = useTransform(scrollYProgress, [0, 1], [20, -20]);
-
-  // Extremely subtle ambient glow that drifts
+  const headingY = useTransform(scrollYProgress, [0, 1], [10, -10]);
   const glowX = useTransform(scrollYProgress, [0, 0.5, 1], ["-10%", "10%", "-5%"]);
   const glowOpacity = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0, 0.06, 0.06, 0]);
 
@@ -33,12 +30,12 @@ export default function ExploreOurWorld() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-28 md:pt-80 md:pb-64 lg:pt-96 lg:pb-80"
+      className="relative overflow-hidden py-16 md:py-20 lg:py-24"
     >
       {/* Warm cream base */}
       <div className="absolute inset-0 bg-[#f0ebe0]" />
 
-      {/* Botanical texture — grows in from edges */}
+      {/* Botanical texture */}
       <motion.div
         className="absolute inset-0"
         initial={{ opacity: 0, scale: 1.15 }}
@@ -46,7 +43,6 @@ export default function ExploreOurWorld() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        {/* Main texture layer */}
         <div
           className="absolute inset-0 opacity-[0.18]"
           style={{
@@ -56,8 +52,6 @@ export default function ExploreOurWorld() {
             backgroundPosition: "center",
           }}
         />
-
-        {/* Larger accent layer — slow drift */}
         <motion.div
           className="absolute inset-0 opacity-[0.08]"
           style={{
@@ -82,7 +76,7 @@ export default function ExploreOurWorld() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#f0ebe0] via-transparent to-[#f0ebe0] opacity-30" />
       </div>
 
-      {/* Extremely subtle ambient warm glow that drifts with scroll */}
+      {/* Subtle ambient glow */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{ x: glowX, opacity: glowOpacity }}
@@ -97,15 +91,15 @@ export default function ExploreOurWorld() {
 
       {/* Content */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
-        {/* ── MOBILE: centered layout ── */}
+
+        {/* ── MOBILE: centered, compact ── */}
         <div className="md:hidden text-center">
-          {/* Leaf logo — centered on mobile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-8"
+            className="mb-6"
           >
             <img src={LOGO_URL} alt="" className="w-16 mx-auto opacity-30" />
           </motion.div>
@@ -138,9 +132,8 @@ export default function ExploreOurWorld() {
             ))}
           </motion.h2>
 
-          {/* Subtle decorative line */}
           <motion.div
-            className="mx-auto mt-8"
+            className="mx-auto mt-6"
             initial={{ width: 0, opacity: 0 }}
             whileInView={{ width: 60, opacity: 1 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -150,58 +143,59 @@ export default function ExploreOurWorld() {
           </motion.div>
         </div>
 
-        {/* ── DESKTOP: leaf left, heading pushed way down ── */}
-        <div className="hidden md:block">
-          {/* Leaf logo — left-aligned */}
+        {/* ── DESKTOP: big leaf left + heading right, compact ── */}
+        <div className="hidden md:flex items-center gap-10 lg:gap-16">
+          {/* BIG leaf logo — left-aligned */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-40 lg:mb-56"
+            className="flex-shrink-0"
           >
-            <img src={LOGO_URL} alt="" className="w-20 lg:w-24 opacity-25" />
+            <img src={LOGO_URL} alt="" className="w-48 lg:w-64 xl:w-72 opacity-20" />
           </motion.div>
 
-          {/* Heading — pushed way down, centered */}
-          <motion.h2
-            style={{ y: headingY }}
-            className="text-[#3a2a1a] text-7xl lg:text-[5.5rem] flex flex-wrap justify-center gap-x-[0.3em]"
-            aria-label="The World of Nayara"
-          >
-            {words.map((word, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{
-                  duration: 1.0,
-                  delay: 0.15 + i * 0.12,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 400,
-                  lineHeight: 1.05,
-                  display: "inline-block",
-                }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.h2>
+          {/* Heading — right of the logo */}
+          <div>
+            <motion.h2
+              style={{ y: headingY }}
+              className="text-[#3a2a1a] text-6xl lg:text-7xl xl:text-[5.5rem] flex flex-wrap gap-x-[0.3em]"
+              aria-label="The World of Nayara"
+            >
+              {words.map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{
+                    duration: 1.0,
+                    delay: 0.15 + i * 0.12,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 400,
+                    lineHeight: 1.05,
+                    display: "inline-block",
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h2>
 
-          {/* Subtle decorative line */}
-          <motion.div
-            className="mx-auto mt-8"
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: 60, opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 1.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="h-px bg-[#3a2a1a]/20 w-full" />
-          </motion.div>
+            <motion.div
+              className="mt-6"
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: 60, opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="h-px bg-[#3a2a1a]/20 w-full" />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
