@@ -44,8 +44,8 @@ const gardens = properties.find((p) => p.id === "gardens")!;
 const springs = properties.find((p) => p.id === "springs")!;
 
 const CDN = {
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-hero-desktop_5322e58a.mov",
-  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-hero_feb62819.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-hero-desktop_71c7d5db.mp4",
+  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-hero-vertical_86ea15b3.mp4",
   spa: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-spa-springs_89d85927.mp4",
 };
 
@@ -290,7 +290,7 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src={heroVideo} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
@@ -734,7 +734,7 @@ function FeaturedExcursionCard({
             playsInline
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           >
-            <source src={videoSrc} type="video/mp4" />
+            <source src={videoSrc} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
           </video>
         ) : excursion.image ? (
           <img
