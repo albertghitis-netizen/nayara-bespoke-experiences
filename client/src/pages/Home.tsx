@@ -272,7 +272,7 @@ function HeroHeader() {
   const isMobile = useIsMobile();
   const heroVideo = isMobile
     ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4";
+    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/landing-desktop-horizontal_471d1062.mov";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -284,6 +284,21 @@ function HeroHeader() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
+
+      {/* Subtle Nayara brand mark — just below nav bar */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.4 }}
+        className="absolute top-24 md:top-28 left-0 right-0 z-10 flex justify-center"
+      >
+        <span
+          className="text-white/15 text-[11px] md:text-xs tracking-[0.5em] uppercase"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Nayara
+        </span>
+      </motion.div>
 
       {/* Content — anchored to bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
