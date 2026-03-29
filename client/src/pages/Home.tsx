@@ -12,6 +12,7 @@ import { Link, useLocation } from "wouter";
 import { MapPin, ArrowRight, ChevronDown } from "lucide-react";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
+import AwardWinningProperties from "@/components/AwardWinningProperties";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 
@@ -100,6 +101,9 @@ export default function Home() {
 
       {/* Hero / Header */}
       <HeroHeader />
+
+      {/* Award-Winning Properties — editorial section below hero */}
+      <AwardWinningProperties />
 
       {/* Destinations Grid */}
       <section className="py-16 md:py-24">
