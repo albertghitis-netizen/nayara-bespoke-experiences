@@ -33,7 +33,7 @@ export default function ExploreOurWorld() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-28 md:py-48 lg:py-56"
+      className="relative overflow-hidden py-28 md:py-64 lg:py-80"
     >
       {/* Warm cream base */}
       <div className="absolute inset-0 bg-[#f0ebe0]" />
