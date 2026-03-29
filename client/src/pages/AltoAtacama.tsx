@@ -15,6 +15,7 @@ import HeroSection from "@/components/HeroSection";
 import ExcursionsSection from "@/components/ExcursionsSection";
 import SpaSection from "@/components/SpaSection";
 import Footer from "@/components/Footer";
+import ExploreOurWorld from "@/components/ExploreOurWorld";
 
 export default function AltoAtacama() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -25,6 +26,7 @@ export default function AltoAtacama() {
       <HeroSection onInView={() => setActiveSection("hero")} />
       <ExcursionsSection onInView={() => setActiveSection("excursions")} />
       <SpaSection onInView={() => setActiveSection("spa")} />
+      <ExploreOurWorld />
       <Footer />
     </div>
   );

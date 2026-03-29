@@ -41,6 +41,8 @@ import {
 } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
 import BlobVideo from "@/components/BlobVideo";
+import ExploreOurWorld from "@/components/ExploreOurWorld";
+import Footer from "@/components/Footer";
 
 const tentedCamp = properties.find((p) => p.id === "tented-camp")!;
 const gardens = properties.find((p) => p.id === "gardens")!;
@@ -105,7 +107,8 @@ export default function CostaRica() {
       <ArenalSpa onInView={() => setActiveSection("spa")} />
       <ExploreArenalSection onInView={() => setActiveSection("explore-arenal")} />
       <JournalSection />
-      <ArenalFooter />
+      <ExploreOurWorld />
+      <Footer />
     </div>
   );
 }
@@ -315,8 +318,18 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
    ═══════════════════════════════════════════════════════════════ */
 function PropertyIntro() {
   return (
-    <section className="py-20 md:py-28">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+    <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* Botanical texture background */}
+      <div
+        className="absolute inset-0 opacity-[0.12]"
+        style={{
+          backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/botanical-texture-embossed-hig62x94aNi7TNioLbvtkE.webp)`,
+          backgroundSize: "800px 800px",
+          backgroundRepeat: "repeat",
+          backgroundPosition: "center",
+        }}
+      />
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

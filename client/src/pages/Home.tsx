@@ -12,6 +12,8 @@ import { Link, useLocation } from "wouter";
 import { MapPin, ArrowRight, ChevronDown } from "lucide-react";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
+import ExploreOurWorld from "@/components/ExploreOurWorld";
+import Footer from "@/components/Footer";
 
 interface Destination {
   id: string;
@@ -117,31 +119,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bottom Brand */}
-      <footer className="border-t border-stone-200 py-12 md:py-16">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <p
-              className="text-stone-300 text-xs tracking-[0.35em] uppercase"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Nayara Resorts
-            </p>
-            <p
-              className="text-stone-400 text-xs mt-1"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-            >
-              &copy; {new Date().getFullYear()} All rights reserved.
-            </p>
-          </div>
-          <p
-            className="text-stone-400 text-xs"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-          >
-            Bespoke Experiences
-          </p>
-        </div>
-      </footer>
+      <ExploreOurWorld />
+      <Footer />
     </div>
   );
 }
