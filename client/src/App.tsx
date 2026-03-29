@@ -9,6 +9,9 @@ import Home from "./pages/Home";
 import AltoAtacama from "./pages/AltoAtacama";
 import CostaRica from "./pages/CostaRica";
 import ComingSoon from "./pages/ComingSoon";
+import Journal from "./pages/Journal";
+import Awards from "./pages/Awards";
+import Sustainability from "./pages/Sustainability";
 import "./index.css";
 
 function ScrollToTop() {
@@ -29,6 +32,9 @@ function Router() {
       <Route path="/arenal" component={CostaRica} />
       <Route path="/hangaroa" component={ComingSoon} />
       <Route path="/bocas-del-toro" component={ComingSoon} />
+      <Route path="/journal" component={Journal} />
+      <Route path="/awards" component={Awards} />
+      <Route path="/sustainability" component={Sustainability} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

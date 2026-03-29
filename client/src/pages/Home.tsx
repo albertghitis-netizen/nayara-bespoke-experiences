@@ -8,7 +8,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { MapPin, ArrowRight, ChevronDown } from "lucide-react";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -93,6 +93,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
+      {/* Brand Navigation */}
+      <BrandNavigation />
+
       {/* Hero / Header */}
       <HeroHeader />
 
@@ -144,13 +147,157 @@ export default function Home() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   BRAND NAVIGATION — Landing page hamburger menu
+   Experiences, Wellness, Sustainability, Awards, Press, Journal, Podcast
+   ═══════════════════════════════════════════════════════════════ */
+function BrandNavigation() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [, navigate] = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const brandNavItems = [
+    { label: "Experiences", route: null },
+    { label: "Wellness", route: null },
+    { label: "Sustainability", route: "/sustainability" },
+    { label: "Awards", route: "/awards" },
+    { label: "Press", route: null },
+    { label: "Journal", route: "/journal" },
+    { label: "Podcast", route: null },
+  ];
+
+  const handleClick = (item: { label: string; route: string | null }) => {
+    setMenuOpen(false);
+    if (item.route) {
+      navigate(item.route);
+    } else {
+      // For Experiences/Wellness, scroll to destinations section
+      if (item.label === "Experiences" || item.label === "Wellness") {
+        const el = document.querySelector("section.py-16");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Placeholder items
+        import("sonner").then(({ toast }) => toast(item.label + " — Coming Soon"));
+      }
+    }
+  };
+
+  return (
+    <motion.header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <div className="flex items-center justify-between h-20">
+          {/* Brand */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex flex-col items-start"
+          >
+            <span
+              className={`text-xs tracking-[0.35em] uppercase transition-colors duration-500 ${
+                scrolled ? "text-stone-500" : "text-white/70"
+              }`}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Nayara Resorts
+            </span>
+            <span
+              className={`text-lg tracking-wide transition-colors duration-500 ${
+                scrolled ? "text-stone-800" : "text-white"
+              }`}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+            >
+              Bespoke Experiences
+            </span>
+          </button>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {brandNavItems.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => handleClick(item)}
+                className={`text-sm tracking-[0.15em] uppercase transition-all duration-300 ${
+                  scrolled
+                    ? "text-stone-500 hover:text-stone-800"
+                    : "text-white/60 hover:text-white"
+                }`}
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={`md:hidden flex flex-col gap-1.5 p-2 transition-colors ${
+              scrolled ? "text-stone-800" : "text-white"
+            }`}
+          >
+            <span
+              className={`block w-6 h-px transition-all duration-300 ${
+                menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
+              } ${scrolled ? "bg-stone-800" : "bg-white"}`}
+            />
+            <span
+              className={`block w-6 h-px transition-all duration-300 ${
+                menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
+              } ${scrolled ? "bg-stone-800" : "bg-white"}`}
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[#f7f5f0]/98 backdrop-blur-md border-t border-stone-200"
+          >
+            <div className="px-6 py-6 flex flex-col gap-4">
+              {brandNavItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => handleClick(item)}
+                  className="text-left text-sm tracking-[0.2em] uppercase text-stone-600 hover:text-stone-900 transition-colors"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    HERO HEADER
    ═══════════════════════════════════════════════════════════════ */
 function HeroHeader() {
   const isMobile = useIsMobile();
   const heroVideo = isMobile
-    ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-resorts-hero-vertical-opt_5a7653e6.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-resorts-hero-vertical-opt_5a7653e6.mp4"; // TODO: replace with horizontal version when available
+    ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
+    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"; // TODO: replace with horizontal version when available
 
   return (
     <section className="relative h-screen w-full overflow-hidden">

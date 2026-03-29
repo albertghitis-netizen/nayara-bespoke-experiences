@@ -29,6 +29,7 @@ import {
   Mountain,
   Star,
 } from "lucide-react";
+import { toast } from "sonner";
 import {
   properties,
   exploreNayaraExperiences,
@@ -45,8 +46,8 @@ const gardens = properties.find((p) => p.id === "gardens")!;
 const springs = properties.find((p) => p.id === "springs")!;
 
 const CDN = {
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-hero-desktop_71c7d5db.mp4",
-  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-hero-vertical_86ea15b3.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4",
+  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-mobile_482102b8.mp4",
   spa: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-spa-springs_89d85927.mp4",
 };
 
@@ -124,15 +125,18 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
   }, []);
 
   const navItems = [
-    { id: "explore-nayara", label: "Explore Nayara" },
-    { id: "spa", label: "Spa" },
-    { id: "explore-arenal", label: "Explore Arenal" },
+    { id: "explore-nayara", label: "Experiences" },
+    { id: "spa", label: "Wellness" },
+    { id: "sustainability", label: "Sustainability" },
   ];
 
-  const scrollTo = (id: string) => {
+  const handleNavClick = (id: string, label: string) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+    } else {
+      toast(label + " — Coming Soon");
       setMenuOpen(false);
     }
   };
@@ -188,7 +192,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollTo(item.id)}
+                onClick={() => handleNavClick(item.id, item.label)}
                 className={`text-sm tracking-[0.2em] uppercase transition-all duration-300 ${
                   scrolled
                     ? activeSection === item.id
@@ -246,7 +250,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollTo(item.id)}
+                  onClick={() => handleNavClick(item.id, item.label)}
                   className="text-left text-sm tracking-[0.2em] uppercase text-emerald-900/70 hover:text-emerald-700 transition-colors"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
@@ -1285,7 +1289,6 @@ function ArenalFooter() {
             <div className="flex flex-col gap-3">
               {[
                 { label: "Explore Nayara", id: "explore-nayara" },
-                { label: "Nayara Spa", id: "spa" },
                 { label: "Explore Arenal", id: "explore-arenal" },
               ].map((link) => (
                 <button

@@ -3,12 +3,22 @@
  * Fixed, transparent over hero, solid on scroll
  * Nayara brand identity with section anchors
  * Supports back-link to landing page for property pages
+ *
+ * Property pages: Experiences, Wellness, Sustainability
+ * Landing page: Experiences, Wellness, Sustainability, Awards, Journal
  */
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
+import { toast } from "sonner";
+
+interface NavItem {
+  id: string;
+  label: string;
+  scroll?: boolean; // true = scroll to section, false = placeholder toast
+}
 
 interface NavigationProps {
   activeSection: string;
@@ -25,15 +35,21 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { id: "excursions", label: "Excursions" },
-    { id: "spa", label: "Wellness" },
+  const navItems: NavItem[] = [
+    { id: "excursions", label: "Experiences", scroll: true },
+    { id: "spa", label: "Wellness", scroll: true },
+    { id: "sustainability", label: "Sustainability", scroll: false },
   ];
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (item: NavItem) => {
+    if (item.scroll) {
+      const el = document.getElementById(item.id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        setMenuOpen(false);
+      }
+    } else {
+      toast(item.label + " — Coming Soon");
       setMenuOpen(false);
     }
   };
@@ -91,7 +107,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollTo(item.id)}
+                onClick={() => handleNavClick(item)}
                 className={`text-sm tracking-editorial uppercase transition-all duration-300 ${
                   scrolled
                     ? activeSection === item.id
@@ -151,7 +167,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollTo(item.id)}
+                  onClick={() => handleNavClick(item)}
                   className="text-left text-sm tracking-editorial uppercase text-volcanic/70 hover:text-terracotta transition-colors"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
