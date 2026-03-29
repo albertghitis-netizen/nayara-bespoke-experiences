@@ -146,8 +146,6 @@ function BrandNavigation() {
     { label: "Wellness", route: null },
     { label: "Sustainability", route: "/sustainability" },
     { label: "Awards", route: "/awards" },
-    { label: "Press", route: null },
-    { label: "Journal", route: null },
   ];
 
   const handleNavClick = (item: { label: string; route: string | null }) => {

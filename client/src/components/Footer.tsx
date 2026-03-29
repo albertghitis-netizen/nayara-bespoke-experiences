@@ -1,7 +1,7 @@
 /*
  * Footer — Nayara Global Footer
- * Cream background + subtle botanical texture (matches ExploreOurWorld)
- * Real Nayara tree logo + "NAYARA" text, multi-column links, social icons
+ * Three tight columns (no headers): left (page links), center (all hotels), right (contact)
+ * Nayara logo aligned, newsletter CTA, Press/Journal/Podcast in bottom bar
  */
 
 import { motion } from "framer-motion";
@@ -47,66 +47,16 @@ function TikTokIcon() {
   );
 }
 
-/* ── Footer Link Column ── */
-function FooterColumn({
-  title,
-  links,
-  delay = 0,
-}: {
-  title?: string;
-  links: { label: string; href: string; indent?: boolean; isHeading?: boolean }[];
-  delay?: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay }}
-    >
-      {title && (
-        <p
-          className="text-[#5a4a3a] text-xs tracking-[0.25em] uppercase mb-5"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
-        >
-          {title}
-        </p>
-      )}
-      <div className="flex flex-col gap-2">
-        {links.map((link) =>
-          link.isHeading ? (
-            <p
-              key={link.label}
-              className="text-[#5a4a3a] text-sm mt-3 first:mt-0"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              {link.label}
-            </p>
-          ) : (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`text-[#6b5b4b]/80 hover:text-[#3a2a1a] transition-colors text-sm ${
-                link.indent ? "pl-4" : ""
-              }`}
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              {link.label}
-            </a>
-          )
-        )}
-      </div>
-    </motion.div>
-  );
-}
-
 /* ── Main Footer ── */
 export default function Footer() {
+  const handlePlaceholder = (label: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    import("sonner").then(({ toast }) => toast(label + " — Coming Soon"));
+  };
+
   return (
     <footer className="relative overflow-hidden bg-[#f0ebe0]">
-      {/* Botanical texture — same as ExploreOurWorld */}
+      {/* Botanical texture */}
       <div
         className="absolute inset-0 opacity-[0.12]"
         style={{
@@ -117,177 +67,176 @@ export default function Footer() {
         }}
       />
 
-      {/* Main footer grid */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-10 md:gap-6">
-          {/* Logo — real image + NAYARA text */}
-          <motion.div
-            className="col-span-2 md:col-span-1 flex flex-col items-center"
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
+      {/* Main footer content */}
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 py-14 md:py-20">
+        {/* Nayara logo — centered above columns */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center mb-12"
+        >
+          <motion.img
+            src={LOGO_URL}
+            alt="Nayara"
+            className="w-28 md:w-32 mb-3"
+            animate={{ scale: [1, 1.02, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <p
+            className="text-[#4a3a2a] uppercase text-lg"
+            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "0.12em" }}
           >
-            {/* Leaf with breathing pulse */}
-            <motion.img
-              src={LOGO_URL}
-              alt="Nayara"
-              className="w-36 md:w-44 mb-4"
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <p
-              className="text-[#4a3a2a] uppercase text-xl md:text-2xl"
-              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, letterSpacing: "0.08em" }}
-            >
-              NAYARA
-            </p>
-          </motion.div>
+            Nayara
+          </p>
+        </motion.div>
 
-          {/* Column 1: General links */}
-          <FooterColumn
-            delay={0.05}
-            links={[
-              { label: "About", href: "https://nayara.sphrcl.co/about" },
-              { label: "Stay", href: "https://nayara.sphrcl.co/stay" },
-              { label: "Dine & Drink", href: "https://nayara.sphrcl.co/dine" },
-              { label: "Wellness", href: "https://nayara.sphrcl.co/wellness" },
-              { label: "Amenities", href: "https://nayara.sphrcl.co/amenities" },
-              { label: "Gallery", href: "https://nayara.sphrcl.co/gallery" },
-              { label: "Sustainability", href: "https://nayara.sphrcl.co/sustainability" },
-            ]}
-          />
-
-          {/* Column 2: Resorts */}
-          <FooterColumn
-            title="Resorts"
-            delay={0.1}
-            links={[
-              { label: "Costa Rica", href: "#", isHeading: true },
-              { label: "Nayara Gardens", href: "https://nayara.sphrcl.co/gardens", indent: true },
-              { label: "Nayara Springs", href: "https://nayara.sphrcl.co/springs", indent: true },
-              { label: "Nayara Tented Camp", href: "https://nayara.sphrcl.co/tented-camp", indent: true },
-              { label: "Chile", href: "#", isHeading: true },
-              { label: "Nayara Atacama", href: "https://nayara.sphrcl.co/atacama", indent: true },
-              { label: "Nayara Hangaroa", href: "https://nayara.sphrcl.co/hangaroa", indent: true },
-              { label: "Panama", href: "#", isHeading: true },
-              { label: "Nayara Bocas del Toro", href: "https://nayara.sphrcl.co/bocas", indent: true },
-            ]}
-          />
-
-          {/* Column 3: More */}
-          <FooterColumn
-            title="More"
-            delay={0.15}
-            links={[
-              { label: "Journal", href: "https://nayara.sphrcl.co/journal" },
-              { label: "Press", href: "https://nayara.sphrcl.co/press" },
-              { label: "FAQs", href: "https://nayara.sphrcl.co/faqs" },
-              { label: "Getting Here", href: "https://nayara.sphrcl.co/getting-here" },
-            ]}
-          />
-
-          {/* Column 4: Contact + Become a Member */}
+        {/* Three tight columns — no headers */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+          {/* LEFT — Page links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="col-span-2 md:col-span-1"
+            transition={{ duration: 0.6 }}
           >
-            <p
-              className="text-[#5a4a3a] text-xs tracking-[0.25em] uppercase mb-5"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
-            >
-              Contact
-            </p>
-            <div className="flex flex-col gap-2 mb-8">
+            <div className="flex flex-col gap-2">
+              {["About", "Stay", "Dine & Drink", "Amenities", "FAQs"].map(
+                (label) => (
+                  <a
+                    key={label}
+                    href="#"
+                    onClick={handlePlaceholder(label)}
+                    className="text-[#5a4a3a]/70 hover:text-[#3a2a1a] transition-colors text-sm leading-tight"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  >
+                    {label}
+                  </a>
+                )
+              )}
+            </div>
+          </motion.div>
+
+          {/* CENTER — All hotels, flat list */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+          >
+            <div className="flex flex-col gap-2">
+              {[
+                "Nayara Gardens",
+                "Nayara Springs",
+                "Nayara Tented Camp",
+                "Nayara Alto Atacama",
+                "Nayara Hangaroa",
+                "Nayara Bocas del Toro",
+              ].map((name) => (
+                <span
+                  key={name}
+                  className="text-[#5a4a3a]/70 text-sm leading-tight"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* RIGHT — Contact info */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.16 }}
+          >
+            <div className="flex flex-col gap-2">
+              <a
+                href="mailto:reservations@nayararesorts.com"
+                className="text-[#5a4a3a]/70 hover:text-[#3a2a1a] transition-colors text-sm leading-tight"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                reservations@nayararesorts.com
+              </a>
+              <a
+                href="tel:+18448652002"
+                className="text-[#5a4a3a]/70 hover:text-[#3a2a1a] transition-colors text-sm leading-tight"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                1 (844) 865-2002
+              </a>
               <a
                 href="tel:+50624791600"
-                className="text-[#6b5b4b]/80 hover:text-[#3a2a1a] transition-colors text-sm"
+                className="text-[#5a4a3a]/70 hover:text-[#3a2a1a] transition-colors text-sm leading-tight"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
-                +506.2479.1600
-              </a>
-              <a
-                href="tel:+18448862002"
-                className="text-[#6b5b4b]/80 hover:text-[#3a2a1a] transition-colors text-sm"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-              >
-                +1.844.886.2002
+                506 (2479) 1600
               </a>
             </div>
-
-            <p
-              className="text-[#5a4a3a] text-xs tracking-[0.25em] uppercase mb-4"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
-            >
-              Become a Member
-            </p>
-            <a
-              href="https://nayara.sphrcl.co/newsletter"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block border border-[#5a4a3a]/40 rounded-full px-5 py-2 text-[#5a4a3a] text-sm hover:bg-[#5a4a3a]/10 transition-colors"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              Sign Up to our Newsletter
-            </a>
           </motion.div>
         </div>
+
+        {/* Newsletter CTA — centered pill button */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.24 }}
+          className="flex justify-center mt-14"
+        >
+          <a
+            href="#"
+            onClick={handlePlaceholder("Newsletter")}
+            className="inline-flex items-center gap-2 bg-[#5a4a3a] text-[#f0ebe0] rounded-full px-8 py-3 text-sm tracking-[0.1em] hover:bg-[#3a2a1a] transition-colors"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            Stay Inspired with the Nayara Newsletter
+          </a>
+        </motion.div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom bar — Press, Journal, Podcast + social + copyright */}
       <div className="relative z-10 border-t border-[#5a4a3a]/15">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p
-            className="text-[#6b5b4b]/60 text-xs"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-          >
-            Nayara Resorts &copy; {new Date().getFullYear()} &mdash; All rights reserved
-          </p>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Press / Journal / Podcast */}
+          <div className="flex items-center gap-5">
+            {["Press", "Journal", "Podcast"].map((label) => (
+              <a
+                key={label}
+                href="#"
+                onClick={handlePlaceholder(label)}
+                className="text-[#6b5b4b]/50 hover:text-[#3a2a1a] transition-colors text-xs tracking-[0.15em] uppercase"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
 
           {/* Social Icons */}
           <div className="flex items-center gap-5">
-            <a
-              href="https://www.instagram.com/nayararesorts/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#5a4a3a]/60 hover:text-[#3a2a1a] transition-colors"
-            >
+            <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/50 hover:text-[#3a2a1a] transition-colors">
               <InstagramIcon />
             </a>
-            <a
-              href="https://www.youtube.com/@NayaraResorts"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#5a4a3a]/60 hover:text-[#3a2a1a] transition-colors"
-            >
+            <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/50 hover:text-[#3a2a1a] transition-colors">
               <YouTubeIcon />
             </a>
-            <a
-              href="https://www.facebook.com/NayaraResorts"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#5a4a3a]/60 hover:text-[#3a2a1a] transition-colors"
-            >
+            <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/50 hover:text-[#3a2a1a] transition-colors">
               <FacebookIcon />
             </a>
-            <a
-              href="https://www.tiktok.com/@nayararesorts"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#5a4a3a]/60 hover:text-[#3a2a1a] transition-colors"
-            >
+            <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/50 hover:text-[#3a2a1a] transition-colors">
               <TikTokIcon />
             </a>
           </div>
 
+          {/* Copyright */}
           <p
-            className="text-[#6b5b4b]/40 text-xs uppercase tracking-wider"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            className="text-[#6b5b4b]/50 text-xs"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            nayara.sphrcl.co
+            &copy; {new Date().getFullYear()} Nayara Resorts
           </p>
         </div>
       </div>
