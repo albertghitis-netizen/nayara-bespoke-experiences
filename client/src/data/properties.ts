@@ -292,11 +292,11 @@ const exploreNayaraExperiences: Excursion[] = [
   // ── Wellness (on-property) ──
   {
     id: "yoga-session",
-    name: "Private Yoga Session",
-    subtitle: "Move with the rhythm of the rainforest",
+    name: "Instructor-Led Yoga",
+    subtitle: "In a pavilion perched above the rainforest",
     duration: "60 min",
     difficulty: "All levels",
-    description: "A private yoga session tailored to your level and goals, set in the heart of the Arenal rainforest. Whether sunrise vinyasa or restorative evening flow, our instructors create a practice that connects you to the energy of this place.",
+    description: "Instructor-led yoga tailored to your level and goals, in a pavilion perched above the Arenal rainforest. Whether sunrise vinyasa or restorative evening flow, our instructors create a practice that connects you to the energy of this place.",
     highlights: ["Personalized to your level", "Rainforest setting", "Sunrise or sunset sessions available"],
     featured: true,
     placeholder: true,
@@ -522,7 +522,7 @@ const costaRicaTreatments: Treatment[] = [
   { id: "cr-inner-renewal", name: "Inner Renewal Therapy", duration: "80 min", price: "$220", description: "A holistic therapy focused on inner well-being. Combines bodywork with mindfulness techniques for deep renewal.", category: "wellness" },
   { id: "cr-cacao-journey", name: "Cacao Journey: Heart Opening Meditation", duration: "60 min", price: "$220", description: "A ceremonial cacao experience combined with guided meditation to open the heart and deepen awareness.", category: "wellness" },
   { id: "cr-mindfulness", name: "Mindfulness Meditation", duration: "45 min", price: "$130", description: "Guided mindfulness meditation in the tranquility of the rainforest setting.", category: "wellness" },
-  { id: "cr-yoga", name: "Private Yoga Session", duration: "60 min", price: "$145", description: "A private yoga session tailored to your level and goals, set in the heart of the Arenal rainforest.", category: "wellness" },
+  { id: "cr-yoga", name: "Instructor-Led Yoga", duration: "60 min", price: "$145", description: "Instructor-led yoga tailored to your level and goals, in a pavilion perched above the Arenal rainforest.", category: "wellness" },
   { id: "cr-sound-therapy", name: "Sound Therapy", duration: "60 min", price: "$190", description: "Vibrational healing using singing bowls, chimes, and other instruments to restore energetic balance.", category: "wellness" },
   { id: "cr-energy-healing", name: "Energy Healing", duration: "60 min", price: "$180", description: "A gentle, non-invasive therapy that works with the body\u2019s energy field to promote healing and balance.", category: "wellness" },
 ];
