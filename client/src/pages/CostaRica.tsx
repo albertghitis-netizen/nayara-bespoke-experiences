@@ -92,9 +92,9 @@ const nayaraCategories = [
 ];
 
 const arenalCategories = [
-  { id: "nature", label: "Nature & Exploration" },
   { id: "adventure", label: "Adventure" },
-  { id: "culinary-wellness", label: "Culinary & Wellness" },
+  { id: "nature", label: "Nature & Exploration" },
+  { id: "wellness", label: "Wellness" },
 ];
 
 export default function CostaRica() {
@@ -465,8 +465,8 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
   }, [isInView, onInView]);
 
   const filtered = exploreArenalExperiences.filter((e) =>
-    activeCategory === "culinary-wellness"
-      ? ["culinary", "wellness", "spa", "culture"].includes(e.category)
+    activeCategory === "wellness"
+      ? ["wellness", "spa", "culinary"].includes(e.category)
       : e.category === activeCategory
   );
 
@@ -480,31 +480,17 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <Compass className="w-4 h-4 text-emerald-700" />
-            <p
-              className="text-emerald-700 text-xs tracking-[0.35em] uppercase"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Explore Arenal
-            </p>
-          </div>
           <h2
-            className="text-emerald-950 text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
+            className="text-emerald-950 text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-3"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
-            Beyond the
-            <br />
-            Property
+            Explore Arenal
           </h2>
           <p
-            className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
+            className="text-emerald-900/50 text-lg md:text-xl tracking-wide"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            Venture into the Arenal Volcano region — from canopy-level hanging
-            bridges to turquoise rivers, from rappelling down waterfalls to
-            rafting through pristine jungle. Every excursion is guided by expert
-            naturalists who know this ecosystem intimately.
+            Beyond Our Grounds
           </p>
         </motion.div>
 
