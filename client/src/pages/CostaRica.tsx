@@ -332,8 +332,8 @@ function PropertyIntro() {
           className="max-w-xl"
         >
           <h2
-            className="text-[#4a4a4a] text-2xl md:text-3xl font-bold mb-5"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
+            className="text-[#4a4a4a] text-3xl md:text-4xl lg:text-5xl mb-5"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
             Three Resorts. One Rainforest.
           </h2>
