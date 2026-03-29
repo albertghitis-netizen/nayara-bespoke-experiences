@@ -1,16 +1,19 @@
 /*
  * Footer — Nayara Global Footer
- * Compact, normal footer. Botanical texture.
- * Newsletter CTA → 3 columns → social/copyright. That's it.
+ * Compact. Botanical texture. Nayara leaf logo + NAYARA at the bottom.
+ * Newsletter CTA bold. Three columns. Social + copyright.
  */
 
 const TEXTURE_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/botanical-texture-embossed-hig62x94aNi7TNioLbvtkE.webp";
 
-/* ── Social Icons (small) ── */
+const LOGO_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-tree-PiKqyUUYDRwvX8q8L5CDsH.png";
+
+/* ── Social Icons ── */
 function InstagramIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
       <rect x="2" y="2" width="20" height="20" rx="5" />
       <circle cx="12" cy="12" r="5" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -19,21 +22,21 @@ function InstagramIcon() {
 }
 function YouTubeIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
       <path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 4 12 4 12 4s-7.5 0-9.4.4A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.4 9.4.4 9.4.4s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z" />
     </svg>
   );
 }
 function FacebookIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
       <path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z" />
     </svg>
   );
 }
 function TikTokIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.93 2.93 0 0 1 .88.13V9a6.34 6.34 0 0 0-1-.05 6.34 6.34 0 1 0 6.34 6.34V9.37a8.16 8.16 0 0 0 4.77 1.52V7.44a4.85 4.85 0 0 1-.89-.75z" />
     </svg>
   );
@@ -58,20 +61,8 @@ export default function Footer() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1000px] mx-auto px-6 md:px-10 pt-10 pb-6">
-        {/* Newsletter CTA — small, centered */}
-        <div className="flex justify-center mb-8">
-          <a
-            href="#"
-            onClick={handlePlaceholder("Newsletter")}
-            className="text-[#5a4a3a]/60 text-[11px] tracking-[0.08em] border border-[#5a4a3a]/20 rounded-full px-5 py-2 hover:bg-[#5a4a3a] hover:text-[#f0ebe0] transition-all duration-300"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Stay Inspired with the Nayara Newsletter
-          </a>
-        </div>
-
-        {/* Three columns — tight, small text */}
+      <div className="relative z-10 max-w-[1000px] mx-auto px-6 md:px-10 pt-10 pb-8">
+        {/* Three columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 text-[12px] leading-relaxed">
           {/* LEFT — Page links + Press/Journal/Podcast */}
           <div className="flex flex-col gap-[5px]">
@@ -146,21 +137,48 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom — social + copyright, single line */}
-        <div className="mt-8 pt-4 border-t border-[#5a4a3a]/8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/35 hover:text-[#3a2a1a] transition-colors"><InstagramIcon /></a>
-            <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/35 hover:text-[#3a2a1a] transition-colors"><YouTubeIcon /></a>
-            <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/35 hover:text-[#3a2a1a] transition-colors"><FacebookIcon /></a>
-            <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/35 hover:text-[#3a2a1a] transition-colors"><TikTokIcon /></a>
-          </div>
-          <p
-            className="text-[#6b5b4b]/35 text-[10px]"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+        {/* Newsletter CTA — bold, centered */}
+        <div className="flex justify-center mt-8">
+          <a
+            href="#"
+            onClick={handlePlaceholder("Newsletter")}
+            className="text-[#3a2a1a] text-[11px] tracking-[0.06em]"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
           >
-            &copy; {new Date().getFullYear()} Nayara Resorts
+            Stay Inspired with the Nayara Newsletter
+          </a>
+        </div>
+
+        {/* Social icons — centered */}
+        <div className="flex items-center justify-center gap-4 mt-6">
+          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/40 hover:text-[#3a2a1a] transition-colors"><InstagramIcon /></a>
+          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/40 hover:text-[#3a2a1a] transition-colors"><YouTubeIcon /></a>
+          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/40 hover:text-[#3a2a1a] transition-colors"><FacebookIcon /></a>
+          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/40 hover:text-[#3a2a1a] transition-colors"><TikTokIcon /></a>
+        </div>
+
+        {/* Nayara Resorts logo + name — centered at the very bottom */}
+        <div className="flex flex-col items-center mt-8">
+          <img
+            src={LOGO_URL}
+            alt="Nayara Resorts"
+            className="w-14 mb-2 opacity-60"
+          />
+          <p
+            className="text-[#4a3a2a]/70 uppercase text-[11px]"
+            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "0.12em" }}
+          >
+            Nayara
           </p>
         </div>
+
+        {/* Copyright — very bottom */}
+        <p
+          className="text-center text-[#6b5b4b]/30 text-[10px] mt-4"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+        >
+          &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
+        </p>
       </div>
     </footer>
   );
