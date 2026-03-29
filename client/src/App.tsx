@@ -12,6 +12,7 @@ import ComingSoon from "./pages/ComingSoon";
 import Journal from "./pages/Journal";
 import Awards from "./pages/Awards";
 import Sustainability from "./pages/Sustainability";
+import TentedCampMockup from "./pages/TentedCampMockup";
 import "./index.css";
 
 function ScrollToTop() {
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/journal" component={Journal} />
       <Route path="/awards" component={Awards} />
       <Route path="/sustainability" component={Sustainability} />
+      <Route path="/tented-camp" component={TentedCampMockup} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
