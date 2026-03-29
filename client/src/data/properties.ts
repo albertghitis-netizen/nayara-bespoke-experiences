@@ -27,10 +27,15 @@ export interface Excursion {
   whatToBring?: string;
   image?: string;
   video?: string;
+  videoDesktop?: string;
+  videoMobile?: string;
+  gallery?: string[];
+  featured?: boolean;
   placeholder?: boolean;
   blogUrl?: string;
   blogTitle?: string;
   category: string;
+  section?: "explore-nayara" | "explore-arenal";
   altitude?: string;
   distance?: string;
   acclimatization?: string;
@@ -222,7 +227,102 @@ const altoAtacamaTreatments: Treatment[] = [
 ];
 
 // ─── COSTA RICA (shared by Tented Camp, Gardens, Springs) ─────
-const costaRicaExcursions: Excursion[] = [
+// Split into two sections: Explore Nayara (on-property) and Explore Arenal (off-property)
+
+const exploreNayaraExperiences: Excursion[] = [
+  // ── Nature & Exploration (on-property) ──
+  {
+    id: "night-walk",
+    name: "Night Frog Tour",
+    subtitle: "The rainforest after dark",
+    duration: "2 hours",
+    difficulty: "Easy",
+    suggestedTime: "5:30 PM",
+    description: "Experience the rainforest\u2019s nocturnal transformation. With flashlights and expert guides, discover the creatures that emerge after sunset \u2014 red-eyed tree frogs, sleeping toucans, tarantulas, and bioluminescent fungi. A completely different world from the daytime jungle.",
+    highlights: ["Red-eyed tree frog sightings", "Nocturnal wildlife observation", "Bioluminescent fungi and insects"],
+    video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-reel_a9f9be44.mp4",
+    videoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frogtour-vertical_445ea472.mp4",
+    featured: true,
+    placeholder: false,
+    category: "nature",
+    section: "explore-nayara",
+  },
+  {
+    id: "bird-watching",
+    name: "Bird Watching",
+    subtitle: "900+ species in one country",
+    duration: "Half day",
+    difficulty: "Easy",
+    suggestedTime: "5:30 AM",
+    description: "The Arenal area sits on a narrow altitudinal belt on the Caribbean slope of the Tilaran Mountain Range \u2014 the highest species count anywhere in Costa Rica. Spot tanagers, hummingbirds, toucans, parrots, Montezuma oropendolas, flycatchers, raptors, woodpeckers, and trogons.",
+    highlights: ["Highest bird diversity in Costa Rica", "Expert naturalist guide with spotting scope", "Early morning for peak activity"],
+    video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wildlife-reel_7c30f53f.mp4",
+    videoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/birdwatching-vertical_e7814506.mp4",
+    featured: true,
+    placeholder: false,
+    category: "nature",
+    section: "explore-nayara",
+  },
+  // ── Culinary (on-property) ──
+  {
+    id: "cooking-class",
+    name: "Cooking Class",
+    subtitle: "Costa Rican flavors, hands-on",
+    duration: "2\u20133 hours",
+    difficulty: "Easy (all ages)",
+    description: "Learn to prepare authentic Costa Rican dishes alongside our chefs using fresh, locally sourced ingredients from the Arenal region. A hands-on culinary experience that connects you to the flavors and traditions of Pura Vida.",
+    highlights: ["Hands-on preparation with our chefs", "Locally sourced ingredients", "Take home recipes and techniques"],
+    featured: true,
+    placeholder: true,
+    category: "culinary",
+    section: "explore-nayara",
+  },
+  {
+    id: "chocolate-class",
+    name: "Chocolate Class",
+    subtitle: "From cacao pod to artisan chocolate",
+    duration: "2 hours",
+    difficulty: "Easy (all ages)",
+    description: "Discover the art of chocolate making from raw cacao to finished bar. Learn about Costa Rica\u2019s cacao heritage, roast and grind your own beans, and craft artisan chocolate to take with you. A sensory journey through one of the rainforest\u2019s most treasured crops.",
+    highlights: ["Bean-to-bar chocolate making", "Costa Rican cacao heritage", "Take home your own creations"],
+    featured: true,
+    placeholder: true,
+    category: "culinary",
+    section: "explore-nayara",
+  },
+  // ── Spa (on-property) ── (treatments handled separately)
+  // ── Wellness (on-property) ──
+  {
+    id: "yoga-session",
+    name: "Private Yoga Session",
+    subtitle: "Move with the rhythm of the rainforest",
+    duration: "60 min",
+    difficulty: "All levels",
+    description: "A private yoga session tailored to your level and goals, set in the heart of the Arenal rainforest. Whether sunrise vinyasa or restorative evening flow, our instructors create a practice that connects you to the energy of this place.",
+    highlights: ["Personalized to your level", "Rainforest setting", "Sunrise or sunset sessions available"],
+    featured: true,
+    placeholder: true,
+    category: "wellness",
+    section: "explore-nayara",
+  },
+  {
+    id: "hot-springs",
+    name: "Las Termas Hot Springs",
+    subtitle: "Volcanic warmth beneath the canopy",
+    duration: "Open access",
+    difficulty: "Easy",
+    description: "Immerse yourself in natural hot springs fed by Arenal\u2019s volcanic activity. Multiple pools at varying temperatures are nestled among tropical gardens, offering a restorative experience that has drawn visitors to this region for generations.",
+    highlights: ["Natural volcanic hot springs", "Multiple temperature pools", "Tropical garden setting"],
+    video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/termas-hotsprings-horizontal_10ae10ef.mov",
+    featured: true,
+    placeholder: false,
+    category: "wellness",
+    section: "explore-nayara",
+  },
+];
+
+const exploreArenalExperiences: Excursion[] = [
+  // ── Nature & Exploration (off-property) ──
   {
     id: "hanging-bridges",
     name: "Mystic Hanging Bridges",
@@ -232,20 +332,10 @@ const costaRicaExcursions: Excursion[] = [
     suggestedTime: "9:30 AM & 2:30 PM",
     description: "Experience the rainforest from ground level to canopy, traversing 10 fixed bridges and 6 hanging bridges. Your naturalist guide points out species unique to each habitat and elevation, including a 60 ft waterfall and volcano views from the highest bridge.",
     highlights: ["16 bridges through primary rainforest", "60 ft hidden waterfall", "Arenal Volcano views from canopy level"],
+    featured: true,
     placeholder: true,
     category: "nature",
-  },
-  {
-    id: "lava-fields",
-    name: "Lava Fields Walk",
-    subtitle: "Trek the 1968 eruption zone",
-    duration: "3 hours",
-    difficulty: "Moderate",
-    suggestedTime: "9:30 AM & 2:30 PM",
-    description: "Trek over the dried lava fields of the Arenal Volcano. Learn about the history of La Fortuna and the devastating 1968 eruption. Pioneer plant species have fought through rock and ash to rejuvenate the area. On clear days, incredible views of both the volcano and Lake Arenal.",
-    highlights: ["Walk on solidified lava flows", "Pioneer vegetation reclaiming volcanic rock", "Dual views of volcano and lake"],
-    placeholder: true,
-    category: "adventure",
+    section: "explore-arenal",
   },
   {
     id: "celeste-river",
@@ -256,8 +346,10 @@ const costaRicaExcursions: Excursion[] = [
     suggestedTime: "7:10 AM",
     description: "Discover Tenorio National Park and Rio Celeste. Drive 1.5 hours through dense primary rainforest, past bubbling mud pots and centuries-old guardian trees, to \u201cLos Te\u00f1ideros\u201d \u2014 where two crystal streams merge and turn the river a vivid, electric blue. Visit the stunning azure waterfall pool.",
     highlights: ["Vivid turquoise river caused by mineral convergence", "Bubbling volcanic mud pots", "Primary rainforest with ancient trees"],
+    featured: true,
     placeholder: true,
     category: "nature",
+    section: "explore-arenal",
   },
   {
     id: "cano-negro",
@@ -271,44 +363,7 @@ const costaRicaExcursions: Excursion[] = [
     video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wildlife-reel_7c30f53f.mp4",
     placeholder: false,
     category: "nature",
-  },
-  {
-    id: "night-walk",
-    name: "Night Walk",
-    subtitle: "The rainforest after dark",
-    duration: "2 hours",
-    difficulty: "Easy",
-    suggestedTime: "5:30 PM",
-    description: "Experience the rainforest\u2019s nocturnal transformation. With flashlights and expert guides, discover the creatures that emerge after sunset \u2014 red-eyed tree frogs, sleeping toucans, tarantulas, and bioluminescent fungi. A completely different world from the daytime jungle.",
-    highlights: ["Red-eyed tree frog sightings", "Nocturnal wildlife observation", "Bioluminescent fungi and insects"],
-    video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-reel_a9f9be44.mp4",
-    placeholder: false,
-    category: "nature",
-  },
-  {
-    id: "waterfall-bridges",
-    name: "Hanging Bridges + La Fortuna Waterfall",
-    subtitle: "Canopy walk meets 230 ft cascade",
-    duration: "Full day",
-    difficulty: "Moderate",
-    suggestedTime: "9:00 AM",
-    description: "Combine the Mystic Hanging Bridges canopy trek with La Fortuna Waterfall \u2014 a stunning 230 ft (70m) cascade. Feel the full force of the waterfall, swim in the clear cool waters, then enjoy a traditional Costa Rican lunch.",
-    highlights: ["230 ft La Fortuna Waterfall", "Swimming in crystal-clear pools", "Traditional Costa Rican lunch included"],
-    placeholder: true,
-    category: "adventure",
-  },
-  {
-    id: "bird-watching",
-    name: "Bird Watching",
-    subtitle: "900+ species in one country",
-    duration: "Half day",
-    difficulty: "Easy",
-    suggestedTime: "5:30 AM",
-    description: "The Arenal area sits on a narrow altitudinal belt on the Caribbean slope of the Tilaran Mountain Range \u2014 the highest species count anywhere in Costa Rica. Spot tanagers, hummingbirds, toucans, parrots, Montezuma oropendolas, flycatchers, raptors, woodpeckers, and trogons.",
-    highlights: ["Highest bird diversity in Costa Rica", "Expert naturalist guide with spotting scope", "Early morning for peak activity"],
-    video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wildlife-reel_7c30f53f.mp4",
-    placeholder: false,
-    category: "nature",
+    section: "explore-arenal",
   },
   {
     id: "safari-penas-blancas",
@@ -322,30 +377,9 @@ const costaRicaExcursions: Excursion[] = [
     highlights: ["Gentle river float through pristine jungle", "Wildlife spotting from the water", "Traditional snack included"],
     placeholder: true,
     category: "nature",
+    section: "explore-arenal",
   },
-  {
-    id: "chocolate-coffee",
-    name: "Chocolate & Coffee Tour",
-    subtitle: "From seed to cup, from bean to bar",
-    duration: "2.5 hours",
-    difficulty: "Easy (all ages)",
-    suggestedTime: "9:30 AM & 1:30 PM",
-    description: "An immersive cultural experience exploring Costa Rican coffee and chocolate production from seed to final product. Learn about traditions, taste fresh products, and understand the cultural impact of these crops through the years.",
-    highlights: ["Hands-on chocolate making", "Fresh coffee tasting", "Costa Rican cultural traditions"],
-    placeholder: true,
-    category: "culture",
-  },
-  {
-    id: "ziplining",
-    name: "Sky Tram & Trek (Ziplining)",
-    subtitle: "Fly through the canopy above the volcano",
-    duration: "Half day",
-    difficulty: "Moderate",
-    description: "Ascend by gondola through the rainforest canopy with incredible views of Arenal Volcano and Lake Arenal. Then zip across cables ranging from 650 to 2,500 feet, flying through the treetops with the volcano on one side and the lake on the other.",
-    highlights: ["Gondola ascent through rainforest", "Zip lines up to 2,500 feet long", "Dual volcano and lake panoramas"],
-    placeholder: true,
-    category: "adventure",
-  },
+  // ── Adventure (off-property) ──
   {
     id: "canyoning",
     name: "Canyoning Pure Trek",
@@ -355,8 +389,49 @@ const costaRicaExcursions: Excursion[] = [
     suggestedTime: "7:15 AM & 12:15 PM",
     description: "Five rappels descending 350 feet into a deep canyon. Three waterfalls, one dry rock face, a canyon wall, and the famous \u201cmonkey drop\u201d (rappel + zip line combo). Between rappels, meander through pristine forest spotting monkeys, sloths, and tropical birds. Includes lunch.",
     highlights: ["5 rappels including 3 waterfalls", "The famous \u2018monkey drop\u2019", "Lunch with guides after the adventure"],
+    featured: true,
     placeholder: true,
     category: "adventure",
+    section: "explore-arenal",
+  },
+  {
+    id: "ziplining",
+    name: "Sky Tram & Trek (Ziplining)",
+    subtitle: "Fly through the canopy above the volcano",
+    duration: "Half day",
+    difficulty: "Moderate",
+    description: "Ascend by gondola through the rainforest canopy with incredible views of Arenal Volcano and Lake Arenal. Then zip across cables ranging from 650 to 2,500 feet, flying through the treetops with the volcano on one side and the lake on the other.",
+    highlights: ["Gondola ascent through rainforest", "Zip lines up to 2,500 feet long", "Dual volcano and lake panoramas"],
+    featured: true,
+    placeholder: true,
+    category: "adventure",
+    section: "explore-arenal",
+  },
+  {
+    id: "lava-fields",
+    name: "Lava Fields Walk",
+    subtitle: "Trek the 1968 eruption zone",
+    duration: "3 hours",
+    difficulty: "Moderate",
+    suggestedTime: "9:30 AM & 2:30 PM",
+    description: "Trek over the dried lava fields of the Arenal Volcano. Learn about the history of La Fortuna and the devastating 1968 eruption. Pioneer plant species have fought through rock and ash to rejuvenate the area. On clear days, incredible views of both the volcano and Lake Arenal.",
+    highlights: ["Walk on solidified lava flows", "Pioneer vegetation reclaiming volcanic rock", "Dual views of volcano and lake"],
+    placeholder: true,
+    category: "adventure",
+    section: "explore-arenal",
+  },
+  {
+    id: "waterfall-bridges",
+    name: "Hanging Bridges + La Fortuna Waterfall",
+    subtitle: "Canopy walk meets 230 ft cascade",
+    duration: "Full day",
+    difficulty: "Moderate",
+    suggestedTime: "9:00 AM",
+    description: "Combine the Mystic Hanging Bridges canopy trek with La Fortuna Waterfall \u2014 a stunning 230 ft (70m) cascade. Feel the full force of the waterfall, swim in the clear cool waters, then enjoy a traditional Costa Rican lunch.",
+    highlights: ["230 ft La Fortuna Waterfall", "Swimming in crystal-clear pools", "Traditional Costa Rican lunch included"],
+    placeholder: true,
+    category: "adventure",
+    section: "explore-arenal",
   },
   {
     id: "kayaking",
@@ -370,18 +445,7 @@ const costaRicaExcursions: Excursion[] = [
     highlights: ["Arenal Volcano views from the water", "Calm waters suitable for all levels", "Fresh fruit snack break"],
     placeholder: true,
     category: "adventure",
-  },
-  {
-    id: "organic-farm",
-    name: "Organic Farm Visit",
-    subtitle: "Costa Rican heritage through farming",
-    duration: "Half day",
-    difficulty: "Easy (all ages)",
-    suggestedTime: "1:30 PM",
-    description: "Visit an organic farm near La Fortuna. Learn about Costa Rican farming history, sustainable agriculture, and biodiversity preservation. Experience the traditional sugar cane process and taste genuine local snacks with tortillas, plantain, cheese, empanadas, and Costa Rican coffee.",
-    highlights: ["Traditional sugar cane processing", "Local snacks and Costa Rican coffee", "Sustainable agriculture practices"],
-    placeholder: true,
-    category: "culture",
+    section: "explore-arenal",
   },
   {
     id: "rafting",
@@ -395,8 +459,39 @@ const costaRicaExcursions: Excursion[] = [
     highlights: ["Multiple rapid class options", "Pristine jungle river setting", "Professional guides and equipment"],
     placeholder: true,
     category: "adventure",
+    section: "explore-arenal",
+  },
+  // ── Culture (off-property) ──
+  {
+    id: "chocolate-coffee",
+    name: "Chocolate & Coffee Tour",
+    subtitle: "From seed to cup, from bean to bar",
+    duration: "2.5 hours",
+    difficulty: "Easy (all ages)",
+    suggestedTime: "9:30 AM & 1:30 PM",
+    description: "An immersive cultural experience exploring Costa Rican coffee and chocolate production from seed to final product. Learn about traditions, taste fresh products, and understand the cultural impact of these crops through the years.",
+    highlights: ["Hands-on chocolate making", "Fresh coffee tasting", "Costa Rican cultural traditions"],
+    placeholder: true,
+    category: "culture",
+    section: "explore-arenal",
+  },
+  {
+    id: "organic-farm",
+    name: "Organic Farm Visit",
+    subtitle: "Costa Rican heritage through farming",
+    duration: "Half day",
+    difficulty: "Easy (all ages)",
+    suggestedTime: "1:30 PM",
+    description: "Visit an organic farm near La Fortuna. Learn about Costa Rican farming history, sustainable agriculture, and biodiversity preservation. Experience the traditional sugar cane process and taste genuine local snacks with tortillas, plantain, cheese, empanadas, and Costa Rican coffee.",
+    highlights: ["Traditional sugar cane processing", "Local snacks and Costa Rican coffee", "Sustainable agriculture practices"],
+    placeholder: true,
+    category: "culture",
+    section: "explore-arenal",
   },
 ];
+
+// Combined for backward compat
+const costaRicaExcursions: Excursion[] = [...exploreNayaraExperiences, ...exploreArenalExperiences];
 
 const costaRicaTreatments: Treatment[] = [
   // Massages
@@ -800,7 +895,7 @@ export const properties: Property[] = [
     shortName: "Tented Camp",
     location: "Arenal Volcano",
     country: "Costa Rica",
-    tagline: "Glamping in the Rainforest",
+    tagline: "Luxury Tented Camp",
     heroSubtitle: "Luxury safari-style tents nestled in the Arenal rainforest canopy. Wake to howler monkeys, fall asleep to tropical rain, and explore one of the most biodiverse regions on Earth.",
     heroVideoDesktop: CDN.crToucan,
     heroVideoMobile: CDN.crToucan,
@@ -1035,6 +1130,8 @@ export const properties: Property[] = [
     },
   },
 ];
+
+export { exploreNayaraExperiences, exploreArenalExperiences };
 
 export function getPropertyById(id: string): Property | undefined {
   return properties.find((p) => p.id === id);

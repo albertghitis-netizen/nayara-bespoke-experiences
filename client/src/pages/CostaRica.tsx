@@ -1,12 +1,11 @@
-/*
+/**
  * NAYARA ARENAL — Costa Rica Bespoke Experiences
  * Design: "Desert Codex" adapted for rainforest — Editorial Cartography
  * Palette: Emerald, volcanic charcoal, cream, gold accents
  * Typography: Playfair Display (display) + DM Sans (body)
- * Rule: Real photos only. No AI-generated imagery.
  *
- * Unified page for Tented Camp, Gardens, and Springs.
- * Excursions and spa treatments are shared across all three properties.
+ * Structure: Two sections — Explore Nayara (on-property) and Explore Arenal (off-property)
+ * Categories: Nature & Exploration, Culinary, Spa, Wellness, Adventure, Culture
  */
 
 import { useState, useRef, useEffect } from "react";
@@ -25,16 +24,28 @@ import {
   ArrowLeft,
   TreePine,
   Waves,
+  Compass,
+  Home,
+  Mountain,
+  Star,
 } from "lucide-react";
-import { properties, type Excursion, type Treatment, type BlogLink } from "@/data/properties";
+import {
+  properties,
+  exploreNayaraExperiences,
+  exploreArenalExperiences,
+  type Excursion,
+  type Treatment,
+  type BlogLink,
+} from "@/data/properties";
+import { useIsMobile } from "@/hooks/useMobile";
 
-// Get the Tented Camp property as the canonical Costa Rica data source
 const tentedCamp = properties.find((p) => p.id === "tented-camp")!;
 const gardens = properties.find((p) => p.id === "gardens")!;
 const springs = properties.find((p) => p.id === "springs")!;
 
 const CDN = {
-  hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-hero_feb62819.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-hero-desktop_5322e58a.mov",
+  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-hero_feb62819.mp4",
   spa: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-spa-springs_89d85927.mp4",
 };
 
@@ -50,7 +61,6 @@ const seenUrls = new Set<string>();
   });
 });
 
-const excursionCategories = tentedCamp.excursionCategories;
 const spaCategories = tentedCamp.spaCategories;
 
 // ─── Element styling for spa cards ───────────────────────────
@@ -67,6 +77,21 @@ const elementColors: Record<string, string> = {
   air: "text-sky-300",
 };
 
+// Category configs for each section
+const nayaraCategories = [
+  { id: "all", label: "All" },
+  { id: "nature", label: "Nature & Exploration" },
+  { id: "culinary", label: "Culinary" },
+  { id: "wellness", label: "Wellness" },
+];
+
+const arenalCategories = [
+  { id: "all", label: "All" },
+  { id: "nature", label: "Nature & Exploration" },
+  { id: "adventure", label: "Adventure" },
+  { id: "culture", label: "Culture" },
+];
+
 export default function CostaRica() {
   const [activeSection, setActiveSection] = useState("hero");
 
@@ -75,8 +100,10 @@ export default function CostaRica() {
       <ArenalNavigation activeSection={activeSection} />
       <ArenalHero onInView={() => setActiveSection("hero")} />
       <PropertyIntro />
-      <ArenalExcursions onInView={() => setActiveSection("excursions")} />
+      <ExploreNayaraSection onInView={() => setActiveSection("explore-nayara")} />
       <ArenalSpa onInView={() => setActiveSection("spa")} />
+      <ExploreArenalSection onInView={() => setActiveSection("explore-arenal")} />
+      <JournalSection />
       <ArenalFooter />
     </div>
   );
@@ -96,8 +123,9 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
   }, []);
 
   const navItems = [
-    { id: "excursions", label: "Excursions" },
-    { id: "spa", label: "Wellness" },
+    { id: "explore-nayara", label: "Explore Nayara" },
+    { id: "spa", label: "Spa" },
+    { id: "explore-arenal", label: "Explore Arenal" },
   ];
 
   const scrollTo = (id: string) => {
@@ -238,10 +266,13 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
 function ArenalHero({ onInView }: { onInView: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.5 });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isInView) onInView();
   }, [isInView, onInView]);
+
+  const heroVideo = isMobile ? CDN.heroMobile : CDN.heroDesktop;
 
   return (
     <section
@@ -252,13 +283,14 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
+          key={heroVideo}
           autoPlay
           muted
           loop
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={CDN.hero} type="video/mp4" />
+          <source src={heroVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
@@ -334,7 +366,7 @@ function PropertyIntro() {
   const propertyCards = [
     {
       name: "Tented Camp",
-      tagline: "Glamping in the Rainforest",
+      tagline: "Luxury Tented Camp",
       description: "Luxury safari-style tents in the canopy. Wake to howler monkeys, fall asleep to tropical rain.",
       icon: <TreePine className="w-5 h-5" />,
     },
@@ -412,7 +444,7 @@ function PropertyIntro() {
                 Nayara {prop.name}
               </h3>
               <p
-                className="text-emerald-900/50 text-sm leading-relaxed mb-4"
+                className="text-emerald-900/50 text-sm leading-relaxed"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
               >
                 {prop.description}
@@ -426,9 +458,10 @@ function PropertyIntro() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXCURSIONS SECTION
+   EXPLORE NAYARA — On-property experiences
+   Nature & Exploration, Culinary, Wellness
    ═══════════════════════════════════════════════════════════════ */
-function ArenalExcursions({ onInView }: { onInView: () => void }) {
+function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.1 });
   const [activeCategory, setActiveCategory] = useState("all");
@@ -438,14 +471,13 @@ function ArenalExcursions({ onInView }: { onInView: () => void }) {
     if (isInView) onInView();
   }, [isInView, onInView]);
 
-  const excursions = tentedCamp.excursions;
   const filtered =
     activeCategory === "all"
-      ? excursions
-      : excursions.filter((e) => e.category === activeCategory);
+      ? exploreNayaraExperiences
+      : exploreNayaraExperiences.filter((e) => e.category === activeCategory);
 
   return (
-    <section ref={ref} id="excursions" className="relative py-24 md:py-32">
+    <section ref={ref} id="explore-nayara" className="relative py-24 md:py-32 bg-emerald-950">
       {/* Section Header */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
         <motion.div
@@ -454,27 +486,30 @@ function ArenalExcursions({ onInView }: { onInView: () => void }) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p
-            className="text-emerald-700 text-xs tracking-[0.35em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Excursions & Adventures
-          </p>
+          <div className="flex items-center gap-3 mb-4">
+            <Home className="w-4 h-4 text-emerald-400/70" />
+            <p
+              className="text-emerald-400/70 text-xs tracking-[0.35em] uppercase"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Explore Nayara
+            </p>
+          </div>
           <h2
-            className="text-emerald-950 text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
+            className="text-[#f7f5f0] text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
-            Into the Living
+            Within Our
             <br />
-            Rainforest
+            Grounds
           </h2>
           <p
-            className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
+            className="text-[#f7f5f0]/50 text-base md:text-lg max-w-2xl leading-relaxed"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            From canopy-level hanging bridges to volcanic lava fields, from
-            turquoise rivers to nocturnal wildlife walks — every excursion is
-            guided by expert naturalists who know this ecosystem intimately.
+            On-property experiences that define the Nayara way of life — from
+            nocturnal frog tours and dawn birdwatching to cooking classes,
+            chocolate workshops, yoga, and volcanic hot springs.
           </p>
         </motion.div>
 
@@ -486,7 +521,117 @@ function ArenalExcursions({ onInView }: { onInView: () => void }) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-10 flex flex-wrap gap-3"
         >
-          {excursionCategories.map((cat) => (
+          {nayaraCategories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => {
+                setActiveCategory(cat.id);
+                setExpandedId(null);
+              }}
+              className={`px-5 py-2.5 text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
+                activeCategory === cat.id
+                  ? "bg-[#f7f5f0] text-emerald-950 border-[#f7f5f0]"
+                  : "bg-transparent text-[#f7f5f0]/40 border-[#f7f5f0]/15 hover:border-[#f7f5f0]/30 hover:text-[#f7f5f0]/70"
+              }`}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Experience Cards */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((excursion, i) => (
+              <FeaturedExcursionCard
+                key={excursion.id}
+                excursion={excursion}
+                index={i}
+                isExpanded={expandedId === excursion.id}
+                onToggle={() =>
+                  setExpandedId(
+                    expandedId === excursion.id ? null : excursion.id
+                  )
+                }
+                variant="dark"
+              />
+            ))}
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EXPLORE ARENAL — Off-property excursions
+   Nature & Exploration, Adventure, Culture
+   ═══════════════════════════════════════════════════════════════ */
+function ExploreArenalSection({ onInView }: { onInView: () => void }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { amount: 0.1 });
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isInView) onInView();
+  }, [isInView, onInView]);
+
+  const filtered =
+    activeCategory === "all"
+      ? exploreArenalExperiences
+      : exploreArenalExperiences.filter((e) => e.category === activeCategory);
+
+  return (
+    <section ref={ref} id="explore-arenal" className="relative py-24 md:py-32">
+      {/* Section Header */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Compass className="w-4 h-4 text-emerald-700" />
+            <p
+              className="text-emerald-700 text-xs tracking-[0.35em] uppercase"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Explore Arenal
+            </p>
+          </div>
+          <h2
+            className="text-emerald-950 text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+          >
+            Beyond the
+            <br />
+            Property
+          </h2>
+          <p
+            className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+          >
+            Venture into the Arenal Volcano region — from canopy-level hanging
+            bridges to turquoise rivers, from rappelling down waterfalls to
+            rafting through pristine jungle. Every excursion is guided by expert
+            naturalists who know this ecosystem intimately.
+          </p>
+        </motion.div>
+
+        {/* Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-10 flex flex-wrap gap-3"
+        >
+          {arenalCategories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => {
@@ -511,7 +656,7 @@ function ArenalExcursions({ onInView }: { onInView: () => void }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <AnimatePresence mode="popLayout">
             {filtered.map((excursion, i) => (
-              <ExcursionCard
+              <FeaturedExcursionCard
                 key={excursion.id}
                 excursion={excursion}
                 index={i}
@@ -521,64 +666,49 @@ function ArenalExcursions({ onInView }: { onInView: () => void }) {
                     expandedId === excursion.id ? null : excursion.id
                   )
                 }
+                variant="light"
               />
             ))}
           </AnimatePresence>
         </div>
       </div>
-
-      {/* Blog Links */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 mt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="border-t border-emerald-900/10 pt-10"
-        >
-          <p
-            className="text-emerald-900/40 text-xs tracking-[0.35em] uppercase mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            From Our Journal
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {allBlogLinks.slice(0, 9).map((blog) => (
-              <a
-                key={blog.url}
-                href={blog.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 py-3 px-4 border border-emerald-900/8 hover:border-emerald-700/30 hover:bg-emerald-50/50 transition-all duration-300"
-              >
-                <ExternalLink className="w-3.5 h-3.5 text-emerald-700/40 group-hover:text-emerald-700 transition-colors flex-shrink-0" />
-                <span
-                  className="text-sm text-emerald-900/50 group-hover:text-emerald-900 transition-colors"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-                >
-                  {blog.title}
-                </span>
-              </a>
-            ))}
-          </div>
-        </motion.div>
-      </div>
     </section>
   );
 }
 
-/* Individual Excursion Card */
-function ExcursionCard({
+/* ═══════════════════════════════════════════════════════════════
+   FEATURED EXCURSION CARD — Supports video, gallery, featured badge
+   ═══════════════════════════════════════════════════════════════ */
+function FeaturedExcursionCard({
   excursion,
   index,
   isExpanded,
   onToggle,
+  variant = "light",
 }: {
   excursion: Excursion;
   index: number;
   isExpanded: boolean;
   onToggle: () => void;
+  variant: "light" | "dark";
 }) {
+  const isMobile = useIsMobile();
+  const isDark = variant === "dark";
+
+  // Choose the right video source — prefer mobile-specific video on mobile
+  const videoSrc = isMobile && excursion.videoMobile
+    ? excursion.videoMobile
+    : excursion.videoDesktop || excursion.video;
+
+  const categoryLabels: Record<string, string> = {
+    nature: "Nature & Exploration",
+    adventure: "Adventure",
+    culture: "Culture",
+    culinary: "Culinary",
+    wellness: "Wellness",
+    spa: "Spa",
+  };
+
   return (
     <motion.div
       layout
@@ -587,19 +717,24 @@ function ExcursionCard({
       exit={{ opacity: 0, scale: 0.95 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className="group border border-emerald-900/8 bg-white/60 overflow-hidden hover:border-emerald-900/15 transition-all duration-500"
+      className={`group overflow-hidden transition-all duration-500 ${
+        isDark
+          ? "border border-[#f7f5f0]/8 bg-emerald-900/30 hover:border-[#f7f5f0]/15 hover:bg-emerald-900/50"
+          : "border border-emerald-900/8 bg-white/60 hover:border-emerald-900/15"
+      } ${excursion.featured ? "md:col-span-1" : ""}`}
     >
       {/* Media Area */}
-      <div className="relative h-56 md:h-64 overflow-hidden">
-        {excursion.video ? (
+      <div className={`relative overflow-hidden ${excursion.featured ? "h-64 md:h-80" : "h-48 md:h-56"}`}>
+        {videoSrc ? (
           <video
+            key={videoSrc}
             autoPlay
             muted
             loop
             playsInline
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           >
-            <source src={excursion.video} type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" />
           </video>
         ) : excursion.image ? (
           <img
@@ -608,14 +743,18 @@ function ExcursionCard({
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-emerald-100/60 to-emerald-50/30 flex items-center justify-center">
+          <div className={`w-full h-full flex items-center justify-center ${
+            isDark
+              ? "bg-gradient-to-br from-emerald-800/40 to-emerald-900/60"
+              : "bg-gradient-to-br from-emerald-100/60 to-emerald-50/30"
+          }`}>
             <div className="text-center">
-              <MapPin className="w-8 h-8 text-emerald-900/15 mx-auto mb-2" />
+              <MapPin className={`w-8 h-8 mx-auto mb-2 ${isDark ? "text-[#f7f5f0]/15" : "text-emerald-900/15"}`} />
               <span
-                className="text-emerald-900/25 text-xs tracking-[0.2em] uppercase"
+                className={`text-xs tracking-[0.2em] uppercase ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`}
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Your photo here
+                Photo coming soon
               </span>
             </div>
           </div>
@@ -623,13 +762,21 @@ function ExcursionCard({
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
         {/* Category badge */}
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4 flex items-center gap-2">
           <span
             className="px-3 py-1.5 bg-black/30 backdrop-blur-sm text-white/90 text-[10px] tracking-[0.2em] uppercase"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            {excursion.category}
+            {categoryLabels[excursion.category] || excursion.category}
           </span>
+          {excursion.featured && (
+            <span className="flex items-center gap-1 px-2.5 py-1.5 bg-emerald-600/80 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
+            >
+              <Star className="w-3 h-3" />
+              Featured
+            </span>
+          )}
         </div>
 
         {/* Blog link badge */}
@@ -651,13 +798,13 @@ function ExcursionCard({
       {/* Content */}
       <div className="p-6 md:p-8">
         <h3
-          className="text-emerald-950 text-xl md:text-2xl mb-1"
+          className={`text-xl md:text-2xl mb-1 ${isDark ? "text-[#f7f5f0]" : "text-emerald-950"}`}
           style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
         >
           {excursion.name}
         </h3>
         <p
-          className="text-emerald-700/70 text-sm mb-4 italic"
+          className={`text-sm mb-4 italic ${isDark ? "text-emerald-400/70" : "text-emerald-700/70"}`}
           style={{ fontFamily: "var(--font-display)" }}
         >
           {excursion.subtitle}
@@ -666,18 +813,18 @@ function ExcursionCard({
         {/* Quick Stats */}
         <div className="flex flex-wrap gap-4 mb-4">
           <div className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-emerald-900/25" />
+            <Clock className={`w-3.5 h-3.5 ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`} />
             <span
-              className="text-xs text-emerald-900/40"
+              className={`text-xs ${isDark ? "text-[#f7f5f0]/40" : "text-emerald-900/40"}`}
               style={{ fontFamily: "var(--font-body)" }}
             >
               {excursion.duration}
             </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <Footprints className="w-3.5 h-3.5 text-emerald-900/25" />
+            <Footprints className={`w-3.5 h-3.5 ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`} />
             <span
-              className="text-xs text-emerald-900/40"
+              className={`text-xs ${isDark ? "text-[#f7f5f0]/40" : "text-emerald-900/40"}`}
               style={{ fontFamily: "var(--font-body)" }}
             >
               {excursion.difficulty}
@@ -685,7 +832,7 @@ function ExcursionCard({
           </div>
           {excursion.suggestedTime && (
             <span
-              className="text-xs text-emerald-700/50"
+              className={`text-xs ${isDark ? "text-emerald-400/50" : "text-emerald-700/50"}`}
               style={{ fontFamily: "var(--font-body)" }}
             >
               Departs: {excursion.suggestedTime}
@@ -693,7 +840,7 @@ function ExcursionCard({
           )}
           {excursion.price && (
             <span
-              className="text-xs text-emerald-700/60 font-medium"
+              className={`text-xs font-medium ${isDark ? "text-emerald-400/60" : "text-emerald-700/60"}`}
               style={{ fontFamily: "var(--font-body)" }}
             >
               {excursion.price}
@@ -702,7 +849,7 @@ function ExcursionCard({
         </div>
 
         <p
-          className="text-emerald-900/50 text-sm leading-relaxed"
+          className={`text-sm leading-relaxed ${isDark ? "text-[#f7f5f0]/50" : "text-emerald-900/50"}`}
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
           {excursion.description}
@@ -711,7 +858,11 @@ function ExcursionCard({
         {/* Expand/Collapse */}
         <button
           onClick={onToggle}
-          className="mt-4 flex items-center gap-2 text-emerald-700/60 hover:text-emerald-700 transition-colors"
+          className={`mt-4 flex items-center gap-2 transition-colors ${
+            isDark
+              ? "text-emerald-400/60 hover:text-emerald-400"
+              : "text-emerald-700/60 hover:text-emerald-700"
+          }`}
         >
           <span
             className="text-xs tracking-[0.2em] uppercase"
@@ -735,9 +886,11 @@ function ExcursionCard({
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="overflow-hidden"
             >
-              <div className="pt-5 mt-5 border-t border-emerald-900/8">
+              <div className={`pt-5 mt-5 border-t ${isDark ? "border-[#f7f5f0]/8" : "border-emerald-900/8"}`}>
                 <p
-                  className="text-emerald-900/35 text-xs tracking-[0.35em] uppercase mb-3"
+                  className={`text-xs tracking-[0.35em] uppercase mb-3 ${
+                    isDark ? "text-[#f7f5f0]/35" : "text-emerald-900/35"
+                  }`}
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   Highlights
@@ -746,7 +899,9 @@ function ExcursionCard({
                   {excursion.highlights.map((h, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-2 text-sm text-emerald-900/50"
+                      className={`flex items-start gap-2 text-sm ${
+                        isDark ? "text-[#f7f5f0]/50" : "text-emerald-900/50"
+                      }`}
                       style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                     >
                       <span className="w-1 h-1 rounded-full bg-emerald-600 mt-2 flex-shrink-0" />
@@ -755,12 +910,30 @@ function ExcursionCard({
                   ))}
                 </ul>
 
+                {/* Gallery placeholder */}
+                {excursion.gallery && excursion.gallery.length > 0 && (
+                  <div className="mt-5 flex gap-3 overflow-x-auto pb-2">
+                    {excursion.gallery.map((img, i) => (
+                      <img
+                        key={i}
+                        src={img}
+                        alt={`${excursion.name} ${i + 1}`}
+                        className="h-32 w-auto object-cover flex-shrink-0"
+                      />
+                    ))}
+                  </div>
+                )}
+
                 {excursion.blogUrl && (
                   <a
                     href={excursion.blogUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-600 transition-colors"
+                    className={`mt-4 inline-flex items-center gap-2 transition-colors ${
+                      isDark
+                        ? "text-emerald-400 hover:text-emerald-300"
+                        : "text-emerald-700 hover:text-emerald-600"
+                    }`}
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span
@@ -800,7 +973,7 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
       : treatments.filter((t) => t.category === activeCategory);
 
   return (
-    <section ref={ref} id="spa" className="relative py-24 md:py-32 bg-emerald-950">
+    <section ref={ref} id="spa" className="relative py-24 md:py-32 bg-[#f7f5f0]">
       {/* Section Header */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
         <motion.div
@@ -810,21 +983,21 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <p
-            className="text-emerald-400/70 text-xs tracking-[0.35em] uppercase mb-4"
+            className="text-emerald-700 text-xs tracking-[0.35em] uppercase mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            Nayara Spa &mdash; Wellness
+            Nayara Spa
           </p>
           <h2
-            className="text-[#f7f5f0] text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
+            className="text-emerald-950 text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
-            Heal in the Heart
+            Earth, Water
             <br />
-            of the Rainforest
+            &amp; Rainforest
           </h2>
           <p
-            className="text-[#f7f5f0]/50 text-base md:text-lg max-w-2xl leading-relaxed"
+            className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             Surrounded by the sounds of the jungle and the warmth of volcanic
@@ -870,8 +1043,8 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
               }}
               className={`px-5 py-2.5 text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
                 activeCategory === cat.id
-                  ? "bg-[#f7f5f0] text-emerald-950 border-[#f7f5f0]"
-                  : "bg-transparent text-[#f7f5f0]/40 border-[#f7f5f0]/15 hover:border-[#f7f5f0]/30 hover:text-[#f7f5f0]/70"
+                  ? "bg-emerald-900 text-white border-emerald-900"
+                  : "bg-transparent text-emerald-900/40 border-emerald-900/15 hover:border-emerald-900/30 hover:text-emerald-900/70"
               }`}
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
@@ -908,10 +1081,10 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="border-t border-[#f7f5f0]/10 pt-8"
+          className="border-t border-emerald-900/10 pt-8"
         >
           <p
-            className="text-[#f7f5f0]/25 text-xs leading-relaxed max-w-xl"
+            className="text-emerald-900/25 text-xs leading-relaxed max-w-xl"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             {tentedCamp.theme.spaPolicies}
@@ -943,18 +1116,18 @@ function TreatmentCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
       onClick={onToggle}
-      className="group border border-[#f7f5f0]/8 bg-emerald-900/30 p-6 hover:border-[#f7f5f0]/15 hover:bg-emerald-900/50 transition-all duration-500 cursor-pointer"
+      className="group border border-emerald-900/8 bg-white/60 p-6 hover:border-emerald-900/15 hover:bg-white/80 transition-all duration-500 cursor-pointer"
     >
       {/* Element Icon + Name */}
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
           {treatment.element && (
             <div className="flex items-center gap-2 mb-1">
-              <span className={elementColors[treatment.element] || "text-emerald-400"}>
+              <span className={elementColors[treatment.element] || "text-emerald-700"}>
                 {elementIcons[treatment.element] || <Leaf className="w-4 h-4" />}
               </span>
               <span
-                className="text-[#f7f5f0]/30 text-[10px] tracking-[0.2em] uppercase"
+                className="text-emerald-900/30 text-[10px] tracking-[0.2em] uppercase"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {treatment.element}
@@ -962,14 +1135,14 @@ function TreatmentCard({
             </div>
           )}
           <h3
-            className="text-[#f7f5f0] text-lg"
+            className="text-emerald-950 text-lg"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
             {treatment.name}
           </h3>
           {treatment.localName && (
             <p
-              className="text-emerald-400/50 text-sm italic"
+              className="text-emerald-700/50 text-sm italic"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {treatment.localName}
@@ -977,7 +1150,7 @@ function TreatmentCard({
           )}
         </div>
         <ChevronDown
-          className={`w-4 h-4 text-[#f7f5f0]/30 transition-transform duration-300 flex-shrink-0 mt-1 ${
+          className={`w-4 h-4 text-emerald-900/30 transition-transform duration-300 flex-shrink-0 mt-1 ${
             isExpanded ? "rotate-180" : ""
           }`}
         />
@@ -986,16 +1159,16 @@ function TreatmentCard({
       {/* Quick Info */}
       <div className="flex items-center gap-4 mb-3">
         <div className="flex items-center gap-1.5">
-          <Clock className="w-3 h-3 text-[#f7f5f0]/25" />
+          <Clock className="w-3 h-3 text-emerald-900/25" />
           <span
-            className="text-xs text-[#f7f5f0]/40"
+            className="text-xs text-emerald-900/40"
             style={{ fontFamily: "var(--font-body)" }}
           >
             {treatment.duration}
           </span>
         </div>
         <span
-          className="text-xs text-emerald-400/60"
+          className="text-xs text-emerald-700/60"
           style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
         >
           {treatment.price}
@@ -1013,7 +1186,7 @@ function TreatmentCard({
             className="overflow-hidden"
           >
             <p
-              className="text-[#f7f5f0]/50 text-sm leading-relaxed pt-3 border-t border-[#f7f5f0]/8"
+              className="text-emerald-900/50 text-sm leading-relaxed pt-3 border-t border-emerald-900/8"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
               {treatment.description}
@@ -1022,6 +1195,50 @@ function TreatmentCard({
         )}
       </AnimatePresence>
     </motion.div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   JOURNAL SECTION — Blog links
+   ═══════════════════════════════════════════════════════════════ */
+function JournalSection() {
+  return (
+    <section className="py-20 md:py-24 bg-emerald-950">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p
+            className="text-emerald-400/70 text-xs tracking-[0.35em] uppercase mb-6"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            From Our Journal
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {allBlogLinks.slice(0, 9).map((blog) => (
+              <a
+                key={blog.url}
+                href={blog.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 py-3 px-4 border border-[#f7f5f0]/8 hover:border-emerald-400/30 hover:bg-emerald-900/50 transition-all duration-300"
+              >
+                <ExternalLink className="w-3.5 h-3.5 text-emerald-400/40 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
+                <span
+                  className="text-sm text-[#f7f5f0]/50 group-hover:text-[#f7f5f0] transition-colors"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                >
+                  {blog.title}
+                </span>
+              </a>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 }
 
@@ -1072,21 +1289,25 @@ function ArenalFooter() {
               className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] uppercase mb-6"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Properties
+              Explore
             </p>
             <div className="flex flex-col gap-3">
               {[
-                { label: "Nayara Tented Camp" },
-                { label: "Nayara Gardens" },
-                { label: "Nayara Springs" },
+                { label: "Explore Nayara", id: "explore-nayara" },
+                { label: "Nayara Spa", id: "spa" },
+                { label: "Explore Arenal", id: "explore-arenal" },
               ].map((link) => (
-                <span
-                  key={link.label}
-                  className="text-[#f7f5f0]/40 text-sm"
+                <button
+                  key={link.id}
+                  onClick={() => {
+                    const el = document.getElementById(link.id);
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="text-left text-[#f7f5f0]/40 hover:text-emerald-400 text-sm transition-colors"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                 >
                   {link.label}
-                </span>
+                </button>
               ))}
             </div>
           </motion.div>
