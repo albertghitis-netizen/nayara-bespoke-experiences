@@ -15,7 +15,6 @@ import {
   ChevronDown,
   Clock,
   Footprints,
-  ExternalLink,
   MapPin,
   Droplets,
   Leaf,
@@ -39,7 +38,6 @@ import {
   exploreArenalExperiences,
   type Excursion,
   type Treatment,
-  type BlogLink,
 } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
 import BlobVideo from "@/components/BlobVideo";
@@ -56,17 +54,6 @@ const CDN = {
   spa: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-spa-springs_89d85927.mp4",
 };
 
-// Merge unique blog links from all three properties
-const allBlogLinks: BlogLink[] = [];
-const seenUrls = new Set<string>();
-[tentedCamp, gardens, springs].forEach((p) => {
-  p.blogLinks.forEach((bl) => {
-    if (!seenUrls.has(bl.url)) {
-      seenUrls.add(bl.url);
-      allBlogLinks.push(bl);
-    }
-  });
-});
 
 const spaCategories = tentedCamp.spaCategories.filter(c => c.id !== "all");
 
@@ -108,7 +95,6 @@ export default function CostaRica() {
       <ExploreNayaraSection onInView={() => setActiveSection("explore-nayara")} />
       <ArenalSpa onInView={() => setActiveSection("spa")} />
       <ExploreArenalSection onInView={() => setActiveSection("explore-arenal")} />
-      <JournalSection />
       <ExploreOurWorld />
       <Footer />
     </div>
@@ -1191,50 +1177,6 @@ function TreatmentCard({
         )}
       </AnimatePresence>
     </motion.div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   JOURNAL SECTION — Blog links
-   ═══════════════════════════════════════════════════════════════ */
-function JournalSection() {
-  return (
-    <section className="py-20 md:py-24 bg-emerald-950">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p
-            className="text-emerald-400/70 text-xs tracking-[0.35em] uppercase mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            From Our Journal
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {allBlogLinks.slice(0, 9).map((blog) => (
-              <a
-                key={blog.url}
-                href={blog.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 py-3 px-4 border border-[#f7f5f0]/8 hover:border-emerald-400/30 hover:bg-emerald-900/50 transition-all duration-300"
-              >
-                <ExternalLink className="w-3.5 h-3.5 text-emerald-400/40 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
-                <span
-                  className="text-sm text-[#f7f5f0]/50 group-hover:text-[#f7f5f0] transition-colors"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-                >
-                  {blog.title}
-                </span>
-              </a>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
   );
 }
 
