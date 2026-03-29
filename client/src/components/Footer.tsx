@@ -1,45 +1,16 @@
 /*
- * Footer — Nayara Resorts Global Footer
- * Matches the main nayara.sphrcl.co footer design
- * Golden warm tone, tree logo, multi-column links, social icons
- * Clean — no texture (that lives in ExploreOurWorld above)
+ * Footer — Nayara Global Footer
+ * Cream background + subtle botanical texture (matches ExploreOurWorld)
+ * Real Nayara tree logo + "NAYARA" text, multi-column links, social icons
  */
 
 import { motion } from "framer-motion";
 
-/* ── Nayara Tree Logo (SVG) ── */
-function NayaraTreeLogo({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 200 240"
-      fill="currentColor"
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.3" />
-      <circle cx="100" cy="100" r="75" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.2" />
-      <rect x="96" y="140" width="8" height="60" rx="4" opacity="0.6" />
-      <ellipse cx="100" cy="85" rx="35" ry="50" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
-      <path d="M100 35 Q115 55 100 75 Q85 55 100 35Z" opacity="0.5" />
-      <path d="M65 55 Q85 65 80 90 Q60 75 65 55Z" opacity="0.45" />
-      <path d="M50 80 Q70 85 72 110 Q52 100 50 80Z" opacity="0.4" />
-      <path d="M45 110 Q65 110 70 135 Q50 130 45 110Z" opacity="0.35" />
-      <path d="M135 55 Q115 65 120 90 Q140 75 135 55Z" opacity="0.45" />
-      <path d="M150 80 Q130 85 128 110 Q148 100 150 80Z" opacity="0.4" />
-      <path d="M155 110 Q135 110 130 135 Q150 130 155 110Z" opacity="0.35" />
-      <path d="M80 45 Q95 50 90 65 Q78 58 80 45Z" opacity="0.3" />
-      <path d="M120 45 Q105 50 110 65 Q122 58 120 45Z" opacity="0.3" />
-      <text
-        x="100"
-        y="225"
-        textAnchor="middle"
-        style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 400, letterSpacing: "6px" }}
-      >
-        NAYARA
-      </text>
-    </svg>
-  );
-}
+const TEXTURE_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/botanical-texture-embossed-hig62x94aNi7TNioLbvtkE.webp";
+
+const LOGO_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-tree-PiKqyUUYDRwvX8q8L5CDsH.png";
 
 /* ── Social Icons ── */
 function InstagramIcon() {
@@ -134,19 +105,40 @@ function FooterColumn({
 /* ── Main Footer ── */
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-b from-[#d4c5a9] to-[#c9b896]">
+    <footer className="relative overflow-hidden bg-[#f0ebe0]">
+      {/* Botanical texture — same as ExploreOurWorld */}
+      <div
+        className="absolute inset-0 opacity-[0.12]"
+        style={{
+          backgroundImage: `url(${TEXTURE_URL})`,
+          backgroundSize: "900px 900px",
+          backgroundRepeat: "repeat",
+          backgroundPosition: "center",
+        }}
+      />
+
       {/* Main footer grid */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-12 md:py-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 py-12 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10 md:gap-6">
-          {/* Logo */}
+          {/* Logo — real image + NAYARA text */}
           <motion.div
-            className="col-span-2 md:col-span-1"
+            className="col-span-2 md:col-span-1 flex flex-col items-start"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <NayaraTreeLogo className="w-28 md:w-32 text-[#5a4a3a]" />
+            <img
+              src={LOGO_URL}
+              alt="Nayara"
+              className="w-24 md:w-28 mb-4"
+            />
+            <p
+              className="text-[#4a3a2a] tracking-[0.3em] uppercase text-sm"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+            >
+              NAYARA
+            </p>
           </motion.div>
 
           {/* Column 1: General links */}
@@ -243,7 +235,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#5a4a3a]/20">
+      <div className="relative z-10 border-t border-[#5a4a3a]/15">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p
             className="text-[#6b5b4b]/60 text-xs"
