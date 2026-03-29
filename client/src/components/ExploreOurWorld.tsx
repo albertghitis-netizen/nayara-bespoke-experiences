@@ -33,7 +33,7 @@ export default function ExploreOurWorld() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-28 md:py-64 lg:py-80"
+      className="relative overflow-hidden py-28 md:pt-80 md:pb-64 lg:pt-96 lg:pb-80"
     >
       {/* Warm cream base */}
       <div className="absolute inset-0 bg-[#f0ebe0]" />
@@ -158,7 +158,7 @@ export default function ExploreOurWorld() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-24 lg:mb-32"
+            className="mb-40 lg:mb-56"
           >
             <img src={LOGO_URL} alt="" className="w-20 lg:w-24 opacity-25" />
           </motion.div>

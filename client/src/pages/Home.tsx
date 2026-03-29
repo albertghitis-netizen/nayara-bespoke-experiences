@@ -8,101 +8,27 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "wouter";
-import { MapPin, ArrowRight, ChevronDown } from "lucide-react";
+import { useLocation } from "wouter";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import AwardWinningProperties from "@/components/AwardWinningProperties";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 
-interface Destination {
-  id: string;
-  name: string;
-  location: string;
-  country: string;
-  tagline: string;
-  description: string;
-  route: string;
-  available: boolean;
-  poster?: string;
-  accentColor: string;
-  accentBg: string;
-}
-
-const CDN = {
-  atacamaDesert: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_ffc4f157.PNG",
-  atacamaVicunas: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_8113_9e8e2ecc.jpeg",
-};
-
-const destinations: Destination[] = [
-  {
-    id: "alto-atacama",
-    name: "Nayara Alto Atacama",
-    location: "Atacama Desert",
-    country: "Chile",
-    tagline: "Mars on Earth",
-    description:
-      "Where the driest desert on Earth reveals its secrets — from pre-dawn geyser eruptions at 4,320 meters to sunset over lunar valleys, from the world's clearest stargazing to thermal springs hidden in ancient canyons.",
-    route: "/alto-atacama",
-    available: true,
-    poster: CDN.atacamaDesert,
-    accentColor: "text-amber-700",
-    accentBg: "bg-amber-700",
-  },
-  {
-    id: "arenal",
-    name: "Nayara Arenal",
-    location: "Arenal Volcano",
-    country: "Costa Rica",
-    tagline: "Into the Living Rainforest",
-    description:
-      "Three properties in the shadow of Arenal Volcano — Tented Camp, Gardens, and Springs. Canopy walks, volcanic hot springs, wildlife encounters, and world-class spa treatments surrounded by one of the most biodiverse regions on Earth.",
-    route: "/arenal",
-    available: true,
-    accentColor: "text-emerald-700",
-    accentBg: "bg-emerald-700",
-  },
-  {
-    id: "hangaroa",
-    name: "Nayara Hangaroa",
-    location: "Easter Island",
-    country: "Chile",
-    tagline: "Where Moai Meet the Pacific",
-    description:
-      "At the edge of the world, where ancient Moai stand sentinel over the Pacific. Explore Rapa Nui's mysterious archaeological sites, dive crystal-clear waters, and immerse yourself in one of Earth's most isolated cultures.",
-    route: "/hangaroa",
-    available: false,
-    accentColor: "text-sky-700",
-    accentBg: "bg-sky-700",
-  },
-  {
-    id: "bocas-del-toro",
-    name: "Nayara Bocas del Toro",
-    location: "Bocas del Toro",
-    country: "Panama",
-    tagline: "Caribbean Island Paradise",
-    description:
-      "A private island sanctuary in Panama's Caribbean archipelago. Overwater villas, bioluminescent bays, pristine coral reefs, and the rhythm of island life — where the jungle meets the sea.",
-    route: "/bocas-del-toro",
-    available: false,
-    accentColor: "text-amber-600",
-    accentBg: "bg-amber-600",
-  },
+/* Property routes for dropdowns */
+const propertyLinks = [
+  { label: "Nayara Alto Atacama", route: "/alto-atacama", available: true },
+  { label: "Nayara Arenal", route: "/arenal", available: true },
+  { label: "Nayara Hangaroa", route: "/hangaroa", available: false },
+  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: false },
 ];
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      {/* Brand Navigation */}
       <BrandNavigation />
-
-      {/* Hero / Header */}
       <HeroHeader />
-
-      {/* Award-Winning Properties — editorial section below hero */}
       <AwardWinningProperties />
-
       <ExploreOurWorld />
       <Footer />
     </div>
@@ -110,145 +36,215 @@ export default function Home() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BRAND NAVIGATION — Hamburger left, Reserve right
+   BRAND NAVIGATION — Hamburger pill left, Reserve pill right
+   Everything else in the hamburger menu with dropdowns
    ═══════════════════════════════════════════════════════════════ */
 function BrandNavigation() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [, navigate] = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navItems = [
-    { label: "Our Resorts", route: null },
-    { label: "Gallery", route: null },
-    { label: "Experiences", route: null },
-    { label: "Wellness", route: null },
-    { label: "Sustainability", route: "/sustainability" },
-    { label: "Awards", route: "/awards" },
-  ];
-
-  const handleNavClick = (item: { label: string; route: string | null }) => {
-    setMenuOpen(false);
-    if (item.route) {
-      navigate(item.route);
-    } else {
-      if (item.label === "Our Resorts" || item.label === "Experiences" || item.label === "Wellness") {
-        const el = document.querySelector("section.py-16");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      } else {
-        import("sonner").then(({ toast }) => toast(item.label + " — Coming Soon"));
-      }
-    }
+  const toggleSection = (section: string) => {
+    setExpandedSection(expandedSection === section ? null : section);
   };
 
+  const handleNavigate = (route: string) => {
+    setMenuOpen(false);
+    setExpandedSection(null);
+    navigate(route);
+  };
+
+  const handleComingSoon = (label: string) => {
+    setMenuOpen(false);
+    setExpandedSection(null);
+    import("sonner").then(({ toast }) => toast(label + " — Coming Soon"));
+  };
+
+  /* Sections that get property dropdowns */
+  const dropdownSections = ["Experiences", "Wellness", "Sustainability"];
+
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="flex items-center justify-between h-20">
-          {/* Hamburger — Far Left */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col gap-1.5 p-2 transition-colors flex-shrink-0"
-          >
+    <>
+      {/* Fixed pills — always visible */}
+      <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
+        {/* Hamburger pill */}
+        <button
+          onClick={() => { setMenuOpen(!menuOpen); setExpandedSection(null); }}
+          className="pointer-events-auto flex items-center justify-center w-12 h-12 rounded-full bg-[#3a2a1a]/70 backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-all duration-300"
+        >
+          <div className="flex flex-col gap-1.5">
             <span
-              className={`block w-6 h-px transition-all duration-300 ${
+              className={`block w-5 h-px bg-white transition-all duration-300 ${
                 menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
-              } ${scrolled ? "bg-stone-800" : "bg-white"}`}
+              }`}
             />
             <span
-              className={`block w-6 h-px transition-all duration-300 ${
+              className={`block w-5 h-px bg-white transition-all duration-300 ${
                 menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
-              } ${scrolled ? "bg-stone-800" : "bg-white"}`}
+              }`}
             />
-          </button>
+          </div>
+        </button>
 
-          {/* Centered Nav Items — Desktop only */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 absolute left-1/2 -translate-x-1/2">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => handleNavClick(item)}
-                className={`text-[11px] xl:text-xs tracking-[0.15em] uppercase transition-all duration-300 whitespace-nowrap ${
-                  scrolled
-                    ? "text-stone-500 hover:text-stone-800"
-                    : "text-white/60 hover:text-white"
-                }`}
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* Reserve — Far Right */}
-          <button
-            onClick={() => {
-              import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"));
-            }}
-            className={`text-xs tracking-[0.25em] uppercase transition-colors duration-500 flex-shrink-0 ${
-              scrolled
-                ? "text-stone-700 hover:text-stone-900"
-                : "text-white/80 hover:text-white"
-            }`}
+        {/* Reserve pill */}
+        <button
+          onClick={() => handleComingSoon("Reservation")}
+          className="pointer-events-auto flex items-center justify-center h-12 px-6 rounded-full bg-[#3a2a1a]/70 backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-all duration-300"
+        >
+          <span
+            className="text-white text-[11px] tracking-[0.25em] uppercase"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             Reserve
-          </button>
-        </div>
+          </span>
+        </button>
       </div>
 
-      {/* Slide-out Menu (mobile + hamburger) */}
+      {/* Full-screen menu overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className={`${
-              scrolled
-                ? "bg-[#f7f5f0]/98 backdrop-blur-md border-t border-stone-200"
-                : "bg-black/80 backdrop-blur-md border-t border-white/10"
-            }`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md overflow-y-auto"
           >
-            <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-8 flex flex-col gap-5">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => handleNavClick(item)}
-                  className={`text-left text-sm tracking-[0.2em] uppercase transition-colors ${
-                    scrolled
-                      ? "text-stone-600 hover:text-stone-900"
-                      : "text-white/60 hover:text-white"
-                  }`}
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            <div className="max-w-lg mx-auto px-8 pt-28 pb-16">
+              {/* Our Resorts — simple link, coming soon */}
+              <button
+                onClick={() => handleComingSoon("Our Resorts")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span
+                  className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
-                  {item.label}
-                </button>
+                  Our Resorts
+                </span>
+              </button>
+
+              {/* Gallery — coming soon */}
+              <button
+                onClick={() => handleComingSoon("Gallery")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span
+                  className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                >
+                  Gallery
+                </span>
+              </button>
+
+              {/* Experiences, Wellness, Sustainability — each with property dropdown */}
+              {dropdownSections.map((section) => (
+                <div key={section} className="border-b border-stone-200">
+                  <button
+                    onClick={() => toggleSection(section)}
+                    className="flex items-center justify-between w-full text-left py-4"
+                  >
+                    <span
+                      className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      {section}
+                    </span>
+                    <motion.svg
+                      animate={{ rotate: expandedSection === section ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-4 h-4 text-[#3a2a1a]/40"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </motion.svg>
+                  </button>
+
+                  <AnimatePresence>
+                    {expandedSection === section && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pl-6 pb-4 flex flex-col gap-3">
+                          {propertyLinks.map((prop) => (
+                            <button
+                              key={prop.label}
+                              onClick={() =>
+                                prop.available
+                                  ? handleNavigate(prop.route)
+                                  : handleComingSoon(prop.label)
+                              }
+                              className="text-left flex items-center gap-3"
+                            >
+                              <span
+                                className={`text-sm tracking-[0.04em] ${
+                                  prop.available
+                                    ? "text-[#5a4a3a] hover:text-[#3a2a1a]"
+                                    : "text-[#5a4a3a]/40"
+                                } transition-colors`}
+                                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                              >
+                                {prop.label}
+                              </span>
+                              {!prop.available && (
+                                <span
+                                  className="text-[9px] tracking-[0.15em] uppercase text-stone-400 border border-stone-300 px-1.5 py-0.5"
+                                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                                >
+                                  Soon
+                                </span>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               ))}
+
+              {/* Awards — direct link */}
+              <button
+                onClick={() => handleNavigate("/awards")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span
+                  className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                >
+                  Awards
+                </span>
+              </button>
+
+              {/* Journal — direct link */}
+              <button
+                onClick={() => handleNavigate("/journal")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span
+                  className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                >
+                  Journal
+                </span>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO HEADER — "Rooted in Nature" + six hotel names centered
+   HERO HEADER — "Luxury Resorts Rooted in Nature"
    ═══════════════════════════════════════════════════════════════ */
 function HeroHeader() {
   const isMobile = useIsMobile();
@@ -296,199 +292,4 @@ function HeroHeader() {
       </div>
     </section>
   );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   DESTINATION ROW — Editorial list-style property selector
-   ═══════════════════════════════════════════════════════════════ */
-function DestinationRow({
-  destination,
-  index,
-  isHovered,
-  onHover,
-  onLeave,
-}: {
-  destination: Destination;
-  index: number;
-  isHovered: boolean;
-  onHover: () => void;
-  onLeave: () => void;
-}) {
-  const [expanded, setExpanded] = useState(false);
-
-  const content = (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
-      className={`border-b border-stone-200 transition-all duration-500 ${
-        destination.available
-          ? "hover:bg-stone-100/50 cursor-pointer"
-          : "opacity-60"
-      }`}
-    >
-      {/* Main Row */}
-      <div className="py-8 md:py-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-        {/* Number */}
-        <div className="hidden md:block w-12 flex-shrink-0">
-          <span
-            className="text-stone-300 text-sm tabular-nums"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-          >
-            {String(index + 1).padStart(2, "0")}
-          </span>
-        </div>
-
-        {/* Image thumbnail (desktop) */}
-        <div className="hidden md:block w-32 h-20 flex-shrink-0 overflow-hidden bg-stone-100">
-          {destination.poster ? (
-            <img
-              src={destination.poster}
-              alt={destination.name}
-              className={`w-full h-full object-cover transition-transform duration-700 ${
-                isHovered ? "scale-110" : "scale-100"
-              }`}
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <MapPin className="w-5 h-5 text-stone-300" />
-            </div>
-          )}
-        </div>
-
-        {/* Property Info */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 mb-1">
-            <h2
-              className="text-stone-800 text-2xl md:text-3xl truncate"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-            >
-              {destination.name}
-            </h2>
-            {!destination.available && (
-              <span
-                className="text-stone-400 text-[10px] tracking-[0.2em] uppercase border border-stone-300 px-2 py-0.5 flex-shrink-0"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Coming soon
-              </span>
-            )}
-          </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-3 h-3 text-stone-400 flex-shrink-0" />
-            <span
-              className="text-stone-400 text-sm"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              {destination.location}, {destination.country}
-            </span>
-          </div>
-        </div>
-
-        {/* Tagline */}
-        <div className="hidden lg:block flex-shrink-0 max-w-[200px]">
-          <p
-            className={`text-sm italic ${destination.accentColor}`}
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {destination.tagline}
-          </p>
-        </div>
-
-        {/* Action */}
-        <div className="flex items-center gap-3 flex-shrink-0">
-          {/* Mobile expand button */}
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setExpanded(!expanded);
-            }}
-            className="md:hidden text-stone-400"
-          >
-            <ChevronDown
-              className={`w-5 h-5 transition-transform duration-300 ${
-                expanded ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-
-          {destination.available && (
-            <div
-              className={`flex items-center gap-2 transition-all duration-300 ${
-                isHovered ? "translate-x-0 opacity-100" : "md:-translate-x-2 md:opacity-0 opacity-100"
-              }`}
-            >
-              <span
-                className={`text-xs tracking-[0.2em] uppercase ${destination.accentColor}`}
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Explore
-              </span>
-              <ArrowRight className={`w-4 h-4 ${destination.accentColor}`} />
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Expanded Description (mobile) */}
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden md:hidden"
-          >
-            <div className="pb-8">
-              <p
-                className="text-stone-500 text-sm leading-relaxed mb-4"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-              >
-                {destination.description}
-              </p>
-              <p
-                className={`text-sm italic ${destination.accentColor}`}
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {destination.tagline}
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Expanded Description (desktop, on hover) */}
-      <AnimatePresence>
-        {isHovered && destination.available && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden hidden md:block"
-          >
-            <div className="pb-8 pl-44 pr-8">
-              <p
-                className="text-stone-500 text-sm leading-relaxed max-w-2xl"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-              >
-                {destination.description}
-              </p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-
-  if (destination.available) {
-    return <Link href={destination.route}>{content}</Link>;
-  }
-
-  return content;
 }
