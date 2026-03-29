@@ -28,6 +28,7 @@ import {
   Home,
   Mountain,
   Star,
+  MessageCircle,
 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -81,17 +82,15 @@ const elementColors: Record<string, string> = {
 
 // Category configs for each section
 const nayaraCategories = [
-  { id: "all", label: "All" },
   { id: "nature", label: "Nature & Exploration" },
-  { id: "culinary", label: "Culinary" },
-  { id: "wellness", label: "Wellness" },
+  { id: "adventure", label: "Adventure" },
+  { id: "culinary-wellness", label: "Culinary & Wellness" },
 ];
 
 const arenalCategories = [
-  { id: "all", label: "All" },
   { id: "nature", label: "Nature & Exploration" },
   { id: "adventure", label: "Adventure" },
-  { id: "culture", label: "Culture" },
+  { id: "culinary-wellness", label: "Culinary & Wellness" },
 ];
 
 export default function CostaRica() {
@@ -336,9 +335,9 @@ function PropertyIntro() {
             className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            All excursions and spa treatments below are available to guests at any
-            of our three Arenal properties. Choose your accommodation style —
-            the adventures are shared.
+            All experience and wellness offerings are available to guests at any of our
+            three properties: Nayara Gardens, Nayara Springs & Nayara Tented Camp.
+            Choose your accommodation style — the adventures are shared.
           </p>
         </motion.div>
       </div>
@@ -353,17 +352,18 @@ function PropertyIntro() {
 function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.1 });
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("nature");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
     if (isInView) onInView();
   }, [isInView, onInView]);
 
-  const filtered =
-    activeCategory === "all"
-      ? exploreNayaraExperiences
-      : exploreNayaraExperiences.filter((e) => e.category === activeCategory);
+  const filtered = exploreNayaraExperiences.filter((e) =>
+    activeCategory === "culinary-wellness"
+      ? ["culinary", "wellness", "spa"].includes(e.category)
+      : e.category === activeCategory
+  );
 
   return (
     <section ref={ref} id="explore-nayara" className="relative py-24 md:py-32 bg-emerald-950">
@@ -462,17 +462,18 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
 function ExploreArenalSection({ onInView }: { onInView: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.1 });
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("nature");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
     if (isInView) onInView();
   }, [isInView, onInView]);
 
-  const filtered =
-    activeCategory === "all"
-      ? exploreArenalExperiences
-      : exploreArenalExperiences.filter((e) => e.category === activeCategory);
+  const filtered = exploreArenalExperiences.filter((e) =>
+    activeCategory === "culinary-wellness"
+      ? ["culinary", "wellness", "spa", "culture"].includes(e.category)
+      : e.category === activeCategory
+  );
 
   return (
     <section ref={ref} id="explore-arenal" className="relative py-24 md:py-32">
@@ -584,18 +585,20 @@ function FeaturedExcursionCard({
   const isMobile = useIsMobile();
   const isDark = variant === "dark";
 
-  // Choose the right video source — prefer mobile-specific video on mobile
-  const videoSrc = isMobile && excursion.videoMobile
-    ? excursion.videoMobile
-    : excursion.videoDesktop || excursion.video;
+  // Desktop: horizontal video as card thumbnail
+  // Mobile: horizontal photo as card thumbnail (no video on card)
+  const cardVideoSrc = !isMobile
+    ? (excursion.videoDesktop || excursion.video)
+    : null;
+  const cardImageSrc = excursion.image;
 
   const categoryLabels: Record<string, string> = {
     nature: "Nature & Exploration",
     adventure: "Adventure",
-    culture: "Culture",
-    culinary: "Culinary",
-    wellness: "Wellness",
-    spa: "Spa",
+    culture: "Culinary & Wellness",
+    culinary: "Culinary & Wellness",
+    wellness: "Culinary & Wellness",
+    spa: "Culinary & Wellness",
   };
 
   return (
@@ -612,22 +615,22 @@ function FeaturedExcursionCard({
           : "border border-emerald-900/8 bg-white/60 hover:border-emerald-900/15"
       } ${excursion.featured ? "md:col-span-1" : ""}`}
     >
-      {/* Media Area */}
+      {/* Media Area — Desktop: horizontal video, Mobile: photo */}
       <div className={`relative overflow-hidden ${excursion.featured ? "h-64 md:h-80" : "h-48 md:h-56"}`}>
-        {videoSrc ? (
+        {cardVideoSrc ? (
           <video
-            key={videoSrc}
+            key={cardVideoSrc}
             autoPlay
             muted
             loop
             playsInline
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           >
-            <source src={videoSrc} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+            <source src={cardVideoSrc} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
           </video>
-        ) : excursion.image ? (
+        ) : cardImageSrc ? (
           <img
-            src={excursion.image}
+            src={cardImageSrc}
             alt={excursion.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
@@ -776,6 +779,24 @@ function FeaturedExcursionCard({
               className="overflow-hidden"
             >
               <div className={`pt-5 mt-5 border-t ${isDark ? "border-[#f7f5f0]/8" : "border-emerald-900/8"}`}>
+                {/* Vertical Video in expanded view */}
+                {excursion.verticalVideo && (
+                  <div className="mb-6">
+                    <div className="mx-auto max-w-[280px] md:max-w-[300px] aspect-[9/16] rounded-lg overflow-hidden bg-black">
+                      <video
+                        key={excursion.verticalVideo}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover"
+                      >
+                        <source src={excursion.verticalVideo} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                      </video>
+                    </div>
+                  </div>
+                )}
+
                 <p
                   className={`text-xs tracking-[0.35em] uppercase mb-3 ${
                     isDark ? "text-[#f7f5f0]/35" : "text-emerald-900/35"
@@ -799,7 +820,7 @@ function FeaturedExcursionCard({
                   ))}
                 </ul>
 
-                {/* Gallery placeholder */}
+                {/* Gallery */}
                 {excursion.gallery && excursion.gallery.length > 0 && (
                   <div className="mt-5 flex gap-3 overflow-x-auto pb-2">
                     {excursion.gallery.map((img, i) => (
@@ -833,6 +854,29 @@ function FeaturedExcursionCard({
                     </span>
                   </a>
                 )}
+
+                {/* Contact Concierge CTA */}
+                <div className={`mt-6 pt-5 border-t ${isDark ? "border-[#f7f5f0]/8" : "border-emerald-900/8"}`}>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toast("Our concierge team will be in touch to arrange your experience.");
+                    }}
+                    className={`w-full flex items-center justify-center gap-2.5 py-3.5 px-6 transition-all duration-300 ${
+                      isDark
+                        ? "bg-emerald-600 hover:bg-emerald-500 text-white"
+                        : "bg-emerald-900 hover:bg-emerald-800 text-white"
+                    }`}
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span
+                      className="text-xs tracking-[0.2em] uppercase"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                    >
+                      Contact Concierge to Reserve
+                    </span>
+                  </button>
+                </div>
               </div>
             </motion.div>
           )}
@@ -848,7 +892,7 @@ function FeaturedExcursionCard({
 function ArenalSpa({ onInView }: { onInView: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.1 });
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("nature");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -856,10 +900,11 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
   }, [isInView, onInView]);
 
   const treatments = tentedCamp.treatments;
-  const filtered =
-    activeCategory === "all"
-      ? treatments
-      : treatments.filter((t) => t.category === activeCategory);
+  const filtered = treatments.filter((t) =>
+    activeCategory === "culinary-wellness"
+      ? ["culinary", "wellness", "spa"].includes(t.category)
+      : t.category === activeCategory
+  );
 
   return (
     <section ref={ref} id="spa" className="relative py-24 md:py-32 bg-[#f7f5f0]">
