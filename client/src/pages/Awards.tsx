@@ -1,42 +1,168 @@
 /*
- * AWARDS — Nayara Resorts recognition
- * Clean editorial layout showcasing major awards
+ * AWARDS — Nayara Resorts accolades
+ * Full awards data organized by property
+ * Sources: Travel & Leisure, Conde Nast Traveler, Michelin, etc.
  */
 
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowLeft, Award } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
-interface AwardCategory {
+interface AwardEntry {
   source: string;
-  description: string;
   accolades: string[];
 }
 
-const awards: AwardCategory[] = [
+interface PropertyAwards {
+  property: string;
+  awards: AwardEntry[];
+}
+
+const allAwards: PropertyAwards[] = [
   {
-    source: "Travel + Leisure",
-    description: "Recognized among the world's best hotels and resorts",
-    accolades: [
-      "World's Best Awards — Top Hotels",
-      "It List — Best New Hotels",
-      "500 Best Hotels in the World",
+    property: "Nayara Resorts",
+    awards: [
+      {
+        source: "Travel & Leisure",
+        accolades: [
+          "No. 13 Resort Brand in World 2025",
+          "No. 11 Resort Brand in World 2024",
+        ],
+      },
     ],
   },
   {
-    source: "Conde Nast Traveler",
-    description: "Celebrated for exceptional hospitality and design",
-    accolades: [
-      "Readers' Choice Awards — Top Resorts",
-      "Gold List",
-      "Hot List — Best New Hotels",
+    property: "Nayara Tented Camp",
+    awards: [
+      {
+        source: "Travel & Leisure",
+        accolades: [
+          "No. 2 in Central America 2025",
+          "No. 1 in Central America 2024, 2023, 2022, 2021",
+        ],
+      },
+      {
+        source: "Condé Nast Traveler's Reader's Choice Awards",
+        accolades: [
+          "No. 3 in Central America 2023",
+          "No. 1 in the World 2020",
+        ],
+      },
+      {
+        source: "Leading Hotels of the World",
+        accolades: ["No. 1 Hotel 2022"],
+      },
     ],
   },
   {
-    source: "Michelin",
-    description: "Distinguished for outstanding quality and service",
-    accolades: [
-      "Michelin Key — Outstanding Hotels",
+    property: "Nayara Gardens",
+    awards: [
+      {
+        source: "Travel & Leisure",
+        accolades: [
+          "No. 4 in Central America 2024",
+          "No. 1 in Central America 2020",
+          "No. 1 in Central America 2014–2022",
+        ],
+      },
+      {
+        source: "World's Best Spa's",
+        accolades: ["Best Hot Springs Spa in the World 2015"],
+      },
+      {
+        source: "Condé Nast Traveler's Reader's Choice Awards",
+        accolades: [
+          "No. 29 in the World 2025",
+          "No. 3 in the World 2025",
+          "No. 2 in Central America 2023",
+        ],
+      },
+      {
+        source: "Condé Nast Traveler",
+        accolades: [
+          "No. 1 Spa in the World 2016",
+          "Best Resort in Central America 2014–2016",
+        ],
+      },
+      {
+        source: "TripAdvisor",
+        accolades: ["No. 1 Luxury Hotel in the World 2018, 2019"],
+      },
+    ],
+  },
+  {
+    property: "Nayara Bocas del Toro",
+    awards: [
+      {
+        source: "Michelin Guide",
+        accolades: ["2 Keys 2025"],
+      },
+      {
+        source: "Condé Nast Traveler's Reader's Choice Awards",
+        accolades: [
+          "No. 20 in the World 2025",
+          "No. 1 in Central America 2025",
+        ],
+      },
+      {
+        source: "Leading Hotels of the World",
+        accolades: ["Sustainability Leader 2023"],
+      },
+      {
+        source: "Town & Country Hotel Awards 2023",
+        accolades: ["Best New Hotels in the World"],
+      },
+      {
+        source: "AFAR Magazine",
+        accolades: ["Best New Hotels in the World, 2023"],
+      },
+    ],
+  },
+  {
+    property: "Nayara Springs",
+    awards: [
+      {
+        source: "Michelin Guide",
+        accolades: ["3 Keys 2025"],
+      },
+      {
+        source: "Travel & Leisure",
+        accolades: [
+          "No. 10 in Central America 2025",
+          "No. 2 in Central America 2024",
+          "No. 2 in the World 2015",
+          "No. 1 in Central and South America 2014–2016",
+        ],
+      },
+    ],
+  },
+  {
+    property: "Nayara Hangaroa",
+    awards: [
+      {
+        source: "Condé Nast Traveler's Reader's Choice Awards",
+        accolades: ["No. 10 in South America 2023"],
+      },
+    ],
+  },
+  {
+    property: "Nayara Alto Atacama",
+    awards: [
+      {
+        source: "Michelin Guide",
+        accolades: ["2 Keys 2025"],
+      },
+      {
+        source: "Condé Nast Traveler's Reader's Choice Awards",
+        accolades: [
+          "No. 11 in South America 2025",
+          "No. 13 in South America 2023",
+        ],
+      },
+      {
+        source: "Leading Hotels of the World",
+        accolades: ["Sustainability Leader 2023"],
+      },
     ],
   },
 ];
@@ -82,46 +208,53 @@ export default function Awards() {
         </div>
       </div>
 
-      {/* Awards List */}
+      {/* Awards by Property */}
       <div className="max-w-[1000px] mx-auto px-6 md:px-10 py-16 md:py-24">
-        {awards.map((award, i) => (
+        {allAwards.map((section, si) => (
           <motion.div
-            key={award.source}
+            key={section.property}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
+            transition={{ duration: 0.6, delay: si * 0.05 }}
             className="mb-16 last:mb-0"
           >
-            <div className="flex items-start gap-4 mb-4 pb-3 border-b border-stone-200">
-              <Award className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-              <div>
-                <h2
-                  className="text-stone-800 text-2xl md:text-3xl"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-                >
-                  {award.source}
-                </h2>
-                <p
-                  className="text-stone-400 text-sm mt-1"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-                >
-                  {award.description}
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col pl-9">
-              {award.accolades.map((accolade, ai) => (
-                <div
-                  key={ai}
-                  className="py-3 border-b border-stone-100 last:border-0"
-                >
-                  <span
-                    className="text-stone-600 text-base"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            {/* Property Name */}
+            <h2
+              className="text-stone-800 text-2xl md:text-3xl mb-6 pb-3 border-b border-stone-300"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+            >
+              {section.property}
+            </h2>
+
+            {/* Awards for this property */}
+            <div className="flex flex-col gap-6">
+              {section.awards.map((award, ai) => (
+                <div key={ai}>
+                  <h3
+                    className="text-amber-700 text-sm tracking-[0.1em] uppercase mb-2"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
                   >
-                    {accolade}
-                  </span>
+                    {award.source}
+                  </h3>
+                  <div className="flex flex-col">
+                    {award.accolades.map((accolade, aci) => (
+                      <div
+                        key={aci}
+                        className="py-2 border-b border-stone-100 last:border-0"
+                      >
+                        <span
+                          className="text-stone-600 text-base"
+                          style={{
+                            fontFamily: "var(--font-body)",
+                            fontWeight: 400,
+                          }}
+                        >
+                          {accolade}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
