@@ -50,7 +50,9 @@ interface PropertyCert {
 }
 
 const propertyCertifications: PropertyCert[] = [
-  { name: "Nayara Arenal", certification: "Green Globe", certBody: "Green Globe International" },
+  { name: "Nayara Gardens", certification: "Green Globe", certBody: "Green Globe International" },
+  { name: "Nayara Springs", certification: "Green Globe", certBody: "Green Globe International" },
+  { name: "Nayara Tented Camp", certification: "Green Globe", certBody: "Green Globe International" },
   { name: "Nayara Bocas del Toro", certification: "Green Globe", certBody: "Green Globe International" },
   { name: "Nayara Alto Atacama", certification: "S Certification", certBody: "Sernatur — Chile" },
   { name: "Nayara Hangaroa", certification: "S Certification", certBody: "Sernatur — Chile" },
