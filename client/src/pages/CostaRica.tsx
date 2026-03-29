@@ -540,7 +540,7 @@ function ArenalExcursions({ onInView }: { onInView: () => void }) {
             className="text-emerald-900/40 text-xs tracking-[0.35em] uppercase mb-6"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            Further Reading
+            From Our Journal
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {allBlogLinks.slice(0, 9).map((blog) => (
@@ -589,9 +589,19 @@ function ExcursionCard({
       transition={{ duration: 0.6, delay: index * 0.08 }}
       className="group border border-emerald-900/8 bg-white/60 overflow-hidden hover:border-emerald-900/15 transition-all duration-500"
     >
-      {/* Image Area */}
+      {/* Media Area */}
       <div className="relative h-56 md:h-64 overflow-hidden">
-        {excursion.image ? (
+        {excursion.video ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          >
+            <source src={excursion.video} type="video/mp4" />
+          </video>
+        ) : excursion.image ? (
           <img
             src={excursion.image}
             alt={excursion.name}
@@ -633,7 +643,7 @@ function ExcursionCard({
             onClick={(e) => e.stopPropagation()}
           >
             <ExternalLink className="w-3 h-3" />
-            Read more
+            Journal
           </a>
         )}
       </div>
@@ -757,7 +767,7 @@ function ExcursionCard({
                       className="text-sm underline underline-offset-4"
                       style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                     >
-                      {excursion.blogTitle}
+                      Explore more in our Journal
                     </span>
                   </a>
                 )}

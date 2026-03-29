@@ -12,7 +12,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 const VIDEO_DESKTOP =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Atacama_horizontal_1_20260320_142142_8751bdb3.mov";
 const VIDEO_MOBILE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-aerial-vertical_73fb742f.mp4";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-vertical-new_1e1453e7.mp4";
 const POSTER =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_ffc4f157.PNG";
 

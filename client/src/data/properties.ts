@@ -7,7 +7,7 @@
 // ─── CDN Assets ───────────────────────────────────────────────
 const CDN = {
   atacamaVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Atacama_horizontal_1_20260320_142142_8751bdb3.mov",
-  atacamaVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-aerial-vertical_73fb742f.mp4",
+  atacamaVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-vertical-new_1e1453e7.mp4",
   atacamaDesert: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_ffc4f157.PNG",
   atacamaVicunas: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_8113_9e8e2ecc.jpeg",
   crToucan: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-toucan_a70ad74a.mp4",
@@ -26,6 +26,7 @@ export interface Excursion {
   highlights: string[];
   whatToBring?: string;
   image?: string;
+  video?: string;
   placeholder?: boolean;
   blogUrl?: string;
   blogTitle?: string;
@@ -267,7 +268,8 @@ const costaRicaExcursions: Excursion[] = [
     suggestedTime: "6:00 AM / 10:30 AM",
     description: "Travel to this incredibly remote 10,000-hectare wetland jungle. Board a pontoon boat on the Rio Frio and search for green iguanas, crocodiles, spider monkeys, capuchins, howler monkeys, sloths, toucans, parrots, and even the rare ocelot. Pumas and jaguars inhabit the area though sightings are rare.",
     highlights: ["Pontoon boat through pristine wetlands", "Spider, capuchin, and howler monkey sightings", "Over 300 bird species including wood storks and toucans"],
-    placeholder: true,
+    video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wildlife-reel_7c30f53f.mp4",
+    placeholder: false,
     category: "nature",
   },
   {
@@ -279,7 +281,8 @@ const costaRicaExcursions: Excursion[] = [
     suggestedTime: "5:30 PM",
     description: "Experience the rainforest\u2019s nocturnal transformation. With flashlights and expert guides, discover the creatures that emerge after sunset \u2014 red-eyed tree frogs, sleeping toucans, tarantulas, and bioluminescent fungi. A completely different world from the daytime jungle.",
     highlights: ["Red-eyed tree frog sightings", "Nocturnal wildlife observation", "Bioluminescent fungi and insects"],
-    placeholder: true,
+    video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-reel_a9f9be44.mp4",
+    placeholder: false,
     category: "nature",
   },
   {
@@ -303,7 +306,8 @@ const costaRicaExcursions: Excursion[] = [
     suggestedTime: "5:30 AM",
     description: "The Arenal area sits on a narrow altitudinal belt on the Caribbean slope of the Tilaran Mountain Range \u2014 the highest species count anywhere in Costa Rica. Spot tanagers, hummingbirds, toucans, parrots, Montezuma oropendolas, flycatchers, raptors, woodpeckers, and trogons.",
     highlights: ["Highest bird diversity in Costa Rica", "Expert naturalist guide with spotting scope", "Early morning for peak activity"],
-    placeholder: true,
+    video: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wildlife-reel_7c30f53f.mp4",
+    placeholder: false,
     category: "nature",
   },
   {
