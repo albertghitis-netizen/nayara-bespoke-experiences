@@ -296,17 +296,7 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-28 px-6 md:px-10 max-w-[1400px] mx-auto">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white/70 text-xs md:text-sm tracking-[0.35em] uppercase mb-4"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-        >
-          Nayara Arenal &mdash; Arenal Volcano, Costa Rica
-        </motion.p>
-
+      <div className="relative z-10 h-full flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-10 max-w-[1400px] mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
