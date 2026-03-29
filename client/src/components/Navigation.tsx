@@ -85,7 +85,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
             >
               <span
                 className={`text-xs tracking-wide-editorial uppercase font-body transition-colors duration-500 ${
-                  scrolled ? "text-volcanic/60" : "text-white/70"
+                  scrolled ? "text-volcanic/60" : "text-white/0"
                 }`}
                 style={{ fontFamily: "var(--font-body)" }}
               >
@@ -93,7 +93,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
               </span>
               <span
                 className={`text-lg font-display font-medium tracking-wide transition-colors duration-500 ${
-                  scrolled ? "text-volcanic" : "text-white"
+                  scrolled ? "text-volcanic" : "text-white/0"
                 }`}
                 style={{ fontFamily: "var(--font-display)" }}
               >

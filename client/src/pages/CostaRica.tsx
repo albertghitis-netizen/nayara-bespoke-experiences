@@ -301,25 +301,13 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight mb-6"
+          className="text-white text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight"
           style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
         >
           Bespoke
           <br />
           Experiences
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white/80 text-base md:text-lg max-w-xl leading-relaxed"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-        >
-          In the shadow of Arenal Volcano, where rainforest canopy meets
-          volcanic hot springs. Discover excursions, wellness rituals, and
-          adventures in one of the most biodiverse regions on Earth.
-        </motion.p>
       </div>
     </section>
   );
@@ -329,27 +317,6 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
    PROPERTY INTRO — Brief mention of the three properties
    ═══════════════════════════════════════════════════════════════ */
 function PropertyIntro() {
-  const propertyCards = [
-    {
-      name: "Tented Camp",
-      tagline: "Luxury Tented Camp",
-      description: "Luxury safari-style tents in the canopy. Wake to howler monkeys, fall asleep to tropical rain.",
-      icon: <TreePine className="w-5 h-5" />,
-    },
-    {
-      name: "Gardens",
-      tagline: "Family Rainforest Retreat",
-      description: "Spacious villas with private gardens, ideal for families exploring the Arenal region together.",
-      icon: <Leaf className="w-5 h-5" />,
-    },
-    {
-      name: "Springs",
-      tagline: "Adults-Only Sanctuary",
-      description: "Private plunge pools fed by natural hot springs. Where volcanic warmth meets rainforest serenity.",
-      icon: <Waves className="w-5 h-5" />,
-    },
-  ];
-
   return (
     <section className="py-20 md:py-28">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
@@ -358,7 +325,6 @@ function PropertyIntro() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14"
         >
           <p
             className="text-emerald-700 text-xs tracking-[0.35em] uppercase mb-4"
@@ -366,12 +332,6 @@ function PropertyIntro() {
           >
             Three Properties, One Rainforest
           </p>
-          <h2
-            className="text-emerald-950 text-3xl md:text-4xl lg:text-5xl leading-[1.1] mb-6 max-w-3xl"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-          >
-            The Arenal Volcano National Park is home to three distinct Nayara Properties
-          </h2>
           <p
             className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
@@ -381,43 +341,6 @@ function PropertyIntro() {
             the adventures are shared.
           </p>
         </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {propertyCards.map((prop, i) => (
-            <motion.div
-              key={prop.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group border border-emerald-900/8 bg-white/60 p-8 hover:border-emerald-700/20 hover:bg-white/80 transition-all duration-500"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-emerald-700/40 group-hover:text-emerald-700 transition-colors">
-                  {prop.icon}
-                </span>
-                <span
-                  className="text-emerald-900/40 text-[10px] tracking-[0.3em] uppercase"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                >
-                  {prop.tagline}
-                </span>
-              </div>
-              <h3
-                className="text-emerald-950 text-xl mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-              >
-                Nayara {prop.name}
-              </h3>
-              <p
-                className="text-emerald-900/50 text-sm leading-relaxed"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-              >
-                {prop.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
