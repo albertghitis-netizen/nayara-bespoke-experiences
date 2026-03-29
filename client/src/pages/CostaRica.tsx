@@ -779,10 +779,10 @@ function FeaturedExcursionCard({
               className="overflow-hidden"
             >
               <div className={`pt-5 mt-5 border-t ${isDark ? "border-[#f7f5f0]/8" : "border-emerald-900/8"}`}>
-                {/* Vertical Video in expanded view */}
+                {/* Vertical Video in expanded view — full width */}
                 {excursion.verticalVideo && (
-                  <div className="mb-6">
-                    <div className="mx-auto max-w-[280px] md:max-w-[300px] aspect-[9/16] rounded-lg overflow-hidden bg-black">
+                  <div className="-mx-6 md:-mx-8 mb-6">
+                    <div className="w-full aspect-[9/16] overflow-hidden bg-black">
                       <video
                         key={excursion.verticalVideo}
                         autoPlay
