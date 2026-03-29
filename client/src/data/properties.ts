@@ -31,6 +31,8 @@ export interface Excursion {
   videoMobile?: string;
   verticalVideo?: string;
   gallery?: string[];
+  detailSquarePhoto?: string;
+  detailVerticalPhoto?: string;
   featured?: boolean;
   placeholder?: boolean;
   blogUrl?: string;
@@ -241,9 +243,12 @@ const exploreNayaraExperiences: Excursion[] = [
     suggestedTime: "5:30 PM",
     description: "Experience the rainforest\u2019s nocturnal transformation. With flashlights and expert guides, discover the creatures that emerge after sunset \u2014 red-eyed tree frogs, sleeping toucans, tarantulas, and bioluminescent fungi. A completely different world from the daytime jungle.",
     highlights: ["Red-eyed tree frog sightings", "Nocturnal wildlife observation", "Bioluminescent fungi and insects"],
+    whatToBring: "Bring bug spray",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-hero_dc75898f.jpg",
     videoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-horizontal_5269da4d.mp4",
     verticalVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-vertical_17b18385.mp4",
+    detailSquarePhoto: "",
+    detailVerticalPhoto: "",
     featured: true,
     placeholder: false,
     category: "nature",
@@ -261,6 +266,8 @@ const exploreNayaraExperiences: Excursion[] = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bird-watching-hero_ddf4b8c3.jpg",
     videoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bird-watching-horizontal_abd70271.mp4",
     verticalVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/birdwatching-vertical_9dee5424.mp4",
+    detailSquarePhoto: "",
+    detailVerticalPhoto: "",
     featured: true,
     placeholder: false,
     category: "nature",

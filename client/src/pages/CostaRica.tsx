@@ -68,7 +68,7 @@ const seenUrls = new Set<string>();
   });
 });
 
-const spaCategories = tentedCamp.spaCategories;
+const spaCategories = tentedCamp.spaCategories.filter(c => c.id !== "all");
 
 // ─── Element styling for spa cards ───────────────────────────
 const elementIcons: Record<string, React.ReactNode> = {
@@ -86,15 +86,15 @@ const elementColors: Record<string, string> = {
 
 // Category configs for each section
 const nayaraCategories = [
-  { id: "nature", label: "Nature & Exploration" },
-  { id: "adventure", label: "Adventure" },
-  { id: "culinary-wellness", label: "Culinary & Wellness" },
+  { id: "wellness", label: "Guided Wellness" },
+  { id: "nature", label: "Curated Nature Tours" },
+  { id: "culinary", label: "Culinary & Workshops" },
 ];
 
 const arenalCategories = [
   { id: "adventure", label: "Adventure" },
   { id: "nature", label: "Nature & Exploration" },
-  { id: "wellness", label: "Wellness" },
+  { id: "community", label: "Community" },
 ];
 
 export default function CostaRica() {
@@ -360,7 +360,7 @@ function PropertyIntro() {
 function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.1 });
-  const [activeCategory, setActiveCategory] = useState("nature");
+  const [activeCategory, setActiveCategory] = useState("wellness");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -368,8 +368,10 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
   }, [isInView, onInView]);
 
   const filtered = exploreNayaraExperiences.filter((e) =>
-    activeCategory === "culinary-wellness"
-      ? ["culinary", "wellness", "spa"].includes(e.category)
+    activeCategory === "wellness"
+      ? ["wellness", "spa"].includes(e.category)
+      : activeCategory === "culinary"
+      ? ["culinary", "culture"].includes(e.category)
       : e.category === activeCategory
   );
 
@@ -457,7 +459,7 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
 function ExploreArenalSection({ onInView }: { onInView: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.1 });
-  const [activeCategory, setActiveCategory] = useState("nature");
+  const [activeCategory, setActiveCategory] = useState("adventure");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -465,8 +467,8 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
   }, [isInView, onInView]);
 
   const filtered = exploreArenalExperiences.filter((e) =>
-    activeCategory === "wellness"
-      ? ["wellness", "spa", "culinary"].includes(e.category)
+    activeCategory === "community"
+      ? ["culture", "culinary", "wellness", "community"].includes(e.category)
       : e.category === activeCategory
   );
 
@@ -548,7 +550,11 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FEATURED EXCURSION CARD — Supports video, gallery, featured badge
+   FEATURED EXCURSION CARD — Photo thumbnail + magazine-style expand
+   Card: Horizontal landscape photo with title overlay + "Learn More"
+   Expanded: Vertical video (left) + horizontal photo (top-right) +
+             square photo (bottom-right) + description + details bar +
+             "Speak to Concierge" CTA
    ═══════════════════════════════════════════════════════════════ */
 function FeaturedExcursionCard({
   excursion,
@@ -563,14 +569,7 @@ function FeaturedExcursionCard({
   onToggle: () => void;
   variant: "light" | "dark";
 }) {
-  const isMobile = useIsMobile();
   const isDark = variant === "dark";
-
-  // Desktop: horizontal video as card thumbnail
-  // Mobile: horizontal photo as card thumbnail (no video on card)
-  const cardVideoSrc = !isMobile
-    ? (excursion.videoDesktop || excursion.video)
-    : null;
   const cardImageSrc = excursion.image;
 
   const categoryLabels: Record<string, string> = {
@@ -578,8 +577,8 @@ function FeaturedExcursionCard({
     adventure: "Adventure",
     culture: "Culinary & Wellness",
     culinary: "Culinary & Wellness",
-    wellness: "Culinary & Wellness",
-    spa: "Culinary & Wellness",
+    wellness: "Wellness",
+    spa: "Wellness",
   };
 
   return (
@@ -590,260 +589,357 @@ function FeaturedExcursionCard({
       exit={{ opacity: 0, scale: 0.95 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
-      className={`group overflow-hidden transition-all duration-500 ${
-        isDark
-          ? "border border-[#f7f5f0]/8 bg-emerald-900/30 hover:border-[#f7f5f0]/15 hover:bg-emerald-900/50"
-          : "border border-emerald-900/8 bg-white/60 hover:border-emerald-900/15"
-      } ${excursion.featured ? "md:col-span-1" : ""}`}
+      className={`overflow-hidden transition-all duration-500 ${
+        isExpanded ? "md:col-span-2" : ""
+      }`}
     >
-      {/* Media Area — Desktop: horizontal video, Mobile: photo */}
-      <div className={`relative overflow-hidden ${excursion.featured ? "h-64 md:h-80" : "h-48 md:h-56"}`}>
-        {cardVideoSrc ? (
-          <video
-            key={cardVideoSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          >
-            <source src={cardVideoSrc} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-          </video>
-        ) : cardImageSrc ? (
-          <img
-            src={cardImageSrc}
-            alt={excursion.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-        ) : (
-          <div className={`w-full h-full flex items-center justify-center ${
+      {/* ── COLLAPSED CARD ── */}
+      {!isExpanded && (
+        <div
+          className={`group cursor-pointer overflow-hidden ${
             isDark
-              ? "bg-gradient-to-br from-emerald-800/40 to-emerald-900/60"
-              : "bg-gradient-to-br from-emerald-100/60 to-emerald-50/30"
-          }`}>
-            <div className="text-center">
-              <MapPin className={`w-8 h-8 mx-auto mb-2 ${isDark ? "text-[#f7f5f0]/15" : "text-emerald-900/15"}`} />
-              <span
-                className={`text-xs tracking-[0.2em] uppercase ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`}
-                style={{ fontFamily: "var(--font-body)" }}
+              ? "border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/15"
+              : "border border-emerald-900/8 hover:border-emerald-900/15"
+          }`}
+          onClick={onToggle}
+        >
+          {/* Photo thumbnail */}
+          <div className="relative overflow-hidden h-64 md:h-80">
+            {cardImageSrc ? (
+              <img
+                src={cardImageSrc}
+                alt={excursion.name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            ) : (
+              <div className={`w-full h-full flex items-center justify-center ${
+                isDark
+                  ? "bg-gradient-to-br from-emerald-800/40 to-emerald-900/60"
+                  : "bg-gradient-to-br from-emerald-100/60 to-emerald-50/30"
+              }`}>
+                <div className="text-center">
+                  <MapPin className={`w-8 h-8 mx-auto mb-2 ${isDark ? "text-[#f7f5f0]/15" : "text-emerald-900/15"}`} />
+                  <span
+                    className={`text-xs tracking-[0.2em] uppercase ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`}
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    Photo coming soon
+                  </span>
+                </div>
+              </div>
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+            {/* Title overlay at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <p
+                className="text-white/60 text-[10px] tracking-[0.3em] uppercase mb-2"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
-                Photo coming soon
+                {categoryLabels[excursion.category] || excursion.category}
+              </p>
+              <h3
+                className="text-white text-2xl md:text-3xl mb-1"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+              >
+                {excursion.name}
+              </h3>
+              <p
+                className="text-white/60 text-sm italic mb-4"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {excursion.subtitle}
+              </p>
+              <span
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white text-xs tracking-[0.2em] uppercase transition-colors"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                Learn More
+                <ChevronDown className="w-3.5 h-3.5" />
               </span>
             </div>
           </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-        {/* Category badge */}
-        <div className="absolute top-4 left-4 flex items-center gap-2">
-          <span
-            className="px-3 py-1.5 bg-black/30 backdrop-blur-sm text-white/90 text-[10px] tracking-[0.2em] uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            {categoryLabels[excursion.category] || excursion.category}
-          </span>
-          {excursion.featured && (
-            <span className="flex items-center gap-1 px-2.5 py-1.5 bg-emerald-600/80 backdrop-blur-sm text-white text-[10px] tracking-[0.15em] uppercase"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
-            >
-              <Star className="w-3 h-3" />
-              Featured
-            </span>
-          )}
         </div>
+      )}
 
-        {/* Blog link badge */}
-        {excursion.blogUrl && (
-          <a
-            href={excursion.blogUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute top-4 right-4 px-3 py-1.5 bg-emerald-700/80 backdrop-blur-sm text-white text-[10px] tracking-[0.2em] uppercase hover:bg-emerald-700 transition-colors flex items-center gap-1.5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            onClick={(e) => e.stopPropagation()}
+      {/* ── EXPANDED DETAIL VIEW ── */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
           >
-            <ExternalLink className="w-3 h-3" />
-            Journal
-          </a>
-        )}
-      </div>
+            <div className={`${
+              isDark ? "bg-[#1a1a1a]" : "bg-[#f7f5f0]"
+            }`}>
+              {/* Close button */}
+              <div className="flex justify-end p-4 pb-0">
+                <button
+                  onClick={onToggle}
+                  className={`p-2 transition-colors ${
+                    isDark ? "text-[#f7f5f0]/40 hover:text-[#f7f5f0]" : "text-emerald-900/40 hover:text-emerald-900"
+                  }`}
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
 
-      {/* Content */}
-      <div className="p-6 md:p-8">
-        <h3
-          className={`text-xl md:text-2xl mb-1 ${isDark ? "text-[#f7f5f0]" : "text-emerald-950"}`}
-          style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-        >
-          {excursion.name}
-        </h3>
-        <p
-          className={`text-sm mb-4 italic ${isDark ? "text-emerald-400/70" : "text-emerald-700/70"}`}
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          {excursion.subtitle}
-        </p>
+              {/* Media Grid: vertical video left, two photos right */}
+              <div className="px-6 md:px-10 pb-6">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
+                  {/* Left: Vertical 9:16 Video */}
+                  <div className="md:col-span-5">
+                    {excursion.verticalVideo ? (
+                      <div className="aspect-[9/16] overflow-hidden bg-black">
+                        <video
+                          key={excursion.verticalVideo}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="w-full h-full object-cover"
+                        >
+                          <source src={excursion.verticalVideo} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                        </video>
+                      </div>
+                    ) : (
+                      <div className={`aspect-[9/16] flex items-center justify-center ${
+                        isDark ? "bg-emerald-900/30" : "bg-emerald-100/40"
+                      }`}>
+                        <span className={`text-xs tracking-[0.2em] uppercase ${
+                          isDark ? "text-[#f7f5f0]/20" : "text-emerald-900/20"
+                        }`} style={{ fontFamily: "var(--font-body)" }}>Video coming soon</span>
+                      </div>
+                    )}
+                  </div>
 
-        {/* Quick Stats */}
-        <div className="flex flex-wrap gap-4 mb-4">
-          <div className="flex items-center gap-1.5">
-            <Clock className={`w-3.5 h-3.5 ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`} />
-            <span
-              className={`text-xs ${isDark ? "text-[#f7f5f0]/40" : "text-emerald-900/40"}`}
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {excursion.duration}
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Footprints className={`w-3.5 h-3.5 ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`} />
-            <span
-              className={`text-xs ${isDark ? "text-[#f7f5f0]/40" : "text-emerald-900/40"}`}
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {excursion.difficulty}
-            </span>
-          </div>
-          {excursion.suggestedTime && (
-            <span
-              className={`text-xs ${isDark ? "text-emerald-400/50" : "text-emerald-700/50"}`}
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Departs: {excursion.suggestedTime}
-            </span>
-          )}
-          {excursion.price && (
-            <span
-              className={`text-xs font-medium ${isDark ? "text-emerald-400/60" : "text-emerald-700/60"}`}
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {excursion.price}
-            </span>
-          )}
-        </div>
+                  {/* Right column: two photos stacked */}
+                  <div className="md:col-span-7 flex flex-col gap-4 md:gap-5">
+                    {/* Top-right: Horizontal photo (reuse card image) */}
+                    <div className="aspect-[16/10] overflow-hidden">
+                      {cardImageSrc ? (
+                        <img
+                          src={cardImageSrc}
+                          alt={`${excursion.name} — landscape`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className={`w-full h-full flex items-center justify-center ${
+                          isDark ? "bg-emerald-900/30" : "bg-emerald-100/40"
+                        }`}>
+                          <span className={`text-xs tracking-[0.2em] uppercase ${
+                            isDark ? "text-[#f7f5f0]/20" : "text-emerald-900/20"
+                          }`} style={{ fontFamily: "var(--font-body)" }}>Photo coming soon</span>
+                        </div>
+                      )}
+                    </div>
 
-        <p
-          className={`text-sm leading-relaxed ${isDark ? "text-[#f7f5f0]/50" : "text-emerald-900/50"}`}
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-        >
-          {excursion.description}
-        </p>
-
-        {/* Expand/Collapse */}
-        <button
-          onClick={onToggle}
-          className={`mt-4 flex items-center gap-2 transition-colors ${
-            isDark
-              ? "text-emerald-400/60 hover:text-emerald-400"
-              : "text-emerald-700/60 hover:text-emerald-700"
-          }`}
-        >
-          <span
-            className="text-xs tracking-[0.2em] uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            {isExpanded ? "Less detail" : "More detail"}
-          </span>
-          <ChevronDown
-            className={`w-3.5 h-3.5 transition-transform duration-300 ${
-              isExpanded ? "rotate-180" : ""
-            }`}
-          />
-        </button>
-
-        <AnimatePresence>
-          {isExpanded && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden"
-            >
-              <div className={`pt-5 mt-5 border-t ${isDark ? "border-[#f7f5f0]/8" : "border-emerald-900/8"}`}>
-                {/* Vertical Video in expanded view — full width */}
-                {excursion.verticalVideo && (
-                  <div className="-mx-6 md:-mx-8 mb-6">
-                    <div className="w-full aspect-[9/16] overflow-hidden bg-black">
-                      <video
-                        key={excursion.verticalVideo}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-full object-cover"
-                      >
-                        <source src={excursion.verticalVideo} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                      </video>
+                    {/* Bottom-right: Square photo (placeholder) */}
+                    <div className="aspect-square overflow-hidden">
+                      {excursion.detailSquarePhoto ? (
+                        <img
+                          src={excursion.detailSquarePhoto}
+                          alt={`${excursion.name} — detail`}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className={`w-full h-full flex items-center justify-center ${
+                          isDark ? "bg-emerald-900/20" : "bg-emerald-100/30"
+                        }`}>
+                          <span className={`text-xs tracking-[0.2em] uppercase ${
+                            isDark ? "text-[#f7f5f0]/15" : "text-emerald-900/15"
+                          }`} style={{ fontFamily: "var(--font-body)" }}>Photo coming soon</span>
+                        </div>
+                      )}
                     </div>
                   </div>
-                )}
+                </div>
+              </div>
 
-                <p
-                  className={`text-xs tracking-[0.35em] uppercase mb-3 ${
-                    isDark ? "text-[#f7f5f0]/35" : "text-emerald-900/35"
-                  }`}
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                >
-                  Highlights
-                </p>
-                <ul className="space-y-2">
-                  {excursion.highlights.map((h, i) => (
-                    <li
-                      key={i}
-                      className={`flex items-start gap-2 text-sm ${
-                        isDark ? "text-[#f7f5f0]/50" : "text-emerald-900/50"
+              {/* Description Block */}
+              <div className="px-6 md:px-10 pb-8">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+                  {/* Left: text content */}
+                  <div className="md:col-span-7">
+                    <p
+                      className={`text-[10px] tracking-[0.35em] uppercase mb-3 ${
+                        isDark ? "text-[#f7f5f0]/35" : "text-emerald-900/35"
+                      }`}
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                    >
+                      Private Expedition
+                    </p>
+                    <h3
+                      className={`text-2xl md:text-3xl mb-4 ${
+                        isDark ? "text-[#f7f5f0]" : "text-emerald-950"
+                      }`}
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+                    >
+                      {excursion.name}
+                    </h3>
+                    <p
+                      className={`text-sm md:text-base leading-relaxed mb-6 ${
+                        isDark ? "text-[#f7f5f0]/50" : "text-[#7a7a7a]"
                       }`}
                       style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                     >
-                      <span className="w-1 h-1 rounded-full bg-emerald-600 mt-2 flex-shrink-0" />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
+                      {excursion.description}
+                    </p>
 
-                {/* Gallery */}
-                {excursion.gallery && excursion.gallery.length > 0 && (
-                  <div className="mt-5 flex gap-3 overflow-x-auto pb-2">
-                    {excursion.gallery.map((img, i) => (
-                      <img
-                        key={i}
-                        src={img}
-                        alt={`${excursion.name} ${i + 1}`}
-                        className="h-32 w-auto object-cover flex-shrink-0"
-                      />
-                    ))}
+                    {/* Highlights as bullet points */}
+                    <ul className="space-y-2 mb-6">
+                      {excursion.highlights.map((h, i) => (
+                        <li
+                          key={i}
+                          className={`flex items-start gap-2.5 text-sm ${
+                            isDark ? "text-[#f7f5f0]/45" : "text-[#7a7a7a]"
+                          }`}
+                          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+                        >
+                          <span className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 ${
+                            isDark ? "bg-[#f7f5f0]/25" : "bg-emerald-900/25"
+                          }`} />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* What to bring tip */}
+                    {excursion.whatToBring && (
+                      <p
+                        className={`text-xs italic mb-6 ${
+                          isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
+                        }`}
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+                      >
+                        {excursion.whatToBring}
+                      </p>
+                    )}
                   </div>
-                )}
 
-                {excursion.blogUrl && (
-                  <a
-                    href={excursion.blogUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-4 inline-flex items-center gap-2 transition-colors ${
-                      isDark
-                        ? "text-emerald-400 hover:text-emerald-300"
-                        : "text-emerald-700 hover:text-emerald-600"
-                    }`}
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    <span
-                      className="text-sm underline underline-offset-4"
-                      style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  {/* Right: vertical photo placeholder */}
+                  <div className="md:col-span-5">
+                    {excursion.detailVerticalPhoto ? (
+                      <div className="aspect-[3/4] overflow-hidden">
+                        <img
+                          src={excursion.detailVerticalPhoto}
+                          alt={`${excursion.name} — vertical`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className={`aspect-[3/4] flex items-center justify-center ${
+                        isDark ? "bg-emerald-900/15" : "bg-emerald-100/20"
+                      }`}>
+                        <span className={`text-xs tracking-[0.2em] uppercase ${
+                          isDark ? "text-[#f7f5f0]/12" : "text-emerald-900/12"
+                        }`} style={{ fontFamily: "var(--font-body)" }}>Photo coming soon</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Details Bar */}
+                <div className={`mt-8 pt-6 border-t grid grid-cols-2 md:grid-cols-4 gap-6 ${
+                  isDark ? "border-[#f7f5f0]/8" : "border-emerald-900/8"
+                }`}>
+                  <div>
+                    <p
+                      className={`text-[10px] tracking-[0.3em] uppercase mb-1 ${
+                        isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
+                      }`}
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                     >
-                      Explore more in our Journal
-                    </span>
-                  </a>
-                )}
+                      Difficulty
+                    </p>
+                    <p
+                      className={`text-sm font-medium ${
+                        isDark ? "text-[#f7f5f0]" : "text-emerald-950"
+                      }`}
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      {excursion.difficulty}
+                    </p>
+                  </div>
+                  <div>
+                    <p
+                      className={`text-[10px] tracking-[0.3em] uppercase mb-1 ${
+                        isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
+                      }`}
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                    >
+                      Duration
+                    </p>
+                    <p
+                      className={`text-sm font-medium ${
+                        isDark ? "text-[#f7f5f0]" : "text-emerald-950"
+                      }`}
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      {excursion.duration}
+                    </p>
+                    {excursion.distance && (
+                      <p
+                        className={`text-xs mt-0.5 ${
+                          isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
+                        }`}
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+                      >
+                        {excursion.distance}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <p
+                      className={`text-[10px] tracking-[0.3em] uppercase mb-1 ${
+                        isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
+                      }`}
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                    >
+                      Ages
+                    </p>
+                    <p
+                      className={`text-sm font-medium ${
+                        isDark ? "text-[#f7f5f0]" : "text-emerald-950"
+                      }`}
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      All ages
+                    </p>
+                  </div>
+                  {excursion.suggestedTime && (
+                    <div>
+                      <p
+                        className={`text-[10px] tracking-[0.3em] uppercase mb-1 ${
+                          isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
+                        }`}
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                      >
+                        Departures
+                      </p>
+                      <p
+                        className={`text-sm font-medium ${
+                          isDark ? "text-[#f7f5f0]" : "text-emerald-950"
+                        }`}
+                        style={{ fontFamily: "var(--font-body)" }}
+                      >
+                        {excursion.suggestedTime}
+                      </p>
+                    </div>
+                  )}
+                </div>
 
-                {/* Contact Concierge CTA */}
-                <div className={`mt-6 pt-5 border-t ${isDark ? "border-[#f7f5f0]/8" : "border-emerald-900/8"}`}>
+                {/* Speak to Concierge CTA */}
+                <div className="mt-8">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       toast("Our concierge team will be in touch to arrange your experience.");
                     }}
-                    className={`w-full flex items-center justify-center gap-2.5 py-3.5 px-6 transition-all duration-300 ${
+                    className={`w-full md:w-auto flex items-center justify-center gap-2.5 py-3.5 px-8 transition-all duration-300 ${
                       isDark
                         ? "bg-emerald-600 hover:bg-emerald-500 text-white"
                         : "bg-emerald-900 hover:bg-emerald-800 text-white"
@@ -854,15 +950,15 @@ function FeaturedExcursionCard({
                       className="text-xs tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                     >
-                      Contact Concierge to Reserve
+                      Speak to Concierge
                     </span>
                   </button>
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -897,28 +993,17 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p
-            className="text-emerald-700 text-xs tracking-[0.35em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Nayara Spa
-          </p>
           <h2
-            className="text-emerald-950 text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-6"
+            className="text-emerald-950 text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-3"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
-            Earth, Water
-            <br />
-            &amp; Rainforest
+            Explore Our Spa
           </h2>
           <p
-            className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
+            className="text-emerald-900/50 text-lg md:text-xl tracking-wide"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            Surrounded by the sounds of the jungle and the warmth of volcanic
-            hot springs, our spa offers treatments that draw from Costa Rica's
-            rich natural pharmacy — volcanic mud, organic coffee, tropical cacao,
-            and rainforest botanicals.
+            Earth, Water &amp; Rainforest
           </p>
         </motion.div>
 
