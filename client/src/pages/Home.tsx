@@ -92,8 +92,6 @@ const destinations: Destination[] = [
 ];
 
 export default function Home() {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       {/* Brand Navigation */}
@@ -104,24 +102,6 @@ export default function Home() {
 
       {/* Award-Winning Properties — editorial section below hero */}
       <AwardWinningProperties />
-
-      {/* Destinations Grid */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-          <div className="grid grid-cols-1 gap-0 border-t border-stone-200">
-            {destinations.map((dest, i) => (
-              <DestinationRow
-                key={dest.id}
-                destination={dest}
-                index={i}
-                isHovered={hoveredId === dest.id}
-                onHover={() => setHoveredId(dest.id)}
-                onLeave={() => setHoveredId(null)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
       <ExploreOurWorld />
       <Footer />
@@ -308,10 +288,10 @@ function HeroHeader() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide text-center"
+          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Luxury Rooted in Nature
+          Luxury Resorts Rooted in Nature
         </motion.h1>
       </div>
     </section>

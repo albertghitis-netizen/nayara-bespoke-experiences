@@ -11,6 +11,9 @@
 
 import { motion } from "framer-motion";
 
+const TEXTURE_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/botanical-texture-embossed-hig62x94aNi7TNioLbvtkE.webp";
+
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-tree-PiKqyUUYDRwvX8q8L5CDsH.png";
 
@@ -58,6 +61,17 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-[#f0ebe0]">
+      {/* Botanical texture */}
+      <div
+        className="absolute inset-0 opacity-[0.12]"
+        style={{
+          backgroundImage: `url(${TEXTURE_URL})`,
+          backgroundSize: "900px 900px",
+          backgroundRepeat: "repeat",
+          backgroundPosition: "center",
+        }}
+      />
+
       {/* Newsletter CTA — pulled up on desktop, sits between World of Nayara and footer columns */}
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-12 pb-0">
         <div className="flex justify-center mb-10 md:mb-12">

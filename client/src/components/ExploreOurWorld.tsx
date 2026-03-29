@@ -1,8 +1,8 @@
 /*
- * The World of Nayara — Clean section with extremely subtle animations
- * No texture. Warm cream background with gentle ambient motion.
+ * The World of Nayara — Textured section with subtle animations
+ * Botanical texture background. Warm cream base.
  * Desktop: leaf logo left-aligned, heading pushed way down
- * Mobile: centered layout unchanged
+ * Mobile: centered layout
  */
 
 import { useRef } from "react";
@@ -10,6 +10,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-tree-PiKqyUUYDRwvX8q8L5CDsH.png";
+
+const TEXTURE_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/botanical-texture-embossed-hig62x94aNi7TNioLbvtkE.webp";
 
 export default function ExploreOurWorld() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -35,6 +38,50 @@ export default function ExploreOurWorld() {
       {/* Warm cream base */}
       <div className="absolute inset-0 bg-[#f0ebe0]" />
 
+      {/* Botanical texture — grows in from edges */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0, scale: 1.15 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* Main texture layer */}
+        <div
+          className="absolute inset-0 opacity-[0.18]"
+          style={{
+            backgroundImage: `url(${TEXTURE_URL})`,
+            backgroundSize: "900px 900px",
+            backgroundRepeat: "repeat",
+            backgroundPosition: "center",
+          }}
+        />
+
+        {/* Larger accent layer — slow drift */}
+        <motion.div
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: `url(${TEXTURE_URL})`,
+            backgroundSize: "1400px 1400px",
+            backgroundRepeat: "repeat",
+          }}
+          animate={{
+            backgroundPosition: ["0px 0px", "30px 15px", "0px 0px"],
+          }}
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </motion.div>
+
+      {/* Soft vignette edges */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#f0ebe0] via-transparent to-[#f0ebe0] opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f0ebe0] via-transparent to-[#f0ebe0] opacity-30" />
+      </div>
+
       {/* Extremely subtle ambient warm glow that drifts with scroll */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
@@ -48,15 +95,9 @@ export default function ExploreOurWorld() {
         />
       </motion.div>
 
-      {/* Very subtle top/bottom edge fade for depth */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#f0ebe0] to-transparent opacity-60" />
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#f0ebe0] to-transparent opacity-60" />
-      </div>
-
       {/* Content */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
-        {/* ── MOBILE: centered layout (unchanged) ── */}
+        {/* ── MOBILE: centered layout ── */}
         <div className="md:hidden text-center">
           {/* Leaf logo — centered on mobile */}
           <motion.div
