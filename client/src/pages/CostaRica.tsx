@@ -170,7 +170,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
             >
               <span
                 className={`text-xs tracking-[0.35em] uppercase transition-colors duration-500 ${
-                  scrolled ? "text-emerald-800/60" : "text-white/70"
+                  scrolled ? "text-emerald-800/60" : "text-white/0"
                 }`}
                 style={{ fontFamily: "var(--font-body)" }}
               >
@@ -178,7 +178,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
               </span>
               <span
                 className={`text-lg font-medium tracking-wide transition-colors duration-500 ${
-                  scrolled ? "text-emerald-900" : "text-white"
+                  scrolled ? "text-emerald-900" : "text-white/0"
                 }`}
                 style={{ fontFamily: "var(--font-display)" }}
               >
@@ -320,29 +320,6 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
           volcanic hot springs. Discover excursions, wellness rituals, and
           adventures in one of the most biodiverse regions on Earth.
         </motion.p>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2 }}
-          className="mt-12 flex items-center gap-3"
-        >
-          <div className="w-px h-10 bg-white/30 relative overflow-hidden">
-            <motion.div
-              className="w-full bg-emerald-300"
-              animate={{ height: ["0%", "100%", "0%"] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-              style={{ position: "absolute", top: 0 }}
-            />
-          </div>
-          <span
-            className="text-white/50 text-xs tracking-[0.2em] uppercase"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Scroll to explore
-          </span>
-        </motion.div>
       </div>
     </section>
   );
