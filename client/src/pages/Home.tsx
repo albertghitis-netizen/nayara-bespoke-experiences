@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { MapPin, ArrowRight, ChevronDown } from "lucide-react";
+import BlobVideo from "@/components/BlobVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 
 interface Destination {
   id: string;
@@ -145,22 +147,38 @@ export default function Home() {
    HERO HEADER
    ═══════════════════════════════════════════════════════════════ */
 function HeroHeader() {
+  const isMobile = useIsMobile();
+  const heroVideo = isMobile
+    ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-resorts-hero-vertical-opt_5a7653e6.mp4"
+    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-resorts-hero-vertical-opt_5a7653e6.mp4"; // TODO: replace with horizontal version when available
+
   return (
-    <section className="relative pt-20 md:pt-32 pb-8 md:pb-12">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0">
+        <BlobVideo
+          src={heroVideo}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-28 px-6 md:px-10 max-w-[1400px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <p
-            className="text-stone-400 text-xs tracking-[0.35em] uppercase mb-6"
+            className="text-white/70 text-xs tracking-[0.35em] uppercase mb-6"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             Nayara Resorts
           </p>
           <h1
-            className="text-stone-800 text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight mb-8"
+            className="text-white text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight mb-8"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
             Bespoke
@@ -168,12 +186,11 @@ function HeroHeader() {
             Experiences
           </h1>
           <p
-            className="text-stone-500 text-base md:text-lg max-w-2xl leading-relaxed mb-4"
+            className="text-white/70 text-base md:text-lg max-w-2xl leading-relaxed mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            Curated excursions, wellness rituals, and adventures across four
-            extraordinary destinations. Each property offers a world of its own —
-            choose yours.
+            From desert to rainforest to reef — curated excursions, wellness
+            rituals, and adventures across four extraordinary destinations.
           </p>
         </motion.div>
 
@@ -184,19 +201,19 @@ function HeroHeader() {
           transition={{ duration: 1, delay: 1.5 }}
           className="mt-12 flex items-center gap-3"
         >
-          <div className="w-px h-8 bg-stone-300 relative overflow-hidden">
+          <div className="w-px h-8 bg-white/30 relative overflow-hidden">
             <motion.div
-              className="w-full bg-stone-500"
+              className="w-full bg-white/60"
               animate={{ height: ["0%", "100%", "0%"] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               style={{ position: "absolute", top: 0 }}
             />
           </div>
           <span
-            className="text-stone-400 text-xs tracking-[0.2em] uppercase"
+            className="text-white/60 text-xs tracking-[0.2em] uppercase"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Choose a destination
+            Choose Desert, Rainforest, or Reef
           </span>
         </motion.div>
       </div>

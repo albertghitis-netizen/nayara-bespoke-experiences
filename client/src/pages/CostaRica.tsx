@@ -38,6 +38,7 @@ import {
   type BlogLink,
 } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
+import BlobVideo from "@/components/BlobVideo";
 
 const tentedCamp = properties.find((p) => p.id === "tented-camp")!;
 const gardens = properties.find((p) => p.id === "gardens")!;
@@ -282,16 +283,10 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
     >
       {/* Video Background */}
       <div className="absolute inset-0">
-        <video
-          key={heroVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
+        <BlobVideo
+          src={heroVideo}
           className="w-full h-full object-cover"
-        >
-          <source src={heroVideo} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-        </video>
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
@@ -398,13 +393,13 @@ function PropertyIntro() {
             className="text-emerald-700 text-xs tracking-[0.35em] uppercase mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            Three Properties, One Destination
+            Three Rainforest Properties, One Destination
           </p>
           <h2
             className="text-emerald-950 text-3xl md:text-4xl lg:text-5xl leading-[1.1] mb-6 max-w-3xl"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
-            The Arenal Volcano region is home to three distinct Nayara experiences
+            The Arenal Volcano National Park is home to three distinct Nayara Properties
           </h2>
           <p
             className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
@@ -1015,15 +1010,11 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-10 h-64 md:h-96 overflow-hidden"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/spa-kids-robes_57409a94.jpg"
+            alt="Nayara Spa experience"
             className="w-full h-full object-cover"
-          >
-            <source src={CDN.spa} type="video/mp4" />
-          </video>
+          />
         </motion.div>
 
         {/* Category Filter */}

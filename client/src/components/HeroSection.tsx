@@ -8,9 +8,10 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { useIsMobile } from "@/hooks/useMobile";
+import BlobVideo from "@/components/BlobVideo";
 
 const VIDEO_DESKTOP =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Atacama_horizontal_1_20260320_142142_8751bdb3.mov";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-new_42efa04c.mp4";
 const VIDEO_MOBILE =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-vertical-new_1e1453e7.mp4";
 const POSTER =
@@ -39,18 +40,11 @@ export default function HeroSection({ onInView }: HeroSectionProps) {
     >
       {/* Video Background */}
       <div className="absolute inset-0">
-        <video
-          key={videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
+        <BlobVideo
+          src={videoSrc}
           className="w-full h-full object-cover"
           poster={POSTER}
-        >
-          <source src={videoSrc} type={isMobile ? "video/mp4" : "video/quicktime"} />
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+        />
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
