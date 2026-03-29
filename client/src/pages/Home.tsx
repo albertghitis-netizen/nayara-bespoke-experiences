@@ -61,7 +61,7 @@ function BrandNavigation() {
   };
 
   /* Sections that get property dropdowns */
-  const dropdownSections = ["Experiences", "Wellness", "Sustainability"];
+  const dropdownSections = ["Experiences", "Wellness"];
 
   return (
     <>
@@ -209,6 +209,19 @@ function BrandNavigation() {
                   </AnimatePresence>
                 </div>
               ))}
+
+              {/* Sustainability — coming soon */}
+              <button
+                onClick={() => handleComingSoon("Sustainability")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span
+                  className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                >
+                  Sustainability
+                </span>
+              </button>
 
               {/* Awards — direct link */}
               <button
