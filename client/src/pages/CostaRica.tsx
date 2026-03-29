@@ -29,6 +29,8 @@ import {
   Mountain,
   Star,
   MessageCircle,
+  Menu,
+  X,
 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -144,126 +146,118 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
   };
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="flex items-center justify-between h-20">
-          {/* Back + Brand */}
-          <div className="flex items-center gap-4">
-            <Link
-              href="/"
-              className={`transition-colors duration-500 ${
-                scrolled ? "text-emerald-800" : "text-white/80"
-              } hover:text-emerald-500`}
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </Link>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex flex-col items-start"
-            >
-              <span
-                className={`text-xs tracking-[0.35em] uppercase transition-colors duration-500 ${
-                  scrolled ? "text-emerald-800/60" : "text-white/0"
-                }`}
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Nayara Arenal
-              </span>
-              <span
-                className={`text-lg font-medium tracking-wide transition-colors duration-500 ${
-                  scrolled ? "text-emerald-900" : "text-white/0"
-                }`}
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Bespoke Experiences
-              </span>
-            </button>
-          </div>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-10">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id, item.label)}
-                className={`text-sm tracking-[0.2em] uppercase transition-all duration-300 ${
-                  scrolled
-                    ? activeSection === item.id
-                      ? "text-emerald-700"
-                      : "text-emerald-900/60 hover:text-emerald-900"
-                    : activeSection === item.id
-                    ? "text-emerald-300"
-                    : "text-white/60 hover:text-white"
-                }`}
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
+    <>
+      {/* Sticky top bar — hamburger left, reserve right */}
+      <motion.header
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="flex items-center justify-between px-6 md:px-10 h-16">
+          {/* Hamburger — far left */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`md:hidden flex flex-col gap-1.5 p-2 transition-colors ${
-              scrolled ? "text-emerald-900" : "text-white"
-            }`}
+            className={`p-2 rounded-full transition-all duration-300 ${
+              scrolled
+                ? "text-emerald-900 bg-white/80 backdrop-blur-sm shadow-sm"
+                : "text-white bg-black/20 backdrop-blur-sm"
+            } hover:scale-105`}
+            aria-label="Menu"
           >
-            <span
-              className={`block w-6 h-px transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
-              } ${scrolled ? "bg-emerald-900" : "bg-white"}`}
-            />
-            <span
-              className={`block w-6 h-px transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
-              } ${scrolled ? "bg-emerald-900" : "bg-white"}`}
-            />
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+
+          {/* Reserve — far right */}
+          <button
+            onClick={() => toast("Reservation — Coming Soon")}
+            className="px-5 py-2 text-xs tracking-[0.2em] uppercase font-medium rounded-full transition-all duration-300 hover:scale-105 bg-emerald-800 text-white hover:bg-emerald-700 shadow-lg"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            Reserve
           </button>
         </div>
-      </div>
+      </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Slide-out menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#f7f5f0]/98 backdrop-blur-md border-t border-emerald-900/10"
-          >
-            <div className="px-6 py-6 flex flex-col gap-4">
-              <Link
-                href="/"
-                className="text-left text-sm tracking-[0.2em] uppercase text-emerald-800/70 hover:text-emerald-700 transition-colors"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                ← All Properties
-              </Link>
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id, item.label)}
-                  className="text-left text-sm tracking-[0.2em] uppercase text-emerald-900/70 hover:text-emerald-700 transition-colors"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"
+              onClick={() => setMenuOpen(false)}
+            />
+            {/* Menu panel */}
+            <motion.nav
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed top-0 left-0 bottom-0 z-50 w-80 bg-[#f7f5f0] shadow-2xl"
+            >
+              <div className="flex flex-col h-full">
+                {/* Menu header */}
+                <div className="flex items-center justify-between px-6 h-16 border-b border-emerald-900/10">
+                  <span
+                    className="text-sm tracking-[0.2em] uppercase text-emerald-900/60"
+                    style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
+                  >
+                    Nayara Arenal
+                  </span>
+                  <button
+                    onClick={() => setMenuOpen(false)}
+                    className="p-2 text-emerald-900/60 hover:text-emerald-900 transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Menu items */}
+                <div className="flex-1 px-6 py-8 flex flex-col gap-6">
+                  <Link
+                    href="/"
+                    className="text-sm tracking-[0.15em] uppercase text-emerald-900/70 hover:text-emerald-700 transition-colors"
+                    style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
+                  >
+                    ← All Properties
+                  </Link>
+                  <div className="w-8 h-px bg-emerald-900/10" />
+                  {navItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => handleNavClick(item.id, item.label)}
+                      className={`text-left text-sm tracking-[0.15em] uppercase transition-colors ${
+                        activeSection === item.id
+                          ? "text-emerald-700 font-semibold"
+                          : "text-emerald-900/60 hover:text-emerald-900"
+                      }`}
+                      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Menu footer */}
+                <div className="px-6 py-6 border-t border-emerald-900/10">
+                  <button
+                    onClick={() => { toast("Reservation — Coming Soon"); setMenuOpen(false); }}
+                    className="w-full py-3 text-xs tracking-[0.2em] uppercase font-medium rounded-full bg-emerald-800 text-white hover:bg-emerald-700 transition-colors"
+                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                  >
+                    Reserve
+                  </button>
+                </div>
+              </div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }
 
@@ -318,37 +312,40 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
    ═══════════════════════════════════════════════════════════════ */
 function PropertyIntro() {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
-      {/* Botanical texture background */}
+    <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#f0ebe0' }}>
+      {/* Subtle botanical texture — right side only, very soft */}
       <div
-        className="absolute inset-0 opacity-[0.12]"
+        className="absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage: `url(https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/botanical-texture-embossed-hig62x94aNi7TNioLbvtkE.webp)`,
-          backgroundSize: "800px 800px",
-          backgroundRepeat: "repeat",
-          backgroundPosition: "center",
+          backgroundSize: "900px 900px",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "right center",
         }}
       />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-xl"
         >
-          <p
-            className="text-emerald-700 text-xs tracking-[0.35em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          <h2
+            className="text-[#4a4a4a] text-2xl md:text-3xl font-bold mb-5"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            Three Properties, One Rainforest
-          </p>
+            Three Resorts. One Rainforest.
+          </h2>
           <p
-            className="text-emerald-900/50 text-base md:text-lg max-w-2xl leading-relaxed"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            className="text-[#7a7a7a] text-base md:text-[17px] leading-relaxed"
+            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400 }}
           >
-            All experience and wellness offerings are available to guests at any of our
-            three properties: Nayara Gardens, Nayara Springs & Nayara Tented Camp.
-            Choose your accommodation style — the adventures are shared.
+            Across Nayara Gardens, Nayara Springs, and Nayara
+            Tented Camp, the rainforest becomes a shared landscape
+            of experiences. Guests move freely between the three,
+            opening access to a broader range of guided nature tours,
+            curated adventure, and nature-based wellness rituals.
           </p>
         </motion.div>
       </div>
