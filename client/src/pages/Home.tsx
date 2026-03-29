@@ -268,15 +268,6 @@ function BrandNavigation() {
 /* ═══════════════════════════════════════════════════════════════
    HERO HEADER — "Rooted in Nature" + six hotel names centered
    ═══════════════════════════════════════════════════════════════ */
-const hotelNames = [
-  "Alto Atacama",
-  "Gardens",
-  "Springs",
-  "Tented Camp",
-  "Hangaroa",
-  "Bocas del Toro",
-];
-
 function HeroHeader() {
   const isMobile = useIsMobile();
   const heroVideo = isMobile
@@ -294,36 +285,17 @@ function HeroHeader() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      {/* Content — vertically centered */}
-      <div className="relative z-10 h-full flex flex-col justify-center items-center px-6 md:px-10">
-        {/* "Rooted in Nature" */}
+      {/* Content — anchored to bottom */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide text-center mb-12 md:mb-16"
+          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Rooted in Nature
+          Luxury Rooted in Nature
         </motion.h1>
-
-        {/* Six hotel names — centered row */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-wrap justify-center items-center gap-x-6 md:gap-x-10 gap-y-3"
-        >
-          {hotelNames.map((name, i) => (
-            <span
-              key={name}
-              className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase hover:text-white transition-colors duration-300 cursor-default"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              {name}
-            </span>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
