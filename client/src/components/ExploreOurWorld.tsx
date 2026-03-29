@@ -1,10 +1,15 @@
 /*
- * Explore Our World — Clean section with extremely subtle animations
+ * The World of Nayara — Clean section with extremely subtle animations
  * No texture. Warm cream background with gentle ambient motion.
+ * Desktop: leaf logo left-aligned, heading pushed way down
+ * Mobile: centered layout unchanged
  */
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+
+const LOGO_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-tree-PiKqyUUYDRwvX8q8L5CDsH.png";
 
 export default function ExploreOurWorld() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -25,7 +30,7 @@ export default function ExploreOurWorld() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-28 md:py-40"
+      className="relative overflow-hidden py-28 md:py-48 lg:py-56"
     >
       {/* Warm cream base */}
       <div className="absolute inset-0 bg-[#f0ebe0]" />
@@ -50,45 +55,113 @@ export default function ExploreOurWorld() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 text-center">
-        <motion.h2
-          style={{ y: headingY }}
-          className="text-[#3a2a1a] text-5xl md:text-7xl lg:text-[5.5rem] flex flex-wrap justify-center gap-x-[0.3em]"
-          aria-label="The World of Nayara"
-        >
-          {words.map((word, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{
-                duration: 1.0,
-                delay: 0.15 + i * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 400,
-                lineHeight: 1.05,
-                display: "inline-block",
-              }}
-            >
-              {word}
-            </motion.span>
-          ))}
-        </motion.h2>
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
+        {/* ── MOBILE: centered layout (unchanged) ── */}
+        <div className="md:hidden text-center">
+          {/* Leaf logo — centered on mobile */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-8"
+          >
+            <img src={LOGO_URL} alt="" className="w-16 mx-auto opacity-30" />
+          </motion.div>
 
-        {/* Subtle decorative line that draws in */}
-        <motion.div
-          className="mx-auto mt-8"
-          initial={{ width: 0, opacity: 0 }}
-          whileInView={{ width: 60, opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="h-px bg-[#3a2a1a]/20 w-full" />
-        </motion.div>
+          <motion.h2
+            style={{ y: headingY }}
+            className="text-[#3a2a1a] text-5xl flex flex-wrap justify-center gap-x-[0.3em]"
+            aria-label="The World of Nayara"
+          >
+            {words.map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{
+                  duration: 1.0,
+                  delay: 0.15 + i * 0.12,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 400,
+                  lineHeight: 1.05,
+                  display: "inline-block",
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h2>
+
+          {/* Subtle decorative line */}
+          <motion.div
+            className="mx-auto mt-8"
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: 60, opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="h-px bg-[#3a2a1a]/20 w-full" />
+          </motion.div>
+        </div>
+
+        {/* ── DESKTOP: leaf left, heading pushed way down ── */}
+        <div className="hidden md:block">
+          {/* Leaf logo — left-aligned */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-24 lg:mb-32"
+          >
+            <img src={LOGO_URL} alt="" className="w-20 lg:w-24 opacity-25" />
+          </motion.div>
+
+          {/* Heading — pushed way down, centered */}
+          <motion.h2
+            style={{ y: headingY }}
+            className="text-[#3a2a1a] text-7xl lg:text-[5.5rem] flex flex-wrap justify-center gap-x-[0.3em]"
+            aria-label="The World of Nayara"
+          >
+            {words.map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{
+                  duration: 1.0,
+                  delay: 0.15 + i * 0.12,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 400,
+                  lineHeight: 1.05,
+                  display: "inline-block",
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h2>
+
+          {/* Subtle decorative line */}
+          <motion.div
+            className="mx-auto mt-8"
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: 60, opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1.4, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="h-px bg-[#3a2a1a]/20 w-full" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

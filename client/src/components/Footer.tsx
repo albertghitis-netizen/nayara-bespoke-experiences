@@ -4,8 +4,8 @@
  * Left: page links + Press/Journal/Podcast
  * Center: all 6 hotels flat
  * Right: contact (email + phones)
- * Newsletter CTA centered, smaller
- * Nayara logo aligned with columns
+ * Newsletter CTA centered, smaller — pulled up on desktop
+ * Nayara leaf logo left-aligned on desktop
  * Phone format: (844) 865-2002 and (506) 2479-1600
  */
 
@@ -58,8 +58,22 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-[#f0ebe0]">
+      {/* Newsletter CTA — pulled up on desktop, sits between World of Nayara and footer columns */}
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-12 pb-0">
+        <div className="flex justify-center mb-10 md:mb-12">
+          <a
+            href="#"
+            onClick={handlePlaceholder("Newsletter")}
+            className="inline-flex items-center gap-2 text-[#5a4a3a] text-xs tracking-[0.08em] border border-[#5a4a3a]/25 rounded-full px-6 py-2.5 hover:bg-[#5a4a3a] hover:text-[#f0ebe0] transition-all duration-300"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+          >
+            Stay Inspired with the Nayara Newsletter
+          </a>
+        </div>
+      </div>
+
       {/* Main footer content — tight padding */}
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-12 pb-8 md:pt-16 md:pb-10">
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pb-8 md:pb-10">
         {/* Nayara logo — left-aligned on desktop, centered on mobile */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -157,18 +171,6 @@ export default function Footer() {
               (506) 2479-1600
             </a>
           </div>
-        </div>
-
-        {/* Newsletter CTA — centered, smaller */}
-        <div className="flex justify-center mt-10 md:mt-12">
-          <a
-            href="#"
-            onClick={handlePlaceholder("Newsletter")}
-            className="inline-flex items-center gap-2 text-[#5a4a3a] text-xs tracking-[0.08em] border border-[#5a4a3a]/25 rounded-full px-6 py-2.5 hover:bg-[#5a4a3a] hover:text-[#f0ebe0] transition-all duration-300"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Stay Inspired with the Nayara Newsletter
-          </a>
         </div>
       </div>
 
