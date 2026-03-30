@@ -6,6 +6,7 @@
  */
 
 import { motion } from "framer-motion";
+import { WordReveal, AnimatedDivider, StaggerContainer, staggerChildVariants } from "@/components/AnimationUtils";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowLeft } from "lucide-react";
@@ -204,16 +205,11 @@ function IntroSection() {
           <AwardBadgeStrip property="tented-camp" />
         </div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+        <WordReveal
+          text="A Luxury Tented Camp in Costa Rica"
+          tag="h2"
           className="text-[#3a2a1a] text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-        >
-          A Luxury Tented Camp in Costa Rica
-        </motion.h2>
+        />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -294,12 +290,11 @@ function AccommodationsSection() {
           >
             Accommodations
           </span>
-          <h2
+          <WordReveal
+            text="Luxury Tented Suites"
+            tag="h2"
             className="text-[#3a2a1a] text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Luxury Tented Suites
-          </h2>
+          />
           <p
             className="text-[#5a4a3a]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: "var(--font-body)" }}
@@ -308,14 +303,13 @@ function AccommodationsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {suites.map((suite, i) => (
+        <AnimatedDivider className="my-8" />
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {suites.map((suite) => (
             <motion.div
               key={suite.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.15 }}
+              variants={staggerChildVariants}
               className="border border-[#5a4a3a]/10 p-6 md:p-8"
             >
               <h3
@@ -338,7 +332,7 @@ function AccommodationsSection() {
               </p>
             </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

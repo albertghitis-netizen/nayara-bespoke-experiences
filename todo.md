@@ -155,6 +155,6 @@
 
 ## Bold Animations (site-wide)
 - [x] Award badge entrance animations (scale-in, staggered reveal)
-- [ ] Add parallax and reveal animations to remaining property pages
-- [ ] Add image zoom/Ken Burns effects to property page sections
-- [ ] Add scroll-triggered section transitions across all pages
+- [x] Add parallax and reveal animations to remaining property pages (Springs, TentedCamp, Hangaroa, BocasDelToro, Gardens)
+- [x] Add image zoom/Ken Burns effects to property page sections
+- [x] Add scroll-triggered section transitions across all pages (WordReveal, AnimatedDivider, StaggerContainer)

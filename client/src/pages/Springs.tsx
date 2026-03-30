@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowLeft, Droplets, Flame, Star, Heart, Leaf, Sparkles } from "lucide-react";
+import { KenBurnsImage, WordReveal, AnimatedDivider, StaggerContainer, staggerChildVariants } from "@/components/AnimationUtils";
 import { toast } from "sonner";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -320,14 +321,11 @@ function IntroSection() {
           >
             Adults Only &middot; 3 Michelin Keys
           </p>
-          <h2
+          <WordReveal
+            text="Where Volcanic Warmth Meets Rainforest Serenity"
+            tag="h2"
             className="text-[#3a2a1a] text-2xl md:text-4xl leading-snug mb-8"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Where Volcanic Warmth Meets{" "}
-            <br className="hidden md:block" />
-            Rainforest Serenity
-          </h2>
+          />
           <p
             className="text-[#5a4a3a]/80 text-base md:text-lg leading-relaxed max-w-2xl mx-auto"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
@@ -447,14 +445,13 @@ function VillasSection() {
               transition={{ duration: 0.6, delay: i * 0.15 }}
               className="group"
             >
-              <div className="aspect-[4/3] overflow-hidden rounded-sm mb-5">
-                <img
-                  src={villa.image}
-                  alt={villa.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
+              <KenBurnsImage
+                src={villa.image}
+                alt={villa.name}
+                className="aspect-[4/3] rounded-sm mb-5"
+                duration={18}
+                scale={1.08}
+              />
               <p
                 className="text-[#3a2a1a]/40 text-[9px] tracking-[0.3em] uppercase mb-2"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
@@ -517,22 +514,20 @@ function HighlightsSection() {
           >
             The Experience
           </p>
-          <h2
+          <WordReveal
+            text="The Springs Difference"
+            tag="h2"
             className="text-[#3a2a1a] text-2xl md:text-4xl"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            The Springs Difference
-          </h2>
+          />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {highlights.map((item, i) => (
+        <AnimatedDivider className="my-8" />
+
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {highlights.map((item) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              variants={staggerChildVariants}
               className="group"
             >
               <item.icon className="w-6 h-6 text-emerald-700/60 mb-4" strokeWidth={1.5} />
@@ -550,7 +545,7 @@ function HighlightsSection() {
               </p>
             </motion.div>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

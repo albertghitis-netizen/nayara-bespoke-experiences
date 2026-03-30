@@ -7,6 +7,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { KenBurnsImage, WordReveal, AnimatedDivider } from "@/components/AnimationUtils";
 import { Link } from "wouter";
 import {
   ArrowLeft,
@@ -394,12 +395,11 @@ function IntroSection() {
             Rapa Nui · Te Pito o Te Henua
           </p>
 
-          <h2
+          <WordReveal
+            text="At the Navel of the World"
+            tag="h2"
             className="text-stone-800 text-3xl md:text-4xl lg:text-5xl leading-[1.15] mb-8"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            At the Navel of the World
-          </h2>
+          />
 
           <div className="mb-10">
             <AwardBadgeStrip property="hangaroa" />
@@ -455,13 +455,13 @@ function TheProperty() {
         >
           {/* Image grid */}
           <div className="grid md:grid-cols-3 gap-3 mb-16">
-            <div className="md:col-span-2 aspect-[16/9] overflow-hidden">
-              <img
-                src={CDN.pool}
-                alt="Hangaroa pool with ocean views"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+            <KenBurnsImage
+              src={CDN.pool}
+              alt="Hangaroa pool with ocean views"
+              className="md:col-span-2 aspect-[16/9]"
+              duration={20}
+              scale={1.08}
+            />
             <div className="grid grid-rows-2 gap-3">
               <div className="overflow-hidden">
                 <img
@@ -479,6 +479,8 @@ function TheProperty() {
               </div>
             </div>
           </div>
+
+          <AnimatedDivider className="my-10" />
 
           {/* Feature stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">

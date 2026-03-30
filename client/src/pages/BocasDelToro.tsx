@@ -7,6 +7,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { KenBurnsImage, WordReveal, AnimatedDivider } from "@/components/AnimationUtils";
 import { Link } from "wouter";
 import {
   Menu,
@@ -392,12 +393,11 @@ function IntroSection() {
             Isla Colón · Bocas del Toro Archipelago
           </p>
 
-          <h2
+          <WordReveal
+            text="Where the Jungle Meets the Sea"
+            tag="h2"
             className="text-stone-800 text-3xl md:text-4xl lg:text-5xl leading-[1.15] mb-8"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Where the Jungle Meets the Sea
-          </h2>
+          />
 
           <div className="mb-10">
             <AwardBadgeStrip property="bocas-del-toro" />
@@ -453,13 +453,13 @@ function OverwaterLiving() {
         >
           {/* Image grid */}
           <div className="grid md:grid-cols-3 gap-3 mb-16">
-            <div className="md:col-span-2 aspect-[16/9] overflow-hidden">
-              <img
-                src={CDN.overwater}
-                alt="Overwater bungalows at Bocas del Toro"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
+            <KenBurnsImage
+              src={CDN.overwater}
+              alt="Overwater bungalows at Bocas del Toro"
+              className="md:col-span-2 aspect-[16/9]"
+              duration={20}
+              scale={1.08}
+            />
             <div className="grid grid-rows-2 gap-3">
               <div className="overflow-hidden">
                 <img
@@ -477,6 +477,8 @@ function OverwaterLiving() {
               </div>
             </div>
           </div>
+
+          <AnimatedDivider className="my-10" />
 
           {/* Feature stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
