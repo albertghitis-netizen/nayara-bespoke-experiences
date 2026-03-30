@@ -25,20 +25,4 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-/* ═══════════════════════════════════════════
-   LEADS TABLE — Chatbot lead capture
-   Stores name + email collected during chat
-   ═══════════════════════════════════════════ */
-export const leads = mysqlTable("leads", {
-  id: int("id").autoincrement().primaryKey(),
-  name: text("name"),
-  email: varchar("email", { length: 320 }).notNull(),
-  source: varchar("source", { length: 64 }).default("chatbot").notNull(),
-  channel: varchar("channel", { length: 64 }).default("website").notNull(),
-  propertyInterest: text("propertyInterest"),
-  notes: text("notes"),
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-});
-
-export type Lead = typeof leads.$inferSelect;
-export type InsertLead = typeof leads.$inferInsert;
+// TODO: Add your tables here

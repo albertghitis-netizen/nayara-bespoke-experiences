@@ -13,7 +13,6 @@ import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import AwardWinningProperties from "@/components/AwardWinningProperties";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
-import Footer from "@/components/Footer";
 /* SynXis booking URLs */
 const BOOKING_URL =
   "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30";
@@ -27,11 +26,9 @@ const BOCAS_BOOKING_URL =
 /* ── Property menu links ── */
 const propertyLinks = [
   { label: "Nayara Alto Atacama", route: "/alto-atacama", available: true },
-  { label: "Nayara Gardens", route: "/gardens", available: true },
-  { label: "Nayara Springs", route: "/springs", available: true },
-  { label: "Nayara Tented Camp", route: "/tented-camp", available: true },
-  { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
-  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true },
+  { label: "Nayara Arenal", route: "/arenal", available: true },
+  { label: "Nayara Hangaroa", route: "/hangaroa", available: false },
+  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: false },
 ];
 
 /* ── Hotel booking links for Reserve dropdown ── */
@@ -69,7 +66,7 @@ export default function Home() {
       <HeroHeader />
       <AwardWinningProperties />
       <ExploreOurWorld />
-      <Footer />
+
     </div>
   );
 }
@@ -210,7 +207,7 @@ function BrandNavigation() {
 
                   {/* Gallery */}
                   <button
-                    onClick={() => handleNavigate("/gallery")}
+                    onClick={() => handleComingSoon("Gallery")}
                     className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
                   >
                     <span
@@ -294,35 +291,9 @@ function BrandNavigation() {
                   {/* Divider */}
                   <div className="mx-5 my-1 h-px bg-white/10" />
 
-                  {/* Experiences */}
-                  <button
-                    onClick={() => handleNavigate("/experiences")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
-                  >
-                    <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Experiences
-                    </span>
-                  </button>
-
-                  {/* Wellness */}
-                  <button
-                    onClick={() => handleNavigate("/wellness")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
-                  >
-                    <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Wellness
-                    </span>
-                  </button>
-
                   {/* Sustainability */}
                   <button
-                    onClick={() => handleNavigate("/sustainability")}
+                    onClick={() => handleComingSoon("Sustainability")}
                     className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
                   >
                     <span
@@ -343,19 +314,6 @@ function BrandNavigation() {
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Awards
-                    </span>
-                  </button>
-
-                  {/* Press */}
-                  <button
-                    onClick={() => handleNavigate("/press")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
-                  >
-                    <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Press
                     </span>
                   </button>
 
@@ -509,11 +467,9 @@ function BrandNavigation() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroHeader() {
   const isMobile = useIsMobile();
-  /* Desktop: horizontal Arenal volcano video (3.4MB mp4)
-     Mobile: vertical landing video (compressed mp4) */
   const heroVideo = isMobile
     ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4";
+    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/landing-desktop-horizontal_471d1062.mov";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">

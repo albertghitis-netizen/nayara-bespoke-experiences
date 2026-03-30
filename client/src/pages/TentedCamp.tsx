@@ -30,9 +30,6 @@ export default function TentedCamp() {
       <HeroSection />
       <IntroSection />
       <HighlightsSection />
-      <AccommodationsSection />
-      <DiningSection />
-      <SustainabilitySection />
       <ExploreOurWorld />
       <Footer />
     </div>
@@ -114,19 +111,12 @@ function TentedCampNav() {
               </span>
             </button>
 
-            {[
-              { label: "About", action: () => handleNavClick("about") },
-              { label: "Accommodations", action: () => handleNavClick("accommodations") },
-              { label: "Experiences", action: () => { setMenuOpen(false); navigate("/experiences"); } },
-              { label: "Wellness", action: () => { setMenuOpen(false); navigate("/wellness"); } },
-              { label: "Dining", action: () => handleNavClick("dining") },
-              { label: "Sustainability", action: () => handleNavClick("sustainability") },
-            ].map((item) => (
+            {["About", "Accommodations", "Experiences", "Wellness", "Dining"].map((label) => (
               <button
-                key={item.label}
+                key={label}
                 onClick={() => {
-                  item.action();
                   setMenuOpen(false);
+                  toast(label + " — Coming Soon");
                 }}
                 className="block w-full text-left py-4 border-b border-stone-200"
               >
@@ -134,7 +124,7 @@ function TentedCampNav() {
                   className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
-                  {item.label}
+                  {label}
                 </span>
               </button>
             ))}
@@ -196,7 +186,7 @@ function IntroSection() {
             className="inline-block text-[10px] tracking-[0.3em] uppercase text-[#5a4a3a]/50 border border-[#5a4a3a]/20 px-4 py-2"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
-            Travel + Leisure Best Resort in Central America — 4 of the Last 5 Years
+            No. 1 Resort in Central America — Four Consecutive Years
           </span>
         </motion.div>
 
@@ -208,7 +198,7 @@ function IntroSection() {
           className="text-[#3a2a1a] text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          A Luxury Tented Camp in Costa Rica
+          Luxury Glamping in Costa Rica
         </motion.h2>
 
         <motion.p
@@ -252,297 +242,6 @@ function IntroSection() {
 /* ═══════════════════════════════════════════════════════════════
    HIGHLIGHTS — Three cards: Tents, Adventure, Spa
    ═══════════════════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════════════════════
-   ACCOMMODATIONS — Tented suites with hot spring plunge pools
-   ═══════════════════════════════════════════════════════════════ */
-function AccommodationsSection() {
-  const suites = [
-    {
-      name: "Nayara Tent",
-      description: "Elevated open-air tented suite with private volcanic hot spring plunge pool, outdoor shower, and panoramic rainforest views. King bed, indoor-outdoor living.",
-      size: "1,012 sq ft",
-    },
-    {
-      name: "Nayara Love Tent",
-      description: "Our most romantic accommodation. A secluded two-level tent with private hot spring pool, outdoor bathtub, and a suspended bridge entrance through the canopy.",
-      size: "1,200 sq ft",
-    },
-    {
-      name: "Nayara Family Tent",
-      description: "Spacious two-bedroom tented suite designed for families. Two private hot spring plunge pools, separate living area, and connecting walkways through the forest.",
-      size: "1,800 sq ft",
-    },
-  ];
-
-  return (
-    <section id="accommodations" className="bg-[#f7f5f0] py-20 md:py-28 px-6 md:px-10">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <span
-            className="text-[10px] tracking-[0.3em] uppercase text-[#5a4a3a]/40 block mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Accommodations
-          </span>
-          <h2
-            className="text-[#3a2a1a] text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Luxury Tented Suites
-          </h2>
-          <p
-            className="text-[#5a4a3a]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Each tent is a private sanctuary perched on the volcanic cliffside, with natural hot spring plunge pools and uninterrupted views of the Arenal Volcano.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {suites.map((suite, i) => (
-            <motion.div
-              key={suite.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.15 }}
-              className="border border-[#5a4a3a]/10 p-6 md:p-8"
-            >
-              <h3
-                className="text-[#3a2a1a] text-lg tracking-wide mb-2"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                {suite.name}
-              </h3>
-              <span
-                className="text-[10px] tracking-[0.2em] uppercase text-[#5a4a3a]/40 block mb-4"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                {suite.size}
-              </span>
-              <p
-                className="text-[#5a4a3a]/60 text-sm leading-relaxed"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {suite.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   DINING — Farm-to-table and volcanic cooking
-   ═══════════════════════════════════════════════════════════════ */
-function DiningSection() {
-  const restaurants = [
-    {
-      name: "Asia Luna",
-      cuisine: "Pan-Asian Fusion",
-      description: "Innovative Asian-inspired cuisine with Costa Rican ingredients. Sushi, Thai curries, and wok specialties in an open-air setting overlooking the volcano.",
-    },
-    {
-      name: "Amor Loco",
-      cuisine: "Contemporary Latin",
-      description: "Bold Latin American flavors meet local farm-fresh ingredients. Wood-fired dishes, ceviche, and craft cocktails in a vibrant atmosphere.",
-    },
-    {
-      name: "Café Campesino",
-      cuisine: "Costa Rican Heritage",
-      description: "Traditional Costa Rican breakfast and lunch featuring locally sourced ingredients. Fresh tropical juices, gallo pinto, and homemade pastries.",
-    },
-  ];
-
-  return (
-    <section id="dining" className="bg-[#f0ebe0] py-20 md:py-28 px-6 md:px-10">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <span
-            className="text-[10px] tracking-[0.3em] uppercase text-[#5a4a3a]/40 block mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Dining
-          </span>
-          <h2
-            className="text-[#3a2a1a] text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            A Culinary Journey
-          </h2>
-          <p
-            className="text-[#5a4a3a]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Shared across all three Nayara Costa Rica properties, our restaurants celebrate the volcanic terroir with farm-to-table cuisine and world-class cocktails.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {restaurants.map((r, i) => (
-            <motion.div
-              key={r.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.15 }}
-              className="text-center"
-            >
-              <h3
-                className="text-[#3a2a1a] text-lg tracking-wide mb-1"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                {r.name}
-              </h3>
-              <span
-                className="text-[10px] tracking-[0.2em] uppercase text-[#5a4a3a]/40 block mb-4"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                {r.cuisine}
-              </span>
-              <p
-                className="text-[#5a4a3a]/60 text-sm leading-relaxed"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {r.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center text-[#5a4a3a]/40 text-xs mt-12 tracking-wide"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          Breakfast included with all room rates • Half-board and full-board packages available
-        </motion.p>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SUSTAINABILITY — Reforestation story
-   ═══════════════════════════════════════════════════════════════ */
-function SustainabilitySection() {
-  return (
-    <section id="sustainability" className="bg-[#f7f5f0] py-20 md:py-28 px-6 md:px-10">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <span
-            className="text-[10px] tracking-[0.3em] uppercase text-[#5a4a3a]/40 block mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Sustainability
-          </span>
-          <h2
-            className="text-[#3a2a1a] text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            From Cattle Ranch to Cloud Forest
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <p
-              className="text-[#5a4a3a]/70 text-sm md:text-base leading-relaxed mb-6"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              When the Nayara family acquired this land, it was a barren cattle ranch — deforested, eroded, and lifeless. Over two decades of dedicated reforestation, the property has been transformed into a thriving cloud forest ecosystem.
-            </p>
-            <p
-              className="text-[#5a4a3a]/70 text-sm md:text-base leading-relaxed"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Today, sloths hang from cecropia trees, toucans nest in the canopy, and blue morpho butterflies drift through the understory. The Nayara Sloth Sanctuary provides a safe haven for injured and orphaned sloths, while our organic gardens supply the restaurants with fresh herbs and vegetables.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="space-y-6"
-          >
-            {[
-              { label: "Green Globe Certified", detail: "International sustainability certification for tourism" },
-              { label: "Sloth Sanctuary", detail: "On-site rescue and rehabilitation center" },
-              { label: "Organic Gardens", detail: "Farm-to-table produce for all restaurants" },
-              { label: "Reforestation", detail: "20+ years of active cloud forest restoration" },
-            ].map((item, i) => (
-              <div key={item.label} className="flex items-start gap-4">
-                <div className="w-1 h-1 rounded-full bg-[#5a4a3a]/30 mt-2 shrink-0" />
-                <div>
-                  <h4
-                    className="text-[#3a2a1a] text-sm tracking-wide mb-1"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                  >
-                    {item.label}
-                  </h4>
-                  <p
-                    className="text-[#5a4a3a]/50 text-xs leading-relaxed"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    {item.detail}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-center mt-12"
-        >
-          <Link href="/sustainability">
-            <span
-              className="inline-block text-[11px] tracking-[0.2em] uppercase text-[#5a4a3a]/50 border-b border-[#5a4a3a]/20 pb-1 hover:text-[#3a2a1a] hover:border-[#3a2a1a]/40 transition-colors cursor-pointer"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Learn More About Our Commitment
-            </span>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 function HighlightsSection() {
   const highlights = [
     {
