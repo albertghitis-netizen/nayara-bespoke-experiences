@@ -173,13 +173,13 @@ export default function ConciergeChatWidget() {
                       fontWeight: 400,
                     }}
                   >
-                    Nayara Concierge
+                    Starry
                   </h3>
                   <p
                     className="text-[#c9b99a] text-[10px] tracking-[0.12em] uppercase"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    {chatMutation.isPending ? "Typing..." : "Instagram AI Assistant"}
+                    {chatMutation.isPending ? "Typing..." : "Nayara AI Concierge"}
                   </p>
                 </div>
               </div>
@@ -235,13 +235,13 @@ export default function ConciergeChatWidget() {
                       fontWeight: 400,
                     }}
                   >
-                    Welcome to Nayara
+                    Hi, I'm Starry
                   </h4>
                   <p
                     className="text-[#5a4a3a]/60 text-xs leading-relaxed mb-6 max-w-[280px]"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    I'm an Instagram and Facebook AI assistant for all six Nayara properties. I have full conversational functionality, but if you need to speak with a real person at any time, I can ping Albert from guest relations. He normally joins right away.
+                    Named after the Atacama night sky, I'm your AI concierge for all six Nayara properties. Ask me anything about our resorts, experiences, or destinations. If you'd like to speak with a real person, I can connect you with Albert from Guest Relations right away.
                   </p>
 
                   {/* Suggested prompts */}
@@ -362,7 +362,7 @@ export default function ConciergeChatWidget() {
                 className="text-center text-[9px] text-[#3a2a1a]/25 mt-2 tracking-[0.05em]"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Nayara Concierge — Powered by AI
+                Starry — Nayara AI Concierge
               </p>
             </form>
           </motion.div>

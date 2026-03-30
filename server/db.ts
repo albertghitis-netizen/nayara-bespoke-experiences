@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, leads, InsertLead } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,26 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+/* ═══════════════════════════════════════════
+   LEAD CAPTURE
+   ═══════════════════════════════════════════ */
+export async function saveLead(lead: InsertLead): Promise<boolean> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot save lead: database not available");
+    return false;
+  }
+  try {
+    await db.insert(leads).values(lead);
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to save lead:", error);
+    return false;
+  }
+}
+
+export async function getLeads() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(leads).orderBy(leads.createdAt);
+}
