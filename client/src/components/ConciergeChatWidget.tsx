@@ -241,7 +241,7 @@ export default function ConciergeChatWidget() {
                     className="text-[#5a4a3a]/60 text-xs leading-relaxed mb-6 max-w-[280px]"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    Welcome to Nayara Tented Camp and Nayara Alto Atacama. I'm your personal Instagram AI assistant. If you don't mind giving me your email address, I'll make sure our team reaches out right away with any helpful or relevant info. If you need to speak with a real person I'll ping Albert from guest relations.
+                    I'm an Instagram and Facebook AI assistant for all six Nayara properties. I have full conversational functionality, but if you need to speak with a real person at any time, I can ping Albert from guest relations. He normally joins right away.
                   </p>
 
                   {/* Suggested prompts */}
