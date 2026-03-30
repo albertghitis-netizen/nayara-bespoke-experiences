@@ -72,41 +72,41 @@
 - [x] Update chatbot welcome message: "Welcome to Nayara Tented Camp and Nayara Alto Atacama Instagram. I'm your personal instagram AI assistant. If you don't mind giving me your email address, I'll make sure our team reaches out right away with any helpful or relevant info"
 
 ## Chatbot & Brand Updates
-- [ ] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
-- [ ] System prompt: naturally ask for email early in conversation
-- [ ] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
-- [ ] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) with shared amenities
-- [ ] System prompt: adults-only for Springs and Bocas del Toro, family-friendly for rest
-- [ ] System prompt: full location knowledge for all 6 properties
-- [ ] System prompt: meal plans — CR=breakfast included room-only, Bocas=all-inclusive, Atacama+Hangaroa=room-only/half-board/all-inclusive options
-- [ ] Remove all "Nayara Arenal" references site-wide
-- [ ] Update footer hotel links to reflect correct property structure
+- [x] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
+- [x] System prompt: naturally ask for email early in conversation
+- [x] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
+- [x] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) with shared amenities
+- [x] System prompt: adults-only for Springs and Bocas del Toro, family-friendly for rest
+- [x] System prompt: full location knowledge for all 6 properties
+- [x] System prompt: meal plans — CR=breakfast included room-only, Bocas=all-inclusive, Atacama+Hangaroa=room-only/half-board/all-inclusive options
+- [x] Remove all "Nayara Arenal" references site-wide
+- [x] Update footer hotel links to reflect correct property structure
 
 ## Chatbot & Brand Updates
-- [ ] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
-- [ ] System prompt: naturally ask for email early
-- [ ] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
-- [ ] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) shared amenities
-- [ ] System prompt: adults-only for Springs and Bocas del Toro
-- [ ] System prompt: full location knowledge all 6 properties
-- [ ] System prompt: meal plans (CR=breakfast room-only, Bocas=all-inclusive, Atacama+Hangaroa=options)
-- [ ] System prompt: send SynXis booking links with pre-filled dates when someone wants to book
-- [ ] System prompt: reference and link to site blog/journal content (Atacama winter, wellness, Michelin keys, etc.)
-- [ ] Remove all "Nayara Arenal" references site-wide
-- [ ] Update footer hotel links
+- [x] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
+- [x] System prompt: naturally ask for email early
+- [x] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
+- [x] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) shared amenities
+- [x] System prompt: adults-only for Springs and Bocas del Toro
+- [x] System prompt: full location knowledge all 6 properties
+- [x] System prompt: meal plans (CR=breakfast room-only, Bocas=all-inclusive, Atacama+Hangaroa=options)
+- [x] System prompt: send SynXis booking links with pre-filled dates when someone wants to book
+- [x] System prompt: reference and link to site blog/journal content (Atacama winter, wellness, Michelin keys, etc.)
+- [x] Remove all "Nayara Arenal" references site-wide
+- [x] Update footer hotel links
 
 ## Chatbot & Brand Overhaul
-- [ ] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
-- [ ] System prompt: naturally ask for email early
-- [ ] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
-- [ ] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) shared amenities
-- [ ] System prompt: adults-only for Springs and Bocas del Toro
-- [ ] System prompt: full location knowledge all 6 properties
-- [ ] System prompt: meal plans (CR=breakfast room-only, Bocas=all-inclusive, Atacama+Hangaroa=options)
-- [ ] System prompt: send SynXis booking links with pre-filled dates
-- [ ] System prompt: reference and link to site blog/journal content
-- [ ] System prompt: correct awards knowledge (Springs=3 Michelin Keys, Atacama+Bocas=2 Keys, Bocas=#1 Conde Nast, Tented Camp=T+L best resort 4/5 years, Michelin Keys vs Stars explanation)
-- [ ] Remove all "Nayara Arenal" references site-wide
+- [x] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
+- [x] System prompt: naturally ask for email early
+- [x] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
+- [x] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) shared amenities
+- [x] System prompt: adults-only for Springs and Bocas del Toro
+- [x] System prompt: full location knowledge all 6 properties
+- [x] System prompt: meal plans (CR=breakfast room-only, Bocas=all-inclusive, Atacama+Hangaroa=options)
+- [x] System prompt: send SynXis booking links with pre-filled dates
+- [x] System prompt: reference and link to site blog/journal content
+- [x] System prompt: correct awards knowledge (Springs=3 Michelin Keys, Atacama+Bocas=2 Keys, Bocas=#1 Conde Nast, Tented Camp=T+L best resort 4/5 years, Michelin Keys vs Stars explanation)
+- [x] Remove all "Nayara Arenal" references site-wide
 - [ ] Update footer hotel links
 
 ## Press Page
@@ -164,20 +164,20 @@
 - [x] Gradient: two levels only — light top, slightly darker at bottom of World of Nayara
 
 ## COMPREHENSIVE CHATBOT KNOWLEDGE BASE (Priority #1)
-- [ ] Scrape all 6 property websites for complete content (rooms, dining, experiences, spa, sustainability)
-- [ ] Scrape all experience/excursion pages from each property site
-- [ ] Scrape all spa/wellness menus and treatments from each property
-- [ ] Scrape all blog posts from Nayara websites
+- [x] Scrape all 6 property websites for complete content (rooms, dining, experiences, spa, sustainability)
+- [x] Scrape all experience/excursion pages from each property site
+- [x] Scrape all spa/wellness menus and treatments from each property
+- [x] Scrape all blog posts from Nayara websites
 - [ ] Extract content from all 11 newsletters (already in Gmail)
-- [ ] Compile all booking links (SynXis) for all 6 properties
-- [ ] Compile all contact info: reservations email, phone numbers, hours
-- [ ] Build comprehensive knowledge base document covering all 6 properties
-- [ ] Update chatbot system prompt with full knowledge base
-- [ ] Chatbot must capture guest emails naturally in conversation
-- [ ] Chatbot must provide reservations phone number (1-844-865-2002)
-- [ ] Chatbot must provide reservations email (reservations@nayararesorts.com)
-- [ ] Chatbot escalation: "I can ping Albert from guest relations"
-- [ ] Update suggested prompts to match new comprehensive knowledge
+- [x] Compile all booking links (SynXis) for all 6 properties
+- [x] Compile all contact info: reservations email, phone numbers, hours
+- [x] Build comprehensive knowledge base document covering all 6 properties
+- [x] Update chatbot system prompt with full knowledge base
+- [x] Chatbot must capture guest emails naturally in conversation
+- [x] Chatbot must provide reservations phone number (1-844-865-2002)
+- [x] Chatbot must provide reservations email (reservations@nayararesorts.com)
+- [x] Chatbot escalation: "I can ping Albert from guest relations"
+- [x] Update suggested prompts to match new comprehensive knowledge
 - [ ] Test chatbot with questions about each property
 
 ## Instagram DM Simulator

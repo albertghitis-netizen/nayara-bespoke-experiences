@@ -63,31 +63,29 @@ export default function Footer() {
       <div className="relative z-10 max-w-[1000px] mx-auto px-6 md:px-10 pt-10 pb-8">
         {/* Three columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 text-[12px] leading-relaxed">
-          {/* LEFT — Page links + Press/Journal/Podcast */}
+          {/* LEFT — Explore links */}
           <div className="flex flex-col gap-[5px]">
-            {["About", "Stay", "Dine & Drink", "Amenities", "FAQs"].map((label) => (
+            {[
+              { label: "Experiences", route: "/experiences" },
+              { label: "Wellness", route: "/wellness" },
+              { label: "Sustainability", route: "/sustainability" },
+              { label: "Gallery", route: "/gallery" },
+              { label: "Awards", route: "/awards" },
+            ].map((item) => (
               <a
-                key={label}
-                href="#"
-                onClick={handlePlaceholder(label)}
+                key={item.label}
+                href={item.route}
+                onClick={(e) => { e.preventDefault(); navigate(item.route); }}
                 className="text-[#3a2a1a]/50 hover:text-[#3a2a1a]/90 transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
-                {label}
+                {item.label}
               </a>
             ))}
             <div className="h-px w-6 bg-[#3a2a1a]/10 my-[3px]" />
             <a
-              href="#"
-              onClick={handlePlaceholder("Press")}
-              className="text-[#3a2a1a]/50 hover:text-[#3a2a1a]/90 transition-colors"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              Press
-            </a>
-            <a
               href="/journal"
-              onClick={handleJournal}
+              onClick={(e) => { e.preventDefault(); navigate("/journal"); }}
               className="text-[#3a2a1a]/50 hover:text-[#3a2a1a]/90 transition-colors"
               style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
             >
@@ -95,11 +93,11 @@ export default function Footer() {
             </a>
             <a
               href="#"
-              onClick={handlePlaceholder("Podcast")}
+              onClick={handlePlaceholder("Press")}
               className="text-[#3a2a1a]/50 hover:text-[#3a2a1a]/90 transition-colors"
               style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
             >
-              Podcast
+              Press
             </a>
           </div>
 

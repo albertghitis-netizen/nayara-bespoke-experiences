@@ -52,7 +52,7 @@ const experienceCategories: ExperienceCategory[] = [
     description: "Every Nayara property sits in a landscape sculpted by volcanic forces. From the salt flats and geysers of the Atacama to the active Arenal Volcano and the crater lakes of Easter Island, these are journeys through geological time.",
     icon: <Mountain className="w-6 h-6" />,
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-volcano-view_a1b2c3d4.jpg",
-    destinations: ["Alto Atacama", "Nayara Arenal", "Nayara Hangaroa"],
+    destinations: ["Alto Atacama", "Costa Rica", "Nayara Hangaroa"],
     highlights: ["Tatio Geysers at dawn", "Arenal Volcano hiking trails", "Rano Kau crater lake", "Salt flat expeditions"],
   },
   {
@@ -93,7 +93,7 @@ const experienceCategories: ExperienceCategory[] = [
     description: "Plant coral fragments in Caribbean nurseries. Support archaeological preservation on Easter Island. Contribute to reforestation in the Arenal cloud forest. Nayara's sustainability isn't a policy — it's a practice woven into every experience.",
     icon: <Leaf className="w-6 h-6" />,
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-panorama_4ba3f49e.jpg",
-    destinations: ["Nayara Bocas del Toro", "Nayara Arenal", "Alto Atacama"],
+    destinations: ["Nayara Bocas del Toro", "Costa Rica", "Alto Atacama"],
     highlights: ["Caribbean coral reef restoration", "Cloud forest reforestation", "S Certification (Atacama & Hangaroa)", "Community-based tourism"],
     link: "/sustainability",
   },
@@ -371,7 +371,8 @@ function DestinationCTA() {
 
   const destinations = [
     { name: "Alto Atacama", location: "Chile", route: "/alto-atacama" },
-    { name: "Nayara Arenal", location: "Costa Rica", route: "/arenal" },
+    { name: "Nayara Gardens", location: "Costa Rica", route: "/arenal" },
+    { name: "Nayara Springs", location: "Costa Rica", route: "/arenal" },
     { name: "Nayara Tented Camp", location: "Costa Rica", route: "/tented-camp" },
     { name: "Nayara Hangaroa", location: "Easter Island", route: "/hangaroa" },
     { name: "Nayara Bocas del Toro", location: "Panama", route: "/bocas-del-toro" },

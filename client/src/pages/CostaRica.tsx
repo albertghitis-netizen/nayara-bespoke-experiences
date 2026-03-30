@@ -192,7 +192,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                     className="text-sm tracking-[0.2em] uppercase text-emerald-900/60"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
                   >
-                    Nayara Arenal
+                    Nayara Costa Rica
                   </span>
                   <button
                     onClick={() => setMenuOpen(false)}
@@ -1199,7 +1199,7 @@ function ArenalFooter() {
               className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] uppercase mb-2"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Nayara Arenal
+              Nayara Costa Rica
             </p>
             <h3
               className="text-[#f7f5f0] text-2xl mb-4"

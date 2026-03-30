@@ -59,7 +59,7 @@ const galleryImages: GalleryImage[] = [
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-volcano-view_a1b2c3d4.jpg",
     alt: "Arenal Volcano through the rainforest canopy",
-    property: "Nayara Arenal",
+    property: "Costa Rica",
     category: "landscape",
     caption: "Arenal Volcano rising above the cloud forest — the heart of Costa Rica's volcanic highlands",
     aspect: "landscape",
@@ -67,7 +67,7 @@ const galleryImages: GalleryImage[] = [
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-plunge-pool_e5f6a7b8.jpg",
     alt: "Nayara Springs private plunge pool",
-    property: "Nayara Springs",
+    property: "Costa Rica",
     category: "wellness",
     caption: "Private hot springs plunge pool at Nayara Springs — adults-only volcanic wellness",
     aspect: "portrait",
@@ -75,7 +75,7 @@ const galleryImages: GalleryImage[] = [
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-exterior_c9d0e1f2.jpg",
     alt: "Nayara Tented Camp luxury tent",
-    property: "Nayara Tented Camp",
+    property: "Costa Rica",
     category: "rooms",
     caption: "The most luxurious Nayara property — where rainforest meets refined elegance",
     aspect: "landscape",
@@ -83,7 +83,7 @@ const galleryImages: GalleryImage[] = [
   {
     src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/arenal-hanging-bridges_a3b4c5d6.jpg",
     alt: "Hanging bridges through the cloud forest",
-    property: "Nayara Arenal",
+    property: "Costa Rica",
     category: "experience",
     caption: "Suspended walkways through the canopy — eye-level with toucans and howler monkeys",
     aspect: "portrait",
@@ -156,7 +156,7 @@ const galleryImages: GalleryImage[] = [
   },
 ];
 
-const properties = ["All", "Alto Atacama", "Nayara Arenal", "Nayara Springs", "Nayara Tented Camp", "Nayara Hangaroa", "Nayara Bocas del Toro"];
+const properties = ["All", "Alto Atacama", "Costa Rica", "Nayara Hangaroa", "Nayara Bocas del Toro"];
 const categoryFilters = ["All", "Landscape", "Rooms", "Wellness", "Experience"];
 
 /* ─── Main Component ─────────────────────────────────────── */

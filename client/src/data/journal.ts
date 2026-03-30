@@ -266,7 +266,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "adventures-in-flavor",
-    title: "Nayara Arenal's Adventures in Flavor",
+    title: "Adventures in Flavor — Costa Rica",
     url: "https://blog.nayararesorts.com/nayara-arenals-adventures-in-flavor",
     pillar: "Gastronomy",
     destination: "Arenal",

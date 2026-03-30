@@ -26,7 +26,9 @@ const BOCAS_BOOKING_URL =
 /* ── Property menu links ── */
 const propertyLinks = [
   { label: "Nayara Alto Atacama", route: "/alto-atacama", available: true },
-  { label: "Nayara Arenal", route: "/arenal", available: true },
+  { label: "Nayara Gardens", route: "/arenal", available: true },
+  { label: "Nayara Springs", route: "/arenal", available: true },
+  { label: "Nayara Tented Camp", route: "/tented-camp", available: true },
   { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
   { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true },
 ];
