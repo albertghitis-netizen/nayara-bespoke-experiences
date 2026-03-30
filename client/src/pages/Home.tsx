@@ -110,13 +110,7 @@ function BrandNavigation() {
             alt="Nayara"
             className="h-32 lg:h-40 w-auto brightness-0 invert drop-shadow-lg -mt-4"
           />
-          {/* NAYARA text */}
-          <span
-            className="text-white text-2xl lg:text-3xl tracking-[0.2em] uppercase drop-shadow-lg -mt-3"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Nayara
-          </span>
+
         </div>
       </div>
 
