@@ -123,8 +123,8 @@
 ## Gastronomy / Dining Section
 - [x] Create dining data file with real menu content from Google Drive (Lapas Bar, Terraza, Poerava, Spa Menu, Alto Atacama)
 - [x] Build Gastronomy hub page with restaurant cards per property
-- [ ] Build individual restaurant detail views with menu items, descriptions, prices
-- [ ] Add dining sections to property pages (Costa Rica, Hangaroa, Bocas del Toro, Alto Atacama)
+- [x] Build individual restaurant detail views with menu items, descriptions, prices (expandable accordion cards in property pages)
+- [x] Add dining sections to property pages (Costa Rica, Hangaroa, Bocas del Toro, Alto Atacama)
 - [x] Wire gastronomy into main navigation
 
 ## Nayara Resorts Website Chatbot

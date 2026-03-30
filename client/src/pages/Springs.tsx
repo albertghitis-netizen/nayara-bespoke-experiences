@@ -16,6 +16,8 @@ import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
+import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { costaRicaDining } from "@/data/dining";
 
 const BOOKING_URL =
   "https://be.synxis.com/?Hotel=10868&Chain=24447&locale=en-US&adult=2&child=0";
@@ -92,6 +94,7 @@ export default function Springs() {
       <VillasSection />
       <HighlightsSection />
       <SpaSection />
+      <PropertyDiningSection dining={costaRicaDining} />
       <ExploreOurWorld />
       <Footer />
     </div>

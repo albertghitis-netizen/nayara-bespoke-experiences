@@ -12,6 +12,8 @@ import { useIsMobile } from "@/hooks/useMobile";
 import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
+import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { atacamaDiningCollection } from "@/data/dining";
 import { useLocation } from "wouter";
 
 /* ── CDN Assets ── */
@@ -383,6 +385,14 @@ export default function AltoAtacama() {
           </div>
         </section>
       </SectionTracker>
+
+      {/* ═══ MENU DETAILS ═══ */}
+      <PropertyDiningSection
+        dining={atacamaDiningCollection}
+        bgClass="bg-[#f0ebe0]"
+        headingColor="text-[#3a2a1a]"
+        accentColor="bg-[#c9a96e]"
+      />
 
       {/* ═══ STARGAZING ═══ */}
       <SectionTracker id="stargazing" onActive={() => setActiveSection("stargazing")}>

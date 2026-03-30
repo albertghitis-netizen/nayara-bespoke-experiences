@@ -12,6 +12,8 @@ import { Menu, X, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
+import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { costaRicaDining } from "@/data/dining";
 
 const BOOKING_URL =
   "https://be.synxis.com/?Hotel=10868&Chain=24447&locale=en-US&adult=2&child=0";
@@ -31,7 +33,7 @@ export default function TentedCamp() {
       <IntroSection />
       <HighlightsSection />
       <AccommodationsSection />
-      <DiningSection />
+      <PropertyDiningSection dining={costaRicaDining} />
       <SustainabilitySection />
       <ExploreOurWorld />
       <Footer />

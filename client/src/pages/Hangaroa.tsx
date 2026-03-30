@@ -26,6 +26,8 @@ import {
 import { toast } from "sonner";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
+import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { hangaroaDining } from "@/data/dining";
 
 /* ─── CDN Assets ─────────────────────────────────────────── */
 const CDN = {
@@ -132,6 +134,12 @@ export default function Hangaroa() {
       <TheProperty />
       <ExperiencesSection onInView={() => setActiveSection("experiences")} />
       <RapaNuiCulture />
+      <PropertyDiningSection
+        dining={hangaroaDining}
+        bgClass="bg-stone-900"
+        headingColor="text-white"
+        accentColor="bg-sky-700"
+      />
       <ExploreOurWorld />
       <Footer />
     </div>

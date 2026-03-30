@@ -26,6 +26,8 @@ import {
 import { toast } from "sonner";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
+import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { bocasDiningCollection } from "@/data/dining";
 
 /* ─── CDN Assets ─────────────────────────────────────────── */
 const CDN = {
@@ -132,6 +134,12 @@ export default function BocasDelToro() {
       <OverwaterLiving />
       <ExperiencesSection onInView={() => setActiveSection("experiences")} />
       <CoralRestoration />
+      <PropertyDiningSection
+        dining={bocasDiningCollection}
+        bgClass="bg-[#0a3d5c]"
+        headingColor="text-white"
+        accentColor="bg-teal-600"
+      />
       <ExploreOurWorld />
       <Footer />
     </div>
