@@ -101,35 +101,23 @@ function BrandNavigation() {
         </button>
       </div>
 
-      {/* Nayara branded lockup — centered, anchored to top of screen */}
-      <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pointer-events-none">
+      {/* Nayara branded lockup — thin line from top edge to logo */}
+      <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pointer-events-none hidden md:flex">
         <div className="flex flex-col items-center">
-          {/* Loose leaf logo — white, large, touching top edge */}
+          {/* Thin vertical connector line from top of screen */}
+          <div className="w-px h-6 bg-white/50" />
+          {/* Loose leaf logo — white */}
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-charcoal_4ac58543.png"
             alt="Nayara"
-            className="hidden md:block h-32 lg:h-40 w-auto brightness-0 invert drop-shadow-lg -mt-2"
+            className="h-28 lg:h-36 w-auto brightness-0 invert drop-shadow-lg mt-1"
           />
-          {/* NAYARA — bold, white, wide tracking */}
+          {/* NAYARA text */}
           <span
-            className="hidden md:block text-white text-3xl lg:text-4xl tracking-[0.2em] uppercase drop-shadow-lg -mt-3"
+            className="text-white text-2xl lg:text-3xl tracking-[0.2em] uppercase drop-shadow-lg -mt-2"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
             Nayara
-          </span>
-          {/* TENTED CAMP — smaller uppercase tracking */}
-          <span
-            className="hidden md:block text-white text-[11px] lg:text-[13px] tracking-[0.35em] uppercase drop-shadow-lg mt-1"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Tented Camp
-          </span>
-          {/* Costa Rica — italic serif */}
-          <span
-            className="hidden md:block text-white/80 text-[12px] lg:text-[14px] italic drop-shadow-lg mt-0.5"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Costa Rica
           </span>
         </div>
       </div>

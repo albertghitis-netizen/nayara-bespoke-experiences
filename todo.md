@@ -66,3 +66,5 @@
 - [x] Create Tented Camp homepage (/tented-camp) with hero landscape photo
 - [x] Make all 6 footer hotel names clickable links to their property pages
 - [x] Register routes in App.tsx for property pages
+- [ ] Create shield logo (leaf inside badge shape + NAYARA) matching Tented Camp site style
+- [ ] Rebuild Tented Camp page with two-column editorial layout on gold background
