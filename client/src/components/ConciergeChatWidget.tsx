@@ -241,7 +241,7 @@ export default function ConciergeChatWidget() {
                     className="text-[#5a4a3a]/60 text-xs leading-relaxed mb-6 max-w-[280px]"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    Welcome to Nayara Tented Camp and Nayara Alto Atacama Instagram. I'm your personal Instagram AI assistant. If you don't mind giving me your email address, I'll make sure our team reaches out right away with any helpful or relevant info.
+                    Welcome to Nayara Tented Camp and Nayara Alto Atacama. I'm your personal Instagram AI assistant. If you don't mind giving me your email address, I'll make sure our team reaches out right away with any helpful or relevant info.
                   </p>
 
                   {/* Suggested prompts */}
