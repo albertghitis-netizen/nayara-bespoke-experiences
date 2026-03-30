@@ -371,8 +371,8 @@ function DestinationCTA() {
 
   const destinations = [
     { name: "Alto Atacama", location: "Chile", route: "/alto-atacama" },
-    { name: "Nayara Gardens", location: "Costa Rica", route: "/arenal" },
-    { name: "Nayara Springs", location: "Costa Rica", route: "/arenal" },
+    { name: "Nayara Gardens", location: "Costa Rica", route: "/gardens" },
+    { name: "Nayara Springs", location: "Costa Rica", route: "/springs" },
     { name: "Nayara Tented Camp", location: "Costa Rica", route: "/tented-camp" },
     { name: "Nayara Hangaroa", location: "Easter Island", route: "/hangaroa" },
     { name: "Nayara Bocas del Toro", location: "Panama", route: "/bocas-del-toro" },

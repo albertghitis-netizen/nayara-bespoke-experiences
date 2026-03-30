@@ -19,6 +19,7 @@ import {
   type BlogPost,
 } from "@/data/journal";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
+import Footer from "@/components/Footer";
 
 /* ═══════════════════════════════════════════════════════════════
    JOURNAL PAGE
@@ -185,6 +186,7 @@ export default function Journal() {
       </AnimatePresence>
 
       <ExploreOurWorld />
+      <Footer />
     </div>
   );
 }

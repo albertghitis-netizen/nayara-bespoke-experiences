@@ -13,6 +13,7 @@ import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import AwardWinningProperties from "@/components/AwardWinningProperties";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
+import Footer from "@/components/Footer";
 /* SynXis booking URLs */
 const BOOKING_URL =
   "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30";
@@ -68,7 +69,7 @@ export default function Home() {
       <HeroHeader />
       <AwardWinningProperties />
       <ExploreOurWorld />
-
+      <Footer />
     </div>
   );
 }
@@ -508,9 +509,11 @@ function BrandNavigation() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroHeader() {
   const isMobile = useIsMobile();
+  /* Desktop: horizontal Arenal volcano video (3.4MB mp4)
+     Mobile: vertical landing video (compressed mp4) */
   const heroVideo = isMobile
     ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/landing-desktop-horizontal_471d1062.mov";
+    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">

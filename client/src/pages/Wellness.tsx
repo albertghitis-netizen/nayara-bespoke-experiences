@@ -335,7 +335,7 @@ function SpringsFeature() {
           </p>
 
           <Link
-            href="/arenal"
+            href="/springs"
             className="inline-flex items-center gap-2 text-white text-sm tracking-[0.15em] uppercase hover:gap-3 transition-all duration-300 border-b border-white/30 pb-1"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
@@ -357,7 +357,7 @@ function PropertyLinks() {
 
   const properties = [
     { name: "Alto Atacama", focus: "Desert healing & starlight yoga", route: "/alto-atacama" },
-    { name: "Nayara Springs", focus: "Private hot springs & adults-only wellness", route: "/arenal" },
+    { name: "Nayara Springs", focus: "Private hot springs & adults-only wellness", route: "/springs" },
     { name: "Nayara Tented Camp", focus: "Rainforest yoga pavilion", route: "/tented-camp" },
     { name: "Nayara Hangaroa", focus: "Pacific oceanfront & volcanic stone therapy", route: "/hangaroa" },
   ];

@@ -210,7 +210,7 @@ function SpringsNav() {
             ))}
             <div className="h-px bg-stone-200 my-1" />
             <button
-              onClick={() => { setMenuOpen(false); navigate("/arenal"); }}
+              onClick={() => { setMenuOpen(false); navigate("/experiences"); }}
               className="text-left py-2 text-[#3a2a1a]/70 hover:text-[#3a2a1a] transition-colors"
             >
               <span
@@ -594,7 +594,7 @@ function SpaSection() {
               that restore body and spirit.
             </p>
             <Link
-              href="/arenal"
+              href="/wellness"
               className="inline-flex items-center h-10 px-6 mt-6 rounded-full border border-white/30 text-white hover:bg-white hover:text-[#3a2a1a] transition-all"
             >
               <span

@@ -217,7 +217,7 @@ function GardensNav() {
             ))}
             <div className="h-px bg-stone-200 my-1" />
             <button
-              onClick={() => { setMenuOpen(false); navigate("/arenal"); }}
+              onClick={() => { setMenuOpen(false); navigate("/experiences"); }}
               className="text-left py-2 text-[#3a2a1a]/70 hover:text-[#3a2a1a] transition-colors"
             >
               <span
