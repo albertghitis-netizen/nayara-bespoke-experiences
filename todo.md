@@ -6,15 +6,11 @@
 - [x] Subtle "Nayara" branding at 15% opacity
 - [x] Floating nav pills — hamburger left, Reserve right
 - [x] Hamburger menu with Experiences/Wellness dropdowns (property links)
-- [x] Sustainability → Coming Soon in hamburger
-- [x] Awards → /awards, Journal → /journal in hamburger
-- [x] Award-Winning Properties section — new H2, no subtitle
-- [x] Award-Winning: desktop — text left, vertical Tented Camp right, wide Atacama below
-- [x] Award-Winning: mobile — vertical Tented Camp only (two-media-slot system)
-- [x] The World of Nayara section — botanical texture, compact, big leaf left
-- [x] Footer — compact, logo left, newsletter bold in bubble, botanical texture
-- [x] Footer — Journal links to /journal, Press/Podcast show Coming Soon
-- [x] Footer — verify Nayara leaf logo rendering on desktop (code review confirmed)
+- [x] Award-Winning Properties section
+- [x] The World of Nayara section
+- [x] Footer — compact, redesigned with brown bg (#3a2a1a)
+- [x] ExploreOurWorld section cleaned up
+- [x] Footer imported and rendered on Home and Journal pages
 
 ## Website — Experience Pages
 - [x] Alto Atacama experience page with magazine-style detail views
@@ -23,247 +19,94 @@
 
 ## Full-Stack Upgrade
 - [x] Upgrade to full-stack (db, server, user)
-- [x] Fix TypeScript error from upgrade (remove useAuth from Home)
+- [x] Fix TypeScript error from upgrade
 - [x] Push database schema
 
-## Concierge Chatbot
-- [x] Build tRPC procedure with LLM + Nayara Alto Atacama system prompt
+## Concierge Chatbot — Starry AI
+- [x] Build tRPC procedure with LLM + comprehensive system prompt
 - [x] Build floating chat widget on frontend
-- [x] Train on: excursions, rooms, dining, wellness, sustainability
-- [x] Lead capture: name + email (auto-extracts from chat, saves to DB)
-- [x] Warm concierge tone, conversational style
+- [x] Train on: all 6 properties, excursions, rooms, dining, wellness, sustainability
+- [x] Lead capture: name + email (leads table in DB, auto-extract from chat via LLM)
+- [x] Warm concierge tone, conversational style (Starry personality)
+- [x] Naturally ask for email early in conversation
+- [x] Naturally mention phone (1-844-865-2002)
+- [x] 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) with shared amenities
+- [x] Adults-only for Springs and Bocas del Toro, family-friendly for rest
+- [x] Full location knowledge for all 6 properties
+- [x] Meal plans — CR=breakfast included, Bocas=all-inclusive, Atacama+Hangaroa=options
+- [x] SynXis booking links for all properties
+- [x] Reference and link to blog/journal content
+- [x] Correct awards knowledge (Michelin Keys, T+L, Condé Nast)
+- [x] Escalation to Albert from Guest Relations
 - [x] Test chatbot end-to-end
 - [x] Write vitest for chatbot procedure
 
-## Future — Instagram/Facebook Bot
-- [ ] Set up Meta Developer app for Instagram Messaging API
-- [ ] Connect same AI brain to Instagram DMs
-- [ ] Connect same AI brain to Facebook Messenger
-- [ ] HubSpot integration for lead capture
-
-## Future — Website
-- [ ] Compress desktop hero video (~69MB → ~15MB)
-- [x] Build Gallery page
-- [x] Build Sustainability page (full responsive, real content)
-- [ ] Apply two-media-slot system to all remaining sections
-- [x] Build out Hangaroa and Bocas del Toro property pages
-
-## Booking Integration
-- [x] Wire Reserve button (nav) to SynXis booking engine for Nayara Tented Camp
-- [x] Wire any other reservation CTAs to the same booking URL
-- [ ] Make booking URL configurable per property in the future
-- [x] Fix footer: center Nayara logo + NAYARA text (matches user screenshot)
-- [x] Move newsletter CTA below social icons (matches user screenshot layout)
-- [x] Replace old leaf-only logo with new full Nayara logo (leaf + NAYARA) everywhere
-- [x] Add Nayara logo centered in top nav between hamburger and Reserve pills
-- [x] Style "Stay Inspired with the Nayara Newsletter" as pill button identical to Reserve (brown bg, white uppercase text)
-- [x] Replace logo with new dark charcoal/olive version (nayara_logo_transparent.jpg) everywhere
-- [x] Make top nav logo significantly larger — reach to top of screen, white color
-- [x] Top logo layout: loose leaf (white) + NAYARA (bold) + TENTED CAMP (uppercase tracking) + Costa Rica (italic serif) — all centered over hero, desktop only
-
 ## Property Pages
-- [x] Grab landscape photos from Nayara hotel websites (pool/deck + aerial valley)
-- [x] Create Tented Camp homepage (/tented-camp) with hero landscape photo
-- [x] Make all 6 footer hotel names clickable links to their property pages
-- [x] Register routes in App.tsx for property pages
-- [ ] Create shield logo (leaf inside badge shape + NAYARA) matching Tented Camp site style
-- [ ] Rebuild Tented Camp page with two-column editorial layout on gold background
-- [x] Animate leaf logo: starts halfway toward hamburger, rolls/slides to center above NAYARA in 3 seconds on page load
-- [x] Update chatbot welcome message: "Welcome to Nayara Tented Camp and Nayara Alto Atacama Instagram. I'm your personal instagram AI assistant. If you don't mind giving me your email address, I'll make sure our team reaches out right away with any helpful or relevant info"
-
-## Chatbot & Brand Updates
-- [x] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
-- [x] System prompt: naturally ask for email early in conversation
-- [x] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
-- [x] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) with shared amenities
-- [x] System prompt: adults-only for Springs and Bocas del Toro, family-friendly for rest
-- [x] System prompt: full location knowledge for all 6 properties
-- [x] System prompt: meal plans — CR=breakfast included room-only, Bocas=all-inclusive, Atacama+Hangaroa=room-only/half-board/all-inclusive options
+- [x] Alto Atacama — full property page (oasis, rooms, dining, stargazing, experiences, wellness, sustainability)
+- [x] Nayara Tented Camp — full property page (rooms, dining, sustainability)
+- [x] Nayara Gardens — individual property page
+- [x] Nayara Springs — individual property page (adults-only, 3 Michelin Keys)
+- [x] Nayara Hangaroa — full property page (Easter Island)
+- [x] Nayara Bocas del Toro — full property page (overwater, Caribbean)
+- [x] Costa Rica / Arenal hub page
+- [x] All property routes registered in App.tsx
+- [x] All stale /arenal routes fixed across all pages
 - [x] Remove all "Nayara Arenal" references site-wide
-- [x] Update footer hotel links to reflect correct property structure
 
-## Chatbot & Brand Updates
-- [x] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
-- [x] System prompt: naturally ask for email early
-- [x] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
-- [x] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) shared amenities
-- [x] System prompt: adults-only for Springs and Bocas del Toro
-- [x] System prompt: full location knowledge all 6 properties
-- [x] System prompt: meal plans (CR=breakfast room-only, Bocas=all-inclusive, Atacama+Hangaroa=options)
-- [x] System prompt: send SynXis booking links with pre-filled dates when someone wants to book
-- [x] System prompt: reference and link to site blog/journal content (Atacama winter, wellness, Michelin keys, etc.)
-- [x] Remove all "Nayara Arenal" references site-wide
-- [x] Update footer hotel links
+## Brand Pages
+- [x] Awards page — showstopper with Michelin Keys, brand stats, certifications
+- [x] Press page — 18 real articles, filterable by property
+- [x] Gallery page — masonry layout with lightbox
+- [x] Experiences hub — cross-property experiences overview
+- [x] Wellness hub — cross-property wellness experiences
+- [x] Sustainability page — 5 pillars with real content
+- [x] All brand page routes registered in App.tsx
 
-## Chatbot & Brand Overhaul
-- [x] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
-- [x] System prompt: naturally ask for email early
-- [x] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
-- [x] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) shared amenities
-- [x] System prompt: adults-only for Springs and Bocas del Toro
-- [x] System prompt: full location knowledge all 6 properties
-- [x] System prompt: meal plans (CR=breakfast room-only, Bocas=all-inclusive, Atacama+Hangaroa=options)
-- [x] System prompt: send SynXis booking links with pre-filled dates
-- [x] System prompt: reference and link to site blog/journal content
-- [x] System prompt: correct awards knowledge (Springs=3 Michelin Keys, Atacama+Bocas=2 Keys, Bocas=#1 Conde Nast, Tented Camp=T+L best resort 4/5 years, Michelin Keys vs Stars explanation)
-- [x] Remove all "Nayara Arenal" references site-wide
-- [ ] Update footer hotel links
-
-## Press Page
-- [x] Build Press page at /press with real press coverage data (18 articles)
-- [x] Organize by year, filterable by property
-- [x] Each entry: article title + publication + link (clean editorial style)
-- [x] Include "Multiple Properties" filter for clips mentioning several hotels
-- [x] Register /press route in App.tsx and add to navigation + footer + hamburger menu
-
-## Podcasts Section
-- [ ] Add 4 podcast episodes as a simple list (Albert & Tau Mana, Albert & Kenneth Seligson, Leo on AFAR, Leo on Suite Success)
-- [ ] Link each to YouTube URL
-
-## Newsletters Section
-- [x] Extract full content from 9 HubSpot newsletters via Gmail
-- [ ] Upload newsletter images to CDN
-- [x] Build newsletter modal viewer (click title → opens full newsletter as overlay)
-- [ ] Active blog links within newsletter content
-- [x] Sort newsletters by year and month
-
-## Bug Fixes / Quick Changes
-- [x] Remove rolling animation from leaf logo on page load
-- [x] Lower logo slightly so it's not touching the very top of the screen
-
-## Nav Redesign
-- [x] Replace big logo with small logo in brown pill (white logo inside)
-- [x] Add language pill with dropdown (EN, ES, PT, FR, DE, IT, JA, ZH) — placeholder for now
-- [x] Reserve pill becomes dropdown showing all 6 hotels with booking links
-- [x] Hamburger menu: compact dropdown below pill instead of full-screen overlay
-- [x] Layout: Left = Hamburger + Logo | Right = Language + Reserve
-- [ ] Fix: desktop hero video showing vertical instead of horizontal (check video swap logic)
-- [x] Move language pill next to Reserve (both fixed, follow scroll): Hamburger (left) | Language + Reserve (right)
-- [x] Remove logo pill for now (user will design custom logo later)
-
-## Footer Redesign
-- [x] Change footer background to brown (#3a2a1a) with light/white text
-- [x] Remove the big Nayara logo at the bottom of footer
-- [x] Make "The World of Nayara" text smaller and positioned lower
-- [x] Make social media icons larger
-
-## Page Gradient & Footer Update
-- [x] Apply beige gradient across the full page (lighter beige at top → deeper warm beige toward footer)
-- [x] Remove big Nayara logo from footer bottom
-- [x] Footer uses gradient beige tones instead of solid brown
-- [x] Keep nav pills (hamburger, language, reserve) as-is in brown
-- [ ] Replace CSS gradient with plaster/stucco texture image as full-page background (subtle light-to-warm shift built into the image)
-
-## Latest Updates
-- [x] Add Nayara logo (mandala + NAYARA text) next to hamburger at the size shown in reference image
-- [ ] Replace hero video with new manus3.mp4 video, cropped to landscape
-- [x] Extend page gradient seamlessly into footer (no separate footer background)
-- [x] Remove big leaf logo from World of Nayara section
-- [x] Merge footer content into World of Nayara section (no separate footer)
-- [x] Fix nav logo white background issue
-- [x] Gradient: two levels only — light top, slightly darker at bottom of World of Nayara
-
-## COMPREHENSIVE CHATBOT KNOWLEDGE BASE (Priority #1)
-- [x] Scrape all 6 property websites for complete content (rooms, dining, experiences, spa, sustainability)
-- [x] Scrape all experience/excursion pages from each property site
-- [x] Scrape all spa/wellness menus and treatments from each property
-- [x] Scrape all blog posts from Nayara websites
-- [x] Extract content from all 9 newsletters from Gmail and build modal viewer
-- [x] Compile all booking links (SynXis) for all 6 properties
-- [x] Compile all contact info: reservations email, phone numbers, hours
-- [x] Build comprehensive knowledge base document covering all 6 properties
-- [x] Update chatbot system prompt with full knowledge base
-- [x] Chatbot must capture guest emails naturally in conversation
-- [x] Chatbot must provide reservations phone number (1-844-865-2002)
-- [x] Chatbot must provide reservations email (reservations@nayararesorts.com)
-- [x] Chatbot escalation: "I can ping Albert from guest relations"
-- [x] Update suggested prompts to match new comprehensive knowledge
-- [x] Test chatbot with questions about each property (Starry personality active)
-
-## Instagram DM Simulator
-- [ ] Build Instagram DM simulator page that looks like real Instagram Direct Messages
-- [ ] Use @nayaraaltoatacama profile pic and username
-- [ ] Instagram-style message bubbles (grey left, blue/purple gradient right)
-- [ ] Instagram-style header with back arrow, profile pic, username, verified badge
-- [ ] Instagram-style input bar with camera, mic, image, and send icons
-- [ ] Connect to existing chatbot AI backend (same brain)
-- [ ] Register route in App.tsx
-- [ ] Make it the default/landing page for demos
-
-## Starry - AI Concierge Personality
-- [x] Rename bot to "Starry" — the Atacama AI concierge
-- [x] Update system prompt with Starry personality
-- [x] Starry should naturally capture emails and give booking links
-- [x] Starry should recommend relevant blog posts when appropriate
-- [x] Starry connects to Albert from Guest Relations for human escalation
-
-## Journal / Content Hub Page (Mobile-Only)
-- [ ] Scrape all blog posts from blog.nayararesorts.com (titles, dates, URLs, images)
-- [ ] Tag each blog by property (Gardens, Springs, Tented Camp, Alto Atacama, Hangaroa, Bocas del Toro, All)
-- [ ] Tag each blog by pillar (Experiences, Wellness, Sustainability, Gastronomy, Adventure, Culture)
-- [ ] Build blog data structure with dual tagging system
-- [ ] Build mobile-only Journal page with vertical hero video
-- [ ] Add dual filter: by property and by pillar
-- [ ] Add Nayara Horizons (podcast) section with 4 YouTube episodes
-- [ ] Add Naiad Newsletter section with 11 newsletters
-- [ ] Blogs covering multiple properties tagged with all relevant properties
-
-## Sustainability Page Prototype (Mobile-Only)
-- [x] Build Sustainability page (full responsive, real content, 5 pillars)
-- [x] 5 pillar sections: S Certification, Coral Restoration, Cloud Forest, Community, Operations
-- [ ] Placeholder content in each category (photo here, info here, link here)
-- [ ] Certifications: Green Globe (CR + Bocas) and S Certification (Atacama + Hangaroa)
-- [ ] Same card-based layout as experience pages
-- [x] Register route in App.tsx
-
-## Awards & Press Page Prototype (Mobile-Only)
-- [ ] Build mobile-only Awards & Press page with vertical hero video
-- [ ] Awards section with placeholder content
-- [ ] Press section with placeholder content
-- [ ] Same card-based layout as experience pages
-- [ ] Register route in App.tsx
-
-## Future: Gastronomy Section
-- [ ] Scrape restaurant menus from all 6 property websites
-- [ ] Include menus in Gastronomy section alongside dining blogs
-
-## FULL REBUILD — All Property Pages + Brand Pages (March 30, 2026)
-- [ ] Build reusable PropertyPage template component (hero, intro, rooms, highlights, CTA)
-- [x] Build Nayara Gardens full property page (/gardens)
-- [x] Build Nayara Springs full property page (/springs)
-- [x] Build Nayara Hangaroa full property page (/hangaroa)
-- [x] Build Nayara Bocas del Toro full property page (/bocas-del-toro)
-- [x] Improve Tented Camp page (full sections: rooms, dining, sustainability)
-- [x] Improve Alto Atacama page (full property homepage with oasis, rooms, dining, stargazing, experiences, wellness, sustainability)
-- [x] Build Brand Experiences page (cross-property)
-- [x] Build Brand Wellness page (cross-property)
-- [ ] Rebuild Awards & Press page — THE SHOWSTOPPER
-- [x] Build dynamic Gallery page — filterable, animated, wow factor
-- [ ] Update App.tsx routing for all new pages
-- [ ] Upload all Spherical media to CDN for use in pages
-
-## Animations & Interactions
-- [ ] Parallax scrolling on hero sections (background moves slower than foreground)
-- [x] Reveal animations on scroll (sections fade/slide in on viewport entry)
-- [ ] Parallax image layers with depth effect
-- [x] Smooth scroll transitions between sections (sticky nav with scroll-to-section)
-
-## Ayla on Krog — Quick Elevated Page
-- [x] Build single-page Ayla on Krog luxury apartment page (/ayla)
-- [x] Use existing content from aylaonkrog.com but elevate design
-- [x] Full-width hero image (horizontal on desktop)
-- [x] Yellow/navy brand colors elevated to luxury feel
-- [x] Sections: Hero, About, Amenities, Neighborhood, Floor Plans CTA, Contact
-- [x] Register route in App.tsx
-
-## Journal Page — Full Rebuild (Aman/Rosewood Editorial)
+## Journal / Content Hub
 - [x] Scrape featured images from blog.nayararesorts.com for each KEEP post
 - [x] Build editorial magazine-style Journal page with large hero images
 - [x] Filter by content pillar (Sustainability, Wellness, Wildlife, Culture, etc.)
 - [x] Filter by destination (Atacama, Arenal, Hangaroa, Bocas, Brand)
 - [x] Large featured article card at top
-- [x] Grid layout with image-forward cards (not just text links)
+- [x] Grid layout with image-forward cards
 - [x] Lazy-loaded images for performance
 - [x] Fully responsive (mobile + desktop)
-- [x] Include Nayara Horizons podcast section
-- [x] Include Naiad Newsletter section
+- [x] Include Nayara Horizons podcast section (2 episodes with real YouTube IDs)
+- [x] Include Naiad Newsletter section with modal viewer (9 issues)
+
+## Navigation & Footer
+- [x] Hamburger menu with all page links (including Press)
+- [x] Reserve dropdown with all 6 hotels
+- [x] Language pill (EN, ES, PT, FR, DE, IT, JA, ZH) — placeholder
+- [x] Footer redesigned with brown background (#3a2a1a), white text
+- [x] Footer hotel links updated to correct property routes
+
+## Ayla on Krog — Bonus Page
+- [x] Build single-page Ayla on Krog luxury apartment page (/ayla)
+- [x] Elevated design with real content from aylaonkrog.com
+- [x] Full-width hero image
+- [x] Sections: Hero, About, Amenities, Neighborhood, Floor Plans CTA, Contact
+- [x] Register route in App.tsx
+
+## Booking Integration
+- [x] Wire Reserve button to SynXis booking engine
+- [x] Wire reservation CTAs to booking URLs
+
+## Animations & Interactions
+- [x] Parallax scrolling on hero sections
+- [x] Reveal animations on scroll (sections fade/slide in)
+- [x] Smooth scroll transitions between sections
+
+## Remaining / Future Items
+- [x] Awards page: fix mobile-only constraint, add responsive layout, real hero image, Michelin Keys explainer, certifications
+- [ ] Instagram DM Simulator page (demo tool)
+- [ ] Meta Developer app for Instagram Messaging API
+- [ ] Facebook Messenger integration
+- [ ] HubSpot integration for lead capture
+- [ ] Upload newsletter images to CDN
+- [ ] Active blog links within newsletter content
+- [ ] Compress desktop hero video (~69MB → ~15MB)
+- [ ] Create shield logo (leaf inside badge shape)
+- [ ] Replace CSS gradient with plaster/stucco texture image
+- [ ] Gastronomy section with restaurant menus
+- [ ] Make booking URL configurable per property
