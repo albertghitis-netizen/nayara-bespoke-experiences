@@ -27,7 +27,7 @@ export default function AwardWinningProperties() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#f7f5f0] py-20 md:py-32 overflow-hidden"
+      className="relative py-20 md:py-32 overflow-hidden"
     >
       <div className="max-w-[1300px] mx-auto px-6 md:px-10">
 

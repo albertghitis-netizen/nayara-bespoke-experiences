@@ -32,8 +32,7 @@ export default function ExploreOurWorld() {
       ref={sectionRef}
       className="relative overflow-hidden py-16 md:py-20 lg:py-24"
     >
-      {/* Warm cream base */}
-      <div className="absolute inset-0 bg-[#f0ebe0]" />
+      {/* Background inherited from page gradient */}
 
       {/* Botanical texture */}
       <motion.div
@@ -72,8 +71,8 @@ export default function ExploreOurWorld() {
 
       {/* Soft vignette edges */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#f0ebe0] via-transparent to-[#f0ebe0] opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f0ebe0] via-transparent to-[#f0ebe0] opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#e8e0d0] via-transparent to-[#e8e0d0] opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#e8e0d0] via-transparent to-[#e8e0d0] opacity-30" />
       </div>
 
       {/* Subtle ambient glow */}

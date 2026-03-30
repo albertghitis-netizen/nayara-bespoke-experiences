@@ -70,3 +70,86 @@
 - [ ] Rebuild Tented Camp page with two-column editorial layout on gold background
 - [x] Animate leaf logo: starts halfway toward hamburger, rolls/slides to center above NAYARA in 3 seconds on page load
 - [x] Update chatbot welcome message: "Welcome to Nayara Tented Camp and Nayara Alto Atacama Instagram. I'm your personal instagram AI assistant. If you don't mind giving me your email address, I'll make sure our team reaches out right away with any helpful or relevant info"
+
+## Chatbot & Brand Updates
+- [ ] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
+- [ ] System prompt: naturally ask for email early in conversation
+- [ ] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
+- [ ] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) with shared amenities
+- [ ] System prompt: adults-only for Springs and Bocas del Toro, family-friendly for rest
+- [ ] System prompt: full location knowledge for all 6 properties
+- [ ] System prompt: meal plans — CR=breakfast included room-only, Bocas=all-inclusive, Atacama+Hangaroa=room-only/half-board/all-inclusive options
+- [ ] Remove all "Nayara Arenal" references site-wide
+- [ ] Update footer hotel links to reflect correct property structure
+
+## Chatbot & Brand Updates
+- [ ] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
+- [ ] System prompt: naturally ask for email early
+- [ ] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
+- [ ] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) shared amenities
+- [ ] System prompt: adults-only for Springs and Bocas del Toro
+- [ ] System prompt: full location knowledge all 6 properties
+- [ ] System prompt: meal plans (CR=breakfast room-only, Bocas=all-inclusive, Atacama+Hangaroa=options)
+- [ ] System prompt: send SynXis booking links with pre-filled dates when someone wants to book
+- [ ] System prompt: reference and link to site blog/journal content (Atacama winter, wellness, Michelin keys, etc.)
+- [ ] Remove all "Nayara Arenal" references site-wide
+- [ ] Update footer hotel links
+
+## Chatbot & Brand Overhaul
+- [ ] Update suggested prompts: Pricing and Availability, Rooms and Accommodations, Experiences and Spa, Our Sustainability Practices
+- [ ] System prompt: naturally ask for email early
+- [ ] System prompt: naturally mention phone (1-844-865-2002, Mon-Fri 8am-10pm, Sat-Sun 8am-8pm)
+- [ ] System prompt: 3 separate Costa Rica properties (Gardens, Springs, Tented Camp) shared amenities
+- [ ] System prompt: adults-only for Springs and Bocas del Toro
+- [ ] System prompt: full location knowledge all 6 properties
+- [ ] System prompt: meal plans (CR=breakfast room-only, Bocas=all-inclusive, Atacama+Hangaroa=options)
+- [ ] System prompt: send SynXis booking links with pre-filled dates
+- [ ] System prompt: reference and link to site blog/journal content
+- [ ] System prompt: correct awards knowledge (Springs=3 Michelin Keys, Atacama+Bocas=2 Keys, Bocas=#1 Conde Nast, Tented Camp=T+L best resort 4/5 years, Michelin Keys vs Stars explanation)
+- [ ] Remove all "Nayara Arenal" references site-wide
+- [ ] Update footer hotel links
+
+## Press Page
+- [ ] Build Press page at /press with all print + digital coverage from Nov 2025 PR report
+- [ ] Organize by year, then by hotel within each year
+- [ ] Each entry: article title + link (simple, clean, same style as Journal page)
+- [ ] Include "Multiple Properties" category for clips mentioning several hotels
+- [ ] Register /press route in App.tsx and add to navigation
+
+## Podcasts Section
+- [ ] Add 4 podcast episodes as a simple list (Albert & Tau Mana, Albert & Kenneth Seligson, Leo on AFAR, Leo on Suite Success)
+- [ ] Link each to YouTube URL
+
+## Newsletters Section
+- [ ] Extract full content from all 11 HubSpot newsletters via Gmail
+- [ ] Upload newsletter images to CDN
+- [ ] Build newsletter modal viewer (click title → opens full newsletter as overlay)
+- [ ] Active blog links within newsletter content
+- [ ] Sort newsletters by year and month
+
+## Bug Fixes / Quick Changes
+- [x] Remove rolling animation from leaf logo on page load
+- [x] Lower logo slightly so it's not touching the very top of the screen
+
+## Nav Redesign
+- [x] Replace big logo with small logo in brown pill (white logo inside)
+- [x] Add language pill with dropdown (EN, ES, PT, FR, DE, IT, JA, ZH) — placeholder for now
+- [x] Reserve pill becomes dropdown showing all 6 hotels with booking links
+- [x] Hamburger menu: compact dropdown below pill instead of full-screen overlay
+- [x] Layout: Left = Hamburger + Logo | Right = Language + Reserve
+- [ ] Fix: desktop hero video showing vertical instead of horizontal (check video swap logic)
+- [x] Move language pill next to Reserve (both fixed, follow scroll): Hamburger (left) | Language + Reserve (right)
+- [x] Remove logo pill for now (user will design custom logo later)
+
+## Footer Redesign
+- [ ] Change footer background to brown (#3a2a1a) with light/white text
+- [ ] Remove the big Nayara logo at the bottom of footer
+- [ ] Make "The World of Nayara" text smaller and positioned lower
+- [ ] Make social media icons larger
+
+## Page Gradient & Footer Update
+- [x] Apply beige gradient across the full page (lighter beige at top → deeper warm beige toward footer)
+- [ ] Remove big Nayara logo from footer bottom
+- [x] Footer uses gradient beige tones instead of solid brown
+- [x] Keep nav pills (hamburger, language, reserve) as-is in brown
+- [ ] Replace CSS gradient with plaster/stucco texture image as full-page background (subtle light-to-warm shift built into the image)
