@@ -21,6 +21,7 @@ export interface Newsletter {
   subtitle: string;
   date: string;
   slug: string;
+  content: string;
 }
 
 export interface PodcastEpisode {
@@ -468,53 +469,21 @@ export const blogPosts: BlogPost[] = [
 // ─── Newsletters (The Naiad) ──────────────────────────────────
 export const newsletters: Newsletter[] = [
   {
-    issue: 11,
-    title: "Discover What 2025 Holds at Nayara Resorts",
-    subtitle: "From the Tapati Festival to other unforgettable moments",
-    date: "January 2025",
-    slug: "2025-01",
-  },
-  {
-    issue: 10,
-    title: "An Online Experience Transformed, Landscapes Reimagined & Culture Revitalized",
-    subtitle: "Experience Nayara's new website, Rapa Nui's revival, & Atacama's artisan heritage",
-    date: "December 2024",
-    slug: "2024-12",
-  },
-  {
-    issue: 9,
-    title: "A Taste of Adventure: New Ways to Stay, Reflect, and Explore",
-    subtitle: "Ancestral Weddings, Cool-cations, Wellness Wisdom, Split Stays in Bocas",
-    date: "November 2024",
-    slug: "2024-11",
-  },
-  {
-    issue: 8,
-    title: "Travel Intentionally: Wellness, Wonder, and a Fearless Spirit",
-    subtitle: "From top resort honors to wellness escapes and fearless journeys",
-    date: "October 2024",
-    slug: "2024-10",
-  },
-  {
-    issue: 7,
-    title: "How Nayara Resorts is Transforming Luxury in Latin America",
-    subtitle: "From rainforest romance to desert rituals",
-    date: "September 2024",
-    slug: "2024-09",
-  },
-  {
-    issue: 6,
-    title: "The Art of Sloth Time — The New Currency of Luxury",
-    subtitle: "How cuisine, wellness, and nature are redefining meaningful travel",
-    date: "August 2024",
-    slug: "2024-08",
-  },
-  {
-    issue: 5,
-    title: "7 MICHELIN Keys. 3 Countries. 1 Newsletter.",
-    subtitle: "World Wildlife Day, International Women's Day, and our 7 MICHELIN Keys",
-    date: "March 2024",
-    slug: "2024-03",
+    issue: 3,
+    title: "Austral Skies, Tapati Rapa Nui & Nayara Horizons",
+    subtitle: "Austral skies, Tapati Rapa Nui, and the launch of Nayara Horizons: Beyond Travel",
+    date: "February 2026",
+    slug: "2026-02",
+    content: `Austral skies, Tapati Rapa Nui, and the launch of Nayara Horizons: Beyond Travel.
+This month we look up at the austral skies of the Atacama—home to the clearest night skies on Earth and Nayara Alto Atacama's private observatory.
+
+We celebrate the Tapati Rapa Nui festival, where the ancient traditions of Easter Island come alive in a spectacular display of culture, competition, and community.
+
+Nayara Horizons: Beyond Travel
+We're proud to announce the launch of Nayara Horizons: Beyond Travel—our new video podcast series featuring intimate conversations with the people who shape our world. Our first two episodes explore the guardians and archaeologists of Rapa Nui.
+
+Stargazing in the Atacama
+The Atacama Desert offers the clearest night skies on Earth. At Nayara Alto Atacama, our private observatory and expert-guided stargazing sessions reveal the southern hemisphere's most spectacular celestial displays—from the Milky Way to distant galaxies visible only from this corner of the planet.`,
   },
   {
     issue: 4,
@@ -522,13 +491,158 @@ export const newsletters: Newsletter[] = [
     subtitle: "Seven MICHELIN Keys. Three Countries. One Newsletter.",
     date: "November 2025",
     slug: "2025-11",
+    content: `Seven MICHELIN Keys. Three Countries. One Newsletter.
+Nayara Springs has been awarded Three MICHELIN Keys—the highest distinction in the MICHELIN Guide for hotels—making it the first and only property in Costa Rica to receive this honor.
+
+This recognition places Nayara Springs among an elite group of just 143 properties worldwide, celebrated for their extraordinary character, exceptional service, and ability to create truly unforgettable stays.
+
+Meanwhile, Nayara Bocas del Toro and Nayara Alto Atacama each earned Two MICHELIN Keys, bringing our total to seven across three countries.
+
+What Are MICHELIN Keys?
+Unlike MICHELIN Stars, which recognize culinary excellence, MICHELIN Keys evaluate the overall hotel experience—architecture, service, character, and the ability to create an extraordinary stay. Three Keys represents the pinnacle: an exceptional stay that is worth the journey itself.`,
   },
   {
-    issue: 3,
-    title: "Austral Skies, Tapati Rapa Nui & Nayara Horizons",
-    subtitle: "Austral skies, Tapati Rapa Nui, and the launch of Nayara Horizons: Beyond Travel",
-    date: "February 2026",
-    slug: "2026-02",
+    issue: 11,
+    title: "Discover What 2025 Holds at Nayara Resorts",
+    subtitle: "From the Tapati Festival to other unforgettable moments",
+    date: "January 2025",
+    slug: "2025-01",
+    content: `Experience 2025: From the Tapati Festival to other unforgettable moments.
+Welcome to the first Nayara Newsletter of 2025. A new year brings new opportunities for adventure, connection, and sustainability. As we embrace 2025, we invite you to discover the unforgettable moments, meaningful initiatives, and exciting new experiences that await across our resorts.
+
+The Tapati Festival at Nayara Hangaroa
+Every February, Rapa Nui comes alive with the Tapati Festival—a vibrant celebration of ancestral traditions, music, dance, and athletic competitions that honor the island's rich Polynesian heritage. Guests at Nayara Hangaroa have a front-row seat to this extraordinary cultural event, immersing themselves in the spirit of the island while enjoying world-class hospitality.
+
+Sustainability in Action
+At Nayara, sustainability isn't a buzzword—it's a way of life. From our S Certification at Alto Atacama to our Green Globe certification in Costa Rica, we continue to lead the way in responsible luxury travel. In 2025, we're expanding our coral restoration partnership in Bocas del Toro and deepening our commitment to regenerative tourism across all properties.
+
+New Experiences Across Our Resorts
+Whether it's stargazing in the Atacama Desert, exploring the cloud forests of Arenal, or diving into the crystal-clear waters of Bocas del Toro, 2025 brings a wealth of new curated experiences designed to connect you more deeply with each destination.
+
+We are grateful for your continued trust and for being part of our Nayara family. We look forward to sharing another year of unforgettable moments with you.`,
+  },
+  {
+    issue: 10,
+    title: "An Online Experience Transformed, Landscapes Reimagined & Culture Revitalized",
+    subtitle: "Experience Nayara's new website, Rapa Nui's revival, & Atacama's artisan heritage",
+    date: "December 2024",
+    slug: "2024-12",
+    content: `Experience Nayara's new website, Rapa Nui's revival, and Atacama's artisan heritage.
+As the seasons shift, so does our sense of renewal—a theme woven into this edition of the Nayara Newsletter.
+
+This month, we explore the deep connections between culture and nature that define our resorts—from Atacama's artisan heritage to Rapa Nui's cultural revival, and the launch of our reimagined digital experience.
+
+A New Digital Home
+We're thrilled to unveil our completely redesigned website—a digital experience that captures the essence of Nayara across all six properties. Explore immersive destination pages, discover curated experiences, and plan your next journey with ease.
+
+Rapa Nui's Cultural Revival
+On Easter Island, a cultural renaissance is underway. The Hitorangi family and local communities are breathing new life into ancestral traditions, from woodcarving to navigation. Nayara Hangaroa stands at the heart of this revival, supporting cultural preservation while offering guests an authentic connection to the island's living heritage.
+
+Atacama's Artisan Heritage
+In the Atacama Desert, the ancient art of weaving endures at Casa Telar. Here, guests can meet skilled artisans, learn about ancestral techniques, and find handcrafted textiles that carry centuries of tradition. It's a journey into the soul of the desert—where every thread tells a story of resilience and beauty.
+
+Looking Ahead
+As we close out 2024, we reflect on a year of extraordinary growth, meaningful connections, and a deepened commitment to the places and people that make Nayara special. Thank you for being part of this journey.`,
+  },
+  {
+    issue: 9,
+    title: "A Taste of Adventure: New Ways to Stay, Reflect, and Explore",
+    subtitle: "Ancestral Weddings, Cool-cations, Wellness Wisdom, Split Stays in Bocas",
+    date: "November 2024",
+    slug: "2024-11",
+    content: `Ancestral Weddings, Cool-cations, Wellness Wisdom, Split Stays in Bocas, and a celebrated Green Globe Milestone—welcome to the world of Nayara.
+This month's newsletter celebrates contrast—the kind that transforms a trip into a story worth telling.
+
+Ancestral Weddings on Rapa Nui
+Imagine exchanging vows under the gaze of the Moai, surrounded by the raw beauty of Easter Island. Nayara Hangaroa now offers ancestral wedding ceremonies that blend Rapa Nui tradition with modern luxury. It's a celebration unlike any other—a love story rooted in legend.
+
+Cool-cations in Costa Rica
+Escape the heat with a Cool-cation at Nayara Gardens, Springs, or Tented Camp. The Arenal region's lush cloud forests offer natural air conditioning, hot springs, and the kind of tranquility that recharges the soul.
+
+Wellness Wisdom
+Our wellness programs continue to evolve, blending ancient healing traditions with modern science. From sound healing sessions to volcanic mud treatments, every experience is designed to restore balance.
+
+Green Globe Milestone
+We're proud to announce our continued Green Globe certification—a testament to our commitment to sustainable operations across all properties.`,
+  },
+  {
+    issue: 8,
+    title: "Travel Intentionally: Wellness, Wonder, and a Fearless Spirit",
+    subtitle: "From top resort honors to wellness escapes and fearless journeys",
+    date: "October 2024",
+    slug: "2024-10",
+    content: `From top resort honors to wellness escapes and fearless journeys, here's what's inspiring us this month.
+This month's Nayara Newsletter takes you from island accolades to rainforest retreats, with highlights that nourish the body, inspire the spirit, and celebrate our deep connection to nature.
+
+Whether you're planning your next escape or simply dreaming of it, discover what's new at Nayara—including a look at the bold, intentional, and increasingly female future of solo travel.
+
+Wellness Elevated
+Unplug and reconnect with our immersive Wellness Escape, where rest is intentional and the rhythms of nature guide every experience. Each night includes breakfast, dinner and your choice of a holistic spa treatment—Swedish, mud, aromatherapy, or deep tissue—and a private wellness activity such as yoga, sound healing, or breathwork. It's all about slowing down, tuning in, and embracing the healing power of place.
+
+Galerie's Top 12 Spas
+To see why our Sukha Spa is among the world's 12 best, learn more on our Galerie Magazine feature.`,
+  },
+  {
+    issue: 7,
+    title: "How Nayara Resorts is Transforming Luxury in Latin America",
+    subtitle: "From rainforest romance to desert rituals",
+    date: "September 2024",
+    slug: "2024-09",
+    content: `From rainforest romance to desert rituals, see what's new at Nayara this month.
+The July edition of the Nayara Newsletter returns with stories from across Latin America that reflect a new vision of luxury—one rooted in nature, culture, and heartfelt connection. From lush rainforests to windswept deserts, our properties continue to redefine what meaningful travel can look and feel like.
+
+Redefining Luxury in Latin America
+Across Latin America, a new golden age of luxury is emerging—one defined by immersion, intention, and a deep sense of place. At Nayara, we're honored to lead this shift. From rewilding rainforests in Costa Rica to architecture in harmony with the landscape on Easter Island and Atacama, our properties set a new standard: hospitality that is grounded, generous, and deeply connected to its surroundings.
+
+The New Latin American Luxury
+Read more in our latest Nayara Journal article about how Latin America is redefining what luxury means for the modern traveler.`,
+  },
+  {
+    issue: 6,
+    title: "The Art of Sloth Time — The New Currency of Luxury",
+    subtitle: "How cuisine, wellness, and nature are redefining meaningful travel",
+    date: "August 2024",
+    slug: "2024-08",
+    content: `How cuisine, wellness, and nature are redefining meaningful travel at Nayara.
+Luxury has evolved. No longer defined by opulence—its true measure is time, a finite resource that affords rich and poor the same 24 hours a day.
+
+Our brand ambassadors have known this truth all along.
+
+The Art of Sloth Time
+Enter our story's protagonist, the oft-misunderstood sloth—who chose September 4, National Wildlife Day, for his grand entrance. Slow, deliberate, right on time.
+
+It has shed the stain of deadly sin to become rainforest royalty and a pop-culture cause célèbre—with film roles and its very own social-media holiday.
+
+As it turns out, sloths aren't lazy at all—they're nature's ultimate strategist, the Machiavelli of the mangroves.
+
+The vicuñas of the Atacama lack the star power, but they thrive under the even harsher laws of the desert.
+
+And then there are the stone giants of Easter Island. If vicuñas move slowly, and sloths slower still, the Moai don't move at all. Yet, they've outlasted empires as silent guardians of the singular Rapa Nui culture.
+
+True luxury isn't speed or spectacle. It is knowing when to slow down, belong fully to place, and spend our most finite resource: time—meaningfully.`,
+  },
+  {
+    issue: 5,
+    title: "7 MICHELIN Keys. 3 Countries. 1 Newsletter.",
+    subtitle: "World Wildlife Day, International Women's Day, and our 7 MICHELIN Keys",
+    date: "March 2024",
+    slug: "2024-03",
+    content: `This month we celebrate World Wildlife Day, International Women's Day, and our 7 MICHELIN Keys.
+March brings two global observances in seven days: World Wildlife Day on March 3 and International Women's Day on March 8.
+
+One asks what we protect. The other asks who we protect.
+
+At Nayara, the answer to both questions is the same: the human and ecological living systems that make everything else possible.
+
+Seven Keys. One Standard of Excellence
+The MICHELIN Guide does not rank hotels. It recognizes them—or it does not.
+
+Of 7,000 properties evaluated worldwide, only 143 received 3 Keys. Nayara Springs is the only one in Costa Rica. Nayara Bocas del Toro and Nayara Alto Atacama each earned 2.
+
+Here is what the most independent evaluators in hospitality actually measure.
+
+The Story Behind The Keys
+Learn more about what MICHELIN Keys mean and how they differ from Stars in our Journal.`,
   },
 ];
 

@@ -8,7 +8,8 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowLeft, ExternalLink, Play, Mail, ChevronDown } from "lucide-react";
+import { ArrowLeft, ExternalLink, Play, Mail, ChevronDown, X } from "lucide-react";
+import type { Newsletter } from "@/data/journal";
 import {
   blogPosts,
   newsletters,
@@ -456,6 +457,8 @@ function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
    THE NAIAD — Newsletter Archive
    ═══════════════════════════════════════════════════════════════ */
 function NaiadSection() {
+  const [activeNewsletter, setActiveNewsletter] = useState<Newsletter | null>(null);
+
   return (
     <div className="max-w-[1200px] mx-auto px-6 md:px-10 py-16 md:py-24">
       {/* Intro */}
@@ -488,13 +491,14 @@ function NaiadSection() {
       {/* Newsletter Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {newsletters.map((nl, i) => (
-          <motion.div
+          <motion.button
             key={nl.issue}
+            onClick={() => setActiveNewsletter(nl)}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.05 }}
-            className="group border border-stone-200 hover:border-stone-400 p-8 transition-all bg-white"
+            className="group border border-stone-200 hover:border-stone-400 p-8 transition-all bg-white text-left cursor-pointer"
           >
             <div className="flex items-center justify-between mb-5">
               <span
@@ -533,7 +537,7 @@ function NaiadSection() {
                 Read Newsletter
               </span>
             </div>
-          </motion.div>
+          </motion.button>
         ))}
       </div>
 
@@ -575,6 +579,104 @@ function NaiadSection() {
           Subscribe
         </button>
       </motion.div>
+
+      {/* ── Newsletter Modal Viewer ── */}
+      <AnimatePresence>
+        {activeNewsletter && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-start justify-center overflow-y-auto"
+            onClick={() => setActiveNewsletter(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full max-w-3xl mx-4 my-8 md:my-16 bg-[#f7f5f0] shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setActiveNewsletter(null)}
+                className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center bg-[#2a1f14]/10 hover:bg-[#2a1f14]/20 transition-colors"
+              >
+                <X className="w-5 h-5 text-[#2a1f14]" />
+              </button>
+
+              {/* Header */}
+              <div className="bg-[#2a1f14] text-white p-10 md:p-16">
+                <div className="flex items-center gap-3 mb-6">
+                  <span
+                    className="text-[10px] tracking-[0.25em] uppercase text-white/40"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                  >
+                    The Naiad — Issue {activeNewsletter.issue}
+                  </span>
+                  <span className="w-px h-3 bg-white/20" />
+                  <span
+                    className="text-[10px] tracking-[0.15em] uppercase text-white/30"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  >
+                    {activeNewsletter.date}
+                  </span>
+                </div>
+                <h2
+                  className="text-2xl md:text-3xl lg:text-4xl leading-[1.05]"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                >
+                  {activeNewsletter.title}
+                </h2>
+              </div>
+
+              {/* Content */}
+              <div className="p-10 md:p-16">
+                <div className="prose-nayara">
+                  {activeNewsletter.content.split("\n\n").map((paragraph, idx) => {
+                    const trimmed = paragraph.trim();
+                    if (!trimmed) return null;
+                    // Detect section headings (short lines without periods)
+                    const isHeading = trimmed.length < 80 && !trimmed.includes(".") && !trimmed.startsWith("—");
+                    if (isHeading) {
+                      return (
+                        <h3
+                          key={idx}
+                          className="text-xl md:text-2xl leading-[1.15] text-[#2a1f14] mt-10 mb-4 first:mt-0"
+                          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                        >
+                          {trimmed}
+                        </h3>
+                      );
+                    }
+                    return (
+                      <p
+                        key={idx}
+                        className="text-stone-600 text-[15px] leading-[1.8] mb-5"
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+                      >
+                        {trimmed}
+                      </p>
+                    );
+                  })}
+                </div>
+
+                {/* Footer divider */}
+                <div className="mt-12 pt-8 border-t border-stone-200 text-center">
+                  <p
+                    className="text-stone-400 text-xs tracking-[0.2em] uppercase"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                  >
+                    Nayara Resorts — The Naiad Newsletter
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

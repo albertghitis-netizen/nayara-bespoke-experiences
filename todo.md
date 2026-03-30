@@ -121,11 +121,11 @@
 - [ ] Link each to YouTube URL
 
 ## Newsletters Section
-- [ ] Extract full content from all 11 HubSpot newsletters via Gmail
+- [x] Extract full content from 9 HubSpot newsletters via Gmail
 - [ ] Upload newsletter images to CDN
-- [ ] Build newsletter modal viewer (click title → opens full newsletter as overlay)
+- [x] Build newsletter modal viewer (click title → opens full newsletter as overlay)
 - [ ] Active blog links within newsletter content
-- [ ] Sort newsletters by year and month
+- [x] Sort newsletters by year and month
 
 ## Bug Fixes / Quick Changes
 - [x] Remove rolling animation from leaf logo on page load
@@ -168,7 +168,7 @@
 - [x] Scrape all experience/excursion pages from each property site
 - [x] Scrape all spa/wellness menus and treatments from each property
 - [x] Scrape all blog posts from Nayara websites
-- [ ] Extract content from all 11 newsletters (already in Gmail)
+- [x] Extract content from all 9 newsletters from Gmail and build modal viewer
 - [x] Compile all booking links (SynXis) for all 6 properties
 - [x] Compile all contact info: reservations email, phone numbers, hours
 - [x] Build comprehensive knowledge base document covering all 6 properties
