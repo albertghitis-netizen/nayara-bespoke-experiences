@@ -110,3 +110,12 @@
 - [ ] Replace CSS gradient with plaster/stucco texture image
 - [ ] Gastronomy section with restaurant menus
 - [ ] Make booking URL configurable per property
+
+## Animation Enhancements — Homepage
+- [x] Parallax scroll effect on hero video section
+- [x] Staggered text reveal on hero (label → heading → subtitle)
+- [x] Counter animation on Award-Winning Properties stats (count up from 0)
+- [x] Enhanced card reveal animations with staggered timing
+- [x] Scroll-linked progress indicator (thin gold line at top)
+- [x] Smooth section transitions with parallax dividers
+- [x] Ken Burns / slow zoom on section images
