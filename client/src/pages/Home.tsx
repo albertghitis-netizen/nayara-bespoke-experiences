@@ -101,20 +101,18 @@ function BrandNavigation() {
         </button>
       </div>
 
-      {/* Nayara branded lockup — thin line from top edge to logo */}
+      {/* Nayara branded lockup — logo bleeds to top edge */}
       <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pointer-events-none hidden md:flex">
         <div className="flex flex-col items-center">
-          {/* Thin vertical connector line from top of screen */}
-          <div className="w-px h-6 bg-white/50" />
-          {/* Loose leaf logo — white */}
+          {/* Loose leaf logo — white, bleeds to top with negative margin */}
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-charcoal_4ac58543.png"
             alt="Nayara"
-            className="h-28 lg:h-36 w-auto brightness-0 invert drop-shadow-lg mt-1"
+            className="h-32 lg:h-40 w-auto brightness-0 invert drop-shadow-lg -mt-4"
           />
           {/* NAYARA text */}
           <span
-            className="text-white text-2xl lg:text-3xl tracking-[0.2em] uppercase drop-shadow-lg -mt-2"
+            className="text-white text-2xl lg:text-3xl tracking-[0.2em] uppercase drop-shadow-lg -mt-3"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
             Nayara
@@ -298,20 +296,6 @@ function HeroHeader() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      {/* Subtle Nayara brand mark — just below nav bar */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 0.4 }}
-        className="absolute top-24 md:top-28 left-0 right-0 z-10 flex justify-center"
-      >
-        <span
-          className="text-white/15 text-[11px] md:text-xs tracking-[0.5em] uppercase"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-        >
-          Nayara
-        </span>
-      </motion.div>
 
       {/* Content — anchored to bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
