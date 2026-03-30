@@ -419,7 +419,17 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-          {/* Logo placeholder — user will provide final version */}
+          {/* Nayara Logo — centered between hamburger and reserve */}
+          <button
+            onClick={() => navigate("/")}
+            className="pointer-events-auto flex items-center justify-center"
+          >
+            <img
+              src={LOGO_URL}
+              alt="Nayara Resorts"
+              className="h-8 md:h-10 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300"
+            />
+          </button>
         </div>
 
         {/* RIGHT: Language + Reserve */}

@@ -18,7 +18,7 @@ import { useLocation } from "wouter";
 
 /* ── CDN Assets ── */
 const VIDEO_DESKTOP =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-new_42efa04c.mp4";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00007_0b62f6a1.MP4";
 const VIDEO_MOBILE =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-vertical-new_1e1453e7.mp4";
 const POSTER =

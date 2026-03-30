@@ -133,3 +133,7 @@
 - [x] Design chat UI that matches the site's editorial design language
 - [x] Integrate chatbot as floating widget accessible from all pages
 - [x] Chatbot should answer questions about properties, menus, experiences, booking inquiries
+
+## Navigation Logo
+- [x] Add Nayara logo to the top navigation bar
+- [x] Use Video_Nayara_Atacama00007.MP4 as horizontal desktop hero for Alto Atacama page
