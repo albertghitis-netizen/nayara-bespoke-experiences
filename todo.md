@@ -142,10 +142,10 @@
 - [x] Remove logo pill for now (user will design custom logo later)
 
 ## Footer Redesign
-- [ ] Change footer background to brown (#3a2a1a) with light/white text
-- [ ] Remove the big Nayara logo at the bottom of footer
-- [ ] Make "The World of Nayara" text smaller and positioned lower
-- [ ] Make social media icons larger
+- [x] Change footer background to brown (#3a2a1a) with light/white text
+- [x] Remove the big Nayara logo at the bottom of footer
+- [x] Make "The World of Nayara" text smaller and positioned lower
+- [x] Make social media icons larger
 
 ## Page Gradient & Footer Update
 - [x] Apply beige gradient across the full page (lighter beige at top → deeper warm beige toward footer)
@@ -178,7 +178,7 @@
 - [x] Chatbot must provide reservations email (reservations@nayararesorts.com)
 - [x] Chatbot escalation: "I can ping Albert from guest relations"
 - [x] Update suggested prompts to match new comprehensive knowledge
-- [ ] Test chatbot with questions about each property
+- [x] Test chatbot with questions about each property (Starry personality active)
 
 ## Instagram DM Simulator
 - [ ] Build Instagram DM simulator page that looks like real Instagram Direct Messages
@@ -191,11 +191,11 @@
 - [ ] Make it the default/landing page for demos
 
 ## Starry - AI Concierge Personality
-- [ ] Rename bot to "Starry" — the Atacama AI concierge
-- [ ] Update system prompt with Starry personality
-- [ ] Starry should naturally capture emails and give booking links
-- [ ] Starry should recommend relevant blog posts when appropriate
-- [ ] Starry connects to Albert from Guest Relations for human escalation
+- [x] Rename bot to "Starry" — the Atacama AI concierge
+- [x] Update system prompt with Starry personality
+- [x] Starry should naturally capture emails and give booking links
+- [x] Starry should recommend relevant blog posts when appropriate
+- [x] Starry connects to Albert from Guest Relations for human escalation
 
 ## Journal / Content Hub Page (Mobile-Only)
 - [ ] Scrape all blog posts from blog.nayararesorts.com (titles, dates, URLs, images)
@@ -233,8 +233,8 @@
 - [x] Build Nayara Springs full property page (/springs)
 - [x] Build Nayara Hangaroa full property page (/hangaroa)
 - [x] Build Nayara Bocas del Toro full property page (/bocas-del-toro)
-- [ ] Improve Tented Camp page (full sections: rooms, dining, sustainability)
-- [ ] Improve Alto Atacama page (full property homepage, not just experiences)
+- [x] Improve Tented Camp page (full sections: rooms, dining, sustainability)
+- [x] Improve Alto Atacama page (full property homepage with oasis, rooms, dining, stargazing, experiences, wellness, sustainability)
 - [x] Build Brand Experiences page (cross-property)
 - [x] Build Brand Wellness page (cross-property)
 - [ ] Rebuild Awards & Press page — THE SHOWSTOPPER
@@ -246,7 +246,7 @@
 - [ ] Parallax scrolling on hero sections (background moves slower than foreground)
 - [x] Reveal animations on scroll (sections fade/slide in on viewport entry)
 - [ ] Parallax image layers with depth effect
-- [ ] Smooth scroll transitions between sections
+- [x] Smooth scroll transitions between sections (sticky nav with scroll-to-section)
 
 ## Ayla on Krog — Quick Elevated Page
 - [x] Build single-page Ayla on Krog luxury apartment page (/ayla)
