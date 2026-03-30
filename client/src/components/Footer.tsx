@@ -165,15 +165,19 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Newsletter CTA — bold centered text, no pill */}
+        {/* Newsletter CTA — pill button identical to Reserve */}
         <div className="flex justify-center mt-10 mb-4">
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
-            className="text-[#3a2a1a] text-[12px] tracking-[0.04em] hover:opacity-70 transition-opacity"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
+            className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#3a2a1a]/80 hover:bg-[#3a2a1a]/95 shadow-lg transition-all duration-300"
           >
-            Stay Inspired with the Nayara Newsletter
+            <span
+              className="text-white text-[11px] tracking-[0.25em] uppercase"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Stay Inspired with the Nayara Newsletter
+            </span>
           </a>
         </div>
 
