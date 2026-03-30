@@ -88,6 +88,7 @@ export default function Footer() {
               {[
                 { label: "Experiences", route: "/experiences" },
                 { label: "Wellness", route: "/wellness" },
+                { label: "Gastronomy", route: "/gastronomy" },
                 { label: "Sustainability", route: "/sustainability" },
                 { label: "Gallery", route: "/gallery" },
                 { label: "Awards", route: "/awards" },

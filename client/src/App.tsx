@@ -18,6 +18,7 @@ import Experiences from "./pages/Experiences";
 import Wellness from "./pages/Wellness";
 import AylaOnKrog from "./pages/AylaOnKrog";
 import Press from "./pages/Press";
+import Gastronomy from "./pages/Gastronomy";
 import TentedCamp from "./pages/TentedCamp";
 import Gardens from "./pages/Gardens";
 import Springs from "./pages/Springs";
@@ -61,6 +62,7 @@ function Router() {
         <Route path="/experiences" component={Experiences} />
         <Route path="/wellness" component={Wellness} />
         <Route path="/press" component={Press} />
+        <Route path="/gastronomy" component={Gastronomy} />
         <Route path="/ayla" component={AylaOnKrog} />
         <Route path="/instagram" component={InstagramDM} />
         <Route path="/messenger" component={MessengerDM} />

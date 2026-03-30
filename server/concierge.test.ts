@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { appRouter } from "./routers";
+import { NAYARA_CONCIERGE_SYSTEM_PROMPT } from "./conciergePrompt";
 import type { TrpcContext } from "./_core/context";
 
 /**
@@ -39,6 +40,103 @@ function createPublicContext(): TrpcContext {
   };
 }
 
+/* ═══════════════════════════════════════════
+   CONCIERGE SYSTEM PROMPT TESTS
+   ═══════════════════════════════════════════ */
+
+describe("Nayara Concierge System Prompt", () => {
+  it("should not reference 'Starry' anywhere in the prompt", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT.toLowerCase()).not.toContain("starry");
+  });
+
+  it("should identify as Nayara Resorts Concierge", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Resorts Concierge");
+  });
+
+  it("should contain reservation contact information", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("reservations@nayararesorts.com");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("1-844-865-2002");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("+506 2479-1600");
+  });
+
+  it("should contain all 6 property names", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Tented Camp");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Springs");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Gardens");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Alto Atacama");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Hangaroa");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Bocas del Toro");
+  });
+
+  it("should contain SynXis booking URLs for all properties", () => {
+    const synxisMatches = NAYARA_CONCIERGE_SYSTEM_PROMPT.match(/be\.synxis\.com/g);
+    expect(synxisMatches?.length).toBeGreaterThanOrEqual(6);
+  });
+
+  it("should warn against using 'Nayara Arenal'", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("NEVER say \"Nayara Arenal\"");
+  });
+
+  it("should contain correct Michelin Keys information", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("THREE Michelin Keys");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("TWO Michelin Keys");
+  });
+
+  it("should contain Costa Rica dining venues", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Asia Luna");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Amor Loco");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nostalgia");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Lapas Bar");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Terraza");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Café Campesino");
+  });
+
+  it("should contain Poerava restaurant menu details for Hangaroa", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Poerava");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Ceviche Rapa Nui");
+  });
+
+  it("should contain Bocas del Toro spa details", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Bliss Massage");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Jungle Rub");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Reflexology");
+  });
+
+  it("should contain Lapas Bar cocktail details with prices", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Dreams Mai Tai");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Lost Paradise Zombie");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("$17");
+  });
+
+  it("should contain Terraza cocktail details", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Casitico Sour");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Cacique Guaro");
+  });
+
+  it("should reference the gastronomy page", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("/gastronomy");
+  });
+
+  it("should contain lead capture and escalation instructions", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Lead Capture");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Guest Relations");
+  });
+
+  it("should contain property access rules", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Adults-only");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Family-friendly");
+  });
+
+  it("should contain sustainability certifications", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("S Certification");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Green Globe");
+  });
+});
+
+/* ═══════════════════════════════════════════
+   CONCIERGE CHAT PROCEDURE TESTS
+   ═══════════════════════════════════════════ */
+
 describe("concierge.chat", () => {
   it("returns a reply from the LLM for a simple user message", async () => {
     const ctx = createPublicContext();
@@ -77,7 +175,6 @@ describe("concierge.chat", () => {
     const ctx = createPublicContext();
     const caller = appRouter.createCaller(ctx);
 
-    // Should not throw — concierge is a public procedure
     const result = await caller.concierge.chat({
       messages: [{ role: "user", content: "Hello" }],
     });
@@ -85,15 +182,40 @@ describe("concierge.chat", () => {
     expect(result).toHaveProperty("reply");
   });
 
-  it("rejects empty messages array", async () => {
+  it("handles empty messages array", async () => {
     const ctx = createPublicContext();
     const caller = appRouter.createCaller(ctx);
 
-    // Empty messages should still work (the LLM just gets the system prompt)
     const result = await caller.concierge.chat({
       messages: [],
     });
 
     expect(result).toHaveProperty("reply");
+  });
+
+  it("accepts channel parameter for social DM context", async () => {
+    const ctx = createPublicContext();
+    const caller = appRouter.createCaller(ctx);
+
+    const result = await caller.concierge.chat({
+      messages: [{ role: "user", content: "Hi there" }],
+      channel: "instagram",
+    });
+
+    expect(result).toHaveProperty("reply");
+  });
+});
+
+/* ═══════════════════════════════════════════
+   ROUTER STRUCTURE TESTS
+   ═══════════════════════════════════════════ */
+
+describe("Router structure", () => {
+  it("should have concierge.chat procedure", () => {
+    expect(appRouter._def.procedures).toHaveProperty("concierge.chat");
+  });
+
+  it("should have leads.save procedure", () => {
+    expect(appRouter._def.procedures).toHaveProperty("leads.save");
   });
 });

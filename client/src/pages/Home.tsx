@@ -349,6 +349,19 @@ function BrandNavigation() {
                     </span>
                   </button>
 
+                  {/* Gastronomy */}
+                  <button
+                    onClick={() => handleNavigate("/gastronomy")}
+                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                  >
+                    <span
+                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      Gastronomy
+                    </span>
+                  </button>
+
                   {/* Sustainability */}
                   <button
                     onClick={() => handleNavigate("/sustainability")}
