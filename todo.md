@@ -43,10 +43,10 @@
 
 ## Future — Website
 - [ ] Compress desktop hero video (~69MB → ~15MB)
-- [ ] Build Gallery page
-- [ ] Build Sustainability pages per property
+- [x] Build Gallery page
+- [x] Build Sustainability page (full responsive, real content)
 - [ ] Apply two-media-slot system to all remaining sections
-- [ ] Build out Hangaroa and Bocas del Toro experience pages
+- [x] Build out Hangaroa and Bocas del Toro property pages
 
 ## Booking Integration
 - [x] Wire Reserve button (nav) to SynXis booking engine for Nayara Tented Camp
@@ -162,3 +162,108 @@
 - [x] Merge footer content into World of Nayara section (no separate footer)
 - [x] Fix nav logo white background issue
 - [x] Gradient: two levels only — light top, slightly darker at bottom of World of Nayara
+
+## COMPREHENSIVE CHATBOT KNOWLEDGE BASE (Priority #1)
+- [ ] Scrape all 6 property websites for complete content (rooms, dining, experiences, spa, sustainability)
+- [ ] Scrape all experience/excursion pages from each property site
+- [ ] Scrape all spa/wellness menus and treatments from each property
+- [ ] Scrape all blog posts from Nayara websites
+- [ ] Extract content from all 11 newsletters (already in Gmail)
+- [ ] Compile all booking links (SynXis) for all 6 properties
+- [ ] Compile all contact info: reservations email, phone numbers, hours
+- [ ] Build comprehensive knowledge base document covering all 6 properties
+- [ ] Update chatbot system prompt with full knowledge base
+- [ ] Chatbot must capture guest emails naturally in conversation
+- [ ] Chatbot must provide reservations phone number (1-844-865-2002)
+- [ ] Chatbot must provide reservations email (reservations@nayararesorts.com)
+- [ ] Chatbot escalation: "I can ping Albert from guest relations"
+- [ ] Update suggested prompts to match new comprehensive knowledge
+- [ ] Test chatbot with questions about each property
+
+## Instagram DM Simulator
+- [ ] Build Instagram DM simulator page that looks like real Instagram Direct Messages
+- [ ] Use @nayaraaltoatacama profile pic and username
+- [ ] Instagram-style message bubbles (grey left, blue/purple gradient right)
+- [ ] Instagram-style header with back arrow, profile pic, username, verified badge
+- [ ] Instagram-style input bar with camera, mic, image, and send icons
+- [ ] Connect to existing chatbot AI backend (same brain)
+- [ ] Register route in App.tsx
+- [ ] Make it the default/landing page for demos
+
+## Starry - AI Concierge Personality
+- [ ] Rename bot to "Starry" — the Atacama AI concierge
+- [ ] Update system prompt with Starry personality
+- [ ] Starry should naturally capture emails and give booking links
+- [ ] Starry should recommend relevant blog posts when appropriate
+- [ ] Starry connects to Albert from Guest Relations for human escalation
+
+## Journal / Content Hub Page (Mobile-Only)
+- [ ] Scrape all blog posts from blog.nayararesorts.com (titles, dates, URLs, images)
+- [ ] Tag each blog by property (Gardens, Springs, Tented Camp, Alto Atacama, Hangaroa, Bocas del Toro, All)
+- [ ] Tag each blog by pillar (Experiences, Wellness, Sustainability, Gastronomy, Adventure, Culture)
+- [ ] Build blog data structure with dual tagging system
+- [ ] Build mobile-only Journal page with vertical hero video
+- [ ] Add dual filter: by property and by pillar
+- [ ] Add Nayara Horizons (podcast) section with 4 YouTube episodes
+- [ ] Add Naiad Newsletter section with 11 newsletters
+- [ ] Blogs covering multiple properties tagged with all relevant properties
+
+## Sustainability Page Prototype (Mobile-Only)
+- [x] Build Sustainability page (full responsive, real content, 5 pillars)
+- [x] 5 pillar sections: S Certification, Coral Restoration, Cloud Forest, Community, Operations
+- [ ] Placeholder content in each category (photo here, info here, link here)
+- [ ] Certifications: Green Globe (CR + Bocas) and S Certification (Atacama + Hangaroa)
+- [ ] Same card-based layout as experience pages
+- [x] Register route in App.tsx
+
+## Awards & Press Page Prototype (Mobile-Only)
+- [ ] Build mobile-only Awards & Press page with vertical hero video
+- [ ] Awards section with placeholder content
+- [ ] Press section with placeholder content
+- [ ] Same card-based layout as experience pages
+- [ ] Register route in App.tsx
+
+## Future: Gastronomy Section
+- [ ] Scrape restaurant menus from all 6 property websites
+- [ ] Include menus in Gastronomy section alongside dining blogs
+
+## FULL REBUILD — All Property Pages + Brand Pages (March 30, 2026)
+- [ ] Build reusable PropertyPage template component (hero, intro, rooms, highlights, CTA)
+- [ ] Build Nayara Gardens full property page (/gardens)
+- [ ] Build Nayara Springs full property page (/springs)
+- [x] Build Nayara Hangaroa full property page (/hangaroa)
+- [x] Build Nayara Bocas del Toro full property page (/bocas-del-toro)
+- [ ] Improve Tented Camp page (full sections: rooms, dining, sustainability)
+- [ ] Improve Alto Atacama page (full property homepage, not just experiences)
+- [x] Build Brand Experiences page (cross-property)
+- [x] Build Brand Wellness page (cross-property)
+- [ ] Rebuild Awards & Press page — THE SHOWSTOPPER
+- [x] Build dynamic Gallery page — filterable, animated, wow factor
+- [ ] Update App.tsx routing for all new pages
+- [ ] Upload all Spherical media to CDN for use in pages
+
+## Animations & Interactions
+- [ ] Parallax scrolling on hero sections (background moves slower than foreground)
+- [x] Reveal animations on scroll (sections fade/slide in on viewport entry)
+- [ ] Parallax image layers with depth effect
+- [ ] Smooth scroll transitions between sections
+
+## Ayla on Krog — Quick Elevated Page
+- [x] Build single-page Ayla on Krog luxury apartment page (/ayla)
+- [x] Use existing content from aylaonkrog.com but elevate design
+- [x] Full-width hero image (horizontal on desktop)
+- [x] Yellow/navy brand colors elevated to luxury feel
+- [x] Sections: Hero, About, Amenities, Neighborhood, Floor Plans CTA, Contact
+- [x] Register route in App.tsx
+
+## Journal Page — Full Rebuild (Aman/Rosewood Editorial)
+- [x] Scrape featured images from blog.nayararesorts.com for each KEEP post
+- [x] Build editorial magazine-style Journal page with large hero images
+- [x] Filter by content pillar (Sustainability, Wellness, Wildlife, Culture, etc.)
+- [x] Filter by destination (Atacama, Arenal, Hangaroa, Bocas, Brand)
+- [x] Large featured article card at top
+- [x] Grid layout with image-forward cards (not just text links)
+- [x] Lazy-loaded images for performance
+- [x] Fully responsive (mobile + desktop)
+- [x] Include Nayara Horizons podcast section
+- [x] Include Naiad Newsletter section

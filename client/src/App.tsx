@@ -8,11 +8,19 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import AltoAtacama from "./pages/AltoAtacama";
 import CostaRica from "./pages/CostaRica";
-import ComingSoon from "./pages/ComingSoon";
+import Hangaroa from "./pages/Hangaroa";
+import BocasDelToro from "./pages/BocasDelToro";
 import Journal from "./pages/Journal";
 import Awards from "./pages/Awards";
 import Sustainability from "./pages/Sustainability";
+import Gallery from "./pages/Gallery";
+import Experiences from "./pages/Experiences";
+import Wellness from "./pages/Wellness";
+import AylaOnKrog from "./pages/AylaOnKrog";
 import TentedCamp from "./pages/TentedCamp";
+import InstagramDM from "./pages/InstagramDM";
+import MessengerDM from "./pages/MessengerDM";
+import WhatsAppDM from "./pages/WhatsAppDM";
 import ConciergeChatWidget from "./components/ConciergeChatWidget";
 import "./index.css";
 
@@ -23,24 +31,38 @@ function ScrollToTop() {
   }, [location]);
   return null;
 }
+
+/* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
+const HIDE_WIDGET_PATHS = ["/instagram", "/messenger", "/whatsapp"];
+
 function Router() {
-  // make sure to consider if you need authentication for certain routes
+  const [location] = useLocation();
+  const hideWidget = HIDE_WIDGET_PATHS.includes(location);
+
   return (
     <>
-    <ScrollToTop />
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/alto-atacama" component={AltoAtacama} />
-      <Route path="/arenal" component={CostaRica} />
-      <Route path="/tented-camp" component={TentedCamp} />
-      <Route path="/hangaroa" component={ComingSoon} />
-      <Route path="/bocas-del-toro" component={ComingSoon} />
-      <Route path="/journal" component={Journal} />
-      <Route path="/awards" component={Awards} />
-      <Route path="/sustainability" component={Sustainability} />
-      <Route path="/404" component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/alto-atacama" component={AltoAtacama} />
+        <Route path="/arenal" component={CostaRica} />
+        <Route path="/tented-camp" component={TentedCamp} />
+        <Route path="/hangaroa" component={Hangaroa} />
+        <Route path="/bocas-del-toro" component={BocasDelToro} />
+        <Route path="/journal" component={Journal} />
+        <Route path="/awards" component={Awards} />
+        <Route path="/sustainability" component={Sustainability} />
+        <Route path="/gallery" component={Gallery} />
+        <Route path="/experiences" component={Experiences} />
+        <Route path="/wellness" component={Wellness} />
+        <Route path="/ayla" component={AylaOnKrog} />
+        <Route path="/instagram" component={InstagramDM} />
+        <Route path="/messenger" component={MessengerDM} />
+        <Route path="/whatsapp" component={WhatsAppDM} />
+        <Route path="/404" component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+      {!hideWidget && <ConciergeChatWidget />}
     </>
   );
 }
@@ -52,7 +74,6 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
-          <ConciergeChatWidget />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

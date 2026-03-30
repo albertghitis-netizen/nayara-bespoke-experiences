@@ -27,8 +27,8 @@ const BOCAS_BOOKING_URL =
 const propertyLinks = [
   { label: "Nayara Alto Atacama", route: "/alto-atacama", available: true },
   { label: "Nayara Arenal", route: "/arenal", available: true },
-  { label: "Nayara Hangaroa", route: "/hangaroa", available: false },
-  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: false },
+  { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
+  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true },
 ];
 
 /* ── Hotel booking links for Reserve dropdown ── */
@@ -155,7 +155,7 @@ function BrandNavigation() {
     <>
       {/* ── FIXED NAV: Hamburger (left) + Reserve (right) ── */}
       <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
-        {/* LEFT: Hamburger pill + Logo */}
+        {/* LEFT: Hamburger pill + Language */}
         <div className="flex items-center gap-3 pointer-events-auto">
         <div ref={menuRef} className="relative">
           <button
@@ -207,7 +207,7 @@ function BrandNavigation() {
 
                   {/* Gallery */}
                   <button
-                    onClick={() => handleComingSoon("Gallery")}
+                    onClick={() => handleNavigate("/gallery")}
                     className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
                   >
                     <span
@@ -291,9 +291,35 @@ function BrandNavigation() {
                   {/* Divider */}
                   <div className="mx-5 my-1 h-px bg-white/10" />
 
+                  {/* Experiences */}
+                  <button
+                    onClick={() => handleNavigate("/experiences")}
+                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                  >
+                    <span
+                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      Experiences
+                    </span>
+                  </button>
+
+                  {/* Wellness */}
+                  <button
+                    onClick={() => handleNavigate("/wellness")}
+                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                  >
+                    <span
+                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      Wellness
+                    </span>
+                  </button>
+
                   {/* Sustainability */}
                   <button
-                    onClick={() => handleComingSoon("Sustainability")}
+                    onClick={() => handleNavigate("/sustainability")}
                     className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
                   >
                     <span
@@ -335,15 +361,10 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-        {/* Nayara Logo */}
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-nav-transparent_a13343b9.png"
-          alt="Nayara"
-          className="h-14 w-auto pointer-events-none brightness-0 invert"
-        />
+          {/* Logo placeholder — user will provide final version */}
         </div>
 
-        {/* RIGHT: Language + Reserve pills */}
+        {/* RIGHT: Language + Reserve */}
         <div className="flex items-center gap-3 pointer-events-auto">
           {/* Language pill + dropdown */}
           <div ref={langRef} className="relative">
