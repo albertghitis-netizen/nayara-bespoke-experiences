@@ -57,3 +57,4 @@
 - [x] Replace old leaf-only logo with new full Nayara logo (leaf + NAYARA) everywhere
 - [x] Add Nayara logo centered in top nav between hamburger and Reserve pills
 - [x] Style "Stay Inspired with the Nayara Newsletter" as pill button identical to Reserve (brown bg, white uppercase text)
+- [x] Replace logo with new dark charcoal/olive version (nayara_logo_transparent.jpg) everywhere

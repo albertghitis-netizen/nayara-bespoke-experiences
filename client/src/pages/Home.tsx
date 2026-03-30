@@ -93,7 +93,7 @@ function BrandNavigation() {
           className="pointer-events-auto flex items-center justify-center"
         >
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-full_dd374f5f.png"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-charcoal_4ac58543.png"
             alt="Nayara"
             className="h-12 w-auto brightness-0 invert drop-shadow-lg"
           />
