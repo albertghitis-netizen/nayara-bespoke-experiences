@@ -101,18 +101,37 @@ function BrandNavigation() {
         </button>
       </div>
 
-      {/* Nayara logo — large, centered, anchored to top of screen */}
+      {/* Nayara branded lockup — centered, anchored to top of screen */}
       <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pointer-events-none">
-        <button
-          onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="pointer-events-auto"
-        >
+        <div className="flex flex-col items-center">
+          {/* Loose leaf logo — white, large, touching top edge */}
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-charcoal_4ac58543.png"
             alt="Nayara"
-            className="h-28 md:h-36 w-auto brightness-0 invert drop-shadow-lg mt-2"
+            className="hidden md:block h-32 lg:h-40 w-auto brightness-0 invert drop-shadow-lg -mt-2"
           />
-        </button>
+          {/* NAYARA — bold, white, wide tracking */}
+          <span
+            className="hidden md:block text-white text-3xl lg:text-4xl tracking-[0.2em] uppercase drop-shadow-lg -mt-3"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            Nayara
+          </span>
+          {/* TENTED CAMP — smaller uppercase tracking */}
+          <span
+            className="hidden md:block text-white text-[11px] lg:text-[13px] tracking-[0.35em] uppercase drop-shadow-lg mt-1"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            Tented Camp
+          </span>
+          {/* Costa Rica — italic serif */}
+          <span
+            className="hidden md:block text-white/80 text-[12px] lg:text-[14px] italic drop-shadow-lg mt-0.5"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            Costa Rica
+          </span>
+        </div>
       </div>
 
       {/* Full-screen menu overlay */}
