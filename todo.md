@@ -60,3 +60,9 @@
 - [x] Replace logo with new dark charcoal/olive version (nayara_logo_transparent.jpg) everywhere
 - [x] Make top nav logo significantly larger — reach to top of screen, white color
 - [x] Top logo layout: loose leaf (white) + NAYARA (bold) + TENTED CAMP (uppercase tracking) + Costa Rica (italic serif) — all centered over hero, desktop only
+
+## Property Pages
+- [x] Grab landscape photos from Nayara hotel websites (pool/deck + aerial valley)
+- [x] Create Tented Camp homepage (/tented-camp) with hero landscape photo
+- [x] Make all 6 footer hotel names clickable links to their property pages
+- [x] Register routes in App.tsx for property pages

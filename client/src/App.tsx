@@ -12,6 +12,7 @@ import ComingSoon from "./pages/ComingSoon";
 import Journal from "./pages/Journal";
 import Awards from "./pages/Awards";
 import Sustainability from "./pages/Sustainability";
+import TentedCamp from "./pages/TentedCamp";
 import ConciergeChatWidget from "./components/ConciergeChatWidget";
 import "./index.css";
 
@@ -31,6 +32,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/alto-atacama" component={AltoAtacama} />
       <Route path="/arenal" component={CostaRica} />
+      <Route path="/tented-camp" component={TentedCamp} />
       <Route path="/hangaroa" component={ComingSoon} />
       <Route path="/bocas-del-toro" component={ComingSoon} />
       <Route path="/journal" component={Journal} />

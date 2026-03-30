@@ -119,23 +119,25 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* CENTER — All 6 hotels */}
+          {/* CENTER — All 6 hotels (clickable) */}
           <div className="flex flex-col gap-[5px]">
             {[
-              "Nayara Gardens",
-              "Nayara Springs",
-              "Nayara Tented Camp",
-              "Nayara Alto Atacama",
-              "Nayara Hangaroa",
-              "Nayara Bocas del Toro",
-            ].map((name) => (
-              <span
-                key={name}
-                className="text-[#5a4a3a]/60"
+              { name: "Nayara Gardens", route: "/arenal" },
+              { name: "Nayara Springs", route: "/arenal" },
+              { name: "Nayara Tented Camp", route: "/tented-camp" },
+              { name: "Nayara Alto Atacama", route: "/alto-atacama" },
+              { name: "Nayara Hangaroa", route: "/hangaroa" },
+              { name: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
+            ].map((hotel) => (
+              <a
+                key={hotel.name}
+                href={hotel.route}
+                onClick={(e) => { e.preventDefault(); navigate(hotel.route); }}
+                className="text-[#5a4a3a]/60 hover:text-[#3a2a1a] transition-colors cursor-pointer"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
-                {name}
-              </span>
+                {hotel.name}
+              </a>
             ))}
           </div>
 
