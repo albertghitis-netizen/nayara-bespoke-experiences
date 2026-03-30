@@ -101,17 +101,24 @@ function BrandNavigation() {
         </button>
       </div>
 
-      {/* Nayara branded lockup — logo bleeds to top edge */}
-      <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pointer-events-none hidden md:flex">
-        <div className="flex flex-col items-center">
-          {/* Loose leaf logo — white, bleeds to top with negative margin */}
-          <img
+      {/* Nayara branded lockup — leaf rolls from left to center */}
+      <div className="fixed top-0 left-0 right-0 z-40 pointer-events-none hidden md:flex justify-center">
+        <motion.div
+          className="flex flex-col items-center"
+          initial={{ x: "-25vw" }}
+          animate={{ x: 0 }}
+          transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {/* Loose leaf logo — white, rolls into place with rotation */}
+          <motion.img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-charcoal_4ac58543.png"
             alt="Nayara"
             className="h-32 lg:h-40 w-auto brightness-0 invert drop-shadow-lg -mt-4"
+            initial={{ rotate: -360 }}
+            animate={{ rotate: 0 }}
+            transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}
           />
-
-        </div>
+        </motion.div>
       </div>
 
       {/* Full-screen menu overlay */}

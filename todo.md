@@ -68,3 +68,4 @@
 - [x] Register routes in App.tsx for property pages
 - [ ] Create shield logo (leaf inside badge shape + NAYARA) matching Tented Camp site style
 - [ ] Rebuild Tented Camp page with two-column editorial layout on gold background
+- [x] Animate leaf logo: starts halfway toward hamburger, rolls/slides to center above NAYARA in 3 seconds on page load
