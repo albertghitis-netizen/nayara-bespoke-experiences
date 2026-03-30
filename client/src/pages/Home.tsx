@@ -14,6 +14,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import AwardWinningProperties from "@/components/AwardWinningProperties";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
+import { BOOKING_URL } from "@/components/Footer";
 
 /* Property routes for dropdowns */
 const propertyLinks = [
@@ -86,9 +87,21 @@ function BrandNavigation() {
           </div>
         </button>
 
+        {/* Nayara logo — centered */}
+        <button
+          onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          className="pointer-events-auto flex items-center justify-center"
+        >
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-full_dd374f5f.png"
+            alt="Nayara"
+            className="h-12 w-auto brightness-0 invert drop-shadow-lg"
+          />
+        </button>
+
         {/* Reserve pill */}
         <button
-          onClick={() => handleComingSoon("Reservation")}
+          onClick={() => window.open(BOOKING_URL, "_blank")}
           className="pointer-events-auto flex items-center justify-center h-12 px-6 rounded-full bg-[#3a2a1a]/70 backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-all duration-300"
         >
           <span

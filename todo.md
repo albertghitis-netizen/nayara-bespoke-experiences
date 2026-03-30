@@ -14,7 +14,7 @@
 - [x] The World of Nayara section — botanical texture, compact, big leaf left
 - [x] Footer — compact, logo left, newsletter bold in bubble, botanical texture
 - [x] Footer — Journal links to /journal, Press/Podcast show Coming Soon
-- [ ] Footer — verify Nayara leaf logo rendering on desktop
+- [x] Footer — verify Nayara leaf logo rendering on desktop (code review confirmed)
 
 ## Website — Experience Pages
 - [x] Alto Atacama experience page with magazine-style detail views
@@ -47,3 +47,12 @@
 - [ ] Build Sustainability pages per property
 - [ ] Apply two-media-slot system to all remaining sections
 - [ ] Build out Hangaroa and Bocas del Toro experience pages
+
+## Booking Integration
+- [x] Wire Reserve button (nav) to SynXis booking engine for Nayara Tented Camp
+- [x] Wire any other reservation CTAs to the same booking URL
+- [ ] Make booking URL configurable per property in the future
+- [x] Fix footer: center Nayara logo + NAYARA text (matches user screenshot)
+- [x] Move newsletter CTA below social icons (matches user screenshot layout)
+- [x] Replace old leaf-only logo with new full Nayara logo (leaf + NAYARA) everywhere
+- [x] Add Nayara logo centered in top nav between hamburger and Reserve pills

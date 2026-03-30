@@ -156,7 +156,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
 
           {/* Reserve — far right */}
           <button
-            onClick={() => toast("Reservation — Coming Soon")}
+            onClick={() => window.open("https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30", "_blank")}
             className="px-5 py-2 text-xs tracking-[0.2em] uppercase font-medium rounded-full transition-all duration-300 hover:scale-105 bg-emerald-800 text-white hover:bg-emerald-700 shadow-lg"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
@@ -231,7 +231,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                 {/* Menu footer */}
                 <div className="px-6 py-6 border-t border-emerald-900/10">
                   <button
-                    onClick={() => { toast("Reservation — Coming Soon"); setMenuOpen(false); }}
+                    onClick={() => { window.open("https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30", "_blank"); setMenuOpen(false); }}
                     className="w-full py-3 text-xs tracking-[0.2em] uppercase font-medium rounded-full bg-emerald-800 text-white hover:bg-emerald-700 transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif" }}
                   >

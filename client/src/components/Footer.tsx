@@ -1,7 +1,7 @@
 /*
  * Footer — Nayara Global Footer
- * Compact. Botanical texture. Logo left-aligned at bottom.
- * Newsletter in a bubble pill. Journal links to /journal.
+ * Compact. Botanical texture. Logo centered at bottom.
+ * Newsletter as bold centered text. Journal links to /journal.
  */
 
 import { useLocation } from "wouter";
@@ -10,7 +10,11 @@ const TEXTURE_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/botanical-texture-embossed-hig62x94aNi7TNioLbvtkE.webp";
 
 const LOGO_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-tree-PiKqyUUYDRwvX8q8L5CDsH.png";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-full_dd374f5f.png";
+
+/* SynXis booking engine URL for Nayara Tented Camp */
+const BOOKING_URL =
+  "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30";
 
 /* ── Social Icons ── */
 function InstagramIcon() {
@@ -44,6 +48,8 @@ function TikTokIcon() {
   );
 }
 
+export { BOOKING_URL };
+
 export default function Footer() {
   const [, navigate] = useLocation();
 
@@ -71,18 +77,6 @@ export default function Footer() {
       />
 
       <div className="relative z-10 max-w-[1000px] mx-auto px-6 md:px-10 pt-10 pb-8">
-        {/* Newsletter CTA — in a bubble pill, centered */}
-        <div className="flex justify-center mb-8">
-          <a
-            href="#"
-            onClick={handlePlaceholder("Newsletter")}
-            className="inline-block text-[#3a2a1a] text-[11px] tracking-[0.06em] border border-[#3a2a1a]/30 rounded-full px-6 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
-          >
-            Stay Inspired with the Nayara Newsletter
-          </a>
-        </div>
-
         {/* Three columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 text-[12px] leading-relaxed">
           {/* LEFT — Page links + Press/Journal/Podcast */}
@@ -171,32 +165,38 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Newsletter CTA — bold centered text, no pill */}
+        <div className="flex justify-center mt-10 mb-4">
+          <a
+            href="#"
+            onClick={handlePlaceholder("Newsletter")}
+            className="text-[#3a2a1a] text-[12px] tracking-[0.04em] hover:opacity-70 transition-opacity"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
+          >
+            Stay Inspired with the Nayara Newsletter
+          </a>
+        </div>
+
         {/* Social icons — centered */}
-        <div className="flex items-center justify-center gap-4 mt-8">
+        <div className="flex items-center justify-center gap-4 mt-4 mb-6">
           <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/40 hover:text-[#3a2a1a] transition-colors"><InstagramIcon /></a>
           <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/40 hover:text-[#3a2a1a] transition-colors"><YouTubeIcon /></a>
           <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/40 hover:text-[#3a2a1a] transition-colors"><FacebookIcon /></a>
           <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-[#5a4a3a]/40 hover:text-[#3a2a1a] transition-colors"><TikTokIcon /></a>
         </div>
 
-        {/* Nayara Resorts logo + name — LEFT-ALIGNED at the bottom */}
-        <div className="flex flex-col items-start mt-8">
+        {/* Nayara logo (leaf + NAYARA text) — CENTERED at the bottom */}
+        <div className="flex justify-center mt-6">
           <img
             src={LOGO_URL}
-            alt="Nayara Resorts"
-            className="w-14 mb-1 opacity-60"
+            alt="Nayara"
+            className="h-16 w-auto opacity-60"
           />
-          <p
-            className="text-[#4a3a2a]/70 uppercase text-[9px]"
-            style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "0.12em" }}
-          >
-            Nayara
-          </p>
         </div>
 
-        {/* Copyright — very bottom, left-aligned */}
+        {/* Copyright — very bottom, centered */}
         <p
-          className="text-left text-[#6b5b4b]/30 text-[10px] mt-3"
+          className="text-center text-[#6b5b4b]/30 text-[10px] mt-3"
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
           &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
