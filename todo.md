@@ -149,7 +149,16 @@
 
 ## Page Gradient & Footer Update
 - [x] Apply beige gradient across the full page (lighter beige at top → deeper warm beige toward footer)
-- [ ] Remove big Nayara logo from footer bottom
+- [x] Remove big Nayara logo from footer bottom
 - [x] Footer uses gradient beige tones instead of solid brown
 - [x] Keep nav pills (hamburger, language, reserve) as-is in brown
 - [ ] Replace CSS gradient with plaster/stucco texture image as full-page background (subtle light-to-warm shift built into the image)
+
+## Latest Updates
+- [x] Add Nayara logo (mandala + NAYARA text) next to hamburger at the size shown in reference image
+- [ ] Replace hero video with new manus3.mp4 video, cropped to landscape
+- [x] Extend page gradient seamlessly into footer (no separate footer background)
+- [x] Remove big leaf logo from World of Nayara section
+- [x] Merge footer content into World of Nayara section (no separate footer)
+- [x] Fix nav logo white background issue
+- [x] Gradient: two levels only — light top, slightly darker at bottom of World of Nayara

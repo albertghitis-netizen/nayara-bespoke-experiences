@@ -13,8 +13,15 @@ import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import AwardWinningProperties from "@/components/AwardWinningProperties";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
-import Footer from "@/components/Footer";
-import { BOOKING_URL } from "@/components/Footer";
+/* SynXis booking URLs */
+const BOOKING_URL =
+  "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30";
+const ATACAMA_BOOKING_URL =
+  "https://be.synxis.com/?&chain=24447&hotel=35177&adult=2&SRC=30";
+const HANGAROA_BOOKING_URL =
+  "https://be.synxis.com/?adult=2&chain=24447&child=0&currency=USD&hotel=35955&level=hotel&locale=en-US&productcurrency=USD&rooms=1";
+const BOCAS_BOOKING_URL =
+  "https://be.synxis.com/?adult=2&chain=24447&child=0&currency=USD&hotel=38262&level=hotel&locale=en-US&productcurrency=USD&rooms=1&src=30";
 
 /* ── Property menu links ── */
 const propertyLinks = [
@@ -29,9 +36,9 @@ const hotelBookingLinks = [
   { label: "Nayara Gardens", url: BOOKING_URL, available: true },
   { label: "Nayara Springs", url: BOOKING_URL, available: true },
   { label: "Nayara Tented Camp", url: BOOKING_URL, available: true },
-  { label: "Nayara Alto Atacama", url: "https://reservations.nayaraaltoacatama.com", available: false },
-  { label: "Nayara Hangaroa", url: "https://reservations.nayarahangaroa.com", available: false },
-  { label: "Nayara Bocas del Toro", url: "https://reservations.nayarabocasdeltoro.com", available: false },
+  { label: "Nayara Alto Atacama", url: ATACAMA_BOOKING_URL, available: true },
+  { label: "Nayara Hangaroa", url: HANGAROA_BOOKING_URL, available: true },
+  { label: "Nayara Bocas del Toro", url: BOCAS_BOOKING_URL, available: true },
 ];
 
 /* ── Language options ── */
@@ -54,12 +61,12 @@ const LOGO_URL =
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f7f5f0 0%, #f2ede4 25%, #ebe5d8 50%, #e3dbcc 75%, #d9cfc0 100%)" }}>
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f7f5f0 0%, #f6f3ec 40%, #f4f0e8 70%, #f1ece4 90%, #eee8df 100%)" }}>
       <BrandNavigation />
       <HeroHeader />
       <AwardWinningProperties />
       <ExploreOurWorld />
-      <Footer />
+
     </div>
   );
 }
@@ -148,8 +155,9 @@ function BrandNavigation() {
     <>
       {/* ── FIXED NAV: Hamburger (left) + Reserve (right) ── */}
       <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
-        {/* LEFT: Hamburger pill + dropdown */}
-        <div ref={menuRef} className="relative pointer-events-auto">
+        {/* LEFT: Hamburger pill + Logo */}
+        <div className="flex items-center gap-3 pointer-events-auto">
+        <div ref={menuRef} className="relative">
           <button
             onClick={() => {
               setMenuOpen(!menuOpen);
@@ -325,6 +333,14 @@ function BrandNavigation() {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+
+        {/* Nayara Logo */}
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-nav-transparent_a13343b9.png"
+          alt="Nayara"
+          className="h-14 w-auto pointer-events-none brightness-0 invert"
+        />
         </div>
 
         {/* RIGHT: Language + Reserve pills */}

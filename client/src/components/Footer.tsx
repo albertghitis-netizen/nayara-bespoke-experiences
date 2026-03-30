@@ -59,7 +59,6 @@ export default function Footer() {
   return (
     <footer
       className="relative overflow-hidden"
-      style={{ background: "linear-gradient(to bottom, #d9cfc0 0%, #cec3b2 40%, #c2b5a2 100%)" }}
     >
       <div className="relative z-10 max-w-[1000px] mx-auto px-6 md:px-10 pt-10 pb-8">
         {/* Three columns */}
