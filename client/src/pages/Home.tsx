@@ -66,7 +66,7 @@ function BrandNavigation() {
 
   return (
     <>
-      {/* Fixed pills — always visible */}
+      {/* Fixed nav bar — hamburger left, Reserve right */}
       <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
         {/* Hamburger pill */}
         <button
@@ -87,18 +87,6 @@ function BrandNavigation() {
           </div>
         </button>
 
-        {/* Nayara logo — centered */}
-        <button
-          onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="pointer-events-auto flex items-center justify-center"
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-charcoal_4ac58543.png"
-            alt="Nayara"
-            className="h-12 w-auto brightness-0 invert drop-shadow-lg"
-          />
-        </button>
-
         {/* Reserve pill */}
         <button
           onClick={() => window.open(BOOKING_URL, "_blank")}
@@ -110,6 +98,20 @@ function BrandNavigation() {
           >
             Reserve
           </span>
+        </button>
+      </div>
+
+      {/* Nayara logo — large, centered, anchored to top of screen */}
+      <div className="fixed top-0 left-0 right-0 z-40 flex justify-center pointer-events-none">
+        <button
+          onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          className="pointer-events-auto"
+        >
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-charcoal_4ac58543.png"
+            alt="Nayara"
+            className="h-28 md:h-36 w-auto brightness-0 invert drop-shadow-lg mt-2"
+          />
         </button>
       </div>
 
