@@ -12,6 +12,7 @@ import ComingSoon from "./pages/ComingSoon";
 import Journal from "./pages/Journal";
 import Awards from "./pages/Awards";
 import Sustainability from "./pages/Sustainability";
+import ConciergeChatWidget from "./components/ConciergeChatWidget";
 import "./index.css";
 
 function ScrollToTop() {
@@ -21,8 +22,8 @@ function ScrollToTop() {
   }, [location]);
   return null;
 }
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <>
     <ScrollToTop />
@@ -49,6 +50,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <ConciergeChatWidget />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

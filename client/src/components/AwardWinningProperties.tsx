@@ -1,12 +1,14 @@
 /*
- * Award-Winning Properties
- * Desktop: H2 + body text left, big vertical Tented Camp right. Wide Atacama below full width.
- * No "From Desert to Rainforest to Reef" subtitle.
+ * Award-Winning Properties — Two-Media-Slot System
+ * DESKTOP: H2 + body text left, big vertical Tented Camp right. Wide Atacama below full width.
+ * MOBILE: H2 → full-width vertical Tented Camp only (immersive) → body text → CTA.
+ *         Horizontal Atacama is hidden on mobile to avoid squished layout.
  */
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+/* ── Media assets ── */
 const PHOTO_ATACAMA_WIDE =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-lodge-wide_9a96fbee.jpeg";
 
@@ -29,7 +31,9 @@ export default function AwardWinningProperties() {
     >
       <div className="max-w-[1300px] mx-auto px-6 md:px-10">
 
-        {/* ── DESKTOP ── */}
+        {/* ════════════════════════════════════════════
+            DESKTOP — editorial two-column + wide photo
+           ════════════════════════════════════════════ */}
         <div className="hidden md:block">
           {/* Two columns: text left + vertical photo right */}
           <div className="grid grid-cols-12 gap-8 lg:gap-12">
@@ -108,7 +112,7 @@ export default function AwardWinningProperties() {
             </motion.div>
           </div>
 
-          {/* Below: full-width horizontal Atacama photo */}
+          {/* Below: full-width horizontal Atacama photo (DESKTOP ONLY) */}
           <motion.div
             className="mt-8 aspect-[21/9] overflow-hidden"
             initial={{ opacity: 0, y: 40 }}
@@ -124,30 +128,33 @@ export default function AwardWinningProperties() {
           </motion.div>
         </div>
 
-        {/* ── MOBILE: Stacked layout ── */}
+        {/* ════════════════════════════════════════════
+            MOBILE — vertical photo only, immersive
+           ════════════════════════════════════════════ */}
         <div className="md:hidden">
+          {/* H2 */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-8"
+            className="mb-6"
           >
             <h2
-              className="text-[#3a2a1a] text-3xl leading-[1.1] mb-2"
+              className="text-[#3a2a1a] text-3xl leading-[1.1]"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               A Family of Award-Winning Properties Designed Around Destination
             </h2>
           </motion.div>
 
-          {/* Tented Camp vertical */}
+          {/* Vertical Tented Camp — full-width, tall, immersive */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="mb-3"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-8 -mx-6"
           >
             <div className="aspect-[3/4] overflow-hidden">
               <img
@@ -159,29 +166,12 @@ export default function AwardWinningProperties() {
             </div>
           </motion.div>
 
-          {/* Atacama wide */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="mb-8"
-          >
-            <div className="aspect-[16/10] overflow-hidden">
-              <img
-                src={PHOTO_ATACAMA_WIDE}
-                alt="Nayara Alto Atacama — desert lodge"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
-
-          {/* Body text */}
+          {/* Body text + CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p
               className="text-[#5a4a3a]/80 text-sm leading-[1.8] mb-6"
