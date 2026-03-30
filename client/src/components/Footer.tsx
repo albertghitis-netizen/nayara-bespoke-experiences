@@ -92,8 +92,8 @@ export default function Footer() {
               Journal
             </a>
             <a
-              href="#"
-              onClick={handlePlaceholder("Press")}
+              href="/press"
+              onClick={(e) => { e.preventDefault(); navigate("/press"); }}
               className="text-[#3a2a1a]/50 hover:text-[#3a2a1a]/90 transition-colors"
               style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
             >
@@ -104,8 +104,8 @@ export default function Footer() {
           {/* CENTER — All 6 hotels (clickable) */}
           <div className="flex flex-col gap-[5px]">
             {[
-              { name: "Nayara Gardens", route: "/arenal" },
-              { name: "Nayara Springs", route: "/arenal" },
+              { name: "Nayara Gardens", route: "/gardens" },
+              { name: "Nayara Springs", route: "/springs" },
               { name: "Nayara Tented Camp", route: "/tented-camp" },
               { name: "Nayara Alto Atacama", route: "/alto-atacama" },
               { name: "Nayara Hangaroa", route: "/hangaroa" },

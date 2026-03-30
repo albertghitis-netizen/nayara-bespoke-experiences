@@ -30,7 +30,7 @@
 - [x] Build tRPC procedure with LLM + Nayara Alto Atacama system prompt
 - [x] Build floating chat widget on frontend
 - [x] Train on: excursions, rooms, dining, wellness, sustainability
-- [ ] Lead capture: name + email
+- [x] Lead capture: name + email (auto-extracts from chat, saves to DB)
 - [x] Warm concierge tone, conversational style
 - [x] Test chatbot end-to-end
 - [x] Write vitest for chatbot procedure
@@ -110,11 +110,11 @@
 - [ ] Update footer hotel links
 
 ## Press Page
-- [ ] Build Press page at /press with all print + digital coverage from Nov 2025 PR report
-- [ ] Organize by year, then by hotel within each year
-- [ ] Each entry: article title + link (simple, clean, same style as Journal page)
-- [ ] Include "Multiple Properties" category for clips mentioning several hotels
-- [ ] Register /press route in App.tsx and add to navigation
+- [x] Build Press page at /press with real press coverage data (18 articles)
+- [x] Organize by year, filterable by property
+- [x] Each entry: article title + publication + link (clean editorial style)
+- [x] Include "Multiple Properties" filter for clips mentioning several hotels
+- [x] Register /press route in App.tsx and add to navigation + footer + hamburger menu
 
 ## Podcasts Section
 - [ ] Add 4 podcast episodes as a simple list (Albert & Tau Mana, Albert & Kenneth Seligson, Leo on AFAR, Leo on Suite Success)
@@ -229,8 +229,8 @@
 
 ## FULL REBUILD — All Property Pages + Brand Pages (March 30, 2026)
 - [ ] Build reusable PropertyPage template component (hero, intro, rooms, highlights, CTA)
-- [ ] Build Nayara Gardens full property page (/gardens)
-- [ ] Build Nayara Springs full property page (/springs)
+- [x] Build Nayara Gardens full property page (/gardens)
+- [x] Build Nayara Springs full property page (/springs)
 - [x] Build Nayara Hangaroa full property page (/hangaroa)
 - [x] Build Nayara Bocas del Toro full property page (/bocas-del-toro)
 - [ ] Improve Tented Camp page (full sections: rooms, dining, sustainability)

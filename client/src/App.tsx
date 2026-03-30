@@ -17,7 +17,10 @@ import Gallery from "./pages/Gallery";
 import Experiences from "./pages/Experiences";
 import Wellness from "./pages/Wellness";
 import AylaOnKrog from "./pages/AylaOnKrog";
+import Press from "./pages/Press";
 import TentedCamp from "./pages/TentedCamp";
+import Gardens from "./pages/Gardens";
+import Springs from "./pages/Springs";
 import InstagramDM from "./pages/InstagramDM";
 import MessengerDM from "./pages/MessengerDM";
 import WhatsAppDM from "./pages/WhatsAppDM";
@@ -47,6 +50,8 @@ function Router() {
         <Route path="/alto-atacama" component={AltoAtacama} />
         <Route path="/arenal" component={CostaRica} />
         <Route path="/tented-camp" component={TentedCamp} />
+        <Route path="/gardens" component={Gardens} />
+        <Route path="/springs" component={Springs} />
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
         <Route path="/journal" component={Journal} />
@@ -55,6 +60,7 @@ function Router() {
         <Route path="/gallery" component={Gallery} />
         <Route path="/experiences" component={Experiences} />
         <Route path="/wellness" component={Wellness} />
+        <Route path="/press" component={Press} />
         <Route path="/ayla" component={AylaOnKrog} />
         <Route path="/instagram" component={InstagramDM} />
         <Route path="/messenger" component={MessengerDM} />

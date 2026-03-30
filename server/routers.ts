@@ -5,6 +5,7 @@ import { publicProcedure, router } from "./_core/trpc";
 import { invokeLLM } from "./_core/llm";
 import { NAYARA_CONCIERGE_SYSTEM_PROMPT } from "./conciergePrompt";
 import { z } from "zod";
+import { saveLead } from "./db";
 
 /* ── Message schema for the chat endpoint ── */
 const messageSchema = z.object({
@@ -85,7 +86,65 @@ export const appRouter = router({
                 .join("\n")
             : String(assistantMessage);
 
+        // --- Lead extraction: check if the user provided an email in this conversation ---
+        try {
+          const lastUserMsg = input.messages.filter(m => m.role === "user").pop()?.content ?? "";
+          const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+          const emailMatch = lastUserMsg.match(emailRegex);
+          if (emailMatch) {
+            // Extract name from conversation context
+            const allUserMsgs = input.messages.filter(m => m.role === "user").map(m => m.content).join(" ");
+            const namePatterns = [
+              /(?:my name is|i'm|i am|this is|call me)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)/i,
+              /^([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)$/m,
+            ];
+            let name: string | null = null;
+            for (const pattern of namePatterns) {
+              const match = allUserMsgs.match(pattern);
+              if (match) { name = match[1]; break; }
+            }
+
+            await saveLead({
+              email: emailMatch[0],
+              name: name,
+              source: "chatbot",
+              channel: input.channel,
+              notes: `Captured during chat conversation`,
+            });
+          }
+        } catch (e) {
+          console.error("[Lead Capture] Failed to extract/save lead:", e);
+        }
+
         return { reply: content };
+      }),
+  }),
+
+  /* ═══════════════════════════════════════════
+     LEAD CAPTURE — Direct endpoint
+     ═══════════════════════════════════════════ */
+  leads: router({
+    save: publicProcedure
+      .input(
+        z.object({
+          email: z.string().email(),
+          name: z.string().optional(),
+          source: z.string().optional().default("chatbot"),
+          channel: z.string().optional().default("website"),
+          propertyInterest: z.string().optional(),
+          notes: z.string().optional(),
+        })
+      )
+      .mutation(async ({ input }) => {
+        const success = await saveLead({
+          email: input.email,
+          name: input.name ?? null,
+          source: input.source,
+          channel: input.channel,
+          propertyInterest: input.propertyInterest ?? null,
+          notes: input.notes ?? null,
+        });
+        return { success };
       }),
   }),
 });

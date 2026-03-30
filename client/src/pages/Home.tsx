@@ -26,8 +26,8 @@ const BOCAS_BOOKING_URL =
 /* ── Property menu links ── */
 const propertyLinks = [
   { label: "Nayara Alto Atacama", route: "/alto-atacama", available: true },
-  { label: "Nayara Gardens", route: "/arenal", available: true },
-  { label: "Nayara Springs", route: "/arenal", available: true },
+  { label: "Nayara Gardens", route: "/gardens", available: true },
+  { label: "Nayara Springs", route: "/springs", available: true },
   { label: "Nayara Tented Camp", route: "/tented-camp", available: true },
   { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
   { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true },
@@ -342,6 +342,19 @@ function BrandNavigation() {
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Awards
+                    </span>
+                  </button>
+
+                  {/* Press */}
+                  <button
+                    onClick={() => handleNavigate("/press")}
+                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                  >
+                    <span
+                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      Press
                     </span>
                   </button>
 
