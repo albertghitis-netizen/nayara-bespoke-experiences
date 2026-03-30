@@ -15,9 +15,9 @@ type Message = {
 };
 
 const SUGGESTED_PROMPTS = [
-  "What excursions do you recommend at Alto Atacama?",
-  "Tell me about Nayara Tented Camp",
-  "What's the best time to visit the Atacama Desert?",
+  "Ask me anything about Nayara Tented Camp or Nayara Alto Atacama",
+  "What excursions do you recommend?",
+  "Tell me about the rooms and suites",
   "What dining options are available?",
 ];
 
@@ -179,7 +179,7 @@ export default function ConciergeChatWidget() {
                     className="text-[#c9b99a] text-[10px] tracking-[0.12em] uppercase"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    {chatMutation.isPending ? "Typing..." : "Online"}
+                    {chatMutation.isPending ? "Typing..." : "Instagram AI Assistant"}
                   </p>
                 </div>
               </div>
@@ -238,11 +238,10 @@ export default function ConciergeChatWidget() {
                     Welcome to Nayara
                   </h4>
                   <p
-                    className="text-[#5a4a3a]/60 text-xs leading-relaxed mb-6 max-w-[260px]"
+                    className="text-[#5a4a3a]/60 text-xs leading-relaxed mb-6 max-w-[280px]"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    I'm your personal concierge. Ask me anything about our
-                    resorts, excursions, dining, or wellness experiences.
+                    Welcome to Nayara Tented Camp and Nayara Alto Atacama Instagram. I'm your personal Instagram AI assistant. If you don't mind giving me your email address, I'll make sure our team reaches out right away with any helpful or relevant info.
                   </p>
 
                   {/* Suggested prompts */}

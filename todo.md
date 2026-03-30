@@ -69,3 +69,4 @@
 - [ ] Create shield logo (leaf inside badge shape + NAYARA) matching Tented Camp site style
 - [ ] Rebuild Tented Camp page with two-column editorial layout on gold background
 - [x] Animate leaf logo: starts halfway toward hamburger, rolls/slides to center above NAYARA in 3 seconds on page load
+- [x] Update chatbot welcome message: "Welcome to Nayara Tented Camp and Nayara Alto Atacama Instagram. I'm your personal instagram AI assistant. If you don't mind giving me your email address, I'll make sure our team reaches out right away with any helpful or relevant info"
