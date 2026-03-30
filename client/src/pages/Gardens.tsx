@@ -17,6 +17,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { costaRicaDining } from "@/data/dining";
 
 const BOOKING_URL =
@@ -344,6 +345,9 @@ function IntroSection() {
             community, and the spirit of Pura Vida. Two decades later, the warmth of that
             original vision remains at the heart of everything we do.
           </p>
+          <div className="mt-10">
+            <AwardBadgeStrip property="gardens" />
+          </div>
         </motion.div>
       </div>
     </section>

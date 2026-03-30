@@ -10,15 +10,19 @@ import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
+import { useIsMobile } from "@/hooks/useMobile";
+import BlobVideo from "@/components/BlobVideo";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { costaRicaDining } from "@/data/dining";
 
 const BOOKING_URL =
   "https://be.synxis.com/?Hotel=10868&Chain=24447&locale=en-US&adult=2&child=0";
 
 const CDN = {
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ntc-v4-compressed_18584b05.mp4",
   hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-hero-aerial_0ba0626b.jpg",
   adventure: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-adventure_cdd78feb.jpg",
   tents: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-tents_a6421569.jpg",
@@ -151,15 +155,24 @@ function TentedCampNav() {
    HERO — Full-bleed landscape photo with title overlay
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Hero image */}
+      {/* Hero video (desktop) / image (mobile) */}
       <div className="absolute inset-0">
-        <img
-          src={CDN.hero}
-          alt="Nayara Tented Camp aerial view"
-          className="w-full h-full object-cover"
-        />
+        {!isMobile ? (
+          <BlobVideo
+            src={CDN.heroVideo}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img
+            src={CDN.hero}
+            alt="Nayara Tented Camp aerial view"
+            className="w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
@@ -186,21 +199,10 @@ function IntroSection() {
   return (
     <section className="bg-[#f7f5f0] py-20 md:py-28 px-6 md:px-10">
       <div className="max-w-3xl mx-auto text-center">
-        {/* Award badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
-          <span
-            className="inline-block text-[10px] tracking-[0.3em] uppercase text-[#5a4a3a]/50 border border-[#5a4a3a]/20 px-4 py-2"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Travel + Leisure Best Resort in Central America — 4 of the Last 5 Years
-          </span>
-        </motion.div>
+        {/* Award badges */}
+        <div className="mb-8">
+          <AwardBadgeStrip property="tented-camp" />
+        </div>
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

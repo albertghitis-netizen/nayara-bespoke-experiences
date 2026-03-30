@@ -13,6 +13,7 @@ import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { atacamaDiningCollection } from "@/data/dining";
 import { useLocation } from "wouter";
 
@@ -20,7 +21,7 @@ import { useLocation } from "wouter";
 const VIDEO_DESKTOP =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00007_0b62f6a1.MP4";
 const VIDEO_MOBILE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-vertical-new_1e1453e7.mp4";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-vertical-drone_27d39f2d.mp4";
 const POSTER =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_ffc4f157.PNG";
 const VICUNAS_IMG =
@@ -139,6 +140,13 @@ export default function AltoAtacama() {
       </nav>
 
       {/* ═══ THE OASIS ═══ */}
+      {/* Award Badges */}
+      <Reveal>
+        <div className="py-10 md:py-14 px-6">
+          <AwardBadgeStrip property="alto-atacama" />
+        </div>
+      </Reveal>
+
       <SectionTracker id="oasis" onActive={() => setActiveSection("oasis")}>
         <section className="py-20 md:py-28 px-6 md:px-10">
           <div className="max-w-5xl mx-auto">

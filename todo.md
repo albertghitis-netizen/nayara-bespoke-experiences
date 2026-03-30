@@ -137,3 +137,24 @@
 ## Navigation Logo
 - [x] Add Nayara logo to the top navigation bar
 - [x] Use Video_Nayara_Atacama00007.MP4 as horizontal desktop hero for Alto Atacama page
+
+## New Video Placements
+- [x] Analyze and upload two new user-provided videos to CDN
+- [x] Place vertical video as Bocas del Toro mobile hero
+- [x] Place NTC V4 waterfall video as Tented Camp desktop hero
+- [x] Place Hangaroa moai sunset video as Hangaroa mobile hero
+- [x] Pull vertical Instagram content (4 Atacama reels uploaded to CDN)
+
+## Award Badges
+- [x] Find/create Michelin Keys badge images (1-key, 2-key, 3-key)
+- [x] Find/create Travel + Leisure badge images
+- [x] Find/create Condé Nast badge images
+- [x] Build reusable AwardBadgeStrip component
+- [x] Place award badges on all 6 property pages (intro sections)
+- [x] Property-specific badge mapping (Springs=3 Keys, Gardens/TentedCamp=2 Keys, etc.)
+
+## Bold Animations (site-wide)
+- [x] Award badge entrance animations (scale-in, staggered reveal)
+- [ ] Add parallax and reveal animations to remaining property pages
+- [ ] Add image zoom/Ken Burns effects to property page sections
+- [ ] Add scroll-triggered section transitions across all pages

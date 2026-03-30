@@ -17,6 +17,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { costaRicaDining } from "@/data/dining";
 
 const BOOKING_URL =
@@ -337,6 +338,9 @@ function IntroSection() {
             couples and travelers seeking privacy, romance, and deep restoration — recognized by
             Michelin with three Keys, the first hotel in Costa Rica to achieve this distinction.
           </p>
+          <div className="mt-10">
+            <AwardBadgeStrip property="springs" />
+          </div>
         </motion.div>
       </div>
     </section>

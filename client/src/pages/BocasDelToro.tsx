@@ -24,13 +24,17 @@ import {
   Leaf,
 } from "lucide-react";
 import { toast } from "sonner";
+import { useIsMobile } from "@/hooks/useMobile";
+import BlobVideo from "@/components/BlobVideo";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 import PropertyDiningSection from "@/components/PropertyDiningSection";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { bocasDiningCollection } from "@/data/dining";
 
 /* ─── CDN Assets ─────────────────────────────────────────── */
 const CDN = {
+  videoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-vertical-beach_a8134b71.mp4",
   aerial: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial_ff3a4ff3.jpg",
   sunset: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-sunset_2eeaa785.jpg",
   overwater: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-overwater_f9b09985.jpg",
@@ -289,6 +293,7 @@ function BocasNav({ activeSection }: { activeSection: string }) {
 function HeroSection({ onInView }: { onInView: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { amount: 0.5 });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isInView) onInView();
@@ -297,11 +302,18 @@ function HeroSection({ onInView }: { onInView: () => void }) {
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={CDN.aerial}
-          alt="Nayara Bocas del Toro aerial view"
-          className="w-full h-full object-cover"
-        />
+        {isMobile ? (
+          <BlobVideo
+            src={CDN.videoMobile}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img
+            src={CDN.aerial}
+            alt="Nayara Bocas del Toro aerial view"
+            className="w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/60" />
       </div>
 
@@ -386,6 +398,10 @@ function IntroSection() {
           >
             Where the Jungle Meets the Sea
           </h2>
+
+          <div className="mb-10">
+            <AwardBadgeStrip property="bocas-del-toro" />
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <p
