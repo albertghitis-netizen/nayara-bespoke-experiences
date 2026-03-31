@@ -105,7 +105,7 @@
 - [ ] HubSpot integration for lead capture
 - [ ] Upload newsletter images to CDN
 - [ ] Active blog links within newsletter content
-- [ ] Compress desktop hero video (~69MB → ~15MB)
+- [x] Compress oversized hero videos: spa-springs 53MB→5MB, ntc-v4 46MB→8.5MB, atacama-desktop 40MB→1.8MB. Updated URLs in Springs, Awards, CostaRica, TentedCamp, AltoAtacama
 - [ ] Create shield logo (leaf inside badge shape)
 - [ ] Replace CSS gradient with plaster/stucco texture image
 - [x] Gastronomy section with restaurant menus
@@ -169,7 +169,7 @@
 - [ ] Remove awkward hotel names on mobile homepage
 - [ ] Replace weird/random photos with real property photos from Instagram
 - [ ] Ensure no photo is repeated anywhere across the entire site — every image slot gets a unique real photo
-- [ ] Add date picker to Reserve dropdown so users can select check-in/check-out dates and pass them to SynXis booking URLs
+- [x] Add date picker to Reserve dropdown so users can select check-in/check-out dates and pass them to SynXis booking URLs
 
 ## Tented Camp Page Rebuild
 - [x] Rewrite TentedCamp.tsx with vertical video hero (book format on mobile)

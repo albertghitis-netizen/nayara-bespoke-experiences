@@ -113,6 +113,16 @@ function BrandNavigation() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [, navigate] = useLocation();
 
+  /* Date picker state for Reserve dropdown */
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const dayAfter = new Date(today);
+  dayAfter.setDate(dayAfter.getDate() + 3);
+  const formatDate = (d: Date) => d.toISOString().split("T")[0];
+  const [checkIn, setCheckIn] = useState(formatDate(tomorrow));
+  const [checkOut, setCheckOut] = useState(formatDate(dayAfter));
+
   const menuRef = useRef<HTMLDivElement>(null);
   const reserveRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
@@ -164,7 +174,11 @@ function BrandNavigation() {
   const handleBooking = (hotel: typeof hotelBookingLinks[0]) => {
     setReserveOpen(false);
     if (hotel.available) {
-      window.open(hotel.url, "_blank");
+      /* Append arrive/depart dates to SynXis URL */
+      const url = new URL(hotel.url);
+      if (checkIn) url.searchParams.set("arrive", checkIn);
+      if (checkOut) url.searchParams.set("depart", checkOut);
+      window.open(url.toString(), "_blank");
     } else {
       import("sonner").then(({ toast }) => toast(hotel.label + " — Booking Coming Soon"));
     }
@@ -499,7 +513,7 @@ function BrandNavigation() {
             </span>
           </button>
 
-          {/* Reserve dropdown */}
+          {/* Reserve dropdown with date picker */}
           <AnimatePresence>
             {reserveOpen && (
               <motion.div
@@ -507,9 +521,66 @@ function BrandNavigation() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -8, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className={`${dropdownPanelClass} right-0 top-full w-64`}
+                className={`${dropdownPanelClass} right-0 top-full w-72`}
               >
+                {/* Date selectors */}
+                <div className="px-5 pt-4 pb-3 border-b border-white/10">
+                  <div className="flex gap-3">
+                    <div className="flex-1">
+                      <label
+                        className="block text-[9px] tracking-[0.15em] uppercase text-white/40 mb-1.5"
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                      >
+                        Check-in
+                      </label>
+                      <input
+                        type="date"
+                        value={checkIn}
+                        min={formatDate(today)}
+                        onChange={(e) => {
+                          setCheckIn(e.target.value);
+                          /* Auto-adjust checkout if before new checkin */
+                          if (e.target.value >= checkOut) {
+                            const next = new Date(e.target.value);
+                            next.setDate(next.getDate() + 1);
+                            setCheckOut(formatDate(next));
+                          }
+                        }}
+                        className="w-full bg-white/10 border border-white/15 rounded-lg px-2.5 py-2 text-white text-[11px] focus:outline-none focus:border-white/30 transition-colors [color-scheme:dark]"
+                        style={{ fontFamily: "var(--font-body)" }}
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <label
+                        className="block text-[9px] tracking-[0.15em] uppercase text-white/40 mb-1.5"
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                      >
+                        Check-out
+                      </label>
+                      <input
+                        type="date"
+                        value={checkOut}
+                        min={checkIn || formatDate(tomorrow)}
+                        onChange={(e) => setCheckOut(e.target.value)}
+                        className="w-full bg-white/10 border border-white/15 rounded-lg px-2.5 py-2 text-white text-[11px] focus:outline-none focus:border-white/30 transition-colors [color-scheme:dark]"
+                        style={{ fontFamily: "var(--font-body)" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hotel list */}
                 <div className="py-2">
+                  <div
+                    className="px-5 py-1.5"
+                  >
+                    <span
+                      className="text-[9px] tracking-[0.15em] uppercase text-white/30"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                    >
+                      Select property
+                    </span>
+                  </div>
                   {hotelBookingLinks.map((hotel) => (
                     <button
                       key={hotel.label}

@@ -34,7 +34,7 @@ const BOOKING_URL =
 const CDN = {
   /* Hero videos */
   heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ntc-v4-compressed_18584b05.mp4",
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ntc-v4-recompressed_0e9532d4.mp4",
   heroMobile:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-vertical-reel1_f19958ac.mp4",
   heroPoster:
