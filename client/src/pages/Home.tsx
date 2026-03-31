@@ -68,9 +68,6 @@ const languages = [
 /* ── Nav menu sections ── */
 const dropdownSections = ["Experiences", "Wellness"];
 
-const LOGO_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-charcoal_4ac58543.png";
-
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f7f5f0 0%, #f6f3ec 40%, #f4f0e8 70%, #f1ece4 90%, #eee8df 100%)" }}>

@@ -165,7 +165,7 @@
 
 ## Focused Fixes (Priority)
 - [x] Fix vertical videos not showing on mobile property pages
-- [ ] Remove Nayara logo from top navigation bar
+- [x] Remove Nayara logo from top navigation bar
 - [ ] Remove awkward hotel names on mobile homepage
 - [ ] Replace weird/random photos with real property photos from Instagram
 - [ ] Ensure no photo is repeated anywhere across the entire site — every image slot gets a unique real photo
@@ -177,5 +177,9 @@
 - [x] Add new sections: Experiences preview, Wellness with hot springs
 - [x] Fix undefined CDN.heroMobile reference
 - [x] Align nav pattern with Gardens/Springs (transparent-to-solid bar)
-- [ ] Verify vertical mobile hero videos on all other property pages (Gardens, Springs, Alto Atacama, Hangaroa, Bocas del Toro)
-- [ ] Ensure Springs has a proper vertical mobile hero video
+- [x] Verify vertical mobile hero videos on all other property pages (Gardens, Springs, Alto Atacama, Hangaroa, Bocas del Toro)
+- [x] Ensure Springs has a proper vertical mobile hero video (using tc-vertical-ntc2 from same Arenal property)
+
+## Photo Deduplication
+- [x] Fix Springs.tsx using Gardens villa photo — replaced with sojern-springs-4 (Springs-specific photo)
+- [x] Removed unused LOGO_URL constant from Home.tsx
