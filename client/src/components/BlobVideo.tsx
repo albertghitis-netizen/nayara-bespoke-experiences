@@ -1,9 +1,15 @@
 /**
- * BlobVideo — fetches a video URL as a blob and creates an object URL
- * to bypass CDN MIME type issues (application/octet-stream instead of video/mp4).
- * The browser plays from the blob URL which has the correct type.
+ * BlobVideo — Reliable cross-platform video component
+ * 
+ * Previous approach: fetched video as blob to work around CDN MIME type issues.
+ * Problem: blob fetching fails silently on many mobile browsers (Safari, Chrome iOS)
+ * because of memory limits, CORS issues, and autoplay restrictions.
+ * 
+ * New approach: Use direct <video> tag with proper mobile attributes.
+ * The CDN now serves correct MIME types, so blob workaround is unnecessary.
+ * Added: loading state, error fallback, and mobile-specific attributes.
  */
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface BlobVideoProps {
   src: string;
@@ -25,68 +31,81 @@ export default function BlobVideo({
   poster,
 }: BlobVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [blobUrl, setBlobUrl] = useState<string | null>(null);
-  const [error, setError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    let cancelled = false;
-    let objectUrl: string | null = null;
+    const video = videoRef.current;
+    if (!video) return;
 
-    async function fetchVideo() {
-      try {
-        const response = await fetch(src);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const blob = await response.blob();
-        // Create a new blob with explicit video/mp4 type
-        const videoBlob = new Blob([blob], { type: "video/mp4" });
-        objectUrl = URL.createObjectURL(videoBlob);
-        if (!cancelled) {
-          setBlobUrl(objectUrl);
-        }
-      } catch (err) {
-        console.error("BlobVideo fetch error:", err);
-        if (!cancelled) {
-          // Fallback: try using the src directly
-          setBlobUrl(src);
-          setError(true);
-        }
-      }
-    }
+    // Reset state when src changes
+    setIsLoaded(false);
+    setHasError(false);
 
-    fetchVideo();
+    // Force load on mobile
+    video.load();
 
-    return () => {
-      cancelled = true;
-      if (objectUrl) {
-        URL.revokeObjectURL(objectUrl);
+    // Try to play (mobile browsers may block autoplay)
+    const tryPlay = () => {
+      if (autoPlay && video.paused) {
+        video.play().catch(() => {
+          // Autoplay blocked — that's fine on mobile
+          // The video will still show the first frame
+        });
       }
     };
-  }, [src]);
 
-  // Once blob URL is set and video element exists, try to play
-  useEffect(() => {
-    if (blobUrl && videoRef.current && autoPlay) {
-      videoRef.current.play().catch(() => {
-        // Autoplay blocked — that's fine, user can interact
-      });
-    }
-  }, [blobUrl, autoPlay]);
+    video.addEventListener("loadeddata", tryPlay);
+    // Also try on canplay for broader compatibility
+    video.addEventListener("canplay", tryPlay);
 
-  if (!blobUrl) {
-    // Show nothing while loading (the gradient background behind will show)
-    return null;
-  }
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+    };
+  }, [src, autoPlay]);
+
+  // Determine video type from URL
+  const getVideoType = (url: string): string => {
+    if (url.includes(".mov")) return "video/quicktime";
+    if (url.includes(".webm")) return "video/webm";
+    return "video/mp4";
+  };
 
   return (
-    <video
-      ref={videoRef}
-      src={blobUrl}
-      className={className}
-      autoPlay={autoPlay}
-      muted={muted}
-      loop={loop}
-      playsInline={playsInline}
-      poster={poster}
-    />
+    <>
+      <video
+        ref={videoRef}
+        className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700`}
+        autoPlay={autoPlay}
+        muted={muted}
+        loop={loop}
+        playsInline={playsInline}
+        poster={poster}
+        preload="auto"
+        // Critical mobile attributes
+        webkit-playsinline="true"
+        x-webkit-airplay="allow"
+        onLoadedData={() => setIsLoaded(true)}
+        onError={() => {
+          console.error("Video load error:", src);
+          setHasError(true);
+        }}
+      >
+        <source src={src} type={getVideoType(src)} />
+        {/* Fallback: try as mp4 if the primary type fails */}
+        {getVideoType(src) !== "video/mp4" && (
+          <source src={src} type="video/mp4" />
+        )}
+      </video>
+      {/* Loading placeholder — gradient shimmer while video loads */}
+      {!isLoaded && !hasError && (
+        <div className={`${className} absolute inset-0 bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900 animate-pulse`} />
+      )}
+      {/* Error fallback — show gradient background */}
+      {hasError && (
+        <div className={`${className} absolute inset-0 bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900`} />
+      )}
+    </>
   );
 }

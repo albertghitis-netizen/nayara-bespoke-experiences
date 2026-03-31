@@ -158,3 +158,24 @@
 - [x] Add parallax and reveal animations to remaining property pages (Springs, TentedCamp, Hangaroa, BocasDelToro, Gardens)
 - [x] Add image zoom/Ken Burns effects to property page sections
 - [x] Add scroll-triggered section transitions across all pages (WordReveal, AnimatedDivider, StaggerContainer)
+
+## Bug Fix — Vertical Videos Not Showing
+- [x] Debug why vertical videos are not displaying on any property page
+- [x] Fix vertical video rendering on mobile views
+
+## Focused Fixes (Priority)
+- [x] Fix vertical videos not showing on mobile property pages
+- [ ] Remove Nayara logo from top navigation bar
+- [ ] Remove awkward hotel names on mobile homepage
+- [ ] Replace weird/random photos with real property photos from Instagram
+- [ ] Ensure no photo is repeated anywhere across the entire site — every image slot gets a unique real photo
+- [ ] Add date picker to Reserve dropdown so users can select check-in/check-out dates and pass them to SynXis booking URLs
+
+## Tented Camp Page Rebuild
+- [x] Rewrite TentedCamp.tsx with vertical video hero (book format on mobile)
+- [x] Add real Brice Ferre photos to all sections (tent interior, Casa Paloma, family tent, hanging bridge, spa, resort grounds)
+- [x] Add new sections: Experiences preview, Wellness with hot springs
+- [x] Fix undefined CDN.heroMobile reference
+- [x] Align nav pattern with Gardens/Springs (transparent-to-solid bar)
+- [ ] Verify vertical mobile hero videos on all other property pages (Gardens, Springs, Alto Atacama, Hangaroa, Bocas del Toro)
+- [ ] Ensure Springs has a proper vertical mobile hero video
