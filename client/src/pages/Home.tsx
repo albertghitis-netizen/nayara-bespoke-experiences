@@ -22,16 +22,7 @@ import AwardWinningProperties from "@/components/AwardWinningProperties";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
-
-/* SynXis booking URLs */
-const BOOKING_URL =
-  "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30";
-const ATACAMA_BOOKING_URL =
-  "https://be.synxis.com/?&chain=24447&hotel=35177&adult=2&SRC=30";
-const HANGAROA_BOOKING_URL =
-  "https://be.synxis.com/?adult=2&chain=24447&child=0&currency=USD&hotel=35955&level=hotel&locale=en-US&productcurrency=USD&rooms=1";
-const BOCAS_BOOKING_URL =
-  "https://be.synxis.com/?adult=2&chain=24447&child=0&currency=USD&hotel=38262&level=hotel&locale=en-US&productcurrency=USD&rooms=1&src=30";
+import { hotelBookingLinks } from "@/data/booking";
 
 /* ── Property menu links ── */
 const propertyLinks = [
@@ -41,16 +32,6 @@ const propertyLinks = [
   { label: "Nayara Tented Camp", route: "/tented-camp", available: true },
   { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
   { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true },
-];
-
-/* ── Hotel booking links for Reserve dropdown ── */
-const hotelBookingLinks = [
-  { label: "Nayara Gardens", url: BOOKING_URL, available: true },
-  { label: "Nayara Springs", url: BOOKING_URL, available: true },
-  { label: "Nayara Tented Camp", url: BOOKING_URL, available: true },
-  { label: "Nayara Alto Atacama", url: ATACAMA_BOOKING_URL, available: true },
-  { label: "Nayara Hangaroa", url: HANGAROA_BOOKING_URL, available: true },
-  { label: "Nayara Bocas del Toro", url: BOCAS_BOOKING_URL, available: true },
 ];
 
 /* ── Language options ── */

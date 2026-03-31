@@ -5,10 +5,9 @@
  */
 
 import { useLocation } from "wouter";
+import { DEFAULT_BOOKING_URL } from "@/data/booking";
 
-/* SynXis booking engine URL for Nayara Tented Camp */
-const BOOKING_URL =
-  "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30";
+const BOOKING_URL = DEFAULT_BOOKING_URL;
 
 /* ── Social Icons ── */
 function InstagramIcon() {

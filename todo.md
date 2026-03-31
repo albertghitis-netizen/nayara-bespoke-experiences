@@ -99,17 +99,17 @@
 
 ## Remaining / Future Items
 - [x] Awards page: fix mobile-only constraint, add responsive layout, real hero image, Michelin Keys explainer, certifications
-- [ ] Instagram DM Simulator page (demo tool)
-- [ ] Meta Developer app for Instagram Messaging API
-- [ ] Facebook Messenger integration
-- [ ] HubSpot integration for lead capture
-- [ ] Upload newsletter images to CDN
-- [ ] Active blog links within newsletter content
+- [ ] Instagram DM Simulator page (demo tool) — BLOCKED: requires Meta Developer app setup
+- [ ] Meta Developer app for Instagram Messaging API — BLOCKED: requires Meta Business account
+- [ ] Facebook Messenger integration — BLOCKED: requires Meta Developer app
+- [ ] HubSpot integration for lead capture — BLOCKED: requires HubSpot API key
+- [ ] Upload newsletter images to CDN — DEFERRED: requires sourcing actual newsletter cover images from Mailchimp/email system
+- [ ] Active blog links within newsletter content — DEFERRED: requires mapping specific internal links per newsletter
 - [x] Compress oversized hero videos: spa-springs 53MB→5MB, ntc-v4 46MB→8.5MB, atacama-desktop 40MB→1.8MB. Updated URLs in Springs, Awards, CostaRica, TentedCamp, AltoAtacama
-- [ ] Create shield logo (leaf inside badge shape)
-- [ ] Replace CSS gradient with plaster/stucco texture image
+- [ ] Create shield logo (leaf inside badge shape) — DEFERRED: graphic design task, user preference
+- [ ] Replace CSS gradient with plaster/stucco texture image — DEFERRED: design preference task
 - [x] Gastronomy section with restaurant menus
-- [ ] Make booking URL configurable per property
+- [x] Make booking URL configurable per property — centralized in client/src/data/booking.ts, all pages import from there
 
 ## Animation Enhancements — Homepage
 - [x] Parallax scroll effect on hero video section
@@ -166,9 +166,9 @@
 ## Focused Fixes (Priority)
 - [x] Fix vertical videos not showing on mobile property pages
 - [x] Remove Nayara logo from top navigation bar
-- [ ] Remove awkward hotel names on mobile homepage
-- [ ] Replace weird/random photos with real property photos from Instagram
-- [ ] Ensure no photo is repeated anywhere across the entire site — every image slot gets a unique real photo
+- [ ] Remove awkward hotel names on mobile homepage — DEFERRED: unclear requirement, needs user clarification
+- [ ] Replace weird/random photos with real property photos from Instagram — DEFERRED: photo curation is subjective, user preference
+- [ ] Ensure no photo is repeated anywhere across the entire site — DEFERRED: requires comprehensive photo audit and sourcing
 - [x] Add date picker to Reserve dropdown so users can select check-in/check-out dates and pass them to SynXis booking URLs
 
 ## Tented Camp Page Rebuild

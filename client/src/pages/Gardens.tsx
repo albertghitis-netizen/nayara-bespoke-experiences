@@ -20,9 +20,9 @@ import Footer from "@/components/Footer";
 import PropertyDiningSection from "@/components/PropertyDiningSection";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { costaRicaDining } from "@/data/dining";
+import { BOOKING_URLS } from "@/data/booking";
 
-const BOOKING_URL =
-  "https://be.synxis.com/?Hotel=10868&Chain=24447&locale=en-US&adult=2&child=0";
+const BOOKING_URL = BOOKING_URLS.gardens;
 
 const CDN = {
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4",

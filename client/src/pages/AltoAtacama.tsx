@@ -16,6 +16,7 @@ import PropertyDiningSection from "@/components/PropertyDiningSection";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { atacamaDiningCollection } from "@/data/dining";
 import { useLocation } from "wouter";
+import { BOOKING_URLS } from "@/data/booking";
 
 /* ── CDN Assets ── */
 const VIDEO_DESKTOP =
@@ -27,8 +28,7 @@ const POSTER =
 const VICUNAS_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_8113_311fa15c.jpeg";
 
-const BOOKING_URL =
-  "https://be.synxis.com/?chain=24664&hotel=40994&arrive=&depart=&adult=2&child=0";
+const BOOKING_URL = BOOKING_URLS["alto-atacama"];
 
 /* ── Section nav items ── */
 const NAV_ITEMS = [

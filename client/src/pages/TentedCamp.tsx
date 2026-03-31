@@ -26,9 +26,9 @@ import Footer from "@/components/Footer";
 import PropertyDiningSection from "@/components/PropertyDiningSection";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { costaRicaDining } from "@/data/dining";
+import { BOOKING_URLS } from "@/data/booking";
 
-const BOOKING_URL =
-  "https://be.synxis.com/?Hotel=10868&Chain=24447&locale=en-US&adult=2&child=0";
+const BOOKING_URL = BOOKING_URLS["tented-camp"];
 
 /* ── CDN Assets — Real Brice Ferre Studio photography ── */
 const CDN = {
