@@ -308,3 +308,9 @@
 
 ## Gallery Hero Video
 - [x] Set Gallery page hero to old landing hero video (woman on bridge, yoga, frogs — homepage-hero-new_f074ecbe.mp4)
+
+## Gallery Hero Video v2
+- [x] Replace Gallery hero with user-provided video (7469555F)
+
+## Hangaroa Hero Video
+- [x] Set Hangaroa property page hero to ExperienceHeroVideoDesktop.mp4

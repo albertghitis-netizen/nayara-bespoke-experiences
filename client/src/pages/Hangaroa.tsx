@@ -17,6 +17,8 @@ const BOOKING_URL = BOOKING_URLS.hangaroa;
 
 /* ── CDN Assets ── */
 const CDN = {
+  heroDesktop:
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-hero_0c1ca458.mp4",
   heroMobile:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-vertical-moai_c477f572.mp4",
   heroPoster:
@@ -172,21 +174,12 @@ function HeroSection() {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Background — video on mobile, poster image on desktop (no desktop video available) */}
       <div className="absolute inset-0">
-        {isMobile ? (
-          <BlobVideo
-            src={CDN.heroMobile}
-            className="w-full h-full object-cover"
-            poster={CDN.heroPoster}
-          />
-        ) : (
-          <img
-            src={CDN.heroPoster}
-            alt="Nayara Hangaroa aerial"
-            className="w-full h-full object-cover"
-          />
-        )}
+        <BlobVideo
+          src={isMobile ? CDN.heroMobile : CDN.heroDesktop}
+          className="w-full h-full object-cover"
+          poster={CDN.heroPoster}
+        />
       </div>
 
       {/* Content — centered bottom */}

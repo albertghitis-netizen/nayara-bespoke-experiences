@@ -452,7 +452,7 @@ function GalleryHero() {
     <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         <BlobVideo
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new_f074ecbe.mp4"
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-hero-v2_a969e1d4.mp4"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
