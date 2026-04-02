@@ -35,8 +35,10 @@ export default function ConciergeChatWidget() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [showWelcome, setShowWelcome] = useState(true);
+  const [isListening, setIsListening] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const recognitionRef = useRef<any>(null);
 
   const chatMutation = trpc.concierge.chat.useMutation({
     onSuccess: (data) => {
@@ -97,6 +99,60 @@ export default function ConciergeChatWidget() {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage(input);
+    }
+  };
+
+  /* Voice dictation using Web Speech API */
+  const startVoiceInput = () => {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      alert('Voice input is not supported in your browser. Try Chrome, Edge, or Safari.');
+      return;
+    }
+
+    const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognitionRef.current = recognition;
+
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => setIsListening(true);
+    recognition.onend = () => setIsListening(false);
+
+    recognition.onresult = (event: any) => {
+      let interimTranscript = '';
+      let finalTranscript = '';
+
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          finalTranscript += transcript + ' ';
+        } else {
+          interimTranscript += transcript;
+        }
+      }
+
+      if (finalTranscript) {
+        setInput((prev) => prev + finalTranscript);
+      } else if (interimTranscript) {
+        // Show interim results as user is speaking
+        setInput((prev) => prev.split(' ').slice(0, -1).join(' ') + ' ' + interimTranscript);
+      }
+    };
+
+    recognition.onerror = (event: any) => {
+      console.error('Voice input error:', event.error);
+      setIsListening(false);
+    };
+
+    recognition.start();
+  };
+
+  const stopVoiceInput = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      setIsListening(false);
     }
   };
 
@@ -270,6 +326,23 @@ export default function ConciergeChatWidget() {
                   className="flex-1 resize-none bg-transparent text-[13px] text-[#3a2a1a] placeholder:text-[#3a2a1a]/30 focus:outline-none max-h-24 py-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 />
+                {/* Voice input button */}
+                <button
+                  type="button"
+                  onClick={isListening ? stopVoiceInput : startVoiceInput}
+                  className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+                    isListening
+                      ? 'bg-red-500 hover:bg-red-600 animate-pulse'
+                      : 'bg-[#3a2a1a] hover:bg-[#4a3a2a]'
+                  }`}
+                  title={isListening ? 'Stop listening' : 'Start voice input'}
+                >
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+                    <path d="M17 16.91c-1.48 1.46-3.51 2.36-5.7 2.36-2.2 0-4.2-.9-5.7-2.36l-1.41 1.41c1.84 1.84 4.35 2.98 7.11 2.98s5.27-1.13 7.11-2.98l-1.41-1.41zM12 20c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1s-1 .45-1 1v3c0 .55.45 1 1 1z" />
+                  </svg>
+                </button>
+                {/* Send button */}
                 <button
                   type="submit"
                   disabled={!input.trim() || chatMutation.isPending}

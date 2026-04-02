@@ -331,11 +331,16 @@
 ## Chatbot Personality — Feel Like a Real Person
 - [x] Remove suggested prompts / option buttons from chat welcome
 - [x] Redesign welcome to feel like a person greeting you — just a chat bubble saying "Hi there! Welcome to Nayara. How can I help you today?"
-- [ ] Update system prompt to enforce short, conversational, human-like replies (no walls of text, no bullet lists)
+- [x] Update system prompt to enforce short, conversational, human-like replies (no walls of text, no bullet lists)
 - [x] Update system prompt: use hotel name as clickable markdown link instead of showing full URLs
 
 ## Chatbot Button Animation
-- [ ] Add subtle pulsing animation to Paloma chat button
+- [x] Add subtle pulsing animation to Paloma chat button
 
 ## Paloma First Response — Guest Relations Option
 - [x] Add option to connect with Albert from guest relations or provide contact info in first response
+
+## Voice Dictation
+- [x] Add Web Speech API voice input to chatbot
+- [x] Microphone button with visual feedback (red pulse while listening)
+- [x] Support for Chrome, Edge, Safari
