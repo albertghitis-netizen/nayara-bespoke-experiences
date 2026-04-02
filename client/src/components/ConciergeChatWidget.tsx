@@ -114,12 +114,16 @@ export default function ConciergeChatWidget() {
             className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-[#3a2a1a] shadow-xl px-6 py-4 hover:bg-[#4a3a2a] transition-colors group cursor-pointer"
             aria-label="Open concierge"
           >
-            <NayaraIcon className="w-7 h-7 text-[#c9b99a] group-hover:text-white transition-colors shrink-0" />
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/paloma-avatar_c3ae5926.png"
+              alt="Paloma"
+              className="w-7 h-7 rounded-full object-cover shrink-0"
+            />
             <span
               className="text-white text-sm tracking-[0.12em] uppercase whitespace-nowrap"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Chat with us
+              Chat with Paloma
             </span>
 
             {/* Pulse indicator for new visitors */}
