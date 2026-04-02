@@ -107,7 +107,7 @@ export default function ConciergeChatWidget() {
 
   return (
     <>
-      {/* ── Floating Chat Bubble ── */}
+      {/* ── Floating Chat Button ── */}
       <AnimatePresence>
         {!isOpen && (
           <motion.button
@@ -116,14 +116,20 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#3a2a1a] shadow-xl flex items-center justify-center hover:bg-[#4a3a2a] transition-colors group"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-[#3a2a1a] shadow-xl px-6 py-4 hover:bg-[#4a3a2a] transition-colors group cursor-pointer"
             aria-label="Open concierge"
           >
-            <NayaraIcon className="w-6 h-6 text-[#c9b99a] group-hover:text-white transition-colors" />
+            <NayaraIcon className="w-7 h-7 text-[#c9b99a] group-hover:text-white transition-colors shrink-0" />
+            <span
+              className="text-white text-sm tracking-[0.12em] uppercase whitespace-nowrap"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Chat with us
+            </span>
 
             {/* Pulse indicator for new visitors */}
             {messages.length === 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-[#c9b99a] rounded-full animate-pulse" />
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#c9b99a] rounded-full animate-pulse" />
             )}
           </motion.button>
         )}

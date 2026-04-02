@@ -317,3 +317,6 @@
 
 ## Chatbot Resize
 - [x] Make chatbot widget 5x larger (400x580 → 90vw x 85vh, max 1200px wide)
+
+## Chatbot Trigger Button Redesign
+- [x] Make chatbot trigger button much larger with "Chat with us" label pill instead of small circle
