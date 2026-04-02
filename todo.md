@@ -332,3 +332,4 @@
 - [x] Remove suggested prompts / option buttons from chat welcome
 - [x] Redesign welcome to feel like a person greeting you — just a chat bubble saying "Hi there! Welcome to Nayara. How can I help you today?"
 - [ ] Update system prompt to enforce short, conversational, human-like replies (no walls of text, no bullet lists)
+- [x] Update system prompt: use hotel name as clickable markdown link instead of showing full URLs
