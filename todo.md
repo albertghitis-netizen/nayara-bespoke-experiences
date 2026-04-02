@@ -264,3 +264,7 @@
 ## Experiences Hero Video Swap
 - [x] Convert new Experiences hero video (Videos_RapaNui_NH00026.MP4) to MP4 and upload to CDN
 - [x] Update Experiences page hero to use new Rapa Nui video
+
+## Awards Page Hero Video
+- [x] Upload NTC V4 video to CDN (already uploaded as ntc-v4-recompressed)
+- [x] Update Awards page: hero video (NTC V4) + H1 "Awards & Recognition" matching spherical pattern + nav with centered Nayara logo

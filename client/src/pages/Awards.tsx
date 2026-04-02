@@ -4,16 +4,18 @@
  * Design: Editorial luxury aesthetic matching the rest of the site
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "wouter";
-import { ArrowLeft, Trophy, ShieldCheck, ChevronDown, Star, Award, Key } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { ArrowLeft, Trophy, ShieldCheck, ChevronDown, Star, Award, Key, Menu, X } from "lucide-react";
 import Footer from "@/components/Footer";
+import BlobVideo from "@/components/BlobVideo";
 
-/* ── CDN images ── */
+/* ── CDN assets ── */
 const CDN = {
-  hero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-hero_e94f6c38.jpg",
-  springs: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/spa-springs-compressed_4f2eb97d.mp4",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ntc-v4-recompressed_4166c14f.mp4",
+  logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
+  logoDark: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
 };
 
 /* ── Awards data (real) ── */
@@ -123,57 +125,28 @@ export default function Awards() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      {/* ── Hero Section ── */}
-      <section className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
+      {/* ── Video Hero ── */}
+      <AwardsNav />
+      <section className="relative w-full h-screen overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={CDN.hero}
-            alt="Nayara Tented Camp luxury suite"
+          <BlobVideo
+            src={CDN.heroVideo}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
         </div>
-
-        {/* Back button */}
-        <div className="absolute top-6 left-6 md:top-8 md:left-10 z-20">
-          <Link href="/" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            <span
-              className="text-[11px] tracking-[0.2em] uppercase"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Home
-            </span>
-          </Link>
-        </div>
-
-        {/* Hero text */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-10 lg:px-16 pb-12 md:pb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="max-w-4xl"
+        <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
+          <h1
+            className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 400,
+              fontSize: 'clamp(32px, 5vw, 50px)',
+              letterSpacing: '-2px',
+              lineHeight: 1,
+            }}
           >
-            <p
-              className="text-amber-400/70 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-3"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Nayara Resorts
-            </p>
-            <h1
-              className="text-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-            >
-              Awards & Recognition
-            </h1>
-            <p
-              className="text-white/60 text-sm md:text-base mt-4 leading-relaxed max-w-xl"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-            >
-              Recognized by the world's most respected travel authorities for exceptional luxury, sustainability, and sense of place.
-            </p>
-          </motion.div>
+            Awards & Recognition
+          </h1>
         </div>
       </section>
 
@@ -453,5 +426,116 @@ export default function Awards() {
       {/* ── Footer ── */}
       <Footer />
     </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVIGATION — Matches spherical: back arrow left, logo center, menu right
+   ═══════════════════════════════════════════════════════════════ */
+function AwardsNav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [, navigate] = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="flex items-center justify-between h-16 md:h-20 px-5 md:px-8">
+          {/* Left: Back arrow */}
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2 group">
+              <ArrowLeft
+                className={`w-4 h-4 transition-colors ${
+                  scrolled ? "text-[#3a2a1a]" : "text-white"
+                } group-hover:opacity-70`}
+              />
+              <span
+                className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${
+                  scrolled ? "text-[#3a2a1a]" : "text-white"
+                } group-hover:opacity-70 hidden md:inline`}
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                Nayara Collection
+              </span>
+            </Link>
+          </div>
+
+          {/* Center: Logo */}
+          <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+            <Link href="/">
+              <img
+                src={scrolled ? CDN.logoDark : CDN.logoWhite}
+                alt="Nayara"
+                className="h-10 md:h-12 w-auto transition-all duration-500"
+              />
+            </Link>
+            <span
+              className={`text-[8px] md:text-[9px] tracking-[0.25em] uppercase mt-0.5 transition-colors ${
+                scrolled ? "text-[#4B4A4A]" : "text-white/80"
+              }`}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Awards
+            </span>
+          </div>
+
+          {/* Right: Menu */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors ${
+                scrolled ? "text-[#3a2a1a]" : "text-white"
+              }`}
+            >
+              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Dropdown menu */}
+      {menuOpen && (
+        <div className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md border-b border-stone-200">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex flex-col gap-1">
+            {[
+              { label: "Nayara Tented Camp", route: "/tented-camp" },
+              { label: "Nayara Gardens", route: "/gardens" },
+              { label: "Nayara Springs", route: "/springs" },
+              { label: "Nayara Alto Atacama", route: "/alto-atacama" },
+              { label: "Nayara Hangaroa", route: "/hangaroa" },
+              { label: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
+            ].map((link) => (
+              <button
+                key={link.label}
+                onClick={() => {
+                  setMenuOpen(false);
+                  navigate(link.route);
+                }}
+                className="text-left py-2 text-[#5a4a3a]/70 hover:text-[#3a2a1a] transition-colors"
+              >
+                <span
+                  className="text-[11px] tracking-[0.15em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                >
+                  {link.label}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
