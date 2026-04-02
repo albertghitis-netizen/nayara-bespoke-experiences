@@ -351,3 +351,8 @@
 - [x] Find correct Synxis booking links for Nayara Hangaroa
 - [x] Find correct Synxis booking links for Nayara Bocas del Toro
 - [x] Update chatbot system prompt with correct booking links
+
+## Chatbot UI Refinements
+- [x] Reduce chatbot conversation area size (less oversized)
+- [x] Add clear separator line above input bar so users know where to type
+- [x] Keep beige background, just improve visual clarity of input area

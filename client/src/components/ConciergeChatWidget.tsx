@@ -198,7 +198,7 @@ export default function ConciergeChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-6 right-6 z-50 w-[90vw] max-w-[1200px] h-[85vh] max-h-[calc(100vh-100px)] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            className="fixed bottom-6 right-6 z-50 w-[92vw] sm:w-[420px] md:w-[460px] h-[70vh] max-h-[600px] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
             style={{
               background: "#E8DCC8",
               border: "1px solid rgba(58, 42, 26, 0.12)",
@@ -313,17 +313,18 @@ export default function ConciergeChatWidget() {
             {/* ── Input ── */}
             <form
               onSubmit={handleSubmit}
-              className="px-4 py-3 border-t border-white/20 bg-white/10 shrink-0"
+              className="px-4 py-3 shrink-0"
+              style={{ borderTop: "1.5px solid rgba(58, 42, 26, 0.15)" }}
             >
-              <div className="flex items-end gap-2">
+              <div className="flex items-end gap-2 bg-white/60 rounded-xl px-3 py-1.5" style={{ border: "1px solid rgba(58, 42, 26, 0.1)" }}>
                 <textarea
                   ref={inputRef}
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder=""
+                  placeholder="Ask Henry anything..."
                   rows={1}
-                  className="flex-1 resize-none bg-transparent text-[13px] text-[#3a2a1a] placeholder:text-[#3a2a1a]/20 focus:outline-none max-h-24 py-2"
+                  className="flex-1 resize-none bg-transparent text-[13px] text-[#3a2a1a] placeholder:text-[#3a2a1a]/35 focus:outline-none max-h-24 py-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 />
                 {/* Voice input button */}
