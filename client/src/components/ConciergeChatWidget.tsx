@@ -171,15 +171,15 @@ export default function ConciergeChatWidget() {
             aria-label="Open concierge"
           >
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/paloma-avatar_6bc0a224.png"
-              alt="Paloma"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6794_a93c7cbd.PNG"
+              alt="Henry"
               className="w-7 h-7 rounded-full object-cover shrink-0"
             />
             <span
               className="text-white text-sm tracking-[0.12em] uppercase whitespace-nowrap"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Chat with Paloma
+              Chat with Henry
             </span>
 
             {/* Pulse indicator for new visitors */}
@@ -215,7 +215,7 @@ export default function ConciergeChatWidget() {
                     className="text-white text-sm tracking-[0.08em]"
                     style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                   >
-                    Nayara Concierge
+                    Henry
                   </h3>
                   <p
                     className="text-[#c9b99a] text-[10px] tracking-[0.12em] uppercase"
@@ -359,7 +359,7 @@ export default function ConciergeChatWidget() {
                 className="text-center text-[9px] text-[#3a2a1a]/20 mt-2 tracking-[0.05em]"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Nayara Resorts Concierge
+                Henry — Nayara Concierge
               </p>
             </form>
           </motion.div>
