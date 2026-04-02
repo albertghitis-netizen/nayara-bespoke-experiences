@@ -299,3 +299,6 @@
 
 ## Landing Hero Video Edit
 - [x] Replace first scene of landing hero video with Brice Ferre Gardens clip (daylight Arenal), then cut into scene two
+
+## Gastronomy Hero Video Prepend
+- [x] Prepend new clip to Gastronomy "A Taste of Place" hero video, keep existing video after it
