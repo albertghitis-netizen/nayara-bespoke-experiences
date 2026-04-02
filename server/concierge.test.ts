@@ -49,8 +49,9 @@ describe("Nayara Concierge System Prompt", () => {
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT.toLowerCase()).not.toContain("starry");
   });
 
-  it("should identify as Nayara Resorts Concierge", () => {
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Resorts Concierge");
+  it("should identify as Paloma, the Nayara Concierge", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Paloma");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Concierge");
   });
 
   it("should contain reservation contact information", () => {
