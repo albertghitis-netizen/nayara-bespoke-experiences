@@ -183,3 +183,19 @@
 ## Photo Deduplication
 - [x] Fix Springs.tsx using Gardens villa photo — replaced with sojern-springs-4 (Springs-specific photo)
 - [x] Removed unused LOGO_URL constant from Home.tsx
+
+## Homepage Restructuring & Video Updates
+- [x] Upload new Nayara logo (leaf emblem + NAYARA text) to CDN
+- [x] Convert NayaraTentedCampHomepageHero.mov to MP4 and upload to CDN
+- [x] Update Homepage desktop hero video to new video
+- [x] Bocas del Toro: new desktop hero video + H1 "Luxury Overwater Villas on a Private Caribbean Island"
+- [x] Tented Camp: H1 → "Luxury Tented Camp Immersed in the Costa Rican Rainforest"
+- [x] Gardens: H1 → "Family-Friendly Rainforest Adventure at the Foot of Arenal Volcano"
+- [x] Springs: H1 → "Adults-Only Private Hot Springs Villas"
+- [x] Verify all changes and save checkpoint
+
+## Hero Video & H1 Corrections (All Pages)
+- [x] Upload Bocas del Toro header video to CDN
+- [x] Update Homepage: new hero video uploaded and applied
+- [x] Audit and correct hero videos and H1 text on property pages
+- [x] Verify all hero videos play correctly across pages and save checkpoint

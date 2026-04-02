@@ -602,11 +602,11 @@ function HeroHeader() {
   const isMobile = useIsMobile();
   const heroRef = useRef<HTMLDivElement>(null);
 
-  /* Desktop: horizontal Arenal volcano video (3.4MB mp4)
+  /* Desktop: new homepage hero video
      Mobile: vertical landing video (compressed mp4) */
   const heroVideo = isMobile
     ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4";
+    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new_f074ecbe.mp4";
 
   /* Scroll-linked transforms for parallax */
   const { scrollYProgress } = useScroll({

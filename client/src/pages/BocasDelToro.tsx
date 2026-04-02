@@ -36,6 +36,7 @@ import { bocasDiningCollection } from "@/data/dining";
 /* ─── CDN Assets ─────────────────────────────────────────── */
 const CDN = {
   videoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-vertical-beach_a8134b71.mp4",
+  videoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-hero-desktop_8a1ea433.mp4",
   aerial: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial_ff3a4ff3.jpg",
   sunset: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-sunset_2eeaa785.jpg",
   overwater: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-overwater_f9b09985.jpg",
@@ -309,9 +310,8 @@ function HeroSection({ onInView }: { onInView: () => void }) {
             className="w-full h-full object-cover"
           />
         ) : (
-          <img
-            src={CDN.aerial}
-            alt="Nayara Bocas del Toro aerial view"
+          <BlobVideo
+            src={CDN.videoDesktop}
             className="w-full h-full object-cover"
           />
         )}
@@ -354,7 +354,7 @@ function HeroSection({ onInView }: { onInView: () => void }) {
           className="text-white text-3xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Caribbean Island Paradise
+          Luxury Overwater Villas on a Private Caribbean Island
         </motion.h1>
 
         <motion.p

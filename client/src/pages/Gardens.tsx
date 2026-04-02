@@ -294,7 +294,7 @@ function HeroSection() {
             className="text-white text-3xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Where the Rainforest Blooms
+            Family-Friendly Rainforest Adventure at the Foot of Arenal Volcano
           </h1>
           <p
             className="text-white/70 text-sm md:text-base mt-4 max-w-xl mx-auto leading-relaxed"
