@@ -302,3 +302,6 @@
 
 ## Gastronomy Hero Video Prepend
 - [x] Prepend new clip to Gastronomy "A Taste of Place" hero video, keep existing video after it
+
+## New Landing Hero Video
+- [x] Replace landing page hero with new resorts video (6D16D6C5)
