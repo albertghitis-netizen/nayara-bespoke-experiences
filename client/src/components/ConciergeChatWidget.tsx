@@ -137,7 +137,7 @@ export default function ConciergeChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-6 right-6 z-50 w-[400px] max-w-[calc(100vw-48px)] h-[580px] max-h-[calc(100vh-100px)] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+            className="fixed bottom-6 right-6 z-50 w-[90vw] max-w-[1200px] h-[85vh] max-h-[calc(100vh-100px)] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
             style={{
               background: "#f7f5f0",
               border: "1px solid rgba(58, 42, 26, 0.12)",
@@ -200,7 +200,7 @@ export default function ConciergeChatWidget() {
                     Welcome to Nayara
                   </h4>
                   <p
-                    className="text-[#5a4a3a]/60 text-xs leading-relaxed mb-6 max-w-[300px]"
+                    className="text-[#5a4a3a]/60 text-xs leading-relaxed mb-6 max-w-[500px]"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     I'm your personal concierge for all six Nayara properties — from the Atacama Desert to the Costa Rican rainforest, Easter Island to the Caribbean. Ask me anything about our resorts, dining, experiences, or destinations.

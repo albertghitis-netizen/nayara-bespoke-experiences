@@ -314,3 +314,6 @@
 
 ## Hangaroa Hero Video
 - [x] Set Hangaroa property page hero to ExperienceHeroVideoDesktop.mp4
+
+## Chatbot Resize
+- [x] Make chatbot widget 5x larger (400x580 → 90vw x 85vh, max 1200px wide)
