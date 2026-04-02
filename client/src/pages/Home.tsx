@@ -487,11 +487,11 @@ function BrandNavigation() {
             }}
             className={`${pillClass} h-12 px-6`}
           >
-            <span
-              className="text-white text-[11px] tracking-[0.25em] uppercase"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Reserve
+              <span
+                className="text-white text-[11px] tracking-[0.25em] uppercase"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                Reserve
             </span>
           </button>
 
