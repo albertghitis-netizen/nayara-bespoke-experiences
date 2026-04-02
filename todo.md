@@ -273,3 +273,10 @@
 - [x] Convert new Atacama horizontal video to MP4 and upload to CDN
 - [x] Update Alto Atacama page: new hero video (atacama-hero-new-horizontal)
 - [x] Move current Atacama hero video (atacama-desktop-compressed) to Journal page hero
+
+## Move Awards Hero Video to Sustainability
+- [x] Update Sustainability page hero video to NTC V4 waterfall (from Awards page)
+
+## Awards Hero — Static Michelin Image
+- [x] Upload Michelin 2025 image to CDN
+- [x] Replace Awards hero video with static Michelin 2025 image

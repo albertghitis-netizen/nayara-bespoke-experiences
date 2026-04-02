@@ -9,11 +9,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { ArrowLeft, Trophy, ShieldCheck, ChevronDown, Star, Award, Key, Menu, X } from "lucide-react";
 import Footer from "@/components/Footer";
-import BlobVideo from "@/components/BlobVideo";
 
 /* ── CDN assets ── */
 const CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ntc-v4-recompressed_4166c14f.mp4",
+  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-2025-awards-hero_cff40bc3.webp",
   logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
   logoDark: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
 };
@@ -125,12 +124,13 @@ export default function Awards() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      {/* ── Video Hero ── */}
+      {/* ── Static Image Hero ── */}
       <AwardsNav />
       <section className="relative w-full h-screen overflow-hidden">
         <div className="absolute inset-0">
-          <BlobVideo
-            src={CDN.heroVideo}
+          <img
+            src={CDN.heroImage}
+            alt="Michelin 2025 Three Keys"
             className="w-full h-full object-cover"
           />
         </div>
