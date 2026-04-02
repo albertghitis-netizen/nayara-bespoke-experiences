@@ -115,7 +115,7 @@ export default function ConciergeChatWidget() {
             aria-label="Open concierge"
           >
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/paloma-avatar_c3ae5926.png"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/paloma-avatar_6bc0a224.png"
               alt="Paloma"
               className="w-7 h-7 rounded-full object-cover shrink-0"
             />
