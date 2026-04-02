@@ -17,7 +17,7 @@ const BOOKING_URL = BOOKING_URLS["alto-atacama"];
 /* ── CDN Assets ── */
 const CDN = {
   heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-desktop-compressed_d077ee79.mp4",
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-new-horizontal_487d28e6.mp4",
   heroMobile:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-vertical-drone_27d39f2d.mp4",
   heroPoster:

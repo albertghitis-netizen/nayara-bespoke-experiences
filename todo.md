@@ -268,3 +268,8 @@
 ## Awards Page Hero Video
 - [x] Upload NTC V4 video to CDN (already uploaded as ntc-v4-recompressed)
 - [x] Update Awards page: hero video (NTC V4) + H1 "Awards & Recognition" matching spherical pattern + nav with centered Nayara logo
+
+## Atacama Hero Video Swap + Journal Update
+- [x] Convert new Atacama horizontal video to MP4 and upload to CDN
+- [x] Update Alto Atacama page: new hero video (atacama-hero-new-horizontal)
+- [x] Move current Atacama hero video (atacama-desktop-compressed) to Journal page hero
