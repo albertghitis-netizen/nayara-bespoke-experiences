@@ -173,7 +173,7 @@ export default function ConciergeChatWidget() {
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Experiences-2_cd22baa3.png"
               alt="Henry"
-              className="w-9 h-9 rounded-full object-cover shrink-0"
+              className="w-12 h-12 object-cover shrink-0"
             />
             <span
               className="text-[#3a2a1a] text-sm tracking-[0.12em] uppercase whitespace-nowrap"
