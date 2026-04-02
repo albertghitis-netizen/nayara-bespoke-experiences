@@ -5,10 +5,11 @@
  * Filters by pillar and destination
  */
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowLeft, ExternalLink, Play, Mail, ChevronDown, X } from "lucide-react";
+import { ArrowLeft, ExternalLink, Play, Mail, ChevronDown, X, Menu } from "lucide-react";
+import BlobVideo from "@/components/BlobVideo";
 import type { Newsletter } from "@/data/journal";
 import {
   blogPosts,
@@ -194,55 +195,75 @@ export default function Journal() {
 /* ═══════════════════════════════════════════════════════════════
    HERO HEADER
    ═══════════════════════════════════════════════════════════════ */
+const JOURNAL_CDN = {
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/journal-hero_ba93c735.mp4",
+  logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
+  logoDark: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
+};
+
 function JournalHero() {
   return (
-    <div className="relative bg-[#2a1f14] text-white py-28 md:py-36 px-6 md:px-10 overflow-hidden">
-      {/* Subtle texture overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-        }}
-      />
-
-      <div className="relative max-w-[1200px] mx-auto">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 text-xs tracking-[0.25em] uppercase mb-12 transition-colors"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          Home
-        </Link>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p
-            className="text-white/30 text-[10px] tracking-[0.5em] uppercase mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Nayara Resorts
-          </p>
-          <h1
-            className="text-5xl md:text-6xl lg:text-7xl leading-[0.92] tracking-tight"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Journal
-          </h1>
-          <p
-            className="text-white/50 text-base md:text-lg mt-6 max-w-lg leading-relaxed"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-          >
-            Stories, science, and dispatches from the world of Nayara —
-            exploring the intersection of luxury, nature, and culture.
-          </p>
-        </motion.div>
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Video background */}
+      <div className="absolute inset-0">
+        <BlobVideo
+          src={JOURNAL_CDN.heroVideo}
+          className="w-full h-full object-cover"
+        />
       </div>
-    </div>
+
+      {/* Nav overlay */}
+      <JournalNav />
+
+      {/* Content — centered bottom */}
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
+        <h1
+          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 400,
+            fontSize: 'clamp(32px, 5vw, 50px)',
+            letterSpacing: '-2px',
+            lineHeight: 1,
+          }}
+        >
+          Nayara Journal
+        </h1>
+      </div>
+    </section>
+  );
+}
+
+function JournalNav() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between h-16 md:h-20 px-5 md:px-8">
+        <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2 group">
+            <ArrowLeft className={`w-4 h-4 transition-colors ${scrolled ? "text-[#3a2a1a]" : "text-white"} group-hover:opacity-70`} />
+            <span className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${scrolled ? "text-[#3a2a1a]" : "text-white"} group-hover:opacity-70 hidden md:inline`} style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Nayara Collection</span>
+          </Link>
+        </div>
+        <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <Link href="/">
+            <img src={scrolled ? JOURNAL_CDN.logoDark : JOURNAL_CDN.logoWhite} alt="Nayara" className="h-10 md:h-12 w-auto transition-all duration-500" />
+          </Link>
+          <span className={`text-[8px] md:text-[9px] tracking-[0.25em] uppercase mt-0.5 transition-colors ${scrolled ? "text-[#4B4A4A]" : "text-white/80"}`} style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Journal</span>
+        </div>
+        <div className="w-10" />
+      </div>
+    </nav>
   );
 }
 

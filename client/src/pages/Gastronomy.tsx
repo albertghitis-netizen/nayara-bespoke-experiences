@@ -4,9 +4,17 @@
  * Links to property pages for full menu details.
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
+import { ArrowLeft } from "lucide-react";
+import BlobVideo from "@/components/BlobVideo";
+
+const GASTRO_CDN = {
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero_58c68cb8.mp4",
+  logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
+  logoDark: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
+};
 import { allDining, type Restaurant, type PropertyDining } from "@/data/dining";
 import Footer from "@/components/Footer";
 
@@ -44,50 +52,28 @@ export default function Gastronomy() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      {/* ── Hero ── */}
-      <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
-        <div className="absolute inset-0 bg-[#3a2a1a]">
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 30% 50%, rgba(201,185,154,0.3) 0%, transparent 60%), radial-gradient(circle at 70% 30%, rgba(201,185,154,0.2) 0%, transparent 50%)",
-            }}
+      {/* ── Video Hero ── */}
+      <section className="relative w-full h-screen overflow-hidden">
+        <div className="absolute inset-0">
+          <BlobVideo
+            src={GASTRO_CDN.heroVideo}
+            className="w-full h-full object-cover"
           />
         </div>
-
-        <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 px-6">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[#c9b99a] text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-body)" }}
+        <GastroNav />
+        <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
+          <h1
+            className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 400,
+              fontSize: 'clamp(32px, 5vw, 50px)',
+              letterSpacing: '-2px',
+              lineHeight: 1,
+            }}
           >
-            Nayara Resorts
-          </motion.span>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="text-white text-3xl md:text-5xl lg:text-6xl text-center leading-tight"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Gastronomy & Dining
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-white/60 text-sm md:text-base max-w-xl text-center mt-4 leading-relaxed"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            From rainforest cocktail bars to overwater Caribbean dining, from
-            Rapa Nui seafood to Atacama desert cuisine — discover the culinary
-            world of Nayara.
-          </motion.p>
+            A Taste of Place
+          </h1>
         </div>
       </section>
 
@@ -282,5 +268,41 @@ function RestaurantCard({
         </div>
       </div>
     </motion.div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GASTRO NAV
+   ═══════════════════════════════════════════════════════════════ */
+function GastroNav() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between h-16 md:h-20 px-5 md:px-8">
+        <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2 group">
+            <ArrowLeft className={`w-4 h-4 transition-colors ${scrolled ? "text-[#3a2a1a]" : "text-white"} group-hover:opacity-70`} />
+            <span className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${scrolled ? "text-[#3a2a1a]" : "text-white"} group-hover:opacity-70 hidden md:inline`} style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Nayara Collection</span>
+          </Link>
+        </div>
+        <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <Link href="/">
+            <img src={scrolled ? GASTRO_CDN.logoDark : GASTRO_CDN.logoWhite} alt="Nayara" className="h-10 md:h-12 w-auto transition-all duration-500" />
+          </Link>
+          <span className={`text-[8px] md:text-[9px] tracking-[0.25em] uppercase mt-0.5 transition-colors ${scrolled ? "text-[#4B4A4A]" : "text-white/80"}`} style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Gastronomy</span>
+        </div>
+        <div className="w-10" />
+      </div>
+    </nav>
   );
 }

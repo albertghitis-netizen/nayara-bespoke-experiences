@@ -226,4 +226,41 @@
 - [x] Match intro section images exactly to spherical site (same bleed, format, aspect ratio)
 - [x] Delete everything from "Luxury Tents" section down to footer
 - [x] Keep footer as-is
-- [ ] Save checkpoint (pending)
+- [x] Save checkpoint
+
+## All Property Pages — Hero Video + H1 Layout (Spherical Style)
+- [x] Bocas del Toro: hero video + H1 "Luxury Overwater Villas on a Private Caribbean Island"
+- [x] Hangaroa: hero video + H1 "Walk with Giants"
+- [x] Alto Atacama: hero video + H1 "Luxury Atacama Desert Lodge Under the Stars"
+- [x] Gardens: hero video + H1 "Family-Friendly Rainforest Adventure at the Foot of Arenal Volcano"
+- [x] Springs: hero video + H1 "Adults-Only Private Hot Springs Villas"
+- [x] All pages match Tented Camp hero layout pattern
+- [x] Test and save checkpoint
+
+## Additional Changes
+- [x] Convert new Gardens hero video (D98B164D) to MP4 and upload to CDN
+- [x] Experiences page: use old Gardens video (arenal-desktop) as hero, H1 "Bespoke Experiences and Adventure"
+- [x] Gardens page: use new video as hero (gardens-hero-new)
+
+## Sustainability Page Update
+- [x] Convert sustainability hero video to MP4 and upload to CDN
+- [x] Update Sustainability page: hero video + H1 "Beyond Sustainability"
+
+## Springs Hero Video Update
+- [x] Convert new Springs hero video (Edits_NS_Vertical) to MP4 and upload to CDN
+- [x] Update Springs page hero to use new video
+
+## Journal Hero Video Update
+- [x] Convert Journal hero video (ExperienceHeroVideoDesktop.mov) to MP4 and upload to CDN
+- [x] Update Journal page hero to use new video + H1 "Nayara Journal"
+
+## Gastronomy Hero Video Update
+- [x] Convert Gastronomy hero video (SingleClipAsiaLuna.MOV) to MP4 and upload to CDN
+- [x] Update Gastronomy page hero to use new video + H1 "A Taste of Place"
+
+## Journal H1 Update
+- [x] Update Journal page H1 to "Nayara Journal"
+
+## Experiences Hero Video Swap
+- [x] Convert new Experiences hero video (Videos_RapaNui_NH00026.MP4) to MP4 and upload to CDN
+- [x] Update Experiences page hero to use new Rapa Nui video
