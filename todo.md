@@ -286,3 +286,13 @@
 - [x] Gardens H1: change "Family-Friendly Rainforest Adventure at the Foot of Arenal Volcano" → "Family-Friendly Rainforest Adventure"
 - [x] Wellness H1: change to "Nurtured by Nature"
 - [x] Wellness hero: swap to new user-provided video + added WellnessNav with centered logo
+
+## Wellness Hero Video Swap v2
+- [ ] Convert new Wellness hero video and upload to CDN
+- [ ] Update Wellness page hero video URL
+
+## Sustainability Hero Video Trim
+- [x] Trim first 10 seconds off Sustainability hero video (NTC V4), re-upload to CDN, update URL
+
+## Wellness Hero Video Swap v2
+- [x] Update Wellness page hero video to wellness-hero-v2
