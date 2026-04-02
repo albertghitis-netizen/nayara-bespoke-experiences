@@ -200,7 +200,7 @@ export default function ConciergeChatWidget() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="fixed bottom-6 right-6 z-50 w-[90vw] max-w-[1200px] h-[85vh] max-h-[calc(100vh-100px)] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
             style={{
-              background: "#f7f5f0",
+              background: "#5a7a8f",
               border: "1px solid rgba(58, 42, 26, 0.12)",
             }}
           >
@@ -252,7 +252,7 @@ export default function ConciergeChatWidget() {
               {showWelcome && messages.length === 0 && (
                 <div className="flex justify-start">
                   <div
-                    className="max-w-[85%] rounded-2xl rounded-bl-md px-4 py-3 bg-white text-[#3a2a1a] shadow-sm border border-[#3a2a1a]/5"
+                    className="max-w-[85%] rounded-2xl rounded-bl-md px-4 py-3 bg-white/15 text-white shadow-sm border border-white/10 backdrop-blur-sm"
                   >
                     <p
                       className="text-[13px] leading-relaxed"
@@ -273,13 +273,13 @@ export default function ConciergeChatWidget() {
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-3 ${
                       msg.role === "user"
-                        ? "bg-[#3a2a1a] text-white rounded-br-md"
-                        : "bg-white text-[#3a2a1a] rounded-bl-md shadow-sm border border-[#3a2a1a]/5"
+                        ? "bg-white/20 text-white rounded-br-md border border-white/20 backdrop-blur-sm"
+                        : "bg-white/15 text-white rounded-bl-md shadow-sm border border-white/10 backdrop-blur-sm"
                     }`}
                   >
                     {msg.role === "assistant" ? (
                       <div
-                        className="text-[13px] leading-relaxed [&_p]:mb-2 [&_p:last-child]:mb-0 [&_a]:text-[#8b6f47] [&_a]:underline [&_ul]:ml-4 [&_ul]:list-disc [&_ol]:ml-4 [&_ol]:list-decimal [&_strong]:font-semibold"
+                        className="text-[13px] leading-relaxed [&_p]:mb-2 [&_p:last-child]:mb-0 [&_a]:text-yellow-200 [&_a]:underline [&_ul]:ml-4 [&_ul]:list-disc [&_ol]:ml-4 [&_ol]:list-decimal [&_strong]:font-semibold"
                         style={{ fontFamily: "var(--font-body)" }}
                       >
                         <Streamdown>{msg.content}</Streamdown>
@@ -313,7 +313,7 @@ export default function ConciergeChatWidget() {
             {/* ── Input ── */}
             <form
               onSubmit={handleSubmit}
-              className="px-4 py-3 border-t border-[#3a2a1a]/8 bg-white/50 shrink-0"
+              className="px-4 py-3 border-t border-white/10 bg-white/10 backdrop-blur-sm shrink-0"
             >
               <div className="flex items-end gap-2">
                 <textarea
@@ -323,7 +323,7 @@ export default function ConciergeChatWidget() {
                   onKeyDown={handleKeyDown}
                   placeholder="Ask about our properties, dining, experiences..."
                   rows={1}
-                  className="flex-1 resize-none bg-transparent text-[13px] text-[#3a2a1a] placeholder:text-[#3a2a1a]/30 focus:outline-none max-h-24 py-2"
+                  className="flex-1 resize-none bg-transparent text-[13px] text-white placeholder:text-white/40 focus:outline-none max-h-24 py-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 />
                 {/* Voice input button */}
