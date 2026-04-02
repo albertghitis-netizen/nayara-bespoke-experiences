@@ -128,7 +128,7 @@ export default function AwardWinningProperties() {
           {/* Two columns: text left + vertical photo right */}
           <div className="grid grid-cols-12 gap-8 lg:gap-12">
             {/* LEFT — H2 (word-by-word) + body text + CTA */}
-            <div className="col-span-6 flex flex-col justify-center">
+            <div className="col-span-5 flex flex-col justify-center">
               <h2
                 className="text-[#3a2a1a] text-3xl lg:text-4xl xl:text-[2.8rem] leading-[1.15] mb-8 flex flex-wrap gap-x-[0.25em]"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
@@ -205,7 +205,7 @@ export default function AwardWinningProperties() {
 
             {/* RIGHT — Big vertical Tented Camp photo with parallax + Ken Burns */}
             <motion.div
-              className="col-span-6"
+              className="col-span-7"
               style={{ y: mediaY }}
               initial={{ opacity: 0, y: 60, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
