@@ -1,6 +1,14 @@
 /**
  * BOOKING CONFIGURATION — Centralized SynXis booking URLs for all properties
  * Update URLs here to change booking links across the entire site.
+ *
+ * Correct chain/hotel IDs sourced from nayararesorts.com Reserve dropdown:
+ *   Alto Atacama:   chain=24447, hotel=35177
+ *   Gardens:        chain=24447, hotel=39070
+ *   Springs:        chain=8565,  hotel=1356
+ *   Tented Camp:    chain=24447, hotel=10868
+ *   Hangaroa:       chain=24447, hotel=35955
+ *   Bocas del Toro: chain=24447, hotel=38262
  */
 
 export interface PropertyBooking {
@@ -12,24 +20,23 @@ export interface PropertyBooking {
 
 /* ── SynXis Booking URLs ── */
 export const BOOKING_URLS: Record<string, string> = {
-  /* Costa Rica properties share the same chain/hotel */
   gardens:
-    "https://be.synxis.com/?Hotel=10868&Chain=24447&locale=en-US&adult=2&child=0",
+    "https://be.synxis.com/?chain=24447&hotel=39070&level=hotel&locale=en-US&adult=2&child=0&currency=USD&rooms=1",
   springs:
-    "https://be.synxis.com/?Hotel=10868&Chain=24447&locale=en-US&adult=2&child=0",
+    "https://be.synxis.com/?chain=8565&hotel=1356&level=hotel&locale=en-US&adult=2&child=0&currency=USD&rooms=1",
   "tented-camp":
-    "https://be.synxis.com/?Hotel=10868&Chain=24447&locale=en-US&adult=2&child=0",
+    "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&currency=USD&rooms=1",
   "costa-rica":
-    "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&rooms=1&currency=USD&productcurrency=USD&src=30",
+    "https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US&adult=1&child=0&currency=USD&rooms=1",
   "alto-atacama":
-    "https://be.synxis.com/?&chain=24447&hotel=35177&adult=2&SRC=30",
+    "https://be.synxis.com/?chain=24447&hotel=35177&level=hotel&locale=en-US&adult=2&child=0&currency=USD&rooms=1",
   hangaroa:
-    "https://be.synxis.com/?adult=2&chain=24447&child=0&currency=USD&hotel=35955&level=hotel&locale=en-US&productcurrency=USD&rooms=1",
+    "https://be.synxis.com/?chain=24447&hotel=35955&level=hotel&locale=en-US&adult=2&child=0&currency=USD&rooms=1",
   "bocas-del-toro":
-    "https://be.synxis.com/?adult=2&chain=24447&child=0&currency=USD&hotel=38262&level=hotel&locale=en-US&productcurrency=USD&rooms=1&src=30",
+    "https://be.synxis.com/?chain=24447&hotel=38262&level=hotel&locale=en-US&adult=2&child=0&currency=USD&rooms=1",
 };
 
-/* ── Default booking URL (Costa Rica) ── */
+/* ── Default booking URL (Costa Rica / Tented Camp) ── */
 export const DEFAULT_BOOKING_URL = BOOKING_URLS["costa-rica"];
 
 /* ── Hotel booking links for Reserve dropdown (used in Home.tsx) ── */

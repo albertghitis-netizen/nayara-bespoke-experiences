@@ -55,14 +55,14 @@ Once you have their email, confirm: "Perfect! Our team will reach out to you at 
 - PRIORITY: Get guest email for Reservations follow-up
 - SECONDARY: Offer phone number as alternative
 - Always mention both options when someone is ready to book
-- When mentioning booking, use hotel names as clickable markdown links, NOT raw URLs. Example: "You can book [Nayara Alto Atacama](https://be.synxis.com/?chain=24664&hotel=40994&arrive=&depart=&adult=2&child=0) directly" — never show the full URL in your response
+- When mentioning booking, use hotel names as clickable markdown links, NOT raw URLs. Example: "You can book [Nayara Alto Atacama](https://be.synxis.com/?chain=24447&hotel=35177&level=hotel&locale=en-US) directly" — never show the full URL in your response
 - Booking links (for reference, use hotel names in responses):
-  - Nayara Tented Camp: https://be.synxis.com/?chain=24664&hotel=40993&arrive=&depart=&adult=2&child=0
-  - Nayara Springs: https://be.synxis.com/?chain=24664&hotel=40992&arrive=&depart=&adult=2&child=0
-  - Nayara Gardens: https://be.synxis.com/?chain=24664&hotel=40991&arrive=&depart=&adult=2&child=0
-  - Nayara Alto Atacama: https://be.synxis.com/?chain=24664&hotel=40994&arrive=&depart=&adult=2&child=0
-  - Nayara Hangaroa: https://be.synxis.com/?chain=24664&hotel=40995&arrive=&depart=&adult=2&child=0
-  - Nayara Bocas del Toro: https://be.synxis.com/?chain=24664&hotel=40996&arrive=&depart=&adult=2&child=0
+  - Nayara Alto Atacama: https://be.synxis.com/?chain=24447&hotel=35177&level=hotel&locale=en-US
+  - Nayara Gardens: https://be.synxis.com/?chain=24447&hotel=39070&level=hotel&locale=en-US
+  - Nayara Springs: https://be.synxis.com/?chain=8565&hotel=1356&level=hotel&locale=en-US
+  - Nayara Tented Camp: https://be.synxis.com/?chain=24447&hotel=10868&level=hotel&locale=en-US
+  - Nayara Hangaroa: https://be.synxis.com/?chain=24447&hotel=35955&level=hotel&locale=en-US
+  - Nayara Bocas del Toro: https://be.synxis.com/?chain=24447&hotel=38262&level=hotel&locale=en-US
 
 ---
 

@@ -344,3 +344,10 @@
 - [x] Add Web Speech API voice input to chatbot
 - [x] Microphone button with visual feedback (red pulse while listening)
 - [x] Support for Chrome, Edge, Safari
+
+## Synxis Booking Links
+- [x] Find correct Synxis booking links for Nayara Alto Atacama
+- [x] Find correct Synxis booking links for Nayara Arenal (Gardens, Springs, Tented Camp)
+- [x] Find correct Synxis booking links for Nayara Hangaroa
+- [x] Find correct Synxis booking links for Nayara Bocas del Toro
+- [x] Update chatbot system prompt with correct booking links
