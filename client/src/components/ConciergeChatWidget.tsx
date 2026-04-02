@@ -167,16 +167,16 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-full bg-[#E9E5D8] shadow-xl px-6 py-4 hover:bg-[#dddab0] transition-colors group cursor-pointer"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-4 rounded-full bg-[#E9E5D8] shadow-xl px-5 py-3 hover:bg-[#dddab0] transition-colors group cursor-pointer"
             aria-label="Open concierge"
           >
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Experiences-2_cd22baa3.png"
               alt="Henry"
-              className="w-12 h-12 object-cover shrink-0"
+              className="w-16 h-16 object-cover shrink-0"
             />
             <span
-              className="text-[#3a2a1a] text-sm tracking-[0.12em] uppercase whitespace-nowrap"
+              className="text-[#3a2a1a] text-base tracking-[0.08em] whitespace-nowrap"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Chat with Henry
