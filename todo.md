@@ -296,3 +296,6 @@
 
 ## Wellness Hero Video Swap v2
 - [x] Update Wellness page hero video to wellness-hero-v2
+
+## Landing Hero Video Edit
+- [x] Replace first scene of landing hero video with Brice Ferre Gardens clip (daylight Arenal), then cut into scene two
