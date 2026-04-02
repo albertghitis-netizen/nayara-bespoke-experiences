@@ -14,12 +14,7 @@ type Message = {
   content: string;
 };
 
-const SUGGESTED_PROMPTS = [
-  "Which property is right for me?",
-  "Tell me about your dining experiences",
-  "What excursions do you recommend?",
-  "I'm interested in booking a stay",
-];
+
 
 /* ── Nayara leaf/compass icon ── */
 function NayaraIcon({ className = "w-6 h-6" }: { className?: string }) {
@@ -193,40 +188,18 @@ export default function ConciergeChatWidget() {
               className="flex-1 overflow-y-auto px-5 py-4 space-y-4"
               style={{ scrollBehavior: "smooth" }}
             >
-              {/* Welcome state */}
+              {/* Welcome — feels like a person just greeted you */}
               {showWelcome && messages.length === 0 && (
-                <div className="flex flex-col items-center text-center pt-4 pb-4">
-                  <div className="w-16 h-16 rounded-full bg-[#3a2a1a]/5 flex items-center justify-center mb-4">
-                    <NayaraIcon className="w-8 h-8 text-[#3a2a1a]/25" />
-                  </div>
-                  <h4
-                    className="text-[#3a2a1a] text-lg mb-2"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                <div className="flex justify-start">
+                  <div
+                    className="max-w-[85%] rounded-2xl rounded-bl-md px-4 py-3 bg-white text-[#3a2a1a] shadow-sm border border-[#3a2a1a]/5"
                   >
-                    Welcome to Nayara
-                  </h4>
-                  <p
-                    className="text-[#5a4a3a]/60 text-xs leading-relaxed mb-6 max-w-[500px]"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    I'm your personal concierge for all six Nayara properties — from the Atacama Desert to the Costa Rican rainforest, Easter Island to the Caribbean. Ask me anything about our resorts, dining, experiences, or destinations.
-                  </p>
-
-                  {/* Suggested prompts */}
-                  <div className="flex flex-col gap-2 w-full">
-                    {SUGGESTED_PROMPTS.map((prompt, i) => (
-                      <button
-                        key={i}
-                        onClick={() => sendMessage(prompt)}
-                        className="text-left px-4 py-2.5 rounded-xl text-xs border border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:bg-[#3a2a1a]/[0.03] transition-all"
-                        style={{
-                          fontFamily: "var(--font-body)",
-                          color: "#3a2a1a",
-                        }}
-                      >
-                        {prompt}
-                      </button>
-                    ))}
+                    <p
+                      className="text-[13px] leading-relaxed"
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      Hi there! Welcome to Nayara. How can I help you today?
+                    </p>
                   </div>
                 </div>
               )}

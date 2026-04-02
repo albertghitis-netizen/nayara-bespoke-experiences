@@ -320,3 +320,15 @@
 
 ## Chatbot Trigger Button Redesign
 - [x] Make chatbot trigger button much larger with "Chat with us" label pill instead of small circle
+
+## Embeddable Chatbot Widget
+- [ ] Create /chat-embed page that renders only the chatbot (no nav, no background)
+- [ ] Build embeddable JavaScript snippet for external sites
+- [ ] Add CORS/iframe support on server for cross-origin embedding
+- [ ] Test embed end-to-end
+- [ ] Write developer handoff document with implementation instructions
+
+## Chatbot Personality — Feel Like a Real Person
+- [x] Remove suggested prompts / option buttons from chat welcome
+- [x] Redesign welcome to feel like a person greeting you — just a chat bubble saying "Hi there! Welcome to Nayara. How can I help you today?"
+- [ ] Update system prompt to enforce short, conversational, human-like replies (no walls of text, no bullet lists)
