@@ -167,7 +167,7 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-4 rounded-full bg-[#E9E5D8] shadow-xl px-5 py-3 hover:bg-[#dddab0] transition-colors group cursor-pointer"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-[#E9E5D8] shadow-xl px-5 py-3 hover:bg-[#dddab0] transition-colors group cursor-pointer"
             aria-label="Open concierge"
           >
             <img
@@ -176,7 +176,7 @@ export default function ConciergeChatWidget() {
               className="w-16 h-16 object-cover shrink-0"
             />
             <span
-              className="text-[#3a2a1a] text-base tracking-[0.08em] whitespace-nowrap"
+              className="text-[#3a2a1a] text-lg tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Chat with Henry
@@ -321,9 +321,9 @@ export default function ConciergeChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Ask about our properties, dining, experiences..."
+                  placeholder=""
                   rows={1}
-                  className="flex-1 resize-none bg-transparent text-[13px] text-[#3a2a1a] placeholder:text-[#3a2a1a]/40 focus:outline-none max-h-24 py-2"
+                  className="flex-1 resize-none bg-transparent text-[13px] text-[#3a2a1a] placeholder:text-[#3a2a1a]/20 focus:outline-none max-h-24 py-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 />
                 {/* Voice input button */}
