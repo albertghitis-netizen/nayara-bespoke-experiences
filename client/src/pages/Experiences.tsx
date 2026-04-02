@@ -168,7 +168,7 @@ function HeroSection() {
             lineHeight: 1,
           }}
         >
-          Bespoke Experiences and Adventure
+          Bespoke Experiences
         </h1>
       </div>
     </section>

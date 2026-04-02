@@ -191,7 +191,7 @@ function HeroSection() {
             lineHeight: 1,
           }}
         >
-          Family-Friendly Rainforest Adventure at the Foot of Arenal Volcano
+          Family-Friendly Rainforest Adventure
         </h1>
       </div>
     </section>

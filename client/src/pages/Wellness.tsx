@@ -5,11 +5,18 @@
  * Typography: Playfair Display (display) + DM Sans (body)
  */
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
-import { ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronRight, ArrowRight, ArrowLeft } from "lucide-react";
 import Footer from "@/components/Footer";
+import BlobVideo from "@/components/BlobVideo";
+
+const WELLNESS_CDN = {
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness-hero_361be631.mp4",
+  logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
+  logoDark: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
+};
 
 /* ─── Wellness Pillars ───────────────────────────────────── */
 interface WellnessPillar {
@@ -65,7 +72,6 @@ const wellnessPillars: WellnessPillar[] = [
 export default function Wellness() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <WellnessHeader />
       <HeroSection />
       <IntroSection />
       <WellnessPillarsSection />
@@ -76,85 +82,69 @@ export default function Wellness() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════
-   HEADER
-   ═══════════════════════════════════════════════════════════ */
-function WellnessHeader() {
-  return (
-    <motion.header
-      className="fixed top-0 left-0 right-0 z-50"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="flex items-center justify-between px-6 md:px-10 h-16">
-        <a
-          href="/"
-          className="p-2 rounded-full text-white bg-black/20 backdrop-blur-sm hover:scale-105 transition-all duration-300"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </a>
-        <span
-          className="text-white/60 text-[11px] tracking-[0.3em] uppercase"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-        >
-          Wellness
-        </span>
-        <div className="w-9" />
-      </div>
-    </motion.header>
-  );
-}
+
 
 /* ═══════════════════════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-plunge-pool_e5f6a7b8.jpg"
-          alt="Nayara Wellness"
+        <BlobVideo
+          src={WELLNESS_CDN.heroVideo}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       </div>
-
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-16 md:pb-24 px-6">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-white/50 text-[11px] tracking-[0.4em] uppercase mb-6"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+      <WellnessNav />
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
+        <h1
+          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 400,
+            fontSize: 'clamp(32px, 5vw, 50px)',
+            letterSpacing: '-2px',
+            lineHeight: 1,
+          }}
         >
-          Wellness
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-3xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide text-center"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-        >
-          Healing Landscapes
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="text-white/40 text-sm mt-6 tracking-wider text-center max-w-lg"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-        >
-          Hot springs, desert silence, rainforest yoga, and Pacific oceanfront healing — wellness rooted in nature
-        </motion.p>
+          Nurtured by Nature
+        </h1>
       </div>
     </section>
+  );
+}
+
+function WellnessNav() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between h-16 md:h-20 px-5 md:px-8">
+        <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2 group">
+            <ArrowLeft className={`w-4 h-4 transition-colors ${scrolled ? "text-[#3a2a1a]" : "text-white"} group-hover:opacity-70`} />
+            <span className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${scrolled ? "text-[#3a2a1a]" : "text-white"} group-hover:opacity-70 hidden md:inline`} style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Nayara Collection</span>
+          </Link>
+        </div>
+        <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <Link href="/">
+            <img src={scrolled ? WELLNESS_CDN.logoDark : WELLNESS_CDN.logoWhite} alt="Nayara" className="h-10 md:h-12 w-auto transition-all duration-500" />
+          </Link>
+          <span className={`text-[8px] md:text-[9px] tracking-[0.25em] uppercase mt-0.5 transition-colors ${scrolled ? "text-[#4B4A4A]" : "text-white/80"}`} style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
+        </div>
+        <div className="w-10" />
+      </div>
+    </nav>
   );
 }
 

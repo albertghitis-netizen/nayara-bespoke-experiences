@@ -280,3 +280,9 @@
 ## Awards Hero — Static Michelin Image
 - [x] Upload Michelin 2025 image to CDN
 - [x] Replace Awards hero video with static Michelin 2025 image
+
+## H1 Text Updates
+- [x] Experiences H1: change "Bespoke Experiences and Adventure" → "Bespoke Experiences"
+- [x] Gardens H1: change "Family-Friendly Rainforest Adventure at the Foot of Arenal Volcano" → "Family-Friendly Rainforest Adventure"
+- [x] Wellness H1: change to "Nurtured by Nature"
+- [x] Wellness hero: swap to new user-provided video + added WellnessNav with centered logo
