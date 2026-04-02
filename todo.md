@@ -336,3 +336,6 @@
 
 ## Chatbot Button Animation
 - [ ] Add subtle pulsing animation to Paloma chat button
+
+## Paloma First Response — Guest Relations Option
+- [x] Add option to connect with Albert from guest relations or provide contact info in first response
