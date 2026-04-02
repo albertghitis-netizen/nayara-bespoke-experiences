@@ -1,7 +1,6 @@
 /**
  * Award-Winning Properties — Property Images + Brand Stats
- * DESKTOP: Two property photos (Tented Camp vertical + Atacama wide) + stats
- * MOBILE: Tented Camp vertical + stats
+ * LAYOUT: Tented Camp photo on top, Atacama ultra-wide full-screen below, then stats
  *
  * Text content (H2, body, CTA) moved to HomeIntroSection in Home.tsx
  */
@@ -105,99 +104,101 @@ export default function AwardWinningProperties() {
     offset: ["start end", "end start"],
   });
 
-  const mediaY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const tentedY = useTransform(scrollYProgress, [0, 1], [40, -40]);
   const atacamaY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 md:py-32 overflow-hidden"
+      className="relative overflow-hidden"
     >
-      <div className="max-w-[1300px] mx-auto px-6 md:px-10">
+      {/* ════════════════════════════════════════════
+          TOP — Tented Camp photo (contained width)
+         ════════════════════════════════════════════ */}
+      <div className="py-20 md:py-32">
+        <div className="max-w-[1300px] mx-auto px-6 md:px-10">
+          {/* DESKTOP — Tented Camp vertical photo */}
+          <div className="hidden md:block">
+            <motion.div
+              style={{ y: tentedY }}
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="aspect-[3/4] max-w-[600px] overflow-hidden relative group">
+                <motion.img
+                  src={PHOTO_TENTED_CAMP}
+                  alt="Nayara Tented Camp — luxury tent surrounded by rainforest canopy"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "center 30%" }}
+                  initial={{ scale: 1.1 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 8, ease: "linear" }}
+                  whileHover={{ scale: 1.03 }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </motion.div>
+          </div>
 
-        {/* ════════════════════════════════════════════
-            DESKTOP — Two property photos
-           ════════════════════════════════════════════ */}
-        <div className="hidden md:block">
-          {/* Tented Camp vertical photo with parallax + Ken Burns */}
-          <motion.div
-            style={{ y: mediaY }}
-            initial={{ opacity: 0, y: 60, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="aspect-[3/4] max-w-[600px] overflow-hidden relative group">
-              <motion.img
-                src={PHOTO_TENTED_CAMP}
-                alt="Nayara Tented Camp — luxury tent surrounded by rainforest canopy"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 30%" }}
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 8, ease: "linear" }}
-                whileHover={{ scale: 1.03 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-            </div>
-          </motion.div>
-
-          {/* Full-width horizontal Atacama photo with parallax + Ken Burns */}
-          <motion.div
-            className="mt-8 aspect-[21/9] overflow-hidden relative"
-            style={{ y: atacamaY }}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.img
-              src={PHOTO_ATACAMA_WIDE}
-              alt="Nayara Alto Atacama — desert lodge against red rock mountains"
-              className="w-full h-full object-cover"
-              initial={{ scale: 1.08 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 10, ease: "linear" }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-          </motion.div>
+          {/* MOBILE — Tented Camp vertical photo */}
+          <div className="md:hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="-mx-6"
+            >
+              <div className="aspect-[3/4] overflow-hidden relative">
+                <motion.img
+                  src={PHOTO_TENTED_CAMP}
+                  alt="Nayara Tented Camp — luxury tent in rainforest"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "center 30%" }}
+                  initial={{ scale: 1.1 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 6, ease: "linear" }}
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
+      </div>
 
-        {/* ════════════════════════════════════════════
-            MOBILE — vertical photo only, immersive
-           ════════════════════════════════════════════ */}
-        <div className="md:hidden">
-          {/* Vertical Tented Camp — full-width, tall, immersive with Ken Burns */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mb-8 -mx-6"
-          >
-            <div className="aspect-[3/4] overflow-hidden relative">
-              <motion.img
-                src={PHOTO_TENTED_CAMP}
-                alt="Nayara Tented Camp — luxury tent in rainforest"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 30%" }}
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 6, ease: "linear" }}
-              />
-            </div>
-          </motion.div>
+      {/* ════════════════════════════════════════════
+          ATACAMA — Full-width ultra-wide horizontal
+         ════════════════════════════════════════════ */}
+      <motion.div
+        className="w-full overflow-hidden relative"
+        style={{ y: atacamaY }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="aspect-[21/7] md:aspect-[21/7] overflow-hidden relative">
+          <motion.img
+            src={PHOTO_ATACAMA_WIDE}
+            alt="Nayara Alto Atacama — desert lodge against red rock mountains"
+            className="w-full h-full object-cover"
+            initial={{ scale: 1.06 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 10, ease: "linear" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/8 via-transparent to-transparent pointer-events-none" />
         </div>
+      </motion.div>
 
-        {/* ════════════════════════════════════════════
-            BRAND STATS — Counter animations
-           ════════════════════════════════════════════ */}
-        <div className="mt-16 md:mt-24">
-          <BrandStats />
-        </div>
+      {/* ════════════════════════════════════════════
+          BRAND STATS — Counter animations
+         ════════════════════════════════════════════ */}
+      <div className="max-w-[1300px] mx-auto px-6 md:px-10 py-20 md:py-28">
+        <BrandStats />
       </div>
     </section>
   );

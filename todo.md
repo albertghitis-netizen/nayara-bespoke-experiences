@@ -356,3 +356,8 @@
 - [x] Reduce chatbot conversation area size (less oversized)
 - [x] Add clear separator line above input bar so users know where to type
 - [x] Keep beige background, just improve visual clarity of input area
+
+## AwardWinningProperties Image Swap
+- [x] Move Tented Camp image to top position (replace current top image)
+- [x] Make Atacama image full-width ultra-wide horizontal below it
+- [x] Revert the display:none on Tented Camp image from visual editor
