@@ -305,3 +305,6 @@
 
 ## New Landing Hero Video
 - [x] Replace landing page hero with new resorts video (6D16D6C5)
+
+## Gallery Hero Video
+- [x] Set Gallery page hero to old landing hero video (woman on bridge, yoga, frogs — homepage-hero-new_f074ecbe.mp4)

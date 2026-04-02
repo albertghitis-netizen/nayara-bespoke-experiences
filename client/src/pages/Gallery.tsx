@@ -10,6 +10,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import Footer from "@/components/Footer";
+import BlobVideo from "@/components/BlobVideo";
 
 /* ─── Gallery Data — Curated selections from each property ─── */
 interface GalleryImage {
@@ -448,46 +449,31 @@ function GalleryHero() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section ref={ref} className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden">
+    <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-desktop_8c8a5be0.jpg"
-          alt="Nayara Gallery"
+        <BlobVideo
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new_f074ecbe.mp4"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-[#f7f5f0]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      <div className="relative z-10 h-full flex flex-col justify-center items-center px-6">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-white/50 text-[11px] tracking-[0.4em] uppercase mb-6"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-        >
-          Visual Archive
-        </motion.p>
-
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-3xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide text-center"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 400,
+            fontSize: 'clamp(32px, 5vw, 50px)',
+            letterSpacing: '-2px',
+            lineHeight: 1,
+          }}
         >
           A Curated Eye
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="text-white/40 text-sm mt-4 tracking-wider text-center max-w-md"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-        >
-          Moments captured across four extraordinary destinations
-        </motion.p>
       </div>
     </section>
   );
