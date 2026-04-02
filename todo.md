@@ -199,3 +199,23 @@
 - [x] Update Homepage: new hero video uploaded and applied
 - [x] Audit and correct hero videos and H1 text on property pages
 - [x] Verify all hero videos play correctly across pages and save checkpoint
+
+## Spherical Site Alignment
+- [x] Scrape HTML from nayara.sphrcl.co/tented-camp/ and analyze structure
+- [x] Realign Tented Camp page to match spherical site layout and content
+- [x] Checked spherical homepage and tented camp page (scoped to these two)
+
+## Rebuild Tented Camp from Spherical Site
+- [x] Capture hero + intro sections from spherical Tented Camp page
+- [x] Convert NayaraTentedCampHomepageHero.mov and upload to CDN
+- [x] Download/save all images from spherical Tented Camp page
+- [x] Rewrite TentedCamp.tsx hero + intro to match spherical layout (hero video swap)
+- [x] Verify hero + intro sections match spherical layout
+- [x] Save checkpoint
+
+## Scoped Rebuild: First 3 Sections Only
+- [x] Capture spherical homepage first 3 sections (Hero → Intro → 6 hotel images)
+- [x] Upload bridge woman image and tent drone image to CDN (reused existing property images)
+- [x] Rewrite Tented Camp: Hero (user video) + Intro (spherical layout)
+- [x] Rewrite Resorts Homepage: Hero (user video) + Intro (spherical layout)
+- [x] Test and save checkpoint

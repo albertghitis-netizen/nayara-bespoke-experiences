@@ -14,7 +14,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -55,6 +55,7 @@ export default function Home() {
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
+      <HomeIntroSection />
       <SectionDivider />
       <AwardWinningProperties />
       <SectionDivider />
@@ -600,139 +601,104 @@ function BrandNavigation() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroHeader() {
   const isMobile = useIsMobile();
-  const heroRef = useRef<HTMLDivElement>(null);
 
-  /* Desktop: new homepage hero video
-     Mobile: vertical landing video (compressed mp4) */
   const heroVideo = isMobile
     ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
     : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new_f074ecbe.mp4";
 
-  /* Scroll-linked transforms for parallax */
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Video moves slower than scroll (parallax)
-  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  // Slight zoom as user scrolls
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  // Overlay darkens as you scroll
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.3, 0.7]);
-  // Content fades out as you scroll past
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 0.4], [0, -60]);
-
-  /* Staggered text animation variants */
-  const heroTextWords = "Luxury Resorts Rooted in Nature".split(" ");
-
   return (
-    <section ref={heroRef} className="relative h-screen w-full overflow-hidden">
-      {/* Video Background with parallax + zoom */}
-      <motion.div
-        className="absolute inset-0"
-        style={{ y: videoY, scale: videoScale }}
-      >
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Video background — matches spherical nay-hero structure */}
+      <div className="absolute inset-0">
         <BlobVideo
           src={heroVideo}
           className="w-full h-full object-cover"
         />
-      </motion.div>
+      </div>
 
-      {/* Gradient overlay — darkens on scroll */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-      <motion.div
-        className="absolute inset-0 bg-black"
-        style={{ opacity: overlayOpacity }}
-      />
-
-      {/* Content — anchored to bottom, fades out on scroll */}
-      <motion.div
-        className="relative z-10 h-full flex flex-col justify-end items-center pb-24 md:pb-28 px-6 md:px-10"
-        style={{ opacity: contentOpacity, y: contentY }}
-      >
-        {/* Subtle Nayara brand mark */}
-        <motion.span
-          initial={{ opacity: 0, letterSpacing: "0.3em" }}
-          animate={{ opacity: 0.15, letterSpacing: "0.5em" }}
-          transition={{ duration: 2, delay: 0.2 }}
-          className="text-white text-[10px] md:text-xs uppercase mb-6 block"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-        >
-          Nayara
-        </motion.span>
-
-        {/* Staggered word reveal */}
+      {/* Content — centered bottom, matching spherical nay-hero__content */}
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
-          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center flex flex-wrap justify-center gap-x-[0.25em]"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 400,
+            fontSize: 'clamp(32px, 5vw, 50px)',
+            letterSpacing: '-2px',
+            lineHeight: 1,
+          }}
         >
-          {heroTextWords.map((word, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5 + i * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="inline-block"
-            >
-              {word}
-            </motion.span>
-          ))}
+          Luxury Resorts Rooted in Nature
         </h1>
+      </div>
+    </section>
+  );
+}
 
-        {/* Subtitle line that draws in */}
-        <motion.div
-          className="mt-6 flex items-center gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-        >
-          <motion.div
-            className="h-px bg-white/30"
-            initial={{ width: 0 }}
-            animate={{ width: 40 }}
-            transition={{ duration: 1, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
-          />
-          <span
-            className="text-white/50 text-[10px] md:text-xs tracking-[0.3em] uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-          >
-            Costa Rica &middot; Chile &middot; Easter Island &middot; Panama
-          </span>
-          <motion.div
-            className="h-px bg-white/30"
-            initial={{ width: 0 }}
-            animate={{ width: 40 }}
-            transition={{ duration: 1, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* Animated scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.2 }}
-        style={{ opacity: contentOpacity }}
+/* ═══════════════════════════════════════════════════════════════
+   HOME INTRO — Two-column layout matching spherical Welcome section
+   ═══════════════════════════════════════════════════════════════ */
+function HomeIntroSection() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingBottom: 0,
+      }}
+    >
+      {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
+      <div
+        className="flex flex-col md:flex-row items-center mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
       >
-        <span
-          className="text-white/40 text-[9px] tracking-[0.3em] uppercase"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-        >
-          Scroll
-        </span>
-        <motion.div
-          className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"
-          animate={{ scaleY: [0.5, 1, 0.5], opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </motion.div>
+        {/* Left: text content */}
+        <div className="flex flex-col gap-10 md:flex-1">
+          <h2
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: 'clamp(28px, 4vw, 42px)',
+              lineHeight: 1.3,
+            }}
+          >
+            A Family of Award-Winning Properties Designed Around Destination
+          </h2>
+          <p
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+              lineHeight: '22.5px',
+            }}
+          >
+            Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile’s Atacama, the world’s driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama’s Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+          </p>
+          <a
+            href="/about"
+            className="text-[#4B4A4A] underline underline-offset-4 decoration-[#4B4A4A]/40 hover:decoration-[#4B4A4A] transition-all"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+            }}
+          >
+            The Nayara Story
+          </a>
+        </div>
+
+        {/* Right: image */}
+        <div className="md:flex-1">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sphrcl-homepage-bridge-woman_258547cb.png"
+            alt="Woman walking on rainforest bridge at Nayara"
+            className="w-full h-auto object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
     </section>
   );
 }

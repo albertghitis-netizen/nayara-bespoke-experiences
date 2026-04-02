@@ -24,7 +24,6 @@ import BlobVideo from "@/components/BlobVideo";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 import PropertyDiningSection from "@/components/PropertyDiningSection";
-import { AwardBadgeStrip } from "@/components/AwardBadges";
 import { costaRicaDining } from "@/data/dining";
 import { BOOKING_URLS } from "@/data/booking";
 
@@ -263,43 +262,30 @@ function HeroSection() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Video background — matches spherical nay-hero structure */}
       <div className="absolute inset-0">
         <BlobVideo
-          src={isMobile ? CDN.heroMobile : CDN.heroDesktop}
+          src={isMobile ? CDN.heroMobile : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraTentedCampHomepageHero_b3c022ba.mp4"}
           className="w-full h-full object-cover"
           poster={CDN.heroPoster}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center"
+      {/* Content — centered bottom, matching spherical nay-hero__content */}
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
+        <h1
+          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 400,
+            fontSize: 'clamp(32px, 5vw, 50px)',
+            letterSpacing: '-2px',
+            lineHeight: 1,
+          }}
         >
-          <p
-            className="text-white/60 text-[10px] md:text-[11px] tracking-[0.4em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Arenal Volcano &middot; Costa Rica
-          </p>
-          <h1
-            className="text-white text-3xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Luxury Tented Camp Immersed in the Costa Rican Rainforest
-          </h1>
-          <p
-            className="text-white/70 text-sm md:text-base mt-4 max-w-xl mx-auto leading-relaxed"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Open-air luxury tents perched above a volcanic hot spring canyon,
-            surrounded by the sounds of a reborn rainforest.
-          </p>
-        </motion.div>
+          Luxury Tented Camp Immersed in the Costa Rican Rainforest
+        </h1>
       </div>
     </section>
   );
@@ -310,53 +296,55 @@ function HeroSection() {
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
-    <section id="about" className="py-20 md:py-32 px-6 md:px-10">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
-          <AwardBadgeStrip property="tented-camp" />
-        </motion.div>
-
-        <WordReveal
-          text="A Luxury Tented Camp in Costa Rica"
-          tag="h2"
-          className="text-[#3a2a1a] text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
-        />
-
-        <RevealSection delay={0.2}>
-          <p
-            className="text-[#5a4a3a]/70 text-sm md:text-base leading-relaxed max-w-2xl mx-auto"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+    <section
+      id="about"
+      className="w-full bg-no-repeat bg-cover bg-center"
+      style={{
+        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingBottom: 0,
+        backgroundImage: 'url(https://nayara.sphrcl.co/wp-content/uploads/2025/12/b-bg-1-scaled.avif)',
+      }}
+    >
+      {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
+      <div
+        className="flex flex-col md:flex-row items-center mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
+      >
+        {/* Left: text content */}
+        <div className="flex flex-col gap-10 md:flex-1">
+          <h2
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: 'clamp(28px, 4vw, 42px)',
+              lineHeight: 1.3,
+            }}
           >
-            Where a barren cattle ranch once stood, a thriving rainforest now surrounds you.
-            Open-air tented suites perch on a volcanic cliffside, each with a private plunge pool
-            fed by natural hot springs. The land tells its own story — from the Arenal Volcano
-            rising above the canopy to the calls of toucans at dawn.
+            Lifted above the Canopy, Overlooking Arenal Volcano
+          </h2>
+          <p
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+              lineHeight: '22.5px',
+            }}
+          >
+            High above the Arenal Rainforest with sweeping views of Arenal Volcano, Tented Camp blends regenerative design with warm hospitality. Luxury tents open to nature invite you to reconnect with wonder, one another, and the rhythm of the wild. Soak in a private plunge pool fed by natural hot springs and savor the flavors of the land.
           </p>
-        </RevealSection>
+        </div>
 
-        <RevealSection delay={0.3}>
-          <div className="mt-8">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#3a2a1a]/80 hover:bg-[#3a2a1a]/95 shadow-lg transition-all duration-300"
-            >
-              <span
-                className="text-white text-[11px] tracking-[0.25em] uppercase"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Book Your Journey
-              </span>
-            </a>
-          </div>
-        </RevealSection>
+        {/* Right: image */}
+        <div className="md:flex-1">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sphrcl-tc-intro-tent-drone_0d7d8ccd.jpeg"
+            alt="Nayara Tented Camp aerial view"
+            className="w-full h-auto object-cover"
+            loading="eager"
+          />
+        </div>
       </div>
     </section>
   );
