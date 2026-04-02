@@ -219,3 +219,11 @@
 - [x] Rewrite Tented Camp: Hero (user video) + Intro (spherical layout)
 - [x] Rewrite Resorts Homepage: Hero (user video) + Intro (spherical layout)
 - [x] Test and save checkpoint
+
+## Tented Camp Page Fix (Spherical Exact Match)
+- [x] Add Nayara logo to nav bar (centered, SVG from spherical site)
+- [x] H1 → "Luxury Tented Camp Immersed in the Rainforest" (remove "Costa Rican")
+- [x] Match intro section images exactly to spherical site (same bleed, format, aspect ratio)
+- [x] Delete everything from "Luxury Tents" section down to footer
+- [x] Keep footer as-is
+- [ ] Save checkpoint (pending)
