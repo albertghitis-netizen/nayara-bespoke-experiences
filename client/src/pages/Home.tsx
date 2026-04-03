@@ -50,7 +50,7 @@ const dropdownSections = ["Experiences", "Wellness"];
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #ece8e1 0%, #eae5de 40%, #e8e3db 70%, #e5e0d8 90%, #e2ddd5 100%)" }}>
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f5f3f0 0%, #e8e3db 40%, #ddd2c2 70%, #cfc1a8 90%, #c5b596 100%)" }}>
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
@@ -759,7 +759,7 @@ function HomeIntroSection() {
     <section
       className="w-full"
       style={{
-        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingTop: 'clamp(20px, 3vw, 40px)',
         paddingBottom: 0,
       }}
     >
