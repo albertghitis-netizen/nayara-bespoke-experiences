@@ -174,7 +174,7 @@ export default function ConciergeChatWidget() {
               className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Chat with Henry
+              Chat with us
             </span>
 
             {/* Pulse indicator for new visitors */}
