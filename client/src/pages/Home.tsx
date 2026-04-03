@@ -54,9 +54,8 @@ export default function Home() {
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
-      <HomeIntroSection />
-      <div className="h-2 md:h-4" />
       <AwardWinningProperties />
+      <WorldOfNayara />
       <PlaceholderSection title="Section 1" flipped />
       <PlaceholderSection title="Section 2" />
       <PlaceholderSection title="Section 3" flipped />
@@ -896,6 +895,38 @@ function PlaceholderSection({ title, flipped = false }: { title: string; flipped
         ) : (
           <>{textBlock}{imageBlock}</>
         )}
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   WORLD OF NAYARA — Standardized header section
+   ═══════════════════════════════════════════════════════════════ */
+function WorldOfNayara() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(60px, 10vw, 100px)',
+        paddingBottom: 'clamp(60px, 10vw, 100px)',
+      }}
+    >
+      <div
+        className="mx-auto px-6 md:px-12"
+        style={{ maxWidth: '1440px' }}
+      >
+        <h2
+          className="text-[#3a2a1a]"
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontWeight: 400,
+            fontSize: 'clamp(28px, 4vw, 42px)',
+            lineHeight: 1.3,
+          }}
+        >
+          The World of Nayara
+        </h2>
       </div>
     </section>
   );
