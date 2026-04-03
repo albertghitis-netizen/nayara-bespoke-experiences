@@ -866,7 +866,7 @@ function PlaceholderSection({ title, flipped = false }: { title: string; flipped
   const imageBlock = (
     <div className="md:flex-1">
       <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_XFrLwM_5-16x9_5d74d9e8.jpg"
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_XFrLwM_5-s2-clean_b574ebdd.jpg"
         alt={title}
         className="w-full h-auto object-cover"
         loading="lazy"
