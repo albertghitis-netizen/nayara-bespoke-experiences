@@ -57,7 +57,7 @@ export default function TentedCamp() {
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
-      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_9e3386f2.jpeg" />
+      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG" />
       <Footer />
     </div>
   );
@@ -810,11 +810,11 @@ function HomeIntroSection() {
           </a>
         </div>
 
-        {/* Right: image */}
+        {/* Right: image — NTC S1 */}
         <div className="md:flex-1">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_619188be.jpg"
-            alt="Woman walking on rainforest bridge at Nayara"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_gxCsYs_20-cropped_c9c2c33f.jpg"
+            alt="Tented Camp at Nayara"
             className="w-full h-auto object-cover"
             loading="eager"
           />
