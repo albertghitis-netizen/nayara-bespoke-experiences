@@ -170,11 +170,11 @@ function BrandNavigation() {
 
   /* Shared pill style */
   const pillClass =
-    "pointer-events-auto flex items-center justify-center rounded-full bg-[#3a2a1a]/70 backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-all duration-300 cursor-pointer";
+    "pointer-events-auto flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md shadow-lg hover:bg-white/95 transition-all duration-300 cursor-pointer";
 
   /* Shared dropdown panel style */
   const dropdownPanelClass =
-    "absolute mt-2 bg-[#3a2a1a]/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-white/5";
+    "absolute mt-2 bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-[#3a2a1a]/10";
 
   return (
     <>
@@ -194,12 +194,12 @@ function BrandNavigation() {
           >
             <div className="flex flex-col gap-1.5">
               <span
-                className={`block w-5 h-px bg-white transition-all duration-300 ${
+                className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${
                   menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
                 }`}
               />
               <span
-                className={`block w-5 h-px bg-white transition-all duration-300 ${
+                className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${
                   menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
                 }`}
               />
@@ -220,10 +220,10 @@ function BrandNavigation() {
                   {/* Our Resorts */}
                   <button
                     onClick={() => handleComingSoon("Our Resorts")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Our Resorts
@@ -233,10 +233,10 @@ function BrandNavigation() {
                   {/* Gallery */}
                   <button
                     onClick={() => handleNavigate("/gallery")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Gallery
@@ -248,16 +248,16 @@ function BrandNavigation() {
                     <div key={section}>
                       <button
                         onClick={() => toggleSection(section)}
-                        className="w-full flex items-center justify-between px-5 py-3 hover:bg-white/10 transition-colors"
+                        className="w-full flex items-center justify-between px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                       >
                         <span
-                          className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                          className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                         >
                           {section}
                         </span>
                         <svg
-                          className={`w-3 h-3 text-white/40 transition-transform duration-200 ${
+                          className={`w-3 h-3 text-[#3a2a1a]/40 transition-transform duration-200 ${
                             expandedSection === section ? "rotate-180" : ""
                           }`}
                           fill="none"
@@ -292,15 +292,15 @@ function BrandNavigation() {
                                   <span
                                     className={`text-[11px] tracking-[0.08em] ${
                                       prop.available
-                                        ? "text-white/70 hover:text-white"
-                                        : "text-white/30"
+                                        ? "text-[#3a2a1a]/70 hover:text-[#3a2a1a]"
+                                        : "text-[#3a2a1a]/30"
                                     } transition-colors`}
                                     style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                                   >
                                     {prop.label}
                                   </span>
                                   {!prop.available && (
-                                    <span className="text-[8px] tracking-[0.12em] uppercase text-white/25 border border-white/15 px-1.5 py-0.5 rounded-sm">
+                                    <span className="text-[8px] tracking-[0.12em] uppercase text-[#3a2a1a]/25 border border-[#3a2a1a]/15 px-1.5 py-0.5 rounded-sm">
                                       Soon
                                     </span>
                                   )}
@@ -319,10 +319,10 @@ function BrandNavigation() {
                   {/* Experiences */}
                   <button
                     onClick={() => handleNavigate("/experiences")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Experiences
@@ -332,10 +332,10 @@ function BrandNavigation() {
                   {/* Wellness */}
                   <button
                     onClick={() => handleNavigate("/wellness")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Wellness
@@ -345,10 +345,10 @@ function BrandNavigation() {
                   {/* Gastronomy */}
                   <button
                     onClick={() => handleNavigate("/gastronomy")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Gastronomy
@@ -358,10 +358,10 @@ function BrandNavigation() {
                   {/* Sustainability */}
                   <button
                     onClick={() => handleNavigate("/sustainability")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Sustainability
@@ -371,10 +371,10 @@ function BrandNavigation() {
                   {/* Awards */}
                   <button
                     onClick={() => handleNavigate("/awards")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Awards
@@ -384,10 +384,10 @@ function BrandNavigation() {
                   {/* Press */}
                   <button
                     onClick={() => handleNavigate("/press")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Press
@@ -397,10 +397,10 @@ function BrandNavigation() {
                   {/* Journal */}
                   <button
                     onClick={() => handleNavigate("/journal")}
-                    className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors"
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-white/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Journal
@@ -427,11 +427,11 @@ function BrandNavigation() {
               }}
               className={`${pillClass} h-12 px-5 gap-2`}
             >
-              <svg className="w-4 h-4 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <svg className="w-4 h-4 text-[#3a2a1a]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
               </svg>
               <span
-                className="text-white text-[11px] tracking-[0.15em] uppercase"
+                className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {currentLang?.code.toUpperCase()}
@@ -453,18 +453,18 @@ function BrandNavigation() {
                       <button
                         key={lang.code}
                         onClick={() => handleLangSelect(lang.code)}
-                        className={`w-full text-left px-5 py-2.5 hover:bg-white/10 transition-colors flex items-center justify-between ${
-                          selectedLang === lang.code ? "bg-white/5" : ""
+                        className={`w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors flex items-center justify-between ${
+                          selectedLang === lang.code ? "bg-[#3a2a1a]/5" : ""
                         }`}
                       >
                         <span
-                          className="text-white/90 text-[11px] tracking-[0.08em]"
+                          className="text-[#3a2a1a]/90 text-[11px] tracking-[0.08em]"
                           style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                         >
                           {lang.label}
                         </span>
                         {selectedLang === lang.code && (
-                          <svg className="w-3 h-3 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <svg className="w-3 h-3 text-[#3a2a1a]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                           </svg>
                         )}
@@ -488,7 +488,7 @@ function BrandNavigation() {
             className={`${pillClass} h-12 px-6`}
           >
               <span
-                className="text-white text-[11px] tracking-[0.25em] uppercase"
+                className="text-[#3a2a1a] text-[11px] tracking-[0.25em] uppercase"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 Reserve
@@ -510,7 +510,7 @@ function BrandNavigation() {
                   <div className="flex gap-3">
                     <div className="flex-1">
                       <label
-                        className="block text-[9px] tracking-[0.15em] uppercase text-white/40 mb-1.5"
+                        className="block text-[9px] tracking-[0.15em] uppercase text-[#3a2a1a]/40 mb-1.5"
                         style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                       >
                         Check-in
@@ -528,13 +528,13 @@ function BrandNavigation() {
                             setCheckOut(formatDate(next));
                           }
                         }}
-                        className="w-full bg-white/10 border border-white/15 rounded-lg px-2.5 py-2 text-white text-[11px] focus:outline-none focus:border-white/30 transition-colors [color-scheme:dark]"
+                        className="w-full bg-[#3a2a1a]/5 border border-[#3a2a1a]/15 rounded-lg px-2.5 py-2 text-[#3a2a1a] text-[11px] focus:outline-none focus:border-[#3a2a1a]/30 transition-colors"
                         style={{ fontFamily: "var(--font-body)" }}
                       />
                     </div>
                     <div className="flex-1">
                       <label
-                        className="block text-[9px] tracking-[0.15em] uppercase text-white/40 mb-1.5"
+                        className="block text-[9px] tracking-[0.15em] uppercase text-[#3a2a1a]/40 mb-1.5"
                         style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                       >
                         Check-out
@@ -544,7 +544,7 @@ function BrandNavigation() {
                         value={checkOut}
                         min={checkIn || formatDate(tomorrow)}
                         onChange={(e) => setCheckOut(e.target.value)}
-                        className="w-full bg-white/10 border border-white/15 rounded-lg px-2.5 py-2 text-white text-[11px] focus:outline-none focus:border-white/30 transition-colors [color-scheme:dark]"
+                        className="w-full bg-[#3a2a1a]/5 border border-[#3a2a1a]/15 rounded-lg px-2.5 py-2 text-[#3a2a1a] text-[11px] focus:outline-none focus:border-[#3a2a1a]/30 transition-colors"
                         style={{ fontFamily: "var(--font-body)" }}
                       />
                     </div>
@@ -557,7 +557,7 @@ function BrandNavigation() {
                     className="px-5 py-1.5"
                   >
                     <span
-                      className="text-[9px] tracking-[0.15em] uppercase text-white/30"
+                      className="text-[9px] tracking-[0.15em] uppercase text-[#3a2a1a]/30"
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                     >
                       Select property
@@ -567,18 +567,18 @@ function BrandNavigation() {
                     <button
                       key={hotel.label}
                       onClick={() => handleBooking(hotel)}
-                      className="w-full text-left px-5 py-3 hover:bg-white/10 transition-colors flex items-center justify-between"
+                      className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors flex items-center justify-between"
                     >
                       <span
                         className={`text-[11px] tracking-[0.08em] ${
-                          hotel.available ? "text-white/90" : "text-white/35"
+                          hotel.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/35"
                         }`}
                         style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                       >
                         {hotel.label}
                       </span>
                       {!hotel.available && (
-                        <span className="text-[8px] tracking-[0.12em] uppercase text-white/25 border border-white/15 px-1.5 py-0.5 rounded-sm">
+                        <span className="text-[8px] tracking-[0.12em] uppercase text-[#3a2a1a]/25 border border-[#3a2a1a]/15 px-1.5 py-0.5 rounded-sm">
                           Soon
                         </span>
                       )}
@@ -616,20 +616,27 @@ function HeroHeader() {
         />
       </div>
 
-      {/* Nayara leaf logo — brown circle with text below, aligned with nav pills */}
+       {/* Nayara leaf logo — white translucent circle + NAYARA text */}
       <motion.div
-        className="absolute top-4 md:top-5 left-0 right-0 z-10 flex justify-center"
+        className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#3a2a1a]/70 backdrop-blur-md shadow-lg flex items-center justify-center">
+        {/* Translucent white circle — half above viewport edge */}
+        <div className="-mt-6 w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-only-white_2720a721.png"
             alt="Nayara"
-            className="h-14 md:h-20 w-auto opacity-95"
+            className="h-14 md:h-18 w-auto opacity-95"
           />
         </div>
+        <span
+          className="text-white text-xl md:text-3xl tracking-[0.3em] uppercase mt-3 drop-shadow-md"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
+        >
+          Nayara
+        </span>
       </motion.div>
 
       {/* Content — centered bottom, matching spherical nay-hero__content */}

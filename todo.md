@@ -422,3 +422,22 @@
 
 ## AwardWinningProperties Text Removal
 - [ ] Remove "A Family of..." subtitle text from AwardWinningProperties section
+
+## White Logo on White Background Bug
+- [ ] Fix white logo + NAYARA text appearing on white/beige background (invisible)
+
+## Logo Redesign - Match Nayara Gardens Style
+- [x] Remove brown circle background from logo
+- [x] Make logo touch the very top of the screen (no padding)
+- [x] Use transparent background - just the leaf mandala over the video
+- [x] Match the Nayara Gardens website header style
+
+## Logo Final Style - Leaf + NAYARA text
+- [ ] Add "NAYARA" text below the leaf mandala on the resorts home page (no property name)
+- [ ] Style to match the Nayara Gardens header layout (leaf at top, text below)
+
+## Button Style Update
+- [x] Fix leftover code causing TypeScript errors in Home.tsx
+- [x] Change hamburger button from brown to white with brown icon
+- [x] Change Reserve button from brown to white with brown text
+- [x] Match the Spherical/Nayara Gardens button style
