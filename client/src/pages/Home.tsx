@@ -707,7 +707,7 @@ function HomeIntroSection() {
         {/* Right: image */}
         <div className="md:flex-1">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sphrcl-homepage-bridge-woman_258547cb.png"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5789_0244acb4.PNG"
             alt="Woman walking on rainforest bridge at Nayara"
             className="w-full h-auto object-cover"
             loading="eager"
