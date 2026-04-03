@@ -401,3 +401,10 @@
 - [x] Place rock pillar Milky Way photo (photo 1) on Atacama page
 - [x] Place bus Milky Way photo (photo 2) on Atacama page
 - [x] Place cacti Milky Way photo (photo 4) on Atacama page
+
+## Newsletter Section Removal
+- [x] Remove entire Monthly Newsletter / The Naiad section
+
+## Logo Position Adjustment
+- [x] Raise leaf logo to align with nav pills (top of screen)
+- [x] Make leaf logo larger
