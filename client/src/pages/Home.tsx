@@ -191,10 +191,10 @@ function BrandNavigation() {
 
   return (
     <>
-      {/* ── FIXED NAV: All 4 buttons spread evenly on mobile, grouped on desktop ── */}
-      <div className="fixed top-2 left-4 right-4 z-50 flex items-center justify-around md:justify-between pointer-events-none">
-        {/* LEFT: Hamburger pill (on both mobile and desktop) */}
-        <div className="flex items-center gap-3 md:gap-3 pointer-events-auto md:w-auto md:justify-start">
+      {/* ── FIXED NAV: Hamburger (left) + Reserve (right) ── */}
+      <div className="fixed top-2 left-4 right-4 z-50 flex items-center justify-between md:justify-between pointer-events-none">
+        {/* LEFT: Hamburger pill + Resorts (on desktop) or all 4 buttons spread (on mobile) */}
+        <div className="flex items-center gap-3 md:gap-3 pointer-events-auto w-full md:w-auto md:justify-start">
         <div ref={menuRef} className="relative">
           <button
             onClick={() => {
@@ -341,10 +341,10 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-          {/* Resorts pill + dropdown */}
+          {/* Resorts pill + dropdown — hidden after scrolling past hero */}
           <div
             ref={resortsRef}
-            className={`relative transition-all duration-300 md:block ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
+            className={`relative transition-all duration-300 ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
           >
             <button
               onClick={() => {
@@ -405,8 +405,8 @@ function BrandNavigation() {
           </div>
         </div>
 
-        {/* RIGHT: Language + Reserve (spread on mobile, grouped on desktop) */}
-        <div className="flex md:flex items-center gap-3 pointer-events-auto">
+        {/* RIGHT: Language + Reserve (on desktop) or spread across (on mobile) */}
+        <div className="hidden md:flex items-center gap-3 pointer-events-auto">
           {/* Language pill — hidden after scrolling past hero */}
           <div
             ref={langRef}
@@ -613,7 +613,7 @@ function HeroHeader() {
 
       {/* Nayara leaf logo — beige leaf + NAYARA text, centered on hero */}
       <motion.div
-        className="absolute top-2/3 md:top-2 left-0 right-0 z-10 flex md:flex flex-col items-center -translate-y-1/2 md:translate-y-0"
+        className="absolute top-1/2 md:top-2 left-0 right-0 z-10 flex md:flex flex-col items-center -translate-y-1/2 md:translate-y-0"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
