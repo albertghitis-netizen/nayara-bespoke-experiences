@@ -191,7 +191,7 @@ function BrandNavigation() {
 
   return (
     <>
-      {/* ── FIXED NAV: Hamburger (far left) + Reserve (far right) ── */}
+      {/* ── FIXED NAV: Hamburger | RESORTS | RESERVE — evenly spaced ── */}
       <div className="fixed top-2 left-0 right-0 z-50 flex items-center justify-between px-4 pointer-events-none">
         {/* LEFT: Hamburger */}
         <div className="pointer-events-auto">
@@ -341,11 +341,13 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-          {/* Resorts pill + dropdown — bottom-left on mobile, top on desktop */}
-          <div
-            ref={resortsRef}
-            className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto transition-all duration-300 pointer-events-auto md:pointer-events-auto`}
-          >
+        </div>
+
+        {/* CENTER: Resorts pill + dropdown */}
+        <div
+          ref={resortsRef}
+          className="relative pointer-events-auto"
+        >
             <button
               onClick={() => {
                 setResortsOpen(!resortsOpen);
@@ -402,7 +404,6 @@ function BrandNavigation() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
         </div>
 
         {/* RIGHT: Language + Reserve */}

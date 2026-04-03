@@ -463,3 +463,10 @@
 - [x] Fix Hangaroa image (was 98MB .tif) — converted to vertical-cropped JPEG
 - [x] Verify all 6 property pages + homepage render identically with correct images
 - [x] RESORTS dropdown navigation working on all pages
+
+## RESORTS Button Fix
+- [x] Fix RESORTS button position — must be at the top of the page (was fixed bottom-4 on mobile, changed to relative)
+- [x] Fix RESORTS dropdown — must work (show property links and navigate)
+
+## Mobile Nav Button Spacing
+- [x] Hamburger, RESORTS, and RESERVE buttons evenly spaced at the top on mobile

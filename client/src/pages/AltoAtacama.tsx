@@ -1,6 +1,16 @@
 /*
- * NAYARA ALTO ATACAMA — Property Page
- * Exact same structure as Home.tsx, only CDN URLs differ.
+ * NAYARA BESPOKE EXPERIENCES — Landing Page
+ * Design: "Desert Codex" — Editorial Cartography
+ * Property selector showcasing all Nayara destinations
+ * Typography: Playfair Display (display) + DM Sans (body)
+ * Rule: Real photos only. No AI-generated imagery.
+ *
+ * ANIMATION SHOWCASE:
+ * - Parallax hero with scroll-linked zoom
+ * - Staggered text reveals
+ * - Scroll progress indicator
+ * - Counter animations on stats
+ * - Enhanced section transitions
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -13,11 +23,6 @@ import AwardWinningProperties from "@/components/AwardWinningProperties";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import { hotelBookingLinks } from "@/data/booking";
-
-/* ── CDN assets for this property ── */
-const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
-const H2_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_380507bd.jpg";
-const SECOND_STILL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_5d419ccb.png";
 
 /* ── Property menu links ── */
 const propertyLinks = [
@@ -52,7 +57,7 @@ export default function AltoAtacama() {
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
-      <AwardWinningProperties imageSrc={SECOND_STILL} />
+      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_5d419ccb.png" />
       <Footer />
     </div>
   );
@@ -186,7 +191,7 @@ function BrandNavigation() {
 
   return (
     <>
-      {/* ── FIXED NAV: Hamburger (far left) + Reserve (far right) ── */}
+      {/* ── FIXED NAV: Hamburger | RESORTS | RESERVE — evenly spaced ── */}
       <div className="fixed top-2 left-0 right-0 z-50 flex items-center justify-between px-4 pointer-events-none">
         {/* LEFT: Hamburger */}
         <div className="pointer-events-auto">
@@ -237,6 +242,8 @@ function BrandNavigation() {
                       Gallery
                     </span>
                   </button>
+
+
 
                   {/* Experiences */}
                   <button
@@ -334,11 +341,13 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-          {/* Resorts pill + dropdown — bottom-left on mobile, top on desktop */}
-          <div
-            ref={resortsRef}
-            className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto transition-all duration-300 pointer-events-auto md:pointer-events-auto`}
-          >
+        </div>
+
+        {/* CENTER: Resorts pill + dropdown */}
+        <div
+          ref={resortsRef}
+          className="relative pointer-events-auto"
+        >
             <button
               onClick={() => {
                 setResortsOpen(!resortsOpen);
@@ -395,7 +404,6 @@ function BrandNavigation() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
         </div>
 
         {/* RIGHT: Language + Reserve */}
@@ -584,17 +592,20 @@ function BrandNavigation() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO HEADER
+   HERO HEADER — Enhanced with parallax, staggered reveals,
+   scroll-linked zoom, and animated scroll indicator
    ═══════════════════════════════════════════════════════════════ */
 function HeroHeader() {
   const isMobile = useIsMobile();
 
+  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Video background */}
+      {/* Video background — matches spherical nay-hero structure */}
       <div className="absolute inset-0">
         <BlobVideo
-          src={HERO_VIDEO}
+          src={heroVideo}
           className="w-full h-full object-cover"
           autoPlay={true}
           muted={true}
@@ -624,7 +635,7 @@ function HeroHeader() {
         </span>
       </motion.div>
 
-      {/* Content — centered bottom */}
+      {/* Content — centered bottom, matching spherical nay-hero__content */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
           className="text-center text-[#ece8e1] mb-[50px] md:mb-[85px] max-w-[1052px]"
@@ -655,7 +666,7 @@ function HomeIntroSection() {
         paddingBottom: 0,
       }}
     >
-      {/* Two-column layout */}
+      {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
       <div
         className="flex flex-col md:flex-row items-center mx-auto"
         style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
@@ -682,7 +693,7 @@ function HomeIntroSection() {
               lineHeight: '22.5px',
             }}
           >
-            Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+            Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile’s Atacama, the world’s driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama’s Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
           </p>
           <a
             href="/about"
@@ -700,8 +711,8 @@ function HomeIntroSection() {
         {/* Right: image */}
         <div className="md:flex-1">
           <img
-            src={H2_IMAGE}
-            alt="Nayara property landscape"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_380507bd.jpg"
+            alt="Woman walking on rainforest bridge at Nayara"
             className="w-full h-auto object-cover"
             loading="eager"
           />
