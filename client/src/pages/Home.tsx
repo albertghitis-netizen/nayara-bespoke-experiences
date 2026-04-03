@@ -56,7 +56,7 @@ export default function Home() {
       <BrandNavigation />
       <HeroHeader />
       <HomeIntroSection />
-      <div className="h-8 md:h-12" />
+      <div className="h-2 md:h-4" />
       <AwardWinningProperties />
       <Footer />
     </div>
@@ -681,7 +681,7 @@ function HomeIntroSection() {
               lineHeight: 1.3,
             }}
           >
-            Award-Winning Resorts Designed Around Destination
+            Award-Winning Properties Defined by Destination
           </h2>
           <p
             className="text-[#4B4A4A]"

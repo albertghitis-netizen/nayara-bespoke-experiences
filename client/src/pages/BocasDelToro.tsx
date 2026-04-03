@@ -37,9 +37,9 @@ const languages = [
 
 /* ── CDN Assets ── */
 const CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_005312ce.MP4",
-  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_35b00f10.jpg",
-  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/flamingos_cropped_4de69f93.png",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_0d5a8516.MP4",
+  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/5CFF0B68-CEBA-4284-8E88-1AF6A9CD0AA0_3d7f9886.jpeg",
+  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4578DC86-3131-4831-93DC-86FC2D4C59E1_397cc98b.jpeg",
 };
 
 export default function BocasDelToro() {
@@ -49,7 +49,7 @@ export default function BocasDelToro() {
       <BrandNavigation />
       <HeroHeader />
       <HomeIntroSection />
-      <div className="h-8 md:h-12" />
+      <div className="h-2 md:h-4" />
       <AwardWinningProperties />
       <Footer />
     </div>

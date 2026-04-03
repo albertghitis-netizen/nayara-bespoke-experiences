@@ -37,9 +37,9 @@ const languages = [
 
 /* ── CDN Assets ── */
 const CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_005312ce.MP4",
-  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_35b00f10.jpg",
-  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/flamingos_cropped_4de69f93.png",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_0d5a8516.MP4",
+  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-DJI_0968-byBriceFerreStudio_1a0b5df0.jpeg",
+  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_9e3386f2.jpeg",
 };
 
 export default function Springs() {
@@ -49,7 +49,7 @@ export default function Springs() {
       <BrandNavigation />
       <HeroHeader />
       <HomeIntroSection />
-      <div className="h-8 md:h-12" />
+      <div className="h-2 md:h-4" />
       <AwardWinningProperties />
       <Footer />
     </div>

@@ -37,9 +37,9 @@ const languages = [
 
 /* ── CDN Assets ── */
 const CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_005312ce.MP4",
-  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sloth_cropped_a1b2c3d4.jpg",
-  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Resort_e5f6g7h8.jpeg",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_0d5a8516.MP4",
+  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sloth_cropped_bac2794a.png",
+  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/321D9B07-0FF2-459E-BBA0-623B1062AA25_38485c6d.jpeg",
 };
 
 export default function Gardens() {
@@ -49,7 +49,7 @@ export default function Gardens() {
       <BrandNavigation />
       <HeroHeader />
       <HomeIntroSection />
-      <div className="h-8 md:h-12" />
+      <div className="h-2 md:h-4" />
       <AwardWinningProperties />
       <Footer />
     </div>
