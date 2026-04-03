@@ -58,7 +58,6 @@ export default function Home() {
       <HomeIntroSection />
       <div className="h-8 md:h-12" />
       <AwardWinningProperties />
-      <SectionDivider />
       <ExploreOurWorld />
       <Footer />
     </div>

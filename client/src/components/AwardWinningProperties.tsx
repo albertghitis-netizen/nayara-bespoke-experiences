@@ -1,99 +1,22 @@
 /**
- * Award-Winning Properties — Property Images + Brand Stats
- * LAYOUT: Tented Camp photo on top, Atacama ultra-wide full-screen below, then stats
+ * Award-Winning Properties — Arenal horizontal image + Destination list
  *
- * Text content (H2, body, CTA) moved to HomeIntroSection in Home.tsx
+ * Text content (H2, body, CTA) lives in HomeIntroSection in Home.tsx
  */
 
-import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 /* ── Media assets ── */
-const PHOTO_ATACAMA_WIDE =
+const PHOTO_ARENAL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hero2-arenal-tent_860ab6b2.webp";
 
-
-/* ── Counter Hook ── */
-function useCounter(end: number, duration = 2000, shouldStart = false) {
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    if (!shouldStart) return;
-    const startTime = performance.now();
-    let raf: number;
-    const step = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.round(eased * end));
-      if (progress < 1) {
-        raf = requestAnimationFrame(step);
-      }
-    };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [shouldStart, end, duration]);
-
-  return value;
-}
-
-/* ── Brand Stats ── */
-const stats = [
-  { end: 7, label: "Michelin Keys", suffix: "" },
-  { end: 6, label: "Properties", suffix: "" },
-  { end: 3, label: "Countries", suffix: "" },
-  { end: 20, label: "Years of Excellence", suffix: "+" },
+/* ── Destination data ── */
+const destinations = [
+  { name: "Costa Rica", detail: "3 properties" },
+  { name: "Chile", detail: "1 property" },
+  { name: "Easter Island", detail: "1 property" },
 ];
-
-/* Individual stat card */
-function StatCard({ stat, index, isInView }: { stat: typeof stats[number]; index: number; isInView: boolean }) {
-  const count = useCounter(stat.end, 2000, isInView);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6, delay: 0.1 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className="text-center"
-    >
-      <span
-        className="text-[#3a2a1a] text-4xl md:text-5xl lg:text-6xl block mb-2"
-        style={{ fontFamily: "var(--font-display)", fontWeight: 300 }}
-      >
-        {count}{stat.suffix}
-      </span>
-      <span
-        className="text-[#5a4a3a]/60 text-[10px] md:text-xs tracking-[0.2em] uppercase"
-        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-      >
-        {stat.label}
-      </span>
-    </motion.div>
-  );
-}
-
-function BrandStats() {
-  const statsRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(statsRef, { once: true, amount: 0.3 });
-
-  return (
-    <div ref={statsRef}>
-      <motion.div
-        className="h-px bg-gradient-to-r from-transparent via-[#3a2a1a]/15 to-transparent mb-12"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      />
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-        {stats.map((stat, i) => (
-          <StatCard key={stat.label} stat={stat} index={i} isInView={isInView} />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function AwardWinningProperties() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -102,7 +25,7 @@ export default function AwardWinningProperties() {
     offset: ["start end", "end start"],
   });
 
-  const atacamaY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
     <section
@@ -110,11 +33,11 @@ export default function AwardWinningProperties() {
       className="relative overflow-hidden"
     >
       {/* ════════════════════════════════════════════
-          ATACAMA — Full-width ultra-wide horizontal
+          ARENAL — Full-width horizontal image
          ════════════════════════════════════════════ */}
       <motion.div
         className="w-full overflow-hidden relative"
-        style={{ y: atacamaY }}
+        style={{ y: imageY }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.15 }}
@@ -122,7 +45,7 @@ export default function AwardWinningProperties() {
       >
         <div className="aspect-[4/3] md:aspect-[16/9] overflow-hidden relative">
           <motion.img
-            src={PHOTO_ATACAMA_WIDE}
+            src={PHOTO_ARENAL}
             alt="Nayara Tented Camp — aerial view with Arenal Volcano"
             className="w-full h-full object-cover"
             initial={{ scale: 1.06 }}
@@ -135,10 +58,53 @@ export default function AwardWinningProperties() {
       </motion.div>
 
       {/* ════════════════════════════════════════════
-          BRAND STATS — Counter animations
+          DESTINATIONS — Text + list
          ════════════════════════════════════════════ */}
       <div className="max-w-[1300px] mx-auto px-6 md:px-10 py-20 md:py-28">
-        <BrandStats />
+        <motion.p
+          className="text-[#4B4A4A] max-w-2xl mb-12"
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontWeight: 400,
+            fontSize: "15px",
+            lineHeight: "22.5px",
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Six extraordinary destinations across Latin America, united by a commitment to nature, community, and the art of travel.
+        </motion.p>
+
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16">
+          {destinations.map((dest, i) => (
+            <motion.div
+              key={dest.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span
+                className="text-[#3a2a1a] block mb-1"
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  fontWeight: 400,
+                  fontSize: "clamp(20px, 3vw, 28px)",
+                }}
+              >
+                {dest.name}
+              </span>
+              <span
+                className="text-[#5a4a3a]/60 text-sm tracking-[0.05em]"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                {dest.detail}
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
