@@ -18,7 +18,9 @@ const BOOKING_URL = BOOKING_URLS.hangaroa;
 /* ── CDN Assets ── */
 const CDN = {
   heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-hero_0c1ca458.mp4",
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/AnakenaTimeLapse01_081e4428.mp4",
+  moaiMilkyWay:
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Single_MVM8118-Enhanced-NRcopy3_5d7c6349.webp",
   heroMobile:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-vertical-moai_c477f572.mp4",
   heroPoster:
@@ -34,6 +36,7 @@ export default function Hangaroa() {
     <div className="min-h-screen bg-[#f7f5f0]">
       <HangaroaNav />
       <HeroSection />
+      <MoaiNightSection />
       <Footer />
     </div>
   );
@@ -196,6 +199,45 @@ function HeroSection() {
         >
           Walk with Giants
         </h1>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOAI NIGHT — Full-width astrophotography section
+   ═══════════════════════════════════════════════════════════════ */
+function MoaiNightSection() {
+  return (
+    <section className="relative w-full">
+      <div className="relative w-full" style={{ aspectRatio: '16 / 9' }}>
+        <img
+          src={CDN.moaiMilkyWay}
+          alt="Moai statues silhouetted against the Milky Way on Easter Island"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+        {/* Subtle gradient overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        <div className="absolute bottom-8 md:bottom-12 left-0 right-0 flex flex-col items-center px-6">
+          <p
+            className="text-white/70 text-[11px] md:text-xs tracking-[0.3em] uppercase mb-3"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
+          >
+            Rapa Nui After Dark
+          </p>
+          <h2
+            className="text-white text-center text-2xl md:text-4xl"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 400,
+              letterSpacing: '-1px',
+              lineHeight: 1.1,
+            }}
+          >
+            Where the Stars Meet the Stone
+          </h2>
+        </div>
       </div>
     </section>
   );

@@ -377,3 +377,27 @@
 - [x] Scrape nayarabocasdeltoro.com/eat/ for full restaurant details
 - [x] Find and scrape any available menu PDFs
 - [x] Update Henry's system prompt with all scraped restaurant data
+
+## Astrophotography Media Placement
+- [x] Upload timelapse video + 4 stills to CDN
+- [x] Set timelapse video as Hangaroa page header
+- [x] Place Moai Milky Way photo (photo 3) on Hangaroa page
+- [x] Place rock pillar Milky Way photo (photo 1) on Atacama page
+- [x] Place bus Milky Way photo (photo 2) on Atacama page
+- [x] Place cacti Milky Way photo (photo 4) on Atacama page
+
+## Nayara Leaf Logo
+- [ ] Create transparent background version of Nayara leaf logo (white version)
+- [ ] Create transparent background version of Nayara leaf logo (dark version)
+- [ ] Upload transparent logos to CDN
+
+## Nayara Leaf Logo & Astrophotography
+- [x] Create transparent background Nayara leaf logo (white version for dark bg)
+- [x] Create transparent background Nayara leaf logo (dark version for light bg)
+- [x] Upload transparent logos to CDN
+- [x] Place leaf logo at very top of main resorts/home page
+- [x] Set timelapse video as Hangaroa page header
+- [x] Place Moai Milky Way photo (photo 3) on Hangaroa page
+- [x] Place rock pillar Milky Way photo (photo 1) on Atacama page
+- [x] Place bus Milky Way photo (photo 2) on Atacama page
+- [x] Place cacti Milky Way photo (photo 4) on Atacama page

@@ -616,6 +616,20 @@ function HeroHeader() {
         />
       </div>
 
+      {/* Nayara leaf logo — centered at top */}
+      <motion.div
+        className="absolute top-20 md:top-24 left-0 right-0 z-10 flex justify-center"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-logo-white-transparent_347b672b.png"
+          alt="Nayara"
+          className="h-20 md:h-28 w-auto opacity-90"
+        />
+      </motion.div>
+
       {/* Content — centered bottom, matching spherical nay-hero__content */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1

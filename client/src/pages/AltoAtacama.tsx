@@ -26,6 +26,13 @@ const CDN = {
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
   logoDark:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
+  /* Astrophotography stills */
+  rockPillarMilkyWay:
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/_MVM7581-Enhanced-NR-Pano-1copy2_eba2a6bc.webp",
+  busMilkyWay:
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/_MVM7631-Enhanced-NRcopy2_d8912449.webp",
+  cactiMilkyWay:
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Single_MVM7718-Enhanced-NRcopy2_0153065c.webp",
 };
 
 export default function AltoAtacama() {
@@ -33,6 +40,7 @@ export default function AltoAtacama() {
     <div className="min-h-screen bg-[#f7f5f0]">
       <AtacamaNav />
       <HeroSection />
+      <AtacamaNightSkies />
       <Footer />
     </div>
   );
@@ -196,6 +204,78 @@ function HeroSection() {
         >
           Luxury Atacama Desert Lodge Under the Stars
         </h1>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ATACAMA NIGHT SKIES — Astrophotography gallery
+   ═══════════════════════════════════════════════════════════════ */
+function AtacamaNightSkies() {
+  return (
+    <section className="bg-[#0a0a0a]">
+      {/* Section header */}
+      <div className="py-16 md:py-24 px-6 text-center">
+        <p
+          className="text-white/50 text-[11px] md:text-xs tracking-[0.3em] uppercase mb-4"
+          style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
+        >
+          The Darkest Skies on Earth
+        </p>
+        <h2
+          className="text-white text-3xl md:text-5xl max-w-3xl mx-auto"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 400,
+            letterSpacing: '-1px',
+            lineHeight: 1.1,
+          }}
+        >
+          Atacama After Dark
+        </h2>
+      </div>
+
+      {/* Photo 1: Rock pillar panorama — full-width ultra-wide */}
+      <div className="relative w-full">
+        <img
+          src={CDN.rockPillarMilkyWay}
+          alt="Rock pillar silhouetted against the Milky Way arc in the Atacama Desert"
+          className="w-full h-auto object-cover"
+          loading="lazy"
+        />
+      </div>
+
+      {/* Photo 2 + 3: Two-column grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {/* Bus + Milky Way */}
+        <div className="relative">
+          <img
+            src={CDN.busMilkyWay}
+            alt="Abandoned bus under the Milky Way in the Atacama Desert"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        {/* Cacti + Milky Way */}
+        <div className="relative">
+          <img
+            src={CDN.cactiMilkyWay}
+            alt="Giant cacti silhouetted against the Milky Way in the Atacama Desert"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      {/* Bottom caption */}
+      <div className="py-12 md:py-16 px-6 text-center">
+        <p
+          className="text-white/40 text-[11px] tracking-[0.2em] uppercase"
+          style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
+        >
+          Astrophotography by our resident guides
+        </p>
       </div>
     </section>
   );
