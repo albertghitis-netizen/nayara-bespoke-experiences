@@ -717,23 +717,18 @@ function HeroHeader() {
         />
       </div>
 
-      {/* Nayara leaf logo — beige leaf + NAYARA text, centered on hero (desktop only) */}
+      {/* Nayara text — centered on hero (desktop only) */}
       <motion.div
-        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center"
+        className="absolute top-8 left-0 right-0 z-10 hidden md:flex flex-col items-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
-          alt="Nayara"
-          className="h-28 md:h-36 w-auto drop-shadow-lg"
-        />
         <span
-          className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
+          className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase drop-shadow-md"
           style={{ fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.25em" }}
         >
-          NAYARA
+          NAYARA SPRINGS
         </span>
       </motion.div>
 
@@ -761,6 +756,7 @@ function HeroHeader() {
    ═══════════════════════════════════════════════════════════════ */
 function HomeIntroSection() {
   return (
+    <>
     <section
       className="w-full"
       style={{
@@ -810,16 +806,27 @@ function HomeIntroSection() {
           </a>
         </div>
 
-        {/* Right: image */}
-        <div className="md:flex-1">
+        {/* Right: image - desktop only */}
+        <div className="hidden md:flex md:flex-1">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-DJI_0968-byBriceFerreStudio_1a0b5df0.jpeg"
-            alt="Woman walking on rainforest bridge at Nayara"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
+            alt="Springs property image"
             className="w-full h-auto object-cover"
             loading="eager"
           />
         </div>
       </div>
     </section>
+    
+    {/* Mobile-only full-width image */}
+    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
+        alt="Springs property image"
+        className="w-full h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+    </>
   );
 }
