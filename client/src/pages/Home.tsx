@@ -198,7 +198,7 @@ function BrandNavigation() {
               setReserveOpen(false);
               setLangOpen(false);
             }}
-            className={`${pillClass} w-12 h-12`}
+            className={`${pillClass} w-10 h-10`}
           >
             <div className="flex flex-col gap-1.5">
               <span
@@ -225,19 +225,6 @@ function BrandNavigation() {
                 className={`${dropdownPanelClass} left-0 top-full w-64`}
               >
                 <div className="py-2">
-                  {/* Our Resorts */}
-                  <button
-                    onClick={() => handleComingSoon("Our Resorts")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Our Resorts
-                    </span>
-                  </button>
-
                   {/* Gallery */}
                   <button
                     onClick={() => handleNavigate("/gallery")}
@@ -420,6 +407,20 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
+          {/* Our Resorts pill — hidden after scrolling past hero */}
+          <div className={`transition-all duration-300 ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}>
+            <button
+              onClick={() => handleComingSoon("Our Resorts")}
+              className={`${pillClass} h-10 px-4`}
+            >
+              <span
+                className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                Our Resorts
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* RIGHT: Language + Reserve */}
@@ -436,13 +437,13 @@ function BrandNavigation() {
                 setReserveOpen(false);
                 setExpandedSection(null);
               }}
-              className={`${pillClass} h-12 px-5 gap-2`}
+              className={`${pillClass} h-10 px-4 gap-2`}
             >
               <svg className="w-4 h-4 text-[#3a2a1a]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
               </svg>
               <span
-                className="text-[#3a2a1a] text-sm tracking-[0.15em] uppercase"
+                className="text-[#3a2a1a] text-xs tracking-[0.15em] uppercase"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {currentLang?.code.toUpperCase()}
@@ -495,10 +496,10 @@ function BrandNavigation() {
               setLangOpen(false);
               setExpandedSection(null);
             }}
-            className={`${pillClass} h-12 px-6`}
+            className={`${pillClass} h-10 px-4`}
           >
               <span
-                className="text-[#3a2a1a] text-sm tracking-[0.2em] uppercase"
+                className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 Reserve
@@ -628,7 +629,7 @@ function HeroHeader() {
         />
       </div>
 
-       {/* Nayara leaf logo — white leaf + NAYARA text, no circle */}
+      {/* Nayara leaf logo — beige leaf + NAYARA text, centered on hero */}
       <motion.div
         className="absolute top-2 md:top-2 left-0 right-0 z-10 flex flex-col items-center"
         initial={{ opacity: 0, y: -10 }}
@@ -641,7 +642,7 @@ function HeroHeader() {
           className="h-28 md:h-36 w-auto drop-shadow-lg"
         />
         <span
-            className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
+          className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
           style={{ fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.25em" }}
         >
           NAYARA

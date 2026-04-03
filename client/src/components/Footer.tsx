@@ -70,22 +70,6 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-4 pb-10">
-        {/* Top section: brand name */}
-        <div className="text-center mb-12">
-          <h3
-            className="text-white/90 text-lg tracking-[0.4em] uppercase"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Nayara Resorts
-          </h3>
-          <p
-            className="text-white/30 text-[11px] tracking-[0.2em] uppercase mt-2"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Luxury Resorts Rooted in Nature
-          </p>
-        </div>
-
         {/* Three columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-[12px] leading-relaxed">
           {/* LEFT — Explore links */}

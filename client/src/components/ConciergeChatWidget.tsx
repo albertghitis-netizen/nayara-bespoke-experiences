@@ -167,16 +167,16 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-2 right-4 z-50 flex items-center gap-0 rounded-full bg-[#ece8e1]/90 backdrop-blur-md shadow-lg px-3 py-2 hover:bg-[#ece8e1] transition-colors group cursor-pointer border border-[#3a2a1a]/30"
+            className="fixed bottom-2 right-4 z-50 flex items-center gap-0 rounded-full bg-[#ece8e1]/90 backdrop-blur-md shadow-lg px-2.5 py-1.5 hover:bg-[#ece8e1] transition-colors group cursor-pointer border border-[#3a2a1a]/30"
             aria-label="Open concierge"
           >
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Experiences-2_cd22baa3.png"
               alt="Henry"
-              className="w-10 h-10 object-cover shrink-0"
+              className="w-8 h-8 object-cover shrink-0"
             />
             <span
-              className="text-[#3a2a1a] text-sm font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
+              className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Chat with Henry
@@ -184,7 +184,7 @@ export default function ConciergeChatWidget() {
 
             {/* Pulse indicator for new visitors */}
             {messages.length === 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#c9b99a] rounded-full animate-pulse" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#c9b99a] rounded-full animate-pulse" />
             )}
           </motion.button>
         )}
