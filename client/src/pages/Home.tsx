@@ -56,7 +56,7 @@ export default function Home() {
       <BrandNavigation />
       <HeroHeader />
       <HomeIntroSection />
-      <SectionDivider />
+      <div className="h-8 md:h-12" />
       <AwardWinningProperties />
       <SectionDivider />
       <ExploreOurWorld />

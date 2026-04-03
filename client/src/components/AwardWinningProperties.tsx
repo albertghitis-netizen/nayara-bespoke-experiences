@@ -12,8 +12,6 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 const PHOTO_ATACAMA_WIDE =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hero2-arenal-tent_860ab6b2.webp";
 
-const PHOTO_TENTED_CAMP =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-aerial_62a4d47c.jpeg";
 
 /* ── Counter Hook ── */
 function useCounter(end: number, duration = 2000, shouldStart = false) {
@@ -104,7 +102,6 @@ export default function AwardWinningProperties() {
     offset: ["start end", "end start"],
   });
 
-  const tentedY = useTransform(scrollYProgress, [0, 1], [40, -40]);
   const atacamaY = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
   return (
@@ -112,61 +109,6 @@ export default function AwardWinningProperties() {
       ref={sectionRef}
       className="relative overflow-hidden"
     >
-      {/* ════════════════════════════════════════════
-          TOP — Tented Camp photo (right-bleed)
-         ════════════════════════════════════════════ */}
-      <div className="py-20 md:py-32">
-        {/* DESKTOP — Right-bleed: no right padding, image touches right edge */}
-        <div className="hidden md:block pl-6 md:pl-10 lg:pl-[calc((100%-1300px)/2+40px)]">
-          <motion.div
-            initial={{ opacity: 0, y: 60, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="ml-auto"
-            style={{ y: tentedY, marginLeft: 'auto', maxWidth: '55%' }}
-          >
-            <div className="aspect-[3/4] overflow-hidden relative group">
-              <motion.img
-                src={PHOTO_TENTED_CAMP}
-                alt="Nayara Tented Camp — luxury tent surrounded by rainforest canopy"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 30%" }}
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 8, ease: "linear" }}
-                whileHover={{ scale: 1.03 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* MOBILE — Full-width bleed */}
-        <div className="md:hidden">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            <div className="aspect-[3/4] overflow-hidden relative">
-              <motion.img
-                src={PHOTO_TENTED_CAMP}
-                alt="Nayara Tented Camp — luxury tent in rainforest"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "center 30%" }}
-                initial={{ scale: 1.1 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 6, ease: "linear" }}
-              />
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
       {/* ════════════════════════════════════════════
           ATACAMA — Full-width ultra-wide horizontal
          ════════════════════════════════════════════ */}
