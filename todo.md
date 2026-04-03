@@ -510,7 +510,8 @@
 - [x] Match H1 hero letter-spacing to H2 intro section letter-spacing
 - [x] Change all white backgrounds in RESORTS dropdown tabs to light beige
 - [ ] Make "Nayara Bocas del Toro" fit on one line in RESORTS dropdown (smaller font if needed)
-- [x] Make the background gradient more pronounced (less subtle)
+- [x] Make the background gradient more pronounced (less subtle) — COMPLETE
+- [x] Raise H2 header and body to top of image — COMPLETE
 
 ## Logo Update
 - [x] Update Nayara logo to match provided design (bold sans-serif "NAYARA" text with leaf motif above)

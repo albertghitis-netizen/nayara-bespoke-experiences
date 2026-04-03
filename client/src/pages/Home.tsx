@@ -765,7 +765,7 @@ function HomeIntroSection() {
     >
       {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
       <div
-        className="flex flex-col md:flex-row items-center mx-auto"
+        className="flex flex-col md:flex-row items-start mx-auto"
         style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
       >
         {/* Left: text content */}
