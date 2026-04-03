@@ -441,3 +441,6 @@
 - [x] Change hamburger button from brown to white with brown icon
 - [x] Change Reserve button from brown to white with brown text
 - [x] Match the Spherical/Nayara Gardens button style
+
+## Logo Update — White Leaf + NAYARA Text
+- [x] Update header logo: remove circle background, use white loose leaf mandala + "NAYARA" text in white, keep buttons white as-is

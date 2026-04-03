@@ -616,24 +616,21 @@ function HeroHeader() {
         />
       </div>
 
-       {/* Nayara leaf logo — white translucent circle + NAYARA text */}
+       {/* Nayara leaf logo — white leaf + NAYARA text, no circle */}
       <motion.div
-        className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center"
+        className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center pt-6 md:pt-8"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        {/* Translucent white circle — half above viewport edge */}
-        <div className="-mt-6 w-24 h-24 md:w-28 md:h-28 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center">
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-only-white_2720a721.png"
-            alt="Nayara"
-            className="h-14 md:h-18 w-auto opacity-95"
-          />
-        </div>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-only-white_2720a721.png"
+          alt="Nayara"
+          className="h-24 md:h-32 w-auto drop-shadow-lg"
+        />
         <span
-          className="text-white text-xl md:text-3xl tracking-[0.3em] uppercase mt-3 drop-shadow-md"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
+          className="text-white text-lg md:text-2xl tracking-[0.35em] uppercase mt-3 drop-shadow-md"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
           Nayara
         </span>
