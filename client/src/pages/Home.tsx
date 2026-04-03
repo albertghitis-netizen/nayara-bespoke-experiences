@@ -405,8 +405,8 @@ function BrandNavigation() {
           </div>
         </div>
 
-        {/* RIGHT: Language + Reserve (on desktop) or spread across (on mobile) */}
-        <div className="hidden md:flex items-center gap-3 pointer-events-auto">
+        {/* RIGHT: Language + Reserve (spread on mobile, grouped on desktop) */}
+        <div className="flex md:flex items-center gap-3 pointer-events-auto md:ml-auto">
           {/* Language pill — hidden after scrolling past hero */}
           <div
             ref={langRef}
