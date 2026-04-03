@@ -732,12 +732,12 @@ function HeroHeader() {
           alt="Nayara"
           className="h-28 md:h-36 w-auto drop-shadow-lg"
         />
-        <span
-          className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.25em" }}
-        >
-          NAYARA
-        </span>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-text-eebAEC2NkXUV7Fq9bFEbd6.webp"
+          alt="Nayara"
+          className="h-12 md:h-16 w-auto drop-shadow-lg mt-2"
+          style={{ filter: "brightness(0) saturate(100%) invert(92%) sepia(8%) saturate(35%) hue-rotate(23deg)" }}
+        />
       </motion.div>
 
       {/* Content — centered bottom, matching spherical nay-hero__content */}

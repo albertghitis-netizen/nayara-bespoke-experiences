@@ -504,3 +504,17 @@
 ## New Content Sections (Below Horizontal Photo)
 - [x] Remove Rooms section (flipped layout)
 - [x] Add 3 alternating two-column sections below horizontal photo (Section 1: image left/text right, Section 2: text left/image right, Section 3: image left/text right)
+- [x] Add Sections 4, 5, 6 with same alternating two-column pattern below Section 3
+
+## Typography Fix
+- [x] Match H1 hero letter-spacing to H2 intro section letter-spacing
+- [x] Change all white backgrounds in RESORTS dropdown tabs to light beige
+- [ ] Make "Nayara Bocas del Toro" fit on one line in RESORTS dropdown (smaller font if needed)
+- [x] Make the background gradient more pronounced (less subtle)
+
+## Logo Update
+- [x] Update Nayara logo to match provided design (bold sans-serif "NAYARA" text with leaf motif above)
+
+## Privacy Policy (Future)
+- [ ] Add privacy policy page/section (content provided — not urgent)
+- [x] Update NAYARA font to bold geometric sans-serif (definitive version locked in)
