@@ -522,7 +522,3 @@
 ## Final Tweaks
 - [x] Make "Nayara Bocas del Toro" fit on one line in RESORTS dropdown
 - [x] Add more letter-spacing to H1 hero text
-
-## Header Style Rule & World of Nayara
-- [x] Establish header style rule: all H1, H2, text headlines must match current H1/H2 styling (font, spacing, line-height)
-- [x] Add "World of Nayara" section with standardized header styling
