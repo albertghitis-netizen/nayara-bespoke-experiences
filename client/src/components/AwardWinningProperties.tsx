@@ -10,7 +10,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 /* ── Default media asset ── */
 const DEFAULT_PHOTO =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hero2-arenal-tent_860ab6b2.webp";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/image-05_9ae32c99.svg";
 
 interface AwardWinningPropertiesProps {
   imageSrc?: string;

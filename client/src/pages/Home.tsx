@@ -819,7 +819,7 @@ function HomeIntroSection() {
         {/* Right: image — extends to edge */}
         <div className="md:flex-1 md:mr-[-24px]">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/h2stillresorts-clean_497ea9a8.png"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/image-20_15cf7949.svg"
             alt="Woman walking on rainforest bridge at Nayara"
             className="w-full h-auto object-cover"
             loading="eager"
