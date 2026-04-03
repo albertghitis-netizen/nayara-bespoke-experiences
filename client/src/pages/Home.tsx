@@ -743,7 +743,7 @@ function HeroHeader() {
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(28px, 4vw, 42px)',
+            fontSize: 'clamp(24px, 3.5vw, 36px)',
             lineHeight: 1,
           }}
         >
@@ -773,17 +773,17 @@ function HomeIntroSection() {
         style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
       >
         {/* Left: text content */}
-        <div className="flex flex-col gap-10 md:flex-1">
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
           <h2
             className="text-[#4B4A4A]"
             style={{
               fontFamily: 'var(--font-heading)',
               fontWeight: 400,
-              fontSize: 'clamp(24px, 3.5vw, 36px)',
+              fontSize: 'clamp(20px, 2.5vw, 28px)',
               lineHeight: 1.3,
             }}
           >
-            Award-Winning Properties Defined by Destination
+            Award-Winning Properties<br />Defined by Destination
           </h2>
           <p
             className="text-[#4B4A4A]"
@@ -816,7 +816,7 @@ function HomeIntroSection() {
               fontSize: '15px',
             }}
           >
-            Story
+            Our Story
           </a>
         </div>
 

@@ -71,11 +71,11 @@ export default function Footer() {
               style={{
                 fontFamily: 'var(--font-heading)',
                 fontWeight: 400,
-                fontSize: 'clamp(28px, 4vw, 42px)',
-                lineHeight: 1.3,
-              }}
-            >
-              The World of Nayara
+              fontSize: 'clamp(24px, 3.5vw, 36px)',
+              lineHeight: 1.3,
+            }}
+          >
+            The World of Nayara
             </h2>
           </div>
         </div>

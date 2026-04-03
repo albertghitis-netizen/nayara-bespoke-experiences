@@ -58,6 +58,9 @@ export default function Gardens() {
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/321D9B07-0FF2-459E-BBA0-623B1062AA25_38485c6d.jpeg" />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
       <Footer />
     </div>
   );
@@ -725,32 +728,27 @@ function HeroHeader() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div
-          className="px-6 py-2 rounded-full drop-shadow-md"
-          style={{ backgroundColor: '#3a2a1a' }}
+        <a
+          href="/"
+          className="text-[#ece8e1] drop-shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(18px, 2.5vw, 26px)', letterSpacing: '2px', lineHeight: 1, textDecoration: 'none' }}
         >
-          <span
-            className="text-[#ece8e1]"
-            style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', letterSpacing: '1px', lineHeight: 1 }}
-          >
-            NAYARA
-          </span>
-        </div>
+          NAYARA GARDENS
+        </a>
       </motion.div>
 
       {/* Content — centered bottom, matching spherical nay-hero__content */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
-          className="text-center text-[#ece8e1] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
+            fontSize: 'clamp(24px, 3.5vw, 36px)',
             lineHeight: 1,
           }}
         >
-          Luxury Resorts Rooted in Nature
+          A Family-Friendly Rainforest Adventure
         </h1>
       </div>
     </section>
@@ -776,27 +774,27 @@ function HomeIntroSection() {
     <section
       className="w-full"
       style={{
-        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingTop: 'clamp(20px, 3vw, 40px)',
         paddingBottom: 0,
       }}
     >
       {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
       <div
-        className="flex flex-col md:flex-row items-center mx-auto"
-        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
+        className="flex flex-col md:flex-row items-start mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
       >
         {/* Left: text content */}
-        <div className="flex flex-col gap-10 md:flex-1">
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
           <h2
             className="text-[#4B4A4A]"
             style={{
               fontFamily: 'var(--font-heading)',
               fontWeight: 400,
-              fontSize: 'clamp(28px, 4vw, 42px)',
+              fontSize: 'clamp(20px, 2.5vw, 28px)',
               lineHeight: 1.3,
             }}
           >
-            Award-Winning Properties Defined by Destination
+            Award-Winning Properties<br />Defined by Destination
           </h2>
           <p
             className="text-[#4B4A4A]"
@@ -818,12 +816,12 @@ function HomeIntroSection() {
               fontSize: '15px',
             }}
           >
-            The Nayara Story
+            Our Story
           </a>
         </div>
 
         {/* Right: image - Desktop only */}
-        <div className="hidden md:flex md:flex-1">
+        <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign(1)_d91b6c9a.jpg"
             alt="Sloth in rainforest at Nayara Gardens"
@@ -833,5 +831,17 @@ function HomeIntroSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function GradientSpacer() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(120px, 24vw, 240px)',
+        paddingBottom: 'clamp(120px, 24vw, 240px)',
+      }}
+    />
   );
 }
