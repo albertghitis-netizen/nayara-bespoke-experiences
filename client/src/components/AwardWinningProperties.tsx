@@ -16,6 +16,7 @@ const destinations = [
   { name: "Costa Rica", detail: "3 properties" },
   { name: "Chile", detail: "1 property" },
   { name: "Easter Island", detail: "1 property" },
+  { name: "Panama", detail: "1 property" },
 ];
 
 export default function AwardWinningProperties() {
