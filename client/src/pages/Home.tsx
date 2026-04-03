@@ -341,10 +341,10 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-          {/* Resorts pill + dropdown — hidden after scrolling past hero */}
+          {/* Resorts pill + dropdown — bottom-left on mobile, top on desktop */}
           <div
             ref={resortsRef}
-            className={`relative transition-all duration-300 ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
+            className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto transition-all duration-300 pointer-events-auto md:pointer-events-auto ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
           >
             <button
               onClick={() => {

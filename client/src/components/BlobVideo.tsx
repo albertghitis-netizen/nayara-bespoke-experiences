@@ -19,6 +19,7 @@ interface BlobVideoProps {
   loop?: boolean;
   playsInline?: boolean;
   poster?: string;
+  controls?: boolean;
 }
 
 export default function BlobVideo({
@@ -29,6 +30,7 @@ export default function BlobVideo({
   loop = true,
   playsInline = true,
   poster,
+  controls = false,
 }: BlobVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -83,6 +85,7 @@ export default function BlobVideo({
         playsInline={playsInline}
         poster={poster}
         preload="auto"
+        controls={controls}
         // Critical mobile attributes
         webkit-playsinline="true"
         x-webkit-airplay="allow"
