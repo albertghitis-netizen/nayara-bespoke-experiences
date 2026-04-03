@@ -51,13 +51,17 @@ const dropdownSections = ["Experiences", "Wellness"];
 
 export default function Springs() {
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #ece8e1 0%, #eae5de 40%, #e8e3db 70%, #e5e0d8 90%, #e2ddd5 100%)" }}>
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f5f3f0 0%, #e8e3db 40%, #ddd2c2 70%, #cfc1a8 90%, #c5b596 100%)" }}>
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
-      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_9e3386f2.jpeg" />
+      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/WORLD'SBESTAWARDS2024.(Presentation)_26483fca.jpg" />
+      <RoomsSection />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
       <Footer />
     </div>
   );
@@ -703,6 +707,7 @@ function HeroHeader() {
   const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
 
   return (
+    <>
     <section className="relative w-full h-screen overflow-hidden">
       {/* Video background — matches spherical nay-hero structure */}
       <div className="absolute inset-0">
@@ -717,70 +722,80 @@ function HeroHeader() {
         />
       </div>
 
-      {/* Nayara text — centered on hero (desktop only) */}
+      {/* Nayara Springs text — centered on hero (desktop only) */}
       <motion.div
         className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center justify-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        <span
-          className="text-[#ece8e1] drop-shadow-md"
-          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', letterSpacing: '1px', lineHeight: 1 }}
+        <a
+          href="/"
+          className="text-[#ece8e1] drop-shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(18px, 2.5vw, 26px)', letterSpacing: '2px', lineHeight: 1, textDecoration: 'none' }}
         >
-          NAYARA
-        </span>
+          NAYARA SPRINGS
+        </a>
       </motion.div>
 
-      {/* Content — centered bottom, matching spherical nay-hero__content */}
+      {/* Content — centered bottom */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
-          className="text-center text-[#ece8e1] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
+            fontSize: 'clamp(24px, 3.5vw, 36px)',
             lineHeight: 1,
           }}
         >
-          Luxury Resorts Rooted in Nature
+          Adults-Only Private Hot Springs Villas
         </h1>
       </div>
     </section>
+
+    {/* Mobile-only full-width image */}
+    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs_still_35df8edf.jpg"
+        alt="Infinity pool overlooking rainforest at Nayara Springs"
+        className="w-full h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+    </>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HOME INTRO — Two-column layout matching spherical Welcome section
+   HOME INTRO — Two-column layout matching Home/Gardens pattern
    ═══════════════════════════════════════════════════════════════ */
 function HomeIntroSection() {
   return (
-    <>
     <section
       className="w-full"
       style={{
-        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingTop: 'clamp(20px, 3vw, 40px)',
         paddingBottom: 0,
       }}
     >
-      {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
+      {/* Two-column layout */}
       <div
-        className="flex flex-col md:flex-row items-center mx-auto"
-        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
+        className="flex flex-col md:flex-row items-start mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
       >
         {/* Left: text content */}
-        <div className="flex flex-col gap-10 md:flex-1">
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
           <h2
             className="text-[#4B4A4A]"
             style={{
               fontFamily: 'var(--font-heading)',
               fontWeight: 400,
-              fontSize: 'clamp(28px, 4vw, 42px)',
+              fontSize: 'clamp(20px, 2.5vw, 28px)',
               lineHeight: 1.3,
             }}
           >
-            Award-Winning Properties Defined by Destination
+            Award-Winning Properties<br />Defined by Destination
           </h2>
           <p
             className="text-[#4B4A4A]"
@@ -791,7 +806,7 @@ function HomeIntroSection() {
               lineHeight: '22.5px',
             }}
           >
-            Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile’s Atacama, the world’s driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama’s Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+            Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
           </p>
           <a
             href="/about"
@@ -802,31 +817,111 @@ function HomeIntroSection() {
               fontSize: '15px',
             }}
           >
-            The Nayara Story
+            Our Story
           </a>
         </div>
 
-        {/* Right: image - desktop only */}
-        <div className="hidden md:flex md:flex-1">
+        {/* Right: image - Desktop only (3:4 aspect ratio) */}
+        <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
-            alt="Springs property image"
-            className="w-full h-auto object-cover"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs_still_35df8edf.jpg"
+            alt="Infinity pool overlooking rainforest at Nayara Springs"
+            className="w-full object-cover"
+            style={{ aspectRatio: '3/4' }}
             loading="eager"
           />
         </div>
       </div>
     </section>
-    
-    {/* Mobile-only full-width image */}
-    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
-      <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
-        alt="Springs property image"
-        className="w-full h-auto object-cover"
-        loading="eager"
-      />
-    </div>
-    </>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ROOMS SECTION — Flipped layout: image left, text right
+   ═══════════════════════════════════════════════════════════════ */
+function RoomsSection() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingBottom: 0,
+      }}
+    >
+      <div
+        className="flex flex-col md:flex-row items-start mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 clamp(24px, 8vw, 121px) 0 0' }}
+      >
+        {/* Left: image (3:4 aspect ratio) */}
+        <div className="hidden md:flex md:flex-1 md:ml-[-24px]">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-R5_28782-byBriceFerreStudio_bf719a54.jpeg"
+            alt="Luxury room with canopy bed at Nayara Springs"
+            className="w-full object-cover"
+            style={{ aspectRatio: '3/4' }}
+            loading="lazy"
+          />
+        </div>
+
+        {/* Right: text content */}
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
+          <h2
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: 'clamp(20px, 2.5vw, 28px)',
+              lineHeight: 1.3,
+            }}
+          >
+            Rooms
+          </h2>
+          <p
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+              lineHeight: '22.5px',
+            }}
+          >
+            Each villa at Nayara Springs is a private sanctuary, complete with its own natural hot spring plunge pool, outdoor garden shower, and indoor-outdoor living spaces that dissolve the boundary between comfort and nature. Handcrafted furnishings, tropical hardwoods, and floor-to-ceiling windows frame views of the Arenal Volcano and surrounding rainforest canopy.
+          </p>
+          <a
+            href="/rooms"
+            className="text-[#4B4A4A] underline underline-offset-4 decoration-[#4B4A4A]/40 hover:decoration-[#4B4A4A] transition-all"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+            }}
+          >
+            Explore Our Rooms
+          </a>
+        </div>
+      </div>
+
+      {/* Mobile-only full-width image */}
+      <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-R5_28782-byBriceFerreStudio_bf719a54.jpeg"
+          alt="Luxury room with canopy bed at Nayara Springs"
+          className="w-full h-auto object-cover"
+          loading="lazy"
+        />
+      </div>
+    </section>
+  );
+}
+
+function GradientSpacer() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(120px, 24vw, 240px)',
+        paddingBottom: 'clamp(120px, 24vw, 240px)',
+      }}
+    />
   );
 }

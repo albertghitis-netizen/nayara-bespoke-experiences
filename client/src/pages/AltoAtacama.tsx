@@ -51,12 +51,24 @@ const dropdownSections = ["Experiences", "Wellness"];
 
 export default function AltoAtacama() {
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #ece8e1 0%, #eae5de 40%, #e8e3db 70%, #e5e0d8 90%, #e2ddd5 100%)" }}>
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f5f3f0 0%, #e8e3db 40%, #ddd2c2 70%, #cfc1a8 90%, #c5b596 100%)" }}>
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
+      {/* S2 - Flamingo horizontal image */}
+      <div className="w-full px-6 md:px-12 py-8">
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/WORLD'SBESTAWARDS2024.(Presentation)_58ab52a2.JPEG"
+          alt="Flamingos in the Atacama desert"
+          className="w-full h-auto object-cover"
+          loading="lazy"
+        />
+      </div>
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_5d419ccb.png" />
       <Footer />
     </div>
@@ -230,7 +242,7 @@ function BrandNavigation() {
                 className={`${dropdownPanelClass} left-0 top-full w-64`}
               >
                 <div className="py-2">
-                  {/* The Nayara Story */}
+                  {/* Our Story */}
                   <button
                     onClick={() => handleNavigate("/story")}
                     className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
@@ -239,7 +251,7 @@ function BrandNavigation() {
                       className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
-                      The Nayara Story
+                      Our Story
                     </span>
                   </button>
 
@@ -717,39 +729,34 @@ function HeroHeader() {
         />
       </div>
 
-      {/* Nayara leaf logo — beige leaf + NAYARA text, centered on hero (desktop only) */}
+      {/* Nayara Alto Atacama text — centered on hero */}
       <motion.div
-        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center"
+        className="absolute top-2 left-0 right-0 z-10 flex justify-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
-          alt="Nayara"
-          className="h-28 md:h-36 w-auto drop-shadow-lg"
-        />
-        <span
-          className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.25em" }}
+        <a
+          href="/"
+          className="text-[#ece8e1] drop-shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(18px, 2.5vw, 26px)', letterSpacing: '2px', lineHeight: 1, textDecoration: 'none' }}
         >
-          NAYARA
-        </span>
+          NAYARA ALTO ATACAMA
+        </a>
       </motion.div>
 
       {/* Content — centered bottom, matching spherical nay-hero__content */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
-          className="text-center text-[#ece8e1] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
+            fontSize: 'clamp(24px, 3.5vw, 36px)',
             lineHeight: 1,
           }}
         >
-          Luxury Resorts Rooted in Nature
+          An Atacama Desert Oasis Under the Stars
         </h1>
       </div>
     </section>
@@ -761,30 +768,31 @@ function HeroHeader() {
    ═══════════════════════════════════════════════════════════════ */
 function HomeIntroSection() {
   return (
+    <>
     <section
       className="w-full"
       style={{
-        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingTop: 'clamp(20px, 3vw, 40px)',
         paddingBottom: 0,
       }}
     >
       {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
       <div
-        className="flex flex-col md:flex-row items-center mx-auto"
-        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
+        className="flex flex-col md:flex-row items-start mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
       >
         {/* Left: text content */}
-        <div className="flex flex-col gap-10 md:flex-1">
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
           <h2
             className="text-[#4B4A4A]"
             style={{
               fontFamily: 'var(--font-heading)',
               fontWeight: 400,
-              fontSize: 'clamp(28px, 4vw, 42px)',
+              fontSize: 'clamp(20px, 2.5vw, 28px)',
               lineHeight: 1.3,
             }}
           >
-            Award-Winning Properties Defined by Destination
+            Award-Winning Properties<br />Defined by Destination
           </h2>
           <p
             className="text-[#4B4A4A]"
@@ -806,20 +814,36 @@ function HomeIntroSection() {
               fontSize: '15px',
             }}
           >
-            The Nayara Story
+            Our Story
           </a>
         </div>
 
-        {/* Right: image */}
-        <div className="md:flex-1">
+        {/* Right: image - Desktop only */}
+        <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_380507bd.jpg"
-            alt="Woman walking on rainforest bridge at Nayara"
-            className="w-full h-auto object-cover"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6879_0cd80bf6.JPG"
+            alt="Atacama desert mountain landscape"
+            className="w-full object-cover"
+            style={{ aspectRatio: '3/4' }}
             loading="eager"
           />
         </div>
       </div>
     </section>
+
+    {/* Mobile-only full-width image */}
+    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_380507bd.jpg"
+        alt="Atacama desert landscape"
+        className="w-full h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+    </>
   );
+}
+
+function GradientSpacer() {
+  return <div className="w-full" style={{ height: 'clamp(120px, 20vw, 300px)' }} />;
 }

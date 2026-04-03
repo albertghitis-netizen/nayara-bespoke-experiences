@@ -531,3 +531,16 @@
 
 ## Image Content Rule
 - [x] All images: Use only blue water and green jungle imagery (no grey, neutral, or other colors)
+
+## Springs Page Update
+- [x] Update Springs: NAYARA SPRINGS text in Montserrat Bold, H1 unique tagline, gradient matching Home
+- [x] Update Springs: S1 vertical image (3:4 desktop, 9:16 mobile), H2 section matching Home
+- [x] Update Springs: S2 horizontal bridge couple image
+- [x] Add Springs S3: flipped layout (image left 3:4, rooms placeholder text right)
+- [x] Add gradient spacers to Springs
+
+## Bocas del Toro Page Update
+- [x] Update Bocas: NAYARA BOCAS DEL TORO text in Montserrat Bold, H1 unique tagline, gradient matching Home
+- [x] Update Bocas: S1 overwater pool image (IMG_6904), H2 section matching Home
+- [x] Update Bocas: S2 aerial overwater villas image (IMG_6908)
+- [x] Add gradient spacers to Bocas
