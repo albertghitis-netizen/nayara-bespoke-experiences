@@ -37,9 +37,9 @@ const languages = [
 
 /* ── CDN Assets ── */
 const CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Atacama_horizontal_1_20260320_142142_2fd51232.mov",
-  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_c3b22a5a.PNG",
-  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5798_cropped_0ffc7db7.PNG",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_005312ce.MP4",
+  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_35b00f10.jpg",
+  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/flamingos_cropped_4de69f93.png",
 };
 
 export default function AltoAtacama() {
