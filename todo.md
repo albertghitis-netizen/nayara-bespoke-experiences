@@ -523,3 +523,11 @@
 ## Final Tweaks
 - [x] Make "Nayara Bocas del Toro" fit on one line in RESORTS dropdown
 - [x] Add more letter-spacing to H1 hero text
+
+## Image Aspect Ratio Standards
+- [x] Vertical images: 3:4 (editorial, premium feel)
+- [x] Horizontal images: 16:9 (desktop), crop center to 9:16 (mobile)
+- [x] Hero sections: 16:9 desktop + 9:16 mobile variant
+
+## Image Content Rule
+- [x] All images: Use only blue water and green jungle imagery (no grey, neutral, or other colors)
