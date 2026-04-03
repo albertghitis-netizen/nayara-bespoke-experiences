@@ -618,7 +618,7 @@ function HeroHeader() {
 
        {/* Nayara leaf logo — white leaf + NAYARA text, no circle */}
       <motion.div
-        className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center pt-6 md:pt-8"
+        className="absolute top-5 md:top-6 left-0 right-0 z-10 flex flex-col items-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -626,13 +626,13 @@ function HeroHeader() {
         <img
           src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-only-white_2720a721.png"
           alt="Nayara"
-          className="h-24 md:h-32 w-auto drop-shadow-lg"
+          className="h-20 md:h-28 w-auto drop-shadow-lg"
         />
         <span
-          className="text-white text-lg md:text-2xl tracking-[0.35em] uppercase mt-3 drop-shadow-md"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          className="text-white text-base md:text-xl tracking-[0.4em] uppercase mt-2 drop-shadow-md"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 300, letterSpacing: "0.4em" }}
         >
-          Nayara
+          NAYARA
         </span>
       </motion.div>
 
