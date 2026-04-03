@@ -491,3 +491,6 @@
 - [x] Fix Chat with Henry bar showing two shades of beige
 - [x] Remove robot background from chatbot
 - [x] Regenerate all 6 property pages from updated Home.tsx template (scroll behavior + chatbot fixes synced)
+
+## Beige Background Evaluation
+- [x] Add two empty beige spacer sections below AwardWinningProperties to make background gradient visible

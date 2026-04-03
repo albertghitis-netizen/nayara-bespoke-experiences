@@ -58,6 +58,9 @@ export default function Home() {
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
       <AwardWinningProperties />
+      {/* Empty spacer sections to evaluate beige background */}
+      <section className="w-full h-[50vh]" />
+      <section className="w-full h-[50vh]" />
       <Footer />
     </div>
   );
