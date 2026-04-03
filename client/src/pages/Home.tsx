@@ -51,7 +51,7 @@ const dropdownSections = ["Experiences", "Wellness"];
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f7f5f0 0%, #f6f3ec 40%, #f4f0e8 70%, #f1ece4 90%, #eee8df 100%)" }}>
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #ece8e1 0%, #eae5de 40%, #e8e3db 70%, #e5e0d8 90%, #e2ddd5 100%)" }}>
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
@@ -638,13 +638,13 @@ function HeroHeader() {
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
         <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-sharp-white-only_7578a4bc.png"
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
           alt="Nayara"
           className="h-28 md:h-36 w-auto drop-shadow-lg"
         />
         <span
-          className="text-white text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 600, letterSpacing: "0.25em" }}
+            className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.25em" }}
         >
           NAYARA
         </span>
@@ -653,7 +653,7 @@ function HeroHeader() {
       {/* Content — centered bottom, matching spherical nay-hero__content */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
-          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          className="text-center text-[#ece8e1] mb-[50px] md:mb-[85px] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-display)',
             fontWeight: 400,
