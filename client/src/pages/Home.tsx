@@ -639,7 +639,7 @@ function HeroHeader() {
         <h1
           className="text-center text-[#ece8e1] mb-[50px] md:mb-[85px] max-w-[1052px]"
           style={{
-            fontFamily: 'var(--font-display)',
+            fontFamily: 'var(--font-heading)',
             fontWeight: 400,
             fontSize: 'clamp(32px, 5vw, 50px)',
             letterSpacing: '-2px',
