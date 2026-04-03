@@ -58,10 +58,10 @@ export default function Footer() {
         <h2
           className="text-white/80 text-center"
           style={{
-            fontFamily: 'var(--font-display)',
+            fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(36px, 6vw, 72px)',
-            lineHeight: 1.1,
+            fontSize: 'clamp(28px, 4vw, 42px)',
+            lineHeight: 1.3,
           }}
         >
           The World of Nayara
