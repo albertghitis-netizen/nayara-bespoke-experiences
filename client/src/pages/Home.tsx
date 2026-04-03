@@ -606,6 +606,11 @@ function HeroHeader() {
         <BlobVideo
           src={heroVideo}
           className="w-full h-full object-cover"
+          autoPlay={true}
+          muted={true}
+          loop={true}
+          playsInline={true}
+          controls={false}
         />
       </div>
 
