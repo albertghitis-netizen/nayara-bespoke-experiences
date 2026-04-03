@@ -180,7 +180,7 @@ function BrandNavigation() {
 
   /* Shared pill style — warm beige matching Nayara brand */
   const pillClass =
-    "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1]/90 backdrop-blur-md shadow-lg hover:bg-[#ece8e1] transition-all duration-300 cursor-pointer";
+    "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1]/90 backdrop-blur-md shadow-lg hover:bg-[#ece8e1] transition-all duration-300 cursor-pointer border border-[#3a2a1a]/30";
 
   /* Shared dropdown panel style */
   const dropdownPanelClass =
