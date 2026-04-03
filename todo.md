@@ -408,3 +408,6 @@
 ## Logo Position Adjustment
 - [x] Raise leaf logo to align with nav pills (top of screen)
 - [x] Make leaf logo larger
+
+## Logo Circle Styling
+- [x] Encase leaf logo in a brown translucent circle matching the hamburger/reserve pill style with NAYARA text below
