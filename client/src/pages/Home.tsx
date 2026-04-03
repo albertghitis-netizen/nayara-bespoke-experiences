@@ -185,7 +185,7 @@ function BrandNavigation() {
 
   /* Shared pill style — warm beige matching Nayara brand */
   const pillClass =
-    "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1]/90 backdrop-blur-md shadow-lg hover:bg-[#ece8e1] transition-all duration-300 cursor-pointer border border-[#3a2a1a]/30";
+    "pointer-events-auto flex items-center justify-center rounded-full bg-[#E8DCC8] backdrop-blur-md shadow-lg hover:bg-[#E8DCC8]/90 transition-colors cursor-pointer border border-[#3a2a1a]/20";
 
   /* Shared dropdown panel style */
   const dropdownPanelClass =
@@ -398,7 +398,7 @@ function BrandNavigation() {
               className={`${pillClass} h-10 px-4`}
             >
               <span
-                className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
+                className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 Resorts
@@ -463,7 +463,7 @@ function BrandNavigation() {
               className={`${pillClass} h-10 px-4`}
             >
               <span
-                className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
+                className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 Resorts
@@ -586,8 +586,8 @@ function BrandNavigation() {
             className={`${pillClass} h-10 px-4`}
           >
               <span
-                className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em]"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 Reserve
             </span>
@@ -766,7 +766,7 @@ function HomeIntroSection() {
       {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
       <div
         className="flex flex-col md:flex-row items-start mx-auto"
-        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
       >
         {/* Left: text content */}
         <div className="flex flex-col gap-10 md:flex-1">
@@ -816,8 +816,8 @@ function HomeIntroSection() {
           </a>
         </div>
 
-        {/* Right: image */}
-        <div className="md:flex-1">
+        {/* Right: image — extends to edge */}
+        <div className="md:flex-1 md:mr-[-24px]">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NAYARABOCASDELTORO-8_612e46c9.jpeg"
             alt="Woman walking on rainforest bridge at Nayara"
