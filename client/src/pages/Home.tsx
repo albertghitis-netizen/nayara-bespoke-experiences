@@ -818,12 +818,12 @@ function HomeIntroSection() {
 
         {/* Right: image — extends to edge */}
         <div className="md:flex-1 md:mr-[-24px]">
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_3W3CiU_27-cropped_790763db.jpg"
-            alt="Woman walking on rainforest bridge at Nayara"
-            className="w-full h-auto object-cover"
-            loading="eager"
-          />
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_g8quGk_4-cropped_5a6292d3.jpg"
+        alt="Woman walking on rainforest bridge at Nayara"
+        className="w-full h-auto object-cover"
+        loading="eager"
+      />
         </div>
       </div>
     </section>
@@ -866,7 +866,7 @@ function PlaceholderSection({ title, flipped = false }: { title: string; flipped
   const imageBlock = (
     <div className="md:flex-1">
       <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_XFrLwM_5-cropped_f3fd0002.jpg"
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_7EnUqZ_9-cropped_9e3873f8.jpg"
         alt={title}
         className="w-full h-auto object-cover"
         loading="lazy"
