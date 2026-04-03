@@ -53,19 +53,26 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#3a2a1a] relative overflow-hidden">
-      {/* "The World of Nayara" heading — sits at top of footer like Spherical reference */}
+      {/* "The World of Nayara" heading with leaf logo — sits at top of footer */}
       <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-16 md:pt-20 pb-10">
-        <h2
-          className="text-white/80 text-center"
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontWeight: 400,
-            fontSize: 'clamp(28px, 4vw, 42px)',
-            lineHeight: 1.3,
-          }}
-        >
-          The World of Nayara
-        </h2>
+        <div className="flex items-center justify-center gap-4">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
+            alt="Nayara leaf"
+            className="w-10 h-10 md:w-12 md:h-12 object-contain opacity-60"
+          />
+          <h2
+            className="text-white/80"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: 'clamp(28px, 4vw, 42px)',
+              lineHeight: 1.3,
+            }}
+          >
+            The World of Nayara
+          </h2>
+        </div>
         <div className="h-px bg-white/15 mt-10 md:mt-14" />
       </div>
 

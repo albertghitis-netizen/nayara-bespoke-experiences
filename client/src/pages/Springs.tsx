@@ -719,16 +719,16 @@ function HeroHeader() {
 
       {/* Nayara text — centered on hero (desktop only) */}
       <motion.div
-        className="absolute top-8 left-0 right-0 z-10 hidden md:flex flex-col items-center"
+        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center justify-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
         <span
-          className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase drop-shadow-md"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.25em" }}
+          className="text-[#ece8e1] drop-shadow-md"
+          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', letterSpacing: '1px', lineHeight: 1 }}
         >
-          NAYARA SPRINGS
+          NAYARA
         </span>
       </motion.div>
 
