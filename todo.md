@@ -446,3 +446,7 @@
 - [x] Update header logo: remove circle background, use white loose leaf mandala + "NAYARA" text in white, keep buttons white as-is
 - [x] Upload sharp white leaf PNG to CDN and update header image
 - [x] Language button should NOT follow user down the page (not fixed/sticky)
+- [ ] Change nav pill buttons from white to warm gray (#f5f3f0) matching Spherical Nayara menu
+- [ ] Fix language button: visible in hero but does NOT follow on scroll
+- [ ] Change nav pill buttons from white to warm beige (#ece8e1) with existing brown text (#3a2a1a)
+- [ ] Fix language button: visible in hero but does NOT follow on scroll
