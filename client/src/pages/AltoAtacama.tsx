@@ -266,7 +266,7 @@ function BrandNavigation() {
       {/* Resorts pill + dropdown — bottom-left on mobile, top on desktop */}
       <div
         ref={resortsRef}
-        className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto transition-all duration-300 pointer-events-auto md:pointer-events-auto`}
+        className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto z-50 transition-all duration-300 pointer-events-auto`}
       >
         <button
           onClick={() => setResortsOpen(!resortsOpen)}
