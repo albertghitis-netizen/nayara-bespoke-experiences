@@ -53,10 +53,23 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#3a2a1a] relative overflow-hidden">
-      {/* Subtle top border line */}
-      <div className="h-px bg-white/10" />
+      {/* "The World of Nayara" heading — sits at top of footer like Spherical reference */}
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-16 md:pt-20 pb-10">
+        <h2
+          className="text-white/80 text-center"
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontWeight: 400,
+            fontSize: 'clamp(36px, 6vw, 72px)',
+            lineHeight: 1.1,
+          }}
+        >
+          The World of Nayara
+        </h2>
+        <div className="h-px bg-white/15 mt-10 md:mt-14" />
+      </div>
 
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-16 pb-10">
+      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-4 pb-10">
         {/* Top section: brand name */}
         <div className="text-center mb-12">
           <h3

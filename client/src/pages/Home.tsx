@@ -19,7 +19,7 @@ import { useLocation } from "wouter";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import AwardWinningProperties from "@/components/AwardWinningProperties";
-import ExploreOurWorld from "@/components/ExploreOurWorld";
+
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import { hotelBookingLinks } from "@/data/booking";
@@ -58,7 +58,6 @@ export default function Home() {
       <HomeIntroSection />
       <div className="h-8 md:h-12" />
       <AwardWinningProperties />
-      <ExploreOurWorld />
       <Footer />
     </div>
   );
