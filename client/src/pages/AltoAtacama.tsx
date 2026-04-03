@@ -118,44 +118,48 @@ function BrandNavigation() {
           </div>
         </button>
 
-        {/* Right side: Language + Reserve */}
-        <div className="flex items-center gap-4 pointer-events-auto">
-          {!scrolledPastHero && (
-            <div ref={langRef} className="relative">
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                className={`${pillClass}`}
-              >
-                <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
-                  {selectedLang.toUpperCase()}
-                </span>
-              </button>
-              <AnimatePresence>
-                {langOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="absolute top-12 right-0 bg-white rounded-lg shadow-lg p-2 z-50"
-                  >
-                    {languages.map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => {
-                          setSelectedLang(lang.code);
-                          setLangOpen(false);
-                        }}
-                        className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
-                      >
-                        {lang.label}
-                      </button>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          )}
+        {/* Center: Resorts */}
+        <div
+          ref={resortsRef}
+          className="relative pointer-events-auto z-50"
+        >
+          <button
+            onClick={() => {
+              setResortsOpen(!resortsOpen);
+              setMenuOpen(false);
+            }}
+            className={`${pillClass} relative z-50`}
+          >
+            <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+              Resorts
+            </span>
+          </button>
 
+          <AnimatePresence>
+            {resortsOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl p-3 z-[60] w-48"
+              >
+                {propertyLinks.map((prop) => (
+                  <button
+                    key={prop.label}
+                    onClick={() => handleNavigate(prop.route)}
+                    className="block w-full text-left px-4 py-2 text-sm text-[#3a2a1a] hover:bg-gray-100 rounded transition-colors"
+                  >
+                    {prop.label}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Right side: Reserve only */}
+        <div className="flex items-center gap-4 pointer-events-auto">
           {/* Reserve pill */}
           <button
             onClick={() => handleComingSoon("Reservation")}
@@ -263,41 +267,7 @@ function BrandNavigation() {
         )}
       </AnimatePresence>
 
-      {/* Resorts pill + dropdown — bottom-left on mobile, top on desktop */}
-      <div
-        ref={resortsRef}
-        className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto z-50 transition-all duration-300 pointer-events-auto`}
-      >
-        <button
-          onClick={() => setResortsOpen(!resortsOpen)}
-          className={`${pillClass}`}
-        >
-          <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
-            Resorts
-          </span>
-        </button>
 
-        <AnimatePresence>
-          {resortsOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="absolute bottom-12 left-0 bg-white rounded-lg shadow-lg p-3 z-50 w-48"
-            >
-              {propertyLinks.map((prop) => (
-                <button
-                  key={prop.label}
-                  onClick={() => handleNavigate(prop.route)}
-                  className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 rounded"
-                >
-                  {prop.label}
-                </button>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
     </>
   );
 }
@@ -329,7 +299,7 @@ function HeroHeader() {
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-heading)", fontWeight: 400 }}
         >
-          Luxury Resorts Rooted in Nature
+          Atacama Desert Lodge<br />under the world's clearest skies<br />at the Canyon Desert Lodge
         </motion.h1>
       </div>
     </section>
