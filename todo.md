@@ -444,3 +444,5 @@
 
 ## Logo Update — White Leaf + NAYARA Text
 - [x] Update header logo: remove circle background, use white loose leaf mandala + "NAYARA" text in white, keep buttons white as-is
+- [x] Upload sharp white leaf PNG to CDN and update header image
+- [x] Language button should NOT follow user down the page (not fixed/sticky)

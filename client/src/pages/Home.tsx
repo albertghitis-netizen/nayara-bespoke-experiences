@@ -414,68 +414,8 @@ function BrandNavigation() {
 
         </div>
 
-        {/* RIGHT: Language + Reserve */}
+        {/* RIGHT: Reserve only (language moved out of fixed nav) */}
         <div className="flex items-center gap-3 pointer-events-auto">
-          {/* Language pill + dropdown */}
-          <div ref={langRef} className="relative">
-            <button
-              onClick={() => {
-                setLangOpen(!langOpen);
-                setMenuOpen(false);
-                setReserveOpen(false);
-                setExpandedSection(null);
-              }}
-              className={`${pillClass} h-12 px-5 gap-2`}
-            >
-              <svg className="w-4 h-4 text-[#3a2a1a]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
-              </svg>
-              <span
-                className="text-[#3a2a1a] text-sm tracking-[0.15em] uppercase"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                {currentLang?.code.toUpperCase()}
-              </span>
-            </button>
-
-            {/* Language dropdown */}
-            <AnimatePresence>
-              {langOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -8, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                  className={`${dropdownPanelClass} right-0 top-full w-48`}
-                >
-                  <div className="py-2">
-                    {languages.map((lang) => (
-                      <button
-                        key={lang.code}
-                        onClick={() => handleLangSelect(lang.code)}
-                        className={`w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors flex items-center justify-between ${
-                          selectedLang === lang.code ? "bg-[#3a2a1a]/5" : ""
-                        }`}
-                      >
-                        <span
-                          className="text-[#3a2a1a]/90 text-[11px] tracking-[0.08em]"
-                          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-                        >
-                          {lang.label}
-                        </span>
-                        {selectedLang === lang.code && (
-                          <svg className="w-3 h-3 text-[#3a2a1a]/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                          </svg>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
           {/* Reserve pill + dropdown */}
           <div ref={reserveRef} className="relative">
           <button
@@ -624,13 +564,13 @@ function HeroHeader() {
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
         <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-only-white_2720a721.png"
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-sharp-white-only_7578a4bc.png"
           alt="Nayara"
           className="h-20 md:h-28 w-auto drop-shadow-lg"
         />
         <span
-          className="text-white text-base md:text-xl tracking-[0.4em] uppercase mt-2 drop-shadow-md"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300, letterSpacing: "0.4em" }}
+          className="text-white text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 600, letterSpacing: "0.25em" }}
         >
           NAYARA
         </span>
