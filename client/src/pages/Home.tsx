@@ -193,8 +193,8 @@ function BrandNavigation() {
     <>
       {/* ── FIXED NAV: Hamburger (far left) + Reserve (far right) ── */}
       <div className="fixed top-2 left-0 right-0 z-50 flex items-center justify-between px-4 pointer-events-none">
-        {/* LEFT: Hamburger pill + Resorts */}
-        <div className="flex items-center gap-3 md:gap-3 pointer-events-auto md:w-auto md:justify-start">
+        {/* LEFT: Hamburger */}
+        <div className="pointer-events-auto">
         <div ref={menuRef} className="relative">
           <button
             onClick={() => {
