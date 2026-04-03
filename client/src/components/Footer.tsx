@@ -180,7 +180,7 @@ export default function Footer() {
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
-            className="inline-flex items-center justify-center h-12 px-8 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+            className="inline-flex items-center justify-center h-12 px-12 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
           >
             <span
               className="text-white/70 text-[11px] tracking-[0.25em] uppercase"
