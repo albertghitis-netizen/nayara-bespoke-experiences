@@ -192,9 +192,9 @@ function BrandNavigation() {
   return (
     <>
       {/* ── FIXED NAV: Hamburger (left) + Reserve (right) ── */}
-      <div className="fixed top-2 left-4 right-4 z-50 flex items-center justify-between md:justify-between pointer-events-none">
-        {/* LEFT: Hamburger pill + Resorts (on desktop) or all 4 buttons spread (on mobile) */}
-        <div className="flex items-center gap-3 md:gap-3 pointer-events-auto w-full md:w-auto md:justify-start">
+      <div className="fixed top-2 left-4 right-4 z-50 flex items-center justify-around md:justify-between pointer-events-none">
+        {/* LEFT: Hamburger pill + Resorts */}
+        <div className="flex items-center gap-3 md:gap-3 pointer-events-auto md:w-auto md:justify-start">
         <div ref={menuRef} className="relative">
           <button
             onClick={() => {
@@ -597,9 +597,7 @@ function BrandNavigation() {
 function HeroHeader() {
   const isMobile = useIsMobile();
 
-  const heroVideo = isMobile
-    ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
+  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
@@ -611,9 +609,9 @@ function HeroHeader() {
         />
       </div>
 
-      {/* Nayara leaf logo — beige leaf + NAYARA text, centered on hero */}
+      {/* Nayara leaf logo — beige leaf + NAYARA text, centered on hero (desktop only) */}
       <motion.div
-        className="absolute top-1/2 md:top-2 left-0 right-0 z-10 flex md:flex flex-col items-center -translate-y-1/2 md:translate-y-0"
+        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
