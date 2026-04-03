@@ -517,4 +517,8 @@
 
 ## Privacy Policy (Future)
 - [ ] Add privacy policy page/section (content provided — not urgent)
-- [x] Update NAYARA font to bold geometric sans-serif (definitive version locked in)
+- [x] Logo finalized: leaf only (NAYARA text removed)
+
+## Final Tweaks
+- [x] Make "Nayara Bocas del Toro" fit on one line in RESORTS dropdown
+- [x] Add more letter-spacing to H1 hero text

@@ -31,8 +31,7 @@ const propertyLinks = [
   { label: "Nayara Springs", route: "/springs", available: true },
   { label: "Nayara Tented Camp", route: "/tented-camp", available: true },
   { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
-  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true },
-];
+  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: false, className: "whitespace-nowrap" },];
 
 /* ── Language options ── */
 const languages = [
@@ -431,7 +430,7 @@ function BrandNavigation() {
                         className="w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors"
                       >
                         <span
-                          className={`text-[11px] tracking-[0.2em] uppercase ${
+                          className={`text-sm tracking-[0.04em] whitespace-nowrap ${
                             prop.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/40"
                           }`}
                           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
@@ -732,12 +731,6 @@ function HeroHeader() {
           alt="Nayara"
           className="h-28 md:h-36 w-auto drop-shadow-lg"
         />
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-text-eebAEC2NkXUV7Fq9bFEbd6.webp"
-          alt="Nayara"
-          className="h-12 md:h-16 w-auto drop-shadow-lg mt-2"
-          style={{ filter: "brightness(0) saturate(100%) invert(92%) sepia(8%) saturate(35%) hue-rotate(23deg)" }}
-        />
       </motion.div>
 
       {/* Content — centered bottom, matching spherical nay-hero__content */}
@@ -748,7 +741,7 @@ function HeroHeader() {
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
             fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
+            letterSpacing: '0.08em',
             lineHeight: 1,
           }}
         >
