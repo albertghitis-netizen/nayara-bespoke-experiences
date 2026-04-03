@@ -167,7 +167,7 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-2 right-4 z-50 flex items-center gap-2 rounded-full bg-[#E8DCC8] backdrop-blur-md shadow-lg px-4 py-2 hover:bg-[#E8DCC8]/90 transition-colors group cursor-pointer border border-[#3a2a1a]/20"
+            className="fixed bottom-2 right-4 z-50 flex items-center gap-2 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg px-4 py-2 hover:bg-[#ece8e1]/90 transition-colors group cursor-pointer border border-[#3a2a1a]/20"
             aria-label="Open concierge"
           >
             <span

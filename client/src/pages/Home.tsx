@@ -183,9 +183,9 @@ function BrandNavigation() {
 
   const currentLang = languages.find((l) => l.code === selectedLang);
 
-  /* Shared pill style — warm beige matching Nayara brand */
+  /* Shared pill style — warm beige matching Chat with Henry button */
   const pillClass =
-    "pointer-events-auto flex items-center justify-center rounded-full bg-[#E8DCC8] backdrop-blur-md shadow-lg hover:bg-[#E8DCC8]/90 transition-colors cursor-pointer border border-[#3a2a1a]/20";
+    "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-colors cursor-pointer border border-[#3a2a1a]/20";
 
   /* Shared dropdown panel style */
   const dropdownPanelClass =
@@ -819,7 +819,7 @@ function HomeIntroSection() {
         {/* Right: image — extends to edge */}
         <div className="md:flex-1 md:mr-[-24px]">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/image-20_15cf7949.svg"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_3W3CiU_27-cropped_790763db.jpg"
             alt="Woman walking on rainforest bridge at Nayara"
             className="w-full h-auto object-cover"
             loading="eager"
@@ -865,17 +865,12 @@ function PlaceholderSection({ title, flipped = false }: { title: string; flipped
 
   const imageBlock = (
     <div className="md:flex-1">
-      <div
-        className="w-full bg-[#3a2a1a]/10 flex items-center justify-center"
-        style={{ aspectRatio: '3/4', minHeight: '400px' }}
-      >
-        <span
-          className="text-[#3a2a1a]/40 text-sm tracking-[0.15em] uppercase"
-          style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
-        >
-          Image Placeholder
-        </span>
-      </div>
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_XFrLwM_5-cropped_f3fd0002.jpg"
+        alt={title}
+        className="w-full h-auto object-cover"
+        loading="lazy"
+      />
     </div>
   );
 
