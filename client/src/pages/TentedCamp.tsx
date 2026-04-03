@@ -230,6 +230,32 @@ function BrandNavigation() {
                 className={`${dropdownPanelClass} left-0 top-full w-64`}
               >
                 <div className="py-2">
+                  {/* The Nayara Story */}
+                  <button
+                    onClick={() => handleNavigate("/story")}
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                  >
+                    <span
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      The Nayara Story
+                    </span>
+                  </button>
+
+                  {/* Rooms */}
+                  <button
+                    onClick={() => handleNavigate("/rooms")}
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                  >
+                    <span
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      Rooms
+                    </span>
+                  </button>
+
                   {/* Gallery */}
                   <button
                     onClick={() => handleNavigate("/gallery")}
@@ -356,19 +382,6 @@ function BrandNavigation() {
 
         </div>
 
-        {/* Story pill */}
-        <button
-          onClick={() => handleNavigate("/story")}
-          className={`${pillClass} h-10 px-4 pointer-events-auto`}
-        >
-          <span
-            className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Story
-          </span>
-        </button>
-
         {/* CENTER: Resorts pill + dropdown */}
         <div
           ref={resortsRef}
@@ -431,19 +444,6 @@ function BrandNavigation() {
               )}
             </AnimatePresence>
         </div>
-
-        {/* Rooms pill */}
-        <button
-          onClick={() => handleNavigate("/rooms")}
-          className={`${pillClass} h-10 px-4 pointer-events-auto`}
-        >
-          <span
-            className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Rooms
-          </span>
-        </button>
 
         {/* RIGHT: Language + Reserve */}
         <div className="flex items-center gap-3 pointer-events-auto">

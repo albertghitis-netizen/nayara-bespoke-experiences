@@ -478,3 +478,7 @@
 ## Nav Bar Updates
 - [x] Add Story button to the top navigation bar
 - [x] Add Rooms button to the top navigation bar
+
+## Fix: Story and Rooms placement
+- [x] Remove Story and Rooms from top nav bar buttons
+- [x] Add Story and Rooms as categories inside the hamburger menu
