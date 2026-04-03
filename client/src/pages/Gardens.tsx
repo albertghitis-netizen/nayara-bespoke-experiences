@@ -811,9 +811,9 @@ function HomeIntroSection() {
         </div>
 
         {/* Right: image - Full width on mobile */}
-        <div className="md:flex-1 -mx-6 md:mx-0 md:px-0 px-0">
+        <div className="md:flex-1 w-screen md:w-auto -ml-6 md:ml-0">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_90c6c080.jpg"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign(1)_d91b6c9a.jpg"
             alt="Sloth in rainforest at Nayara Gardens"
             className="w-full h-auto object-cover"
             loading="eager"
