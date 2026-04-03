@@ -741,7 +741,6 @@ function HeroHeader() {
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
             fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '0.08em',
             lineHeight: 1,
           }}
         >
