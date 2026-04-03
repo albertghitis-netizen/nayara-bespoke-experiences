@@ -756,7 +756,7 @@ function HeroHeader() {
     </section>
     
     {/* Mobile-only full-width image */}
-    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)' }}>
+    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '20px' }}>
       <img
         src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign(1)_d91b6c9a.jpg"
         alt="Sloth in rainforest at Nayara Gardens"
