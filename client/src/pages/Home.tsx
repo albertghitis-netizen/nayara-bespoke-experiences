@@ -613,7 +613,7 @@ function HeroHeader() {
 
       {/* Nayara leaf logo — beige leaf + NAYARA text, centered on hero */}
       <motion.div
-        className="absolute top-1/2 md:top-2 left-0 right-0 z-10 flex md:flex flex-col items-center -translate-y-1/2 md:translate-y-0"
+        className="absolute top-2/3 md:top-2 left-0 right-0 z-10 flex md:flex flex-col items-center -translate-y-1/2 md:translate-y-0"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
