@@ -1,269 +1,343 @@
 /*
  * NAYARA TENTED CAMP — Property Page
- * Structure: H1 Video (hero) → H2 Image (tent vertical + text) → Second Still (blue pool horizontal)
+ * Formatted exactly like resorts homepage
+ * Structure: H1 Video → H2 Image → Second Still → Footer
  */
 
-import { Link, useLocation } from "wouter";
-import { useState, useEffect } from "react";
-import { Menu, X, ArrowLeft } from "lucide-react";
-import { useIsMobile } from "@/hooks/useMobile";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "wouter";
 import BlobVideo from "@/components/BlobVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import { BOOKING_URLS } from "@/data/booking";
+import ScrollProgress from "@/components/ScrollProgress";
+import { hotelBookingLinks } from "@/data/booking";
 
-const BOOKING_URL = BOOKING_URLS["tented-camp"];
+/* ── Property menu links ── */
+const propertyLinks = [
+  { label: "Nayara Alto Atacama", route: "/alto-atacama", available: true },
+  { label: "Nayara Gardens", route: "/gardens", available: true },
+  { label: "Nayara Springs", route: "/springs", available: true },
+  { label: "Nayara Tented Camp", route: "/tented-camp", available: true },
+  { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
+  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true },
+];
+
+/* ── Language options ── */
+const languages = [
+  { code: "en", label: "English" },
+  { code: "es", label: "Español" },
+  { code: "pt", label: "Português" },
+  { code: "fr", label: "Français" },
+  { code: "de", label: "Deutsch" },
+  { code: "it", label: "Italiano" },
+  { code: "ja", label: "日本語" },
+  { code: "zh", label: "中文" },
+];
 
 /* ── CDN Assets ── */
 const CDN = {
-  heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraTentedCampHomepageHero_b3c022ba.mp4",
-  heroMobile:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-vertical-reel1_f19958ac.mp4",
-  heroPoster:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sojern-tented_a678f769.jpg",
-  h2Image:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-intro-drone_349e1e16.jpg",
-  secondStill:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-fullbleed-landscape_dbfe243d.jpg",
-  bgTexture:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-bg-texture_5e483e53.avif",
-  logoWhite:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
-  logoDark:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_005312ce.MP4",
+  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_fefa958d.jpg",
+  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_36e63db8.jpeg",
 };
 
 export default function TentedCamp() {
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
-      <TentedCampNav />
-      <HeroSection />
-      <H2ImageSection />
-      <SecondStillSection />
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #ece8e1 0%, #eae5de 40%, #e8e3db 70%, #e5e0d8 90%, #e2ddd5 100%)" }}>
+      <ScrollProgress />
+      <BrandNavigation />
+      <HeroHeader />
+      <HomeIntroSection />
+      <div className="h-8 md:h-12" />
+      <AwardWinningProperties />
       <Footer />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NAVIGATION
+   BRAND NAVIGATION — Matches resorts homepage exactly
    ═══════════════════════════════════════════════════════════════ */
-function TentedCampNav() {
-  const [scrolled, setScrolled] = useState(false);
+function BrandNavigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [resortsOpen, setResortsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState("en");
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const [, navigate] = useLocation();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const resortsRef = useRef<HTMLDivElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
+    const handleScroll = () => {
+      const heroHeight = window.innerHeight;
+      setScrolledPastHero(window.scrollY > heroHeight * 0.5);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenuOpen(false);
+      if (resortsRef.current && !resortsRef.current.contains(e.target as Node)) setResortsOpen(false);
+      if (langRef.current && !langRef.current.contains(e.target as Node)) setLangOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleNavigate = (route: string) => {
+    setMenuOpen(false);
+    setResortsOpen(false);
+    navigate(route);
+  };
+
+  const handleComingSoon = (label: string) => {
+    setMenuOpen(false);
+    setResortsOpen(false);
+    import("sonner").then(({ toast }) => toast(label + " — Coming Soon"));
+  };
+
+  const pillClass = "flex items-center justify-center h-10 px-4 rounded-full bg-[#ece8e1]/70 backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-all duration-300";
+
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="flex items-center justify-between h-16 md:h-20 px-5 md:px-8">
-          {/* Left: Back arrow */}
-          <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-2 group">
-              <ArrowLeft
-                className={`w-4 h-4 transition-colors ${
-                  scrolled ? "text-[#3a2a1a]" : "text-white"
-                } group-hover:opacity-70`}
-              />
-              <span
-                className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${
-                  scrolled ? "text-[#3a2a1a]" : "text-white"
-                } group-hover:opacity-70 hidden md:inline`}
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Nayara Collection
-              </span>
-            </Link>
+      {/* Fixed pills — always visible */}
+      <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
+        {/* Hamburger pill */}
+        <button
+          onClick={() => { setMenuOpen(!menuOpen); setResortsOpen(false); }}
+          className={`${pillClass} pointer-events-auto`}
+        >
+          <div className="flex flex-col gap-1.5">
+            <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+            <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
           </div>
+        </button>
 
-          {/* Center: Logo */}
-          <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-            <Link href="/">
-              <img
-                src={scrolled ? CDN.logoDark : CDN.logoWhite}
-                alt="Nayara"
-                className="h-10 md:h-12 w-auto transition-all duration-500"
-              />
-            </Link>
-            <span
-              className={`text-[8px] md:text-[9px] tracking-[0.25em] uppercase mt-0.5 transition-colors ${
-                scrolled ? "text-[#4B4A4A]" : "text-white/80"
-              }`}
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Tented Camp
+        {/* Center: Resorts */}
+        <div
+          ref={resortsRef}
+          className="relative pointer-events-auto z-50"
+        >
+          <button
+            onClick={() => {
+              setResortsOpen(!resortsOpen);
+              setMenuOpen(false);
+            }}
+            className={`${pillClass} relative z-50`}
+          >
+            <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+              Resorts
             </span>
-          </div>
+          </button>
 
-          {/* Right: Reserve + Menu */}
-          <div className="flex items-center gap-3">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`hidden md:flex items-center h-9 px-5 rounded-full border transition-all ${
-                scrolled
-                  ? "border-[#3a2a1a]/20 text-[#3a2a1a] hover:bg-[#3a2a1a] hover:text-white"
-                  : "border-white/30 text-white hover:bg-white hover:text-[#3a2a1a]"
-              }`}
-            >
-              <span
-                className="text-[10px] tracking-[0.2em] uppercase"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          <AnimatePresence>
+            {resortsOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl p-3 z-[60] w-48"
               >
-                Reserve
-              </span>
-            </a>
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors ${
-                scrolled ? "text-[#3a2a1a]" : "text-white"
-              }`}
-            >
-              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+                {propertyLinks.map((prop) => (
+                  <button
+                    key={prop.label}
+                    onClick={() => handleNavigate(prop.route)}
+                    className="block w-full text-left px-4 py-2 text-sm text-[#3a2a1a] hover:bg-gray-100 rounded transition-colors"
+                  >
+                    {prop.label}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </nav>
 
-      {/* Dropdown menu */}
-      {menuOpen && (
-        <div className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md border-b border-stone-200">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex flex-col gap-1">
-            {[
-              { label: "Nayara Gardens", route: "/gardens" },
-              { label: "Nayara Springs", route: "/springs" },
-              { label: "Nayara Alto Atacama", route: "/alto-atacama" },
-              { label: "Nayara Hangaroa", route: "/hangaroa" },
-              { label: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
-            ].map((link) => (
+        {/* Right side: Reserve only */}
+        <div className="flex items-center gap-4 pointer-events-auto">
+          {/* Reserve pill */}
+          <button
+            onClick={() => handleComingSoon("Reservation")}
+            className={`${pillClass}`}
+          >
+            <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+              Reserve
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* Hamburger dropdown menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md overflow-y-auto"
+          >
+            <div className="max-w-lg mx-auto px-8 pt-28 pb-16">
+              {/* Gallery */}
               <button
-                key={link.label}
-                onClick={() => {
-                  setMenuOpen(false);
-                  navigate(link.route);
-                }}
-                className="text-left py-2 text-[#5a4a3a]/70 hover:text-[#3a2a1a] transition-colors"
+                onClick={() => handleNavigate("/gallery")}
+                className="block w-full text-left py-4 border-b border-stone-200"
               >
-                <span
-                  className="text-[11px] tracking-[0.15em] uppercase"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                >
-                  {link.label}
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Gallery
                 </span>
               </button>
-            ))}
-          </div>
-        </div>
-      )}
+
+              {/* Experiences */}
+              <button
+                onClick={() => handleNavigate("/experiences")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Experiences
+                </span>
+              </button>
+
+              {/* Wellness */}
+              <button
+                onClick={() => handleNavigate("/wellness")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Wellness
+                </span>
+              </button>
+
+              {/* Gastronomy */}
+              <button
+                onClick={() => handleNavigate("/gastronomy")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Gastronomy
+                </span>
+              </button>
+
+              {/* Sustainability */}
+              <button
+                onClick={() => handleNavigate("/sustainability")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Sustainability
+                </span>
+              </button>
+
+              {/* Awards */}
+              <button
+                onClick={() => handleNavigate("/awards")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Awards
+                </span>
+              </button>
+
+              {/* Press */}
+              <button
+                onClick={() => handleNavigate("/press")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Press
+                </span>
+              </button>
+
+              {/* Journal */}
+              <button
+                onClick={() => handleNavigate("/journal")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Journal
+                </span>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+
     </>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   H1 VIDEO — Full-screen hero video with H1 title at bottom
+   HERO HEADER — H1 Video
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection() {
-  const isMobile = useIsMobile();
-
+function HeroHeader() {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      {/* Video background */}
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Video Background */}
       <div className="absolute inset-0">
         <BlobVideo
-          src={isMobile ? CDN.heroMobile : CDN.heroDesktop}
+          src={CDN.heroVideo}
+          autoPlay
+          muted
+          controls={false}
           className="w-full h-full object-cover"
-          poster={CDN.heroPoster}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      {/* H1 at bottom */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
-        <h1
-          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 400,
-            fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
-            lineHeight: 1,
-          }}
+      {/* Content — anchored to bottom */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-heading)", fontWeight: 400 }}
         >
-          Luxury Tented Camp Immersed in the Rainforest
-        </h1>
+          Nayara Tented Camp
+        </motion.h1>
       </div>
     </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   H2 IMAGE — Two-column layout (text left, vertical image right)
+   H2 SECTION — Vertical image + text
    ═══════════════════════════════════════════════════════════════ */
-function H2ImageSection() {
+function HomeIntroSection() {
   return (
-    <section
-      className="w-full"
-      style={{
-        paddingTop: 'clamp(40px, 8vw, 80px)',
-        paddingBottom: 'clamp(40px, 8vw, 80px)',
-        backgroundImage: `url(${CDN.bgTexture})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div
-        className="flex flex-col md:flex-row items-center mx-auto gap-8 md:gap-12"
-        style={{
-          maxWidth: '1440px',
-          padding: '0 24px',
-        }}
-      >
-        {/* Left: Text content */}
-        <div className="flex flex-col gap-6 md:flex-1">
-          <h2
-            className="text-[#4B4A4A]"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 400,
-              fontSize: 'clamp(28px, 4vw, 42px)',
-              lineHeight: 1.3,
-            }}
-          >
-            Lifted above the Canopy
-          </h2>
-          <p
-            className="text-[#4B4A4A]"
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontWeight: 400,
-              fontSize: '15px',
-              lineHeight: '22.5px',
-            }}
-          >
-            High above the Arenal Rainforest with sweeping views of Arenal Volcano, Tented Camp blends regenerative design with warm hospitality. Luxury tents open to nature invite you to reconnect with wonder, one another, and the rhythm of the wild.
-          </p>
-        </div>
+    <section className="relative py-16 md:py-24 px-6 md:px-10">
+      <div className="max-w-[1300px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* Left: Text */}
+          <div className="flex flex-col justify-center">
+            <h2
+              className="text-[#3a2a1a] text-2xl md:text-4xl leading-tight mb-6"
+              style={{ fontFamily: "var(--font-heading)", fontWeight: 400 }}
+            >
+              Award-Winning Resorts Designed Around Destination
+            </h2>
+            <p
+              className="text-[#5a4a3a] text-sm md:text-base leading-relaxed"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            >
+              Each Nayara property is thoughtfully designed to celebrate its unique landscape and culture, offering guests an immersive experience rooted in nature and community.
+            </p>
+          </div>
 
-        {/* Right: Vertical image */}
-        <div className="md:flex-1">
-          <img
-            src={CDN.h2Image}
-            alt="Nayara Tented Camp tent interior"
-            className="w-full h-auto object-cover rounded-lg"
-            loading="eager"
-          />
+          {/* Right: Vertical Image */}
+          <div className="flex justify-center md:justify-end">
+            <img
+              src={CDN.h2Image}
+              alt="Alto Atacama landscape"
+              className="w-full max-w-sm md:max-w-md h-auto object-cover rounded-lg shadow-lg"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -271,16 +345,15 @@ function H2ImageSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SECOND STILL — Full-width horizontal image
+   SECOND STILL — Horizontal image
    ═══════════════════════════════════════════════════════════════ */
-function SecondStillSection() {
+function AwardWinningProperties() {
   return (
-    <section className="w-full">
+    <section className="relative w-full overflow-hidden">
       <img
         src={CDN.secondStill}
-        alt="Nayara Tented Camp landscape"
+        alt="Alto Atacama flamingos"
         className="w-full h-auto object-cover"
-        loading="lazy"
       />
     </section>
   );
