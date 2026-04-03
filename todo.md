@@ -451,3 +451,15 @@
 - [ ] Fix language button: visible in hero but does NOT follow on scroll
 - [ ] Change nav pill buttons from white to warm beige (#ece8e1) with existing brown text (#3a2a1a)
 - [ ] Fix language button: visible in hero but does NOT follow on scroll
+
+## Property Pages — Identical Template Standardization
+- [x] Make all 6 property pages use exact same code as Home.tsx (only CDN URLs differ)
+- [x] All pages share identical H1 "Luxury Resorts Rooted in Nature"
+- [x] All pages share identical H2 "Award-Winning Properties Defined by Destination"
+- [x] All pages share identical body text, nav, footer
+- [x] AwardWinningProperties component accepts optional imageSrc prop for per-page second still
+- [x] Fix broken Alto Atacama hero video (was .MP4 with 0 dimensions) — all pages now use working homepage hero video
+- [x] Fix Gardens sloth image (was Instagram screenshot) — replaced with clean Fora Travel sloth photo
+- [x] Fix Hangaroa image (was 98MB .tif) — converted to vertical-cropped JPEG
+- [x] Verify all 6 property pages + homepage render identically with correct images
+- [x] RESORTS dropdown navigation working on all pages
