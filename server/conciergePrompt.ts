@@ -88,11 +88,19 @@ Set at approximately 2,400 meters (7,900 feet) elevation in the driest desert on
 Adobe-style rooms and suites that blend into the desert landscape. Architecture inspired by traditional Atacameño construction — thick adobe walls, thatched roofs, earth tones. Every room has views of the valley, the Licancabur volcano, or the surrounding canyon walls.
 
 ### Dining — Alto Atacama
-Desert gastronomy celebrating the flavors of northern Chile and the Atacama region. Using ingredients from the resort's own Andean garden. Paired with Chilean wines.
-- **Ckelar Restaurant**: Main dining venue featuring North Chilean cuisine with Andean garden ingredients. International menu with locally sourced produce and meat.
-- **Quincho**: Outdoor barbecue pavilion for South American "Asado" — grilled meats, corn, and potatoes with views of the Andes and desert.
-- **Bar Puri**: Intimate bar offering wine pairing dinners with hand-picked Chilean wines. Great introduction to Chile's top vineyards.
-- Dietary accommodations handled with care — vegetarian, vegan, gluten-free, etc.
+Desert gastronomy celebrating the flavors of northern Chile. Takes the base of North Chilean food — corn, wheat and meat — and combines it with root vegetables, edible grasses and grains from the resort's own Andean Garden. Fresh, light and tasteful cuisine that goes hand-in-hand with the sublime terrain of the desert.
+
+**Ckelar Restaurant** — Main dining venue. Gastronomy deeply connected to the surroundings with most vegetables from the Andean Garden. Features Chile's unique grapes and top-of-the-line local wines. Signature dishes: Corn Cake with Goat Cheese and Chañar (using corn unique to this region), classic Charquicán (a dish native to the Atacama people). Reservations suggested.
+
+**Quincho** — Outdoor barbecue pavilion for South American "Asado." Grills different cuts of meat, corn, and potatoes. Eating outdoors in the shade overlooking the Andes mountains and the Atacama Desert. Inspired by the vastness and colors of the desert. Reservations required.
+
+**Bar Puri** — Intimate bar. Wine Pairing dinners with hand-picked collection of Chile's top wines. Freshly squeezed juices. Inspired by textures and flavours of the garden.
+
+**Outdoor Terrace** — Timeless cocktails and desert comfort drinks.
+
+**Wine Experiences**: Chile's top wines "Grandes Terruños," sommelier-selected wines, and Wine Pairing experiences available.
+
+Dietary accommodations handled with care — vegetarian, vegan, gluten-free, etc.
 
 ### Meal Plans
 Room-only, half-board, and all-inclusive options available. Guests can choose the plan that suits their style.
@@ -148,30 +156,46 @@ THREE SEPARATE PROPERTIES sharing one rainforest setting at the foot of Arenal V
 - Won Best Resort in Central America on Travel + Leisure 4 out of the last 5 years
 
 ### Dining — Costa Rica (Shared Across Properties)
-Six restaurants and several bars shared across the three Arenal properties. "Zero-kilometer" approach — sourcing ingredients as close to home as possible.
+Six restaurants and several bars shared across the three Arenal properties. "Zero-kilometer" approach — sourcing ingredients as close to home as possible. Guests at any property can dine at all restaurants.
 
-**Amor Loco** (at Nayara Springs) — Signature fine dining, adults only. Executive Chef Gianluca Re Fraschini's seven-course tasting experience showcasing Costa Rica's diverse provinces through French and Japanese techniques.
+**Amor Loco** (at Nayara Springs) — Signature chef's tasting menu, adults only. Reservations required. Chef Alex Jiménez takes guests on a culinary journey through Costa Rica's rich tapestry of flavors. Tasting Menu: $145 (taxes and service not included). Menu highlights: Tartlet with Razor Clam & Pumpkin Seeds, Chicasquil with Chayote & Tomato Gel, Rosette with Peach Palm Fruit, Corn Chorreada with Palmito Cheese Emulsion, Scallops with Plum & Star Fruit, Sea Bass with Veloute Sauce & Cassava, Achiote Chicken with Mango Chutney, Beef Loin with Sour Orange Demi-Glace, Churro with Torch Ginger Flower & Vanilla Caviar, Purple Corn Panna Cotta with Hibiscus Flower & Popcorn.
 
-**Mis Amores** — Italian fine dining. Northern Italian traditions with a local twist — wood-fired pizzas, handmade pastas, and tableside cheese. Stunning outdoor setting with Arenal Volcano views.
+**Mis Amores** — Italian fine dining. Reservations required. Northern Italian traditions with wood-fired pizzas, handmade pastas, and a live-cheese pasta dish prepared tableside. Outdoor setting with Arenal Volcano views from every table. Lunch prices: Antipasto $19-28, Snacks $12-28 (Nayara Burger $28, Ceviche as Tiradito $24, Fried Calamari $22), Risotto & Pasta $24-28, Pizza $24-28 (Margherita, Quattro Stagioni, Pepperoni, Quattro Formaggio), Dolce $14. Dinner: Antipasto (Insalata Mista, Pomodoro Burrata Caprese, Parmigiana, Manzo Tonnato), Primo Piatto (Tagliatelle alla Puttanesca, Cacio e Pepe al Tavolo, Linguine alle Vongole, Risotto Frutti di Mare), Secondo Piatto (Filetto di Branzino, Tagliata di Angus, Polpo alla Griglia), Pizza (Margherita, Diavola, Tartufo), Dolce (Tiramisù, Affogato al Caffé, Brontolino, Tartufo).
 
-**Besame Mucho** — Romantic private dinner experience. Your own private dining room with a dedicated chef and personal server. Reservations required 24 hours in advance.
+**Besame Mucho** — Romantic private dinner. Reservations required 24 hours in advance. A fantasy setting with your own private room, dedicated chef and personal server. $320 per couple (taxes not included, 23% tax). Exclusive candlelit dining experience.
 
-**La Terraza de Arenal** — Open-air family restaurant serving à la carte Latin American cuisine with volcano views. Features "Bar Azul" where the bartender crafts personalized tropical cocktails. Live local music nightly.
+**La Terraza de Arenal** — Open-air family restaurant. Reservations suggested. À la carte Latin American cuisine with volcano views. Uses only local produce, sources own fish and meat, carries hundreds of wines from around the world. Features "Bar Azul" where the bartender crafts personalized tropical cocktails. Live local musicians every night.
 
-**Asia-Luna** — Costa Rican-Asian fusion. Traditional Asian flavors blended with local ingredients. Indoor sushi bar and outdoor terrace. Signature: Nayara Roll with sweet plantains and chicken, grilled Yellowfin Tuna.
+**Asia-Luna** — Costa Rican-Asian fusion. Reservations required. Intimate stylish spot with outdoor terrace and indoor sushi bar. Unique interpretation of traditional Asian cuisine in the rainforest. Signature: Chef's Nayara Roll (sweet plantains and cooked chicken), grilled Yellow Fin Tuna with sautéed vegetables.
 
-**Ayla** (at Nayara Tented Camp) — Elevated Mediterranean cuisine with Middle Eastern flair. Set in an elegant tent overlooking the infinity pool, rainforest, and Arenal Volcano.
+**Ayla** (at Nayara Tented Camp) — Elevated Mediterranean with Middle Eastern touch. Reservations suggested. Elegant tent with views of infinity pool, rainforest, and Arenal Volcano.
 
 ### Bars — Costa Rica
-**Nostalgia Wine Bar** (at Nayara Gardens) — Latin American and European wines with Italian wine dispensing system. Curated bites. Bar and balcony seating.
+**Nostalgia Wine Bar** (at Nayara Gardens) — Adults only. Latin American and European wines with exclusive Italian wine dispensing system. Warm leather and rich wood atmosphere. Bar and balcony seating with curated bites.
 
 **Cielito Lindo** (at Nayara Springs) — Swim-up bar and pool. Cocktails, house specialties, snacks, and wood-fired pizza.
 
-**Mi Cafecito** — Espresso bar celebrating Costa Rican coffee. Freshly roasted beans, barista classes available.
+**Mi Cafecito** — Espresso bar. Roasts their own Costa Rican coffee. Rustic charm with wooden floors and high ceilings. Barista classes available ($56 per person, 23% tax not included). Balcony overlooking the rainforest.
 
 **Lapas Bar** (at Nayara Tented Camp) — Swim-up and poolside cocktails with exceptional views.
 
-**Henry's Bar** (at Nayara Tented Camp) — Welcome bar with effortless luxury and tropical design. Perfect for arrival cocktails.
+**Henry's Bar** (at Nayara Tented Camp) — Welcome bar with effortless luxury and tropical design. Fireplace and curated library next to Ayla. Perfect for arrival cocktails or a rainy evening.
+
+**Bar Azul** (at La Terraza) — Tropical cocktail bar within La Terraza restaurant.
+
+### Culinary Experiences & Pricing — Costa Rica
+- Romantic room decoration: $165 (flower arrangement, petals, fruit with chocolate)
+- Flower arrangement: $90
+- Assorted cheese platter with prosecco: $120
+- Chocolate covered strawberries (8 units): $40
+- Cheese platter: $55
+- Chocolate truffles (8 units): $45
+- Three-course dinner (all restaurants except Amor Loco, no beverages): $85
+- Cooking classes: $90 per person
+- Mixology classes: $90 per person
+- Coffee classes: $56 per person
+- Rum tasting: $85 per person
+(All prices exclude 13% or 23% tax depending on item)
 
 ### Meal Plans (Costa Rica)
 Breakfast included with room rate. Room-only pricing standard.
@@ -193,15 +217,15 @@ Green Globe Certified. Cloud forest conservation programs. Community partnership
 An eco-luxury lodge on Easter Island — one of the most remote inhabited places on Earth, 3,700 km from the Chilean coast. Immerse in Rapa Nui culture, explore the mysterious moai statues.
 
 ### Dining
-Three dining venues on property, all offering recipes using locally caught fish seasoned with Polynesian spices.
+Three dining venues on property. The base of Hangaroa cuisine is local products — surf and turf. The island's immense ocean brings abundance of fish and Ra Rape, a smaller indigenous type of lobster. Local ingredients like sweet potatoes, plantain, and mango are part of the island's cuisine identity.
 
-**Kaloa Lounge** — Fine dining restaurant. Dinner service 18:30-22:30.
+**Poerava** — Main restaurant with indoor and al-fresco area. Open for breakfast and lunch. Spectacular views of the Pacific Ocean from the terrace. Traditional Rapa Nui and international cuisine. Ceviches, carpaccios and stone-cooked tuna are highlights. Chilean wines showcased on the wine list with Wine Pairing dinners available. Inspired by the blue ocean. Reservations required.
 
-**Poerava** — Main restaurant with indoor and al fresco dining. Rapa Nui and international cuisine. Breakfast, lunch, and dinner.
+**Kaloa Lounge** — Sophisticated and relaxed lounge-like atmosphere. A gathering place for hotel guests and local visitors. Romantic venue for cocktails while the sun goes down on the ocean. Surf and turf fare. Minimalist decor. Locally inspired and delicious flavors.
 
-**Vaikoa** — Light meals and drinks.
+**Vaikoa Bar** — Honors the architecture of ancient Rapa Nui. Small room covered by thick grass, a "green roof" used to protect and insulate. Perfect place for tropical cocktails. Outside, enjoy a magnificent sunset and feel connected with this old and mysterious land. Warm, rustic with views of the ocean.
 
-The culinary heart of Nayara Hangaroa. Bilingual menu honoring Rapa Nui heritage alongside international classics. Menu items carry names in both Spanish and Rapa Nui language.
+Bilingual menu honoring Rapa Nui heritage alongside international classics. Menu items carry names in both Spanish and Rapa Nui language.
 
 **Salads (Sara)**: From the Sea Salad with smoked salmon and breaded squid ($13,300), Caesar Salad ($12,500), Roast Beef Island Salad with palm hearts and mango ($13,000), Hummus ($11,500), Andean Quinoa Tabulé ($11,500).
 
@@ -236,11 +260,11 @@ S Certification. Deep commitment to Rapa Nui cultural preservation. Works closel
 Overwater villas on a private island in Panama's Caribbean archipelago. Crystal-clear turquoise waters, coral reefs, tropical island life. Adults only.
 
 ### Dining
-All-inclusive dining featuring Caribbean and Panamanian cuisine with fresh seafood. Afro-Caribbean, Ngäbe-Buglé indigenous, and Panamanian culinary traditions.
+All-inclusive dining featuring international cuisine with local flavor and ingredients. Chef creates a new meticulously crafted dinner menu every night of the week. All meals prepared using the finest hand-selected meats, local seafood directly from the sea, and fresh organic vegetables and ingredients. Room service available for all meals and drinks.
 
-**The Elephant House** — Signature fine dining restaurant and bar. A majestic 100-year-old structure shipped halfway around the world from Bali, Indonesia.
+**The Elephant House** — Signature fine dining restaurant and bar. Adults only. A majestic 100-year-old structure shipped halfway around the world from Bali, Indonesia. Take in the moon glistening on the water and spot a stingray gliding by as you delight in lobster paired with the perfect chilled white wine. Colorful, flavorful, fresh — a celebration of food and wine.
 
-**The Coral Café** — Latin bistro by the pool. Casual dining with Caribbean-inspired dishes and poolside bites.
+**The Coral Café** — Laidback poolside dining. A cheerful alfresco setting for leisurely breakfast or lunch. Feast on local seafood or enjoy a craft cocktail. Local, light, al fresco — an inspiration from nature.
 
 ### Spa & Wellness
 Overwater spa pavilion surrounded by Caribbean waters:

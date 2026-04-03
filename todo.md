@@ -367,3 +367,13 @@
 - [x] Research actual restaurant names for all 6 Nayara properties
 - [x] Add strict anti-hallucination rules to system prompt
 - [x] Add verified restaurant data to system prompt
+
+## Comprehensive Restaurant Data Scraping
+- [x] Scrape nayaragardens.com/eat/ for full restaurant details
+- [x] Scrape nayarasprings.com/eat/ for full restaurant details
+- [x] Scrape nayaratentedcamp.com/eat/ for full restaurant details
+- [x] Scrape nayaraaltoatacama.com/eat/ for full restaurant details
+- [x] Scrape nayarahangaroa.com/eat/ for full restaurant details
+- [x] Scrape nayarabocasdeltoro.com/eat/ for full restaurant details
+- [x] Find and scrape any available menu PDFs
+- [x] Update Henry's system prompt with all scraped restaurant data
