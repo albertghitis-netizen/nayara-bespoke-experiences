@@ -191,8 +191,8 @@ function BrandNavigation() {
 
   return (
     <>
-      {/* ── FIXED NAV: Hamburger (left) + Reserve (right) ── */}
-      <div className="fixed top-2 left-4 right-4 z-50 flex items-center justify-around md:justify-between pointer-events-none">
+      {/* ── FIXED NAV: Hamburger (far left) + Reserve (far right) ── */}
+      <div className="fixed top-2 left-0 right-0 z-50 flex items-center justify-between px-4 pointer-events-none">
         {/* LEFT: Hamburger pill + Resorts */}
         <div className="flex items-center gap-3 md:gap-3 pointer-events-auto md:w-auto md:justify-start">
         <div ref={menuRef} className="relative">
@@ -344,7 +344,7 @@ function BrandNavigation() {
           {/* Resorts pill + dropdown — bottom-left on mobile, top on desktop */}
           <div
             ref={resortsRef}
-            className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto transition-all duration-300 pointer-events-auto md:pointer-events-auto ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
+            className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto transition-all duration-300 pointer-events-auto md:pointer-events-auto`}
           >
             <button
               onClick={() => {
@@ -410,7 +410,7 @@ function BrandNavigation() {
           {/* Language pill — hidden on mobile, shown on desktop */}
           <div
             ref={langRef}
-            className={`hidden md:block relative transition-all duration-300 ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
+            className={`hidden md:block relative transition-all duration-300`}
           >
             <button
               onClick={() => {
