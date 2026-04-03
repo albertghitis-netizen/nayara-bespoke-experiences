@@ -407,10 +407,10 @@ function BrandNavigation() {
 
         {/* RIGHT: Language + Reserve */}
         <div className="flex items-center gap-3 pointer-events-auto">
-          {/* Language pill — hidden after scrolling past hero */}
+          {/* Language pill — hidden on mobile, shown on desktop */}
           <div
             ref={langRef}
-            className={`relative transition-all duration-300 ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
+            className={`hidden md:block relative transition-all duration-300 ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
           >
             <button
               onClick={() => {
