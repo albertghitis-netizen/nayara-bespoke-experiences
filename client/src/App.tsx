@@ -10,7 +10,8 @@ import AltoAtacama from "./pages/AltoAtacama";
 import CostaRica from "./pages/CostaRica";
 import Hangaroa from "./pages/Hangaroa";
 import BocasDelToro from "./pages/BocasDelToro";
-import Journal from "./pages/Journal";
+import Blog from "./pages/Blog";
+import Podcast from "./pages/Podcast";
 import Awards from "./pages/Awards";
 import Sustainability from "./pages/Sustainability";
 import Gallery from "./pages/Gallery";
@@ -55,7 +56,8 @@ function Router() {
         <Route path="/springs" component={Springs} />
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
-        <Route path="/journal" component={Journal} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/podcast" component={Podcast} />
         <Route path="/awards" component={Awards} />
         <Route path="/sustainability" component={Sustainability} />
         <Route path="/gallery" component={Gallery} />

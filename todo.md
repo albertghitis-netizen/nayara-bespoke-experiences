@@ -470,3 +470,7 @@
 
 ## Mobile Nav Button Spacing
 - [x] Hamburger, RESORTS, and RESERVE buttons evenly spaced at the top on mobile
+
+## Menu Updates
+- [ ] Rename Journal to Blog in hamburger menu
+- [ ] Add Podcast below Blog in hamburger menu

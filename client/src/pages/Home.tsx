@@ -323,16 +323,29 @@ function BrandNavigation() {
                     </span>
                   </button>
 
-                  {/* Journal */}
+                  {/* Blog */}
                   <button
-                    onClick={() => handleNavigate("/journal")}
+                    onClick={() => handleNavigate("/blog")}
                     className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
                       className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
-                      Journal
+                      Blog
+                    </span>
+                  </button>
+
+                  {/* Podcast */}
+                  <button
+                    onClick={() => handleNavigate("/podcast")}
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                  >
+                    <span
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      Podcast
                     </span>
                   </button>
                 </div>

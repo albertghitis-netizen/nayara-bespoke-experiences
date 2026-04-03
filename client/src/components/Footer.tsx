@@ -88,7 +88,8 @@ export default function Footer() {
                 { label: "Sustainability", route: "/sustainability" },
                 { label: "Gallery", route: "/gallery" },
                 { label: "Awards", route: "/awards" },
-                { label: "Journal", route: "/journal" },
+                { label: "Blog", route: "/blog" },
+                { label: "Podcast", route: "/podcast" },
                 { label: "Press", route: "/press" },
               ].map((item) => (
                 <a

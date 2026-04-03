@@ -28,7 +28,7 @@ import Footer from "@/components/Footer";
 
 type Tab = "stories" | "horizons";
 
-export default function Journal() {
+export default function Podcast() {
   const [activeTab, setActiveTab] = useState<Tab>("stories");
   const [activePillar, setActivePillar] = useState("All");
   const [activeDestination, setActiveDestination] = useState("All");
