@@ -494,3 +494,13 @@
 
 ## Beige Background Evaluation
 - [x] Add two empty beige spacer sections below AwardWinningProperties to make background gradient visible
+
+## Menu Text Update
+- [x] Rename "The Nayara Story" to "Story" in hamburger menu
+
+## Rooms Section (Below Horizontal Photo)
+- [x] Add Rooms section with flipped two-column layout: vertical video placeholder (left), H3 "Rooms" (right)
+
+## New Content Sections (Below Horizontal Photo)
+- [x] Remove Rooms section (flipped layout)
+- [x] Add 3 alternating two-column sections below horizontal photo (Section 1: image left/text right, Section 2: text left/image right, Section 3: image left/text right)

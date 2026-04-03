@@ -58,9 +58,9 @@ export default function Home() {
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
       <AwardWinningProperties />
-      {/* Empty spacer sections to evaluate beige background */}
-      <section className="w-full h-[50vh]" />
-      <section className="w-full h-[50vh]" />
+      <PlaceholderSection title="Section 1" flipped />
+      <PlaceholderSection title="Section 2" />
+      <PlaceholderSection title="Section 3" flipped />
       <Footer />
     </div>
   );
@@ -233,7 +233,7 @@ function BrandNavigation() {
                 className={`${dropdownPanelClass} left-0 top-full w-64`}
               >
                 <div className="py-2">
-                  {/* The Nayara Story */}
+                  {/* Story */}
                   <button
                     onClick={() => handleNavigate("/story")}
                     className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
@@ -242,7 +242,7 @@ function BrandNavigation() {
                       className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
-                      The Nayara Story
+                      Story
                     </span>
                   </button>
 
@@ -809,7 +809,7 @@ function HomeIntroSection() {
               fontSize: '15px',
             }}
           >
-            The Nayara Story
+            Story
           </a>
         </div>
 
@@ -822,6 +822,77 @@ function HomeIntroSection() {
             loading="eager"
           />
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PLACEHOLDER SECTION — Two-column layout with alternating order
+   flipped=false: text left, image right (matches H2)
+   flipped=true: image left, text right
+   ═══════════════════════════════════════════════════════════════ */
+function PlaceholderSection({ title, flipped = false }: { title: string; flipped?: boolean }) {
+  const textBlock = (
+    <div className="flex flex-col gap-10 md:flex-1">
+      <h3
+        className="text-[#4B4A4A]"
+        style={{
+          fontFamily: 'var(--font-heading)',
+          fontWeight: 400,
+          fontSize: 'clamp(28px, 4vw, 42px)',
+          lineHeight: 1.3,
+        }}
+      >
+        {title}
+      </h3>
+      <p
+        className="text-[#4B4A4A]"
+        style={{
+          fontFamily: 'var(--font-heading)',
+          fontWeight: 400,
+          fontSize: '15px',
+          lineHeight: '22.5px',
+        }}
+      >
+        Placeholder text for this section. Content coming soon.
+      </p>
+    </div>
+  );
+
+  const imageBlock = (
+    <div className="md:flex-1">
+      <div
+        className="w-full bg-[#3a2a1a]/10 flex items-center justify-center"
+        style={{ aspectRatio: '3/4', minHeight: '400px' }}
+      >
+        <span
+          className="text-[#3a2a1a]/40 text-sm tracking-[0.15em] uppercase"
+          style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+        >
+          Image Placeholder
+        </span>
+      </div>
+    </div>
+  );
+
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingBottom: 'clamp(40px, 8vw, 80px)',
+      }}
+    >
+      <div
+        className="flex flex-col md:flex-row items-center mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
+      >
+        {flipped ? (
+          <>{imageBlock}{textBlock}</>
+        ) : (
+          <>{textBlock}{imageBlock}</>
+        )}
       </div>
     </section>
   );
