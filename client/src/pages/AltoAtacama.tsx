@@ -1,282 +1,390 @@
-/**
- * NAYARA ALTO ATACAMA — Property Homepage
- * Rebuilt to match spherical site structure exactly
- * Sections: Nav → Hero → Footer
+/*
+ * NAYARA ALTO ATACAMA — Property Page
+ * Formatted exactly like resorts homepage
+ * Structure: H1 Video → H2 Image → Second Still → Footer
  */
 
-import { Link, useLocation } from "wouter";
-import { useState, useEffect } from "react";
-import { Menu, X, ArrowLeft } from "lucide-react";
-import { useIsMobile } from "@/hooks/useMobile";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "wouter";
 import BlobVideo from "@/components/BlobVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import { BOOKING_URLS } from "@/data/booking";
+import ScrollProgress from "@/components/ScrollProgress";
+import { hotelBookingLinks } from "@/data/booking";
 
-const BOOKING_URL = BOOKING_URLS["alto-atacama"];
+/* ── Property menu links ── */
+const propertyLinks = [
+  { label: "Nayara Alto Atacama", route: "/alto-atacama", available: true },
+  { label: "Nayara Gardens", route: "/gardens", available: true },
+  { label: "Nayara Springs", route: "/springs", available: true },
+  { label: "Nayara Tented Camp", route: "/tented-camp", available: true },
+  { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
+  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true },
+];
+
+/* ── Language options ── */
+const languages = [
+  { code: "en", label: "English" },
+  { code: "es", label: "Español" },
+  { code: "pt", label: "Português" },
+  { code: "fr", label: "Français" },
+  { code: "de", label: "Deutsch" },
+  { code: "it", label: "Italiano" },
+  { code: "ja", label: "日本語" },
+  { code: "zh", label: "中文" },
+];
 
 /* ── CDN Assets ── */
 const CDN = {
-  heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-new-horizontal_487d28e6.mp4",
-  heroMobile:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-vertical-drone_27d39f2d.mp4",
-  heroPoster:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_ffc4f157.PNG",
-  logoWhite:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
-  logoDark:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
-  /* Astrophotography stills */
-  rockPillarMilkyWay:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/_MVM7581-Enhanced-NR-Pano-1copy2_eba2a6bc.webp",
-  busMilkyWay:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/_MVM7631-Enhanced-NRcopy2_d8912449.webp",
-  cactiMilkyWay:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Single_MVM7718-Enhanced-NRcopy2_0153065c.webp",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Atacama_horizontal_1_20260320_142142_2fd51232.mov",
+  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_c3b22a5a.PNG",
+  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5798_cropped_0ffc7db7.PNG",
 };
 
 export default function AltoAtacama() {
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
-      <AtacamaNav />
-      <HeroSection />
-      <AtacamaNightSkies />
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #ece8e1 0%, #eae5de 40%, #e8e3db 70%, #e5e0d8 90%, #e2ddd5 100%)" }}>
+      <ScrollProgress />
+      <BrandNavigation />
+      <HeroHeader />
+      <HomeIntroSection />
+      <div className="h-8 md:h-12" />
+      <AwardWinningProperties />
       <Footer />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NAVIGATION — Matches spherical: back arrow left, logo center, Reserve right
+   BRAND NAVIGATION — Matches resorts homepage exactly
    ═══════════════════════════════════════════════════════════════ */
-function AtacamaNav() {
-  const [scrolled, setScrolled] = useState(false);
+function BrandNavigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [resortsOpen, setResortsOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState("en");
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const [, navigate] = useLocation();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const resortsRef = useRef<HTMLDivElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
+    const handleScroll = () => {
+      const heroHeight = window.innerHeight;
+      setScrolledPastHero(window.scrollY > heroHeight * 0.5);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenuOpen(false);
+      if (resortsRef.current && !resortsRef.current.contains(e.target as Node)) setResortsOpen(false);
+      if (langRef.current && !langRef.current.contains(e.target as Node)) setLangOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleNavigate = (route: string) => {
+    setMenuOpen(false);
+    setResortsOpen(false);
+    navigate(route);
+  };
+
+  const handleComingSoon = (label: string) => {
+    setMenuOpen(false);
+    setResortsOpen(false);
+    import("sonner").then(({ toast }) => toast(label + " — Coming Soon"));
+  };
+
+  const pillClass = "flex items-center justify-center h-10 px-4 rounded-full bg-[#ece8e1]/70 backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-all duration-300";
+
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="flex items-center justify-between h-16 md:h-20 px-5 md:px-8">
-          {/* Left: Back arrow */}
-          <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-2 group">
-              <ArrowLeft
-                className={`w-4 h-4 transition-colors ${
-                  scrolled ? "text-[#3a2a1a]" : "text-white"
-                } group-hover:opacity-70`}
-              />
-              <span
-                className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${
-                  scrolled ? "text-[#3a2a1a]" : "text-white"
-                } group-hover:opacity-70 hidden md:inline`}
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Nayara Collection
-              </span>
-            </Link>
+      {/* Fixed pills — always visible */}
+      <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
+        {/* Hamburger pill */}
+        <button
+          onClick={() => { setMenuOpen(!menuOpen); setResortsOpen(false); }}
+          className={`${pillClass} pointer-events-auto`}
+        >
+          <div className="flex flex-col gap-1.5">
+            <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+            <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
           </div>
+        </button>
 
-          {/* Center: Logo */}
-          <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-            <Link href="/">
-              <img
-                src={scrolled ? CDN.logoDark : CDN.logoWhite}
-                alt="Nayara"
-                className="h-10 md:h-12 w-auto transition-all duration-500"
-              />
-            </Link>
-            <span
-              className={`text-[8px] md:text-[9px] tracking-[0.25em] uppercase mt-0.5 transition-colors ${
-                scrolled ? "text-[#4B4A4A]" : "text-white/80"
-              }`}
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Alto Atacama
-            </span>
-          </div>
-
-          {/* Right: Reserve + Menu */}
-          <div className="flex items-center gap-3">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`hidden md:flex items-center h-9 px-5 rounded-full border transition-all ${
-                scrolled
-                  ? "border-[#3a2a1a]/20 text-[#3a2a1a] hover:bg-[#3a2a1a] hover:text-white"
-                  : "border-white/30 text-white hover:bg-white hover:text-[#3a2a1a]"
-              }`}
-            >
-              <span
-                className="text-[10px] tracking-[0.2em] uppercase"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Reserve
-              </span>
-            </a>
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors ${
-                scrolled ? "text-[#3a2a1a]" : "text-white"
-              }`}
-            >
-              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Dropdown menu */}
-      {menuOpen && (
-        <div className="fixed top-16 md:top-20 left-0 right-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md border-b border-stone-200">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex flex-col gap-1">
-            {[
-              { label: "Nayara Tented Camp", route: "/tented-camp" },
-              { label: "Nayara Gardens", route: "/gardens" },
-              { label: "Nayara Springs", route: "/springs" },
-              { label: "Nayara Hangaroa", route: "/hangaroa" },
-              { label: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
-            ].map((link) => (
+        {/* Right side: Language + Reserve */}
+        <div className="flex items-center gap-4 pointer-events-auto">
+          {!scrolledPastHero && (
+            <div ref={langRef} className="relative">
               <button
-                key={link.label}
-                onClick={() => {
-                  setMenuOpen(false);
-                  navigate(link.route);
-                }}
-                className="text-left py-2 text-[#5a4a3a]/70 hover:text-[#3a2a1a] transition-colors"
+                onClick={() => setLangOpen(!langOpen)}
+                className={`${pillClass}`}
               >
-                <span
-                  className="text-[11px] tracking-[0.15em] uppercase"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                >
-                  {link.label}
+                <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+                  {selectedLang.toUpperCase()}
                 </span>
               </button>
-            ))}
-          </div>
+              <AnimatePresence>
+                {langOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-12 right-0 bg-white rounded-lg shadow-lg p-2 z-50"
+                  >
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          setSelectedLang(lang.code);
+                          setLangOpen(false);
+                        }}
+                        className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          )}
+
+          {/* Reserve pill */}
+          <button
+            onClick={() => handleComingSoon("Reservation")}
+            className={`${pillClass}`}
+          >
+            <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+              Reserve
+            </span>
+          </button>
         </div>
-      )}
+      </div>
+
+      {/* Hamburger dropdown menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md overflow-y-auto"
+          >
+            <div className="max-w-lg mx-auto px-8 pt-28 pb-16">
+              {/* Gallery */}
+              <button
+                onClick={() => handleNavigate("/gallery")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Gallery
+                </span>
+              </button>
+
+              {/* Experiences */}
+              <button
+                onClick={() => handleNavigate("/experiences")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Experiences
+                </span>
+              </button>
+
+              {/* Wellness */}
+              <button
+                onClick={() => handleNavigate("/wellness")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Wellness
+                </span>
+              </button>
+
+              {/* Gastronomy */}
+              <button
+                onClick={() => handleNavigate("/gastronomy")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Gastronomy
+                </span>
+              </button>
+
+              {/* Sustainability */}
+              <button
+                onClick={() => handleNavigate("/sustainability")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Sustainability
+                </span>
+              </button>
+
+              {/* Awards */}
+              <button
+                onClick={() => handleNavigate("/awards")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Awards
+                </span>
+              </button>
+
+              {/* Press */}
+              <button
+                onClick={() => handleNavigate("/press")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Press
+                </span>
+              </button>
+
+              {/* Journal */}
+              <button
+                onClick={() => handleNavigate("/journal")}
+                className="block w-full text-left py-4 border-b border-stone-200"
+              >
+                <span className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Journal
+                </span>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Resorts pill + dropdown — bottom-left on mobile, top on desktop */}
+      <div
+        ref={resortsRef}
+        className={`fixed bottom-4 left-4 md:relative md:bottom-auto md:left-auto transition-all duration-300 pointer-events-auto md:pointer-events-auto`}
+      >
+        <button
+          onClick={() => setResortsOpen(!resortsOpen)}
+          className={`${pillClass}`}
+        >
+          <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+            Resorts
+          </span>
+        </button>
+
+        <AnimatePresence>
+          {resortsOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute bottom-12 left-0 bg-white rounded-lg shadow-lg p-3 z-50 w-48"
+            >
+              {propertyLinks.map((prop) => (
+                <button
+                  key={prop.label}
+                  onClick={() => handleNavigate(prop.route)}
+                  className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 rounded"
+                >
+                  {prop.label}
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-screen video, H1 centered at bottom
+   HERO HEADER — H1 Video
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection() {
-  const isMobile = useIsMobile();
-
+function HeroHeader() {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      {/* Video background */}
+    <section className="relative h-screen w-full overflow-hidden">
+      {/* Video Background */}
       <div className="absolute inset-0">
         <BlobVideo
-          src={isMobile ? CDN.heroMobile : CDN.heroDesktop}
+          src={CDN.heroVideo}
+          autoPlay
+          muted
+          controls={false}
           className="w-full h-full object-cover"
-          poster={CDN.heroPoster}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      {/* Content — centered bottom */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
-        <h1
-          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 400,
-            fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
-            lineHeight: 1,
-          }}
+      {/* Content — anchored to bottom */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-heading)", fontWeight: 400 }}
         >
-          Luxury Atacama Desert Lodge Under the Stars
-        </h1>
+          Luxury Resorts Rooted in Nature
+        </motion.h1>
       </div>
     </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ATACAMA NIGHT SKIES — Astrophotography gallery
+   H2 SECTION — Vertical image + text
    ═══════════════════════════════════════════════════════════════ */
-function AtacamaNightSkies() {
+function HomeIntroSection() {
   return (
-    <section className="bg-[#0a0a0a]">
-      {/* Section header */}
-      <div className="py-16 md:py-24 px-6 text-center">
-        <p
-          className="text-white/50 text-[11px] md:text-xs tracking-[0.3em] uppercase mb-4"
-          style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
-        >
-          The Darkest Skies on Earth
-        </p>
-        <h2
-          className="text-white text-3xl md:text-5xl max-w-3xl mx-auto"
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 400,
-            letterSpacing: '-1px',
-            lineHeight: 1.1,
-          }}
-        >
-          Atacama After Dark
-        </h2>
-      </div>
+    <section className="relative py-16 md:py-24 px-6 md:px-10">
+      <div className="max-w-[1300px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* Left: Text */}
+          <div className="flex flex-col justify-center">
+            <h2
+              className="text-[#3a2a1a] text-2xl md:text-4xl leading-tight mb-6"
+              style={{ fontFamily: "var(--font-heading)", fontWeight: 400 }}
+            >
+              Award-Winning Resorts Designed Around Destination
+            </h2>
+            <p
+              className="text-[#5a4a3a] text-sm md:text-base leading-relaxed"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            >
+              Each Nayara property is thoughtfully designed to celebrate its unique landscape and culture, offering guests an immersive experience rooted in nature and community.
+            </p>
+          </div>
 
-      {/* Photo 1: Rock pillar panorama — full-width ultra-wide */}
-      <div className="relative w-full">
-        <img
-          src={CDN.rockPillarMilkyWay}
-          alt="Rock pillar silhouetted against the Milky Way arc in the Atacama Desert"
-          className="w-full h-auto object-cover"
-          loading="lazy"
-        />
-      </div>
-
-      {/* Photo 2 + 3: Two-column grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        {/* Bus + Milky Way */}
-        <div className="relative">
-          <img
-            src={CDN.busMilkyWay}
-            alt="Abandoned bus under the Milky Way in the Atacama Desert"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        {/* Cacti + Milky Way */}
-        <div className="relative">
-          <img
-            src={CDN.cactiMilkyWay}
-            alt="Giant cacti silhouetted against the Milky Way in the Atacama Desert"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          {/* Right: Vertical Image */}
+          <div className="flex justify-center md:justify-end">
+            <img
+              src={CDN.h2Image}
+              alt="Alto Atacama landscape"
+              className="w-full max-w-sm md:max-w-md h-auto object-cover rounded-lg shadow-lg"
+            />
+          </div>
         </div>
       </div>
+    </section>
+  );
+}
 
-      {/* Bottom caption */}
-      <div className="py-12 md:py-16 px-6 text-center">
-        <p
-          className="text-white/40 text-[11px] tracking-[0.2em] uppercase"
-          style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
-        >
-          Astrophotography by our resident guides
-        </p>
-      </div>
+/* ═══════════════════════════════════════════════════════════════
+   SECOND STILL — Horizontal image
+   ═══════════════════════════════════════════════════════════════ */
+function AwardWinningProperties() {
+  return (
+    <section className="relative w-full overflow-hidden">
+      <img
+        src={CDN.secondStill}
+        alt="Alto Atacama flamingos"
+        className="w-full h-auto object-cover"
+      />
     </section>
   );
 }
