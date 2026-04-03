@@ -703,6 +703,7 @@ function HeroHeader() {
   const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
 
   return (
+    <>
     <section className="relative w-full h-screen overflow-hidden">
       {/* Video background — matches spherical nay-hero structure */}
       <div className="absolute inset-0">
@@ -753,6 +754,17 @@ function HeroHeader() {
         </h1>
       </div>
     </section>
+    
+    {/* Mobile-only full-width image */}
+    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)' }}>
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign(1)_d91b6c9a.jpg"
+        alt="Sloth in rainforest at Nayara Gardens"
+        className="w-full h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+    </>
   );
 }
 
@@ -810,8 +822,8 @@ function HomeIntroSection() {
           </a>
         </div>
 
-        {/* Right: image - Full width on mobile */}
-        <div className="md:flex-1 w-screen md:w-auto -ml-6 md:ml-0">
+        {/* Right: image - Desktop only */}
+        <div className="hidden md:flex md:flex-1">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign(1)_d91b6c9a.jpg"
             alt="Sloth in rainforest at Nayara Gardens"
