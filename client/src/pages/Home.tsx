@@ -188,7 +188,7 @@ function BrandNavigation() {
   return (
     <>
       {/* ── FIXED NAV: Hamburger (left) + Reserve (right) ── */}
-      <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
+      <div className="fixed top-2 left-4 right-4 z-50 flex items-center justify-between pointer-events-none">
         {/* LEFT: Hamburger pill + Language */}
         <div className="flex items-center gap-3 pointer-events-auto">
         <div ref={menuRef} className="relative">
@@ -631,7 +631,7 @@ function HeroHeader() {
 
        {/* Nayara leaf logo — white leaf + NAYARA text, no circle */}
       <motion.div
-        className="absolute top-4 md:top-5 left-0 right-0 z-10 flex flex-col items-center"
+        className="absolute top-2 md:top-2 left-0 right-0 z-10 flex flex-col items-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
