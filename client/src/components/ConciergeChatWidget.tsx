@@ -167,14 +167,9 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-2 right-4 z-50 flex items-center gap-0 rounded-full bg-[#ece8e1]/90 backdrop-blur-md shadow-lg px-2.5 py-1.5 hover:bg-[#ece8e1] transition-colors group cursor-pointer border border-[#3a2a1a]/30"
+            className="fixed bottom-2 right-4 z-50 flex items-center gap-2 rounded-full bg-[#E8DCC8] backdrop-blur-md shadow-lg px-4 py-2 hover:bg-[#E8DCC8]/90 transition-colors group cursor-pointer border border-[#3a2a1a]/20"
             aria-label="Open concierge"
           >
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Experiences-2_cd22baa3.png"
-              alt="Henry"
-              className="w-8 h-8 object-cover shrink-0"
-            />
             <span
               className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
@@ -316,7 +311,7 @@ export default function ConciergeChatWidget() {
               className="px-4 py-3 shrink-0"
               style={{ borderTop: "1.5px solid rgba(58, 42, 26, 0.15)" }}
             >
-              <div className="flex items-end gap-2 bg-white/60 rounded-xl px-3 py-1.5" style={{ border: "1px solid rgba(58, 42, 26, 0.1)" }}>
+              <div className="flex items-end gap-2 bg-[#E8DCC8] rounded-xl px-3 py-1.5" style={{ border: "1px solid rgba(58, 42, 26, 0.12)" }}>
                 <textarea
                   ref={inputRef}
                   value={input}

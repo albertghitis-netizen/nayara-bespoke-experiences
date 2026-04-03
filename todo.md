@@ -485,3 +485,9 @@
 
 ## Nav: RESORTS position
 - [x] Move RESORTS button next to hamburger on desktop only (leave mobile as is)
+
+## Nav Scroll + Chatbot Fixes
+- [x] On scroll: hide RESORTS and EN buttons, keep Hamburger and RESERVE fixed/sticky
+- [x] Fix Chat with Henry bar showing two shades of beige
+- [x] Remove robot background from chatbot
+- [x] Regenerate all 6 property pages from updated Home.tsx template (scroll behavior + chatbot fixes synced)

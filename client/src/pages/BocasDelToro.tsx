@@ -380,10 +380,10 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-        {/* Resorts pill + dropdown — next to hamburger on desktop */}
+        {/* Resorts pill + dropdown — next to hamburger on desktop, hides on scroll */}
         <div
           ref={resortsRef}
-          className="relative hidden md:block"
+          className={`relative hidden md:block transition-all duration-300 ${scrolledPastHero ? 'opacity-0 pointer-events-none scale-90' : 'opacity-100 scale-100'}`}
         >
             <button
               onClick={() => {
@@ -510,10 +510,10 @@ function BrandNavigation() {
 
         {/* RIGHT: Language + Reserve */}
         <div className="flex items-center gap-3 pointer-events-auto">
-          {/* Language pill — hidden on mobile, shown on desktop */}
+          {/* Language pill — hidden on mobile, shown on desktop, hides on scroll */}
           <div
             ref={langRef}
-            className={`hidden md:block relative transition-all duration-300`}
+            className={`hidden md:block relative transition-all duration-300 ${scrolledPastHero ? 'opacity-0 pointer-events-none scale-90' : 'opacity-100 scale-100'}`}
           >
             <button
               onClick={() => {
