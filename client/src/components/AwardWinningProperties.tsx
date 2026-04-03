@@ -10,7 +10,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 /* ── Media assets ── */
 const PHOTO_ATACAMA_WIDE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-lodge-wide_9a96fbee.jpeg";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hero2-arenal-tent_860ab6b2.webp";
 
 const PHOTO_TENTED_CAMP =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-aerial_62a4d47c.jpeg";
@@ -113,59 +113,57 @@ export default function AwardWinningProperties() {
       className="relative overflow-hidden"
     >
       {/* ════════════════════════════════════════════
-          TOP — Tented Camp photo (contained width)
+          TOP — Tented Camp photo (right-bleed)
          ════════════════════════════════════════════ */}
       <div className="py-20 md:py-32">
-        <div className="max-w-[1300px] mx-auto px-6 md:px-10">
-          {/* DESKTOP — Tented Camp vertical photo */}
-          <div className="hidden md:block">
-            <motion.div
-              style={{ y: tentedY }}
-              initial={{ opacity: 0, y: 60, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="aspect-[3/4] max-w-[600px] overflow-hidden relative group">
-                <motion.img
-                  src={PHOTO_TENTED_CAMP}
-                  alt="Nayara Tented Camp — luxury tent surrounded by rainforest canopy"
-                  className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 30%" }}
-                  initial={{ scale: 1.1 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 8, ease: "linear" }}
-                  whileHover={{ scale: 1.03 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </motion.div>
-          </div>
+        {/* DESKTOP — Right-bleed: no right padding, image touches right edge */}
+        <div className="hidden md:block pl-6 md:pl-10 lg:pl-[calc((100%-1300px)/2+40px)]">
+          <motion.div
+            initial={{ opacity: 0, y: 60, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="ml-auto"
+            style={{ y: tentedY, marginLeft: 'auto', maxWidth: '55%' }}
+          >
+            <div className="aspect-[3/4] overflow-hidden relative group">
+              <motion.img
+                src={PHOTO_TENTED_CAMP}
+                alt="Nayara Tented Camp — luxury tent surrounded by rainforest canopy"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "center 30%" }}
+                initial={{ scale: 1.1 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 8, ease: "linear" }}
+                whileHover={{ scale: 1.03 }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
+            </div>
+          </motion.div>
+        </div>
 
-          {/* MOBILE — Tented Camp vertical photo */}
-          <div className="md:hidden">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="-mx-6"
-            >
-              <div className="aspect-[3/4] overflow-hidden relative">
-                <motion.img
-                  src={PHOTO_TENTED_CAMP}
-                  alt="Nayara Tented Camp — luxury tent in rainforest"
-                  className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 30%" }}
-                  initial={{ scale: 1.1 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 6, ease: "linear" }}
-                />
-              </div>
-            </motion.div>
-          </div>
+        {/* MOBILE — Full-width bleed */}
+        <div className="md:hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <div className="aspect-[3/4] overflow-hidden relative">
+              <motion.img
+                src={PHOTO_TENTED_CAMP}
+                alt="Nayara Tented Camp — luxury tent in rainforest"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "center 30%" }}
+                initial={{ scale: 1.1 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 6, ease: "linear" }}
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
 
@@ -180,10 +178,10 @@ export default function AwardWinningProperties() {
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="aspect-[21/7] md:aspect-[21/7] overflow-hidden relative">
+        <div className="aspect-[4/3] md:aspect-[16/9] overflow-hidden relative">
           <motion.img
             src={PHOTO_ATACAMA_WIDE}
-            alt="Nayara Alto Atacama — desert lodge against red rock mountains"
+            alt="Nayara Tented Camp — aerial view with Arenal Volcano"
             className="w-full h-full object-cover"
             initial={{ scale: 1.06 }}
             whileInView={{ scale: 1 }}
