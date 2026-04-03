@@ -417,7 +417,7 @@ function BrandNavigation() {
                 className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
-                Our Resorts
+                Resorts
               </span>
             </button>
           </div>
@@ -696,7 +696,7 @@ function HomeIntroSection() {
               lineHeight: 1.3,
             }}
           >
-            A Family of Award-Winning Properties Designed Around Destination
+            Award-Winning Resorts Designed Around Destination
           </h2>
           <p
             className="text-[#4B4A4A]"
