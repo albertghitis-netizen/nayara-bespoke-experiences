@@ -810,11 +810,11 @@ function HomeIntroSection() {
           </a>
         </div>
 
-        {/* Right: image */}
-        <div className="md:flex-1">
+        {/* Right: image - Full width on mobile */}
+        <div className="md:flex-1 -mx-6 md:mx-0 md:px-0 px-0">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens_sloth_clean_a5df62a9.jpg"
-            alt="Woman walking on rainforest bridge at Nayara"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_90c6c080.jpg"
+            alt="Sloth in rainforest at Nayara Gardens"
             className="w-full h-auto object-cover"
             loading="eager"
           />
