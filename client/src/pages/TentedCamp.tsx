@@ -1,7 +1,6 @@
-/**
- * NAYARA TENTED CAMP — Property Homepage
- * Rebuilt to match spherical site structure exactly
- * Sections: Nav → Hero → Intro (two-cols) → Full-bleed image → Footer
+/*
+ * NAYARA TENTED CAMP — Property Page
+ * Structure: H1 Video (hero) → H2 Image (tent vertical + text) → Second Still (blue pool horizontal)
  */
 
 import { Link, useLocation } from "wouter";
@@ -22,9 +21,9 @@ const CDN = {
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-vertical-reel1_f19958ac.mp4",
   heroPoster:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sojern-tented_a678f769.jpg",
-  introDrone:
+  h2Image:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-intro-drone_349e1e16.jpg",
-  fullBleed:
+  secondStill:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-fullbleed-landscape_dbfe243d.jpg",
   bgTexture:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-bg-texture_5e483e53.avif",
@@ -39,15 +38,15 @@ export default function TentedCamp() {
     <div className="min-h-screen bg-[#f7f5f0]">
       <TentedCampNav />
       <HeroSection />
-      <IntroSection />
-      <FullBleedImage />
+      <H2ImageSection />
+      <SecondStillSection />
       <Footer />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NAVIGATION — Matches spherical: hamburger left, logo center, Reserve right
+   NAVIGATION
    ═══════════════════════════════════════════════════════════════ */
 function TentedCampNav() {
   const [scrolled, setScrolled] = useState(false);
@@ -70,7 +69,7 @@ function TentedCampNav() {
         }`}
       >
         <div className="flex items-center justify-between h-16 md:h-20 px-5 md:px-8">
-          {/* Left: Hamburger */}
+          {/* Left: Back arrow */}
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2 group">
               <ArrowLeft
@@ -89,7 +88,7 @@ function TentedCampNav() {
             </Link>
           </div>
 
-          {/* Center: Logo — matching spherical site-nav__logo */}
+          {/* Center: Logo */}
           <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
             <Link href="/">
               <img
@@ -174,8 +173,7 @@ function TentedCampNav() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-screen video, H1 centered at bottom
-   Matches spherical: nay-hero--size-full nay-hero--layout-centered-bottom
+   H1 VIDEO — Full-screen hero video with H1 title at bottom
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -191,7 +189,7 @@ function HeroSection() {
         />
       </div>
 
-      {/* Content — centered bottom, matching spherical nay-hero__content */}
+      {/* H1 at bottom */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
           className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
@@ -211,62 +209,59 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INTRO — Two-column layout matching spherical
-   nay-banner--layout-two-cols-image nay-banner--2-1
-   Background texture, text left, image right (no padding-bottom)
+   H2 IMAGE — Two-column layout (text left, vertical image right)
    ═══════════════════════════════════════════════════════════════ */
-function IntroSection() {
+function H2ImageSection() {
   return (
     <section
-      id="about"
-      className="w-full bg-no-repeat bg-cover bg-center"
+      className="w-full"
       style={{
         paddingTop: 'clamp(40px, 8vw, 80px)',
-        paddingBottom: 0,
+        paddingBottom: 'clamp(40px, 8vw, 80px)',
         backgroundImage: `url(${CDN.bgTexture})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
-      {/* Two-column layout — spherical nay-banner__inner */}
       <div
-        className="flex flex-col md:flex-row items-center mx-auto"
+        className="flex flex-col md:flex-row items-center mx-auto gap-8 md:gap-12"
         style={{
           maxWidth: '1440px',
-          gap: 'clamp(40px, 8vw, 115px)',
-          padding: '0 24px 0 clamp(24px, 8vw, 121px)',
+          padding: '0 24px',
         }}
       >
-        {/* Left: text content — spherical nay-banner__content */}
-        <div className="flex flex-col gap-10 md:flex-1">
+        {/* Left: Text content */}
+        <div className="flex flex-col gap-6 md:flex-1">
           <h2
             className="text-[#4B4A4A]"
             style={{
-              fontFamily: 'var(--font-heading)',
+              fontFamily: 'var(--font-display)',
               fontWeight: 400,
               fontSize: 'clamp(28px, 4vw, 42px)',
               lineHeight: 1.3,
             }}
           >
-            Lifted above the Canopy, Overlooking Arenal Volcano
+            Lifted above the Canopy
           </h2>
           <p
             className="text-[#4B4A4A]"
             style={{
-              fontFamily: 'var(--font-heading)',
+              fontFamily: 'var(--font-body)',
               fontWeight: 400,
               fontSize: '15px',
               lineHeight: '22.5px',
             }}
           >
-            High above the Arenal Rainforest with sweeping views of Arenal Volcano, Tented Camp blends regenerative design with warm hospitality. Luxury tents open to nature invite you to reconnect with wonder, one another, and the rhythm of the wild. Soak in a private plunge pool fed by natural hot springs and savor the flavors of the land.
+            High above the Arenal Rainforest with sweeping views of Arenal Volcano, Tented Camp blends regenerative design with warm hospitality. Luxury tents open to nature invite you to reconnect with wonder, one another, and the rhythm of the wild.
           </p>
         </div>
 
-        {/* Right: image — spherical nay-banner__image (4:3 aspect, full bleed right) */}
+        {/* Right: Vertical image */}
         <div className="md:flex-1">
           <img
-            src={CDN.introDrone}
-            alt="Nayara Tented Camp aerial view"
-            className="w-full h-auto object-cover"
+            src={CDN.h2Image}
+            alt="Nayara Tented Camp tent interior"
+            className="w-full h-auto object-cover rounded-lg"
             loading="eager"
           />
         </div>
@@ -276,14 +271,13 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FULL-BLEED IMAGE — Matches spherical nay-banner--layout-bg-video-image nay-banner--8-1
-   Full-width landscape image with no text overlay
+   SECOND STILL — Full-width horizontal image
    ═══════════════════════════════════════════════════════════════ */
-function FullBleedImage() {
+function SecondStillSection() {
   return (
     <section className="w-full">
       <img
-        src={CDN.fullBleed}
+        src={CDN.secondStill}
         alt="Nayara Tented Camp landscape"
         className="w-full h-auto object-cover"
         loading="lazy"
