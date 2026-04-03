@@ -193,8 +193,8 @@ function BrandNavigation() {
     <>
       {/* ── FIXED NAV: Hamburger | RESORTS | RESERVE — evenly spaced ── */}
       <div className="fixed top-2 left-0 right-0 z-50 flex items-center justify-between px-4 pointer-events-none">
-        {/* LEFT: Hamburger */}
-        <div className="pointer-events-auto">
+        {/* LEFT: Hamburger + Resorts (desktop) */}
+        <div className="pointer-events-auto flex items-center gap-3">
         <div ref={menuRef} className="relative">
           <button
             onClick={() => {
@@ -380,12 +380,10 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-        </div>
-
-        {/* CENTER: Resorts pill + dropdown */}
+        {/* Resorts pill + dropdown — next to hamburger on desktop */}
         <div
           ref={resortsRef}
-          className="relative pointer-events-auto"
+          className="relative hidden md:block"
         >
             <button
               onClick={() => {
@@ -406,6 +404,71 @@ function BrandNavigation() {
             </button>
 
             {/* Resorts dropdown */}
+            <AnimatePresence>
+              {resortsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className={`${dropdownPanelClass} left-0 top-full w-56`}
+                >
+                  <div className="py-2">
+                    {propertyLinks.map((prop) => (
+                      <button
+                        key={prop.label}
+                        onClick={() => {
+                          setResortsOpen(false);
+                          if (prop.available) {
+                            handleNavigate(prop.route);
+                          } else {
+                            handleComingSoon(prop.label);
+                          }
+                        }}
+                        className="w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors"
+                      >
+                        <span
+                          className={`text-[11px] tracking-[0.2em] uppercase ${
+                            prop.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/40"
+                          }`}
+                          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                        >
+                          {prop.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+        </div>
+
+        </div>
+
+        {/* Resorts pill — mobile only, centered */}
+        <div
+          ref={resortsRef}
+          className="relative pointer-events-auto md:hidden"
+        >
+            <button
+              onClick={() => {
+                setResortsOpen(!resortsOpen);
+                setMenuOpen(false);
+                setReserveOpen(false);
+                setLangOpen(false);
+                setExpandedSection(null);
+              }}
+              className={`${pillClass} h-10 px-4`}
+            >
+              <span
+                className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                Resorts
+              </span>
+            </button>
+
+            {/* Resorts dropdown — mobile */}
             <AnimatePresence>
               {resortsOpen && (
                 <motion.div

@@ -472,8 +472,8 @@
 - [x] Hamburger, RESORTS, and RESERVE buttons evenly spaced at the top on mobile
 
 ## Menu Updates
-- [ ] Rename Journal to Blog in hamburger menu
-- [ ] Add Podcast below Blog in hamburger menu
+- [x] Rename Journal to Blog in hamburger menu
+- [x] Add Podcast below Blog in hamburger menu
 
 ## Nav Bar Updates
 - [x] Add Story button to the top navigation bar
@@ -482,3 +482,6 @@
 ## Fix: Story and Rooms placement
 - [x] Remove Story and Rooms from top nav bar buttons
 - [x] Add Story and Rooms as categories inside the hamburger menu
+
+## Nav: RESORTS position
+- [x] Move RESORTS button next to hamburger on desktop only (leave mobile as is)
