@@ -411,3 +411,14 @@
 
 ## Logo Circle Styling
 - [x] Encase leaf logo in a brown translucent circle matching the hamburger/reserve pill style with NAYARA text below
+
+## Logo Text Removal
+- [x] Remove NAYARA text below the logo circle (was baked into PNG, cropped image)
+
+## Logo Size & Tented Camp Layout
+- [x] Increase size of the leaf logo circle on home page
+- [ ] Tented Camp page: make first image + H2 section full screen height (like resorts page hero)
+- [ ] Tented Camp page: keep big horizontal image below the full-screen hero
+
+## AwardWinningProperties Text Removal
+- [ ] Remove "A Family of..." subtitle text from AwardWinningProperties section
