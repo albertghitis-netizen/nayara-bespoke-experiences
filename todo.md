@@ -474,3 +474,7 @@
 ## Menu Updates
 - [ ] Rename Journal to Blog in hamburger menu
 - [ ] Add Podcast below Blog in hamburger menu
+
+## Nav Bar Updates
+- [x] Add Story button to the top navigation bar
+- [x] Add Rooms button to the top navigation bar
