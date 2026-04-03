@@ -15,7 +15,7 @@ import Footer from "@/components/Footer";
 /* ── CDN Assets ── */
 const CDN = {
   heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ntc-v4-trimmed-10s_f2c50677.mp4",
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_a5652f66.mp4",
   logoWhite:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
   logoDark:

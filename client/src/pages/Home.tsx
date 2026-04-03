@@ -756,6 +756,7 @@ function HeroHeader() {
    ═══════════════════════════════════════════════════════════════ */
 function HomeIntroSection() {
   return (
+    <>
     <section
       className="w-full"
       style={{
@@ -816,17 +817,28 @@ function HomeIntroSection() {
           </a>
         </div>
 
-        {/* Right: image — extends to edge */}
-        <div className="md:flex-1 md:mr-[-24px]">
-      <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_t72FPB_26-s1-home_5534b54a.jpg"
-        alt="Woman walking on rainforest bridge at Nayara"
-        className="w-full h-auto object-cover"
-        loading="eager"
-      />
+        {/* Right: image — desktop only */}
+        <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
+            alt="Woman at Easter Island moai"
+            className="w-full h-auto object-cover"
+            loading="eager"
+          />
         </div>
       </div>
     </section>
+    
+    {/* Mobile-only full-width image */}
+    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6851_d53827e8.jpg"
+        alt="Woman at Easter Island moai"
+        className="w-full h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+    </>
   );
 }
 
