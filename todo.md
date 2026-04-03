@@ -361,3 +361,9 @@
 - [x] Move Tented Camp image to top position (replace current top image)
 - [x] Make Atacama image full-width ultra-wide horizontal below it
 - [x] Revert the display:none on Tented Camp image from visual editor
+
+## Chatbot Anti-Hallucination Update
+- [x] Test Henry with restaurant question to see hallucination
+- [x] Research actual restaurant names for all 6 Nayara properties
+- [x] Add strict anti-hallucination rules to system prompt
+- [x] Add verified restaurant data to system prompt
