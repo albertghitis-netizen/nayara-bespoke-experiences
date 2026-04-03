@@ -1,5 +1,5 @@
 /*
- * NAYARA HANGAROA — Property Page
+ * NAYARA ALTO ATACAMA — Property Page
  * Formatted exactly like resorts homepage
  * Structure: H1 Video → H2 Image → Second Still → Footer
  */
@@ -38,8 +38,8 @@ const languages = [
 /* ── CDN Assets ── */
 const CDN = {
   heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/v12044gd0000d4jqd7fog65i1uhea9qg_005312ce.MP4",
-  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2_7148cd8f.tif",
-  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_4831_5f49bcb1.jpg",
+  h2Image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_35b00f10.jpg",
+  secondStill: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/flamingos_cropped_4de69f93.png",
 };
 
 export default function Hangaroa() {
@@ -101,71 +101,152 @@ function BrandNavigation() {
     import("sonner").then(({ toast }) => toast(label + " — Coming Soon"));
   };
 
-  const pillClass = "flex items-center justify-center h-10 px-4 rounded-full bg-[#ece8e1]/70 backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-all duration-300";
+  const dropdownPanelClass = "absolute mt-2 bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-[#3a2a1a]/10";
+
+  const pillClass = "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1]/90 backdrop-blur-md shadow-lg hover:bg-[#ece8e1] transition-all duration-300 cursor-pointer border border-[#3a2a1a]/30";
 
   return (
     <>
-      {/* Fixed pills — always visible */}
-      <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
-        {/* Hamburger pill */}
-        <button
-          onClick={() => { setMenuOpen(!menuOpen); setResortsOpen(false); }}
-          className={`${pillClass} pointer-events-auto`}
-        >
-          <div className="flex flex-col gap-1.5">
-            <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-            <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+      {/* FIXED NAV: Hamburger (far left) + Resorts (center) + Reserve (far right) */}
+      <div className="fixed top-2 left-0 right-0 z-50 flex items-center justify-between px-4 pointer-events-none">
+        {/* LEFT: Hamburger */}
+        <div className="pointer-events-auto">
+          <div ref={menuRef} className="relative">
+            <button
+              onClick={() => {
+                setMenuOpen(!menuOpen);
+                setResortsOpen(false);
+              }}
+              className={`${pillClass} w-10 h-10`}
+            >
+              <div className="flex flex-col gap-1.5">
+                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+              </div>
+            </button>
+
+            {/* Hamburger dropdown */}
+            <AnimatePresence>
+              {menuOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className={`${dropdownPanelClass} left-0 top-full w-64`}
+                >
+                  <div className="py-2">
+                    <button
+                      onClick={() => handleNavigate("/gallery")}
+                      className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                    >
+                      <span className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                        Gallery
+                      </span>
+                    </button>
+                    <button
+                      onClick={() => handleNavigate("/experiences")}
+                      className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                    >
+                      <span className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                        Experiences
+                      </span>
+                    </button>
+                    <button
+                      onClick={() => handleNavigate("/wellness")}
+                      className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                    >
+                      <span className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                        Wellness
+                      </span>
+                    </button>
+                    <button
+                      onClick={() => handleNavigate("/sustainability")}
+                      className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                    >
+                      <span className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                        Sustainability
+                      </span>
+                    </button>
+                    <button
+                      onClick={() => handleNavigate("/awards")}
+                      className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                    >
+                      <span className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                        Awards
+                      </span>
+                    </button>
+                    <button
+                      onClick={() => handleNavigate("/journal")}
+                      className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                    >
+                      <span className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                        Journal
+                      </span>
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </button>
 
-        {/* Center: Resorts */}
-        <div
-          ref={resortsRef}
-          className="relative pointer-events-auto z-50"
-        >
-          <button
-            onClick={() => {
-              setResortsOpen(!resortsOpen);
-              setMenuOpen(false);
-            }}
-            className={`${pillClass} relative z-50`}
-          >
-            <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
-              Resorts
-            </span>
-          </button>
+          {/* CENTER: Resorts */}
+          <div ref={resortsRef} className="relative pointer-events-auto">
+            <button
+              onClick={() => {
+                setResortsOpen(!resortsOpen);
+                setMenuOpen(false);
+              }}
+              className={`${pillClass} h-10 px-4`}
+            >
+              <span className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+                Resorts
+              </span>
+            </button>
 
-          <AnimatePresence>
-            {resortsOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl p-3 z-[60] w-48"
-              >
-                {propertyLinks.map((prop) => (
-                  <button
-                    key={prop.label}
-                    onClick={() => handleNavigate(prop.route)}
-                    className="block w-full text-left px-4 py-2 text-sm text-[#3a2a1a] hover:bg-gray-100 rounded transition-colors"
-                  >
-                    {prop.label}
-                  </button>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+            {/* Resorts dropdown */}
+            <AnimatePresence>
+              {resortsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className={`${dropdownPanelClass} left-0 top-full w-56`}
+                >
+                  <div className="py-2">
+                    {propertyLinks.map((prop) => (
+                      <button
+                        key={prop.label}
+                        onClick={() => {
+                          setResortsOpen(false);
+                          if (prop.available) {
+                            handleNavigate(prop.route);
+                          } else {
+                            handleComingSoon(prop.label);
+                          }
+                        }}
+                        className="w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors"
+                      >
+                        <span className={`text-[11px] tracking-[0.2em] uppercase ${prop.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/40"}`} style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                          {prop.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
-        {/* Right side: Reserve only */}
-        <div className="flex items-center gap-4 pointer-events-auto">
-          {/* Reserve pill */}
+        {/* RIGHT: Reserve */}
+        <div className="flex items-center gap-3 pointer-events-auto">
           <button
             onClick={() => handleComingSoon("Reservation")}
-            className={`${pillClass}`}
+            className={`${pillClass} h-10 px-4`}
           >
-            <span className="text-[#3a2a1a] text-xs tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+            <span className="text-[#3a2a1a] text-xs tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
               Reserve
             </span>
           </button>
@@ -299,7 +380,7 @@ function HeroHeader() {
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-heading)", fontWeight: 400 }}
         >
-          Nayara Hangaroa
+          Luxury Resorts Rooted in Nature
         </motion.h1>
       </div>
     </section>
@@ -320,7 +401,7 @@ function HomeIntroSection() {
               className="text-[#3a2a1a] text-2xl md:text-4xl leading-tight mb-6"
               style={{ fontFamily: "var(--font-heading)", fontWeight: 400 }}
             >
-              Award-Winning Resorts Designed Around Destination
+              Award-Winning Properties Defined by Destination
             </h2>
             <p
               className="text-[#5a4a3a] text-sm md:text-base leading-relaxed"

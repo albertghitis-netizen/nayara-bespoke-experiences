@@ -52,6 +52,7 @@
 - [x] All property routes registered in App.tsx
 - [x] All stale /arenal routes fixed across all pages
 - [x] Remove all "Nayara Arenal" references site-wide
+- [x] All 6 property pages with matching colors, format, and working Resorts button
 
 ## Brand Pages
 - [x] Awards page — showstopper with Michelin Keys, brand stats, certifications
