@@ -88,6 +88,7 @@ function SectionDivider() {
 function BrandNavigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
+  const [resortsOpen, setResortsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState("en");
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -115,6 +116,7 @@ function BrandNavigation() {
 
   const menuRef = useRef<HTMLDivElement>(null);
   const reserveRef = useRef<HTMLDivElement>(null);
+  const resortsRef = useRef<HTMLDivElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
 
   /* Close dropdowns on outside click */
@@ -129,6 +131,9 @@ function BrandNavigation() {
       }
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
+      }
+      if (resortsRef.current && !resortsRef.current.contains(e.target as Node)) {
+        setResortsOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -238,78 +243,7 @@ function BrandNavigation() {
                     </span>
                   </button>
 
-                  {/* Experiences & Wellness with sub-dropdowns */}
-                  {dropdownSections.map((section) => (
-                    <div key={section}>
-                      <button
-                        onClick={() => toggleSection(section)}
-                        className="w-full flex items-center justify-between px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                      >
-                        <span
-                          className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                        >
-                          {section}
-                        </span>
-                        <svg
-                          className={`w-3 h-3 text-[#3a2a1a]/40 transition-transform duration-200 ${
-                            expandedSection === section ? "rotate-180" : ""
-                          }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                      </button>
 
-                      <AnimatePresence>
-                        {expandedSection === section && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-8 pr-5 pb-2 flex flex-col">
-                              {propertyLinks.map((prop) => (
-                                <button
-                                  key={prop.label}
-                                  onClick={() =>
-                                    prop.available
-                                      ? handleNavigate(prop.route)
-                                      : handleComingSoon(prop.label)
-                                  }
-                                  className="text-left py-2 flex items-center gap-2"
-                                >
-                                  <span
-                                    className={`text-[11px] tracking-[0.08em] ${
-                                      prop.available
-                                        ? "text-[#3a2a1a]/70 hover:text-[#3a2a1a]"
-                                        : "text-[#3a2a1a]/30"
-                                    } transition-colors`}
-                                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-                                  >
-                                    {prop.label}
-                                  </span>
-                                  {!prop.available && (
-                                    <span className="text-[8px] tracking-[0.12em] uppercase text-[#3a2a1a]/25 border border-[#3a2a1a]/15 px-1.5 py-0.5 rounded-sm">
-                                      Soon
-                                    </span>
-                                  )}
-                                </button>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ))}
-
-                  {/* Divider */}
-                  <div className="mx-5 my-1 h-px bg-white/10" />
 
                   {/* Experiences */}
                   <button
@@ -407,10 +341,19 @@ function BrandNavigation() {
           </AnimatePresence>
         </div>
 
-          {/* Our Resorts pill — hidden after scrolling past hero */}
-          <div className={`transition-all duration-300 ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}>
+          {/* Resorts pill + dropdown — hidden after scrolling past hero */}
+          <div
+            ref={resortsRef}
+            className={`relative transition-all duration-300 ${scrolledPastHero ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"}`}
+          >
             <button
-              onClick={() => handleComingSoon("Our Resorts")}
+              onClick={() => {
+                setResortsOpen(!resortsOpen);
+                setMenuOpen(false);
+                setReserveOpen(false);
+                setLangOpen(false);
+                setExpandedSection(null);
+              }}
               className={`${pillClass} h-10 px-4`}
             >
               <span
@@ -420,6 +363,45 @@ function BrandNavigation() {
                 Resorts
               </span>
             </button>
+
+            {/* Resorts dropdown */}
+            <AnimatePresence>
+              {resortsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className={`${dropdownPanelClass} left-0 top-full w-56`}
+                >
+                  <div className="py-2">
+                    {propertyLinks.map((prop) => (
+                      <button
+                        key={prop.label}
+                        onClick={() => {
+                          setResortsOpen(false);
+                          if (prop.available) {
+                            handleNavigate(prop.route);
+                          } else {
+                            handleComingSoon(prop.label);
+                          }
+                        }}
+                        className="w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors"
+                      >
+                        <span
+                          className={`text-[11px] tracking-[0.2em] uppercase ${
+                            prop.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/40"
+                          }`}
+                          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                        >
+                          {prop.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
