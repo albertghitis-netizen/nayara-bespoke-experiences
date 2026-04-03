@@ -790,7 +790,18 @@ function HomeIntroSection() {
               lineHeight: '22.5px',
             }}
           >
-            Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile’s Atacama, the world’s driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama’s Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+            Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef.
+          </p>
+          <p
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+              lineHeight: '22.5px',
+            }}
+          >
+            Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
           </p>
           <a
             href="/about"
