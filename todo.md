@@ -713,3 +713,7 @@
 - [x] Awards: Animated counter on brand stats bar (counts up from 0)
 - [x] Tented Camp: Word-by-word stagger on hero H1
 - [x] Gardens: Curtain wipe image reveal on intro section images
+
+## Empty Gradient Sections (like Home page)
+- [x] Add 7 empty gradient sections to Experiences page (no text, just color transitions)
+- [x] Add 7 empty gradient sections to Sustainability page (no text, just color transitions)

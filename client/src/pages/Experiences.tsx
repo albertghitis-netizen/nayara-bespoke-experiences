@@ -29,11 +29,31 @@ const CDN = {
 
 
 
+/* ── Empty gradient spacer (matches Home page pattern) ── */
+function GradientSpacer() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(120px, 24vw, 240px)',
+        paddingBottom: 'clamp(120px, 24vw, 240px)',
+      }}
+    />
+  );
+}
+
 export default function Experiences() {
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f5f3f0 0%, #e8e3db 40%, #ddd2c2 70%, #cfc1a8 90%, #c5b596 100%)" }}>
       <BrandNavigation hideResorts hideLanguage />
       <HeroSection />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
       <Footer />
     </div>
   );
