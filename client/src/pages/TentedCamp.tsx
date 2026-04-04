@@ -231,153 +231,35 @@ function BrandNavigation() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -8, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className={`${dropdownPanelClass} left-0 top-full w-64`}
+                className={`${dropdownPanelClass} left-0 top-full w-40`}
               >
                 <div className="py-2">
-                  {/* The Nayara Story */}
-                  <button
-                    onClick={() => handleNavigate("/story")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      The Nayara Story
-                    </span>
-                  </button>
-
-                  {/* Rooms */}
-                  <button
-                    onClick={() => handleNavigate("/rooms")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Rooms
-                    </span>
-                  </button>
-
-                  {/* Gallery */}
-                  <button
-                    onClick={() => handleNavigate("/gallery")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Gallery
-                    </span>
-                  </button>
-
-
-
-                  {/* Experiences */}
-                  <button
-                    onClick={() => handleNavigate("/experiences")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Experiences
-                    </span>
-                  </button>
-
-                  {/* Wellness */}
-                  <button
-                    onClick={() => handleNavigate("/wellness")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Wellness
-                    </span>
-                  </button>
-
-                  {/* Gastronomy */}
-                  <button
-                    onClick={() => handleNavigate("/gastronomy")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Gastronomy
-                    </span>
-                  </button>
-
-                  {/* Sustainability */}
-                  <button
-                    onClick={() => handleNavigate("/sustainability")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Sustainability
-                    </span>
-                  </button>
-
-                  {/* Awards */}
-                  <button
-                    onClick={() => handleNavigate("/awards")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Awards
-                    </span>
-                  </button>
-
-                  {/* Press */}
-                  <button
-                    onClick={() => handleNavigate("/press")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Press
-                    </span>
-                  </button>
-
-                  {/* Blog */}
-                  <button
-                    onClick={() => handleNavigate("/blog")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Blog
-                    </span>
-                  </button>
-
-                  {/* Podcast */}
-                  <button
-                    onClick={() => handleNavigate("/podcast")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Podcast
-                    </span>
-                  </button>
+                  {["Gallery", "Rooms", "Experiences", "Wellness", "Gastronomy", "Sustainability", "Press & Awards", "Blog & Podcast"].map((item) => {
+                    const routes: Record<string, string> = {
+                      "Gallery": "/gallery",
+                      "Rooms": "/rooms",
+                      "Experiences": "/experiences",
+                      "Wellness": "/wellness",
+                      "Gastronomy": "/gastronomy",
+                      "Sustainability": "/sustainability",
+                      "Press & Awards": "/awards",
+                      "Blog & Podcast": "/blog",
+                    };
+                    return (
+                      <button
+                        key={item}
+                        onClick={() => handleNavigate(routes[item])}
+                        className="w-full text-left px-5 py-3 hover:bg-[#d4c9b8]/50 transition-colors"
+                      >
+                        <span
+                          className="text-[#3a2a1a]/90 text-sm tracking-normal"
+                          style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
+                        >
+                          {item}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               </motion.div>
             )}
@@ -429,13 +311,13 @@ function BrandNavigation() {
                             handleComingSoon(prop.label);
                           }
                         }}
-                        className="w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors"
+                        className="w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/50 transition-colors"
                       >
                         <span
-                          className={`text-[11px] tracking-[0.2em] uppercase ${
+                          className={`text-sm tracking-normal ${
                             prop.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/40"
                           }`}
-                          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                          style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
                         >
                           {prop.label}
                         </span>
@@ -494,13 +376,13 @@ function BrandNavigation() {
                             handleComingSoon(prop.label);
                           }
                         }}
-                        className="w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors"
+                        className="w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/50 transition-colors"
                       >
                         <span
-                          className={`text-[11px] tracking-[0.2em] uppercase ${
+                          className={`text-sm tracking-normal ${
                             prop.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/40"
                           }`}
-                          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                          style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
                         >
                           {prop.label}
                         </span>
@@ -554,7 +436,7 @@ function BrandNavigation() {
                       <button
                         key={lang.code}
                         onClick={() => handleLangSelect(lang.code)}
-                        className={`w-full text-left px-5 py-2.5 hover:bg-[#3a2a1a]/5 transition-colors flex items-center justify-between ${
+                        className={`w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/50 transition-colors flex items-center justify-between ${
                           selectedLang === lang.code ? "bg-[#3a2a1a]/5" : ""
                         }`}
                       >
@@ -667,7 +549,7 @@ function BrandNavigation() {
                     <button
                       key={hotel.label}
                       onClick={() => handleBooking(hotel)}
-                      className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors flex items-center justify-between"
+                      className="w-full text-left px-5 py-3 hover:bg-[#d4c9b8]/50 transition-colors flex items-center justify-between"
                     >
                       <span
                         className={`text-[11px] tracking-[0.08em] ${
@@ -737,19 +619,57 @@ function HeroHeader() {
         </a>
       </motion.div>
 
-      {/* Content — centered bottom, matching spherical nay-hero__content */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
-        <h1
-          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
+      {/* Content — centered bottom */}
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10 pb-[5vh]">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center text-[#ece8e1] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(24px, 3.5vw, 36px)',
+            fontSize: 'clamp(26px, 3.5vw, 38px)',
             lineHeight: 1,
           }}
         >
           Luxury Tented Camp Immersed in the Rainforest
-        </h1>
+        </motion.h1>
+
+        {/* Divider line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="w-24 h-px bg-[#ece8e1]/40 mt-4 origin-center"
+        />
+
+        {/* Location subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[#ece8e1]/70 text-[12px] md:text-[14px] uppercase tracking-[0.15em] mt-4"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
+        >
+          <span className="text-[#ece8e1]/40 mr-3">—</span>
+          Arenal Volcano National Park, Costa Rica
+          <span className="text-[#ece8e1]/40 ml-3">—</span>
+        </motion.p>
+
+        {/* Award badge — Travel + Leisure */}
+        <motion.div
+          initial={{ opacity: 0, y: 15, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.2, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6"
+        >
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/travel-leisure-2024_6c4b8b4e.png"
+            alt="Travel + Leisure World's Best Awards 2024"
+            className="h-12 md:h-16 w-auto brightness-0 invert opacity-80"
+          />
+        </motion.div>
       </div>
     </section>
   );

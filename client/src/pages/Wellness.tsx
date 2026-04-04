@@ -10,6 +10,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { ChevronRight, ArrowRight, ArrowLeft } from "lucide-react";
 import Footer from "@/components/Footer";
+import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
 
 const WELLNESS_CDN = {
@@ -97,14 +98,30 @@ function HeroSection() {
           className="w-full h-full object-cover"
         />
       </div>
+
+      {/* Nayara text — centered on hero (desktop only) */}
+      <motion.div
+        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center justify-center"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <a
+          href="/"
+          className="text-[#ece8e1] drop-shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', letterSpacing: '1px', lineHeight: 1, textDecoration: 'none' }}
+        >
+          NAYARA
+        </a>
+      </motion.div>
+
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
-          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
           style={{
-            fontFamily: 'var(--font-display)',
+            fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
+            fontSize: 'clamp(28px, 4vw, 40px)',
             lineHeight: 1,
           }}
         >
@@ -115,218 +132,6 @@ function HeroSection() {
   );
 }
 
-function BrandNavigation() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [, navigate] = useLocation();
-
-  const handleNavigate = (route: string) => {
-    setMenuOpen(false);
-    navigate(route);
-  };
-
-  const handleComingSoon = (label: string) => {
-    setMenuOpen(false);
-    import("sonner").then(({ toast }) => toast(label + " — Coming Soon"));
-  };
-
-  const pillClass =
-    "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-colors cursor-pointer border border-[#3a2a1a]/20";
-
-  return (
-    <>
-      {/* Fixed pills — always visible */}
-      <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
-        {/* Hamburger pill */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className={`${pillClass} w-12 h-12`}
-        >
-          <div className="flex flex-col gap-1.5">
-            <span
-              className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
-              }`}
-            />
-            <span
-              className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
-              }`}
-            />
-          </div>
-        </button>
-
-        {/* Resorts pill */}
-        <button
-          onClick={() => handleComingSoon("Resorts")}
-          className={`${pillClass} h-12 px-6 pointer-events-auto`}
-        >
-          <span
-            className="text-[#3a2a1a] text-sm font-medium tracking-[0.08em]"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Resorts
-          </span>
-        </button>
-
-        {/* Reserve pill */}
-        <button
-          onClick={() => handleComingSoon("Reservation")}
-          className={`${pillClass} h-12 px-6`}
-        >
-          <span
-            className="text-[#3a2a1a] text-[11px] tracking-[0.25em] uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Reserve
-          </span>
-        </button>
-      </div>
-
-      {/* Full-screen menu overlay */}
-      {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-          className="fixed inset-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md overflow-y-auto"
-        >
-          <div className="max-w-lg mx-auto px-8 pt-28 pb-16">
-            {/* Story */}
-            <button
-              onClick={() => handleNavigate("/story")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Story
-              </span>
-            </button>
-
-            {/* Rooms */}
-            <button
-              onClick={() => handleNavigate("/rooms")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Rooms
-              </span>
-            </button>
-
-            {/* Gallery */}
-            <button
-              onClick={() => handleNavigate("/gallery")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Gallery
-              </span>
-            </button>
-
-            {/* Experiences */}
-            <button
-              onClick={() => handleNavigate("/experiences")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Experiences
-              </span>
-            </button>
-
-            {/* Wellness */}
-            <button
-              onClick={() => handleNavigate("/wellness")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Wellness
-              </span>
-            </button>
-
-            {/* Gastronomy */}
-            <button
-              onClick={() => handleNavigate("/gastronomy")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Gastronomy
-              </span>
-            </button>
-
-            {/* Sustainability */}
-            <button
-              onClick={() => handleNavigate("/sustainability")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Sustainability
-              </span>
-            </button>
-
-            {/* Awards & Press */}
-            <button
-              onClick={() => handleNavigate("/awards")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Awards & Press
-              </span>
-            </button>
-
-            {/* Blog */}
-            <button
-              onClick={() => handleNavigate("/blog")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Blog
-              </span>
-            </button>
-
-            {/* Podcast */}
-            <button
-              onClick={() => handleNavigate("/podcast")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Podcast
-              </span>
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════
    INTRO

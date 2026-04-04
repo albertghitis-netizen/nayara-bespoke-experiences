@@ -63,12 +63,11 @@ export default function Gastronomy() {
         <GastroNav />
         <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
           <h1
-            className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
+            className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
             style={{
-              fontFamily: 'var(--font-display)',
+              fontFamily: 'var(--font-heading)',
               fontWeight: 400,
-              fontSize: 'clamp(32px, 5vw, 50px)',
-              letterSpacing: '-2px',
+              fontSize: 'clamp(28px, 4vw, 40px)',
               lineHeight: 1,
             }}
           >

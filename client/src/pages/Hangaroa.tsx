@@ -736,19 +736,43 @@ function HeroHeader() {
         </a>
       </motion.div>
 
-      {/* Content — centered bottom, matching spherical nay-hero__content */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
-        <h1
-          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
+      {/* Content — centered bottom */}
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10 pb-[5vh]">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center text-[#ece8e1] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(24px, 3.5vw, 36px)',
+            fontSize: 'clamp(26px, 3.5vw, 38px)',
             lineHeight: 1,
           }}
         >
           Rapa Nui Culture Meets Pacific Luxury
-        </h1>
+        </motion.h1>
+
+        {/* Divider line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="w-24 h-px bg-[#ece8e1]/40 mt-4 origin-center"
+        />
+
+        {/* Location subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[#ece8e1]/70 text-[12px] md:text-[14px] uppercase tracking-[0.15em] mt-4"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
+        >
+          <span className="text-[#ece8e1]/40 mr-3">—</span>
+          Easter Island, Chile
+          <span className="text-[#ece8e1]/40 ml-3">—</span>
+        </motion.p>
       </div>
     </section>
   );

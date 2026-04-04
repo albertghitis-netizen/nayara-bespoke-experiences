@@ -659,3 +659,41 @@
 - [ ] Same three buttons everywhere: hamburger (left), Resorts (next to hamburger, left), Reserve (right)
 - [ ] Reserve button must match same font/style as Resorts button
 - [ ] All buttons must link to same functionality as Home page
+
+## Navigation & Footer Sync
+- [ ] Rename "Awards & Press" to "Press & Awards" in hamburger menu across all pages
+- [ ] Update Footer Explore links to match hamburger menu: same 8 items, same order
+- [ ] Footer items use font-display (Playfair Display) to match hamburger menu font
+- [ ] Hamburger menu order: Gallery, Rooms, Experiences, Wellness, Gastronomy, Sustainability, Press & Awards, Blog & Podcast
+- [ ] Footer order matches hamburger exactly
+- [ ] Remove date pickers from Reserve dropdown on all pages
+- [ ] Make Reserve dropdown hotel names use font-body, text-sm, bold, tracking-normal
+- [ ] Make language dropdown items use font-body, text-sm, bold, tracking-normal
+
+## Universal BrandNavigation Component
+- [x] Extract shared BrandNavigation into components/BrandNavigation.tsx
+- [ ] Replace inline BrandNavigation on Home.tsx
+- [ ] Replace inline BrandNavigation on Experiences.tsx
+- [ ] Replace inline BrandNavigation on Wellness.tsx
+- [ ] Replace inline BrandNavigation on Sustainability.tsx
+- [ ] Replace inline BrandNavigation on Gardens.tsx
+- [ ] Replace inline BrandNavigation on Springs.tsx
+- [ ] Replace inline BrandNavigation on TentedCamp.tsx
+- [ ] Replace inline BrandNavigation on AltoAtacama.tsx
+- [ ] Replace inline BrandNavigation on Hangaroa.tsx
+- [ ] Replace inline BrandNavigation on BocasDelToro.tsx
+- [ ] Replace GastroNav on Gastronomy.tsx with shared BrandNavigation
+- [ ] Replace AwardsNav on Awards.tsx with shared BrandNavigation
+- [ ] Replace JournalNav on Blog.tsx with shared BrandNavigation
+- [ ] Add shared BrandNavigation to Gallery.tsx
+- [ ] Add shared BrandNavigation to Rooms.tsx
+
+## Award Badges on Hero Sections (Below Location Subtitle)
+- [x] Tented Camp hero: Travel + Leisure World's Best Awards 2024 badge image (PNG)
+- [x] Redesign all award badges — using actual badge images (PNG) instead of text
+- [x] Springs hero: 3 Michelin Keys badge image (PNG, white-inverted)
+- [x] Alto Atacama hero: 2 Michelin Keys badge image (PNG, white-inverted)
+- [x] Home page hero: Travel + Leisure World's Best Awards 2024 badge image (PNG, white-inverted)
+- [x] Bocas del Toro hero: Condé Nast Traveler Readers' Choice Awards 2025 badge image (PNG)
+- [ ] Gardens hero: Skip for now
+- [ ] Hangaroa hero: Skip for now

@@ -95,15 +95,14 @@ export default function Footer() {
             </span>
             <div className="flex flex-col gap-[6px]">
               {[
+                { label: "Gallery", route: "/gallery" },
+                { label: "Rooms", route: "/rooms" },
                 { label: "Experiences", route: "/experiences" },
                 { label: "Wellness", route: "/wellness" },
                 { label: "Gastronomy", route: "/gastronomy" },
                 { label: "Sustainability", route: "/sustainability" },
-                { label: "Gallery", route: "/gallery" },
-                { label: "Awards", route: "/awards" },
-                { label: "Blog", route: "/blog" },
-                { label: "Podcast", route: "/podcast" },
-                { label: "Press", route: "/press" },
+                { label: "Press & Awards", route: "/awards" },
+                { label: "Blog & Podcast", route: "/blog" },
               ].map((item) => (
                 <a
                   key={item.label}

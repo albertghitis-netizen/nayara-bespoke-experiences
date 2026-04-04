@@ -739,18 +739,56 @@ function HeroHeader() {
       </motion.div>
 
       {/* Content — centered bottom */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
-        <h1
-          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10 pb-[5vh]">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center text-[#ece8e1] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(24px, 3.5vw, 36px)',
+            fontSize: 'clamp(26px, 3.5vw, 38px)',
             lineHeight: 1,
           }}
         >
           Adults-Only Overwater Villas on a Private Island
-        </h1>
+        </motion.h1>
+
+        {/* Divider line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="w-24 h-px bg-[#ece8e1]/40 mt-4 origin-center"
+        />
+
+        {/* Location subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[#ece8e1]/70 text-[12px] md:text-[14px] uppercase tracking-[0.15em] mt-4"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
+        >
+          <span className="text-[#ece8e1]/40 mr-3">—</span>
+          Bocas del Toro, Panama's Caribbean Coast
+          <span className="text-[#ece8e1]/40 ml-3">—</span>
+        </motion.p>
+
+        {/* Award badge — Condé Nast Traveler */}
+        <motion.div
+          initial={{ opacity: 0, y: 15, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.2, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6"
+        >
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/conde-nast-2025_719dbc0f.png"
+            alt="Condé Nast Traveler Readers' Choice Awards 2025"
+            className="h-12 md:h-16 w-auto opacity-90"
+          />
+        </motion.div>
       </div>
     </section>
 

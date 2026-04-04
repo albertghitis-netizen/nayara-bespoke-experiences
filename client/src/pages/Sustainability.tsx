@@ -10,240 +10,55 @@ import { useLocation } from "wouter";
 import { useIsMobile } from "@/hooks/useMobile";
 import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
+import BrandNavigation from "@/components/BrandNavigation";
 
 /* ── CDN Assets ── */
 const CDN = {
   heroVertical:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-vertical_63bbfb3f.mp4",
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-new_df03d599.mp4",
   heroHorizontal:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_a5652f66.mp4",
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-new_df03d599.mp4",
 };
+
+const destinations = [
+  { label: "Costa Rica", route: "/gardens" },
+  { label: "Alto Atacama", route: "/alto-atacama" },
+  { label: "Hangaroa", route: "/hangaroa" },
+  { label: "Bocas del Toro", route: "/bocas-del-toro" },
+];
+
+function SecondaryNav() {
+  const [, navigate] = useLocation();
+
+  return (
+    <nav className="sticky top-0 z-30 bg-[#f7f5f0] border-b border-stone-200">
+      <div className="max-w-4xl mx-auto flex items-center justify-center gap-8 md:gap-12 px-4 py-4">
+        {destinations.map((dest) => (
+          <button
+            key={dest.label}
+            onClick={() => navigate(dest.route)}
+            className="text-[#3a2a1a] text-[13px] tracking-normal hover:text-[#3a2a1a]/60 transition-colors cursor-pointer"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
+          >
+            {dest.label}
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
+}
 
 export default function Sustainability() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation />
+      <BrandNavigation hideResorts hideLanguage />
       <HeroSection />
       <Footer />
     </div>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   BRAND NAVIGATION — Hamburger pill left, Reserve pill right
-   ═══════════════════════════════════════════════════════════════ */
-function BrandNavigation() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [, navigate] = useLocation();
 
-  const handleNavigate = (route: string) => {
-    setMenuOpen(false);
-    navigate(route);
-  };
-
-  const handleComingSoon = (label: string) => {
-    setMenuOpen(false);
-    import("sonner").then(({ toast }) => toast(label + " — Coming Soon"));
-  };
-
-  const pillClass =
-    "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-colors cursor-pointer border border-[#3a2a1a]/20";
-
-  return (
-    <>
-      {/* Fixed pills — always visible */}
-      <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
-        {/* Hamburger pill */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className={`${pillClass} w-12 h-12`}
-        >
-          <div className="flex flex-col gap-1.5">
-            <span
-              className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
-              }`}
-            />
-            <span
-              className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
-              }`}
-            />
-          </div>
-        </button>
-
-        {/* Resorts pill */}
-        <button
-          onClick={() => handleComingSoon("Resorts")}
-          className={`${pillClass} h-12 px-6 pointer-events-auto`}
-        >
-          <span
-            className="text-[#3a2a1a] text-sm font-medium tracking-[0.08em]"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Resorts
-          </span>
-        </button>
-
-        {/* Reserve pill */}
-        <button
-          onClick={() => handleComingSoon("Reservation")}
-          className={`${pillClass} h-12 px-6`}
-        >
-          <span
-            className="text-[#3a2a1a] text-[11px] tracking-[0.25em] uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Reserve
-          </span>
-        </button>
-      </div>
-
-      {/* Full-screen menu overlay */}
-      {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-          className="fixed inset-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md overflow-y-auto"
-        >
-          <div className="max-w-lg mx-auto px-8 pt-28 pb-16">
-            {/* Story */}
-            <button
-              onClick={() => handleNavigate("/story")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Story
-              </span>
-            </button>
-
-            {/* Rooms */}
-            <button
-              onClick={() => handleNavigate("/rooms")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Rooms
-              </span>
-            </button>
-
-            {/* Gallery */}
-            <button
-              onClick={() => handleNavigate("/gallery")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Gallery
-              </span>
-            </button>
-
-            {/* Experiences */}
-            <button
-              onClick={() => handleNavigate("/experiences")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Experiences
-              </span>
-            </button>
-
-            {/* Wellness */}
-            <button
-              onClick={() => handleNavigate("/wellness")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Wellness
-              </span>
-            </button>
-
-            {/* Gastronomy */}
-            <button
-              onClick={() => handleNavigate("/gastronomy")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Gastronomy
-              </span>
-            </button>
-
-            {/* Sustainability */}
-            <button
-              onClick={() => handleNavigate("/sustainability")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Sustainability
-              </span>
-            </button>
-
-            {/* Awards & Press */}
-            <button
-              onClick={() => handleNavigate("/awards")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Awards & Press
-              </span>
-            </button>
-
-            {/* Blog */}
-            <button
-              onClick={() => handleNavigate("/blog")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Blog
-              </span>
-            </button>
-
-            {/* Podcast */}
-            <button
-              onClick={() => handleNavigate("/podcast")}
-              className="block w-full text-left py-4 border-b border-stone-200"
-            >
-              <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Podcast
-              </span>
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════════
    HERO — Full-screen video, H1 centered at bottom
@@ -267,38 +82,55 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      {/* Nayara text — centered on hero (desktop only) */}
-      <motion.div
-        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center justify-center"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <a
-          href="/"
-          className="text-[#ece8e1] drop-shadow-md cursor-pointer hover:opacity-80 transition-opacity"
-          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', letterSpacing: '1px', lineHeight: 1, textDecoration: 'none' }}
-        >
-          NAYARA
-        </a>
-      </motion.div>
+
 
        {/* Content — centered bottom */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
+      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10 pb-[5vh]">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
+          className="text-center text-[#ece8e1] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(24px, 3.5vw, 36px)',
+            fontSize: 'clamp(28px, 4vw, 40px)',
             lineHeight: 1,
           }}
         >
           Beyond Sustainability
         </motion.h1>
+
+        {/* Divider line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="w-24 h-px bg-[#ece8e1]/40 mt-4 origin-center"
+        />
+
+        {/* Secondary nav — on hero below H1 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="flex items-center gap-4 md:gap-0 mt-4 flex-wrap justify-center"
+        >
+          {destinations.map((dest, i) => (
+            <span key={dest.label} className="flex items-center">
+              <a
+                href={dest.route}
+                className="text-[#ece8e1]/60 text-[11px] md:text-[12px] uppercase tracking-[0.2em] hover:text-white hover:scale-110 transition-all duration-300 border-b border-transparent hover:border-white/60 pb-0.5"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                {dest.label}
+              </a>
+              {i < destinations.length - 1 && (
+                <span className="mx-4 md:mx-6 text-[#ece8e1]/30 text-[8px]">●</span>
+              )}
+            </span>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
