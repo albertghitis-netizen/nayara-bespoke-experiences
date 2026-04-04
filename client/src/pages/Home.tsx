@@ -31,7 +31,7 @@ const propertyLinks = [
   { label: "Nayara Springs", route: "/springs", available: true },
   { label: "Nayara Tented Camp", route: "/tented-camp", available: true },
   { label: "Nayara Hangaroa", route: "/hangaroa", available: true },
-  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: false, className: "whitespace-nowrap" },];
+  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro", available: true, className: "whitespace-nowrap" },];
 
 /* ── Language options ── */
 const languages = [
@@ -208,15 +208,15 @@ function BrandNavigation() {
             }}
             className={`${pillClass} w-10 h-10`}
           >
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1.5">
               <span
-                className={`block w-6 h-0.5 bg-[#3a2a1a] transition-all duration-300 ${
-                  menuOpen ? "rotate-45 translate-y-[5px]" : ""
+                className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${
+                  menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 bg-[#3a2a1a] transition-all duration-300 ${
-                  menuOpen ? "-rotate-45 -translate-y-[5px]" : ""
+                className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${
+                  menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
                 }`}
               />
             </div>
@@ -514,14 +514,14 @@ function BrandNavigation() {
               }}
               className={`${pillClass} h-10 px-4 gap-2`}
             >
-              <svg className="w-4 h-4 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <svg className="w-4 h-4 text-[#3a2a1a]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 003 12c0-1.605.42-3.113 1.157-4.418" />
               </svg>
               <span
-                className="text-[#3a2a1a] text-xs tracking-[0.15em]"
+                className="text-[#3a2a1a] text-xs tracking-[0.15em] uppercase"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
-                {currentLang?.label}
+                {currentLang?.code.toUpperCase()}
               </span>
             </button>
 

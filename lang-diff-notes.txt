@@ -1,0 +1,12 @@
+Gardens Language Button:
+- globe icon: text-[#3a2a1a]/80
+- text: text-xs tracking-[0.15em] uppercase, shows currentLang?.code.toUpperCase() (e.g. "EN")
+- button: h-10 px-4 gap-2
+
+Experiences Language Button (current - from Home):
+- globe icon: text-[#3a2a1a]
+- text: text-xs tracking-[0.15em], shows currentLang?.label (e.g. "English")
+- button: h-10 px-4 gap-2
+
+Difference: Gardens shows "EN" (code uppercase), Experiences shows "English" (full label)
+Also Gardens globe is /80 opacity, Experiences is full opacity.

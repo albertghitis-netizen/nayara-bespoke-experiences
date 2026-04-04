@@ -14,7 +14,7 @@ import Footer from "@/components/Footer";
 /* ── CDN Assets ── */
 const CDN = {
   heroVertical:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-vertical_6ada0b28.mov",
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-vertical_63bbfb3f.mp4",
   heroHorizontal:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_a5652f66.mp4",
 };

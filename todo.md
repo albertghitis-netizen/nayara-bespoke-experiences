@@ -653,3 +653,9 @@
 - [x] Create Wellness page: H1 "Nurtured by Nature" + standardized header with Resorts button
 - [ ] Create Blog, Podcast, Awards & Press, Gallery pages with standardized headers + Resorts button
 - [ ] Update all property pages: add Resorts button and standardized menu
+
+## Global Nav Standardization
+- [ ] Extract BrandNavigation from Home page and replicate EXACTLY on Experiences page
+- [ ] Same three buttons everywhere: hamburger (left), Resorts (next to hamburger, left), Reserve (right)
+- [ ] Reserve button must match same font/style as Resorts button
+- [ ] All buttons must link to same functionality as Home page
