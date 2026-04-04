@@ -622,3 +622,8 @@
 ## Chat Bubble and Nav Button Updates
 - [x] Revert Chat bubble to pill shape (wider, not narrow) with "Chat with us" text
 - [x] Update top nav buttons to capitalize only first letter (Language: "English", menu items: "Story", "Rooms", "Experiences", "Wellness", "Sustainability", "Awards", "Journal")
+
+## Experiences Page
+- [x] Upload vertical and horizontal hero videos to CDN (Video_Nayara_Atacama00007.MP4, Video_Nayara_Atacama00003.MP4)
+- [x] Create Experiences page with hero videos (vertical for mobile, horizontal for desktop)
+- [x] Style Experiences page to match home page header design (hero video, gradient background, navigation)

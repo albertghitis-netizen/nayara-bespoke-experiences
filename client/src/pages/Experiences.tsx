@@ -6,6 +6,7 @@
 
 import { Link, useLocation } from "wouter";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowLeft } from "lucide-react";
 import { useIsMobile } from "@/hooks/useMobile";
 import BlobVideo from "@/components/BlobVideo";
@@ -13,8 +14,10 @@ import Footer from "@/components/Footer";
 
 /* ── CDN Assets ── */
 const CDN = {
-  heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/experiences-hero-rapanui_ee58a8f1.mp4",
+  heroVertical:
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00007_8576aa55.MP4",
+  heroHorizontal:
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00003_aeb971e9.MP4",
   logoWhite:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
   logoDark:
@@ -146,30 +149,50 @@ function ExperiencesNav() {
    HERO — Full-screen video, H1 centered at bottom
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
+  
+  // Vertical video for mobile, horizontal for desktop
+  const heroVideo = isMobile
+    ? CDN.heroVertical
+    : CDN.heroHorizontal;
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Video background */}
       <div className="absolute inset-0">
         <BlobVideo
-          src={CDN.heroDesktop}
+          src={heroVideo}
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      {/* Content — centered bottom */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
-        <h1
-          className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 400,
-            fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
-            lineHeight: 1,
-          }}
+      {/* Subtle Nayara brand mark */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.4 }}
+        className="absolute top-24 md:top-28 left-0 right-0 z-10 flex justify-center"
+      >
+        <span
+          className="text-white/15 text-[11px] md:text-xs tracking-[0.5em] uppercase"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Bespoke Experiences
-        </h1>
+          Nayara
+        </span>
+      </motion.div>
+
+      {/* Content — anchored to bottom */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Curated Experiences
+        </motion.h1>
       </div>
     </section>
   );
