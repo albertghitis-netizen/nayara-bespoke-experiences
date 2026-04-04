@@ -625,5 +625,12 @@
 
 ## Experiences Page
 - [x] Upload vertical and horizontal hero videos to CDN (Video_Nayara_Atacama00007.MP4, Video_Nayara_Atacama00003.MP4)
-- [x] Create Experiences page with hero videos (vertical for mobile, horizontal for desktop)
-- [x] Style Experiences page to match home page header design (hero video, gradient background, navigation)
+- [x] FIX: Correct video orientation (vertical=mobile, horizontal=desktop)
+- [x] FIX: Remove old navigation, use home page header design (hamburger LEFT, Reserve RIGHT)
+- [x] FIX: Match home page header styling exactly
+
+## Sustainability Page
+- [x] Upload vertical sustainability video to CDN
+- [x] FIX: Add vertical video for mobile, horizontal for desktop
+- [x] FIX: Remove old navigation, use home page header design (hamburger LEFT, Reserve RIGHT)
+- [x] FIX: Match home page header styling exactly
