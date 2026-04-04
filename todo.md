@@ -634,3 +634,20 @@
 - [x] FIX: Add vertical video for mobile, horizontal for desktop
 - [x] FIX: Remove old navigation, use home page header design (hamburger LEFT, Reserve RIGHT)
 - [x] FIX: Match home page header styling exactly
+
+## Standardized Menu and Footer
+- [ ] Create standardized menu structure with items: Story, Rooms, Gallery, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Blog, Podcast
+- [ ] Update Home page hamburger menu with standardized structure (not all caps, matching property page font)
+- [ ] Update Home page footer with standardized menu items
+- [ ] Update Experiences page hamburger menu with standardized structure
+- [ ] Update Sustainability page hamburger menu with standardized structure
+- [ ] Update all property pages (Alto Atacama, Gardens, Springs, Tented Camp, Hangaroa, Bocas del Toro) with standardized menu
+- [ ] Update all property pages footers with standardized menu items
+
+
+## Standardized Headers with Resorts Button
+- [ ] Update Sustainability page: H1 "Beyond Sustainability" + add Resorts button
+- [ ] Create Wellness page: H1 "Nurtured by Nature" + standardized header with Resorts button
+- [ ] Create Blog, Podcast, Awards & Press, Gallery pages with standardized headers + Resorts button
+- [ ] Update Experiences page: add Resorts button to match other pages
+- [ ] Update all property pages: add Resorts button and standardized menu

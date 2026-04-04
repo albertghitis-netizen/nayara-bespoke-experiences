@@ -265,7 +265,7 @@ function BrandNavigation() {
                     className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Gallery
@@ -309,7 +309,7 @@ function BrandNavigation() {
                       className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
-                      Journal
+                      Gastronomy
                     </span>
                   </button>
 
@@ -326,7 +326,7 @@ function BrandNavigation() {
                     </span>
                   </button>
 
-                  {/* Awards */}
+                  {/* Awards & Press */}
                   <button
                     onClick={() => handleNavigate("/awards")}
                     className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
@@ -335,20 +335,7 @@ function BrandNavigation() {
                       className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
-                      Awards
-                    </span>
-                  </button>
-
-                  {/* Press */}
-                  <button
-                    onClick={() => handleNavigate("/press")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Press
+                      Awards & Press
                     </span>
                   </button>
 
@@ -358,7 +345,7 @@ function BrandNavigation() {
                     className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Blog
@@ -371,7 +358,7 @@ function BrandNavigation() {
                     className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
                   >
                     <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em] uppercase"
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Podcast

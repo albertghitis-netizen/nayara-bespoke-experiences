@@ -96,26 +96,52 @@ function BrandNavigation() {
           className="fixed inset-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md overflow-y-auto"
         >
           <div className="max-w-lg mx-auto px-8 pt-28 pb-16">
-            {/* Back to Home */}
+            {/* Story */}
             <button
-              onClick={() => handleNavigate("/")}
+              onClick={() => handleNavigate("/story")}
               className="block w-full text-left py-4 border-b border-stone-200"
             >
               <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
               >
-                Home
+                Story
+              </span>
+            </button>
+
+            {/* Rooms */}
+            <button
+              onClick={() => handleNavigate("/rooms")}
+              className="block w-full text-left py-4 border-b border-stone-200"
+            >
+              <span
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+              >
+                Rooms
+              </span>
+            </button>
+
+            {/* Gallery */}
+            <button
+              onClick={() => handleNavigate("/gallery")}
+              className="block w-full text-left py-4 border-b border-stone-200"
+            >
+              <span
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+              >
+                Gallery
               </span>
             </button>
 
             {/* Experiences */}
             <button
-              onClick={() => handleComingSoon("Experiences")}
+              onClick={() => handleNavigate("/experiences")}
               className="block w-full text-left py-4 border-b border-stone-200"
             >
               <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
               >
                 Experiences
@@ -124,14 +150,27 @@ function BrandNavigation() {
 
             {/* Wellness */}
             <button
-              onClick={() => handleComingSoon("Wellness")}
+              onClick={() => handleNavigate("/wellness")}
               className="block w-full text-left py-4 border-b border-stone-200"
             >
               <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
               >
                 Wellness
+              </span>
+            </button>
+
+            {/* Gastronomy */}
+            <button
+              onClick={() => handleNavigate("/gastronomy")}
+              className="block w-full text-left py-4 border-b border-stone-200"
+            >
+              <span
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+              >
+                Gastronomy
               </span>
             </button>
 
@@ -141,36 +180,49 @@ function BrandNavigation() {
               className="block w-full text-left py-4 border-b border-stone-200"
             >
               <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
               >
                 Sustainability
               </span>
             </button>
 
-            {/* Awards */}
+            {/* Awards & Press */}
             <button
               onClick={() => handleNavigate("/awards")}
               className="block w-full text-left py-4 border-b border-stone-200"
             >
               <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
               >
-                Awards
+                Awards & Press
               </span>
             </button>
 
-            {/* Journal */}
+            {/* Blog */}
             <button
-              onClick={() => handleNavigate("/journal")}
+              onClick={() => handleNavigate("/blog")}
               className="block w-full text-left py-4 border-b border-stone-200"
             >
               <span
-                className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
               >
-                Journal
+                Blog
+              </span>
+            </button>
+
+            {/* Podcast */}
+            <button
+              onClick={() => handleNavigate("/podcast")}
+              className="block w-full text-left py-4 border-b border-stone-200"
+            >
+              <span
+                className="text-[#3a2a1a] text-lg tracking-[0.08em]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+              >
+                Podcast
               </span>
             </button>
           </div>
@@ -186,10 +238,10 @@ function BrandNavigation() {
 function HeroSection() {
   const isMobile = useIsMobile();
   
-  // Vertical video for mobile, horizontal for desktop
+  // Horizontal video for mobile, vertical for desktop
   const heroVideo = isMobile
-    ? CDN.heroVertical
-    : CDN.heroHorizontal;
+    ? CDN.heroHorizontal
+    : CDN.heroVertical;
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
