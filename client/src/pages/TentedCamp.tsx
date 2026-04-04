@@ -865,7 +865,7 @@ function RoomsSection() {
         </div>
 
         {/* Right: text content */}
-        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16 px-6 md:px-0">
           <h2
             className="text-[#4B4A4A]"
             style={{

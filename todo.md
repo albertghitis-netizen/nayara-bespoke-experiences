@@ -602,3 +602,10 @@
 ## Ayla on Krog Hero Video
 - [x] Pull hero video from aylaonkrog.com and use it on our Ayla page
 - [x] Change Ayla H1 to "Life on the Beltline"
+
+## Room Section Mobile Text Centering
+- [x] Tented Camp: center H3 and body text in room sections on mobile (match H2 section centering)
+- [x] Gardens: center room section text on mobile (px-6 md:px-0)
+- [x] Springs: center room section text on mobile (px-6 md:px-0)
+- [x] Bocas del Toro: center room section text on mobile (px-6 md:px-0)
+- [x] Audit all other property pages for same left-aligned room section text on mobile and fix

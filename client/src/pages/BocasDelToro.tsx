@@ -876,7 +876,7 @@ function RoomsSection() {
         </div>
 
         {/* Right: text content */}
-        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16 px-6 md:px-0">
           <h2
             className="text-[#4B4A4A]"
             style={{
@@ -897,7 +897,7 @@ function RoomsSection() {
               lineHeight: '22.5px',
             }}
           >
-            Nayara Bocas del Toro’s overwater villas float above the crystalline Caribbean, each with a private infinity pool that spills into the sea, glass-floor panels revealing the reef below, and open-air terraces for uninterrupted ocean views. Thatched roofs, natural materials, and indoor-outdoor living create an intimate island sanctuary.
+            Nayara Bocas del Toro's overwater villas float above the crystalline Caribbean, each with a private infinity pool that spills into the sea, glass-floor panels revealing the reef below, and open-air terraces for uninterrupted ocean views. Thatched roofs, natural materials, and indoor-outdoor living create an intimate island sanctuary.
           </p>
           <a
             href="/rooms"
