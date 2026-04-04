@@ -218,19 +218,21 @@ function HeroSection() {
         </a>
       </motion.div>
 
-      {/* Content — centered bottom */}
+       {/* Content — centered bottom */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center text-white mb-[50px] md:mb-[85px] max-w-[1052px] text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide"
+          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
           style={{
-            fontFamily: 'var(--font-display)',
+            fontFamily: 'var(--font-heading)',
             fontWeight: 400,
+            fontSize: 'clamp(24px, 3.5vw, 36px)',
+            lineHeight: 1,
           }}
         >
-          Beyond Sustainability
+          Sustainability
         </motion.h1>
       </div>
     </section>
