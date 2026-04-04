@@ -621,20 +621,34 @@ function HeroHeader() {
 
       {/* Content — centered bottom */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10 pb-[5vh]">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center text-[#ece8e1] max-w-[1052px]"
+        {/* EXPERIMENT: Word-by-word staggered reveal
+           Each word fades up individually for a cinematic entrance.
+           To revert: replace with original single <motion.h1> */}
+        <h1
+          className="text-center text-[#ece8e1] max-w-[1052px] flex flex-wrap justify-center gap-x-[0.3em]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
             fontSize: 'clamp(26px, 3.5vw, 38px)',
-            lineHeight: 1,
+            lineHeight: 1.15,
           }}
         >
-          Luxury Tented Camp Immersed in the Rainforest
-        </motion.h1>
+          {"Luxury Tented Camp Immersed in the Rainforest".split(" ").map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.6 + i * 0.1,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="inline-block"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h1>
 
         {/* Divider line */}
         <motion.div
@@ -657,19 +671,6 @@ function HeroHeader() {
           <span className="text-[#ece8e1]/40 ml-3">—</span>
         </motion.p>
 
-        {/* Award badge — Travel + Leisure */}
-        <motion.div
-          initial={{ opacity: 0, y: 15, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6"
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/travel-leisure-2024_6c4b8b4e.png"
-            alt="Travel + Leisure World's Best Awards 2024"
-            className="h-12 md:h-16 w-auto brightness-0 invert opacity-80"
-          />
-        </motion.div>
       </div>
     </section>
   );

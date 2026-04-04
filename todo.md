@@ -697,3 +697,19 @@
 - [x] Bocas del Toro hero: Condé Nast Traveler Readers' Choice Awards 2025 badge image (PNG)
 - [ ] Gardens hero: Skip for now
 - [ ] Hangaroa hero: Skip for now
+
+## Roll Back Award Badges from Hero Sections
+- [x] Remove badge from Home page hero
+- [x] Remove badge from Springs hero
+- [x] Remove badge from Alto Atacama hero
+- [x] Remove badge from Tented Camp hero
+- [x] Remove badge from Bocas del Toro hero
+
+## Subtle Animation Experiments (try different ideas on different pages)
+- [x] Gallery: Magnetic tilt on image cards (hover effect, pure CSS)
+- [x] Springs: Scroll-linked word-by-word text opacity reveal in HomeIntroSection
+- [x] Alto Atacama: Parallax depth on hero text (text moves at different rate than video)
+- [x] Bocas del Toro: Letter-by-letter stagger on hero H1
+- [x] Awards: Animated counter on brand stats bar (counts up from 0)
+- [x] Tented Camp: Word-by-word stagger on hero H1
+- [x] Gardens: Curtain wipe image reveal on intro section images

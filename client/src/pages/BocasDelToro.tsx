@@ -740,10 +740,10 @@ function HeroHeader() {
 
       {/* Content — centered bottom */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10 pb-[5vh]">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        {/* EXPERIMENT 4: Staggered letter reveal with blur-to-sharp
+           Each letter appears individually with a cascading blur effect.
+           To revert: replace this block with the original <motion.h1> */}
+        <h1
           className="text-center text-[#ece8e1] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
@@ -752,8 +752,22 @@ function HeroHeader() {
             lineHeight: 1,
           }}
         >
-          Adults-Only Overwater Villas on a Private Island
-        </motion.h1>
+          {"Adults-Only Overwater Villas on a Private Island".split("").map((char, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, filter: "blur(12px)", y: 8 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.6 + i * 0.02,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              style={{ display: "inline-block" }}
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </h1>
 
         {/* Divider line */}
         <motion.div
@@ -776,19 +790,6 @@ function HeroHeader() {
           <span className="text-[#ece8e1]/40 ml-3">—</span>
         </motion.p>
 
-        {/* Award badge — Condé Nast Traveler */}
-        <motion.div
-          initial={{ opacity: 0, y: 15, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6"
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/conde-nast-2025_719dbc0f.png"
-            alt="Condé Nast Traveler Readers' Choice Awards 2025"
-            className="h-12 md:h-16 w-auto opacity-90"
-          />
-        </motion.div>
       </div>
     </section>
 

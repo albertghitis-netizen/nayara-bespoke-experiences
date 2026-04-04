@@ -14,7 +14,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useLocation } from "wouter";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -619,58 +619,9 @@ function HeroHeader() {
         </a>
       </motion.div>
 
-      {/* Content — centered bottom */}
-      <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10 pb-[5vh]">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center text-[#ece8e1] max-w-[1052px]"
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontWeight: 400,
-            fontSize: 'clamp(26px, 3.5vw, 38px)',
-            lineHeight: 1,
-          }}
-        >
-          Atacama Desert Oasis Under the Stars
-        </motion.h1>
-
-        {/* Divider line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="w-24 h-px bg-[#ece8e1]/40 mt-4 origin-center"
-        />
-
-        {/* Location subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[#ece8e1]/70 text-[12px] md:text-[14px] uppercase tracking-[0.15em] mt-4"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
-        >
-          <span className="text-[#ece8e1]/40 mr-3">—</span>
-          Atacama Desert, Chile
-          <span className="text-[#ece8e1]/40 ml-3">—</span>
-        </motion.p>
-
-        {/* Award badge — 2 Michelin Keys */}
-        <motion.div
-          initial={{ opacity: 0, y: 15, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6"
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-2-keys_d2425671.png"
-            alt="Michelin Guide — 2 Keys 2025"
-            className="h-10 md:h-14 w-auto brightness-0 invert opacity-80"
-          />
-        </motion.div>
-      </div>
+      {/* EXPERIMENT 3: Parallax depth on hero text — text rises slower than scroll
+         To revert: remove heroRef, useScroll, useTransform, and style={{ y: textParallax }} */}
+      <HeroTextParallax />
     </section>
 
     {/* Mobile-only full-width image */}
@@ -769,4 +720,64 @@ function HomeIntroSection() {
 
 function GradientSpacer() {
   return <div className="w-full" style={{ height: 'clamp(120px, 20vw, 300px)' }} />;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 3: Hero Text Parallax
+   Text content moves at a different rate than the video background,
+   creating a subtle depth/floating effect as user scrolls.
+   To revert: replace <HeroTextParallax /> with original content div.
+   ═══════════════════════════════════════════════════════════ */
+function HeroTextParallax() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  // Text moves up slower than scroll — creates floating depth
+  const textY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.8, 0]);
+  const textScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+
+  return (
+    <motion.div
+      ref={heroRef}
+      className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10 pb-[5vh]"
+      style={{ y: textY, opacity: textOpacity, scale: textScale }}
+    >
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="text-center text-[#ece8e1] max-w-[1052px]"
+        style={{
+          fontFamily: 'var(--font-heading)',
+          fontWeight: 400,
+          fontSize: 'clamp(26px, 3.5vw, 38px)',
+          lineHeight: 1,
+        }}
+      >
+        Atacama Desert Oasis Under the Stars
+      </motion.h1>
+
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="w-24 h-px bg-[#ece8e1]/40 mt-4 origin-center"
+      />
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="text-[#ece8e1]/70 text-[12px] md:text-[14px] uppercase tracking-[0.15em] mt-4"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
+      >
+        <span className="text-[#ece8e1]/40 mr-3">—</span>
+        Atacama Desert, Chile
+        <span className="text-[#ece8e1]/40 ml-3">—</span>
+      </motion.p>
+    </motion.div>
+  );
 }

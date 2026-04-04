@@ -14,7 +14,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useLocation } from "wouter";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -739,15 +739,15 @@ function HomeIntroSection() {
           </div>
 
           {/* Right: image - Desktop only */}
-          <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign(1)_d91b6c9a.jpg"
-              alt="Sloth in rainforest at Nayara Gardens"
-              className="w-full object-cover"
-              style={{ aspectRatio: '3/4' }}
-              loading="eager"
-            />
-          </div>
+          {/* EXPERIMENT 6: Curtain wipe reveal on desktop image
+             A warm overlay slides away to reveal the image.
+             To revert: remove CurtainRevealImage wrapper, use plain <img> */}
+          <CurtainRevealImage
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign(1)_d91b6c9a.jpg"
+            alt="Sloth in rainforest at Nayara Gardens"
+            className="hidden md:flex md:flex-1 md:mr-[-24px]"
+            aspect="3/4"
+          />
         </div>
       </section>
     </>
@@ -770,16 +770,14 @@ function RoomsSection() {
         className="flex flex-col md:flex-row items-start mx-auto"
         style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 clamp(24px, 8vw, 121px) 0 0' }}
       >
-        {/* Left: image (3:4 aspect ratio) */}
-        <div className="hidden md:flex md:flex-1 md:ml-[-24px]">
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s3-casita_4be73573.jpg"
-            alt="Luxury casita with private pool at Nayara Gardens"
-            className="w-full object-cover"
-            style={{ aspectRatio: '3/4' }}
-            loading="lazy"
-          />
-        </div>
+        {/* Left: image with curtain wipe reveal */}
+        <CurtainRevealImage
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s3-casita_4be73573.jpg"
+          alt="Luxury casita with private pool at Nayara Gardens"
+          className="hidden md:flex md:flex-1 md:ml-[-24px]"
+          aspect="3/4"
+          direction="right"
+        />
 
         {/* Right: text content */}
         <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16 px-6 md:px-0">
@@ -841,5 +839,54 @@ function GradientSpacer() {
         paddingBottom: 'clamp(120px, 24vw, 240px)',
       }}
     />
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 6: Curtain Wipe Image Reveal
+   A warm-toned overlay slides away horizontally to reveal the image.
+   To revert: replace <CurtainRevealImage> with plain <div><img></div>.
+   ═══════════════════════════════════════════════════════════ */
+function CurtainRevealImage({
+  src,
+  alt,
+  className = "",
+  aspect = "3/4",
+  direction = "left",
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  aspect?: string;
+  direction?: "left" | "right";
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <div ref={ref} className={`relative overflow-hidden ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        className="w-full object-cover"
+        style={{ aspectRatio: aspect }}
+        loading="lazy"
+      />
+      {/* Curtain overlay that slides away */}
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(135deg, #e8e3db 0%, #d4cfc5 50%, #c5b596 100%)",
+          transformOrigin: direction === "left" ? "left center" : "right center",
+        }}
+        initial={{ scaleX: 1 }}
+        animate={isInView ? { scaleX: 0 } : {}}
+        transition={{
+          duration: 1.2,
+          delay: 0.2,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      />
+    </div>
   );
 }

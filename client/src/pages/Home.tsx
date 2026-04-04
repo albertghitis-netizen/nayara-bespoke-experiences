@@ -639,7 +639,7 @@ function HeroHeader() {
       {/* Content — centered bottom, matching spherical nay-hero__content */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
-          className="text-center text-[#ece8e1] mb-4 md:mb-6 max-w-[1052px]"
+          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
@@ -650,19 +650,6 @@ function HeroHeader() {
           Luxury Resorts Rooted in Nature
         </h1>
 
-        {/* Award badge — Travel + Leisure brand-level */}
-        <motion.div
-          initial={{ opacity: 0, y: 10, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-[20px] md:mb-[40px]"
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/travel-leisure-2024_6c4b8b4e.png"
-            alt="Travel + Leisure World's Best Awards 2024"
-            className="h-10 md:h-14 w-auto brightness-0 invert opacity-70"
-          />
-        </motion.div>
       </div>
     </section>
   );

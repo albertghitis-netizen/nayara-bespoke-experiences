@@ -4,8 +4,8 @@
  * Design: Editorial luxury aesthetic matching the rest of the site
  */
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { ArrowLeft, Trophy, ShieldCheck, ChevronDown, Star, Award, Key, Menu, X } from "lucide-react";
 import Footer from "@/components/Footer";
@@ -163,12 +163,13 @@ export default function Awards() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center"
               >
-                <p
+                {/* EXPERIMENT 5: Animated counter that counts up from 0
+                   To revert: replace <AnimatedStat> with plain {stat.number} */}
+                <AnimatedStat
+                  value={stat.number}
                   className="text-white text-3xl md:text-4xl lg:text-5xl mb-1"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                >
-                  {stat.number}
-                </p>
+                />
                 <p
                   className="text-white/70 text-xs md:text-sm tracking-[0.1em] uppercase"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
@@ -537,5 +538,67 @@ function AwardsNav() {
         </div>
       )}
     </>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 5: Animated Counter Stat
+   Numbers count up from 0 when scrolled into view.
+   Handles prefixes (#) and suffixes (+) gracefully.
+   To revert: replace <AnimatedStat> with plain <p>{stat.number}</p>.
+   ═══════════════════════════════════════════════════════════ */
+function AnimatedStat({
+  value,
+  className,
+  style,
+}: {
+  value: string;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    // Parse prefix, numeric part, suffix
+    const match = value.match(/^([#]?)(\d+)([+]?)$/);
+    if (!match) {
+      setDisplay(value);
+      return;
+    }
+
+    const prefix = match[1];
+    const target = parseInt(match[2], 10);
+    const suffix = match[3];
+    const duration = 1500; // ms
+    const steps = 40;
+    const stepTime = duration / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += 1;
+      const progress = current / steps;
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const val = Math.round(eased * target);
+      setDisplay(`${prefix}${val}${suffix}`);
+
+      if (current >= steps) {
+        clearInterval(timer);
+        setDisplay(value); // ensure exact final value
+      }
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [isInView, value]);
+
+  return (
+    <p ref={ref} className={className} style={style}>
+      {display}
+    </p>
   );
 }

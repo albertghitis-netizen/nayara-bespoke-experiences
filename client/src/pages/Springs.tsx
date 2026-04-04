@@ -14,7 +14,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useInView } from "framer-motion";
 import { useLocation } from "wouter";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -658,19 +658,6 @@ function HeroHeader() {
           <span className="text-[#ece8e1]/40 ml-3">—</span>
         </motion.p>
 
-        {/* Award badge — 3 Michelin Keys */}
-        <motion.div
-          initial={{ opacity: 0, y: 15, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 1.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6"
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-3-keys_35554a50.png"
-            alt="Michelin Guide — 3 Keys 2025"
-            className="h-10 md:h-14 w-auto brightness-0 invert opacity-80"
-          />
-        </motion.div>
       </div>
     </section>
 
@@ -715,41 +702,49 @@ function HomeIntroSection() {
           className="flex flex-col md:flex-row items-start mx-auto"
           style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
         >
-          {/* Left: text content */}
+          {/* EXPERIMENT 2: Scroll-linked text reveal — each element fades/slides in
+             as it enters the viewport, creating a reading spotlight effect.
+             To revert: remove ScrollRevealText wrappers, use plain divs. */}
           <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
-            <h2
-              className="text-[#4B4A4A]"
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 400,
-                fontSize: 'clamp(20px, 2.5vw, 28px)',
-                lineHeight: 1.3,
-              }}
-            >
-              Award-Winning Properties<br />Defined by Destination
-            </h2>
-            <p
-              className="text-[#4B4A4A]"
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 400,
-                fontSize: '15px',
-                lineHeight: '22.5px',
-              }}
-            >
-              Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
-            </p>
-            <a
-              href="/about"
-              className="text-[#4B4A4A] underline underline-offset-4 decoration-[#4B4A4A]/40 hover:decoration-[#4B4A4A] transition-all"
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 400,
-                fontSize: '15px',
-              }}
-            >
-              Our Story
-            </a>
+            <ScrollRevealText delay={0}>
+              <h2
+                className="text-[#4B4A4A]"
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: 400,
+                  fontSize: 'clamp(20px, 2.5vw, 28px)',
+                  lineHeight: 1.3,
+                }}
+              >
+                Award-Winning Properties<br />Defined by Destination
+              </h2>
+            </ScrollRevealText>
+            <ScrollRevealText delay={0.15}>
+              <p
+                className="text-[#4B4A4A]"
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                  lineHeight: '22.5px',
+                }}
+              >
+                Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile’s Atacama, the world’s driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama’s Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+              </p>
+            </ScrollRevealText>
+            <ScrollRevealText delay={0.3}>
+              <a
+                href="/about"
+                className="text-[#4B4A4A] underline underline-offset-4 decoration-[#4B4A4A]/40 hover:decoration-[#4B4A4A] transition-all inline-block"
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                }}
+              >
+                Our Story
+              </a>
+            </ScrollRevealText>
           </div>
 
           {/* Right: image - Desktop only (3:4 aspect ratio) */}
@@ -855,5 +850,32 @@ function GradientSpacer() {
         paddingBottom: 'clamp(120px, 24vw, 240px)',
       }}
     />
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 2: Scroll-Linked Text Reveal
+   Each text block fades up and slides in when scrolled into view,
+   with staggered delays for a reading spotlight effect.
+   To revert: remove ScrollRevealText wrappers, use plain content.
+   ═══════════════════════════════════════════════════════════ */
+function ScrollRevealText({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24, filter: "blur(4px)" }}
+      animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+      transition={{
+        duration: 0.8,
+        delay,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      {children}
+    </motion.div>
   );
 }

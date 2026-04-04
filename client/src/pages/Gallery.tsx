@@ -7,7 +7,7 @@
  */
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import Footer from "@/components/Footer";
 import BlobVideo from "@/components/BlobVideo";
@@ -265,45 +265,7 @@ export default function Gallery() {
           <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
             <AnimatePresence mode="popLayout">
               {filtered.map((img, idx) => (
-                <motion.div
-                  key={img.src}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className="break-inside-avoid cursor-pointer group relative overflow-hidden"
-                  onClick={() => openLightbox(idx)}
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className={`w-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ${
-                      img.aspect === "portrait" ? "aspect-[3/4]" : img.aspect === "square" ? "aspect-square" : "aspect-[4/3]"
-                    }`}
-                    loading="lazy"
-                  />
-                  {/* Hover overlay with caption */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100">
-                    <div className="flex items-center gap-2 mb-2">
-                      <MapPin className="w-3 h-3 text-white/60" />
-                      <span
-                        className="text-white/60 text-[10px] tracking-[0.2em] uppercase"
-                        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                      >
-                        {img.property}
-                      </span>
-                    </div>
-                    {img.caption && (
-                      <p
-                        className="text-white text-sm leading-relaxed"
-                        style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                      >
-                        {img.caption}
-                      </p>
-                    )}
-                  </div>
-                </motion.div>
+                <MagneticCard key={img.src} img={img} idx={idx} onClick={() => openLightbox(idx)} />
               ))}
             </AnimatePresence>
           </div>
@@ -476,5 +438,94 @@ function GalleryHero() {
         </motion.h1>
       </div>
     </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 1: Magnetic Tilt Card
+   3D perspective tilt that follows cursor on hover.
+   To revert: replace <MagneticCard> with original <motion.div> in gallery grid.
+   ═══════════════════════════════════════════════════════════ */
+function MagneticCard({ img, idx, onClick }: { img: GalleryImage; idx: number; onClick: () => void }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), { stiffness: 200, damping: 20 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), { stiffness: 200, damping: 20 });
+  const glareOpacity = useSpring(0, { stiffness: 200, damping: 20 });
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+    glareOpacity.set(0.15);
+  }, [mouseX, mouseY, glareOpacity]);
+
+  const handleMouseLeave = useCallback(() => {
+    mouseX.set(0);
+    mouseY.set(0);
+    glareOpacity.set(0);
+  }, [mouseX, mouseY, glareOpacity]);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.4, delay: idx * 0.05 }}
+      style={{
+        rotateX,
+        rotateY,
+        transformPerspective: 800,
+        transformStyle: "preserve-3d" as const,
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="break-inside-avoid cursor-pointer group relative overflow-hidden"
+      onClick={onClick}
+    >
+      <img
+        src={img.src}
+        alt={img.alt}
+        className={`w-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ${
+          img.aspect === "portrait" ? "aspect-[3/4]" : img.aspect === "square" ? "aspect-square" : "aspect-[4/3]"
+        }`}
+        loading="lazy"
+      />
+      {/* Subtle glare overlay */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          opacity: glareOpacity,
+          background: "linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 60%)",
+        }}
+      />
+      {/* Hover overlay with caption */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100">
+        <div className="flex items-center gap-2 mb-2">
+          <MapPin className="w-3 h-3 text-white/60" />
+          <span
+            className="text-white/60 text-[10px] tracking-[0.2em] uppercase"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            {img.property}
+          </span>
+        </div>
+        {img.caption && (
+          <p
+            className="text-white text-sm leading-relaxed"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            {img.caption}
+          </p>
+        )}
+      </div>
+    </motion.div>
   );
 }
