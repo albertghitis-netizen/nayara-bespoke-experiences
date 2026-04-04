@@ -10,6 +10,7 @@ import { Link, useLocation } from "wouter";
 import { ArrowLeft, Trophy, ShieldCheck, ChevronDown, Star, Award, Key, Menu, X } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import ScrollProgress from "@/components/ScrollProgress";
 
 /* ── CDN assets ── */
 const CDN = {
@@ -118,6 +119,11 @@ const brandStats = [
 
 export default function Awards() {
   const [expandedProperty, setExpandedProperty] = useState<string | null>("Nayara Springs");
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const PROPERTY_FILTERS = ["All", "Nayara Resorts", "Nayara Alto Atacama", "Nayara Bocas del Toro", "Nayara Gardens", "Nayara Hangaroa", "Nayara Springs", "Nayara Tented Camp"];
+
+  const filteredAwards = activeFilter === "All" ? allAwards : allAwards.filter(a => a.property === activeFilter);
 
   const toggleProperty = (property: string) => {
     setExpandedProperty(expandedProperty === property ? null : property);
@@ -125,8 +131,9 @@ export default function Awards() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
+      <ScrollProgress />
       {/* ── Static Image Hero ── */}
-      <BrandNavigation pageType="brand" centerLabel="Awards" />
+      <BrandNavigation pageType="content" centerLabel="Awards" />
       <section className="relative w-full h-screen overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -288,8 +295,26 @@ export default function Awards() {
             </h2>
           </motion.div>
 
+          {/* Property Filter */}
+          <div className="flex flex-wrap gap-2 justify-center mb-10">
+            {PROPERTY_FILTERS.map((p) => (
+              <button
+                key={p}
+                onClick={() => { setActiveFilter(p); setExpandedProperty(null); }}
+                className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${
+                  activeFilter === p
+                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
+                    : "bg-transparent text-[#5a4a3a]/40 border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:text-[#3a2a1a]"
+                }`}
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+
           <div className="space-y-0">
-            {allAwards.map((section, si) => (
+            {filteredAwards.map((section, si) => (
               <motion.div
                 key={section.property}
                 initial={{ opacity: 0, y: 15 }}

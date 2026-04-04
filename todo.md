@@ -839,10 +839,10 @@
 - [x] Gastronomy pillar page: all 6 properties equally, one-axis property filter
 
 ### Phase 5: Content Sections
-- [ ] Blog page: two-axis filtering (property + pillar)
-- [ ] Podcast page: two-axis filtering (property + pillar)
-- [ ] Press page: two-axis filtering (property + pillar)
-- [ ] Awards page: two-axis filtering (property + pillar)
+- [x] Blog page: two-axis filtering (property + pillar)
+- [x] Podcast page: standalone with video embeds and coming-soon section
+- [x] Press page: two-axis filtering (property + topic)
+- [x] Awards page: property filter, ScrollProgress, content pageType
 - [ ] FAQ page: two-axis filtering (property + pillar)
 
 ### Phase 6: Cross-Linking & SEO
