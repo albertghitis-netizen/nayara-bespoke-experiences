@@ -167,14 +167,14 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-2 right-4 z-50 flex items-center gap-2 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg px-4 py-2 hover:bg-[#ece8e1]/90 transition-colors group cursor-pointer border border-[#3a2a1a]/20"
+            className="fixed bottom-4 right-4 z-50 w-10 h-10 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-colors flex items-center justify-center cursor-pointer border border-[#3a2a1a]/20"
             aria-label="Open concierge"
           >
             <span
-              className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
+              className="text-[#3a2a1a] text-[10px] font-medium tracking-[0.08em] whitespace-nowrap text-center leading-tight"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Chat with us
+              Chat
             </span>
 
             {/* Pulse indicator for new visitors */}

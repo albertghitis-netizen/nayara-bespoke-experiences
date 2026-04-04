@@ -609,3 +609,7 @@
 - [x] Springs: center room section text on mobile (px-6 md:px-0)
 - [x] Bocas del Toro: center room section text on mobile (px-6 md:px-0)
 - [x] Audit all other property pages for same left-aligned room section text on mobile and fix
+
+## Chat with us Bubble Update
+- [x] Update Chat with us bubble size to match top nav buttons (w-10 h-10)
+- [x] Change text from "Chat with us" to "Chat" (capitalize first letter only, fits in bubble)
