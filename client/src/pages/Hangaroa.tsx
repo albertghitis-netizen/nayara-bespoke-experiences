@@ -57,7 +57,10 @@ export default function Hangaroa() {
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
-      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_4831_9fc7ea1f.jpg" />
+      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-s2-moai-sunset_dcd66ecc.jpg" />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
       <Footer />
     </div>
   );
@@ -717,39 +720,34 @@ function HeroHeader() {
         />
       </div>
 
-      {/* Nayara leaf logo — beige leaf + NAYARA text, centered on hero (desktop only) */}
+      {/* Nayara Hangaroa text — centered on hero */}
       <motion.div
-        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center"
+        className="absolute top-2 left-0 right-0 z-10 flex justify-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
-          alt="Nayara"
-          className="h-28 md:h-36 w-auto drop-shadow-lg"
-        />
-        <span
-          className="text-[#ece8e1] text-lg md:text-2xl tracking-[0.25em] uppercase mt-3 drop-shadow-md"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.25em" }}
+        <a
+          href="/"
+          className="text-[#ece8e1] drop-shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(18px, 2.5vw, 26px)', letterSpacing: '2px', lineHeight: 1, textDecoration: 'none' }}
         >
-          NAYARA
-        </span>
+          NAYARA HANGAROA
+        </a>
       </motion.div>
 
       {/* Content — centered bottom, matching spherical nay-hero__content */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <h1
-          className="text-center text-[#ece8e1] mb-[50px] md:mb-[85px] max-w-[1052px]"
+          className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 400,
-            fontSize: 'clamp(32px, 5vw, 50px)',
-            letterSpacing: '-2px',
+            fontSize: 'clamp(24px, 3.5vw, 36px)',
             lineHeight: 1,
           }}
         >
-          Luxury Resorts Rooted in Nature
+          Rapa Nui Culture Meets Pacific Luxury
         </h1>
       </div>
     </section>
@@ -770,21 +768,21 @@ function HomeIntroSection() {
     >
       {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
       <div
-        className="flex flex-col md:flex-row items-center mx-auto"
-        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 24px 0 clamp(24px, 8vw, 121px)' }}
+        className="flex flex-col md:flex-row items-start mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
       >
         {/* Left: text content */}
-        <div className="flex flex-col gap-10 md:flex-1">
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
           <h2
             className="text-[#4B4A4A]"
             style={{
               fontFamily: 'var(--font-heading)',
               fontWeight: 400,
-              fontSize: 'clamp(28px, 4vw, 42px)',
+              fontSize: 'clamp(20px, 2.5vw, 28px)',
               lineHeight: 1.3,
             }}
           >
-            Award-Winning Properties Defined by Destination
+            Award-Winning Properties<br />Defined by Destination
           </h2>
           <p
             className="text-[#4B4A4A]"
@@ -810,16 +808,39 @@ function HomeIntroSection() {
           </a>
         </div>
 
-        {/* Right: image */}
-        <div className="md:flex-1">
+        {/* Right: image - Desktop only (3:4 aspect ratio) */}
+        <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa_h2_vertical_be4d8396.jpg"
-            alt="Woman walking on rainforest bridge at Nayara"
-            className="w-full h-auto object-cover"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-s1-warrior_e99eb907.jpg"
+            alt="Rapa Nui warrior with torch at Nayara Hangaroa"
+            className="w-full object-cover"
+            style={{ aspectRatio: '3/4' }}
             loading="eager"
           />
         </div>
       </div>
+
+      {/* Mobile-only full-width image */}
+      <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-s1-warrior_e99eb907.jpg"
+          alt="Rapa Nui warrior with torch at Nayara Hangaroa"
+          className="w-full h-auto object-cover"
+          loading="eager"
+        />
+      </div>
     </section>
+  );
+}
+
+function GradientSpacer() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(120px, 24vw, 240px)',
+        paddingBottom: 'clamp(120px, 24vw, 240px)',
+      }}
+    />
   );
 }

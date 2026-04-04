@@ -544,3 +544,37 @@
 - [x] Update Bocas: S1 overwater pool image (IMG_6904), H2 section matching Home
 - [x] Update Bocas: S2 aerial overwater villas image (IMG_6908)
 - [x] Add gradient spacers to Bocas
+
+## H1 Updates Across All Properties
+- [ ] Gardens H1: "Family-Friendly Rainforest Adventure"
+- [ ] Tented Camp H1: "Luxury Tented Camp Immersed in the Rainforest"
+- [ ] Alto Atacama H1: "Atacama Desert Oasis Under the Stars"
+- [ ] Bocas del Toro H1: "Adults-Only Overwater Villas on a Private Island"
+
+## Tented Camp S1 Mobile Fix
+- [ ] Tented Camp S1: full-screen on mobile with gradient and spacing at bottom
+
+## Homepage Property Scroll
+- [ ] Add Bocas del Toro to homepage property scroll/carousel
+
+## Springs S1 Image Swap
+- [x] Replace Springs S1 image with new hot springs photo (springs-s1-hot-springs)
+
+## S3 Rooms Sections (All Property Pages)
+- [x] Gardens S3: casita pool image left, Rooms text right
+- [x] Tented Camp S3: tent pool image left, Rooms text right
+- [ ] Bocas del Toro S3: needs image (placeholder for now)
+- [ ] Alto Atacama S3: needs image (placeholder for now)
+
+## Hangaroa S1/S2 Image Swap
+- [x] Hangaroa S1: Rapa Nui warrior with torch (3:4 in H2 section)
+- [x] Hangaroa S2: Moai sunset silhouette (horizontal)
+
+## Bocas S1/S3 Image Swap
+- [x] Bocas S1: new aerial overwater pool image (replaces IMG_6904)
+- [x] Bocas S3: use old S1 (IMG_6904 overwater pool villa) as rooms section image
+
+## Springs S3 Image Swap
+- [x] Replace Springs S3 with new robe/canopy bed image
+## Bocas S2 Image Swap  
+- [x] Replace Bocas S2 with aerial villas walkway image

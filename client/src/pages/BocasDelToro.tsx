@@ -57,7 +57,8 @@ export default function BocasDelToro() {
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
-      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6908_4eee3510.JPG" />
+      <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-s2-island-aerial_937028ec.jpg" />
+      <RoomsSection />
       <GradientSpacer />
       <GradientSpacer />
       <GradientSpacer />
@@ -748,7 +749,7 @@ function HeroHeader() {
             lineHeight: 1,
           }}
         >
-          Luxury Overwater Villas on a Private Caribbean Island
+          Adults-Only Overwater Villas on a Private Island
         </h1>
       </div>
     </section>
@@ -756,8 +757,8 @@ function HeroHeader() {
     {/* Mobile-only full-width image */}
     <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
       <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6904_4db69733.JPG"
-        alt="Overwater pool villa at Nayara Bocas del Toro"
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg"
+        alt="Aerial view of overwater villas along walkway at Nayara Bocas del Toro"
         className="w-full h-auto object-cover"
         loading="eager"
       />
@@ -823,13 +824,91 @@ function HomeIntroSection() {
         {/* Right: image - Desktop only (3:4 aspect ratio) */}
         <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6904_4db69733.JPG"
-            alt="Overwater pool villa at Nayara Bocas del Toro"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg"
+            alt="Aerial view of overwater villas along walkway at Nayara Bocas del Toro"
             className="w-full object-cover"
             style={{ aspectRatio: '3/4' }}
             loading="eager"
           />
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ROOMS SECTION — Flipped layout: image left, text right
+   ═══════════════════════════════════════════════════════════════ */
+function RoomsSection() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingBottom: 0,
+      }}
+    >
+      <div
+        className="flex flex-col md:flex-row items-start mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 clamp(24px, 8vw, 121px) 0 0' }}
+      >
+        {/* Left: image (3:4 aspect ratio) */}
+        <div className="hidden md:flex md:flex-1 md:ml-[-24px]">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6904_4db69733.JPG"
+            alt="Overwater villa with private pool at Nayara Bocas del Toro"
+            className="w-full object-cover"
+            style={{ aspectRatio: '3/4' }}
+            loading="lazy"
+          />
+        </div>
+
+        {/* Right: text content */}
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
+          <h2
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: 'clamp(20px, 2.5vw, 28px)',
+              lineHeight: 1.3,
+            }}
+          >
+            Rooms
+          </h2>
+          <p
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+              lineHeight: '22.5px',
+            }}
+          >
+            Nayara Bocas del Toro’s overwater villas float above the crystalline Caribbean, each with a private infinity pool that spills into the sea, glass-floor panels revealing the reef below, and open-air terraces for uninterrupted ocean views. Thatched roofs, natural materials, and indoor-outdoor living create an intimate island sanctuary.
+          </p>
+          <a
+            href="/rooms"
+            className="text-[#4B4A4A] underline underline-offset-4 decoration-[#4B4A4A]/40 hover:decoration-[#4B4A4A] transition-all"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+            }}
+          >
+            Explore Our Rooms
+          </a>
+        </div>
+      </div>
+
+      {/* Mobile-only full-width image */}
+      <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6904_4db69733.JPG"
+          alt="Overwater villa with private pool at Nayara Bocas del Toro"
+          className="w-full h-auto object-cover"
+          loading="lazy"
+        />
       </div>
     </section>
   );

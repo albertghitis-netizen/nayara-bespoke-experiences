@@ -58,6 +58,7 @@ export default function Gardens() {
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/321D9B07-0FF2-459E-BBA0-623B1062AA25_38485c6d.jpeg" />
+      <RoomsSection />
       <GradientSpacer />
       <GradientSpacer />
       <GradientSpacer />
@@ -748,7 +749,7 @@ function HeroHeader() {
             lineHeight: 1,
           }}
         >
-          A Family-Friendly Rainforest Adventure
+          Family-Friendly Rainforest Adventure
         </h1>
       </div>
     </section>
@@ -830,6 +831,84 @@ function HomeIntroSection() {
             loading="eager"
           />
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ROOMS SECTION — Flipped layout: image left, text right
+   ═══════════════════════════════════════════════════════════════ */
+function RoomsSection() {
+  return (
+    <section
+      className="w-full"
+      style={{
+        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingBottom: 0,
+      }}
+    >
+      <div
+        className="flex flex-col md:flex-row items-start mx-auto"
+        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 clamp(24px, 8vw, 121px) 0 0' }}
+      >
+        {/* Left: image (3:4 aspect ratio) */}
+        <div className="hidden md:flex md:flex-1 md:ml-[-24px]">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s3-casita_4be73573.jpg"
+            alt="Luxury casita with private pool at Nayara Gardens"
+            className="w-full object-cover"
+            style={{ aspectRatio: '3/4' }}
+            loading="lazy"
+          />
+        </div>
+
+        {/* Right: text content */}
+        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
+          <h2
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: 'clamp(20px, 2.5vw, 28px)',
+              lineHeight: 1.3,
+            }}
+          >
+            Rooms
+          </h2>
+          <p
+            className="text-[#4B4A4A]"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+              lineHeight: '22.5px',
+            }}
+          >
+            Nayara Gardens offers spacious casitas and bungalows nestled among tropical gardens, each with a private plunge pool, outdoor terrace, and views of the Arenal Volcano. Vibrant botanical murals, handcrafted furnishings, and open-air living spaces create an immersive rainforest retreat for families and couples alike.
+          </p>
+          <a
+            href="/rooms"
+            className="text-[#4B4A4A] underline underline-offset-4 decoration-[#4B4A4A]/40 hover:decoration-[#4B4A4A] transition-all"
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontWeight: 400,
+              fontSize: '15px',
+            }}
+          >
+            Explore Our Rooms
+          </a>
+        </div>
+      </div>
+
+      {/* Mobile-only full-width image */}
+      <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s3-casita_4be73573.jpg"
+          alt="Luxury casita with private pool at Nayara Gardens"
+          className="w-full h-auto object-cover"
+          loading="lazy"
+        />
       </div>
     </section>
   );

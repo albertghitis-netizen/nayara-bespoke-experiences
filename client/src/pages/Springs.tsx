@@ -757,8 +757,8 @@ function HeroHeader() {
     {/* Mobile-only full-width image */}
     <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
       <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs_still_35df8edf.jpg"
-        alt="Infinity pool overlooking rainforest at Nayara Springs"
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-pools_8e255e18.png"
+        alt="Private hot spring pools nestled in rainforest at Nayara Springs"
         className="w-full h-auto object-cover"
         loading="eager"
       />
@@ -824,8 +824,8 @@ function HomeIntroSection() {
         {/* Right: image - Desktop only (3:4 aspect ratio) */}
         <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs_still_35df8edf.jpg"
-            alt="Infinity pool overlooking rainforest at Nayara Springs"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-pools_8e255e18.png"
+            alt="Private hot spring pools nestled in rainforest at Nayara Springs"
             className="w-full object-cover"
             style={{ aspectRatio: '3/4' }}
             loading="eager"
@@ -855,7 +855,7 @@ function RoomsSection() {
         {/* Left: image (3:4 aspect ratio) */}
         <div className="hidden md:flex md:flex-1 md:ml-[-24px]">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-R5_28782-byBriceFerreStudio_bf719a54.jpeg"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s3-robe-canopy_c9c365ff.jpg"
             alt="Luxury room with canopy bed at Nayara Springs"
             className="w-full object-cover"
             style={{ aspectRatio: '3/4' }}
@@ -904,7 +904,7 @@ function RoomsSection() {
       {/* Mobile-only full-width image */}
       <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
         <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-R5_28782-byBriceFerreStudio_bf719a54.jpeg"
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s3-robe-canopy_c9c365ff.jpg"
           alt="Luxury room with canopy bed at Nayara Springs"
           className="w-full h-auto object-cover"
           loading="lazy"

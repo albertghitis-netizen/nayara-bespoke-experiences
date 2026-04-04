@@ -57,19 +57,10 @@ export default function AltoAtacama() {
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
-      {/* S2 - Flamingo horizontal image */}
-      <div className="w-full px-6 md:px-12 py-8">
-        <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/WORLD'SBESTAWARDS2024.(Presentation)_58ab52a2.JPEG"
-          alt="Flamingos in the Atacama desert"
-          className="w-full h-auto object-cover"
-          loading="lazy"
-        />
-      </div>
-      <GradientSpacer />
-      <GradientSpacer />
-      <GradientSpacer />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_5d419ccb.png" />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
       <Footer />
     </div>
   );
@@ -756,7 +747,7 @@ function HeroHeader() {
             lineHeight: 1,
           }}
         >
-          An Atacama Desert Oasis Under the Stars
+          Atacama Desert Oasis Under the Stars
         </h1>
       </div>
     </section>
