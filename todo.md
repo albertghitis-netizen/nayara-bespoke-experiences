@@ -816,18 +816,18 @@
 - [x] Create InPageTabs component for content sections (two-axis: property + pillar filter) — deferred to Phase 5
 
 ### Phase 2: Property Page Template (Bocas del Toro first)
-- [ ] Standardize Bocas del Toro: Hero → Story (H2) → Rooms → Gallery → Experiences → Sustainability → Wellness → Gastronomy → Getting Here → TripAdvisor Reviews → Footer
-- [ ] Remove dummy H3-H10 gradient sections from Bocas
-- [ ] Add Getting Here section to Bocas
-- [ ] Add TripAdvisor Reviews link to Bocas
-- [ ] Test and verify Bocas template
+- [x] Standardize Bocas del Toro: Hero → Story (H2) → Rooms → Gallery → Experiences → Sustainability → Wellness → Gastronomy → Getting Here → TripAdvisor Reviews → Footer
+- [x] Remove dummy H3-H10 gradient sections from Bocas
+- [x] Add Getting Here section to Bocas
+- [x] Add TripAdvisor Reviews link to Bocas
+- [x] Test and verify Bocas template
 
 ### Phase 3: Copy Property Template to 5 Remaining Properties
-- [ ] Alto Atacama: apply property template
-- [ ] Gardens: apply property template
-- [ ] Hangaroa: apply property template
-- [ ] Springs: apply property template
-- [ ] Tented Camp: apply property template
+- [x] Alto Atacama: apply property template
+- [x] Gardens: apply property template
+- [x] Hangaroa: apply property template
+- [x] Springs: apply property template
+- [x] Tented Camp: apply property template
 
 ### Phase 4: Brand Pages
 - [ ] Nayara Resorts brand homepage: restructure with new nav
