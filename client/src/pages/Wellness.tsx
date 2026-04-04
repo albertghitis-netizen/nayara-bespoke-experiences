@@ -73,7 +73,7 @@ const wellnessPillars: WellnessPillar[] = [
 export default function Wellness() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation />
+      <BrandNavigation hideResorts hideLanguage />
       <HeroSection />
       <IntroSection />
       <WellnessPillarsSection />

@@ -724,3 +724,54 @@
 - [x] Experiment 3 (Bocas del Toro): Floating glass-morphism award card with Condé Nast + 2 Keys
 - [x] Experiment 4 (Springs): Inline award ribbon within intro section
 - [x] Experiment 5 (Tented Camp): Award ticker/marquee
+
+## Bocas del Toro Award Section Redesign
+- [x] Remove floating award card (BocasAwardCard) from between hero and intro
+- [x] Add Condé Nast-only editorial section below the Award-Winning Properties intro area
+- [x] No Michelin Keys on Bocas — only Condé Nast Readers' Choice
+
+## Gardens Content Update
+- [x] Update Gardens H2 to "Rich Wildlife, Bold Discovery / Endless Rainforest"
+- [x] Update Gardens intro body text to new paragraph about rainforest, toucans, naturalists
+
+## Tented Camp Content Update
+- [x] Update Tented Camp H2 to "Lifted On Stilts Above The Canopy / Eye to Eye with Arenal Volcano"
+
+## Springs Content Update
+- [x] Update Springs H2 to "Romance without Distraction / Wellness without Walls"
+- [x] Update Springs intro body text to new paragraph about adults-only Relais & Châteaux retreat
+
+## Tented Camp Body Text Update
+- [x] Update Tented Camp intro body text to new paragraph about barren cattle ranch, tented suites, volcanic clifftop
+
+## Bocas Award Card Fix
+- [x] Revert to glass-morphism floating card style but position below H2/body/CTA intro section
+- [x] Condé Nast only (no Michelin Keys)
+- [x] Keep the faded/bleed-between-sections look from Experiment 3
+
+## Bocas Image Bleed Pattern
+- [x] S1 (intro image): Bleed to the right edge
+- [x] S2 (AwardWinningProperties full-width): Bleed on both sides (already full-width)
+- [x] S3 (rooms image): Bleed to the left edge
+
+## Nav Bar Standardization (Experiences/Sustainability style)
+- [x] Apply Experiences/Sustainability nav bar styling to Blog & Podcast page
+- [x] Apply Experiences/Sustainability nav bar styling to Wellness page
+- [x] Revert Gastronomy nav bar change → re-applied BrandNavigation hideResorts hideLanguage per user request
+
+## Bocas del Toro Hero Video Update (Desktop + Mobile)
+- [x] Convert NBTHorizontal.MOV to MP4 and upload to CDN
+- [x] Convert Edits_NBT_Vertical to MP4 and upload to CDN
+- [x] Update Bocas del Toro page with new desktop and mobile hero videos
+
+## Gastronomy Nav Bar Update
+- [x] Apply Experiences/Sustainability nav bar styling to Gastronomy page
+
+## Bocas del Toro S1 Image Bleed
+- [x] Ensure Bocas S1 (intro section image) bleeds fully to the right edge (already was bleeding right)
+
+## Bocas Award Block Repositioning
+- [x] Move Bocas del Toro award block (glass-morphism card) below the Rooms section
+
+## Bocas del Toro Extended Empty Space
+- [x] Extend empty gradient spacer sections on Bocas page to accommodate up to H10 worth of content (10 spacers)

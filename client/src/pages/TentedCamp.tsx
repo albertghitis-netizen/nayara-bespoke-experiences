@@ -723,7 +723,7 @@ function HomeIntroSection() {
                 lineHeight: 1.3,
               }}
             >
-              Award-Winning Properties<br />Defined by Destination
+              Lifted On Stilts Above The Canopy<br />Eye to Eye with Arenal Volcano
             </h2>
             <p
               className="text-[#4B4A4A]"
@@ -734,7 +734,7 @@ function HomeIntroSection() {
                 lineHeight: '22.5px',
               }}
             >
-              Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+              Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.
             </p>
             <a
               href="/about"

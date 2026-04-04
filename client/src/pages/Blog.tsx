@@ -8,8 +8,9 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowLeft, ExternalLink, Play, ChevronDown, X, Menu } from "lucide-react";
+import { ExternalLink, Play, ChevronDown, X, Menu } from "lucide-react";
 import BlobVideo from "@/components/BlobVideo";
+import BrandNavigation from "@/components/BrandNavigation";
 
 import {
   blogPosts,
@@ -200,7 +201,7 @@ function JournalHero() {
       </div>
 
       {/* Nav overlay */}
-      <JournalNav />
+      <BrandNavigation hideResorts hideLanguage />
 
       {/* Content — centered bottom */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
@@ -221,38 +222,7 @@ function JournalHero() {
   );
 }
 
-function JournalNav() {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[#f7f5f0]/95 backdrop-blur-md shadow-sm" : "bg-transparent"
-      }`}
-    >
-      <div className="flex items-center justify-between h-16 md:h-20 px-5 md:px-8">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2 group">
-            <ArrowLeft className={`w-4 h-4 transition-colors ${scrolled ? "text-[#3a2a1a]" : "text-white"} group-hover:opacity-70`} />
-            <span className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${scrolled ? "text-[#3a2a1a]" : "text-white"} group-hover:opacity-70 hidden md:inline`} style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Nayara Collection</span>
-          </Link>
-        </div>
-        <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
-          <Link href="/">
-            <img src={scrolled ? JOURNAL_CDN.logoDark : JOURNAL_CDN.logoWhite} alt="Nayara" className="h-10 md:h-12 w-auto transition-all duration-500" />
-          </Link>
-          <span className={`text-[8px] md:text-[9px] tracking-[0.25em] uppercase mt-0.5 transition-colors ${scrolled ? "text-[#4B4A4A]" : "text-white/80"}`} style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Journal</span>
-        </div>
-        <div className="w-10" />
-      </div>
-    </nav>
-  );
-}
+/* JournalNav replaced by BrandNavigation */
 
 /* ═══════════════════════════════════════════════════════════════
    STORIES FILTERS

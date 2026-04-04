@@ -720,7 +720,7 @@ function HomeIntroSection() {
                   lineHeight: 1.3,
                 }}
               >
-                Award-Winning Properties<br />Defined by Destination
+                Romance without Distraction<br />Wellness without Walls
               </h2>
             </ScrollRevealText>
             <ScrollRevealText delay={0.15}>
@@ -733,7 +733,7 @@ function HomeIntroSection() {
                   lineHeight: '22.5px',
                 }}
               >
-                Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile’s Atacama, the world’s driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama’s Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+                Hidden within the rainforest surrounding Arenal Volcano, Nayara Springs is an adults-only Relais & Châteaux retreat built around hot springs, romance, and exceptional dining. Every villa has its own volcanic hot spring plunge pool screened by tropical gardens, and the spa draws its rituals from the geothermal earth and forest botanicals that surround it. Here, privacy is not a perk. It is the entire point.
               </p>
             </ScrollRevealText>
 

@@ -712,7 +712,7 @@ function HomeIntroSection() {
                 lineHeight: 1.3,
               }}
             >
-              Award-Winning Properties<br />Defined by Destination
+              Rich Wildlife, Bold Discovery<br />Endless Rainforest
             </h2>
             <p
               className="text-[#4B4A4A]"
@@ -723,7 +723,7 @@ function HomeIntroSection() {
                 lineHeight: '22.5px',
               }}
             >
-              Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+              The rainforest at the foot of Arenal Volcano is alive with possibility. Toucans, frogs, and howler monkeys share the canopy with your villa, and every trail leads somewhere worth discovering. Nayara Gardens welcomes families and couples alike, with experiences guided by naturalists who know this forest by name.
             </p>
             <a
               href="/about"

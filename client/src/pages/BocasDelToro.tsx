@@ -55,15 +55,17 @@ export default function BocasDelToro() {
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
-      {/* ═══ EXPERIMENT 3: Floating Award Card Overlay ═══
-         A glass-morphism card that bridges hero and intro sections,
-         showing Condé Nast #1 + 2 Michelin Keys side by side.
-         To revert: remove <BocasAwardCard /> */}
-      <BocasAwardCard />
       <HomeIntroSection />
-      <div className="h-2 md:h-4" />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-s2-island-aerial_937028ec.jpg" />
       <RoomsSection />
+      <BocasCondeNastCard />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
+      <GradientSpacer />
       <GradientSpacer />
       <GradientSpacer />
       <GradientSpacer />
@@ -709,7 +711,9 @@ function BrandNavigation() {
 function HeroHeader() {
   const isMobile = useIsMobile();
 
-  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
+  const heroDesktop = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbt-horizontal-desktop_e6df3c3e.mp4";
+  const heroMobile = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbt-vertical-mobile_ca23e898.mp4";
+  const heroVideo = isMobile ? heroMobile : heroDesktop;
 
   return (
     <>
@@ -876,8 +880,8 @@ function HomeIntroSection() {
           </a>
         </div>
 
-        {/* Right: image - Desktop only (3:4 aspect ratio) */}
-        <div className="hidden md:flex md:flex-1 md:mr-[-24px]">
+        {/* Right: image - Desktop only (3:4 aspect ratio) — BLEEDS TO RIGHT EDGE */}
+        <div className="hidden md:flex md:flex-1" style={{ marginRight: 'calc(-1 * clamp(24px, 8vw, 121px))' }}>
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg"
             alt="Aerial view of overwater villas along walkway at Nayara Bocas del Toro"
@@ -908,8 +912,8 @@ function RoomsSection() {
         className="flex flex-col md:flex-row items-start mx-auto"
         style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 clamp(24px, 8vw, 121px) 0 0' }}
       >
-        {/* Left: image (3:4 aspect ratio) */}
-        <div className="hidden md:flex md:flex-1 md:ml-[-24px]">
+        {/* Left: image (3:4 aspect ratio) — BLEEDS TO LEFT EDGE */}
+        <div className="hidden md:flex md:flex-1" style={{ marginLeft: 'calc(-1 * clamp(24px, 8vw, 121px))' }}>
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6904_4db69733.JPG"
             alt="Overwater villa with private pool at Nayara Bocas del Toro"
@@ -990,9 +994,71 @@ function GradientSpacer() {
    Uses glass-morphism (backdrop-blur + semi-transparent bg).
    To revert: remove <BocasAwardCard /> from the main component.
    ═══════════════════════════════════════════════════════════ */
-function BocasAwardCard() {
+function BocasCondeNastCard() {
   return (
-    <div className="hidden md:flex w-full justify-center" style={{ marginTop: '-60px', marginBottom: '40px', position: 'relative', zIndex: 15 }}>
+    <div className="w-full flex justify-center px-6 md:px-10" style={{ marginTop: 'clamp(40px, 6vw, 80px)', marginBottom: '20px', position: 'relative', zIndex: 15 }}>
+      <motion.div
+        className="flex items-center gap-10 md:gap-14 px-10 md:px-16 py-8 md:py-10 rounded-2xl max-w-[700px] w-full"
+        style={{
+          background: 'rgba(255, 255, 255, 0.06)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          border: '1px solid rgba(58, 42, 26, 0.08)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04)',
+        }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* Condé Nast badge */}
+        <motion.div
+          className="flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/conde-nast-2025_0d4b7c71.png"
+            alt="Condé Nast Traveler Readers' Choice Awards 2025"
+            className="h-20 md:h-28 w-auto"
+          />
+        </motion.div>
+
+        {/* Vertical divider */}
+        <div className="h-16 md:h-20 w-px bg-[#3a2a1a]/10 flex-shrink-0" />
+
+        {/* Text */}
+        <div className="flex flex-col gap-2">
+          <span
+            className="text-[#3a2a1a]/35 text-[9px] tracking-[0.35em] uppercase"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}
+          >
+            Condé Nast Traveler 2025
+          </span>
+          <span
+            className="text-[#3a2a1a] text-lg md:text-xl"
+            style={{ fontFamily: 'var(--font-heading)', fontWeight: 400, lineHeight: 1.2 }}
+          >
+            No. 1 Resort in Central America
+          </span>
+          <span
+            className="text-[#3a2a1a]/40 text-[10px] tracking-[0.1em] uppercase"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+          >
+            Readers' Choice Awards
+          </span>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+/* Old BocasAwardCard removed — replaced by BocasCondeNastSection above */
+function _BocasAwardCard_REMOVED() {
+  return (
+    <div className="hidden" style={{ marginTop: '-60px', marginBottom: '40px', position: 'relative', zIndex: 15 }}>
       <motion.div
         className="flex items-center gap-16 px-16 py-10 rounded-2xl"
         style={{
