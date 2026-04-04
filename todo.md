@@ -583,3 +583,7 @@
 - [x] Gardens mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
 - [x] Tented Camp mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
 - [x] Springs mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
+
+## Spacing Consistency Fix
+- [x] Fix spacing between S2 and S3 on Springs (too much space)
+- [x] Ensure consistent spacing between all sections across all property pages (Springs, Gardens, TentedCamp, BocasDelToro)

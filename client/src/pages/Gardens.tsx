@@ -856,7 +856,7 @@ function RoomsSection() {
     <section
       className="w-full"
       style={{
-        paddingTop: 'clamp(40px, 8vw, 80px)',
+        paddingTop: 'clamp(8px, 2vw, 16px)',
         paddingBottom: 0,
       }}
     >
