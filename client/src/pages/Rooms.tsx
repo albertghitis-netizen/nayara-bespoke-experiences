@@ -9,7 +9,7 @@ export default function Rooms() {
           className="text-[#3a2a1a] text-3xl tracking-wide"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Rooms &amp; Suites
+          {"Rooms & Suites"}
         </h1>
       </div>
     </div>

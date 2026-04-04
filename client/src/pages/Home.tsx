@@ -72,21 +72,6 @@ function HeroHeader() {
         />
       </div>
 
-      {/* Nayara text — centered on hero (desktop only) */}
-      <motion.div
-        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center justify-center"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <a
-          href="/"
-          className="text-[#ece8e1] drop-shadow-md cursor-pointer hover:opacity-80 transition-opacity"
-          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', letterSpacing: '1px', lineHeight: 1, textDecoration: 'none' }}
-        >
-          NAYARA
-        </a>
-      </motion.div>
 
       {/* Content — centered bottom, matching spherical nay-hero__content */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
