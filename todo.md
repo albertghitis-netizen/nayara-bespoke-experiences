@@ -578,3 +578,8 @@
 - [x] Replace Springs S3 with new robe/canopy bed image
 ## Bocas S2 Image Swap  
 - [x] Replace Bocas S2 with aerial villas walkway image
+
+## Mobile Layout Restructure (S1 before text)
+- [x] Gardens mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
+- [x] Tented Camp mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
+- [x] Springs mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
