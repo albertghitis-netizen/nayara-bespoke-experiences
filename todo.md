@@ -830,13 +830,13 @@
 - [x] Tented Camp: apply property template
 
 ### Phase 4: Brand Pages
-- [ ] Nayara Resorts brand homepage: restructure with new nav
-- [ ] Story page: brand narrative (linked from H2, not in menus)
-- [ ] Gallery page: all properties combined (brand-level)
-- [ ] Experiences pillar page: all 6 properties equally (no regional tabs), one-axis property filter
-- [ ] Sustainability pillar page: all 6 properties equally, one-axis property filter
-- [ ] Wellness pillar page: all 6 properties equally, one-axis property filter
-- [ ] Gastronomy pillar page: all 6 properties equally, one-axis property filter
+- [x] Nayara Resorts brand homepage: restructure with new nav
+- [x] Story page: brand narrative (linked from H2, not in menus)
+- [x] Gallery page: all properties combined (brand-level)
+- [x] Experiences pillar page: all 6 properties equally (no regional tabs), one-axis property filter
+- [x] Sustainability pillar page: all 6 properties equally, one-axis property filter
+- [x] Wellness pillar page: all 6 properties equally, one-axis property filter
+- [x] Gastronomy pillar page: all 6 properties equally, one-axis property filter
 
 ### Phase 5: Content Sections
 - [ ] Blog page: two-axis filtering (property + pillar)

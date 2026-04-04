@@ -158,7 +158,7 @@ const galleryImages: GalleryImage[] = [
   },
 ];
 
-const properties = ["All", "Alto Atacama", "Costa Rica", "Nayara Hangaroa", "Nayara Bocas del Toro"];
+const properties = ["All", "Alto Atacama", "Bocas del Toro", "Gardens", "Hangaroa", "Springs", "Tented Camp"];
 const categoryFilters = ["All", "Landscape", "Rooms", "Wellness", "Experience"];
 
 /* ─── Main Component ─────────────────────────────────────── */
