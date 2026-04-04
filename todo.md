@@ -717,3 +717,10 @@
 ## Empty Gradient Sections (like Home page)
 - [x] Add 7 empty gradient sections to Experiences page (no text, just color transitions)
 - [x] Add 7 empty gradient sections to Sustainability page (no text, just color transitions)
+
+## Award Presentation Experiments (5 different layouts, desktop only)
+- [x] Experiment 1 (Springs): Editorial sidebar award strip with 3 Michelin Keys image
+- [x] Experiment 2 (Tented Camp): Full-width cinematic award banner with T+L text
+- [x] Experiment 3 (Bocas del Toro): Floating glass-morphism award card with Condé Nast + 2 Keys
+- [x] Experiment 4 (Springs): Inline award ribbon within intro section
+- [x] Experiment 5 (Tented Camp): Award ticker/marquee

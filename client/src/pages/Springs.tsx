@@ -57,6 +57,10 @@ export default function Springs() {
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
+      {/* ═══ EXPERIMENT 1: Editorial Award Strip ═══
+         A dedicated section with Michelin Keys image + editorial text.
+         To revert: remove <SpringsAwardStrip /> */}
+      <SpringsAwardStrip />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/WORLD'SBESTAWARDS2024.(Presentation)_26483fca.jpg" />
       <RoomsSection />
       <GradientSpacer />
@@ -732,6 +736,29 @@ function HomeIntroSection() {
                 Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile’s Atacama, the world’s driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama’s Caribbean coast, overwater villas rise above the reef. Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
               </p>
             </ScrollRevealText>
+
+            {/* ═══ EXPERIMENT 4: Inline Award Ribbon ═══
+               Michelin Keys woven into the text column as a subtle accent.
+               To revert: remove this ScrollRevealText block. */}
+            <ScrollRevealText delay={0.25}>
+              <div className="hidden md:flex items-center gap-5 py-4">
+                <div className="h-px flex-1 bg-[#4B4A4A]/15" />
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-3-keys_10864925.png"
+                  alt="3 Michelin Keys"
+                  className="h-8 w-auto"
+                  style={{ filter: 'brightness(0) saturate(100%) invert(30%) sepia(10%) saturate(300%) hue-rotate(350deg)' }}
+                />
+                <span
+                  className="text-[#4B4A4A]/50 text-[11px] tracking-[0.15em] uppercase whitespace-nowrap"
+                  style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+                >
+                  First in Costa Rica
+                </span>
+                <div className="h-px flex-1 bg-[#4B4A4A]/15" />
+              </div>
+            </ScrollRevealText>
+
             <ScrollRevealText delay={0.3}>
               <a
                 href="/about"
@@ -877,5 +904,77 @@ function ScrollRevealText({ children, delay = 0 }: { children: React.ReactNode; 
     >
       {children}
     </motion.div>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 1: Editorial Award Strip
+   A dedicated section between intro and rooms with 3 Michelin Keys
+   displayed in an elegant editorial layout — large keys image on left,
+   editorial text on right with thin rule separators.
+   To revert: remove <SpringsAwardStrip /> from the main component.
+   ═══════════════════════════════════════════════════════════ */
+function SpringsAwardStrip() {
+  return (
+    <section className="hidden md:block w-full" style={{ padding: 'clamp(60px, 10vw, 120px) 0' }}>
+      <div
+        className="mx-auto flex items-center"
+        style={{ maxWidth: '1440px', padding: '0 clamp(24px, 8vw, 121px)' }}
+      >
+        {/* Left: Michelin Keys image */}
+        <motion.div
+          className="flex-shrink-0"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-3-keys_10864925.png"
+            alt="3 Michelin Keys"
+            className="h-20 w-auto"
+            style={{ filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(500%) hue-rotate(350deg)' }}
+          />
+        </motion.div>
+
+        {/* Vertical divider */}
+        <motion.div
+          className="h-24 w-px bg-[#3a2a1a]/20 mx-10 flex-shrink-0"
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        />
+
+        {/* Right: Editorial text */}
+        <motion.div
+          className="flex flex-col gap-2"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span
+            className="text-[#3a2a1a]/40 text-[10px] tracking-[0.3em] uppercase"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}
+          >
+            Michelin Guide 2025
+          </span>
+          <span
+            className="text-[#3a2a1a] text-[22px]"
+            style={{ fontFamily: 'var(--font-heading)', fontWeight: 400, lineHeight: 1.3 }}
+          >
+            Three Michelin Keys
+          </span>
+          <span
+            className="text-[#3a2a1a]/60 text-[13px]"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
+          >
+            The first hotel in Costa Rica to receive this distinction
+          </span>
+        </motion.div>
+      </div>
+    </section>
   );
 }

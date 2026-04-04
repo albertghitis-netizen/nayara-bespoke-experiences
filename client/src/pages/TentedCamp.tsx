@@ -57,8 +57,16 @@ export default function TentedCamp() {
       <HeroHeader />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
+      {/* ═══ EXPERIMENT 2: Full-Width Award Banner ═══
+         A cinematic full-width section with large editorial typography.
+         To revert: remove <TentedCampAwardBanner /> */}
+      <TentedCampAwardBanner />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG" />
       <RoomsSection />
+      {/* ═══ EXPERIMENT 5: Award Ticker/Marquee ═══
+         A horizontal scrolling marquee strip with award text repeating.
+         To revert: remove <AwardTicker /> */}
+      <AwardTicker />
       <GradientSpacer />
       <GradientSpacer />
       <GradientSpacer />
@@ -845,5 +853,136 @@ function GradientSpacer() {
         paddingBottom: 'clamp(120px, 24vw, 240px)',
       }}
     />
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 2: Full-Width Award Banner
+   A cinematic full-width section with large editorial typography,
+   centered layout, thin horizontal rules above and below.
+   Travel + Leisure — Best Hotel in Central America, 4 years running.
+   To revert: remove <TentedCampAwardBanner /> from the main component.
+   ═══════════════════════════════════════════════════════════ */
+function TentedCampAwardBanner() {
+  return (
+    <section className="hidden md:block w-full" style={{ padding: 'clamp(80px, 12vw, 160px) 0' }}>
+      <div className="mx-auto text-center" style={{ maxWidth: '900px', padding: '0 clamp(24px, 8vw, 121px)' }}>
+        {/* Top rule */}
+        <motion.div
+          className="w-full h-px bg-[#3a2a1a]/15 mb-12"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        />
+
+        {/* Award source label */}
+        <motion.span
+          className="block text-[#3a2a1a]/35 text-[10px] tracking-[0.4em] uppercase mb-6"
+          style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          Travel + Leisure World's Best Awards
+        </motion.span>
+
+        {/* Main award text — large editorial */}
+        <motion.h3
+          className="text-[#3a2a1a]"
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontWeight: 400,
+            fontSize: 'clamp(32px, 4vw, 52px)',
+            lineHeight: 1.15,
+            letterSpacing: '-0.01em',
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Best Hotel in Central America
+        </motion.h3>
+
+        {/* Subtitle — years */}
+        <motion.span
+          className="block text-[#3a2a1a]/50 text-[14px] tracking-[0.15em] uppercase mt-6"
+          style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          Four consecutive years
+        </motion.span>
+
+        {/* Bottom rule */}
+        <motion.div
+          className="w-full h-px bg-[#3a2a1a]/15 mt-12"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </div>
+    </section>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 5: Award Ticker / Marquee
+   A horizontal scrolling strip with award text repeating infinitely.
+   Elegant, understated — thin rules above and below, muted text.
+   To revert: remove <AwardTicker /> from the main component.
+   ═══════════════════════════════════════════════════════════ */
+function AwardTicker() {
+  const items = [
+    "Travel + Leisure — Best Hotel in Central America",
+    "Four Consecutive Years",
+    "World's Best Awards 2024",
+    "Travel + Leisure — Best Hotel in Central America",
+    "Four Consecutive Years",
+    "World's Best Awards 2024",
+  ];
+
+  return (
+    <section className="hidden md:block w-full overflow-hidden" style={{ padding: 'clamp(40px, 6vw, 80px) 0' }}>
+      {/* Top rule */}
+      <div className="w-full h-px bg-[#3a2a1a]/10" />
+
+      {/* Scrolling content */}
+      <div className="relative py-6">
+        <motion.div
+          className="flex gap-16 whitespace-nowrap"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 25,
+              ease: "linear",
+            },
+          }}
+        >
+          {items.concat(items).map((item, i) => (
+            <span
+              key={i}
+              className="text-[#3a2a1a]/30 text-[13px] tracking-[0.25em] uppercase flex-shrink-0"
+              style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+            >
+              {item}
+              <span className="ml-16 text-[#3a2a1a]/15">&#9670;</span>
+            </span>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Bottom rule */}
+      <div className="w-full h-px bg-[#3a2a1a]/10" />
+    </section>
   );
 }

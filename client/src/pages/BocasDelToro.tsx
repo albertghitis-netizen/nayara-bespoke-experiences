@@ -55,6 +55,11 @@ export default function BocasDelToro() {
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
+      {/* ═══ EXPERIMENT 3: Floating Award Card Overlay ═══
+         A glass-morphism card that bridges hero and intro sections,
+         showing Condé Nast #1 + 2 Michelin Keys side by side.
+         To revert: remove <BocasAwardCard /> */}
+      <BocasAwardCard />
       <HomeIntroSection />
       <div className="h-2 md:h-4" />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-s2-island-aerial_937028ec.jpg" />
@@ -974,5 +979,81 @@ function GradientSpacer() {
         paddingBottom: 'clamp(120px, 24vw, 240px)',
       }}
     />
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERIMENT 3: Floating Award Card Overlay
+   A translucent card that sits between hero and intro,
+   showing two awards side by side — Condé Nast #1 and 2 Michelin Keys.
+   Uses glass-morphism (backdrop-blur + semi-transparent bg).
+   To revert: remove <BocasAwardCard /> from the main component.
+   ═══════════════════════════════════════════════════════════ */
+function BocasAwardCard() {
+  return (
+    <div className="hidden md:flex w-full justify-center" style={{ marginTop: '-60px', marginBottom: '40px', position: 'relative', zIndex: 15 }}>
+      <motion.div
+        className="flex items-center gap-16 px-16 py-10 rounded-2xl"
+        style={{
+          background: 'rgba(255, 255, 255, 0.08)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          border: '1px solid rgba(58, 42, 26, 0.08)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.06)',
+        }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* Award 1: Condé Nast */}
+        <div className="flex flex-col items-center gap-3 text-center">
+          <span
+            className="text-[#3a2a1a]/35 text-[9px] tracking-[0.35em] uppercase"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}
+          >
+            Condé Nast Traveler 2025
+          </span>
+          <span
+            className="text-[#3a2a1a] text-[20px]"
+            style={{ fontFamily: 'var(--font-heading)', fontWeight: 400, lineHeight: 1.2 }}
+          >
+            No. 1 Resort in Central America
+          </span>
+          <span
+            className="text-[#3a2a1a]/45 text-[11px] tracking-[0.1em] uppercase"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+          >
+            Readers' Choice Awards
+          </span>
+        </div>
+
+        {/* Vertical divider */}
+        <div className="h-20 w-px bg-[#3a2a1a]/12 flex-shrink-0" />
+
+        {/* Award 2: Michelin Keys */}
+        <div className="flex flex-col items-center gap-3 text-center">
+          <span
+            className="text-[#3a2a1a]/35 text-[9px] tracking-[0.35em] uppercase"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 600 }}
+          >
+            Michelin Guide 2025
+          </span>
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-2-keys_7e564b50.png"
+            alt="2 Michelin Keys"
+            className="h-14 w-auto"
+            style={{ filter: 'brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(500%) hue-rotate(350deg)' }}
+          />
+          <span
+            className="text-[#3a2a1a]/45 text-[11px] tracking-[0.1em] uppercase"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+          >
+            Two Michelin Keys
+          </span>
+        </div>
+      </motion.div>
+    </div>
   );
 }
