@@ -772,20 +772,31 @@ function HeroHeader() {
    ═══════════════════════════════════════════════════════════════ */
 function HomeIntroSection() {
   return (
-    <section
-      className="w-full"
-      style={{
-        paddingTop: 'clamp(20px, 3vw, 40px)',
-        paddingBottom: 0,
-      }}
-    >
-      {/* Two-column layout */}
-      <div
-        className="flex flex-col md:flex-row items-start mx-auto"
-        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
+    <>
+      {/* Mobile: S1 full-width vertical image BEFORE text */}
+      <div className="md:hidden w-full" style={{ paddingTop: 'clamp(16px, 3vw, 32px)' }}>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg"
+          alt="Aerial view of overwater villas along walkway at Nayara Bocas del Toro"
+          className="w-full h-auto object-cover"
+          loading="eager"
+        />
+      </div>
+
+      <section
+        className="w-full"
+        style={{
+          paddingTop: 'clamp(20px, 3vw, 40px)',
+          paddingBottom: 0,
+        }}
       >
-        {/* Left: text content */}
-        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
+        {/* Two-column layout */}
+        <div
+          className="flex flex-col md:flex-row items-start mx-auto"
+          style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
+        >
+          {/* Left: text content */}
+          <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
           <h2
             className="text-[#4B4A4A]"
             style={{
@@ -831,8 +842,9 @@ function HomeIntroSection() {
             loading="eager"
           />
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }
 

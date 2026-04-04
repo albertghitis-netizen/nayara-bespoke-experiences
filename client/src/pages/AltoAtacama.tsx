@@ -706,6 +706,7 @@ function HeroHeader() {
   const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
 
   return (
+    <>
     <section className="relative w-full h-screen overflow-hidden">
       {/* Video background — matches spherical nay-hero structure */}
       <div className="absolute inset-0">
@@ -720,9 +721,9 @@ function HeroHeader() {
         />
       </div>
 
-      {/* Nayara Alto Atacama text — centered on hero */}
+      {/* Nayara Alto Atacama text — centered on hero (desktop only) */}
       <motion.div
-        className="absolute top-2 left-0 right-0 z-10 flex justify-center"
+        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center justify-center"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -751,6 +752,17 @@ function HeroHeader() {
         </h1>
       </div>
     </section>
+
+    {/* Mobile-only full-width image */}
+    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
+      <img
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6879_0cd80bf6.JPG"
+        alt="Atacama desert mountain landscape"
+        className="w-full h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+    </>
   );
 }
 
@@ -760,20 +772,30 @@ function HeroHeader() {
 function HomeIntroSection() {
   return (
     <>
-    <section
-      className="w-full"
-      style={{
-        paddingTop: 'clamp(20px, 3vw, 40px)',
-        paddingBottom: 0,
-      }}
-    >
-      {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
-      <div
-        className="flex flex-col md:flex-row items-start mx-auto"
-        style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
+      {/* Mobile: S1 full-width vertical image BEFORE text */}
+      <div className="md:hidden w-full" style={{ paddingTop: 'clamp(16px, 3vw, 32px)' }}>
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6879_0cd80bf6.JPG"
+          alt="Atacama desert mountain landscape"
+          className="w-full h-auto object-cover"
+          loading="eager"
+        />
+      </div>
+
+      <section
+        className="w-full"
+        style={{
+          paddingTop: 'clamp(20px, 3vw, 40px)',
+          paddingBottom: 0,
+        }}
       >
-        {/* Left: text content */}
-        <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
+        {/* Two-column layout matching spherical nay-banner--layout-two-cols-image */}
+        <div
+          className="flex flex-col md:flex-row items-start mx-auto"
+          style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 0 0 clamp(24px, 8vw, 121px)' }}
+        >
+          {/* Left: text content */}
+          <div className="flex flex-col gap-10 md:flex-1 mt-10 md:mt-16">
           <h2
             className="text-[#4B4A4A]"
             style={{
@@ -819,18 +841,8 @@ function HomeIntroSection() {
             loading="eager"
           />
         </div>
-      </div>
-    </section>
-
-    {/* Mobile-only full-width image */}
-    <div className="md:hidden w-screen" style={{ marginLeft: 'calc(-50vw + 50%)', paddingTop: '10px' }}>
-      <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_380507bd.jpg"
-        alt="Atacama desert landscape"
-        className="w-full h-auto object-cover"
-        loading="eager"
-      />
-    </div>
+        </div>
+      </section>
     </>
   );
 }

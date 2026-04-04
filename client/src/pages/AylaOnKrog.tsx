@@ -7,6 +7,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import BlobVideo from "@/components/BlobVideo";
 import { Link } from "wouter";
 import {
   MapPin,
@@ -171,13 +172,19 @@ function AylaHeader() {
    HERO — Full-width image with overlay text
    ═══════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ayla-hero-video_49ede379.mp4";
+
   return (
     <section className="relative h-[80vh] md:h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={images.pool}
-          alt="Ayla on Krog - Pool and courtyard"
+        <BlobVideo
+          src={heroVideo}
           className="w-full h-full object-cover"
+          autoPlay={true}
+          muted={true}
+          loop={true}
+          playsInline={true}
+          controls={false}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a2744]/60 via-[#1a2744]/30 to-[#1a2744]/70" />
       </div>
@@ -212,9 +219,7 @@ function HeroSection() {
             fontWeight: 300,
           }}
         >
-          Steps from the BeltLine.
-          <br />
-          Miles from Ordinary.
+          Life on the Beltline
         </motion.h1>
 
         <motion.p

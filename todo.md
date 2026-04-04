@@ -587,3 +587,18 @@
 ## Spacing Consistency Fix
 - [x] Fix spacing between S2 and S3 on Springs (too much space)
 - [x] Ensure consistent spacing between all sections across all property pages (Springs, Gardens, TentedCamp, BocasDelToro)
+
+## Mobile Layout Restructure (Remaining Pages)
+- [x] Bocas del Toro mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
+- [x] Alto Atacama mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
+- [ ] Hangaroa mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
+
+## NAYARA [PROPERTY] Text (Remaining Pages)
+- [ ] Add NAYARA GARDENS text to Gardens page
+- [ ] Add NAYARA SPRINGS text to Springs page
+- [ ] Add NAYARA ALTO ATACAMA text to Alto Atacama page
+- [ ] Add NAYARA BOCAS DEL TORO text to Bocas del Toro page
+
+## Ayla on Krog Hero Video
+- [x] Pull hero video from aylaonkrog.com and use it on our Ayla page
+- [x] Change Ayla H1 to "Life on the Beltline"
