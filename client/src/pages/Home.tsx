@@ -233,19 +233,6 @@ function BrandNavigation() {
                 className={`${dropdownPanelClass} left-0 top-full w-64`}
               >
                 <div className="py-2">
-                  {/* Rooms */}
-                  <button
-                    onClick={() => handleNavigate("/rooms")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Rooms
-                    </span>
-                  </button>
-
                   {/* Gallery */}
                   <button
                     onClick={() => handleNavigate("/gallery")}
@@ -256,6 +243,19 @@ function BrandNavigation() {
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       Gallery
+                    </span>
+                  </button>
+
+                  {/* Rooms */}
+                  <button
+                    onClick={() => handleNavigate("/rooms")}
+                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
+                  >
+                    <span
+                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      Rooms
                     </span>
                   </button>
 
