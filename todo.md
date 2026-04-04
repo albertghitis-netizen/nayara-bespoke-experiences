@@ -618,3 +618,7 @@
 - [x] Add proper page title (30-60 characters) to home page - "Nayara Resorts | Luxury Destinations" (38 chars)
 - [x] Add meta description (50-160 characters) to home page - "Luxury resorts in Costa Rica, Chile, Easter Island, and Panama. Award-winning properties rooted in nature with wellness, experiences, and bespoke adventures." (158 chars)
 - [x] Add keywords meta tag to home page - luxury resorts, Costa Rica, Arenal Volcano, hot springs, desert resort, Easter Island, Panama Caribbean, bespoke experiences
+
+## Chat Bubble and Nav Button Updates
+- [x] Revert Chat bubble to pill shape (wider, not narrow) with "Chat with us" text
+- [x] Update top nav buttons to capitalize only first letter (Language: "English", menu items: "Story", "Rooms", "Experiences", "Wellness", "Sustainability", "Awards", "Journal")
