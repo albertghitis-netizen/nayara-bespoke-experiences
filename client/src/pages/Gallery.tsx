@@ -10,6 +10,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, useInView, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import Footer from "@/components/Footer";
+import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
 
 /* ─── Gallery Data — Curated selections from each property ─── */
@@ -197,7 +198,7 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       {/* Header */}
-      <GalleryHeader />
+      <BrandNavigation pageType="brand" centerLabel="Gallery" />
 
       {/* Hero */}
       <GalleryHero />
@@ -370,36 +371,6 @@ export default function Gallery() {
 
       <Footer />
     </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   GALLERY HEADER — Minimal back navigation
-   ═══════════════════════════════════════════════════════════ */
-function GalleryHeader() {
-  return (
-    <motion.header
-      className="fixed top-0 left-0 right-0 z-50"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="flex items-center justify-between px-6 md:px-10 h-16">
-        <a
-          href="/"
-          className="p-2 rounded-full text-white bg-black/20 backdrop-blur-sm hover:scale-105 transition-all duration-300"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </a>
-        <span
-          className="text-white/60 text-[11px] tracking-[0.3em] uppercase"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-        >
-          Gallery
-        </span>
-        <div className="w-9" /> {/* Spacer for centering */}
-      </div>
-    </motion.header>
   );
 }
 

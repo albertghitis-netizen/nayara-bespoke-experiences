@@ -60,7 +60,7 @@ export default function Gastronomy() {
             className="w-full h-full object-cover"
           />
         </div>
-        <BrandNavigation hideResorts hideLanguage />
+        <BrandNavigation pageType="brand" centerLabel="Gastronomy" />
         <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
           <h1
             className="text-center text-[#ece8e1] mb-[20px] md:mb-[40px] max-w-[1052px]"

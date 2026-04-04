@@ -8,6 +8,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
+import BrandNavigation from "@/components/BrandNavigation";
 
 /* ── Types ── */
 interface PressClip {
@@ -229,6 +230,7 @@ export default function Press() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
+      <BrandNavigation pageType="content" centerLabel="Press" />
       {/* Hero */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6">
         <div className="max-w-4xl mx-auto text-center">

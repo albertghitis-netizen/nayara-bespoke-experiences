@@ -201,7 +201,7 @@ function JournalHero() {
       </div>
 
       {/* Nav overlay */}
-      <BrandNavigation hideResorts hideLanguage />
+      <BrandNavigation pageType="content" centerLabel="Blog" />
 
       {/* Content — centered bottom */}
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">

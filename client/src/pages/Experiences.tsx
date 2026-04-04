@@ -45,7 +45,7 @@ function GradientSpacer() {
 export default function Experiences() {
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f5f3f0 0%, #e8e3db 40%, #ddd2c2 70%, #cfc1a8 90%, #c5b596 100%)" }}>
-      <BrandNavigation hideResorts hideLanguage />
+      <BrandNavigation pageType="brand" centerLabel="Experiences" />
       <HeroSection />
       <GradientSpacer />
       <GradientSpacer />

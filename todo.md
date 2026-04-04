@@ -792,3 +792,79 @@
 
 ## Quality Rule
 - New rule: Never upload any video or image unless quality is website-grade
+
+## Property Brand Color Gradients
+- [ ] Bocas del Toro — blue-to-green Caribbean gradient background
+- [ ] Gardens — green rainforest gradient background
+- [ ] Springs — green variation gradient background
+- [ ] Tented Camp — green variation gradient background
+- [ ] Alto Atacama — red/brown desert gradient background
+- [ ] Keep current warm beige/brown for all non-property pages
+
+## WEBSITE ARCHITECTURE OVERHAUL (Approved April 4)
+### Phase 1: Shared Navigation Components
+- [x] Refactor BrandNavigation into context-aware component (property vs brand vs content variants)
+- [x] Property pages nav: Hamburger (Rooms, Gallery, Experiences, Sustainability, Wellness, Gastronomy, Getting Here, Reserve) | Property Name (center) | Reserve
+- [x] Brand pages nav: Hamburger (Experiences, Sustainability, Wellness, Gastronomy, Blog, Podcast, Press, Awards, 6 Properties, Reserve) | Nayara Resorts (center) | Reserve
+- [x] Content section pages nav: Hamburger (Blog, Podcast, Press, Awards, FAQ, 4 Pillars, 6 Properties, Reserve) | Page Name (center) | Reserve
+- [x] Remove Language pill from all property pages
+- [x] Remove Resorts pill from all property pages
+- [x] Update Reserve button styling: 16px, medium weight, lowercase, h-12 px-6 (universal)
+- [x] Update chatbot trigger button text: "Chat with us" → "Ask Concierge" (universal)
+- [x] Refactor Footer to match new architecture (Brand links, Properties alphabetical, Content sections, Contact/Reserve)
+- [x] Create InPageTabs component for pillar pages (one-axis: property filter) — deferred to Phase 5
+- [x] Create InPageTabs component for content sections (two-axis: property + pillar filter) — deferred to Phase 5
+
+### Phase 2: Property Page Template (Bocas del Toro first)
+- [ ] Standardize Bocas del Toro: Hero → Story (H2) → Rooms → Gallery → Experiences → Sustainability → Wellness → Gastronomy → Getting Here → TripAdvisor Reviews → Footer
+- [ ] Remove dummy H3-H10 gradient sections from Bocas
+- [ ] Add Getting Here section to Bocas
+- [ ] Add TripAdvisor Reviews link to Bocas
+- [ ] Test and verify Bocas template
+
+### Phase 3: Copy Property Template to 5 Remaining Properties
+- [ ] Alto Atacama: apply property template
+- [ ] Gardens: apply property template
+- [ ] Hangaroa: apply property template
+- [ ] Springs: apply property template
+- [ ] Tented Camp: apply property template
+
+### Phase 4: Brand Pages
+- [ ] Nayara Resorts brand homepage: restructure with new nav
+- [ ] Story page: brand narrative (linked from H2, not in menus)
+- [ ] Gallery page: all properties combined (brand-level)
+- [ ] Experiences pillar page: all 6 properties equally (no regional tabs), one-axis property filter
+- [ ] Sustainability pillar page: all 6 properties equally, one-axis property filter
+- [ ] Wellness pillar page: all 6 properties equally, one-axis property filter
+- [ ] Gastronomy pillar page: all 6 properties equally, one-axis property filter
+
+### Phase 5: Content Sections
+- [ ] Blog page: two-axis filtering (property + pillar)
+- [ ] Podcast page: two-axis filtering (property + pillar)
+- [ ] Press page: two-axis filtering (property + pillar)
+- [ ] Awards page: two-axis filtering (property + pillar)
+- [ ] FAQ page: two-axis filtering (property + pillar)
+
+### Phase 6: Cross-Linking & SEO
+- [ ] Three-layer cross-linking (Pillar ↔ Property ↔ Content)
+- [ ] Schema markup (Hotel, LocalBusiness, FAQ, Article)
+- [ ] Sitemap.xml generation
+- [ ] Canonical URLs for overlapping content
+
+### Universal Rules (Locked)
+- Pillar order everywhere: Experiences → Sustainability → Wellness → Gastronomy
+- Gallery: standalone section, NOT a pillar
+- Rooms: property-specific only
+- All 6 properties: independent, alphabetical, no regional clustering
+- Costa Rica connection: through content only, never navigation
+- Story: brand-level only, not in menus
+- Ask Concierge: universal button, context-aware greeting
+- Property colors: unique gradient per property; brand pages use neutral palette
+- No umbrella name for content sections (Blog, Podcast, Press, Awards, FAQ stand alone)
+
+## Podcast Content Notes (for Phase 5)
+- [ ] 3 video podcasts + 1 audio-only podcast (include all 4)
+- [ ] 2 episodes about Hangaroa — primarily Sustainability, also Experiences
+- [ ] 2 episodes related to Costa Rica — Sustainability and broadly applicable
+- [ ] Audio episode gets styled audio player with property photo background
+- [ ] User will provide links later

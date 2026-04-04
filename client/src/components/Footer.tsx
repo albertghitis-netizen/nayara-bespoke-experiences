@@ -2,12 +2,16 @@
  * Footer — Nayara Global Footer
  * Brown background (#3a2a1a) with light/white text
  * Luxury editorial style — Aman/Rosewood inspired
+ *
+ * Now data-driven: columns come from navigation.ts getFooterColumns()
+ * Accepts optional pageType prop to customize link groupings.
  */
 
 import { useLocation } from "wouter";
 import { DEFAULT_BOOKING_URL } from "@/data/booking";
+import { type PageType, getFooterColumns } from "@/data/navigation";
 
-const BOOKING_URL = DEFAULT_BOOKING_URL;
+export const BOOKING_URL = DEFAULT_BOOKING_URL;
 
 /* ── Social Icons ── */
 function InstagramIcon() {
@@ -41,10 +45,13 @@ function TikTokIcon() {
   );
 }
 
-export { BOOKING_URL };
+interface FooterProps {
+  pageType?: PageType;
+}
 
-export default function Footer() {
+export default function Footer({ pageType = "brand" }: FooterProps) {
   const [, navigate] = useLocation();
+  const columns = getFooterColumns(pageType);
 
   const handlePlaceholder = (label: string) => (e: React.MouseEvent) => {
     e.preventDefault();
@@ -71,11 +78,11 @@ export default function Footer() {
               style={{
                 fontFamily: 'var(--font-heading)',
                 fontWeight: 400,
-              fontSize: 'clamp(24px, 3.5vw, 36px)',
-              lineHeight: 1.3,
-            }}
-          >
-            The World of Nayara
+                fontSize: 'clamp(24px, 3.5vw, 36px)',
+                lineHeight: 1.3,
+              }}
+            >
+              The World of Nayara
             </h2>
           </div>
         </div>
@@ -83,71 +90,39 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-4 pb-10">
-        {/* Three columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 text-[12px] leading-relaxed">
-          {/* LEFT — Explore links */}
-          <div>
-            <span
-              className="text-white/40 text-[10px] tracking-[0.25em] uppercase block mb-4"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Explore
-            </span>
-            <div className="flex flex-col gap-[6px]">
-              {[
-                { label: "Gallery", route: "/gallery" },
-                { label: "Rooms", route: "/rooms" },
-                { label: "Experiences", route: "/experiences" },
-                { label: "Wellness", route: "/wellness" },
-                { label: "Gastronomy", route: "/gastronomy" },
-                { label: "Sustainability", route: "/sustainability" },
-                { label: "Press & Awards", route: "/awards" },
-                { label: "Blog & Podcast", route: "/blog" },
-              ].map((item) => (
-                <a
-                  key={item.label}
-                  href={item.route}
-                  onClick={(e) => { e.preventDefault(); navigate(item.route); }}
-                  className="text-white/50 hover:text-white/90 transition-colors"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-                >
-                  {item.label}
-                </a>
-              ))}
+        {/* Dynamic columns from navigation config + Contact column */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed">
+          {columns.map((col) => (
+            <div key={col.title}>
+              <span
+                className="text-white/40 text-[10px] tracking-[0.25em] uppercase block mb-4"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                {col.title}
+              </span>
+              <div className="flex flex-col gap-[6px]">
+                {col.links.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.route}
+                    onClick={(e) => {
+                      if (link.external) return;
+                      e.preventDefault();
+                      navigate(link.route);
+                    }}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    className="text-white/50 hover:text-white/90 transition-colors"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
+          ))}
 
-          {/* CENTER — All 6 hotels */}
-          <div>
-            <span
-              className="text-white/40 text-[10px] tracking-[0.25em] uppercase block mb-4"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Our Hotels
-            </span>
-            <div className="flex flex-col gap-[6px]">
-              {[
-                { name: "Nayara Gardens", route: "/gardens" },
-                { name: "Nayara Springs", route: "/springs" },
-                { name: "Nayara Tented Camp", route: "/tented-camp" },
-                { name: "Nayara Alto Atacama", route: "/alto-atacama" },
-                { name: "Nayara Hangaroa", route: "/hangaroa" },
-                { name: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
-              ].map((hotel) => (
-                <a
-                  key={hotel.name}
-                  href={hotel.route}
-                  onClick={(e) => { e.preventDefault(); navigate(hotel.route); }}
-                  className="text-white/50 hover:text-white/90 transition-colors cursor-pointer"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-                >
-                  {hotel.name}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT — Contact */}
+          {/* Contact — always present as the last column */}
           <div>
             <span
               className="text-white/40 text-[10px] tracking-[0.25em] uppercase block mb-4"
