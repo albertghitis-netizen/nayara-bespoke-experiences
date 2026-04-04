@@ -72,6 +72,19 @@ function BrandNavigation() {
           </div>
         </button>
 
+        {/* Resorts pill */}
+        <button
+          onClick={() => handleComingSoon("Resorts")}
+          className={`${pillClass} h-12 px-6 pointer-events-auto`}
+        >
+          <span
+            className="text-[#3a2a1a] text-sm font-medium tracking-[0.08em]"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            Resorts
+          </span>
+        </button>
+
         {/* Reserve pill */}
         <button
           onClick={() => handleComingSoon("Reservation")}

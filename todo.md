@@ -646,8 +646,10 @@
 
 
 ## Standardized Headers with Resorts Button
-- [ ] Update Sustainability page: H1 "Beyond Sustainability" + add Resorts button
-- [ ] Create Wellness page: H1 "Nurtured by Nature" + standardized header with Resorts button
+- [x] Update Sustainability page: H1 "Beyond Sustainability" + standardized menu
+- [x] Update Experiences page: standardized menu + fix video orientation
+- [x] Add Resorts button to Experiences page (between hamburger and Reserve)
+- [x] Add Resorts button to Sustainability page (between hamburger and Reserve)
+- [x] Create Wellness page: H1 "Nurtured by Nature" + standardized header with Resorts button
 - [ ] Create Blog, Podcast, Awards & Press, Gallery pages with standardized headers + Resorts button
-- [ ] Update Experiences page: add Resorts button to match other pages
 - [ ] Update all property pages: add Resorts button and standardized menu
