@@ -613,3 +613,8 @@
 ## Chat with us Bubble Update
 - [x] Update Chat with us bubble size to match top nav buttons (w-10 h-10)
 - [x] Change text from "Chat with us" to "Chat" (capitalize first letter only, fits in bubble)
+
+## Home Page SEO Fixes
+- [x] Add proper page title (30-60 characters) to home page - "Nayara Resorts | Luxury Destinations" (38 chars)
+- [x] Add meta description (50-160 characters) to home page - "Luxury resorts in Costa Rica, Chile, Easter Island, and Panama. Award-winning properties rooted in nature with wellness, experiences, and bespoke adventures." (158 chars)
+- [x] Add keywords meta tag to home page - luxury resorts, Costa Rica, Arenal Volcano, hot springs, desert resort, Easter Island, Panama Caribbean, bespoke experiences
