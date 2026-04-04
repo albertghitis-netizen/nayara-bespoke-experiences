@@ -202,19 +202,20 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
-      {/* Subtle Nayara brand mark — just below nav bar */}
+      {/* Nayara text — centered on hero (desktop only) */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 0.4 }}
-        className="absolute top-24 md:top-28 left-0 right-0 z-10 flex justify-center"
+        className="absolute top-2 left-0 right-0 z-10 hidden md:flex flex-col items-center justify-center"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
-        <span
-          className="text-white/15 text-[11px] md:text-xs tracking-[0.5em] uppercase"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        <a
+          href="/"
+          className="text-[#ece8e1] drop-shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+          style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 700, fontSize: 'clamp(28px, 4vw, 40px)', letterSpacing: '1px', lineHeight: 1, textDecoration: 'none' }}
         >
-          Nayara
-        </span>
+          NAYARA
+        </a>
       </motion.div>
 
       {/* Content — centered bottom */}
