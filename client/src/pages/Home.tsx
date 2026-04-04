@@ -233,19 +233,6 @@ function BrandNavigation() {
                 className={`${dropdownPanelClass} left-0 top-full w-64`}
               >
                 <div className="py-2">
-                  {/* Story */}
-                  <button
-                    onClick={() => handleNavigate("/story")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Story
-                    </span>
-                  </button>
-
                   {/* Rooms */}
                   <button
                     onClick={() => handleNavigate("/rooms")}
@@ -339,7 +326,7 @@ function BrandNavigation() {
                     </span>
                   </button>
 
-                  {/* Blog */}
+                  {/* Blog & Podcast */}
                   <button
                     onClick={() => handleNavigate("/blog")}
                     className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
@@ -348,20 +335,7 @@ function BrandNavigation() {
                       className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
-                      Blog
-                    </span>
-                  </button>
-
-                  {/* Podcast */}
-                  <button
-                    onClick={() => handleNavigate("/podcast")}
-                    className="w-full text-left px-5 py-3 hover:bg-[#3a2a1a]/5 transition-colors"
-                  >
-                    <span
-                      className="text-[#3a2a1a]/90 text-[11px] tracking-[0.2em]"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      Podcast
+                      Blog & Podcast
                     </span>
                   </button>
                 </div>
@@ -659,7 +633,7 @@ function BrandNavigation() {
                         className={`text-[11px] tracking-[0.08em] ${
                           hotel.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/35"
                         }`}
-                        style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                        style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                       >
                         {hotel.label}
                       </span>

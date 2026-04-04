@@ -199,7 +199,6 @@ function BrandNavigation() {
                 >
                   <div className="py-2">
                     {[
-                      { label: "Story", route: "/story" },
                       { label: "Rooms", route: "/rooms" },
                       { label: "Gallery", route: "/gallery" },
                       { label: "Experiences", route: "/experiences" },
@@ -207,8 +206,7 @@ function BrandNavigation() {
                       { label: "Gastronomy", route: "/gastronomy" },
                       { label: "Sustainability", route: "/sustainability" },
                       { label: "Awards & Press", route: "/awards" },
-                      { label: "Blog", route: "/blog" },
-                      { label: "Podcast", route: "/podcast" },
+                      { label: "Blog & Podcast", route: "/blog" },
                     ].map((item) => (
                       <button
                         key={item.label}
@@ -510,7 +508,7 @@ function BrandNavigation() {
                           className={`text-[11px] tracking-[0.08em] ${
                             hotel.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/35"
                           }`}
-                          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                         >
                           {hotel.label}
                         </span>
