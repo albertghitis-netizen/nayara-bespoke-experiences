@@ -585,7 +585,9 @@ function BrandNavigation() {
 function HeroHeader() {
   const isMobile = useIsMobile();
 
-  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
+  const heroDesktop = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-desktop-hq_732fe8b3.mp4";
+  const heroMobile = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-vertical-hq_d81c629e.mp4";
+  const heroVideo = isMobile ? heroMobile : heroDesktop;
 
   return (
     <>

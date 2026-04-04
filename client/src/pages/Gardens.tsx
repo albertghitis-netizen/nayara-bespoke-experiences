@@ -586,7 +586,7 @@ className={`${dropdownPanelClass} left-0 top-full w-40`}
 function HeroHeader() {
   const isMobile = useIsMobile();
 
-  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
+  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-hero-desktop_88c542ed.mp4";
 
   return (
     <>

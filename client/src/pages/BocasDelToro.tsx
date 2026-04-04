@@ -51,14 +51,14 @@ const dropdownSections = ["Experiences", "Wellness"];
 
 export default function BocasDelToro() {
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(to bottom, #f5f3f0 0%, #e8e3db 40%, #ddd2c2 70%, #cfc1a8 90%, #c5b596 100%)" }}>
+    <div className="min-h-screen overflow-x-hidden" style={{ background: "linear-gradient(to bottom, #f5f3f0 0%, #e8e3db 40%, #ddd2c2 70%, #cfc1a8 90%, #c5b596 100%)" }}>
       <ScrollProgress />
       <BrandNavigation />
       <HeroHeader />
       <HomeIntroSection />
       <AwardWinningProperties imageSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-s2-island-aerial_937028ec.jpg" />
       <RoomsSection />
-      <BocasCondeNastCard />
+
       <GradientSpacer />
       <GradientSpacer />
       <GradientSpacer />
@@ -711,8 +711,8 @@ function BrandNavigation() {
 function HeroHeader() {
   const isMobile = useIsMobile();
 
-  const heroDesktop = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbt-horizontal-desktop_e6df3c3e.mp4";
-  const heroMobile = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbt-vertical-mobile_ca23e898.mp4";
+  const heroDesktop = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbt-horizontal-desktop_e4f2e9e2.mp4";
+  const heroMobile = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-vertical2_03bbe8e5.mp4";
   const heroVideo = isMobile ? heroMobile : heroDesktop;
 
   return (
@@ -761,7 +761,7 @@ function HeroHeader() {
             lineHeight: 1,
           }}
         >
-          {"Adults-Only Overwater Villas on a Private Island".split("").map((char, i) => (
+          {"Adults-Only Overwater Villas on a Private Caribbean Island".split("").map((char, i) => (
             <motion.span
               key={i}
               initial={{ opacity: 0, filter: "blur(12px)", y: 8 }}
@@ -795,7 +795,7 @@ function HeroHeader() {
           style={{ fontFamily: "var(--font-body)", fontWeight: 700 }}
         >
           <span className="text-[#ece8e1]/40 mr-3">—</span>
-          Bocas del Toro, Panama's Caribbean Coast
+          Bocas del Toro, Panama
           <span className="text-[#ece8e1]/40 ml-3">—</span>
         </motion.p>
 
@@ -834,7 +834,7 @@ function HomeIntroSection() {
       <section
         className="w-full"
         style={{
-          paddingTop: 'clamp(20px, 3vw, 40px)',
+          paddingTop: '22px',
           paddingBottom: 0,
         }}
       >
@@ -904,7 +904,7 @@ function RoomsSection() {
     <section
       className="w-full"
       style={{
-        paddingTop: 'clamp(8px, 2vw, 16px)',
+        paddingTop: '22px',
         paddingBottom: 0,
       }}
     >
@@ -913,13 +913,15 @@ function RoomsSection() {
         style={{ maxWidth: '1440px', gap: 'clamp(40px, 8vw, 115px)', padding: '0 clamp(24px, 8vw, 121px) 0 0' }}
       >
         {/* Left: image (3:4 aspect ratio) — BLEEDS TO LEFT EDGE */}
-        <div className="hidden md:flex md:flex-1" style={{ marginLeft: 'calc(-1 * clamp(24px, 8vw, 121px))' }}>
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6904_4db69733.JPG"
-            alt="Overwater villa with private pool at Nayara Bocas del Toro"
-            className="w-full object-cover"
-            style={{ aspectRatio: '3/4' }}
-            loading="lazy"
+        <div className="hidden md:flex md:flex-1" style={{ marginLeft: 'calc(-1 * clamp(24px, 8vw, 121px))', aspectRatio: '3/4', overflow: 'hidden' }}>
+          <BlobVideo
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-v2-new_a7b8b2b2.mp4"
+            className="w-full h-full object-cover"
+            autoPlay={true}
+            muted={true}
+            loop={true}
+            playsInline={true}
+            controls={false}
           />
         </div>
 
@@ -934,7 +936,7 @@ function RoomsSection() {
               lineHeight: 1.3,
             }}
           >
-            Rooms
+            Overwater Villas
           </h2>
           <p
             className="text-[#4B4A4A]"
@@ -956,7 +958,7 @@ function RoomsSection() {
               fontSize: '15px',
             }}
           >
-            Explore Our Rooms
+            Explore Our Villas
           </a>
         </div>
       </div>

@@ -775,3 +775,20 @@
 
 ## Bocas del Toro Extended Empty Space
 - [x] Extend empty gradient spacer sections on Bocas page to accommodate up to H10 worth of content (10 spacers)
+
+## Hero Video CDN Uploads & Wiring (April 4)
+- [x] Convert and upload Horizons horizontal hero to CDN (1440×810, 6.9 Mbps)
+- [x] Convert and upload Gardens horizontal hero to CDN (1440×810, 4.3 Mbps)
+- [x] Convert and upload Tented Camp horizontal hero to CDN (1440×810, 3.3 Mbps)
+- [x] Convert and upload Springs horizontal hero to CDN (1440×810, 6.7 Mbps)
+- [x] Convert and upload Alto Atacama horizontal hero to CDN (1236×696, 4.7 Mbps)
+- [x] Convert and upload Alto Atacama vertical hero to CDN (1080×1920, 9.4 Mbps)
+- [x] Wire Horizons hero video into BlogAndPodcast page
+- [x] Wire Gardens hero video into Gardens page
+- [x] Wire Tented Camp hero video into TentedCamp page
+- [x] Wire Springs hero video into Springs page
+- [x] Wire Alto Atacama hero videos (horizontal + vertical) into AltoAtacama page
+- [x] Save podcast YouTube links for Horizons page (Leo video, Leo Afar, Leo Suite Success, Tau mana)
+
+## Quality Rule
+- New rule: Never upload any video or image unless quality is website-grade
