@@ -868,3 +868,6 @@
 - [ ] 2 episodes related to Costa Rica — Sustainability and broadly applicable
 - [ ] Audio episode gets styled audio player with property photo background
 - [ ] User will provide links later
+
+- [x] Add 4 real podcast episodes to Podcast page (Leo video, Leo Afar, Leo Suite Success, Tau Mana)
+- [x] Cross-link podcast episodes to relevant property/pillar pages

@@ -145,7 +145,7 @@ function EpisodesSection({ episodes, activeEpisode, setActiveEpisode }: {
                   <span className="w-px h-3 bg-[#3a2a1a]/10" />
                   <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em] uppercase" style={body}>{ep.duration}</span>
                   <span className="w-px h-3 bg-[#3a2a1a]/10" />
-                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em] uppercase" style={body}>Hangaroa</span>
+                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em] uppercase" style={body}>{ep.id.includes("rapanui") || ep.id.includes("hitorangi") ? "Hangaroa" : "All Properties"}</span>
                 </div>
                 <h3 className="text-[#3a2a1a] text-xl md:text-2xl leading-[1.15]" style={heading}>{ep.title}</h3>
                 <p className="text-[#3a2a1a]/30 text-xs tracking-[0.1em] uppercase mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
