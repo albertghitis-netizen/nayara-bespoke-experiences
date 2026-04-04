@@ -12,6 +12,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
+import PillarCrossLink from "@/components/PillarCrossLink";
 
 const springs = properties.find((p: Property) => p.id === "springs")!;
 
@@ -237,6 +238,8 @@ function SustainabilitySection() {
             <img src={CDN.robeCanopy} alt="Rainforest canopy at Nayara Springs" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
           </FadeIn>
         </div>
+      
+        <PillarCrossLink pillar="experiences" />
       </div>
     </section>
   );
@@ -277,6 +280,8 @@ function WellnessSection() {
             </FadeIn>
           ))}
         </div>
+      
+        <PillarCrossLink pillar="sustainability" />
       </div>
     </section>
   );
@@ -304,6 +309,8 @@ function GastronomySection() {
             </FadeIn>
           ))}
         </div>
+      
+        <PillarCrossLink pillar="wellness" />
       </div>
     </section>
   );
@@ -341,6 +348,8 @@ function GettingHereSection() {
             </p>
           </div>
         </FadeIn>
+      
+        <PillarCrossLink pillar="gastronomy" />
       </div>
     </section>
   );

@@ -12,6 +12,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { atacamaDiningCollection } from "@/data/dining";
+import PillarCrossLink from "@/components/PillarCrossLink";
 
 const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
 
@@ -276,6 +277,8 @@ function SustainabilitySection() {
             <img src={CDN.vicunas} alt="Vicu\u00f1as in the Atacama highlands" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
           </FadeIn>
         </div>
+      
+        <PillarCrossLink pillar="experiences" />
       </div>
     </section>
   );
@@ -319,6 +322,8 @@ function WellnessSection() {
             </FadeIn>
           ))}
         </div>
+      
+        <PillarCrossLink pillar="sustainability" />
       </div>
     </section>
   );
@@ -349,6 +354,8 @@ function GastronomySection() {
             </FadeIn>
           ))}
         </div>
+      
+        <PillarCrossLink pillar="wellness" />
       </div>
     </section>
   );
@@ -389,6 +396,8 @@ function GettingHereSection() {
             </p>
           </div>
         </FadeIn>
+      
+        <PillarCrossLink pillar="gastronomy" />
       </div>
     </section>
   );

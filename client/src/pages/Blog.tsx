@@ -11,6 +11,7 @@ import BlobVideo from "@/components/BlobVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import ContentCrossLinks from "@/components/ContentCrossLinks";
 import { blogPosts, PILLARS, DESTINATIONS, type BlogPost } from "@/data/journal";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -63,6 +64,7 @@ export default function Blog() {
       />
       {featuredPost && <FeaturedArticle post={featuredPost} />}
       <ArticleGrid posts={gridPosts} hasMore={hasMore} showAll={showAll} onShowAll={() => setShowAll(true)} totalFiltered={filteredPosts.length} />
+      <ContentCrossLinks currentPage="blog" />
       <Footer />
     </div>
   );

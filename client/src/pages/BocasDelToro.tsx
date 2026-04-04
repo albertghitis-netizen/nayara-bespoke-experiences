@@ -13,6 +13,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties } from "@/data/properties";
 import { bocasDiningCollection } from "@/data/dining";
+import PillarCrossLink from "@/components/PillarCrossLink";
 
 /* ─── CDN Assets ─── */
 const CDN = {
@@ -409,6 +410,8 @@ function SustainabilitySection() {
             />
           </FadeIn>
         </div>
+      
+        <PillarCrossLink pillar="experiences" />
       </div>
     </section>
   );
@@ -472,6 +475,8 @@ function WellnessSection() {
             </FadeIn>
           ))}
         </div>
+      
+        <PillarCrossLink pillar="sustainability" />
       </div>
     </section>
   );
@@ -518,6 +523,8 @@ function GastronomySection() {
             </FadeIn>
           ))}
         </div>
+      
+        <PillarCrossLink pillar="wellness" />
       </div>
     </section>
   );
@@ -567,6 +574,8 @@ function GettingHereSection() {
             </p>
           </div>
         </FadeIn>
+      
+        <PillarCrossLink pillar="gastronomy" />
       </div>
     </section>
   );

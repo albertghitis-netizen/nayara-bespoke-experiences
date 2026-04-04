@@ -13,6 +13,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import { OrganizationSchema } from "@/components/SEOSchema";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -86,6 +87,7 @@ const pillars = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
+      <OrganizationSchema />
       <ScrollProgress />
       <BrandNavigation pageType="brand" centerLabel="Nayara Resorts" />
       <HeroSection />

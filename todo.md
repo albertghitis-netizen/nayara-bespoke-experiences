@@ -846,10 +846,10 @@
 - [ ] FAQ page: two-axis filtering (property + pillar)
 
 ### Phase 6: Cross-Linking & SEO
-- [ ] Three-layer cross-linking (Pillar ↔ Property ↔ Content)
-- [ ] Schema markup (Hotel, LocalBusiness, FAQ, Article)
-- [ ] Sitemap.xml generation
-- [ ] Canonical URLs for overlapping content
+- [x] Three-layer cross-linking (Pillar ↔ Property ↔ Content)
+- [x] Schema markup (Hotel, Organization, Article)
+- [x] Sitemap.xml generation + robots.txt
+- [ ] Canonical URLs for overlapping content (deferred — needs domain)
 
 ### Universal Rules (Locked)
 - Pillar order everywhere: Experiences → Sustainability → Wellness → Gastronomy

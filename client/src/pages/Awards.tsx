@@ -11,6 +11,7 @@ import { ArrowLeft, Trophy, ShieldCheck, ChevronDown, Star, Award, Key, Menu, X 
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import ScrollProgress from "@/components/ScrollProgress";
+import ContentCrossLinks from "@/components/ContentCrossLinks";
 
 /* ── CDN assets ── */
 const CDN = {
@@ -451,6 +452,7 @@ export default function Awards() {
       </section>
 
       {/* ── Footer ── */}
+      <ContentCrossLinks currentPage="awards" />
       <Footer />
     </div>
   );

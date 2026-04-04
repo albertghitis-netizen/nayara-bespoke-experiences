@@ -12,6 +12,7 @@ import BlobVideo from "@/components/BlobVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import ContentCrossLinks from "@/components/ContentCrossLinks";
 import { podcastEpisodes, type PodcastEpisode } from "@/data/journal";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -42,6 +43,7 @@ export default function Podcast() {
       <IntroSection />
       <EpisodesSection episodes={podcastEpisodes} activeEpisode={activeEpisode} setActiveEpisode={setActiveEpisode} />
       <ComingSoonSection />
+      <ContentCrossLinks currentPage="podcast" />
       <Footer />
     </div>
   );

@@ -9,6 +9,7 @@ import { ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import ScrollProgress from "@/components/ScrollProgress";
+import ContentCrossLinks from "@/components/ContentCrossLinks";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -194,6 +195,7 @@ export default function Press() {
         ))}
       </div>
 
+      <ContentCrossLinks currentPage="press" />
       <Footer />
     </div>
   );
