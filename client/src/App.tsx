@@ -31,6 +31,12 @@ import FAQ from "./pages/FAQ";
 import Competitors from "./pages/Competitors";
 import AskConcierge from "./pages/AskConcierge";
 import ConciergeChatWidget from "./components/ConciergeChatWidget";
+import BrandBook from "./pages/BrandBook";
+import SEOStrategy from "./pages/SEOStrategy";
+import Architecture from "./pages/Architecture";
+import Questions from "./pages/Questions";
+import WebsiteGuide from "./pages/WebsiteGuide";
+import ChatEmbed from "./pages/ChatEmbed";
 import "./index.css";
 
 function ScrollToTop() {
@@ -42,7 +48,7 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS = ["/instagram", "/messenger", "/whatsapp"];
+const HIDE_WIDGET_PATHS = ["/instagram", "/messenger", "/whatsapp", "/chat-embed"];
 
 function Router() {
   const [location] = useLocation();
@@ -73,6 +79,12 @@ function Router() {
         <Route path="/faq" component={FAQ} />
         <Route path="/competitors" component={Competitors} />
         <Route path="/concierge" component={AskConcierge} />
+        <Route path="/brand-book" component={BrandBook} />
+        <Route path="/seo" component={SEOStrategy} />
+        <Route path="/architecture" component={Architecture} />
+        <Route path="/questions" component={Questions} />
+        <Route path="/guide" component={WebsiteGuide} />
+        <Route path="/chat-embed" component={ChatEmbed} />
         <Route path="/ayla" component={AylaOnKrog} />
         <Route path="/instagram" component={InstagramDM} />
         <Route path="/messenger" component={MessengerDM} />
