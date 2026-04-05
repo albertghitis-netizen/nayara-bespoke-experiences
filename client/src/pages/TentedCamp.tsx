@@ -44,7 +44,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 export default function TentedCamp() {
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div className="min-h-screen bg-gradient-to-b from-[#fafafa] via-[#f8f8f6] to-[#fafafa]">
       <BrandNavigation pageType="property" centerLabel="Nayara Tented Camp" centerLinkHome />
       <HeroSection />
       <StorySection />
@@ -177,6 +177,7 @@ function ExperiencesSection() {
             </FadeIn>
           ))}
         </div>
+        <PillarCrossLink pillar="experiences" />
       </div>
     </section>
   );

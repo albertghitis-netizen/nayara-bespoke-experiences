@@ -59,7 +59,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
    ═══════════════════════════════════════════════════════════════ */
 export default function BocasDelToro() {
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div className="min-h-screen bg-gradient-to-b from-[#f2f6f7] via-[#f0f5f5] to-[#f2f6f7]">
       <BrandNavigation pageType="property" centerLabel="Nayara Bocas del Toro" centerLinkHome />
       <HeroSection />
       <StorySection />

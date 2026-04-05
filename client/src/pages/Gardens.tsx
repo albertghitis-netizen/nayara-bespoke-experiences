@@ -44,7 +44,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 export default function Gardens() {
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div className="min-h-screen bg-gradient-to-b from-[#f4f7f1] via-[#f7f5f0] to-[#f4f7f1]">
       <BrandNavigation pageType="property" centerLabel="Nayara Gardens" centerLinkHome />
       <HeroSection />
       <StorySection />

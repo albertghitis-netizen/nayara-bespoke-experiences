@@ -27,6 +27,9 @@ import Springs from "./pages/Springs";
 import InstagramDM from "./pages/InstagramDM";
 import MessengerDM from "./pages/MessengerDM";
 import WhatsAppDM from "./pages/WhatsAppDM";
+import FAQ from "./pages/FAQ";
+import Competitors from "./pages/Competitors";
+import AskConcierge from "./pages/AskConcierge";
 import ConciergeChatWidget from "./components/ConciergeChatWidget";
 import "./index.css";
 
@@ -67,6 +70,9 @@ function Router() {
         <Route path="/story" component={Story} />
         <Route path="/rooms" component={Rooms} />
         <Route path="/gastronomy" component={Gastronomy} />
+        <Route path="/faq" component={FAQ} />
+        <Route path="/competitors" component={Competitors} />
+        <Route path="/concierge" component={AskConcierge} />
         <Route path="/ayla" component={AylaOnKrog} />
         <Route path="/instagram" component={InstagramDM} />
         <Route path="/messenger" component={MessengerDM} />

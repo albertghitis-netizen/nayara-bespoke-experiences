@@ -55,7 +55,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
    ═══════════════════════════════════════════════════════════════ */
 export default function Hangaroa() {
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div className="min-h-screen bg-gradient-to-b from-[#f3f3f2] via-[#f0f0ee] to-[#f3f3f2]">
       <BrandNavigation pageType="property" centerLabel="Nayara Hangaroa" centerLinkHome />
       <HeroSection />
       <StorySection />

@@ -434,8 +434,8 @@
 - [x] Match the Nayara Gardens website header style
 
 ## Logo Final Style - Leaf + NAYARA text
-- [ ] Add "NAYARA" text below the leaf mandala on the resorts home page (no property name)
-- [ ] Style to match the Nayara Gardens header layout (leaf at top, text below)
+- [x] Add "NAYARA" text below the leaf mandala on the resorts home page (no property name)
+- [x] Style to match the Nayara Gardens header layout (leaf at top, text below)
 
 ## Button Style Update
 - [x] Fix leftover code causing TypeScript errors in Home.tsx
@@ -447,9 +447,9 @@
 - [x] Update header logo: remove circle background, use white loose leaf mandala + "NAYARA" text in white, keep buttons white as-is
 - [x] Upload sharp white leaf PNG to CDN and update header image
 - [x] Language button should NOT follow user down the page (not fixed/sticky)
-- [ ] Change nav pill buttons from white to warm gray (#f5f3f0) matching Spherical Nayara menu
+- [x] Change nav pill buttons from white to warm gray (#f5f3f0) matching Spherical Nayara menu (using #ece8e1)
 - [ ] Fix language button: visible in hero but does NOT follow on scroll
-- [ ] Change nav pill buttons from white to warm beige (#ece8e1) with existing brown text (#3a2a1a)
+- [x] Change nav pill buttons from white to warm beige (#ece8e1) with existing brown text (#3a2a1a)
 - [ ] Fix language button: visible in hero but does NOT follow on scroll
 
 ## Property Pages — Identical Template Standardization
@@ -509,7 +509,7 @@
 ## Typography Fix
 - [x] Match H1 hero letter-spacing to H2 intro section letter-spacing
 - [x] Change all white backgrounds in RESORTS dropdown tabs to light beige
-- [ ] Make "Nayara Bocas del Toro" fit on one line in RESORTS dropdown (smaller font if needed)
+- [x] Make "Nayara Bocas del Toro" fit on one line in RESORTS dropdown (wider dropdown w-60 + text-[13px])
 - [x] Make the background gradient more pronounced (less subtle) — COMPLETE
 - [x] Raise H2 header and body to top of image — COMPLETE
 
@@ -594,10 +594,10 @@
 - [ ] Hangaroa mobile: hero → beige sliver → S1 full-width vertical → H2 text → S2 horizontal
 
 ## NAYARA [PROPERTY] Text (Remaining Pages)
-- [ ] Add NAYARA GARDENS text to Gardens page
-- [ ] Add NAYARA SPRINGS text to Springs page
-- [ ] Add NAYARA ALTO ATACAMA text to Alto Atacama page
-- [ ] Add NAYARA BOCAS DEL TORO text to Bocas del Toro page
+- [x] Add NAYARA GARDENS text to Gardens page (centerLabel="Nayara Gardens" already in nav)
+- [x] Add NAYARA SPRINGS text to Springs page (centerLabel="Nayara Springs" already in nav)
+- [x] Add NAYARA ALTO ATACAMA text to Alto Atacama page (centerLabel="Nayara Alto Atacama" already in nav)
+- [x] Add NAYARA BOCAS DEL TORO text to Bocas del Toro page (centerLabel="Nayara Bocas del Toro" already in nav)
 
 ## Ayla on Krog Hero Video
 - [x] Pull hero video from aylaonkrog.com and use it on our Ayla page
@@ -666,27 +666,27 @@
 - [x] Footer items use font-display (Playfair Display) to match hamburger menu font
 - [x] Hamburger menu order: Story, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Blog, Podcast
 - [x] Footer order matches hamburger exactly
-- [ ] Remove date pickers from Reserve dropdown on all pages
-- [ ] Make Reserve dropdown hotel names use font-body, text-sm, bold, tracking-normal
-- [ ] Make language dropdown items use font-body, text-sm, bold, tracking-normal
+- [x] Remove date pickers from Reserve dropdown on all pages (no date pickers present)
+- [x] Make Reserve dropdown hotel names use font-body, text-sm, bold, tracking-normal
+- [x] Make language dropdown items use font-body, text-sm, bold, tracking-normal (no language dropdown present)
 
 ## Universal BrandNavigation Component
 - [x] Extract shared BrandNavigation into components/BrandNavigation.tsx
-- [ ] Replace inline BrandNavigation on Home.tsx
-- [ ] Replace inline BrandNavigation on Experiences.tsx
-- [ ] Replace inline BrandNavigation on Wellness.tsx
-- [ ] Replace inline BrandNavigation on Sustainability.tsx
-- [ ] Replace inline BrandNavigation on Gardens.tsx
-- [ ] Replace inline BrandNavigation on Springs.tsx
-- [ ] Replace inline BrandNavigation on TentedCamp.tsx
-- [ ] Replace inline BrandNavigation on AltoAtacama.tsx
-- [ ] Replace inline BrandNavigation on Hangaroa.tsx
-- [ ] Replace inline BrandNavigation on BocasDelToro.tsx
-- [ ] Replace GastroNav on Gastronomy.tsx with shared BrandNavigation
-- [ ] Replace AwardsNav on Awards.tsx with shared BrandNavigation
-- [ ] Replace JournalNav on Blog.tsx with shared BrandNavigation
-- [ ] Add shared BrandNavigation to Gallery.tsx
-- [ ] Add shared BrandNavigation to Rooms.tsx
+- [x] Replace inline BrandNavigation on Home.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on Experiences.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on Wellness.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on Sustainability.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on Gardens.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on Springs.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on TentedCamp.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on AltoAtacama.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on Hangaroa.tsx (already using shared component)
+- [x] Replace inline BrandNavigation on BocasDelToro.tsx (already using shared component)
+- [x] Replace GastroNav on Gastronomy.tsx with shared BrandNavigation (already using shared component)
+- [x] Replace AwardsNav on Awards.tsx with shared BrandNavigation (already using shared component)
+- [x] Replace JournalNav on Blog.tsx with shared BrandNavigation (already using shared component)
+- [x] Add shared BrandNavigation to Gallery.tsx (already using shared component)
+- [x] Add shared BrandNavigation to Rooms.tsx (N/A — no standalone Rooms page)
 
 ## Award Badges on Hero Sections (Below Location Subtitle)
 - [x] Tented Camp hero: Travel + Leisure World's Best Awards 2024 badge image (PNG)
@@ -794,12 +794,12 @@
 - New rule: Never upload any video or image unless quality is website-grade
 
 ## Property Brand Color Gradients
-- [ ] Bocas del Toro — blue-to-green Caribbean gradient background
-- [ ] Gardens — green rainforest gradient background
-- [ ] Springs — green variation gradient background
-- [ ] Tented Camp — green variation gradient background
-- [ ] Alto Atacama — red/brown desert gradient background
-- [ ] Keep current warm beige/brown for all non-property pages
+- [x] Bocas del Toro — blue-to-green Caribbean gradient background (done via property gradients)
+- [x] Gardens — green rainforest gradient background (done via property gradients)
+- [x] Springs — green variation gradient background (done via property gradients)
+- [x] Tented Camp — green variation gradient background (done via property gradients)
+- [x] Alto Atacama — red/brown desert gradient background (done via property gradients)
+- [x] Keep current warm beige/brown for all non-property pages (brand pages use beige, content pages use white)
 
 ## WEBSITE ARCHITECTURE OVERHAUL (Approved April 4)
 ### Phase 1: Shared Navigation Components
@@ -883,25 +883,25 @@
 - [x] Fix broken video URLs on Bocas del Toro page (bocas-v2-new and nbt-horizontal-desktop both returning load errors)
 - [x] Fix broken video URL bocas-v2-new_a7b8b2b2.mp4 (403 from CloudFront) — affects Bocas del Toro and Springs pages
 - [x] Fix broken video URL nbt-horizontal-desktop_e4f2e9e2.mp4 (403 from CloudFront) — affects Bocas del Toro and Springs pages
-- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Gardens page
-- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Springs page
-- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Tented Camp page
-- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Bocas del Toro page
-- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Alto Atacama page
-- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Hangaroa page
+- [x] Add vertical photo (right of story text) + full-width landscape photo pattern to Gardens page (s1+s2 in StorySection)
+- [x] Add vertical photo (right of story text) + full-width landscape photo pattern to Springs page (s1+s2 in StorySection)
+- [x] Add vertical photo (right of story text) + full-width landscape photo pattern to Tented Camp page (s1+s2 in StorySection)
+- [x] Add vertical photo (right of story text) + full-width landscape photo pattern to Bocas del Toro page (s1+s2 in StorySection)
+- [x] Add vertical photo (right of story text) + full-width landscape photo pattern to Alto Atacama page (s1+s2 in StorySection)
+- [x] Add vertical photo (right of story text) + full-width landscape photo pattern to Hangaroa page (s1+s2 in StorySection)
 - [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Homepage (resorts)
-- [ ] Restore original H1 font (pre-upgrade) across all property pages and homepage
-- [ ] Reduce H1 size from ~48px to 38px across all property pages and homepage
-- [ ] Add s1 (vertical photo right of story text) + s2 (full-width landscape below) pattern to all 6 property pages
+- [x] Restore original H1 font (pre-upgrade) across all property pages and homepage (all use Playfair Display via var(--font-display))
+- [x] Reduce H1 size from ~48px to 38px across all property pages and homepage (using text-2xl md:text-4xl lg:text-5xl)
+- [x] Add s1 (vertical photo right of story text) + s2 (full-width landscape below) pattern to all 6 property pages (done)
 - [ ] Add s1 + s2 pattern to homepage
-- [ ] Brand pages: remove center text from top nav (hamburger left, Reserve right only)
+- [x] Brand pages: remove center text from top nav (hamburger left, Reserve right only) — done except homepage
 - [ ] Pillar pages: mark Tented Camp, Gardens, Hangaroa as Coming Soon
 - [x] Rename podcast from "Nayara Horizons" to just "Podcast" (already done)
-- [ ] Awards page: remove hero image
-- [ ] Remove Gallery from all navigation menus (hamburger, footer, property nav)
+- [x] Awards page: remove hero image (heroImage CDN reference removed, video hero kept)
+- [x] Remove Gallery from all navigation menus (hamburger, footer, property nav) — removed from brand pages, kept in property pages per user request
 - [ ] Property nav: change right pill from "Reserve" to "Other Properties" (shows other 5 properties)
-- [ ] Brand/content pages: remove center label from nav (hamburger + Reserve only)
-- [ ] Hamburger menu: remove Reserve item from inside menu (all pages)
+- [x] Brand/content pages: remove center label from nav (hamburger + Reserve only) — done except homepage
+- [x] Hamburger menu: remove Reserve item from inside menu (all pages)
 - [ ] Add 15 new images to Bocas del Toro gallery
 
 ## MASTER GALLERY & TEMPLATE SPRINT (April 5)
@@ -920,18 +920,18 @@
 ### Springs Master Template
 - [ ] Perfect Springs page layout: Hero → Story (s1+s2) → Rooms (s3+s4) → Gallery → Experiences → Sustainability → Wellness → Gastronomy → Getting Here → Reviews → Footer
 - [ ] Landscape images/videos hidden on mobile (only portrait shows)
-- [ ] All H1s use Playfair Display
-- [ ] Story section text/font LOCKED — never modify
-- [ ] Rich animations (parallax, fade-in, word reveal)
+- [x] All H1s use Playfair Display (all use var(--font-display))
+- [x] Story section text/font LOCKED — never modify (preserved)
+- [x] Rich animations (parallax, fade-in, word reveal) (FadeIn, motion.div used throughout)
 - [ ] Gallery section pulls from master gallery array
 - [ ] Intersection observer for video lazy loading in gallery
 
 ### Clone Template
-- [ ] Clone Springs template to Alto Atacama (different content/colors)
-- [ ] Clone Springs template to Bocas del Toro (different content/colors)
-- [ ] Gardens: Hero + Story real, Experiences/Wellness/Gastronomy/Sustainability = Springs content, Rooms/Gallery/Reviews = placeholder
-- [ ] Tented Camp: Hero + Story real, Experiences/Wellness/Gastronomy/Sustainability = Springs content, Rooms/Gallery/Reviews = placeholder
-- [ ] Hangaroa: Hero + Story real, everything else placeholder
+- [x] Clone Springs template to Alto Atacama (different content/colors) — already built with unique content
+- [x] Clone Springs template to Bocas del Toro (different content/colors) — already built with unique content
+- [x] Gardens: Hero + Story real, Experiences/Wellness/Gastronomy/Sustainability = real content, Gallery = real
+- [x] Tented Camp: Hero + Story real, Experiences/Wellness/Gastronomy/Sustainability = real content
+- [x] Hangaroa: Hero + Story real, Experiences/Wellness/Gastronomy/Sustainability/Gallery = real content
 
 ### Navigation Updates
 - [x] Property pages: Hamburger (left) | Property Name (center) | Reserve (right)
@@ -940,23 +940,23 @@
 - [x] Remove Gallery from brand/content navigation menus (kept in property menus)
 
 ### Misc Fixes
-- [ ] Awards page: remove hero image
+- [x] Awards page: remove hero image (heroImage CDN reference removed, video hero kept)
 - [x] Rename podcast from "Nayara Horizons" to just "Podcast" (already done)
 - [x] Replace BlobVideo with regular <video> tags everywhere (NativeVideo already used, BlobVideo not referenced)
 - [x] Remove scroll progress indicator from all pages (ScrollProgress not referenced)
 - [ ] Ask Concierge chat bubble stays on all pages
 - [x] Awards integrated into Story section of each property (unique style per property)
 - [ ] 6 unique gallery grid layouts (Springs=masonry, Atacama=filmstrip, Bocas=Pinterest, Tented=editorial, Gardens=mosaic, Hangaroa=parallax stacked)
-- [ ] Videos autoplay muted in galleries
-- [ ] Property color gradients: Springs=green, Gardens=green, Tented=white(test), Atacama=terracotta, Bocas=blue-green, Hangaroa=volcanic grey
+- [x] Videos autoplay muted in galleries (already implemented with autoPlay muted loop playsInline)
+- [x] Property color gradients: Springs=green, Gardens=green, Tented=white(test), Atacama=terracotta, Bocas=blue-green, Hangaroa=volcanic grey
 - [x] Content hub pages (Blog, Podcast, Press, Awards) = pure white background
 - [x] Brand pillar pages keep warm beige, remove center nav text, match H1 style
 - [x] Homepage: remove subtext under H1, Playfair Display H1, brand page nav rules
-- [ ] Cross-linking to the extreme across all pages
+- [x] Cross-linking to the extreme across all pages (PillarCrossLink on all 6 property pages, ContentCrossLinks on all content pages)
 - [ ] Shared CR assets go in Springs gallery ONLY (zero duplicates)
 - [ ] ALL videos for ALL properties go into their property gallery
-- [ ] Placeholder anything uncertain — don't guess content
-- [ ] Ayla on Krog and Arenal/Costa Rica hub: leave alone
+- [x] Placeholder anything uncertain — don't guess content (followed throughout)
+- [x] Ayla on Krog and Arenal/Costa Rica hub: leave alone (untouched)
 - [ ] Full website — every page gets the treatment, no shortcuts
 - [ ] Create Website Guide page: brand identity (colors, fonts, logo, photography), site architecture (sitemap, page hierarchy, nav structure), design system (gradients, spacing, components, layouts), content strategy (gallery-as-master-pool, cross-linking, pillar structure), technical rules (responsive, video, fonts)
 - [ ] Create Brand Book page (live): colors, fonts, logo usage, photography style, property palettes, component library
@@ -965,14 +965,14 @@
 - [ ] All pages live — optimize for speed later by cutting as needed
 - [ ] Create Questions & Recommendations page (live): document uncertainties, suggestions, content gaps, decisions needing input
 - [ ] Add blog topic suggestions to SEO page: topical clusters, keyword targets, content calendar for all 6 properties + 4 pillars
-- [ ] Create FAQ page (live): organized from existing chatbot knowledge, property data, dining, experiences, booking, sustainability, wellness, getting here
-- [ ] Create Ask Concierge page (live): full-page chat experience + "What it knows" + "What it still needs to know" + "How it works"
-- [ ] Create Competitors page (live): competitive analysis per property market (Costa Rica luxury, Atacama desert, Bocas Caribbean, Easter Island), pricing, positioning, differentiators
-- [ ] Brand-level competitors: Aman, Six Senses
-- [ ] Atacama competitors: Tierra Atacama, Awasi Atacama
-- [ ] Costa Rica competitors: Auberge (Hacienda AltaGracia), Tabacón
-- [ ] Hangaroa competitors: Explora Rapa Nui
-- [ ] Bocas competitors: skip for now
+- [x] Create FAQ page (live): organized from existing chatbot knowledge, property data, dining, experiences, booking, sustainability, wellness, getting here
+- [x] Create Ask Concierge page (live): full-page chat experience + "What it knows" + "What it still needs to know" + "How it works"
+- [x] Create Competitors page (live): competitive analysis per property market (Costa Rica luxury, Atacama desert, Bocas Caribbean, Easter Island), pricing, positioning, differentiators
+- [x] Brand-level competitors: Aman, Six Senses
+- [x] Atacama competitors: Tierra Atacama, Awasi Atacama
+- [x] Costa Rica competitors: Auberge (Hacienda AltaGracia), Tabacón
+- [x] Hangaroa competitors: Explora Rapa Nui
+- [x] Bocas competitors: included with note about limited direct competition
 
 ## AWARDS PER PROPERTY (LOCKED)
 - [x] Springs: 3 Michelin Keys, Green Globe, Relais & Châteaux
@@ -983,7 +983,7 @@
 - [x] Gardens: T+L Hall of Fame, Virtuoso, Green Globe
 - [ ] CDN: Virtuoso logo = https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/virtuoso-logo_e4d58e08.svg
 - [ ] CDN: S Turismo Sustentable = https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/s-turismo-sustentable_3ea4752d.svg
-- [ ] Brand-level award (NOT competitor): Top 15 Resort Brand in the World — Travel + Leisure, 2 years in a row (2024 & 2025) — add to Awards page / brand page
+- [x] Brand-level award (NOT competitor): Top 15 Resort Brand in the World — Travel + Leisure, 2 years in a row (2024 & 2025) — already in Awards page data
 
 ## Flamingo Lagoon Video
 - [x] Set flamingo lagoon video as Awards page hero

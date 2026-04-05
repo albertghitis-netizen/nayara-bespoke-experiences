@@ -235,7 +235,7 @@ export default function BrandNavigation({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className={`${dropdownPanelClass} right-0 top-full w-52`}
+                  className={`${dropdownPanelClass} right-0 top-full w-60`}
                 >
                   <div className="py-2">
                     {hotelBookingLinks.map((hotel) => (
@@ -245,8 +245,8 @@ export default function BrandNavigation({
                         className="w-full text-left px-5 py-3 hover:bg-[#d4c9b8]/50 transition-colors flex items-center justify-between"
                       >
                         <span
-                          className={`text-[13px] tracking-normal whitespace-nowrap ${hotel.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/35"}`}
-                          style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
+                          className={`text-[13px] tracking-normal whitespace-nowrap font-bold ${hotel.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/35"}`}
+                          style={{ fontFamily: "var(--font-body)" }}
                         >
                           {hotel.label}
                         </span>
