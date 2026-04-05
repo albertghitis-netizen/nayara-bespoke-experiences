@@ -15,7 +15,7 @@ import PillarCrossLink from "@/components/PillarCrossLink";
 
 /* ─── CDN Assets ─── */
 const CDN = {
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbt-horizontal-desktop_e4f2e9e2.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbt-horizontal-desktop_0c584342.mp4",
   heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-vertical2_03bbe8e5.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_be6f8cb4.jpg",
@@ -325,40 +325,50 @@ function GastronomySection() {
    8. GALLERY
    ═══════════════════════════════════════════════════════════════ */
 function GallerySection() {
+  /* Pinterest-staggered layout — unique to Bocas del Toro */
   const images = [
-    { src: CDN.s1, alt: "Overwater villas" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_11cc5b01.jpg", alt: "Turquoise lagoon aerial" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/79_cfb33bcf.jpg", alt: "Caribbean coastline" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/83_621b9b3f.jpg", alt: "Island paradise" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/86_bcac4579.jpg", alt: "Crystal clear swimming" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/87_ab229191.jpg", alt: "Tropical waters" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg", alt: "Bocas del Toro landscape" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/97_e7aef760.jpg", alt: "Island exploration" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg", alt: "Caribbean sunset" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/102_ab0b274c.jpg", alt: "Overwater experience" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/112_8b2c7265.jpg", alt: "Tropical retreat" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/119_e65d6018.jpg", alt: "Island wildlife" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/126_22a08627.jpg", alt: "Bocas adventure" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/135_de400071.jpg", alt: "Caribbean waters" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/136_350b411d.jpg", alt: "Tropical scenery" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/139_c6e2d973.jpg", alt: "Island living" },
-    { src: CDN.s2, alt: "Caribbean lagoon" },
-    { src: CDN.s3, alt: "Island experience" },
-    { src: CDN.s4, alt: "Aerial resort view" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-resort-aerial-sunset_d536b07d.jpg", alt: "Bocas del Toro resort aerial at sunset", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-couple-villa-pool_42fafe14.jpg", alt: "Couple at overwater villa with plunge pool", tall: true },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-gallery-video1_d18b5ced.mp4", alt: "Bocas del Toro experience", tall: false },
+    { src: CDN.s1, alt: "Overwater villas walkway", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-topdown-villas-boardwalk_576d7415.jpg", alt: "Overwater villas from above", tall: true },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg", alt: "Aerial villas in mangroves", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-overwater-villas-deck_16555482.jpg", alt: "Overwater villas from deck", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-gallery-video2_959ab8e2.mov", alt: "Caribbean waters", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-briceferre-villa_c88fea38.jpg", alt: "Villa interior by Brice Ferre", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-briceferre-aerial_60c5ff23.jpg", alt: "Aerial view by Brice Ferre", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_11cc5b01.jpg", alt: "Turquoise lagoon aerial" , tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/79_cfb33bcf.jpg", alt: "Caribbean coastline", tall: false },
+    { src: CDN.s3, alt: "Island experience video", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/83_621b9b3f.jpg", alt: "Island paradise", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/86_bcac4579.jpg", alt: "Crystal clear swimming", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg", alt: "Bocas del Toro landscape", tall: false },
+    { src: CDN.s2, alt: "Caribbean lagoon", tall: false },
+    { src: CDN.s4, alt: "Aerial resort view", tall: false },
   ];
+  /* Split into 3 columns for Pinterest effect */
+  const cols: typeof images[] = [[], [], []];
+  images.forEach((img, i) => cols[i % 3].push(img));
   return (
     <section id="gallery" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Gallery</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Island Moments</h2>
+          <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Caribbean Moments</h2>
         </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-          {images.map((img, i) => (
-            <FadeIn key={i} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-              <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
-            </FadeIn>
-          ))}
+        <div className="columns-2 md:columns-3 gap-2 md:gap-3 [column-fill:_balance]">
+          {images.map((img, i) => {
+            const isVideo = img.src.toLowerCase().endsWith('.mov') || img.src.toLowerCase().endsWith('.mp4');
+            return (
+              <FadeIn key={i} delay={i * 0.04} className="mb-2 md:mb-3 break-inside-avoid">
+                {isVideo ? (
+                  <video src={img.src} className="w-full object-cover rounded-lg" style={{ aspectRatio: img.tall ? "3/4" : "4/3" }} autoPlay muted loop playsInline />
+                ) : (
+                  <img src={img.src} alt={img.alt} className="w-full object-cover rounded-lg" style={{ aspectRatio: img.tall ? "3/4" : "4/3" }} loading="lazy" />
+                )}
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

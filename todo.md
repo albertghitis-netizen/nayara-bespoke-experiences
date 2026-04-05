@@ -880,9 +880,9 @@
 - [x] Update Hangaroa H1: "Easter Island's Luxury Resort" + subtitle "Chile · All Ages"
 - [x] Verify pillar page H1s: Experiences="Bespoke Experiences", Sustainability="Beyond Sustainability", Wellness="Nurtured by Nature", Gastronomy="A Taste of Place"
 
-- [ ] Fix broken video URLs on Bocas del Toro page (bocas-v2-new and nbt-horizontal-desktop both returning load errors)
-- [ ] Fix broken video URL bocas-v2-new_a7b8b2b2.mp4 (403 from CloudFront) — affects Bocas del Toro and Springs pages
-- [ ] Fix broken video URL nbt-horizontal-desktop_e4f2e9e2.mp4 (403 from CloudFront) — affects Bocas del Toro and Springs pages
+- [x] Fix broken video URLs on Bocas del Toro page (bocas-v2-new and nbt-horizontal-desktop both returning load errors)
+- [x] Fix broken video URL bocas-v2-new_a7b8b2b2.mp4 (403 from CloudFront) — affects Bocas del Toro and Springs pages
+- [x] Fix broken video URL nbt-horizontal-desktop_e4f2e9e2.mp4 (403 from CloudFront) — affects Bocas del Toro and Springs pages
 - [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Gardens page
 - [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Springs page
 - [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Tented Camp page
@@ -988,3 +988,9 @@
 ## Flamingo Lagoon Video
 - [x] Set flamingo lagoon video as Awards page hero
 - [x] Add flamingo lagoon video to Atacama gallery
+
+## New Gallery Assets (April 5)
+- [x] Upload 4 new Hangaroa images to CDN (warrior portrait, moai+horses, moai+pukao, warriors group)
+- [x] Upload 7 new Bocas images + 2 videos to CDN (aerial sunset, couple pool, topdown boardwalk, mangroves aerial, deck villas, Brice Ferre villa, Brice Ferre aerial, 2 videos)
+- [x] Integrate new Hangaroa images into Hangaroa gallery (parallax stacked layout)
+- [x] Integrate new Bocas assets into Bocas gallery (Pinterest-staggered layout)

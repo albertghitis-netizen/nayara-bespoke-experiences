@@ -314,33 +314,66 @@ function GastronomySection() {
    ═══════════════════════════════════════════════════════════════ */
 function GallerySection() {
   const images = [
-    { src: CDN.s1, alt: "Cultural performer" },
-    { src: CDN.s2, alt: "Moai statues" },
+    { src: CDN.heroVideo, alt: "Easter Island cinematic", span: "full" },
+    { src: CDN.s1, alt: "Rapa Nui cultural performer" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-warrior-portrait_572aaf06.jpg", alt: "Rapa Nui warrior portrait" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-horses-sunset_8152e72d.jpg", alt: "Moai statues with wild horses at sunset" },
+    { src: CDN.s4, alt: "Easter Island landscape video", span: "full" },
+    { src: CDN.s2, alt: "Moai statues at dusk" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-pukao-ocean_dc261e27.jpg", alt: "Moai with pukao hats overlooking ocean" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-warriors-group-moai_daee7723.jpg", alt: "Rapa Nui warriors performing at Moai site" },
     { src: CDN.s3, alt: "Island woman" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-16_aa3fc296.JPG", alt: "Traditional face paint" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-16_aa3fc296.JPG", alt: "Traditional face paint ceremony" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-21_c15d07fa.JPG", alt: "Woman at Moai site" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-22_3f8e6011.JPG", alt: "Cultural adornment" },
   ];
   return (
-    <section id="gallery" className={sectionPadding}>
-      <div className={maxW}>
-        <FadeIn>
-          <SectionLabel>Gallery</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Island Moments</h2>
-        </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-          {images.map((img, i) => {
-            const isVideo = img.src.endsWith('.mov') || img.src.endsWith('.mp4') || img.src.endsWith('.MP4');
+    <section id="gallery" className="py-16 md:py-24">
+      <div className="px-6 md:px-10">
+        <div className={maxW}>
+          <FadeIn>
+            <SectionLabel>Gallery</SectionLabel>
+            <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Island Moments</h2>
+          </FadeIn>
+        </div>
+      </div>
+      {/* Full-width parallax gallery — unique to Hangaroa */}
+      <div className="flex flex-col gap-2 md:gap-3">
+        {images.map((img, i) => {
+          const isVideo = img.src.toLowerCase().endsWith('.mov') || img.src.toLowerCase().endsWith('.mp4');
+          const isFull = (img as any).span === "full";
+          if (isFull) {
             return (
-              <FadeIn key={i} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-                {isVideo ? (
-                  <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
-                ) : (
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
-                )}
+              <FadeIn key={i} delay={0.1}>
+                <div className="w-full overflow-hidden" style={{ height: "60vh" }}>
+                  {isVideo ? (
+                    <video src={img.src} className="w-full h-full object-cover" autoPlay muted loop playsInline />
+                  ) : (
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
+                  )}
+                </div>
               </FadeIn>
             );
-          })}
+          }
+          return null;
+        })}
+        <div className="px-6 md:px-10">
+          <div className={maxW}>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+              {images.filter((img) => !(img as any).span).map((img, i) => {
+                const isVideo = img.src.toLowerCase().endsWith('.mov') || img.src.toLowerCase().endsWith('.mp4');
+                return (
+                  <FadeIn key={i} delay={i * 0.06} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
+                    {isVideo ? (
+                      <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
+                    ) : (
+                      <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
+                    )}
+                  </FadeIn>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

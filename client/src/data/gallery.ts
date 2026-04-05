@@ -99,7 +99,7 @@ export const atacamaGallery: GalleryItem[] = [
    Gallery Layout: Pinterest-style staggered
    ═══════════════════════════════════════════════════════════════ */
 export const bocasGallery: GalleryItem[] = [
-  { id: "boc-hero-d", src: `${CDN}/nbt-horizontal-desktop_e4f2e9e2.mp4`, alt: "Bocas overwater villas", type: "video", orientation: "landscape", tags: ["hero"] },
+  { id: "boc-hero-d", src: `${CDN}/nbt-horizontal-desktop_0c584342.mp4`, alt: "Bocas overwater villas", type: "video", orientation: "landscape", tags: ["hero"] },
   { id: "boc-hero-m", src: `${CDN}/bocas-vertical2_03bbe8e5.mp4`, alt: "Bocas vertical hero", type: "video", orientation: "portrait", tags: ["hero", "mobile"] },
   { id: "boc-s1", src: `${CDN}/bocas-aerial-villas-walkway_66b2f48e.jpg`, alt: "Aerial overwater villas", type: "image", orientation: "landscape", tags: ["story", "s1"] },
   { id: "boc-s2", src: `${CDN}/74_be6f8cb4.jpg`, alt: "Bocas tropical scene", type: "image", orientation: "portrait", tags: ["story", "s2"] },
