@@ -19,7 +19,7 @@ const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
 const CDN = {
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-desktop-hq_732fe8b3.mp4",
   heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-vertical-hq_d81c629e.mp4",
-  s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/CFNetworkDownload_zSiOOV.tmp(1)_17142a4b.mov",
+  s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-17_d0de17d2.JPG",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/11_576297a8.jpg",
   s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/trim_7f2fc685.mov",
   s4: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
@@ -113,9 +113,7 @@ function StorySection() {
             </p>
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
-            <div className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4", overflow: "hidden" }}>
-              <BlobVideo src={CDN.s1} className="w-full h-full object-cover" autoPlay muted loop playsInline />
-            </div>
+            <img src={CDN.s1} alt="Rainbow Valley landscape" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "3/4" }} />
           </FadeIn>
         </div>
 
@@ -138,9 +136,7 @@ function RoomsSection() {
         {/* s3 video left + H3 right */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
           <FadeIn delay={0.1} className="md:flex-1 order-2 md:order-1">
-            <div className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4", overflow: "hidden" }}>
-              <BlobVideo src={CDN.s3} className="w-full h-full object-cover" autoPlay muted loop playsInline />
-            </div>
+            <img src={CDN.s3} alt="Desert suite interior" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "3/4" }} />
           </FadeIn>
           <FadeIn className="md:flex-1 order-1 md:order-2">
             <SectionLabel>Accommodations</SectionLabel>
@@ -320,7 +316,7 @@ function GallerySection() {
     { src: CDN.s2, alt: "Resort exterior" },
     { src: CDN.s3, alt: "Suite experience" },
     { src: CDN.s4, alt: "Rainbow Valley" },
-    { src: CDN.s1, alt: "Desert detail" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/CFNetworkDownload_zSiOOV.tmp(1)_17142a4b.mov", alt: "Desert walk" },
     { src: CDN.s2, alt: "Atacama view" },
   ];
   return (
@@ -331,11 +327,18 @@ function GallerySection() {
           <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Mars on Earth</h2>
         </FadeIn>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-          {images.map((img, i) => (
-            <FadeIn key={i} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-              <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
-            </FadeIn>
-          ))}
+          {images.map((img, i) => {
+            const isVideo = img.src.endsWith('.mov') || img.src.endsWith('.mp4') || img.src.endsWith('.MP4');
+            return (
+              <FadeIn key={i} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
+                {isVideo ? (
+                  <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
+                ) : (
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
+                )}
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

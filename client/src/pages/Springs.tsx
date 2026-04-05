@@ -284,8 +284,10 @@ function GallerySection() {
     { src: CDN.s2, alt: "Rainforest boardwalk" },
     { src: CDN.s3, alt: "Luxury villa interior" },
     { src: CDN.s4, alt: "Aerial property view" },
-    { src: CDN.s1, alt: "Thermal pools" },
-    { src: CDN.s2, alt: "Nature walk" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-3_e394353d.jpg", alt: "Wildlife monkey" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-5_f4b0874c.jpg", alt: "Jungle pathway" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-14_6b456af8.jpg", alt: "Tropical bird" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/CCD6CF80-5F62-40B5-B82A-119D31106C0D_635597b5.mp4", alt: "Nature video" },
   ];
   return (
     <section id="gallery" className={sectionPadding}>
@@ -295,11 +297,18 @@ function GallerySection() {
           <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Volcanic Luxury</h2>
         </FadeIn>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-          {images.map((img, i) => (
-            <FadeIn key={i} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-              <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
-            </FadeIn>
-          ))}
+          {images.map((img, i) => {
+            const isVideo = img.src.endsWith('.mov') || img.src.endsWith('.mp4') || img.src.endsWith('.MP4');
+            return (
+              <FadeIn key={i} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
+                {isVideo ? (
+                  <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
+                ) : (
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
+                )}
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

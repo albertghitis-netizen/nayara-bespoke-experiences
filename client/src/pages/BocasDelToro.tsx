@@ -20,7 +20,7 @@ const CDN = {
   heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-vertical2_03bbe8e5.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_be6f8cb4.jpg",
-  s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/7_bd5d5ef0.jpg",
+  s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/87D222D3-2D4E-437D-AAEF-92C3662EBFE9_1e00bdac.MP4",
   s4: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/80_57ce5c18.jpg",
 };
 
@@ -150,7 +150,9 @@ function RoomsSection() {
         {/* s3 vertical left + H3 right */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
           <FadeIn delay={0.1} className="md:flex-1 order-2 md:order-1">
-            <img src={CDN.s3} alt="Woman floating on overwater platform" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
+            <div style={{ aspectRatio: "3/4" }}>
+              <BlobVideo src={CDN.s3} className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline controls={false} />
+            </div>
           </FadeIn>
           <FadeIn className="md:flex-1 order-1 md:order-2">
             <SectionLabel>Accommodations</SectionLabel>
