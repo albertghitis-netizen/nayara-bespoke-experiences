@@ -3,7 +3,8 @@
  * Rebuilt with new structure: Story (s1/s2) → Springs Villa (s3/s4) → Experiences → Sustainability → Wellness → Gastronomy → Gallery → Footer
  */
 import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform, useSpring } from "framer-motion";
+
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -24,7 +25,7 @@ const CDN = {
   michelin: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-3-keys_10864925.png",
 };
 
-const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+const heading = { fontFamily: "var(--font-heading)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 const sectionPadding = "py-16 md:py-24 px-6 md:px-10"; // Note: StorySection uses custom padding (py-5 md:py-8)
 const maxW = "max-w-[1200px] mx-auto";
@@ -36,6 +37,51 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
     <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }} className={className}>
       {children}
     </motion.div>
+  );
+}
+
+/* Rich animation variants */
+const luxuryEase = [0.22, 1, 0.36, 1] as const;
+const slideFromLeft = {
+  hidden: { opacity: 0, x: -80 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: luxuryEase as unknown as [number, number, number, number] } },
+};
+const slideFromRight = {
+  hidden: { opacity: 0, x: 80 },
+  visible: { opacity: 1, x: 0, transition: { duration: 1, ease: luxuryEase as unknown as [number, number, number, number] } },
+};
+const scaleReveal = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: luxuryEase as unknown as [number, number, number, number] } },
+};
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+};
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: luxuryEase as unknown as [number, number, number, number] } },
+};
+const badgePop = {
+  hidden: { opacity: 0, scale: 0, rotate: -15 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: { duration: 0.6, delay: 0.5 + i * 0.15, ease: luxuryEase as unknown as [number, number, number, number], type: "spring" as const, stiffness: 200, damping: 15 },
+  }),
+};
+
+/* Parallax image with scroll-linked movement */
+function ParallaxImage({ src, alt, className, style, speed = 0.15 }: { src: string; alt: string; className?: string; style?: React.CSSProperties; speed?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [speed * -100, speed * 100]);
+  const smoothY = useSpring(y, { stiffness: 100, damping: 30 });
+  return (
+    <div ref={ref} className={`overflow-hidden ${className || ""}`} style={style}>
+      <motion.img src={src} alt={alt} className="w-full h-[115%] object-cover" style={{ y: smoothY }} loading="lazy" />
+    </div>
   );
 }
 
@@ -69,7 +115,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center" style={heading}>
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-center" style={{ ...heading, fontSize: "40px", lineHeight: 1.15 }}>
           Private Hot Spring Villas in Costa Rica
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/60 text-[11px] md:text-[13px] mt-4 tracking-[0.25em] uppercase" style={body}>
@@ -81,62 +127,211 @@ function HeroSection() {
 }
 
 function StorySection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const badgesInView = useInView(badgeRef, { once: true, amount: 0.3 });
+
+  /* Decorative line animation */
+  const lineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: lineProgress } = useScroll({ target: lineRef, offset: ["start end", "end start"] });
+  const lineWidth = useTransform(lineProgress, [0, 0.5], ["0%", "100%"]);
+
+  const badges = [
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-3keys_f314991b.png", alt: "Michelin 3 Keys", label: "3 Keys" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/green-globe_1f678bff.png", alt: "Green Globe Certified", label: "Certified" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/relais-chateaux_cf8af849.png", alt: "Relais & Châteaux", label: "Member" },
+  ];
+
   return (
-    <section id="story" className="py-5 md:py-8 px-6 md:px-10">
-      {/* Story text left + s1 vertical right (s1 bleeds to right edge) */}
-      <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12 md:mb-0">
-        <div className="max-w-[1200px] mx-auto md:flex-1 md:py-12">
-          <FadeIn>
-            <SectionLabel>The Property</SectionLabel>
-            <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-              Adults-Only Mineral Springs
-            </h2>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed mb-4" style={body}>
-              {springs.heroSubtitle}
-            </p>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
-              Nayara Springs is the adults-only sister property to Nayara Gardens. Each villa features a private natural hot spring pool fed by volcanic mineral water, surrounded by the sounds of the rainforest. Michelin 3 Key recognized, the resort offers an intimate, elevated experience with access to all five Nayara restaurants and the full-service Spa Arenal.
-            </p>
-          </FadeIn>
-        </div>
-        <FadeIn delay={0.2} className="md:flex-1 w-full md:w-auto md:-mr-10 md:py-12">
-          <img src={CDN.s1} alt="Nayara Springs hot spring immersion" className="w-full h-full object-cover" style={{ aspectRatio: "3/4" }} loading="lazy" />
-        </FadeIn>
+    <section ref={sectionRef} id="story" className="mt-4 md:mt-6 overflow-hidden">
+      {/* ── Row 1: Text left + s1 vertical right (desktop) | s1 on top, text below (mobile) ── */}
+      <div className="flex flex-col md:flex-row md:items-stretch">
+        {/* Text + Badges column */}
+        <motion.div
+          className="order-2 md:order-1 md:w-[45%] flex flex-col justify-center px-5 sm:px-8 md:px-10 lg:px-14 py-8 md:py-12"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {/* Animated decorative line */}
+          <motion.div
+            ref={lineRef}
+            className="h-px bg-gradient-to-r from-[#3a2a1a]/20 via-[#3a2a1a]/10 to-transparent mb-6 md:mb-8"
+            style={{ width: lineWidth }}
+          />
+
+          {/* H2 — word-by-word reveal */}
+          <motion.h2
+            className="text-[#4B4A4A] mb-4 md:mb-6"
+            style={{ ...heading, fontSize: "clamp(26px, 3.5vw, 34px)", lineHeight: 1.15 }}
+            variants={fadeUp}
+          >
+            <motion.span className="block overflow-hidden">
+              <motion.span
+                className="block"
+                initial={{ y: "100%" }}
+                animate={isInView ? { y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              >
+                Romance without Distraction
+              </motion.span>
+            </motion.span>
+            <motion.span className="block overflow-hidden">
+              <motion.span
+                className="block"
+                initial={{ y: "100%" }}
+                animate={isInView ? { y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              >
+                Wellness without Walls
+              </motion.span>
+            </motion.span>
+          </motion.h2>
+
+          {/* Body text — fade up */}
+          <motion.p
+            className="text-[#4B4A4A]/70 text-[14px] md:text-[15px] leading-relaxed mb-8 md:mb-10"
+            style={body}
+            variants={fadeUp}
+          >
+            Hidden within the rainforest surrounding Arenal Volcano, Nayara Springs is an adults-only Relais & Châteaux retreat built around hot springs, romance, and exceptional dining. Every villa has its own volcanic hot spring plunge pool screened by tropical gardens, and the spa draws its rituals from the geothermal earth and forest botanicals that surround it. Here, privacy is not a perk. It is the entire point.
+          </motion.p>
+
+          {/* Certification badges — spring pop-in with stagger */}
+          <div ref={badgeRef} className="flex items-start gap-5 sm:gap-6 md:gap-8">
+            {badges.map((badge, i) => (
+              <motion.div
+                key={badge.alt}
+                className="flex flex-col items-center gap-2"
+                custom={i}
+                variants={badgePop}
+                initial="hidden"
+                animate={badgesInView ? "visible" : "hidden"}
+              >
+                <motion.div
+                  className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-white rounded-xl shadow-md border border-stone-100/80 flex items-center justify-center p-2.5 cursor-pointer"
+                  whileHover={{ scale: 1.1, boxShadow: "0 8px 30px rgba(58,42,26,0.12)", y: -4 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <img src={badge.src} alt={badge.alt} className="w-full h-full object-contain" />
+                </motion.div>
+                <motion.span
+                  className="text-[8px] sm:text-[9px] tracking-[0.12em] uppercase text-[#3a2a1a]/40 text-center"
+                  style={body}
+                  initial={{ opacity: 0 }}
+                  animate={badgesInView ? { opacity: 1 } : {}}
+                  transition={{ delay: 0.8 + i * 0.15 }}
+                >
+                  {badge.label}
+                </motion.span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* s1 vertical image — visible at ALL breakpoints, parallax on desktop */}
+        <motion.div
+          className="order-1 md:order-2 md:w-[55%]"
+          variants={slideFromRight}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <ParallaxImage
+            src={CDN.s1}
+            alt="Nayara Springs hot spring immersion"
+            className="w-full"
+            style={{ aspectRatio: "3/4", maxHeight: "85vh" }}
+            speed={0.1}
+          />
+        </motion.div>
       </div>
 
-      {/* s2 landscape below - bleeds left and right */}
-      <FadeIn delay={0.3} className="-mx-6 md:-mx-10 md:mt-12">
-        <img src={CDN.s2} alt="Rainforest boardwalk at Nayara Springs" className="w-screen object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
-      </FadeIn>
+      {/* s2 landscape — HIDDEN on mobile, visible md+ with scale reveal + parallax */}
+      <motion.div
+        className="hidden md:block mt-4 md:mt-6"
+        variants={scaleReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <ParallaxImage
+          src={CDN.s2}
+          alt="Rainforest boardwalk at Nayara Springs"
+          className="w-full"
+          style={{ aspectRatio: "16/9" }}
+          speed={0.08}
+        />
+      </motion.div>
     </section>
   );
 }
 
 function SpringsVillaSection() {
-  return (
-    <section id="springs-villa" className={`${sectionPadding} bg-white/30`}>
-      <div className={maxW}>
-        {/* Text right + s3 vertical left (L-shape with s4 below) */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-0">
-          <FadeIn delay={0.1} className="md:flex-1 order-2 md:order-1">
-            <img src={CDN.s3} alt="Luxury canopy villa at Nayara Springs" className="w-full object-cover" style={{ aspectRatio: "3/4" }} loading="lazy" />
-          </FadeIn>
-          <FadeIn className="md:flex-1 order-1 md:order-2 md:py-12">
-            <SectionLabel>Accommodations</SectionLabel>
-            <h3 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-              Springs Villa
-            </h3>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
-              Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation, these intimate sanctuaries offer an unparalleled experience of thermal wellness surrounded by rainforest canopy.
-            </p>
-          </FadeIn>
-        </div>
+  const ref = useRef<HTMLElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
 
-        {/* s4 landscape below - bleeds left and right (L-shape bottom) */}
-        <FadeIn delay={0.3} className="-mx-6 md:-mx-10 md:mt-0">
-          <img src={CDN.s4} alt="Aerial view of Springs Villa nestled in rainforest" className="w-screen object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
-        </FadeIn>
+  return (
+    <section ref={ref} id="springs-villa" className="py-0 md:py-0 px-6 md:px-10 mt-6 md:mt-6 mb-6 md:mb-6 overflow-hidden">
+      {/* s3 vertical left + Text right — image left, text right on desktop */}
+      <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
+        <motion.div
+          className="md:flex-1 w-full md:w-auto md:-ml-10 order-1"
+          variants={slideFromLeft}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <ParallaxImage
+            src={CDN.s3}
+            alt="Luxury canopy villa at Nayara Springs"
+            className="w-full"
+            style={{ aspectRatio: "3/4" }}
+            speed={0.1}
+          />
+        </motion.div>
+        <motion.div
+          className="md:flex-1 md:py-8 order-2 px-1 md:px-0"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={fadeUp}>
+            <SectionLabel>Accommodations</SectionLabel>
+          </motion.div>
+          <motion.h3
+            className="text-[#4B4A4A] mb-4 md:mb-6"
+            style={{ ...heading, fontSize: "clamp(24px, 3vw, 32px)", lineHeight: 1.15 }}
+            variants={fadeUp}
+          >
+            Springs Villa
+          </motion.h3>
+          <motion.p
+            className="text-[#4B4A4A]/70 text-[14px] md:text-[15px] leading-relaxed"
+            style={body}
+            variants={fadeUp}
+          >
+            Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation, these intimate sanctuaries offer an unparalleled experience of thermal wellness surrounded by rainforest canopy.
+          </motion.p>
+        </motion.div>
       </div>
+
+      {/* s4 landscape — HIDDEN on mobile, visible md+ with scale reveal */}
+      <motion.div
+        className="hidden md:block -mx-6 md:-mx-10 mt-6 md:mt-6"
+        variants={scaleReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <ParallaxImage
+          src={CDN.s4}
+          alt="Aerial view of Springs Villa nestled in rainforest"
+          className="w-full"
+          style={{ aspectRatio: "16/9" }}
+          speed={0.08}
+        />
+      </motion.div>
     </section>
   );
 }
@@ -146,7 +341,7 @@ function ExperiencesSection() {
   const categories = springs.excursionCategories || [];
   const filtered = activeCategory === "all" ? springs.excursions : springs.excursions.filter((e: Excursion) => e.category === activeCategory);
   return (
-    <section id="experiences" className={`${sectionPadding} bg-white/30`}>
+    <section id="experiences" className={`${sectionPadding} bg-white/30 mt-6 md:mt-6 mb-6 md:mb-6`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Experiences</SectionLabel>
@@ -185,7 +380,7 @@ function ExperiencesSection() {
 
 function SustainabilitySection() {
   return (
-    <section id="sustainability" className={sectionPadding}>
+    <section id="sustainability" className={`${sectionPadding} mt-6 md:mt-6 mb-6 md:mb-6`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Sustainability</SectionLabel>
@@ -216,7 +411,7 @@ function WellnessSection() {
   const treatments = springs.treatments || [];
   const filtered = treatments.filter((t: Treatment) => t.category === activeTab);
   return (
-    <section id="wellness" className={`${sectionPadding} bg-white/30`}>
+    <section id="wellness" className={`${sectionPadding} bg-white/30 mt-6 md:mt-6 mb-6 md:mb-6`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Wellness</SectionLabel>
@@ -256,7 +451,7 @@ function WellnessSection() {
 function GastronomySection() {
   const restaurants = Array.isArray(costaRicaDining) ? costaRicaDining : [costaRicaDining];
   return (
-    <section id="gastronomy" className={sectionPadding}>
+    <section id="gastronomy" className={`${sectionPadding} mt-6 md:mt-6 mb-6 md:mb-6`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Gastronomy</SectionLabel>
@@ -290,7 +485,7 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/CCD6CF80-5F62-40B5-B82A-119D31106C0D_635597b5.mp4", alt: "Nature video" },
   ];
   return (
-    <section id="gallery" className={sectionPadding}>
+    <section id="gallery" className={`${sectionPadding} mt-6 md:mt-6 mb-6 md:mb-6`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Gallery</SectionLabel>
