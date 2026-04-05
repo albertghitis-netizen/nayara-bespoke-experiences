@@ -116,12 +116,12 @@ function SpringsVillaSection() {
   return (
     <section id="springs-villa" className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
-        {/* s3 vertical left + H3 right */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
+        {/* Text right + s3 vertical left (L-shape with s4 below) */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-0">
           <FadeIn delay={0.1} className="md:flex-1 order-2 md:order-1">
-            <img src={CDN.s3} alt="Luxury canopy villa at Nayara Springs" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
+            <img src={CDN.s3} alt="Luxury canopy villa at Nayara Springs" className="w-full object-cover" style={{ aspectRatio: "3/4" }} loading="lazy" />
           </FadeIn>
-          <FadeIn className="md:flex-1 order-1 md:order-2">
+          <FadeIn className="md:flex-1 order-1 md:order-2 md:py-12">
             <SectionLabel>Accommodations</SectionLabel>
             <h3 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
               Springs Villa
@@ -132,9 +132,9 @@ function SpringsVillaSection() {
           </FadeIn>
         </div>
 
-        {/* s4 landscape below */}
-        <FadeIn delay={0.3}>
-          <img src={CDN.s4} alt="Aerial view of Springs Villa nestled in rainforest" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+        {/* s4 landscape below - bleeds left and right (L-shape bottom) */}
+        <FadeIn delay={0.3} className="-mx-6 md:-mx-10 md:mt-0">
+          <img src={CDN.s4} alt="Aerial view of Springs Villa nestled in rainforest" className="w-screen object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
         </FadeIn>
       </div>
     </section>
