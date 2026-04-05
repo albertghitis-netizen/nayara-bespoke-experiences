@@ -92,10 +92,10 @@ function HeroSection() {
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={heading}
         >
-          Atacama Desert Oasis Under the Stars
+          An Oasis in the Atacama Desert
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/60 text-[13px] md:text-[15px] mt-4 tracking-[0.08em]" style={body}>
-          Atacama Desert, Chile
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/60 text-[11px] md:text-[13px] mt-4 tracking-[0.25em] uppercase" style={body}>
+          Chile · All Ages
         </motion.p>
       </motion.div>
     </section>

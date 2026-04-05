@@ -91,16 +91,16 @@ function HeroSection() {
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={heading}
         >
-          Where Moai Meet the Pacific
+          Easter Island's Luxury Resort
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="text-white/60 text-[13px] md:text-[15px] mt-4 tracking-[0.08em]"
+          className="text-white/60 text-[11px] md:text-[13px] mt-4 tracking-[0.25em] uppercase"
           style={body}
         >
-          Easter Island, Chile
+          Chile · All Ages
         </motion.p>
       </div>
     </section>

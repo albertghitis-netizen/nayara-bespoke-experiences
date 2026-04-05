@@ -871,3 +871,11 @@
 
 - [x] Add 4 real podcast episodes to Podcast page (Leo video, Leo Afar, Leo Suite Success, Tau Mana)
 - [x] Cross-link podcast episodes to relevant property/pillar pages
+
+- [x] Update Gardens H1: "A Rainforest Resort at the Foot of Arenal Volcano" + subtitle "Costa Rica · All Ages"
+- [x] Update Springs H1: "Private Hot Spring Villas in Costa Rica" + subtitle "Adults Only"
+- [x] Update Tented Camp H1: "A Luxury Tented Camp in the Rainforest" + subtitle "Costa Rica · All Ages"
+- [x] Update Bocas del Toro H1: "Overwater Villas on a Private Caribbean Island" + subtitle "Adults Only"
+- [x] Update Alto Atacama H1: "An Oasis in the Atacama Desert" + subtitle "Chile · All Ages"
+- [x] Update Hangaroa H1: "Easter Island's Luxury Resort" + subtitle "Chile · All Ages"
+- [x] Verify pillar page H1s: Experiences="Bespoke Experiences", Sustainability="Beyond Sustainability", Wellness="Nurtured by Nature", Gastronomy="A Taste of Place"

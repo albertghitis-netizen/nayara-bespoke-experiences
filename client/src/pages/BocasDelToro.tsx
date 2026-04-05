@@ -100,7 +100,7 @@ function HeroSection() {
           className="text-center text-[#ece8e1] max-w-[1052px]"
           style={{ ...heading, fontSize: "clamp(26px, 3.5vw, 38px)", lineHeight: 1 }}
         >
-          {"Adults-Only Overwater Villas on a Private Caribbean Island".split("").map((char, i) => (
+          {"Overwater Villas on a Private Caribbean Island".split("").map((char, i) => (
             <motion.span
               key={i}
               initial={{ opacity: 0, filter: "blur(12px)", y: 8 }}
@@ -124,12 +124,10 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[#ece8e1]/70 text-[12px] md:text-[14px] uppercase tracking-[0.15em] mt-4"
-          style={{ ...body, fontWeight: 700 }}
+          className="text-[#ece8e1]/60 text-[11px] md:text-[13px] uppercase tracking-[0.25em] mt-4"
+          style={body}
         >
-          <span className="text-[#ece8e1]/40 mr-3">&mdash;</span>
-          Bocas del Toro, Panama
-          <span className="text-[#ece8e1]/40 ml-3">&mdash;</span>
+          Adults Only
         </motion.p>
       </div>
     </section>
