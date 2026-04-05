@@ -91,7 +91,7 @@ export default function Press() {
   });
 
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div className="min-h-screen bg-white">
       <BrandNavigation pageType="content" centerLabel="Press" />
 
       {/* Hero */}

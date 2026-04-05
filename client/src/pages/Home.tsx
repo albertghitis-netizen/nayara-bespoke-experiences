@@ -113,9 +113,7 @@ function HeroSection() {
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center" style={heading}>
           Luxury Resorts Rooted in Nature
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase" style={{ ...body, fontWeight: 500 }}>
-          Six Properties &middot; Three Countries &middot; One Philosophy
-        </motion.p>
+
       </div>
     </section>
   );

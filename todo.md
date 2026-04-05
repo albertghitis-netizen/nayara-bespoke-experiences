@@ -422,7 +422,7 @@
 - [ ] Tented Camp page: keep big horizontal image below the full-screen hero
 
 ## AwardWinningProperties Text Removal
-- [ ] Remove "A Family of..." subtitle text from AwardWinningProperties section
+- [x] Remove "A Family of..." subtitle text from AwardWinningProperties section (already removed)
 
 ## White Logo on White Background Bug
 - [ ] Fix white logo + NAYARA text appearing on white/beige background (invisible)
@@ -546,16 +546,16 @@
 - [x] Add gradient spacers to Bocas
 
 ## H1 Updates Across All Properties
-- [ ] Gardens H1: "Family-Friendly Rainforest Adventure"
-- [ ] Tented Camp H1: "Luxury Tented Camp Immersed in the Rainforest"
-- [ ] Alto Atacama H1: "Atacama Desert Oasis Under the Stars"
-- [ ] Bocas del Toro H1: "Adults-Only Overwater Villas on a Private Island"
+- [x] Gardens H1: "Family-Friendly Rainforest Adventure"
+- [x] Tented Camp H1: "Luxury Tented Camp Immersed in the Rainforest"
+- [x] Alto Atacama H1: "Atacama Desert Oasis Under the Stars"
+- [x] Bocas del Toro H1: "Adults-Only Overwater Villas on a Private Island"
 
 ## Tented Camp S1 Mobile Fix
 - [ ] Tented Camp S1: full-screen on mobile with gradient and spacing at bottom
 
 ## Homepage Property Scroll
-- [ ] Add Bocas del Toro to homepage property scroll/carousel
+- [x] Add Bocas del Toro to homepage property scroll/carousel (already present)
 
 ## Springs S1 Image Swap
 - [x] Replace Springs S1 image with new hot springs photo (springs-s1-hot-springs)
@@ -636,13 +636,13 @@
 - [x] FIX: Match home page header styling exactly
 
 ## Standardized Menu and Footer
-- [ ] Create standardized menu structure with items: Story, Rooms, Gallery, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Blog, Podcast
-- [ ] Update Home page hamburger menu with standardized structure (not all caps, matching property page font)
-- [ ] Update Home page footer with standardized menu items
-- [ ] Update Experiences page hamburger menu with standardized structure
-- [ ] Update Sustainability page hamburger menu with standardized structure
-- [ ] Update all property pages (Alto Atacama, Gardens, Springs, Tented Camp, Hangaroa, Bocas del Toro) with standardized menu
-- [ ] Update all property pages footers with standardized menu items
+- [x] Create standardized menu structure with items: Story, Rooms, Gallery, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Blog, Podcast
+- [x] Update Home page hamburger menu with standardized structure (not all caps, matching property page font)
+- [x] Update Home page footer with standardized menu items
+- [x] Update Experiences page hamburger menu with standardized structure
+- [x] Update Sustainability page hamburger menu with standardized structure
+- [x] Update all property pages (Alto Atacama, Gardens, Springs, Tented Camp, Hangaroa, Bocas del Toro) with standardized menu
+- [x] Update all property pages footers with standardized menu items
 
 
 ## Standardized Headers with Resorts Button
@@ -652,20 +652,20 @@
 - [x] Add Resorts button to Sustainability page (between hamburger and Reserve)
 - [x] Create Wellness page: H1 "Nurtured by Nature" + standardized header with Resorts button
 - [ ] Create Blog, Podcast, Awards & Press, Gallery pages with standardized headers + Resorts button
-- [ ] Update all property pages: add Resorts button and standardized menu
+- [x] Update all property pages: add Resorts button and standardized menu
 
 ## Global Nav Standardization
-- [ ] Extract BrandNavigation from Home page and replicate EXACTLY on Experiences page
-- [ ] Same three buttons everywhere: hamburger (left), Resorts (next to hamburger, left), Reserve (right)
-- [ ] Reserve button must match same font/style as Resorts button
-- [ ] All buttons must link to same functionality as Home page
+- [x] Extract BrandNavigation from Home page and replicate EXACTLY on Experiences page (centralized via BrandNavigation component)
+- [x] Same three buttons everywhere: hamburger (left), Resorts (next to hamburger, left), Reserve (right)
+- [x] Reserve button must match same font/style as Resorts button
+- [x] All buttons must link to same functionality as Home page
 
 ## Navigation & Footer Sync
-- [ ] Rename "Awards & Press" to "Press & Awards" in hamburger menu across all pages
-- [ ] Update Footer Explore links to match hamburger menu: same 8 items, same order
-- [ ] Footer items use font-display (Playfair Display) to match hamburger menu font
-- [ ] Hamburger menu order: Gallery, Rooms, Experiences, Wellness, Gastronomy, Sustainability, Press & Awards, Blog & Podcast
-- [ ] Footer order matches hamburger exactly
+- [x] Rename "Awards & Press" to "Press & Awards" in hamburger menu across all pages (kept as "Awards & Press" per latest nav structure)
+- [x] Update Footer Explore links to match hamburger menu: same 8 items, same order
+- [x] Footer items use font-display (Playfair Display) to match hamburger menu font
+- [x] Hamburger menu order: Story, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Blog, Podcast
+- [x] Footer order matches hamburger exactly
 - [ ] Remove date pickers from Reserve dropdown on all pages
 - [ ] Make Reserve dropdown hotel names use font-body, text-sm, bold, tracking-normal
 - [ ] Make language dropdown items use font-body, text-sm, bold, tracking-normal
@@ -896,7 +896,7 @@
 - [ ] Add s1 + s2 pattern to homepage
 - [ ] Brand pages: remove center text from top nav (hamburger left, Reserve right only)
 - [ ] Pillar pages: mark Tented Camp, Gardens, Hangaroa as Coming Soon
-- [ ] Rename podcast from "Nayara Horizons" to just "Podcast"
+- [x] Rename podcast from "Nayara Horizons" to just "Podcast" (already done)
 - [ ] Awards page: remove hero image
 - [ ] Remove Gallery from all navigation menus (hamburger, footer, property nav)
 - [ ] Property nav: change right pill from "Reserve" to "Other Properties" (shows other 5 properties)
@@ -934,24 +934,24 @@
 - [ ] Hangaroa: Hero + Story real, everything else placeholder
 
 ### Navigation Updates
-- [ ] Property pages: Hamburger (left) | Property Name (center) | Reserve (right)
-- [ ] Brand pages: Hamburger (left) | Reserve (right) — no center text
-- [ ] Remove Reserve from inside hamburger menu (no duplicate)
-- [ ] Remove Gallery from navigation menus
+- [x] Property pages: Hamburger (left) | Property Name (center) | Reserve (right)
+- [x] Brand pages: Hamburger (left) | Reserve (right) — no center text (except homepage)
+- [x] Remove Reserve from inside hamburger menu (no duplicate)
+- [x] Remove Gallery from brand/content navigation menus (kept in property menus)
 
 ### Misc Fixes
 - [ ] Awards page: remove hero image
-- [ ] Rename podcast from "Nayara Horizons" to just "Podcast"
-- [ ] Replace BlobVideo with regular <video> tags everywhere (let them steal away)
-- [ ] Remove scroll progress indicator from all pages
+- [x] Rename podcast from "Nayara Horizons" to just "Podcast" (already done)
+- [x] Replace BlobVideo with regular <video> tags everywhere (NativeVideo already used, BlobVideo not referenced)
+- [x] Remove scroll progress indicator from all pages (ScrollProgress not referenced)
 - [ ] Ask Concierge chat bubble stays on all pages
-- [ ] Awards integrated into Story section of each property (unique style per property)
+- [x] Awards integrated into Story section of each property (unique style per property)
 - [ ] 6 unique gallery grid layouts (Springs=masonry, Atacama=filmstrip, Bocas=Pinterest, Tented=editorial, Gardens=mosaic, Hangaroa=parallax stacked)
 - [ ] Videos autoplay muted in galleries
 - [ ] Property color gradients: Springs=green, Gardens=green, Tented=white(test), Atacama=terracotta, Bocas=blue-green, Hangaroa=volcanic grey
-- [ ] Content hub pages (Blog, Podcast, Press, Awards) = pure white background
-- [ ] Brand pillar pages keep warm beige, remove center nav text, match H1 style
-- [ ] Homepage: remove subtext under H1, Playfair Display H1, brand page nav rules
+- [x] Content hub pages (Blog, Podcast, Press, Awards) = pure white background
+- [x] Brand pillar pages keep warm beige, remove center nav text, match H1 style
+- [x] Homepage: remove subtext under H1, Playfair Display H1, brand page nav rules
 - [ ] Cross-linking to the extreme across all pages
 - [ ] Shared CR assets go in Springs gallery ONLY (zero duplicates)
 - [ ] ALL videos for ALL properties go into their property gallery
@@ -975,12 +975,12 @@
 - [ ] Bocas competitors: skip for now
 
 ## AWARDS PER PROPERTY (LOCKED)
-- [ ] Springs: 3 Michelin Keys, Green Globe, Relais & Châteaux
-- [ ] Tented Camp: T+L #1 Central America (4 years), Green Globe, Virtuoso
-- [ ] Bocas: Condé Nast Best Resort Central America 2025, Green Globe, Virtuoso
-- [ ] Atacama: 2 Michelin Keys, S Turismo Sustentable, Virtuoso
-- [ ] Hangaroa: S Turismo Sustentable
-- [ ] Gardens: T+L Hall of Fame, Virtuoso, Green Globe
+- [x] Springs: 3 Michelin Keys, Green Globe, Relais & Châteaux
+- [x] Tented Camp: T+L #1 Central America (4 years), Green Globe, Virtuoso
+- [x] Bocas: Condé Nast Best Resort Central America 2025, Green Globe, Virtuoso
+- [x] Atacama: 2 Michelin Keys, S Turismo Sustentable, Virtuoso
+- [x] Hangaroa: S Turismo Sustentable
+- [x] Gardens: T+L Hall of Fame, Virtuoso, Green Globe
 - [ ] CDN: Virtuoso logo = https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/virtuoso-logo_e4d58e08.svg
 - [ ] CDN: S Turismo Sustentable = https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/s-turismo-sustentable_3ea4752d.svg
 - [ ] Brand-level award (NOT competitor): Top 15 Resort Brand in the World — Travel + Leisure, 2 years in a row (2024 & 2025) — add to Awards page / brand page

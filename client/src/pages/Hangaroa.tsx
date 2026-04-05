@@ -11,6 +11,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { hangaroaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
 
 const hangaroa = properties.find((p: Property) => p.id === "hangaroa")!;
 
@@ -111,6 +112,7 @@ function StorySection() {
             <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
               Nayara Hangaroa is perched on one of the world's most remote islands, where ancient Rapa Nui culture thrives alongside contemporary luxury. Surrounded by iconic Moai statues and pristine Pacific vistas, this sanctuary offers cultural immersion, spiritual exploration, and world-class hospitality in a place where time feels suspended.
             </p>
+            <AwardBadgeStrip property="hangaroa" />
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
             <img src={CDN.s1} alt="Rapa Nui cultural performer with traditional face paint" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />

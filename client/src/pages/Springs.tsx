@@ -11,6 +11,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
 
 const springs = properties.find((p: Property) => p.id === "springs")!;
 
@@ -95,6 +96,7 @@ function StorySection() {
             <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
               Nayara Springs is the adults-only sister property to Nayara Gardens. Each villa features a private natural hot spring pool fed by volcanic mineral water, surrounded by the sounds of the rainforest. Michelin 3 Key recognized, the resort offers an intimate, elevated experience with access to all five Nayara restaurants and the full-service Spa Arenal.
             </p>
+            <AwardBadgeStrip property="springs" />
           </FadeIn>
         </div>
         <FadeIn delay={0.2} className="md:flex-1 w-full md:w-auto md:-mr-10 md:py-12">

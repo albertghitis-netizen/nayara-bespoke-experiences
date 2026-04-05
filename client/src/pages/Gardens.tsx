@@ -11,6 +11,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
 
 const gardens = properties.find((p: Property) => p.id === "gardens")!;
 
@@ -67,7 +68,7 @@ function HeroSection() {
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center" style={heading}>
-          A Rainforest Resort at the Foot of Arenal Volcano
+          Family-Friendly Rainforest Adventure
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/60 text-[11px] md:text-[13px] mt-4 tracking-[0.25em] uppercase" style={body}>
           Costa Rica · All Ages
@@ -94,6 +95,7 @@ function StorySection() {
             <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
               Nayara Gardens is the original Nayara property — a collection of freestanding casitas nestled in tropical gardens with views of Arenal Volcano. Michelin 3 Key recognized, the resort combines Costa Rica's natural abundance with refined hospitality, offering guests access to five restaurants, a world-class spa, and guided adventures through the surrounding rainforest.
             </p>
+            <AwardBadgeStrip property="gardens" />
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
             <img src={CDN.s1} alt="Three-toed sloth in rainforest canopy" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />

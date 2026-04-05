@@ -2,17 +2,15 @@
  * NAVIGATION CONFIGURATION — Centralized navigation data for all page types
  *
  * Three page types with distinct hamburger menus:
- * 1. Property pages — focused on THIS property (Rooms, Experiences, etc.)
- * 2. Brand pages — brand-level (pillars, properties, content sections)
- * 3. Content pages — content-focused (Blog, Podcast, Press, Awards, FAQ + pillars + properties)
+ * 1. Property pages — focused on THIS property (Story, Rooms, Gallery, Experiences, Wellness, Gastronomy, Sustainability, Getting Here)
+ * 2. Brand pages — brand-level (Story, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Blog, Podcast)
+ * 3. Content pages — same as brand pages
  *
  * Universal rules:
- * - Pillar order: Experiences → Sustainability → Wellness → Gastronomy
- * - Gallery: standalone section, NOT in navigation menus
- * - Properties: alphabetical, all 6 independent (no regional clustering)
- * - Rooms: property-specific only
- * - Story: brand-level only, not in menus
+ * - Hamburger menu text: NOT all caps, same font as body text
+ * - Hamburger menu and footer should match
  * - Reserve: NOT inside hamburger menu (only the Reserve pill button)
+ * - Gallery: only in property page menus (links to #gallery section)
  */
 
 export type PageType = "property" | "brand" | "content";
@@ -53,51 +51,44 @@ export const CONTENT_SECTIONS = [
 
 /* Property page hamburger — sections within THIS property */
 export const PROPERTY_MENU: MenuItem[] = [
+  { label: "Story", route: "#story" },
   { label: "Rooms", route: "#rooms" },
   { label: "Gallery", route: "#gallery" },
   { label: "Experiences", route: "#experiences" },
-  { label: "Sustainability", route: "#sustainability" },
   { label: "Wellness", route: "#wellness" },
   { label: "Gastronomy", route: "#gastronomy" },
+  { label: "Sustainability", route: "#sustainability" },
   { label: "Getting Here", route: "#getting-here" },
 ];
 
-/* Brand page hamburger — pillars, content, properties (no Reserve, no Gallery) */
+/* Standardized menu items for brand & content pages (hamburger + footer match) */
+const STANDARD_MENU_ITEMS: MenuItem[] = [
+  { label: "Story", route: "/story" },
+  { label: "Experiences", route: "/experiences" },
+  { label: "Wellness", route: "/wellness" },
+  { label: "Gastronomy", route: "/gastronomy" },
+  { label: "Sustainability", route: "/sustainability" },
+  { label: "Awards & Press", route: "/awards" },
+  { label: "Blog", route: "/blog" },
+  { label: "Podcast", route: "/podcast" },
+];
+
+/* Brand page hamburger — standardized menu + properties */
 export function getBrandMenu(): MenuSection[] {
   return [
     {
-      items: [
-        ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
-      ],
+      items: STANDARD_MENU_ITEMS,
     },
     {
-      header: "Content",
-      items: CONTENT_SECTIONS.map((s) => ({ label: s.label, route: s.route })),
-    },
-    {
-      header: "Properties",
+      header: "Resorts",
       items: PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
     },
   ];
 }
 
-/* Content page hamburger — content sections, pillars, properties (no Reserve, no Gallery) */
+/* Content page hamburger — same as brand page */
 export function getContentMenu(): MenuSection[] {
-  return [
-    {
-      items: CONTENT_SECTIONS.map((s) => ({ label: s.label, route: s.route })),
-    },
-    {
-      header: "Pillars",
-      items: [
-        ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
-      ],
-    },
-    {
-      header: "Properties",
-      items: PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
-    },
-  ];
+  return getBrandMenu();
 }
 
 export interface FooterColumn {
@@ -106,41 +97,27 @@ export interface FooterColumn {
 }
 
 export function getFooterColumns(pageType: PageType): FooterColumn[] {
-  const brandLinks: FooterColumn = {
-    title: "Explore",
-    links: [
-      { label: "Story", route: "/story" },
-      ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
-    ],
-  };
-
   const propertyColumn: FooterColumn = {
-    title: "Properties",
+    title: "Resorts",
     links: PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
-  };
-
-  const contentColumn: FooterColumn = {
-    title: "Content",
-    links: CONTENT_SECTIONS.map((s) => ({ label: s.label, route: s.route })),
   };
 
   if (pageType === "property") {
     return [
       {
-        title: "Explore Nayara",
-        links: [
-          { label: "Story", route: "/story" },
-          ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
-        ],
+        title: "Explore",
+        links: STANDARD_MENU_ITEMS,
       },
       propertyColumn,
-      contentColumn,
     ];
   }
 
-  if (pageType === "content") {
-    return [contentColumn, propertyColumn, brandLinks];
-  }
-
-  return [brandLinks, propertyColumn, contentColumn];
+  /* Brand + Content pages — same footer */
+  return [
+    {
+      title: "Explore",
+      links: STANDARD_MENU_ITEMS,
+    },
+    propertyColumn,
+  ];
 }

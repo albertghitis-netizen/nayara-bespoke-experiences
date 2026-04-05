@@ -132,7 +132,7 @@ export default function Awards() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div className="min-h-screen bg-white">
       <BrandNavigation pageType="content" />
 
       {/* ── Hero Video ── */}
