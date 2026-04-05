@@ -26,7 +26,7 @@ const CDN = {
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
-const sectionPadding = "py-16 md:py-24 px-6 md:px-10";
+const sectionPadding = "py-16 md:py-24 px-6 md:px-10"; // Note: StorySection uses custom padding (py-5 md:py-8)
 const maxW = "max-w-[1200px] mx-auto";
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -82,11 +82,11 @@ function HeroSection() {
 
 function StorySection() {
   return (
-    <section id="story" className={sectionPadding}>
-      <div className={maxW}>
-        {/* Story text left + s1 vertical right */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
-          <FadeIn className="md:flex-1">
+    <section id="story" className="py-5 md:py-8 px-6 md:px-10">
+      {/* Story text left + s1 vertical right (s1 bleeds to right edge) */}
+      <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12 md:mb-0">
+        <div className="max-w-[1200px] mx-auto md:flex-1 md:py-12">
+          <FadeIn>
             <SectionLabel>The Property</SectionLabel>
             <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
               Adults-Only Mineral Springs
@@ -98,16 +98,16 @@ function StorySection() {
               Nayara Springs is the adults-only sister property to Nayara Gardens. Each villa features a private natural hot spring pool fed by volcanic mineral water, surrounded by the sounds of the rainforest. Michelin 3 Key recognized, the resort offers an intimate, elevated experience with access to all five Nayara restaurants and the full-service Spa Arenal.
             </p>
           </FadeIn>
-          <FadeIn delay={0.2} className="md:flex-1">
-            <img src={CDN.s1} alt="Nayara Springs hot spring immersion" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
-          </FadeIn>
         </div>
-
-        {/* s2 landscape below */}
-        <FadeIn delay={0.3}>
-          <img src={CDN.s2} alt="Rainforest boardwalk at Nayara Springs" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+        <FadeIn delay={0.2} className="md:flex-1 w-full md:w-auto md:-mr-10 md:py-12">
+          <img src={CDN.s1} alt="Nayara Springs hot spring immersion" className="w-full h-full object-cover" style={{ aspectRatio: "3/4" }} loading="lazy" />
         </FadeIn>
       </div>
+
+      {/* s2 landscape below - bleeds left and right */}
+      <FadeIn delay={0.3} className="-mx-6 md:-mx-10 md:mt-12">
+        <img src={CDN.s2} alt="Rainforest boardwalk at Nayara Springs" className="w-screen object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
+      </FadeIn>
     </section>
   );
 }
@@ -116,12 +116,12 @@ function SpringsVillaSection() {
   return (
     <section id="springs-villa" className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
-        {/* s3 vertical left + H3 right */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
+        {/* Text right + s3 vertical left (L-shape with s4 below) */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-0">
           <FadeIn delay={0.1} className="md:flex-1 order-2 md:order-1">
-            <img src={CDN.s3} alt="Luxury canopy villa at Nayara Springs" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
+            <img src={CDN.s3} alt="Luxury canopy villa at Nayara Springs" className="w-full object-cover" style={{ aspectRatio: "3/4" }} loading="lazy" />
           </FadeIn>
-          <FadeIn className="md:flex-1 order-1 md:order-2">
+          <FadeIn className="md:flex-1 order-1 md:order-2 md:py-12">
             <SectionLabel>Accommodations</SectionLabel>
             <h3 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
               Springs Villa
@@ -132,9 +132,9 @@ function SpringsVillaSection() {
           </FadeIn>
         </div>
 
-        {/* s4 landscape below */}
-        <FadeIn delay={0.3}>
-          <img src={CDN.s4} alt="Aerial view of Springs Villa nestled in rainforest" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+        {/* s4 landscape below - bleeds left and right (L-shape bottom) */}
+        <FadeIn delay={0.3} className="-mx-6 md:-mx-10 md:mt-0">
+          <img src={CDN.s4} alt="Aerial view of Springs Villa nestled in rainforest" className="w-screen object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
         </FadeIn>
       </div>
     </section>
