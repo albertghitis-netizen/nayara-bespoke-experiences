@@ -8,10 +8,11 @@
  *
  * Universal rules:
  * - Pillar order: Experiences → Sustainability → Wellness → Gastronomy
+ * - Gallery: standalone section, NOT in navigation menus
  * - Properties: alphabetical, all 6 independent (no regional clustering)
  * - Rooms: property-specific only
  * - Story: brand-level only, not in menus
- * - Reserve: always present in hamburger as last item
+ * - Reserve: NOT inside hamburger menu (only the Reserve pill button)
  */
 
 export type PageType = "property" | "brand" | "content";
@@ -50,8 +51,10 @@ export const CONTENT_SECTIONS = [
   { label: "FAQ", route: "/faq" },
 ] as const;
 
+/* Property page hamburger — sections within THIS property */
 export const PROPERTY_MENU: MenuItem[] = [
   { label: "Rooms", route: "#rooms" },
+  { label: "Gallery", route: "#gallery" },
   { label: "Experiences", route: "#experiences" },
   { label: "Sustainability", route: "#sustainability" },
   { label: "Wellness", route: "#wellness" },
@@ -59,6 +62,7 @@ export const PROPERTY_MENU: MenuItem[] = [
   { label: "Getting Here", route: "#getting-here" },
 ];
 
+/* Brand page hamburger — pillars, content, properties (no Reserve, no Gallery) */
 export function getBrandMenu(): MenuSection[] {
   return [
     {
@@ -77,6 +81,7 @@ export function getBrandMenu(): MenuSection[] {
   ];
 }
 
+/* Content page hamburger — content sections, pillars, properties (no Reserve, no Gallery) */
 export function getContentMenu(): MenuSection[] {
   return [
     {
@@ -104,7 +109,7 @@ export function getFooterColumns(pageType: PageType): FooterColumn[] {
   const brandLinks: FooterColumn = {
     title: "Explore",
     links: [
-      { label: "The Nayara Story", route: "/story" },
+      { label: "Story", route: "/story" },
       ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
     ],
   };
@@ -124,8 +129,8 @@ export function getFooterColumns(pageType: PageType): FooterColumn[] {
       {
         title: "Explore Nayara",
         links: [
-      { label: "The Nayara Story", route: "/story" },
-      ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
+          { label: "Story", route: "/story" },
+          ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
         ],
       },
       propertyColumn,

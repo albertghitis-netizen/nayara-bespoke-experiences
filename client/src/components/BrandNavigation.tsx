@@ -2,13 +2,15 @@
  * UNIVERSAL NAVIGATION — Context-aware top bar for all pages
  *
  * Three page types:
- * 1. Property pages:  [Hamburger] | Property Name (center) | [Reserve]
- * 2. Brand pages:     [Hamburger] | "Nayara Resorts" or page name (center) | [Reserve]
- * 3. Content pages:   [Hamburger] | Page Name (center) | [Reserve]
+ * 1. Property pages:  [Hamburger] | Property Name (center, desktop only) | [Reserve]
+ * 2. Brand pages:     [Hamburger] | [Reserve] — no center text
+ * 3. Content pages:   [Hamburger] | [Reserve] — no center text
  *
  * Hamburger menu content changes based on pageType.
  * Reserve dropdown always shows all 6 properties with booking links.
- * Center label hidden on mobile (per user preference).
+ * Center label only for property pages, hidden on mobile.
+ * Gallery removed from all navigation menus.
+ * Reserve removed from inside hamburger menu (no duplicate).
  *
  * Locked specs:
  * - Reserve button: 16px, medium weight, lowercase
@@ -32,15 +34,15 @@ import {
 interface BrandNavigationProps {
   /** Page type determines hamburger menu content */
   pageType?: PageType;
-  /** Center label text (e.g., "Nayara Gardens", "Experiences", "Blog") */
+  /** Center label text — only shown for property pages (e.g., "Nayara Gardens") */
   centerLabel?: string;
-  /** Whether center label links to home (true for property names, false for page titles) */
+  /** Whether center label links to home (true for property names) */
   centerLinkHome?: boolean;
 }
 
 export default function BrandNavigation({
   pageType = "brand",
-  centerLabel = "Nayara Resorts",
+  centerLabel,
   centerLinkHome = false,
 }: BrandNavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -96,6 +98,9 @@ export default function BrandNavigation({
   };
 
   const menuSections = getMenuSections();
+
+  /* Show center label for property pages and homepage only (not other brand/content pages) */
+  const showCenterLabel = (pageType === "property" || centerLinkHome) && centerLabel;
 
   const pillClass =
     "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-colors cursor-pointer border border-[#3a2a1a]/20";
@@ -164,8 +169,6 @@ export default function BrandNavigation({
                         ))}
                       </div>
                     ))}
-
-
                   </div>
                 </motion.div>
               )}
@@ -174,7 +177,7 @@ export default function BrandNavigation({
         </div>
 
         {/* CENTER: Property name only (desktop only, hidden on mobile per user preference) */}
-        {pageType === "property" && centerLabel && (
+        {showCenterLabel && (
           <div className="hidden md:flex items-center pointer-events-auto">
             {centerLinkHome ? (
               <a

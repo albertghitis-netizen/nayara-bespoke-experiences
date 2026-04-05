@@ -994,3 +994,6 @@
 - [x] Upload 7 new Bocas images + 2 videos to CDN (aerial sunset, couple pool, topdown boardwalk, mangroves aerial, deck villas, Brice Ferre villa, Brice Ferre aerial, 2 videos)
 - [x] Integrate new Hangaroa images into Hangaroa gallery (parallax stacked layout)
 - [x] Integrate new Bocas assets into Bocas gallery (Pinterest-staggered layout)
+- [x] Keep Gallery in property page hamburger menus, remove from brand/content page menus
+- [x] Homepage keeps "Nayara Resorts" center label; all other brand/content pages have NO center label
+- [x] Remove standalone Gallery brand page route from App.tsx (Gallery only exists as #gallery sections on property pages)

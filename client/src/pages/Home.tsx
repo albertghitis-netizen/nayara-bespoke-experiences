@@ -87,7 +87,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       <OrganizationSchema />
-      <BrandNavigation pageType="brand" centerLabel="Nayara Resorts" />
+      <BrandNavigation pageType="brand" centerLabel="Nayara Resorts" centerLinkHome />
       <HeroSection />
       <BrandStorySection />
       <PropertiesSection />
