@@ -894,3 +894,97 @@
 - [ ] Reduce H1 size from ~48px to 38px across all property pages and homepage
 - [ ] Add s1 (vertical photo right of story text) + s2 (full-width landscape below) pattern to all 6 property pages
 - [ ] Add s1 + s2 pattern to homepage
+- [ ] Brand pages: remove center text from top nav (hamburger left, Reserve right only)
+- [ ] Pillar pages: mark Tented Camp, Gardens, Hangaroa as Coming Soon
+- [ ] Rename podcast from "Nayara Horizons" to just "Podcast"
+- [ ] Awards page: remove hero image
+- [ ] Remove Gallery from all navigation menus (hamburger, footer, property nav)
+- [ ] Property nav: change right pill from "Reserve" to "Other Properties" (shows other 5 properties)
+- [ ] Brand/content pages: remove center label from nav (hamburger + Reserve only)
+- [ ] Hamburger menu: remove Reserve item from inside menu (all pages)
+- [ ] Add 15 new images to Bocas del Toro gallery
+
+## MASTER GALLERY & TEMPLATE SPRINT (April 5)
+
+### Gallery as Master Asset Pool
+- [ ] Audit ALL CDN URLs across entire codebase and catalog per property
+- [ ] Build Springs gallery data with ALL Springs assets (hero videos, s1-s4, experience images, shared CR assets)
+- [ ] Build Atacama gallery data with ALL Atacama assets (hero videos, s1-s4, 26 images, 3 videos, experience assets)
+- [ ] Build Bocas gallery data with ALL Bocas assets (hero videos, s1-s4, 19 images, experience assets)
+- [ ] Build Tented Camp gallery data with ALL Tented Camp assets (hero videos, s1-s4, 9 images, shared CR assets)
+- [ ] Build Gardens gallery data with ALL Gardens assets (hero videos, s1-s4, shared CR assets)
+- [ ] Build Hangaroa gallery data with ALL Hangaroa assets (hero videos, s1-s4)
+- [ ] Videos spread evenly in gallery grids (not clustered)
+- [ ] All page sections pull content from gallery arrays (not hardcoded URLs)
+
+### Springs Master Template
+- [ ] Perfect Springs page layout: Hero → Story (s1+s2) → Rooms (s3+s4) → Gallery → Experiences → Sustainability → Wellness → Gastronomy → Getting Here → Reviews → Footer
+- [ ] Landscape images/videos hidden on mobile (only portrait shows)
+- [ ] All H1s use Playfair Display
+- [ ] Story section text/font LOCKED — never modify
+- [ ] Rich animations (parallax, fade-in, word reveal)
+- [ ] Gallery section pulls from master gallery array
+- [ ] Intersection observer for video lazy loading in gallery
+
+### Clone Template
+- [ ] Clone Springs template to Alto Atacama (different content/colors)
+- [ ] Clone Springs template to Bocas del Toro (different content/colors)
+- [ ] Gardens: Hero + Story real, Experiences/Wellness/Gastronomy/Sustainability = Springs content, Rooms/Gallery/Reviews = placeholder
+- [ ] Tented Camp: Hero + Story real, Experiences/Wellness/Gastronomy/Sustainability = Springs content, Rooms/Gallery/Reviews = placeholder
+- [ ] Hangaroa: Hero + Story real, everything else placeholder
+
+### Navigation Updates
+- [ ] Property pages: Hamburger (left) | Property Name (center) | Reserve (right)
+- [ ] Brand pages: Hamburger (left) | Reserve (right) — no center text
+- [ ] Remove Reserve from inside hamburger menu (no duplicate)
+- [ ] Remove Gallery from navigation menus
+
+### Misc Fixes
+- [ ] Awards page: remove hero image
+- [ ] Rename podcast from "Nayara Horizons" to just "Podcast"
+- [ ] Replace BlobVideo with regular <video> tags everywhere (let them steal away)
+- [ ] Remove scroll progress indicator from all pages
+- [ ] Ask Concierge chat bubble stays on all pages
+- [ ] Awards integrated into Story section of each property (unique style per property)
+- [ ] 6 unique gallery grid layouts (Springs=masonry, Atacama=filmstrip, Bocas=Pinterest, Tented=editorial, Gardens=mosaic, Hangaroa=parallax stacked)
+- [ ] Videos autoplay muted in galleries
+- [ ] Property color gradients: Springs=green, Gardens=green, Tented=white(test), Atacama=terracotta, Bocas=blue-green, Hangaroa=volcanic grey
+- [ ] Content hub pages (Blog, Podcast, Press, Awards) = pure white background
+- [ ] Brand pillar pages keep warm beige, remove center nav text, match H1 style
+- [ ] Homepage: remove subtext under H1, Playfair Display H1, brand page nav rules
+- [ ] Cross-linking to the extreme across all pages
+- [ ] Shared CR assets go in Springs gallery ONLY (zero duplicates)
+- [ ] ALL videos for ALL properties go into their property gallery
+- [ ] Placeholder anything uncertain — don't guess content
+- [ ] Ayla on Krog and Arenal/Costa Rica hub: leave alone
+- [ ] Full website — every page gets the treatment, no shortcuts
+- [ ] Create Website Guide page: brand identity (colors, fonts, logo, photography), site architecture (sitemap, page hierarchy, nav structure), design system (gradients, spacing, components, layouts), content strategy (gallery-as-master-pool, cross-linking, pillar structure), technical rules (responsive, video, fonts)
+- [ ] Create Brand Book page (live): colors, fonts, logo usage, photography style, property palettes, component library
+- [ ] Create SEO/AEO/GEO page (live): search optimization strategy, AI engine optimization, geographic optimization
+- [ ] Create Architecture page (live): sitemap, page hierarchy, nav structure, gallery-as-master-pool, cross-linking, content strategy
+- [ ] All pages live — optimize for speed later by cutting as needed
+- [ ] Create Questions & Recommendations page (live): document uncertainties, suggestions, content gaps, decisions needing input
+- [ ] Add blog topic suggestions to SEO page: topical clusters, keyword targets, content calendar for all 6 properties + 4 pillars
+- [ ] Create FAQ page (live): organized from existing chatbot knowledge, property data, dining, experiences, booking, sustainability, wellness, getting here
+- [ ] Create Ask Concierge page (live): full-page chat experience + "What it knows" + "What it still needs to know" + "How it works"
+- [ ] Create Competitors page (live): competitive analysis per property market (Costa Rica luxury, Atacama desert, Bocas Caribbean, Easter Island), pricing, positioning, differentiators
+- [ ] Brand-level competitors: Aman, Six Senses
+- [ ] Atacama competitors: Tierra Atacama, Awasi Atacama
+- [ ] Costa Rica competitors: Auberge (Hacienda AltaGracia), Tabacón
+- [ ] Hangaroa competitors: Explora Rapa Nui
+- [ ] Bocas competitors: skip for now
+
+## AWARDS PER PROPERTY (LOCKED)
+- [ ] Springs: 3 Michelin Keys, Green Globe, Relais & Châteaux
+- [ ] Tented Camp: T+L #1 Central America (4 years), Green Globe, Virtuoso
+- [ ] Bocas: Condé Nast Best Resort Central America 2025, Green Globe, Virtuoso
+- [ ] Atacama: 2 Michelin Keys, S Turismo Sustentable, Virtuoso
+- [ ] Hangaroa: S Turismo Sustentable
+- [ ] Gardens: T+L Hall of Fame, Virtuoso, Green Globe
+- [ ] CDN: Virtuoso logo = https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/virtuoso-logo_e4d58e08.svg
+- [ ] CDN: S Turismo Sustentable = https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/s-turismo-sustentable_3ea4752d.svg
+- [ ] Brand-level award (NOT competitor): Top 15 Resort Brand in the World — Travel + Leisure, 2 years in a row (2024 & 2025) — add to Awards page / brand page
+
+## Flamingo Lagoon Video
+- [x] Set flamingo lagoon video as Awards page hero
+- [x] Add flamingo lagoon video to Atacama gallery

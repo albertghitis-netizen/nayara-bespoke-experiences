@@ -10,12 +10,13 @@ import { Link, useLocation } from "wouter";
 import { ArrowLeft, Trophy, ShieldCheck, ChevronDown, Star, Award, Key, Menu, X } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import ScrollProgress from "@/components/ScrollProgress";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
+import NativeVideo from "@/components/NativeVideo";
 
 /* ── CDN assets ── */
 const CDN = {
   heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/michelin-2025-awards-hero_cff40bc3.webp",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-flamingo-lagoon_4c99eefc.mov",
   logoWhite: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile-white_36c5a575.svg",
   logoDark: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg",
 };
@@ -132,30 +133,33 @@ export default function Awards() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
-      {/* ── Static Image Hero ── */}
-      <BrandNavigation pageType="content" centerLabel="Awards" />
+      <BrandNavigation pageType="content" />
+
+      {/* ── Hero Video ── */}
       <section className="relative w-full h-screen overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={CDN.heroImage}
-            alt="Michelin 2025 Three Keys"
-            className="w-full h-full object-cover"
-          />
+          <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
-        <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
-          <h1
-            className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 400,
-              fontSize: 'clamp(32px, 5vw, 50px)',
-              letterSpacing: '-2px',
-              lineHeight: 1,
-            }}
+        <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center"
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 400, letterSpacing: '-2px', lineHeight: 1 }}
           >
             Awards & Recognition
-          </h1>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+          >
+            Two Decades of Excellence
+          </motion.p>
         </div>
       </section>
 

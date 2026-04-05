@@ -1,5 +1,5 @@
 /**
- * NAYARA PODCAST — "Nayara Horizons"
+ * NAYARA PODCAST
  * Standalone podcast page with video + audio episodes
  * Two-axis filtering: Destination + Topic
  * User will provide final episode links later
@@ -8,10 +8,9 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Play, Headphones } from "lucide-react";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
 import { podcastEpisodes, type PodcastEpisode } from "@/data/journal";
 
@@ -37,7 +36,6 @@ export default function Podcast() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
       <BrandNavigation pageType="content" centerLabel="Podcast" />
       <HeroSection />
       <IntroSection />
@@ -56,12 +54,12 @@ function HeroSection() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo src={PODCAST_CDN.heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={PODCAST_CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }} className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center" style={heading}>
-          Nayara Horizons
+          Podcast
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase" style={{ ...body, fontWeight: 500 }}>
           Conversations from Extraordinary Places

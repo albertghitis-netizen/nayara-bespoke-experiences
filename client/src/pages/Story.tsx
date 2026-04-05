@@ -9,7 +9,6 @@ import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -51,7 +50,6 @@ const values = [
 export default function Story() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
       <BrandNavigation pageType="brand" centerLabel="The Nayara Story" />
       <HeroSection />
       <IntroSection />

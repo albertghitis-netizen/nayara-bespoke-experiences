@@ -8,7 +8,6 @@ import { motion, useInView } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import ScrollProgress from "@/components/ScrollProgress";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -93,7 +92,6 @@ export default function Press() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
       <BrandNavigation pageType="content" centerLabel="Press" />
 
       {/* Hero */}

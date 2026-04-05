@@ -4,10 +4,9 @@
  */
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
@@ -45,7 +44,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function Gardens() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
       <BrandNavigation pageType="property" centerLabel="Nayara Gardens" centerLinkHome />
       <HeroSection />
       <StorySection />
@@ -64,7 +62,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo src={CDN.heroDesktop} className="w-full h-full object-cover" />
+        <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">

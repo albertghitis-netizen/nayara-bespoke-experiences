@@ -8,7 +8,7 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { useIsMobile } from "@/hooks/useMobile";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 
 const VIDEO_DESKTOP =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-new_42efa04c.mp4";
@@ -40,7 +40,7 @@ export default function HeroSection({ onInView }: HeroSectionProps) {
     >
       {/* Video Background */}
       <div className="absolute inset-0">
-        <BlobVideo
+        <NativeVideo
           src={videoSrc}
           className="w-full h-full object-cover"
           poster={POSTER}

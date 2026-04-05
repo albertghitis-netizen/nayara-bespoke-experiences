@@ -8,10 +8,9 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
 import { allDining, type Restaurant, type PropertyDining } from "@/data/dining";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -73,7 +72,6 @@ export default function Gastronomy() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
       <BrandNavigation pageType="brand" centerLabel="Gastronomy" />
       <HeroSection />
       <IntroSection />
@@ -92,7 +90,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo src={GASTRO_CDN.heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={GASTRO_CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">

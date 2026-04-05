@@ -7,10 +7,9 @@
 import { useState, useMemo, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ExternalLink, ChevronDown } from "lucide-react";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
 import { blogPosts, PILLARS, DESTINATIONS, type BlogPost } from "@/data/journal";
 
@@ -53,7 +52,6 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
       <BrandNavigation pageType="content" centerLabel="Blog" />
       <HeroSection />
       <FiltersSection
@@ -77,7 +75,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo src={BLOG_CDN.heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={BLOG_CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">

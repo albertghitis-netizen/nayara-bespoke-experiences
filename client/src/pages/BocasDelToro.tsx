@@ -5,10 +5,9 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { bocasDiningCollection } from "@/data/dining";
@@ -60,7 +59,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function BocasDelToro() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
       <BrandNavigation pageType="property" centerLabel="Nayara Bocas del Toro" centerLinkHome />
       <HeroSection />
       <StorySection />
@@ -85,7 +83,7 @@ function HeroSection() {
   return (
     <section id="hero" className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo
+        <NativeVideo
           src={heroVideo}
           className="w-full h-full object-cover"
           autoPlay muted loop playsInline controls={false}
@@ -151,7 +149,7 @@ function RoomsSection() {
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
           <FadeIn delay={0.1} className="md:flex-1 order-2 md:order-1">
             <div style={{ aspectRatio: "3/4" }}>
-              <BlobVideo src={CDN.s3} className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline controls={false} />
+              <NativeVideo src={CDN.s3} className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline controls={false} />
             </div>
           </FadeIn>
           <FadeIn className="md:flex-1 order-1 md:order-2">
@@ -329,11 +327,24 @@ function GastronomySection() {
 function GallerySection() {
   const images = [
     { src: CDN.s1, alt: "Overwater villas" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_11cc5b01.jpg", alt: "Turquoise lagoon aerial" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/79_cfb33bcf.jpg", alt: "Caribbean coastline" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/83_621b9b3f.jpg", alt: "Island paradise" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/86_bcac4579.jpg", alt: "Crystal clear swimming" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/87_ab229191.jpg", alt: "Tropical waters" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg", alt: "Bocas del Toro landscape" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/97_e7aef760.jpg", alt: "Island exploration" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg", alt: "Caribbean sunset" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/102_ab0b274c.jpg", alt: "Overwater experience" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/112_8b2c7265.jpg", alt: "Tropical retreat" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/119_e65d6018.jpg", alt: "Island wildlife" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/126_22a08627.jpg", alt: "Bocas adventure" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/135_de400071.jpg", alt: "Caribbean waters" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/136_350b411d.jpg", alt: "Tropical scenery" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/139_c6e2d973.jpg", alt: "Island living" },
     { src: CDN.s2, alt: "Caribbean lagoon" },
     { src: CDN.s3, alt: "Island experience" },
     { src: CDN.s4, alt: "Aerial resort view" },
-    { src: CDN.s1, alt: "Villa detail" },
-    { src: CDN.s2, alt: "Tropical paradise" },
   ];
   return (
     <section id="gallery" className={sectionPadding}>

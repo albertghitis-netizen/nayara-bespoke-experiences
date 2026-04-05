@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 
@@ -33,7 +32,6 @@ export function GradientPageLayout({
           "linear-gradient(to bottom, #f5f3f0 0%, #d4a858 50%, #784a1a 100%)",
       }}
     >
-      <ScrollProgress />
       <BrandNavigation pageType={pageType} centerLabel={centerLabel} />
       {children}
       {showDummySections && (

@@ -165,22 +165,7 @@ export default function BrandNavigation({
                       </div>
                     ))}
 
-                    {/* Reserve — always last */}
-                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
-                    <button
-                      onClick={() => {
-                        setMenuOpen(false);
-                        setReserveOpen(true);
-                      }}
-                      className="w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/50 transition-colors"
-                    >
-                      <span
-                        className="text-[#3a2a1a]/90 text-[13px] tracking-normal"
-                        style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
-                      >
-                        Reserve
-                      </span>
-                    </button>
+
                   </div>
                 </motion.div>
               )}
@@ -188,39 +173,41 @@ export default function BrandNavigation({
           </div>
         </div>
 
-        {/* CENTER: Page name (desktop only, hidden on mobile per user preference) */}
-        <div className="hidden md:flex items-center pointer-events-auto">
-          {centerLinkHome ? (
-            <a
-              href="/"
-              onClick={(e) => { e.preventDefault(); navigate("/"); }}
-              className="text-[#ece8e1] drop-shadow-md hover:opacity-80 transition-opacity"
-              style={{
-                fontFamily: "'Montserrat', 'Arial', sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(16px, 2vw, 22px)",
-                letterSpacing: "1px",
-                lineHeight: 1,
-                textDecoration: "none",
-              }}
-            >
-              {centerLabel.toUpperCase()}
-            </a>
-          ) : (
-            <span
-              className="text-[#ece8e1] drop-shadow-md"
-              style={{
-                fontFamily: "'Montserrat', 'Arial', sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(16px, 2vw, 22px)",
-                letterSpacing: "1px",
-                lineHeight: 1,
-              }}
-            >
-              {centerLabel.toUpperCase()}
-            </span>
-          )}
-        </div>
+        {/* CENTER: Property name only (desktop only, hidden on mobile per user preference) */}
+        {pageType === "property" && centerLabel && (
+          <div className="hidden md:flex items-center pointer-events-auto">
+            {centerLinkHome ? (
+              <a
+                href="/"
+                onClick={(e) => { e.preventDefault(); navigate("/"); }}
+                className="text-[#ece8e1] drop-shadow-md hover:opacity-80 transition-opacity"
+                style={{
+                  fontFamily: "'Montserrat', 'Arial', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "clamp(16px, 2vw, 22px)",
+                  letterSpacing: "1px",
+                  lineHeight: 1,
+                  textDecoration: "none",
+                }}
+              >
+                {centerLabel.toUpperCase()}
+              </a>
+            ) : (
+              <span
+                className="text-[#ece8e1] drop-shadow-md"
+                style={{
+                  fontFamily: "'Montserrat', 'Arial', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "clamp(16px, 2vw, 22px)",
+                  letterSpacing: "1px",
+                  lineHeight: 1,
+                }}
+              >
+                {centerLabel.toUpperCase()}
+              </span>
+            )}
+          </div>
+        )}
 
         {/* RIGHT: Reserve */}
         <div className="flex items-center pointer-events-auto">

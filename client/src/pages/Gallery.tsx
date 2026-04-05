@@ -11,7 +11,7 @@ import { motion, useInView, AnimatePresence, useMotionValue, useSpring, useTrans
 import { X, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 
 /* ─── Gallery Data — Curated selections from each property ─── */
 interface GalleryImage {
@@ -384,7 +384,7 @@ function GalleryHero() {
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo
+        <NativeVideo
           src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-hero-v2_a969e1d4.mp4"
           className="w-full h-full object-cover"
         />

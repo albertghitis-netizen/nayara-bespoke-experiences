@@ -7,7 +7,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 import { Link } from "wouter";
 import {
   MapPin,
@@ -177,7 +177,7 @@ function HeroSection() {
   return (
     <section className="relative h-[80vh] md:h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo
+        <NativeVideo
           src={heroVideo}
           className="w-full h-full object-cover"
           autoPlay={true}

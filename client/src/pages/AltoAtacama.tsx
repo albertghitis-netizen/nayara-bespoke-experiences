@@ -4,10 +4,9 @@
  */
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { atacamaDiningCollection } from "@/data/dining";
@@ -51,7 +50,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function AltoAtacama() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ScrollProgress />
       <BrandNavigation pageType="property" centerLabel="Nayara Alto Atacama" centerLinkHome />
       <HeroSection />
       <StorySection />
@@ -76,7 +74,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo src={heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
@@ -317,7 +315,9 @@ function GallerySection() {
     { src: CDN.s3, alt: "Suite experience" },
     { src: CDN.s4, alt: "Rainbow Valley" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/CFNetworkDownload_zSiOOV.tmp(1)_17142a4b.mov", alt: "Desert walk" },
-    { src: CDN.s2, alt: "Atacama view" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00003_aeb971e9.MP4", alt: "Atacama desert exploration" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00007_8576aa55.MP4", alt: "Atacama stargazing" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-flamingo-lagoon_4c99eefc.mov", alt: "Flamingos at Atacama lagoon" },
   ];
   return (
     <section id="gallery" className={sectionPadding}>

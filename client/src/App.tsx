@@ -14,7 +14,6 @@ import Blog from "./pages/Blog";
 import Podcast from "./pages/Podcast";
 import Awards from "./pages/Awards";
 import Sustainability from "./pages/Sustainability";
-import Gallery from "./pages/Gallery";
 import Experiences from "./pages/Experiences";
 import Wellness from "./pages/Wellness";
 import AylaOnKrog from "./pages/AylaOnKrog";
@@ -62,7 +61,6 @@ function Router() {
         <Route path="/podcast" component={Podcast} />
         <Route path="/awards" component={Awards} />
         <Route path="/sustainability" component={Sustainability} />
-        <Route path="/gallery" component={Gallery} />
         <Route path="/experiences" component={Experiences} />
         <Route path="/wellness" component={Wellness} />
         <Route path="/press" component={Press} />

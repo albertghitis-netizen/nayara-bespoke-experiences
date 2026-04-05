@@ -2,14 +2,13 @@
  * NAVIGATION CONFIGURATION — Centralized navigation data for all page types
  *
  * Three page types with distinct hamburger menus:
- * 1. Property pages — focused on THIS property (Rooms, Gallery, Experiences, etc.)
+ * 1. Property pages — focused on THIS property (Rooms, Experiences, etc.)
  * 2. Brand pages — brand-level (pillars, properties, content sections)
  * 3. Content pages — content-focused (Blog, Podcast, Press, Awards, FAQ + pillars + properties)
  *
  * Universal rules:
  * - Pillar order: Experiences → Sustainability → Wellness → Gastronomy
  * - Properties: alphabetical, all 6 independent (no regional clustering)
- * - Gallery: standalone section, NOT a pillar
  * - Rooms: property-specific only
  * - Story: brand-level only, not in menus
  * - Reserve: always present in hamburger as last item
@@ -53,7 +52,6 @@ export const CONTENT_SECTIONS = [
 
 export const PROPERTY_MENU: MenuItem[] = [
   { label: "Rooms", route: "#rooms" },
-  { label: "Gallery", route: "#gallery" },
   { label: "Experiences", route: "#experiences" },
   { label: "Sustainability", route: "#sustainability" },
   { label: "Wellness", route: "#wellness" },
@@ -65,7 +63,6 @@ export function getBrandMenu(): MenuSection[] {
   return [
     {
       items: [
-        { label: "Gallery", route: "/gallery" },
         ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
       ],
     },
@@ -88,7 +85,6 @@ export function getContentMenu(): MenuSection[] {
     {
       header: "Pillars",
       items: [
-        { label: "Gallery", route: "/gallery" },
         ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
       ],
     },
@@ -109,7 +105,6 @@ export function getFooterColumns(pageType: PageType): FooterColumn[] {
     title: "Explore",
     links: [
       { label: "The Nayara Story", route: "/story" },
-      { label: "Gallery", route: "/gallery" },
       ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
     ],
   };
@@ -129,9 +124,8 @@ export function getFooterColumns(pageType: PageType): FooterColumn[] {
       {
         title: "Explore Nayara",
         links: [
-          { label: "The Nayara Story", route: "/story" },
-          { label: "Gallery", route: "/gallery" },
-          ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
+      { label: "The Nayara Story", route: "/story" },
+      ...PILLARS.map((p) => ({ label: p.label, route: p.route })),
         ],
       },
       propertyColumn,

@@ -41,7 +41,7 @@ import {
   type Treatment,
 } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
-import BlobVideo from "@/components/BlobVideo";
+import NativeVideo from "@/components/NativeVideo";
 import ExploreOurWorld from "@/components/ExploreOurWorld";
 import Footer from "@/components/Footer";
 
@@ -270,7 +270,7 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
     >
       {/* Video Background */}
       <div className="absolute inset-0">
-        <BlobVideo
+        <NativeVideo
           src={heroVideo}
           className="w-full h-full object-cover"
         />
