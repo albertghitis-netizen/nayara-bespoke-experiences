@@ -879,3 +879,18 @@
 - [x] Update Alto Atacama H1: "An Oasis in the Atacama Desert" + subtitle "Chile · All Ages"
 - [x] Update Hangaroa H1: "Easter Island's Luxury Resort" + subtitle "Chile · All Ages"
 - [x] Verify pillar page H1s: Experiences="Bespoke Experiences", Sustainability="Beyond Sustainability", Wellness="Nurtured by Nature", Gastronomy="A Taste of Place"
+
+- [ ] Fix broken video URLs on Bocas del Toro page (bocas-v2-new and nbt-horizontal-desktop both returning load errors)
+- [ ] Fix broken video URL bocas-v2-new_a7b8b2b2.mp4 (403 from CloudFront) — affects Bocas del Toro and Springs pages
+- [ ] Fix broken video URL nbt-horizontal-desktop_e4f2e9e2.mp4 (403 from CloudFront) — affects Bocas del Toro and Springs pages
+- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Gardens page
+- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Springs page
+- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Tented Camp page
+- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Bocas del Toro page
+- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Alto Atacama page
+- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Hangaroa page
+- [ ] Add vertical photo (right of story text) + full-width landscape photo pattern to Homepage (resorts)
+- [ ] Restore original H1 font (pre-upgrade) across all property pages and homepage
+- [ ] Reduce H1 size from ~48px to 38px across all property pages and homepage
+- [ ] Add s1 (vertical photo right of story text) + s2 (full-width landscape below) pattern to all 6 property pages
+- [ ] Add s1 + s2 pattern to homepage
