@@ -81,35 +81,39 @@ function HeroSection() {
 
 function StorySection() {
   return (
-    <section id="story" className="py-0 md:py-0 px-6 md:px-10">
-      {/* Story text left + s1 vertical right (s1 bleeds to right edge) */}
-      <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mt-6 md:mt-6 mb-6 md:mb-6">
-        <div className="max-w-[1200px] mx-auto md:flex-1">
-          <FadeIn>
+    <section id="story" className={sectionPadding}>
+      <div className={maxW}>
+        {/* Story text left + s1 vertical right */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
+          <FadeIn className="md:flex-1">
+            <SectionLabel>The Property</SectionLabel>
             <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-              Rich Wildlife, Bold Discovery<br />Endless Rainforest
+              Where Volcano Meets Rainforest
             </h2>
+            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed mb-4" style={body}>
+              {gardens.heroSubtitle}
+            </p>
             <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
-              The rainforest at the foot of Arenal Volcano is alive with possibility. Toucans, frogs, and howler monkeys share the canopy with your villa, and every trail leads somewhere worth discovering. Nayara Gardens welcomes families and couples alike, with experiences guided by naturalists who know this forest by name.
+              Nayara Gardens is the original Nayara property — a collection of freestanding casitas nestled in tropical gardens with views of Arenal Volcano. Michelin 3 Key recognized, the resort combines Costa Rica's natural abundance with refined hospitality, offering guests access to five restaurants, a world-class spa, and guided adventures through the surrounding rainforest.
             </p>
           </FadeIn>
+          <FadeIn delay={0.2} className="md:flex-1">
+            <img src={CDN.s1} alt="Three-toed sloth in rainforest canopy" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
+          </FadeIn>
         </div>
-        <FadeIn delay={0.2} className="md:flex-1 w-full md:w-auto md:-mr-10">
-          <img src={CDN.s1} alt="Three-toed sloth in rainforest canopy" className="w-full h-full object-cover" style={{ aspectRatio: "3/4" }} loading="lazy" />
+
+        {/* s2 landscape below */}
+        <FadeIn delay={0.3}>
+          <img src={CDN.s2} alt="Nayara Gardens aerial view" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
         </FadeIn>
       </div>
-
-      {/* s2 landscape below - bleeds left and right */}
-      <FadeIn delay={0.3} className="-mx-6 md:-mx-10 md:mt-6 md:mb-6">
-        <img src={CDN.s2} alt="Nayara Gardens aerial view" className="w-screen object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
-      </FadeIn>
     </section>
   );
 }
 
 function RoomsSection() {
   return (
-    <section id="rooms" className={`${sectionPadding} bg-white/30 mt-6 md:mt-6 mb-6 md:mb-6`}>
+    <section id="rooms" className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
         {/* s3 vertical left + H3 right */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
@@ -141,7 +145,7 @@ function ExperiencesSection() {
   const categories = gardens.excursionCategories || [];
   const filtered = activeCategory === "all" ? gardens.excursions : gardens.excursions.filter((e: Excursion) => e.category === activeCategory);
   return (
-    <section id="experiences" className={`${sectionPadding} bg-white/30 mt-6 md:mt-6 mb-6 md:mb-6`}>
+    <section id="experiences" className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Experiences</SectionLabel>
@@ -186,7 +190,7 @@ function SustainabilitySection() {
     { title: "Community Impact", desc: "Employing over 500 local staff and supporting community education, healthcare, and cultural preservation programs in the Arenal region." },
   ];
   return (
-    <section id="sustainability" className={`${sectionPadding} mt-6 md:mt-6 mb-6 md:mb-6`}>
+    <section id="sustainability" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Sustainability</SectionLabel>
@@ -213,7 +217,7 @@ function WellnessSection() {
   const categories = gardens.spaCategories || [];
   const filtered = activeCategory === "all" ? gardens.treatments : gardens.treatments.filter((t: Treatment) => t.category === activeCategory);
   return (
-    <section id="wellness" className={`${sectionPadding} bg-white/30 mt-6 md:mt-6 mb-6 md:mb-6`}>
+    <section id="wellness" className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>{gardens.theme.sectionLabel}</SectionLabel>
@@ -251,7 +255,7 @@ function WellnessSection() {
 function GastronomySection() {
   const restaurants = Array.isArray(costaRicaDining) ? costaRicaDining : [costaRicaDining];
   return (
-    <section id="gastronomy" className={`${sectionPadding} mt-6 md:mt-6 mb-6 md:mb-6`}>
+    <section id="gastronomy" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Gastronomy</SectionLabel>
@@ -283,7 +287,7 @@ function GallerySection() {
     { src: CDN.s2, alt: "Resort grounds" },
   ];
   return (
-    <section id="gallery" className={`${sectionPadding} mt-6 md:mt-6 mb-6 md:mb-6`}>
+    <section id="gallery" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Gallery</SectionLabel>
