@@ -65,7 +65,7 @@ export const ALL_DESTINATIONS_MENU = PROPERTIES.map((p) => ({ label: p.shortName
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
 const STANDARD_MENU_ITEMS: MenuItem[] = [
-  { label: "Story", route: "/story" },
+  { label: "Our Story", route: "/story" },
   { label: "Experiences", route: "/experiences" },
   { label: "Wellness", route: "/wellness" },
   { label: "Gastronomy", route: "/gastronomy" },
@@ -74,15 +74,11 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Nayara Journal", route: "/journal" },
 ];
 
-/* Brand page hamburger — standardized menu + properties */
+/* Brand page hamburger — standardized menu (no properties) */
 export function getBrandMenu(): MenuSection[] {
   return [
     {
       items: STANDARD_MENU_ITEMS,
-    },
-    {
-      header: "Resorts",
-      items: PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
     },
   ];
 }
@@ -98,27 +94,20 @@ export interface FooterColumn {
 }
 
 export function getFooterColumns(pageType: PageType): FooterColumn[] {
-  const propertyColumn: FooterColumn = {
-    title: "Resorts",
-    links: PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
-  };
-
   if (pageType === "property") {
     return [
       {
         title: "Explore",
         links: STANDARD_MENU_ITEMS,
       },
-      propertyColumn,
     ];
   }
 
-  /* Brand + Content pages — same footer */
+  /* Brand + Content pages — same footer (no properties) */
   return [
     {
       title: "Explore",
       links: STANDARD_MENU_ITEMS,
     },
-    propertyColumn,
   ];
 }
