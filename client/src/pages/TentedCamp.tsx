@@ -127,27 +127,23 @@ function TentedCampAccommodationsSection() {
   const roomTypes = [
     {
       id: "tent",
-      name: "Nayara Tent",
-      horizontal: CDN.roomTentHorizontal,
-      vertical: CDN.roomTentVertical,
+      name: "",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/1_a6743e26.jpg",
     },
     {
       id: "family-tent",
-      name: "Family Tent",
-      horizontal: CDN.roomFamilyHorizontal,
-      vertical: CDN.roomFamilyVertical,
+      name: "",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/2_138a4358.jpg",
     },
     {
       id: "grand-tent",
-      name: "Grand Tent",
-      horizontal: CDN.roomGrandHorizontal,
-      vertical: CDN.roomGrandVertical,
+      name: "",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/3_5b1e6fc2.jpg",
     },
     {
       id: "residence",
-      name: "Residence",
-      horizontal: CDN.roomResidenceHorizontal,
-      vertical: CDN.roomResidenceVertical,
+      name: "",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4_10771410.jpg",
     },
   ];
 
