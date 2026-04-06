@@ -51,7 +51,7 @@ export const PROPERTY_MENU: MenuItem[] = [
   { label: "Rooms", route: "#rooms" },
   { label: "Experiences", route: "#experiences" },
   { label: "Wellness", route: "#wellness" },
-  { label: "Gastronomy", route: "#gastronomy" },
+  { label: "The Table", route: "#gastronomy" },
   { label: "Sustainability", route: "#sustainability" },
   { label: "Getting Here", route: "#getting-here" },
   { label: "Gallery", route: "#gallery" },
