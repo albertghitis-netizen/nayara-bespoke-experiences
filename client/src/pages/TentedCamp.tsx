@@ -3,6 +3,7 @@
  * Rebuilt with new structure: Story (s1/s2) → Tented Camp (s3/s4) → Experiences → Sustainability → Wellness → Gastronomy → Gallery → Footer
  */
 import { useState, useRef } from "react";
+import RoomsSlider from "@/components/RoomsSlider";
 import { motion, useInView } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -117,28 +118,38 @@ function StorySection() {
 }
 
 function TentedCampAccommodationsSection() {
+  const roomTypes = [
+    {
+      id: "tent",
+      name: "Tent",
+      horizontal: CDN.s4,
+      vertical: CDN.s3,
+    },
+    {
+      id: "family-tent",
+      name: "Family Tent",
+      horizontal: CDN.s4,
+      vertical: CDN.s3,
+    },
+    {
+      id: "grand-tent",
+      name: "Grand Tent",
+      horizontal: CDN.s4,
+      vertical: CDN.s3,
+    },
+    {
+      id: "residence",
+      name: "Residence",
+      horizontal: CDN.s4,
+      vertical: CDN.s3,
+    },
+  ];
+
   return (
     <section id="tented-camp" className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
-        {/* s3 vertical left + H3 right */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
-          <FadeIn delay={0.1} className="md:flex-1 order-2 md:order-1">
-            <img src={CDN.s3} alt="Canvas villa with plunge pool" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
-          </FadeIn>
-          <FadeIn className="md:flex-1 order-1 md:order-2">
-            <SectionLabel>Accommodations</SectionLabel>
-            <h3 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-              Canvas Villas
-            </h3>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
-              Each canvas villa is a sanctuary suspended in the rainforest canopy. With a private plunge pool, outdoor shower, and panoramic views, these accommodations offer an unparalleled glamping experience. Wake to the sounds of the jungle and fall asleep under the stars.
-            </p>
-          </FadeIn>
-        </div>
-
-        {/* s4 landscape below */}
-        <FadeIn delay={0.3}>
-          <img src={CDN.s4} alt="Aerial view of tented camp villas" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+        <FadeIn>
+          <RoomsSlider rooms={roomTypes} title="Canvas Rooms" subtitle="Accommodations" />
         </FadeIn>
       </div>
     </section>
