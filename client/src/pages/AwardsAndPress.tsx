@@ -12,7 +12,7 @@ import NativeVideo from "@/components/NativeVideo";
 
 /* ── CDN assets ── */
 const CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-flamingo-lagoon_4c99eefc.mov",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-desktop-hq_732fe8b3.mp4",
 };
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
