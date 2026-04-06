@@ -27,7 +27,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NAYARACOSTARICAINSTAGRAMHORIZONTAL_4b8f9483.MP4",
+  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ED6EABEF-8780-4A68-A4BF-9E6978CA530A_44406169.mov",
   heroVideoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4825BC12-EA4A-4655-A724-406BF62BD7E8_05593e59.MP4",
 };
 

@@ -9,6 +9,7 @@ import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
+import NativeVideo from "@/components/NativeVideo";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -67,9 +68,8 @@ export default function Story() {
 function HeroSection() {
   return (
     <section className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
-      <img
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
-        alt="Easter Island moai at sunset"
+      <NativeVideo
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NAYARACOSTARICAINSTAGRAMHORIZONTAL_4b8f9483.MP4"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/50" />
