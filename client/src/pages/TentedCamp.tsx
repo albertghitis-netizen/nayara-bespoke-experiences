@@ -45,7 +45,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function TentedCamp() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fafafa] via-[#f8f8f6] to-[#fafafa]">
-      <BrandNavigation pageType="property" centerLabel="Nayara Tented Camp" centerLinkHome />
+      <BrandNavigation pageType="property" centerLinkHome />
       <HeroSection />
       <StorySection />
       <TentedCampAccommodationsSection />
@@ -72,9 +72,7 @@ function HeroSection() {
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center" style={heading}>
           Luxury Tented Camp Immersed in the Rainforest
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/60 text-[11px] md:text-[13px] mt-4 tracking-[0.25em] uppercase" style={body}>
-          Costa Rica · All Ages
-        </motion.p>
+
       </div>
     </section>
   );

@@ -48,7 +48,6 @@ export const CONTENT_SECTIONS = [
 
 /* Property page hamburger — sections within THIS property */
 export const PROPERTY_MENU: MenuItem[] = [
-  { label: "Story", route: "#story" },
   { label: "Rooms", route: "#rooms" },
   { label: "Gallery", route: "#gallery" },
   { label: "Experiences", route: "#experiences" },
@@ -56,7 +55,11 @@ export const PROPERTY_MENU: MenuItem[] = [
   { label: "Gastronomy", route: "#gastronomy" },
   { label: "Sustainability", route: "#sustainability" },
   { label: "Getting Here", route: "#getting-here" },
+  { label: "All Destinations", route: "#all-destinations" },
 ];
+
+/* All Destinations dropdown — all 6 properties */
+export const ALL_DESTINATIONS_MENU = PROPERTIES.map((p) => ({ label: p.shortName, route: p.route }));
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
 const STANDARD_MENU_ITEMS: MenuItem[] = [
