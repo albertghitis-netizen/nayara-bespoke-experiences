@@ -20,8 +20,14 @@ const CDN = {
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-hero-desktop_90751603.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG",
-  s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-s3-rooms_0707176b.jpg",
-  s4: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/59_fbf56df9.jpg",
+  roomTentHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/2_9b3ff676.png",
+  roomTentVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/1_cb109f47.png",
+  roomFamilyHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/3_8801d1f5.png",
+  roomFamilyVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4_be21313e.png",
+  roomGrandHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4_be21313e.png",
+  roomGrandVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/3_8801d1f5.png",
+  roomResidenceHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/1_cb109f47.png",
+  roomResidenceVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/2_9b3ff676.png",
 };
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -122,26 +128,26 @@ function TentedCampAccommodationsSection() {
     {
       id: "tent",
       name: "Tent",
-      horizontal: CDN.s4,
-      vertical: CDN.s3,
+      horizontal: CDN.roomTentHorizontal,
+      vertical: CDN.roomTentVertical,
     },
     {
       id: "family-tent",
       name: "Family Tent",
-      horizontal: CDN.s4,
-      vertical: CDN.s3,
+      horizontal: CDN.roomFamilyHorizontal,
+      vertical: CDN.roomFamilyVertical,
     },
     {
       id: "grand-tent",
       name: "Grand Tent",
-      horizontal: CDN.s4,
-      vertical: CDN.s3,
+      horizontal: CDN.roomGrandHorizontal,
+      vertical: CDN.roomGrandVertical,
     },
     {
       id: "residence",
       name: "Residence",
-      horizontal: CDN.s4,
-      vertical: CDN.s3,
+      horizontal: CDN.roomResidenceHorizontal,
+      vertical: CDN.roomResidenceVertical,
     },
   ];
 
@@ -418,8 +424,8 @@ function GallerySection() {
   const images = [
     { src: CDN.s1, alt: "Canvas villa interior" },
     { src: CDN.s2, alt: "Rainforest canopy" },
-    { src: CDN.s3, alt: "Plunge pool" },
-    { src: CDN.s4, alt: "Aerial camp view" },
+    { src: CDN.roomTentHorizontal, alt: "Tent room" },
+    { src: CDN.roomFamilyHorizontal, alt: "Family tent room" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp", alt: "Tented villa pool with volcano view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)FamilyTent2_79becb8c.webp", alt: "Luxury tent bedroom interior" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Tented_Vertical_20251129_175142_b6a8d6ab.MP4", alt: "Tented Camp vertical video", type: "video" as const },
