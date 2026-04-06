@@ -48,7 +48,6 @@ export const CONTENT_SECTIONS = [
 
 /* Property page hamburger — sections within THIS property */
 export const PROPERTY_MENU: MenuItem[] = [
-  { label: "Story", route: "#story" },
   { label: "Rooms", route: "#rooms" },
   { label: "Gallery", route: "#gallery" },
   { label: "Experiences", route: "#experiences" },

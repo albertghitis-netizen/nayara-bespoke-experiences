@@ -56,6 +56,7 @@ export default function TentedCamp() {
       <TripAdvisorSection />
       <GettingHereSection />
       <GallerySection />
+      <OtherDestinationsSection />
       <Footer />
     </div>
   );
@@ -72,9 +73,7 @@ function HeroSection() {
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center" style={heading}>
           Luxury Tented Camp Immersed in the Rainforest
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/60 text-[11px] md:text-[13px] mt-4 tracking-[0.25em] uppercase" style={body}>
-          Costa Rica · All Ages
-        </motion.p>
+
       </div>
     </section>
   );
@@ -400,6 +399,36 @@ function GettingHereSection() {
             </p>
           </div>
         </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+function OtherDestinationsSection() {
+  const otherDestinations = [
+    { id: "alto-atacama", name: "Alto Atacama", location: "Chile", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero_0707176b.jpg" },
+    { id: "bocas-del-toro", name: "Bocas del Toro", location: "Panama", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-hero_c9d0e1f2.jpg" },
+    { id: "springs", name: "Nayara Springs", location: "Costa Rica", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-hero_860ab6b2.webp" },
+  ];
+
+  return (
+    <section className={sectionPadding}>
+      <div className={maxW}>
+        <FadeIn>
+          <SectionLabel>Explore</SectionLabel>
+          <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Other Destinations</h2>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {otherDestinations.map((dest) => (
+            <FadeIn key={dest.id} className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-lg mb-4" style={{ aspectRatio: "16/9" }}>
+                <img src={dest.image} alt={dest.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
+              <h3 className="text-[#4B4A4A] text-lg" style={{ ...heading, fontWeight: 500 }}>{dest.name}</h3>
+              <p className="text-[#4B4A4A]/60 text-sm" style={body}>{dest.location}</p>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );
