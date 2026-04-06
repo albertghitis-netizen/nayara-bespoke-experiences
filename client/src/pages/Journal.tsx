@@ -104,7 +104,7 @@ export default function Journal() {
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }} className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center" style={heading}>
-            Journal
+            Nayara Journal
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase" style={{ ...body, fontWeight: 500 }}>
             Stories, Conversations & Answers
@@ -158,7 +158,7 @@ export default function Journal() {
 
           {/* Pillar filter */}
           <div className="flex flex-wrap items-center gap-2 justify-center">
-            <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase mr-1" style={{ ...body, fontWeight: 600 }}>Topic</span>
+            <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase mr-1" style={{ ...body, fontWeight: 600 }}>Pillars</span>
             {PILLAR_OPTIONS.map((p) => (
               <button
                 key={p.id}

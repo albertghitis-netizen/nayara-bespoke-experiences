@@ -199,11 +199,20 @@ export default function ConciergeChatWidget() {
               border: "1px solid rgba(58, 42, 26, 0.12)",
             }}
           >
-            {/* ── Close button ── */}
-            <div className="flex items-center justify-end px-3 py-2 shrink-0">
+            {/* ── Header ── */}
+            <div className="flex items-center justify-between px-5 py-3 border-b border-[#3a2a1a]/10 shrink-0">
+              <div>
+                <h3 className="text-[#3a2a1a] text-sm font-medium tracking-[0.04em]" style={{ fontFamily: "var(--font-body)" }}>
+                  Nayara Concierge at Your Service
+                </h3>
+                <p className="text-[#3a2a1a]/60 text-xs mt-0.5" style={{ fontFamily: "var(--font-body)" }}>
+                  Let me know how I can help
+                </p>
+              </div>
+              {/* ── Close button ── */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-[#3a2a1a]/10 transition-colors"
+                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-[#3a2a1a]/10 transition-colors flex-shrink-0"
               >
                 <svg
                   className="w-4 h-4 text-[#3a2a1a]/40"
@@ -212,7 +221,7 @@ export default function ConciergeChatWidget() {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
@@ -233,7 +242,7 @@ export default function ConciergeChatWidget() {
                       className="text-[13px] leading-relaxed"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      Hi there! Welcome to Nayara. I'm here to help you discover our properties and plan your stay. If you'd ever like to speak with a real person, I can connect you with Albert from our Guest Relations team anytime.
+                      Welcome to Nayara Resorts. How can I help you today?
                     </p>
                   </div>
                 </div>
