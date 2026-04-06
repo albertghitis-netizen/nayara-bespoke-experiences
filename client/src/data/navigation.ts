@@ -49,12 +49,16 @@ export const CONTENT_SECTIONS = [
 /* Property page hamburger — sections within THIS property */
 export const PROPERTY_MENU: MenuItem[] = [
   { label: "Rooms", route: "#rooms" },
-  { label: "Gallery", route: "#gallery" },
   { label: "Experiences", route: "#experiences" },
   { label: "Wellness", route: "#wellness" },
   { label: "Gastronomy", route: "#gastronomy" },
   { label: "Sustainability", route: "#sustainability" },
   { label: "Getting Here", route: "#getting-here" },
+  { label: "Gallery", route: "#gallery" },
+  { label: "Press & Awards", route: "/awards" },
+  { label: "Blog", route: "/journal" },
+  { label: "Podcast", route: "/journal" },
+  { label: "FAQ", route: "/journal" },
   { label: "All Destinations", route: "#all-destinations" },
 ];
 
