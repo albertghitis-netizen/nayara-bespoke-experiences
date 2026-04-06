@@ -38,7 +38,7 @@ export const PILLARS = [
   { label: "Experiences", route: "/experiences" },
   { label: "Sustainability", route: "/sustainability" },
   { label: "Wellness", route: "/wellness" },
-  { label: "Gastronomy", route: "/gastronomy" },
+  { label: "Sur la Table", route: "/gastronomy" },
 ] as const;
 
 export const CONTENT_SECTIONS = [
@@ -68,7 +68,7 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Our Story", route: "/story" },
   { label: "Experiences", route: "/experiences" },
   { label: "Wellness", route: "/wellness" },
-  { label: "Gastronomy", route: "/gastronomy" },
+  { label: "Sur la Table", route: "/gastronomy" },
   { label: "Sustainability", route: "/sustainability" },
   { label: "Press & Awards", route: "/awards" },
   { label: "Nayara Journal", route: "/journal" },
