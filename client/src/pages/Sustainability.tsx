@@ -28,7 +28,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 /* ─── CDN Assets ─── */
 const CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-new_df03d599.mp4",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-2_500e97e2.mp4",
 };
 
 /* ─── Brand-level sustainability pillars ─── */
