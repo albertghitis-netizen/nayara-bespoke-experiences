@@ -18,11 +18,12 @@ const destinations = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg",
     description: "Tropical island resort with pristine beaches and vibrant marine life.",
     route: "/bocas-del-toro",
+    badge: "Adults Only",
   },
   {
     id: "gardens",
     name: "Gardens",
-    region: "Costa Rica · Arenal",
+    region: "Costa Rica · Arenal Volcano National Park",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/5_ac0cb283.jpg",
     description: "Lush botanical gardens with volcanic views and wellness experiences.",
     route: "/gardens",
@@ -38,15 +39,16 @@ const destinations = [
   {
     id: "springs",
     name: "Springs",
-    region: "Costa Rica · Arenal",
+    region: "Costa Rica · Arenal Volcano National Park",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/6_0a37cc95.jpg",
     description: "Thermal springs resort with spa and nature-based wellness.",
     route: "/springs",
+    badge: "Adults Only",
   },
   {
     id: "tented-camp",
     name: "Tented Camp",
-    region: "Costa Rica · Arenal",
+    region: "Costa Rica · Arenal Volcano National Park",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
     description: "Luxury tented accommodation suspended above the canopy with volcano views.",
     route: "/tented-camp",
@@ -100,12 +102,22 @@ export default function AllDestinations() {
 
                 {/* Content */}
                 <div>
-                  <h2
-                    className="text-2xl md:text-3xl text-[#3a2a1a] mb-2 group-hover:text-[#5a4a3a] transition-colors"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                  >
-                    {dest.name}
-                  </h2>
+                  <div className="flex items-center justify-between mb-2">
+                    <h2
+                      className="text-2xl md:text-3xl text-[#3a2a1a] group-hover:text-[#5a4a3a] transition-colors"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                    >
+                      {dest.name}
+                    </h2>
+                    {dest.badge && (
+                      <span
+                        className="text-[9px] tracking-[0.15em] uppercase text-stone-600 border border-stone-300 px-2 py-1 rounded whitespace-nowrap ml-2"
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
+                      >
+                        {dest.badge}
+                      </span>
+                    )}
+                  </div>
                   <p
                     className="text-sm md:text-base text-[#5a4a3a]/60 mb-4"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
