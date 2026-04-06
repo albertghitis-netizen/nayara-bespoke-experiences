@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 interface RoomType {
   id: string;
   name: string;
-  horizontal: string;
-  vertical: string;
 }
 
 interface RoomsSliderProps {
@@ -14,7 +12,7 @@ interface RoomsSliderProps {
   subtitle?: string;
 }
 
-export default function RoomsSlider({ rooms, title = "Canvas Rooms", subtitle = "Accommodations" }: RoomsSliderProps) {
+export default function RoomsSlider({ rooms, title = "Life under Canvas", subtitle = "Accommodations" }: RoomsSliderProps) {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const current = rooms[activeSlide];
@@ -33,37 +31,21 @@ export default function RoomsSlider({ rooms, title = "Canvas Rooms", subtitle = 
         </h3>
       </div>
 
-      {/* Artistic Slider */}
-      <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-lg bg-[#f0f0f0]">
-        {/* Horizontal background image */}
-        <motion.img
-          key={`h-${activeSlide}`}
-          src={current.horizontal}
-          alt={current.name}
+      {/* Simple Slider */}
+      <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-lg bg-[#e8e8e8]">
+        {/* Placeholder */}
+        <motion.div
+          key={`placeholder-${activeSlide}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* Vertical image overlay - positioned bottom-right with artistic perspective */}
-        <motion.div
-          key={`v-${activeSlide}`}
-          initial={{ opacity: 0, scale: 0.8, x: 50, y: 50 }}
-          animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="absolute bottom-6 right-6 md:bottom-10 md:right-10 w-32 md:w-48 h-40 md:h-64 rounded-lg overflow-hidden shadow-2xl"
-          style={{
-            transform: "perspective(1000px) rotateY(-8deg) rotateX(2deg)",
-          }}
+          className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-[#f5f5f5] to-[#e0e0e0]"
         >
-          <img
-            src={current.vertical}
-            alt={`${current.name} detail`}
-            className="w-full h-full object-cover"
-          />
+          <div className="text-center">
+            <div className="text-6xl text-[#3a2a1a]/20 mb-4">📷</div>
+            <p className="text-[#3a2a1a]/40 text-sm">Image placeholder</p>
+          </div>
         </motion.div>
 
         {/* Room name overlay */}
@@ -75,7 +57,7 @@ export default function RoomsSlider({ rooms, title = "Canvas Rooms", subtitle = 
           transition={{ duration: 0.6 }}
           className="absolute top-10 left-10 z-20"
         >
-          <h4 className="text-white text-3xl md:text-4xl" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+          <h4 className="text-[#3a2a1a] text-3xl md:text-4xl" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
             {current.name}
           </h4>
         </motion.div>
