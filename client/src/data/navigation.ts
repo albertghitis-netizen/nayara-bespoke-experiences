@@ -42,11 +42,8 @@ export const PILLARS = [
 ] as const;
 
 export const CONTENT_SECTIONS = [
-  { label: "Blog", route: "/blog" },
-  { label: "Podcast", route: "/podcast" },
-  { label: "Press", route: "/press" },
-  { label: "Awards", route: "/awards" },
-  { label: "FAQ", route: "/faq" },
+  { label: "Journal", route: "/journal" },
+  { label: "Awards & Press", route: "/awards" },
 ] as const;
 
 /* Property page hamburger — sections within THIS property */
@@ -69,8 +66,7 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Gastronomy", route: "/gastronomy" },
   { label: "Sustainability", route: "/sustainability" },
   { label: "Awards & Press", route: "/awards" },
-  { label: "Blog", route: "/blog" },
-  { label: "Podcast", route: "/podcast" },
+  { label: "Journal", route: "/journal" },
 ];
 
 /* Brand page hamburger — standardized menu + properties */

@@ -8,14 +8,12 @@ import { Link } from "wouter";
 
 interface ContentCrossLinksProps {
   /** Current page to exclude from links */
-  currentPage: "blog" | "podcast" | "press" | "awards";
+  currentPage: "blog" | "podcast" | "press" | "awards" | "journal";
 }
 
 const contentLinks = [
-  { id: "blog", label: "Blog", route: "/blog" },
-  { id: "podcast", label: "Podcast", route: "/podcast" },
-  { id: "press", label: "Press", route: "/press" },
-  { id: "awards", label: "Awards", route: "/awards" },
+  { id: "journal", label: "Journal", route: "/journal" },
+  { id: "awards", label: "Awards & Press", route: "/awards" },
 ];
 
 const pillarLinks = [

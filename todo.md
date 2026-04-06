@@ -1028,3 +1028,5 @@
 - [ ] Combine Awards and Press into one page (Awards & Press)
 - [ ] Combine Blog and Podcast into one page (Blog & Podcast)
 - [ ] Update navigation to reflect combined pages
+- [x] Update Tented Camp story section: H2 "Lifted On Stilts Above The Canopy / Eye to Eye with Arenal Volcano" and new body copy
+- [x] Add Edits_Tented_Vertical video to Tented Camp gallery (second row)

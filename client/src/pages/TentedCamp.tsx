@@ -89,13 +89,10 @@ function StorySection() {
           <FadeIn className="md:flex-1">
             <SectionLabel>The Property</SectionLabel>
             <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-              Glamping Redefined
+              Lifted On Stilts Above The Canopy<br />Eye to Eye with Arenal Volcano
             </h2>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed mb-4" style={body}>
-              {tentedCamp.heroSubtitle}
-            </p>
             <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
-              Nayara Tented Camp combines the adventure of camping with the luxury of a five-star resort. Each canvas villa features a private plunge pool, outdoor shower, and direct access to the rainforest canopy. Experience the sounds and rhythms of nature while enjoying world-class amenities and service.
+              Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.
             </p>
             {/* Award badges — real logos, transparent */}
             <div className="mt-8">
@@ -416,7 +413,7 @@ function GallerySection() {
     { src: CDN.s4, alt: "Aerial camp view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp", alt: "Tented villa pool with volcano view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)FamilyTent2_79becb8c.webp", alt: "Luxury tent bedroom interior" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)ArenalPoolCasita7copy_37fdccc3.webp", alt: "Casita bedroom with botanical mural" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Tented_Vertical_20251129_175142_b6a8d6ab.MP4", alt: "Tented Camp vertical video", type: "video" as const },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)FamilyTent3copy_f74355c8.webp", alt: "Family tent twin beds" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)ArenalPoolCasita9copy_f06e14d7.webp", alt: "Casita deck with plunge pool" },
   ];
@@ -430,7 +427,11 @@ function GallerySection() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
           {images.map((img, i) => (
             <FadeIn key={i} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-              <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
+              {(img as any).type === "video" ? (
+                <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
+              ) : (
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
+              )}
             </FadeIn>
           ))}
         </div>

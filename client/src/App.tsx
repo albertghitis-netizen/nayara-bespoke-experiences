@@ -10,14 +10,13 @@ import AltoAtacama from "./pages/AltoAtacama";
 import CostaRica from "./pages/CostaRica";
 import Hangaroa from "./pages/Hangaroa";
 import BocasDelToro from "./pages/BocasDelToro";
-import Blog from "./pages/Blog";
-import Podcast from "./pages/Podcast";
-import Awards from "./pages/Awards";
+import Journal from "./pages/Journal";
+import AwardsAndPress from "./pages/AwardsAndPress";
 import Sustainability from "./pages/Sustainability";
 import Experiences from "./pages/Experiences";
 import Wellness from "./pages/Wellness";
 import AylaOnKrog from "./pages/AylaOnKrog";
-import Press from "./pages/Press";
+
 import Story from "./pages/Story";
 import Rooms from "./pages/Rooms";
 import Gastronomy from "./pages/Gastronomy";
@@ -27,7 +26,7 @@ import Springs from "./pages/Springs";
 import InstagramDM from "./pages/InstagramDM";
 import MessengerDM from "./pages/MessengerDM";
 import WhatsAppDM from "./pages/WhatsAppDM";
-import FAQ from "./pages/FAQ";
+
 import Competitors from "./pages/Competitors";
 import AskConcierge from "./pages/AskConcierge";
 import ConciergeChatWidget from "./components/ConciergeChatWidget";
@@ -66,17 +65,18 @@ function Router() {
         <Route path="/springs" component={Springs} />
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
-        <Route path="/blog" component={Blog} />
-        <Route path="/podcast" component={Podcast} />
-        <Route path="/awards" component={Awards} />
+        <Route path="/journal" component={Journal} />
+        <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
+        <Route path="/podcast">{() => { window.location.replace("/journal"); return null; }}</Route>
+        <Route path="/awards" component={AwardsAndPress} />
         <Route path="/sustainability" component={Sustainability} />
         <Route path="/experiences" component={Experiences} />
         <Route path="/wellness" component={Wellness} />
-        <Route path="/press" component={Press} />
+        <Route path="/press">{() => { window.location.replace("/awards"); return null; }}</Route>
         <Route path="/story" component={Story} />
         <Route path="/rooms" component={Rooms} />
         <Route path="/gastronomy" component={Gastronomy} />
-        <Route path="/faq" component={FAQ} />
+        <Route path="/faq">{() => { window.location.replace("/journal"); return null; }}</Route>
         <Route path="/competitors" component={Competitors} />
         <Route path="/concierge" component={AskConcierge} />
         <Route path="/brand-book" component={BrandBook} />
