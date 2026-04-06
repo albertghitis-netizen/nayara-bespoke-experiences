@@ -88,7 +88,7 @@ function StorySection() {
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
           <FadeIn className="md:flex-1">
             <SectionLabel>The Property</SectionLabel>
-            <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
+            <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
               Lifted On Stilts Above The Canopy<br />Eye to Eye with Arenal Volcano
             </h2>
             <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
@@ -99,7 +99,7 @@ function StorySection() {
               <img
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
                 alt="Green Globe Certified · Travel + Leisure World's Best Awards 2021-2024 · Leading Hotels of the World"
-                className="h-14 md:h-18 lg:h-20 w-auto object-contain opacity-70"
+                className="h-20 md:h-24 lg:h-32 w-auto object-contain opacity-70"
                 loading="lazy"
               />
             </div>
