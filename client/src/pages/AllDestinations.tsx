@@ -10,6 +10,7 @@ const destinations = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-17_d0de17d2.JPG",
     description: "Luxury desert lodge with astronomical experiences and Mars-on-Earth aesthetics.",
     route: "/alto-atacama",
+    badge: "Family Friendly",
   },
   {
     id: "bocas-del-toro",
@@ -27,6 +28,7 @@ const destinations = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/5_ac0cb283.jpg",
     description: "Lush botanical gardens with volcanic views and wellness experiences.",
     route: "/gardens",
+    badge: "Family Friendly",
   },
   {
     id: "hangaroa",
@@ -35,6 +37,7 @@ const destinations = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
     description: "Exclusive lodge on Easter Island with Rapa Nui cultural immersion.",
     route: "/hangaroa",
+    badge: "Family Friendly",
   },
   {
     id: "springs",
@@ -52,6 +55,7 @@ const destinations = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
     description: "Luxury tented accommodation suspended above the canopy with volcano views.",
     route: "/tented-camp",
+    badge: "Family Friendly",
   },
 ];
 
