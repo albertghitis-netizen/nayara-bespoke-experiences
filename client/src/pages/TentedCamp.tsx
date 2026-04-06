@@ -99,7 +99,7 @@ function StorySection() {
               <img
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
                 alt="Green Globe Certified · Travel + Leisure World's Best Awards 2021-2024 · Leading Hotels of the World"
-                className="h-20 md:h-24 lg:h-32 w-auto object-contain opacity-70"
+                className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-70"
                 loading="lazy"
               />
             </div>
