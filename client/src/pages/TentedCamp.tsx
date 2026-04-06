@@ -412,7 +412,7 @@ function OtherDestinationsSection() {
   ];
 
   return (
-    <section className={sectionPadding}>
+    <section id="other-destinations" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Explore</SectionLabel>
