@@ -56,10 +56,8 @@ export const PROPERTY_MENU: MenuItem[] = [
   { label: "Getting Here", route: "#getting-here" },
   { label: "Gallery", route: "#gallery" },
   { label: "Press & Awards", route: "/awards" },
-  { label: "Blog", route: "/journal" },
-  { label: "Podcast", route: "/journal" },
-  { label: "FAQ", route: "/journal" },
-  { label: "All Destinations", route: "#all-destinations" },
+  { label: "Journal", route: "/journal" },
+  { label: "All Destinations", route: "/all-destinations" },
 ];
 
 /* All Destinations dropdown — all 6 properties */

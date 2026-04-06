@@ -36,6 +36,7 @@ import Architecture from "./pages/Architecture";
 import Questions from "./pages/Questions";
 import WebsiteGuide from "./pages/WebsiteGuide";
 import ChatEmbed from "./pages/ChatEmbed";
+import AllDestinations from "./pages/AllDestinations";
 import "./index.css";
 
 function ScrollToTop() {
@@ -66,6 +67,7 @@ function Router() {
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
         <Route path="/journal" component={Journal} />
+        <Route path="/all-destinations" component={AllDestinations} />
         <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
         <Route path="/podcast">{() => { window.location.replace("/journal"); return null; }}</Route>
         <Route path="/awards" component={AwardsAndPress} />
