@@ -13,6 +13,7 @@ import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Treatment } from "@/data/properties";
+import { useIsMobile } from "@/hooks/useMobile";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -28,7 +29,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const WELLNESS_CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness-hero-v2_25839541.mp4",
+  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness-hero-v2_25839541.mp4",
+  heroVideoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NTCV5(1)_74c7ee52.mp4",
 };
 
 /* ─── Wellness Pillars ─── */
@@ -121,10 +123,12 @@ export default function Wellness() {
    HERO
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
+  const heroVideo = isMobile ? WELLNESS_CDN.heroVideoMobile : WELLNESS_CDN.heroVideoDesktop;
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={WELLNESS_CDN.heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
