@@ -83,7 +83,7 @@ export default function RoomsSlider({ rooms, title = "Canvas Rooms", subtitle = 
         {/* Navigation arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-3 rounded-full transition-all"
+          className="absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-[#3a2a1a]/60 hover:bg-[#3a2a1a]/80 backdrop-blur-sm p-3 rounded-full transition-all"
           aria-label="Previous room"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ export default function RoomsSlider({ rooms, title = "Canvas Rooms", subtitle = 
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 backdrop-blur-sm p-3 rounded-full transition-all"
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-[#3a2a1a]/60 hover:bg-[#3a2a1a]/80 backdrop-blur-sm p-3 rounded-full transition-all"
           aria-label="Next room"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
