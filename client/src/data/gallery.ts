@@ -145,8 +145,8 @@ export const bocasGallery: GalleryItem[] = [
 export const tentedCampGallery: GalleryItem[] = [
   { id: "tc-hero", src: `${CDN}/tented-camp-hero-desktop_90751603.mp4`, alt: "Tented Camp rainforest", type: "video", orientation: "landscape", tags: ["hero"] },
   { id: "tc-s1", src: `${CDN}/IMG_5354_8a9b536e.PNG`, alt: "Luxury tent", type: "image", orientation: "portrait", tags: ["story", "s1"] },
-  { id: "tc-vid-vert", src: `${CDN}/Edits_Tented_Vertical_20251129_175142_b6a8d6ab.MP4`, alt: "Tented Camp vertical video", type: "video", orientation: "portrait", tags: ["property", "video"] },
   { id: "tc-s2", src: `${CDN}/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG`, alt: "Rainforest view", type: "image", orientation: "landscape", tags: ["story", "s2"] },
+  { id: "tc-vid-vert", src: `${CDN}/Edits_Tented_Vertical_20251129_175142_b6a8d6ab.MP4`, alt: "Tented Camp vertical video", type: "video", orientation: "portrait", tags: ["property", "video"] },
   { id: "tc-s4", src: `${CDN}/59_fbf56df9.jpg`, alt: "Camp grounds", type: "image", orientation: "landscape", tags: ["rooms", "s4"] },
   { id: "tc-s3", src: `${CDN}/tented-s3-rooms_0707176b.jpg`, alt: "Room interior", type: "image", orientation: "portrait", tags: ["rooms", "s3"] },
   { id: "tc-ext", src: `${CDN}/tented-camp-exterior_c9d0e1f2.jpg`, alt: "Tented Camp exterior", type: "image", orientation: "landscape", tags: ["property"] },
