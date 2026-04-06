@@ -997,3 +997,34 @@
 - [x] Keep Gallery in property page hamburger menus, remove from brand/content page menus
 - [x] Homepage keeps "Nayara Resorts" center label; all other brand/content pages have NO center label
 - [x] Remove standalone Gallery brand page route from App.tsx (Gallery only exists as #gallery sections on property pages)
+
+## Gallery Audit — Add ALL Missing User-Provided Assets
+- [ ] Audit all user-provided assets vs what's in each property gallery
+- [ ] Add all missing assets to correct property galleries
+- [ ] Ensure every image/video the user provided appears somewhere on the site
+
+## CRITICAL: Story Text Restoration
+- [ ] Check if any Story section text was modified — restore original text if changed
+- [ ] Story text is LOCKED — never modify
+
+## Gallery Audit — EVERY Asset Must Be In Galleries
+- [ ] Upload all assets from atacama-gallery/ subfolder (21 images) to CDN and add to Atacama gallery
+- [ ] Upload all assets from bocas-gallery/ subfolder (15 images) to CDN and add to Bocas gallery
+- [ ] Upload all assets from springs-gallery/ subfolder (5 images) to CDN and add to Springs gallery
+- [ ] Upload all assets from tented-gallery/ subfolder (5 images) to CDN and add to Tented Camp gallery
+- [ ] Add all Hangaroa images not yet in gallery
+- [ ] Add all Gardens images not yet in gallery
+- [ ] Add all astrophotography images to Atacama gallery
+- [ ] Add all Brice Ferre photos to correct galleries
+- [ ] Ensure EVERY user-provided file appears in a gallery
+
+## Tented Camp — New Sections
+- [x] Add "Getting Here" section to Tented Camp page (airports, transfers, driving, domestic flights)
+- [x] Add TripAdvisor / Awards social proof section to Tented Camp page
+- [x] Remove all Henry references from chatbot system prompt
+- [x] Ensure Albert from Guest Relations is mentioned in chatbot intro and available to help
+- [ ] Create standalone /concierge page showing only the chatbot (for boss to test)
+- [ ] Crawl blog.nayararesorts.com and update chatbot with all correct working blog links
+- [ ] Combine Awards and Press into one page (Awards & Press)
+- [ ] Combine Blog and Podcast into one page (Blog & Podcast)
+- [ ] Update navigation to reflect combined pages

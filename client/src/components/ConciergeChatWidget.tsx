@@ -199,34 +199,14 @@ export default function ConciergeChatWidget() {
               border: "1px solid rgba(58, 42, 26, 0.12)",
             }}
           >
-            {/* ── Header ── */}
-            <div className="flex items-center justify-between px-5 py-4 shrink-0 bg-[#3a2a1a]">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#c9b99a]/20 flex items-center justify-center">
-                  <NayaraIcon className="w-5 h-5 text-[#c9b99a]" />
-                </div>
-                <div>
-                  <h3
-                    className="text-white text-sm tracking-[0.08em]"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                  >
-                    Henry
-                  </h3>
-                  <p
-                    className="text-[#c9b99a] text-[10px] tracking-[0.12em] uppercase"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    {chatMutation.isPending ? "Typing..." : "How can we help?"}
-                  </p>
-                </div>
-              </div>
-
+            {/* ── Close button ── */}
+            <div className="flex items-center justify-end px-3 py-2 shrink-0">
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
+                className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-[#3a2a1a]/10 transition-colors"
               >
                 <svg
-                  className="w-4 h-4 text-white/60"
+                  className="w-4 h-4 text-[#3a2a1a]/40"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -253,7 +233,7 @@ export default function ConciergeChatWidget() {
                       className="text-[13px] leading-relaxed"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      Hi there! Welcome to Nayara. How can I help you today?
+                      Hi there! Welcome to Nayara. I'm here to help you discover our properties and plan your stay. If you'd ever like to speak with a real person, I can connect you with Albert from our Guest Relations team anytime.
                     </p>
                   </div>
                 </div>
@@ -317,7 +297,7 @@ export default function ConciergeChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Ask Henry anything..."
+                  placeholder="Ask us anything..."
                   rows={1}
                   className="flex-1 resize-none bg-transparent text-[13px] text-[#3a2a1a] placeholder:text-[#3a2a1a]/35 focus:outline-none max-h-24 py-2"
                   style={{ fontFamily: "var(--font-body)" }}
@@ -350,13 +330,7 @@ export default function ConciergeChatWidget() {
                 </button>
               </div>
 
-              {/* Powered by line */}
-              <p
-                className="text-center text-[9px] text-[#3a2a1a]/20 mt-2 tracking-[0.05em]"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Henry — Nayara Concierge
-              </p>
+
             </form>
           </motion.div>
         )}

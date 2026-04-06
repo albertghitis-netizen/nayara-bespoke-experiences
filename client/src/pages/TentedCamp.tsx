@@ -53,6 +53,8 @@ export default function TentedCamp() {
       <SustainabilitySection />
       <WellnessSection />
       <GastronomySection />
+      <TripAdvisorSection />
+      <GettingHereSection />
       <GallerySection />
       <Footer />
     </div>
@@ -95,7 +97,15 @@ function StorySection() {
             <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
               Nayara Tented Camp combines the adventure of camping with the luxury of a five-star resort. Each canvas villa features a private plunge pool, outdoor shower, and direct access to the rainforest canopy. Experience the sounds and rhythms of nature while enjoying world-class amenities and service.
             </p>
-            <AwardBadgeStrip property="tented-camp" />
+            {/* Award badges — real logos, transparent */}
+            <div className="mt-8">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
+                alt="Green Globe Certified · Travel + Leisure World's Best Awards 2021-2024 · Leading Hotels of the World"
+                className="h-14 md:h-18 lg:h-20 w-auto object-contain opacity-70"
+                loading="lazy"
+              />
+            </div>
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
             <img src={CDN.s1} alt="Luxury tented accommodation at Nayara" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
@@ -273,6 +283,126 @@ function GastronomySection() {
             </FadeIn>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function TripAdvisorSection() {
+  return (
+    <section id="tripadvisor" className={`${sectionPadding} bg-[#3a2a1a]`}>
+      <div className={`${maxW} text-center`}>
+        <FadeIn>
+          <p className="text-[#c9b99a]/60 text-[11px] tracking-[0.15em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>Guest Reviews</p>
+          <div className="flex items-center justify-center gap-1.5 mb-4">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-5 h-5 text-[#c9b99a]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          <p className="text-white text-[28px] md:text-[36px] mb-2" style={heading}>5.0</p>
+          <p className="text-white/60 text-[13px] tracking-[0.04em] mb-6" style={body}>Based on 1,200+ reviews on TripAdvisor</p>
+          <div className="w-16 h-px bg-[#c9b99a]/30 mx-auto mb-8" />
+        </FadeIn>
+        <FadeIn delay={0.2}>
+          <blockquote className="max-w-2xl mx-auto">
+            <p className="text-white/80 text-[15px] md:text-[17px] leading-relaxed italic mb-4" style={body}>
+              "An extraordinary experience. The tents are beyond luxurious, the staff anticipates every need, and waking up to the sounds of the rainforest with Arenal Volcano in view is something you never forget."
+            </p>
+            <cite className="text-[#c9b99a]/60 text-[12px] tracking-[0.08em] not-italic" style={body}>— TripAdvisor Traveler, 2025</cite>
+          </blockquote>
+        </FadeIn>
+        <FadeIn delay={0.3}>
+          <a
+            href="https://www.tripadvisor.com/Hotel_Review-g309226-d12099846-Reviews-Nayara_Tented_Camp-La_Fortuna_de_San_Carlos_Arenal_Volcano_National_Park_Province_of_Al.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-8 px-6 py-2.5 rounded-full border border-[#c9b99a]/30 text-[#c9b99a] text-[11px] tracking-[0.15em] uppercase hover:bg-[#c9b99a]/10 transition-colors"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            Read All Reviews
+          </a>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+function GettingHereSection() {
+  const routes = [
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+        </svg>
+      ),
+      title: "International Flights",
+      description: "Fly into San Jos\u00e9 (SJO) or Liberia (LIR) international airports. Both receive direct flights from major US and European cities.",
+    },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      title: "Domestic Flight",
+      description: "Take a short domestic flight from SJO to La Fortuna/Arenal (~30 minutes). The hotel can arrange transfers from the local airstrip.",
+    },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0H21M3.375 14.25h17.25M21 12.75V6.375A1.125 1.125 0 0019.875 5.25H4.125A1.125 1.125 0 003 6.375v6.375" />
+        </svg>
+      ),
+      title: "Private Transfer",
+      description: "Arrange a private transfer from San Jos\u00e9 (~3 hours) or Liberia (~2.5 hours). Scenic drive through the Central Valley with volcano views.",
+    },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+        </svg>
+      ),
+      title: "Self-Drive",
+      description: "Rent a car at either airport and drive to Arenal. Well-paved roads with clear signage. The journey from SJO takes approximately 3 hours.",
+    },
+  ];
+
+  return (
+    <section id="getting-here" className={sectionPadding}>
+      <div className={maxW}>
+        <FadeIn>
+          <SectionLabel>Getting Here</SectionLabel>
+          <h2 className="text-[#4B4A4A] mb-3" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Your Journey to Arenal</h2>
+          <p className="text-[#4B4A4A]/60 text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={body}>
+            Nayara Tented Camp is located in the Arenal Volcano region of Costa Rica, one of the most accessible luxury destinations in Central America.
+          </p>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          {routes.map((route, i) => (
+            <FadeIn key={i} delay={i * 0.1}>
+              <div className="flex gap-4">
+                <div className="shrink-0 w-12 h-12 rounded-full bg-[#3a2a1a]/5 flex items-center justify-center text-[#3a2a1a]/50">
+                  {route.icon}
+                </div>
+                <div>
+                  <h3 className="text-[#3a2a1a] text-[16px] mb-2" style={{ ...heading, fontWeight: 500 }}>{route.title}</h3>
+                  <p className="text-[#4B4A4A]/70 text-[13px] leading-relaxed" style={body}>{route.description}</p>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+        <FadeIn delay={0.5}>
+          <div className="mt-10 md:mt-14 p-6 rounded-xl bg-[#3a2a1a]/5">
+            <p className="text-[#3a2a1a]/70 text-[13px] leading-relaxed" style={body}>
+              <span className="font-medium text-[#3a2a1a]">Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
+              <a href="mailto:reservations@nayararesorts.com" className="text-[#8b6f47] underline">reservations@nayararesorts.com</a>{" "}
+              or call <a href="tel:+18448652002" className="text-[#8b6f47] underline">1-844-865-2002</a>.
+            </p>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

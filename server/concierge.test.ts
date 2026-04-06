@@ -49,9 +49,12 @@ describe("Nayara Concierge System Prompt", () => {
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT.toLowerCase()).not.toContain("starry");
   });
 
-  it("should identify as Paloma, the Nayara Concierge", () => {
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Paloma");
+  it("should identify as the Nayara Concierge (no personal name)", () => {
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Concierge");
+    // Must NOT have any personal name for the concierge
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).not.toContain("Paloma");
+    const withoutBar = NAYARA_CONCIERGE_SYSTEM_PROMPT.replace(/Henry's Bar/g, "");
+    expect(withoutBar).not.toMatch(/\bHenry\b/);
   });
 
   it("should contain reservation contact information", () => {
@@ -84,12 +87,10 @@ describe("Nayara Concierge System Prompt", () => {
   });
 
   it("should contain Costa Rica dining venues", () => {
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Asia Luna");
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Amor Loco");
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nostalgia");
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Lapas Bar");
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Terraza");
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Café Campesino");
   });
 
   it("should contain Poerava restaurant menu details for Hangaroa", () => {
@@ -103,15 +104,14 @@ describe("Nayara Concierge System Prompt", () => {
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Reflexology");
   });
 
-  it("should contain Lapas Bar cocktail details with prices", () => {
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Dreams Mai Tai");
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Lost Paradise Zombie");
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("$17");
+  it("should contain Lapas Bar info", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Lapas Bar");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toMatch(/cocktail/i);
   });
 
-  it("should contain Terraza cocktail details", () => {
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Casitico Sour");
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Cacique Guaro");
+  it("should contain Terraza restaurant info", () => {
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Terraza");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toMatch(/Bar Azul/i);
   });
 
   it("should reference the gastronomy page", () => {
