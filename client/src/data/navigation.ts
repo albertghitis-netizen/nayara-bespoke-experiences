@@ -42,8 +42,8 @@ export const PILLARS = [
 ] as const;
 
 export const CONTENT_SECTIONS = [
-  { label: "Journal", route: "/journal" },
-  { label: "Awards & Press", route: "/awards" },
+  { label: "Nayara Journal", route: "/journal" },
+  { label: "Press & Awards", route: "/awards" },
 ] as const;
 
 /* Property page hamburger — sections within THIS property */
@@ -56,7 +56,7 @@ export const PROPERTY_MENU: MenuItem[] = [
   { label: "Getting Here", route: "#getting-here" },
   { label: "Gallery", route: "#gallery" },
   { label: "Press & Awards", route: "/awards" },
-  { label: "Journal", route: "/journal" },
+  { label: "Nayara Journal", route: "/journal" },
   { label: "All Destinations", route: "/all-destinations" },
 ];
 
@@ -70,8 +70,8 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Wellness", route: "/wellness" },
   { label: "Gastronomy", route: "/gastronomy" },
   { label: "Sustainability", route: "/sustainability" },
-  { label: "Awards & Press", route: "/awards" },
-  { label: "Journal", route: "/journal" },
+  { label: "Press & Awards", route: "/awards" },
+  { label: "Nayara Journal", route: "/journal" },
 ];
 
 /* Brand page hamburger — standardized menu + properties */
