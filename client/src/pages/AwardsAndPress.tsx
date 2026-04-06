@@ -195,7 +195,7 @@ export default function AwardsAndPress() {
             className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center"
             style={{ ...heading, letterSpacing: "-2px", lineHeight: 1 }}
           >
-            Awards & Press
+            Press & Awards
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
