@@ -23,9 +23,7 @@ import Gastronomy from "./pages/Gastronomy";
 import TentedCamp from "./pages/TentedCamp";
 import Gardens from "./pages/Gardens";
 import Springs from "./pages/Springs";
-import InstagramDM from "./pages/InstagramDM";
-import MessengerDM from "./pages/MessengerDM";
-import WhatsAppDM from "./pages/WhatsAppDM";
+
 
 import Competitors from "./pages/Competitors";
 import AskConcierge from "./pages/AskConcierge";
@@ -48,7 +46,7 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS = ["/instagram", "/messenger", "/whatsapp", "/chat-embed"];
+const HIDE_WIDGET_PATHS = ["/chat-embed"];
 
 function Router() {
   const [location] = useLocation();
@@ -88,9 +86,7 @@ function Router() {
         <Route path="/guide" component={WebsiteGuide} />
         <Route path="/chat-embed" component={ChatEmbed} />
         <Route path="/ayla" component={AylaOnKrog} />
-        <Route path="/instagram" component={InstagramDM} />
-        <Route path="/messenger" component={MessengerDM} />
-        <Route path="/whatsapp" component={WhatsAppDM} />
+
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

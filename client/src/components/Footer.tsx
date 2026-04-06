@@ -181,9 +181,7 @@ export default function Footer({ pageType = "brand" }: FooterProps) {
 
         {/* Social icons — centered, larger */}
         <div className="flex items-center justify-center gap-8 mt-6 mb-8">
-          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><InstagramIcon /></a>
           <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><YouTubeIcon /></a>
-          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><FacebookIcon /></a>
           <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><TikTokIcon /></a>
         </div>
 
