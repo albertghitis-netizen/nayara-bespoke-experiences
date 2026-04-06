@@ -51,7 +51,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function AltoAtacama() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f7f3ef] via-[#f5f0ea] to-[#f7f3ef]">
-      <BrandNavigation pageType="property" centerLabel="Nayara Alto Atacama" centerLinkHome />
+      <BrandNavigation pageType="property" centerLinkHome />
       <HeroSection />
       <StorySection />
       <RoomsSection />

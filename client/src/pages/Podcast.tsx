@@ -36,7 +36,7 @@ export default function Podcast() {
 
   return (
     <div className="min-h-screen bg-white">
-      <BrandNavigation pageType="content" centerLabel="Podcast" />
+      <BrandNavigation pageType="content" />
       <HeroSection />
       <IntroSection />
       <EpisodesSection episodes={podcastEpisodes} activeEpisode={activeEpisode} setActiveEpisode={setActiveEpisode} />

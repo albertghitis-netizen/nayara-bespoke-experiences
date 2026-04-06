@@ -92,7 +92,7 @@ export default function Press() {
 
   return (
     <div className="min-h-screen bg-white">
-      <BrandNavigation pageType="content" centerLabel="Press" />
+      <BrandNavigation pageType="content" />
 
       {/* Hero */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 px-6">

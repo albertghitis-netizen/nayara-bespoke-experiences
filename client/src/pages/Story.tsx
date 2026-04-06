@@ -50,7 +50,7 @@ const values = [
 export default function Story() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="brand" centerLabel="The Nayara Story" />
+      <BrandNavigation pageType="brand" />
       <HeroSection />
       <IntroSection />
       <TimelineSection />

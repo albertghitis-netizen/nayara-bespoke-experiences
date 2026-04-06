@@ -3,7 +3,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 export default function Rooms() {
   return (
     <div className="min-h-screen bg-[#f7f5f0] flex flex-col">
-      <BrandNavigation pageType="brand" centerLabel="Rooms" />
+      <BrandNavigation pageType="brand" />
       <div className="flex-1 flex items-center justify-center">
         <h1
           className="text-[#3a2a1a] text-3xl tracking-wide"

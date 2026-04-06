@@ -46,7 +46,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function Springs() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f5f7f2] via-[#f7f5f0] to-[#f5f7f2]">
-      <BrandNavigation pageType="property" centerLabel="Nayara Springs" centerLinkHome />
+      <BrandNavigation pageType="property" centerLinkHome />
       <HeroSection />
       <StorySection />
       <SpringsVillaSection />

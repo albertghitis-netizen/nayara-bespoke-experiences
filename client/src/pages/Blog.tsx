@@ -52,7 +52,7 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white">
-      <BrandNavigation pageType="content" centerLabel="Blog" />
+      <BrandNavigation pageType="content" />
       <HeroSection />
       <FiltersSection
         activePillar={activePillar}

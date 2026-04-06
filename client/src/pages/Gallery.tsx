@@ -198,7 +198,7 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       {/* Header */}
-      <BrandNavigation pageType="brand" centerLabel="Gallery" />
+      <BrandNavigation pageType="brand" />
 
       {/* Hero */}
       <GalleryHero />

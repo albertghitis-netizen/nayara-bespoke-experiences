@@ -60,7 +60,7 @@ export default function Experiences() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="brand" centerLabel="Experiences" />
+      <BrandNavigation pageType="brand" />
       <HeroSection />
       <IntroSection />
       <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />

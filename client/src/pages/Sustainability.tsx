@@ -128,7 +128,7 @@ export default function Sustainability() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="brand" centerLabel="Sustainability" />
+      <BrandNavigation pageType="brand" />
       <HeroSection />
       <IntroSection />
       <BrandPillarsSection />
