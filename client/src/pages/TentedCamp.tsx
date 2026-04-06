@@ -127,7 +127,7 @@ function TentedCampAccommodationsSection() {
   const roomTypes = [
     {
       id: "tent",
-      name: "Tent",
+      name: "Nayara Tent",
       horizontal: CDN.roomTentHorizontal,
       vertical: CDN.roomTentVertical,
     },
