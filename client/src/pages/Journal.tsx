@@ -27,7 +27,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ED6EABEF-8780-4A68-A4BF-9E6978CA530A_44406169.mov",
+  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ExperienceHeroVideoDesktop_432a631d.mov",
+  heroVideoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4825BC12-EA4A-4655-A724-406BF62BD7E8_05593e59.MP4",
 };
 
 /* ── Unified filter options ── */
@@ -99,7 +100,7 @@ export default function Journal() {
       {/* ── Hero ── */}
       <section className="relative w-full h-screen overflow-hidden">
         <div className="absolute inset-0">
-          <NativeVideo src={JOURNAL_CDN.heroVideo} className="w-full h-full object-cover" />
+          <NativeVideo src={typeof window !== 'undefined' && window.innerWidth < 768 ? JOURNAL_CDN.heroVideoMobile : JOURNAL_CDN.heroVideoDesktop} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
