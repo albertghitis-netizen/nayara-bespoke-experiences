@@ -1094,3 +1094,20 @@
 - [x] Add Getting Here label above "Your Journey to Arenal" heading in Tented Camp
 - [x] TripAdvisor review: change attribution to "Andrew wrote a review, Apr 2"
 - [x] Add Sustainability label above Reforestation Spotlight heading in Tented Camp
+
+## Springs Page Rebuild
+- [ ] Strip Springs page to hero video + H1 only, remove all other sections
+- [ ] Rebuild Springs page section by section following Tented Camp template
+
+## Bold Animations (WordPress-replicable)
+- [ ] Hero: parallax video scroll (CSS background-attachment or scroll-speed offset)
+- [ ] Hero: staggered text reveal (H1 words animate in sequence)
+- [ ] Story: parallax images (s1 and s2 scroll at different speed from text)
+- [ ] Story: text slide-in from left, image slide-in from right
+- [ ] Rooms slider: subtle scale-up on active slide
+- [ ] Experiences: horizontal line wipe animation on section enter
+- [ ] Gallery: staggered grid reveal (items pop in one by one)
+- [ ] Gallery: hover zoom on images
+- [ ] TripAdvisor: quote typewriter/fade-word effect
+- [ ] Section labels: letter-spacing expand animation on scroll
+- [ ] All animations CSS-only or AOS-equivalent (WordPress replicable)
