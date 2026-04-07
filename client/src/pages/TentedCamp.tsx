@@ -443,6 +443,9 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NewAreaBriceFerre(2)_cf5128c9.webp", alt: "Wellness area with volcano" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Foto_5e7f8a2d.webp", alt: "Spa pavilion with tents" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale_e58f6e3b.mp4", alt: "Tented Camp experience video", type: "video" as const },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/HenrysBar_69b1e477.webp", alt: "Henry's Bar at Nayara Springs" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-Henry'sBar-R5_10617-byBriceFerreStudio_f997587c.webp", alt: "Bartender at Henry's Bar" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-withGwynethBechunas-R5_15665-byBriceFerreStudio-2_1d0730cf.webp", alt: "Guest enjoying wine at Nayara Springs" },
   ];
   return (
     <section id="gallery" className={sectionPadding}>
