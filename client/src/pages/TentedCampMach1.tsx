@@ -209,34 +209,47 @@ function StorySection() {
   const { scrollYProgress } = useScroll({ target: imgRef, offset: ["start end", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
 
+  /* S2 Ken Burns */
+  const s2Ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: s2Progress } = useScroll({ target: s2Ref, offset: ["start end", "end start"] });
+  const s2Scale = useTransform(s2Progress, [0, 1], [1.1, 1]);
+
   return (
-    <section id="story" className={sectionPadding}>
-      <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          <SlideFromLeft className="md:flex-1">
-            <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
-              Lifted On Stilts Above The Canopy<br />Eye to Eye with Arenal Volcano
-            </h2>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
-              Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.
-            </p>
-            <div className="mt-8">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
-                alt="Green Globe Certified · Travel + Leisure World's Best Awards 2021-2024 · Leading Hotels of the World"
-                className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-70"
-                loading="lazy"
-              />
-            </div>
-            <ThreeResortsGraphic />
-          </SlideFromLeft>
-          <SlideFromRight delay={0.2} className="md:flex-1">
-            <div ref={imgRef} className="overflow-hidden rounded-lg">
-              <motion.img src={CDN.s1} alt="Luxury tented accommodation at Nayara" className="w-full object-cover" style={{ aspectRatio: "3/4", y: imgY }} loading="lazy" />
-            </div>
-          </SlideFromRight>
+    <section id="story" className="py-10 md:py-16">
+      {/* S1: text left (padded), vertical image full-bleed right */}
+      <div className="flex flex-col md:flex-row gap-10 md:gap-0 items-start mb-16">
+        <SlideFromLeft className="md:flex-1 px-6 md:pl-10 md:pr-16 lg:pl-[max(2.5rem,calc((100vw-1200px)/2+2.5rem))]">
+          <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
+            Lifted On Stilts Above The Canopy<br />Eye to Eye with Arenal Volcano
+          </h2>
+          <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
+            Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.
+          </p>
+          <div className="mt-8">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
+              alt="Green Globe Certified · Travel + Leisure World's Best Awards 2021-2024 · Leading Hotels of the World"
+              className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-70"
+              loading="lazy"
+            />
+          </div>
+          <ThreeResortsGraphic />
+        </SlideFromLeft>
+        <SlideFromRight delay={0.2} className="md:flex-1 w-full md:w-auto">
+          <div ref={imgRef} className="overflow-hidden md:rounded-l-lg">
+            <motion.img src={CDN.s1} alt="Luxury tented accommodation at Nayara" className="w-full object-cover" style={{ aspectRatio: "3/4", y: imgY }} loading="lazy" />
+          </div>
+        </SlideFromRight>
+      </div>
+
+      {/* S2: full-bleed horizontal (edge to edge) */}
+      <FadeIn delay={0.3}>
+        <div ref={s2Ref} className="overflow-hidden w-full">
+          <motion.img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full object-cover" style={{ aspectRatio: "16/9", scale: s2Scale }} loading="lazy" />
         </div>
-        <KenBurnsImage src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" aspect="16/9" />
+      </FadeIn>
+
+      <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
         <LineWipe className="mt-12" />
       </div>
     </section>

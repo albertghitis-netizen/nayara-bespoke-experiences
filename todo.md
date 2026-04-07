@@ -1157,3 +1157,7 @@
 - [x] Create TentedCampMach3.tsx — exact duplicate, all transitions light
 - [x] Add routes for all three in App.tsx
 - [x] All dark section backgrounds replaced with warm beige/cream Leo podcast style
+
+## Mach 1 — Full-Bleed Story Images
+- [x] S1 vertical image: full-bleed to the right edge (text stays left, image extends to right edge of viewport)
+- [x] S2 horizontal image: full-bleed on both sides (edge-to-edge, no container padding)
