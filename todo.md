@@ -1048,3 +1048,8 @@
 - [x] Add vertical hero video for Tented Camp mobile view (3:4 full screen)
 - [x] Add new video to Tented Camp gallery (CCD6CF80 video)
 - [x] Add new video to Bocas del Toro gallery
+- [ ] Remove all property-based filtering/sorting across the entire site
+- [ ] Upload and optimize all night sky images and videos to CDN
+- [ ] Create dedicated /nayara-by-night dark-themed gallery page with all night sky content
+- [ ] Add route and navigation entry for Nayara by Night
+- [x] Add new video (D112BFC7) to Tented Camp gallery
