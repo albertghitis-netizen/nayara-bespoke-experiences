@@ -52,7 +52,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 export default function TentedCamp() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#fafafa] via-[#f8f8f6] to-[#fafafa]">
+    <div className="min-h-screen" style={{ backgroundColor: '#e3dfd2' }}>
       <BrandNavigation pageType="property" centerLinkHome />
       <HeroSection />
       <StorySection />
