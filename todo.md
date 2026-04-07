@@ -1113,3 +1113,23 @@
 - [ ] All animations CSS-only or AOS-equivalent (WordPress replicable)
 - [x] Fix gallery: remove extra space below the featured image
 - [x] Add full-width Nayara Resorts video closer after gallery with hotel gallery links + Nayara by Night
+- [ ] Fix broken H2 image on Nayara by Night page
+- [ ] Remove last gallery item from Tented Camp gallery
+- [ ] Remove 6th-from-last gallery item from Tented Camp gallery
+
+## Springs Page Rebuild (New)
+- [x] Keep existing Springs hero video + H1
+- [x] Add Story section using Tented Camp template with Springs s1 (vertical) and s2 (horizontal couple)
+- [x] Use Tented Camp H2 header as placeholder (new copy coming later)
+- [x] Use Tented Camp body text as placeholder (new copy coming later)
+- [x] Add award badges template (placeholder until new badges provided)
+- [x] Add Three Resorts One Rainforest graphic
+- [x] Add rooms section labeled "Private Villas" (instead of "Tents & Suites")
+
+## Alto Atacama Page Rebuild (New)
+- [x] Keep existing Atacama hero video + H1
+- [x] Add Story section using Tented Camp template with Atacama s1 (vertical) and s2 (horizontal)
+- [x] Use Tented Camp H2 header as placeholder (new copy coming later)
+- [x] Use Tented Camp body text as placeholder (new copy coming later)
+- [x] Add award badges template placeholder
+- [x] Add rooms section with slider placeholder (room types TBD)
