@@ -1161,3 +1161,7 @@
 ## Mach 1 — Full-Bleed Story Images
 - [x] S1 vertical image: full-bleed to the right edge (text stays left, image extends to right edge of viewport)
 - [x] S2 horizontal image: full-bleed on both sides (edge-to-edge, no container padding)
+
+## Mach 1 — Story Section Texture Background
+- [x] Upload stucco/plaster texture image to CDN
+- [x] Apply texture as tiled background on Story section (behind text and S1 image)

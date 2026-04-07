@@ -215,7 +215,7 @@ function StorySection() {
   const s2Scale = useTransform(s2Progress, [0, 1], [1.1, 1]);
 
   return (
-    <section id="story" className="py-10 md:py-16">
+    <section id="story" className="py-10 md:py-16" style={{ backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-texture_244a75bf.png)', backgroundSize: '600px auto', backgroundRepeat: 'repeat' }}>
       {/* S1: text left (padded), vertical image full-bleed right */}
       <div className="flex flex-col md:flex-row gap-10 md:gap-0 items-start mb-16">
         <SlideFromLeft className="md:flex-1 px-6 md:pl-10 md:pr-16 lg:pl-[max(2.5rem,calc((100vw-1200px)/2+2.5rem))]">
