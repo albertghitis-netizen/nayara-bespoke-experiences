@@ -144,7 +144,7 @@ function TentedCampAccommodationsSection() {
     {
       id: "residence",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTentClean_a18d7413.png",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/privateresidence3_4c40b8cf.jpg",
     },
   ];
 
