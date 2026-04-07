@@ -40,6 +40,7 @@ import Questions from "./pages/Questions";
 import WebsiteGuide from "./pages/WebsiteGuide";
 import ChatEmbed from "./pages/ChatEmbed";
 import NayaraByNight from "./pages/NayaraByNight";
+import PhotoCollage from "./pages/PhotoCollage";
 import AllDestinations from "./pages/AllDestinations";
 import "./index.css";
 
@@ -97,6 +98,7 @@ function Router() {
         <Route path="/guide" component={WebsiteGuide} />
         <Route path="/chat-embed" component={ChatEmbed} />
         <Route path="/nayara-by-night" component={NayaraByNight} />
+      <Route path="/photo-collage" component={PhotoCollage} />
         <Route path="/ayla" component={AylaOnKrog} />
 
         <Route path="/404" component={NotFound} />

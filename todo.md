@@ -1165,3 +1165,7 @@
 ## Mach 1 — Story Section Texture Background
 - [x] Upload stucco/plaster texture image to CDN
 - [x] Apply texture as tiled background on Story section (behind text and S1 image)
+
+## Gallery — Add 17 New Images
+- [ ] Upload all 17 new images to CDN
+- [ ] Add images to gallery sections across all pages (Mach 1, 2, 3 and other property pages)
