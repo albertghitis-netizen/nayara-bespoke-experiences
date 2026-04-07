@@ -15,6 +15,7 @@ import AwardsAndPress from "./pages/AwardsAndPress";
 import Sustainability from "./pages/Sustainability";
 import Experiences from "./pages/Experiences";
 import Wellness from "./pages/Wellness";
+import TentedWellness from "./pages/TentedWellness";
 import AylaOnKrog from "./pages/AylaOnKrog";
 
 import Story from "./pages/Story";
@@ -74,6 +75,7 @@ function Router() {
         <Route path="/sustainability" component={Sustainability} />
         <Route path="/experiences" component={Experiences} />
         <Route path="/wellness" component={Wellness} />
+        <Route path="/tented-wellness" component={TentedWellness} />
         <Route path="/press">{() => { window.location.replace("/awards"); return null; }}</Route>
         <Route path="/story" component={Story} />
         <Route path="/rooms" component={Rooms} />

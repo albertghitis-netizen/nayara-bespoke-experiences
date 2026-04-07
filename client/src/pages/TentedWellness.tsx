@@ -1,19 +1,16 @@
 /**
- * NAYARA WELLNESS — Brand-Level Pillar Page
- * Nature-based healing across all 6 properties
- * One-axis filter: property selector on treatments
- * Hero → Intro → Wellness Pillars → Treatments Filter → Springs Feature → Property Links → Footer
+ * TENTED CAMP WELLNESS — Wellness Experiences Page
+ * Nature-based healing content for Tented Camp
+ * Intro → Wellness Pillars → Treatments Filter → Springs Feature → Property Links → Footer
  */
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Treatment } from "@/data/properties";
-import { useIsMobile } from "@/hooks/useMobile";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -27,10 +24,6 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
     </motion.div>
   );
 }
-
-const WELLNESS_CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-3_a18e30c2.mp4",
-};
 
 /* ─── Wellness Pillars ─── */
 interface WellnessPillar {
@@ -47,9 +40,9 @@ const wellnessPillars: WellnessPillar[] = [
     id: "hot-springs",
     title: "Volcanic Hot Springs",
     subtitle: "Nayara Springs · Costa Rica",
-    description: "Every villa at Nayara Springs features a private hot springs plunge pool, fed by natural volcanic aquifers heated deep within the Earth. The mineral-rich waters — naturally heated to 38\u201342\u00b0C — have been used for centuries by indigenous communities for their therapeutic properties.",
+    description: "Every villa at Nayara Springs features a private hot springs plunge pool, fed by natural volcanic aquifers heated deep within the Earth. The mineral-rich waters — naturally heated to 38–42°C — have been used for centuries by indigenous communities for their therapeutic properties.",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-plunge-pool_e5f6a7b8.jpg",
-    details: ["Private plunge pool in every villa", "Natural volcanic mineral water", "38\u201342\u00b0C therapeutic temperature", "Adults-only sanctuary"],
+    details: ["Private plunge pool in every villa", "Natural volcanic mineral water", "38–42°C therapeutic temperature", "Adults-only sanctuary"],
   },
   {
     id: "desert-healing",
@@ -93,48 +86,27 @@ const propertyWellnessLinks = [
   { name: "Tented Camp", focus: "Rainforest yoga pavilion and nature immersion", route: "/tented-camp" },
 ];
 
-export default function Wellness() {
+export default function TentedWellness() {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  /* Aggregate treatments with property metadata */
+  const allTreatments = properties.flatMap((p) => {
+    const route = `/${p.id}`;
+    return p.treatments.map((t) => ({ ...t, propertyId: p.id, propertyName: p.shortName, propertyRoute: route }));
+  });
+
+  const filtered = activeFilter === "all" ? allTreatments : allTreatments.filter((t) => t.propertyId === activeFilter);
+
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       <BrandNavigation pageType="brand" />
-      <HeroSection />
+      <IntroSection />
+      <WellnessPillarsSection />
+      <TreatmentsSection activeFilter={activeFilter} onFilterChange={setActiveFilter} treatments={filtered} />
+      <SpringsFeature />
+      <PropertyLinksSection />
       <Footer />
     </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   HERO
-   ═══════════════════════════════════════════════════════════════ */
-function HeroSection() {
-  return (
-    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24 px-6 md:px-10">
-      <div className="absolute inset-0 max-w-[1200px] mx-auto left-0 right-0">
-        <NativeVideo src={WELLNESS_CDN.heroVideo} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-      </div>
-      <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight"
-          style={{ ...heading, fontWeight: 400 }}
-        >
-          Nurtured by Nature
-        </motion.h1>
-        <motion.a
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          href="/wellness-experiences"
-          className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline mt-6"
-          style={{ ...body, fontWeight: 400 }}
-        >
-          Explore More
-        </motion.a>
-      </div>
-    </section>
   );
 }
 
@@ -152,10 +124,10 @@ function IntroSection() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
-              Nayara wellness is not a spa menu \u2014 it is a philosophy. Every property sits within a landscape that has been healing people for centuries: volcanic hot springs that indigenous communities have used for millennia, desert silence that ancient cultures sought for spiritual clarity, rainforest canopies that naturally regulate the nervous system.
+              Nayara wellness is not a spa menu — it is a philosophy. Every property sits within a landscape that has been healing people for centuries: volcanic hot springs that indigenous communities have used for millennia, desert silence that ancient cultures sought for spiritual clarity, rainforest canopies that naturally regulate the nervous system.
             </p>
             <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
-              We do not import wellness trends. We listen to the land. Our treatments, practices, and spaces are designed around the unique healing properties of each destination \u2014 volcanic minerals, desert acoustics, tropical botanicals, Pacific salt air. The landscape does the work; we simply create the conditions.
+              We do not import wellness trends. We listen to the land. Our treatments, practices, and spaces are designed around the unique healing properties of each destination — volcanic minerals, desert acoustics, tropical botanicals, Pacific salt air. The landscape does the work; we simply create the conditions.
             </p>
           </div>
         </FadeIn>
@@ -253,7 +225,7 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
                 <div className="bg-white/60 rounded-xl p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 600 }}>{t.propertyName}</span>
-                    <span className="text-[#3a2a1a]/15">\u00b7</span>
+                    <span className="text-[#3a2a1a]/15">·</span>
                     <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>{t.category}</span>
                   </div>
                   <h3 className="text-[#3a2a1a] text-[16px] mb-1" style={{ ...heading, fontWeight: 500 }}>{t.name}</h3>
@@ -261,7 +233,7 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
                   <p className="text-[#4B4A4A]/55 text-[13px] leading-relaxed mb-3 line-clamp-2" style={body}>{t.description}</p>
                   <div className="flex items-center gap-3 text-[11px] text-[#3a2a1a]/35" style={{ ...body, fontWeight: 500 }}>
                     <span>{t.duration}</span>
-                    <span className="text-[#3a2a1a]/15">\u00b7</span>
+                    <span className="text-[#3a2a1a]/15">·</span>
                     <span>{t.price}</span>
                   </div>
                 </div>

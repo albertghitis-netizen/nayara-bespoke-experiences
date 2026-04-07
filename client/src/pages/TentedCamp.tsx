@@ -234,44 +234,46 @@ function SustainabilitySection() {
 }
 
 function WellnessSection() {
-  const [activeTab, setActiveTab] = useState("spa");
-  const treatments = tentedCamp.treatments || [];
-  const filtered = treatments.filter((t: Treatment) => t.category === activeTab);
   return (
-    <section id="wellness" className={`${sectionPadding} bg-white/30`}>
-      <div className={maxW}>
-        <FadeIn>
-          <SectionLabel>Wellness</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Nurtured by Nature</h2>
-        </FadeIn>
-        {treatments.length > 0 && (
-          <FadeIn delay={0.1}>
-            <div className="flex flex-wrap gap-3 mb-8 md:mb-12">
-              {Array.from(new Set(treatments.map((t: Treatment) => t.category))).map((cat: string) => (
-                <button key={cat} onClick={() => setActiveTab(cat)} className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase transition-all ${activeTab === cat ? "bg-[#3a2a1a] text-white" : "bg-[#3a2a1a]/5 text-[#3a2a1a]/60 hover:bg-[#3a2a1a]/10"}`} style={{ ...body, fontWeight: 500 }}>
-                  {cat}
-                </button>
-              ))}
-            </div>
+    <>
+      {/* Section Label */}
+      <div className={`${sectionPadding} bg-white/30`}>
+        <div className={maxW}>
+          <FadeIn>
+            <SectionLabel>Wellness</SectionLabel>
           </FadeIn>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((treatment: Treatment, i: number) => (
-            <FadeIn key={treatment.id} delay={i * 0.05}>
-              <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 hover:bg-white/80 transition-colors">
-                <h3 className="text-[#3a2a1a] text-[16px] mb-2" style={{ ...heading, fontWeight: 500 }}>{treatment.name}</h3>
-                {treatment.duration && (
-                  <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>
-                    {treatment.duration}{treatment.price ? ` · ${treatment.price}` : ""}
-                  </p>
-                )}
-                <p className="text-[#4B4A4A]/70 text-[13px] leading-relaxed" style={body}>{treatment.description}</p>
-              </div>
-            </FadeIn>
-          ))}
         </div>
       </div>
-    </section>
+
+      {/* Hero Section */}
+      <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24 px-6 md:px-10">
+        <div className="absolute inset-0 max-w-[1200px] mx-auto left-0 right-0">
+          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-3_a18e30c2.mp4" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight"
+            style={{ ...heading, fontWeight: 400 }}
+          >
+            Nurtured by Nature
+          </motion.h1>
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            href="/tented-wellness"
+            className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline mt-6"
+            style={{ ...body, fontWeight: 400 }}
+          >
+            Explore More
+          </motion.a>
+        </div>
+      </section>
+    </>
   );
 }
 
