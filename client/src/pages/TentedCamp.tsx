@@ -173,7 +173,7 @@ function ExperiencesSection() {
 
       {/* Hero Section */}
       <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-end justify-end pb-16 md:pb-24 px-6 md:px-10">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 max-w-[1200px] mx-auto left-0 right-0">
           <NativeVideo src={CDN.experiencesHero} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
