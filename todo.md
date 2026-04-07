@@ -1072,3 +1072,12 @@
 - [ ] Tented Camp: Move sustainability Explore More link to the right under "Light Footprint"
 - [ ] Tented Camp: Remove The Table label and body text above table image, keep podcast/blog as transition, keep bg color
 - [ ] Tented Camp: Style "Life under Canvas" as a blog link card instead of section heading
+- [ ] Tented Camp: Remove visible section labels (keep id anchors for navigation)
+
+## Three Resorts Graphic
+- [x] Design "Three Resorts. One Rainforest." editorial graphic component
+- [x] Add to Tented Camp Story section below award badges
+- [x] Clickable property links (Springs, Gardens) with "You're here" indicator for current property
+- [x] Shared amenities line (Hot Springs, Nature Trails, Restaurants, Mistico)
+- [x] Desktop: full graphic with SVG connecting lines and taglines
+- [x] Mobile: compact text-link version

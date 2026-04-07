@@ -13,6 +13,7 @@ import { properties, type Property, type Excursion, type Treatment } from "@/dat
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
+import ThreeResortsGraphic from "@/components/ThreeResortsGraphic";
 
 const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
 
@@ -34,7 +35,7 @@ const CDN = {
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
-const sectionPadding = "py-16 md:py-24 px-6 md:px-10";
+const sectionPadding = "py-10 md:py-16 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -95,7 +96,6 @@ function StorySection() {
         {/* Story text left + s1 vertical right */}
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
           <FadeIn className="md:flex-1">
-            <SectionLabel>The Property</SectionLabel>
             <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
               Lifted On Stilts Above The Canopy<br />Eye to Eye with Arenal Volcano
             </h2>
@@ -111,6 +111,9 @@ function StorySection() {
                 loading="lazy"
               />
             </div>
+
+            {/* Three Resorts. One Rainforest. */}
+            <ThreeResortsGraphic currentProperty="tented-camp" />
 
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
@@ -191,48 +194,28 @@ function GradientBridge({ type, height = 'h-24 md:h-32' }: { type: keyof typeof 
 function ExperiencesSection() {
   return (
     <>
-      <GradientBridge type="light-to-dark" height="h-16 md:h-24" />
+      <GradientBridge type="light-to-dark" height="h-10 md:h-16" />
 
       {/* Section header + content links on dark background */}
       <div className="py-10 md:py-16 px-0 bg-[#1a1a1a]">
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
-            <p className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Experiences</p>
-            <h2 className="text-white/80 mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Rainforest Adventure</h2>
+            <p className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-6" style={{ ...body, fontWeight: 500 }}>Experiences</p>
           </FadeIn>
 
-          {/* Blog & Podcast Links — more breathing room */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <FadeIn delay={0.2}>
-              <a
-                href="https://blog.nayararesorts.com/pura-vida"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
-              >
-                <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
-                <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida: Why Costa Rica Feels Different</h4>
-                <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
-              </a>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <a
-                href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-4 p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
-              >
-                <div className="shrink-0 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <svg className="w-4 h-4 text-white/60" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                </div>
-                <div>
-                  <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>Podcast</span>
-                  <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Leo Ghitis on Regenerative Luxury — AFAR</h4>
-                  <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Listen →</span>
-                </div>
-              </a>
-            </FadeIn>
-          </div>
+          {/* Blog Link */}
+          <FadeIn delay={0.2}>
+            <a
+              href="https://blog.nayararesorts.com/pura-vida"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+            >
+              <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+              <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida: Why Costa Rica Feels Different</h4>
+              <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+            </a>
+          </FadeIn>
         </div>
       </div>
 
@@ -273,12 +256,9 @@ function ExperiencesSection() {
 function SustainabilitySection() {
   return (
     <>
-    <GradientBridge type="dark-to-light" height="h-16 md:h-24" />
-    <section id="sustainability" className="py-16 md:py-24 px-6 md:px-10">
+    <GradientBridge type="dark-to-light" height="h-10 md:h-16" />
+    <section id="sustainability" className="py-10 md:py-16 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
-        <FadeIn className="mb-12 md:mb-16">
-          <SectionLabel>Sustainability</SectionLabel>
-        </FadeIn>
         {/* Featured Podcast */}
         <FadeIn delay={0.15}>
           <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Reforestation Spotlight</p>
@@ -331,7 +311,7 @@ function SustainabilitySection() {
 function WellnessSection() {
   return (
     <>
-    <GradientBridge type="light-to-dark" height="h-16 md:h-24" />
+    <GradientBridge type="light-to-dark" height="h-10 md:h-16" />
 
       {/* Section header + blog link on dark background */}
       <div className="py-10 md:py-16 px-0 bg-[#1a1a1a]">
@@ -392,16 +372,30 @@ function GastronomySection() {
   const restaurants = Array.isArray(costaRicaDining) ? costaRicaDining : [costaRicaDining];
   return (
     <>
-    <GradientBridge type="dark-to-light" height="h-16 md:h-24" />
-    <section id="gastronomy" className={sectionPadding}>
-      <div className={maxW}>
+    <GradientBridge type="dark-to-light" height="h-10 md:h-16" />
+
+    {/* The Table — blog link + image */}
+    <section id="gastronomy" className="py-10 md:py-16 px-6 md:px-10" style={{ backgroundColor: '#e3dfd2' }}>
+      <div className="max-w-[1200px] mx-auto">
         <FadeIn>
-          <SectionLabel>The Table</SectionLabel>
+          <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-6" style={{ ...body, fontWeight: 500 }}>The Table</p>
+        </FadeIn>
+
+        <FadeIn delay={0.15}>
+          <a
+            href="https://blog.nayararesorts.com/nayara-arenals-adventures-in-flavor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block p-5 rounded-lg border border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:bg-[#3a2a1a]/5 transition-all"
+          >
+            <span className="text-[#3a2a1a]/40 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+            <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nayara Arenal's Adventures in Flavor</h4>
+            <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+          </a>
         </FadeIn>
       </div>
     </section>
 
-    {/* Gastronomy image full-width with overlay */}
     <section className="relative py-0 px-0 mb-0">
       <FadeIn>
         <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atasteofplace_f64f6f71.jpg" alt="A Taste of Place - The Table" className="w-full h-auto" />
@@ -438,7 +432,7 @@ function GastronomySection() {
 function TripAdvisorSection() {
   return (
     <>
-    <GradientBridge type="light-to-brown" height="h-16 md:h-24" />
+    <GradientBridge type="light-to-brown" height="h-10 md:h-16" />
     <section id="tripadvisor" className={`${sectionPadding} bg-[#3a2a1a]`}>
       <div className={`${maxW} text-center`}>
         <FadeIn>
@@ -475,7 +469,7 @@ function TripAdvisorSection() {
         </FadeIn>
       </div>
     </section>
-    <GradientBridge type="brown-to-light" height="h-16 md:h-24" />
+    <GradientBridge type="brown-to-light" height="h-10 md:h-16" />
     </>
   );
 }
@@ -524,7 +518,6 @@ function GettingHereSection() {
     <section id="getting-here" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
-          <SectionLabel>Getting Here</SectionLabel>
           <h2 className="text-[#4B4A4A] mb-3" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Your Journey to Arenal</h2>
           <p className="text-[#4B4A4A]/60 text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={body}>
             Nayara Tented Camp is located in the Arenal Volcano region of Costa Rica, one of the most accessible luxury destinations in Central America.
@@ -586,10 +579,9 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-withGwynethBechunas-R5_15665-byBriceFerreStudio-2_1d0730cf.webp", alt: "Guest enjoying wine at Nayara Springs" },
   ];
   return (
-    <section id="gallery" className="py-16 md:py-24 px-0">
+    <section id="gallery" className="py-10 md:py-16 px-0">
       <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
         <FadeIn>
-          <SectionLabel>Gallery</SectionLabel>
           <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Canvas & Canopy</h2>
         </FadeIn>
          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
