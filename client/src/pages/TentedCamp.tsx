@@ -18,7 +18,7 @@ const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
 
 const CDN = {
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-hero-desktop_90751603.mp4",
-  experiencesHero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-new_df03d599.mp4",
+  experiencesHero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/TentedExperienceVideo_5e344d7d.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG",
   roomTentHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/1_8429fa60.png",
@@ -167,6 +167,7 @@ function ExperiencesSection() {
         <div className={maxW}>
           <FadeIn>
             <SectionLabel>Experiences</SectionLabel>
+            <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Rainforest Adventure</h2>
           </FadeIn>
         </div>
       </div>
