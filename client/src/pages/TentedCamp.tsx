@@ -192,7 +192,7 @@ function ExperiencesSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             href="/tented-experiences"
-            className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer"
+            className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
             style={{ ...body, fontWeight: 400 }}
           >
             Explore More
