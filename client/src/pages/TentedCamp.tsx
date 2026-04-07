@@ -150,7 +150,7 @@ function TentedCampAccommodationsSection() {
 
   return (
     <section id="tented-camp" className="py-0 px-0 bg-white/30 -mx-6 md:-mx-10">
-      <RoomsSlider rooms={roomTypes} />
+      <RoomsSlider rooms={roomTypes} title="" subtitle="" />
     </section>
   );
 }
