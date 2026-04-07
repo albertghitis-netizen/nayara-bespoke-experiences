@@ -1133,3 +1133,27 @@
 - [x] Use Tented Camp body text as placeholder (new copy coming later)
 - [x] Add award badges template placeholder
 - [x] Add rooms section with slider placeholder (room types TBD)
+
+## Springs Full Build-out
+- [ ] Add rooms section using room slide 2 template (single Springs Villa card, no slider)
+- [ ] Add Experiences section (dark bg, experience cards, journal blog links)
+- [ ] Add Beyond Sustainability section (podcast/journal)
+- [ ] Add Wellness section (treatment cards)
+- [ ] Add Gastronomy section (restaurant cards)
+- [ ] Add TripAdvisor review section
+- [ ] Add Getting Here section
+- [ ] Add Nayara Resorts video closer with hotel links
+- [ ] Add Footer
+
+## Tented Camp Duplicates
+- [x] Create TentedCampMach1.tsx (exact duplicate of TentedCamp)
+- [x] Create TentedCampMach2.tsx (exact duplicate of TentedCamp)
+- [x] Create TentedCampMach3.tsx (exact duplicate of TentedCamp)
+- [x] Add routes for all three in App.tsx
+
+## Tented Camp Duplicates (with light transitions)
+- [x] Create TentedCampMach1.tsx — exact duplicate of TentedCamp, all transitions light (Leo Podcast Horizons style)
+- [x] Create TentedCampMach2.tsx — exact duplicate, all transitions light
+- [x] Create TentedCampMach3.tsx — exact duplicate, all transitions light
+- [x] Add routes for all three in App.tsx
+- [x] All dark section backgrounds replaced with warm beige/cream Leo podcast style

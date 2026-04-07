@@ -25,6 +25,9 @@ import TentedCamp from "./pages/TentedCamp";
 import TentedExperiences from "./pages/TentedExperiences";
 import Gardens from "./pages/Gardens";
 import Springs from "./pages/Springs";
+import TentedCampMach1 from "./pages/TentedCampMach1";
+import TentedCampMach2 from "./pages/TentedCampMach2";
+import TentedCampMach3 from "./pages/TentedCampMach3";
 
 
 import Competitors from "./pages/Competitors";
@@ -66,6 +69,9 @@ function Router() {
         <Route path="/tented-experiences" component={TentedExperiences} />
         <Route path="/gardens" component={Gardens} />
         <Route path="/springs" component={Springs} />
+        <Route path="/tented-camp-mach-1" component={TentedCampMach1} />
+        <Route path="/tented-camp-mach-2" component={TentedCampMach2} />
+        <Route path="/tented-camp-mach-3" component={TentedCampMach3} />
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
         <Route path="/journal" component={Journal} />
