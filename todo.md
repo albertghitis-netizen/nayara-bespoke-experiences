@@ -1093,3 +1093,4 @@
 - [x] Add Gallery label back above "Canvas & Canopy" heading in Tented Camp
 - [x] Add Getting Here label above "Your Journey to Arenal" heading in Tented Camp
 - [x] TripAdvisor review: change attribution to "Andrew wrote a review, Apr 2"
+- [x] Add Sustainability label above Reforestation Spotlight heading in Tented Camp

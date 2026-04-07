@@ -261,6 +261,7 @@ function SustainabilitySection() {
       <div className="max-w-[1200px] mx-auto">
         {/* Featured Podcast */}
         <FadeIn delay={0.15}>
+          <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Sustainability</p>
           <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Reforestation Spotlight</p>
           <a
             href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
