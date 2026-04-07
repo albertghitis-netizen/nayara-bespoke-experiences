@@ -1049,7 +1049,7 @@
 - [x] Add new video to Tented Camp gallery (CCD6CF80 video)
 - [x] Add new video to Bocas del Toro gallery
 - [ ] Remove all property-based filtering/sorting across the entire site
-- [ ] Upload and optimize all night sky images and videos to CDN
-- [ ] Create dedicated /nayara-by-night dark-themed gallery page with all night sky content
-- [ ] Add route and navigation entry for Nayara by Night
+- [x] Upload and optimize all night sky images and videos to CDN (15 assets: 13 images + 2 videos)
+- [x] Create dedicated /nayara-by-night dark-themed gallery page with all night sky content
+- [x] Add route and navigation entry for Nayara by Night
 - [x] Add new video (D112BFC7) to Tented Camp gallery

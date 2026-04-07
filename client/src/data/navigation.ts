@@ -70,6 +70,7 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Wellness", route: "/wellness" },
   { label: "The Table", route: "/gastronomy" },
   { label: "Sustainability", route: "/sustainability" },
+  { label: "Nayara by Night", route: "/nayara-by-night" },
   { label: "Press & Awards", route: "/awards" },
   { label: "Nayara Journal", route: "/journal" },
   { label: "All Destinations", route: "/all-destinations" },
