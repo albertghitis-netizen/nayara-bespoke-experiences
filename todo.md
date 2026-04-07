@@ -1174,3 +1174,6 @@
 - [x] Add touch swipe support to rooms slider on TentedCampMach1
 - [x] Add touch swipe support to rooms slider on TentedCampMach2
 - [x] Add touch swipe support to rooms slider on TentedCampMach3
+
+## M1 — Parallax Video Section
+- [x] Add full-screen parallax video section between Experiences and Sustainability on M1

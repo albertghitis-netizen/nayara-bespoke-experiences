@@ -165,6 +165,7 @@ export default function TentedCampMach1() {
       <StorySection />
       <TentedCampAccommodationsSection />
       <ExperiencesSection />
+      <ParallaxVideoSection />
       <SustainabilitySection />
       <WellnessSection />
       <GastronomySection />
@@ -596,6 +597,29 @@ function GallerySection() {
           ))}
         </div>
       </div>
+    </section>
+  );
+}
+
+/* ═══ PARALLAX VIDEO — Full-screen stylistic video with scroll effect ═══ */
+function ParallaxVideoSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+
+  return (
+    <section ref={ref} className="relative w-full h-screen overflow-hidden hidden md:flex items-center justify-center bg-black">
+      <motion.div className="absolute inset-0 w-full h-full" style={{ y: videoY }}>
+        <video
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_b34dfbc9.mp4"
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" />
     </section>
   );
 }
