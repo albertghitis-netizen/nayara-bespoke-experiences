@@ -126,21 +126,7 @@ function HeroSection() {
 function NayaraBrandMark() {
   return (
     <section className="py-16 md:py-24 flex flex-col items-center justify-center">
-      <FadeIn>
-        <div className="flex flex-col items-center gap-4">
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
-            alt="Nayara leaf mandala"
-            className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-80"
-          />
-          <span
-            className="text-[#3a2a1a]/70 text-[13px] md:text-[15px] tracking-[0.4em] uppercase"
-            style={{ fontFamily: "'Montserrat', 'Arial', sans-serif", fontWeight: 600 }}
-          >
-            Nayara
-          </span>
-        </div>
-      </FadeIn>
+      {/* Reserved space for unique element — logo removed */}
     </section>
   );
 }
