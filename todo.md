@@ -1111,3 +1111,5 @@
 - [ ] TripAdvisor: quote typewriter/fade-word effect
 - [ ] Section labels: letter-spacing expand animation on scroll
 - [ ] All animations CSS-only or AOS-equivalent (WordPress replicable)
+- [x] Fix gallery: remove extra space below the featured image
+- [x] Add full-width Nayara Resorts video closer after gallery with hotel gallery links + Nayara by Night

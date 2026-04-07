@@ -171,6 +171,7 @@ export default function TentedCamp() {
       <TripAdvisorSection />
       <GettingHereSection />
       <GallerySection />
+      <NayaraResortsCloser />
       <Footer />
     </div>
   );
@@ -486,6 +487,65 @@ function GettingHereSection() {
 }
 
 /* ═══ GALLERY — Staggered grid reveal + hover zoom ═══ */
+/* ═══ NAYARA RESORTS CLOSER — Full-width video + hotel gallery links ═══ */
+function NayaraResortsCloser() {
+  const resortLinks = [
+    { name: "Alto Atacama", route: "/alto-atacama#gallery" },
+    { name: "Tented Camp", route: "/tented-camp#gallery" },
+    { name: "Springs", route: "/springs#gallery" },
+    { name: "Gardens", route: "/gardens#gallery" },
+    { name: "Hangaroa", route: "/hangaroa#gallery" },
+    { name: "Bocas del Toro", route: "/bocas-del-toro#gallery" },
+  ];
+  return (
+    <section className="relative w-full overflow-hidden">
+      {/* Full-width video */}
+      <div className="relative w-full" style={{ height: "60vh", minHeight: 360 }}>
+        <video
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4"
+          className="w-full h-full object-cover"
+          autoPlay muted loop playsInline
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70" />
+        <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-10 pb-10 md:pb-14">
+          <FadeIn>
+            <h2 className="text-white/90 mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.5vw, 28px)", lineHeight: 1.2 }}>
+              Explore Our Galleries
+            </h2>
+          </FadeIn>
+          <div className="flex flex-wrap gap-3 md:gap-4">
+            {resortLinks.map((r, i) => (
+              <motion.a
+                key={r.name}
+                href={r.route}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="px-5 py-2.5 border border-white/30 text-white/80 text-xs tracking-[0.12em] uppercase hover:bg-white/10 hover:border-white/60 transition-all duration-300 rounded-sm"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                {r.name}
+              </motion.a>
+            ))}
+            <motion.a
+              href="/nayara-by-night"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 + resortLinks.length * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className="px-5 py-2.5 border border-[#c9b99a]/50 text-[#c9b99a] text-xs tracking-[0.12em] uppercase hover:bg-[#c9b99a]/10 hover:border-[#c9b99a] transition-all duration-300 rounded-sm"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Nayara by Night
+            </motion.a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function GallerySection() {
   const images = [
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-gallery-video-new_afba07b0.mp4", alt: "Tented Camp bird watching", type: "video" as const },
@@ -509,14 +569,14 @@ function GallerySection() {
           <SectionLabel>Gallery</SectionLabel>
           <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Canvas & Canopy</h2>
         </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 auto-rows-auto">
           {images.map((img, i) => (
             <ScaleIn key={i} delay={i * 0.06} className={i === 1 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-              <div className="overflow-hidden rounded-lg group">
+              <div className="overflow-hidden rounded-lg group h-full">
                 {(img as any).type === "video" ? (
-                  <video src={img.src} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
+                  <video src={img.src} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style={{ aspectRatio: i === 1 ? undefined : "1/1" }} autoPlay muted loop playsInline />
                 ) : (
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} loading="lazy" />
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style={{ aspectRatio: i === 1 ? undefined : "1/1" }} loading="lazy" />
                 )}
               </div>
             </ScaleIn>
