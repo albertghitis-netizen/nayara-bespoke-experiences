@@ -60,34 +60,7 @@ export default function Footer({ pageType = "brand" }: FooterProps) {
 
   return (
     <footer className="bg-[#3a2a1a] relative overflow-hidden">
-      {/* Leaf + "The World of Nayara" heading */}
-      <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-4 md:pt-6 pb-4 md:pb-6">
-        <div className="flex items-center gap-5">
-          <div className="w-1/3 flex justify-start -ml-4 md:-ml-6">
-            <a href="/" className="hover:opacity-80 transition-opacity">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
-                alt="Nayara leaf"
-                className="h-28 md:h-36 w-auto object-contain opacity-60"
-              />
-            </a>
-          </div>
-          <div className="w-2/3">
-            <h2
-              className="text-white/80"
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontWeight: 400,
-                fontSize: 'clamp(24px, 3.5vw, 36px)',
-                lineHeight: 1.3,
-              }}
-            >
-              The World of Nayara
-            </h2>
-          </div>
-        </div>
-        <div className="h-px bg-white/15 mt-4 md:mt-6" />
-      </div>
+
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-4 pb-10">
         {/* Dynamic columns from navigation config + Contact column */}

@@ -94,9 +94,7 @@ export default function CostaRica() {
       <ArenalHero onInView={() => setActiveSection("hero")} />
       <PropertyIntro />
       <ExploreNayaraSection onInView={() => setActiveSection("explore-nayara")} />
-      <ArenalSpa onInView={() => setActiveSection("spa")} />
       <ExploreArenalSection onInView={() => setActiveSection("explore-arenal")} />
-      <ExploreOurWorld />
       <Footer />
     </div>
   );
