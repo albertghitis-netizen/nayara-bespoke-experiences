@@ -319,7 +319,7 @@ function PropertyIntro() {
         >
           <h1
             className="text-[#4a4a4a] text-4xl md:text-5xl lg:text-6xl mb-5"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 5 }}
           >
             Three Resorts. One Rainforest.
           </h1>
@@ -372,8 +372,8 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2
-            className="text-[#f7f5f0] text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-3"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+            className="text-[#f7f5f0] text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 5 }}
           >
             Explore Nayara
           </h2>
@@ -469,7 +469,7 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2
-            className="text-emerald-950 text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-3"
+            className="text-emerald-950 text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
             Explore Arenal
