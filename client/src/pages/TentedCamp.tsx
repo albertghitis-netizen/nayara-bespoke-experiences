@@ -163,7 +163,7 @@ function ExperiencesSection() {
   return (
     <>
       {/* Section Label */}
-      <div className={`${sectionPadding} bg-white/30`}>
+      <div className="py-8 md:py-12 bg-white/30">
         <div className={maxW}>
           <FadeIn>
             <SectionLabel>Experiences</SectionLabel>
