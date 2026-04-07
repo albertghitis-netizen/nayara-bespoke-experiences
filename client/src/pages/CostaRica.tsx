@@ -286,7 +286,7 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Bespoke Rainforest Experiences
+          Bespoke Arenal Experiences
         </motion.h2>
       </div>
     </section>
