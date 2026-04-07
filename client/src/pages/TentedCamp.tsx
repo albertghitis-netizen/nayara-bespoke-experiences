@@ -358,7 +358,11 @@ function WellnessSection() {
       </div>
       <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">
-          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness_video_fixed_ddeced01.mp4" className="w-full h-full object-cover" />
+          {/* Desktop: video, Mobile: image */}
+          <div className="hidden md:block w-full h-full">
+            <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness_video_fixed_ddeced01.mp4" className="w-full h-full object-cover" />
+          </div>
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(F&B)Ayla1_220f6b3a.webp" alt="Wellness pool" className="md:hidden w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
