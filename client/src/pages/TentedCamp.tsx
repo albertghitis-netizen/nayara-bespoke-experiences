@@ -453,7 +453,7 @@ function TripAdvisorSection() {
             <p className="text-white/80 text-[15px] md:text-[17px] leading-relaxed italic mb-4" style={body}>
               "An extraordinary experience. The tents are beyond luxurious, the staff anticipates every need, and waking up to the sounds of the rainforest with Arenal Volcano in view is something you never forget."
             </p>
-            <cite className="text-[#c9b99a]/60 text-[12px] tracking-[0.08em] not-italic" style={body}>— TripAdvisor Traveler, 2025</cite>
+            <cite className="text-[#c9b99a]/60 text-[12px] tracking-[0.08em] not-italic" style={body}>— Andrew wrote a review, Apr 2</cite>
           </blockquote>
         </FadeIn>
         <FadeIn delay={0.3}>
@@ -518,6 +518,7 @@ function GettingHereSection() {
     <section id="getting-here" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
+          <p className="text-[#4B4A4A]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Getting Here</p>
           <h2 className="text-[#4B4A4A] mb-3" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Your Journey to Arenal</h2>
           <p className="text-[#4B4A4A]/60 text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={body}>
             Nayara Tented Camp is located in the Arenal Volcano region of Costa Rica, one of the most accessible luxury destinations in Central America.
@@ -582,6 +583,7 @@ function GallerySection() {
     <section id="gallery" className="py-10 md:py-16 px-0">
       <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
         <FadeIn>
+          <p className="text-[#4B4A4A]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Gallery</p>
           <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Canvas & Canopy</h2>
         </FadeIn>
          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">

@@ -1090,3 +1090,6 @@
 - [x] Fix/add correct social media links in footer
 - [x] Fix wellness blog title: "Nature-Based Wellness by Colors: Brown, Black, Green & Blue"
 - [x] Footer: remove "All Destinations" link, add individual resorts column back (don't touch nav)
+- [x] Add Gallery label back above "Canvas & Canopy" heading in Tented Camp
+- [x] Add Getting Here label above "Your Journey to Arenal" heading in Tented Camp
+- [x] TripAdvisor review: change attribution to "Andrew wrote a review, Apr 2"
