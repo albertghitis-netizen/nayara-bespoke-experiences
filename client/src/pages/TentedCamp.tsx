@@ -163,8 +163,8 @@ function ExperiencesSection() {
   return (
     <>
       {/* Section Label */}
-      <div className="py-2 md:py-3 px-6 md:px-10 bg-white/30">
-        <div className={maxW}>
+      <div className="py-2 md:py-3 px-0 bg-white/30">
+        <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
             <SectionLabel>Experiences</SectionLabel>
             <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Rainforest Adventure</h2>
@@ -173,12 +173,12 @@ function ExperiencesSection() {
       </div>
 
       {/* Hero Section */}
-      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-end justify-end pb-16 md:pb-24 px-6 md:px-10">
-        <div className="absolute inset-0 max-w-[1200px] mx-auto left-0 right-0">
+      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-end justify-end pb-16 md:pb-24">
+        <div className="absolute inset-0 w-full h-full">
           <NativeVideo src={CDN.experiencesHero} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
-        <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">
+        <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -208,8 +208,8 @@ function ExperiencesSection() {
 
 function SustainabilitySection() {
   return (
-    <section id="sustainability" className={sectionPadding}>
-      <div className={maxW}>
+    <section id="sustainability" className="py-16 md:py-24 px-0">
+      <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
         <FadeIn className="mb-12 md:mb-16">
           <SectionLabel>Sustainability</SectionLabel>
           <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto rounded-lg" />
@@ -238,8 +238,8 @@ function WellnessSection() {
   return (
     <>
       {/* Section Label */}
-      <div className={`${sectionPadding} bg-white/30`}>
-        <div className={maxW}>
+      <div className="py-2 md:py-3 px-0 bg-white/30">
+        <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
             <SectionLabel>Wellness</SectionLabel>
           </FadeIn>
@@ -247,12 +247,12 @@ function WellnessSection() {
       </div>
 
       {/* Hero Section */}
-      <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24 px-6 md:px-10">
-        <div className="absolute inset-0 max-w-[1200px] mx-auto left-0 right-0">
+      <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
+        <div className="absolute inset-0 w-full h-full">
           <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-3_a18e30c2.mp4" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
-        <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">
+        <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -425,7 +425,6 @@ function GettingHereSection() {
 
 function GallerySection() {
   const images = [
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraTent_b4d0601d.jpg", alt: "Nayara Tent with volcano view" },
     { src: CDN.s2, alt: "Rainforest canopy" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp", alt: "Tented villa pool with volcano view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)FamilyTent2_79becb8c.webp", alt: "Luxury tent bedroom interior" },
@@ -449,19 +448,19 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-withGwynethBechunas-R5_15665-byBriceFerreStudio-2_1d0730cf.webp", alt: "Guest enjoying wine at Nayara Springs" },
   ];
   return (
-    <section id="gallery" className={sectionPadding}>
-      <div className={maxW}>
+    <section id="gallery" className="py-16 md:py-24 px-0">
+      <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
         <FadeIn>
           <SectionLabel>Gallery</SectionLabel>
           <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Canvas & Canopy</h2>
         </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
           {images.map((img, i) => (
-            <FadeIn key={i} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
+            <FadeIn key={i} delay={i * 0.08} className={i === 1 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
               {(img as any).type === "video" ? (
-                <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
+                <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
               ) : (
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} loading="lazy" />
               )}
             </FadeIn>
           ))}
