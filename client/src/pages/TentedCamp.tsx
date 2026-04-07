@@ -208,11 +208,11 @@ function ExperiencesSection() {
 
 function SustainabilitySection() {
   return (
-    <section id="sustainability" className="py-16 md:py-24 px-0">
-      <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
+    <>
+    <section id="sustainability" className="py-16 md:py-24 px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto">
         <FadeIn className="mb-12 md:mb-16">
           <SectionLabel>Sustainability</SectionLabel>
-          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto rounded-lg" />
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {[
@@ -227,10 +227,18 @@ function SustainabilitySection() {
                 <p className="text-[#4B4A4A]/70 text-[14px] leading-relaxed" style={body}>{item.desc}</p>
               </div>
             </FadeIn>
-          ))}
+           ))}
         </div>
       </div>
     </section>
+
+    {/* Sustainability image full-width */}
+    <section className="py-0 px-0 mb-16 md:mb-24">
+      <FadeIn>
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto" />
+      </FadeIn>
+    </section>
+    </>
   );
 }
 
