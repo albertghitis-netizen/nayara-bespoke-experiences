@@ -88,7 +88,6 @@ function HeroSection() {
 
 function StorySection() {
   return (
-    <>
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
         {/* Story text left + s1 vertical right */}
@@ -116,16 +115,12 @@ function StorySection() {
           </FadeIn>
         </div>
 
+        {/* s2 landscape below */}
+        <FadeIn delay={0.3}>
+          <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+        </FadeIn>
       </div>
     </section>
-
-    {/* s2 landscape full-width */}
-    <section className="py-0 px-0">
-      <FadeIn delay={0.3}>
-        <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full h-auto object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
-      </FadeIn>
-    </section>
-    </>
   );
 }
 
@@ -154,19 +149,13 @@ function TentedCampAccommodationsSection() {
   ];
 
   return (
-    <>
-    <section id="tented-camp" className="py-2 md:py-3 px-0 bg-white/30">
-      <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
+    <section id="tented-camp" className={`${sectionPadding} bg-white/30`}>
+      <div className={maxW}>
         <FadeIn>
           <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Accommodations" />
         </FadeIn>
       </div>
     </section>
-
-    <section className="py-0 px-0">
-      <RoomsSlider rooms={roomTypes} />
-    </section>
-    </>
   );
 }
 
