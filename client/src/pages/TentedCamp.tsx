@@ -149,8 +149,12 @@ function TentedCampAccommodationsSection() {
   ];
 
   return (
-    <section id="tented-camp" className="py-0 px-0 bg-white/30 -mx-6 md:-mx-10">
-      <RoomsSlider rooms={roomTypes} />
+    <section id="tented-camp" className={`${sectionPadding} bg-white/30`}>
+      <div className={maxW}>
+        <FadeIn>
+          <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Accommodations" />
+        </FadeIn>
+      </div>
     </section>
   );
 }
@@ -169,7 +173,7 @@ function ExperiencesSection() {
       </div>
 
       {/* Hero Section */}
-      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
+      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-end justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">
           <NativeVideo src={CDN.experiencesHero} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
@@ -205,8 +209,31 @@ function ExperiencesSection() {
 function SustainabilitySection() {
   return (
     <>
+    <section id="sustainability" className="py-16 md:py-24 px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto">
+        <FadeIn className="mb-12 md:mb-16">
+          <SectionLabel>Sustainability</SectionLabel>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {[
+            { title: "Minimal Impact Design", desc: "Our canvas villas leave virtually no trace on the rainforest. Elevated structures and natural materials ensure harmony with the environment." },
+            { title: "Rainforest Restoration", desc: "We actively participate in reforestation initiatives, planting native species and protecting critical habitat." },
+            { title: "Water Stewardship", desc: "Rainwater harvesting and natural filtration systems minimize our impact on local water resources." },
+            { title: "Community Connection", desc: "We employ local guides and support indigenous communities through fair wages and cultural exchange programs." },
+          ].map((item, i) => (
+            <FadeIn key={i} delay={i * 0.1}>
+              <div>
+                <h3 className="text-[#3a2a1a] text-[18px] mb-3" style={{ ...heading, fontWeight: 500 }}>{item.title}</h3>
+                <p className="text-[#4B4A4A]/70 text-[14px] leading-relaxed" style={body}>{item.desc}</p>
+              </div>
+            </FadeIn>
+           ))}
+        </div>
+      </div>
+    </section>
+
     {/* Sustainability image full-width */}
-    <section className="py-0 px-0 mb-0">
+    <section className="py-0 px-0 mb-16 md:mb-24">
       <FadeIn>
         <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto" />
       </FadeIn>
@@ -218,6 +245,15 @@ function SustainabilitySection() {
 function WellnessSection() {
   return (
     <>
+      {/* Section Label */}
+      <div className="py-2 md:py-3 px-0 bg-white/30">
+        <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
+          <FadeIn>
+            <SectionLabel>Wellness</SectionLabel>
+          </FadeIn>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">

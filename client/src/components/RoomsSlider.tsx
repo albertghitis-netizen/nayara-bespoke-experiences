@@ -23,19 +23,17 @@ export default function RoomsSlider({ rooms, title = "Life under Canvas", subtit
   return (
     <div className="w-full">
       {/* Header */}
-      {(title || subtitle) && (
-        <div className="mb-8">
-          <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
-            {subtitle}
-          </p>
-          <h3 className="text-[#4B4A4A]" style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-            {title}
-          </h3>
-        </div>
-      )}
+      <div className="mb-8">
+        <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+          {subtitle}
+        </p>
+        <h3 className="text-[#4B4A4A]" style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
+          {title}
+        </h3>
+      </div>
 
       {/* Simple Slider */}
-      <div className="relative w-screen h-[500px] md:h-[600px] overflow-hidden bg-[#e8e8e8] -mx-[calc(50vw-50%)] -my-0">
+      <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-lg bg-[#e8e8e8]">
         {/* Image */}
         <motion.img
           key={`image-${activeSlide}`}
