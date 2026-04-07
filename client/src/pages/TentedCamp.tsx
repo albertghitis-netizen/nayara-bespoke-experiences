@@ -162,6 +162,15 @@ function TentedCampAccommodationsSection() {
 function ExperiencesSection() {
   return (
     <>
+      {/* Section Label */}
+      <div className={`${sectionPadding} bg-white/30`}>
+        <div className={maxW}>
+          <FadeIn>
+            <SectionLabel>Experiences</SectionLabel>
+          </FadeIn>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-end justify-end pb-16 md:pb-24 px-6 md:px-10">
         <div className="absolute inset-0">
@@ -169,15 +178,6 @@ function ExperiencesSection() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white/60 text-[11px] tracking-[0.15em] uppercase mb-4"
-            style={{ ...body, fontWeight: 500 }}
-          >
-            Experiences
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
