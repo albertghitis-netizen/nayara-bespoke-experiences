@@ -283,8 +283,8 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          className="text-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
         >
           Bespoke Arenal Experiences
         </motion.h2>
