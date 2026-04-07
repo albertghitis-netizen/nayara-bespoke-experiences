@@ -289,6 +289,7 @@ function WellnessSection() {
 function GastronomySection() {
   const restaurants = Array.isArray(costaRicaDining) ? costaRicaDining : [costaRicaDining];
   return (
+    <>
     <section id="gastronomy" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
@@ -308,6 +309,14 @@ function GastronomySection() {
         </div>
       </div>
     </section>
+
+    {/* Gastronomy image full-width */}
+    <section className="py-0 px-0 mb-16 md:mb-24">
+      <FadeIn>
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atasteofplace_f64f6f71.jpg" alt="A Taste of Place - Gastronomy" className="w-full h-auto" />
+      </FadeIn>
+    </section>
+    </>
   );
 }
 
