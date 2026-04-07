@@ -88,7 +88,6 @@ function HeroSection() {
 
 function StorySection() {
   return (
-    <>
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
         {/* Story text left + s1 vertical right */}
@@ -116,16 +115,12 @@ function StorySection() {
           </FadeIn>
         </div>
 
+        {/* s2 landscape below */}
+        <FadeIn delay={0.3}>
+          <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+        </FadeIn>
       </div>
     </section>
-
-    {/* s2 landscape full-width */}
-    <section className="py-0 px-0">
-      <FadeIn delay={0.3}>
-        <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
-      </FadeIn>
-    </section>
-    </>
   );
 }
 
