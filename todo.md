@@ -1030,3 +1030,18 @@
 - [ ] Update navigation to reflect combined pages
 - [x] Update Tented Camp story section: H2 "Lifted On Stilts Above The Canopy / Eye to Eye with Arenal Volcano" and new body copy
 - [x] Add Edits_Tented_Vertical video to Tented Camp gallery (second row)
+- [x] Change Leo's podcast label to "Reforestation Spotlight" on /tented-camp
+- [x] Set Rapa Nui warrior image as cover for first podcast on brand-level Podcast page
+- [x] Add Rapa Nui warrior image to Hangaroa gallery
+- [x] Wellness link on Tented Camp → Coming Soon page
+- [x] Sustainability link on Tented Camp → Coming Soon page
+- [x] Experiences link on Tented Camp → /arenal page
+- [x] Add real blog and podcast links to Experiences section on Tented Camp
+- [x] Add "Coming Soon" Explore More link to Gastronomy section on Tented Camp
+- [x] Fix broken Spa pavilion gallery image (403 error) — replaced with working image
+- [x] Remove duplicate gallery images on Tented Camp
+- [x] Re-encode Experiences hero video for proper web playback
+- [x] Re-encode Wellness hero video for proper web playback
+- [x] Re-encode gallery video for proper web playback
+- [x] Document animation specs for WordPress Gutenberg handoff (ANIMATION_SPECS.md)
+- [x] Polish Tented Camp page: spacing, typography, gradient transitions, section flow

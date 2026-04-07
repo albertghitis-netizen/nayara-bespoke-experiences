@@ -18,7 +18,7 @@ const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
 
 const CDN = {
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-hero-desktop_90751603.mp4",
-  experiencesHero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/TentedExperienceVideo_5e344d7d.mp4",
+  experiencesHero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/TentedExperienceVideo_fixed_75e9afca.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG",
   roomTentHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/1_8429fa60.png",
@@ -80,7 +80,6 @@ function HeroSection() {
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center" style={heading}>
           Luxury Tented Camp Immersed in the Rainforest
         </motion.h1>
-
       </div>
     </section>
   );
@@ -91,7 +90,7 @@ function StorySection() {
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
         {/* Story text left + s1 vertical right */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
           <FadeIn className="md:flex-1">
             <SectionLabel>The Property</SectionLabel>
             <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
@@ -126,7 +125,7 @@ function StorySection() {
           </FadeIn>
         </div>
 
-        {/* s2 landscape below */}
+        {/* s2 landscape below — symmetrical spacing */}
         <FadeIn delay={0.3}>
           <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
         </FadeIn>
@@ -189,22 +188,23 @@ function ExperiencesSection() {
   return (
     <>
       <GradientBridge type="light-to-dark" height="h-16 md:h-24" />
-      {/* Section Label */}
-      <div className="py-2 md:py-3 px-0 bg-[#1a1a1a]">
+
+      {/* Section header + content links on dark background */}
+      <div className="py-10 md:py-16 px-0 bg-[#1a1a1a]">
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
             <p className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Experiences</p>
-            <h2 className="text-white/80 mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Rainforest Adventure</h2>
+            <h2 className="text-white/80 mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Rainforest Adventure</h2>
           </FadeIn>
 
-          {/* Blog & Podcast Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 mb-6">
+          {/* Blog & Podcast Links — more breathing room */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <FadeIn delay={0.2}>
               <a
                 href="https://blog.nayararesorts.com/pura-vida"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+                className="group block p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
               >
                 <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
                 <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida: Why Costa Rica Feels Different</h4>
@@ -216,7 +216,7 @@ function ExperiencesSection() {
                 href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-4 p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+                className="group flex items-start gap-4 p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
               >
                 <div className="shrink-0 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                   <svg className="w-4 h-4 text-white/60" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
@@ -232,8 +232,8 @@ function ExperiencesSection() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-end justify-end pb-16 md:pb-24">
+      {/* Hero Section — full-width video */}
+      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">
           <NativeVideo src={CDN.experiencesHero} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
@@ -300,7 +300,7 @@ function SustainabilitySection() {
                 href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-4 p-4 rounded-lg hover:bg-[#3a2a1a]/5 transition-colors -mx-4"
+                className="group flex items-start gap-4 p-5 rounded-lg hover:bg-[#3a2a1a]/5 transition-colors -mx-4"
               >
                 <div className="shrink-0 w-12 h-12 rounded-full bg-[#3a2a1a]/8 flex items-center justify-center group-hover:bg-[#3a2a1a]/15 transition-colors">
                   <svg className="w-5 h-5 text-[#3a2a1a]/50" fill="currentColor" viewBox="0 0 24 24">
@@ -321,7 +321,7 @@ function SustainabilitySection() {
                 href="https://blog.nayararesorts.com/pura-vida"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block p-4 rounded-lg border border-[#3a2a1a]/8 hover:border-[#3a2a1a]/20 hover:bg-[#3a2a1a]/3 transition-all"
+                className="group block p-5 rounded-lg border border-[#3a2a1a]/8 hover:border-[#3a2a1a]/20 hover:bg-[#3a2a1a]/3 transition-all"
               >
                 <span className="text-[#8b6f47]/60 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>Wellness</span>
                 <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida and the Science of Why Costa Rica Feels Different</h4>
@@ -372,24 +372,21 @@ function WellnessSection() {
   return (
     <>
     <GradientBridge type="light-to-dark" height="h-16 md:h-24" />
-      {/* Section Label */}
-      <div className="py-2 md:py-3 px-0 bg-[#1a1a1a]">
+
+      {/* Section header + blog link on dark background */}
+      <div className="py-10 md:py-16 px-0 bg-[#1a1a1a]">
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
             <p className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Wellness</p>
           </FadeIn>
-        </div>
-      </div>
 
-      {/* Featured Blog — Nature by Colors */}
-      <div className="py-8 md:py-12 px-6 md:px-10 bg-[#1a1a1a]">
-        <div className="max-w-[1200px] mx-auto">
-          <FadeIn>
+          {/* Featured Blog — Nature by Colors */}
+          <FadeIn delay={0.15}>
             <a
               href="https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+              className="group block p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
             >
               <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
               <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nature-Based Wellness by Colors: Brown, Black, Green</h4>
@@ -399,10 +396,10 @@ function WellnessSection() {
         </div>
       </div>
 
-      {/* Hero Section */}
+      {/* Hero Section — full-width video */}
       <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">
-          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-3_a18e30c2.mp4" className="w-full h-full object-cover" />
+          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness_video_fixed_ddeced01.mp4" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
@@ -632,10 +629,10 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/39_cf77fa78.webp", alt: "Bedroom with forest view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/38.jTentDetailpg_b2b74566.webp", alt: "Tent interior detail" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Grand(1)_0127cf09.webp", alt: "Grand tent with pool" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Foto_5e7f8a2d.webp", alt: "Spa pavilion" },
+    { src: CDN.s1, alt: "Tented camp aerial view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NewAreaBriceFerre(2)_cf5128c9.webp", alt: "Wellness area with volcano" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Foto_5e7f8a2d.webp", alt: "Spa pavilion with tents" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale_e58f6e3b.mp4", alt: "Tented Camp experience video", type: "video" as const },
+    { src: CDN.roomTentHorizontal, alt: "Nayara Tent exterior" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery_video_fixed_a4c28bfc.mp4", alt: "Tented Camp experience video", type: "video" as const },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/HenrysBar_69b1e477.webp", alt: "Henry's Bar at Nayara Springs" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-Henry'sBar-R5_10617-byBriceFerreStudio_f997587c.webp", alt: "Bartender at Henry's Bar" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-withGwynethBechunas-R5_15665-byBriceFerreStudio-2_1d0730cf.webp", alt: "Guest enjoying wine at Nayara Springs" },
