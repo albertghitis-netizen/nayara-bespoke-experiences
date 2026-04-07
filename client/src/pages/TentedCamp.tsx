@@ -134,17 +134,17 @@ function TentedCampAccommodationsSection() {
     {
       id: "family-tent",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTent_daf4ec0f.png",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTentComposite_13df2877.png",
     },
     {
       id: "grand-tent",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTent_daf4ec0f.png",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTentComposite_13df2877.png",
     },
     {
       id: "residence",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTent_daf4ec0f.png",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTentComposite_13df2877.png",
     },
   ];
 
