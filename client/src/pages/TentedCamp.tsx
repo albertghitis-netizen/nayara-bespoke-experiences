@@ -52,7 +52,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 export default function TentedCamp() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#faf8f5] via-[#f7f5f0] to-[#f7f5f0]">
+    <div className="min-h-screen bg-gradient-to-b from-[#fafafa] via-[#f8f8f6] to-[#fafafa]">
       <BrandNavigation pageType="property" centerLinkHome />
       <HeroSection />
       <StorySection />
@@ -94,10 +94,10 @@ function StorySection() {
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
           <FadeIn className="md:flex-1">
             <SectionLabel>The Property</SectionLabel>
-            <h2 className="text-[#3a2a1a] mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
+            <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
               Lifted On Stilts Above The Canopy<br />Eye to Eye with Arenal Volcano
             </h2>
-            <p className="text-[#5a4a3a]/70 text-[15px] leading-relaxed" style={body}>
+            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
               Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.
             </p>
             {/* Award badges — real logos, transparent */}
@@ -149,7 +149,7 @@ function TentedCampAccommodationsSection() {
   ];
 
   return (
-    <section id="tented-camp" className={`${sectionPadding} bg-[#ece8e1]/30`}>
+    <section id="tented-camp" className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
         <FadeIn>
           <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Accommodations" />
@@ -163,7 +163,7 @@ function ExperiencesSection() {
   return (
     <>
       {/* Section Label */}
-      <div className="py-8 md:py-12 bg-[#ece8e1]/30">
+      <div className={`${sectionPadding} bg-white/30`}>
         <div className={maxW}>
           <FadeIn>
             <SectionLabel>Experiences</SectionLabel>
@@ -211,7 +211,7 @@ function SustainabilitySection() {
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Sustainability</SectionLabel>
-          <h2 className="text-[#3a2a1a] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Beyond Sustainability</h2>
+          <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Beyond Sustainability</h2>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {[
@@ -223,7 +223,7 @@ function SustainabilitySection() {
             <FadeIn key={i} delay={i * 0.1}>
               <div>
                 <h3 className="text-[#3a2a1a] text-[18px] mb-3" style={{ ...heading, fontWeight: 500 }}>{item.title}</h3>
-                <p className="text-[#5a4a3a]/70 text-[14px] leading-relaxed" style={body}>{item.desc}</p>
+                <p className="text-[#4B4A4A]/70 text-[14px] leading-relaxed" style={body}>{item.desc}</p>
               </div>
             </FadeIn>
           ))}
