@@ -18,6 +18,7 @@ const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
 
 const CDN = {
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-hero-desktop_90751603.mp4",
+  experiencesHero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-new_df03d599.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG",
   roomTentHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/1_8429fa60.png",
@@ -159,11 +160,53 @@ function TentedCampAccommodationsSection() {
 }
 
 function ExperiencesSection() {
+  const experiencesRef = useRef<HTMLDivElement>(null);
+  const handleExploreMore = () => {
+    experiencesRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  return (
+    <>
+      {/* Hero Section */}
+      <section id="experiences" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0">
+          <NativeVideo src={CDN.experiencesHero} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight"
+            style={{ ...heading, fontWeight: 400 }}
+          >
+            Bespoke Experiences
+          </motion.h1>
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            onClick={handleExploreMore}
+            className="mt-8 px-8 py-3 bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm transition-all"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            Explore More
+          </motion.button>
+        </div>
+      </section>
+
+      {/* Experiences Cards Section */}
+      <ExperiencesCardsSection ref={experiencesRef} />
+    </>
+  );
+}
+
+function ExperiencesCardsSection({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) {
   const [activeCategory, setActiveCategory] = useState("all");
   const categories = tentedCamp.excursionCategories || [];
   const filtered = activeCategory === "all" ? tentedCamp.excursions : tentedCamp.excursions.filter((e: Excursion) => e.category === activeCategory);
   return (
-    <section id="experiences" className={`${sectionPadding} bg-white/30`}>
+    <section ref={ref} className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Experiences</SectionLabel>
