@@ -213,6 +213,9 @@ function SustainabilitySection() {
           <SectionLabel>Sustainability</SectionLabel>
           <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Beyond Sustainability</h2>
         </FadeIn>
+        <FadeIn delay={0.1} className="mb-12 md:mb-16">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto rounded-lg" />
+        </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {[
             { title: "Minimal Impact Design", desc: "Our canvas villas leave virtually no trace on the rainforest. Elevated structures and natural materials ensure harmony with the environment." },
