@@ -422,7 +422,7 @@ function GettingHereSection() {
 
 function GallerySection() {
   const images = [
-    { src: CDN.s1, alt: "Canvas villa interior" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraTent_b4d0601d.jpg", alt: "Nayara Tent with volcano view" },
     { src: CDN.s2, alt: "Rainforest canopy" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp", alt: "Tented villa pool with volcano view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)FamilyTent2_79becb8c.webp", alt: "Luxury tent bedroom interior" },
