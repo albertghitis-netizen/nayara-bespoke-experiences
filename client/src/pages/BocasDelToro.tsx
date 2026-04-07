@@ -346,6 +346,7 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/86_bcac4579.jpg", alt: "Crystal clear swimming", tall: false },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg", alt: "Bocas del Toro landscape", tall: false },
     { src: CDN.s2, alt: "Caribbean lagoon", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas_gallery_video_0a7e31ab.mp4", alt: "Bocas del Toro tropical scene", tall: true },
     { src: CDN.s4, alt: "Aerial resort view", tall: false },
   ];
   /* Split into 3 columns for Pinterest effect */
