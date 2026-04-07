@@ -139,12 +139,12 @@ function TentedCampAccommodationsSection() {
     {
       id: "grand-tent",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/3_5b1e6fc2.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTent_daf4ec0f.png",
     },
     {
       id: "residence",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4_10771410.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FamilyTent_daf4ec0f.png",
     },
   ];
 
