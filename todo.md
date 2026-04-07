@@ -1046,3 +1046,4 @@
 - [x] Document animation specs for WordPress Gutenberg handoff (ANIMATION_SPECS.md)
 - [x] Polish Tented Camp page: spacing, typography, gradient transitions, section flow
 - [x] Add vertical hero video for Tented Camp mobile view (3:4 full screen)
+- [x] Add new video to Tented Camp gallery (CCD6CF80 video)
