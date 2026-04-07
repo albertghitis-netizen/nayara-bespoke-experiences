@@ -279,15 +279,15 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
 
       {/* Content — centered at bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
-        <motion.h1
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-wide text-center"
+          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Bespoke Experiences
-        </motion.h1>
+          Bespoke Rainforest Experiences
+        </motion.h2>
       </div>
     </section>
   );
