@@ -12,6 +12,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { BOOKING_URLS } from "@/data/booking";
+import BrandNavigation from "@/components/BrandNavigation";
 import {
   ChevronDown,
   Clock,
@@ -90,7 +91,7 @@ export default function CostaRica() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <ArenalNavigation activeSection={activeSection} />
+      <BrandNavigation pageType="content" />
       <ArenalHero onInView={() => setActiveSection("hero")} />
       <PropertyIntro />
       <ExploreNayaraSection onInView={() => setActiveSection("explore-nayara")} />
@@ -316,12 +317,12 @@ function PropertyIntro() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-xl"
         >
-          <h2
+          <h1
             className="text-[#4a4a4a] text-3xl md:text-4xl lg:text-5xl mb-5"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 5 }}
           >
             Three Resorts. One Rainforest.
-          </h2>
+          </h1>
           <p
             className="text-[#7a7a7a] text-base md:text-[17px] leading-relaxed"
             style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400 }}
