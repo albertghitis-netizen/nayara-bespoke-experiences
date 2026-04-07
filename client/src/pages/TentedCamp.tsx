@@ -163,7 +163,7 @@ function ExperiencesSection() {
   return (
     <>
       {/* Section Label */}
-      <div className="py-8 md:py-12 px-6 md:px-10 bg-white/30">
+      <div className="py-4 md:py-6 px-6 md:px-10 bg-white/30">
         <div className={maxW}>
           <FadeIn>
             <SectionLabel>Experiences</SectionLabel>
