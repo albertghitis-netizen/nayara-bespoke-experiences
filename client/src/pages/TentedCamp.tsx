@@ -162,7 +162,7 @@ function TentedCampAccommodationsSection() {
   ];
 
   return (
-    <section id="tented-camp" className={`${sectionPadding} bg-white/30`}>
+    <section id="tented-camp" className={`${sectionPadding}`} style={{ background: 'linear-gradient(180deg, #e3dfd2 0%, #f0ece3 15%, #f5f2eb 50%, #f0ece3 85%, #e3dfd2 100%)' }}>
       <div className={maxW}>
         <FadeIn>
           <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Accommodations" />
