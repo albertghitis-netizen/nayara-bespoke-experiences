@@ -149,12 +149,10 @@ function TentedCampAccommodationsSection() {
   ];
 
   return (
-    <section id="tented-camp" className={`${sectionPadding} bg-white/30`}>
-      <div className={maxW}>
-        <FadeIn>
-          <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Accommodations" />
-        </FadeIn>
-      </div>
+    <section id="tented-camp" className="py-0 px-0 bg-white/30">
+      <FadeIn>
+        <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Accommodations" />
+      </FadeIn>
     </section>
   );
 }
@@ -173,7 +171,7 @@ function ExperiencesSection() {
       </div>
 
       {/* Hero Section */}
-      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-end justify-end pb-16 md:pb-24">
+      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">
           <NativeVideo src={CDN.experiencesHero} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
@@ -210,7 +208,7 @@ function SustainabilitySection() {
   return (
     <>
     {/* Sustainability image full-width */}
-    <section className="py-0 px-0 mb-16 md:mb-24">
+    <section className="py-0 px-0 mb-0">
       <FadeIn>
         <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto" />
       </FadeIn>
