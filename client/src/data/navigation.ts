@@ -36,7 +36,7 @@ export const PROPERTIES = [
 
 export const PILLARS = [
   { label: "Experiences", route: "/experiences" },
-  { label: "Sustainability", route: "/sustainability" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Wellness", route: "/wellness" },
   { label: "The Table", route: "/gastronomy" },
 ] as const;
@@ -48,11 +48,11 @@ export const CONTENT_SECTIONS = [
 
 /* Property page hamburger — sections within THIS property */
 export const PROPERTY_MENU: MenuItem[] = [
-  { label: "Rooms", route: "#tented-camp" },
+  { label: "Tents & Suites", route: "#tented-camp" },
   { label: "Experiences", route: "#experiences" },
   { label: "Wellness", route: "#wellness" },
   { label: "The Table", route: "#gastronomy" },
-  { label: "Sustainability", route: "#sustainability" },
+  { label: "Beyond Sustainability", route: "#sustainability" },
   { label: "Getting Here", route: "#getting-here" },
   { label: "Gallery", route: "#gallery" },
   { label: "Press & Awards", route: "/awards" },
@@ -69,7 +69,7 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Experiences", route: "/experiences" },
   { label: "Wellness", route: "/wellness" },
   { label: "The Table", route: "/gastronomy" },
-  { label: "Sustainability", route: "/sustainability" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Nayara by Night", route: "/nayara-by-night" },
   { label: "Press & Awards", route: "/awards" },
   { label: "Nayara Journal", route: "/journal" },

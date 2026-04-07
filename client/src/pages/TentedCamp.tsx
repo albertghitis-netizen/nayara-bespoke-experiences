@@ -158,7 +158,7 @@ function TentedCampAccommodationsSection() {
     <section id="tented-camp" className={`${sectionPadding}`} style={{ background: 'linear-gradient(180deg, #e3dfd2 0%, #f0ece3 15%, #f5f2eb 50%, #f0ece3 85%, #e3dfd2 100%)' }}>
       <div className={maxW}>
         <FadeIn>
-          <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Accommodations" />
+          <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Tents & Suites" />
         </FadeIn>
         <FadeIn delay={0.3}>
           <div className="mt-10 flex justify-center">
@@ -261,23 +261,17 @@ function SustainabilitySection() {
       <div className="max-w-[1200px] mx-auto">
         {/* Featured Podcast */}
         <FadeIn delay={0.15}>
-          <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Sustainability</p>
-          <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Reforestation Spotlight</p>
+          <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>Beyond Sustainability</p>
           <a
             href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-start gap-4 p-5 rounded-lg hover:bg-[#3a2a1a]/5 transition-colors -mx-4"
+            className="group block p-5 rounded-lg border border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:bg-[#3a2a1a]/5 transition-all"
           >
-            <div className="shrink-0 w-12 h-12 rounded-full bg-[#3a2a1a]/8 flex items-center justify-center group-hover:bg-[#3a2a1a]/15 transition-colors">
-              <svg className="w-5 h-5 text-[#3a2a1a]/50" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-            <div>
-              <h4 className="text-[#3a2a1a] text-[15px] mb-1 group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>View from AFAR: Leo Ghitis on Regenerative Luxury</h4>
-              <p className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>How Nayara Resorts is solving tourism's hidden housing crisis — recorded live at ILTM Cannes</p>
-            </div>
+            <span className="text-[#3a2a1a]/40 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+            <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>View from AFAR: Leo Ghitis on Regenerative Luxury</h4>
+            <p className="text-[#4B4A4A]/60 text-[12px] leading-relaxed mt-2" style={body}>How Nayara Resorts is solving tourism's hidden housing crisis — recorded live at ILTM Cannes</p>
+            <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Listen →</span>
           </a>
         </FadeIn>
       </div>
@@ -390,7 +384,7 @@ function GastronomySection() {
             className="group block p-5 rounded-lg border border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:bg-[#3a2a1a]/5 transition-all"
           >
             <span className="text-[#3a2a1a]/40 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
-            <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nayara Arenal's Adventures in Flavor</h4>
+            <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Rainforest to Table: Arenal Adventures in Flavor</h4>
             <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
           </a>
         </FadeIn>
@@ -556,29 +550,20 @@ function GettingHereSection() {
 
 function GallerySection() {
   const images = [
-    { src: CDN.s2, alt: "Rainforest canopy" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-gallery-video-new_afba07b0.mp4", alt: "Tented Camp bird watching", type: "video" as const },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp", alt: "Tented villa pool with volcano view" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)FamilyTent2_79becb8c.webp", alt: "Luxury tent bedroom interior" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)ArenalPoolCasita9copy_f06e14d7.webp", alt: "Casita deck with plunge pool" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/HenrysBar_69b1e477.webp", alt: "Henry's Bar at Nayara Springs" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/12.Residence_17d767d7.webp", alt: "Residence exterior" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4.Residence5_ba91ac01.webp", alt: "Residence interior" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_f52c15fa.mov", alt: "Residence experience", type: "video" as const },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)Residence3_48e06b8c.webp", alt: "Residence detail" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4O1A1569-Spa-NayaraTentedCampwithLivLawbyBriceFerreStudio-VancouverPortraitAdventureandAthletePhotographer_0e850f3a.webp", alt: "Spa treatment" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4O1A0818-Spa-NayaraTentedCampwithLivLawbyBriceFerreStudio-VancouverPortraitAdventureandAthletePhotographer_d4f39cdb.webp", alt: "Spa wellness" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4O1A1183-Spa-NayaraTentedCampwithLivLawbyBriceFerreStudio-VancouverPortraitAdventureandAthletePhotographer_26499743.webp", alt: "Spa experience" },
+
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG", alt: "Volcano view with tents" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/39_cf77fa78.webp", alt: "Bedroom with forest view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/38.jTentDetailpg_b2b74566.webp", alt: "Tent interior detail" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Grand(1)_0127cf09.webp", alt: "Grand tent with pool" },
     { src: CDN.s1, alt: "Tented camp aerial view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NewAreaBriceFerre(2)_cf5128c9.webp", alt: "Wellness area with volcano" },
-    { src: CDN.roomTentHorizontal, alt: "Nayara Tent exterior" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery_video_fixed_a4c28bfc.mp4", alt: "Tented Camp experience video", type: "video" as const },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented_gallery_new_video_20d4959b.mp4", alt: "Tented Camp rainforest scene", type: "video" as const },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-gallery-video-new_afba07b0.mp4", alt: "Tented Camp nature experience", type: "video" as const },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/HenrysBar_69b1e477.webp", alt: "Henry's Bar at Nayara Springs" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-Henry'sBar-R5_10617-byBriceFerreStudio_f997587c.webp", alt: "Bartender at Henry's Bar" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraSprings-withGwynethBechunas-R5_15665-byBriceFerreStudio-2_1d0730cf.webp", alt: "Guest enjoying wine at Nayara Springs" },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-final-video_b16f0735.mov", alt: "Tented Camp gallery", type: "video" as const },
   ];
   return (
     <section id="gallery" className="py-10 md:py-16 px-0">
