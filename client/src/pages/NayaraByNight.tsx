@@ -118,6 +118,17 @@ function StorySection() {
             <p className="text-white/50 text-[15px] leading-relaxed mt-6" style={body}>
               These are not staged moments. They are the natural gifts of the remote, pristine landscapes where Nayara has chosen to build — places where light pollution is a foreign concept and the cosmos reveals itself in full splendor.
             </p>
+            {/* Blog Link — Of Moon and Stars */}
+            <a
+              href="https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 block p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+            >
+              <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+              <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nayara by Night: Of Moon and Stars</h4>
+              <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+            </a>
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
             <img src={CDN.s1} alt="Desert cactus silhouetted against the Milky Way" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />

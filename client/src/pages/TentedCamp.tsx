@@ -111,17 +111,7 @@ function StorySection() {
                 loading="lazy"
               />
             </div>
-            {/* Featured Blog — Hot Springs */}
-            <a
-              href="https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group mt-8 block p-4 rounded-lg border border-[#3a2a1a]/8 hover:border-[#3a2a1a]/20 hover:bg-[#3a2a1a]/3 transition-all"
-            >
-              <span className="text-[#8b6f47]/60 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
-              <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Private Villas &amp; Hot-Springs Plunge Pools: The History &amp; Science</h4>
-              <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
-            </a>
+
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
             <img src={CDN.s1} alt="Luxury tented accommodation at Nayara" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
@@ -289,60 +279,25 @@ function SustainabilitySection() {
         <FadeIn className="mb-12 md:mb-16">
           <SectionLabel>Sustainability</SectionLabel>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {[
-            { title: "Minimal Impact Design", desc: "Our canvas villas leave virtually no trace on the rainforest. Elevated structures and natural materials ensure harmony with the environment." },
-            { title: "Rainforest Restoration", desc: "We actively participate in reforestation initiatives, planting native species and protecting critical habitat." },
-            { title: "Water Stewardship", desc: "Rainwater harvesting and natural filtration systems minimize our impact on local water resources." },
-            { title: "Community Connection", desc: "We employ local guides and support indigenous communities through fair wages and cultural exchange programs." },
-          ].map((item, i) => (
-            <FadeIn key={i} delay={i * 0.1}>
-              <div>
-                <h3 className="text-[#3a2a1a] text-[18px] mb-3" style={{ ...heading, fontWeight: 500 }}>{item.title}</h3>
-                <p className="text-[#4B4A4A]/70 text-[14px] leading-relaxed" style={body}>{item.desc}</p>
-              </div>
-            </FadeIn>
-           ))}
-        </div>
-        {/* Featured Content — Podcast & Blog Links */}
-        <FadeIn delay={0.5}>
-          <div className="mt-16 md:mt-20 pt-10 border-t border-[#3a2a1a]/10">
-            {/* Featured Podcast */}
-            <div className="mb-10">
-              <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Reforestation Spotlight</p>
-              <a
-                href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-4 p-5 rounded-lg hover:bg-[#3a2a1a]/5 transition-colors -mx-4"
-              >
-                <div className="shrink-0 w-12 h-12 rounded-full bg-[#3a2a1a]/8 flex items-center justify-center group-hover:bg-[#3a2a1a]/15 transition-colors">
-                  <svg className="w-5 h-5 text-[#3a2a1a]/50" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="text-[#3a2a1a] text-[15px] mb-1 group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>View from AFAR: Leo Ghitis on Regenerative Luxury</h4>
-                  <p className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>How Nayara Resorts is solving tourism's hidden housing crisis — recorded live at ILTM Cannes</p>
-                </div>
-              </a>
+        {/* Featured Podcast */}
+        <FadeIn delay={0.15}>
+          <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Reforestation Spotlight</p>
+          <a
+            href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-start gap-4 p-5 rounded-lg hover:bg-[#3a2a1a]/5 transition-colors -mx-4"
+          >
+            <div className="shrink-0 w-12 h-12 rounded-full bg-[#3a2a1a]/8 flex items-center justify-center group-hover:bg-[#3a2a1a]/15 transition-colors">
+              <svg className="w-5 h-5 text-[#3a2a1a]/50" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
             </div>
-
-            {/* Blog Link — Pura Vida */}
             <div>
-              <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>From the Journal</p>
-              <a
-                href="https://blog.nayararesorts.com/pura-vida"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block p-5 rounded-lg border border-[#3a2a1a]/8 hover:border-[#3a2a1a]/20 hover:bg-[#3a2a1a]/3 transition-all"
-              >
-                <span className="text-[#8b6f47]/60 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>Wellness</span>
-                <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida and the Science of Why Costa Rica Feels Different</h4>
-                <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
-              </a>
+              <h4 className="text-[#3a2a1a] text-[15px] mb-1 group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>View from AFAR: Leo Ghitis on Regenerative Luxury</h4>
+              <p className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>How Nayara Resorts is solving tourism's hidden housing crisis — recorded live at ILTM Cannes</p>
             </div>
-          </div>
+          </a>
         </FadeIn>
       </div>
     </section>
@@ -352,28 +307,20 @@ function SustainabilitySection() {
       <FadeIn>
         <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-        <div className="absolute bottom-8 md:bottom-16 left-0 right-0 flex flex-col items-center text-center px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-2xl md:text-3xl lg:text-4xl leading-tight mb-4"
-            style={{ ...heading, fontWeight: 400 }}
-          >
-            Light Footprint. Lasting Impact.
-          </motion.h2>
-          <motion.a
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            href="/tented-camp/sustainability"
-            className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
-            style={{ ...body, fontWeight: 400 }}
-          >
-            Explore More
-          </motion.a>
+        <div className="absolute bottom-8 md:bottom-16 left-0 right-0">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 flex justify-end">
+            <motion.a
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              href="/tented-camp/sustainability"
+              className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
+              style={{ ...body, fontWeight: 400 }}
+            >
+              Explore More
+            </motion.a>
+          </div>
         </div>
       </FadeIn>
     </section>
@@ -450,19 +397,7 @@ function GastronomySection() {
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>The Table</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>A Taste of Place</h2>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {restaurants.map((restaurant: any, i: number) => (
-            <FadeIn key={i} delay={i * 0.1}>
-              <div>
-                <h3 className="text-[#3a2a1a] text-[18px] mb-2" style={{ ...heading, fontWeight: 500 }}>{restaurant.name}</h3>
-                <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>{restaurant.cuisine}</p>
-                <p className="text-[#4B4A4A]/70 text-[14px] leading-relaxed" style={body}>{restaurant.description}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
       </div>
     </section>
 

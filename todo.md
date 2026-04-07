@@ -1064,3 +1064,11 @@
 - [x] Add Explore More links to Tented Camp pillar sections (Rooms, Experiences, Sustainability, Wellness, The Table)
 - [x] Add Explore More links to Tented Camp pillar sections (Rooms → /tented-camp/rooms, Experiences → /tented-experiences, Sustainability → /tented-camp/sustainability, Wellness → /tented-camp/wellness, The Table → /tented-camp/the-table)
 - [x] Tented Camp: Give Rooms slider section an intentional gradient background instead of accidental bg-white/30
+- [x] Tented Camp: Remove "Light Footprint. Lasting Impact." overlay from sustainability image, move Explore More to left
+- [x] Tented Camp: Remove "From the Journal" blog link below award badges in Story section
+- [x] Nayara by Night: Add blog link (nayara-by-night-of-moon-and-stars) somewhere on the page
+- [ ] Tented Camp: Remove four sustainability stat items, raise podcast link in their place
+- [ ] Tented Camp: Remove "Pura Vida" from podcast link text
+- [ ] Tented Camp: Move sustainability Explore More link to the right under "Light Footprint"
+- [ ] Tented Camp: Remove The Table label and body text above table image, keep podcast/blog as transition, keep bg color
+- [ ] Tented Camp: Style "Life under Canvas" as a blog link card instead of section heading
