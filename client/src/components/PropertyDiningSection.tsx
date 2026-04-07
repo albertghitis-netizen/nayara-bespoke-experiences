@@ -42,7 +42,7 @@ export default function PropertyDiningSection({
             className="text-[11px] tracking-[0.3em] uppercase text-[#8b6f47] block mb-4"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Gastronomy
+            The Table
           </span>
           <h2
             className={`text-3xl md:text-4xl lg:text-5xl ${headingColor} mb-6`}

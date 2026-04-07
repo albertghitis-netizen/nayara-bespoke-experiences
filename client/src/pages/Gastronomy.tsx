@@ -1,5 +1,5 @@
 /**
- * NAYARA GASTRONOMY — Brand-Level Pillar Page
+ * NAYARA — THE TABLE — Brand-Level Pillar Page
  * Dining across all 6 properties
  * One-axis filter: property selector
  * Hero → Intro → Filter → Restaurant Cards → CTA → Footer

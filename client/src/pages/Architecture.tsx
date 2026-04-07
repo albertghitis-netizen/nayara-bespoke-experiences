@@ -31,7 +31,7 @@ const SITEMAP = [
       { path: "/experiences", name: "Experiences", desc: "Excursions and adventures across all properties" },
       { path: "/sustainability", name: "Sustainability", desc: "Environmental and community commitments" },
       { path: "/wellness", name: "Wellness", desc: "Spa, hot springs, healing traditions" },
-      { path: "/gastronomy", name: "Gastronomy", desc: "Dining, farm-to-table, Michelin recognition" },
+      { path: "/gastronomy", name: "The Table", desc: "Dining, farm-to-table, Michelin recognition" },
     ],
   },
   {
@@ -76,8 +76,8 @@ const SITEMAP = [
 
 const NAV_STRUCTURE = {
   hamburger: {
-    brand: ["Story", "Experiences", "Wellness", "Gastronomy", "Sustainability", "Awards & Press", "Blog", "Podcast"],
-    property: ["Story", "Rooms", "Gallery", "Experiences", "Wellness", "Gastronomy", "Sustainability", "Awards & Press", "Blog", "Podcast"],
+    brand: ["Story", "Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Podcast"],
+    property: ["Story", "Rooms", "Gallery", "Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Podcast"],
   },
   pills: {
     left: "Hamburger menu",

@@ -18,7 +18,7 @@ const SECTIONS = [
     content: [
       { label: "Total Pages", value: "30+" },
       { label: "Properties", value: "6 (across 3 countries)" },
-      { label: "Brand Pillars", value: "4 (Experiences, Sustainability, Wellness, Gastronomy)" },
+      { label: "Brand Pillars", value: "4 (Experiences, Sustainability, Wellness, The Table)" },
       { label: "Content Hubs", value: "4 (Blog, Podcast, Awards, Press)" },
       { label: "Design System", value: "Playfair Display + DM Sans, warm earth palette" },
       { label: "AI Features", value: "Concierge chatbot, DM simulators (Instagram, Messenger, WhatsApp)" },

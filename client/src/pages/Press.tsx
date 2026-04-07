@@ -56,7 +56,7 @@ const pressClips: PressClip[] = [
 ];
 
 const PROPERTIES = ["All", "Multiple Properties", "Nayara Alto Atacama", "Nayara Bocas del Toro", "Nayara Gardens", "Nayara Hangaroa", "Nayara Springs", "Nayara Tented Camp"];
-const TOPICS = ["All", "Awards", "Experiences", "Sustainability", "Wellness", "Gastronomy"];
+const TOPICS = ["All", "Awards", "Experiences", "Sustainability", "Wellness", "The Table"];
 
 function getYear(date: string): string {
   const match = date.match(/\d{4}/);

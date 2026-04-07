@@ -167,6 +167,17 @@ function TentedCampAccommodationsSection() {
         <FadeIn>
           <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Accommodations" />
         </FadeIn>
+        <FadeIn delay={0.3}>
+          <div className="mt-10 flex justify-center">
+            <a
+              href="/tented-camp/rooms"
+              className="text-[#3a2a1a]/60 hover:text-[#3a2a1a] text-sm tracking-[0.08em] uppercase transition-colors underline"
+              style={{ ...body, fontWeight: 400 }}
+            >
+              Explore More
+            </a>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -255,7 +266,7 @@ function ExperiencesSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            href="/arenal"
+            href="/tented-experiences"
             className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
             style={{ ...body, fontWeight: 400 }}
           >
@@ -357,8 +368,7 @@ function SustainabilitySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            href="#"
-            onClick={(e: React.MouseEvent) => { e.preventDefault(); import('sonner').then(({ toast }) => toast('Coming Soon')); }}
+            href="/tented-camp/sustainability"
             className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
             style={{ ...body, fontWeight: 400 }}
           >
@@ -419,8 +429,7 @@ function WellnessSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            href="#"
-            onClick={(e: React.MouseEvent) => { e.preventDefault(); import('sonner').then(({ toast }) => toast('Coming Soon')); }}
+            href="/tented-camp/wellness"
             className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline mt-6"
             style={{ ...body, fontWeight: 400 }}
           >
@@ -440,7 +449,7 @@ function GastronomySection() {
     <section id="gastronomy" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
-          <SectionLabel>Gastronomy</SectionLabel>
+          <SectionLabel>The Table</SectionLabel>
           <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>A Taste of Place</h2>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -460,7 +469,7 @@ function GastronomySection() {
     {/* Gastronomy image full-width with overlay */}
     <section className="relative py-0 px-0 mb-0">
       <FadeIn>
-        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atasteofplace_f64f6f71.jpg" alt="A Taste of Place - Gastronomy" className="w-full h-auto" />
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atasteofplace_f64f6f71.jpg" alt="A Taste of Place - The Table" className="w-full h-auto" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
         <div className="absolute bottom-8 md:bottom-16 left-0 right-0 flex flex-col items-center text-center px-6">
           <motion.h2
@@ -478,8 +487,7 @@ function GastronomySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            href="#"
-            onClick={(e: React.MouseEvent) => { e.preventDefault(); import('sonner').then(({ toast }) => toast('Coming Soon')); }}
+            href="/tented-camp/the-table"
             className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
             style={{ ...body, fontWeight: 400 }}
           >

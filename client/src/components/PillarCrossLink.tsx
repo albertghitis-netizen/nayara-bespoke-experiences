@@ -15,7 +15,7 @@ const pillarLabels: Record<string, { label: string; route: string }> = {
   experiences: { label: "Explore all Experiences", route: "/experiences" },
   sustainability: { label: "Explore all Sustainability", route: "/sustainability" },
   wellness: { label: "Explore all Wellness", route: "/wellness" },
-  gastronomy: { label: "Explore all Gastronomy", route: "/gastronomy" },
+  gastronomy: { label: "Explore The Table", route: "/gastronomy" },
 };
 
 export default function PillarCrossLink({ pillar, className = "" }: PillarCrossLinkProps) {

@@ -45,7 +45,7 @@ const TOPICAL_CLUSTERS = [
     ],
   },
   {
-    pillar: "Gastronomy",
+    pillar: "The Table",
     topics: [
       "Michelin Key restaurants Costa Rica",
       "Farm to table dining Arenal volcano",

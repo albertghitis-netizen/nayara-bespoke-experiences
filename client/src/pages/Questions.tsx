@@ -18,7 +18,7 @@ interface Item {
 
 const QUESTIONS: Item[] = [
   { title: "Booking Engine Integration", desc: "Which booking engine will handle reservations? Need API details to replace 'Coming Soon' on Reserve dropdown links.", priority: "high", category: "Technical" },
-  { title: "Hangaroa & Bocas Pillar Content", desc: "Experiences, Wellness, Gastronomy, Sustainability sections on Hangaroa and Bocas pages use adapted content. Need property-specific copy and photos.", priority: "high", category: "Content" },
+  { title: "Hangaroa & Bocas Pillar Content", desc: "Experiences, Wellness, The Table, Sustainability sections on Hangaroa and Bocas pages use adapted content. Need property-specific copy and photos.", priority: "high", category: "Content" },
   { title: "Tented Camp & Gardens Gallery Photos", desc: "These galleries have fewer unique images than Springs/Atacama/Bocas. Need additional property-specific photography.", priority: "medium", category: "Content" },
   { title: "Newsletter Integration", desc: "Which email platform (Mailchimp, HubSpot, etc.) for newsletter signup? Need API key and list ID.", priority: "medium", category: "Technical" },
   { title: "Privacy Policy Content", desc: "Legal privacy policy text has been provided but not yet formatted into a page. Need confirmation on final version.", priority: "medium", category: "Legal" },

@@ -1053,3 +1053,12 @@
 - [x] Create dedicated /nayara-by-night dark-themed gallery page with all night sky content
 - [x] Add route and navigation entry for Nayara by Night
 - [x] Add new video (D112BFC7) to Tented Camp gallery
+- [ ] Create Nayara by Night page with hero video, H1 "Nayara by Night", brand nav
+- [ ] Build reusable GalleryExplorer "See Other Galleries" cross-link component
+- [ ] Add GalleryExplorer to all property galleries (TentedCamp, Springs, Gardens, AltoAtacama, Hangaroa, BocasDelToro)
+- [ ] Add GalleryExplorer to Nayara by Night gallery
+- [ ] Register /nayara-by-night route in App.tsx and navigation
+- [ ] Create temporary Photo Bank page with all gallery assets from every property combined
+- [ ] Build press room / media kit prototype page
+- [x] Rename "Gastronomy" to "The Table" everywhere across the site
+- [x] Add Explore More links to Tented Camp pillar sections (Rooms, Experiences, Sustainability, Wellness, The Table)

@@ -260,7 +260,7 @@ function GastronomySection() {
     <section id="gastronomy" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
-          <SectionLabel>Gastronomy</SectionLabel>
+          <SectionLabel>The Table</SectionLabel>
           <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>A Taste of Place</h2>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">

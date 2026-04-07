@@ -48,7 +48,7 @@ const PILLAR_OPTIONS = [
   { id: "wildlife", label: "Wildlife" },
   { id: "culture", label: "Culture" },
   { id: "adventure", label: "Adventure" },
-  { id: "gastronomy", label: "Gastronomy" },
+  { id: "gastronomy", label: "The Table" },
   { id: "family", label: "Family" },
   { id: "awards", label: "Awards" },
   { id: "booking", label: "Booking" },

@@ -605,7 +605,7 @@ const atacamaDining: Restaurant = {
   name: "Alto Atacama Restaurant",
   property: "Nayara Alto Atacama",
   propertySlug: "alto-atacama",
-  tagline: "Desert Gastronomy Under the Clearest Skies on Earth",
+  tagline: "Desert Dining Under the Clearest Skies on Earth",
   description:
     "The restaurant at Nayara Alto Atacama celebrates the flavors of northern Chile and the Atacama region. Using ingredients from the desert oasis — quinoa, local herbs, llama, and fresh produce from the resort's own gardens — the culinary team creates dishes that honor the land. Paired with Chilean wines from the nearby valleys, every meal is a journey through the desert's hidden abundance.",
   cuisine: "Chilean Desert Cuisine",
@@ -689,7 +689,7 @@ export const bocasDiningCollection: PropertyDining = {
 export const atacamaDiningCollection: PropertyDining = {
   propertyName: "Nayara Alto Atacama",
   propertySlug: "alto-atacama",
-  headline: "Desert Gastronomy in the Driest Place on Earth",
+  headline: "Desert Dining in the Driest Place on Earth",
   description:
     "The culinary program at Nayara Alto Atacama draws from the hidden abundance of the Atacama Desert — quinoa, local herbs, llama, and produce from the resort's oasis gardens. Paired with wines from Chile's finest valleys, every meal tells the story of this extraordinary landscape.",
   restaurants: [atacamaDining],
