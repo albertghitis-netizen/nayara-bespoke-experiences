@@ -1,7 +1,8 @@
 /**
- * Photo Collage — All textures and gallery images from all properties
+ * Photo Collage — All textures, videos and gallery images from all properties
  * Numbered labels (1, 2, 3...) in top-left corner for easy reference
  * Left to right, top to bottom
+ * No duplicates rule
  */
 
 export default function PhotoCollage() {
@@ -26,7 +27,13 @@ export default function PhotoCollage() {
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_vKfWcY_17_edac8a6e.png",
   ];
 
-  // Part 2: Gallery images from all properties
+  // Part 2: Vertical videos
+  const verticalVideos = [
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Vertical1_1e2e3b1d.mov",
+    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Vertical3LRcopy_9b567fca.mov",
+  ];
+
+  // Part 3: Gallery images from all properties
   const galleryImages = [
     // Tented Camp
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp",
@@ -40,20 +47,26 @@ export default function PhotoCollage() {
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NewAreaBriceFerre(2)_cf5128c9.webp",
   ];
 
-  const allImages = [...textures, ...galleryImages];
+  const allItems = [...textures, ...verticalVideos, ...galleryImages];
 
   return (
     <div className="w-screen min-h-screen bg-black p-0 m-0">
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-0">
-        {allImages.map((src, i) => (
-          <div key={i} className="relative w-full aspect-square overflow-hidden group">
-            <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
-            {/* Number label in top-left corner */}
-            <div className="absolute top-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-sm font-bold z-10 group-hover:bg-black/90 transition-all">
-              {i + 1}
+        {allItems.map((src, i) => {
+          const isVideo = src.endsWith(".mov") || src.endsWith(".mp4");
+          return (
+            <div key={i} className="relative w-full aspect-square overflow-hidden group">
+              {isVideo ? (
+                <video src={src} className="w-full h-full object-cover" autoPlay muted loop playsInline />
+              ) : (
+                <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+              )}
+              <div className="absolute top-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-sm font-bold z-10 group-hover:bg-black/90 transition-all">
+                {i + 1}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

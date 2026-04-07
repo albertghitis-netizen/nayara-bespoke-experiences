@@ -210,7 +210,7 @@ function StorySection() {
   const imgY = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
 
   return (
-    <section id="story" className={sectionPadding}>
+    <section id="story" className={sectionPadding} style={{ backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pasted_file_B2adpy_5_5961bcac.png)', backgroundRepeat: 'repeat', backgroundSize: 'auto' }}>
       <div className={maxW}>
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
           <SlideFromLeft className="md:flex-1">
@@ -358,7 +358,7 @@ function WellnessSection() {
       </div>
       <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">
-          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness_video_fixed_ddeced01.mp4" className="w-full h-full object-cover" />
+          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/FinalClipsCostaRica_CostaRica-Springs_05126f63.MOV" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">

@@ -15,10 +15,33 @@ interface RoomsSliderProps {
 
 export default function RoomsSlider({ rooms, title = "Life under Canvas", subtitle = "Accommodations" }: RoomsSliderProps) {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const current = rooms[activeSlide];
   const nextSlide = () => setActiveSlide((prev) => (prev + 1) % rooms.length);
   const prevSlide = () => setActiveSlide((prev) => (prev - 1 + rooms.length) % rooms.length);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50; // Swipe left (next)
+    const isRightSwipe = distance < -50; // Swipe right (prev)
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
 
   return (
     <div className="w-full">
@@ -33,7 +56,11 @@ export default function RoomsSlider({ rooms, title = "Life under Canvas", subtit
       </div>
 
       {/* Simple Slider */}
-      <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-lg bg-[#e8e8e8]">
+      <div
+        className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-lg bg-[#e8e8e8] touch-none"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Image */}
         <motion.img
           key={`image-${activeSlide}`}

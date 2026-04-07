@@ -1169,3 +1169,8 @@
 ## Gallery — Add 17 New Images
 - [ ] Upload all 17 new images to CDN
 - [ ] Add images to gallery sections across all pages (Mach 1, 2, 3 and other property pages)
+
+## Mobile Swipe Gestures — Rooms Sliders
+- [x] Add touch swipe support to rooms slider on TentedCampMach1
+- [x] Add touch swipe support to rooms slider on TentedCampMach2
+- [x] Add touch swipe support to rooms slider on TentedCampMach3
