@@ -33,7 +33,7 @@ export default function RoomsSlider({ rooms, title = "Life under Canvas", subtit
       </div>
 
       {/* Simple Slider */}
-      <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-lg bg-[#e8e8e8]">
+      <div className="relative w-screen h-[500px] md:h-[600px] overflow-hidden bg-[#e8e8e8] -mx-6 md:-mx-10">
         {/* Image */}
         <motion.img
           key={`image-${activeSlide}`}
