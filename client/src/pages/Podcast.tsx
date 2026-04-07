@@ -122,7 +122,7 @@ function EpisodesSection({ episodes, activeEpisode, setActiveEpisode }: {
                     className="absolute inset-0 w-full h-full group cursor-pointer"
                   >
                     <img
-                      src={`https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`}
+                      src={ep.coverImage || `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`}
                       alt={ep.title}
                       className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                       loading="lazy"

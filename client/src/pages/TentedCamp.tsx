@@ -109,6 +109,17 @@ function StorySection() {
                 loading="lazy"
               />
             </div>
+            {/* Featured Blog — Hot Springs */}
+            <a
+              href="https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 block p-4 rounded-lg border border-[#3a2a1a]/8 hover:border-[#3a2a1a]/20 hover:bg-[#3a2a1a]/3 transition-all"
+            >
+              <span className="text-[#8b6f47]/60 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+              <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Private Villas &amp; Hot-Springs Plunge Pools: The History &amp; Science</h4>
+              <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+            </a>
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
             <img src={CDN.s1} alt="Luxury tented accommodation at Nayara" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
@@ -159,16 +170,65 @@ function TentedCampAccommodationsSection() {
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   GRADIENT BRIDGES — CSS-only transitions between sections
+   WordPress: recreate as simple <div> blocks with background gradients
+   ═══════════════════════════════════════════════════════════════ */
+const gradientStyles = {
+  'light-to-dark': 'bg-gradient-to-b from-[#e3dfd2] via-[#b8a88a] to-[#1a1a1a]',
+  'dark-to-light': 'bg-gradient-to-b from-[#1a1a1a] via-[#6b5a42] to-[#e3dfd2]',
+  'light-to-brown': 'bg-gradient-to-b from-[#e3dfd2] via-[#8b7355] to-[#3a2a1a]',
+  'brown-to-light': 'bg-gradient-to-b from-[#3a2a1a] via-[#8b7355] to-[#e3dfd2]',
+} as const;
+
+function GradientBridge({ type, height = 'h-24 md:h-32' }: { type: keyof typeof gradientStyles; height?: string }) {
+  return <div className={`${height} w-full ${gradientStyles[type]}`} />;
+}
+
 function ExperiencesSection() {
   return (
     <>
+      <GradientBridge type="light-to-dark" height="h-16 md:h-24" />
       {/* Section Label */}
-      <div className="py-2 md:py-3 px-0 bg-white/30">
+      <div className="py-2 md:py-3 px-0 bg-[#1a1a1a]">
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
-            <SectionLabel>Experiences</SectionLabel>
-            <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Rainforest Adventure</h2>
+            <p className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Experiences</p>
+            <h2 className="text-white/80 mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Rainforest Adventure</h2>
           </FadeIn>
+
+          {/* Blog & Podcast Links */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2 mb-6">
+            <FadeIn delay={0.2}>
+              <a
+                href="https://blog.nayararesorts.com/pura-vida"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+              >
+                <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+                <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida: Why Costa Rica Feels Different</h4>
+                <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+              </a>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <a
+                href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-4 p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+              >
+                <div className="shrink-0 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                  <svg className="w-4 h-4 text-white/60" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                </div>
+                <div>
+                  <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>Podcast</span>
+                  <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Leo Ghitis on Regenerative Luxury — AFAR</h4>
+                  <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Listen →</span>
+                </div>
+              </a>
+            </FadeIn>
+          </div>
         </div>
       </div>
 
@@ -192,7 +252,7 @@ function ExperiencesSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            href="/tented-experiences"
+            href="/arenal"
             className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
             style={{ ...body, fontWeight: 400 }}
           >
@@ -209,6 +269,7 @@ function ExperiencesSection() {
 function SustainabilitySection() {
   return (
     <>
+    <GradientBridge type="dark-to-light" height="h-16 md:h-24" />
     <section id="sustainability" className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         <FadeIn className="mb-12 md:mb-16">
@@ -229,13 +290,78 @@ function SustainabilitySection() {
             </FadeIn>
            ))}
         </div>
+        {/* Featured Content — Podcast & Blog Links */}
+        <FadeIn delay={0.5}>
+          <div className="mt-16 md:mt-20 pt-10 border-t border-[#3a2a1a]/10">
+            {/* Featured Podcast */}
+            <div className="mb-10">
+              <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Reforestation Spotlight</p>
+              <a
+                href="https://open.spotify.com/episode/04hkEw7ARB870St0k9LdS1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-4 p-4 rounded-lg hover:bg-[#3a2a1a]/5 transition-colors -mx-4"
+              >
+                <div className="shrink-0 w-12 h-12 rounded-full bg-[#3a2a1a]/8 flex items-center justify-center group-hover:bg-[#3a2a1a]/15 transition-colors">
+                  <svg className="w-5 h-5 text-[#3a2a1a]/50" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-[#3a2a1a] text-[15px] mb-1 group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>View from AFAR: Leo Ghitis on Regenerative Luxury</h4>
+                  <p className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>How Nayara Resorts is solving tourism's hidden housing crisis — recorded live at ILTM Cannes</p>
+                </div>
+              </a>
+            </div>
+
+            {/* Blog Link — Pura Vida */}
+            <div>
+              <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>From the Journal</p>
+              <a
+                href="https://blog.nayararesorts.com/pura-vida"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block p-4 rounded-lg border border-[#3a2a1a]/8 hover:border-[#3a2a1a]/20 hover:bg-[#3a2a1a]/3 transition-all"
+              >
+                <span className="text-[#8b6f47]/60 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>Wellness</span>
+                <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida and the Science of Why Costa Rica Feels Different</h4>
+                <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+              </a>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
 
-    {/* Sustainability image full-width */}
-    <section className="py-0 px-0 mb-16 md:mb-24">
+    {/* Sustainability image full-width with overlay text */}
+    <section className="relative py-0 px-0 mb-0">
       <FadeIn>
         <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+        <div className="absolute bottom-8 md:bottom-16 left-0 right-0 flex flex-col items-center text-center px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-2xl md:text-3xl lg:text-4xl leading-tight mb-4"
+            style={{ ...heading, fontWeight: 400 }}
+          >
+            Light Footprint. Lasting Impact.
+          </motion.h2>
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            href="#"
+            onClick={(e: React.MouseEvent) => { e.preventDefault(); import('sonner').then(({ toast }) => toast('Coming Soon')); }}
+            className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
+            style={{ ...body, fontWeight: 400 }}
+          >
+            Explore More
+          </motion.a>
+        </div>
       </FadeIn>
     </section>
     </>
@@ -245,11 +371,30 @@ function SustainabilitySection() {
 function WellnessSection() {
   return (
     <>
+    <GradientBridge type="light-to-dark" height="h-16 md:h-24" />
       {/* Section Label */}
-      <div className="py-2 md:py-3 px-0 bg-white/30">
+      <div className="py-2 md:py-3 px-0 bg-[#1a1a1a]">
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
-            <SectionLabel>Wellness</SectionLabel>
+            <p className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Wellness</p>
+          </FadeIn>
+        </div>
+      </div>
+
+      {/* Featured Blog — Nature by Colors */}
+      <div className="py-8 md:py-12 px-6 md:px-10 bg-[#1a1a1a]">
+        <div className="max-w-[1200px] mx-auto">
+          <FadeIn>
+            <a
+              href="https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+            >
+              <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+              <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nature-Based Wellness by Colors: Brown, Black, Green</h4>
+              <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+            </a>
           </FadeIn>
         </div>
       </div>
@@ -274,7 +419,8 @@ function WellnessSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            href="/tented-wellness"
+            href="#"
+            onClick={(e: React.MouseEvent) => { e.preventDefault(); import('sonner').then(({ toast }) => toast('Coming Soon')); }}
             className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline mt-6"
             style={{ ...body, fontWeight: 400 }}
           >
@@ -290,6 +436,7 @@ function GastronomySection() {
   const restaurants = Array.isArray(costaRicaDining) ? costaRicaDining : [costaRicaDining];
   return (
     <>
+    <GradientBridge type="dark-to-light" height="h-16 md:h-24" />
     <section id="gastronomy" className={sectionPadding}>
       <div className={maxW}>
         <FadeIn>
@@ -310,10 +457,35 @@ function GastronomySection() {
       </div>
     </section>
 
-    {/* Gastronomy image full-width */}
-    <section className="py-0 px-0 mb-16 md:mb-24">
+    {/* Gastronomy image full-width with overlay */}
+    <section className="relative py-0 px-0 mb-0">
       <FadeIn>
         <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atasteofplace_f64f6f71.jpg" alt="A Taste of Place - Gastronomy" className="w-full h-auto" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+        <div className="absolute bottom-8 md:bottom-16 left-0 right-0 flex flex-col items-center text-center px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-2xl md:text-3xl lg:text-4xl leading-tight mb-4"
+            style={{ ...heading, fontWeight: 400 }}
+          >
+            A Taste of Place
+          </motion.h2>
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            href="#"
+            onClick={(e: React.MouseEvent) => { e.preventDefault(); import('sonner').then(({ toast }) => toast('Coming Soon')); }}
+            className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
+            style={{ ...body, fontWeight: 400 }}
+          >
+            Explore More
+          </motion.a>
+        </div>
       </FadeIn>
     </section>
     </>
@@ -322,6 +494,8 @@ function GastronomySection() {
 
 function TripAdvisorSection() {
   return (
+    <>
+    <GradientBridge type="light-to-brown" height="h-16 md:h-24" />
     <section id="tripadvisor" className={`${sectionPadding} bg-[#3a2a1a]`}>
       <div className={`${maxW} text-center`}>
         <FadeIn>
@@ -358,6 +532,8 @@ function TripAdvisorSection() {
         </FadeIn>
       </div>
     </section>
+    <GradientBridge type="brown-to-light" height="h-16 md:h-24" />
+    </>
   );
 }
 
