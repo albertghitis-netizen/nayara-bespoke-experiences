@@ -113,7 +113,7 @@ function StorySection() {
             </div>
 
             {/* Three Resorts. One Rainforest. */}
-            <ThreeResortsGraphic currentProperty="tented-camp" />
+            <ThreeResortsGraphic />
 
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
@@ -329,7 +329,7 @@ function WellnessSection() {
               className="group block p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
             >
               <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
-              <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nature-Based Wellness by Colors: Brown, Black, Green</h4>
+              <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nature-Based Wellness by Colors: Brown, Black, Green & Blue</h4>
               <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
             </a>
           </FadeIn>

@@ -95,21 +95,34 @@ export interface FooterColumn {
   links: { label: string; route: string; external?: boolean }[];
 }
 
+/* Footer-specific menu items — same as STANDARD but without "All Destinations" */
+const FOOTER_MENU_ITEMS: MenuItem[] = STANDARD_MENU_ITEMS.filter(
+  (item) => item.label !== "All Destinations"
+);
+
+/* Resorts column for footer */
+const RESORTS_COLUMN: FooterColumn = {
+  title: "Our Resorts",
+  links: PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
+};
+
 export function getFooterColumns(pageType: PageType): FooterColumn[] {
   if (pageType === "property") {
     return [
       {
         title: "Explore",
-        links: STANDARD_MENU_ITEMS,
+        links: FOOTER_MENU_ITEMS,
       },
+      RESORTS_COLUMN,
     ];
   }
 
-  /* Brand + Content pages — same footer (no properties) */
+  /* Brand + Content pages — same footer */
   return [
     {
       title: "Explore",
-      links: STANDARD_MENU_ITEMS,
+      links: FOOTER_MENU_ITEMS,
     },
+    RESORTS_COLUMN,
   ];
 }

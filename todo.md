@@ -1081,3 +1081,12 @@
 - [x] Shared amenities line (Hot Springs, Nature Trails, Restaurants, Mistico)
 - [x] Desktop: full graphic with SVG connecting lines and taglines
 - [x] Mobile: compact text-link version
+- [x] Simplify Three Resorts graphic: keep title + subtitle only, remove nodes/lines/amenities (will come back to it later)
+- [x] Add placeholder rectangle below Three Resorts title/subtitle for future graphic
+
+## Footer Fix
+- [x] Fix broken footer on Tented Camp page
+- [x] Restore Nayara leaf logo in footer
+- [x] Fix/add correct social media links in footer
+- [x] Fix wellness blog title: "Nature-Based Wellness by Colors: Brown, Black, Green & Blue"
+- [x] Footer: remove "All Destinations" link, add individual resorts column back (don't touch nav)
