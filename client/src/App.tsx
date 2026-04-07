@@ -21,6 +21,7 @@ import Story from "./pages/Story";
 import Rooms from "./pages/Rooms";
 import Gastronomy from "./pages/Gastronomy";
 import TentedCamp from "./pages/TentedCamp";
+import TentedExperiences from "./pages/TentedExperiences";
 import Gardens from "./pages/Gardens";
 import Springs from "./pages/Springs";
 
@@ -60,6 +61,7 @@ function Router() {
         <Route path="/alto-atacama" component={AltoAtacama} />
         <Route path="/arenal" component={CostaRica} />
         <Route path="/tented-camp" component={TentedCamp} />
+        <Route path="/tented-experiences" component={TentedExperiences} />
         <Route path="/gardens" component={Gardens} />
         <Route path="/springs" component={Springs} />
         <Route path="/hangaroa" component={Hangaroa} />

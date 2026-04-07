@@ -160,89 +160,50 @@ function TentedCampAccommodationsSection() {
 }
 
 function ExperiencesSection() {
-  const experiencesRef = useRef<HTMLDivElement>(null);
-  const handleExploreMore = () => {
-    experiencesRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
   return (
     <>
       {/* Hero Section */}
-      <section id="experiences" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      <section id="experiences" className="relative h-screen w-full overflow-hidden flex flex-col items-end justify-end pb-16 md:pb-24 px-6 md:px-10">
         <div className="absolute inset-0">
           <NativeVideo src={CDN.experiencesHero} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6">
+        <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-white/60 text-[11px] tracking-[0.15em] uppercase mb-4"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            Experiences
+          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-4xl md:text-5xl lg:text-6xl leading-tight"
+            className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight mb-6"
             style={{ ...heading, fontWeight: 400 }}
           >
             Bespoke Experiences
           </motion.h1>
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
+          <motion.a
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            onClick={handleExploreMore}
-            className="mt-8 px-8 py-3 bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm transition-all"
-            style={{ ...body, fontWeight: 500 }}
+            href="/tented-experiences"
+            className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer"
+            style={{ ...body, fontWeight: 400 }}
           >
             Explore More
-          </motion.button>
+          </motion.a>
         </div>
       </section>
 
-      {/* Experiences Cards Section */}
-      <ExperiencesCardsSection ref={experiencesRef} />
     </>
   );
 }
 
-function ExperiencesCardsSection({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const categories = tentedCamp.excursionCategories || [];
-  const filtered = activeCategory === "all" ? tentedCamp.excursions : tentedCamp.excursions.filter((e: Excursion) => e.category === activeCategory);
-  return (
-    <section ref={ref} className={`${sectionPadding} bg-white/30`}>
-      <div className={maxW}>
-        <FadeIn>
-          <SectionLabel>Experiences</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Rainforest Adventures</h2>
-        </FadeIn>
-        {categories.length > 0 && (
-          <FadeIn delay={0.1}>
-            <div className="flex flex-wrap gap-2 mb-8 md:mb-12">
-              {categories.map((cat: { id: string; label: string }) => (
-                <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase transition-all ${activeCategory === cat.id ? "bg-[#3a2a1a] text-white" : "bg-[#3a2a1a]/5 text-[#3a2a1a]/60 hover:bg-[#3a2a1a]/10"}`} style={{ ...body, fontWeight: 500 }}>
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-          </FadeIn>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((excursion: Excursion, i: number) => (
-            <FadeIn key={excursion.id} delay={i * 0.05}>
-              <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 hover:bg-white/80 transition-colors">
-                <h3 className="text-[#3a2a1a] text-[16px] mb-2" style={{ ...heading, fontWeight: 500 }}>{excursion.name}</h3>
-                {excursion.duration && (
-                  <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>
-                    {excursion.duration}{excursion.price ? ` · ${excursion.price}` : ""}
-                  </p>
-                )}
-                <p className="text-[#4B4A4A]/70 text-[13px] leading-relaxed" style={body}>{excursion.description}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-        <PillarCrossLink pillar="experiences" />
-      </div>
-    </section>
-  );
-}
 
 function SustainabilitySection() {
   return (
