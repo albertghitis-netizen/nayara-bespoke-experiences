@@ -134,7 +134,7 @@ function TentedCampAccommodationsSection() {
     {
       id: "family-tent",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/2_138a4358.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraTent_b4d0601d.jpg",
     },
     {
       id: "grand-tent",
