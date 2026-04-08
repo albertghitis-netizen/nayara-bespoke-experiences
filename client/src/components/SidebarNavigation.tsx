@@ -10,6 +10,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
 import { hotelBookingLinks } from "@/data/booking";
 
+interface Destination {
+  name: string;
+  route: string;
+}
+
 interface SidebarNavigationProps {
   isOpen: boolean;
   onClose: () => void;
@@ -30,25 +35,12 @@ const MENU_ITEMS = [
 ];
 
 const DESTINATIONS = [
-  {
-    region: "COSTA RICA",
-    properties: [
-      { name: "Nayara Gardens", route: "/gardens" },
-      { name: "Nayara Springs", route: "/springs" },
-      { name: "Nayara Tented Camp", route: "/tented-camp" },
-    ],
-  },
-  {
-    region: "CHILE",
-    properties: [
-      { name: "Nayara Alto Atacama", route: "/alto-atacama" },
-      { name: "Nayara Hangaroa", route: "/hangaroa" },
-    ],
-  },
-  {
-    region: "PANAMA",
-    properties: [{ name: "Nayara Bocas del Toro", route: "/bocas-del-toro" }],
-  },
+  { name: "Nayara Gardens", route: "/gardens" },
+  { name: "Nayara Springs", route: "/springs" },
+  { name: "Nayara Tented Camp", route: "/tented-camp" },
+  { name: "Nayara Alto Atacama", route: "/alto-atacama" },
+  { name: "Nayara Hangaroa", route: "/hangaroa" },
+  { name: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
 ];
 
 export default function SidebarNavigation({
@@ -178,25 +170,16 @@ export default function SidebarNavigation({
                 transition={{ duration: 0.3 }}
                 className="w-64 border-r border-[#3a2a1a]/10 overflow-y-auto px-6 py-8"
               >
-                <div className="space-y-8">
-                  {DESTINATIONS.map((region) => (
-                    <div key={region.region}>
-                      <h3 className="text-xs tracking-[0.15em] uppercase text-[#5a4a3a]/60 mb-4" style={{ fontFamily: "var(--font-body)" }}>
-                        {region.region}
-                      </h3>
-                      <div className="space-y-2">
-                        {region.properties.map((prop) => (
-                          <button
-                            key={prop.route}
-                            onClick={() => handleNavigate(prop.route)}
-                            className="block text-left text-sm text-[#3a2a1a] hover:text-[#5a4a3a] transition-colors"
-                            style={{ fontFamily: "var(--font-body)" }}
-                          >
-                            {prop.name}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
+                <div className="space-y-2">
+                  {DESTINATIONS.map((destination) => (
+                    <button
+                      key={destination.route}
+                      onClick={() => handleNavigate(destination.route)}
+                      className="w-full text-left px-3 py-2 text-sm text-[#3a2a1a] hover:bg-[#d4c9b8]/30 rounded transition-colors"
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      {destination.name}
+                    </button>
                   ))}
                 </div>
               </motion.div>
