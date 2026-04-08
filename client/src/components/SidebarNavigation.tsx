@@ -97,7 +97,7 @@ export default function SidebarNavigation({
             className="w-56 border-r border-[#3a2a1a]/10 flex flex-col"
           >
             {/* Top bar */}
-            <div className="border-b border-[#3a2a1a]/10 p-6 flex items-center justify-between">
+            <div className="border-b border-[#3a2a1a]/10 p-6 flex items-center justify-start">
               <button
                 onClick={onClose}
                 className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-[#d4c9b8]/50 transition-colors"
@@ -106,37 +106,6 @@ export default function SidebarNavigation({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-
-              <div ref={reserveRef} className="relative">
-                <button
-                  onClick={() => setReserveOpen(!reserveOpen)}
-                  className="px-3 py-1.5 rounded-full bg-[#ece8e1] border border-[#3a2a1a]/20 text-[#3a2a1a] text-xs font-medium hover:bg-[#d4c9b8]/50 transition-colors"
-                >
-                  Reserve
-                </button>
-
-                <AnimatePresence>
-                  {reserveOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full right-0 mt-2 w-48 bg-white border border-[#3a2a1a]/10 rounded-lg shadow-lg overflow-hidden z-10"
-                    >
-                      {hotelBookingLinks.map((hotel) => (
-                        <button
-                          key={hotel.id}
-                          onClick={() => handleBooking(hotel)}
-                          className="w-full text-left px-3 py-2 text-xs font-body hover:bg-[#f0f0f0] transition-colors border-b border-[#3a2a1a]/5 last:border-b-0"
-                        >
-                          <div className="font-semibold text-[#3a2a1a]">{hotel.label}</div>
-                        </button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
             </div>
 
             {/* Menu items */}
