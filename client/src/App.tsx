@@ -26,11 +26,7 @@ import TentedExperiences from "./pages/TentedExperiences";
 import Gardens from "./pages/Gardens";
 import Springs from "./pages/Springs";
 import SpringsTest from "./pages/SpringsTest";
-import GardensTest from "./pages/GardensTest";
 import TentedCampTest from "./pages/TentedCampTest";
-import AltoAtacamaTest from "./pages/AltoAtacamaTest";
-import HangaroaTest from "./pages/HangaroaTest";
-import BocasTest from "./pages/BocasTest";
 
 
 import Competitors from "./pages/Competitors";
@@ -74,11 +70,7 @@ function Router() {
         <Route path="/gardens" component={Gardens} />
         <Route path="/springs" component={Springs} />
         <Route path="/springs-test" component={SpringsTest} />
-        <Route path="/gardens-test" component={GardensTest} />
         <Route path="/tented-camp-test" component={TentedCampTest} />
-        <Route path="/alto-atacama-test" component={AltoAtacamaTest} />
-        <Route path="/hangaroa-test" component={HangaroaTest} />
-        <Route path="/bocas-test" component={BocasTest} />
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
         <Route path="/journal" component={Journal} />

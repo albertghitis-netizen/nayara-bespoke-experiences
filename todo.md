@@ -1190,3 +1190,10 @@
 - [x] Keep current menu links (no functional changes, visual mockup only)
 - [x] Verify on M3 page
 - [x] Integrate SidebarNavigation into M3 hamburger button (three-column layout with Reserve dropdown, Destinations submenu, image preview)
+- [ ] Replace room card image 1 on SpringsTest with user-provided tented camp exterior photo
+- [x] Fix play button showing on hero videos (NativeVideo component autoplay issue)
+- [x] Remove GardensTest page and /gardens-test route
+- [x] Remove AltoAtacamaTest page and /alto-atacama-test route
+- [x] Remove HangaroaTest page and /hangaroa-test route
+- [x] Remove BocasTest page and /bocas-test route
+- [x] Continue stripping intense animations from SpringsTest (Sustainability, Wellness, Gastronomy, TripAdvisor, GettingHere, Gallery, NayaraResortsCloser)

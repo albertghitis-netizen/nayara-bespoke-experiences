@@ -31,12 +31,12 @@ const MENU_ITEMS = [
 ];
 
 const DESTINATIONS = [
-  { name: "Nayara Gardens", route: "/gardens" },
-  { name: "Nayara Springs", route: "/springs" },
-  { name: "Nayara Tented Camp", route: "/tented-camp" },
-  { name: "Nayara Alto Atacama", route: "/alto-atacama" },
-  { name: "Nayara Hangaroa", route: "/hangaroa" },
-  { name: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
+  { name: "Nayara Tented Camp", route: "/tented-camp", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ChatGPTImageMar18,2026,10_19_06PM_d4e5f3a9.png" },
+  { name: "Nayara Springs", route: "/springs", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/61_53a2d75e.jpg" },
+  { name: "Nayara Gardens", route: "/gardens", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NewAreaBriceFerre(2)_cf5128c9.webp" },
+  { name: "Nayara Alto Atacama", route: "/alto-atacama", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ChatGPTImageMar18,2026,10_19_06PM_d4e5f3a9.png" },
+  { name: "Nayara Bocas del Toro", route: "/bocas-del-toro", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ChatGPTImageMar18,2026,10_19_06PM_d4e5f3a9.png" },
+  { name: "Nayara Hangaroa", route: "/hangaroa", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ChatGPTImageMar18,2026,10_19_06PM_d4e5f3a9.png" },
 ];
 
 const PROPERTY_SECTIONS = [
@@ -221,12 +221,12 @@ export default function SidebarNavigation({
               className="flex-1 hidden md:flex bg-black relative overflow-hidden"
             >
               <motion.img
-                key={previewImage}
+                key={clickedProperty ? `property-${clickedProperty}` : previewImage}
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 1.1, opacity: 0 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                src={previewImage}
+                src={clickedProperty ? (DESTINATIONS.find(d => d.route === clickedProperty)?.image || previewImage) : previewImage}
                 alt="Preview"
                 className="w-full h-full object-cover"
               />
