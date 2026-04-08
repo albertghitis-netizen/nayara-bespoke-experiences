@@ -89,7 +89,6 @@ export default function Home() {
       <OrganizationSchema />
       <BrandNavigation pageType="brand" centerLinkHome />
       <HeroSection />
-      <NayaraBrandMark />
       <BrandStorySection />
       <PropertiesSection />
       <PillarsSection />
@@ -120,28 +119,19 @@ function HeroSection() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   NAYARA BRAND MARK — Leaf + "NAYARA" text between hero and content
-   ═══════════════════════════════════════════════════════════════ */
-function NayaraBrandMark() {
-  return (
-    <section className="py-16 md:py-24 flex flex-col items-center justify-center">
-      {/* Reserved space for unique element — logo removed */}
-    </section>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════════
    BRAND STORY — Two-column intro with link to /story
    ═══════════════════════════════════════════════════════════════ */
 function BrandStorySection() {
   return (
-    <section className={sectionPadding}>
+    <section id="story" className="py-10 md:py-16 px-6 md:px-10">
       <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+        {/* Story text left + s1 vertical right */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
           <FadeIn className="md:flex-1">
             <SectionLabel>The Nayara Story</SectionLabel>
-            <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
+            <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
               Award-Winning Properties Defined by Destination
             </h2>
             <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed mb-4" style={body}>
@@ -164,6 +154,17 @@ function BrandStorySection() {
             />
           </FadeIn>
         </div>
+
+        {/* s2 landscape below — symmetrical spacing */}
+        <FadeIn delay={0.3}>
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG"
+            alt="Volcano view with tented camp at Nayara"
+            className="w-full object-cover rounded-lg"
+            loading="lazy"
+            style={{ aspectRatio: "16/9" }}
+          />
+        </FadeIn>
       </div>
     </section>
   );

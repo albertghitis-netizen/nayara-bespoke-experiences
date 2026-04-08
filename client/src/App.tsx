@@ -38,6 +38,7 @@ import WebsiteGuide from "./pages/WebsiteGuide";
 import ChatEmbed from "./pages/ChatEmbed";
 import NayaraByNight from "./pages/NayaraByNight";
 import AllDestinations from "./pages/AllDestinations";
+import Newsletter from "./pages/Newsletter";
 import "./index.css";
 
 function ScrollToTop() {
@@ -92,6 +93,7 @@ function Router() {
         <Route path="/chat-embed" component={ChatEmbed} />
         <Route path="/nayara-by-night" component={NayaraByNight} />
         <Route path="/ayla" component={AylaOnKrog} />
+        <Route path="/newsletter" component={Newsletter} />
 
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />

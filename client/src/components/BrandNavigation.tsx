@@ -30,7 +30,6 @@ import {
   getBrandMenu,
   getContentMenu,
 } from "@/data/navigation";
-import SidebarNavigation from "@/components/SidebarNavigation";
 
 interface BrandNavigationProps {
   /** Page type determines hamburger menu content */
@@ -47,7 +46,6 @@ export default function BrandNavigation({
   centerLinkHome = false,
 }: BrandNavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [, navigate] = useLocation();
 
@@ -117,12 +115,12 @@ export default function BrandNavigation({
         <div className="pointer-events-auto flex items-center gap-3">
           <div ref={menuRef} className="relative">
             <button
-              onClick={() => { closeAll(); setSidebarOpen(true); }}
+              onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
               className={`${pillClass} w-10 h-10`}
             >
               <div className="flex flex-col gap-1.5">
-                <span className="block w-5 h-px bg-[#3a2a1a]" />
-                <span className="block w-5 h-px bg-[#3a2a1a]" />
+                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
               </div>
             </button>
 
@@ -266,8 +264,6 @@ export default function BrandNavigation({
           </div>
         </div>
       </div>
-      {/* Sidebar Navigation */}
-      <SidebarNavigation isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
     </>
   );
 }

@@ -1094,3 +1094,15 @@
 - [x] Add Getting Here label above "Your Journey to Arenal" heading in Tented Camp
 - [x] TripAdvisor review: change attribution to "Andrew wrote a review, Apr 2"
 - [x] Add Sustainability label above Reforestation Spotlight heading in Tented Camp
+
+## Sidebar Navigation Prototype
+- [ ] Restore SidebarNavigation component from backup (do NOT integrate into BrandNavigation)
+- [ ] Create standalone /nav-prototype page that uses SidebarNavigation in isolation
+- [ ] Ensure no other page imports or references SidebarNavigation
+
+## Tented Camp Transition Palette Fix
+- [ ] Tone down aggressive section transitions on Tented Camp (remove black, gold, overly dramatic colors)
+- [ ] Keep section backgrounds consistent with site's warm beige/green palette
+- [x] Replace ThreeResortsGraphic in Tented Camp Story section with a blog link card styled like the others ("Three Resorts. One Rainforest.")
+- [x] Restructure homepage Story section to match Tented Camp layout (H2+body+link left, S1 vertical right, Bocas S2 landscape below)
+- [x] Create /newsletter page — standalone, no hero/nav/footer, Tented Camp warm palette, newsletter content only

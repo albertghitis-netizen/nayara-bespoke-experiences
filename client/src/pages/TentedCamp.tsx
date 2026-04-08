@@ -13,7 +13,6 @@ import { properties, type Property, type Excursion, type Treatment } from "@/dat
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
-import ThreeResortsGraphic from "@/components/ThreeResortsGraphic";
 
 const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
 
@@ -112,8 +111,16 @@ function StorySection() {
               />
             </div>
 
-            {/* Three Resorts. One Rainforest. */}
-            <ThreeResortsGraphic />
+            {/* Three Resorts. One Rainforest. — blog link */}
+            <a
+              href="/journal"
+              className="group block p-5 mt-8 rounded-lg border border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:bg-[#3a2a1a]/5 transition-all"
+            >
+              <span className="text-[#3a2a1a]/40 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+              <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Three Resorts. One Rainforest.</h4>
+              <p className="text-[#4B4A4A]/60 text-[12px] leading-relaxed mt-2" style={body}>How three distinct properties share a single regenerated ecosystem in Arenal</p>
+              <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+            </a>
 
           </FadeIn>
           <FadeIn delay={0.2} className="md:flex-1">
@@ -135,12 +142,12 @@ function TentedCampAccommodationsSection() {
     {
       id: "tent",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NayaraTent_b4d0601d.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-3_38ac1aa5.jpg",
     },
     {
       id: "family-tent",
       name: "",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/familytent3images_aea131ab.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-4_7834ffc2.jpg",
     },
     {
       id: "grand-tent",
@@ -181,10 +188,10 @@ function TentedCampAccommodationsSection() {
    WordPress: recreate as simple <div> blocks with background gradients
    ═══════════════════════════════════════════════════════════════ */
 const gradientStyles = {
-  'light-to-dark': 'bg-gradient-to-b from-[#e3dfd2] via-[#b8a88a] to-[#1a1a1a]',
-  'dark-to-light': 'bg-gradient-to-b from-[#1a1a1a] via-[#6b5a42] to-[#e3dfd2]',
-  'light-to-brown': 'bg-gradient-to-b from-[#e3dfd2] via-[#8b7355] to-[#3a2a1a]',
-  'brown-to-light': 'bg-gradient-to-b from-[#3a2a1a] via-[#8b7355] to-[#e3dfd2]',
+  'light-to-dark': 'bg-gradient-to-b from-[#e3dfd2] via-[#d8d2c4] to-[#cdc5b4]',
+  'dark-to-light': 'bg-gradient-to-b from-[#cdc5b4] via-[#d8d2c4] to-[#e3dfd2]',
+  'light-to-brown': 'bg-gradient-to-b from-[#e3dfd2] via-[#d8d2c4] to-[#cdc5b4]',
+  'brown-to-light': 'bg-gradient-to-b from-[#cdc5b4] via-[#d8d2c4] to-[#e3dfd2]',
 } as const;
 
 function GradientBridge({ type, height = 'h-24 md:h-32' }: { type: keyof typeof gradientStyles; height?: string }) {
@@ -196,11 +203,11 @@ function ExperiencesSection() {
     <>
       <GradientBridge type="light-to-dark" height="h-10 md:h-16" />
 
-      {/* Section header + content links on dark background */}
-      <div className="py-10 md:py-16 px-0 bg-[#1a1a1a]">
+      {/* Section header + content links */}
+      <div className="py-10 md:py-16 px-0" style={{ backgroundColor: '#e3dfd2' }}>
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
-            <p className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-6" style={{ ...body, fontWeight: 500 }}>Experiences</p>
+            <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-6" style={{ ...body, fontWeight: 500 }}>Experiences</p>
           </FadeIn>
 
           {/* Blog Link */}
@@ -209,11 +216,11 @@ function ExperiencesSection() {
               href="https://blog.nayararesorts.com/pura-vida"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+              className="group block p-5 rounded-lg border border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:bg-[#3a2a1a]/5 transition-all"
             >
-              <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
-              <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida: Why Costa Rica Feels Different</h4>
-              <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+              <span className="text-[#3a2a1a]/40 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+              <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Pura Vida: Why Costa Rica Feels Different</h4>
+              <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
             </a>
           </FadeIn>
         </div>
@@ -308,11 +315,11 @@ function WellnessSection() {
     <>
     <GradientBridge type="light-to-dark" height="h-10 md:h-16" />
 
-      {/* Section header + blog link on dark background */}
-      <div className="py-10 md:py-16 px-0 bg-[#1a1a1a]">
+      {/* Section header + blog link */}
+      <div className="py-10 md:py-16 px-0" style={{ backgroundColor: '#e3dfd2' }}>
         <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
           <FadeIn>
-            <p className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Wellness</p>
+            <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Wellness</p>
           </FadeIn>
 
           {/* Featured Blog — Nature by Colors */}
@@ -321,11 +328,11 @@ function WellnessSection() {
               href="https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-5 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+              className="group block p-5 rounded-lg border border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:bg-[#3a2a1a]/5 transition-all"
             >
-              <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
-              <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nature-Based Wellness by Colors: Brown, Black, Green & Blue</h4>
-              <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+              <span className="text-[#3a2a1a]/40 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+              <h4 className="text-[#3a2a1a] text-[14px] leading-snug group-hover:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nature-Based Wellness by Colors: Brown, Black, Green & Blue</h4>
+              <span className="text-[#3a2a1a]/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#8b6f47]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
             </a>
           </FadeIn>
         </div>
@@ -575,11 +582,17 @@ function GallerySection() {
          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
           {images.map((img, i) => (
             <FadeIn key={i} delay={i * 0.08} className={i === 1 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-              {(img as any).type === "video" ? (
-                <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
-              ) : (
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} loading="lazy" />
-              )}
+              <div className="relative">
+                {/* DEV ONLY: Gallery number overlay — remove before go-live */}
+                <div className="absolute top-2 left-2 z-10 w-8 h-8 rounded-full bg-black/80 flex items-center justify-center">
+                  <span className="text-white text-sm font-bold">{i + 1}</span>
+                </div>
+                {(img as any).type === "video" ? (
+                  <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
+                ) : (
+                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} loading="lazy" />
+                )}
+              </div>
             </FadeIn>
           ))}
         </div>
