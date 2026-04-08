@@ -115,7 +115,7 @@ export default function Home() {
       <BrandStorySection />
       <PropertiesSection />
       <PillarsSection />
-      <AwardsStrip />
+      <WorldOfNayaraSection />
       <Footer />
     </div>
   );
@@ -337,33 +337,140 @@ function PillarsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AWARDS STRIP — Compact brand credibility bar
+   WORLD OF NAYARA — Stacked Editorial Blocks
+   Row 1: Journal (60%) + Awards (40%)
+   Row 2: Nayara by Night (60%) + Press (40%)
    ═══════════════════════════════════════════════════════════════ */
-function AwardsStrip() {
-  const awards = [
-    "3 Michelin Keys \u2014 Nayara Springs",
-    "2 Michelin Keys \u2014 Nayara Gardens",
-    "2 Michelin Keys \u2014 Nayara Tented Camp",
-    "#1 Hotel in the World \u2014 Travel + Leisure",
-    "Cond\u00e9 Nast Traveler Gold List",
+function WorldOfNayaraSection() {
+  const featuredArticle = {
+    title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
+    excerpt: "Nayara Resorts earns seven MICHELIN Keys across three countries \u2014 a testament to exceptional character, service, and sense of place.",
+    image: "https://blog.nayararesorts.com/hubfs/E056D1CD-5240-40E5-8567-21240563F763%203.jpg",
+    url: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
+  };
+
+  const keyAwards = [
+    { stat: "7", label: "Michelin Keys", detail: "Across 3 properties" },
+    { stat: "#1", label: "In the World", detail: "Cond\u00e9 Nast 2020" },
+    { stat: "#13", label: "Resort Brand", detail: "Travel + Leisure 2025" },
+    { stat: "20+", label: "Years", detail: "Of excellence" },
   ];
+
+  const pressHighlights = [
+    { publication: "Travel + Leisure", title: "Nayara Resorts Named Top 15 Hotel Brand in the World", url: "https://www.travelandleisure.com/" },
+    { publication: "Cond\u00e9 Nast Traveler", title: "Nayara Bocas del Toro Named #1 Resort in Central America", url: "https://nayararesorts.com/nayara-bocas-del-toro-named-1-resort-by-conde-nast-traveler/" },
+    { publication: "MICHELIN Guide", title: "Nayara Springs \u2014 Three MICHELIN Keys", url: "https://guide.michelin.com/en/hotels-stays/la-fortuna-de-san-carlos/nayara-springs-121925-11881" },
+    { publication: "The Telegraph", title: "Nayara Alto Atacama Hotel Review", url: "https://www.telegraph.co.uk/travel/destinations/south-america/chile/atacama/san-pedro-de-atacama/hotels/nayara-alto-atacama-hotel/" },
+  ];
+
   return (
-    <section className="py-12 md:py-16 px-6 md:px-10 bg-[#3a2a1a]">
+    <section className={`${sectionPadding} bg-[#f0ece3]`}>
       <div className={maxW}>
         <FadeIn>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-3">
-              {awards.map((award, i) => (
-                <span key={i} className="text-white/50 text-[11px] tracking-[0.1em] uppercase whitespace-nowrap" style={{ ...body, fontWeight: 500 }}>
-                  {award}
-                </span>
-              ))}
-            </div>
-            <Link href="/awards" className="text-white/40 text-[12px] tracking-[0.08em] uppercase hover:text-white/70 transition-colors whitespace-nowrap" style={{ ...body, fontWeight: 500 }}>
-              All Awards &rarr;
-            </Link>
-          </div>
+          <SectionLabel>Beyond the Stay</SectionLabel>
+          <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
+            The World of Nayara
+          </h2>
         </FadeIn>
+
+        {/* Row 1: Journal (60%) + Awards (40%) */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-6 md:mb-8">
+          {/* Journal — large visual card */}
+          <FadeIn className="md:w-[60%]">
+            <Link href="/journal" className="group block relative overflow-hidden rounded-xl aspect-[4/3]">
+              <img
+                src={featuredArticle.image}
+                alt={featuredArticle.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>Nayara Journal</span>
+                <h3 className="text-white text-[18px] md:text-[22px] leading-snug mb-2 group-hover:text-white/90 transition-colors" style={{ ...heading, fontWeight: 400 }}>
+                  {featuredArticle.title}
+                </h3>
+                <p className="text-white/60 text-[13px] leading-relaxed hidden md:block max-w-md" style={body}>
+                  {featuredArticle.excerpt}
+                </p>
+                <span className="text-white/40 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-white/70 transition-colors" style={{ ...body, fontWeight: 500 }}>Read More &rarr;</span>
+              </div>
+            </Link>
+          </FadeIn>
+
+          {/* Awards — compact credibility block */}
+          <FadeIn delay={0.15} className="md:w-[40%]">
+            <div className="bg-[#3a2a1a] rounded-xl p-6 md:p-8 h-full flex flex-col justify-between">
+              <div>
+                <span className="text-[#c9b99a]/50 text-[10px] tracking-[0.2em] uppercase block mb-4" style={{ ...body, fontWeight: 600 }}>Awards & Recognition</span>
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  {keyAwards.map((award, i) => (
+                    <div key={i} className="text-center">
+                      <p className="text-[#c9b99a] text-[28px] md:text-[32px] leading-none" style={heading}>{award.stat}</p>
+                      <p className="text-white/70 text-[12px] tracking-[0.04em] mt-1" style={{ ...body, fontWeight: 500 }}>{award.label}</p>
+                      <p className="text-white/30 text-[10px] tracking-[0.04em] mt-0.5" style={body}>{award.detail}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="w-full h-px bg-white/10 mb-4" />
+                <div className="flex flex-wrap gap-x-6 gap-y-2">
+                  {["3 Keys \u2014 Springs", "2 Keys \u2014 Gardens", "2 Keys \u2014 Tented Camp"].map((key, i) => (
+                    <span key={i} className="text-white/40 text-[10px] tracking-[0.08em] uppercase" style={{ ...body, fontWeight: 500 }}>{key}</span>
+                  ))}
+                </div>
+              </div>
+              <Link href="/awards" className="text-[#c9b99a]/50 text-[11px] tracking-[0.08em] uppercase hover:text-[#c9b99a] transition-colors mt-6 inline-block" style={{ ...body, fontWeight: 500 }}>
+                All Awards &rarr;
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Row 2: Nayara by Night (60%) + Press (40%) */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+          {/* Nayara by Night — atmospheric visual card */}
+          <FadeIn delay={0.1} className="md:w-[60%]">
+            <Link href="/nayara-by-night" className="group block relative overflow-hidden rounded-xl aspect-[4/3]">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
+                alt="Milky Way over Atacama rock arch"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <span className="text-white/40 text-[10px] tracking-[0.2em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>After Dark</span>
+                <h3 className="text-white text-[18px] md:text-[22px] leading-snug mb-2 group-hover:text-white/90 transition-colors" style={{ ...heading, fontWeight: 400 }}>
+                  Nayara by Night
+                </h3>
+                <p className="text-white/60 text-[13px] leading-relaxed hidden md:block max-w-md" style={body}>
+                  Where darkness reveals the universe. Stargazing in the Atacama, bioluminescence in Bocas, and the Milky Way over Rapa Nui\u2019s moai.
+                </p>
+                <span className="text-white/40 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-white/70 transition-colors" style={{ ...body, fontWeight: 500 }}>Explore &rarr;</span>
+              </div>
+            </Link>
+          </FadeIn>
+
+          {/* Press — compact editorial list */}
+          <FadeIn delay={0.25} className="md:w-[40%]">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 md:p-8 h-full flex flex-col justify-between">
+              <div>
+                <span className="text-[#3a2a1a]/35 text-[10px] tracking-[0.2em] uppercase block mb-5" style={{ ...body, fontWeight: 600 }}>In the Press</span>
+                <div className="flex flex-col gap-4">
+                  {pressHighlights.map((clip, i) => (
+                    <a key={i} href={clip.url} target="_blank" rel="noopener noreferrer" className="group/clip block pb-4 border-b border-[#3a2a1a]/8 last:border-0 last:pb-0">
+                      <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.1em] uppercase mb-1" style={{ ...body, fontWeight: 600 }}>{clip.publication}</p>
+                      <p className="text-[#3a2a1a] text-[14px] leading-snug group-hover/clip:text-[#8b6f47] transition-colors" style={{ ...heading, fontWeight: 500 }}>{clip.title}</p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <Link href="/awards" className="text-[#3a2a1a]/40 text-[11px] tracking-[0.08em] uppercase hover:text-[#3a2a1a]/70 transition-colors mt-6 inline-block" style={{ ...body, fontWeight: 500 }}>
+                All Press &rarr;
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );

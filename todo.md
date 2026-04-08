@@ -1138,3 +1138,9 @@
 - [ ] Tented Camp: Remove space between featured image and gallery grid below it
 - [x] Tented Camp: Add Explore More and Reserve buttons to rooms section
 - [x] Tented Camp: Replace wellness video with new uploaded video
+- [ ] Tented Camp: Add all new uploaded images/videos to the gallery section
+- [x] Homepage: Remove awards from footer (replaced with World of Nayara section)
+- [x] Homepage: Add Nayara Journal section below Pillars
+- [x] Homepage: Add Press & Awards section below Pillars
+- [x] Homepage: Build "World of Nayara" stacked editorial blocks below Pillars (Journal + Awards row, By Night + Press row)
+- [x] Homepage: Remove old AwardsStrip component
