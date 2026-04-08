@@ -102,23 +102,6 @@
     @apply bg-background text-foreground;
     font-family: var(--font-body);
   }
-  /* Suppress native video controls / play button overlay on all browsers */
-  video:not([controls]) {
-    &::-webkit-media-controls,
-    &::-webkit-media-controls-enclosure,
-    &::-webkit-media-controls-panel,
-    &::-webkit-media-controls-play-button,
-    &::-webkit-media-controls-start-playback-button,
-    &::-webkit-media-controls-overlay-play-button {
-      display: none !important;
-      -webkit-appearance: none !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-    }
-    &::-moz-range-track {
-      display: none !important;
-    }
-  }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
   }

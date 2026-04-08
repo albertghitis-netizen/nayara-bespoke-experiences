@@ -60,7 +60,7 @@ export default function NativeVideo({
     <>
       <video
         ref={videoRef}
-        className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700 [&::-webkit-media-controls]:hidden [&::-webkit-media-controls-enclosure]:hidden [&::-webkit-media-controls-panel]:hidden`}
+        className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700`}
         autoPlay={autoPlay}
         muted={muted}
         loop={loop}
@@ -68,10 +68,6 @@ export default function NativeVideo({
         poster={poster}
         preload="auto"
         controls={controls}
-        // @ts-ignore — webkit vendor attribute for iOS
-        webkit-playsinline="true"
-        x-webkit-airplay="allow"
-        style={{ pointerEvents: controls ? 'auto' : 'none' }}
         onLoadedData={() => setIsLoaded(true)}
         onError={() => {
           console.error("Video load error:", src);

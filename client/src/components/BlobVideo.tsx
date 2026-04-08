@@ -89,7 +89,6 @@ export default function BlobVideo({
         // Critical mobile attributes
         webkit-playsinline="true"
         x-webkit-airplay="allow"
-        style={{ pointerEvents: controls ? 'auto' : 'none' }}
         onLoadedData={() => setIsLoaded(true)}
         onError={() => {
           console.error("Video load error:", src);
