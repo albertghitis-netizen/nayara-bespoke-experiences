@@ -25,9 +25,12 @@ import TentedCamp from "./pages/TentedCamp";
 import TentedExperiences from "./pages/TentedExperiences";
 import Gardens from "./pages/Gardens";
 import Springs from "./pages/Springs";
-import TentedCampMach1 from "./pages/TentedCampMach1";
-import TentedCampMach2 from "./pages/TentedCampMach2";
-import TentedCampMach3 from "./pages/TentedCampMach3";
+import SpringsTest from "./pages/SpringsTest";
+import GardensTest from "./pages/GardensTest";
+import TentedCampTest from "./pages/TentedCampTest";
+import AltoAtacamaTest from "./pages/AltoAtacamaTest";
+import HangaroaTest from "./pages/HangaroaTest";
+import BocasTest from "./pages/BocasTest";
 
 
 import Competitors from "./pages/Competitors";
@@ -70,9 +73,12 @@ function Router() {
         <Route path="/tented-experiences" component={TentedExperiences} />
         <Route path="/gardens" component={Gardens} />
         <Route path="/springs" component={Springs} />
-        <Route path="/tented-camp-mach-1" component={TentedCampMach1} />
-        <Route path="/tented-camp-mach-2" component={TentedCampMach2} />
-        <Route path="/tented-camp-mach-3" component={TentedCampMach3} />
+        <Route path="/springs-test" component={SpringsTest} />
+        <Route path="/gardens-test" component={GardensTest} />
+        <Route path="/tented-camp-test" component={TentedCampTest} />
+        <Route path="/alto-atacama-test" component={AltoAtacamaTest} />
+        <Route path="/hangaroa-test" component={HangaroaTest} />
+        <Route path="/bocas-test" component={BocasTest} />
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
         <Route path="/journal" component={Journal} />

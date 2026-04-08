@@ -158,7 +158,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
           <button
             onClick={() => window.open(BOOKING_URLS["costa-rica"], "_blank")}
             className="px-5 py-2 text-xs tracking-[0.2em] uppercase font-medium rounded-full transition-all duration-300 hover:scale-105 bg-emerald-800 text-white hover:bg-emerald-700 shadow-lg"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
             Reserve
           </button>
@@ -190,7 +190,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                 <div className="flex items-center justify-between px-6 h-16 border-b border-emerald-900/10">
                   <span
                     className="text-sm tracking-[0.2em] uppercase text-emerald-900/60"
-                    style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                   >
                     Nayara Costa Rica
                   </span>
@@ -207,7 +207,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                   <Link
                     href="/"
                     className="text-sm tracking-[0.15em] uppercase text-emerald-900/70 hover:text-emerald-700 transition-colors"
-                    style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                   >
                     ← All Properties
                   </Link>
@@ -221,7 +221,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                           ? "text-emerald-700 font-semibold"
                           : "text-emerald-900/60 hover:text-emerald-900"
                       }`}
-                      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                     >
                       {item.label}
                     </button>
@@ -233,7 +233,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                   <button
                     onClick={() => { window.open(BOOKING_URLS["costa-rica"], "_blank"); setMenuOpen(false); }}
                     className="w-full py-3 text-xs tracking-[0.2em] uppercase font-medium rounded-full bg-emerald-800 text-white hover:bg-emerald-700 transition-colors"
-                    style={{ fontFamily: "'Montserrat', sans-serif" }}
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                   >
                     Reserve
                   </button>
@@ -283,8 +283,8 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide text-center"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
           Bespoke Arenal Experiences
         </motion.h2>
@@ -318,14 +318,14 @@ function PropertyIntro() {
           className="max-w-xl"
         >
           <h1
-            className="text-[#4a4a4a] text-4xl md:text-5xl lg:text-6xl mb-5"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 5 }}
+            className="text-[#4a4a4a] text-2xl md:text-4xl lg:text-5xl mb-5"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
             Three Resorts. One Rainforest.
           </h1>
           <p
             className="text-[#7a7a7a] text-base md:text-[17px] leading-relaxed"
-            style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 400 }}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
             Across Nayara Gardens, Nayara Springs, and Nayara
             Tented Camp, the rainforest becomes a shared landscape
@@ -372,8 +372,8 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2
-            className="text-[#f7f5f0] text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 5 }}
+            className="text-[#f7f5f0] text-2xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
             Explore Nayara
           </h2>
@@ -469,8 +469,8 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <h2
-            className="text-emerald-950 text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+            className="text-emerald-950 text-2xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
             Explore Arenal
           </h2>
