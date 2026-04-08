@@ -1,66 +1,92 @@
+import { useState } from "react";
 import { useLocation } from "wouter";
+import { motion, AnimatePresence } from "framer-motion";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
+import { BOOKING_URLS } from "@/data/booking";
 
-const destinations = [
+const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
+
+type FilterTag = "Family-Friendly" | "Adults-Only";
+const filterTabs: ("All" | FilterTag)[] = ["All", "Family-Friendly", "Adults-Only"];
+
+const destinations: {
+  id: string;
+  name: string;
+  region: string;
+  image: string;
+  description: string;
+  route: string;
+  bookingId: string;
+  filter: FilterTag;
+}[] = [
   {
     id: "alto-atacama",
-    name: "Alto Atacama",
-    region: "Chile · Atacama Desert",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-17_d0de17d2.JPG",
-    description: "Luxury desert lodge with astronomical experiences and Mars-on-Earth aesthetics.",
+    name: "Nayara Alto Atacama",
+    region: "Atacama Desert, Chile",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
+    description: "Desert Lodge Villas",
     route: "/alto-atacama",
-    badge: "Family Friendly",
+    bookingId: "alto-atacama",
+    filter: "Family-Friendly",
   },
   {
     id: "bocas-del-toro",
-    name: "Bocas del Toro",
-    region: "Panama · Caribbean",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg",
-    description: "Tropical island resort with pristine beaches and vibrant marine life.",
+    name: "Nayara Bocas del Toro",
+    region: "Bocas del Toro, Panama",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
+    description: "Overwater Villas & Rainforest Treehouses",
     route: "/bocas-del-toro",
-    badge: "Adults Only",
+    bookingId: "bocas-del-toro",
+    filter: "Adults-Only",
   },
   {
     id: "gardens",
-    name: "Gardens",
-    region: "Costa Rica · Arenal Volcano National Park",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/5_ac0cb283.jpg",
-    description: "Lush botanical gardens with volcanic views and wellness experiences.",
+    name: "Nayara Gardens",
+    region: "Arenal Volcano, Costa Rica",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
+    description: "Private Rainforest Villas & Casitas",
     route: "/gardens",
-    badge: "Family Friendly",
+    bookingId: "gardens",
+    filter: "Family-Friendly",
   },
   {
     id: "hangaroa",
-    name: "Hangaroa",
-    region: "Chile · Easter Island",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
-    description: "Exclusive lodge on Easter Island with Rapa Nui cultural immersion.",
+    name: "Nayara Hangaroa",
+    region: "Easter Island, Chile",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
+    description: "Oceanfront Villas",
     route: "/hangaroa",
-    badge: "Family Friendly",
+    bookingId: "hangaroa",
+    filter: "Family-Friendly",
   },
   {
     id: "springs",
-    name: "Springs",
-    region: "Costa Rica · Arenal Volcano National Park",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/6_0a37cc95.jpg",
-    description: "Thermal springs resort with spa and nature-based wellness.",
+    name: "Nayara Springs",
+    region: "Arenal Volcano, Costa Rica",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-springs_16fe1ae6.jpg",
+    description: "Private Hot Springs Villas",
     route: "/springs",
-    badge: "Adults Only",
+    bookingId: "springs",
+    filter: "Adults-Only",
   },
   {
     id: "tented-camp",
-    name: "Tented Camp",
-    region: "Costa Rica · Arenal Volcano National Park",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
-    description: "Luxury tented accommodation suspended above the canopy with volcano views.",
+    name: "Nayara Tented Camp",
+    region: "Arenal Volcano, Costa Rica",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-tented_0fd865a2.jpg",
+    description: "Clifftop Tents & Suites",
     route: "/tented-camp",
-    badge: "Family Friendly",
+    bookingId: "tented-camp",
+    filter: "Family-Friendly",
   },
 ];
 
 export default function AllDestinations() {
   const [, navigate] = useLocation();
+  const [activeFilter, setActiveFilter] = useState<"All" | FilterTag>("All");
+  const filtered = activeFilter === "All" ? destinations : destinations.filter((d) => d.filter === activeFilter);
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
@@ -68,95 +94,117 @@ export default function AllDestinations() {
 
       {/* Hero Section */}
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 px-6 md:px-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1200px] mx-auto">
           <h1
             className="text-4xl md:text-5xl lg:text-6xl mb-4 text-[#3a2a1a]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+            style={heading}
           >
             All Destinations
           </h1>
           <p
-            className="text-lg md:text-xl text-[#5a4a3a] max-w-2xl"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            className="text-[15px] text-[#4B4A4A]/70 max-w-2xl leading-relaxed"
+            style={body}
           >
             Discover our collection of luxury resorts across Latin America, each offering unique experiences rooted in nature and culture.
           </p>
         </div>
       </section>
 
+      {/* Filter tabs */}
+      <section className="px-6 md:px-10 pb-8">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex gap-2">
+            {filterTabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveFilter(tab)}
+                className={`px-5 py-2 text-[11px] tracking-[0.12em] uppercase transition-all duration-300 border ${
+                  activeFilter === tab
+                    ? "bg-[#AD8F61] border-[#AD8F61] text-white"
+                    : "bg-transparent border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#AD8F61] hover:text-[#AD8F61]"
+                }`}
+                style={{ ...body, fontWeight: 500 }}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Destinations Grid */}
       <section className="pb-24 px-6 md:px-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((dest) => (
-              <button
-                key={dest.id}
-                onClick={() => navigate(dest.route)}
-                className="group cursor-pointer text-left transition-transform duration-300 hover:scale-105"
-              >
-                {/* Image */}
-                <div className="relative h-64 md:h-72 overflow-hidden rounded-lg mb-6">
-                  <img
-                    src={dest.image}
-                    alt={dest.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                </div>
+        <div className="max-w-[1200px] mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeFilter}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {filtered.map((dest) => (
+                <div key={dest.id} className="group">
+                  {/* Image */}
+                  <button
+                    onClick={() => navigate(dest.route)}
+                    className="block w-full cursor-pointer text-left"
+                  >
+                    <div className="overflow-hidden rounded-lg mb-4">
+                      <img
+                        src={dest.image}
+                        alt={dest.name}
+                        className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        style={{ aspectRatio: "3/2" }}
+                        loading="lazy"
+                      />
+                    </div>
+                  </button>
 
-                {/* Content */}
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <h2
-                      className="text-2xl md:text-3xl text-[#3a2a1a] group-hover:text-[#5a4a3a] transition-colors"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                    >
-                      {dest.name}
-                    </h2>
-                    {dest.badge && (
-                      <span
-                        className="text-[9px] tracking-[0.15em] uppercase text-stone-600 border border-stone-300 px-2 py-1 rounded whitespace-nowrap ml-2"
-                        style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
-                      >
-                        {dest.badge}
-                      </span>
-                    )}
-                  </div>
+                  {/* Content */}
+                  <h2
+                    className="text-[18px] text-[#3a2a1a] mb-1"
+                    style={{ ...heading, fontWeight: 500 }}
+                  >
+                    {dest.name}
+                  </h2>
                   <p
-                    className="text-sm md:text-base text-[#5a4a3a]/60 mb-4"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                    className="text-[11px] tracking-[0.1em] uppercase text-[#3a2a1a]/40 mb-1"
+                    style={{ ...body, fontWeight: 500 }}
                   >
                     {dest.region}
                   </p>
                   <p
-                    className="text-base text-[#5a4a3a] leading-relaxed"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                    className="text-[13px] text-[#4B4A4A]/60 leading-relaxed mb-4"
+                    style={body}
                   >
                     {dest.description}
                   </p>
-                </div>
 
-                {/* Explore Link */}
-                <div className="mt-6 flex items-center gap-2">
-                  <span
-                    className="text-sm tracking-[0.08em] uppercase text-[#3a2a1a] group-hover:text-[#5a4a3a] transition-colors"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
-                  >
-                    Explore
-                  </span>
-                  <svg
-                    className="w-4 h-4 transition-transform group-hover:translate-x-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
+                  {/* Reserve + Explore buttons */}
+                  <div className="flex gap-3">
+                    <a
+                      href={BOOKING_URLS[dest.bookingId]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 text-[11px] tracking-[0.12em] uppercase border border-[#AD8F61] text-[#AD8F61] hover:bg-[#AD8F61] hover:text-white transition-all duration-300"
+                      style={{ ...body, fontWeight: 500 }}
+                    >
+                      Reserve
+                    </a>
+                    <button
+                      onClick={() => navigate(dest.route)}
+                      className="px-5 py-2 text-[11px] tracking-[0.12em] uppercase border border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#3a2a1a] hover:text-[#3a2a1a] transition-all duration-300 cursor-pointer"
+                      style={{ ...body, fontWeight: 500 }}
+                    >
+                      Explore
+                    </button>
+                  </div>
                 </div>
-              </button>
-            ))}
-          </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 

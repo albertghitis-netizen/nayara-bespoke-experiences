@@ -13,6 +13,7 @@ import { properties, type Property, type Excursion, type Treatment } from "@/dat
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
+import { BOOKING_URLS } from "@/data/booking";
 
 const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
 
@@ -168,11 +169,20 @@ function TentedCampAccommodationsSection() {
           <RoomsSlider rooms={roomTypes} title="Life under Canvas" subtitle="Tents & Suites" />
         </FadeIn>
         <FadeIn delay={0.3}>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex justify-center gap-4">
+            <a
+              href={BOOKING_URLS["tented-camp"]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2.5 text-[11px] tracking-[0.12em] uppercase border border-[#AD8F61] text-[#AD8F61] hover:bg-[#AD8F61] hover:text-white transition-all duration-300"
+              style={{ ...body, fontWeight: 500 }}
+            >
+              Reserve
+            </a>
             <a
               href="/tented-camp/rooms"
-              className="text-[#3a2a1a]/60 hover:text-[#3a2a1a] text-sm tracking-[0.08em] uppercase transition-colors underline"
-              style={{ ...body, fontWeight: 400 }}
+              className="px-6 py-2.5 text-[11px] tracking-[0.12em] uppercase border border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#3a2a1a] hover:text-[#3a2a1a] transition-all duration-300"
+              style={{ ...body, fontWeight: 500 }}
             >
               Explore More
             </a>
@@ -341,7 +351,7 @@ function WellnessSection() {
       {/* Hero Section — full-width video */}
       <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">
-          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness_video_fixed_ddeced01.mp4" className="w-full h-full object-cover" />
+          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-wellness-video_e18c4b6e.mov" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
@@ -577,7 +587,7 @@ function GallerySection() {
       <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
         <FadeIn>
           <p className="text-[#4B4A4A]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>Gallery</p>
-          <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Canvas & Canopy</h2>
+          <h2 className="text-[#4B4A4A] mb-3" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Canvas & Canopy</h2>
         </FadeIn>
          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
           {images.map((img, i) => (

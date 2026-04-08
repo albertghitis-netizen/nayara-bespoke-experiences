@@ -1106,3 +1106,35 @@
 - [x] Replace ThreeResortsGraphic in Tented Camp Story section with a blog link card styled like the others ("Three Resorts. One Rainforest.")
 - [x] Restructure homepage Story section to match Tented Camp layout (H2+body+link left, S1 vertical right, Bocas S2 landscape below)
 - [x] Create /newsletter page — standalone, no hero/nav/footer, Tented Camp warm palette, newsletter content only
+- [x] Newsletter: Add flamingo (Supersale-7.jpg) as header image at top, same size as section images below
+- [x] Newsletter: Remove Nayara logo image box between flamingo header and April 2026 date line
+- [x] Newsletter: Replace Wellness Escape placeholder with aerial pool/rainforest image (Supersale-8.jpg)
+- [x] Newsletter: Change Topic 1 title to "Pura Vida and the Science of Happiness"
+- [x] Newsletter: Mute the brown/gold in closing gold bar section (section 4) to warm beige palette
+- [x] Newsletter: Replace Topic 1 body text with new copy about wildlife, women, ecosystems
+- [x] Newsletter: Move intro copy to below date line, restore original section 1 body text
+- [x] Newsletter: Make intro text full width matching section body styling (same padding, font, color)
+- [x] Newsletter: Split intro into 3 paragraphs — main copy, "The health of people..." line, "They never were." line
+- [x] Newsletter: Increase body text from 13px to 15px and labels from 9px to 11px across all sections
+- [x] Newsletter: Mute Wellness Escape section — warm beige bg, match heading/body styling to sections above, soften property cards
+- [x] Newsletter: Change "Read the Story" to "Read the Blog" with hover-highlight style like Reserve buttons
+- [x] Newsletter: Stack property cards vertically on mobile (1 col) and fix overall mobile responsiveness
+- [x] Newsletter: Add gold rule dividers between all sections consistently
+- [x] Newsletter: Make property card outlines consistent — full border around each card
+- [x] Newsletter: Add small gold downward chevron below "They never were." as scroll cue
+- [x] Newsletter: Add "Begin Your Nayara Journey" section with 6 property links between closing bar and footer
+- [x] Create blog post page with newsletter editorial style, using Pura Vida article as test case
+- [ ] Blog + Newsletter: Add Contact Us section to footer
+- [x] Newsletter: Remove "Two questions. One answer." closing bar section
+- [x] Homepage: Rebuild Our Properties section with new photos, Family-Friendly/Adults-Only tabs, simplified descriptions
+- [x] Homepage: Upload all 6 property photos to CDN
+- [x] Homepage: Add Reserve and Explore buttons below each property card in Our Properties section
+- [x] Remove separate AllDestinations page — homepage Our Properties section is the single source of truth
+- [x] Homepage: Add Reserve and Explore buttons below each property card (Reserve → SynXis booking, Explore → property page)
+- [x] Homepage: Add tab filters (All / Family-Friendly / Adults-Only) to Our Properties section
+- [x] Homepage: Add body text below Our Properties headline
+- [x] Homepage: Update property photos and descriptions in Our Properties section
+- [x] Homepage: Change Gardens description from "Rainforest Adventure" to "Private Rainforest Villas"
+- [ ] Tented Camp: Remove space between featured image and gallery grid below it
+- [x] Tented Camp: Add Explore More and Reserve buttons to rooms section
+- [x] Tented Camp: Replace wellness video with new uploaded video

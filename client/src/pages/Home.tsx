@@ -5,14 +5,15 @@
  * Typography: Playfair Display (display) + DM Sans (body)
  */
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import { OrganizationSchema } from "@/components/SEOSchema";
+import { BOOKING_URLS } from "@/data/booking";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -30,48 +31,70 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 /* ─── Property data for the grid ─── */
-const propertyGrid = [
+type FilterTag = "Family-Friendly" | "Adults-Only";
+
+const propertyGrid: {
+  name: string;
+  location: string;
+  route: string;
+  bookingId: string;
+  image: string;
+  tagline: string;
+  filter: FilterTag;
+}[] = [
   {
     name: "Nayara Alto Atacama",
     location: "Atacama Desert, Chile",
     route: "/alto-atacama",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_6253_ffc4f157.PNG",
-    tagline: "Desert oasis beneath the driest skies on Earth",
+    bookingId: "alto-atacama",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
+    tagline: "Desert Lodge Villas",
+    filter: "Family-Friendly",
   },
   {
     name: "Nayara Bocas del Toro",
     location: "Bocas del Toro, Panama",
     route: "/bocas-del-toro",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg",
-    tagline: "Overwater villas on a private Caribbean island",
+    bookingId: "bocas-del-toro",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
+    tagline: "Overwater Villas & Rainforest Treehouses",
+    filter: "Adults-Only",
   },
   {
     name: "Nayara Gardens",
     location: "Arenal Volcano, Costa Rica",
     route: "/gardens",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s3-casita_4be73573.jpg",
-    tagline: "Family-friendly rainforest casitas with volcano views",
+    bookingId: "gardens",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
+    tagline: "Private Rainforest Villas & Casitas",
+    filter: "Family-Friendly",
   },
   {
     name: "Nayara Hangaroa",
     location: "Easter Island, Chile",
     route: "/hangaroa",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-s2-moai-sunset_dcd66ecc.jpg",
-    tagline: "Where Polynesian heritage meets the Pacific horizon",
+    bookingId: "hangaroa",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
+    tagline: "Oceanfront Villas",
+    filter: "Family-Friendly",
   },
   {
     name: "Nayara Springs",
     location: "Arenal Volcano, Costa Rica",
     route: "/springs",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-pools_8e255e18.png",
-    tagline: "Adults-only hot spring villas with three Michelin Keys",
+    bookingId: "springs",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-springs_16fe1ae6.jpg",
+    tagline: "Private Hot Springs Villas",
+    filter: "Adults-Only",
   },
   {
     name: "Nayara Tented Camp",
     location: "Arenal Volcano, Costa Rica",
     route: "/tented-camp",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-s3-rooms_0707176b.jpg",
-    tagline: "Safari luxury elevated above the rainforest canopy",
+    bookingId: "tented-camp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-tented_0fd865a2.jpg",
+    tagline: "Clifftop Tents & Suites",
+    filter: "Family-Friendly",
   },
 ];
 
@@ -171,44 +194,108 @@ function BrandStorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTIES — 6-card grid, alphabetical, equal treatment
+   PROPERTIES — 6-card grid with Family-Friendly / Adults-Only tabs
    ═══════════════════════════════════════════════════════════════ */
+const filterTabs: ("All" | FilterTag)[] = ["All", "Family-Friendly", "Adults-Only"];
+
 function PropertiesSection() {
+  const [activeFilter, setActiveFilter] = useState<"All" | FilterTag>("All");
+  const filtered = activeFilter === "All" ? propertyGrid : propertyGrid.filter((p) => p.filter === activeFilter);
+
   return (
     <section className={`${sectionPadding} bg-white/30`}>
       <div className={maxW}>
         <FadeIn>
           <SectionLabel>Our Properties</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
+          <h2 className="text-[#4B4A4A] mb-4" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Six Destinations, One Philosophy
           </h2>
+          <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed mb-10 md:mb-12 max-w-2xl" style={body}>
+            Discover our collection of luxury resorts across Latin America, each offering unique experiences rooted in nature and culture.
+          </p>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {propertyGrid.map((prop, i) => (
-            <FadeIn key={prop.route} delay={i * 0.08}>
-              <Link href={prop.route} className="group block">
-                <div className="overflow-hidden rounded-lg mb-4">
-                  <img
-                    src={prop.image}
-                    alt={prop.name}
-                    className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    style={{ aspectRatio: "4/3" }}
-                    loading="lazy"
-                  />
+
+        {/* Tab filters */}
+        <FadeIn>
+          <div className="flex gap-2 mb-10 md:mb-12">
+            {filterTabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveFilter(tab)}
+                className={`px-5 py-2 text-[11px] tracking-[0.12em] uppercase transition-all duration-300 border ${
+                  activeFilter === tab
+                    ? "bg-[#AD8F61] border-[#AD8F61] text-white"
+                    : "bg-transparent border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#AD8F61] hover:text-[#AD8F61]"
+                }`}
+                style={{ ...body, fontWeight: 500 }}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* Property grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFilter}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          >
+            {filtered.map((prop, i) => (
+              <FadeIn key={prop.route} delay={i * 0.06}>
+                <div className="group">
+                  {/* Clickable image → property page */}
+                  <Link href={prop.route} className="block">
+                    <div className="overflow-hidden rounded-lg mb-4">
+                      <img
+                        src={prop.image}
+                        alt={prop.name}
+                        className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        style={{ aspectRatio: "3/2" }}
+                        loading="lazy"
+                      />
+                    </div>
+                  </Link>
+
+                  {/* Text */}
+                  <h3 className="text-[#3a2a1a] text-[18px] mb-1" style={{ ...heading, fontWeight: 500 }}>
+                    {prop.name}
+                  </h3>
+                  <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase mb-1" style={{ ...body, fontWeight: 500 }}>
+                    {prop.location}
+                  </p>
+                  <p className="text-[#4B4A4A]/60 text-[13px] leading-relaxed mb-4" style={body}>
+                    {prop.tagline}
+                  </p>
+
+                  {/* Reserve + Explore buttons */}
+                  <div className="flex gap-3">
+                    <a
+                      href={BOOKING_URLS[prop.bookingId]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 text-[11px] tracking-[0.12em] uppercase border border-[#AD8F61] text-[#AD8F61] hover:bg-[#AD8F61] hover:text-white transition-all duration-300"
+                      style={{ ...body, fontWeight: 500 }}
+                    >
+                      Reserve
+                    </a>
+                    <Link
+                      href={prop.route}
+                      className="px-5 py-2 text-[11px] tracking-[0.12em] uppercase border border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#3a2a1a] hover:text-[#3a2a1a] transition-all duration-300"
+                      style={{ ...body, fontWeight: 500 }}
+                    >
+                      Explore
+                    </Link>
+                  </div>
                 </div>
-                <h3 className="text-[#3a2a1a] text-[18px] mb-1 group-hover:text-[#3a2a1a]/80 transition-colors" style={{ ...heading, fontWeight: 500 }}>
-                  {prop.name}
-                </h3>
-                <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase mb-2" style={{ ...body, fontWeight: 500 }}>
-                  {prop.location}
-                </p>
-                <p className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>
-                  {prop.tagline}
-                </p>
-              </Link>
-            </FadeIn>
-          ))}
-        </div>
+              </FadeIn>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -37,8 +37,9 @@ import Questions from "./pages/Questions";
 import WebsiteGuide from "./pages/WebsiteGuide";
 import ChatEmbed from "./pages/ChatEmbed";
 import NayaraByNight from "./pages/NayaraByNight";
-import AllDestinations from "./pages/AllDestinations";
+
 import Newsletter from "./pages/Newsletter";
+import BlogPost from "./pages/BlogPost";
 import "./index.css";
 
 function ScrollToTop() {
@@ -70,7 +71,7 @@ function Router() {
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
         <Route path="/journal" component={Journal} />
-        <Route path="/all-destinations" component={AllDestinations} />
+        <Route path="/all-destinations">{() => { window.location.replace("/"); return null; }}</Route>
         <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
         <Route path="/podcast">{() => { window.location.replace("/journal"); return null; }}</Route>
         <Route path="/awards" component={AwardsAndPress} />
@@ -94,6 +95,7 @@ function Router() {
         <Route path="/nayara-by-night" component={NayaraByNight} />
         <Route path="/ayla" component={AylaOnKrog} />
         <Route path="/newsletter" component={Newsletter} />
+        <Route path="/blog/pura-vida" component={BlogPost} />
 
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
