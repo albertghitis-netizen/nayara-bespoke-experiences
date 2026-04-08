@@ -24,13 +24,9 @@ interface SidebarNavigationProps {
 const MENU_ITEMS = [
   { label: "Destinations", id: "destinations" },
   { label: "Our Story", id: "about" },
-  { label: "Sustainability", id: "sustainability" },
-  { label: "Wellness", id: "wellness" },
-  { label: "Experiences", id: "experiences" },
-  { label: "The Table", id: "dining" },
-  { label: "Gallery", id: "gallery" },
-  { label: "Journal", id: "journal" },
+  { label: "Nayara Journal", id: "journal" },
   { label: "Press & Awards", id: "press" },
+  { label: "Nayara by Night", id: "nayara-by-night" },
   { label: "Contact Us", id: "contact" },
 ];
 
@@ -41,7 +37,16 @@ const DESTINATIONS = [
   { name: "Nayara Alto Atacama", route: "/alto-atacama" },
   { name: "Nayara Hangaroa", route: "/hangaroa" },
   { name: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
-  { name: "Nayara by Night", route: "/nayara-by-night" },
+];
+
+const PROPERTY_SECTIONS = [
+  { label: "Rooms", id: "rooms" },
+  { label: "Experiences", id: "experiences" },
+  { label: "Sustainability", id: "sustainability" },
+  { label: "Wellness", id: "wellness" },
+  { label: "The Table", id: "dining" },
+  { label: "Getting Here", id: "getting-here" },
+  { label: "Gallery", id: "gallery" },
 ];
 
 export default function SidebarNavigation({
@@ -52,6 +57,8 @@ export default function SidebarNavigation({
   const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [selectedDestination, setSelectedDestination] = useState("/gardens");
+  const [clickedProperty, setClickedProperty] = useState<string | null>(null);
+  const [selectedSection, setSelectedSection] = useState<string | null>(null);
   const reserveRef = useRef<HTMLDivElement>(null);
   const [, navigate] = useLocation();
 
@@ -152,7 +159,8 @@ export default function SidebarNavigation({
                           key={destination.route}
                           onClick={() => {
                             setSelectedDestination(destination.route);
-                            handleNavigate(destination.route);
+                            setClickedProperty(destination.route);
+                            setSelectedSection(null);
                           }}
                           className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
                             selectedDestination === destination.route
@@ -162,6 +170,40 @@ export default function SidebarNavigation({
                           style={{ fontFamily: "var(--font-body)" }}
                         >
                           {destination.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Property sections column — appears only when property is clicked */}
+            <AnimatePresence mode="wait">
+              {selectedMenu === "destinations" && clickedProperty && (
+                <motion.div
+                  key="property-sections"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-64 border-r border-[#3a2a1a]/10 overflow-y-auto"
+                >
+                  {/* Property sections list */}
+                  <div className="px-6 py-8">
+                    <div className="space-y-2">
+                      {PROPERTY_SECTIONS.map((section) => (
+                        <button
+                          key={section.id}
+                          onClick={() => setSelectedSection(section.id)}
+                          className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
+                            selectedSection === section.id
+                              ? "bg-[#d4c9b8]/50 text-[#3a2a1a] font-semibold"
+                              : "text-[#3a2a1a] hover:bg-[#d4c9b8]/30"
+                          }`}
+                          style={{ fontFamily: "var(--font-body)" }}
+                        >
+                          {section.label}
                         </button>
                       ))}
                     </div>
