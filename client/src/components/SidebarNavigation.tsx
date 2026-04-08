@@ -23,14 +23,14 @@ interface SidebarNavigationProps {
 
 const MENU_ITEMS = [
   { label: "Destinations", id: "destinations" },
-  { label: "About Nayara", id: "about" },
+  { label: "Our Story", id: "about" },
   { label: "Sustainability", id: "sustainability" },
   { label: "Wellness", id: "wellness" },
   { label: "Experiences", id: "experiences" },
-  { label: "Dine & Drink", id: "dining" },
+  { label: "The Table", id: "dining" },
   { label: "Gallery", id: "gallery" },
   { label: "Journal", id: "journal" },
-  { label: "Press", id: "press" },
+  { label: "Press & Awards", id: "press" },
   { label: "Contact Us", id: "contact" },
 ];
 
@@ -160,22 +160,8 @@ export default function SidebarNavigation({
             </div>
           </motion.div>
 
-          {/* Middle column — submenu */}
+          {/* Middle column — destinations list */}
           <AnimatePresence mode="wait">
-            {selectedMenu === "destinations" && (
-              <motion.div
-                key="destinations-header"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                className="w-48 border-r border-[#3a2a1a]/10 overflow-y-auto px-6 py-8"
-              >
-                <h3 className="text-xs tracking-[0.15em] uppercase text-[#5a4a3a]/60 mb-4" style={{ fontFamily: "var(--font-body)" }}>
-                  Destinations
-                </h3>
-              </motion.div>
-            )}
             {selectedMenu === "destinations" && (
               <motion.div
                 key="destinations-menu"
@@ -183,8 +169,11 @@ export default function SidebarNavigation({
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="w-64 border-r border-[#3a2a1a]/10 overflow-y-auto px-6 py-8"
+                className="w-64 border-r border-[#3a2a1a]/10 overflow-y-auto px-6 py-0"
               >
+                <h3 className="text-xs tracking-[0.15em] uppercase text-[#5a4a3a]/60 mb-4 invisible" style={{ fontFamily: "var(--font-body)" }}>
+                  Destinations
+                </h3>
                 <div className="space-y-2">
                   {DESTINATIONS.map((destination) => (
                     <button
