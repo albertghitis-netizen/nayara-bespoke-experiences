@@ -51,6 +51,7 @@ export default function SidebarNavigation({
   const [, navigate] = useLocation();
   const [selectedMenu, setSelectedMenu] = useState<string | null>(null);
   const [reserveOpen, setReserveOpen] = useState(false);
+  const [selectedDestination, setSelectedDestination] = useState<string>("/gardens");
   const reserveRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -163,6 +164,20 @@ export default function SidebarNavigation({
           <AnimatePresence mode="wait">
             {selectedMenu === "destinations" && (
               <motion.div
+                key="destinations-header"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="w-48 border-r border-[#3a2a1a]/10 overflow-y-auto px-6 py-8"
+              >
+                <h3 className="text-xs tracking-[0.15em] uppercase text-[#5a4a3a]/60 mb-4" style={{ fontFamily: "var(--font-body)" }}>
+                  Destinations
+                </h3>
+              </motion.div>
+            )}
+            {selectedMenu === "destinations" && (
+              <motion.div
                 key="destinations-menu"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -174,8 +189,15 @@ export default function SidebarNavigation({
                   {DESTINATIONS.map((destination) => (
                     <button
                       key={destination.route}
-                      onClick={() => handleNavigate(destination.route)}
-                      className="w-full text-left px-3 py-2 text-sm text-[#3a2a1a] hover:bg-[#d4c9b8]/30 rounded transition-colors"
+                      onClick={() => {
+                        setSelectedDestination(destination.route);
+                        handleNavigate(destination.route);
+                      }}
+                      className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
+                        selectedDestination === destination.route
+                          ? "bg-[#d4c9b8]/50 text-[#3a2a1a] font-semibold"
+                          : "text-[#3a2a1a] hover:bg-[#d4c9b8]/30"
+                      }`}
                       style={{ fontFamily: "var(--font-body)" }}
                     >
                       {destination.name}
