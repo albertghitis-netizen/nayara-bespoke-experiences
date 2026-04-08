@@ -163,6 +163,7 @@ export default function TentedCampMach1() {
       <BrandNavigation pageType="property" centerLinkHome />
       <HeroSection />
       <StorySection />
+      <PropertyCardsSection />
       <TentedCampAccommodationsSection />
       <ExperiencesSection />
       <ParallaxVideoSection />
@@ -620,6 +621,60 @@ function ParallaxVideoSection() {
         />
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" />
+    </section>
+  );
+}
+
+/* ═══ PROPERTY CARDS — Nayara Resorts showcase ═══ */
+function PropertyCardsSection() {
+  const properties = [
+    {
+      name: "NAYARA TENTED CAMP",
+      location: "Arenal Volcano National Park, Costa Rica",
+      features: "Luxury Safari Tents · Arenal Views · Private Hot Springs Pools · Couples and Multi-Gen"
+    },
+    {
+      name: "NAYARA BOCAS DEL TORO",
+      location: "Bocas Del Toro, Panama",
+      features: "Overwater Villas & Treehouses · All-Inclusive Private Island · Adults-Only"
+    },
+    {
+      name: "NAYARA SPRINGS",
+      location: "Arenal Volcano National Park, Costa Rica",
+      features: "Private Hot Springs Villas · Relais & Châteaux · Three Michelin Stars · Adults-Only"
+    }
+  ];
+
+  return (
+    <section className={`${sectionPadding} bg-[#e3dfd2]`}>
+      <div className={maxW}>
+        <FadeIn className="mb-12">
+          <h2 className="text-2xl md:text-3xl tracking-[0.08em] uppercase text-[#3a2a1a]" style={heading}>
+            Our Nayara Resorts
+          </h2>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {properties.map((prop, idx) => (
+            <FadeIn key={idx} delay={idx * 0.15} className="flex flex-col">
+              {/* 3:4 aspect ratio placeholder with sharp edges */}
+              <div className="w-full bg-gray-300 mb-4" style={{ aspectRatio: "3/4" }} />
+              
+              <h3 className="text-lg md:text-xl tracking-[0.08em] uppercase text-[#3a2a1a] mb-2" style={heading}>
+                {prop.name}
+              </h3>
+              
+              <p className="text-sm md:text-base text-[#5a4a3a] mb-3" style={body}>
+                {prop.location}
+              </p>
+              
+              <p className="text-xs md:text-sm text-[#5a4a3a]/80 leading-relaxed" style={body}>
+                {prop.features}
+              </p>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

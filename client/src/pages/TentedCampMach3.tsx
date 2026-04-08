@@ -3,13 +3,14 @@
  * Bold animations: parallax, word reveal, slide-in, Ken Burns, staggered grid
  * WordPress equiv: AOS plugin + CSS @keyframes + background-attachment:fixed
  */
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import RoomsSlider from "@/components/RoomsSlider";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import SidebarNavigation from "@/components/SidebarNavigation";
 import { properties, type Property } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
 import ThreeResortsGraphic from "@/components/ThreeResortsGraphic";
@@ -158,9 +159,33 @@ function GradientBridge({ type, height = 'h-24 md:h-32' }: { type: keyof typeof 
    ═══════════════════════════════════════════════════════════════ */
 
 export default function TentedCampMach3() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#e3dfd2' }}>
-      <BrandNavigation pageType="property" centerLinkHome />
+      {/* Hamburger button wired to sidebar */}
+      <div className="fixed top-2 left-4 z-50 pointer-events-auto">
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-colors border border-[#3a2a1a]/20"
+        >
+          <div className="flex flex-col gap-1.5">
+            <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${sidebarOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+            <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${sidebarOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+          </div>
+        </button>
+      </div>
+
+      {/* Sidebar Navigation */}
+      <SidebarNavigation isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      {/* Reserve pill (top right) */}
+      <div className="fixed top-2 right-4 z-50 pointer-events-auto">
+        <button className="flex items-center justify-center h-10 px-4 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-colors border border-[#3a2a1a]/20">
+          <span className="text-[#3a2a1a] text-xs tracking-[0.1em] uppercase font-medium">Reserve</span>
+        </button>
+      </div>
+
       <HeroSection />
       <StorySection />
       <TentedCampAccommodationsSection />

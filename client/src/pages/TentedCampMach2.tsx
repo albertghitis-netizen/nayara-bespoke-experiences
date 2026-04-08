@@ -17,7 +17,7 @@ import ThreeResortsGraphic from "@/components/ThreeResortsGraphic";
 const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
 
 const CDN = {
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-hero-desktop_90751603.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-hero-horizontal-hq_c0efb638.mp4",
   heroVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented_hero_vertical_0834f0e2.mp4",
   experiencesHero: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/TentedExperienceVideo_fixed_75e9afca.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
@@ -179,8 +179,6 @@ export default function TentedCampMach2() {
 
 /* ═══ HERO — Parallax video + word-by-word H1 ═══ */
 function HeroSection() {
-  const isMobile = useIsMobile();
-  const heroSrc = isMobile ? CDN.heroVertical : CDN.heroDesktop;
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
@@ -189,15 +187,18 @@ function HeroSection() {
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y: videoY }}>
-        <NativeVideo src={heroSrc} className="w-full h-[130%] object-cover" />
+        <NativeVideo src={CDN.heroDesktop} className="w-full h-[130%] object-cover" />
       </motion.div>
       <motion.div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" style={{ opacity: overlayOpacity }} />
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <WordReveal
-          text="Luxury Tented Camp Immersed in the Rainforest"
+          text="Private Hot Spring Villas in Costa Rica"
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={heading}
         />
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/60 text-[11px] md:text-[13px] mt-4 tracking-[0.25em] uppercase" style={body}>
+          Adults Only
+        </motion.p>
       </div>
     </section>
   );

@@ -1177,3 +1177,16 @@
 
 ## M1 — Parallax Video Section
 - [x] Add full-screen parallax video section between Experiences and Sustainability on M1
+
+## M1 — Nayara Resorts Property Cards
+- [ ] Add property cards section below Story (3-column grid)
+- [ ] Use square placeholder images
+- [ ] Include property names, locations, and feature tags from Spherical
+- [ ] Compare styling with existing sections
+
+## M3 — Sidebar Nav Mockup (Spherical Style)
+- [x] Upload aerial tent image to CDN
+- [x] Create sidebar nav component with Spherical styling (left menu, right image)
+- [x] Keep current menu links (no functional changes, visual mockup only)
+- [x] Verify on M3 page
+- [x] Integrate SidebarNavigation into M3 hamburger button (three-column layout with Reserve dropdown, Destinations submenu, image preview)
