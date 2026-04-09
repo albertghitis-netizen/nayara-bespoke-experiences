@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 /* ─── CDN Assets ─────────────────────────────────────────────── */
 const CDN = {
   /* Hero */
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-hero-desktop_d539e6a6.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/anakena-timelapse-hero_60211087.mp4",
   /* Story images */
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp",
@@ -161,7 +161,6 @@ function GallerySection() {
     { src: CDN.moaiSunriseGolden, alt: "Moai in golden sunrise light" },
     { src: CDN.ranoKauMilkyway, alt: "Rano Kau crater with Milky Way" },
     { src: CDN.videoShort, alt: "Night sky timelapse", type: "video" },
-    { src: CDN.videoLong, alt: "Stargazing experience", type: "video" },
   ];
 
   return (
