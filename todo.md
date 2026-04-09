@@ -1355,3 +1355,9 @@
 - [ ] Add opening date: Tented Moon Camp — 2002050
 - [ ] Add hero video for Tented Moon Camp section
 - [ ] Feature all 5 upcoming projects on one page
+
+## Manuel Antonio & Berkshires on New Projects Page
+- [ ] Upload Berkshires hero image to CDN
+- [ ] Upload Manuel Antonio hero image to CDN
+- [ ] Add Manuel Antonio section with hero image and story on why it's a natural fit for Nayara (Opening Winter 2027)
+- [ ] Add Berkshires section with hero image and story on why it's a natural fit for Nayara
