@@ -1258,3 +1258,12 @@
 - [x] Add + prefix and country labels (US / Costa Rica) to phone numbers in Newsletter footer
 - [x] Add + prefix and country labels (US / Costa Rica) to phone numbers in Blog footer
 - [x] Add Green Globe / S Certification blurb in Newsletter section 2 (Earth Day)
+- [x] Fix Green Globe blurb wording: "how we are setting the standard from desert to rainforest to reef"
+- [x] Remove ALL em dashes (— and &mdash;) from entire site - new rule: never use em dashes anywhere
+- [ ] Create new Hangaroa Super Sale v2 page from pasted_content_3 with newsletter/blog footer
+- [x] Regenerate HubSpot-compatible newsletter HTML download with updated content (Green Globe blurb, phone labels, no em dashes)
+- [x] Remove Share buttons (copy link, X, WhatsApp, email) from BlogPostTemplate
+- [x] Remove Related Articles section from BlogPostTemplate
+- [x] Generate downloadable HTML for newsletter (updated with Green Globe blurb, phone labels, no em dashes)
+- [ ] Generate downloadable HTML for Pura Vida blog
+- [ ] Generate downloadable HTML for Green Globe blog

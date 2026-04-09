@@ -148,7 +148,7 @@ export default function HangaroaSuperSale() {
               margin: "0 0 12px 0",
             }}
           >
-            Nayara Hangaroa &mdash; Super Sale Chile 2026
+            Nayara Hangaroa - Super Sale Chile 2026
           </h1>
           <div
             style={{
@@ -185,7 +185,7 @@ export default function HangaroaSuperSale() {
           <p style={{ fontSize: 16, fontWeight: 400, color: "#333333", lineHeight: 1.75, margin: "0 0 14px 0" }}>
             Descubre la magia de Rapa Nui en uno de los destinos más exclusivos del Pacífico Sur. Nayara Hangaroa te
             invita a desconectarte, conectar con la cultura ancestral y vivir experiencias auténticas en un entorno de
-            naturaleza, misterio y bienestar — con condiciones especiales pensadas para ti.
+            naturaleza, misterio y bienestar, con condiciones especiales pensadas para ti.
           </p>
           <p style={{ fontSize: 16, fontWeight: 400, color: "#333333", lineHeight: 1.75, margin: 0 }}>
             <strong style={{ color: "#231F20" }}>Reserva entre el 11 y el 30 de abril</strong> y aprovecha{" "}
@@ -672,7 +672,7 @@ export default function HangaroaSuperSale() {
             Suscribirme
           </button>
           <p style={{ fontSize: 11, fontWeight: 300, color: "#A09880", letterSpacing: "0.05em", margin: "16px 0 0 0" }}>
-            Nayara Hangaroa &middot; Isla de Pascua — Puedes darte de baja en cualquier momento.
+            Nayara Hangaroa &middot; Isla de Pascua. Puedes darte de baja en cualquier momento.
           </p>
           <div style={{ width: 60, height: 1, backgroundColor: "#AD8F61", margin: "28px auto 0" }} />
         </div>
@@ -746,7 +746,7 @@ export default function HangaroaSuperSale() {
             color: "rgba(255,255,255,0.4)",
           }}
         >
-          Contact Us
+          Cont&aacute;ctanos
         </p>
         <div style={{ display: "flex", flexDirection: "column" as const, gap: 6, marginBottom: 20 }}>
           <a

@@ -55,7 +55,7 @@ export default function Footer({ pageType = "brand" }: FooterProps) {
 
   const handlePlaceholder = (label: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    import("sonner").then(({ toast }) => toast(label + " — Coming Soon"));
+    import("sonner").then(({ toast }) => toast(label + " - Coming Soon"));
   };
 
   return (

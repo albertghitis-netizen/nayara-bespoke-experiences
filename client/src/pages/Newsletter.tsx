@@ -131,9 +131,9 @@ export default function Newsletter() {
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
             All four operational Nayara properties now hold internationally
-            audited sustainability certifications — Green Globe in Costa Rica
+            audited sustainability certifications: Green Globe in Costa Rica
             and Panama, S Certification in Chile. Read how we are setting the
-            standard across rainforest, desert, and ocean.
+            standard from desert to rainforest to reef.
           </p>
           <a
             href="/blog/green-globe-s-certification"
