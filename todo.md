@@ -1223,3 +1223,25 @@
 - [x] Remove gallery from navigation (rethink later)
 - [x] Remove /nayara-by-night route and NayaraByNight page
 - [x] Remove pillars/topics navigation from Journal page
+
+## Logo & Nav Rebuild
+- [ ] Build stacked logo lockup (leaf + NAYARA wordmark in Cormorant Garamond)
+- [ ] Add property name below wordmark on property pages
+- [ ] Redesign nav overlay with property grid + brand pages + staggered animations
+- [ ] Mobile nav: property cards instead of text list
+
+## Newsletter B & HTML Export
+- [ ] Build Newsletter B page at /newsletter-b with different layout concept
+- [ ] Fix sustainability teaser in both newsletters to reference Green Globe + S Cert (not just S)
+- [ ] Add share buttons (X, WhatsApp, Email) below author in newsletters
+- [ ] Generate standalone HubSpot HTML for Pura Vida blog (images/video as placeholders)
+- [ ] Generate standalone HubSpot HTML for Green Globe blog (images/video as placeholders)
+- [ ] Generate standalone HubSpot HTML for Newsletter A
+- [ ] Generate standalone HubSpot HTML for Newsletter B
+- [ ] Fix phone numbers in newsletter footer to show + prefix
+
+## Newsletter A Fixes
+- [x] Match header/intro font to section body font style
+- [x] Restore real images from updated version (reverted to last checkpoint version)
+- [x] Delete Newsletter B page and route
+- [x] Generate HubSpot-compatible HTML email export for Newsletter

@@ -123,6 +123,8 @@ export default function Home() {
 /* ═══════════════════════════════════════════════════════════════
    HERO — Full-screen video with brand tagline
    ═══════════════════════════════════════════════════════════════ */
+const LEAF_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png";
+
 function HeroSection() {
   const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
   return (
@@ -131,11 +133,33 @@ function HeroSection() {
         <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
+
+      {/* Stacked logo lockup — leaf + NAYARA — top center */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute top-2 left-0 right-0 z-20 flex flex-col items-center gap-2"
+      >
+        <img src={LEAF_URL} alt="" className="w-12 md:w-16 h-auto opacity-90" />
+        <span
+          className="text-[#F5F1EB] tracking-[0.4em] uppercase"
+          style={{
+            fontFamily: "'Cormorant Garamond', 'Georgia', serif",
+            fontWeight: 300,
+            fontSize: "clamp(11px, 1.2vw, 14px)",
+            lineHeight: 1,
+          }}
+        >
+          Nayara
+        </span>
+      </motion.div>
+
+      {/* Tagline — bottom center */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center" style={heading}>
           Luxury Resorts Rooted in Nature
         </motion.h1>
-
       </div>
     </section>
   );
