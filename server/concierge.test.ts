@@ -49,12 +49,10 @@ describe("Nayara Concierge System Prompt", () => {
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT.toLowerCase()).not.toContain("starry");
   });
 
-  it("should identify as the Nayara Concierge (no personal name)", () => {
+  it("should identify as Henry, Nayara's AI concierge", () => {
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Nayara Concierge");
-    // Must NOT have any personal name for the concierge
-    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).not.toContain("Paloma");
-    const withoutBar = NAYARA_CONCIERGE_SYSTEM_PROMPT.replace(/Henry's Bar/g, "");
-    expect(withoutBar).not.toMatch(/\bHenry\b/);
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Henry");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toMatch(/I'm Henry/);
   });
 
   it("should contain reservation contact information", () => {

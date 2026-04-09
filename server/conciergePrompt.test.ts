@@ -25,15 +25,14 @@ describe("Concierge prompt — Lead capture & contact info", () => {
     expect(prompt).toMatch(/Mon.*Fri.*8.*AM.*10.*PM/i);
   });
 
-  it("mentions Albert from Guest Relations for escalation", () => {
-    expect(prompt).toMatch(/Albert/);
-    expect(prompt).toMatch(/Guest Relations/i);
+  it("identifies as Henry, Nayara's AI concierge", () => {
+    expect(prompt).toMatch(/Henry/);
+    expect(prompt).toMatch(/Nayara.*concierge/i);
   });
 
-  it("does not use Henry as the concierge identity", () => {
-    // Henry's Bar is a real bar name — that's fine. But the concierge itself must not be called Henry.
-    const withoutHenrysBar = prompt.replace(/Henry's Bar/g, "");
-    expect(withoutHenrysBar).not.toMatch(/\bHenry\b/);
+  it("provides Nayara contact info for escalation", () => {
+    expect(prompt).toContain("reservations@nayararesorts.com");
+    expect(prompt).toContain("(844) 865-2002");
   });
 });
 

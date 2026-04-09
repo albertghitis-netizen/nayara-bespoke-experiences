@@ -1297,3 +1297,9 @@
 ## Nav: Replace Logo with Property Name Strip
 - [x] Remove Nayara leaf logo from center of nav bar
 - [x] Replace with horizontal property name strip (like the original design) across all pages
+
+## Chatbot: Rename to Henry + Contact Fallback
+- [x] Rename chatbot from Albert to Henry ("I'm Henry, Nayara's AI concierge")
+- [x] Replace "Albert can help" with Nayara contact info (reservations@nayararesorts.com, +1 844-865-2002)
+- [x] No guesswork policy: if Henry doesn't know, say so confidently and give contact info
+- [x] Remove all Albert references across the codebase (only "Albert Ghitis" author name remains in blog posts)
