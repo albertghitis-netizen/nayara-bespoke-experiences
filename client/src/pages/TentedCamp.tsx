@@ -129,10 +129,12 @@ function StorySection() {
           </FadeIn>
         </div>
 
-        {/* s2 landscape below — symmetrical spacing */}
-        <FadeIn delay={0.3}>
-          <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
-        </FadeIn>
+        {/* s2 landscape below — hidden on mobile */}
+        <div className="hidden md:block">
+          <FadeIn delay={0.3}>
+            <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+          </FadeIn>
+        </div>
       </div>
     </section>
   );
@@ -351,7 +353,7 @@ function WellnessSection() {
       {/* Hero Section — full-width video */}
       <section id="wellness" className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
         <div className="absolute inset-0 w-full h-full">
-          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-wellness-video_e18c4b6e.mov" className="w-full h-full object-cover" />
+          <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-wellness-video_26fcc290.mp4" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
@@ -571,7 +573,7 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp", alt: "Tented villa pool with volcano view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/HenrysBar_69b1e477.webp", alt: "Henry's Bar at Nayara Springs" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/12.Residence_17d767d7.webp", alt: "Residence exterior" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_f52c15fa.mov", alt: "Residence experience", type: "video" as const },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4", alt: "Residence experience", type: "video" as const },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)Residence3_48e06b8c.webp", alt: "Residence detail" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4O1A1569-Spa-NayaraTentedCampwithLivLawbyBriceFerreStudio-VancouverPortraitAdventureandAthletePhotographer_0e850f3a.webp", alt: "Spa treatment" },
 
@@ -580,7 +582,7 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Grand(1)_0127cf09.webp", alt: "Grand tent with pool" },
     { src: CDN.s1, alt: "Tented camp aerial view" },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NewAreaBriceFerre(2)_cf5128c9.webp", alt: "Wellness area with volcano" },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-final-video_b16f0735.mov", alt: "Tented Camp gallery", type: "video" as const },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-final-video_7a430890.mp4", alt: "Tented Camp gallery", type: "video" as const },
   ];
   return (
     <section id="gallery" className="py-10 md:py-16 px-0">
@@ -593,10 +595,6 @@ function GallerySection() {
           {images.map((img, i) => (
             <FadeIn key={i} delay={i * 0.08} className={i === 1 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
               <div className="relative">
-                {/* DEV ONLY: Gallery number overlay — remove before go-live */}
-                <div className="absolute top-2 left-2 z-10 w-8 h-8 rounded-full bg-black/80 flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">{i + 1}</span>
-                </div>
                 {(img as any).type === "video" ? (
                   <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
                 ) : (

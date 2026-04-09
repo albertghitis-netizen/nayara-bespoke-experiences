@@ -1144,3 +1144,25 @@
 - [x] Homepage: Add Press & Awards section below Pillars
 - [x] Homepage: Build "World of Nayara" stacked editorial blocks below Pillars (Journal + Awards row, By Night + Press row)
 - [x] Homepage: Remove old AwardsStrip component
+- [x] Tented Camp: Hide S2 section on mobile
+- [x] Homepage: Remove Family-Friendly/Adults-Only filter tabs, always show all 6 properties, add badge tag on each card instead
+- [x] Tented Camp: Fix wellness video .mov format error (converted to .mp4)
+- [x] Tented Camp: Remove numbers from gallery section
+- [x] Tented Camp: Convert all gallery .mov videos to .mp4 for browser compatibility
+- [x] Awards: Convert hero video .mov to .mp4
+- [x] Bocas del Toro: Convert gallery video .mov to .mp4
+- [x] Blog: Create data-driven blog post schema (BlogPostData type)
+- [x] Blog: Build reusable BlogPostTemplate component with hero video, Key Findings, body sections, Sources, Related Articles
+- [x] Blog: Convert Pura Vida post to new data-driven format
+- [x] Blog: Update routing to support dynamic blog slugs
+- [x] Blog: Add BrandNavigation and shared Footer to blog template
+- [x] Blog: Add Article/BlogPosting schema markup
+- [x] Blog: Add share buttons and reading time estimate
+- [x] Blog: Create BlogPostData type schema for data-driven blog posts
+- [x] Blog: Build reusable BlogPostTemplate component (hero video, Key Findings, body sections, Sources, Related Articles, share buttons)
+- [x] Blog: Convert Pura Vida post to new data-driven format as proof of concept
+- [x] Blog: Update routing to use dynamic blog slugs with new template
+- [x] Blog: Build definitive blog post template (hero video, Key Findings, body sections with photos, Sources, Related Articles, share buttons, Article schema)
+- [x] Blog: Rebuild Pura Vida blog using the new template
+- [x] Blog: Research and write Green Globe / S Certification sustainability blog
+- [x] Blog: Build Green Globe / S Certification blog using the new template

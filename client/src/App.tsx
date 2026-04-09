@@ -40,6 +40,8 @@ import NayaraByNight from "./pages/NayaraByNight";
 
 import Newsletter from "./pages/Newsletter";
 import BlogPost from "./pages/BlogPost";
+import PuraVidaBlog from "./pages/PuraVidaBlog";
+import GreenGlobeBlog from "./pages/GreenGlobeBlog";
 import "./index.css";
 
 function ScrollToTop() {
@@ -95,7 +97,8 @@ function Router() {
         <Route path="/nayara-by-night" component={NayaraByNight} />
         <Route path="/ayla" component={AylaOnKrog} />
         <Route path="/newsletter" component={Newsletter} />
-        <Route path="/blog/pura-vida" component={BlogPost} />
+        <Route path="/blog/pura-vida" component={PuraVidaBlog} />
+        <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
 
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />

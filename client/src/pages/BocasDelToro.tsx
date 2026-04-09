@@ -336,7 +336,7 @@ function GallerySection() {
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-topdown-villas-boardwalk_576d7415.jpg", alt: "Overwater villas from above", tall: true },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg", alt: "Aerial villas in mangroves", tall: false },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-overwater-villas-deck_16555482.jpg", alt: "Overwater villas from deck", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-gallery-video2_959ab8e2.mov", alt: "Caribbean waters", tall: false },
+    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-gallery-video2_1dd3d81d.mp4", alt: "Caribbean waters", tall: false },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-briceferre-villa_c88fea38.jpg", alt: "Villa interior by Brice Ferre", tall: false },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-briceferre-aerial_60c5ff23.jpg", alt: "Aerial view by Brice Ferre", tall: false },
     { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_11cc5b01.jpg", alt: "Turquoise lagoon aerial" , tall: false },
