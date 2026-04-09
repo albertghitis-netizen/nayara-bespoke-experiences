@@ -1303,3 +1303,55 @@
 - [x] Replace "Albert can help" with Nayara contact info (reservations@nayararesorts.com, +1 844-865-2002)
 - [x] No guesswork policy: if Henry doesn't know, say so confidently and give contact info
 - [x] Remove all Albert references across the codebase (only "Albert Ghitis" author name remains in blog posts)
+
+## Remove Center Logos
+- [x] Remove Nayara mandala logo from top center of Homepage hero
+- [x] Remove Nayara mandala logo from top center of Tented Camp hero
+
+## Newsletter Final Text Update
+- [x] Replace all newsletter text content with the final approved copy
+
+## Newsletter Pages
+- [ ] Rename current /newsletter to /newsletter/april (or /newsletter-april)
+- [ ] Create May newsletter page — Bocas coral reef restoration (blog + podcast coming soon)
+- [ ] Create June newsletter page — placeholder
+- [ ] Update routes in App.tsx
+
+## Future: Content Hub (Journal)
+- [ ] Audio Podcast format
+- [ ] Video Podcast format
+- [ ] Long-Form Video format (documentary-style)
+- [ ] Blog format
+- [ ] Filter by four pillars: Experiences, Wellness, Gastronomy, Sustainability
+
+## Coming Soon Page
+- [x] Build Coming Soon page listing: Manuel Antonio, Berkshires, Casique, Peninsula Papagayo, Moon Tented Camp
+- [x] Add route /new-projects in App.tsx
+
+## Nayara by Night — Official Property Page
+- [x] Promote existing Nayara by Night to official property page (pageType=property)
+- [x] Add to property name strip in nav
+- [x] Add route /by-night in App.tsx
+
+## New Rules
+- [ ] Filter rule: Pillars (no "All"), Properties ("All" allowed)
+- [ ] Nayara by Night added to property filter options
+- [ ] Future: Nayara Nexus content hub (blog, podcast, video, awards, newsletter)
+
+## Meet the Team Page
+- [ ] Build "Meet the Team" page with leadership profiles
+- [ ] Ayla — Co-Founder & CEO
+- [ ] Paloma — Co-Founder & COO
+- [ ] Henry — CFO (also the AI concierge)
+- [ ] Lev — CMO
+- [ ] Lyla — Director of Special Projects (Baby Dept)
+- [ ] "Alms for the Poor" section featuring Ruthy (Very Dedicated Cleaning Lady)
+- [ ] Add /team route in App.tsx
+- [ ] Add Team link in navigation
+
+## Coming Soon Page Update
+- [ ] Rename "Nayara Tented Camp" on Moon to "Nayara Tented Moon Camp"
+- [ ] Add opening date: Manuel Antonio — Winter 2027
+- [ ] Add opening date: Tented Moon Camp — 2002050
+- [ ] Add hero video for Tented Moon Camp section
+- [ ] Feature all 5 upcoming projects on one page

@@ -156,26 +156,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/60" />
       </div>
 
-      {/* Stacked logo lockup */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: EASE_CINEMATIC }}
-        className="absolute top-2 left-0 right-0 z-20 flex flex-col items-center gap-2"
-      >
-        <img src={LEAF_URL} alt="" className="w-12 md:w-16 h-auto opacity-90" />
-        <span
-          className="text-[#F5F1EB] tracking-[0.4em] uppercase"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 300,
-            fontSize: "clamp(11px, 1.2vw, 14px)",
-            lineHeight: 1,
-          }}
-        >
-          Nayara
-        </span>
-      </motion.div>
+
 
       {/* Tagline */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">

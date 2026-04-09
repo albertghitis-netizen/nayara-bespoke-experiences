@@ -34,6 +34,8 @@ import HangaroaSuperSale from "./pages/HangaroaSuperSale";
 import BlogPost from "./pages/BlogPost";
 import PuraVidaBlog from "./pages/PuraVidaBlog";
 import GreenGlobeBlog from "./pages/GreenGlobeBlog";
+import NayaraByNight from "./pages/NayaraByNight";
+import NewProjects from "./pages/NewProjects";
 import "./index.css";
 
 function ScrollToTop() {
@@ -82,6 +84,8 @@ function Router() {
         <Route path="/hangaroa-super-sale" component={HangaroaSuperSale} />
         <Route path="/blog/pura-vida" component={PuraVidaBlog} />
         <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
+        <Route path="/by-night" component={NayaraByNight} />
+        <Route path="/new-projects" component={NewProjects} />
 
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />

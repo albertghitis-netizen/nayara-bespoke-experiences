@@ -96,27 +96,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/60" />
       </div>
 
-      {/* Stacked logo lockup — leaf + NAYARA + property name */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: DURATION.dramatic, delay: 0.2, ease: EASE_EDITORIAL }}
-        className="absolute top-2 left-0 right-0 z-20 flex flex-col items-center gap-1"
-      >
-        <img src={LEAF_URL} alt="" className="w-12 md:w-16 h-auto opacity-90" />
-        <span
-          className="text-[#F5F1EB] tracking-[0.4em] uppercase"
-          style={{ ...display, fontWeight: 300, fontSize: "clamp(11px, 1.2vw, 14px)", lineHeight: 1 }}
-        >
-          Nayara
-        </span>
-        <span
-          className="text-[#F5F1EB]/70 tracking-[0.3em] uppercase"
-          style={{ ...nav, fontWeight: 300, fontSize: "clamp(9px, 0.9vw, 11px)", lineHeight: 1 }}
-        >
-          Tented Camp
-        </span>
-      </motion.div>
+
 
       {/* Tagline — bottom center */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">

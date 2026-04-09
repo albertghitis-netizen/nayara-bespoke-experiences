@@ -15,51 +15,33 @@ export default function Newsletter() {
         color: "#3a2a1a",
       }}
     >
-      {/* ── HEADER IMAGE ── */}
-      <div className="px-8 md:px-16 pt-10">
+      {/* ── HEADER LOGO ── */}
+      <div className="px-8 md:px-16 pt-10 pb-4 text-center">
         <img
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-7_cc61b8d2.jpg"
-          alt="Flamingos at golden hour"
-          className="w-full object-cover rounded"
-          style={{ aspectRatio: "1200/628" }}
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg"
+          alt="Nayara Resorts"
+          className="mx-auto h-12 md:h-14 w-auto"
         />
       </div>
 
       {/* ── INTRO ── */}
       <section className="bg-[#f7f5f0]">
-        <div className="px-8 md:px-16 pt-10 pb-12 text-center">
+        <div className="px-8 md:px-16 pt-6 pb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#AD8F61] mb-6">
-            April 2026 &nbsp;&middot;&nbsp; Nayara Newsletter
+            Nayara Newsletter &nbsp;&middot;&nbsp; April 2026
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
-            Last month we wrote about what protects wildlife and what protects
-            women. This month April asks two more questions. And as with
-            everything we do, the answer turns out to be the same.
+            Last month, we explored how protecting ecosystems and supporting
+            community form a single regenerative travel mission. April asks a
+            simpler question: what connects the health of a place to the health
+            of the people within it.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
-            The health of people and the health of ecosystems are not parallel
-            conversations.
+            At Nayara, the answer is not theoretical. Human well-being and
+            ecosystem health are not parallel. They are the same system.
           </p>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
-            They never were.
-          </p>
-          <svg
-            className="mx-auto mt-2 mb-4 text-[#AD8F61] opacity-60 animate-bounce"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
         </div>
       </section>
-
-
 
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#AD8F61]" />
@@ -84,16 +66,19 @@ export default function Newsletter() {
           >
             Pura Vida and the Science of Happiness
           </h2>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
             What actually makes people well? Not what treats illness. What
             produces health in the first place. Costa Rica has been quietly
-            answering that question for decades. We followed the science.
+            answering that question for decades.
+          </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
+            This is the science behind happiness.
           </p>
           <a
             href="https://blog.nayararesorts.com/pura-vida"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-10 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded"
+            className="inline-block px-10 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
           >
             Read the Blog
           </a>
@@ -111,8 +96,8 @@ export default function Newsletter() {
           </p>
 
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-5_0d148bd5.jpg"
-            alt="Easter Island Moai with S Certification badge"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-7_cc61b8d2.jpg"
+            alt="Atacama desert landscape"
             className="w-full object-cover rounded mb-8"
             style={{ aspectRatio: "1200/628" }}
           />
@@ -124,23 +109,35 @@ export default function Newsletter() {
             Why Sustainability Is Not a Department
           </h2>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
-            Nayara Alto Atacama has held the S Certification for years. Nayara
-            Hangaroa just earned it. One standard. Two ecosystems. The same
-            belief: protecting the land is not separate from what we offer. It
-            is the foundation of it.
+            Nayara Alto Atacama has held the S Certification for years. Its
+            sister property Nayara Hangaroa now does too.
+          </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
+            Two ecosystems stewarded. One perfect way to celebrate Earth Day.
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-            All four operational Nayara properties now hold internationally
-            audited sustainability certifications: Green Globe in Costa Rica
-            and Panama, S Certification in Chile. Read how we are setting the
-            standard from desert to rainforest to reef.
+            Check out two long-form videos on our YouTube channel that explain
+            the full scope of the sustainability efforts that earned Chile's
+            most rigorous certification...twice.
           </p>
-          <a
-            href="/blog/green-globe-s-certification"
-            className="inline-block px-10 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded"
-          >
-            Read the Blog
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+            <a
+              href="https://www.youtube.com/@NayaraResorts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
+            >
+              Atacama Sustainability Video
+            </a>
+            <a
+              href="https://www.youtube.com/@NayaraResorts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
+            >
+              Hangaroa Sustainability Video
+            </a>
+          </div>
         </div>
       </section>
 
@@ -156,7 +153,7 @@ export default function Newsletter() {
 
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-8_43b2ae73.jpg"
-            alt="Aerial view of rainforest hot springs pools at Nayara"
+            alt="Aerial view of rainforest hot springs"
             className="w-full object-cover rounded mb-8"
             style={{ aspectRatio: "1200/628" }}
           />
@@ -165,12 +162,16 @@ export default function Newsletter() {
             className="text-2xl md:text-[28px] leading-snug mb-4"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Wellness Escape — Arenal, Costa Rica
+            Stop Reading About Wellness. Come Experience It.
           </h2>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
+            Introducing the Wellness Escape, available across our three Costa
+            Rican properties.
+          </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-            A special package at our three Costa Rica properties: three nights of daily spa treatments, private wellness sessions, and nightly fine dining — all wrapped in rainforest.
-            <br />
-            Breakfast, dinner, massage, and a choice of yoga, meditation, or sound healing included every day.
+            Enjoy three nights of daily spa treatments, guided yoga in a
+            dedicated pavilion overlooking the rainforest, nightly fine dining
+            &amp; more all wrapped in rainforest.
           </p>
         </div>
 
@@ -179,12 +180,12 @@ export default function Newsletter() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
               {
-                name: "Gardens",
-                href: "https://www.nayararesorts.com/nayara-gardens/wellness-escape",
-              },
-              {
                 name: "Springs",
                 href: "https://www.nayararesorts.com/nayara-springs/wellness-escape",
+              },
+              {
+                name: "Gardens",
+                href: "https://www.nayararesorts.com/nayara-gardens/wellness-escape",
               },
               {
                 name: "Tented Camp",
@@ -211,7 +212,7 @@ export default function Newsletter() {
                   href={prop.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-5 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded"
+                  className="inline-block px-5 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
                 >
                   Reserve
                 </a>
@@ -224,31 +225,13 @@ export default function Newsletter() {
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#AD8F61]" />
 
-      {/* ── BEGIN YOUR NAYARA JOURNEY ── */}
+      {/* ── EXPLORE SISTER RESORTS ── */}
       <section className="bg-[#f7f5f0] text-center py-12 px-8 md:px-16">
-        <h2
-          className="text-2xl md:text-[28px] leading-snug mb-4"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-        >
-          Begin Your Nayara Journey
-        </h2>
-        <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-          Explore each property on our{" "}
-          <a
-            href="https://www.nayararesorts.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#AD8F61] underline hover:text-[#8a7a5a] transition-colors"
-          >
-            Nayara Resorts brand site
-          </a>{" "}
-          or choose below:
+        <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
+          Explore our sister resorts in Chile and Panama
         </p>
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
           {[
-            { name: "Nayara Gardens", href: "https://www.nayararesorts.com/nayara-gardens" },
-            { name: "Nayara Springs", href: "https://www.nayararesorts.com/nayara-springs" },
-            { name: "Nayara Tented Camp", href: "https://www.nayararesorts.com/nayara-tented-camp" },
             { name: "Nayara Alto Atacama", href: "https://www.nayararesorts.com/nayara-alto-atacama" },
             { name: "Nayara Hangaroa", href: "https://www.nayararesorts.com/nayara-hangaroa" },
             { name: "Nayara Bocas del Toro", href: "https://www.nayararesorts.com/nayara-bocas-del-toro" },
@@ -258,7 +241,7 @@ export default function Newsletter() {
               href={prop.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded"
+              className="inline-block px-6 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
             >
               {prop.name}
             </a>
@@ -271,12 +254,6 @@ export default function Newsletter() {
 
       {/* ── FOOTER ── */}
       <footer className="bg-[#3a2a1a] text-center py-12 px-8 md:px-16">
-        <p
-          className="text-white/40 text-[10px] tracking-[0.25em] uppercase mb-6"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-        >
-          Contact Us
-        </p>
         <div className="flex flex-col gap-2 mb-6">
           <a
             href="mailto:reservations@nayararesorts.com"
@@ -290,14 +267,14 @@ export default function Newsletter() {
             className="text-white/50 text-[12px] hover:text-white/90 transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
-            +1 (844) 865-2002 (US)
+            +1 (844) 865-2002 - US
           </a>
           <a
             href="tel:+50624791600"
             className="text-white/50 text-[12px] hover:text-white/90 transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
-            +506 2479-1600 (Costa Rica)
+            + (506) 2479-1600 - Costa Rica
           </a>
         </div>
 
@@ -320,13 +297,31 @@ export default function Newsletter() {
         {/* Divider */}
         <div className="h-px bg-white/10 mb-6" />
 
-        {/* Copyright */}
+        {/* Bottom line */}
         <p
-          className="text-white/20 text-[10px]"
+          className="text-white/20 text-[10px] mb-4"
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
-          &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
+          Nayara Resorts, Costa Rica, Chile, Panama, +1 844 865 2002
         </p>
+
+        {/* Unsubscribe / Manage */}
+        <div className="flex items-center justify-center gap-4">
+          <a
+            href="#"
+            className="text-white/30 text-[10px] hover:text-white/60 transition-colors underline"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+          >
+            Unsubscribe
+          </a>
+          <a
+            href="#"
+            className="text-white/30 text-[10px] hover:text-white/60 transition-colors underline"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+          >
+            Manage preferences
+          </a>
+        </div>
       </footer>
     </div>
   );
