@@ -1,20 +1,11 @@
 /**
  * UNIFIED NAVIGATION - One consistent nav for the entire site
  *
- * Desktop:  [Hamburger]  ···  NAYARA (center, optional)  ···  [Reserve]
+ * Desktop:  [Hamburger]  ···  Property Name Strip (center)  ···  [Reserve]
  * Mobile:   [Hamburger]  [Explore]  [Reserve]  [Concierge]
  *
- * Hamburger menu:
- *   - On property pages: property section anchors first, then global links
- *   - On all other pages: global links only
- *
- * Reserve dropdown: all 6 properties with SynXis booking links
- *
- * Locked specs:
- * - Pill style: bg-[#ece8e1], rounded-full, border border-[#3a2a1a]/20
- * - Menu items: 13px, font-body, fontWeight 500
- * - Hover: bg-[#d4c9b8]/50
- * - Animations: subtle, no big overlays
+ * Center strip: horizontal list of all property names, clickable,
+ * with the current property highlighted. Shows on ALL pages.
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -44,6 +35,12 @@ const EXPLORE_ITEMS = PROPERTIES.map((p) => ({
   route: p.route,
 }));
 
+/* ── Map routes to property IDs for highlighting ── */
+const ROUTE_TO_PROPERTY: Record<string, string> = {};
+PROPERTIES.forEach((p) => {
+  ROUTE_TO_PROPERTY[p.route] = p.id;
+});
+
 interface BrandNavigationProps {
   pageType?: PageType;
   centerLabel?: string;
@@ -52,17 +49,19 @@ interface BrandNavigationProps {
 
 export default function BrandNavigation({
   pageType = "brand",
-  centerLabel,
-  centerLinkHome = false,
 }: BrandNavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
   const [, navigate] = useLocation();
+  const [location] = useLocation();
 
   const menuRef = useRef<HTMLDivElement>(null);
   const reserveRef = useRef<HTMLDivElement>(null);
   const exploreRef = useRef<HTMLDivElement>(null);
+
+  /* Determine current property from route */
+  const currentPropertyId = ROUTE_TO_PROPERTY[location] || null;
 
   /* Close dropdowns on outside click */
   useEffect(() => {
@@ -97,11 +96,9 @@ export default function BrandNavigation({
     if (hotel.available) {
       window.open(hotel.url, "_blank");
     } else {
-      import("sonner").then(({ toast }) => toast(hotel.label + " -- Booking Coming Soon"));
+      import("sonner").then(({ toast }) => toast(hotel.label + " — Booking Coming Soon"));
     }
   };
-
-  const showCenterLabel = (pageType === "property" || centerLinkHome) && centerLabel;
 
   /* ── Shared styles ── */
   const pill =
@@ -134,7 +131,7 @@ export default function BrandNavigation({
         {/* ── DESKTOP NAV ── */}
         <div className="hidden md:flex items-center justify-between pointer-events-auto">
           {/* Left: Hamburger */}
-          <div ref={menuRef} className="relative">
+          <div ref={menuRef} className="relative shrink-0">
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
               className={`${pill} w-10 h-10`}
@@ -199,44 +196,29 @@ export default function BrandNavigation({
             </AnimatePresence>
           </div>
 
-          {/* Center: NAYARA label (property pages + homepage) */}
-          {showCenterLabel && (
-            <div className="absolute left-1/2 -translate-x-1/2">
-              {centerLinkHome ? (
-                <a
-                  href="/"
-                  onClick={(e) => { e.preventDefault(); navigate("/"); }}
-                  className="text-[#ece8e1] drop-shadow-md hover:opacity-80 transition-opacity"
-                  style={{
-                    fontFamily: "'Montserrat', 'Arial', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "clamp(16px, 2vw, 22px)",
-                    letterSpacing: "1px",
-                    lineHeight: 1,
-                    textDecoration: "none",
-                  }}
-                >
-                  {centerLabel.toUpperCase()}
-                </a>
-              ) : (
-                <span
-                  className="text-[#ece8e1] drop-shadow-md"
-                  style={{
-                    fontFamily: "'Montserrat', 'Arial', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "clamp(16px, 2vw, 22px)",
-                    letterSpacing: "1px",
-                    lineHeight: 1,
-                  }}
-                >
-                  {centerLabel.toUpperCase()}
-                </span>
-              )}
-            </div>
-          )}
+          {/* Center: Property Name Strip */}
+          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar mx-4">
+            {PROPERTIES.map((p, i) => (
+              <button
+                key={p.id}
+                onClick={() => handleNavigate(p.route)}
+                className={`whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] tracking-[0.06em] transition-all duration-200 ${
+                  currentPropertyId === p.id
+                    ? "bg-[#3a2a1a]/90 text-white shadow-sm"
+                    : "text-white/80 drop-shadow-sm hover:text-white hover:bg-white/15"
+                }`}
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: currentPropertyId === p.id ? 600 : 400,
+                }}
+              >
+                {p.shortName}
+              </button>
+            ))}
+          </div>
 
           {/* Right: Reserve */}
-          <div ref={reserveRef} className="relative">
+          <div ref={reserveRef} className="relative shrink-0">
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
               className={`${pill} h-10 px-5`}
@@ -379,7 +361,6 @@ export default function BrandNavigation({
           {/* 4. Concierge */}
           <button
             onClick={() => {
-              // Trigger the concierge chat widget
               const chatBtn = document.querySelector('[data-concierge-toggle]') as HTMLButtonElement;
               if (chatBtn) chatBtn.click();
               else import("sonner").then(({ toast }) => toast("Chat with our concierge"));

@@ -82,7 +82,7 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
 export default function Springs() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <BrandNavigation pageType="property" centerLinkHome />
+      <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
       <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="160px" />

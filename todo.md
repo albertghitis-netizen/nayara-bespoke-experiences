@@ -1287,3 +1287,13 @@
 
 ## Circular Nav Buttons
 - [x] Ensure ALL buttons site-wide have rounded corners (no sharp 90-degree edges) — Reserve, Explore More, CTAs, etc.
+
+## Journal Page Hero Video
+- [ ] Add NAA_ENG_SUBS Atacama video as hero on Journal page (CDN: https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NAA_ENG_SUBS_web_8045919c.mp4)
+
+## Newsletter Updates
+- [ ] Add Wellness Escape 2-line highlight to Newsletter page
+
+## Nav: Replace Logo with Property Name Strip
+- [x] Remove Nayara leaf logo from center of nav bar
+- [x] Replace with horizontal property name strip (like the original design) across all pages

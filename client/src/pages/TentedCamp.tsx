@@ -60,7 +60,7 @@ const nav = { fontFamily: "var(--font-nav)", fontWeight: 400 } as const;
 export default function TentedCamp() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: BRAND.pageBackground }}>
-      <BrandNavigation pageType="property" centerLinkHome />
+      <BrandNavigation pageType="property" />
       <HeroSection />
       <GradientTransition from={BRAND.pageBackground} to={P.gradientEnd} height="80px" />
       <StorySection />

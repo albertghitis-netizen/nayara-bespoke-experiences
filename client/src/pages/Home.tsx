@@ -131,7 +131,7 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
       <OrganizationSchema />
-      <BrandNavigation pageType="brand" centerLinkHome />
+      <BrandNavigation pageType="brand" />
       <HeroSection />
       <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="120px" />
       <BrandStorySection />

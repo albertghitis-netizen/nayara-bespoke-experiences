@@ -165,16 +165,12 @@ export default function Newsletter() {
             className="text-2xl md:text-[28px] leading-snug mb-4"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Stop Reading About Wellness.
-            <br />
-            Come Experience It.
+            Wellness Escape — Arenal, Costa Rica
           </h2>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
-            Three nights. Volcanic hot springs. Forest at every window.
+            A special package at our three Costa Rica properties: three nights of daily spa treatments, private wellness sessions, and nightly fine dining — all wrapped in rainforest.
             <br />
-            Breakfast, dinner, and spa woven into each day.
-            <br />
-            Free cancellation up to 30 days before arrival.
+            Breakfast, dinner, massage, and a choice of yoga, meditation, or sound healing included every day.
           </p>
         </div>
 
