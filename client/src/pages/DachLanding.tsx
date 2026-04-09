@@ -1,6 +1,6 @@
 /**
  * DACH Consulting Media Corp — Landing Page
- * Wolf logo, digital marketing consulting, Midtown Manhattan
+ * Wolf logo, digital marketing consulting, Manhattan & Miami
  */
 import { Helmet } from "react-helmet-async";
 
@@ -20,15 +20,15 @@ export default function DachLanding() {
     <div style={{ fontFamily: "'Inter', sans-serif", color: "#1a2744", background: "#fff", minHeight: "100vh" }}>
       <Helmet>
         <title>DACH Consulting Media Corp | Strategic Digital Marketing</title>
-        <meta name="description" content="Full-service digital marketing consulting from the heart of Midtown Manhattan. Brand strategy, paid media, SEO, social media, analytics, and creative production." />
+        <meta name="description" content="Full-service digital marketing consulting in Manhattan & Miami. Brand strategy, paid media, SEO, social media, analytics, and creative production." />
         <meta property="og:title" content="DACH Consulting Media Corp" />
-        <meta property="og:description" content="Strategic Digital Marketing for Ambitious Brands. Midtown Manhattan." />
-        <meta property="og:image" content={WOLF_LOGO} />
+        <meta property="og:description" content="Strategic Digital Marketing for Ambitious Brands. Manhattan & Miami." />
+        <meta property="og:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/dach-og-banner-GPN7Zqq5Ss7NWm5ynErhDE.png" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DACH Consulting Media Corp" />
         <meta name="twitter:description" content="Strategic Digital Marketing for Ambitious Brands" />
-        <meta name="twitter:image" content={WOLF_LOGO} />
+        <meta name="twitter:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/dach-og-banner-GPN7Zqq5Ss7NWm5ynErhDE.png" />
         <link rel="icon" type="image/png" href={WOLF_LOGO} />
       </Helmet>
       {/* Google Font */}
@@ -44,7 +44,7 @@ export default function DachLanding() {
               <div style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#6b7a8d", fontWeight: 500 }}>Consulting Media Corp</div>
             </div>
           </div>
-          <a href="tel:9297375204" style={{ background: "#1a2744", color: "#fff", padding: "10px 24px", borderRadius: 6, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>Call 929-737-5204</a>
+          <a href="mailto:dacheconsultingmedia@yahoo.com" style={{ background: "#1a2744", color: "#fff", padding: "10px 24px", borderRadius: 6, fontSize: 14, fontWeight: 600, textDecoration: "none" }}>Contact Us</a>
         </div>
       </nav>
 
@@ -53,8 +53,8 @@ export default function DachLanding() {
         <div style={{ position: "relative" as const, zIndex: 1, maxWidth: 800, margin: "0 auto" }}>
           <img src={WOLF_LOGO} alt="DACH" style={{ height: 100, marginBottom: 32 }} />
           <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 800, lineHeight: 1.1, marginBottom: 20, letterSpacing: "-0.02em" }}>Strategic Digital Marketing for Ambitious Brands</h1>
-          <p style={{ fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.7)", maxWidth: 600, margin: "0 auto 36px", fontWeight: 300 }}>Full-service digital marketing consulting from the heart of Midtown Manhattan. We build strategies that drive measurable growth.</p>
-          <a href="tel:9297375204" style={{ display: "inline-block", background: "#fff", color: "#1a2744", padding: "14px 36px", borderRadius: 6, fontSize: 15, fontWeight: 700, textDecoration: "none" }}>Schedule a Consultation</a>
+          <p style={{ fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.7)", maxWidth: 600, margin: "0 auto 36px", fontWeight: 300 }}>Full-service digital marketing consulting from Manhattan & Miami. We build strategies that drive measurable growth.</p>
+          <a href="mailto:dacheconsultingmedia@yahoo.com" style={{ display: "inline-block", background: "#fff", color: "#1a2744", padding: "14px 36px", borderRadius: 6, fontSize: 15, fontWeight: 700, textDecoration: "none" }}>Schedule a Consultation</a>
         </div>
       </section>
 
@@ -79,7 +79,7 @@ export default function DachLanding() {
       <section style={{ padding: "100px 24px", maxWidth: 900, margin: "0 auto", textAlign: "center" as const }}>
         <div style={{ fontSize: 12, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#3b82f6", fontWeight: 600, marginBottom: 12 }}>About Us</div>
         <div style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: 32 }}>Built for Results</div>
-        <p style={{ fontSize: 17, lineHeight: 1.8, color: "#6b7a8d", marginBottom: 20 }}><strong style={{ color: "#1a2744" }}>DACH Consulting Media Corp</strong> is a digital marketing consulting firm headquartered in <strong style={{ color: "#1a2744" }}>Midtown Manhattan</strong>. We partner with businesses that are serious about growth — delivering data-driven strategies, transparent reporting, and measurable outcomes.</p>
+        <p style={{ fontSize: 17, lineHeight: 1.8, color: "#6b7a8d", marginBottom: 20 }}><strong style={{ color: "#1a2744" }}>DACH Consulting Media Corp</strong> is a digital marketing consulting firm with offices in <strong style={{ color: "#1a2744" }}>Manhattan</strong> and <strong style={{ color: "#1a2744" }}>Miami</strong>. We partner with businesses that are serious about growth — delivering data-driven strategies, transparent reporting, and measurable outcomes.</p>
         <p style={{ fontSize: 17, lineHeight: 1.8, color: "#6b7a8d" }}>No fluff. No vanity metrics. Just strategic execution that moves the needle.</p>
       </section>
 
@@ -89,12 +89,12 @@ export default function DachLanding() {
         <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 16, marginBottom: 40, fontWeight: 300 }}>Ready to scale? Get in touch.</p>
         <div style={{ display: "flex", flexWrap: "wrap" as const, justifyContent: "center", gap: 40, marginBottom: 40 }}>
           <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>Phone</span>
-            <a href="tel:9297375204" style={{ fontSize: 18, fontWeight: 600, color: "#fff", textDecoration: "none" }}>929-737-5204</a>
+            <span style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>Email</span>
+            <a href="mailto:dacheconsultingmedia@yahoo.com" style={{ fontSize: 18, fontWeight: 600, color: "#fff", textDecoration: "none" }}>dacheconsultingmedia@yahoo.com</a>
           </div>
           <div style={{ display: "flex", flexDirection: "column" as const, alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>Location</span>
-            <span style={{ fontSize: 18, fontWeight: 600 }}>Midtown Manhattan, NY</span>
+            <span style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(255,255,255,0.4)", fontWeight: 500 }}>Locations</span>
+            <span style={{ fontSize: 18, fontWeight: 600 }}>Manhattan &amp; Miami</span>
           </div>
         </div>
       </section>
