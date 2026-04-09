@@ -38,6 +38,7 @@ import NewProjects from "./pages/NewProjects";
 import DachLanding from "./pages/DachLanding";
 import CgLanding from "./pages/CgLanding";
 import HenryStandalone from "./pages/HenryStandalone";
+import HangaroaNewsletter from "./pages/HangaroaNewsletter";
 import "./index.css";
 
 function ScrollToTop() {
@@ -49,7 +50,7 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS = ["/chat-embed", "/dach", "/cg", "/henry"];
+const HIDE_WIDGET_PATHS = ["/chat-embed", "/dach", "/cg", "/henry", "/hangaroa-newsletter"];
 
 function Router() {
   const [location] = useLocation();
@@ -90,6 +91,7 @@ function Router() {
         <Route path="/dach" component={DachLanding} />
         <Route path="/cg" component={CgLanding} />
         <Route path="/henry" component={HenryStandalone} />
+        <Route path="/hangaroa-newsletter" component={HangaroaNewsletter} />
 
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
