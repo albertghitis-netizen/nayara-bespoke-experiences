@@ -26,7 +26,6 @@ const MENU_ITEMS = [
   { label: "Our Story", id: "about" },
   { label: "Nayara Journal", id: "journal" },
   { label: "Press & Awards", id: "press" },
-  { label: "Nayara by Night", id: "nayara-by-night" },
   { label: "Contact Us", id: "contact" },
 ];
 

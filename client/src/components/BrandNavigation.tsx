@@ -20,10 +20,10 @@ import {
 
 /* ── Global menu items (matches footer) ── */
 const GLOBAL_MENU = [
-  { label: "Our Story", route: "/story" },
-  { label: "Experiences", route: "/experiences" },
-  { label: "Wellness", route: "/wellness" },
-  { label: "The Table", route: "/gastronomy" },
+  { label: "The Nayara Story", route: "/story" },
+  { label: "Bespoke Experiences", route: "/experiences" },
+  { label: "Nature-Based Wellness", route: "/wellness" },
+  { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Awards & Press", route: "/awards" },
   { label: "Journal & Podcast", route: "/journal" },
@@ -190,6 +190,15 @@ export default function BrandNavigation({
                         <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
                       </button>
                     ))}
+
+                    {/* Coming Soon & Nayara By Night — bottom of menu */}
+                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
+                    <button onClick={() => handleNavigate("/new-projects")} className={menuItem}>
+                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Coming Soon</span>
+                    </button>
+                    <button onClick={() => handleNavigate("/by-night")} className={menuItem}>
+                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Nayara By Night</span>
+                    </button>
                   </div>
                 </motion.div>
               )}
@@ -295,6 +304,15 @@ export default function BrandNavigation({
                         <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
                       </button>
                     ))}
+
+                    {/* Coming Soon & Nayara By Night — bottom of mobile menu */}
+                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
+                    <button onClick={() => handleNavigate("/new-projects")} className={menuItem}>
+                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Coming Soon</span>
+                    </button>
+                    <button onClick={() => handleNavigate("/by-night")} className={menuItem}>
+                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Nayara By Night</span>
+                    </button>
                   </div>
                 </motion.div>
               )}

@@ -34,38 +34,40 @@ export const PROPERTIES = [
 ] as const;
 
 export const PILLARS = [
-  { label: "Experiences", route: "/experiences" },
+  { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Wellness", route: "/wellness" },
-  { label: "The Table", route: "/gastronomy" },
+  { label: "Nature-Based Wellness", route: "/wellness" },
+  { label: "A Taste of Place", route: "/gastronomy" },
 ] as const;
 
 export const CONTENT_SECTIONS = [
-  { label: "Nayara Journal", route: "/journal" },
-  { label: "Press & Awards", route: "/awards" },
+  { label: "Journal & Podcast", route: "/journal" },
+  { label: "Awards & Press", route: "/awards" },
 ] as const;
 
 /* Property page hamburger — sections within THIS property */
 export const PROPERTY_MENU: MenuItem[] = [
   { label: "Tents & Suites", route: "#tented-camp" },
-  { label: "Experiences", route: "#experiences" },
-  { label: "Wellness", route: "#wellness" },
-  { label: "The Table", route: "#gastronomy" },
+  { label: "Bespoke Experiences", route: "#experiences" },
+  { label: "Nature-Based Wellness", route: "#wellness" },
+  { label: "A Taste of Place", route: "#gastronomy" },
   { label: "Beyond Sustainability", route: "#sustainability" },
   { label: "Getting Here", route: "#getting-here" },
-  { label: "Press & Awards", route: "/awards" },
-  { label: "Nayara Journal", route: "/journal" },
+  { label: "Awards & Press", route: "/awards" },
+  { label: "Journal & Podcast", route: "/journal" },
 ];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
 const STANDARD_MENU_ITEMS: MenuItem[] = [
-  { label: "Our Story", route: "/story" },
-  { label: "Experiences", route: "/experiences" },
-  { label: "Wellness", route: "/wellness" },
-  { label: "The Table", route: "/gastronomy" },
+  { label: "The Nayara Story", route: "/story" },
+  { label: "Bespoke Experiences", route: "/experiences" },
+  { label: "Nature-Based Wellness", route: "/wellness" },
+  { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Press & Awards", route: "/awards" },
-  { label: "Nayara Journal", route: "/journal" },
+  { label: "Awards & Press", route: "/awards" },
+  { label: "Journal & Podcast", route: "/journal" },
+  { label: "Coming Soon", route: "/new-projects" },
+  { label: "Nayara By Night", route: "/by-night" },
 ];
 
 /* Brand page hamburger — standardized menu (no properties) */
