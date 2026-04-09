@@ -30,7 +30,8 @@ const CDN = {
   moaiSunsetSilhouette: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-sunset-silhouette_692f6a23.webp",
   ranoKauMilkyway: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp",
   /* Gallery — Bocas del Toro */
-  bioluminescence: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-bioluminescence_489a9637.webp",
+  biolumBeach: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum2_9f24efa2.jpeg",
+  biolumWaves: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum_007f69ec.webp",
   /* Gallery — Videos */
   videoShort: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4",
   videoLong: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-long_44b41d4c.mp4",
@@ -155,9 +156,8 @@ function GallerySection() {
     { src: CDN.rockArchMilkyway, alt: "Rock arch under the Milky Way" },
     { src: CDN.observatoryMilkyway, alt: "Alto Atacama resort at dusk" },
     { src: CDN.craterMilkyway, alt: "Volcanic crater under the Milky Way" },
-    { src: CDN.atacamaDusk, alt: "Atacama desert at twilight" },
-    { src: CDN.bioluminescence, alt: "Bioluminescence in Bocas del Toro" },
-    { src: CDN.moaiSunsetSilhouette, alt: "Moai silhouettes at dusk" },
+    { src: CDN.biolumBeach, alt: "Bioluminescent shoreline in Bocas del Toro" },
+    { src: CDN.biolumWaves, alt: "Bioluminescent waves crashing at night" },
     { src: CDN.moaiSunriseGolden, alt: "Moai in golden sunrise light" },
     { src: CDN.ranoKauMilkyway, alt: "Rano Kau crater with Milky Way" },
     { src: CDN.videoShort, alt: "Night sky timelapse", type: "video" },
