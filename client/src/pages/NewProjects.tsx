@@ -268,7 +268,7 @@ export default function NewProjects() {
                   color: "rgba(255,255,255,0.25)",
                 }}
               >
-                Ayla &amp; Paloma, Co-Founders
+                Leo Ghitis, Co-Founder &amp; CEO
               </p>
             </motion.blockquote>
 
@@ -392,9 +392,7 @@ export default function NewProjects() {
               standard, insane. He approved them anyway. Lev, the CMO, said the
               tagline writes itself. Lyla, Director of Special Projects (Baby
               Department), contributed a drawing of the Moon that was deemed
-              "strategically important." Ruthy, the very dedicated cleaning lady,
-              asked only one question: "Do they have dust up there?" They do. She
-              is ready.
+              "strategically important."
             </StoryParagraph>
 
             <motion.blockquote
