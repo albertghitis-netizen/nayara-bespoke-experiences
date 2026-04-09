@@ -69,9 +69,27 @@ export const appRouter = router({
           })),
         ];
 
-        const result = await invokeLLM({
-          messages: messagesForLLM,
-        });
+        // Retry with backoff for rate limiting
+        let result;
+        let lastError;
+        for (let attempt = 0; attempt < 3; attempt++) {
+          try {
+            result = await invokeLLM({
+              messages: messagesForLLM,
+            });
+            break; // success
+          } catch (err: any) {
+            lastError = err;
+            const is429 = err?.message?.includes("429") || err?.message?.includes("Too Many Requests") || err?.message?.includes("request too many");
+            if (is429 && attempt < 2) {
+              // Wait before retrying: 2s, 4s
+              await new Promise(r => setTimeout(r, (attempt + 1) * 2000));
+              continue;
+            }
+            throw err;
+          }
+        }
+        if (!result) throw lastError;
 
         const assistantMessage =
           result.choices?.[0]?.message?.content ?? "I'm sorry, I wasn't able to process that. Could you try again?";

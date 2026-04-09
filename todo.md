@@ -1361,3 +1361,8 @@
 - [ ] Upload Manuel Antonio hero image to CDN
 - [ ] Add Manuel Antonio section with hero image and story on why it's a natural fit for Nayara (Opening Winter 2027)
 - [ ] Add Berkshires section with hero image and story on why it's a natural fit for Nayara
+
+## Standalone Pages
+- [x] Add /dach route with DACH Consulting Media Corp landing page
+- [x] Add /cg route with CG Home Services landing page
+- [x] Add /henry route with standalone Henry concierge bot page

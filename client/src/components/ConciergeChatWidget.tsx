@@ -53,7 +53,7 @@ export default function ConciergeChatWidget() {
         {
           role: "assistant",
           content:
-            "I apologize — I'm having a moment. Could you try that again? Or feel free to reach us directly at reservations@nayararesorts.com or call 1-844-865-2002.",
+            "Our concierge line is momentarily busy. Please try again in a few seconds, or reach us directly at reservations@nayararesorts.com or 1-844-865-2002.",
         },
       ]);
     },

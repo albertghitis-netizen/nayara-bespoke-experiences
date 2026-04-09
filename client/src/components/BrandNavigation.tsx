@@ -49,6 +49,7 @@ interface BrandNavigationProps {
 
 export default function BrandNavigation({
   pageType = "brand",
+  centerLabel,
 }: BrandNavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
@@ -205,26 +206,20 @@ export default function BrandNavigation({
             </AnimatePresence>
           </div>
 
-          {/* Center: Property Name Strip */}
-          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar mx-4">
-            {PROPERTIES.map((p, i) => (
-              <button
-                key={p.id}
-                onClick={() => handleNavigate(p.route)}
-                className={`whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] tracking-[0.06em] transition-all duration-200 ${
-                  currentPropertyId === p.id
-                    ? "bg-[#3a2a1a]/90 text-white shadow-sm"
-                    : "text-white/80 drop-shadow-sm hover:text-white hover:bg-white/15"
-                }`}
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontWeight: currentPropertyId === p.id ? 600 : 400,
-                }}
-              >
-                {p.shortName}
-              </button>
-            ))}
-          </div>
+          {/* Center: Brand or Property Name */}
+          <button
+            onClick={() => handleNavigate("/")}
+            className="mx-4 text-white/90 hover:text-white transition-colors drop-shadow-sm"
+          >
+            <span
+              className="text-[13px] tracking-[0.18em] uppercase"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+            >
+              {centerLabel || (currentPropertyId
+                ? PROPERTIES.find(p => p.id === currentPropertyId)?.name || "Nayara Resorts"
+                : "Nayara Resorts")}
+            </span>
+          </button>
 
           {/* Right: Reserve */}
           <div ref={reserveRef} className="relative shrink-0">
@@ -265,9 +260,9 @@ export default function BrandNavigation({
           </div>
         </div>
 
-        {/* ── MOBILE NAV — 4 evenly spaced buttons ── */}
+        {/* ── MOBILE NAV — Hamburger (left) + Reserve (right) ── */}
         <div className="flex md:hidden items-center justify-between pointer-events-auto">
-          {/* 1. Hamburger */}
+          {/* Hamburger */}
           <div ref={menuRef} className="relative">
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
@@ -305,6 +300,19 @@ export default function BrandNavigation({
                       </button>
                     ))}
 
+                    {/* Our Resorts */}
+                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
+                    <div className="px-4 pt-1 pb-1">
+                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.18em] uppercase" style={menuText}>
+                        Our Resorts
+                      </span>
+                    </div>
+                    {EXPLORE_ITEMS.map((item) => (
+                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                      </button>
+                    ))}
+
                     {/* Coming Soon & Nayara By Night — bottom of mobile menu */}
                     <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
                     <button onClick={() => handleNavigate("/new-projects")} className={menuItem}>
@@ -319,31 +327,7 @@ export default function BrandNavigation({
             </AnimatePresence>
           </div>
 
-          {/* 2. Explore (properties) */}
-          <div ref={exploreRef} className="relative">
-            <button
-              onClick={() => { closeAll(); setExploreOpen(!exploreOpen); }}
-              className={`${pill} h-10 px-4`}
-            >
-              <span className="text-[#3a2a1a] text-[12px]" style={menuText}>Explore</span>
-            </button>
-
-            <AnimatePresence>
-              {exploreOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} left-1/2 -translate-x-1/2 top-full w-52`}>
-                  <div className="py-2">
-                    {EXPLORE_ITEMS.map((item) => (
-                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* 3. Reserve */}
+          {/* Reserve */}
           <div ref={reserveRef} className="relative">
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
@@ -375,21 +359,6 @@ export default function BrandNavigation({
               )}
             </AnimatePresence>
           </div>
-
-          {/* 4. Concierge */}
-          <button
-            onClick={() => {
-              const chatBtn = document.querySelector('[data-concierge-toggle]') as HTMLButtonElement;
-              if (chatBtn) chatBtn.click();
-              else import("sonner").then(({ toast }) => toast("Chat with our concierge"));
-            }}
-            className={`${pill} w-10 h-10`}
-            aria-label="Chat"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="#3a2a1a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            </svg>
-          </button>
         </div>
       </nav>
     </>

@@ -49,14 +49,20 @@
   --font-heading: "Jost", system-ui, sans-serif;
 
   /* ═══════════════════════════════════════════════════
-     BRAND FOUNDATION — Shared across every page
+     BRAND FOUNDATION — Alo-inspired palette
+     Gravel (#9B8E82) · Bone (#E8E3DA) · Chocolate (#3A2A1A) · Olive Tree (#5C6B4F)
      ═══════════════════════════════════════════════════ */
-  --color-nayara-bg: oklch(0.947 0.008 36);
-  --color-nayara-text: oklch(0.144 0.016 36);
-  --color-nayara-text-secondary: oklch(0.441 0.018 31.3);
-  --color-nayara-text-tertiary: oklch(0.663 0.014 33.3);
-  --color-nayara-divider: oklch(0.869 0.010 36.9);
-  --color-nayara-nav: oklch(0.174 0.025 30);
+  --color-nayara-gravel: oklch(0.655 0.023 65.1);
+  --color-nayara-bone: oklch(0.917 0.013 82.4);
+  --color-nayara-chocolate: oklch(0.299 0.036 65.7);
+  --color-nayara-olive: oklch(0.507 0.047 130.9);
+
+  --color-nayara-bg: oklch(0.917 0.013 82.4);
+  --color-nayara-text: oklch(0.299 0.036 65.7);
+  --color-nayara-text-secondary: oklch(0.655 0.023 65.1);
+  --color-nayara-text-tertiary: oklch(0.655 0.023 65.1);
+  --color-nayara-divider: oklch(0.840 0.015 75);
+  --color-nayara-nav: oklch(0.299 0.036 65.7);
 
   /* ═══════════════════════════════════════════════════
      PROPERTY PALETTES — Gardens (Canopy)
@@ -99,26 +105,26 @@
 
 :root {
   --radius: 0.25rem;
-  /* Brand foundation */
-  --background: oklch(0.947 0.008 36);
-  --foreground: oklch(0.144 0.016 36);
-  --card: oklch(0.96 0.006 36);
-  --card-foreground: oklch(0.144 0.016 36);
-  --popover: oklch(0.96 0.006 36);
-  --popover-foreground: oklch(0.144 0.016 36);
-  --primary: oklch(0.385 0.062 22.8);
-  --primary-foreground: oklch(0.96 0.005 36);
-  --secondary: oklch(0.92 0.008 36);
-  --secondary-foreground: oklch(0.30 0.016 36);
-  --muted: oklch(0.92 0.008 36);
-  --muted-foreground: oklch(0.441 0.018 31.3);
-  --accent: oklch(0.663 0.014 33.3);
-  --accent-foreground: oklch(0.144 0.016 36);
+  /* Brand foundation — Alo-inspired: Bone bg, Chocolate text, Gravel muted, Olive accent */
+  --background: oklch(0.917 0.013 82.4);       /* Bone */
+  --foreground: oklch(0.299 0.036 65.7);       /* Chocolate */
+  --card: oklch(0.940 0.010 80);               /* Slightly lighter Bone */
+  --card-foreground: oklch(0.299 0.036 65.7);  /* Chocolate */
+  --popover: oklch(0.940 0.010 80);
+  --popover-foreground: oklch(0.299 0.036 65.7);
+  --primary: oklch(0.299 0.036 65.7);          /* Chocolate */
+  --primary-foreground: oklch(0.917 0.013 82.4); /* Bone */
+  --secondary: oklch(0.880 0.015 78);          /* Light Gravel */
+  --secondary-foreground: oklch(0.299 0.036 65.7);
+  --muted: oklch(0.880 0.015 78);
+  --muted-foreground: oklch(0.655 0.023 65.1); /* Gravel */
+  --accent: oklch(0.507 0.047 130.9);          /* Olive Tree */
+  --accent-foreground: oklch(0.917 0.013 82.4); /* Bone */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.869 0.010 36.9);
-  --input: oklch(0.90 0.008 36);
-  --ring: oklch(0.663 0.014 33.3);
+  --border: oklch(0.840 0.015 75);             /* Warm divider */
+  --input: oklch(0.900 0.012 80);
+  --ring: oklch(0.507 0.047 130.9);            /* Olive Tree */
   --chart-1: oklch(0.385 0.062 22.8);
   --chart-2: oklch(0.507 0.050 33.8);
   --chart-3: oklch(0.379 0.038 180);
@@ -198,10 +204,10 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: oklch(0.92 0.008 36);
+  background: oklch(0.917 0.013 82.4);  /* Bone */
 }
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.663 0.014 33.3);
+  background: oklch(0.655 0.023 65.1);  /* Gravel */
   border-radius: 3px;
 }
 
