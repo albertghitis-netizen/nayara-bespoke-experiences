@@ -123,16 +123,20 @@ export default function Newsletter() {
           >
             Why Sustainability Is Not a Department
           </h2>
-          <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-4">
             Nayara Alto Atacama has held the S Certification for years. Nayara
             Hangaroa just earned it. One standard. Two ecosystems. The same
             belief: protecting the land is not separate from what we offer. It
             is the foundation of it.
           </p>
+          <p className="text-[15px] text-[#666666] leading-[1.9] mb-8">
+            All four operational Nayara properties now hold internationally
+            audited sustainability certifications — Green Globe in Costa Rica
+            and Panama, S Certification in Chile. Read how we are setting the
+            standard across rainforest, desert, and ocean.
+          </p>
           <a
-            href="https://blog.nayararesorts.com/s-certification"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/blog/green-globe-s-certification"
             className="inline-block px-10 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded"
           >
             Read the Blog
@@ -290,21 +294,15 @@ export default function Newsletter() {
             className="text-white/50 text-[12px] hover:text-white/90 transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
-            (844) 865-2002
+            +1 (844) 865-2002 (US)
           </a>
           <a
             href="tel:+50624791600"
             className="text-white/50 text-[12px] hover:text-white/90 transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
-            (506) 2479-1600
+            +506 2479-1600 (Costa Rica)
           </a>
-          <p
-            className="text-white/30 text-[11px] mt-1"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Mon–Fri 8am–10pm EST &nbsp;&middot;&nbsp; Sat–Sun 8am–8pm EST
-          </p>
         </div>
 
         {/* Social icons */}

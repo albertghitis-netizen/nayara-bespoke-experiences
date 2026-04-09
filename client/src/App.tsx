@@ -30,6 +30,7 @@ import ConciergeChatWidget from "./components/ConciergeChatWidget";
 import ChatEmbed from "./pages/ChatEmbed";
 
 import Newsletter from "./pages/Newsletter";
+import HangaroaSuperSale from "./pages/HangaroaSuperSale";
 import BlogPost from "./pages/BlogPost";
 import PuraVidaBlog from "./pages/PuraVidaBlog";
 import GreenGlobeBlog from "./pages/GreenGlobeBlog";
@@ -78,6 +79,7 @@ function Router() {
         <Route path="/faq">{() => { window.location.replace("/journal"); return null; }}</Route>
         <Route path="/chat-embed" component={ChatEmbed} />
         <Route path="/newsletter" component={Newsletter} />
+        <Route path="/hangaroa-super-sale" component={HangaroaSuperSale} />
         <Route path="/blog/pura-vida" component={PuraVidaBlog} />
         <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
 

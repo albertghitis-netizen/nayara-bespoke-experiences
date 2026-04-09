@@ -540,21 +540,15 @@ export default function BlogPost() {
             className="text-white/50 text-[12px] hover:text-white/90 transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
-            (844) 865-2002
+            +1 (844) 865-2002 (US)
           </a>
           <a
             href="tel:+50624791600"
             className="text-white/50 text-[12px] hover:text-white/90 transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
-            (506) 2479-1600
+            +506 2479-1600 (Costa Rica)
           </a>
-          <p
-            className="text-white/30 text-[11px] mt-1"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Mon–Fri 8am–10pm EST &nbsp;&middot;&nbsp; Sat–Sun 8am–8pm EST
-          </p>
         </div>
 
         {/* Social icons */}

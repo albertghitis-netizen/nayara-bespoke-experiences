@@ -1245,3 +1245,16 @@
 - [x] Restore real images from updated version (reverted to last checkpoint version)
 - [x] Delete Newsletter B page and route
 - [x] Generate HubSpot-compatible HTML email export for Newsletter
+
+## Pura Vida Blog Fixes
+- [ ] Add Tented Camp wellness video as hero video on Pura Vida blog
+- [ ] Remove buttons below author line on Pura Vida blog
+
+## Hangaroa Super Sale Landing Page
+- [x] Create landing page from user's pasted HTML (Nayara Hangaroa Super Sale Chile 2026)
+- [x] Add route for landing page
+
+## Footer Phone Number Labels
+- [x] Add + prefix and country labels (US / Costa Rica) to phone numbers in Newsletter footer
+- [x] Add + prefix and country labels (US / Costa Rica) to phone numbers in Blog footer
+- [x] Add Green Globe / S Certification blurb in Newsletter section 2 (Earth Day)
