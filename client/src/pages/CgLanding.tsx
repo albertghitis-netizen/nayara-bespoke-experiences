@@ -2,6 +2,8 @@
  * CG Home Services — Landing Page
  * Lion crest logo, home restoration, charcoal/gold palette
  */
+import { Helmet } from "react-helmet-async";
+
 export default function CgLanding() {
   const LION_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/cg-logo-lion-GDPeCQcYfHoeZZ7oR8KUAb.png";
 
@@ -16,6 +18,19 @@ export default function CgLanding() {
 
   return (
     <div style={{ fontFamily: "'Inter', sans-serif", color: "#2a2a2a", background: "#fff", minHeight: "100vh" }}>
+      <Helmet>
+        <title>CG Home Services | Expert Home Restoration</title>
+        <meta name="description" content="Expert home restoration — full renovations, water & fire damage, kitchen & bath remodeling, structural repairs. Licensed, insured, quality craftsmanship." />
+        <meta property="og:title" content="CG Home Services" />
+        <meta property="og:description" content="Home Restoration Done Right. Expert craftsmanship, honest pricing." />
+        <meta property="og:image" content={LION_LOGO} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="CG Home Services" />
+        <meta name="twitter:description" content="Home Restoration Done Right" />
+        <meta name="twitter:image" content={LION_LOGO} />
+        <link rel="icon" type="image/png" href={LION_LOGO} />
+      </Helmet>
       {/* Google Font */}
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 

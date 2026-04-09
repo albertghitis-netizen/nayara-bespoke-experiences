@@ -2,6 +2,8 @@
  * DACH Consulting Media Corp — Landing Page
  * Wolf logo, digital marketing consulting, Midtown Manhattan
  */
+import { Helmet } from "react-helmet-async";
+
 export default function DachLanding() {
   const WOLF_LOGO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/dach-logo-wolf-VKtcrVg2cJJ4L2EjSFdmrY.png";
 
@@ -16,6 +18,19 @@ export default function DachLanding() {
 
   return (
     <div style={{ fontFamily: "'Inter', sans-serif", color: "#1a2744", background: "#fff", minHeight: "100vh" }}>
+      <Helmet>
+        <title>DACH Consulting Media Corp | Strategic Digital Marketing</title>
+        <meta name="description" content="Full-service digital marketing consulting from the heart of Midtown Manhattan. Brand strategy, paid media, SEO, social media, analytics, and creative production." />
+        <meta property="og:title" content="DACH Consulting Media Corp" />
+        <meta property="og:description" content="Strategic Digital Marketing for Ambitious Brands. Midtown Manhattan." />
+        <meta property="og:image" content={WOLF_LOGO} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="DACH Consulting Media Corp" />
+        <meta name="twitter:description" content="Strategic Digital Marketing for Ambitious Brands" />
+        <meta name="twitter:image" content={WOLF_LOGO} />
+        <link rel="icon" type="image/png" href={WOLF_LOGO} />
+      </Helmet>
       {/* Google Font */}
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
