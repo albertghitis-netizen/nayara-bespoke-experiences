@@ -137,44 +137,6 @@ export default function Journal() {
               </button>
             ))}
           </div>
-
-          {/* Property filter */}
-          <div className="flex flex-wrap items-center gap-2 mb-4 justify-center">
-            <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase mr-1" style={{ ...body, fontWeight: 600 }}>Destination</span>
-            {PROPERTY_OPTIONS.map((p) => (
-              <button
-                key={p.id}
-                onClick={() => setActiveProperty(p.id)}
-                className={`px-3 py-1.5 text-[11px] tracking-[0.1em] rounded-full border transition-all duration-300 ${
-                  activeProperty === p.id
-                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                    : "bg-transparent text-[#5a4a3a]/50 border-[#3a2a1a]/12 hover:border-[#3a2a1a]/30 hover:text-[#3a2a1a]"
-                }`}
-                style={{ ...body, fontWeight: 500 }}
-              >
-                {p.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Pillar filter */}
-          <div className="flex flex-wrap items-center gap-2 justify-center">
-            <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase mr-1" style={{ ...body, fontWeight: 600 }}>Pillars</span>
-            {PILLAR_OPTIONS.map((p) => (
-              <button
-                key={p.id}
-                onClick={() => setActivePillar(p.id)}
-                className={`px-3 py-1.5 text-[11px] tracking-[0.1em] rounded-full border transition-all duration-300 ${
-                  activePillar === p.id
-                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                    : "bg-transparent text-[#5a4a3a]/50 border-[#3a2a1a]/12 hover:border-[#3a2a1a]/30 hover:text-[#3a2a1a]"
-                }`}
-                style={{ ...body, fontWeight: 500 }}
-              >
-                {p.label}
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 

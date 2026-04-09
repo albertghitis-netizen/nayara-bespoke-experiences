@@ -1166,3 +1166,60 @@
 - [x] Blog: Rebuild Pura Vida blog using the new template
 - [x] Blog: Research and write Green Globe / S Certification sustainability blog
 - [x] Blog: Build Green Globe / S Certification blog using the new template
+
+## Color Palette System
+- [ ] Audit current color usage across all 6 property pages
+- [ ] Design destination-specific color palette for each property (Gardens, Springs, Tented Camp, Alto Atacama, Hangaroa, Bocas del Toro)
+- [ ] Present palette to user for approval
+- [ ] Implement approved palettes across property pages
+- [ ] Verify visual consistency across all pages
+
+## Color Palette System
+- [ ] Design six muted, destination-specific color palettes (fresh, no reference to live Nayara sites)
+- [ ] Present palette to user for approval
+- [ ] Implement approved palettes across property pages
+- [ ] Verify visual consistency across all pages
+
+## Visual Identity Implementation
+- [ ] Swap Playfair Display for Cormorant Garamond in index.html and index.css
+- [ ] Update brand foundation colors in index.css
+- [ ] Create property palette CSS variables / data config
+- [ ] Apply property palettes to Gardens page
+- [ ] Apply property palettes to Springs page
+- [ ] Apply property palettes to Tented Camp page
+- [ ] Apply property palettes to Alto Atacama page
+- [ ] Apply property palettes to Hangaroa page
+- [ ] Apply property palettes to Bocas del Toro page
+- [ ] Apply gradient section transitions across property pages
+- [ ] Verify visual consistency across all pages
+
+## Mobile / Desktop Optimization
+- [ ] Treat mobile and desktop as two distinct experiences — different layouts, imagery, section order allowed
+- [ ] Flag any property pages where different mobile vs desktop assets are needed
+
+## Animation System
+- [ ] Build reusable animation components (FadeIn, SlideUp, StaggerChildren, Parallax, TextReveal)
+- [ ] Define motion constants (easing curves, durations, delays) as shared config
+- [ ] Integrate animations into property page sections from the start
+
+## Video-First Website
+- [ ] Make every section that can be video, video — photos are fallback not default
+- [ ] Keep videos short, compressed, lazy-loaded for performance
+- [ ] Flag sections where additional video assets are needed from user
+- [ ] Audit all existing CDN video assets across properties
+- [x] Remove /all-destinations route and all references to it
+- [ ] Remove /guide route and all references
+- [ ] Remove /competitors route and all references
+- [x] Remove /guide route and WebsiteGuide page
+- [x] Remove /competitors route and Competitors page
+- [x] Remove /seo route and SEOStrategy page
+- [x] Remove /questions route and Questions page
+- [x] Remove /architecture route and Architecture page
+- [x] Remove /brand-book route temporarily until new brand book is finished
+- [x] Rename concierge chat bot back to Henry
+- [x] Remove /concierge route and AskConcierge page
+- [x] Remove /ayla route and AylaOnKrog page
+- [x] Rename concierge to Henry in chat widget and system prompt
+- [x] Remove gallery from navigation (rethink later)
+- [x] Remove /nayara-by-night route and NayaraByNight page
+- [x] Remove pillars/topics navigation from Journal page

@@ -296,28 +296,7 @@ function SustainabilitySection() {
       </div>
     </section>
 
-    {/* Sustainability image full-width with overlay text */}
-    <section className="relative py-0 px-0 mb-0">
-      <FadeIn>
-        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg" alt="Sustainability - Light Footprint, Lasting Impact" className="w-full h-auto" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-        <div className="absolute bottom-8 md:bottom-16 left-0 right-0">
-          <div className="max-w-[1200px] mx-auto px-6 md:px-10 flex justify-end">
-            <motion.a
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              href="/tented-camp/sustainability"
-              className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline"
-              style={{ ...body, fontWeight: 400 }}
-            >
-              Explore More
-            </motion.a>
-          </div>
-        </div>
-      </FadeIn>
-    </section>
+
     </>
   );
 }

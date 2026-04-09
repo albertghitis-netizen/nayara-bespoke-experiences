@@ -16,7 +16,6 @@ import Sustainability from "./pages/Sustainability";
 import Experiences from "./pages/Experiences";
 import Wellness from "./pages/Wellness";
 import TentedWellness from "./pages/TentedWellness";
-import AylaOnKrog from "./pages/AylaOnKrog";
 
 import Story from "./pages/Story";
 import Rooms from "./pages/Rooms";
@@ -27,16 +26,8 @@ import Gardens from "./pages/Gardens";
 import Springs from "./pages/Springs";
 
 
-import Competitors from "./pages/Competitors";
-import AskConcierge from "./pages/AskConcierge";
 import ConciergeChatWidget from "./components/ConciergeChatWidget";
-import BrandBook from "./pages/BrandBook";
-import SEOStrategy from "./pages/SEOStrategy";
-import Architecture from "./pages/Architecture";
-import Questions from "./pages/Questions";
-import WebsiteGuide from "./pages/WebsiteGuide";
 import ChatEmbed from "./pages/ChatEmbed";
-import NayaraByNight from "./pages/NayaraByNight";
 
 import Newsletter from "./pages/Newsletter";
 import BlogPost from "./pages/BlogPost";
@@ -73,7 +64,6 @@ function Router() {
         <Route path="/hangaroa" component={Hangaroa} />
         <Route path="/bocas-del-toro" component={BocasDelToro} />
         <Route path="/journal" component={Journal} />
-        <Route path="/all-destinations">{() => { window.location.replace("/"); return null; }}</Route>
         <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
         <Route path="/podcast">{() => { window.location.replace("/journal"); return null; }}</Route>
         <Route path="/awards" component={AwardsAndPress} />
@@ -86,16 +76,7 @@ function Router() {
         <Route path="/rooms" component={Rooms} />
         <Route path="/gastronomy" component={Gastronomy} />
         <Route path="/faq">{() => { window.location.replace("/journal"); return null; }}</Route>
-        <Route path="/competitors" component={Competitors} />
-        <Route path="/concierge" component={AskConcierge} />
-        <Route path="/brand-book" component={BrandBook} />
-        <Route path="/seo" component={SEOStrategy} />
-        <Route path="/architecture" component={Architecture} />
-        <Route path="/questions" component={Questions} />
-        <Route path="/guide" component={WebsiteGuide} />
         <Route path="/chat-embed" component={ChatEmbed} />
-        <Route path="/nayara-by-night" component={NayaraByNight} />
-        <Route path="/ayla" component={AylaOnKrog} />
         <Route path="/newsletter" component={Newsletter} />
         <Route path="/blog/pura-vida" component={PuraVidaBlog} />
         <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />

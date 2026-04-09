@@ -41,57 +41,97 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Nayara Atacama Custom Colors */
-  --color-desert-cream: oklch(0.96 0.015 80);
-  --color-desert-sand: oklch(0.88 0.04 75);
-  --color-terracotta: oklch(0.58 0.16 35);
-  --color-terracotta-light: oklch(0.68 0.12 40);
-  --color-volcanic: oklch(0.22 0.01 60);
-  --color-charcoal: oklch(0.28 0.01 60);
-  --color-indigo: oklch(0.25 0.06 265);
-  --color-gold: oklch(0.72 0.1 75);
-  --color-gold-light: oklch(0.82 0.08 78);
-  --color-lagoon: oklch(0.55 0.1 180);
-
-  --font-display: "Playfair Display", Georgia, serif;
+  /* ═══════════════════════════════════════════════════
+     TYPOGRAPHY — Option B: Cormorant Garamond + DM Sans + Jost
+     ═══════════════════════════════════════════════════ */
+  --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
   --font-heading: "Jost", system-ui, sans-serif;
+
+  /* ═══════════════════════════════════════════════════
+     BRAND FOUNDATION — Shared across every page
+     ═══════════════════════════════════════════════════ */
+  --color-nayara-bg: oklch(0.947 0.008 36);
+  --color-nayara-text: oklch(0.144 0.016 36);
+  --color-nayara-text-secondary: oklch(0.441 0.018 31.3);
+  --color-nayara-text-tertiary: oklch(0.663 0.014 33.3);
+  --color-nayara-divider: oklch(0.869 0.010 36.9);
+  --color-nayara-nav: oklch(0.174 0.025 30);
+
+  /* ═══════════════════════════════════════════════════
+     PROPERTY PALETTES — Gardens (Canopy)
+     ═══════════════════════════════════════════════════ */
+  --color-gardens-primary: oklch(0.342 0.027 95.3);
+  --color-gardens-secondary: oklch(0.365 0.026 30.9);
+  --color-gardens-accent: oklch(0.582 0.025 88.1);
+  --color-gardens-gradient-end: oklch(0.934 0.008 90);
+
+  /* Springs (Mineral) */
+  --color-springs-primary: oklch(0.335 0.026 143.6);
+  --color-springs-secondary: oklch(0.339 0.008 36);
+  --color-springs-accent: oklch(0.554 0.020 143.1);
+  --color-springs-gradient-end: oklch(0.927 0.005 140);
+
+  /* Tented Camp (Safari) */
+  --color-tented-primary: oklch(0.471 0.022 60);
+  --color-tented-secondary: oklch(0.462 0.042 33.3);
+  --color-tented-accent: oklch(0.621 0.017 60);
+  --color-tented-gradient-end: oklch(0.929 0.009 45);
+
+  /* Alto Atacama (Mineral Earth) */
+  --color-atacama-primary: oklch(0.385 0.062 22.8);
+  --color-atacama-secondary: oklch(0.507 0.050 33.8);
+  --color-atacama-accent: oklch(0.537 0.020 62.4);
+  --color-atacama-gradient-end: oklch(0.928 0.011 34.3);
+
+  /* Hangaroa (Volcanic) */
+  --color-hangaroa-primary: oklch(0.337 0.016 34.3);
+  --color-hangaroa-secondary: oklch(0.434 0.060 35.1);
+  --color-hangaroa-accent: oklch(0.504 0.023 82.8);
+  --color-hangaroa-gradient-end: oklch(0.918 0.007 40);
+
+  /* Bocas del Toro (Lagoon) */
+  --color-bocas-primary: oklch(0.379 0.038 180);
+  --color-bocas-secondary: oklch(0.383 0.026 120);
+  --color-bocas-accent: oklch(0.596 0.030 180);
+  --color-bocas-gradient-end: oklch(0.927 0.006 180);
 }
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.96 0.015 80);
-  --foreground: oklch(0.22 0.01 60);
-  --card: oklch(0.98 0.01 80);
-  --card-foreground: oklch(0.22 0.01 60);
-  --popover: oklch(0.98 0.01 80);
-  --popover-foreground: oklch(0.22 0.01 60);
-  --primary: oklch(0.58 0.16 35);
-  --primary-foreground: oklch(0.98 0.005 80);
-  --secondary: oklch(0.92 0.02 75);
-  --secondary-foreground: oklch(0.30 0.02 60);
-  --muted: oklch(0.92 0.015 78);
-  --muted-foreground: oklch(0.50 0.02 60);
-  --accent: oklch(0.72 0.1 75);
-  --accent-foreground: oklch(0.20 0.01 60);
+  /* Brand foundation */
+  --background: oklch(0.947 0.008 36);
+  --foreground: oklch(0.144 0.016 36);
+  --card: oklch(0.96 0.006 36);
+  --card-foreground: oklch(0.144 0.016 36);
+  --popover: oklch(0.96 0.006 36);
+  --popover-foreground: oklch(0.144 0.016 36);
+  --primary: oklch(0.385 0.062 22.8);
+  --primary-foreground: oklch(0.96 0.005 36);
+  --secondary: oklch(0.92 0.008 36);
+  --secondary-foreground: oklch(0.30 0.016 36);
+  --muted: oklch(0.92 0.008 36);
+  --muted-foreground: oklch(0.441 0.018 31.3);
+  --accent: oklch(0.663 0.014 33.3);
+  --accent-foreground: oklch(0.144 0.016 36);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.88 0.02 75);
-  --input: oklch(0.90 0.02 75);
-  --ring: oklch(0.72 0.1 75);
-  --chart-1: oklch(0.58 0.16 35);
-  --chart-2: oklch(0.72 0.1 75);
-  --chart-3: oklch(0.55 0.1 180);
-  --chart-4: oklch(0.25 0.06 265);
-  --chart-5: oklch(0.88 0.04 75);
-  --sidebar: oklch(0.96 0.015 80);
-  --sidebar-foreground: oklch(0.22 0.01 60);
-  --sidebar-primary: oklch(0.58 0.16 35);
-  --sidebar-primary-foreground: oklch(0.98 0.005 80);
-  --sidebar-accent: oklch(0.92 0.02 75);
-  --sidebar-accent-foreground: oklch(0.22 0.01 60);
-  --sidebar-border: oklch(0.88 0.02 75);
-  --sidebar-ring: oklch(0.72 0.1 75);
+  --border: oklch(0.869 0.010 36.9);
+  --input: oklch(0.90 0.008 36);
+  --ring: oklch(0.663 0.014 33.3);
+  --chart-1: oklch(0.385 0.062 22.8);
+  --chart-2: oklch(0.507 0.050 33.8);
+  --chart-3: oklch(0.379 0.038 180);
+  --chart-4: oklch(0.342 0.027 95.3);
+  --chart-5: oklch(0.337 0.016 34.3);
+  --sidebar: oklch(0.947 0.008 36);
+  --sidebar-foreground: oklch(0.144 0.016 36);
+  --sidebar-primary: oklch(0.385 0.062 22.8);
+  --sidebar-primary-foreground: oklch(0.96 0.005 36);
+  --sidebar-accent: oklch(0.92 0.008 36);
+  --sidebar-accent-foreground: oklch(0.144 0.016 36);
+  --sidebar-border: oklch(0.869 0.010 36.9);
+  --sidebar-ring: oklch(0.663 0.014 33.3);
 }
 
 @layer base {
@@ -153,15 +193,15 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar — muted brand tones */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: oklch(0.92 0.015 78);
+  background: oklch(0.92 0.008 36);
 }
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.72 0.1 75);
+  background: oklch(0.663 0.014 33.3);
   border-radius: 3px;
 }
 

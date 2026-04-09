@@ -168,13 +168,13 @@ export default function ConciergeChatWidget() {
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
             className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg px-5 py-2.5 hover:bg-[#ece8e1]/90 transition-colors group cursor-pointer border border-[#3a2a1a]/20"
-            aria-label="Open concierge"
+            aria-label="Ask Henry"
           >
             <span
               className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Ask Concierge
+              Ask Henry
             </span>
 
             {/* Pulse indicator for new visitors */}
@@ -203,10 +203,10 @@ export default function ConciergeChatWidget() {
             <div className="flex items-center justify-between px-5 py-3 border-b border-[#3a2a1a]/10 shrink-0">
               <div>
                 <h3 className="text-[#3a2a1a] text-sm font-medium tracking-[0.04em]" style={{ fontFamily: "var(--font-body)" }}>
-                  Nayara Concierge at Your Service
+                  Henry, Your Nayara Concierge
                 </h3>
                 <p className="text-[#3a2a1a]/60 text-xs mt-0.5" style={{ fontFamily: "var(--font-body)" }}>
-                  Let me know how I can help
+                  How may I help you today?
                 </p>
               </div>
               {/* ── Close button ── */}
@@ -242,7 +242,7 @@ export default function ConciergeChatWidget() {
                       className="text-[13px] leading-relaxed"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      Welcome to Nayara Resorts. How can I help you today?
+                      Welcome to Nayara Resorts. I'm Henry, your personal concierge. How can I help you today?
                     </p>
                   </div>
                 </div>

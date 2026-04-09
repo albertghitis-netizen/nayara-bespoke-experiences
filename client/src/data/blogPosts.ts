@@ -209,7 +209,7 @@ export const greenGlobePost: BlogPostData = {
   pillar: "Sustainability",
   tags: ["Sustainability", "Green Globe", "S Certification", "GSTC"],
   readingTime: 14,
-  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg",
+  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
   heroVideo: {
     desktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-2_500e97e2.mp4",
   },
@@ -228,8 +228,8 @@ export const greenGlobePost: BlogPostData = {
 <p>These are not self-reported badges. They require documented evidence across hundreds of compliance indicators, on-site inspections, and annual re-certification. A property cannot hold them passively. It must demonstrate continuous improvement — or lose them.</p>
 <p>The story of how Nayara earned and maintains these certifications is, in many ways, the story of how the company was built.</p>`,
       image: {
-        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/SustainabilityTentedHero_67d62aef.jpg",
-        alt: "Nayara Tented Camp sustainability — light footprint in the Costa Rican rainforest",
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
+        alt: "Nayara Tented Camp — elevated platforms preserve the ground-level ecosystem",
         caption: "Nayara Tented Camp — elevated platforms preserve 100% of the ground-level ecosystem beneath",
       },
     },

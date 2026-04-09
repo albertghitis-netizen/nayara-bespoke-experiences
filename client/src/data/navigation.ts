@@ -2,7 +2,7 @@
  * NAVIGATION CONFIGURATION — Centralized navigation data for all page types
  *
  * Three page types with distinct hamburger menus:
- * 1. Property pages — focused on THIS property (Story, Rooms, Gallery, Experiences, Wellness, Gastronomy, Sustainability, Getting Here)
+ * 1. Property pages — focused on THIS property (Story, Rooms, Experiences, Wellness, Gastronomy, Sustainability, Getting Here)
  * 2. Brand pages — brand-level (Story, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Blog, Podcast)
  * 3. Content pages — same as brand pages
  *
@@ -10,7 +10,6 @@
  * - Hamburger menu text: NOT all caps, same font as body text
  * - Hamburger menu and footer should match
  * - Reserve: NOT inside hamburger menu (only the Reserve pill button)
- * - Gallery: only in property page menus (links to #gallery section)
  */
 
 export type PageType = "property" | "brand" | "content";
@@ -54,14 +53,9 @@ export const PROPERTY_MENU: MenuItem[] = [
   { label: "The Table", route: "#gastronomy" },
   { label: "Beyond Sustainability", route: "#sustainability" },
   { label: "Getting Here", route: "#getting-here" },
-  { label: "Gallery", route: "#gallery" },
   { label: "Press & Awards", route: "/awards" },
   { label: "Nayara Journal", route: "/journal" },
-  { label: "All Destinations", route: "/all-destinations" },
 ];
-
-/* All Destinations dropdown — all 6 properties */
-export const ALL_DESTINATIONS_MENU = PROPERTIES.map((p) => ({ label: p.shortName, route: p.route }));
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
 const STANDARD_MENU_ITEMS: MenuItem[] = [
@@ -70,10 +64,8 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Wellness", route: "/wellness" },
   { label: "The Table", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Nayara by Night", route: "/nayara-by-night" },
   { label: "Press & Awards", route: "/awards" },
   { label: "Nayara Journal", route: "/journal" },
-  { label: "All Destinations", route: "/all-destinations" },
 ];
 
 /* Brand page hamburger — standardized menu (no properties) */
@@ -95,10 +87,8 @@ export interface FooterColumn {
   links: { label: string; route: string; external?: boolean }[];
 }
 
-/* Footer-specific menu items — same as STANDARD but without "All Destinations" */
-const FOOTER_MENU_ITEMS: MenuItem[] = STANDARD_MENU_ITEMS.filter(
-  (item) => item.label !== "All Destinations"
-);
+/* Footer menu items — same as standard */
+const FOOTER_MENU_ITEMS: MenuItem[] = STANDARD_MENU_ITEMS;
 
 /* Resorts column for footer */
 const RESORTS_COLUMN: FooterColumn = {
