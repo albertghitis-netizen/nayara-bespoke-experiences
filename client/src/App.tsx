@@ -39,6 +39,7 @@ import DachLanding from "./pages/DachLanding";
 import CgLanding from "./pages/CgLanding";
 import HenryStandalone from "./pages/HenryStandalone";
 import HangaroaNewsletter from "./pages/HangaroaNewsletter";
+import NayaraByNight from "./pages/NayaraByNight";
 import "./index.css";
 
 function ScrollToTop() {
@@ -92,6 +93,7 @@ function Router() {
         <Route path="/cg" component={CgLanding} />
         <Route path="/henry" component={HenryStandalone} />
         <Route path="/hangaroa-newsletter" component={HangaroaNewsletter} />
+        <Route path="/by-night" component={NayaraByNight} />
 
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
