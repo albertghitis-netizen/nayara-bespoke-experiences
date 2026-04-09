@@ -43,11 +43,11 @@ export const palettes: Record<string, PropertyPalette> = {
     gradientEnd: "#E8EEEA",
   },
   "tented-camp": {
-    primary: "#7A7A5E",
-    secondary: "#8B7355",
-    accent: "#A0A08A",
+    primary: "#3A5E42",
+    secondary: "#5A7A5A",
+    accent: "#7A9A6E",
     gradientStart: "#F5F1EB",
-    gradientEnd: "#F0EDE4",
+    gradientEnd: "#E8EDE6",
   },
   "alto-atacama": {
     primary: "#8B5A3C",

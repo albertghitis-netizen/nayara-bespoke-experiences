@@ -230,7 +230,7 @@ export default function HangaroaSuperSale() {
 
       {/* ── BOOKING PILL ── */}
       <div style={{ backgroundColor: "#F5F0E8", textAlign: "center", padding: "24px 20px 8px" }}>
-        <div style={{ display: "inline-block", border: "1px solid #AD8F61", padding: "12px 24px" }}>
+        <div style={{ display: "inline-block", border: "1px solid #AD8F61", padding: "12px 24px", borderRadius: "9999px" }}>
           <span
             style={{
               fontSize: 13,
@@ -264,6 +264,7 @@ export default function HangaroaSuperSale() {
               textDecoration: "none",
               border: "2px solid #AD8F61",
               transition: "all 0.3s ease",
+              borderRadius: "9999px",
             }}
           >
             Reserva Directo
@@ -282,6 +283,7 @@ export default function HangaroaSuperSale() {
               textDecoration: "none",
               background: "transparent",
               transition: "all 0.3s ease",
+              borderRadius: "9999px",
             }}
           >
             Contacta Reservaciones
@@ -317,7 +319,7 @@ export default function HangaroaSuperSale() {
                   style={{
                     position: "relative",
                     height: 380,
-                    borderRadius: 4,
+                    borderRadius: 12,
                     cursor: "pointer",
                     overflow: "hidden",
                     transition: "all 0.3s ease",
@@ -442,6 +444,7 @@ export default function HangaroaSuperSale() {
                       textDecoration: "none",
                       border: "2px solid #AD8F61",
                       transition: "all 0.3s ease",
+                      borderRadius: "9999px",
                     }}
                   >
                     Reserva Directo
@@ -667,6 +670,7 @@ export default function HangaroaSuperSale() {
               cursor: "pointer",
               fontFamily: "'Jost', Helvetica, Arial, sans-serif",
               transition: "background 0.3s ease",
+              borderRadius: "9999px",
             }}
           >
             Suscribirme
@@ -709,6 +713,7 @@ export default function HangaroaSuperSale() {
               letterSpacing: "0.2em",
               textTransform: "uppercase" as const,
               textDecoration: "none",
+              borderRadius: "9999px",
             }}
           >
             Reserva Directo
@@ -720,6 +725,7 @@ export default function HangaroaSuperSale() {
               padding: "13px 28px",
               border: "2px solid rgba(255,255,255,0.85)",
               color: "#FFFFFF",
+              borderRadius: "9999px",
               fontSize: 12,
               fontWeight: 500,
               letterSpacing: "0.15em",

@@ -76,7 +76,7 @@ export const puraVidaPost: BlogPostData = {
   readingTime: 12,
   heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
   heroVideo: {
-    desktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-wellness-converted_c8e7d2c1.mp4",
+    desktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-wellness-video_26fcc290.mp4",
   },
   keyFindings: [
     "Costa Rica has placed in the top 5 of the Happy Planet Index for years: high wellbeing, low ecological footprint, no army since 1949.",

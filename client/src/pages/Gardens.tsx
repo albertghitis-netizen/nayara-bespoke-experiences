@@ -142,7 +142,7 @@ function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: DURATION.slow, delay: 1.0, ease: EASE_CINEMATIC }}
+          transition={{ duration: DURATION.slow, delay: 0.3, ease: EASE_CINEMATIC }}
           className="text-white/50 text-[11px] md:text-[13px] mt-6 tracking-[0.3em] uppercase"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
@@ -200,12 +200,14 @@ function StorySection() {
           </div>
         </div>
 
-        {/* Landscape video below */}
-        <MediaReveal delay={0.1}>
-          <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-            <NativeVideo src={CDN.storyLandscapeVideo} className="w-full h-full object-cover" />
-          </div>
-        </MediaReveal>
+        {/* Landscape video below — hidden on mobile */}
+        <div className="hidden md:block">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <NativeVideo src={CDN.storyLandscapeVideo} className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
+        </div>
       </div>
     </section>
   );
@@ -249,12 +251,14 @@ function RoomsSection() {
           </div>
         </div>
 
-        {/* Landscape video below */}
-        <MediaReveal delay={0.1}>
-          <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-            <NativeVideo src={CDN.roomsLandscape} className="w-full h-full object-cover" />
-          </div>
-        </MediaReveal>
+        {/* Landscape video below — hidden on mobile */}
+        <div className="hidden md:block">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <NativeVideo src={CDN.roomsLandscape} className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
+        </div>
       </div>
     </TintedSection>
   );
@@ -319,7 +323,7 @@ function ExperiencesSection() {
                 style={{
                   backgroundColor: "rgba(255,255,255,0.4)",
                   backdropFilter: "blur(8px)",
-                  borderRadius: "2px",
+                  borderRadius: "12px",
                   borderBottom: `2px solid ${PALETTE.divider}`,
                 }}
                 whileHover={{ borderBottomColor: PALETTE.primary }}
@@ -463,7 +467,7 @@ function WellnessSection() {
                 style={{
                   backgroundColor: "rgba(255,255,255,0.4)",
                   backdropFilter: "blur(8px)",
-                  borderRadius: "2px",
+                  borderRadius: "12px",
                   borderBottom: `2px solid ${PALETTE.divider}`,
                 }}
                 whileHover={{ borderBottomColor: PALETTE.primary }}
@@ -559,7 +563,7 @@ function GallerySection() {
           </span>
         </TextReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="hidden md:grid grid-cols-2 gap-4 md:gap-6">
           {videos.map((video, i) => (
             <MediaReveal key={i} delay={i * 0.1}>
               <div className="overflow-hidden" style={{ aspectRatio: i === 0 ? "16/10" : "16/9" }}>

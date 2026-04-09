@@ -142,9 +142,9 @@ export default function Awards() {
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center"
             style={{ fontFamily: 'var(--font-display)', fontWeight: 400, letterSpacing: '-2px', lineHeight: 1 }}
           >
@@ -169,7 +169,7 @@ export default function Awards() {
             {brandStats.map((stat, i) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
@@ -204,7 +204,7 @@ export default function Awards() {
       <section className="py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -239,7 +239,7 @@ export default function Awards() {
             ].map((item, i) => (
               <motion.div
                 key={item.property}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
@@ -279,7 +279,7 @@ export default function Awards() {
       <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]/[0.03]">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -321,7 +321,7 @@ export default function Awards() {
             {filteredAwards.map((section, si) => (
               <motion.div
                 key={section.property}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: si * 0.05 }}
@@ -399,7 +399,7 @@ export default function Awards() {
       <section className="py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -423,7 +423,7 @@ export default function Awards() {
             {certifications.map((cert, i) => (
               <motion.div
                 key={cert.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}

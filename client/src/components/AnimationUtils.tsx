@@ -1,22 +1,24 @@
 /**
  * Shared animation utility components for property pages.
  * Provides: ParallaxImage, KenBurnsImage, RevealSection, WordReveal, AnimatedDivider
+ *
+ * All animations are calm and editorial — subtle reveals, gentle motion.
  */
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 /* ── Parallax Image ── */
-/* Image moves slower than scroll, creating depth. */
+/* Image moves slower than scroll, creating gentle depth. */
 interface ParallaxImageProps {
   src: string;
   alt: string;
   className?: string;
-  speed?: number; // 0.1 = subtle, 0.3 = dramatic
+  speed?: number; // 0.05 = very subtle, 0.15 = noticeable
   children?: React.ReactNode;
 }
 
-export function ParallaxImage({ src, alt, className = "", speed = 0.15, children }: ParallaxImageProps) {
+export function ParallaxImage({ src, alt, className = "", speed = 0.08, children }: ParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -30,7 +32,7 @@ export function ParallaxImage({ src, alt, className = "", speed = 0.15, children
         src={src}
         alt={alt}
         style={{ y }}
-        className="w-full h-[120%] object-cover absolute top-0 left-0"
+        className="w-full h-[110%] object-cover absolute top-0 left-0"
       />
       {children}
     </div>
@@ -38,7 +40,7 @@ export function ParallaxImage({ src, alt, className = "", speed = 0.15, children
 }
 
 /* ── Ken Burns Image ── */
-/* Slow zoom effect when in view. */
+/* Very slow, subtle zoom effect when in view. */
 interface KenBurnsImageProps {
   src: string;
   alt: string;
@@ -47,7 +49,7 @@ interface KenBurnsImageProps {
   scale?: number;
 }
 
-export function KenBurnsImage({ src, alt, className = "", duration = 20, scale = 1.12 }: KenBurnsImageProps) {
+export function KenBurnsImage({ src, alt, className = "", duration = 20, scale = 1.05 }: KenBurnsImageProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -66,7 +68,7 @@ export function KenBurnsImage({ src, alt, className = "", duration = 20, scale =
 }
 
 /* ── Reveal Section ── */
-/* Fade + slide up when scrolled into view. */
+/* Gentle fade + small slide when scrolled into view. */
 interface RevealSectionProps {
   children: React.ReactNode;
   className?: string;
@@ -80,8 +82,8 @@ export function RevealSection({ children, className = "", delay = 0, direction =
 
   const initial = {
     opacity: 0,
-    y: direction === "up" ? 50 : 0,
-    x: direction === "left" ? -50 : direction === "right" ? 50 : 0,
+    y: direction === "up" ? 16 : 0,
+    x: direction === "left" ? -16 : direction === "right" ? 16 : 0,
   };
 
   return (
@@ -89,7 +91,7 @@ export function RevealSection({ children, className = "", delay = 0, direction =
       ref={ref}
       initial={initial}
       animate={isInView ? { opacity: 1, y: 0, x: 0 } : {}}
-      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as const }}
+      transition={{ duration: 0.6, delay, ease: [0.25, 0.8, 0.25, 1] as const }}
       className={className}
     >
       {children}
@@ -98,7 +100,7 @@ export function RevealSection({ children, className = "", delay = 0, direction =
 }
 
 /* ── Word Reveal ── */
-/* Heading text reveals word by word with blur. */
+/* Heading text reveals word by word with gentle fade. */
 interface WordRevealProps {
   text: string;
   className?: string;
@@ -116,12 +118,12 @@ export function WordReveal({ text, className = "", tag: Tag = "h2" }: WordReveal
         {words.map((word, i) => (
           <motion.span
             key={i}
-            initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
-            animate={isInView ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}}
+            initial={{ opacity: 0, y: 6 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{
-              duration: 0.6,
-              delay: i * 0.08,
-              ease: [0.22, 1, 0.36, 1] as const,
+              duration: 0.4,
+              delay: i * 0.05,
+              ease: [0.25, 0.8, 0.25, 1] as const,
             }}
             className="inline-block mr-[0.25em]"
           >
@@ -144,7 +146,7 @@ export function AnimatedDivider({ className = "" }: { className?: string }) {
       <motion.div
         initial={{ scaleX: 0 }}
         animate={isInView ? { scaleX: 1 } : {}}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
+        transition={{ duration: 0.7, ease: [0.25, 0.8, 0.25, 1] as const }}
         className="h-px w-32 bg-[#c4a87c]/40 origin-center"
       />
     </div>
@@ -159,7 +161,7 @@ interface StaggerContainerProps {
   staggerDelay?: number;
 }
 
-export function StaggerContainer({ children, className = "", staggerDelay = 0.1 }: StaggerContainerProps) {
+export function StaggerContainer({ children, className = "", staggerDelay = 0.06 }: StaggerContainerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
@@ -184,10 +186,10 @@ export function StaggerContainer({ children, className = "", staggerDelay = 0.1 
 }
 
 export const staggerChildVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: [0.25, 0.8, 0.25, 1] as const },
   },
 };

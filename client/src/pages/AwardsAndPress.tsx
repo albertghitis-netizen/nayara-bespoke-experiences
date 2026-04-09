@@ -34,7 +34,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 24 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }} className={className}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 10 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }} className={className}>
       {children}
     </motion.div>
   );
@@ -201,9 +201,9 @@ export default function AwardsAndPress() {
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center"
             style={{ ...heading, letterSpacing: "-2px", lineHeight: 1 }}
           >
@@ -294,7 +294,7 @@ export default function AwardsAndPress() {
           {/* Michelin Keys Explainer */}
           <section className="pb-16 md:pb-24 px-6 md:px-10">
             <div className="max-w-5xl mx-auto">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
+              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
                 <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>The Michelin Guide</p>
                 <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl mb-6" style={heading}>7 Michelin Keys</h2>
                 <p className="text-[#3a2a1a]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed" style={{ ...body, fontWeight: 300 }}>
@@ -308,7 +308,7 @@ export default function AwardsAndPress() {
                   { keys: 2, property: "Nayara Bocas del Toro", location: "Panama", description: "An overwater paradise in the Caribbean. Off-grid solar power, coral restoration, and the most biodiverse marine ecosystem in the region." },
                   { keys: 2, property: "Nayara Alto Atacama", location: "Chile", description: "The only luxury hotel in an actual desert oasis. Private observatory, 40+ curated excursions, and the clearest skies on Earth." },
                 ].map((item, i) => (
-                  <motion.div key={item.property} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.15 }} className="bg-white p-8 md:p-10 border border-stone-100">
+                  <motion.div key={item.property} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.06 }} className="bg-white p-8 md:p-10 border border-stone-100">
                     <div className="flex gap-1.5 mb-6">
                       {Array.from({ length: item.keys }).map((_, ki) => (
                         <Key key={ki} className="w-5 h-5 text-amber-600" />
@@ -326,7 +326,7 @@ export default function AwardsAndPress() {
           {/* Awards by Property */}
           <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]/[0.03]">
             <div className="max-w-4xl mx-auto">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12">
+              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12">
                 <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>By Property</p>
                 <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl" style={heading}>Awards & Accolades</h2>
               </motion.div>
@@ -374,13 +374,13 @@ export default function AwardsAndPress() {
           {/* Certifications */}
           <section className="py-16 md:py-24 px-6 md:px-10">
             <div className="max-w-5xl mx-auto">
-              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
+              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
                 <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>Sustainability</p>
                 <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl" style={heading}>Certifications</h2>
               </motion.div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {certifications.map((cert, i) => (
-                  <motion.div key={cert.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.15 }} className="bg-white p-8 md:p-10 border border-stone-100">
+                  <motion.div key={cert.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.06 }} className="bg-white p-8 md:p-10 border border-stone-100">
                     <ShieldCheck className="w-8 h-8 text-emerald-700/60 mb-5" />
                     <h3 className="text-[#3a2a1a] text-xl mb-2" style={heading}>{cert.name}</h3>
                     <p className="text-emerald-700/60 text-[10px] tracking-[0.1em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>{cert.properties}</p>

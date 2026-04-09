@@ -393,9 +393,9 @@ function GalleryHero() {
 
       <div className="absolute inset-0 flex flex-col justify-end items-center px-5 z-10">
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-center text-[#fcf8f5] mb-[50px] md:mb-[85px] max-w-[1052px]"
           style={{
             fontFamily: 'var(--font-display)',
@@ -446,7 +446,7 @@ function MagneticCard({ img, idx, onClick }: { img: GalleryImage; idx: number; o
     <motion.div
       ref={cardRef}
       layout
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4, delay: idx * 0.05 }}

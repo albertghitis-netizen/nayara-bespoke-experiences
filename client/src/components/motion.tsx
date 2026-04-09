@@ -1,11 +1,11 @@
 /**
  * NAYARA MOTION SYSTEM
- * Cinematic, unhurried, bold. Nothing bouncy. Nothing playful.
- * Every animation earns its place.
+ * Calm, editorial, unhurried. Nothing bouncy. Nothing dramatic.
+ * Animations are felt, not seen. Subtle reveals that let the content breathe.
  *
- * Easing: Custom cubic-bezier curves — slow start, confident finish.
- * Timing: Generous. 0.8–1.6s for reveals. The page knows you'll wait.
- * Stagger: 0.08–0.15s between children. Enough to read as intentional.
+ * Easing: Gentle cubic-bezier curves.
+ * Timing: 0.4–0.8s for reveals. Quick enough to feel responsive, slow enough to feel intentional.
+ * Stagger: 0.05–0.1s between children. Just enough to read as sequential.
  */
 
 import { motion, useInView, useScroll, useTransform, type Variants } from "framer-motion";
@@ -15,30 +15,30 @@ import { useRef, type ReactNode, type CSSProperties } from "react";
    MOTION CONSTANTS
    ═══════════════════════════════════════════════════════════════ */
 
-/** Cinematic ease — slow out, confident landing */
-export const EASE_CINEMATIC = [0.16, 1, 0.3, 1] as const;
+/** Gentle ease — smooth and understated */
+export const EASE_CINEMATIC = [0.25, 0.8, 0.25, 1] as const;
 
-/** Editorial ease — even slower, more dramatic */
-export const EASE_EDITORIAL = [0.22, 1, 0.36, 1] as const;
+/** Editorial ease — slightly more deliberate */
+export const EASE_EDITORIAL = [0.22, 0.9, 0.36, 1] as const;
 
 /** Subtle ease — for micro-interactions */
 export const EASE_SUBTLE = [0.4, 0, 0.2, 1] as const;
 
-/** Duration presets */
+/** Duration presets — calmer, quicker */
 export const DURATION = {
-  fast: 0.5,
-  normal: 0.8,
-  slow: 1.2,
-  dramatic: 1.6,
-  hero: 2.0,
+  fast: 0.3,
+  normal: 0.5,
+  slow: 0.7,
+  dramatic: 0.8,
+  hero: 1.0,
 } as const;
 
-/** Stagger presets */
+/** Stagger presets — tighter */
 export const STAGGER = {
-  tight: 0.06,
-  normal: 0.1,
-  relaxed: 0.15,
-  dramatic: 0.2,
+  tight: 0.04,
+  normal: 0.06,
+  relaxed: 0.08,
+  dramatic: 0.12,
 } as const;
 
 /* ═══════════════════════════════════════════════════════════════
@@ -46,7 +46,7 @@ export const STAGGER = {
    ═══════════════════════════════════════════════════════════════ */
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
@@ -63,7 +63,7 @@ export const fadeIn: Variants = {
 };
 
 export const slideFromLeft: Variants = {
-  hidden: { opacity: 0, x: -60 },
+  hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,
     x: 0,
@@ -72,7 +72,7 @@ export const slideFromLeft: Variants = {
 };
 
 export const slideFromRight: Variants = {
-  hidden: { opacity: 0, x: 60 },
+  hidden: { opacity: 0, x: 20 },
   visible: {
     opacity: 1,
     x: 0,
@@ -81,7 +81,7 @@ export const slideFromRight: Variants = {
 };
 
 export const scaleReveal: Variants = {
-  hidden: { opacity: 0, scale: 0.92 },
+  hidden: { opacity: 0, scale: 0.97 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -111,7 +111,7 @@ export const staggerContainer: Variants = {
   visible: {
     transition: {
       staggerChildren: STAGGER.normal,
-      delayChildren: 0.1,
+      delayChildren: 0.05,
     },
   },
 };
@@ -120,8 +120,8 @@ export const staggerContainerSlow: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: STAGGER.dramatic,
-      delayChildren: 0.2,
+      staggerChildren: STAGGER.relaxed,
+      delayChildren: 0.1,
     },
   },
 };
@@ -205,8 +205,8 @@ export function StaggerOnScroll({
 }
 
 /**
- * Text reveal — each line slides up from behind a clip mask.
- * Pass text as children or as an array of lines.
+ * Text reveal — gentle fade and slide up.
+ * Much calmer than the previous clip-mask approach.
  */
 interface TextRevealProps {
   children: ReactNode;
@@ -228,10 +228,10 @@ export function TextReveal({
   const MotionTag = motion.create(Tag);
 
   return (
-    <div ref={ref} className="overflow-hidden">
+    <div ref={ref}>
       <MotionTag
-        initial={{ y: "110%", opacity: 0 }}
-        animate={isInView ? { y: "0%", opacity: 1 } : { y: "110%", opacity: 0 }}
+        initial={{ y: 20, opacity: 0 }}
+        animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
         transition={{
           duration,
           ease: EASE_EDITORIAL,
@@ -246,7 +246,7 @@ export function TextReveal({
 }
 
 /**
- * Multi-line text reveal — each line staggers in.
+ * Multi-line text reveal — each line staggers in gently.
  */
 interface MultiLineRevealProps {
   lines: string[];
@@ -272,10 +272,10 @@ export function MultiLineReveal({
   return (
     <div ref={ref} className={className}>
       {lines.map((line, i) => (
-        <div key={i} className="overflow-hidden">
+        <div key={i}>
           <MotionTag
-            initial={{ y: "110%", opacity: 0 }}
-            animate={isInView ? { y: "0%", opacity: 1 } : { y: "110%", opacity: 0 }}
+            initial={{ y: 16, opacity: 0 }}
+            animate={isInView ? { y: 0, opacity: 1 } : { y: 16, opacity: 0 }}
             transition={{
               duration: DURATION.dramatic,
               ease: EASE_EDITORIAL,
@@ -306,7 +306,7 @@ export function Parallax({
   children,
   className,
   style,
-  offset = 80,
+  offset = 30,
 }: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -325,8 +325,8 @@ export function Parallax({
 }
 
 /**
- * Image/Video reveal — scales from slightly zoomed with a clip mask.
- * Creates a cinematic "window opening" effect.
+ * Image/Video reveal — gentle fade with very subtle scale.
+ * Much calmer than the previous clip-mask approach.
  */
 interface MediaRevealProps {
   children: ReactNode;
@@ -341,15 +341,15 @@ export function MediaReveal({ children, className, delay = 0 }: MediaRevealProps
   return (
     <motion.div
       ref={ref}
-      initial={{ clipPath: "inset(8% 8% 8% 8%)", scale: 1.08 }}
+      initial={{ opacity: 0, scale: 1.02 }}
       animate={
         isInView
-          ? { clipPath: "inset(0% 0% 0% 0%)", scale: 1 }
-          : { clipPath: "inset(8% 8% 8% 8%)", scale: 1.08 }
+          ? { opacity: 1, scale: 1 }
+          : { opacity: 0, scale: 1.02 }
       }
       transition={{
-        duration: DURATION.dramatic,
-        ease: EASE_EDITORIAL,
+        duration: DURATION.slow,
+        ease: EASE_CINEMATIC,
         delay,
       }}
       className={className}
@@ -414,14 +414,13 @@ export function CountUp({
     [0, target]
   );
 
-  // Simpler approach: use motion.span with animate
   return (
     <motion.span
       ref={ref}
       className={className}
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       {isInView ? `${prefix}${target}${suffix}` : `${prefix}0${suffix}`}
     </motion.span>

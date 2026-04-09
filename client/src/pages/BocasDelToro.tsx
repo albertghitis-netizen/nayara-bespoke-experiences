@@ -1,10 +1,9 @@
-/*
- * NAYARA BOCAS DEL TORO — Standardized Property Page
- * Rebuilt with new structure: Story (s1/s2) → Rooms (s3/s4) → Experiences → Sustainability → Wellness → Gastronomy → Gallery → Footer
+/**
+ * NAYARA BOCAS DEL TORO - Adults-Only Overwater Villas, Panama
+ * Visual Identity: "Ocean" palette - blue-green gradient - Cormorant Garamond - Cinematic motion
  */
-
-import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -13,8 +12,42 @@ import { properties, type Property, type Excursion, type Treatment } from "@/dat
 import { bocasDiningCollection } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
+import {
+  AnimateOnScroll,
+  StaggerOnScroll,
+  TextReveal,
+  MultiLineReveal,
+  MediaReveal,
+  Parallax,
+  DrawLine,
+  GradientTransition,
+  TintedSection,
+  fadeUp,
+  staggerContainer,
+  DURATION,
+  EASE_CINEMATIC,
+} from "@/components/motion";
 
-/* ─── CDN Assets ─── */
+const bocas = properties.find((p: Property) => p.id === "bocas-del-toro")!;
+
+/* ═══════════════════════════════════════════════════════════════
+   PALETTE - "Ocean" - Blue-green gradient, starts subtle, gets deeper
+   ═══════════════════════════════════════════════════════════════ */
+const PALETTE = {
+  primary: "#3B6B6E",
+  secondary: "#5A8A8D",
+  accent: "#6B9E8A",
+  gradientStart: "#F2F6F5",
+  gradientEnd: "#E8F0EE",
+  text: "#1A2F30",
+  textSecondary: "#5A7A7C",
+  textTertiary: "#8AACAE",
+  divider: "#D0E2E0",
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   CDN ASSETS
+   ═══════════════════════════════════════════════════════════════ */
 const CDN = {
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbt-horizontal-desktop_0c584342.mp4",
   heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-vertical2_03bbe8e5.mp4",
@@ -22,36 +55,36 @@ const CDN = {
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_be6f8cb4.jpg",
   s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/87D222D3-2D4E-437D-AAEF-92C3662EBFE9_1e00bdac.MP4",
   s4: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/80_57ce5c18.jpg",
+  // Gallery
+  resortAerial: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-resort-aerial-sunset_d536b07d.jpg",
+  coupleVilla: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-couple-villa-pool_42fafe14.jpg",
+  galleryVideo1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-gallery-video1_d18b5ced.mp4",
+  topdownVillas: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-topdown-villas-boardwalk_576d7415.jpg",
+  aerialMangroves: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
+  overwaterDeck: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-overwater-villas-deck_16555482.jpg",
+  galleryVideo2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-gallery-video2_1dd3d81d.mp4",
+  briceferreVilla: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-briceferre-villa_c88fea38.jpg",
+  briceferreAerial: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-briceferre-aerial_60c5ff23.jpg",
+  lagoonAerial: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_11cc5b01.jpg",
+  coastline: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/79_cfb33bcf.jpg",
+  islandParadise: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/83_621b9b3f.jpg",
+  crystalSwimming: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/86_bcac4579.jpg",
+  landscape: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg",
+  tropicalVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas_gallery_video_0a7e31ab.mp4",
 };
 
-/* ─── Property Data ─── */
-const bocas = properties.find((p: Property) => p.id === "bocas-del-toro")!;
-
-/* ─── Shared Styles ─── */
-const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
-const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
-const sectionPadding = "py-16 md:py-24 px-6 md:px-10";
+const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
-/* ─── Fade-in wrapper ─── */
-function FadeIn({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
+function SectionLabel({ children, color }: { children: React.ReactNode; color?: string }) {
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
+    <p
+      className="text-[11px] tracking-[0.2em] uppercase mb-4"
+      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: color || PALETTE.primary }}
     >
       {children}
-    </motion.div>
+    </p>
   );
-}
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>{children}</p>;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -59,15 +92,21 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
    ═══════════════════════════════════════════════════════════════ */
 export default function BocasDelToro() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f2f6f7] via-[#f0f5f5] to-[#f2f6f7]">
+    <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <BrandNavigation pageType="property" centerLinkHome />
       <HeroSection />
       <StorySection />
+      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="160px" />
       <RoomsSection />
+      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="160px" />
       <ExperiencesSection />
+      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
       <SustainabilitySection />
+      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
       <WellnessSection />
+      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
       <GastronomySection />
+      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
       <GallerySection />
       <Footer />
     </div>
@@ -75,29 +114,34 @@ export default function BocasDelToro() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   1. HERO — Full-screen video + H1
+   HERO - Full-screen video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = isMobile ? CDN.heroMobile : CDN.heroDesktop;
 
   return (
-    <section id="hero" className="relative w-full h-screen overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo
-          src={heroVideo}
-          className="w-full h-full object-cover"
-          autoPlay muted loop playsInline controls={false}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
       </div>
-
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center" style={heading}>
-          Adults-Only Overwater Villas on a Private Island
-        </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }} className="text-white/60 text-[11px] md:text-[13px] mt-4 tracking-[0.25em] uppercase" style={body}>
-          Adults Only
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
+        <MultiLineReveal
+          lines={["Adults-Only Overwater Villas", "on a Private Island"]}
+          lineClassName="text-white text-3xl md:text-5xl lg:text-6xl leading-[1] tracking-wide text-center"
+          as="h1"
+          delay={0.4}
+          staggerDelay={0.15}
+        />
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: DURATION.slow, delay: 0.3, ease: EASE_CINEMATIC }}
+          className="text-white/50 text-[11px] md:text-[13px] mt-6 tracking-[0.3em] uppercase"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Adults Only - Bocas del Toro, Panama
         </motion.p>
       </div>
     </section>
@@ -105,114 +149,183 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   2. STORY — Text left + s1 vertical right + s2 horizontal below
+   STORY - Text left, image right, landscape image below
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
-        {/* Story text left + s1 vertical right */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
-          <FadeIn className="md:flex-1">
-            <SectionLabel>The Property</SectionLabel>
-            <h2 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-              Island Paradise Reimagined
-            </h2>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed mb-4" style={body}>
-              {bocas.heroSubtitle}
-            </p>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
-              Nayara Bocas del Toro is an adults-only sanctuary on a private Caribbean island, where overwater villas float above crystal-clear turquoise waters. Each villa features direct ocean access, private plunge pools, and unobstructed views of pristine beaches and jungle-covered islands. Experience the ultimate in tropical luxury and seclusion.
-            </p>
-            <AwardBadgeStrip property="bocas-del-toro" />
-          </FadeIn>
-          <FadeIn delay={0.2} className="md:flex-1">
-            <img src={CDN.s1} alt="Aerial view of overwater villas at Nayara Bocas del Toro" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
-          </FadeIn>
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
+          <div className="md:flex-1">
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>The Property</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" className="mb-8" delay={0.1}>
+              <span
+                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Island Paradise Reimagined
+              </span>
+            </TextReveal>
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                {bocas.heroSubtitle}
+              </p>
+              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                Nayara Bocas del Toro is an adults-only sanctuary on a private Caribbean island, where overwater villas float above crystal-clear turquoise waters. Each villa features direct ocean access, private plunge pools, and unobstructed views of pristine beaches and jungle-covered islands. Experience the ultimate in tropical luxury and seclusion.
+              </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.5}>
+              <AwardBadgeStrip property="bocas-del-toro" />
+            </AnimateOnScroll>
+          </div>
+          <div className="md:flex-1">
+            <MediaReveal delay={0.2}>
+              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                <img src={CDN.s1} alt="Aerial view of overwater villas at Nayara Bocas del Toro" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </MediaReveal>
+          </div>
         </div>
 
-        {/* s2 landscape below */}
-        <FadeIn delay={0.3}>
-          <img src={CDN.s2} alt="Turquoise lagoon with palm trees and beach" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
-        </FadeIn>
+        {/* Landscape image — hidden on mobile */}
+        <div className="hidden md:block">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <img src={CDN.s2} alt="Turquoise lagoon with palm trees and beach" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </MediaReveal>
+        </div>
       </div>
     </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   3. ROOMS — s3 vertical left + H3 right + s4 horizontal below
+   ROOMS - Video left, text right, landscape image below
    ═══════════════════════════════════════════════════════════════ */
 function RoomsSection() {
   return (
-    <section id="rooms" className={`${sectionPadding} bg-white/30`}>
+    <TintedSection backgroundColor={PALETTE.gradientEnd} className={sectionPadding}>
       <div className={maxW}>
-        {/* s3 vertical left + H3 right */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-12">
-          <FadeIn delay={0.1} className="md:flex-1 order-2 md:order-1">
-            <div style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src={CDN.s3} className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline controls={false} />
-            </div>
-          </FadeIn>
-          <FadeIn className="md:flex-1 order-1 md:order-2">
-            <SectionLabel>Accommodations</SectionLabel>
-            <h3 className="text-[#4B4A4A] mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-              Overwater Villas
-            </h3>
-            <p className="text-[#4B4A4A]/70 text-[15px] leading-relaxed" style={body}>
-              Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.
-            </p>
-          </FadeIn>
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
+          <div className="md:flex-1 order-2 md:order-1">
+            <MediaReveal delay={0.1}>
+              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                <NativeVideo src={CDN.s3} className="w-full h-full object-cover" />
+              </div>
+            </MediaReveal>
+          </div>
+          <div className="md:flex-1 order-1 md:order-2">
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>Accommodations</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" className="mb-8" delay={0.1}>
+              <span
+                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Overwater Villas
+              </span>
+            </TextReveal>
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.
+              </p>
+            </AnimateOnScroll>
+          </div>
         </div>
 
-        {/* s4 landscape below */}
-        <FadeIn delay={0.3}>
-          <img src={CDN.s4} alt="Aerial view of overwater villas arranged in curved pattern" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
-        </FadeIn>
+        {/* Landscape image — hidden on mobile */}
+        <div className="hidden md:block">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <img src={CDN.s4} alt="Aerial view of overwater villas arranged in curved pattern" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </MediaReveal>
+        </div>
       </div>
-    </section>
+    </TintedSection>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   4. EXPERIENCES
+   EXPERIENCES - Parallax video header + card grid
    ═══════════════════════════════════════════════════════════════ */
 function ExperiencesSection() {
   const [activeCategory, setActiveCategory] = useState("all");
   const categories = bocas.excursionCategories || [];
   const filtered = activeCategory === "all" ? bocas.excursions : bocas.excursions.filter((e: Excursion) => e.category === activeCategory);
+
   return (
-    <section id="experiences" className={`${sectionPadding} bg-white/30`}>
-      <div className={maxW}>
-        <FadeIn>
-          <SectionLabel>Experiences</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Caribbean Adventures</h2>
-        </FadeIn>
-        {categories.length > 0 && (
-          <FadeIn delay={0.1}>
-            <div className="flex flex-wrap gap-2 mb-8 md:mb-12">
-              {categories.map((cat: { id: string; label: string }) => (
-                <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase transition-all ${activeCategory === cat.id ? "bg-[#3a2a1a] text-white" : "bg-[#3a2a1a]/5 text-[#3a2a1a]/60 hover:bg-[#3a2a1a]/10"}`} style={{ ...body, fontWeight: 500 }}>
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-          </FadeIn>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((excursion: Excursion, i: number) => (
-            <FadeIn key={excursion.id} delay={i * 0.05}>
-              <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 hover:bg-white/80 transition-colors">
-                <h3 className="text-[#3a2a1a] text-[16px] mb-2" style={{ ...heading, fontWeight: 500 }}>{excursion.name}</h3>
+    <section id="experiences" className="overflow-hidden">
+      <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
+        <div className="relative w-full h-[60vh]">
+          <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
+            <TextReveal as="h2" delay={0.2}>
+              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                Caribbean Adventures
+              </span>
+            </TextReveal>
+          </div>
+        </div>
+      </Parallax>
+
+      <div className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
+        <div className={maxW}>
+          {categories.length > 0 && (
+            <AnimateOnScroll variants={fadeUp}>
+              <div className="flex flex-wrap gap-2 mb-10 md:mb-14">
+                {categories.map((cat: { id: string; label: string }) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.id)}
+                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-500"
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 500,
+                      backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
+                      color: activeCategory === cat.id ? "#F2F6F5" : PALETTE.textSecondary,
+                      border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
+                    }}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+            </AnimateOnScroll>
+          )}
+          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((excursion: Excursion) => (
+              <motion.div
+                key={excursion.id}
+                variants={fadeUp}
+                className="p-6 md:p-8 transition-all duration-500 hover:translate-y-[-2px]"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.5)",
+                  backdropFilter: "blur(8px)",
+                  borderRadius: "12px",
+                  borderBottom: `2px solid ${PALETTE.divider}`,
+                }}
+                whileHover={{ borderBottomColor: PALETTE.primary }}
+              >
+                <h3 className="text-[17px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
+                  {excursion.name}
+                </h3>
                 {excursion.duration && (
-                  <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>
+                  <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
                     {excursion.duration}{excursion.price ? ` · ${excursion.price}` : ""}
                   </p>
                 )}
-                <p className="text-[#4B4A4A]/70 text-[13px] leading-relaxed" style={body}>{excursion.description}</p>
-              </div>
-            </FadeIn>
-          ))}
+                <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                  {excursion.description}
+                </p>
+              </motion.div>
+            ))}
+          </StaggerOnScroll>
         </div>
       </div>
     </section>
@@ -220,7 +333,7 @@ function ExperiencesSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   5. SUSTAINABILITY
+   SUSTAINABILITY - Image background with overlay cards
    ═══════════════════════════════════════════════════════════════ */
 function SustainabilitySection() {
   const initiatives = [
@@ -229,66 +342,130 @@ function SustainabilitySection() {
     { title: "Community Partnership", desc: "Supporting local communities through employment, education initiatives, and cultural preservation programs in the Bocas region." },
     { title: "Sustainable Operations", desc: "Minimizing environmental impact through renewable energy, waste reduction, and water conservation systems." },
   ];
+
   return (
-    <section id="sustainability" className={sectionPadding}>
-      <div className={maxW}>
-        <FadeIn>
-          <SectionLabel>Sustainability</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Protecting Paradise</h2>
-        </FadeIn>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {initiatives.map((item, i) => (
-            <FadeIn key={i} delay={i * 0.1}>
-              <div className="border-l-2 border-cyan-600/30 pl-4">
-                <h3 className="text-[#3a2a1a] text-[15px] mb-2" style={{ ...heading, fontWeight: 500 }}>{item.title}</h3>
-                <p className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>{item.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
+    <TintedSection backgroundColor={PALETTE.gradientEnd}>
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={CDN.resortAerial} alt="Bocas del Toro resort aerial" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(59, 107, 110, 0.85)" }} />
         </div>
-        <PillarCrossLink pillar="experiences" />
+
+        <div className={`relative z-10 ${sectionPadding}`}>
+          <div className={maxW}>
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel color="rgba(255,255,255,0.5)">Sustainability</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
+              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                Protecting Paradise
+              </span>
+            </TextReveal>
+
+            <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
+              {initiatives.map((item, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="pl-6"
+                  style={{ borderLeft: "2px solid rgba(255,255,255,0.2)" }}
+                >
+                  <h3 className="text-white text-[17px] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-white/60 text-[14px] leading-[1.7]" style={{ fontFamily: "var(--font-body)" }}>
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </StaggerOnScroll>
+
+            <AnimateOnScroll variants={fadeUp} delay={0.4}>
+              <div className="mt-12">
+                <PillarCrossLink pillar="experiences" />
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
       </div>
-    </section>
+    </TintedSection>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   6. WELLNESS
+   WELLNESS - Treatment cards with filter
    ═══════════════════════════════════════════════════════════════ */
 function WellnessSection() {
   const [activeCategory, setActiveCategory] = useState("all");
   const categories = bocas.spaCategories || [];
   const filtered = activeCategory === "all" ? bocas.treatments : bocas.treatments.filter((t: Treatment) => t.category === activeCategory);
+
   return (
-    <section id="wellness" className={`${sectionPadding} bg-white/30`}>
-      <div className={maxW}>
-        <FadeIn>
-          <SectionLabel>{bocas.theme.sectionLabel}</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>{bocas.theme.spaHeadline.replace("\n", " ")}</h2>
-        </FadeIn>
-        {categories.length > 0 && (
-          <FadeIn delay={0.1}>
-            <div className="flex flex-wrap gap-2 mb-8 md:mb-12">
-              {categories.map((cat: { id: string; label: string }) => (
-                <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase transition-all ${activeCategory === cat.id ? "bg-[#3a2a1a] text-white" : "bg-[#3a2a1a]/5 text-[#3a2a1a]/60 hover:bg-[#3a2a1a]/10"}`} style={{ ...body, fontWeight: 500 }}>
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-          </FadeIn>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((treatment: Treatment, i: number) => (
-            <FadeIn key={treatment.id} delay={i * 0.05}>
-              <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 hover:bg-white/80 transition-colors">
-                <h3 className="text-[#3a2a1a] text-[16px] mb-2" style={{ ...heading, fontWeight: 500 }}>{treatment.name}</h3>
-                <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>
+    <section id="wellness">
+      <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
+        <div className="relative w-full h-[55vh]">
+          <img src={CDN.coupleVilla} alt="Couple at overwater villa" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
+            <TextReveal as="h2" delay={0.2}>
+              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                {bocas.theme.spaHeadline.replace("\n", " ")}
+              </span>
+            </TextReveal>
+          </div>
+        </div>
+      </Parallax>
+
+      <div className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
+        <div className={maxW}>
+          {categories.length > 0 && (
+            <AnimateOnScroll variants={fadeUp}>
+              <div className="flex flex-wrap gap-2 mb-10 md:mb-14">
+                {categories.map((cat: { id: string; label: string }) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.id)}
+                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-500"
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 500,
+                      backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
+                      color: activeCategory === cat.id ? "#F2F6F5" : PALETTE.textSecondary,
+                      border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
+                    }}
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+            </AnimateOnScroll>
+          )}
+          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filtered.map((treatment: Treatment) => (
+              <motion.div
+                key={treatment.id}
+                variants={fadeUp}
+                className="p-6 md:p-8 transition-all duration-500 hover:translate-y-[-2px]"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.5)",
+                  backdropFilter: "blur(8px)",
+                  borderRadius: "12px",
+                  borderBottom: `2px solid ${PALETTE.divider}`,
+                }}
+                whileHover={{ borderBottomColor: PALETTE.primary }}
+              >
+                <h3 className="text-[17px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
+                  {treatment.name}
+                </h3>
+                <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
                   {treatment.duration}{treatment.price ? ` · ${treatment.price}` : ""}
                 </p>
-                <p className="text-[#4B4A4A]/70 text-[13px] leading-relaxed" style={body}>{treatment.description}</p>
-              </div>
-            </FadeIn>
-          ))}
+                <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                  {treatment.description}
+                </p>
+              </motion.div>
+            ))}
+          </StaggerOnScroll>
         </div>
       </div>
     </section>
@@ -296,95 +473,120 @@ function WellnessSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   7. GASTRONOMY
+   GASTRONOMY - DrawLine + restaurant cards
    ═══════════════════════════════════════════════════════════════ */
 function GastronomySection() {
   const restaurants = Array.isArray(bocasDiningCollection) ? bocasDiningCollection : [bocasDiningCollection];
+
   return (
-    <section id="gastronomy" className={sectionPadding}>
-      <div className={maxW}>
-        <FadeIn>
-          <SectionLabel>The Table</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-6 md:mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Caribbean Flavors</h2>
-        </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {restaurants.map((restaurant: any, i: number) => (
-            <FadeIn key={i} delay={i * 0.1}>
-              <div>
-                <h3 className="text-[#3a2a1a] text-[18px] mb-2" style={{ ...heading, fontWeight: 500 }}>{restaurant.name}</h3>
-                <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>{restaurant.cuisine}</p>
-                <p className="text-[#4B4A4A]/70 text-[14px] leading-relaxed" style={body}>{restaurant.description}</p>
-              </div>
-            </FadeIn>
-          ))}
+    <TintedSection backgroundColor={PALETTE.gradientEnd} className="overflow-hidden">
+      <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
+        <div className="relative w-full h-[55vh]">
+          <img src={CDN.topdownVillas} alt="Overwater villas from above" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
+            <TextReveal as="h2" delay={0.2}>
+              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                Caribbean Flavors
+              </span>
+            </TextReveal>
+          </div>
+        </div>
+      </Parallax>
+
+      <div className={sectionPadding}>
+        <div className={maxW}>
+          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            {restaurants.map((restaurant: any, i: number) => (
+              <motion.div key={i} variants={fadeUp}>
+                <DrawLine color={PALETTE.primary} className="mb-6" />
+                <h3 className="text-[20px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
+                  {restaurant.name}
+                </h3>
+                <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
+                  {restaurant.cuisine}
+                </p>
+                <p className="text-[14px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                  {restaurant.description}
+                </p>
+              </motion.div>
+            ))}
+          </StaggerOnScroll>
         </div>
       </div>
-    </section>
+    </TintedSection>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   8. GALLERY
+   GALLERY - Pinterest-staggered layout (unique to Bocas)
    ═══════════════════════════════════════════════════════════════ */
 function GallerySection() {
-  /* Pinterest-staggered layout — unique to Bocas del Toro */
   const images = [
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-resort-aerial-sunset_d536b07d.jpg", alt: "Bocas del Toro resort aerial at sunset", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-couple-villa-pool_42fafe14.jpg", alt: "Couple at overwater villa with plunge pool", tall: true },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-gallery-video1_d18b5ced.mp4", alt: "Bocas del Toro experience", tall: false },
+    { src: CDN.resortAerial, alt: "Bocas del Toro resort aerial at sunset", tall: false },
+    { src: CDN.coupleVilla, alt: "Couple at overwater villa with plunge pool", tall: true },
+    { src: CDN.galleryVideo1, alt: "Bocas del Toro experience", tall: false, isVideo: true },
     { src: CDN.s1, alt: "Overwater villas walkway", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-topdown-villas-boardwalk_576d7415.jpg", alt: "Overwater villas from above", tall: true },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg", alt: "Aerial villas in mangroves", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-overwater-villas-deck_16555482.jpg", alt: "Overwater villas from deck", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-gallery-video2_1dd3d81d.mp4", alt: "Caribbean waters", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-briceferre-villa_c88fea38.jpg", alt: "Villa interior by Brice Ferre", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-briceferre-aerial_60c5ff23.jpg", alt: "Aerial view by Brice Ferre", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/74_11cc5b01.jpg", alt: "Turquoise lagoon aerial" , tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/79_cfb33bcf.jpg", alt: "Caribbean coastline", tall: false },
-    { src: CDN.s3, alt: "Island experience video", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/83_621b9b3f.jpg", alt: "Island paradise", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/86_bcac4579.jpg", alt: "Crystal clear swimming", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg", alt: "Bocas del Toro landscape", tall: false },
+    { src: CDN.topdownVillas, alt: "Overwater villas from above", tall: true },
+    { src: CDN.aerialMangroves, alt: "Aerial villas in mangroves", tall: false },
+    { src: CDN.overwaterDeck, alt: "Overwater villas from deck", tall: false },
+    { src: CDN.galleryVideo2, alt: "Caribbean waters", tall: false, isVideo: true },
+    { src: CDN.briceferreVilla, alt: "Villa interior by Brice Ferre", tall: false },
+    { src: CDN.briceferreAerial, alt: "Aerial view by Brice Ferre", tall: false },
+    { src: CDN.lagoonAerial, alt: "Turquoise lagoon aerial", tall: false },
+    { src: CDN.coastline, alt: "Caribbean coastline", tall: false },
+    { src: CDN.s3, alt: "Island experience video", tall: false, isVideo: true },
+    { src: CDN.islandParadise, alt: "Island paradise", tall: false },
+    { src: CDN.crystalSwimming, alt: "Crystal clear swimming", tall: false },
+    { src: CDN.landscape, alt: "Bocas del Toro landscape", tall: false },
     { src: CDN.s2, alt: "Caribbean lagoon", tall: false },
-    { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas_gallery_video_0a7e31ab.mp4", alt: "Bocas del Toro tropical scene", tall: true },
+    { src: CDN.tropicalVideo, alt: "Bocas del Toro tropical scene", tall: true, isVideo: true },
     { src: CDN.s4, alt: "Aerial resort view", tall: false },
   ];
-  /* Split into 3 columns for Pinterest effect */
-  const cols: typeof images[] = [[], [], []];
-  images.forEach((img, i) => cols[i % 3].push(img));
+
   return (
-    <section id="gallery" className={sectionPadding}>
-      <div className={maxW}>
-        <FadeIn>
-          <SectionLabel>Gallery</SectionLabel>
-          <h2 className="text-[#4B4A4A] mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Caribbean Moments</h2>
-        </FadeIn>
-        <div className="columns-2 md:columns-3 gap-2 md:gap-3 [column-fill:_balance]">
-          {images.map((img, i) => {
-            const isVideo = img.src.toLowerCase().endsWith('.mov') || img.src.toLowerCase().endsWith('.mp4');
-            return (
-              <FadeIn key={i} delay={i * 0.04} className="mb-2 md:mb-3 break-inside-avoid">
-                {isVideo ? (
-                  <video src={img.src} className="w-full object-cover rounded-lg" style={{ aspectRatio: img.tall ? "3/4" : "4/3" }} autoPlay muted loop playsInline />
-                ) : (
-                  <img src={img.src} alt={img.alt} className="w-full object-cover rounded-lg" style={{ aspectRatio: img.tall ? "3/4" : "4/3" }} loading="lazy" />
-                )}
-              </FadeIn>
-            );
-          })}
+    <section id="gallery" className="py-20 md:py-32" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <div className="px-6 md:px-10">
+        <div className={maxW}>
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Gallery</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
+            <span
+              className="text-2xl md:text-4xl lg:text-5xl tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Caribbean Moments
+            </span>
+          </TextReveal>
+
+          {/* Pinterest-staggered masonry */}
+          <div className="columns-2 md:columns-3 gap-3 md:gap-4 [column-fill:_balance]">
+            {images.map((img, i) => (
+              <MediaReveal key={i} delay={i * 0.04}>
+                <div className="mb-3 md:mb-4 break-inside-avoid overflow-hidden">
+                  {img.isVideo ? (
+                    <video
+                      src={img.src}
+                      className="w-full object-cover"
+                      style={{ aspectRatio: img.tall ? "3/4" : "4/3" }}
+                      autoPlay muted loop playsInline
+                    />
+                  ) : (
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full object-cover"
+                      style={{ aspectRatio: img.tall ? "3/4" : "4/3" }}
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+              </MediaReveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   PLACEHOLDER SECTIONS (Getting Here, Reviews)
-   ═══════════════════════════════════════════════════════════════ */
-function GettingHereSection() {
-  return null;
-}
-
-function ReviewsSection() {
-  return null;
 }

@@ -1267,3 +1267,23 @@
 - [x] Generate downloadable HTML for newsletter (updated with Green Globe blurb, phone labels, no em dashes)
 - [ ] Generate downloadable HTML for Pura Vida blog
 - [ ] Generate downloadable HTML for Green Globe blog
+
+## Tented Camp Fixes
+- [ ] Apply property-specific green palette to Tented Camp (currently using muted khaki/stone)
+- [ ] Remove image slideshow from room cards on Tented Camp (keep horizontal scroll)
+- [ ] Update H1 to "Lifted Above the Canopy" with H2 sections below
+- [ ] Remove ALL treatment lists, experience lists, and itemized options from all property pages
+
+## Mobile: Remove ALL Landscape Images
+- [x] Hide all landscape/horizontal images on mobile across ALL property pages (Gardens, Springs, Tented Camp, Alto Atacama, Hangaroa, Bocas del Toro)
+- [x] Hide landscape images on mobile on Homepage
+- [ ] Hide landscape images on mobile on brand/content pages (Experiences, Wellness, Sustainability, etc.)
+- [x] Verify mobile layout flows cleanly without landscape images
+
+## Unified Navigation
+- [x] Build one unified navigation component for the entire site
+- [x] Tone down intense animations across all property pages (calmer, editorial feel)
+- [ ] Add Gastronomy to the 5 detail page types (Rooms, Experiences, Wellness, Sustainability, Gastronomy)
+
+## Circular Nav Buttons
+- [x] Ensure ALL buttons site-wide have rounded corners (no sharp 90-degree edges) — Reserve, Explore More, CTAs, etc.

@@ -1,42 +1,52 @@
 /**
- * UNIVERSAL NAVIGATION — Context-aware top bar for all pages
+ * UNIFIED NAVIGATION - One consistent nav for the entire site
  *
- * Three page types:
- * 1. Property pages:  [Hamburger] | Property Name (center, desktop only) | [Reserve]
- * 2. Brand pages:     [Hamburger] | [Reserve] — no center text
- * 3. Content pages:   [Hamburger] | [Reserve] — no center text
+ * Desktop:  [Hamburger]  ···  NAYARA (center, optional)  ···  [Reserve]
+ * Mobile:   [Hamburger]  [Explore]  [Reserve]  [Concierge]
  *
- * Hamburger menu content changes based on pageType.
- * Reserve dropdown always shows all 6 properties with booking links.
- * Center label only for property pages, hidden on mobile.
- * Gallery removed from all navigation menus.
- * Reserve removed from inside hamburger menu (no duplicate).
+ * Hamburger menu:
+ *   - On property pages: property section anchors first, then global links
+ *   - On all other pages: global links only
+ *
+ * Reserve dropdown: all 6 properties with SynXis booking links
  *
  * Locked specs:
- * - Reserve button: 16px, medium weight, lowercase
  * - Pill style: bg-[#ece8e1], rounded-full, border border-[#3a2a1a]/20
- * - Dropdown items: 13px, font-body, fontWeight 600
+ * - Menu items: 13px, font-body, fontWeight 500
  * - Hover: bg-[#d4c9b8]/50
+ * - Animations: subtle, no big overlays
  */
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "wouter";
 import { hotelBookingLinks } from "@/data/booking";
 import {
   type PageType,
-  type MenuSection,
   PROPERTY_MENU,
-  getBrandMenu,
-  getContentMenu,
+  PROPERTIES,
 } from "@/data/navigation";
 
+/* ── Global menu items (matches footer) ── */
+const GLOBAL_MENU = [
+  { label: "Our Story", route: "/story" },
+  { label: "Experiences", route: "/experiences" },
+  { label: "Wellness", route: "/wellness" },
+  { label: "The Table", route: "/gastronomy" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
+  { label: "Awards & Press", route: "/awards" },
+  { label: "Journal & Podcast", route: "/journal" },
+];
+
+/* ── Explore dropdown items (quick links to properties) ── */
+const EXPLORE_ITEMS = PROPERTIES.map((p) => ({
+  label: p.name,
+  route: p.route,
+}));
+
 interface BrandNavigationProps {
-  /** Page type determines hamburger menu content */
   pageType?: PageType;
-  /** Center label text — only shown for property pages (e.g., "Nayara Gardens") */
   centerLabel?: string;
-  /** Whether center label links to home (true for property names) */
   centerLinkHome?: boolean;
 }
 
@@ -47,24 +57,29 @@ export default function BrandNavigation({
 }: BrandNavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
+  const [exploreOpen, setExploreOpen] = useState(false);
   const [, navigate] = useLocation();
 
   const menuRef = useRef<HTMLDivElement>(null);
   const reserveRef = useRef<HTMLDivElement>(null);
+  const exploreRef = useRef<HTMLDivElement>(null);
 
   /* Close dropdowns on outside click */
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setMenuOpen(false);
-      if (reserveRef.current && !reserveRef.current.contains(e.target as Node)) setReserveOpen(false);
+    const handler = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (menuRef.current && !menuRef.current.contains(target)) setMenuOpen(false);
+      if (reserveRef.current && !reserveRef.current.contains(target)) setReserveOpen(false);
+      if (exploreRef.current && !exploreRef.current.contains(target)) setExploreOpen(false);
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   const closeAll = () => {
     setMenuOpen(false);
     setReserveOpen(false);
+    setExploreOpen(false);
   };
 
   const handleNavigate = (route: string) => {
@@ -78,180 +93,175 @@ export default function BrandNavigation({
   };
 
   const handleBooking = (hotel: (typeof hotelBookingLinks)[0]) => {
-    setReserveOpen(false);
+    closeAll();
     if (hotel.available) {
       window.open(hotel.url, "_blank");
     } else {
-      import("sonner").then(({ toast }) => toast(hotel.label + " — Booking Coming Soon"));
+      import("sonner").then(({ toast }) => toast(hotel.label + " -- Booking Coming Soon"));
     }
   };
 
-  /* Get menu sections based on page type */
-  const getMenuSections = (): MenuSection[] => {
-    if (pageType === "property") {
-      return [{ items: PROPERTY_MENU }];
-    }
-    if (pageType === "content") {
-      return getContentMenu();
-    }
-    return getBrandMenu();
-  };
-
-  const menuSections = getMenuSections();
-
-  /* Show center label for property pages and homepage only (not other brand/content pages) */
   const showCenterLabel = (pageType === "property" || centerLinkHome) && centerLabel;
 
-  const pillClass =
-    "pointer-events-auto flex items-center justify-center rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg hover:bg-[#ece8e1]/90 transition-colors cursor-pointer border border-[#3a2a1a]/20";
+  /* ── Shared styles ── */
+  const pill =
+    "flex items-center justify-center rounded-full bg-[#ece8e1] backdrop-blur-md shadow-sm hover:bg-[#d4c9b8]/60 transition-colors cursor-pointer border border-[#3a2a1a]/15";
 
-  const dropdownPanelClass =
-    "absolute mt-2 bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-[#3a2a1a]/10";
+  const dropdown =
+    "absolute mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border border-[#3a2a1a]/10";
+
+  const menuItem =
+    "w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/40 transition-colors";
+
+  const menuText = {
+    fontFamily: "var(--font-body)",
+    fontWeight: 500 as const,
+  };
+
+  const dropdownAnim = {
+    initial: { opacity: 0, y: -6 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -6 },
+    transition: { duration: 0.15 },
+  };
+
+  /* ── Build hamburger menu items ── */
+  const propertyItems = pageType === "property" ? PROPERTY_MENU : [];
 
   return (
     <>
-      <div className="fixed top-2 left-0 right-0 z-50 flex items-center justify-between px-4 pointer-events-none">
-        {/* LEFT: Hamburger */}
-        <div className="pointer-events-auto flex items-center gap-3">
+      <nav className="fixed top-2 left-0 right-0 z-50 px-3 pointer-events-none">
+        {/* ── DESKTOP NAV ── */}
+        <div className="hidden md:flex items-center justify-between pointer-events-auto">
+          {/* Left: Hamburger */}
           <div ref={menuRef} className="relative">
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-              className={`${pillClass} w-10 h-10`}
+              className={`${pill} w-10 h-10`}
+              aria-label="Menu"
             >
               <div className="flex flex-col gap-1.5">
-                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
               </div>
             </button>
 
-            {/* Hamburger dropdown — context-aware */}
             <AnimatePresence>
               {menuOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -8, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                  className={`${dropdownPanelClass} left-0 top-full w-52`}
-                >
-                  <div className="py-2 max-h-[70vh] overflow-y-auto">
-                    {menuSections.map((section, sIdx) => (
-                      <div key={sIdx}>
-                        {/* Section divider (not on first section) */}
-                        {sIdx > 0 && <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />}
-
-                        {/* Section header */}
-                        {section.header && (
-                          <div className="px-5 pt-3 pb-1">
-                            <span
-                              className="text-[#3a2a1a]/35 text-[10px] tracking-[0.2em] uppercase"
-                              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                            >
-                              {section.header}
-                            </span>
-                          </div>
-                        )}
-
-                        {/* Menu items */}
-                        {section.items.map((item) => (
-                          <button
-                            key={item.label}
-                            onClick={() => handleNavigate(item.route)}
-                            className="w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/50 transition-colors"
-                          >
-                            <span
-                              className="text-[#3a2a1a]/90 text-[13px] tracking-normal"
-                              style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
-                            >
-                              {item.label}
-                            </span>
+                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-56`}>
+                  <div className="py-2 max-h-[75vh] overflow-y-auto">
+                    {/* Property section anchors (only on property pages) */}
+                    {propertyItems.length > 0 && (
+                      <>
+                        <div className="px-5 pt-2 pb-1">
+                          <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em] uppercase" style={menuText}>
+                            This Property
+                          </span>
+                        </div>
+                        {propertyItems.map((item) => (
+                          <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                            <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
                           </button>
                         ))}
+                        <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
+                      </>
+                    )}
+
+                    {/* Global links */}
+                    {propertyItems.length > 0 && (
+                      <div className="px-5 pt-1 pb-1">
+                        <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em] uppercase" style={menuText}>
+                          Explore Nayara
+                        </span>
                       </div>
+                    )}
+                    {GLOBAL_MENU.map((item) => (
+                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                      </button>
+                    ))}
+
+                    {/* Resorts sub-section */}
+                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
+                    <div className="px-5 pt-1 pb-1">
+                      <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em] uppercase" style={menuText}>
+                        Our Resorts
+                      </span>
+                    </div>
+                    {EXPLORE_ITEMS.map((item) => (
+                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                      </button>
                     ))}
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
-        </div>
 
-        {/* CENTER: Property name only (desktop only, hidden on mobile per user preference) */}
-        {showCenterLabel && (
-          <div className="hidden md:flex items-center pointer-events-auto">
-            {centerLinkHome ? (
-              <a
-                href="/"
-                onClick={(e) => { e.preventDefault(); navigate("/"); }}
-                className="text-[#ece8e1] drop-shadow-md hover:opacity-80 transition-opacity"
-                style={{
-                  fontFamily: "'Montserrat', 'Arial', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "clamp(16px, 2vw, 22px)",
-                  letterSpacing: "1px",
-                  lineHeight: 1,
-                  textDecoration: "none",
-                }}
-              >
-                {centerLabel.toUpperCase()}
-              </a>
-            ) : (
-              <span
-                className="text-[#ece8e1] drop-shadow-md"
-                style={{
-                  fontFamily: "'Montserrat', 'Arial', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "clamp(16px, 2vw, 22px)",
-                  letterSpacing: "1px",
-                  lineHeight: 1,
-                }}
-              >
-                {centerLabel.toUpperCase()}
-              </span>
-            )}
-          </div>
-        )}
+          {/* Center: NAYARA label (property pages + homepage) */}
+          {showCenterLabel && (
+            <div className="absolute left-1/2 -translate-x-1/2">
+              {centerLinkHome ? (
+                <a
+                  href="/"
+                  onClick={(e) => { e.preventDefault(); navigate("/"); }}
+                  className="text-[#ece8e1] drop-shadow-md hover:opacity-80 transition-opacity"
+                  style={{
+                    fontFamily: "'Montserrat', 'Arial', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(16px, 2vw, 22px)",
+                    letterSpacing: "1px",
+                    lineHeight: 1,
+                    textDecoration: "none",
+                  }}
+                >
+                  {centerLabel.toUpperCase()}
+                </a>
+              ) : (
+                <span
+                  className="text-[#ece8e1] drop-shadow-md"
+                  style={{
+                    fontFamily: "'Montserrat', 'Arial', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "clamp(16px, 2vw, 22px)",
+                    letterSpacing: "1px",
+                    lineHeight: 1,
+                  }}
+                >
+                  {centerLabel.toUpperCase()}
+                </span>
+              )}
+            </div>
+          )}
 
-        {/* RIGHT: Reserve */}
-        <div className="flex items-center pointer-events-auto">
+          {/* Right: Reserve */}
           <div ref={reserveRef} className="relative">
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
-              className={`${pillClass} h-12 px-6`}
+              className={`${pill} h-10 px-5`}
             >
-              <span
-                className="text-[#3a2a1a] text-[16px] font-medium tracking-normal"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Reserve
-              </span>
+              <span className="text-[#3a2a1a] text-[14px]" style={menuText}>Reserve</span>
             </button>
 
-            {/* Reserve dropdown — all 6 properties */}
             <AnimatePresence>
               {reserveOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -8, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                  className={`${dropdownPanelClass} right-0 top-full w-60`}
-                >
+                <motion.div {...dropdownAnim} className={`${dropdown} right-0 top-full w-56`}>
                   <div className="py-2">
                     {hotelBookingLinks.map((hotel) => (
                       <button
                         key={hotel.label}
                         onClick={() => handleBooking(hotel)}
-                        className="w-full text-left px-5 py-3 hover:bg-[#d4c9b8]/50 transition-colors flex items-center justify-between"
+                        className={`${menuItem} flex items-center justify-between`}
                       >
                         <span
-                          className={`text-[13px] tracking-normal whitespace-nowrap font-bold ${hotel.available ? "text-[#3a2a1a]/90" : "text-[#3a2a1a]/35"}`}
-                          style={{ fontFamily: "var(--font-body)" }}
+                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3a2a1a]/80" : "text-[#3a2a1a]/30"}`}
+                          style={menuText}
                         >
                           {hotel.label}
                         </span>
                         {!hotel.available && (
-                          <span className="text-[8px] tracking-[0.12em] uppercase text-[#3a2a1a]/25 border border-[#3a2a1a]/15 px-1.5 py-0.5 rounded-sm">
+                          <span className="text-[8px] tracking-[0.1em] uppercase text-[#3a2a1a]/20 border border-[#3a2a1a]/12 px-1.5 py-0.5 rounded-full">
                             Soon
                           </span>
                         )}
@@ -263,7 +273,126 @@ export default function BrandNavigation({
             </AnimatePresence>
           </div>
         </div>
-      </div>
+
+        {/* ── MOBILE NAV — 4 evenly spaced buttons ── */}
+        <div className="flex md:hidden items-center justify-between pointer-events-auto">
+          {/* 1. Hamburger */}
+          <div ref={menuRef} className="relative">
+            <button
+              onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
+              className={`${pill} w-10 h-10`}
+              aria-label="Menu"
+            >
+              <div className="flex flex-col gap-1.5">
+                <span className={`block w-4 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[3px]" : ""}`} />
+                <span className={`block w-4 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[3px]" : ""}`} />
+              </div>
+            </button>
+
+            <AnimatePresence>
+              {menuOpen && (
+                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-52`}>
+                  <div className="py-2 max-h-[70vh] overflow-y-auto">
+                    {propertyItems.length > 0 && (
+                      <>
+                        <div className="px-4 pt-2 pb-1">
+                          <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.18em] uppercase" style={menuText}>
+                            This Property
+                          </span>
+                        </div>
+                        {propertyItems.map((item) => (
+                          <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                            <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                          </button>
+                        ))}
+                        <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
+                      </>
+                    )}
+                    {GLOBAL_MENU.map((item) => (
+                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* 2. Explore (properties) */}
+          <div ref={exploreRef} className="relative">
+            <button
+              onClick={() => { closeAll(); setExploreOpen(!exploreOpen); }}
+              className={`${pill} h-10 px-4`}
+            >
+              <span className="text-[#3a2a1a] text-[12px]" style={menuText}>Explore</span>
+            </button>
+
+            <AnimatePresence>
+              {exploreOpen && (
+                <motion.div {...dropdownAnim} className={`${dropdown} left-1/2 -translate-x-1/2 top-full w-52`}>
+                  <div className="py-2">
+                    {EXPLORE_ITEMS.map((item) => (
+                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* 3. Reserve */}
+          <div ref={reserveRef} className="relative">
+            <button
+              onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
+              className={`${pill} h-10 px-4`}
+            >
+              <span className="text-[#3a2a1a] text-[12px]" style={menuText}>Reserve</span>
+            </button>
+
+            <AnimatePresence>
+              {reserveOpen && (
+                <motion.div {...dropdownAnim} className={`${dropdown} right-0 top-full w-52`}>
+                  <div className="py-2">
+                    {hotelBookingLinks.map((hotel) => (
+                      <button
+                        key={hotel.label}
+                        onClick={() => handleBooking(hotel)}
+                        className={`${menuItem} flex items-center justify-between`}
+                      >
+                        <span
+                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3a2a1a]/80" : "text-[#3a2a1a]/30"}`}
+                          style={menuText}
+                        >
+                          {hotel.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* 4. Concierge */}
+          <button
+            onClick={() => {
+              // Trigger the concierge chat widget
+              const chatBtn = document.querySelector('[data-concierge-toggle]') as HTMLButtonElement;
+              if (chatBtn) chatBtn.click();
+              else import("sonner").then(({ toast }) => toast("Chat with our concierge"));
+            }}
+            className={`${pill} w-10 h-10`}
+            aria-label="Chat"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3a2a1a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </button>
+        </div>
+      </nav>
     </>
   );
 }

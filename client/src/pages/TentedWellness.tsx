@@ -156,7 +156,7 @@ function WellnessPillarRow({ pillar, reversed, index }: { pillar: WellnessPillar
   return (
     <div ref={ref} className={`px-6 md:px-10 ${index === 0 ? "" : "mt-16 md:mt-24"}`}>
       <div className="max-w-[1400px] mx-auto">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <motion.div initial={{ opacity: 0, y: 14 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className={reversed ? "md:order-2" : "md:order-1"}>
             <div className="aspect-[4/5] overflow-hidden">
               <img src={pillar.image} alt={pillar.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />

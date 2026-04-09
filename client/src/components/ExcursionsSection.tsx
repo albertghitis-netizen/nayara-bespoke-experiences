@@ -228,7 +228,7 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
       {/* Section Header */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -260,7 +260,7 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
 
         {/* Category Filter */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -273,7 +273,7 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 text-xs tracking-editorial uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-editorial uppercase transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-volcanic text-desert-cream border-volcanic"
                   : "bg-transparent text-volcanic/50 border-volcanic/20 hover:border-volcanic/40 hover:text-volcanic/80"
@@ -310,7 +310,7 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
       {/* Blog Links Section */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mt-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
@@ -387,7 +387,7 @@ function ExcursionCard({
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       viewport={{ once: true }}

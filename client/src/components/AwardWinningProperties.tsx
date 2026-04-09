@@ -39,7 +39,7 @@ export default function AwardWinningProperties({ imageSrc }: AwardWinningPropert
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="aspect-[4/3] md:aspect-[16/9] overflow-hidden relative">
           <motion.img

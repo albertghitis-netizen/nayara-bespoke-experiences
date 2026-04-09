@@ -191,7 +191,7 @@ function HeroSection() {
 
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-16 md:pb-24 px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex items-center gap-2 mb-4"
@@ -206,11 +206,11 @@ function HeroSection() {
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 1.2,
-            delay: 0.6,
+            duration: 0.7,
+            delay: 0.2,
             ease: [0.22, 1, 0.36, 1],
           }}
           className="text-white text-3xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide text-center"
@@ -225,7 +225,7 @@ function HeroSection() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
+          transition={{ duration: 1, delay: 0.4 }}
           className="text-white/50 text-sm mt-6 tracking-wider text-center max-w-md"
           style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}
         >
@@ -236,21 +236,21 @@ function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-8 flex gap-4"
         >
           <a
             href="https://www.aylaonkrog.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3 bg-[#c8a96e] text-[#1a2744] text-xs tracking-[0.2em] uppercase hover:bg-[#d4b87e] transition-colors"
+            className="px-8 py-3 rounded-full bg-[#c8a96e] text-[#1a2744] text-xs tracking-[0.2em] uppercase hover:bg-[#d4b87e] transition-colors"
             style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}
           >
             Schedule a Tour
           </a>
           <a
             href="tel:4048004773"
-            className="px-8 py-3 border border-white/30 text-white text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-colors"
+            className="px-8 py-3 rounded-full border border-white/30 text-white text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-colors"
             style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}
           >
             404.800.4773
@@ -272,7 +272,7 @@ function IntroSection() {
     <section ref={ref} className="py-24 md:py-32 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="grid md:grid-cols-2 gap-12 md:gap-20 items-center"
@@ -338,7 +338,7 @@ function AmenitiesSection() {
     <section ref={ref} className="py-24 md:py-32 bg-[#1a2744] px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -362,7 +362,7 @@ function AmenitiesSection() {
             {amenities.map((amenity, idx) => (
               <motion.div
                 key={amenity.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.6,
@@ -437,7 +437,7 @@ function ResidencesSection() {
     <section ref={ref} className="py-24 md:py-32 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -461,7 +461,7 @@ function ResidencesSection() {
             {floorPlans.map((plan, idx) => (
               <motion.div
                 key={plan.type}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 0.6,
@@ -553,7 +553,7 @@ function NeighborhoodSection() {
     <section ref={ref} className="py-24 md:py-32 bg-stone-100 px-6 md:px-10">
       <div className="max-w-[1200px] mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="grid md:grid-cols-2 gap-12 md:gap-20"
@@ -644,7 +644,7 @@ function ContactSection() {
     <section ref={ref} className="py-24 md:py-32 bg-[#1a2744] px-6 md:px-10">
       <div className="max-w-[800px] mx-auto text-center">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >

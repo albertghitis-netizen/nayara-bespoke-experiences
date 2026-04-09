@@ -280,9 +280,9 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
       {/* Content — centered at bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
         >
@@ -311,7 +311,7 @@ function PropertyIntro() {
       />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -366,7 +366,7 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
       {/* Section Header */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -387,7 +387,7 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
 
         {/* Category Filter */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -400,7 +400,7 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-[#f7f5f0] text-emerald-950 border-[#f7f5f0]"
                   : "bg-transparent text-[#f7f5f0]/40 border-[#f7f5f0]/15 hover:border-[#f7f5f0]/30 hover:text-[#f7f5f0]/70"
@@ -463,7 +463,7 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
       {/* Section Header */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -484,7 +484,7 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
 
         {/* Category Filter */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -497,7 +497,7 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-emerald-900 text-white border-emerald-900"
                   : "bg-transparent text-emerald-900/40 border-emerald-900/15 hover:border-emerald-900/30 hover:text-emerald-900/70"
@@ -570,7 +570,7 @@ function FeaturedExcursionCard({
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       viewport={{ once: true }}
@@ -974,7 +974,7 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
       {/* Section Header */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -995,7 +995,7 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
 
         {/* Spa Video */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -1010,7 +1010,7 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
 
         {/* Category Filter */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -1023,7 +1023,7 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-emerald-900 text-white border-emerald-900"
                   : "bg-transparent text-emerald-900/40 border-emerald-900/15 hover:border-emerald-900/30 hover:text-emerald-900/70"
@@ -1092,7 +1092,7 @@ function TreatmentCard({
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       viewport={{ once: true }}
@@ -1190,7 +1190,7 @@ function ArenalFooter() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Brand */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -1218,7 +1218,7 @@ function ArenalFooter() {
 
           {/* Quick Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -1251,7 +1251,7 @@ function ArenalFooter() {
 
           {/* Contact */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}

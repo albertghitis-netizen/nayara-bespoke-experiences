@@ -121,9 +121,9 @@ function HeroSection() {
       {/* Tagline — bottom center */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: DURATION.slow, delay: 0.6, ease: EASE_CINEMATIC }}
+          transition={{ duration: DURATION.slow, delay: 0.3, ease: EASE_CINEMATIC }}
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={display}
         >
@@ -233,7 +233,7 @@ function AccommodationsSection() {
               href={BOOKING_URLS["tented-camp"]}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 text-[11px] tracking-[0.12em] uppercase transition-all duration-300"
+              className="px-6 py-2.5 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-300"
               style={{ ...body, fontWeight: 500, border: `1px solid ${P.primary}`, color: P.primary }}
               onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = P.primary; e.currentTarget.style.color = "#fff"; }}
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = P.primary; }}
@@ -289,7 +289,7 @@ function ExperiencesSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: DURATION.normal, delay: 0.8 }}
+            transition={{ duration: DURATION.normal, delay: 0.4 }}
             href="/experiences"
             className="text-white/60 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer mt-6"
             style={{ ...body, fontWeight: 400 }}
@@ -346,7 +346,7 @@ function WellnessSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: DURATION.normal, delay: 0.8 }}
+            transition={{ duration: DURATION.normal, delay: 0.4 }}
             href="/wellness"
             className="text-white/60 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer mt-6"
             style={{ ...body, fontWeight: 400 }}
