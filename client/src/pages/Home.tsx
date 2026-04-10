@@ -147,7 +147,6 @@ export default function Home() {
       <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
       <PropertiesSection />
       <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="60px" />
-      <IntroSection />
       <TimelineSection />
       <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
       <PillarsSection />
@@ -185,31 +184,34 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BRAND STORY - Two-column intro
+   OUR PHILOSOPHY - Two-column intro with images
    ═══════════════════════════════════════════════════════════════ */
 function BrandStorySection() {
   return (
-    <section id="story" className="py-16 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
+    <section id="philosophy" className="py-16 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
       <div className={maxW}>
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
           <div className="md:flex-1">
             <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel>The Nayara Story</SectionLabel>
+              <SectionLabel>Our Philosophy</SectionLabel>
             </AnimateOnScroll>
             <TextReveal as="h2" className="mb-8" delay={0.1}>
               <span
                 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
               >
-                Award-Winning Properties Defined by Destination
+                We Don't Build Hotels. We Reveal Places.
               </span>
             </TextReveal>
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef.
+                Nayara Resorts began with a simple conviction: the most extraordinary places on Earth deserve hospitality that honors them. Not resorts that could exist anywhere, but properties that could only exist where they stand.
+              </p>
+              <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                In Costa Rica, that meant building among the trees, not instead of them. In the Atacama, it meant learning from the desert's silence. On Easter Island, it meant listening to the stone guardians. In Panama, it meant floating above the reef rather than disturbing it.
               </p>
               <p className="text-[15px] leading-[1.8] mb-8" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+                Today, six properties across three countries share this founding principle. Each is shaped by its landscape, informed by its culture, and designed to leave its ecosystem stronger than we found it.
               </p>
             </AnimateOnScroll>
 
@@ -357,39 +359,7 @@ function PropertiesSection() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   INTRO — Brand Philosophy (from Story page)
-   ═══════════════════════════════════════════════════════════════ */
-function IntroSection() {
-  return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
-      <div className="max-w-[1000px] mx-auto">
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Our Philosophy</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-8" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#4B4A4A" }}
-          >
-            We Don't Build Hotels. We Reveal Places.
-          </span>
-        </TextReveal>
-        <AnimateOnScroll variants={fadeUp} delay={0.3}>
-          <p className="text-[15px] leading-[1.8] mb-6" style={{ fontFamily: "var(--font-body)", color: "#4B4A4A", opacity: 0.7 }}>
-            Nayara Resorts began with a simple conviction: the most extraordinary places on Earth deserve hospitality that honors them. Not resorts that could exist anywhere, but properties that could only exist where they stand.
-          </p>
-          <p className="text-[15px] leading-[1.8] mb-6" style={{ fontFamily: "var(--font-body)", color: "#4B4A4A", opacity: 0.7 }}>
-            In Costa Rica, that meant building among the trees, not instead of them. In the Atacama, it meant learning from the desert's silence. On Easter Island, it meant listening to the stone guardians. In Panama, it meant floating above the reef rather than disturbing it.
-          </p>
-          <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: "#4B4A4A", opacity: 0.7 }}>
-            Today, six properties across three countries share this founding principle. Each is shaped by its landscape, informed by its culture, and designed to leave its ecosystem stronger than we found it.
-          </p>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
+
 
 /* ═══════════════════════════════════════════════════════════════
    TIMELINE — Two Decades of Discovery (from Story page)

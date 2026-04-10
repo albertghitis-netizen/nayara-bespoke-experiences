@@ -27,6 +27,8 @@ const GLOBAL_MENU = [
   { label: "Awards & Press", route: "/awards" },
   { label: "Journal & Podcast", route: "/journal" },
   { label: "Gallery", route: "/gallery" },
+  { label: "Coming Soon", route: "/new-projects" },
+  { label: "Nayara By Night", route: "/by-night" },
 ];
 
 /* ── Explore dropdown items (quick links to properties) ── */
@@ -56,6 +58,7 @@ export default function BrandNavigation({
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [, navigate] = useLocation();
   const [location] = useLocation();
 
@@ -65,6 +68,13 @@ export default function BrandNavigation({
 
   /* Determine current property from route */
   const currentPropertyId = ROUTE_TO_PROPERTY[location] || null;
+
+  /* Track scroll to fade out center label */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   /* Close dropdowns on outside click */
   useEffect(() => {
@@ -194,14 +204,7 @@ export default function BrandNavigation({
                       </button>
                     ))}
 
-                    {/* Coming Soon & Nayara By Night — bottom of menu */}
-                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
-                    <button onClick={() => handleNavigate("/new-projects")} className={menuItem}>
-                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Coming Soon</span>
-                    </button>
-                    <button onClick={() => handleNavigate("/by-night")} className={menuItem}>
-                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Nayara By Night</span>
-                    </button>
+
                   </div>
                 </motion.div>
               )}
@@ -217,7 +220,8 @@ export default function BrandNavigation({
             if (!showCenter) return null;
             return (
               <span
-                className="mx-4 text-white/90 drop-shadow-sm pointer-events-none select-none"
+                className="mx-4 text-white/90 drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
+                style={{ opacity: scrolled ? 0 : 1 }}
               >
                 <span
                   className="tracking-[0.18em] text-[18px] md:text-[22px]"
@@ -323,14 +327,7 @@ export default function BrandNavigation({
                       </button>
                     ))}
 
-                    {/* Coming Soon & Nayara By Night — bottom of mobile menu */}
-                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
-                    <button onClick={() => handleNavigate("/new-projects")} className={menuItem}>
-                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Coming Soon</span>
-                    </button>
-                    <button onClick={() => handleNavigate("/by-night")} className={menuItem}>
-                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Nayara By Night</span>
-                    </button>
+
                   </div>
                 </motion.div>
               )}

@@ -1377,3 +1377,38 @@
 
 ## Privacy Policy in Footer Navigation
 - [x] Add Privacy Policy link to footer navigation data (navigation.ts)
+
+## Merge Brand Story + Our Philosophy on Homepage
+- [x] Replace BrandStorySection headline/copy with Our Philosophy content, keep images and layout
+- [x] Remove standalone IntroSection (now redundant)
+- [x] Move old Brand Story headline ("Award-Winning Properties Defined by Destination") and copy to Awards page
+
+## Restore Landscape Images on Content Pages
+- [ ] Identify which content pages had landscape (S1/horizontal) images removed
+- [ ] Restore landscape images on those pages (hidden on mobile, visible on desktop)
+
+## Property Page Nav Restructure
+- [x] Remove four pillar links (Experiences, Wellness, Gastronomy, Sustainability) from property page nav below Getting Here
+- [x] Move Coming Soon and Nayara By Night below Gallery in the nav menu
+
+## Center Label Scroll Fix
+- [x] Make center label (property name / Nayara Resorts) fade out on scroll — only hamburger and reserve should be sticky
+
+## Remove /dach and /cg Pages
+- [x] Remove /dach route from App.tsx and delete DachLanding.tsx
+- [x] Remove /cg route from App.tsx and delete CgLanding.tsx
+
+## Replace S1 Portrait Images with Vertical Videos
+- [ ] Audit all property pages for S1 portrait images/videos
+- [ ] Replace S1 portrait images with vertical videos on all property pages
+
+## Alto Atacama Property Restructure (Model for All Properties)
+- [ ] Audit AltoAtacama.tsx sections and plan content split
+- [ ] Create /alto-atacama/rooms dedicated page with full room content
+- [ ] Create /alto-atacama/experiences dedicated page with excursion filters
+- [ ] Create /alto-atacama/wellness dedicated page with treatment details
+- [ ] Create /alto-atacama/gastronomy dedicated page with dining menus
+- [ ] Create /alto-atacama/sustainability dedicated page with sustainability content
+- [ ] Simplify AltoAtacama.tsx home to intro sections linking to sub-pages
+- [ ] Register new routes in App.tsx
+- [ ] Update property nav to link to sub-pages

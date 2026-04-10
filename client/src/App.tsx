@@ -35,8 +35,6 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const NewProjects = lazy(() => import("./pages/NewProjects"));
-const DachLanding = lazy(() => import("./pages/DachLanding"));
-const CgLanding = lazy(() => import("./pages/CgLanding"));
 const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
 const HangaroaNewsletter = lazy(() => import("./pages/HangaroaNewsletter"));
 const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
@@ -60,7 +58,7 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS = ["/chat-embed", "/dach", "/cg", "/henry", "/hangaroa-newsletter"];
+const HIDE_WIDGET_PATHS = ["/chat-embed", "/henry", "/hangaroa-newsletter"];
 
 function Router() {
   const [location] = useLocation();
@@ -99,8 +97,6 @@ function Router() {
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
           <Route path="/new-projects" component={NewProjects} />
-          <Route path="/dach" component={DachLanding} />
-          <Route path="/cg" component={CgLanding} />
           <Route path="/henry" component={HenryStandalone} />
           <Route path="/hangaroa-newsletter" component={HangaroaNewsletter} />
           <Route path="/by-night" component={NayaraByNight} />

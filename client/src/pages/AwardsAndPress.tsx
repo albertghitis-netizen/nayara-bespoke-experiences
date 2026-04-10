@@ -247,6 +247,28 @@ export default function AwardsAndPress() {
         </div>
       </section>
 
+      {/* ── Brand Story Intro ── */}
+      <section className="py-16 md:py-24 px-6 md:px-10 bg-[#f4f1eb]">
+        <div className="max-w-5xl mx-auto">
+          <FadeIn>
+            <p className="text-[10px] tracking-[0.25em] uppercase mb-4" style={{ ...body, fontWeight: 500, color: "#3a2a1a", opacity: 0.4 }}>The Nayara Story</p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide mb-8" style={{ ...heading, color: "#3a2a1a" }}>
+              Award-Winning Properties Defined by Destination
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-[15px] leading-[1.8] mb-5 max-w-3xl" style={{ ...body, color: "#5a4a3a" }}>
+              Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef.
+            </p>
+            <p className="text-[15px] leading-[1.8] max-w-3xl" style={{ ...body, color: "#5a4a3a" }}>
+              Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* ── Tab Switcher + Property Filter ── */}
       <section className="py-10 md:py-14 px-6 md:px-10">
         <div className="max-w-5xl mx-auto">
