@@ -1454,3 +1454,9 @@
 - [ ] Nayara Bocas del Toro — apply S1/S2 aligned layout
 - [ ] Nayara Gardens — apply S1/S2 aligned layout
 - [x] Nayara Tented Camp — apply S1/S2 aligned layout
+
+## Award Badges + S1/S2 Layout Batch
+- [x] Tented Camp: replace Journal link with award badges in Story section
+- [x] Atacama: add award badges to Story section
+- [x] Springs: apply S1/S2 touching layout
+- [x] Bocas del Toro: apply S1/S2 touching layout

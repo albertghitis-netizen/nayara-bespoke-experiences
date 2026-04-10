@@ -144,20 +144,14 @@ function StorySection() {
               </p>
             </AnimateOnScroll>
 
-            {/* Journal link */}
-            <AnimateOnScroll variants={fadeUp} delay={0.5}>
-              <a
-                href="/journal"
-                className="group block p-5 mt-8 rounded-lg transition-all"
-                style={{ border: `1px solid ${P.primary}20`, }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = `${P.primary}50`; e.currentTarget.style.backgroundColor = `${P.primary}08`; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = `${P.primary}20`; e.currentTarget.style.backgroundColor = "transparent"; }}
-              >
-                <span className="text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600, color: P.accent }}>From the Journal</span>
-                <h4 className="text-[14px] leading-snug" style={{ ...display, fontWeight: 500, color: BRAND.primaryText }}>Three Resorts. One Rainforest.</h4>
-                <p className="text-[12px] leading-relaxed mt-2" style={{ ...body, color: BRAND.secondaryText }}>How three distinct properties share a single regenerated ecosystem in Arenal</p>
-                <span className="text-[11px] tracking-[0.08em] uppercase mt-3 inline-block" style={{ ...body, fontWeight: 500, color: P.primary }}>Read →</span>
-              </a>
+            {/* Award badges */}
+            <AnimateOnScroll variants={fadeIn} delay={0.4}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
+                alt="Green Globe Certified · Travel + Leisure World's Best Awards 2021-2024 · Leading Hotels of the World"
+                className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-6"
+                loading="lazy"
+              />
             </AnimateOnScroll>
           </div>
           {/* Portrait photo (S1) right */}

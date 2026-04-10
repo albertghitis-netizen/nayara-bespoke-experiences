@@ -158,6 +158,16 @@ function StorySection() {
                 Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing experiences, desert adventures, and world-class wellness in one of Earth's most remote and magical locations.
               </p>
             </AnimateOnScroll>
+
+            {/* Award badges */}
+            <AnimateOnScroll variants={fadeUp} delay={0.4}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
+                alt="Award badges — Alto Atacama"
+                className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-6"
+                loading="lazy"
+              />
+            </AnimateOnScroll>
           </div>
           {/* Portrait photo (S1) right */}
           <div className="md:flex-1">

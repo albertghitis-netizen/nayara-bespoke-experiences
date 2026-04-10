@@ -11,7 +11,6 @@ import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { bocasDiningCollection } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
-import { AwardBadgeStrip } from "@/components/AwardBadges";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -155,7 +154,9 @@ function StorySection() {
   return (
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
-        <div className="max-w-3xl mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+          {/* Text left */}
+          <div className="md:flex-1">
             <AnimateOnScroll variants={fadeUp}>
               <SectionLabel>The Property</SectionLabel>
             </AnimateOnScroll>
@@ -175,12 +176,33 @@ function StorySection() {
                 Nayara Bocas del Toro is an adults-only sanctuary on a private Caribbean island, where overwater villas float above crystal-clear turquoise waters. Each villa features direct ocean access, private plunge pools, and unobstructed views of pristine beaches and jungle-covered islands. Experience the ultimate in tropical luxury and seclusion.
               </p>
             </AnimateOnScroll>
-            <AnimateOnScroll variants={fadeUp} delay={0.5}>
-              <AwardBadgeStrip property="bocas-del-toro" />
+
+            {/* Award badges */}
+            <AnimateOnScroll variants={fadeUp} delay={0.4}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
+                alt="Award badges — Bocas del Toro"
+                className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-6"
+                loading="lazy"
+              />
             </AnimateOnScroll>
+          </div>
+          {/* Portrait photo (S1) right */}
+          <div className="md:flex-1">
+            <MediaReveal delay={0.2}>
+              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                <img
+                  src={CDN.s1}
+                  alt="Overwater villas at Nayara Bocas del Toro"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </MediaReveal>
+          </div>
         </div>
 
-        {/* Landscape image — hidden on mobile */}
+        {/* Landscape photo (S2) below — hidden on mobile, touching portrait */}
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>

@@ -141,7 +141,9 @@ function StorySection() {
   return (
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
-        <div className="max-w-3xl mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+          {/* Text left */}
+          <div className="md:flex-1">
             <AnimateOnScroll variants={fadeUp}>
               <SectionLabel>The Property</SectionLabel>
             </AnimateOnScroll>
@@ -161,12 +163,28 @@ function StorySection() {
                 Nayara Springs is the adults-only sister property to Nayara Gardens. Each villa features a private natural hot spring pool fed by volcanic mineral water, surrounded by the sounds of the rainforest. Michelin 3 Key recognized, the resort offers an intimate, elevated experience with access to all five Nayara restaurants and the full-service Spa Arenal.
               </p>
             </AnimateOnScroll>
+
+            {/* Award badges */}
             <AnimateOnScroll variants={fadeUp} delay={0.5}>
               <AwardBadgeStrip property="springs" />
             </AnimateOnScroll>
+          </div>
+          {/* Portrait photo (S1) right */}
+          <div className="md:flex-1">
+            <MediaReveal delay={0.2}>
+              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                <img
+                  src={CDN.s1}
+                  alt="Hot spring pool at Nayara Springs"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </MediaReveal>
+          </div>
         </div>
 
-        {/* Landscape image below — hidden on mobile */}
+        {/* Landscape photo (S2) below — hidden on mobile, touching portrait */}
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
