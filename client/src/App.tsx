@@ -20,7 +20,6 @@ const AwardsAndPress = lazy(() => import("./pages/AwardsAndPress"));
 const Sustainability = lazy(() => import("./pages/Sustainability"));
 const Experiences = lazy(() => import("./pages/Experiences"));
 const Wellness = lazy(() => import("./pages/Wellness"));
-const TentedWellness = lazy(() => import("./pages/TentedWellness"));
 const Story = lazy(() => import("./pages/Story"));
 const Rooms = lazy(() => import("./pages/Rooms"));
 const Gastronomy = lazy(() => import("./pages/Gastronomy"));
@@ -87,7 +86,7 @@ function Router() {
           <Route path="/sustainability" component={Sustainability} />
           <Route path="/experiences" component={Experiences} />
           <Route path="/wellness" component={Wellness} />
-          <Route path="/tented-wellness" component={TentedWellness} />
+          <Route path="/tented-wellness">{() => { window.location.replace("/wellness"); return null; }}</Route>
           <Route path="/press">{() => { window.location.replace("/awards"); return null; }}</Route>
           <Route path="/story" component={Story} />
           <Route path="/rooms" component={Rooms} />
