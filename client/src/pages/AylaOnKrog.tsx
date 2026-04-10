@@ -185,6 +185,7 @@ function HeroSection() {
           loop={true}
           playsInline={true}
           controls={false}
+          hasAudio
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a2744]/60 via-[#1a2744]/30 to-[#1a2744]/70" />
       </div>

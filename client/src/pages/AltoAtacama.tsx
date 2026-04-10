@@ -110,7 +110,7 @@ const ASSETS = {
   archH: `${CDN}/atacama-hero-new_42efa04c.mp4`,
 
   // Gallery extras
-  flamingoLagoon: `${CDN}/atacama-flamingo-lagoon_e63170ad.mp4`,
+  flamingoLagoon: `${CDN}/atacama-flamingo-lagoon-audio_8cc7cdf9.mp4`,
   poolSunset: `${CDN}/atacama-pool-sunset_c4a2f7e1.jpg`,
   stargazingPhoto: `${CDN}/atacama-stargazing_f5c3d8a4.jpg`,
   suiteInterior: `${CDN}/atacama-suite-interior_d3b1e9f2.jpg`,
@@ -488,7 +488,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">

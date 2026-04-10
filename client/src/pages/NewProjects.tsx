@@ -9,10 +9,10 @@ import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
 
 const MOON_CAMP_VIDEO =
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663090891297/KBvsSannhTKxFUoi.mp4";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-moon-camp-hero-audio_22efe3b5.mp4";
 
 const MANUEL_ANTONIO_HERO_VIDEO =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/manuel-antonio-hero_9594c365.mp4";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/manuel-antonio-hero-audio_3b237f2e.mp4";
 
 const MANUEL_ANTONIO_HERO_IMAGE =
   "https://files.manuscdn.com/user_upload_by_module/session_file/310519663090891297/fKQkYAfREnMHGEIl.jpeg";
@@ -69,6 +69,7 @@ export default function NewProjects() {
             src={MANUEL_ANTONIO_HERO_VIDEO}
             poster={MANUEL_ANTONIO_HERO_IMAGE}
             className="w-full h-full object-cover"
+            hasAudio
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/60" />
         </div>
@@ -293,6 +294,7 @@ export default function NewProjects() {
           <BlobVideo
             src={MOON_CAMP_VIDEO}
             className="w-full h-full object-cover"
+            hasAudio
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
         </div>

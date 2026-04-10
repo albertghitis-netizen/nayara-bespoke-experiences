@@ -159,11 +159,11 @@ export default function Home() {
    HERO - Full-screen video with brand tagline
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
-  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-supersale_b737206c.mp4";
+  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-audio_754ef6c8.mp4";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/60" />
       </div>
 

@@ -1503,3 +1503,6 @@
 - [x] Remove Gallery from navigation menu on Nayara site
 - [x] Add /api/hangaroa-lead POST endpoint for landing page signup form
 - [x] Replace hero video on Manuel Antonio coming soon page with new uploaded video
+- [x] Re-encode hero videos with audio preserved and upload to CDN
+- [x] Build elegant mute/unmute button into BlobVideo component
+- [x] Update all hero video URLs to new audio versions
