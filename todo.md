@@ -1483,3 +1483,20 @@
 - [ ] Zero-gap layout — no padding between sections, media touching
 - [ ] Section order optimized for color flow
 - [ ] Gallery section updated with new assets (Milky Way photos, new videos)
+- [x] Alto Atacama cascade: Extend to show ALL available assets — as many sections as needed, no repeats
+- [x] Alto Atacama cascade: Extend to show ALL available assets — as many sections as needed, no repeats
+- [ ] Tented Camp cascade: Extend to show ALL available assets
+- [ ] Springs cascade: Extend to show ALL available assets
+- [ ] Gardens cascade: Extend to show ALL available assets
+- [ ] Bocas del Toro cascade: Extend to show ALL available assets
+- [ ] Hangaroa cascade: Extend to show ALL available assets
+- [x] Atacama Option A: Add structured functional sections (Getting Here, Awards, Reviews) below cascade
+- [x] Bocas Option B: Build pure cascade with all assets, no functional content on property page
+- [x] Tented Camp Option C: Revert to original structured layout then weave cascade sections with functional breaks
+- [x] Full-bleed desktop: CascadeSection media goes edge-to-edge viewport on desktop
+- [x] Full-bleed desktop: Vertical media touches screen edge on its side, text stays contained
+- [x] Full-bleed desktop: Horizontal media spans full viewport width
+- [x] Full-bleed desktop: Mobile layout treated separately (contained/stacked)
+- [ ] Apply full-bleed to AltoAtacama cascade
+- [ ] Apply full-bleed to Bocas cascade (Option B)
+- [ ] Apply full-bleed to Tented Camp cascade (Option C)

@@ -1,8 +1,8 @@
 /**
  * NAYARA ALTO ATACAMA — Property Home Page
- * Gradient cascade: warm sand → deep earth
+ * Extended gradient cascade: warm sand → deep earth
+ * Every available asset shown — no repeats
  * Varied aspect ratios per section, zero-gap between all elements
- * Section order optimized for color flow
  */
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
@@ -23,19 +23,25 @@ import {
 const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE — "Mars" gradient: warm sand → deep earth
-   Each section gets its own bg tone for the continuous gradient
+   PALETTE — Extended "Mars" gradient: warm sand → deep earth
+   More sections = more gradient steps
    ═══════════════════════════════════════════════════════════════ */
-const SECTION_COLORS = {
-  hero:    "#F5F1EB",
-  story:   "#F0EAE0",  // warm sand
-  rooms:   "#EAE2D5",  // dusty rose
-  exp:     "#E3D9CA",  // terracotta mist
-  sus:     "#DCD0BF",  // desert clay
-  well:    "#D5C7B4",  // warm stone
-  gastro:  "#CEBEA9",  // deep earth
-  gallery: "#C8B69F",  // deepest
-};
+const SECTION_COLORS = [
+  "#F5F1EB", // 0 hero
+  "#F2EDE4", // 1 story
+  "#EFE9DD", // 2 rooms
+  "#ECE5D6", // 3 experiences
+  "#E8E0CF", // 4 sustainability
+  "#E4DBC8", // 5 wellness
+  "#E0D6C1", // 6 gastronomy
+  "#DCD1BA", // 7 stargazing
+  "#D8CCB3", // 8 landscape
+  "#D4C7AC", // 9 wildlife
+  "#D0C2A5", // 10 adventure
+  "#CCBD9E", // 11 dusk
+  "#C8B390", // 12 architecture
+  "#C4AE89", // 13 gallery
+];
 
 const PALETTE = {
   text: "#2C2418",
@@ -46,34 +52,70 @@ const PALETTE = {
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   CDN ASSETS — All new, unique per section
+   CDN ASSETS — EVERY Atacama asset, organized by section
    ═══════════════════════════════════════════════════════════════ */
-const CDN = {
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-desktop-hq_732fe8b3.mp4",
-  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-vertical-hq_d81c629e.mp4",
-  // 1. Story — geyser steam V (9:16) + resort exterior UW (2.34:1)
-  storyVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-cascade1-story-vertical_67d1c066.mp4",
-  storyHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-ultrawide-2_c9a936b3.jpg",
-  // 2. Rooms — resort aerial V (9:16) + resort pathway UW (2.34:1)
-  roomsVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-resort-aerial-vertical_7face530.mp4",
-  roomsHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-ultrawide-5_aeeaded2.jpg",
-  // 3. Experiences — blue salt flat V (9:16) + Rainbow Valley woman UW (2.34:1)
-  expVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-blue-saltflat-vertical_f1956a87.mp4",
-  expHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-ultrawide-4_bba8d87c.jpg",
-  // 4. Sustainability — Milky Way arch V (5:4) + vicuna+mountain UW (2.34:1)
-  susVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-milkyway-arch_d146b04d.jpg",
-  susHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-ultrawide-1_6f77dafe.jpg",
-  // 5. Wellness — geyser eruption V (~2:3) + spa massage UW (2.34:1)
-  wellVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-geyser-eruption-vertical_5c93579c.mp4",
-  wellHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-ultrawide-3_36588f6c.jpg",
-  // 6. Gastronomy — Milky Way bus V (3:2) + flamingo UW video (21:9)
-  gastroVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-milkyway-bus_88a347bc.jpg",
-  gastroHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-flamingo-ultrawide_807f044f.mp4",
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
+
+const ASSETS = {
+  // Hero
+  heroDesktop: `${CDN}/atacama-hero-desktop-hq_732fe8b3.mp4`,
+  heroMobile: `${CDN}/atacama-hero-vertical-hq_d81c629e.mp4`,
+
+  // Section 1 — Story: geyser steam V + resort exterior UW
+  storyV: `${CDN}/atacama-cascade1-story-vertical_67d1c066.mp4`,
+  storyH: `${CDN}/atacama-ultrawide-2_c9a936b3.jpg`,
+
+  // Section 2 — Rooms: resort aerial V + resort pathway UW
+  roomsV: `${CDN}/atacama-resort-aerial-vertical_7face530.mp4`,
+  roomsH: `${CDN}/atacama-ultrawide-5_aeeaded2.jpg`,
+
+  // Section 3 — Experiences: blue salt flat V + Rainbow Valley woman UW
+  expV: `${CDN}/atacama-blue-saltflat-vertical_f1956a87.mp4`,
+  expH: `${CDN}/atacama-ultrawide-4_bba8d87c.jpg`,
+
+  // Section 4 — Sustainability: Milky Way arch V + vicuna mountain UW
+  susV: `${CDN}/atacama-milkyway-arch_d146b04d.jpg`,
+  susH: `${CDN}/atacama-ultrawide-1_6f77dafe.jpg`,
+
+  // Section 5 — Wellness: geyser eruption V + spa massage UW
+  wellV: `${CDN}/atacama-geyser-eruption-vertical_5c93579c.mp4`,
+  wellH: `${CDN}/atacama-ultrawide-3_36588f6c.jpg`,
+
+  // Section 6 — Gastronomy: Milky Way bus V + flamingo UW video
+  gastroV: `${CDN}/atacama-milkyway-bus_88a347bc.jpg`,
+  gastroH: `${CDN}/atacama-flamingo-ultrawide_807f044f.mp4`,
+
+  // Section 7 — Stargazing: Milky Way pillar V + Valle de la Luna H video
+  starV: `${CDN}/atacama-milkyway-pillar_d9301ecc.jpg`,
+  starH: `${CDN}/atacama-valle-luna-horizontal_1f6f7599.mp4`,
+
+  // Section 8 — Landscape: Rainbow Valley aerial H video + Atacama00003 V video
+  landV: `${CDN}/Video_Nayara_Atacama00003_aeb971e9.MP4`,
+  landH: `${CDN}/atacama-rainbow-valley-aerial_55c86ce4.mp4`,
+
+  // Section 9 — Wildlife: flamingos golden photo H + Atacama00007 V video
+  wildV: `${CDN}/Video_Nayara_Atacama00007_8576aa55.MP4`,
+  wildH: `${CDN}/atacama-flamingos-golden_7a564e58.jpg`,
+
+  // Section 10 — Adventure: cfnetwork desert walk H + trim V (MOV)
+  advV: `${CDN}/trim_cb137ccb.mp4`,
+  advH: `${CDN}/cfnetwork_b9ae0ca4.mp4`,
+
+  // Section 11 — Dusk: nbn dusk resort H + nbn dusk V
+  duskV: `${CDN}/nbn-atacama-dusk_9201508f.webp`,
+  duskH: `${CDN}/nbn-atacama-dusk-resort_b5829c95.webp`,
+
+  // Section 12 — Architecture: courtyard cliff V + hero desktop photo H
+  archV: `${CDN}/atacama-courtyard-cliff-vertical_28dfbf06.mp4`,
+  archH: `${CDN}/atacama-hero-new_42efa04c.mp4`,
+
   // Gallery extras
-  milkywayPillar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-milkyway-pillar_d9301ecc.jpg",
-  flamingosGolden: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-flamingos-golden_7a564e58.jpg",
-  rainbowValleyAerial: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-rainbow-valley-aerial_55c86ce4.mp4",
-  valleLuna: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-valle-luna-horizontal_1f6f7599.mp4",
+  flamingoLagoon: `${CDN}/atacama-flamingo-lagoon_e63170ad.mp4`,
+  poolSunset: `${CDN}/atacama-pool-sunset_c4a2f7e1.jpg`,
+  stargazingPhoto: `${CDN}/atacama-stargazing_f5c3d8a4.jpg`,
+  suiteInterior: `${CDN}/atacama-suite-interior_d3b1e9f2.jpg`,
+  heroDesktopPhoto: `${CDN}/atacama-hero-desktop_8c8a5be0.jpg`,
+  propCard: `${CDN}/prop-atacama_704b4f26.jpg`,
 };
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -117,8 +159,6 @@ function MediaBlock({
 
 /* ═══════════════════════════════════════════════════════════════
    CASCADE SECTION — Zero-gap, gradient bg, varied ratios
-   textSide: "left" = text left + vertical right
-             "right" = vertical left + text right
    ═══════════════════════════════════════════════════════════════ */
 function CascadeSection({
   label,
@@ -201,7 +241,7 @@ function CascadeSection({
       {badges && (
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
+            src={`${CDN}/award-badges-tented-camp_8aea5e71.webp`}
             alt="Award badges — Alto Atacama"
             className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-4"
             loading="lazy"
@@ -213,32 +253,50 @@ function CascadeSection({
 
   return (
     <section style={{ backgroundColor: bgColor }}>
-      {/* V row: text + vertical media side by side — ZERO top padding */}
-      <div className="px-6 md:px-10">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="flex flex-col md:flex-row gap-8 md:gap-14 items-start">
-            {textSide === "left" ? (
-              <>
-                <div className="md:flex-1 pt-10 md:pt-16">{TextBlock}</div>
-                <div className="md:flex-1">
-                  <MediaReveal delay={0.2}>{VerticalMedia}</MediaReveal>
+      {/* === DESKTOP: Full-bleed layout === */}
+      <div className="hidden md:block">
+        {/* V row: 50/50 split — media full-bleed to screen edge, text contained */}
+        <div className="flex">
+          {textSide === "left" ? (
+            <>
+              {/* Text side — padded, vertically centered */}
+              <div className="w-1/2 flex items-center">
+                <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px] ml-auto">
+                  {TextBlock}
                 </div>
-              </>
-            ) : (
-              <>
-                <div className="md:flex-1 order-2 md:order-1">
-                  <MediaReveal delay={0.1}>{VerticalMedia}</MediaReveal>
+              </div>
+              {/* Media side — full bleed to right edge */}
+              <div className="w-1/2">
+                <MediaReveal delay={0.2}>{VerticalMedia}</MediaReveal>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Media side — full bleed to left edge */}
+              <div className="w-1/2">
+                <MediaReveal delay={0.1}>{VerticalMedia}</MediaReveal>
+              </div>
+              {/* Text side — padded, vertically centered */}
+              <div className="w-1/2 flex items-center">
+                <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px]">
+                  {TextBlock}
                 </div>
-                <div className="md:flex-1 order-1 md:order-2 pt-10 md:pt-16">{TextBlock}</div>
-              </>
-            )}
-          </div>
+              </div>
+            </>
+          )}
+        </div>
+        {/* H row: full viewport width, no container, no padding */}
+        <div>
+          <MediaReveal delay={0.1}>{HorizontalMedia}</MediaReveal>
         </div>
       </div>
-      {/* H row: full-width horizontal media, touching vertical above — hidden on mobile */}
-      <div className="hidden md:block px-6 md:px-10">
-        <div className="max-w-[1200px] mx-auto">
-          <MediaReveal delay={0.1}>{HorizontalMedia}</MediaReveal>
+
+      {/* === MOBILE: Stacked layout, contained === */}
+      <div className="md:hidden px-5">
+        <div className="pt-10 pb-6">{TextBlock}</div>
+        <MediaReveal delay={0.1}>{VerticalMedia}</MediaReveal>
+        <div className="mt-4">
+          <MediaReveal delay={0.2}>{HorizontalMedia}</MediaReveal>
         </div>
       </div>
     </section>
@@ -246,112 +304,175 @@ function CascadeSection({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   MAIN PAGE — Gradient cascade, all touching, color flow
+   SECTION DATA — All 11 cascade sections
+   ═══════════════════════════════════════════════════════════════ */
+const CASCADE_SECTIONS = [
+  {
+    label: "The Property",
+    headline: "Mars on Earth",
+    description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
+    vSrc: ASSETS.storyV, hSrc: ASSETS.storyH,
+    vVideo: true, hVideo: false,
+    vRatio: "9/16", hRatio: "2.34/1",
+    textSide: "left" as const,
+    link: undefined, linkLabel: undefined,
+    badges: true,
+  },
+  {
+    label: "Accommodations",
+    headline: "Desert Suites",
+    description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
+    vSrc: ASSETS.roomsV, hSrc: ASSETS.roomsH,
+    vVideo: true, hVideo: false,
+    vRatio: "9/16", hRatio: "2.34/1",
+    textSide: "right" as const,
+    link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
+    badges: false,
+  },
+  {
+    label: "Experiences",
+    headline: "Desert Explorations",
+    description: "From sunrise salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is led by expert local guides who reveal the Atacama's hidden wonders.",
+    vSrc: ASSETS.expV, hSrc: ASSETS.expH,
+    vVideo: true, hVideo: false,
+    vRatio: "9/16", hRatio: "2.34/1",
+    textSide: "left" as const,
+    link: "/alto-atacama/experiences", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "Sustainability",
+    headline: "Protecting the Desert",
+    description: "Our commitment to the Atacama goes beyond hospitality. We protect fragile ecosystems, support local communities, and operate with minimal environmental impact in one of Earth's most delicate landscapes.",
+    vSrc: ASSETS.susV, hSrc: ASSETS.susH,
+    vVideo: false, hVideo: false,
+    vRatio: "5/4", hRatio: "2.34/1",
+    textSide: "right" as const,
+    link: "/alto-atacama/sustainability", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "Wellness",
+    headline: "Geothermal Healing",
+    description: "Harness the healing power of the desert — from volcanic mud rituals to salt crystal therapies, each treatment draws on the Atacama's ancient minerals and infinite stillness.",
+    vSrc: ASSETS.wellV, hSrc: ASSETS.wellH,
+    vVideo: true, hVideo: false,
+    vRatio: "2/3", hRatio: "2.34/1",
+    textSide: "left" as const,
+    link: "/alto-atacama/wellness", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "A Taste of Place",
+    headline: "Desert Dining",
+    description: "Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine — from quinoa harvested at altitude to herbs cultivated in our desert gardens.",
+    vSrc: ASSETS.gastroV, hSrc: ASSETS.gastroH,
+    vVideo: false, hVideo: true,
+    vRatio: "3/2", hRatio: "21/9",
+    textSide: "right" as const,
+    link: "/alto-atacama/gastronomy", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "Stargazing",
+    headline: "The Clearest Skies on Earth",
+    description: "The Atacama Desert offers the world's best conditions for stargazing. With virtually zero light pollution and 300+ clear nights per year, the Milky Way becomes a nightly spectacle visible to the naked eye.",
+    vSrc: ASSETS.starV, hSrc: ASSETS.starH,
+    vVideo: false, hVideo: true,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "left" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "The Landscape",
+    headline: "Rainbow Valley & Beyond",
+    description: "From the multicolored mineral deposits of Rainbow Valley to the surreal moonscapes of Valle de la Luna, the Atacama's geology tells a story spanning millions of years. Every horizon reveals a new palette.",
+    vSrc: ASSETS.landV, hSrc: ASSETS.landH,
+    vVideo: true, hVideo: true,
+    vRatio: "9/16", hRatio: "16/9",
+    textSide: "right" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "Wildlife",
+    headline: "Flamingos & Vicuñas",
+    description: "Despite its extreme aridity, the Atacama teems with life. Andean flamingos gather at high-altitude lagoons, vicuñas roam the altiplano, and unique desert-adapted species thrive in this unlikely ecosystem.",
+    vSrc: ASSETS.wildV, hSrc: ASSETS.wildH,
+    vVideo: true, hVideo: false,
+    vRatio: "9/16", hRatio: "16/9",
+    textSide: "left" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "Adventure",
+    headline: "Into the Desert",
+    description: "Whether trekking through ancient canyons, sandboarding down volcanic dunes, or cycling across salt flats, the Atacama rewards those who venture beyond the horizon with experiences that redefine adventure.",
+    vSrc: ASSETS.advV, hSrc: ASSETS.advH,
+    vVideo: true, hVideo: true,
+    vRatio: "9/16", hRatio: "16/9",
+    textSide: "right" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "Desert Twilight",
+    headline: "When the Desert Glows",
+    description: "As the sun descends, the Atacama transforms. The desert floor radiates warmth, the sky ignites in impossible colors, and the resort becomes a glowing sanctuary against the vast, silent landscape.",
+    vSrc: ASSETS.duskV, hSrc: ASSETS.duskH,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "left" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "Architecture",
+    headline: "Built from the Earth",
+    description: "Every structure at Alto Atacama emerges from the landscape itself — adobe walls, stone courtyards, and thatched roofs that echo the ancient building traditions of the Atacameño people. The resort is not placed on the desert; it grows from it.",
+    vSrc: ASSETS.archV, hSrc: ASSETS.archH,
+    vVideo: true, hVideo: true,
+    vRatio: "9/16", hRatio: "16/9",
+    textSide: "right" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   MAIN PAGE — Extended gradient cascade, all touching, color flow
    ═══════════════════════════════════════════════════════════════ */
 export default function AltoAtacama() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS.hero }}>
+    <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <BrandNavigation pageType="property" />
       <HeroSection />
 
-      {/* 1. STORY — golden/amber zone */}
-      <CascadeSection
-        label="The Property"
-        headline="Mars on Earth"
-        description={`${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing experiences, desert adventures, and world-class wellness in one of Earth's most remote and magical locations.`}
-        verticalSrc={CDN.storyVertical}
-        horizontalSrc={CDN.storyHorizontal}
-        verticalIsVideo={true}
-        horizontalIsVideo={false}
-        verticalRatio="9/16"
-        horizontalRatio="2.34/1"
-        textSide="left"
-        bgColor={SECTION_COLORS.story}
-        badges={true}
-      />
+      {CASCADE_SECTIONS.map((section, i) => (
+        <CascadeSection
+          key={i}
+          label={section.label}
+          headline={section.headline}
+          description={section.description}
+          verticalSrc={section.vSrc}
+          horizontalSrc={section.hSrc}
+          verticalIsVideo={section.vVideo}
+          horizontalIsVideo={section.hVideo}
+          verticalRatio={section.vRatio}
+          horizontalRatio={section.hRatio}
+          textSide={section.textSide}
+          bgColor={SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1]}
+          link={section.link}
+          linkLabel={section.linkLabel}
+          badges={section.badges}
+        />
+      ))}
 
-      {/* 2. ROOMS — warm earth zone */}
-      <CascadeSection
-        label="Accommodations"
-        headline="Desert Suites"
-        description="Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation."
-        verticalSrc={CDN.roomsVertical}
-        horizontalSrc={CDN.roomsHorizontal}
-        verticalIsVideo={true}
-        horizontalIsVideo={false}
-        verticalRatio="9/16"
-        horizontalRatio="2.34/1"
-        textSide="right"
-        bgColor={SECTION_COLORS.rooms}
-        link="/alto-atacama/rooms"
-        linkLabel="Explore Rooms"
-      />
-
-      {/* 3. EXPERIENCES — turquoise/red zone */}
-      <CascadeSection
-        label="Experiences"
-        headline="Desert Explorations"
-        description="From sunrise salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is led by expert local guides who reveal the Atacama's hidden wonders."
-        verticalSrc={CDN.expVertical}
-        horizontalSrc={CDN.expHorizontal}
-        verticalIsVideo={true}
-        horizontalIsVideo={false}
-        verticalRatio="9/16"
-        horizontalRatio="2.34/1"
-        textSide="left"
-        bgColor={SECTION_COLORS.exp}
-        link="/alto-atacama/experiences"
-      />
-
-      {/* 4. SUSTAINABILITY — cool/dark zone */}
-      <CascadeSection
-        label="Sustainability"
-        headline="Protecting the Desert"
-        description="Our commitment to the Atacama goes beyond hospitality. We protect fragile ecosystems, support local communities, and operate with minimal environmental impact in one of Earth's most delicate landscapes."
-        verticalSrc={CDN.susVertical}
-        horizontalSrc={CDN.susHorizontal}
-        verticalIsVideo={false}
-        horizontalIsVideo={false}
-        verticalRatio="5/4"
-        horizontalRatio="2.34/1"
-        textSide="right"
-        bgColor={SECTION_COLORS.sus}
-        link="/alto-atacama/sustainability"
-      />
-
-      {/* 5. WELLNESS — misty/warm zone */}
-      <CascadeSection
-        label="Wellness"
-        headline={atacama.theme.spaHeadline.replace("\n", " ")}
-        description="Harness the healing power of the desert — from volcanic mud rituals to salt crystal therapies, each treatment draws on the Atacama's ancient minerals and infinite stillness."
-        verticalSrc={CDN.wellVertical}
-        horizontalSrc={CDN.wellHorizontal}
-        verticalIsVideo={true}
-        horizontalIsVideo={false}
-        verticalRatio="2/3"
-        horizontalRatio="2.34/1"
-        textSide="left"
-        bgColor={SECTION_COLORS.well}
-        link="/alto-atacama/wellness"
-      />
-
-      {/* 6. GASTRONOMY — deep/pink zone */}
-      <CascadeSection
-        label="A Taste of Place"
-        headline="Desert Dining"
-        description="Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine — from quinoa harvested at altitude to herbs cultivated in our desert gardens."
-        verticalSrc={CDN.gastroVertical}
-        horizontalSrc={CDN.gastroHorizontal}
-        verticalIsVideo={false}
-        horizontalIsVideo={true}
-        verticalRatio="3/2"
-        horizontalRatio="21/9"
-        textSide="right"
-        bgColor={SECTION_COLORS.gastro}
-        link="/alto-atacama/gastronomy"
-      />
-
-      <GallerySection />
+      <GettingHereSection />
+      <AwardsSection />
+      <ReserveCTA />
       <Footer />
     </div>
   );
@@ -362,7 +483,7 @@ export default function AltoAtacama() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = isMobile ? CDN.heroMobile : CDN.heroDesktop;
+  const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -393,50 +514,121 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GALLERY — Mixed media grid with new assets
+   OPTION A — STRUCTURED TAIL: Getting Here, Awards, Reserve CTA
+   These sections live below the cascade, styled to match the gradient
    ═══════════════════════════════════════════════════════════════ */
-function GallerySection() {
-  const media = [
-    { src: CDN.rainbowValleyAerial, alt: "Rainbow Valley aerial", isVideo: true },
-    { src: CDN.milkywayPillar, alt: "Milky Way over rock pillar", isVideo: false },
-    { src: CDN.valleLuna, alt: "Valle de la Luna sunset", isVideo: true },
-    { src: CDN.flamingosGolden, alt: "Flamingos in golden water", isVideo: false },
-    { src: CDN.susVertical, alt: "Milky Way arch over desert", isVideo: false },
-    { src: CDN.gastroHorizontal, alt: "Flamingo at sunset lagoon", isVideo: true },
+function GettingHereSection() {
+  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
+  const routes = [
+    { title: "Fly to Calama (CJC)", description: "Daily flights from Santiago to Calama airport. International connections via Santiago (SCL).", icon: "✈" },
+    { title: "Complimentary Transfer", description: "Round-trip airport transfers from Calama to the resort, approximately 1 hour through the desert.", icon: "🚐" },
+    { title: "San Pedro de Atacama", description: "The nearest town is just 5 minutes from the property — shops, restaurants, and local culture.", icon: "🗺" },
+    { title: "Altitude Guidance", description: "At 2,400m elevation, we schedule excursions progressively. Coca tea available throughout the property.", icon: "⛰" },
   ];
-
   return (
-    <section
-      id="gallery"
-      className="py-20 md:py-32 px-6 md:px-10"
-      style={{ backgroundColor: SECTION_COLORS.gallery }}
-    >
+    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
       <div className="max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Gallery</SectionLabel>
+          <SectionLabel>Getting Here</SectionLabel>
         </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-5xl tracking-wide"
-            style={{ ...display, color: PALETTE.text }}
-          >
-            Mars on Earth
+        <TextReveal as="h2" className="mb-3" delay={0.1}>
+          <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
+            Your Journey to the Desert
           </span>
         </TextReveal>
-
-        <div className="hidden md:grid grid-cols-2 gap-4 md:gap-6">
-          {media.map((item, i) => (
-            <MediaReveal key={i} delay={i * 0.1}>
-              <div className="overflow-hidden" style={{ aspectRatio: i === 0 ? "16/10" : "16/9" }}>
-                {item.isVideo ? (
-                  <NativeVideo src={item.src} className="w-full h-full object-cover" />
-                ) : (
-                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
-                )}
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <p className="text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={{ ...body, color: PALETTE.textSecondary }}>
+            Nayara Alto Atacama operates on a full-board basis including all meals, open bar, daily guided excursions, and airport transfers.
+          </p>
+        </AnimateOnScroll>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          {routes.map((route, i) => (
+            <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.1}>
+              <div className="flex gap-4">
+                <div
+                  className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
+                  style={{ backgroundColor: `${PALETTE.primary}15`, color: PALETTE.primary }}
+                >
+                  {route.icon}
+                </div>
+                <div>
+                  <h3 className="text-[16px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{route.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{route.description}</p>
+                </div>
               </div>
-            </MediaReveal>
+            </AnimateOnScroll>
           ))}
         </div>
+        <AnimateOnScroll variants={fadeUp} delay={0.5}>
+          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.primary}08` }}>
+            <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>
+              <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
+              <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.primary, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
+              or call <a href="tel:+18448652002" style={{ color: PALETTE.primary, textDecoration: "underline" }}>1-844-865-2002</a>.
+            </p>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+function AwardsSection() {
+  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
+  const awards = [
+    { name: "2 Michelin Keys", description: "An exceptional stay — recognized by the MICHELIN Key guide", year: "2025" },
+    { name: "Distinción Turismo Sustentable", description: "Chile's national sustainable tourism certification", year: "2024" },
+    { name: "Virtuoso Best of the Best", description: "Recognized among the world's finest luxury properties", year: "2024" },
+  ];
+  return (
+    <section id="awards" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
+      <div className="max-w-[1200px] mx-auto">
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Recognition</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-10 md:mb-14" delay={0.1}>
+          <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
+            Awards & Distinctions
+          </span>
+        </TextReveal>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {awards.map((award, i) => (
+            <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.15}>
+              <div className="p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.primary}06` }}>
+                <p className="text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500, color: PALETTE.primary }}>{award.year}</p>
+                <h3 className="text-[18px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{award.name}</h3>
+                <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{award.description}</p>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ReserveCTA() {
+  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
+      <div className="max-w-[800px] mx-auto text-center">
+        <AnimateOnScroll variants={fadeUp}>
+          <TextReveal as="h2" className="mb-6" delay={0.1}>
+            <span className="text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
+              Begin Your Desert Journey
+            </span>
+          </TextReveal>
+          <p className="text-[15px] leading-[1.8] mb-8" style={{ ...body, color: PALETTE.textSecondary }}>
+            All-inclusive luxury in the world's driest desert — stargazing, geothermal wellness, and desert explorations await.
+          </p>
+          <a
+            href="/reserve?property=alto-atacama"
+            className="inline-block px-10 py-3.5 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
+            style={{ ...body, fontWeight: 500, backgroundColor: PALETTE.primary, color: "#fff" }}
+          >
+            Reserve Your Stay
+          </a>
+        </AnimateOnScroll>
       </div>
     </section>
   );
