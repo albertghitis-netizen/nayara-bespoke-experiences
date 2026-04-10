@@ -216,9 +216,8 @@ export default function BrandNavigation({
             const showCenter = !hideCenterLabel && (isHome || isPropertyPage || hasCenterLabel);
             if (!showCenter) return null;
             return (
-              <button
-                onClick={() => handleNavigate("/")}
-                className="mx-4 text-white/90 hover:text-white transition-colors drop-shadow-sm"
+              <span
+                className="mx-4 text-white/90 drop-shadow-sm pointer-events-none select-none"
               >
                 <span
                   className="tracking-[0.18em] text-[18px] md:text-[22px]"
@@ -228,7 +227,7 @@ export default function BrandNavigation({
                     ? PROPERTIES.find(p => p.id === currentPropertyId)?.name || "Nayara Resorts"
                     : "Nayara Resorts")}
                 </span>
-              </button>
+              </span>
             );
           })()}
 
