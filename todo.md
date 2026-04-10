@@ -1502,3 +1502,4 @@
 - [ ] Apply full-bleed to Tented Camp cascade (Option C)
 - [x] Remove Gallery from navigation menu on Nayara site
 - [x] Add /api/hangaroa-lead POST endpoint for landing page signup form
+- [x] Replace hero video on Manuel Antonio coming soon page with new uploaded video
