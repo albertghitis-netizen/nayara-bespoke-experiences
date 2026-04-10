@@ -7,6 +7,7 @@ import { registerOAuthRoutes } from "./oauth";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { saveLead } from "../db";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -35,6 +36,40 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
+
+  // ── Hangaroa Landing Page Lead Capture ──
+  // External landing page at news.nayararesorts.com POSTs here
+  app.options("/api/hangaroa-lead", (_req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Max-Age", "86400");
+    res.status(204).end();
+  });
+  app.post("/api/hangaroa-lead", async (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    try {
+      const { nombre, apellido, email, telefono } = req.body || {};
+      if (!email || !nombre) {
+        res.status(400).json({ error: "nombre and email are required" });
+        return;
+      }
+      const fullName = [nombre, apellido].filter(Boolean).join(" ");
+      await saveLead({
+        email,
+        name: fullName || null,
+        source: "hangaroa-landing",
+        channel: "website",
+        propertyInterest: "Nayara Hangaroa",
+        notes: `Super Sale Chile 2026 | Tel: ${telefono || "N/A"}`,
+      });
+      console.log(`[Hangaroa Lead] ${fullName} <${email}>`);
+      res.json({ status: "ok" });
+    } catch (err) {
+      console.error("[Hangaroa Lead] Error:", err);
+      res.status(500).json({ error: "Internal error" });
+    }
+  });
   // tRPC API
   app.use(
     "/api/trpc",
