@@ -47,14 +47,12 @@ export const CONTENT_SECTIONS = [
 
 /* Property page hamburger — sections within THIS property */
 export const PROPERTY_MENU: MenuItem[] = [
-  { label: "Tents & Suites", route: "#tented-camp" },
+  { label: "Private Villas", route: "#tented-camp" },
   { label: "Bespoke Experiences", route: "#experiences" },
   { label: "Nature-Based Wellness", route: "#wellness" },
   { label: "A Taste of Place", route: "#gastronomy" },
   { label: "Beyond Sustainability", route: "#sustainability" },
   { label: "Getting Here", route: "#getting-here" },
-  { label: "Awards & Press", route: "/awards" },
-  { label: "Journal & Podcast", route: "/journal" },
 ];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
