@@ -79,11 +79,11 @@ export const atacamaGallery: GalleryItem[] = [
   { id: "ata-hero-m", src: `${CDN}/atacama-hero-vertical-hq_d81c629e.mp4`, alt: "Atacama vertical hero", type: "video", orientation: "portrait", tags: ["hero", "mobile"] },
   { id: "ata-s1", src: `${CDN}/Untitleddesign-17_d0de17d2.JPG`, alt: "Atacama desert landscape", type: "image", orientation: "portrait", tags: ["story", "s1"] },
   { id: "ata-s2", src: `${CDN}/11_576297a8.jpg`, alt: "Atacama salt flats", type: "image", orientation: "landscape", tags: ["story", "s2"] },
-  { id: "ata-s3", src: `${CDN}/trim_7f2fc685.mov`, alt: "Atacama rooms walkthrough", type: "video", orientation: "landscape", tags: ["rooms", "s3"] },
+  { id: "ata-s3", src: `${CDN}/trim_cb137ccb.mp4`, alt: "Atacama rooms walkthrough", type: "video", orientation: "landscape", tags: ["rooms", "s3"] },
   { id: "ata-s4", src: `${CDN}/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg`, alt: "Rainbow Valley", type: "image", orientation: "landscape", tags: ["rooms", "s4"] },
   { id: "ata-vid3", src: `${CDN}/Video_Nayara_Atacama00003_aeb971e9.MP4`, alt: "Atacama experience", type: "video", orientation: "landscape", tags: ["experiences"] },
   { id: "ata-vid7", src: `${CDN}/Video_Nayara_Atacama00007_8576aa55.MP4`, alt: "Atacama stargazing", type: "video", orientation: "landscape", tags: ["experiences"] },
-  { id: "ata-cfnet", src: `${CDN}/CFNetworkDownload_zSiOOV.tmp(1)_17142a4b.mov`, alt: "Atacama ambiance", type: "video", orientation: "landscape", tags: ["ambiance"] },
+  { id: "ata-cfnet", src: `${CDN}/cfnetwork_b9ae0ca4.mp4`, alt: "Atacama ambiance", type: "video", orientation: "landscape", tags: ["ambiance"] },
   { id: "ata-comp-d", src: `${CDN}/compressed-atacama-desktop_53259368.mp4`, alt: "Atacama compressed", type: "video", orientation: "landscape", tags: ["hero", "compressed"] },
   { id: "ata-comp-m", src: `${CDN}/compressed-atacama-mobile_ff90639c.mp4`, alt: "Atacama compressed mobile", type: "video", orientation: "portrait", tags: ["hero", "compressed", "mobile"] },
   { id: "ata-pool", src: `${CDN}/atacama-pool-sunset_c4a2f7e1.jpg`, alt: "Atacama pool at sunset", type: "image", orientation: "landscape", tags: ["pool", "sunset"] },
@@ -134,7 +134,7 @@ export const bocasGallery: GalleryItem[] = [
   { id: "boc-turquoise", src: `${CDN}/bocas-aerial-villas-turquoise_858d4570.jpg`, alt: "Overwater villas against turquoise Caribbean sea", type: "image", orientation: "landscape", tags: ["property", "aerial"] },
   { id: "boc-bungalows-row", src: `${CDN}/bocas-overwater-bungalows-row_b6f413b4.jpg`, alt: "Row of overwater bungalows at water level", type: "image", orientation: "landscape", tags: ["rooms", "property"] },
   { id: "boc-infinity-pool", src: `${CDN}/bocas-infinity-pool-woman_e4043059.jpg`, alt: "Woman in infinity pool overlooking Caribbean", type: "image", orientation: "portrait", tags: ["wellness", "lifestyle"] },
-  { id: "boc-vid-trim", src: `${CDN}/bocas-video-trim1_a8eb40df.mov`, alt: "Bocas del Toro resort video", type: "video", orientation: "landscape", tags: ["property"] },
+  { id: "boc-vid-trim", src: `${CDN}/bocas-trim_3e8ce39a.mp4`, alt: "Bocas del Toro resort video", type: "video", orientation: "landscape", tags: ["property"] },
   { id: "boc-vid-aerial", src: `${CDN}/bocas-video-48c8_a4de45da.mp4`, alt: "Bocas del Toro aerial video", type: "video", orientation: "portrait", tags: ["property", "aerial"] },
 ];
 
@@ -176,12 +176,12 @@ export const gardensGallery: GalleryItem[] = [
    Gallery Layout: Full-width stacked with parallax
    ═══════════════════════════════════════════════════════════════ */
 export const hangaroaGallery: GalleryItem[] = [
-  { id: "han-hero-m", src: `${CDN}/3F61FBC1-5FCE-4B13-B142-9C52A0115E01_2370ac58.MOV`, alt: "Easter Island view", type: "video", orientation: "portrait", tags: ["hero", "mobile"] },
-  { id: "han-hero-d", src: `${CDN}/1825da42191144e0864bfe4e46820fa2_4408f79c.mov`, alt: "Hangaroa aerial", type: "video", orientation: "landscape", tags: ["hero"] },
+  { id: "han-hero-m", src: `${CDN}/han-hero-m_147d31c4.mp4`, alt: "Easter Island view", type: "video", orientation: "portrait", tags: ["hero", "mobile"] },
+  { id: "han-hero-d", src: `${CDN}/han-hero-d_0bf06c29.mp4`, alt: "Hangaroa aerial", type: "video", orientation: "landscape", tags: ["hero"] },
   { id: "han-s1", src: `${CDN}/RapaNui2(1)_179dfb19.jpeg`, alt: "Rapa Nui landscape", type: "image", orientation: "landscape", tags: ["story", "s1"] },
   { id: "han-s2", src: `${CDN}/Untitleddesign-20_b052852b.jpg`, alt: "Easter Island sunset", type: "image", orientation: "landscape", tags: ["story", "s2"] },
   { id: "han-s3", src: `${CDN}/NH_45_42b93d04.JPG`, alt: "Room interior", type: "image", orientation: "portrait", tags: ["rooms", "s3"] },
-  { id: "han-s4", src: `${CDN}/1825da42191144e0864bfe4e46820fa2_4408f79c.mov`, alt: "Property grounds", type: "video", orientation: "landscape", tags: ["rooms", "s4"] },
+  { id: "han-s4", src: `${CDN}/han-hero-d_0bf06c29.mp4`, alt: "Property grounds", type: "video", orientation: "landscape", tags: ["rooms", "s4"] },
   { id: "han-moai", src: `${CDN}/Untitleddesign-16_aa3fc296.JPG`, alt: "Moai at sunset", type: "image", orientation: "landscape", tags: ["culture"] },
   { id: "han-coast", src: `${CDN}/Untitleddesign-21_c15d07fa.JPG`, alt: "Easter Island coast", type: "image", orientation: "landscape", tags: ["nature"] },
   { id: "han-volcanic", src: `${CDN}/Untitleddesign-22_3f8e6011.JPG`, alt: "Volcanic landscape", type: "image", orientation: "landscape", tags: ["nature"] },

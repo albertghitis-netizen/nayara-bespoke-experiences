@@ -147,7 +147,7 @@ export default function Home() {
    HERO - Full-screen video with brand tagline
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
-  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-new-resorts_d66da8e1.mp4";
+  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/homepage-hero-supersale_b737206c.mp4";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
