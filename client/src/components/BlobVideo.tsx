@@ -84,7 +84,7 @@ export default function BlobVideo({
         loop={loop}
         playsInline={playsInline}
         poster={poster}
-        preload="auto"
+        preload="metadata"
         controls={controls}
         // Critical mobile attributes
         webkit-playsinline="true"

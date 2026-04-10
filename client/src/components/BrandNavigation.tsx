@@ -45,11 +45,13 @@ interface BrandNavigationProps {
   pageType?: PageType;
   centerLabel?: string;
   centerLinkHome?: boolean;
+  hideCenterLabel?: boolean;
 }
 
 export default function BrandNavigation({
   pageType = "brand",
   centerLabel,
+  hideCenterLabel = false,
 }: BrandNavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
@@ -206,20 +208,29 @@ export default function BrandNavigation({
             </AnimatePresence>
           </div>
 
-          {/* Center: Brand or Property Name */}
-          <button
-            onClick={() => handleNavigate("/")}
-            className="mx-4 text-white/90 hover:text-white transition-colors drop-shadow-sm"
-          >
-            <span
-              className="tracking-[0.18em] text-[18px] md:text-[22px]"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-            >
-              {centerLabel || (currentPropertyId
-                ? PROPERTIES.find(p => p.id === currentPropertyId)?.name || "Nayara Resorts"
-                : "Nayara Resorts")}
-            </span>
-          </button>
+          {/* Center: Brand or Property Name — hidden on non-home brand/content pages unless centerLabel is set */}
+          {(() => {
+            const isHome = location === "/";
+            const isPropertyPage = pageType === "property";
+            const hasCenterLabel = !!centerLabel;
+            const showCenter = !hideCenterLabel && (isHome || isPropertyPage || hasCenterLabel);
+            if (!showCenter) return null;
+            return (
+              <button
+                onClick={() => handleNavigate("/")}
+                className="mx-4 text-white/90 hover:text-white transition-colors drop-shadow-sm"
+              >
+                <span
+                  className="tracking-[0.18em] text-[18px] md:text-[22px]"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                >
+                  {centerLabel || (currentPropertyId
+                    ? PROPERTIES.find(p => p.id === currentPropertyId)?.name || "Nayara Resorts"
+                    : "Nayara Resorts")}
+                </span>
+              </button>
+            );
+          })()}
 
           {/* Right: Reserve */}
           <div ref={reserveRef} className="relative shrink-0">

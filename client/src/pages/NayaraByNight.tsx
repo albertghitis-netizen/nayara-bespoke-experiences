@@ -64,7 +64,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function NayaraByNight() {
   return (
     <div className="min-h-screen bg-[#0a0a12]">
-      <BrandNavigation pageType="brand" centerLabel="Nayara by Night" />
+      <BrandNavigation pageType="brand" />
       <HeroSection />
       <StorySection />
       <GallerySection />
@@ -84,6 +84,18 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 
+      {/* Content — anchored to bottom */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
+          style={heading}
+        >
+          Nayara by Night
+        </motion.h1>
+      </div>
     </section>
   );
 }

@@ -66,7 +66,7 @@ export default function NativeVideo({
         loop={loop}
         playsInline={playsInline}
         poster={poster}
-        preload="auto"
+        preload="metadata"
         controls={controls}
         onLoadedData={() => setIsLoaded(true)}
         onError={() => {

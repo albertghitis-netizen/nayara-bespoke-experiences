@@ -327,7 +327,7 @@ function SustainabilitySection() {
     <TintedSection backgroundColor={PALETTE.gradientEnd}>
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={CDN.moaiHorses} alt="Moai at sunset" className="w-full h-full object-cover" />
+          <img src={CDN.moaiHorses} alt="Moai at sunset" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(94, 85, 73, 0.85)" }} />
         </div>
 
@@ -384,7 +384,7 @@ function WellnessSection() {
     <section id="wellness">
       <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
         <div className="relative w-full h-[55vh]">
-          <img src={CDN.warriorPortrait} alt="Rapa Nui warrior" className="w-full h-full object-cover" />
+          <img src={CDN.warriorPortrait} alt="Rapa Nui warrior" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
@@ -462,7 +462,7 @@ function GastronomySection() {
     <TintedSection backgroundColor={PALETTE.gradientEnd} className="overflow-hidden">
       <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
         <div className="relative w-full h-[55vh]">
-          <img src={CDN.moaiPukao} alt="Moai with pukao hats overlooking ocean" className="w-full h-full object-cover" />
+          <img src={CDN.moaiPukao} alt="Moai with pukao hats overlooking ocean" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>

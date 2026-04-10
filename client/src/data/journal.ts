@@ -695,4 +695,22 @@ export const podcastEpisodes: PodcastEpisode[] = [
     duration: "26 min",
     date: "2026",
   },
+  {
+    id: "hangaroa-sustainability",
+    title: "Hangaroa Sustainability Video",
+    guest: "Nayara Resorts",
+    description: "A look at Nayara Hangaroa's commitment to sustainability on Rapa Nui — from renewable energy and water conservation to supporting the local Rapanui community and preserving the island's fragile ecosystem.",
+    youtubeId: "_M3ATv4I0B8",
+    duration: "3 min",
+    date: "2026",
+  },
+  {
+    id: "atacama-sustainability",
+    title: "Nayara Alto Atacama Sustainability Video",
+    guest: "Nayara Resorts",
+    description: "Discover how Nayara Alto Atacama operates sustainably in one of the driest deserts on Earth — from solar energy and water recycling to deep partnerships with the Atacameño communities that have called this landscape home for millennia.",
+    youtubeId: "6cfkWsqWWc8",
+    duration: "3 min",
+    date: "2026",
+  },
 ];
