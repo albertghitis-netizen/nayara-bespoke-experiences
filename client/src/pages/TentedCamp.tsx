@@ -132,7 +132,7 @@ function StorySection() {
             </AnimateOnScroll>
             <MultiLineReveal
               lines={["Lifted On Stilts Above The Canopy", "Eye to Eye with Arenal Volcano"]}
-              lineClassName="text-[#2C2418] leading-[1.15]"
+              lineClassName="text-[#2C2418] text-3xl md:text-4xl lg:text-5xl leading-[1.15]"
               className="mb-6"
               as="h2"
             />
