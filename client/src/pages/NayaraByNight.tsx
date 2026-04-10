@@ -64,11 +64,11 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function NayaraByNight() {
   return (
     <div className="min-h-screen bg-[#0a0a12]">
-      <BrandNavigation pageType="property" centerLabel="Nayara by Night" />
+      <BrandNavigation pageType="brand" centerLabel="Nayara by Night" />
       <HeroSection />
       <StorySection />
       <GallerySection />
-      <Footer pageType="property" />
+      <Footer pageType="brand" />
     </div>
   );
 }
