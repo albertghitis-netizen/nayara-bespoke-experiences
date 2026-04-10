@@ -94,10 +94,25 @@ const propertyWellnessLinks = [
 ];
 
 export default function Wellness() {
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  /* Aggregate treatments with property metadata */
+  const allTreatments = properties.flatMap((p) => {
+    const route = `/${p.id}`;
+    return p.treatments.map((t) => ({ ...t, propertyId: p.id, propertyName: p.shortName, propertyRoute: route }));
+  });
+
+  const filtered = activeFilter === "all" ? allTreatments : allTreatments.filter((t) => t.propertyId === activeFilter);
+
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       <BrandNavigation pageType="brand" />
       <HeroSection />
+      <IntroSection />
+      <WellnessPillarsSection />
+      <TreatmentsSection activeFilter={activeFilter} onFilterChange={setActiveFilter} treatments={filtered} />
+      <SpringsFeature />
+      <PropertyLinksSection />
       <Footer />
     </div>
   );
