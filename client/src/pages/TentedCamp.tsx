@@ -121,7 +121,9 @@ function StorySection() {
   return (
     <section id="story" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: P.gradientEnd }}>
       <div className="max-w-[1200px] mx-auto">
-        <div className="max-w-3xl mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+          {/* Text left */}
+          <div className="md:flex-1">
             <AnimateOnScroll variants={fadeUp}>
               <p
                 className="text-[11px] tracking-[0.15em] uppercase mb-4"
@@ -142,16 +144,6 @@ function StorySection() {
               </p>
             </AnimateOnScroll>
 
-            {/* Award badges */}
-            <AnimateOnScroll variants={fadeIn} delay={0.4}>
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/award-badges-tented-camp_8aea5e71.webp"
-                alt="Green Globe Certified · Travel + Leisure World's Best Awards 2021-2024 · Leading Hotels of the World"
-                className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60"
-                loading="lazy"
-              />
-            </AnimateOnScroll>
-
             {/* Journal link */}
             <AnimateOnScroll variants={fadeUp} delay={0.5}>
               <a
@@ -167,14 +159,28 @@ function StorySection() {
                 <span className="text-[11px] tracking-[0.08em] uppercase mt-3 inline-block" style={{ ...body, fontWeight: 500, color: P.primary }}>Read →</span>
               </a>
             </AnimateOnScroll>
+          </div>
+          {/* Portrait photo (S1) right */}
+          <div className="md:flex-1">
+            <MediaReveal delay={0.2}>
+              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                <img
+                  src={CDN.s1}
+                  alt="Tented Camp suite in the rainforest canopy"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </MediaReveal>
+          </div>
         </div>
 
-        {/* Landscape image — desktop only */}
+        {/* Landscape photo (S2) below — hidden on mobile, touching portrait */}
         <div className="hidden md:block">
           <MediaReveal delay={0.3}>
-            <Parallax offset={40}>
-              <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
-            </Parallax>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <img src={CDN.s2} alt="Rainforest canopy at Nayara Tented Camp" className="w-full h-full object-cover" loading="lazy" />
+            </div>
           </MediaReveal>
         </div>
       </div>

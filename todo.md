@@ -1438,3 +1438,19 @@
 - [x] Hero: video (vertical mobile, horizontal desktop) — already done
 - [x] Story section: text left, portrait photo (S1) right, landscape (S2) below — matching brand homepage
 - [x] Remove award badge/thing from property page
+
+## Apply S1/S2 Aligned Editorial Layout to All Pages
+- [ ] Brand homepage (Home.tsx) — align portrait + landscape with no gap
+- [ ] Nayara Springs (Springs.tsx) — apply S1/S2 aligned layout
+- [ ] Nayara Hangaroa (Hangaroa.tsx) — apply S1/S2 aligned layout
+- [ ] Nayara Bocas del Toro (BocasDelToro.tsx) — apply S1/S2 aligned layout
+- [ ] Nayara Gardens (Gardens.tsx) — apply S1/S2 aligned layout
+- [ ] Nayara Tented Camp (TentedCamp.tsx) — apply S1/S2 aligned layout
+
+## Apply S1/S2 Aligned Editorial Layout to All Pages
+- [x] Brand homepage (Home.tsx) — align portrait + landscape with no gap (like Atacama)
+- [ ] Nayara Springs — apply S1/S2 aligned layout
+- [ ] Nayara Hangaroa — apply S1/S2 aligned layout
+- [ ] Nayara Bocas del Toro — apply S1/S2 aligned layout
+- [ ] Nayara Gardens — apply S1/S2 aligned layout
+- [x] Nayara Tented Camp — apply S1/S2 aligned layout

@@ -136,7 +136,7 @@ function StorySection() {
   return (
     <section className={sectionPadding}>
       <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
           {/* Text left */}
           <div className="md:flex-1">
             <AnimateOnScroll variants={fadeUp}>

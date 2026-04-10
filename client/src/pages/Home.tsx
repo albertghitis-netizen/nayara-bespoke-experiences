@@ -190,7 +190,7 @@ function BrandStorySection() {
   return (
     <section id="philosophy" className="py-16 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
       <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
           <div className="md:flex-1">
             <AnimateOnScroll variants={fadeUp}>
               <SectionLabel>Our Philosophy</SectionLabel>
