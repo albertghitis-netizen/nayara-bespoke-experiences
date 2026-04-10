@@ -49,13 +49,12 @@ export const CONTENT_SECTIONS = [
 export const PROPERTY_MENU: MenuItem[] = [];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
-/* Explore column items (four pillars + Gallery + Coming Soon + By Night + Privacy) */
+/* Explore column items (four pillars + Coming Soon + By Night + Privacy) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Gallery", route: "/gallery" },
   { label: "Coming Soon", route: "/new-projects" },
   { label: "Nayara By Night", route: "/by-night" },
 ];
