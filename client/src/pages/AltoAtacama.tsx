@@ -9,7 +9,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
-import { AwardBadgeStrip } from "@/components/AwardBadges";
+// Award badges removed from property home
 import {
   AnimateOnScroll,
   TextReveal,
@@ -81,6 +81,7 @@ export default function AltoAtacama() {
       <StorySection />
       <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="160px" />
       <RoomsTeaser />
+      {/* 4 connected full-width video teasers — no gaps between them */}
       <ExperiencesTeaser />
       <WellnessTeaser />
       <GastronomyTeaser />
@@ -128,42 +129,61 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   STORY - Property intro with landscape image
+   STORY - Text left, portrait photo (S1) right, landscape (S2) below
+   Matches brand homepage BrandStorySection layout
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
     <section className={sectionPadding}>
       <div className={maxW}>
-        <div className="max-w-3xl mb-12 md:mb-16">
-          <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>The Property</SectionLabel>
-          </AnimateOnScroll>
-          <TextReveal as="h2" className="mb-8" delay={0.1}>
-            <span
-              className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-            >
-              Mars on Earth
-            </span>
-          </TextReveal>
-          <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-              {atacama.heroSubtitle}
-            </p>
-            <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-              Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing experiences, desert adventures, and world-class wellness in one of Earth's most remote and magical locations.
-            </p>
-          </AnimateOnScroll>
-          <AnimateOnScroll variants={fadeUp} delay={0.5}>
-            <AwardBadgeStrip property="alto-atacama" />
-          </AnimateOnScroll>
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
+          {/* Text left */}
+          <div className="md:flex-1">
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>The Property</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" className="mb-8" delay={0.1}>
+              <span
+                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Mars on Earth
+              </span>
+            </TextReveal>
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                {atacama.heroSubtitle}
+              </p>
+              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing experiences, desert adventures, and world-class wellness in one of Earth's most remote and magical locations.
+              </p>
+            </AnimateOnScroll>
+          </div>
+          {/* Portrait photo (S1) right */}
+          <div className="md:flex-1">
+            <MediaReveal delay={0.2}>
+              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                <img
+                  src={CDN.s1}
+                  alt="Atacama desert landscape portrait"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </MediaReveal>
+          </div>
         </div>
 
-        {/* Landscape image — desktop only */}
+        {/* Landscape photo (S2) below — hidden on mobile */}
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <img src={CDN.s2} alt="Nayara Alto Atacama resort exterior with desert mountains" className="w-full h-full object-cover" loading="lazy" />
+              <img
+                src={CDN.s2}
+                alt="Nayara Alto Atacama resort exterior with desert mountains"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           </MediaReveal>
         </div>
@@ -173,23 +193,28 @@ function StorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ROOMS TEASER — Video left, text right, landscape below
+   ROOMS TEASER — Vertical photo left, title + CTA right
    Links to /alto-atacama/rooms
    ═══════════════════════════════════════════════════════════════ */
 function RoomsTeaser() {
   return (
     <TintedSection backgroundColor={PALETTE.gradientEnd} className={sectionPadding}>
       <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          {/* Video left - vertical */}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+          {/* Vertical photo left */}
           <div className="md:flex-1 order-2 md:order-1">
             <MediaReveal delay={0.1}>
               <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <NativeVideo src={CDN.s3} className="w-full h-full object-cover" />
+                <img
+                  src={CDN.s4}
+                  alt="Desert suite with panoramic mountain views"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </MediaReveal>
           </div>
-          {/* Text right */}
+          {/* Title + CTA right */}
           <div className="md:flex-1 order-1 md:order-2">
             <AnimateOnScroll variants={fadeUp}>
               <SectionLabel>Accommodations</SectionLabel>
@@ -217,15 +242,6 @@ function RoomsTeaser() {
               </a>
             </AnimateOnScroll>
           </div>
-        </div>
-
-        {/* Landscape image below — hidden on mobile */}
-        <div className="hidden md:block">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <img src={CDN.s4} alt="Hiker in Rainbow Valley with multicolored mountains" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-          </MediaReveal>
         </div>
       </div>
     </TintedSection>

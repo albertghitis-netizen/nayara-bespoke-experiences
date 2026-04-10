@@ -1433,3 +1433,8 @@
 ## Hamburger Nav Journal/Awards Consolidation
 - [x] Replace Blog, Podcast, FAQ, Press, Awards in hamburger with "Nayara Journal" (/journal) and "Press & Awards" (/awards)
 - [x] Keep footer unchanged (5 separate items)
+
+## Atacama Property Home S1/S2 Layout Update
+- [x] Hero: video (vertical mobile, horizontal desktop) — already done
+- [x] Story section: text left, portrait photo (S1) right, landscape (S2) below — matching brand homepage
+- [x] Remove award badge/thing from property page
