@@ -187,16 +187,11 @@ function StorySection() {
               />
             </AnimateOnScroll>
           </div>
-          {/* Portrait photo (S1) right */}
+          {/* Portrait video (room video) right */}
           <div className="md:flex-1">
             <MediaReveal delay={0.2}>
               <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <img
-                  src={CDN.s1}
-                  alt="Overwater villas at Nayara Bocas del Toro"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
+                <NativeVideo src={CDN.s3} className="w-full h-full object-cover" />
               </div>
             </MediaReveal>
           </div>
@@ -226,7 +221,7 @@ function RoomsSection() {
           <div className="md:flex-1 order-2 md:order-1">
             <MediaReveal delay={0.1}>
               <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <NativeVideo src={CDN.s3} className="w-full h-full object-cover" />
+                <img src={CDN.s1} alt="Overwater villas aerial walkway" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </MediaReveal>
           </div>

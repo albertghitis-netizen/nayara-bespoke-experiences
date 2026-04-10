@@ -280,27 +280,17 @@ function ExperiencesSection() {
 function WellnessSection() {
   return (
     <>
-      {/* Section intro */}
-      <div className="py-10 md:py-14 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
-        <div className="max-w-[1200px] mx-auto">
+      {/* Wellness intro video */}
+      <div style={{ backgroundColor: BRAND.pageBackground }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 py-10 md:py-14">
           <AnimateOnScroll>
             <p className="text-[11px] tracking-[0.15em] uppercase mb-6" style={{ ...body, fontWeight: 500, color: P.primary }}>Wellness</p>
           </AnimateOnScroll>
-          <AnimateOnScroll delay={0.15}>
-            <a
-              href="https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block p-5 rounded-lg transition-all"
-              style={{ border: `1px solid ${P.primary}20` }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = `${P.primary}50`; e.currentTarget.style.backgroundColor = `${P.primary}08`; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = `${P.primary}20`; e.currentTarget.style.backgroundColor = "transparent"; }}
-            >
-              <span className="text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600, color: P.accent }}>From the Journal</span>
-              <h4 className="text-[14px] leading-snug" style={{ ...display, fontWeight: 500, color: BRAND.primaryText }}>Nature-Based Wellness by Colors: Brown, Black, Green & Blue</h4>
-              <span className="text-[11px] tracking-[0.08em] uppercase mt-3 inline-block" style={{ ...body, fontWeight: 500, color: P.primary }}>Read →</span>
-            </a>
-          </AnimateOnScroll>
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden rounded-lg" style={{ aspectRatio: "16/9" }}>
+              <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-wellness-video_53ab3f32.mov" className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
         </div>
       </div>
 

@@ -1460,3 +1460,26 @@
 - [x] Atacama: add award badges to Story section
 - [x] Springs: apply S1/S2 touching layout
 - [x] Bocas del Toro: apply S1/S2 touching layout
+
+## New Video Assets
+- [ ] Add Hangaroa hero vertical video to Hangaroa page
+- [x] Replace wellness blog section on Tented Camp with new wellness video
+
+## Atacama Continuous Touching Cascade
+- [ ] Rewrite AltoAtacama.tsx as continuous touching cascade: H-VIDEO → V-VIDEO → H-PHOTO → V-PHOTO pattern
+- [ ] Use new vertical scroll video for Story S1 position
+- [ ] Remove all gaps/padding between media sections — everything touches
+
+## Gardens S1 Video
+- [ ] Apply new vertical video as S1 on Gardens page
+
+## Atacama V+H Pair Cascade
+- [x] Rewrite AltoAtacama.tsx: each section is V+H pair, all touching, video/photo alternation
+
+## Alto Atacama Cascade Rebuild — Gradient + Varied Ratios
+- [ ] Replace all CDN assets with new uploads (unique per section, no duplicates)
+- [ ] Varied aspect ratios per section (9:16, 5:4, 9:16, 5:4, ~2:3, 3:2 verticals + 2.34:1 and 21:9 horizontals)
+- [ ] Gradient background shifting from warm sand to deep earth through sections
+- [ ] Zero-gap layout — no padding between sections, media touching
+- [ ] Section order optimized for color flow
+- [ ] Gallery section updated with new assets (Milky Way photos, new videos)

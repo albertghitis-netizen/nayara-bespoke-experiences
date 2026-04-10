@@ -188,7 +188,7 @@ function StorySection() {
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <img src={CDN.s2} alt="Rainforest boardwalk at Nayara Springs" className="w-full h-full object-cover" loading="lazy" />
+              <img src={CDN.s4} alt="Aerial view of Nayara Springs nestled in rainforest" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </MediaReveal>
         </div>
