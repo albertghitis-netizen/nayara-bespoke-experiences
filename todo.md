@@ -1366,5 +1366,14 @@
 - [x] Add /dach route with DACH Consulting Media Corp landing page
 - [x] Add /cg route with CG Home Services landing page
 - [x] Add /henry route with standalone Henry concierge bot page
-- [ ] Add privacy policy page and link from footer
+- [x] Add privacy policy page and link from footer
 - [x] Replace wellness hero with hot springs family image
+
+## Story Page Merge into Brand Homepage
+- [x] Move Story Intro ("We Don't Build Hotels. We Reveal Places.") to brand homepage below properties, above pillars
+- [x] Move Story Timeline ("Two Decades of Discovery") to brand homepage below intro, above pillars
+- [x] Remove /story as separate page and route (redirects to /)
+- [x] Remove "The Nayara Story" from hamburger nav
+
+## Privacy Policy in Footer Navigation
+- [x] Add Privacy Policy link to footer navigation data (navigation.ts)

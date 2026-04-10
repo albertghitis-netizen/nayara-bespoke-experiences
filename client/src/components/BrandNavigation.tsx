@@ -20,13 +20,13 @@ import {
 
 /* ── Global menu items (matches footer) ── */
 const GLOBAL_MENU = [
-  { label: "The Nayara Story", route: "/story" },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Awards & Press", route: "/awards" },
   { label: "Journal & Podcast", route: "/journal" },
+  { label: "Gallery", route: "/gallery" },
 ];
 
 /* ── Explore dropdown items (quick links to properties) ── */

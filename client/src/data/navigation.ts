@@ -57,7 +57,6 @@ export const PROPERTY_MENU: MenuItem[] = [
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
 const STANDARD_MENU_ITEMS: MenuItem[] = [
-  { label: "The Nayara Story", route: "/story" },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
@@ -67,6 +66,7 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Gallery", route: "/gallery" },
   { label: "Coming Soon", route: "/new-projects" },
   { label: "Nayara By Night", route: "/by-night" },
+  { label: "Privacy Policy", route: "/privacy-policy" },
 ];
 
 /* Brand page hamburger — standardized menu (no properties) */
