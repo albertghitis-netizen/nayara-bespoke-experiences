@@ -9,7 +9,6 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Treatment } from "@/data/properties";
@@ -29,7 +28,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const WELLNESS_CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-3_a18e30c2.mp4",
+  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Termaleschildren_5bfef28b.webp",
 };
 
 /* ─── Wellness Pillars ─── */
@@ -124,8 +123,8 @@ export default function Wellness() {
 function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24 px-6 md:px-10">
-      <div className="absolute inset-0 max-w-[1200px] mx-auto left-0 right-0">
-        <NativeVideo src={WELLNESS_CDN.heroVideo} className="w-full h-full object-cover" />
+      <div className="absolute inset-0">
+        <img src={WELLNESS_CDN.heroImage} alt="Wellness" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">

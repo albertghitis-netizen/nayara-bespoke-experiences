@@ -156,13 +156,24 @@ export default function Footer({ pageType = "brand" }: FooterProps) {
         {/* Divider */}
         <div className="h-px bg-white/10 mb-6" />
 
-        {/* Copyright */}
-        <p
-          className="text-center text-white/20 text-[10px]"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-        >
-          &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
-        </p>
+        {/* Copyright + Privacy */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+          <p
+            className="text-white/20 text-[10px]"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+          >
+            &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
+          </p>
+          <span className="hidden sm:inline text-white/10">|</span>
+          <a
+            href="/privacy-policy"
+            onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
+            className="text-white/20 text-[10px] hover:text-white/50 transition-colors"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+          >
+            Privacy Policy
+          </a>
+        </div>
       </div>
     </footer>
   );

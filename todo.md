@@ -1366,3 +1366,5 @@
 - [x] Add /dach route with DACH Consulting Media Corp landing page
 - [x] Add /cg route with CG Home Services landing page
 - [x] Add /henry route with standalone Henry concierge bot page
+- [ ] Add privacy policy page and link from footer
+- [x] Replace wellness hero with hot springs family image
