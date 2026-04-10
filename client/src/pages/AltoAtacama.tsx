@@ -1,29 +1,24 @@
 /**
- * NAYARA ALTO ATACAMA - Atacama Desert, Chile
- * Visual Identity: "Mars" palette - Cormorant Garamond - Cinematic motion - Video-first
+ * NAYARA ALTO ATACAMA - Property Home Page
+ * Clean overview with teaser sections linking to dedicated sub-pages
+ * Visual Identity: "Mars" palette - Cinematic motion - Video-first
  */
-import { useState } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
-import { atacamaDiningCollection } from "@/data/dining";
-import PillarCrossLink from "@/components/PillarCrossLink";
+import { properties, type Property } from "@/data/properties";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import {
   AnimateOnScroll,
-  StaggerOnScroll,
   TextReveal,
   MultiLineReveal,
   MediaReveal,
   Parallax,
-  DrawLine,
   GradientTransition,
   TintedSection,
   fadeUp,
-  staggerContainer,
   DURATION,
   EASE_CINEMATIC,
 } from "@/components/motion";
@@ -55,7 +50,6 @@ const CDN = {
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/11_576297a8.jpg",
   s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/trim_cb137ccb.mp4",
   s4: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
-  // Gallery videos
   desertWalk: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/cfnetwork_b9ae0ca4.mp4",
   desertExploration: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00003_aeb971e9.MP4",
   stargazing: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00007_8576aa55.MP4",
@@ -77,7 +71,7 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   MAIN PAGE
+   MAIN PAGE — Clean overview with teaser sections
    ═══════════════════════════════════════════════════════════════ */
 export default function AltoAtacama() {
   return (
@@ -86,15 +80,11 @@ export default function AltoAtacama() {
       <HeroSection />
       <StorySection />
       <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="160px" />
-      <RoomsSection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="160px" />
-      <ExperiencesSection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
-      <SustainabilitySection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
-      <WellnessSection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
-      <GastronomySection />
+      <RoomsTeaser />
+      <ExperiencesTeaser />
+      <WellnessTeaser />
+      <GastronomyTeaser />
+      <SustainabilityTeaser />
       <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
       <GallerySection />
       <Footer />
@@ -138,13 +128,12 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   STORY - Text left, image right, landscape image below
+   STORY - Property intro with landscape image
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
-    <section id="story" className={sectionPadding}>
+    <section className={sectionPadding}>
       <div className={maxW}>
-        {/* Full-width text */}
         <div className="max-w-3xl mb-12 md:mb-16">
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>The Property</SectionLabel>
@@ -184,10 +173,10 @@ function StorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ROOMS - Video left, text right, landscape image below
-   On tinted background (gradient end)
+   ROOMS TEASER — Video left, text right, landscape below
+   Links to /alto-atacama/rooms
    ═══════════════════════════════════════════════════════════════ */
-function RoomsSection() {
+function RoomsTeaser() {
   return (
     <TintedSection backgroundColor={PALETTE.gradientEnd} className={sectionPadding}>
       <div className={maxW}>
@@ -214,9 +203,18 @@ function RoomsSection() {
               </span>
             </TextReveal>
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation, these accommodations blend luxury with the raw beauty of the desert, offering the perfect base for stargazing, meditation, and exploration.
+              <p className="text-[15px] leading-[1.8] mb-8" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.
               </p>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.4}>
+              <a
+                href="/alto-atacama/rooms"
+                className="inline-block text-[11px] tracking-[0.15em] uppercase transition-colors hover:opacity-70"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              >
+                Explore Rooms →
+              </a>
             </AnimateOnScroll>
           </div>
         </div>
@@ -235,274 +233,139 @@ function RoomsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXPERIENCES - Parallax video header + card grid
+   EXPERIENCES TEASER — Full-screen video with Explore More CTA
+   Links to /alto-atacama/experiences
    ═══════════════════════════════════════════════════════════════ */
-function ExperiencesSection() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const categories = atacama.excursionCategories || [];
-  const filtered = activeCategory === "all" ? atacama.excursions : atacama.excursions.filter((e: Excursion) => e.category === activeCategory);
-
+function ExperiencesTeaser() {
   return (
-    <section id="experiences" className="overflow-hidden">
-      {/* Cinematic video header */}
-      <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
-        <div className="relative w-full h-[60vh]">
-          <NativeVideo src={CDN.desertExploration} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-            <TextReveal as="h2" delay={0.2}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                Desert Explorations
-              </span>
-            </TextReveal>
-          </div>
-        </div>
-      </Parallax>
-
-      {/* Card grid */}
-      <div className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
-        <div className={maxW}>
-          {categories.length > 0 && (
-            <AnimateOnScroll variants={fadeUp}>
-              <div className="flex flex-wrap gap-2 mb-10 md:mb-14">
-                {categories.map((cat: { id: string; label: string }) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setActiveCategory(cat.id)}
-                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-500"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontWeight: 500,
-                      backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                      color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
-                      border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
-                    }}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
-              </div>
-            </AnimateOnScroll>
-          )}
-          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((excursion: Excursion) => (
-              <motion.div
-                key={excursion.id}
-                variants={fadeUp}
-                className="p-6 md:p-8 transition-all duration-500 hover:translate-y-[-2px]"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.4)",
-                  backdropFilter: "blur(8px)",
-                  borderRadius: "12px",
-                  borderBottom: `2px solid ${PALETTE.divider}`,
-                }}
-                whileHover={{ borderBottomColor: PALETTE.primary }}
-              >
-                <h3 className="text-[17px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
-                  {excursion.name}
-                </h3>
-                {excursion.duration && (
-                  <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
-                    {excursion.duration}{excursion.price ? ` · ${excursion.price}` : ""}
-                  </p>
-                )}
-                <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                  {excursion.description}
-                </p>
-              </motion.div>
-            ))}
-          </StaggerOnScroll>
-        </div>
+    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
+      <div className="absolute inset-0 w-full h-full">
+        <NativeVideo src={CDN.desertExploration} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60" />
+      </div>
+      <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel color="rgba(255,255,255,0.5)">Experiences</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight" delay={0.3}>
+          Desert Explorations
+        </TextReveal>
+        <motion.a
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: DURATION.normal, delay: 0.4 }}
+          href="/alto-atacama/experiences"
+          className="text-white/60 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer mt-6"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Explore More
+        </motion.a>
       </div>
     </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SUSTAINABILITY - Video background with overlay cards
+   WELLNESS TEASER — Full-screen video with Explore More CTA
+   Links to /alto-atacama/wellness
    ═══════════════════════════════════════════════════════════════ */
-function SustainabilitySection() {
-  const initiatives = [
-    { title: "Desert Preservation", desc: "Protecting the Atacama's unique ecosystem through sustainable tourism practices and habitat conservation programs." },
-    { title: "Water Stewardship", desc: "Minimizing water usage in the world's driest desert through advanced recycling and conservation technologies." },
-    { title: "Community Support", desc: "Supporting local communities through employment, education, and cultural preservation initiatives in the Atacama region." },
-    { title: "Carbon Neutral Operations", desc: "Committed to carbon neutrality through renewable energy, waste reduction, and offset programs." },
-  ];
+function WellnessTeaser() {
+  return (
+    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
+      <div className="absolute inset-0 w-full h-full">
+        <NativeVideo src={CDN.desertWalk} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60" />
+      </div>
+      <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel color="rgba(255,255,255,0.5)">Wellness</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight" delay={0.3}>
+          {atacama.theme.spaHeadline.replace("\n", " ")}
+        </TextReveal>
+        <motion.a
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: DURATION.normal, delay: 0.4 }}
+          href="/alto-atacama/wellness"
+          className="text-white/60 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer mt-6"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Explore More
+        </motion.a>
+      </div>
+    </section>
+  );
+}
 
+/* ═══════════════════════════════════════════════════════════════
+   GASTRONOMY TEASER — Full-screen video with Explore More CTA
+   Links to /alto-atacama/gastronomy
+   ═══════════════════════════════════════════════════════════════ */
+function GastronomyTeaser() {
+  return (
+    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
+      <div className="absolute inset-0 w-full h-full">
+        <NativeVideo src={CDN.flamingos} className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60" />
+      </div>
+      <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel color="rgba(255,255,255,0.5)">The Table</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight" delay={0.3}>
+          Desert Dining
+        </TextReveal>
+        <motion.a
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: DURATION.normal, delay: 0.4 }}
+          href="/alto-atacama/gastronomy"
+          className="text-white/60 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer mt-6"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Explore More
+        </motion.a>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SUSTAINABILITY TEASER — Video with tinted overlay + Explore More CTA
+   Links to /alto-atacama/sustainability
+   ═══════════════════════════════════════════════════════════════ */
+function SustainabilityTeaser() {
   return (
     <TintedSection backgroundColor={PALETTE.gradientEnd}>
-      <div className="relative overflow-hidden">
-        {/* Background video with heavy overlay */}
-        <div className="absolute inset-0">
+      <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24">
+        <div className="absolute inset-0 w-full h-full">
           <NativeVideo src={CDN.stargazing} className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(139, 90, 60, 0.85)" }} />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(139, 90, 60, 0.6)" }} />
         </div>
-
-        <div className={`relative z-10 ${sectionPadding}`}>
-          <div className={maxW}>
-            <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel color="rgba(255,255,255,0.5)">Sustainability</SectionLabel>
-            </AnimateOnScroll>
-            <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                Protecting the Desert
-              </span>
-            </TextReveal>
-
-            <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
-              {initiatives.map((item, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  className="pl-6"
-                  style={{ borderLeft: "2px solid rgba(255,255,255,0.2)" }}
-                >
-                  <h3 className="text-white text-[17px] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}>
-                    {item.title}
-                  </h3>
-                  <p className="text-white/60 text-[14px] leading-[1.7]" style={{ fontFamily: "var(--font-body)" }}>
-                    {item.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </StaggerOnScroll>
-
-            <AnimateOnScroll variants={fadeUp} delay={0.4}>
-              <div className="mt-12">
-                <PillarCrossLink pillar="experiences" />
-              </div>
-            </AnimateOnScroll>
-          </div>
+        <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10">
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel color="rgba(255,255,255,0.5)">Sustainability</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight" delay={0.3}>
+            Protecting the Desert
+          </TextReveal>
+          <motion.a
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: DURATION.normal, delay: 0.4 }}
+            href="/alto-atacama/sustainability"
+            className="text-white/60 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer mt-6"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+          >
+            Explore More
+          </motion.a>
         </div>
-      </div>
-    </TintedSection>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   WELLNESS - Video header + treatment cards
-   ═══════════════════════════════════════════════════════════════ */
-function WellnessSection() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const categories = atacama.spaCategories || [];
-  const filtered = activeCategory === "all" ? atacama.treatments : atacama.treatments.filter((t: Treatment) => t.category === activeCategory);
-
-  return (
-    <section id="wellness">
-      {/* Cinematic video header */}
-      <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
-        <div className="relative w-full h-[55vh]">
-          <NativeVideo src={CDN.desertWalk} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-            <TextReveal as="h2" delay={0.2}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                {atacama.theme.spaHeadline.replace("\n", " ")}
-              </span>
-            </TextReveal>
-          </div>
-        </div>
-      </Parallax>
-
-      <div className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
-        <div className={maxW}>
-          {categories.length > 0 && (
-            <AnimateOnScroll variants={fadeUp}>
-              <div className="flex flex-wrap gap-2 mb-10 md:mb-14">
-                {categories.map((cat: { id: string; label: string }) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setActiveCategory(cat.id)}
-                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-500"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontWeight: 500,
-                      backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                      color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
-                      border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
-                    }}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
-              </div>
-            </AnimateOnScroll>
-          )}
-          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((treatment: Treatment) => (
-              <motion.div
-                key={treatment.id}
-                variants={fadeUp}
-                className="p-6 md:p-8 transition-all duration-500 hover:translate-y-[-2px]"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.4)",
-                  backdropFilter: "blur(8px)",
-                  borderRadius: "12px",
-                  borderBottom: `2px solid ${PALETTE.divider}`,
-                }}
-                whileHover={{ borderBottomColor: PALETTE.primary }}
-              >
-                <h3 className="text-[17px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
-                  {treatment.name}
-                </h3>
-                <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
-                  {treatment.duration}{treatment.price ? ` · ${treatment.price}` : ""}
-                </p>
-                <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                  {treatment.description}
-                </p>
-              </motion.div>
-            ))}
-          </StaggerOnScroll>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   GASTRONOMY - Video header + restaurant cards
-   ═══════════════════════════════════════════════════════════════ */
-function GastronomySection() {
-  const restaurants = Array.isArray(atacamaDiningCollection) ? atacamaDiningCollection : [atacamaDiningCollection];
-
-  return (
-    <TintedSection backgroundColor={PALETTE.gradientEnd} className="overflow-hidden">
-      {/* Cinematic video header */}
-      <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
-        <div className="relative w-full h-[55vh]">
-          <NativeVideo src={CDN.flamingos} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-            <TextReveal as="h2" delay={0.2}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                Desert Dining
-              </span>
-            </TextReveal>
-          </div>
-        </div>
-      </Parallax>
-
-      <div className={sectionPadding}>
-        <div className={maxW}>
-          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-            {restaurants.map((restaurant: any, i: number) => (
-              <motion.div key={i} variants={fadeUp}>
-                <DrawLine color={PALETTE.primary} className="mb-6" />
-                <h3 className="text-[20px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
-                  {restaurant.name}
-                </h3>
-                <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
-                  {restaurant.cuisine}
-                </p>
-                <p className="text-[14px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                  {restaurant.description}
-                </p>
-              </motion.div>
-            ))}
-          </StaggerOnScroll>
-        </div>
-      </div>
+      </section>
     </TintedSection>
   );
 }

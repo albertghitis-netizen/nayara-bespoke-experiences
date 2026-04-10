@@ -45,31 +45,35 @@ export const CONTENT_SECTIONS = [
   { label: "Awards & Press", route: "/awards" },
 ] as const;
 
-/* Property page hamburger — sections within THIS property */
-export const PROPERTY_MENU: MenuItem[] = [
-  { label: "Private Villas", route: "#tented-camp" },
-  { label: "Getting Here", route: "#getting-here" },
-];
+/* Property page hamburger — no in-page anchors, property home flows naturally */
+export const PROPERTY_MENU: MenuItem[] = [];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
-const STANDARD_MENU_ITEMS: MenuItem[] = [
+/* Explore column items (four pillars + Gallery + Coming Soon + By Night + Privacy) */
+const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Awards & Press", route: "/awards" },
-  { label: "Journal & Podcast", route: "/journal" },
   { label: "Gallery", route: "/gallery" },
   { label: "Coming Soon", route: "/new-projects" },
   { label: "Nayara By Night", route: "/by-night" },
-  { label: "Privacy Policy", route: "/privacy-policy" },
+];
+
+/* Nayara Journal column items — all route to /journal */
+const JOURNAL_MENU_ITEMS: MenuItem[] = [
+  { label: "Blog", route: "/journal" },
+  { label: "Podcast", route: "/journal" },
+  { label: "FAQ", route: "/journal" },
+  { label: "Press", route: "/journal" },
+  { label: "Awards", route: "/journal" },
 ];
 
 /* Brand page hamburger — standardized menu (no properties) */
 export function getBrandMenu(): MenuSection[] {
   return [
     {
-      items: STANDARD_MENU_ITEMS,
+      items: [...EXPLORE_MENU_ITEMS, ...JOURNAL_MENU_ITEMS],
     },
   ];
 }
@@ -84,32 +88,25 @@ export interface FooterColumn {
   links: { label: string; route: string; external?: boolean }[];
 }
 
-/* Footer menu items — same as standard */
-const FOOTER_MENU_ITEMS: MenuItem[] = STANDARD_MENU_ITEMS;
-
 /* Resorts column for footer */
 const RESORTS_COLUMN: FooterColumn = {
   title: "Our Resorts",
   links: PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
 };
 
-export function getFooterColumns(pageType: PageType): FooterColumn[] {
-  if (pageType === "property") {
-    return [
-      {
-        title: "Explore",
-        links: FOOTER_MENU_ITEMS,
-      },
-      RESORTS_COLUMN,
-    ];
-  }
+/* Nayara Journal column for footer */
+const JOURNAL_COLUMN: FooterColumn = {
+  title: "Nayara Journal",
+  links: JOURNAL_MENU_ITEMS,
+};
 
-  /* Brand + Content pages — same footer */
+export function getFooterColumns(pageType: PageType): FooterColumn[] {
   return [
     {
       title: "Explore",
-      links: FOOTER_MENU_ITEMS,
+      links: EXPLORE_MENU_ITEMS,
     },
+    JOURNAL_COLUMN,
     RESORTS_COLUMN,
   ];
 }

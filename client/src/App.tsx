@@ -39,6 +39,11 @@ const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
 const HangaroaNewsletter = lazy(() => import("./pages/HangaroaNewsletter"));
 const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
+const AtacamaExperiences = lazy(() => import("./pages/AtacamaExperiences"));
+const AtacamaWellness = lazy(() => import("./pages/AtacamaWellness"));
+const AtacamaGastronomy = lazy(() => import("./pages/AtacamaGastronomy"));
+const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability"));
 
 /* ── Minimal loading fallback ── */
 function PageLoader() {
@@ -71,6 +76,11 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/alto-atacama" component={AltoAtacama} />
+          <Route path="/alto-atacama/rooms" component={AtacamaRooms} />
+          <Route path="/alto-atacama/experiences" component={AtacamaExperiences} />
+          <Route path="/alto-atacama/wellness" component={AtacamaWellness} />
+          <Route path="/alto-atacama/gastronomy" component={AtacamaGastronomy} />
+          <Route path="/alto-atacama/sustainability" component={AtacamaSustainability} />
           <Route path="/arenal" component={CostaRica} />
           <Route path="/tented-camp" component={TentedCamp} />
           <Route path="/tented-experiences" component={TentedExperiences} />

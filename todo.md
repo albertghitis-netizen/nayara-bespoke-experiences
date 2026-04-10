@@ -1403,12 +1403,33 @@
 - [ ] Replace S1 portrait images with vertical videos on all property pages
 
 ## Alto Atacama Property Restructure (Model for All Properties)
-- [ ] Audit AltoAtacama.tsx sections and plan content split
-- [ ] Create /alto-atacama/rooms dedicated page with full room content
-- [ ] Create /alto-atacama/experiences dedicated page with excursion filters
-- [ ] Create /alto-atacama/wellness dedicated page with treatment details
-- [ ] Create /alto-atacama/gastronomy dedicated page with dining menus
-- [ ] Create /alto-atacama/sustainability dedicated page with sustainability content
-- [ ] Simplify AltoAtacama.tsx home to intro sections linking to sub-pages
-- [ ] Register new routes in App.tsx
-- [ ] Update property nav to link to sub-pages
+- [x] Audit AltoAtacama.tsx sections and plan content split
+- [x] Create /alto-atacama/rooms dedicated page with full room content
+- [x] Create /alto-atacama/experiences dedicated page with excursion filters
+- [x] Create /alto-atacama/wellness dedicated page with treatment details
+- [x] Create /alto-atacama/gastronomy dedicated page with dining menus
+- [x] Create /alto-atacama/sustainability dedicated page with sustainability content
+- [x] Simplify AltoAtacama.tsx home to intro sections linking to sub-pages
+- [x] Register new routes in App.tsx
+- [x] Update property nav to link to sub-pages (teaser CTAs link directly)
+
+## Nayara Journal Nav/Footer Reorganization
+- [ ] Create Nayara Journal section in nav with Blog, Podcast, FAQ, Press, Awards — all route to /journal
+- [ ] Move Blog, Podcast, FAQ, Press, Awards to new right column in footer under "Nayara Journal"
+- [ ] Remove Awards and Journal from Explore column (they move to Nayara Journal column)
+
+## Nayara Journal Nav/Footer Reorganization
+- [x] In nav: list Blog, Podcast, FAQ, Press, Awards as separate items all routing to /journal
+- [x] In footer: move Blog, Podcast, FAQ, Press, Awards to new right column (listed separately)
+- [x] Remove Awards and Journal from Explore column (they move to new column)
+- [x] Remove Rooms and Getting Here from hamburger nav (property-level only)
+
+## Footer Privacy Policy Placement
+- [x] Move Privacy Policy link from Explore column to Contact section of footer
+
+## Footer Contact Spacing Fix
+- [x] Remove extra mt-2 spacing above Privacy Policy link in footer Contact section
+
+## Hamburger Nav Journal/Awards Consolidation
+- [x] Replace Blog, Podcast, FAQ, Press, Awards in hamburger with "Nayara Journal" (/journal) and "Press & Awards" (/awards)
+- [x] Keep footer unchanged (5 separate items)

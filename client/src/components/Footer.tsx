@@ -64,7 +64,7 @@ export default function Footer({ pageType = "brand" }: FooterProps) {
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-10">
         {/* Dynamic columns from navigation config + Contact column */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed">
           {columns.map((col) => (
             <div key={col.title}>
               <span
@@ -124,6 +124,14 @@ export default function Footer({ pageType = "brand" }: FooterProps) {
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 +506 2479-1600 (Costa Rica)
+              </a>
+              <a
+                href="/privacy-policy"
+                onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
+                className="text-white/50 hover:text-white/90 transition-colors"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                Privacy Policy
               </a>
             </div>
           </div>
