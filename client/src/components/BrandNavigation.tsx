@@ -212,7 +212,7 @@ export default function BrandNavigation({
             className="mx-4 text-white/90 hover:text-white transition-colors drop-shadow-sm"
           >
             <span
-              className={`tracking-[0.18em] uppercase ${centerLabel ? 'text-[18px] md:text-[22px]' : 'text-[13px]'}`}
+              className={`tracking-[0.18em] ${centerLabel ? 'text-[18px] md:text-[22px]' : 'text-[13px] uppercase'}`}
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               {centerLabel || (currentPropertyId
