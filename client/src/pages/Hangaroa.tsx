@@ -143,8 +143,7 @@ function StorySection() {
   return (
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          <div className="md:flex-1">
+        <div className="max-w-3xl mb-12 md:mb-16">
             <AnimateOnScroll variants={fadeUp}>
               <SectionLabel>The Property</SectionLabel>
             </AnimateOnScroll>
@@ -167,14 +166,6 @@ function StorySection() {
             <AnimateOnScroll variants={fadeUp} delay={0.5}>
               <AwardBadgeStrip property="hangaroa" />
             </AnimateOnScroll>
-          </div>
-          <div className="md:flex-1">
-            <MediaReveal delay={0.2}>
-              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <img src={CDN.s1} alt="Rapa Nui cultural performer with traditional face paint" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-            </MediaReveal>
-          </div>
         </div>
 
         {/* Landscape image — hidden on mobile */}

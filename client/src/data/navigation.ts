@@ -64,6 +64,7 @@ const STANDARD_MENU_ITEMS: MenuItem[] = [
   { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Awards & Press", route: "/awards" },
   { label: "Journal & Podcast", route: "/journal" },
+  { label: "Gallery", route: "/gallery" },
   { label: "Coming Soon", route: "/new-projects" },
   { label: "Nayara By Night", route: "/by-night" },
 ];

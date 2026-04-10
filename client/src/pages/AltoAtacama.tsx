@@ -144,43 +144,33 @@ function StorySection() {
   return (
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          {/* Text left */}
-          <div className="md:flex-1">
-            <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel>The Property</SectionLabel>
-            </AnimateOnScroll>
-            <TextReveal as="h2" className="mb-8" delay={0.1}>
-              <span
-                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-              >
-                Mars on Earth
-              </span>
-            </TextReveal>
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                {atacama.heroSubtitle}
-              </p>
-              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing experiences, desert adventures, and world-class wellness in one of Earth's most remote and magical locations.
-              </p>
-            </AnimateOnScroll>
-            <AnimateOnScroll variants={fadeUp} delay={0.5}>
-              <AwardBadgeStrip property="alto-atacama" />
-            </AnimateOnScroll>
-          </div>
-          {/* Image right - vertical */}
-          <div className="md:flex-1">
-            <MediaReveal delay={0.2}>
-              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <img src={CDN.s1} alt="Rainbow Valley landscape" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-            </MediaReveal>
-          </div>
+        {/* Full-width text */}
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>The Property</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-8" delay={0.1}>
+            <span
+              className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Mars on Earth
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+              {atacama.heroSubtitle}
+            </p>
+            <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+              Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing experiences, desert adventures, and world-class wellness in one of Earth's most remote and magical locations.
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.5}>
+            <AwardBadgeStrip property="alto-atacama" />
+          </AnimateOnScroll>
         </div>
 
-        {/* Landscape image below — hidden on mobile */}
+        {/* Landscape image — desktop only */}
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>

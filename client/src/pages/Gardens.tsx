@@ -160,17 +160,11 @@ function StorySection() {
   return (
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          {/* Text left */}
-          <div className="md:flex-1">
+        <div className="max-w-3xl mb-12 md:mb-16">
             <AnimateOnScroll variants={fadeUp}>
               <SectionLabel>The Property</SectionLabel>
             </AnimateOnScroll>
-            <TextReveal
-              as="h2"
-              className="mb-8"
-              delay={0.1}
-            >
+            <TextReveal as="h2" className="mb-8" delay={0.1}>
               <span
                 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
@@ -189,18 +183,9 @@ function StorySection() {
             <AnimateOnScroll variants={fadeUp} delay={0.5}>
               <AwardBadgeStrip property="gardens" />
             </AnimateOnScroll>
-          </div>
-          {/* Video right — vertical */}
-          <div className="md:flex-1">
-            <MediaReveal delay={0.2}>
-              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <NativeVideo src={CDN.storyVideo} className="w-full h-full object-cover" />
-              </div>
-            </MediaReveal>
-          </div>
         </div>
 
-        {/* Landscape video below — hidden on mobile */}
+        {/* Landscape video — desktop only */}
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>

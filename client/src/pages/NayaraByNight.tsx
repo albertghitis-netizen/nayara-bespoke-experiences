@@ -96,9 +96,9 @@ function StorySection() {
   return (
     <section id="story" className={sectionPadding}>
       <div className={maxW}>
-        {/* Story text left + s1 vertical right */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          <FadeIn className="md:flex-1">
+        {/* Full-width text */}
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <FadeIn>
             <SectionLabel>The Experience</SectionLabel>
             <h2 className="text-white/90 mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
               Where Darkness Reveals<br />the Universe
@@ -121,15 +121,14 @@ function StorySection() {
               <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
             </a>
           </FadeIn>
-          <FadeIn delay={0.2} className="md:flex-1">
-            <img src={CDN.s1} alt="Desert cactus silhouetted against the Milky Way" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
-          </FadeIn>
         </div>
 
-        {/* s2 landscape below — symmetrical spacing */}
-        <FadeIn delay={0.3}>
-          <img src={CDN.s2} alt="Rano Kau crater beneath the Milky Way" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
-        </FadeIn>
+        {/* s2 landscape — desktop only */}
+        <div className="hidden md:block">
+          <FadeIn delay={0.3}>
+            <img src={CDN.s2} alt="Rano Kau crater beneath the Milky Way" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+          </FadeIn>
+        </div>
       </div>
     </section>
   );
@@ -149,7 +148,6 @@ function GallerySection() {
     { src: CDN.biolumBeach, alt: "Bioluminescent shoreline in Bocas del Toro" },
     { src: CDN.biolumWaves, alt: "Bioluminescent waves crashing at night" },
     { src: CDN.moaiSunriseGolden, alt: "Moai in golden sunrise light" },
-    { src: CDN.ranoKauMilkyway, alt: "Rano Kau crater with Milky Way" },
     { src: CDN.videoShort, alt: "Night sky timelapse", type: "video" },
   ];
 

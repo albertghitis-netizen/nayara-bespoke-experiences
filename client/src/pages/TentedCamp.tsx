@@ -121,8 +121,7 @@ function StorySection() {
   return (
     <section id="story" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: P.gradientEnd }}>
       <div className="max-w-[1200px] mx-auto">
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          <div className="md:flex-1">
+        <div className="max-w-3xl mb-12 md:mb-16">
             <AnimateOnScroll variants={fadeUp}>
               <p
                 className="text-[11px] tracking-[0.15em] uppercase mb-4"
@@ -168,13 +167,6 @@ function StorySection() {
                 <span className="text-[11px] tracking-[0.08em] uppercase mt-3 inline-block" style={{ ...body, fontWeight: 500, color: P.primary }}>Read →</span>
               </a>
             </AnimateOnScroll>
-          </div>
-
-          <div className="md:flex-1">
-            <MediaReveal delay={0.2}>
-              <img src={CDN.s1} alt="Luxury tented accommodation at Nayara" className="w-full object-cover rounded-lg" style={{ aspectRatio: "3/4" }} loading="lazy" />
-            </MediaReveal>
-          </div>
         </div>
 
         {/* Landscape image — desktop only */}

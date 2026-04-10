@@ -132,11 +132,11 @@ export default function Home() {
       <OrganizationSchema />
       <BrandNavigation pageType="brand" />
       <HeroSection />
-      <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="120px" />
+      <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="60px" />
       <BrandStorySection />
-      <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="120px" />
+      <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
       <PropertiesSection />
-      <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="120px" />
+      <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="60px" />
       <PillarsSection />
       <Footer />
     </div>
