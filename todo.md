@@ -1915,3 +1915,8 @@
 - [x] Bocas del Toro: fix Panamá encoding issue
 - [ ] Bocas del Toro: ensure cascade is continuous from hero through gastronomy
 - [x] Bocas: move Wellness Caribbean Serenity vertical video to S1 position
+- [ ] New Nayara by Night hero video (compress and swap)
+- [ ] Full property color system: Tented Camp = olive tree, Gardens = rich green, Springs = blue-green, Bocas = ocean blue-green, Atacama = desert red/brown, Hangaroa = slate gray
+- [ ] Apply property colors to buttons on all property and deep pages
+- [ ] Apply property colors to footer on all property and deep pages
+- [ ] Apply property colors to all CR deep pages (Experiences, Wellness, Gastronomy, Sustainability) per property

@@ -85,7 +85,7 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
       <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero palette={palette} propertyName={propertyName} location={location} heroVideo={heroVideo} headline={headline} />
       <ExperiencesContent property={property} palette={palette} />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
   );
 }

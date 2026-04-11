@@ -62,7 +62,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero palette={palette} propertyName={propertyName} location={location} headline={data.headline} heroVideo={heroVideo} />
       <SustainabilityContent palette={palette} initiatives={data.initiatives} />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
   );
 }

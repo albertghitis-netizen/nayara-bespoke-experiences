@@ -91,7 +91,7 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
       <GastronomyHero palette={palette} propertyName={propertyName} location={location} heroVideo={heroVideo} headline={headline} />
       <GastronomyIntro palette={palette} description={dining.description} />
       <GastronomyContent palette={palette} restaurants={dining.restaurants} />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
   );
 }

@@ -79,7 +79,7 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
       />
       <WellnessIntro palette={palette} spaSubheadline={property.theme.spaSubheadline} />
       <WellnessContent property={property} palette={palette} />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
   );
 }

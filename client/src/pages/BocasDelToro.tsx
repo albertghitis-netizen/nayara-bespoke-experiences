@@ -46,11 +46,12 @@ const SECTION_COLORS = [
   "#BFC7C4", // 19 island mood
 ];
 
+/* Caribbean Ocean Blue palette */
 const PALETTE = {
   text: "#1A2F30",
   textSecondary: "#5A7A7C",
   textTertiary: "#8AACAE",
-  primary: "#3B6B6E",
+  primary: "#2A6B7A",
   divider: "#D0E2E0",
 };
 
@@ -602,13 +603,13 @@ export default function BocasDelToro() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum_007f69ec.webp"
         horizontalRatio="16/9"
-        bgColor="#1a1a24"
+        bgColor="#142E34"
         headline={"Bioluminescent\nWaters"}
         bodyText="In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
       />
 
-      <Footer bgColor="#0F2628" />
+      <Footer bgColor="#142E34" />
     </div>
   );
 }

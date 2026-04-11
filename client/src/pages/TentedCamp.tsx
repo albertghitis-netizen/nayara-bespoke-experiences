@@ -26,33 +26,34 @@ import {
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Canopy" gradient: misty green → deep forest
    ═══════════════════════════════════════════════════════════════ */
+/* Olive Tree gradient — warm olive-khaki cascade */
 const SECTION_COLORS = [
   "#F5F1EB", // 0 hero
-  "#F0EDE5", // 1 story
-  "#EBE8DE", // 2 accommodations
-  "#E6E3D7", // 3 experiences
-  "#E1DED0", // 4 wellness (before review break)
-  "#DCD9C9", // 5 gastronomy (after review break)
-  "#D7D4C2", // 6 wildlife (before journal break)
-  "#D2CFBB", // 7 adventure (after journal break)
-  "#CDCAB4", // 8 spa
-  "#C8C5AD", // 9 getting here
-  "#C3C0A6", // 10 residence
-  "#BEBC9F", // 11 henry's bar
-  "#B9B798", // 12 grand tents
-  "#B4B291", // 13 camp life
-  "#AFB08A", // 14 rainforest mornings
-  "#AAAD83", // 15 the canopy at dusk
-  "#A5A87C", // 16 looking for frogs
-  "#A0A375", // 17 return
+  "#F1EFE5", // 1 story
+  "#EDEEE2", // 2 accommodations
+  "#E8EADC", // 3 experiences
+  "#E3E6D6", // 4 wellness (before review break)
+  "#DEE2D0", // 5 gastronomy (after review break)
+  "#D9DECA", // 6 wildlife (before journal break)
+  "#D4DAC4", // 7 adventure (after journal break)
+  "#CFD6BE", // 8 spa
+  "#CAD2B8", // 9 getting here
+  "#C5CEB2", // 10 residence
+  "#C0CAAC", // 11 henry's bar
+  "#BBC6A6", // 12 grand tents
+  "#B6C2A0", // 13 camp life
+  "#B1BE9A", // 14 rainforest mornings
+  "#ACBA94", // 15 the canopy at dusk
+  "#A7B68E", // 16 looking for frogs
+  "#A2B288", // 17 return
 ];
 
 const PALETTE = {
   text: "#2C2418",
   textSecondary: "#7A6F63",
   textTertiary: "#B0A89E",
-  primary: "#4A5E3C",
-  accent: "#6B8F5C",
+  primary: "#67703D",
+  accent: "#8A8B5A",
   divider: "#E2DDD5",
 };
 
@@ -935,13 +936,13 @@ export default function TentedCamp() {
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4"
         horizontalIsVideo
         horizontalRatio="16/9"
-        bgColor="#1a1a24"
+        bgColor="#2E3320"
         headline={"When the\nJungle Sleeps"}
         bodyText="As darkness falls over the canopy, a different world awakens. The chorus of frogs, the flash of fireflies, the distant rumble of Arenal — Tented Camp by night is a symphony of the wild. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="right"
       />
 
-      <Footer bgColor="#1A2E1A" />
+      <Footer bgColor="#2E3320" />
     </div>
   );
 }

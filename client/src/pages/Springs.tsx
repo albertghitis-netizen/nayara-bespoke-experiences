@@ -40,12 +40,13 @@ const springs = properties.find((p: Property) => p.id === "springs")!;
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Mineral"
    ═══════════════════════════════════════════════════════════════ */
+/* Blue-Green palette — between Bocas blue and Tented Camp green */
 const PALETTE = {
-  primary: "#3D5E4A",
-  secondary: "#5A5650",
-  accent: "#7A9484",
+  primary: "#3A6B6B",
+  secondary: "#5A8A82",
+  accent: "#7AABA0",
   gradientStart: "#F5F1EB",
-  gradientEnd: "#E8EEEA",
+  gradientEnd: "#E4EDEB",
   text: "#2C2418",
   textSecondary: "#7A6F63",
   textTertiary: "#B0A89E",
@@ -193,13 +194,13 @@ export default function Springs() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp"
         horizontalRatio="16/9"
-        bgColor="#1a1a24"
+        bgColor="#1A3030"
         headline={"Hot Springs\nUnder Stars"}
         bodyText="As night falls over the volcanic landscape, the hot springs take on an otherworldly glow. Steam rises into the starlit sky while the sounds of the rainforest envelop you in warmth and wonder. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
       />
 
-      <Footer bgColor="#1A2A28" />
+      <Footer bgColor="#1A3030" />
     </div>
   );
 }

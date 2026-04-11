@@ -6,8 +6,10 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Streamdown } from "streamdown";
+import { getPalette } from "@/data/propertyPalettes";
 
 type Message = {
   role: "user" | "assistant";
@@ -36,8 +38,12 @@ interface ConciergeChatWidgetProps {
 }
 
 export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProps = {}) {
-  const dk = palette?.dark ?? "#3a2a1a";
-  const bg = palette?.pillBg ?? "rgba(58,42,26,0.7)";
+  const [loc] = useLocation();
+  const slug = loc.split("/")[1] || "";
+  const autoPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
+    ? getPalette(slug) : null;
+  const dk = palette?.dark ?? (autoPalette ? "#fff" : "#3a2a1a");
+  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : "rgba(58,42,26,0.7)");
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");

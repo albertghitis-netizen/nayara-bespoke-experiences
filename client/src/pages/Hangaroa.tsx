@@ -35,12 +35,13 @@ const hangaroa = properties.find((p: Property) => p.id === "hangaroa")!;
 /* ═══════════════════════════════════════════════════════════════
    PALETTE - "Stone"
    ═══════════════════════════════════════════════════════════════ */
+/* Slate Gray palette — volcanic stone */
 const PALETTE = {
-  primary: "#5E5549",
-  secondary: "#8B6B3E",
-  accent: "#7A8568",
+  primary: "#5A5E64",
+  secondary: "#7A7E82",
+  accent: "#9A9EA2",
   gradientStart: "#F5F1EB",
-  gradientEnd: "#EDEAE4",
+  gradientEnd: "#EAEBED",
   text: "#2C2418",
   textSecondary: "#7A6F63",
   textTertiary: "#B0A89E",
@@ -197,13 +198,13 @@ export default function Hangaroa() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-golden-sunset_f7d26dab.webp"
         horizontalRatio="16/9"
-        bgColor="#1a1a24"
+        bgColor="#2A2C30"
         headline={"Moai Beneath\nthe Milky Way"}
         bodyText="On Rapa Nui, the ancient Moai stand sentinel beneath some of the most pristine night skies in the Southern Hemisphere. Far from any light pollution, the Milky Way blazes overhead in extraordinary detail. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
       />
 
-      <Footer bgColor="#2A2420" />
+      <Footer bgColor="#2A2C30" />
     </div>
   );
 }

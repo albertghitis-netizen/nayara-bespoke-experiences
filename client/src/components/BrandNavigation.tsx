@@ -12,6 +12,7 @@ import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocation } from "wouter";
 import { hotelBookingLinks } from "@/data/booking";
+import { getPalette } from "@/data/propertyPalettes";
 import {
   type PageType,
   PROPERTY_MENU,
@@ -65,16 +66,21 @@ export default function BrandNavigation({
   hideCenterLabel = false,
   navPalette,
 }: BrandNavigationProps) {
-  /* Resolve palette — default brand brown */
-  const dk = navPalette?.dark ?? "#3a2a1a";
-  const pillBg = navPalette?.pillBg ?? "rgba(58,42,26,0.7)";
-  const pillHv = navPalette?.pillHover ?? "rgba(58,42,26,0.9)";
+  /* Resolve palette — auto-detect from URL or use brand brown */
+  const [location] = useLocation();
+  const [, navigate] = useLocation();
+  const propertySlug = location.split("/")[1] || "";
+  const propertyPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(propertySlug)
+    ? getPalette(propertySlug)
+    : null;
+  const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#3a2a1a");
+  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(58,42,26,0.7)");
+  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(58,42,26,0.9)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [, navigate] = useLocation();
-  const [location] = useLocation();
+
 
   const menuRef = useRef<HTMLDivElement>(null);
   const reserveRef = useRef<HTMLDivElement>(null);

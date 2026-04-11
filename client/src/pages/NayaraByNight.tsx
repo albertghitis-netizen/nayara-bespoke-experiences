@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 /* ─── CDN Assets ─────────────────────────────────────────────── */
 const CDN = {
   /* Hero */
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/anakena-timelapse-hero_60211087.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-hero-night_104e129b.mp4",
   heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-hero-vertical-new_efde71a9.mp4",
   /* Story images */
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
@@ -312,7 +312,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={isMobile ? CDN.heroMobile : CDN.heroDesktop} className="w-full h-full object-cover" />
+        <NativeVideo src={isMobile ? CDN.heroMobile : CDN.heroDesktop} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 

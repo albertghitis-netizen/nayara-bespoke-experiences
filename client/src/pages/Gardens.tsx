@@ -41,12 +41,13 @@ const gardens = properties.find((p: Property) => p.id === "gardens")!;
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Canopy"
    ═══════════════════════════════════════════════════════════════ */
+/* Rich Green palette — full forest green */
 const PALETTE = {
-  primary: "#4A5E3C",
-  secondary: "#6B5B4A",
-  accent: "#8B9A7A",
+  primary: "#3A5E3A",
+  secondary: "#5A7A52",
+  accent: "#7A9A6A",
   gradientStart: "#F5F1EB",
-  gradientEnd: "#EBF0E6",
+  gradientEnd: "#E6EDE4",
   text: "#2C2418",
   textSecondary: "#7A6F63",
   textTertiary: "#B0A89E",
@@ -210,7 +211,7 @@ export default function Gardens() {
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-by-night_e5dda355.mp4"
         verticalIsVideo
         verticalRatio="3/4"
-        bgColor="#1a1a24"
+        bgColor="#1E2E1A"
         headline={"Rainforest\nAfter Dark"}
         bodyText="When the sun sets behind the volcano, the rainforest transforms. Nocturnal creatures emerge, the air fills with the chorus of frogs, and the canopy becomes a living theater of sound and shadow. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="right"

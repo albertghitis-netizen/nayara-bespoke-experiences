@@ -4,6 +4,8 @@
  * Optional mute/unmute pill for videos with audio.
  */
 import { useRef, useState, useEffect, useCallback } from "react";
+import { useLocation } from "wouter";
+import { getPalette } from "@/data/propertyPalettes";
 
 interface NativeVideoProps {
   src: string;
@@ -29,6 +31,14 @@ export default function NativeVideo({
   controls = false,
   hasAudio = false,
 }: NativeVideoProps) {
+  /* Property color auto-detect for sound pill */
+  const [loc] = useLocation();
+  const slug = loc.split("/")[1] || "";
+  const propPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
+    ? getPalette(slug) : null;
+  const pillBgBase = propPalette ? propPalette.navPillBg : "#3a2a1a";
+  const pillBg = `${pillBgBase}B3`;
+  const pillHover = `${pillBgBase}E6`;
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -120,7 +130,9 @@ export default function NativeVideo({
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-6 left-6 z-30 hidden md:flex items-center gap-2 px-4.5 py-3 rounded-full bg-[#3a2a1a]/70 backdrop-blur-md border border-white/10 hover:bg-[#3a2a1a]/90 transition-all duration-300 group cursor-pointer"
+          className="absolute bottom-6 left-6 z-30 hidden md:flex items-center gap-2 px-4.5 py-3 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group cursor-pointer"
+            style={{ backgroundColor: pillBg }}            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = pillHover)}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = pillBg)}
         >
           {/* Pulse ring — draws attention, then fades */}
           {isMuted && showPulse && (
