@@ -1572,3 +1572,6 @@
 
 ## Tented Camp Return Cascade
 - [x] Add new video to Tented Camp "Return" / final cascade section
+
+## Tented Camp Frog Reel
+- [x] Add frog-hunting reel video to Tented Camp cascade

@@ -40,7 +40,8 @@ const SECTION_COLORS = [
   "#B4B291", // 13 camp life
   "#AFB08A", // 14 rainforest mornings
   "#AAAD83", // 15 the canopy at dusk
-  "#A5A87C", // 16 return
+  "#A5A87C", // 16 looking for frogs
+  "#A0A375", // 17 return
 ];
 
 const PALETTE = {
@@ -729,6 +730,20 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[16],
   },
   {
+    id: "looking-for-frogs",
+    label: "Looking for Frogs",
+    headline: "Night Safari\nby Torchlight",
+    body: "When darkness falls, the real show begins. Armed with headlamps and guided by expert naturalists, guests venture into the rainforest to find red-eyed tree frogs, glass frogs, and the elusive poison dart frog \u2014 tiny jewels glowing against the wet leaves.",
+    verticalSrc: `${CDN}/tented-frogs-vertical_3f5476ee.mp4`,
+    horizontalSrc: ASSETS.advH,
+    verticalIsVideo: true,
+    horizontalIsVideo: true,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[16],
+    nextBgColor: SECTION_COLORS[17],
+  },
+  {
     id: "return",
     label: "Until We Return",
     headline: "Until We\nReturn",
@@ -739,8 +754,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "9/16",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[16],
-    nextBgColor: SECTION_COLORS[16],
+    bgColor: SECTION_COLORS[17],
+    nextBgColor: SECTION_COLORS[17],
   },
 ];
 
