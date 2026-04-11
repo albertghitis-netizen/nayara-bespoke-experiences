@@ -63,7 +63,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const ASSETS = {
   // Hero
-  heroDesktop: `${CDN}/atacama-hero-desktop-hq_732fe8b3.mp4`,
+  heroDesktop: `${CDN}/atacama-hero-new-audio_13d2ee07.mp4`,
   heroMobile: `${CDN}/atacama-hero-vertical-hq_d81c629e.mp4`,
 
   // Section 1 — Story: geyser steam V + resort exterior UW
@@ -575,7 +575,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
       </div>
       {/* Hero text — subtle fade-in */}

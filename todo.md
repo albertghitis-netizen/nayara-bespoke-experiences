@@ -1587,3 +1587,6 @@
 
 ## Atacama Hero Text Animation
 - [x] Add subtle fade-in animation to text overlay on Atacama hero video
+
+## Atacama Hero Video Update
+- [x] Replace Atacama hero video with new MOV (with audio)
