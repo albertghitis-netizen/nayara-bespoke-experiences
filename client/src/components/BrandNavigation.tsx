@@ -42,18 +42,33 @@ PROPERTIES.forEach((p) => {
   ROUTE_TO_PROPERTY[p.route] = p.id;
 });
 
+export interface NavPalette {
+  /** Dark text/icon color — replaces #3a2a1a */
+  dark: string;
+  /** Light pill background — replaces #ece8e1 */
+  pillBg: string;
+  /** Hover pill background */
+  pillHover: string;
+}
+
 interface BrandNavigationProps {
   pageType?: PageType;
   centerLabel?: string;
   centerLinkHome?: boolean;
   hideCenterLabel?: boolean;
+  navPalette?: NavPalette;
 }
 
 export default function BrandNavigation({
   pageType = "brand",
   centerLabel,
   hideCenterLabel = false,
+  navPalette,
 }: BrandNavigationProps) {
+  /* Resolve palette — default brand brown */
+  const dk = navPalette?.dark ?? "#3a2a1a";
+  const pillBg = navPalette?.pillBg ?? "#ece8e1";
+  const pillHv = navPalette?.pillHover ?? "#d4c9b8";
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -113,8 +128,14 @@ export default function BrandNavigation({
   };
 
   /* ── Shared styles ── */
+  const pillStyle: React.CSSProperties = {
+    backgroundColor: pillBg,
+    borderColor: `${dk}26`,
+  };
+  const pillHoverBg = `${pillHv}99`;
+
   const pill =
-    "flex items-center justify-center rounded-full bg-[#ece8e1] backdrop-blur-md shadow-sm hover:bg-[#d4c9b8]/60 transition-colors cursor-pointer border border-[#3a2a1a]/15";
+    "flex items-center justify-center rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border";
 
   const dropdown =
     "absolute mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border border-[#3a2a1a]/10";
@@ -147,11 +168,12 @@ export default function BrandNavigation({
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
               className={`${pill} w-8 h-8`}
+              style={pillStyle}
               aria-label="Menu"
             >
               <div className="flex flex-col gap-1">
-                <span className={`block w-4 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} />
-                <span className={`block w-4 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
               </div>
             </button>
 
@@ -244,8 +266,9 @@ export default function BrandNavigation({
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
               className={`${pill} h-8 px-3.5`}
+              style={pillStyle}
             >
-              <span className="text-[#3a2a1a] text-xs" style={menuText}>Reserve</span>
+              <span className="text-xs" style={{ ...menuText, color: dk }}>Reserve</span>
             </button>
 
             <AnimatePresence>
@@ -285,11 +308,12 @@ export default function BrandNavigation({
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
               className={`${pill} w-8 h-8`}
+              style={pillStyle}
               aria-label="Menu"
             >
               <div className="flex flex-col gap-1">
-                <span className={`block w-3.5 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} />
-                <span className={`block w-3.5 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} />
+                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
               </div>
             </button>
 
@@ -348,8 +372,9 @@ export default function BrandNavigation({
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
               className={`${pill} h-8 px-3.5`}
+              style={pillStyle}
             >
-              <span className="text-[#3a2a1a] text-xs" style={menuText}>Reserve</span>
+              <span className="text-xs" style={{ ...menuText, color: dk }}>Reserve</span>
             </button>
 
             <AnimatePresence>

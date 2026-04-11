@@ -47,9 +47,11 @@ function TikTokIcon() {
 
 interface FooterProps {
   pageType?: PageType;
+  /** Override footer background color (default: #3a2a1a) */
+  bgColor?: string;
 }
 
-export default function Footer({ pageType = "brand" }: FooterProps) {
+export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
 
@@ -59,7 +61,7 @@ export default function Footer({ pageType = "brand" }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#3a2a1a] relative overflow-hidden">
+    <footer className="relative overflow-hidden" style={{ backgroundColor: bgColor ?? "#3a2a1a" }}>
 
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-10">

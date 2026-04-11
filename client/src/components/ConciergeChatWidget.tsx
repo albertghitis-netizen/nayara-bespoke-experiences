@@ -30,7 +30,14 @@ function NayaraIcon({ className = "w-6 h-6" }: { className?: string }) {
   );
 }
 
-export default function ConciergeChatWidget() {
+interface ConciergeChatWidgetProps {
+  /** Override button colors to match property palette */
+  palette?: { dark: string; pillBg: string };
+}
+
+export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProps = {}) {
+  const dk = palette?.dark ?? "#3a2a1a";
+  const bg = palette?.pillBg ?? "#ece8e1";
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -167,12 +174,13 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg px-3.5 py-1.5 hover:bg-[#ece8e1]/90 transition-colors group cursor-pointer border border-[#3a2a1a]/20"
+            className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 rounded-full backdrop-blur-md shadow-lg px-3.5 py-1.5 transition-colors group cursor-pointer border"
+            style={{ backgroundColor: bg, borderColor: `${dk}33` }}
             aria-label="Henry"
           >
             <span
-              className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              className="text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
+              style={{ color: dk, fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Henry
             </span>

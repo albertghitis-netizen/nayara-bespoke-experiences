@@ -30,7 +30,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 const WELLNESS_CDN = {
   heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Termaleschildren_5bfef28b.webp",
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-spa-springs_89d85927.mp4",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness-nature-color_fae0ea2e.mp4",
 };
 
 /* ─── Wellness Pillars ─── */

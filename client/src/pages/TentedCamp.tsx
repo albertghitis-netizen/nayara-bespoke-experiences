@@ -11,11 +11,6 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import ByNightCTA from "@/components/ByNightCTA";
-import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
-import { costaRicaDining } from "@/data/dining";
-import { AwardBadgeStrip } from "@/components/AwardBadges";
-import PropertySlider from "@/components/PropertySlider";
-import PropertySorter from "@/components/PropertySorter";
 import {
   AnimateOnScroll,
   TextReveal,
@@ -113,43 +108,6 @@ const ASSETS = {
   // New cascade video
   cascadeNewV: `${CDN}/tented-camp-cascade-new_c993038d.mp4`,
 };
-
-/* ═══════════════════════════════════════════════════════════════
-   PROPERTY DATA
-   ═══════════════════════════════════════════════════════════════ */
-const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
-
-const SLIDER_PALETTE = {
-  bg: SECTION_COLORS[2],
-  text: PALETTE.text,
-  textSecondary: PALETTE.textSecondary,
-  primary: PALETTE.primary,
-  cardBg: "rgba(255,255,255,0.5)",
-  cardBorder: `${PALETTE.primary}15`,
-  pillBg: `${PALETTE.primary}08`,
-  pillActiveBg: PALETTE.primary,
-  pillActiveText: "#fff",
-};
-
-const roomCards = [
-  { title: "Nayara Tent", description: "Safari-style luxury tents elevated above the rainforest canopy. Each tent features a private deck with plunge pool, outdoor shower, and unobstructed views of the Arenal Volcano through floor-to-ceiling mesh walls that bring the jungle inside.", tags: ["Private plunge pool", "Volcano views", "Outdoor shower"] },
-  { title: "Grand Tent", description: "Our most spacious tented accommodations, offering a generous living area, king bed, and an expansive private terrace with heated plunge pool. The Grand Tent is designed for those who want the safari experience with the space of a luxury villa.", tags: ["Heated plunge pool", "Spacious living area", "Rainforest terrace"] },
-  { title: "Residence", description: "The ultimate Tented Camp experience — a multi-room residence with private pool, dedicated butler service, and panoramic views of the Arenal Volcano. Perfect for families or those seeking the most exclusive rainforest retreat.", tags: ["Multiple bedrooms", "Private pool", "Butler service"] },
-];
-
-const sustainabilityCards = [
-  { title: "Rainforest Conservation", description: "Protecting over 380 acres of primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of bird, mammal, and amphibian species in the Arenal Volcano region." },
-  { title: "Wildlife Corridors", description: "Maintaining and expanding biological corridors that connect our property to Arenal Volcano National Park, ensuring safe passage for jaguars, ocelots, sloths, and other wildlife." },
-  { title: "Organic Gardens", description: "Growing herbs, vegetables, and fruits in our on-site organic gardens, reducing food miles and providing the freshest ingredients for our five restaurants." },
-  { title: "Community Partnership", description: "Supporting local communities in La Fortuna through employment, education programs, and cultural preservation initiatives that strengthen the region's social fabric." },
-];
-
-const gastronomyCards = costaRicaDining.restaurants.map((r) => ({
-  title: r.name,
-  subtitle: r.cuisine || undefined,
-  description: r.description,
-  tags: r.atmosphere ? [r.atmosphere] : [],
-}));
 
 /* ═══════════════════════════════════════════════════════════════
    HELPERS
@@ -283,7 +241,12 @@ function CascadeSection({
 
           {section.badges && (
             <AnimateOnScroll variants={fadeUp} delay={0.35}>
-              <AwardBadgeStrip property="tented-camp" />
+              <img
+                src={ASSETS.badges}
+                alt="Award badges — Tented Camp"
+                className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-6"
+                loading="lazy"
+              />
             </AnimateOnScroll>
           )}
         </div>
@@ -563,11 +526,75 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[2],
     badges: true,
   },
+  {
+    id: "rooms",
+    label: "Accommodations",
+    headline: "Grand Tented\nSuites",
+    body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.",
+    verticalSrc: ASSETS.roomsV,
+    horizontalSrc: ASSETS.roomsH,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[2],
+    nextBgColor: SECTION_COLORS[3],
+    link: "/tented-camp/rooms",
+    linkLabel: "Explore Rooms",
+  },
+  {
+    id: "experiences",
+    label: "Experiences",
+    headline: "Rainforest\nAdventures",
+    body: "Cross hanging bridges through the canopy, rappel down waterfalls, or trek to hidden volcanic hot springs. Every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
+    verticalSrc: ASSETS.expV,
+    horizontalSrc: ASSETS.expH,
+    verticalIsVideo: true,
+    horizontalIsVideo: true,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[3],
+    nextBgColor: SECTION_COLORS[4],
+    link: "/tented-camp/experiences",
+    linkLabel: "Explore More",
+  },
+  {
+    id: "wellness",
+    label: "Wellness",
+    headline: "Volcanic\nHealing",
+    body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.",
+    verticalSrc: ASSETS.spaV,
+    horizontalSrc: ASSETS.wellH,
+    verticalIsVideo: false,
+    horizontalIsVideo: true,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[4],
+    nextBgColor: SECTION_COLORS[5],
+    link: "/tented-camp/wellness",
+    linkLabel: "Explore More",
+  },
 ];
 
 /* ── Review break goes here ── */
 
 const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
+  {
+    id: "gastronomy",
+    label: "A Taste of Place",
+    headline: "Farm to\nCanopy",
+    body: "Our chefs source ingredients from local farms and our own gardens to create cuisine that celebrates Costa Rica's biodiversity. Dine under the stars at Henry's Bar or enjoy a private dinner on your suite deck.",
+    verticalSrc: ASSETS.gastroV,
+    horizontalSrc: ASSETS.gastroH,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[5],
+    nextBgColor: SECTION_COLORS[6],
+    link: "/tented-camp/gastronomy",
+    linkLabel: "Explore More",
+  },
   {
     id: "wildlife",
     label: "Wildlife",
@@ -836,72 +863,15 @@ export default function TentedCamp() {
       <BrandNavigation pageType="property" />
       <HeroSection />
 
-      {/* Cascade: Story (with inline awards) */}
+      {/* Cascade: Story → Rooms → Experiences → Wellness */}
       {SECTIONS_BEFORE_REVIEW.map((section, i) => (
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
 
-      {/* ══ 1. ROOMS — Slider ══ */}
-      <PropertySlider
-        sectionLabel="Accommodations"
-        headline="Grand Tented Suites"
-        description="Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano."
-        cards={roomCards}
-        learnMoreLink="/tented-camp/rooms"
-        learnMoreLabel="Explore Rooms"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ══ 2. EXPERIENCES — Sorter ══ */}
-      <PropertySorter
-        sectionLabel="Experiences"
-        headline="Rainforest Adventures"
-        description="Cross hanging bridges through the canopy, rappel down waterfalls, or trek to hidden volcanic hot springs. Every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest."
-        cards={tentedCamp.excursions.map((e: Excursion) => ({ title: e.name, description: e.description, category: e.category, tags: e.duration ? [e.duration] : [] }))}
-        categories={tentedCamp.excursionCategories.filter((c) => c.id !== "all")}
-        learnMoreLink="/tented-camp/experiences"
-        learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ══ 3. SUSTAINABILITY — Slider ══ */}
-      <PropertySlider
-        sectionLabel="Sustainability"
-        headline="Protecting Our Rainforest"
-        description="Nayara Tented Camp is committed to preserving the extraordinary biodiversity of the Arenal Volcano region through conservation, community, and responsible luxury."
-        cards={sustainabilityCards}
-        learnMoreLink="/tented-camp/sustainability"
-        learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ══ 4. WELLNESS — Sorter ══ */}
-      <PropertySorter
-        sectionLabel="Wellness"
-        headline="Volcanic Healing"
-        description="Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy."
-        cards={tentedCamp.treatments.map((t: Treatment) => ({ title: t.name, description: t.description, category: t.category, tags: t.duration ? [t.duration] : [] }))}
-        categories={tentedCamp.spaCategories.filter((c) => c.id !== "all")}
-        learnMoreLink="/tented-camp/wellness"
-        learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ══ 5. GASTRONOMY — Slider ══ */}
-      <PropertySlider
-        sectionLabel="A Taste of Place"
-        headline="Farm to Canopy"
-        description="Our chefs source ingredients from local farms and our own gardens to create cuisine that celebrates Costa Rica's biodiversity."
-        cards={gastronomyCards}
-        learnMoreLink="/tented-camp/gastronomy"
-        learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
       {/* ★ Functional break: Reviews */}
       <ReviewsBreak bgColor={SECTION_COLORS[5]} />
 
-      {/* Cascade: Wildlife */}
+      {/* Cascade: Gastronomy → Wildlife */}
       {SECTIONS_AFTER_REVIEW.map((section, i) => (
         <CascadeSection
           key={section.id}

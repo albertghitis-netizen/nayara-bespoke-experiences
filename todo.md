@@ -1783,3 +1783,60 @@
 - [ ] Move H1 below the hero video (no text overlay on video) on all 6 property pages
 - [ ] Demote current H2 to subheader styling under the H1
 - [ ] Ensure smooth visual transition from video to H1 section
+
+## Property-Colored Nav Buttons & Footer
+- [ ] Alto Atacama: Footer uses Atacama palette dark colors
+- [ ] Alto Atacama: Hamburger, Reserve, Henry buttons use Atacama dark palette
+- [ ] Tented Camp: Footer uses Tented Camp palette dark colors
+- [ ] Tented Camp: Hamburger, Reserve, Henry buttons use Tented Camp dark palette
+- [ ] Bocas del Toro: Footer uses Bocas palette dark colors
+- [ ] Bocas del Toro: Hamburger, Reserve, Henry buttons use Bocas dark palette
+- [ ] Add sustainability Explore More link to Tented Camp cascade
+- [ ] Add sustainability Explore More link to Bocas cascade (if missing)
+
+## Media Numbering Convention
+- [ ] On property homepages, all media (videos/images) numbered sequentially: Hero=1, S1=2, S2=3, etc.
+
+## Cascade Continuity (All Properties)
+- [ ] Sections 2 and 3 touching (no gap between story and first cascade section)
+- [ ] Cascade gradient runs continuously from hero through gastronomy on every property
+- [ ] Property-colored nav buttons (Hamburger, Reserve, Henry) on Atacama, Tented Camp, Bocas
+- [ ] Property-colored footer on Atacama, Tented Camp, Bocas
+- [ ] H1 moved below video on Atacama, Tented Camp, Bocas
+- [ ] Replace badge images with AwardBadgeStrip inline under H2 body text in story section on all 3 properties
+- [ ] Each property page section (Rooms, Experiences, Sustainability, Wellness, Gastronomy) gets one relevant blog/podcast entry tied to that pillar (replaces buffer breaks)
+
+## Full 6-Property Homepage Rebuild (Standardized Cascade)
+- [ ] Create shared PropertyCascadePage component with standardized structure
+- [ ] Structure: Hero → H1 below video → Story (AwardBadgeStrip) → Rooms → Experiences → Sustainability → Wellness → Gastronomy → Getting Here → Reviews → Explore Other Properties → FAQ link → Footer
+- [ ] No By Night CTA on property pages (By Night = gallery only)
+- [ ] Gallery is Pinterest masonry, no sorting
+- [x] Move By Night hero video to Experiences pillar page (/experiences) as its hero video
+- [ ] Sub-pages linked from cascade pillars are unsortable continuous editorial flow
+- [ ] Each cascade pillar section gets one dummy blog/podcast entry
+- [ ] Continuous gradient from hero through gastronomy
+- [ ] Sections 2 & 3 touching (no gap between story and first cascade)
+- [ ] H1 below video (clean video, no text overlay)
+- [ ] AwardBadgeStrip under body text in story section
+- [ ] Replace Reserve CTA with "Explore Other Properties" section (links to other 5 properties)
+- [ ] Alto Atacama: property palette on nav/footer/Henry
+- [ ] Tented Camp: property palette on nav/footer/Henry
+- [ ] Bocas del Toro: property palette on nav/footer/Henry
+- [ ] Gardens: property palette on nav/footer/Henry
+- [ ] Springs: property palette on nav/footer/Henry
+- [ ] Hangaroa: property palette on nav/footer/Henry
+- [ ] Move gallery assets into cascade sections (redistribute)
+- [ ] All 6 properties use same standardized template
+- [x] Move current Experiences pillar hero video to /alto-atacama/experiences page
+- [ ] Delete /story route from App.tsx and remove all links to /story across codebase
+- [ ] Upload new Gardens cascade assets to CDN (ice cream, room casita, bed jump, wine bar, 3 videos)
+- [ ] Use new Gardens assets in Gardens cascade sections
+- [x] Replace wellness hero video with new nature-based color wellness video (with audio) across Wellness.tsx, GardensWellness.tsx, SpringsWellness.tsx, Gardens.tsx
+- [ ] RULE: Only hero videos have hasAudio. All other videos (cascade, gallery, pillar, sub-pages) = no audio
+- [ ] Audit all NativeVideo usages: hasAudio ONLY on hero videos, remove from everywhere else
+- [x] Move By Night hero video → Experiences pillar page hero
+- [x] Move current Experiences pillar hero → Alto Atacama Experiences sub-page hero
+- [ ] RULE: All 3 Costa Rica properties (Gardens, Springs, Tented Camp) share the SAME sub-pages for Wellness, Experiences, Sustainability, Gastronomy — one page each, Arenal/Tented Camp cascade format
+- [ ] Consolidate GardensWellness + SpringsWellness into one shared Costa Rica Wellness sub-page
+- [ ] Consolidate GardensExperiences + SpringsExperiences into one shared Costa Rica Experiences sub-page (if separate exist)
+- [ ] Same for Sustainability and Gastronomy sub-pages across all 3 CR properties

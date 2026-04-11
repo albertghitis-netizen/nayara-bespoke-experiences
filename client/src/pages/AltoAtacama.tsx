@@ -10,11 +10,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
-import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
-import { atacamaDiningCollection } from "@/data/dining";
-import { AwardBadgeStrip } from "@/components/AwardBadges";
-import PropertySlider from "@/components/PropertySlider";
-import PropertySorter from "@/components/PropertySorter";
+import { properties, type Property } from "@/data/properties";
 import {
   AnimateOnScroll,
   TextReveal,
@@ -266,7 +262,12 @@ function CascadeSection({
       )}
       {badges && (
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
-          <AwardBadgeStrip property="alto-atacama" />
+          <img
+            src={`${CDN}/award-badges-tented-camp_8aea5e71.webp`}
+            alt="Award badges — Alto Atacama"
+            className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-4"
+            loading="lazy"
+          />
         </AnimateOnScroll>
       )}
     </div>
@@ -327,50 +328,6 @@ function CascadeSection({
 /* ═══════════════════════════════════════════════════════════════
    SECTION DATA — All 11 cascade sections
    ═══════════════════════════════════════════════════════════════ */
-/* ═══════════════════════════════════════════════════════════════
-   SLIDER / SORTER PALETTE — property-themed for inline sections
-   ═══════════════════════════════════════════════════════════════ */
-const SLIDER_PALETTE = {
-  bg: SECTION_COLORS[2],
-  text: PALETTE.text,
-  textSecondary: PALETTE.textSecondary,
-  primary: PALETTE.primary,
-  cardBg: "rgba(255,255,255,0.5)",
-  cardBorder: `${PALETTE.primary}15`,
-  pillBg: `${PALETTE.primary}08`,
-  pillActiveBg: PALETTE.primary,
-  pillActiveText: "#fff",
-};
-
-/* ═══════════════════════════════════════════════════════════════
-   ROOMS DATA — for the Slider
-   ═══════════════════════════════════════════════════════════════ */
-const roomCards = [
-  { title: "Quitor Suite", description: "Spacious suites with private terraces overlooking the Atacama salt flats. Floor-to-ceiling windows frame the desert landscape, while heated plunge pools offer stargazing from the comfort of your room.", tags: ["Private terrace", "Heated plunge pool", "Desert views"] },
-  { title: "Ckuri Suite", description: "Our most expansive accommodations, designed for families and those seeking extra space. Two connected rooms with a shared living area open onto a private garden with infinity pool.", tags: ["Two bedrooms", "Private garden", "Infinity pool"] },
-  { title: "Puri Suite", description: "Intimate retreats nestled among native desert gardens. Each suite features handcrafted furnishings, locally sourced textiles, and a private outdoor area perfect for morning meditation.", tags: ["Desert garden", "Handcrafted furnishings", "Stargazing deck"] },
-];
-
-/* ═══════════════════════════════════════════════════════════════
-   SUSTAINABILITY DATA — for the Slider
-   ═══════════════════════════════════════════════════════════════ */
-const sustainabilityCards = [
-  { title: "Desert Preservation", description: "Protecting the Atacama's unique ecosystem through sustainable tourism practices and habitat conservation programs." },
-  { title: "Water Stewardship", description: "Minimizing water usage in the world's driest desert through advanced recycling and conservation technologies." },
-  { title: "Community Support", description: "Supporting local communities through employment, education, and cultural preservation initiatives in the Atacama region." },
-  { title: "Carbon Neutral Operations", description: "Committed to carbon neutrality through renewable energy, waste reduction, and offset programs." },
-];
-
-/* ═══════════════════════════════════════════════════════════════
-   GASTRONOMY DATA — for the Slider
-   ═══════════════════════════════════════════════════════════════ */
-const gastronomyCards = atacamaDiningCollection.restaurants.map((r) => ({
-  title: r.name,
-  subtitle: r.cuisine || undefined,
-  description: r.description,
-  tags: r.atmosphere ? [r.atmosphere] : [],
-}));
-
 const CASCADE_SECTIONS = [
   {
     label: "The Property",
@@ -382,6 +339,61 @@ const CASCADE_SECTIONS = [
     textSide: "left" as const,
     link: undefined, linkLabel: undefined,
     badges: true,
+  },
+  {
+    label: "Accommodations",
+    headline: "Desert Suites",
+    description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
+    vSrc: ASSETS.roomsV, hSrc: ASSETS.roomsH,
+    vVideo: true, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "right" as const,
+    link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
+    badges: false,
+  },
+  {
+    label: "Experiences",
+    headline: "Desert Explorations",
+    description: "From sunrise salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is led by expert local guides who reveal the Atacama's hidden wonders.",
+    vSrc: ASSETS.expV, hSrc: ASSETS.expH,
+    vVideo: true, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "left" as const,
+    link: "/alto-atacama/experiences", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "Sustainability",
+    headline: "Protecting the Desert",
+    description: "Our commitment to the Atacama goes beyond hospitality. We protect fragile ecosystems, support local communities, and operate with minimal environmental impact in one of Earth's most delicate landscapes.",
+    vSrc: ASSETS.susV, hSrc: ASSETS.susH,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "right" as const,
+    link: "/alto-atacama/sustainability", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "Wellness",
+    headline: "Geothermal Healing",
+    description: "Harness the healing power of the desert — from volcanic mud rituals to salt crystal therapies, each treatment draws on the Atacama's ancient minerals and infinite stillness.",
+    vSrc: ASSETS.wellV, hSrc: ASSETS.wellH,
+    vVideo: true, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "left" as const,
+    link: "/alto-atacama/wellness", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "A Taste of Place",
+    headline: "Desert Dining",
+    description: "Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine — from quinoa harvested at altitude to herbs cultivated in our desert gardens. Each dish tells the story of this ancient landscape.",
+    vSrc: ASSETS.gastroV, hSrc: ASSETS.gastroH,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "right" as const,
+    link: "/alto-atacama/gastronomy", linkLabel: "Explore More",
+    badges: false,
   },
   {
     label: "Desert Ingredients",
@@ -521,112 +533,12 @@ const CASCADE_SECTIONS = [
    MAIN PAGE — Extended gradient cascade, all touching, color flow
    ═══════════════════════════════════════════════════════════════ */
 export default function AltoAtacama() {
-  /* Prepare Experiences sorter data from property dataset */
-  const experienceCategories = (atacama.excursionCategories || []).filter(
-    (c: { id: string; label: string }) => c.id !== "all"
-  );
-  const experienceCards = atacama.excursions.map((e: Excursion) => ({
-    title: e.name,
-    subtitle: e.duration || undefined,
-    description: e.description,
-    category: e.category,
-    tags: e.price ? [e.price] : [],
-  }));
-
-  /* Prepare Wellness sorter data */
-  const wellnessCategories = (atacama.spaCategories || []).filter(
-    (c: { id: string; label: string }) => c.id !== "all"
-  );
-  const wellnessCards = atacama.treatments.map((t: Treatment) => ({
-    title: t.name,
-    subtitle: t.duration || undefined,
-    description: t.description,
-    category: t.category,
-    tags: t.price ? [t.price] : [],
-  }));
-
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <BrandNavigation pageType="property" />
       <HeroSection />
 
-      {/* Story cascade section (first item only) */}
-      <CascadeSection
-        label={CASCADE_SECTIONS[0].label}
-        headline={CASCADE_SECTIONS[0].headline}
-        description={CASCADE_SECTIONS[0].description}
-        verticalSrc={CASCADE_SECTIONS[0].vSrc}
-        horizontalSrc={CASCADE_SECTIONS[0].hSrc}
-        verticalIsVideo={CASCADE_SECTIONS[0].vVideo}
-        horizontalIsVideo={CASCADE_SECTIONS[0].hVideo}
-        verticalRatio={CASCADE_SECTIONS[0].vRatio}
-        horizontalRatio={CASCADE_SECTIONS[0].hRatio}
-        textSide={CASCADE_SECTIONS[0].textSide}
-        bgColor={SECTION_COLORS[1]}
-        link={CASCADE_SECTIONS[0].link}
-        linkLabel={CASCADE_SECTIONS[0].linkLabel}
-        badges={CASCADE_SECTIONS[0].badges}
-      />
-
-      {/* ★ 1. ROOMS — Slider */}
-      <PropertySlider
-        sectionLabel="Accommodations"
-        headline="Desert Suites"
-        description="Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape."
-        cards={roomCards}
-        learnMoreLink="/alto-atacama/rooms"
-        learnMoreLabel="Explore Rooms"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 2. EXPERIENCES — Sorter */}
-      <PropertySorter
-        sectionLabel="Experiences"
-        headline="Desert Explorations"
-        description="From sunrise salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is led by expert local guides."
-        categories={experienceCategories}
-        cards={experienceCards}
-        learnMoreLink="/alto-atacama/experiences"
-        learnMoreLabel="Explore Experiences"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 3. SUSTAINABILITY — Slider */}
-      <PropertySlider
-        sectionLabel="Sustainability"
-        headline="Protecting the Desert"
-        description="Our commitment to the Atacama goes beyond hospitality — protecting fragile ecosystems, supporting local communities, and operating with minimal environmental impact."
-        cards={sustainabilityCards}
-        learnMoreLink="/alto-atacama/sustainability"
-        learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 4. WELLNESS — Sorter */}
-      <PropertySorter
-        sectionLabel="Wellness"
-        headline="Geothermal Healing"
-        description="Harness the healing power of the desert — from volcanic mud rituals to salt crystal therapies, each treatment draws on the Atacama's ancient minerals."
-        categories={wellnessCategories}
-        cards={wellnessCards}
-        learnMoreLink="/alto-atacama/wellness"
-        learnMoreLabel="Explore Wellness"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 5. GASTRONOMY — Slider */}
-      <PropertySlider
-        sectionLabel="A Taste of Place"
-        headline="Desert Dining"
-        description="Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine — from quinoa harvested at altitude to herbs cultivated in our desert gardens."
-        cards={gastronomyCards}
-        learnMoreLink="/alto-atacama/gastronomy"
-        learnMoreLabel="Explore Dining"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* Remaining visual cascade sections */}
-      {CASCADE_SECTIONS.slice(1).map((section, i) => (
+      {CASCADE_SECTIONS.map((section, i) => (
         <CascadeSection
           key={i}
           label={section.label}
@@ -639,7 +551,7 @@ export default function AltoAtacama() {
           verticalRatio={section.vRatio}
           horizontalRatio={section.hRatio}
           textSide={section.textSide}
-          bgColor={SECTION_COLORS[Math.min(i + 7, SECTION_COLORS.length - 1)]}
+          bgColor={SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1]}
           link={section.link}
           linkLabel={section.linkLabel}
           badges={section.badges}
@@ -659,6 +571,7 @@ export default function AltoAtacama() {
       />
 
       <GettingHereSection />
+      <AwardsSection />
       <ReserveCTA />
       <Footer />
     </div>
