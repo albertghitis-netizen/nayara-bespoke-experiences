@@ -1943,3 +1943,10 @@
 - [x] Cascade trim: cut off property pages after pillars + Nayara By Night, comment out extra sections (preserve, don't delete)
 - [x] Performance pass: reduce/cut heavy videos, optimize for speed (cascade trim removed bulk of heavy video load)
 - [x] Add deep page links (Rooms, Experiences, Wellness, Gastronomy, Sustainability) to all pillar sections on all 6 property pages
+- [ ] Add scrolling letter headers with property-specific colors to all deep pages (Experiences, Wellness, Gastronomy, Sustainability)
+- [ ] Fix hero video on experiences deep page showing wrong property imagery (Moai instead of correct property)
+- [x] Update brand book with correct property palettes (match actual propertyPalettes.ts values)
+- [x] Clean brand book copy — remove Alo Yoga reference
+- [ ] Re-enable audio on mobile vertical hero videos across all property pages
+- [ ] Add scrolling letter headers with property-specific colors to all deep pages
+- [x] Gallery: rebuilt as full media inventory — 139 assets, Pinterest masonry, property/media filters, snail badges, usage labels, native aspect ratios

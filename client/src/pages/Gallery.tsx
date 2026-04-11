@@ -1,250 +1,212 @@
 /**
- * NAYARA GALLERY — Brand-Level Pinterest Masonry
- * Curated mix of photography from all properties with sparing short videos.
- * True CSS-column masonry with varied tile sizes and organic flow.
- * Property filter pills + lightbox on click.
+ * NAYARA GALLERY — Full Media Inventory
+ * Pinterest masonry with every asset at native aspect ratio.
+ * Filters: Property, Media Type (Stills/Videos), Slowpokes
+ * 🐌 Snail badge on heavy assets. Usage labels on each tile.
+ * Desktop only. No autoplay on videos — click to play.
  */
 
-import { useState, useRef, useMemo, useCallback, useEffect } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useState, useRef, useCallback, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import BrandNavigation from "@/components/BrandNavigation";
-import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
-import ContentCrossLinks from "@/components/ContentCrossLinks";
-import type { GalleryItem } from "@/data/gallery";
-import {
-  springsGallery,
-  atacamaGallery,
-  bocasGallery,
-  tentedCampGallery,
-  gardensGallery,
-  hangaroaGallery,
-} from "@/data/gallery";
+import { MEDIA_CATALOG, PROPERTY_FILTERS, type MediaAsset } from "@/data/mediaCatalog";
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
-/* ─── Curated selection: hand-picked best from each property ─── */
-type GalleryEntry = GalleryItem & { property: string; propertyLabel: string };
+/* ─── Filter types ─── */
+type PropertyFilter = string; // "all" or a property key
+type MediaFilter = "all" | "video" | "image";
 
-const PROPERTY_META: Record<string, { label: string; color: string }> = {
-  springs: { label: "Nayara Springs", color: "#1a4a2e" },
-  "tented-camp": { label: "Nayara Tented Camp", color: "#4a5a3a" },
-  gardens: { label: "Nayara Gardens", color: "#3A5E3A" },
-  "alto-atacama": { label: "Nayara Alto Atacama", color: "#8b4513" },
-  "bocas-del-toro": { label: "Nayara Bocas del Toro", color: "#2A6B7A" },
-  hangaroa: { label: "Nayara Hangaroa", color: "#5a5a5a" },
-};
+/* ─── Tile Component ─── */
+function GalleryTile({ asset, onClick }: { asset: MediaAsset; onClick: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [naturalAspect, setNaturalAspect] = useState<number | null>(null);
 
-/* Curated IDs — best images per property, no hero videos, no logos, no duplicates */
-const CURATED_IDS = new Set([
-  // Springs — hot springs, plunge pools, rainforest
-  "spr-s1", "spr-s2", "spr-s3", "spr-pools", "spr-plunge", "spr-img8113",
-  "cr-bridges", "cr-horseback", "cr-yoga", "cr-zipline", "cr-frog-hero",
-  "cr-bird-hero", "cr-hs-hero", "cr-spa-kids",
-  // Atacama — desert, stars, salt flats
-  "ata-s1", "ata-s2", "ata-pool", "ata-stars", "ata-suite", "ata-s4",
-  // Bocas — overwater, Caribbean, aerial
-  "boc-s1", "boc-s2", "boc-86", "boc-97", "boc-119", "boc-126",
-  "boc-villa-couple", "boc-aerial-boardwalk", "boc-clear-swim",
-  "boc-treehouses", "boc-full-resort", "boc-infinity-pool",
-  "boc-turquoise", "boc-bungalows-row",
-  // Tented Camp — tents, volcano, rainforest
-  "tc-s1", "tc-s2", "tc-s4", "tc-ext", "tc-hero2", "tc-tent3", "tc-fam2",
-  // Gardens — lush grounds
-  "gar-s1", "gar-s2", "gar-s3", "gar-s4",
-  // Hangaroa — Moai, coast, volcanic
-  "han-s1", "han-s2", "han-moai", "han-coast", "han-volcanic",
-  "han-aerial", "han-pool", "han-room", "han-moai2", "han-sunset",
-  // Sparing videos (3-4 total)
-  "spr-vid1", "tc-vid-vert", "boc-vid-aerial",
-]);
+  const propFilter = PROPERTY_FILTERS.find((p) => p.key === asset.property);
+  const propColor = propFilter?.color || "#999";
+  const propLabel = propFilter?.label || "?";
 
-function buildCuratedGallery(): GalleryEntry[] {
-  const sources: Array<{ items: GalleryItem[]; property: string }> = [
-    { items: springsGallery, property: "springs" },
-    { items: atacamaGallery, property: "alto-atacama" },
-    { items: bocasGallery, property: "bocas-del-toro" },
-    { items: tentedCampGallery, property: "tented-camp" },
-    { items: gardensGallery, property: "gardens" },
-    { items: hangaroaGallery, property: "hangaroa" },
-  ];
-
-  const result: GalleryEntry[] = [];
-  for (const { items, property } of sources) {
-    const meta = PROPERTY_META[property];
-    for (const item of items) {
-      if (CURATED_IDS.has(item.id)) {
-        result.push({ ...item, property, propertyLabel: meta.label });
+  const handlePlayClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
       }
     }
-  }
+  };
 
-  // Shuffle for organic feel but keep a deterministic seed
-  return shuffleDeterministic(result, 42);
-}
+  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget;
+    setNaturalAspect(img.naturalWidth / img.naturalHeight);
+    setImageLoaded(true);
+  };
 
-function shuffleDeterministic<T>(arr: T[], seed: number): T[] {
-  const a = [...arr];
-  let s = seed;
-  for (let i = a.length - 1; i > 0; i--) {
-    s = (s * 16807 + 0) % 2147483647;
-    const j = s % (i + 1);
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-const ALL_ITEMS = buildCuratedGallery();
-
-/* ─── Filter options ─── */
-const FILTERS = [
-  { id: "all", label: "All Properties" },
-  { id: "springs", label: "Springs" },
-  { id: "tented-camp", label: "Tented Camp" },
-  { id: "gardens", label: "Gardens" },
-  { id: "alto-atacama", label: "Alto Atacama" },
-  { id: "bocas-del-toro", label: "Bocas del Toro" },
-  { id: "hangaroa", label: "Hangaroa" },
-];
-
-/* ─── Tile size assignment for masonry variety ─── */
-type TileSize = "standard" | "tall" | "wide" | "featured";
-
-function assignTileSize(item: GalleryEntry, index: number): TileSize {
-  // Videos get featured treatment
-  if (item.type === "video") return "featured";
-  // Portrait images get tall
-  if (item.orientation === "portrait") return "tall";
-  // Every 7th landscape gets wide treatment
-  if (index % 7 === 0) return "wide";
-  // Every 11th gets featured
-  if (index % 11 === 0) return "featured";
-  return "standard";
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   MASONRY TILE — Individual gallery item
-   ═══════════════════════════════════════════════════════════════ */
-function MasonryTile({
-  item,
-  size,
-  onClick,
-}: {
-  item: GalleryEntry;
-  size: TileSize;
-  onClick: () => void;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const meta = PROPERTY_META[item.property];
+  const handleVideoLoad = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const vid = e.currentTarget;
+    if (vid.videoWidth && vid.videoHeight) {
+      setNaturalAspect(vid.videoWidth / vid.videoHeight);
+    }
+  };
 
   return (
-    <motion.div
-      ref={ref}
-      layout
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`
-        break-inside-avoid mb-4 md:mb-5 cursor-pointer group relative overflow-hidden rounded-sm
-        ${size === "wide" ? "col-span-2" : ""}
-      `}
+    <div
+      className="break-inside-avoid mb-4 cursor-pointer group relative"
       onClick={onClick}
     >
-      {item.type === "video" ? (
-        <div className="relative">
-          <NativeVideo
-            src={item.src}
-            className="w-full h-auto object-cover"
-            hasAudio={false}
+      {/* Media */}
+      <div className="relative overflow-hidden rounded-lg bg-stone-200">
+        {asset.mediaType === "video" ? (
+          <>
+            <video
+              ref={videoRef}
+              src={asset.url}
+              preload="metadata"
+              playsInline
+              muted
+              onLoadedMetadata={handleVideoLoad}
+              className="w-full h-auto block"
+              style={{ display: "block" }}
+            />
+            {/* Play/Pause overlay */}
+            <button
+              onClick={handlePlayClick}
+              className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors"
+            >
+              {!isPlaying && (
+                <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                  <svg
+                    className="w-6 h-6 text-stone-800 ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              )}
+            </button>
+            {/* VIDEO badge */}
+            <div
+              className="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] tracking-wider uppercase text-white font-medium"
+              style={{ ...body, backgroundColor: "rgba(0,0,0,0.6)" }}
+            >
+              VIDEO · {asset.format}
+            </div>
+          </>
+        ) : (
+          <img
+            src={asset.url}
+            alt={asset.displayName}
+            loading="lazy"
+            onLoad={handleImageLoad}
+            className="w-full h-auto block"
+            style={{ display: imageLoaded ? "block" : "none" }}
           />
-          {/* Video indicator */}
-          <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-sm rounded-full px-2.5 py-1 flex items-center gap-1.5">
-            <svg className="w-3 h-3 text-white/80" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            <span className="text-[9px] text-white/70 tracking-wider uppercase" style={body}>
-              Video
-            </span>
-          </div>
-        </div>
-      ) : (
-        <img
-          src={item.src}
-          alt={item.alt}
-          className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-          loading="lazy"
-        />
-      )}
+        )}
 
-      {/* Hover overlay with property label */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-        <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-          <p
-            className="text-white/90 text-[10px] tracking-[0.2em] uppercase mb-1"
-            style={{ ...body, fontWeight: 500 }}
+        {/* Slowpoke snail badge */}
+        {asset.slowpoke && (
+          <div
+            className="absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/90 flex items-center justify-center shadow-lg"
+            title={`Slowpoke: ${asset.sizeMb} MB`}
           >
-            {item.propertyLabel}
-          </p>
-          <p
-            className="text-white/60 text-[13px] leading-snug"
-            style={body}
-          >
-            {item.alt}
-          </p>
+            <span className="text-base leading-none">🐌</span>
+          </div>
+        )}
+
+        {/* Size badge */}
+        <div
+          className="absolute bottom-2 right-2 px-1.5 py-0.5 rounded text-[9px] tracking-wide text-white/90 font-medium"
+          style={{ ...body, backgroundColor: "rgba(0,0,0,0.5)" }}
+        >
+          {asset.sizeMb} MB
         </div>
       </div>
 
-      {/* Subtle property color accent line */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ backgroundColor: meta.color }}
-      />
-    </motion.div>
+      {/* Info bar below media */}
+      <div className="mt-2 px-1">
+        {/* Property tag + orientation */}
+        <div className="flex items-center gap-2 mb-1">
+          <span
+            className="inline-block px-2 py-0.5 rounded-full text-[10px] tracking-wider uppercase text-white"
+            style={{ ...body, backgroundColor: propColor, fontWeight: 500 }}
+          >
+            {propLabel}
+          </span>
+          {asset.orientation !== "unknown" && (
+            <span
+              className="text-[10px] tracking-wider uppercase text-stone-400"
+              style={body}
+            >
+              {asset.orientation === "vertical" ? "↕ Vertical" : "↔ Horizontal"}
+            </span>
+          )}
+        </div>
+
+        {/* Display name */}
+        <p
+          className="text-[12px] text-stone-700 leading-tight truncate"
+          style={{ ...body, fontWeight: 500 }}
+          title={asset.displayName}
+        >
+          {asset.displayName}
+        </p>
+
+        {/* Usage label */}
+        <p
+          className="text-[10px] text-stone-400 leading-tight mt-0.5 truncate"
+          style={body}
+          title={asset.usageLabel}
+        >
+          Used in: {asset.usageLabel || "—"}
+        </p>
+      </div>
+    </div>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   LIGHTBOX — Full-screen image viewer
-   ═══════════════════════════════════════════════════════════════ */
+/* ─── Lightbox ─── */
 function Lightbox({
-  item,
+  asset,
   onClose,
   onPrev,
   onNext,
 }: {
-  item: GalleryEntry;
+  asset: MediaAsset;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
 }) {
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") onPrev();
-      if (e.key === "ArrowRight") onNext();
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [onClose, onPrev, onNext]);
-
-  const meta = PROPERTY_META[item.property];
+  const propFilter = PROPERTY_FILTERS.find((p) => p.key === asset.property);
+  const propColor = propFilter?.color || "#999";
+  const propLabel = propFilter?.label || "?";
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center"
+      className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center"
       onClick={onClose}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") onClose();
+        if (e.key === "ArrowLeft") onPrev();
+        if (e.key === "ArrowRight") onNext();
+      }}
+      tabIndex={0}
+      role="dialog"
     >
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+        className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
       >
         <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -254,7 +216,7 @@ function Lightbox({
       {/* Nav arrows */}
       <button
         onClick={(e) => { e.stopPropagation(); onPrev(); }}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+        className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
       >
         <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -262,7 +224,7 @@ function Lightbox({
       </button>
       <button
         onClick={(e) => { e.stopPropagation(); onNext(); }}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+        className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
       >
         <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -271,187 +233,274 @@ function Lightbox({
 
       {/* Media */}
       <div
-        className="max-w-[90vw] max-h-[85vh] flex flex-col items-center"
+        className="max-w-[85vw] max-h-[75vh] flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
-        {item.type === "video" ? (
+        {asset.mediaType === "video" ? (
           <video
-            src={item.src}
-            className="max-w-full max-h-[75vh] object-contain rounded-sm"
+            src={asset.url}
+            controls
             autoPlay
-            loop
             muted
             playsInline
+            className="max-w-full max-h-[75vh] rounded-lg"
           />
         ) : (
           <img
-            src={item.src}
-            alt={item.alt}
-            className="max-w-full max-h-[75vh] object-contain rounded-sm"
+            src={asset.url}
+            alt={asset.displayName}
+            className="max-w-full max-h-[75vh] rounded-lg object-contain"
           />
         )}
-        <div className="mt-4 text-center">
-          <p
-            className="text-white/50 text-[10px] tracking-[0.2em] uppercase mb-1"
-            style={{ ...body, fontWeight: 500, color: meta.color }}
+      </div>
+
+      {/* Info bar */}
+      <div className="mt-4 text-center max-w-xl px-4">
+        <div className="flex items-center justify-center gap-3 mb-2">
+          <span
+            className="inline-block px-3 py-1 rounded-full text-[11px] tracking-wider uppercase text-white"
+            style={{ ...body, backgroundColor: propColor, fontWeight: 500 }}
           >
-            {item.propertyLabel}
-          </p>
-          <p className="text-white/70 text-sm" style={body}>
-            {item.alt}
-          </p>
+            {propLabel}
+          </span>
+          <span className="text-white/60 text-[11px] uppercase tracking-wider" style={body}>
+            {asset.mediaType === "video" ? "Video" : "Still"} · {asset.format} · {asset.sizeMb} MB
+          </span>
+          {asset.slowpoke && <span className="text-lg" title="Slowpoke">🐌</span>}
+          {asset.orientation !== "unknown" && (
+            <span className="text-white/40 text-[11px] uppercase tracking-wider" style={body}>
+              {asset.orientation === "vertical" ? "↕ Vertical" : "↔ Horizontal"}
+            </span>
+          )}
         </div>
+        <p className="text-white/80 text-sm" style={{ ...body, fontWeight: 500 }}>
+          {asset.displayName}
+        </p>
+        <p className="text-white/40 text-xs mt-1" style={body}>
+          Used in: {asset.usageLabel || "—"}
+        </p>
+        <p className="text-white/30 text-[10px] mt-1 font-mono">
+          {asset.filename}
+        </p>
       </div>
     </motion.div>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   GALLERY PAGE
-   ═══════════════════════════════════════════════════════════════ */
+/* ─── Main Gallery Page ─── */
 export default function Gallery() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [propertyFilter, setPropertyFilter] = useState<PropertyFilter>("all");
+  const [mediaFilter, setMediaFilter] = useState<MediaFilter>("all");
+  const [showSlowpokes, setShowSlowpokes] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const filtered = useMemo(() => {
-    if (activeFilter === "all") return ALL_ITEMS;
-    return ALL_ITEMS.filter((item) => item.property === activeFilter);
-  }, [activeFilter]);
-
-  const openLightbox = useCallback((index: number) => {
-    setLightboxIndex(index);
-    document.body.style.overflow = "hidden";
-  }, []);
-
-  const closeLightbox = useCallback(() => {
-    setLightboxIndex(null);
-    document.body.style.overflow = "";
-  }, []);
-
-  const prevItem = useCallback(() => {
-    setLightboxIndex((prev) => {
-      if (prev === null) return null;
-      return prev > 0 ? prev - 1 : filtered.length - 1;
+    return MEDIA_CATALOG.filter((asset) => {
+      if (propertyFilter !== "all" && asset.property !== propertyFilter) return false;
+      if (mediaFilter !== "all" && asset.mediaType !== mediaFilter) return false;
+      if (showSlowpokes && !asset.slowpoke) return false;
+      return true;
     });
+  }, [propertyFilter, mediaFilter, showSlowpokes]);
+
+  const openLightbox = useCallback((idx: number) => setLightboxIndex(idx), []);
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  const prevLightbox = useCallback(() => {
+    setLightboxIndex((i) => (i !== null ? (i - 1 + filtered.length) % filtered.length : null));
+  }, [filtered.length]);
+  const nextLightbox = useCallback(() => {
+    setLightboxIndex((i) => (i !== null ? (i + 1) % filtered.length : null));
   }, [filtered.length]);
 
-  const nextItem = useCallback(() => {
-    setLightboxIndex((prev) => {
-      if (prev === null) return null;
-      return prev < filtered.length - 1 ? prev + 1 : 0;
-    });
-  }, [filtered.length]);
+  // Stats
+  const totalVideos = MEDIA_CATALOG.filter((a) => a.mediaType === "video").length;
+  const totalImages = MEDIA_CATALOG.filter((a) => a.mediaType === "image").length;
+  const totalSlowpokes = MEDIA_CATALOG.filter((a) => a.slowpoke).length;
+  const filteredSlowpokes = filtered.filter((a) => a.slowpoke).length;
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="brand" />
+      <BrandNavigation />
 
-      {/* ── Hero header ── */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="text-[11px] tracking-[0.3em] uppercase mb-6"
-          style={{ ...body, fontWeight: 500, color: "#8a7e72" }}
+      {/* Hero */}
+      <section className="pt-28 pb-12 px-8 max-w-[1600px] mx-auto">
+        <h1
+          className="text-4xl md:text-5xl text-[#3a2a1a] tracking-wide mb-3"
+          style={display}
         >
-          Visual Stories
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-3xl md:text-5xl lg:text-[3.5rem] leading-[1.05] tracking-wide mb-6"
-          style={{ ...display, color: "#3a2a1a" }}
-        >
-          Gallery
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="max-w-xl mx-auto text-[15px] leading-[1.8]"
-          style={{ ...body, color: "#7a6f63" }}
-        >
-          A curated collection of moments from our resorts — from the volcanic
-          highlands of Costa Rica to the ancient shores of Rapa Nui.
-        </motion.p>
+          Media Library
+        </h1>
+        <p className="text-stone-500 text-sm tracking-wide max-w-2xl" style={body}>
+          Complete inventory of every image and video on the site.{" "}
+          <span className="text-[#3a2a1a] font-medium">
+            {MEDIA_CATALOG.length} assets
+          </span>{" "}
+          — {totalVideos} videos, {totalImages} stills.{" "}
+          {totalSlowpokes > 0 && (
+            <span className="text-red-600">
+              🐌 {totalSlowpokes} slowpokes flagged.
+            </span>
+          )}
+        </p>
       </section>
 
-      {/* ── Filter pills ── */}
-      <section className="px-6 pb-10 md:pb-14">
-        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-          {FILTERS.map((f) => {
-            const isActive = activeFilter === f.id;
-            return (
-              <button
-                key={f.id}
-                onClick={() => setActiveFilter(f.id)}
-                className={`
-                  px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-300 border
-                  ${isActive
-                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                    : "bg-transparent text-[#3a2a1a]/60 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40 hover:text-[#3a2a1a]"
-                  }
-                `}
-                style={{ ...body, fontWeight: 500 }}
-              >
-                {f.label}
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* ── Masonry grid ── */}
-      <section className="px-4 md:px-8 lg:px-12 pb-20 md:pb-28">
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={activeFilter}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-5"
-          >
-            {filtered.map((item, i) => (
-              <MasonryTile
-                key={item.id}
-                item={item}
-                size={assignTileSize(item, i)}
-                onClick={() => openLightbox(i)}
-              />
-            ))}
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Item count */}
-        <div className="text-center mt-12">
+      {/* Filters */}
+      <section className="px-8 pb-8 max-w-[1600px] mx-auto">
+        {/* Property filters */}
+        <div className="mb-4">
           <p
-            className="text-[11px] tracking-[0.15em] uppercase"
-            style={{ ...body, fontWeight: 500, color: "#8a7e72" }}
+            className="text-[10px] tracking-[0.2em] uppercase text-stone-400 mb-2"
+            style={body}
           >
-            {filtered.length} {filtered.length === 1 ? "image" : "images"}
+            Property
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setPropertyFilter("all")}
+              className={`px-4 py-1.5 rounded-full text-[11px] tracking-wider uppercase transition-all ${
+                propertyFilter === "all"
+                  ? "bg-[#3a2a1a] text-white"
+                  : "bg-stone-200 text-stone-600 hover:bg-stone-300"
+              }`}
+              style={{ ...body, fontWeight: 500 }}
+            >
+              All ({MEDIA_CATALOG.length})
+            </button>
+            {PROPERTY_FILTERS.map((pf) => {
+              const count = MEDIA_CATALOG.filter(
+                (a) => a.property === pf.key
+              ).length;
+              if (count === 0) return null;
+              return (
+                <button
+                  key={pf.key}
+                  onClick={() => setPropertyFilter(pf.key)}
+                  className={`px-4 py-1.5 rounded-full text-[11px] tracking-wider uppercase transition-all ${
+                    propertyFilter === pf.key
+                      ? "text-white"
+                      : "bg-stone-200 text-stone-600 hover:bg-stone-300"
+                  }`}
+                  style={{
+                    ...body,
+                    fontWeight: 500,
+                    backgroundColor:
+                      propertyFilter === pf.key ? pf.color : undefined,
+                  }}
+                >
+                  {pf.label} ({count})
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Media type + Slowpoke filters */}
+        <div className="flex items-center gap-6">
+          <div>
+            <p
+              className="text-[10px] tracking-[0.2em] uppercase text-stone-400 mb-2"
+              style={body}
+            >
+              Media Type
+            </p>
+            <div className="flex gap-2">
+              {(
+                [
+                  { key: "all", label: "All" },
+                  { key: "image", label: "Stills" },
+                  { key: "video", label: "Videos" },
+                ] as const
+              ).map((mf) => (
+                <button
+                  key={mf.key}
+                  onClick={() => setMediaFilter(mf.key)}
+                  className={`px-4 py-1.5 rounded-full text-[11px] tracking-wider uppercase transition-all ${
+                    mediaFilter === mf.key
+                      ? "bg-[#3a2a1a] text-white"
+                      : "bg-stone-200 text-stone-600 hover:bg-stone-300"
+                  }`}
+                  style={{ ...body, fontWeight: 500 }}
+                >
+                  {mf.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p
+              className="text-[10px] tracking-[0.2em] uppercase text-stone-400 mb-2"
+              style={body}
+            >
+              Performance
+            </p>
+            <button
+              onClick={() => setShowSlowpokes(!showSlowpokes)}
+              className={`px-4 py-1.5 rounded-full text-[11px] tracking-wider uppercase transition-all ${
+                showSlowpokes
+                  ? "bg-red-500 text-white"
+                  : "bg-stone-200 text-stone-600 hover:bg-stone-300"
+              }`}
+              style={{ ...body, fontWeight: 500 }}
+            >
+              🐌 Slowpokes ({totalSlowpokes})
+            </button>
+          </div>
+        </div>
+
+        {/* Results count */}
+        <div className="mt-4 pt-4 border-t border-stone-200">
+          <p className="text-stone-400 text-xs" style={body}>
+            Showing {filtered.length} of {MEDIA_CATALOG.length} assets
+            {filteredSlowpokes > 0 && (
+              <span className="text-red-500 ml-2">
+                · 🐌 {filteredSlowpokes} slowpokes in view
+              </span>
+            )}
           </p>
         </div>
       </section>
 
-      {/* ── Cross-links ── */}
-      <ContentCrossLinks currentPage="gallery" />
+      {/* Masonry Grid */}
+      <section className="px-8 pb-20 max-w-[1600px] mx-auto">
+        {filtered.length === 0 ? (
+          <div className="text-center py-20">
+            <p className="text-stone-400 text-lg" style={display}>
+              No assets match your filters
+            </p>
+          </div>
+        ) : (
+          <div
+            className="gap-4"
+            style={{
+              columnCount: 4,
+              columnGap: "1rem",
+            }}
+          >
+            {filtered.map((asset, idx) => (
+              <GalleryTile
+                key={asset.url}
+                asset={asset}
+                onClick={() => openLightbox(idx)}
+              />
+            ))}
+          </div>
+        )}
+      </section>
 
-      <Footer />
-
-      {/* ── Lightbox ── */}
+      {/* Lightbox */}
       <AnimatePresence>
         {lightboxIndex !== null && filtered[lightboxIndex] && (
           <Lightbox
-            item={filtered[lightboxIndex]}
+            asset={filtered[lightboxIndex]}
             onClose={closeLightbox}
-            onPrev={prevItem}
-            onNext={nextItem}
+            onPrev={prevLightbox}
+            onNext={nextLightbox}
           />
         )}
       </AnimatePresence>
+
+      <Footer />
     </div>
   );
 }
