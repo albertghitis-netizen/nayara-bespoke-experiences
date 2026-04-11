@@ -1920,3 +1920,14 @@
 - [ ] Apply property colors to buttons on all property and deep pages
 - [ ] Apply property colors to footer on all property and deep pages
 - [ ] Apply property colors to all CR deep pages (Experiences, Wellness, Gastronomy, Sustainability) per property
+- [ ] CR Experiences: restructure into "Explore the Hotel" vs "Explore Arenal" sections
+- [ ] Tented Camp: add Pura Vida blog link in Experiences section
+- [ ] Tented Camp: add Alfaro podcast link in Sustainability section
+- [ ] Blog/podcast labels use property color palette
+- [ ] CR Experiences: restructure into "Explore the Hotel" vs "Explore Arenal" sections
+- [ ] Tented Camp: add Pura Vida blog link in Experiences section
+- [ ] Tented Camp: add Alfaro podcast link in Sustainability section
+- [ ] Atacama: add "This is Mars" blog link in Story section
+- [ ] Atacama: add Stargazing blog link in Experiences section
+- [ ] Bocas del Toro: add Coral Reef Restoration podcast (Coming Soon) in Sustainability section
+- [ ] Blog/podcast labels use property color palette
