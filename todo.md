@@ -1910,3 +1910,8 @@
 - [x] Use tropical aerial photo for Tented Camp card in Our Properties grid
 - [ ] Fix Tented Camp awards: third badge should be Leading Hotels of the World (LHW)
 - [ ] Tented Camp: restructure experience section to have Explore the Hotel + Explore sections like old Arenal page
+- [x] Bocas del Toro: fix H1, hero video, and connect cascade sections
+- [x] Bocas del Toro: add new vertical drone video to accommodation section (left side)
+- [x] Bocas del Toro: fix Panamá encoding issue
+- [ ] Bocas del Toro: ensure cascade is continuous from hero through gastronomy
+- [x] Bocas: move Wellness Caribbean Serenity vertical video to S1 position

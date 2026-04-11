@@ -64,12 +64,12 @@ const ASSETS = {
   heroDesktop: `${CDN}/nbt-horizontal-desktop_0c584342.mp4`,
   heroMobile: `${CDN}/bocas-vertical2_03bbe8e5.mp4`,
 
-  // Section 1 — Story: room video V + lagoon photo H
-  storyV: `${CDN}/bocas-drone-vertical_e44907ce.mp4`,
+  // Section 1 — Story: wellness gallery video2 V (moved from wellness) + lagoon photo H
+  storyV: `${CDN}/bocas-gallery-video2_1dd3d81d.mp4`,
   storyH: `${CDN}/74_be6f8cb4.jpg`,
 
-  // Section 2 — Rooms: villas walkway V + aerial curved villas H
-  roomsV: `${CDN}/bocas-aerial-villas-walkway_66b2f48e.jpg`,
+  // Section 2 — Rooms: new drone overwater video V + aerial curved villas H
+  roomsV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-drone-overwater_deda9dc1.mp4",
   roomsH: `${CDN}/80_57ce5c18.jpg`,
 
   // Section 3 — Experiences: gallery video1 V + resort aerial sunset H
@@ -80,8 +80,8 @@ const ASSETS = {
   susV: `${CDN}/bocas-couple-villa-pool_42fafe14.jpg`,
   susH: `${CDN}/bocas-aerial-villas-mangroves_9d5e94f5.jpg`,
 
-  // Section 5 — Wellness: gallery video2 V + overwater deck H
-  wellV: `${CDN}/bocas-gallery-video2_1dd3d81d.mp4`,
+  // Section 5 — Wellness: original drone vertical V + overwater deck H
+  wellV: `${CDN}/bocas-drone-vertical_e44907ce.mp4`,
   wellH: `${CDN}/bocas-overwater-villas-deck_16555482.jpg`,
 
   // Section 6 — Gastronomy: copper mule V + tropical brunch H
@@ -175,7 +175,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     body: "Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.",
     verticalSrc: ASSETS.roomsV,
     horizontalSrc: ASSETS.roomsH,
-    verticalIsVideo: false,
+    verticalIsVideo: true,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -554,35 +554,32 @@ function HeroSection() {
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
-    <>
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-        </div>
-      </section>
-      <div
-        className="py-10 md:py-14 px-6 md:px-10 text-center"
-        style={{ backgroundColor: SECTION_COLORS[0], fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-      >
-        <MultiLineReveal
-          lines={["Overwater Villas on a Private Caribbean Island"]}
-          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.2}
-          staggerDelay={0.15}
-        />
+    <section className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+      </div>
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Overwater Villas on a Private Caribbean Island
+        </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-3 text-[11px] md:text-xs tracking-[0.25em] uppercase"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: PALETTE.textSecondary }}
+          className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
-          Isla Pastores, Bocas del Toro, Panam\u00e1
+          Isla Pastores, Bocas del Toro, Panamá
         </motion.p>
       </div>
-    </>
+    </section>
   );
 }
 
