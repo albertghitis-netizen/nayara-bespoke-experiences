@@ -11,6 +11,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import ByNightCTA from "@/components/ByNightCTA";
+import VineAnimation from "@/components/VineAnimation";
 import {
   AnimateOnScroll,
   TextReveal,
@@ -182,7 +183,7 @@ function CascadeSection({
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media — full-bleed to its edge */}
-        <div className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
+        <div className={`w-full md:w-1/2 relative z-[2] ${textLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
               src={section.verticalSrc}
@@ -253,7 +254,7 @@ function CascadeSection({
       </div>
 
       {/* ── Full-width horizontal media ── */}
-      <div style={{ backgroundColor: section.nextBgColor }}>
+      <div className="relative z-[2]" style={{ backgroundColor: section.nextBgColor }}>
         <MediaReveal delay={0.05}>
           <MediaBlock
             src={section.horizontalSrc}
@@ -860,7 +861,8 @@ function GallerySection() {
    ═══════════════════════════════════════════════════════════════ */
 export default function TentedCamp() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
+    <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
+      <VineAnimation />
       <BrandNavigation pageType="property" />
       <HeroSection />
 

@@ -1853,11 +1853,11 @@
 - [x] Hide center nav text on ALL deep pages (32 property deep pages + 4 brand pillar pages)
 - [ ] Put H1s back on hero videos (property homes + brand home), same size as Beyond Sustainability text, overlaid on video
 - [ ] Fix Press & Awards page to match the rest of the site's design
-- [ ] Vine starts off left edge of page (not contained within max-w container)
+- [x] Vine starts off left edge of page (not contained within max-w container) — fixed: vine now uses full-width SVG overlay
 - [x] Remove vine from footer (keep leaf only)
 - [ ] H1 back on hero video, small size (start with Tented Camp)
 - [ ] H2 same size as H1, can't be bigger than H1
-- [ ] Build page-level vine that follows user down from top-left (start with Tented Camp)
+- [x] Build page-level vine that follows user down from top-left (start with Tented Camp) — done: scroll-driven vine with organic serpentine path, leaves, tendrils
 - [ ] Add location subtitle below property name in nav center label (e.g. "Arenal Volcano National Park, Costa Rica" below "Nayara Tented Camp")
 - [ ] Nav location subtitle: left-to-right typewriter animation effect on the location text
 - [x] Update Tented Camp story H2 to "Lifted On Stilts Above The Canopy / Eye to Eye with Arenal Volcano" (two lines)
@@ -1872,6 +1872,7 @@
 - [x] Gardens hero: H1 overlaid on video (matching Tented Camp) — done
 - [x] Springs hero: H1 overlaid on video (matching Tented Camp) — done
 - [x] Tented Camp S1: replaced photo with new vertical video — done
-- [ ] Atacama: H1 back on hero video (overlaid, bottom center)
-- [ ] Atacama: remove award badges from story section
-- [ ] Atacama: reconnect cascade (no gaps between sections)
+- [x] Atacama: H1 back on hero video (overlaid, bottom center)
+- [x] Atacama: remove award badges from story section
+- [x] Atacama: reconnect cascade (no gaps between sections)
+- [x] Tented Camp: scroll-driven vine animation that winds left-right down the page, growing as user scrolls — done: linear scroll mapping, seeded random path, visible leaves with gradients, vine behind images
