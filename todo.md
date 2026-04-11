@@ -1876,3 +1876,4 @@
 - [x] Atacama: remove award badges from story section
 - [x] Atacama: reconnect cascade (no gaps between sections)
 - [x] Tented Camp: scroll-driven vine animation that winds left-right down the page, growing as user scrolls — done: linear scroll mapping, seeded random path, visible leaves with gradients, vine behind images
+- [x] Tented Camp: disable vine animation on mobile (useIsMobile check)

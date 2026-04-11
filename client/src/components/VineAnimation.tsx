@@ -15,6 +15,7 @@
  * - All animations are scroll-driven (no timers)
  */
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useIsMobile } from "@/hooks/useMobile";
 
 /* ═══════════════════════════════════════════════════════════════
    SEEDED RANDOM — deterministic across page loads
@@ -147,6 +148,7 @@ function buildTendrils(count: number, rand: () => number): VineTendril[] {
    MAIN COMPONENT
    ═══════════════════════════════════════════════════════════════ */
 export default function VineAnimation() {
+  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
   const mainPathRef = useRef<SVGPathElement>(null);
   const [vinePath, setVinePath] = useState("");
@@ -255,7 +257,7 @@ export default function VineAnimation() {
     };
   }, [pathLength, dims]);
 
-  if (!vinePath || dims.w === 0) {
+  if (isMobile || !vinePath || dims.w === 0) {
     return <div ref={containerRef} className="absolute inset-0 pointer-events-none" />;
   }
 
