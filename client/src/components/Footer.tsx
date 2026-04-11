@@ -139,8 +139,13 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           </div>
         </div>
 
-        {/* Newsletter CTA — centered */}
-        <div className="flex justify-center mb-6">
+        {/* Newsletter CTA — centered, with leaf aligned */}
+        <div className="relative flex justify-center mt-10 mb-6">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
+            alt="Nayara leaf"
+            className="absolute right-0 top-1/2 -translate-y-[45%] w-24 h-24 md:w-32 md:h-32 opacity-15 pointer-events-none"
+          />
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
@@ -163,17 +168,8 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><TikTokIcon /></a>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-white/10 mb-6" />
-
-        {/* Copyright + Privacy + Leaf */}
-        <div className="relative flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-          {/* Nayara leaf — big, positioned left, overlaps upward so no extra footer height */}
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
-            alt="Nayara leaf"
-            className="absolute left-0 bottom-0 w-24 h-24 md:w-32 md:h-32 opacity-15 pointer-events-none"
-          />
+        {/* Copyright + Privacy */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
           <p
             className="text-white/20 text-[10px]"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
