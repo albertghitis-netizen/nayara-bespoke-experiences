@@ -73,7 +73,7 @@ const ASSETS = {
   gastroH: `${CDN}/Supersale-4_7834ffc2.jpg`,
 
   wildV: `${CDN}/costa-rica-toucan_a70ad74a.mp4`,
-  wildH: `${CDN}/bird-watching-horizontal_abd70271.mp4`,
+  wildH: `${CDN}/tc-mainpool-vertical_81b6bb28.mp4`,
 
   advV: `${CDN}/frog-tour-vertical_17b18385.mp4`,
   advH: `${CDN}/wildlife-reel_7c30f53f.mp4`,

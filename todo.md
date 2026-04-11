@@ -1526,3 +1526,5 @@
 - [ ] Integrate gallery photos into Bocas del Toro page sections
 - [ ] Integrate gallery photos into Tented Camp page sections
 - [ ] Remove gallery nav links and routes
+- [x] Replace Tented Camp Wildlife (Toucans & Tree Frogs) horizontal video with new pool video
+- [x] Sound controls only on hero videos (and only if hero has audio); removed hasAudio from AwardsAndPress, Blog, Gastronomy, CostaRica

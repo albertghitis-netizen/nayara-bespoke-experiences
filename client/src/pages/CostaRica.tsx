@@ -272,7 +272,6 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
         <NativeVideo
           src={heroVideo}
           className="w-full h-full object-cover"
-          hasAudio
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
