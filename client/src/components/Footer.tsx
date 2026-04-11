@@ -139,15 +139,6 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           </div>
         </div>
 
-        {/* Nayara leaf — left-aligned below column 1 */}
-        <div className="mt-10 mb-4">
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
-            alt="Nayara leaf"
-            className="w-16 h-16 md:w-20 md:h-20 opacity-25"
-          />
-        </div>
-
         {/* Newsletter CTA — centered */}
         <div className="flex justify-center mb-6">
           <a
@@ -175,8 +166,14 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
         {/* Divider */}
         <div className="h-px bg-white/10 mb-6" />
 
-        {/* Copyright + Privacy */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+        {/* Copyright + Privacy + Leaf */}
+        <div className="relative flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+          {/* Nayara leaf — big, positioned left, overlaps upward so no extra footer height */}
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
+            alt="Nayara leaf"
+            className="absolute left-0 bottom-0 w-24 h-24 md:w-32 md:h-32 opacity-15 pointer-events-none"
+          />
           <p
             className="text-white/20 text-[10px]"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
