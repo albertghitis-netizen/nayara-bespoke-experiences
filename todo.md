@@ -1564,3 +1564,11 @@
 
 ## Tented Camp Fix
 - [x] Remove duplicate vertical video from Volcanic Healing section (replaced with spa still image, fixed black space)
+
+## Brand Colors Refinement
+- [ ] Extract dominant colors from 36 brand reference images
+- [ ] Combine with existing Alo Yoga palette and curate final brand palette
+- [ ] Update Brand Book page with refined comprehensive palette
+
+## Tented Camp Return Cascade
+- [x] Add new video to Tented Camp "Return" / final cascade section

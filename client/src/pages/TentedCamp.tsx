@@ -40,6 +40,7 @@ const SECTION_COLORS = [
   "#B4B291", // 13 camp life
   "#AFB08A", // 14 rainforest mornings
   "#AAAD83", // 15 the canopy at dusk
+  "#A5A87C", // 16 return
 ];
 
 const PALETTE = {
@@ -725,7 +726,21 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[15],
-    nextBgColor: SECTION_COLORS[15],
+    nextBgColor: SECTION_COLORS[16],
+  },
+  {
+    id: "return",
+    label: "Until We Return",
+    headline: "Until We\nReturn",
+    body: "The trail back through the canopy feels different now — slower, more deliberate. Every hanging bridge, every birdsong, every shaft of light through the leaves becomes a memory you\u2019re already holding onto. Tented Camp doesn\u2019t say goodbye. It says: come back.",
+    verticalSrc: `${CDN}/tented-return-vertical_1400bdca.mp4`,
+    horizontalSrc: ASSETS.galleryVideo3,
+    verticalIsVideo: true,
+    horizontalIsVideo: true,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[16],
+    nextBgColor: SECTION_COLORS[16],
   },
 ];
 
