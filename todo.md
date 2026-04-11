@@ -1593,3 +1593,6 @@
 
 ## Nayara Springs Hero Video
 - [x] Replace Nayara Springs hero video with new MOV (with audio, desktop + mobile/vertical)
+
+## Fix Springs Hero Video Mix-up
+- [x] Fix hero swap: brand video (8492CD84) → homepage desktop, Springs-like video (Edits_NS_Vertical) → Springs desktop
