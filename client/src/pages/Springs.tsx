@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
+import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
@@ -97,6 +98,20 @@ export default function Springs() {
       <GastronomySection />
       <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
       <GallerySection />
+
+      {/* ★ By Night — hot springs under stars */}
+      <ByNightCTA
+        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
+        verticalIsVideo
+        verticalRatio="9/16"
+        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp"
+        horizontalRatio="16/9"
+        bgColor="#1a1a24"
+        headline={"Hot Springs\nUnder Stars"}
+        bodyText="As night falls over the volcanic landscape, the hot springs take on an otherworldly glow. Steam rises into the starlit sky while the sounds of the rainforest envelop you in warmth and wonder. Discover the extraordinary nocturnal experiences across all Nayara properties."
+        textSide="left"
+      />
+
       <Footer />
     </div>
   );

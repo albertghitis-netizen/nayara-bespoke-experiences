@@ -1611,3 +1611,23 @@
 
 ## Atacama H1 Update
 - [x] Change Atacama hero H1 to "Atacama Desert Lodge & Oasis" (one line), removed "Desert & Stars" subtitle
+
+## Bug Fix
+- [x] Fix /by-night route error — NayaraByNight.tsx failed to load (resolved after server restart)
+
+## Atacama H1 Final
+- [x] Revert Atacama H1 to "Atacama Desert Oasis Lodge"
+
+## Hangaroa Hero
+- [x] Replace Hangaroa hero with new video (with audio)
+
+## Night Sections in Cascades
+- [x] Add "By Night" cascade section to each property (before farewell), linking to /by-night page
+- [x] Keep /by-night page as the dedicated night experience hub
+- [x] Created shared ByNightCTA component with per-property customization
+- [x] Alto Atacama: "The Clearest Skies on Earth" with cactus milky way imagery
+- [x] Tented Camp: "When the Jungle Sleeps" with night video
+- [x] Springs: "Hot Springs Under Stars" with night video
+- [x] Gardens: "Rainforest After Dark" with frog tour video
+- [x] Bocas del Toro: "Bioluminescent Waters" with bioluminescence imagery
+- [x] Hangaroa: "Moai Beneath the Milky Way" with Moai milky way imagery

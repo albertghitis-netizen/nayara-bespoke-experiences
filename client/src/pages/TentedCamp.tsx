@@ -10,6 +10,7 @@ import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import ByNightCTA from "@/components/ByNightCTA";
 import {
   AnimateOnScroll,
   TextReveal,
@@ -902,6 +903,20 @@ export default function TentedCamp() {
           index={i + SECTIONS_BEFORE_REVIEW.length + SECTIONS_AFTER_REVIEW.length + SECTIONS_AFTER_JOURNAL.length}
         />
       ))}
+
+      {/* ★ By Night — darkest end of cascade */}
+      <ByNightCTA
+        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
+        verticalIsVideo
+        verticalRatio="9/16"
+        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4"
+        horizontalIsVideo
+        horizontalRatio="16/9"
+        bgColor="#1a1a24"
+        headline={"When the\nJungle Sleeps"}
+        bodyText="As darkness falls over the canopy, a different world awakens. The chorus of frogs, the flash of fireflies, the distant rumble of Arenal — Tented Camp by night is a symphony of the wild. Discover the extraordinary nocturnal experiences across all Nayara properties."
+        textSide="right"
+      />
 
       <Footer />
     </div>

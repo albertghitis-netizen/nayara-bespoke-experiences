@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
+import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
@@ -117,6 +118,21 @@ export default function Gardens() {
       <GastronomySection />
       <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
       <GalleryIntegratedSections />
+
+      {/* ★ By Night — rainforest after dark */}
+      <ByNightCTA
+        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/cascade-bg-video_dccee724.mp4"
+        verticalIsVideo
+        verticalRatio="9/16"
+        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-horizontal_5269da4d.mp4"
+        horizontalIsVideo
+        horizontalRatio="16/9"
+        bgColor="#1a1a24"
+        headline={"Rainforest\nAfter Dark"}
+        bodyText="When the sun sets behind the volcano, the rainforest transforms. Nocturnal creatures emerge, the air fills with the chorus of frogs, and the canopy becomes a living theater of sound and shadow. Discover the extraordinary nocturnal experiences across all Nayara properties."
+        textSide="right"
+      />
+
       <Footer />
     </div>
   );

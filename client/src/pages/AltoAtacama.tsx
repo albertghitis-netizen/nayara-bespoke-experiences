@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
+import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
 import {
@@ -557,6 +558,18 @@ export default function AltoAtacama() {
         />
       ))}
 
+      {/* ★ By Night — darkest end of cascade */}
+      <ByNightCTA
+        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp"
+        verticalRatio="3/4"
+        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
+        horizontalRatio="16/9"
+        bgColor="#1a1a24"
+        headline={"The Clearest\nSkies on Earth"}
+        bodyText="At 2,400 meters in the driest desert on the planet, the Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Discover the extraordinary nocturnal experiences across all Nayara properties."
+        textSide="left"
+      />
+
       <GettingHereSection />
       <AwardsSection />
       <ReserveCTA />
@@ -581,7 +594,7 @@ function HeroSection() {
       {/* Hero text — subtle fade-in */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
         <MultiLineReveal
-          lines={["Atacama Desert Lodge & Oasis"]}
+          lines={["Atacama Desert Oasis Lodge"]}
           lineClassName="text-white text-3xl md:text-5xl lg:text-6xl leading-[1] tracking-wide text-center"
           as="h1"
           delay={0.6}
