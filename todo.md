@@ -1581,3 +1581,6 @@
 
 ## Nayara Gardens Room Image
 - [x] Add aerial casita photo to Nayara Gardens room cascade section
+
+## Atacama S1 Video
+- [x] Replace S1 vertical media on Alto Atacama page with new video (sky cut, red blends into red)

@@ -67,7 +67,7 @@ const ASSETS = {
   heroMobile: `${CDN}/atacama-hero-vertical-hq_d81c629e.mp4`,
 
   // Section 1 — Story: geyser steam V + resort exterior UW
-  storyV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-vertical_8d2715e0.mp4",
+  storyV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-red_bd8b7f0f.mp4",
   storyH: `${CDN}/atacama-ultrawide-2_c9a936b3.jpg`,
 
   // Section 2 — Rooms: resort aerial V + resort pathway UW
