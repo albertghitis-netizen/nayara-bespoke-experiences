@@ -1888,3 +1888,4 @@
 - [x] Tented Camp S1: add awards display below body text (Travel + Leisure, Green Globe, Virtuoso badges)
 - [x] Atacama: change H1 to "Atacama Desert Oasis Under the Stars"
 - [x] Swap wellness deep page hero video with new meter-based wellness video (with audio)
+- [x] Swap gastronomy deep page hero video with new A Taste of Place video (with audio)

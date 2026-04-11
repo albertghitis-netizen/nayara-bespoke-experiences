@@ -34,9 +34,9 @@ const maxW = "max-w-[1200px] mx-auto";
 
 /** Hero videos per property */
 const HERO_VIDEOS: Record<string, string> = {
-  "tented-camp": `${CDN_BASE}/wildlife-reel_7c30f53f.mp4`,
-  gardens: `${CDN_BASE}/wildlife-reel_7c30f53f.mp4`,
-  springs: `${CDN_BASE}/wildlife-reel_7c30f53f.mp4`,
+  "tented-camp": `${CDN_BASE}/gastronomy-hero-audio_0f3604db.mp4`,
+  gardens: `${CDN_BASE}/gastronomy-hero-audio_0f3604db.mp4`,
+  springs: `${CDN_BASE}/gastronomy-hero-audio_0f3604db.mp4`,
   "alto-atacama": `${CDN_BASE}/flamingos_1001c3d8.mp4`,
   "bocas-del-toro": `${CDN_BASE}/bocas_gallery_video_0a7e31ab.mp4`,
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
@@ -112,7 +112,7 @@ function GastronomyHero({
   return (
     <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
       <div className="relative w-full h-[55vh]">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>
