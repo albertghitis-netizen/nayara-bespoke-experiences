@@ -27,12 +27,22 @@ const maxW = "max-w-[1200px] mx-auto";
 
 /** Hero videos per property */
 const HERO_VIDEOS: Record<string, string> = {
-  "tented-camp": `${CDN_BASE}/hot-springs-horizontal_2508b725.mp4`,
-  gardens: `${CDN_BASE}/hot-springs-horizontal_2508b725.mp4`,
-  springs: `${CDN_BASE}/hot-springs-horizontal_2508b725.mp4`,
+  "tented-camp": `${CDN_BASE}/wellness-hero-meter-audio_f24ab2c6.mp4`,
+  gardens: `${CDN_BASE}/wellness-hero-meter-audio_f24ab2c6.mp4`,
+  springs: `${CDN_BASE}/wellness-hero-meter-audio_f24ab2c6.mp4`,
   "alto-atacama": `${CDN_BASE}/cfnetwork_b9ae0ca4.mp4`,
   "bocas-del-toro": `${CDN_BASE}/bocas-gallery-video2_1dd3d81d.mp4`,
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
+};
+
+/** Location subtitles per property */
+const LOCATIONS: Record<string, string> = {
+  "tented-camp": "Arenal Volcano National Park, Costa Rica",
+  gardens: "Arenal Volcano National Park, Costa Rica",
+  springs: "Arenal Volcano National Park, Costa Rica",
+  "alto-atacama": "San Pedro de Atacama, Chile",
+  "bocas-del-toro": "Bocas del Toro, Panam\u00e1",
+  hangaroa: "Rapa Nui, Easter Island, Chile",
 };
 
 /** CR properties share tented-camp data */
@@ -55,6 +65,7 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
   const property = properties.find((p: Property) => p.id === dataSlug)!;
   const propertyDisplay = properties.find((p: Property) => p.id === propertySlug);
   const propertyName = propertyDisplay?.name || "Nayara";
+  const location = LOCATIONS[propertySlug] || "";
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
@@ -62,6 +73,7 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
       <WellnessHero
         palette={palette}
         propertyName={propertyName}
+        location={location}
         spaHeadline={property.theme.spaHeadline}
         heroVideo={HERO_VIDEOS[propertySlug] || HERO_VIDEOS["tented-camp"]}
       />
@@ -75,18 +87,20 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
 function WellnessHero({
   palette,
   propertyName,
+  location,
   spaHeadline,
   heroVideo,
 }: {
   palette: PropertyPalette;
   propertyName: string;
+  location: string;
   spaHeadline: string;
   heroVideo: string;
 }) {
   return (
     <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
       <div className="relative w-full h-[55vh]">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>
@@ -106,6 +120,17 @@ function WellnessHero({
           >
             {propertyName}
           </motion.p>
+          {location && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="text-white/40 text-[10px] tracking-[0.15em] mt-1"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            >
+              {location}
+            </motion.p>
+          )}
         </div>
       </div>
     </Parallax>

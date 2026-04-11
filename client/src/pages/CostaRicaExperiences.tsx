@@ -36,6 +36,16 @@ const HERO_VIDEOS: Record<string, string> = {
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
 };
 
+/** Location subtitles per property */
+const LOCATIONS: Record<string, string> = {
+  "tented-camp": "Arenal Volcano National Park, Costa Rica",
+  gardens: "Arenal Volcano National Park, Costa Rica",
+  springs: "Arenal Volcano National Park, Costa Rica",
+  "alto-atacama": "San Pedro de Atacama, Chile",
+  "bocas-del-toro": "Bocas del Toro, Panam\u00e1",
+  hangaroa: "Rapa Nui, Easter Island, Chile",
+};
+
 /** H1 headlines per property */
 const HEADLINES: Record<string, string> = {
   "tented-camp": "Rainforest Adventures",
@@ -68,11 +78,12 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
   const propertyName = propertyDisplay?.name || "Nayara";
   const heroVideo = HERO_VIDEOS[propertySlug] || HERO_VIDEOS["tented-camp"];
   const headline = HEADLINES[propertySlug] || "Bespoke Experiences";
+  const location = LOCATIONS[propertySlug] || "";
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
-      <ExperiencesHero palette={palette} propertyName={propertyName} heroVideo={heroVideo} headline={headline} />
+      <ExperiencesHero palette={palette} propertyName={propertyName} location={location} heroVideo={heroVideo} headline={headline} />
       <ExperiencesContent property={property} palette={palette} />
       <Footer pageType="property" />
     </div>
@@ -82,11 +93,13 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
 function ExperiencesHero({
   palette,
   propertyName,
+  location,
   heroVideo,
   headline,
 }: {
   palette: PropertyPalette;
   propertyName: string;
+  location: string;
   heroVideo: string;
   headline: string;
 }) {
@@ -113,6 +126,17 @@ function ExperiencesHero({
           >
             {propertyName}
           </motion.p>
+          {location && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="text-white/40 text-[10px] tracking-[0.15em] mt-1"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+            >
+              {location}
+            </motion.p>
+          )}
         </div>
       </div>
     </Parallax>

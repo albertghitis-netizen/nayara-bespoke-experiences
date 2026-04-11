@@ -34,6 +34,16 @@ const HERO_VIDEOS: Record<string, string> = {
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
 };
 
+/** Location subtitles per property */
+const LOCATIONS: Record<string, string> = {
+  "tented-camp": "Arenal Volcano National Park, Costa Rica",
+  gardens: "Arenal Volcano National Park, Costa Rica",
+  springs: "Arenal Volcano National Park, Costa Rica",
+  "alto-atacama": "San Pedro de Atacama, Chile",
+  "bocas-del-toro": "Bocas del Toro, Panam\u00e1",
+  hangaroa: "Rapa Nui, Easter Island, Chile",
+};
+
 interface Props {
   propertySlug: string;
 }
@@ -45,11 +55,12 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
   const heroVideo = HERO_VIDEOS[propertySlug] || HERO_VIDEOS["tented-camp"];
   const dataKey = getSustainabilityKey(propertySlug);
   const data = sustainabilityData[dataKey] || sustainabilityData["costa-rica"];
+  const location = LOCATIONS[propertySlug] || "";
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
-      <SustainabilityHero palette={palette} propertyName={propertyName} headline={data.headline} heroVideo={heroVideo} />
+      <SustainabilityHero palette={palette} propertyName={propertyName} location={location} headline={data.headline} heroVideo={heroVideo} />
       <SustainabilityContent palette={palette} initiatives={data.initiatives} />
       <Footer pageType="property" />
     </div>
@@ -59,11 +70,13 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 function SustainabilityHero({
   palette,
   propertyName,
+  location,
   headline,
   heroVideo,
 }: {
   palette: PropertyPalette;
   propertyName: string;
+  location: string;
   headline: string;
   heroVideo: string;
 }) {
@@ -94,6 +107,17 @@ function SustainabilityHero({
         >
           {propertyName}
         </motion.p>
+        {location && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="text-white/40 text-[10px] tracking-[0.15em] mt-1"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+          >
+            {location}
+          </motion.p>
+        )}
       </div>
     </div>
   );
