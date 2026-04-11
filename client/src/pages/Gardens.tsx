@@ -13,6 +13,8 @@ import { properties, type Property, type Excursion, type Treatment } from "@/dat
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
+import PropertySlider from "@/components/PropertySlider";
+import PropertySorter from "@/components/PropertySorter";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -100,23 +102,111 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   SLIDER / SORTER PALETTE & DATA
+   ═══════════════════════════════════════════════════════════════ */
+const SLIDER_PALETTE = {
+  bg: PALETTE.gradientEnd,
+  text: PALETTE.text,
+  textSecondary: PALETTE.textSecondary,
+  primary: PALETTE.primary,
+  cardBg: "rgba(255,255,255,0.4)",
+  cardBorder: `${PALETTE.primary}15`,
+  pillBg: `${PALETTE.primary}08`,
+  pillActiveBg: PALETTE.primary,
+  pillActiveText: "#F5F1EB",
+};
+
+const roomCards = [
+  { title: "Arenal Casita", description: "Freestanding casitas surrounded by tropical gardens with private plunge pools, outdoor showers, and panoramic Arenal Volcano views. Wake to howler monkeys and fall asleep under a canopy of stars.", tags: ["Private plunge pool", "Volcano views", "Outdoor shower"] },
+  { title: "Arenal Suite", description: "Elevated suites offering expansive living spaces with handcrafted furnishings, deep soaking tubs, and wraparound terraces overlooking the rainforest canopy.", tags: ["Wraparound terrace", "Soaking tub", "Rainforest views"] },
+  { title: "Family Casita", description: "Spacious two-bedroom casitas designed for families, with interconnected rooms, a shared garden, and easy access to the resort's nature trails and pools.", tags: ["Two bedrooms", "Family-friendly", "Garden access"] },
+];
+
+const sustainabilityCards = [
+  { title: "Rainforest Conservation", description: "Over 70 acres of protected primary and secondary rainforest surrounding the resort, providing habitat for hundreds of bird species and wildlife." },
+  { title: "Organic Gardens", description: "On-site organic gardens supply our five restaurants with fresh herbs, vegetables, and fruits, reducing food miles to nearly zero." },
+  { title: "Carbon Neutral Operations", description: "Costa Rica's commitment to carbon neutrality is matched by our own — renewable energy, waste reduction, and reforestation programs." },
+  { title: "Community Impact", description: "Employing over 500 local staff and supporting community education, healthcare, and cultural preservation programs in the Arenal region." },
+];
+
+const gastronomyCards = (Array.isArray(costaRicaDining) ? costaRicaDining : (costaRicaDining as any).restaurants || [costaRicaDining]).map((r: any) => ({
+  title: r.name,
+  subtitle: r.cuisine || undefined,
+  description: r.description,
+  tags: r.atmosphere ? [r.atmosphere] : [],
+}));
+
+const experienceCategories = (gardens.excursionCategories || []).filter((c: { id: string; label: string }) => c.id !== "all");
+const experienceCards = gardens.excursions.map((e: Excursion) => ({ title: e.name, description: e.description, category: e.category, tags: e.duration ? [e.duration] : [] }));
+
+const wellnessCategories = (gardens.spaCategories || []).filter((c: { id: string; label: string }) => c.id !== "all");
+const wellnessCards = gardens.treatments.map((t: Treatment) => ({ title: t.name, description: t.description, category: t.category, tags: t.duration ? [t.duration] : [] }));
+
 export default function Gardens() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="160px" />
-      <RoomsSection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="160px" />
-      <ExperiencesSection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
-      <SustainabilitySection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
-      <WellnessSection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
-      <GastronomySection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
+
+      {/* ══ 1. ROOMS — Slider ══ */}
+      <PropertySlider
+        sectionLabel="Accommodations"
+        headline="Arenal Casitas"
+        description="Each freestanding casita is a private sanctuary surrounded by lush tropical gardens. With private plunge pools, outdoor showers, and panoramic volcano views."
+        cards={roomCards}
+        learnMoreLink="/gardens/rooms"
+        learnMoreLabel="Explore Rooms"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ══ 2. EXPERIENCES — Sorter ══ */}
+      <PropertySorter
+        sectionLabel="Experiences"
+        headline="Arenal Adventures"
+        description="From hanging bridge canopy walks to volcanic hot springs, every experience at Nayara Gardens connects you to the raw beauty of the Arenal region."
+        categories={experienceCategories}
+        cards={experienceCards}
+        learnMoreLink="/gardens/experiences"
+        learnMoreLabel="Explore More"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ══ 3. SUSTAINABILITY — Slider ══ */}
+      <PropertySlider
+        sectionLabel="Sustainability"
+        headline="Rooted in the Rainforest"
+        description="Nayara Gardens is committed to preserving the extraordinary biodiversity of the Arenal Volcano region through conservation, community, and responsible luxury."
+        cards={sustainabilityCards}
+        learnMoreLink="/gardens/sustainability"
+        learnMoreLabel="Explore More"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ══ 4. WELLNESS — Sorter ══ */}
+      <PropertySorter
+        sectionLabel="Wellness"
+        headline={gardens.theme.spaHeadline.replace("\n", " ")}
+        description="Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy."
+        categories={wellnessCategories}
+        cards={wellnessCards}
+        learnMoreLink="/gardens/wellness"
+        learnMoreLabel="Explore Wellness"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ══ 5. GASTRONOMY — Slider ══ */}
+      <PropertySlider
+        sectionLabel="A Taste of Place"
+        headline="Farm to Table"
+        description="Our chefs source ingredients from local farms and our own organic gardens to create cuisine that celebrates Costa Rica's biodiversity."
+        cards={gastronomyCards}
+        learnMoreLink="/gardens/gastronomy"
+        learnMoreLabel="Explore Dining"
+        palette={SLIDER_PALETTE}
+      />
+
       <GalleryIntegratedSections />
 
       {/* ★ By Night — rainforest after dark */}

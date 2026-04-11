@@ -12,6 +12,8 @@ import { properties, type Property, type Excursion, type Treatment } from "@/dat
 import { hangaroaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
+import PropertySlider from "@/components/PropertySlider";
+import PropertySorter from "@/components/PropertySorter";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -82,23 +84,111 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
 /* ═══════════════════════════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   SLIDER / SORTER PALETTE & DATA
+   ═══════════════════════════════════════════════════════════════ */
+const SLIDER_PALETTE = {
+  bg: PALETTE.gradientEnd,
+  text: PALETTE.text,
+  textSecondary: PALETTE.textSecondary,
+  primary: PALETTE.primary,
+  cardBg: "rgba(255,255,255,0.4)",
+  cardBorder: `${PALETTE.primary}15`,
+  pillBg: `${PALETTE.primary}08`,
+  pillActiveBg: PALETTE.primary,
+  pillActiveText: "#F5F1EB",
+};
+
+const roomCards = [
+  { title: "Rapa Nui Suite", description: "Spacious suites inspired by the island's volcanic landscape, with panoramic ocean views, private terraces, and locally crafted furnishings that honor Polynesian heritage.", tags: ["Ocean views", "Private terrace", "Cultural design"] },
+  { title: "Moai Suite", description: "Our most expansive accommodations, offering separate living areas with floor-to-ceiling windows framing the Pacific horizon. Each suite features a private garden and outdoor soaking tub.", tags: ["Separate living area", "Garden", "Soaking tub"] },
+  { title: "Ahu Suite", description: "Intimate retreats with direct garden access, handwoven textiles, and volcanic stone accents. Perfect for those seeking a deeply immersive connection to Rapa Nui culture.", tags: ["Garden access", "Cultural immersion", "Volcanic stone"] },
+];
+
+const sustainabilityCards = [
+  { title: "Rapa Nui Heritage Preservation", description: "Supporting the preservation of Rapa Nui's archaeological sites and cultural traditions through partnerships with local communities and UNESCO." },
+  { title: "Native Reforestation", description: "Replanting native species across the island to restore ecosystems that have been degraded over centuries, creating habitat for endemic wildlife." },
+  { title: "Ocean Conservation", description: "Protecting the marine ecosystems surrounding Easter Island through sustainable fishing practices and coral reef monitoring programs." },
+  { title: "Renewable Energy Transition", description: "Leading the island's transition to renewable energy with solar installations and energy-efficient operations across the resort." },
+];
+
+const gastronomyCards = (Array.isArray(hangaroaDining) ? hangaroaDining : (hangaroaDining as any).restaurants || [hangaroaDining]).map((r: any) => ({
+  title: r.name,
+  subtitle: r.cuisine || undefined,
+  description: r.description,
+  tags: r.atmosphere ? [r.atmosphere] : [],
+}));
+
+const experienceCategories = (hangaroa.excursionCategories || []).filter((c: { id: string; label: string }) => c.id !== "all");
+const experienceCards = hangaroa.excursions.map((e: Excursion) => ({ title: e.name, description: e.description, category: e.category, tags: e.duration ? [e.duration] : [] }));
+
+const wellnessCategories = (hangaroa.spaCategories || []).filter((c: { id: string; label: string }) => c.id !== "all");
+const wellnessCards = hangaroa.treatments.map((t: Treatment) => ({ title: t.name, description: t.description, category: t.category, tags: t.duration ? [t.duration] : [] }));
+
 export default function Hangaroa() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="160px" />
-      <RoomsSection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="160px" />
-      <ExperiencesSection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
-      <SustainabilitySection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
-      <WellnessSection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
-      <GastronomySection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
+
+      {/* ★ 1. ROOMS — Slider */}
+      <PropertySlider
+        sectionLabel="Accommodations"
+        headline="Island Suites"
+        description="Each suite draws inspiration from Rapa Nui's volcanic landscape and Polynesian heritage, with panoramic ocean views and private terraces overlooking the Pacific."
+        cards={roomCards}
+        learnMoreLink="/hangaroa/rooms"
+        learnMoreLabel="Explore Rooms"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 2. EXPERIENCES — Sorter */}
+      <PropertySorter
+        sectionLabel="Experiences"
+        headline="Rapa Nui Discoveries"
+        description="From sacred Moai sites to volcanic crater lakes and hidden caves, every experience on Easter Island connects you to one of the world's most mysterious civilizations."
+        categories={experienceCategories}
+        cards={experienceCards}
+        learnMoreLink="/hangaroa/experiences"
+        learnMoreLabel="Explore More"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 3. SUSTAINABILITY — Slider */}
+      <PropertySlider
+        sectionLabel="Sustainability"
+        headline="Guardians of Rapa Nui"
+        description="Preserving the island's archaeological heritage, restoring native ecosystems, and leading the transition to renewable energy on one of the world's most remote inhabited islands."
+        cards={sustainabilityCards}
+        learnMoreLink="/hangaroa/sustainability"
+        learnMoreLabel="Explore More"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 4. WELLNESS — Sorter */}
+      <PropertySorter
+        sectionLabel="Wellness"
+        headline={hangaroa.theme.spaHeadline.replace("\n", " ")}
+        description="Ancient Polynesian healing traditions meet modern wellness in a sanctuary where the Pacific Ocean provides the soundtrack and volcanic minerals nourish the body."
+        categories={wellnessCategories}
+        cards={wellnessCards}
+        learnMoreLink="/hangaroa/wellness"
+        learnMoreLabel="Explore Wellness"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 5. GASTRONOMY — Slider */}
+      <PropertySlider
+        sectionLabel="A Taste of Place"
+        headline="Pacific Island Cuisine"
+        description="Our chefs honor Rapa Nui's Polynesian culinary heritage, sourcing from local fishermen and island gardens to create cuisine that celebrates the bounty of the Pacific."
+        cards={gastronomyCards}
+        learnMoreLink="/hangaroa/gastronomy"
+        learnMoreLabel="Explore Dining"
+        palette={SLIDER_PALETTE}
+      />
+
       <GalleryIntegratedSections />
 
       {/* ★ By Night — Moai beneath the Milky Way */}

@@ -13,6 +13,8 @@ import { properties, type Property, type Excursion, type Treatment } from "@/dat
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
+import PropertySlider from "@/components/PropertySlider";
+import PropertySorter from "@/components/PropertySorter";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -79,22 +81,111 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   SLIDER / SORTER PALETTE & DATA
+   ═══════════════════════════════════════════════════════════════ */
+const SLIDER_PALETTE = {
+  bg: PALETTE.gradientEnd,
+  text: PALETTE.text,
+  textSecondary: PALETTE.textSecondary,
+  primary: PALETTE.primary,
+  cardBg: "rgba(255,255,255,0.4)",
+  cardBorder: `${PALETTE.primary}15`,
+  pillBg: `${PALETTE.primary}08`,
+  pillActiveBg: PALETTE.primary,
+  pillActiveText: "#F5F1EB",
+};
+
+const roomCards = [
+  { title: "Springs Villa", description: "Freestanding villas with private natural hot spring-fed plunge pools, outdoor garden showers, and floor-to-ceiling windows framing the Arenal Volcano. Each villa is a secluded sanctuary in the rainforest canopy.", tags: ["Private hot spring pool", "Volcano views", "Outdoor shower"] },
+  { title: "Springs Grand Villa", description: "Our most expansive villas, offering separate living areas, oversized hot spring pools, and wraparound terraces. Designed for those seeking the ultimate in privacy and space.", tags: ["Grand hot spring pool", "Separate living area", "Wraparound terrace"] },
+  { title: "Springs Family Villa", description: "Interconnected villas with shared garden spaces, perfect for families. Each villa maintains its own private hot spring pool while offering easy access to the resort's nature trails.", tags: ["Two bedrooms", "Family-friendly", "Private hot spring pool"] },
+];
+
+const sustainabilityCards = [
+  { title: "Geothermal Energy", description: "Harnessing the natural geothermal energy of the Arenal Volcano to heat our hot spring pools and reduce our carbon footprint." },
+  { title: "Rainforest Corridor Protection", description: "Maintaining a critical wildlife corridor connecting Arenal Volcano National Park to the Monteverde Cloud Forest Reserve." },
+  { title: "Water Stewardship", description: "Advanced water recycling systems and natural filtration processes ensure our hot springs remain pristine for generations." },
+  { title: "Sustainable Luxury Design", description: "Every villa is built with locally sourced materials and designed to minimize environmental impact while maximizing comfort." },
+];
+
+const gastronomyCards = (Array.isArray(costaRicaDining) ? costaRicaDining : (costaRicaDining as any).restaurants || [costaRicaDining]).map((r: any) => ({
+  title: r.name,
+  subtitle: r.cuisine || undefined,
+  description: r.description,
+  tags: r.atmosphere ? [r.atmosphere] : [],
+}));
+
+const experienceCategories = (springs.excursionCategories || []).filter((c: { id: string; label: string }) => c.id !== "all");
+const experienceCards = springs.excursions.map((e: Excursion) => ({ title: e.name, description: e.description, category: e.category, tags: e.duration ? [e.duration] : [] }));
+
+const wellnessCategories = (springs.spaCategories || []).filter((c: { id: string; label: string }) => c.id !== "all");
+const wellnessCards = springs.treatments.map((t: Treatment) => ({ title: t.name, description: t.description, category: t.category, tags: t.duration ? [t.duration] : [] }));
+
 export default function Springs() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="160px" />
-      <SpringsVillaSection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="160px" />
-      <ExperiencesSection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
-      <SustainabilitySection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
-      <WellnessSection />
-      <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
-      <GastronomySection />
+
+      {/* ★ 1. ROOMS — Slider */}
+      <PropertySlider
+        sectionLabel="Accommodations"
+        headline="Springs Villas"
+        description="Each freestanding villa is a private sanctuary with its own natural hot spring-fed plunge pool, surrounded by the lush rainforest canopy with views of the Arenal Volcano."
+        cards={roomCards}
+        learnMoreLink="/springs/rooms"
+        learnMoreLabel="Explore Rooms"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 2. EXPERIENCES — Sorter */}
+      <PropertySorter
+        sectionLabel="Experiences"
+        headline="Arenal Adventures"
+        description="From volcanic hot springs to canopy walks and wildlife encounters, every experience at Nayara Springs connects you to the extraordinary biodiversity of the Arenal region."
+        categories={experienceCategories}
+        cards={experienceCards}
+        learnMoreLink="/springs/experiences"
+        learnMoreLabel="Explore More"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 3. SUSTAINABILITY — Slider */}
+      <PropertySlider
+        sectionLabel="Sustainability"
+        headline="Protecting the Rainforest"
+        description="As the first hotel in Costa Rica to earn three Michelin Keys, Nayara Springs leads by example — preserving the Arenal ecosystem through geothermal energy, water stewardship, and community partnership."
+        cards={sustainabilityCards}
+        learnMoreLink="/springs/sustainability"
+        learnMoreLabel="Explore More"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 4. WELLNESS — Sorter */}
+      <PropertySorter
+        sectionLabel="Wellness"
+        headline={springs.theme.spaHeadline.replace("\n", " ")}
+        description="Volcanic mineral springs, open-air spa treatments, and ancient healing traditions merge in a sanctuary designed to restore body and spirit."
+        categories={wellnessCategories}
+        cards={wellnessCards}
+        learnMoreLink="/springs/wellness"
+        learnMoreLabel="Explore Wellness"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 5. GASTRONOMY — Slider */}
+      <PropertySlider
+        sectionLabel="A Taste of Place"
+        headline="Farm to Table"
+        description="Our chefs transform the Arenal region's extraordinary biodiversity into cuisine that celebrates Costa Rica's culinary heritage, sourcing from local farms and our own organic gardens."
+        cards={gastronomyCards}
+        learnMoreLink="/springs/gastronomy"
+        learnMoreLabel="Explore Dining"
+        palette={SLIDER_PALETTE}
+      />
+
       {/* ★ By Night — hot springs under stars */}
       <ByNightCTA
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"

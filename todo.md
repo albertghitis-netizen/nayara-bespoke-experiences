@@ -1744,3 +1744,42 @@
 
 ## Brand Home — Use Horizontal Hero for Both Orientations
 - [x] Replace vertical mobile hero video with the horizontal desktop hero video on the brand/home page
+
+## Property Pages — Alternating Slider/Sorter Sections + Inline Awards
+- [x] Create reusable PropertySlider component (horizontal carousel for Rooms, Sustainability, Gastronomy)
+- [x] Create reusable PropertySorter component (category filter tabs + grid for Experiences, Wellness)
+- [x] Move award badges into story/intro section (under body text, not separate section) on all 6 properties (Alto Atacama done)
+- [x] Remove standalone AwardBadgeStrip section from all 6 property pages (Alto Atacama done)
+- [x] Alto Atacama: Rooms→Slider, Experiences→Sorter, Sustainability→Slider, Wellness→Sorter, Gastronomy→Slider
+- [x] Tented Camp: Rooms→Slider, Experiences→Sorter, Sustainability→Slider, Wellness→Sorter, Gastronomy→Slider
+- [x] Gardens: Rooms→Slider, Experiences→Sorter, Sustainability→Slider, Wellness→Sorter, Gastronomy→Slider
+- [x] Springs: Rooms→Slider, Experiences→Sorter, Sustainability→Slider, Wellness→Sorter, Gastronomy→Slider
+- [x] Hangaroa: Rooms→Slider, Experiences→Sorter, Sustainability→Slider, Wellness→Sorter, Gastronomy→Slider
+- [ ] Bocas del Toro: Rooms→Slider, Experiences→Sorter, Sustainability→Slider, Wellness→Sorter, Gastronomy→Slider
+- [ ] All sections use property-specific color palettes
+
+## Brand-Level Photo Gallery
+- [ ] Build unified brand gallery page with real photos from all 6 properties
+- [ ] Sortable/filterable by property (Alto Atacama, Gardens, Springs, Tented Camp, Hangaroa, Bocas del Toro)
+- [ ] Replace current Gallery page with this new brand-level gallery
+
+## Shared Costa Rica Pages (Slider + Sorter Combo)
+- [ ] Costa Rica Experiences — shared page for Gardens, Springs, Tented Camp with Slider + Sorter combo
+- [ ] Costa Rica Sustainability — shared page with Slider + Sorter combo
+- [ ] Costa Rica Wellness — shared page with Slider + Sorter combo
+- [ ] Costa Rica Gastronomy — shared page with Slider + Sorter combo
+- [ ] Update Gardens, Springs, Tented Camp homepage links to point to shared Costa Rica pages
+- [ ] Update App.tsx routing for shared Costa Rica pages
+
+## Video/Photo Heroes on Secondary Pages
+- [ ] Discuss and decide on hero video/photo treatment for learn-more/secondary pages
+- [ ] Consider reusing video clips from property homepages as section heroes
+
+## UI Tweaks
+- [x] Change "Ask Henry" button label to just "Henry"
+- [x] Reduce padding/margin on Henry, Reserve, and Hamburger buttons (all matching compact pill size)
+
+## H1 Below Video (All Property Pages)
+- [ ] Move H1 below the hero video (no text overlay on video) on all 6 property pages
+- [ ] Demote current H2 to subheader styling under the H1
+- [ ] Ensure smooth visual transition from video to H1 section

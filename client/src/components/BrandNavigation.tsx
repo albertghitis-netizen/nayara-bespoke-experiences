@@ -146,12 +146,12 @@ export default function BrandNavigation({
           <div ref={menuRef} className="relative shrink-0">
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-              className={`${pill} w-10 h-10`}
+              className={`${pill} w-8 h-8`}
               aria-label="Menu"
             >
-              <div className="flex flex-col gap-1.5">
-                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-                <span className={`block w-5 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+              <div className="flex flex-col gap-1">
+                <span className={`block w-4 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} />
+                <span className={`block w-4 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} />
               </div>
             </button>
 
@@ -243,9 +243,9 @@ export default function BrandNavigation({
           <div ref={reserveRef} className="relative shrink-0">
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
-              className={`${pill} h-10 px-5`}
+              className={`${pill} h-8 px-3.5`}
             >
-              <span className="text-[#3a2a1a] text-[14px]" style={menuText}>Reserve</span>
+              <span className="text-[#3a2a1a] text-xs" style={menuText}>Reserve</span>
             </button>
 
             <AnimatePresence>
@@ -284,12 +284,12 @@ export default function BrandNavigation({
           <div ref={menuRef} className="relative">
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-              className={`${pill} w-10 h-10`}
+              className={`${pill} w-8 h-8`}
               aria-label="Menu"
             >
-              <div className="flex flex-col gap-1.5">
-                <span className={`block w-4 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[3px]" : ""}`} />
-                <span className={`block w-4 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[3px]" : ""}`} />
+              <div className="flex flex-col gap-1">
+                <span className={`block w-3.5 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} />
+                <span className={`block w-3.5 h-px bg-[#3a2a1a] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} />
               </div>
             </button>
 
@@ -347,9 +347,9 @@ export default function BrandNavigation({
           <div ref={reserveRef} className="relative">
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
-              className={`${pill} h-10 px-4`}
+              className={`${pill} h-8 px-3.5`}
             >
-              <span className="text-[#3a2a1a] text-[12px]" style={menuText}>Reserve</span>
+              <span className="text-[#3a2a1a] text-xs" style={menuText}>Reserve</span>
             </button>
 
             <AnimatePresence>

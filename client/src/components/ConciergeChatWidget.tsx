@@ -167,14 +167,14 @@ export default function ConciergeChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg px-5 py-2.5 hover:bg-[#ece8e1]/90 transition-colors group cursor-pointer border border-[#3a2a1a]/20"
-            aria-label="Ask Henry"
+            className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 rounded-full bg-[#ece8e1] backdrop-blur-md shadow-lg px-3.5 py-1.5 hover:bg-[#ece8e1]/90 transition-colors group cursor-pointer border border-[#3a2a1a]/20"
+            aria-label="Henry"
           >
             <span
               className="text-[#3a2a1a] text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Ask Henry
+              Henry
             </span>
 
             {/* Pulse indicator for new visitors */}
