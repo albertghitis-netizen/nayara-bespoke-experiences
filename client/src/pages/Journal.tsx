@@ -298,7 +298,7 @@ function PodcastTab({ episodes }: { episodes: PodcastEpisode[] }) {
                       />
                     ) : (
                       <button onClick={() => setActiveEpisode(ep.id)} className="absolute inset-0 w-full h-full group cursor-pointer">
-                        <img src={`https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`} alt={ep.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
+                        <img src={ep.coverImage || `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`} alt={ep.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center group-hover:bg-white/25 transition-colors">
                             <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1" />
