@@ -28,9 +28,9 @@ const maxW = "max-w-[1200px] mx-auto";
 
 /** Hero videos per property */
 const HERO_VIDEOS: Record<string, string> = {
-  "tented-camp": `${CDN_BASE}/TentedExperienceVideo_fixed_75e9afca.mp4`,
-  gardens: `${CDN_BASE}/TentedExperienceVideo_fixed_75e9afca.mp4`,
-  springs: `${CDN_BASE}/TentedExperienceVideo_fixed_75e9afca.mp4`,
+  "tented-camp": `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
+  gardens: `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
+  springs: `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
   "alto-atacama": `${CDN_BASE}/experiences-hero-geysers-audio_7e6b6a00.mp4`,
   "bocas-del-toro": `${CDN_BASE}/bocas-gallery-video1_d18b5ced.mp4`,
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
@@ -106,7 +106,7 @@ function ExperiencesHero({
   return (
     <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
       <div className="relative w-full h-[60vh]">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>
