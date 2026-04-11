@@ -1631,3 +1631,18 @@
 - [x] Gardens: "Rainforest After Dark" with frog tour video
 - [x] Bocas del Toro: "Bioluminescent Waters" with bioluminescence imagery
 - [x] Hangaroa: "Moai Beneath the Milky Way" with Moai milky way imagery
+
+## Homepage Hero Video Update (Better Audio)
+- [x] Analyze new resorts video (8522F533-6F8A-4602-B764-DD943CE77777.mov) — 1440x810, 28s, H.264+AAC stereo, 46MB
+- [x] Compress video for web (desktop horizontal version) — 46MB → 6.5MB
+- [x] Upload compressed video to CDN
+- [x] Update homepage desktop hero video URL
+- [x] Verify audio works with SOUND button on desktop
+- [x] Confirm no audio on mobile hero (mobile uses separate vertical video without hasAudio)
+
+## Brand Experiences Hero Video Update (Atacama Geysers with Audio)
+- [x] Analyze new experiences hero video (Atacama geysers by Brice Ferre) — 2182x1228 HEVC, 24s, AAC stereo, 30MB
+- [x] Compress video for web — 30MB → 3.3MB
+- [x] Upload compressed video to CDN
+- [x] Update brand experiences page desktop hero video URL
+- [x] Verify audio works with SOUND button (geysers steam visible in hero)

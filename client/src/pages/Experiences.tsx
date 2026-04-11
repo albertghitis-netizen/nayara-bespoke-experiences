@@ -30,7 +30,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 /* ─── CDN Assets ─── */
 const CDN = {
   heroVertical: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-hero-v2_a969e1d4.mp4",
-  heroHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-2_500e97e2.mp4",
+  heroHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/experiences-hero-geysers-audio_7e6b6a00.mp4",
 };
 
 /* ─── Property filter options ─── */
@@ -79,7 +79,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={isMobile ? CDN.heroVertical : CDN.heroHorizontal} className="w-full h-full object-cover" />
+        <NativeVideo src={isMobile ? CDN.heroVertical : CDN.heroHorizontal} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
