@@ -1677,3 +1677,6 @@
 
 ## Remove SOUND Button on Mobile
 - [x] Hide SOUND button on mobile across all pages (desktop only) — hidden md:flex on NativeVideo button
+
+## Wellness Page Hero Video
+- [x] Swap Wellness page hero from static image to spa/springs video with audio

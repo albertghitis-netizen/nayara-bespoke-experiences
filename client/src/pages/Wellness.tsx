@@ -10,6 +10,7 @@ import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
+import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Treatment } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -29,6 +30,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 const WELLNESS_CDN = {
   heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Termaleschildren_5bfef28b.webp",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-spa-springs_89d85927.mp4",
 };
 
 /* ─── Wellness Pillars ─── */
@@ -122,9 +124,9 @@ export default function Wellness() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-16 md:pb-24 px-6 md:px-10">
+    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-6 md:pb-10 px-6 md:px-10">
       <div className="absolute inset-0">
-        <img src={WELLNESS_CDN.heroImage} alt="Wellness" className="w-full h-full object-cover" />
+        <NativeVideo src={WELLNESS_CDN.heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">
@@ -132,7 +134,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight"
+          className="text-white text-xl md:text-3xl lg:text-4xl leading-tight"
           style={{ ...heading, fontWeight: 400 }}
         >
           Nurtured by Nature
