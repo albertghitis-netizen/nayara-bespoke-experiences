@@ -33,7 +33,11 @@ const SECTION_COLORS = [
   "#DDE5E2", // 7 marine
   "#DAE2DF", // 8 island
   "#D7DFDC", // 9 sunset
-  "#D4DCD9", // 10 final
+  "#D4DCD9", // 10 beach
+  "#D1D9D6", // 11 reef
+  "#CED6D3", // 12 aerial
+  "#CBD3D0", // 13 lifestyle
+  "#C8D0CD", // 14 final
 ];
 
 const PALETTE = {
@@ -90,9 +94,25 @@ const ASSETS = {
   sunsetV: `${CDN}/83_621b9b3f.jpg`,
   sunsetH: `${CDN}/86_bcac4579.jpg`,
 
-  // Section 10 — Final: landscape V + hero desktop as closing H
+  // Section 10 — Beach & Jungle
+  beachV: `${CDN}/bocas-overwater-villa-couple_ff0c8415.jpg`,
+  beachH: `${CDN}/97_e7aef760.jpg`,
+
+  // Section 11 — Reef & Marine
+  reefV: `${CDN}/bocas-infinity-pool-woman_e4043059.jpg`,
+  reefH: `${CDN}/119_e65d6018.jpg`,
+
+  // Section 12 — Aerial Views
+  aerialV: `${CDN}/bocas-aerial-resort-treehouses_be44e763.jpg`,
+  aerialH: `${CDN}/bocas-aerial-villas-turquoise_858d4570.jpg`,
+
+  // Section 13 — Lifestyle
+  lifeV: `${CDN}/bocas-aerial-full-resort_d27193e4.jpg`,
+  lifeH: `${CDN}/bocas-crystal-clear-swimming_6e9b8f96.jpg`,
+
+  // Section 14 — Final: landscape V + closing H
   finalV: `${CDN}/88_33345812.jpg`,
-  finalH: `${CDN}/nbt-horizontal-desktop_0c584342.mp4`,
+  finalH: `${CDN}/bocas-aerial-sunset-panorama_a979b5b2.jpg`,
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -239,6 +259,76 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[9],
     nextBgColor: SECTION_COLORS[10],
+  },
+  {
+    id: "beach",
+    label: "Beach & Jungle",
+    headline: "Where Jungle\nMeets Sea",
+    body: "Step from your overwater villa onto powdery white sand, or follow jungle trails through lush tropical canopy. Bocas del Toro is a place where two worlds converge — the wild Caribbean coastline and the dense, vibrant rainforest that frames every view.",
+    verticalSrc: ASSETS.beachV,
+    horizontalSrc: ASSETS.beachH,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[10],
+    nextBgColor: SECTION_COLORS[11],
+  },
+  {
+    id: "reef",
+    label: "The Reef",
+    headline: "Coral\nGardens",
+    body: "Beneath the surface, a kaleidoscope of color awaits. The coral reefs surrounding Bocas del Toro are among the most biodiverse in the Caribbean — home to sea turtles, rays, and hundreds of species of tropical fish. Our marine guides lead intimate snorkeling excursions to the most pristine sites.",
+    verticalSrc: ASSETS.reefV,
+    horizontalSrc: ASSETS.reefH,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[11],
+    nextBgColor: SECTION_COLORS[12],
+  },
+  {
+    id: "aerial",
+    label: "From Above",
+    headline: "An Island\nSanctuary",
+    body: "Seen from above, the resort reveals its true character — a constellation of overwater villas and treehouses nestled among mangroves and turquoise lagoons. The aerial perspective captures the extraordinary harmony between architecture and nature that defines Nayara Bocas del Toro.",
+    verticalSrc: ASSETS.aerialV,
+    horizontalSrc: ASSETS.aerialH,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[12],
+    nextBgColor: SECTION_COLORS[13],
+  },
+  {
+    id: "lifestyle",
+    label: "Island Living",
+    headline: "Crystal\nWaters",
+    body: "Life at Bocas del Toro moves at the pace of the tides. Swim in waters so clear you can count the fish below, lounge on your private deck as the sun traces its arc across the sky, and let the gentle Caribbean breeze carry away everything but the present moment.",
+    verticalSrc: ASSETS.lifeV,
+    horizontalSrc: ASSETS.lifeH,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[13],
+    nextBgColor: SECTION_COLORS[14],
+  },
+  {
+    id: "final",
+    label: "Until Next Time",
+    headline: "Sunset\nFarewell",
+    body: "Every departure from Bocas del Toro carries the promise of return. The last sunset paints the archipelago in gold and rose, a final gift from this extraordinary corner of the Caribbean. The memory of turquoise waters and overwater dreams stays long after the journey home.",
+    verticalSrc: ASSETS.finalV,
+    horizontalSrc: ASSETS.finalH,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "4/5",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[14],
+    nextBgColor: SECTION_COLORS[14],
   },
 ];
 

@@ -115,7 +115,7 @@ export default function Gardens() {
       <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
       <GastronomySection />
       <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
-      <GallerySection />
+      <GalleryIntegratedSections />
       <Footer />
     </div>
   );
@@ -508,39 +508,79 @@ function GastronomySection() {
 /* ═══════════════════════════════════════════════════════════════
    GALLERY — All video grid
    ═══════════════════════════════════════════════════════════════ */
-function GallerySection() {
-  const videos = [
-    { src: CDN.galleryVideo1, alt: "Bird watching in the canopy" },
-    { src: CDN.galleryVideo2, alt: "Frog tour through the rainforest" },
-    { src: CDN.galleryVideo3, alt: "Natural hot springs" },
-    { src: CDN.galleryVideo4, alt: "Gardens resort overview" },
+function GalleryIntegratedSections() {
+  const sections = [
+    {
+      label: "Wildlife",
+      headline: "Life in\nthe Canopy",
+      body: "From toucans perched on morning branches to tiny red-eyed tree frogs hidden beneath broad leaves, the rainforest canopy around Nayara Gardens teems with life. Guided nature walks reveal the extraordinary biodiversity of this volcanic landscape.",
+      verticalSrc: CDN.galleryVideo1,
+      horizontalSrc: CDN.galleryVideo2,
+      verticalIsVideo: true,
+      horizontalIsVideo: true,
+      bg: PALETTE.gradientStart,
+    },
+    {
+      label: "Hot Springs",
+      headline: "Volcanic\nWaters",
+      body: "Fed by the geothermal energy of Arenal Volcano, the natural hot springs offer a primal connection to the earth. Mineral-rich waters flow through stone pools surrounded by tropical gardens, creating a sanctuary where the heat of the earth meets the cool of the rainforest.",
+      verticalSrc: CDN.galleryVideo3,
+      horizontalSrc: CDN.galleryVideo4,
+      verticalIsVideo: true,
+      horizontalIsVideo: true,
+      bg: PALETTE.gradientEnd,
+    },
   ];
 
   return (
-    <section id="gallery" className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Gallery</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-5xl tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Life in the Canopy
-          </span>
-        </TextReveal>
-
-        <div className="hidden md:grid grid-cols-2 gap-4 md:gap-6">
-          {videos.map((video, i) => (
-            <MediaReveal key={i} delay={i * 0.1}>
-              <div className="overflow-hidden" style={{ aspectRatio: i === 0 ? "16/10" : "16/9" }}>
-                <NativeVideo src={video.src} className="w-full h-full object-cover" />
+    <>
+      {sections.map((section, i) => {
+        const isEven = i % 2 === 0;
+        return (
+          <section key={i} style={{ backgroundColor: section.bg }}>
+            <div className="flex flex-col md:flex-row">
+              <div className={`w-full md:w-1/2 ${isEven ? "md:order-1" : "md:order-2"}`}>
+                <MediaReveal delay={0.1}>
+                  <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                    {section.verticalIsVideo ? (
+                      <NativeVideo src={section.verticalSrc} className="w-full h-full object-cover" />
+                    ) : (
+                      <img src={section.verticalSrc} alt="" className="w-full h-full object-cover" loading="lazy" />
+                    )}
+                  </div>
+                </MediaReveal>
+              </div>
+              <div
+                className={`w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 py-16 md:py-0 ${isEven ? "md:order-2" : "md:order-1"}`}
+              >
+                <AnimateOnScroll variants={fadeUp}>
+                  <SectionLabel>{section.label}</SectionLabel>
+                </AnimateOnScroll>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}>
+                  <MultiLineReveal
+                    lines={section.headline.split("\n")}
+                    className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-6"
+                  />
+                </div>
+                <AnimateOnScroll variants={fadeUp} delay={0.3}>
+                  <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                    {section.body}
+                  </p>
+                </AnimateOnScroll>
+              </div>
+            </div>
+            <MediaReveal delay={0.15}>
+              <div className="overflow-hidden" style={{ aspectRatio: "21/9" }}>
+                {section.horizontalIsVideo ? (
+                  <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
+                ) : (
+                  <img src={section.horizontalSrc} alt="" className="w-full h-full object-cover" loading="lazy" />
+                )}
               </div>
             </MediaReveal>
-          ))}
-        </div>
-      </div>
-    </section>
+          </section>
+        );
+      })}
+    </>
   );
 }

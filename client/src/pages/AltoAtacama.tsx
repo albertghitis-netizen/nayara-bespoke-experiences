@@ -40,7 +40,8 @@ const SECTION_COLORS = [
   "#D0C2A5", // 10 adventure
   "#CCBD9E", // 11 dusk
   "#C8B390", // 12 architecture
-  "#C4AE89", // 13 gallery
+  "#C4AE89", // 13 the pool
+  "#C0A982", // 14 flamingo lagoon
 ];
 
 const PALETTE = {
@@ -62,7 +63,7 @@ const ASSETS = {
   heroMobile: `${CDN}/atacama-hero-vertical-hq_d81c629e.mp4`,
 
   // Section 1 — Story: geyser steam V + resort exterior UW
-  storyV: `${CDN}/atacama-cascade1-story-vertical_67d1c066.mp4`,
+  storyV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-vertical_8d2715e0.mp4",
   storyH: `${CDN}/atacama-ultrawide-2_c9a936b3.jpg`,
 
   // Section 2 — Rooms: resort aerial V + resort pathway UW
@@ -434,6 +435,28 @@ const CASCADE_SECTIONS = [
     description: "Every structure at Alto Atacama emerges from the landscape itself — adobe walls, stone courtyards, and thatched roofs that echo the ancient building traditions of the Atacameño people. The resort is not placed on the desert; it grows from it.",
     vSrc: ASSETS.archV, hSrc: ASSETS.archH,
     vVideo: true, hVideo: true,
+    vRatio: "9/16", hRatio: "16/9",
+    textSide: "right" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "The Pool",
+    headline: "Desert Oasis",
+    description: "As the sun sets behind the Andes, the pool becomes a mirror reflecting the Atacama's infinite sky. Our suites open directly onto private terraces where the boundary between interior luxury and desert landscape dissolves entirely.",
+    vSrc: ASSETS.suiteInterior, hSrc: ASSETS.poolSunset,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "left" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "Flamingo Lagoon",
+    headline: "Salt & Sky",
+    description: "At the high-altitude lagoons surrounding the resort, Andean flamingos gather in the thousands — their pink silhouettes reflected in mineral-rich waters against a backdrop of snow-capped volcanoes. Our guided excursions bring you to these fragile ecosystems at the perfect hour.",
+    vSrc: ASSETS.flamingoLagoon, hSrc: ASSETS.heroDesktopPhoto,
+    vVideo: true, hVideo: false,
     vRatio: "9/16", hRatio: "16/9",
     textSide: "right" as const,
     link: undefined, linkLabel: undefined,

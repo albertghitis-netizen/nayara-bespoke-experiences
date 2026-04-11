@@ -1,10 +1,10 @@
 /*
  * NAYARA BY NIGHT — Standalone Night Sky Experience Page
- * Structure: Hero Video → Story (text left + vertical image right + horizontal below) → Gallery → Footer
- * Dark theme throughout
+ * Structure: Hero Video → Story → Cascade sections (Atacama / Rapa Nui / Bocas) → Footer
+ * Dark theme throughout — gallery images integrated into cascade sections
  */
-import { useState, useRef, useEffect } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
@@ -17,22 +17,22 @@ const CDN = {
   /* Story images */
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp",
-  /* Gallery — Atacama */
+  /* Atacama */
   observatoryMilkyway: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-atacama-dusk-resort_b5829c95.webp",
   atacamaDusk: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-atacama-dusk_9201508f.webp",
   rockArchMilkyway: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp",
   cactusMilkyway: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
   craterMilkyway: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-crater-milkyway_00741a91.webp",
-  /* Gallery — Rapa Nui */
+  /* Rapa Nui */
   moaiMilkyway: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-milkyway_0588cd10.webp",
   moaiGoldenSunset: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-golden-sunset_f7d26dab.webp",
   moaiSunriseGolden: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-sunrise-golden_c8aad9dd.webp",
   moaiSunsetSilhouette: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-sunset-silhouette_692f6a23.webp",
   ranoKauMilkyway: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp",
-  /* Gallery — Bocas del Toro */
+  /* Bocas del Toro */
   biolumBeach: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum2_9f24efa2.jpeg",
   biolumWaves: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum_007f69ec.webp",
-  /* Gallery — Videos */
+  /* Videos */
   videoShort: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4",
   videoLong: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-long_44b41d4c.mp4",
 };
@@ -40,8 +40,15 @@ const CDN = {
 /* ─── Typography ─────────────────────────────────────────────── */
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
-const sectionPadding = "py-16 md:py-24 px-6 md:px-10";
-const maxW = "max-w-[1200px] mx-auto";
+
+/* ─── Dark palette for cascade sections ─────────────────────── */
+const DARK_COLORS = [
+  "#0a0a12", // hero / story
+  "#0c0c16", // atacama skies
+  "#0e0e1a", // rapa nui moai
+  "#10101e", // bocas bioluminescence
+  "#0e0e1a", // stargazing video
+];
 
 /* ─── Shared Animation Components ────────────────────────────── */
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -58,6 +65,196 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   return <p className="text-white/30 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>{children}</p>;
 }
 
+function MediaBlock({
+  src,
+  isVideo,
+  ratio,
+  alt,
+  className = "",
+}: {
+  src: string;
+  isVideo: boolean;
+  ratio: string;
+  alt?: string;
+  className?: string;
+}) {
+  return (
+    <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
+      {isVideo ? (
+        <NativeVideo src={src} className="w-full h-full object-cover" />
+      ) : (
+        <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
+      )}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DARK CASCADE SECTION — Same layout as property pages, dark theme
+   ═══════════════════════════════════════════════════════════════ */
+type NightSectionData = {
+  id: string;
+  label: string;
+  headline: string;
+  body: string;
+  verticalSrc: string;
+  horizontalSrc: string;
+  verticalIsVideo: boolean;
+  horizontalIsVideo: boolean;
+  verticalRatio: string;
+  horizontalRatio: string;
+  bgColor: string;
+};
+
+function NightCascadeSection({ section, index }: { section: NightSectionData; index: number }) {
+  const isEven = index % 2 === 0;
+
+  return (
+    <section id={section.id}>
+      {/* Row: Vertical media + Text column */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
+        {/* Vertical media */}
+        <div className={`w-full md:w-1/2 ${isEven ? "md:order-1" : "md:order-2"}`}>
+          <FadeIn delay={0.1}>
+            <MediaBlock
+              src={section.verticalSrc}
+              isVideo={section.verticalIsVideo}
+              ratio={section.verticalRatio}
+              alt={`${section.label} — Nayara by Night`}
+            />
+          </FadeIn>
+        </div>
+
+        {/* Text column */}
+        <div
+          className={`w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 ${
+            isEven ? "md:order-2" : "md:order-1"
+          }`}
+          style={{ backgroundColor: section.bgColor }}
+        >
+          <FadeIn>
+            <SectionLabel>{section.label}</SectionLabel>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <h2 className="mb-6 md:mb-8">
+              {section.headline.split("\n").map((line, i) => (
+                <span
+                  key={i}
+                  className="block text-2xl md:text-4xl lg:text-[48px] leading-[1.05] tracking-wide text-white/90"
+                  style={heading}
+                >
+                  {line}
+                </span>
+              ))}
+            </h2>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <p className="text-white/50 text-[15px] leading-relaxed max-w-md" style={body}>
+              {section.body}
+            </p>
+          </FadeIn>
+        </div>
+      </div>
+
+      {/* Horizontal media — full bleed */}
+      <div style={{ backgroundColor: section.bgColor }}>
+        <FadeIn delay={0.2}>
+          <MediaBlock
+            src={section.horizontalSrc}
+            isVideo={section.horizontalIsVideo}
+            ratio="16/9"
+            alt={`${section.label} — landscape`}
+          />
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Section Data ───────────────────────────────────────────── */
+const NIGHT_SECTIONS: NightSectionData[] = [
+  {
+    id: "atacama-skies",
+    label: "Atacama Desert",
+    headline: "The Clearest\nSkies on Earth",
+    body: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
+    verticalSrc: CDN.cactusMilkyway,
+    horizontalSrc: CDN.rockArchMilkyway,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: DARK_COLORS[1],
+  },
+  {
+    id: "atacama-dusk",
+    label: "Desert Twilight",
+    headline: "Where Day\nMeets Night",
+    body: "The transition from day to night in the Atacama is a spectacle in itself. As the sun drops behind the Andes, the desert transforms through a palette of amber, violet, and deep indigo. The resort glows warmly against the vast emptiness — a sanctuary of light in the world's darkest landscape.",
+    verticalSrc: CDN.craterMilkyway,
+    horizontalSrc: CDN.observatoryMilkyway,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: DARK_COLORS[1],
+  },
+  {
+    id: "rapa-nui-moai",
+    label: "Rapa Nui",
+    headline: "Moai Beneath\nthe Milky Way",
+    body: "On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.",
+    verticalSrc: CDN.moaiMilkyway,
+    horizontalSrc: CDN.moaiGoldenSunset,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: DARK_COLORS[2],
+  },
+  {
+    id: "rapa-nui-golden",
+    label: "Golden Hour",
+    headline: "Ancient Stone\nin Golden Light",
+    body: "The Moai at sunrise and sunset are among the most photographed moments on Earth — and yet nothing prepares you for seeing them in person. The volcanic stone catches the light differently with each passing minute, shifting from deep shadow to warm amber to silhouette against a blazing sky.",
+    verticalSrc: CDN.moaiSunsetSilhouette,
+    horizontalSrc: CDN.moaiSunriseGolden,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: DARK_COLORS[2],
+  },
+  {
+    id: "bocas-bioluminescence",
+    label: "Bocas del Toro",
+    headline: "Bioluminescent\nWaters",
+    body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
+    verticalSrc: CDN.biolumBeach,
+    horizontalSrc: CDN.biolumWaves,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: DARK_COLORS[3],
+  },
+  {
+    id: "night-video",
+    label: "After Dark",
+    headline: "When the\nStars Emerge",
+    body: "From the Atacama's observatory to the bioluminescent bays of Panama, Nayara's night experiences are among the most extraordinary in luxury travel. These are moments that exist only in darkness — and they change the way you see the world.",
+    verticalSrc: CDN.videoShort,
+    horizontalSrc: CDN.ranoKauMilkyway,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: DARK_COLORS[4],
+  },
+];
+
 /* ═══════════════════════════════════════════════════════════════
    MAIN PAGE
    ═══════════════════════════════════════════════════════════════ */
@@ -67,7 +264,12 @@ export default function NayaraByNight() {
       <BrandNavigation pageType="brand" />
       <HeroSection />
       <StorySection />
-      <GallerySection />
+
+      {/* Cascade sections — all gallery images integrated */}
+      {NIGHT_SECTIONS.map((section, i) => (
+        <NightCascadeSection key={section.id} section={section} index={i} />
+      ))}
+
       <Footer pageType="brand" />
     </div>
   );
@@ -101,13 +303,12 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   2. STORY — Text left + vertical image right, horizontal below
-   Exact duplicate of Tented Camp story layout, dark theme
+   2. STORY — Introduction text + landscape image
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
-    <section id="story" className={sectionPadding}>
-      <div className={maxW}>
+    <section id="story" className="py-16 md:py-24 px-6 md:px-10">
+      <div className="max-w-[1200px] mx-auto">
         {/* Full-width text */}
         <div className="max-w-3xl mb-12 md:mb-16">
           <FadeIn>
@@ -140,46 +341,6 @@ function StorySection() {
           <FadeIn delay={0.3}>
             <img src={CDN.s2} alt="Rano Kau crater beneath the Milky Way" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
           </FadeIn>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   3. GALLERY — All night sky assets in masonry grid
-   Same grid pattern as Tented Camp gallery, dark theme
-   ═══════════════════════════════════════════════════════════════ */
-function GallerySection() {
-  const images: Array<{ src: string; alt: string; type?: "video" }> = [
-    { src: CDN.moaiMilkyway, alt: "Moai statues under the Milky Way" },
-    { src: CDN.moaiGoldenSunset, alt: "Moai at golden sunset" },
-    { src: CDN.rockArchMilkyway, alt: "Rock arch under the Milky Way" },
-    { src: CDN.observatoryMilkyway, alt: "Alto Atacama resort at dusk" },
-    { src: CDN.craterMilkyway, alt: "Volcanic crater under the Milky Way" },
-    { src: CDN.biolumBeach, alt: "Bioluminescent shoreline in Bocas del Toro" },
-    { src: CDN.biolumWaves, alt: "Bioluminescent waves crashing at night" },
-    { src: CDN.moaiSunriseGolden, alt: "Moai in golden sunrise light" },
-    { src: CDN.videoShort, alt: "Night sky timelapse", type: "video" },
-  ];
-
-  return (
-    <section id="gallery" className="py-16 md:py-24 px-0">
-      <div className="px-6 md:px-10 max-w-[1200px] mx-auto">
-        <FadeIn>
-          <SectionLabel>Gallery</SectionLabel>
-          <h2 className="text-white/80 mb-10 md:mb-14" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>Under the Stars</h2>
-        </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-          {images.map((img, i) => (
-            <FadeIn key={i} delay={i * 0.08} className={i === 1 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-              {img.type === "video" ? (
-                <video src={img.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
-              ) : (
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 1 ? "4/3" : "1/1" }} loading="lazy" />
-              )}
-            </FadeIn>
-          ))}
         </div>
       </div>
     </section>

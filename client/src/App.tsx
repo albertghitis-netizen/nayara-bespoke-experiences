@@ -36,7 +36,6 @@ const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const NewProjects = lazy(() => import("./pages/NewProjects"));
 const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
-const HangaroaNewsletter = lazy(() => import("./pages/HangaroaNewsletter"));
 const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
@@ -63,7 +62,7 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS = ["/chat-embed", "/henry", "/hangaroa-newsletter"];
+const HIDE_WIDGET_PATHS = ["/chat-embed", "/henry"];
 
 function Router() {
   const [location] = useLocation();
@@ -108,7 +107,6 @@ function Router() {
           <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
           <Route path="/new-projects" component={NewProjects} />
           <Route path="/henry" component={HenryStandalone} />
-          <Route path="/hangaroa-newsletter" component={HangaroaNewsletter} />
           <Route path="/by-night" component={NayaraByNight} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
 

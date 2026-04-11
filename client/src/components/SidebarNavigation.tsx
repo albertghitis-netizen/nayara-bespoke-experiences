@@ -45,7 +45,6 @@ const PROPERTY_SECTIONS = [
   { label: "Wellness", id: "wellness" },
   { label: "The Table", id: "dining" },
   { label: "Getting Here", id: "getting-here" },
-  { label: "Gallery", id: "gallery" },
 ];
 
 export default function SidebarNavigation({

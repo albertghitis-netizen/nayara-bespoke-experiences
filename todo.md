@@ -1521,10 +1521,15 @@
 - [x] Replace Bocas del Toro S1 with new drone video (dji_fly_20250307_090920_566)
 - [x] Fix Atacama hero Sound button showing when video has no audio
 - [ ] Remove all gallery sections/pages site-wide
-- [ ] Integrate gallery photos into Nayara By Night page sections
-- [ ] Integrate gallery photos into Alto Atacama page sections
-- [ ] Integrate gallery photos into Bocas del Toro page sections
-- [ ] Integrate gallery photos into Tented Camp page sections
-- [ ] Remove gallery nav links and routes
+- [x] Integrate gallery photos into Nayara By Night page sections (converted to 6 cascade sections)
+- [x] Integrate gallery photos into Alto Atacama page sections (added 2 cascade sections: Pool + Flamingo Lagoon)
+- [x] Integrate gallery photos into Bocas del Toro page sections (added 5 cascade sections: Beach, Reef, Aerial, Lifestyle, Final)
+- [x] Integrate gallery photos into Tented Camp page sections (converted to 4 cascade sections)
+- [x] Remove gallery nav links and routes
 - [x] Replace Tented Camp Wildlife (Toucans & Tree Frogs) horizontal video with new pool video
 - [x] Sound controls only on hero videos (and only if hero has audio); removed hasAudio from AwardsAndPress, Blog, Gastronomy, CostaRica
+- [x] Integrate gallery photos into Gardens page sections and remove GallerySection (converted to 2 cascade sections: Wildlife + Hot Springs)
+- [x] Integrate gallery photos into Hangaroa page sections and remove GallerySection (converted to 5 cascade sections)
+- [x] Delete orphaned Gallery.tsx page
+- [x] Replace Atacama S1 with new video (7FF5A7AF-F26F-417D-A250-B612FEA778EB)
+- [x] Delete Hangaroa newsletter page (removed page, route, and import)

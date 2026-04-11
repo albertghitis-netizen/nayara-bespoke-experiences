@@ -98,7 +98,7 @@ export default function Hangaroa() {
       <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
       <GastronomySection />
       <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
-      <GallerySection />
+      <GalleryIntegratedSections />
       <Footer />
     </div>
   );
@@ -484,72 +484,111 @@ function GastronomySection() {
 /* ═══════════════════════════════════════════════════════════════
    GALLERY - Full-width parallax + grid (unique to Hangaroa)
    ═══════════════════════════════════════════════════════════════ */
-function GallerySection() {
-  const fullWidthMedia = [
-    { src: CDN.heroVideo, alt: "Easter Island cinematic", isVideo: true },
-  ];
-
-  const gridMedia = [
-    { src: CDN.s1, alt: "Rapa Nui cultural performer" },
-    { src: CDN.warriorPortrait, alt: "Rapa Nui warrior portrait" },
-    { src: CDN.moaiHorses, alt: "Moai statues with wild horses at sunset" },
-    { src: CDN.s2, alt: "Moai statues at dusk" },
-    { src: CDN.moaiPukao, alt: "Moai with pukao hats overlooking ocean" },
-    { src: CDN.warriorsGroup, alt: "Rapa Nui warriors performing at Moai site" },
-    { src: CDN.s3, alt: "Island woman" },
-    { src: CDN.facePaint, alt: "Traditional face paint ceremony" },
-    { src: CDN.womanMoai, alt: "Woman at Moai site" },
-    { src: CDN.culturalAdornment, alt: "Cultural adornment" },
-    { src: CDN.rapaNuiWarrior, alt: "Rapa Nui warrior with traditional face paint and bone necklace" },
+function GalleryIntegratedSections() {
+  const sections = [
+    {
+      label: "Rapa Nui Culture",
+      headline: "Living\nHeritage",
+      body: "The culture of Rapa Nui is alive in every ceremony, every dance, and every face painted with ancestral patterns. Our connection to the island's indigenous community offers guests an authentic window into one of the world's most extraordinary living cultures.",
+      verticalSrc: CDN.warriorPortrait,
+      horizontalSrc: CDN.moaiHorses,
+      verticalIsVideo: false,
+      horizontalIsVideo: false,
+      bg: PALETTE.gradientStart,
+    },
+    {
+      label: "The Moai",
+      headline: "Guardians of\nthe Island",
+      body: "Standing sentinel across the volcanic landscape, the Moai are more than monuments — they are the spiritual embodiment of ancestral chiefs, watching over the island as they have for centuries. Each site tells a different chapter of Rapa Nui's remarkable story.",
+      verticalSrc: CDN.s3,
+      horizontalSrc: CDN.moaiPukao,
+      verticalIsVideo: false,
+      horizontalIsVideo: false,
+      bg: PALETTE.gradientEnd,
+    },
+    {
+      label: "Ceremonies",
+      headline: "Ancient\nRituals",
+      body: "Traditional ceremonies connect the present to the deep past. Face painting, warrior dances, and sacred rituals are performed with the same reverence and precision that has been passed down through generations of Rapa Nui people.",
+      verticalSrc: CDN.rapaNuiWarrior,
+      horizontalSrc: CDN.warriorsGroup,
+      verticalIsVideo: false,
+      horizontalIsVideo: false,
+      bg: PALETTE.gradientStart,
+    },
+    {
+      label: "Island Landscapes",
+      headline: "Volcanic\nHorizons",
+      body: "From dramatic volcanic craters to windswept coastlines, Easter Island's landscapes are unlike anywhere else on earth. The raw, untouched beauty of this remote Pacific island creates a backdrop that transforms every moment into something extraordinary.",
+      verticalSrc: CDN.facePaint,
+      horizontalSrc: CDN.womanMoai,
+      verticalIsVideo: false,
+      horizontalIsVideo: false,
+      bg: PALETTE.gradientEnd,
+    },
+    {
+      label: "Island Moments",
+      headline: "Timeless\nBeauty",
+      body: "Every corner of Easter Island reveals a new perspective — the play of light on ancient stone, the wild horses grazing beneath the Moai, the vast Pacific stretching to infinity. These are the moments that make Hangaroa an experience beyond compare.",
+      verticalSrc: CDN.culturalAdornment,
+      horizontalSrc: CDN.s2,
+      verticalIsVideo: false,
+      horizontalIsVideo: false,
+      bg: PALETTE.gradientStart,
+    },
   ];
 
   return (
-    <section id="gallery" className="py-20 md:py-32" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <div className="px-6 md:px-10">
-        <div className={maxW}>
-          <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Gallery</SectionLabel>
-          </AnimateOnScroll>
-          <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-            <span
-              className="text-2xl md:text-4xl lg:text-5xl tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-            >
-              Island Moments
-            </span>
-          </TextReveal>
-        </div>
-      </div>
-
-      {/* Full-width cinematic video */}
-      <div className="flex flex-col gap-4 md:gap-6 mb-6">
-        {fullWidthMedia.map((item, i) => (
-          <MediaReveal key={i}>
-            <div className="w-full overflow-hidden" style={{ height: "60vh" }}>
-              {item.isVideo ? (
-                <NativeVideo src={item.src} className="w-full h-full object-cover" />
-              ) : (
-                <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
-              )}
+    <>
+      {sections.map((section, i) => {
+        const isEven = i % 2 === 0;
+        return (
+          <section key={i} style={{ backgroundColor: section.bg }}>
+            <div className="flex flex-col md:flex-row">
+              <div className={`w-full md:w-1/2 ${isEven ? "md:order-1" : "md:order-2"}`}>
+                <MediaReveal delay={0.1}>
+                  <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                    {section.verticalIsVideo ? (
+                      <NativeVideo src={section.verticalSrc} className="w-full h-full object-cover" />
+                    ) : (
+                      <img src={section.verticalSrc} alt="" className="w-full h-full object-cover" loading="lazy" />
+                    )}
+                  </div>
+                </MediaReveal>
+              </div>
+              <div
+                className={`w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 py-16 md:py-0 ${isEven ? "md:order-2" : "md:order-1"}`}
+              >
+                <AnimateOnScroll variants={fadeUp}>
+                  <SectionLabel>{section.label}</SectionLabel>
+                </AnimateOnScroll>
+                <AnimateOnScroll variants={fadeUp} delay={0.15}>
+                  <h2
+                    className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-6 whitespace-pre-line"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                  >
+                    {section.headline}
+                  </h2>
+                </AnimateOnScroll>
+                <AnimateOnScroll variants={fadeUp} delay={0.3}>
+                  <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                    {section.body}
+                  </p>
+                </AnimateOnScroll>
+              </div>
             </div>
-          </MediaReveal>
-        ))}
-      </div>
-
-      {/* Grid gallery */}
-      <div className="px-6 md:px-10">
-        <div className={maxW}>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {gridMedia.map((img, i) => (
-              <MediaReveal key={i} delay={i * 0.06}>
-                <div className={`overflow-hidden ${i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}`} style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }}>
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
-                </div>
-              </MediaReveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+            <MediaReveal delay={0.15}>
+              <div className="overflow-hidden" style={{ aspectRatio: "21/9" }}>
+                {section.horizontalIsVideo ? (
+                  <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
+                ) : (
+                  <img src={section.horizontalSrc} alt="" className="w-full h-full object-cover" loading="lazy" />
+                )}
+              </div>
+            </MediaReveal>
+          </section>
+        );
+      })}
+    </>
   );
 }

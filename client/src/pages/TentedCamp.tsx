@@ -33,7 +33,11 @@ const SECTION_COLORS = [
   "#D7D4C2", // 6 wildlife (before journal break)
   "#D2CFBB", // 7 adventure (after journal break)
   "#CDCAB4", // 8 spa
-  "#C8C5AD", // 9 getting here / gallery
+  "#C8C5AD", // 9 getting here
+  "#C3C0A6", // 10 residence
+  "#BEBC9F", // 11 henry's bar
+  "#B9B798", // 12 grand tents
+  "#B4B291", // 13 camp life
 ];
 
 const PALETTE = {
@@ -632,6 +636,66 @@ const SECTIONS_AFTER_JOURNAL: CascadeSectionData[] = [
   },
 ];
 
+/* ── Gallery assets converted to cascade sections ── */
+const SECTIONS_GALLERY: CascadeSectionData[] = [
+  {
+    id: "residence",
+    label: "The Residence",
+    headline: "Private\nRetreat",
+    body: "Our exclusive Residence offers the ultimate in privacy and space — a standalone villa with its own pool, living areas, and dedicated staff. Designed for families and groups seeking the full Tented Camp experience with complete seclusion.",
+    verticalSrc: ASSETS.galleryVideo2,
+    horizontalSrc: ASSETS.galleryImg3,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[10],
+    nextBgColor: SECTION_COLORS[11],
+  },
+  {
+    id: "henrys-bar",
+    label: "Henry's Bar",
+    headline: "Cocktails\nAbove the Canopy",
+    body: "Named after our founder, Henry's Bar is the social heart of Tented Camp. Craft cocktails made with local spirits, small plates from the garden, and a terrace that floats above the treetops — the perfect place to watch the volcano glow at sunset.",
+    verticalSrc: ASSETS.galleryVideo1,
+    horizontalSrc: ASSETS.galleryImg2,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[11],
+    nextBgColor: SECTION_COLORS[12],
+  },
+  {
+    id: "grand-tents",
+    label: "Grand Tents",
+    headline: "Canvas &\nVolcano Views",
+    body: "The Grand Tented Suites are our signature accommodation — soaring canvas ceilings, handcrafted wood details, and floor-to-ceiling openings that frame the Arenal Volcano. Each suite includes a private deck with plunge pool and outdoor shower.",
+    verticalSrc: ASSETS.galleryImg5,
+    horizontalSrc: ASSETS.galleryImg6,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[12],
+    nextBgColor: SECTION_COLORS[13],
+  },
+  {
+    id: "camp-life",
+    label: "Camp Life",
+    headline: "Every Detail\nConsidered",
+    body: "From the morning birdsong to the evening fireflies, life at Tented Camp unfolds at nature's pace. Our team anticipates every need — whether it's a private dinner under the stars, a guided night walk, or simply the perfect cup of Costa Rican coffee on your deck.",
+    verticalSrc: ASSETS.galleryVideo3,
+    horizontalSrc: ASSETS.galleryImg7,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[13],
+    nextBgColor: SECTION_COLORS[13],
+  },
+];
+
 /* ═══════════════════════════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════════════════════════ */
@@ -775,7 +839,15 @@ export default function TentedCamp() {
       {/* ★ Functional break: Getting Here */}
       <GettingHereBreak bgColor={SECTION_COLORS[9]} />
 
-      <GallerySection />
+      {/* Cascade: Residence → Henry's Bar → Grand Tents → Camp Life (from gallery) */}
+      {SECTIONS_GALLERY.map((section, i) => (
+        <CascadeSection
+          key={section.id}
+          section={section}
+          index={i + SECTIONS_BEFORE_REVIEW.length + SECTIONS_AFTER_REVIEW.length + SECTIONS_AFTER_JOURNAL.length}
+        />
+      ))}
+
       <Footer />
     </div>
   );
