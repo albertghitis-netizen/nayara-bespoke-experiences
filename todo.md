@@ -1590,3 +1590,6 @@
 
 ## Atacama Hero Video Update
 - [x] Replace Atacama hero video with new MOV (with audio)
+
+## Nayara Springs Hero Video
+- [x] Replace Nayara Springs hero video with new MOV (with audio, desktop + mobile/vertical)
