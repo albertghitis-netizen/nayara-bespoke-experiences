@@ -1931,3 +1931,4 @@
 - [ ] Atacama: add Stargazing blog link in Experiences section
 - [ ] Bocas del Toro: add Coral Reef Restoration podcast (Coming Soon) in Sustainability section
 - [ ] Blog/podcast labels use property color palette
+- [ ] Hangaroa: add two long-form Hangaroa videos in Sustainability section (from podcast section)
