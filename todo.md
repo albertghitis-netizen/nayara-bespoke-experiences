@@ -1578,3 +1578,6 @@
 
 ## Tented Camp Hero Video
 - [x] Replace Tented Camp hero video with new MOV (with audio)
+
+## Nayara Gardens Room Image
+- [x] Add aerial casita photo to Nayara Gardens room cascade section

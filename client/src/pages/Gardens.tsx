@@ -64,6 +64,7 @@ const CDN = {
   roomsVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4",
   // Rooms landscape
   roomsLandscape: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-final-video_7a430890.mp4",
+  roomsAerial: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-casita-aerial_e2fb1f8e.jpeg",
   // Experiences section background
   experiencesVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridges-horizontal_0bf48537.mp4",
   // Sustainability
@@ -224,6 +225,15 @@ function RoomsSection() {
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <NativeVideo src={CDN.roomsLandscape} className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
+        </div>
+
+        {/* Aerial casita photo */}
+        <div className="mt-10 md:mt-16">
+          <MediaReveal delay={0.15}>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
+              <img src={CDN.roomsAerial} alt="Aerial view of a Nayara Gardens casita with private plunge pool" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
