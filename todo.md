@@ -1646,3 +1646,28 @@
 - [x] Upload compressed video to CDN
 - [x] Update brand experiences page desktop hero video URL
 - [x] Verify audio works with SOUND button (geysers steam visible in hero)
+
+## Press & Awards Hero Video Update
+- [ ] Analyze new video for Press & Awards pages
+- [ ] Compress and upload to CDN
+- [x] Update Press page — full video hero with pool video (desktop horizontal + mobile vertical)
+- [x] Update Awards page — pool video hero (desktop horizontal + mobile vertical)
+- [ ] Verify both pages visually
+
+## Alto Atacama Desert Suites Vertical Video Update
+- [x] Analyze new desert suites vertical video — 1440x2560, 10s, H.264+AAC, 24.9MB
+- [x] Compress and upload to CDN — 24.9MB → 3.2MB
+- [x] Update Alto Atacama rooms/suites cascade section vertical video
+
+## Alto Atacama Horizontal Photo Swap
+- [x] Swap Mars on Earth horizontal to red landscape lady photo (atacama-ultrawide-1)
+- [x] Desert Suites gets new shorter vertical video + keeps original horizontal
+- [x] Protecting the Desert horizontal updated to avoid duplicate (now uses atacama-ultrawide-2)
+
+## Hero Text — Smaller & Lower Across Properties
+- [x] Alto Atacama — text smaller (xl/3xl/4xl) and lower (pb-6/pb-10)
+- [ ] Tented Camp — same treatment
+- [ ] Springs — same treatment
+- [ ] Gardens — same treatment
+- [ ] Bocas del Toro — same treatment
+- [ ] Hangaroa — same treatment

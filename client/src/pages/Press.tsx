@@ -9,6 +9,13 @@ import { ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
+import NativeVideo from "@/components/NativeVideo";
+import { useIsMobile } from "@/hooks/useMobile";
+
+const CDN = {
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/press-awards-hero-v2-audio_5d1b67bc.mp4",
+  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/press-awards-vertical-audio_19cd0435.mp4",
+};
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -64,6 +71,7 @@ function getYear(date: string): string {
 }
 
 export default function Press() {
+  const isMobile = useIsMobile();
   const [activeProperty, setActiveProperty] = useState("All");
   const [activeTopic, setActiveTopic] = useState("All");
 
@@ -94,20 +102,40 @@ export default function Press() {
     <div className="min-h-screen bg-white">
       <BrandNavigation pageType="content" />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <FadeIn>
-            <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.5em] uppercase block mb-6" style={{ ...body, fontWeight: 500 }}>Nayara in the Media</span>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1 className="text-[#3a2a1a] text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-wide" style={heading}>Press &amp; Recognition</h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="mt-6 text-[#4B4A4A]/50 text-[15px] max-w-2xl mx-auto leading-relaxed" style={body}>
-              From MICHELIN Keys to Conde Nast Traveler&apos;s #1 Resort, discover how the world&apos;s most respected voices in travel recognize Nayara Resorts.
-            </p>
-          </FadeIn>
+      {/* Hero Video */}
+      <section className="relative w-full h-screen overflow-hidden">
+        <div className="absolute inset-0">
+          <NativeVideo src={isMobile ? CDN.heroMobile : CDN.heroDesktop} className="w-full h-full object-cover" hasAudio />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        </div>
+        <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="text-white/40 text-[10px] tracking-[0.5em] uppercase block mb-4"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            Nayara in the Media
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center"
+            style={heading}
+          >
+            Press &amp; Recognition
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase max-w-2xl text-center"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            From MICHELIN Keys to Conde Nast Traveler&apos;s #1 Resort
+          </motion.p>
         </div>
       </section>
 

@@ -67,12 +67,12 @@ const ASSETS = {
   heroDesktop: `${CDN}/atacama-hero-new-audio_13d2ee07.mp4`,
   heroMobile: `${CDN}/atacama-hero-vertical-hq_d81c629e.mp4`,
 
-  // Section 1 — Story: geyser steam V + resort exterior UW
+  // Section 1 — Story: geyser steam V + red landscape lady UW
   storyV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-red_bd8b7f0f.mp4",
-  storyH: `${CDN}/atacama-ultrawide-2_c9a936b3.jpg`,
+  storyH: `${CDN}/atacama-ultrawide-1_6f77dafe.jpg`,
 
-  // Section 2 — Rooms: resort aerial V + resort pathway UW
-  roomsV: `${CDN}/atacama-resort-aerial-vertical_7face530.mp4`,
+  // Section 2 — Rooms: new desert suites vertical video + resort pathway UW
+  roomsV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-desert-suites-vertical_a742ab8f.mp4",
   roomsH: `${CDN}/atacama-ultrawide-5_aeeaded2.jpg`,
 
   // Section 3 — Experiences: blue salt flat V + Rainbow Valley woman UW
@@ -81,7 +81,7 @@ const ASSETS = {
 
   // Section 4 — Sustainability: Milky Way arch V + vicuna mountain UW
   susV: `${CDN}/atacama-milkyway-arch_d146b04d.jpg`,
-  susH: `${CDN}/atacama-ultrawide-1_6f77dafe.jpg`,
+  susH: `${CDN}/atacama-ultrawide-2_c9a936b3.jpg`,
 
   // Section 5 — Wellness: geyser eruption V + spa massage UW
   wellV: `${CDN}/atacama-geyser-eruption-vertical_5c93579c.mp4`,
@@ -592,10 +592,10 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
       </div>
       {/* Hero text — subtle fade-in */}
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-6 md:pb-10 px-6 md:px-10">
         <MultiLineReveal
           lines={["Atacama Desert Oasis Lodge"]}
-          lineClassName="text-white text-3xl md:text-5xl lg:text-6xl leading-[1] tracking-wide text-center"
+          lineClassName="text-white text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
           as="h1"
           delay={0.6}
           staggerDelay={0.15}

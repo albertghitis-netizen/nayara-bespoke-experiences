@@ -560,7 +560,15 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
       </div>
 
-      {/* Hero text removed — clean video only */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-6 md:pb-10 px-6 md:px-10">
+        <MultiLineReveal
+          lines={["Overwater Villas on a Private Caribbean Island"]}
+          lineClassName="text-white text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
+          as="h1"
+          delay={0.4}
+          staggerDelay={0.15}
+        />
+      </div>
     </section>
   );
 }
