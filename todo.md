@@ -1671,3 +1671,9 @@
 - [ ] Gardens — same treatment
 - [ ] Bocas del Toro — same treatment
 - [ ] Hangaroa — same treatment
+
+## Homepage Hero CTA
+- [ ] Add "Explore Our Properties" CTA button below homepage hero text
+
+## Remove SOUND Button on Mobile
+- [x] Hide SOUND button on mobile across all pages (desktop only) — hidden md:flex on NativeVideo button
