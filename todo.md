@@ -1584,3 +1584,6 @@
 
 ## Atacama S1 Video
 - [x] Replace S1 vertical media on Alto Atacama page with new video (sky cut, red blends into red)
+
+## Atacama Hero Text Animation
+- [x] Add subtle fade-in animation to text overlay on Atacama hero video
