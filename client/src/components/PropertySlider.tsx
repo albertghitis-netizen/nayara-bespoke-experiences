@@ -74,7 +74,7 @@ export default function PropertySlider({
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <p
-          className="text-[11px] tracking-[0.2em] uppercase mb-4"
+          className="text-[11px] tracking-[0.2em] mb-4"
           style={{ ...body, fontWeight: 500, color: palette.primary }}
         >
           {sectionLabel}
@@ -142,7 +142,7 @@ export default function PropertySlider({
                 </h3>
                 {card.subtitle && (
                   <p
-                    className="text-[12px] tracking-[0.1em] uppercase mb-3"
+                    className="text-[12px] tracking-[0.1em] mb-3"
                     style={{ ...body, fontWeight: 500, color: palette.primary }}
                   >
                     {card.subtitle}
@@ -159,7 +159,7 @@ export default function PropertySlider({
                     {card.tags.map((tag, j) => (
                       <span
                         key={j}
-                        className="text-[10px] tracking-[0.08em] uppercase px-2.5 py-1 rounded-full"
+                        className="text-[10px] tracking-[0.08em] px-2.5 py-1 rounded-full"
                         style={{
                           ...body,
                           fontWeight: 500,
@@ -181,7 +181,7 @@ export default function PropertySlider({
         <div className="mt-8">
           <a
             href={learnMoreLink}
-            className="inline-block text-[11px] tracking-[0.15em] uppercase transition-colors hover:opacity-70"
+            className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
             style={{ ...body, fontWeight: 500, color: palette.primary }}
           >
             {learnMoreLabel} →

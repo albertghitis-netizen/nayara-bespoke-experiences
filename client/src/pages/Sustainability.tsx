@@ -167,7 +167,7 @@ function IntroSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Our Commitment</p>
+          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Our Commitment</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             We Leave Every Place Stronger Than We Found It
           </h2>
@@ -188,7 +188,7 @@ function BrandPillarsSection() {
     <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]">
       <div className="max-w-[1100px] mx-auto">
         <FadeIn>
-          <p className="text-white/25 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>By the Numbers</p>
+          <p className="text-white/25 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>By the Numbers</p>
           <h2 className="text-white/80 mb-12" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Measurable Impact Across Six Properties
           </h2>
@@ -217,7 +217,7 @@ function PropertyInitiativesSection({ activeFilter, onFilterChange, filtered }: 
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[1100px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Property Initiatives</p>
+          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Property Initiatives</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Sustainability Shaped by Place
           </h2>
@@ -256,7 +256,7 @@ function PropertyInitiativesSection({ activeFilter, onFilterChange, filtered }: 
               >
                 <Link href={prop.route} className="group">
                   <h3 className="text-[#3a2a1a] text-[18px] mb-1 group-hover:text-[#5a4a3a] transition-colors" style={{ ...heading, fontWeight: 500 }}>{prop.name}</h3>
-                  <p className="text-[#3a2a1a]/30 text-[11px] tracking-[0.1em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>{prop.location}</p>
+                  <p className="text-[#3a2a1a]/30 text-[11px] tracking-[0.1em] mb-4" style={{ ...body, fontWeight: 500 }}>{prop.location}</p>
                 </Link>
                 <ul className="space-y-3">
                   {prop.initiatives.map((init, j) => (

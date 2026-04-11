@@ -118,7 +118,7 @@ function IntroSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Philosophy</p>
+          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Philosophy</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             Nature as Healer
           </h2>
@@ -163,7 +163,7 @@ function WellnessPillarRow({ pillar, reversed, index }: { pillar: WellnessPillar
             </div>
           </div>
           <div className={reversed ? "md:order-1" : "md:order-2"}>
-            <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-3" style={{ ...body, fontWeight: 600 }}>{pillar.subtitle}</p>
+            <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>{pillar.subtitle}</p>
             <h3 className="text-[#3a2a1a] text-2xl md:text-3xl leading-[1.15] mb-6" style={heading}>{pillar.title}</h3>
             <p className="text-[#4B4A4A]/65 text-[15px] leading-relaxed mb-8" style={body}>{pillar.description}</p>
             <ul className="space-y-3">
@@ -189,7 +189,7 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
     <section className="py-16 md:py-24 px-6 md:px-10 bg-white/30">
       <div className="max-w-[1200px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Spa Treatments</p>
+          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Spa Treatments</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Treatments Shaped by Place
           </h2>
@@ -224,9 +224,9 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
               <FadeIn key={`${t.propertyId}-${t.id}`} delay={Math.min(i * 0.05, 0.3)}>
                 <div className="bg-white/60 rounded-xl p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 600 }}>{t.propertyName}</span>
+                    <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.2em]" style={{ ...body, fontWeight: 600 }}>{t.propertyName}</span>
                     <span className="text-[#3a2a1a]/15">·</span>
-                    <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>{t.category}</span>
+                    <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{t.category}</span>
                   </div>
                   <h3 className="text-[#3a2a1a] text-[16px] mb-1" style={{ ...heading, fontWeight: 500 }}>{t.name}</h3>
                   {t.localName && <p className="text-[#3a2a1a]/30 text-[12px] italic mb-2" style={body}>{t.localName}</p>}
@@ -259,7 +259,7 @@ function SpringsFeature() {
     <section className="py-16 md:py-24 bg-[#3a2a1a] px-6 md:px-10">
       <div className="max-w-[800px] mx-auto text-center">
         <FadeIn>
-          <p className="text-white/25 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>The Wellness Flagship</p>
+          <p className="text-white/25 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Wellness Flagship</p>
           <h2 className="text-white/80 mb-6" style={{ ...heading, fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: 1.15 }}>
             Nayara Springs
           </h2>
@@ -284,7 +284,7 @@ function PropertyLinksSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[1100px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Wellness by Destination</p>
+          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Wellness by Destination</p>
           <h2 className="text-[#4B4A4A] mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Find Your Healing Landscape
           </h2>

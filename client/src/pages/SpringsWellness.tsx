@@ -67,7 +67,7 @@ export default function SpringsWellness() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className="px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase transition-all duration-300"
+                className="px-5 py-2 rounded-full text-[11px] tracking-[0.15em] transition-all duration-300"
                 style={{
                   fontFamily: "var(--font-body)",
                   fontWeight: 600,
@@ -102,7 +102,7 @@ export default function SpringsWellness() {
                   <div className="flex items-center gap-3 mb-4">
                     {t.duration && (
                       <span
-                        className="text-[11px] tracking-[0.1em] uppercase"
+                        className="text-[11px] tracking-[0.1em]"
                         style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
                       >
                         {t.duration}
@@ -132,7 +132,7 @@ export default function SpringsWellness() {
             <div className="text-center mt-16">
               <a
                 href="/springs"
-                className="inline-block text-[11px] tracking-[0.2em] uppercase pb-1"
+                className="inline-block text-[11px] tracking-[0.2em] pb-1"
                 style={{
                   fontFamily: "var(--font-body)",
                   fontWeight: 500,
@@ -171,7 +171,7 @@ function WellnessHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-white/50 text-[11px] tracking-[0.2em] uppercase mt-3"
+          className="text-white/50 text-[11px] tracking-[0.2em] mt-3"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
           Nayara Springs

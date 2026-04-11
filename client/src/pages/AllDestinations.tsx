@@ -118,7 +118,7 @@ export default function AllDestinations() {
               <button
                 key={tab}
                 onClick={() => setActiveFilter(tab)}
-                className={`px-5 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-300 border ${
+                className={`px-5 py-2 rounded-full text-[11px] tracking-[0.12em] transition-all duration-300 border ${
                   activeFilter === tab
                     ? "bg-[#AD8F61] border-[#AD8F61] text-white"
                     : "bg-transparent border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#AD8F61] hover:text-[#AD8F61]"
@@ -170,7 +170,7 @@ export default function AllDestinations() {
                     {dest.name}
                   </h2>
                   <p
-                    className="text-[11px] tracking-[0.1em] uppercase text-[#3a2a1a]/40 mb-1"
+                    className="text-[11px] tracking-[0.1em] text-[#3a2a1a]/40 mb-1"
                     style={{ ...body, fontWeight: 500 }}
                   >
                     {dest.region}
@@ -188,14 +188,14 @@ export default function AllDestinations() {
                       href={BOOKING_URLS[dest.bookingId]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase border border-[#AD8F61] text-[#AD8F61] hover:bg-[#AD8F61] hover:text-white transition-all duration-300"
+                      className="px-5 py-2 rounded-full text-[11px] tracking-[0.12em] border border-[#AD8F61] text-[#AD8F61] hover:bg-[#AD8F61] hover:text-white transition-all duration-300"
                       style={{ ...body, fontWeight: 500 }}
                     >
                       Reserve
                     </a>
                     <button
                       onClick={() => navigate(dest.route)}
-                      className="px-5 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase border border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#3a2a1a] hover:text-[#3a2a1a] transition-all duration-300 cursor-pointer"
+                      className="px-5 py-2 rounded-full text-[11px] tracking-[0.12em] border border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#3a2a1a] hover:text-[#3a2a1a] transition-all duration-300 cursor-pointer"
                       style={{ ...body, fontWeight: 500 }}
                     >
                       Explore

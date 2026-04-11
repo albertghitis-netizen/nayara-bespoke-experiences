@@ -82,7 +82,7 @@ function HeroSection() {
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center" style={heading}>
           Stories from the Field
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase" style={{ ...body, fontWeight: 500 }}>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em]" style={{ ...body, fontWeight: 500 }}>
           Dispatches from Six Extraordinary Destinations
         </motion.p>
       </div>
@@ -102,7 +102,7 @@ function FiltersSection({ activePillar, setActivePillar, activeDestination, setA
       <div className="max-w-[1200px] mx-auto">
         {/* Destination axis */}
         <div className="flex flex-wrap items-center gap-2 mb-4">
-          <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase mr-1" style={{ ...body, fontWeight: 600 }}>Destination</span>
+          <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] mr-1" style={{ ...body, fontWeight: 600 }}>Destination</span>
           {DESTINATIONS.map((d) => (
             <button
               key={d}
@@ -121,7 +121,7 @@ function FiltersSection({ activePillar, setActivePillar, activeDestination, setA
 
         {/* Topic axis */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase mr-1" style={{ ...body, fontWeight: 600 }}>Topic</span>
+          <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] mr-1" style={{ ...body, fontWeight: 600 }}>Topic</span>
           {PILLARS.map((p) => (
             <button
               key={p}
@@ -154,19 +154,19 @@ function FeaturedArticle({ post }: { post: BlogPost }) {
             <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
               <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" />
               <div className="absolute top-4 left-4">
-                <span className="inline-block bg-[#3a2a1a]/70 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 rounded-full" style={{ ...body, fontWeight: 500 }}>Featured</span>
+                <span className="inline-block bg-[#3a2a1a]/70 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] px-3 py-1.5 rounded-full" style={{ ...body, fontWeight: 500 }}>Featured</span>
               </div>
             </div>
             <div className="flex flex-col justify-center p-8 md:p-12 lg:p-14">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 500 }}>{post.pillar}</span>
+                <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>{post.pillar}</span>
                 <span className="w-px h-3 bg-[#3a2a1a]/10" />
-                <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 500 }}>{post.destination}</span>
+                <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>{post.destination}</span>
               </div>
               <h2 className="text-[#3a2a1a] text-2xl md:text-3xl leading-[1.1] group-hover:text-[#5a4a3a] transition-colors" style={heading}>{post.title}</h2>
               <p className="text-[#4B4A4A]/55 text-[14px] leading-relaxed mt-4 line-clamp-3" style={body}>{post.excerpt}</p>
               <div className="mt-6 flex items-center gap-2">
-                <span className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase group-hover:text-[#3a2a1a] transition-colors" style={{ ...body, fontWeight: 500 }}>Read Story</span>
+                <span className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] group-hover:text-[#3a2a1a] transition-colors" style={{ ...body, fontWeight: 500 }}>Read Story</span>
                 <ExternalLink className="w-3 h-3 text-[#3a2a1a]/30 group-hover:text-[#3a2a1a] transition-colors" />
               </div>
             </div>
@@ -199,7 +199,7 @@ function ArticleGrid({ posts, hasMore, showAll, onShowAll, totalFiltered }: {
             </div>
             {hasMore && !showAll && (
               <div className="flex justify-center mt-10">
-                <button onClick={onShowAll} className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-[#3a2a1a]/40 hover:text-[#3a2a1a] transition-colors py-3 px-6 border border-[#3a2a1a]/15 rounded-full hover:border-[#3a2a1a]/30" style={{ ...body, fontWeight: 500 }}>
+                <button onClick={onShowAll} className="flex items-center gap-2 text-[11px] tracking-[0.15em] text-[#3a2a1a]/40 hover:text-[#3a2a1a] transition-colors py-3 px-6 border border-[#3a2a1a]/15 rounded-full hover:border-[#3a2a1a]/30" style={{ ...body, fontWeight: 500 }}>
                   View All Stories
                   <ChevronDown className="w-3.5 h-3.5" />
                 </button>
@@ -228,9 +228,9 @@ function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
         <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
       </div>
       <div className="flex items-center gap-2 mb-2">
-        <span className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>{post.pillar}</span>
+        <span className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{post.pillar}</span>
         <span className="w-px h-2.5 bg-[#3a2a1a]/10" />
-        <span className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>{post.destination}</span>
+        <span className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{post.destination}</span>
       </div>
       <h3 className="text-[#3a2a1a] text-lg leading-[1.2] group-hover:text-[#5a4a3a] transition-colors" style={heading}>{post.title}</h3>
       {post.excerpt && (

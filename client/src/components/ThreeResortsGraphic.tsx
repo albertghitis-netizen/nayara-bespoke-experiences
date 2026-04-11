@@ -30,7 +30,7 @@ export default function ThreeResortsGraphic() {
         Three Resorts. One Rainforest.
       </h3>
       <p
-        className="text-[#4B4A4A]/50 text-[11px] tracking-[0.1em] uppercase mb-5"
+        className="text-[#4B4A4A]/50 text-[11px] tracking-[0.1em] mb-5"
         style={{ ...body, fontWeight: 500 }}
       >
         Arenal Volcano National Park, Costa Rica
@@ -42,7 +42,7 @@ export default function ThreeResortsGraphic() {
         style={{ aspectRatio: "16/7" }}
       >
         <span
-          className="text-[#4B4A4A]/25 text-[10px] tracking-[0.12em] uppercase"
+          className="text-[#4B4A4A]/25 text-[10px] tracking-[0.12em]"
           style={{ ...body, fontWeight: 500 }}
         >
           Graphic Placeholder

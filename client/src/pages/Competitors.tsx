@@ -252,7 +252,7 @@ function MarketView({ market }: { market: Market }) {
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
           <span
-            className="text-[#3a2a1a]/30 text-[11px] tracking-[0.2em] uppercase"
+            className="text-[#3a2a1a]/30 text-[11px] tracking-[0.2em]"
             style={{ ...body, fontWeight: 500 }}
           >
             {market.region}
@@ -316,7 +316,7 @@ function CompetitorCard({ competitor }: { competitor: Competitor }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div>
           <label
-            className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] uppercase mb-1.5"
+            className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] mb-1.5"
             style={{ ...body, fontWeight: 500 }}
           >
             Positioning
@@ -327,7 +327,7 @@ function CompetitorCard({ competitor }: { competitor: Competitor }) {
         </div>
         <div>
           <label
-            className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] uppercase mb-1.5"
+            className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] mb-1.5"
             style={{ ...body, fontWeight: 500 }}
           >
             Key Differentiator
@@ -338,7 +338,7 @@ function CompetitorCard({ competitor }: { competitor: Competitor }) {
         </div>
         <div>
           <label
-            className="block text-[#5a8a5a] text-[10px] tracking-[0.15em] uppercase mb-1.5"
+            className="block text-[#5a8a5a] text-[10px] tracking-[0.15em] mb-1.5"
             style={{ ...body, fontWeight: 600 }}
           >
             Nayara Advantage

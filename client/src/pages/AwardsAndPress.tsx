@@ -213,7 +213,7 @@ export default function AwardsAndPress() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase"
+            className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em]"
             style={{ ...body, fontWeight: 500 }}
           >
             Two Decades of Excellence
@@ -239,7 +239,7 @@ export default function AwardsAndPress() {
                   className="text-white text-3xl md:text-4xl lg:text-5xl mb-1"
                   style={heading}
                 />
-                <p className="text-white/70 text-xs md:text-sm tracking-[0.1em] uppercase" style={{ ...body, fontWeight: 500 }}>{stat.label}</p>
+                <p className="text-white/70 text-xs md:text-sm tracking-[0.1em]" style={{ ...body, fontWeight: 500 }}>{stat.label}</p>
                 <p className="text-white/40 text-[10px] md:text-xs mt-0.5" style={{ ...body, fontWeight: 300 }}>{stat.sublabel}</p>
               </motion.div>
             ))}
@@ -251,7 +251,7 @@ export default function AwardsAndPress() {
       <section className="py-16 md:py-24 px-6 md:px-10 bg-[#f4f1eb]">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <p className="text-[10px] tracking-[0.25em] uppercase mb-4" style={{ ...body, fontWeight: 500, color: "#3a2a1a", opacity: 0.4 }}>The Nayara Story</p>
+            <p className="text-[10px] tracking-[0.25em] mb-4" style={{ ...body, fontWeight: 500, color: "#3a2a1a", opacity: 0.4 }}>The Nayara Story</p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h2 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide mb-8" style={{ ...heading, color: "#3a2a1a" }}>
@@ -278,7 +278,7 @@ export default function AwardsAndPress() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2.5 text-[12px] tracking-[0.12em] uppercase transition-all duration-300 border-b-2 ${
+                className={`px-6 py-2.5 text-[12px] tracking-[0.12em] transition-all duration-300 border-b-2 ${
                   activeTab === tab
                     ? "text-[#3a2a1a] border-[#3a2a1a]"
                     : "text-[#3a2a1a]/30 border-transparent hover:text-[#3a2a1a]/60"
@@ -317,7 +317,7 @@ export default function AwardsAndPress() {
           <section className="pb-16 md:pb-24 px-6 md:px-10">
             <div className="max-w-5xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
-                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>The Michelin Guide</p>
+                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>The Michelin Guide</p>
                 <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl mb-6" style={heading}>7 Michelin Keys</h2>
                 <p className="text-[#3a2a1a]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed" style={{ ...body, fontWeight: 300 }}>
                   Michelin Keys are the hotel equivalent of Michelin Stars for restaurants. Awarded to properties that deliver an exceptional stay defined by outstanding architecture, interior design, quality of service, character, and a genuine sense of place. Three Keys is the highest distinction.
@@ -337,7 +337,7 @@ export default function AwardsAndPress() {
                       ))}
                     </div>
                     <h3 className="text-[#3a2a1a] text-xl md:text-2xl mb-1" style={heading}>{item.property}</h3>
-                    <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>{item.location} · {item.keys} Keys</p>
+                    <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 500 }}>{item.location} · {item.keys} Keys</p>
                     <p className="text-[#3a2a1a]/60 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{item.description}</p>
                   </motion.div>
                 ))}
@@ -349,7 +349,7 @@ export default function AwardsAndPress() {
           <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]/[0.03]">
             <div className="max-w-4xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12">
-                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>By Property</p>
+                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>By Property</p>
                 <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl" style={heading}>Awards & Accolades</h2>
               </motion.div>
 
@@ -377,7 +377,7 @@ export default function AwardsAndPress() {
                           <div className="pb-6 pl-4 md:pl-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                             {section.awards.map((award, ai) => (
                               <div key={ai}>
-                                <h4 className="text-amber-700/80 text-[10px] md:text-xs tracking-[0.15em] uppercase mb-2" style={{ ...body, fontWeight: 600 }}>{award.source}</h4>
+                                <h4 className="text-amber-700/80 text-[10px] md:text-xs tracking-[0.15em] mb-2" style={{ ...body, fontWeight: 600 }}>{award.source}</h4>
                                 {award.accolades.map((accolade, aci) => (
                                   <p key={aci} className="text-[#3a2a1a]/60 text-sm py-1.5 border-b border-[#3a2a1a]/5 last:border-0" style={body}>{accolade}</p>
                                 ))}
@@ -397,7 +397,7 @@ export default function AwardsAndPress() {
           <section className="py-16 md:py-24 px-6 md:px-10">
             <div className="max-w-5xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
-                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>Sustainability</p>
+                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>Sustainability</p>
                 <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl" style={heading}>Certifications</h2>
               </motion.div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -405,7 +405,7 @@ export default function AwardsAndPress() {
                   <motion.div key={cert.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.06 }} className="bg-white p-8 md:p-10 border border-stone-100">
                     <ShieldCheck className="w-8 h-8 text-emerald-700/60 mb-5" />
                     <h3 className="text-[#3a2a1a] text-xl mb-2" style={heading}>{cert.name}</h3>
-                    <p className="text-emerald-700/60 text-[10px] tracking-[0.1em] uppercase mb-4" style={{ ...body, fontWeight: 500 }}>{cert.properties}</p>
+                    <p className="text-emerald-700/60 text-[10px] tracking-[0.1em] mb-4" style={{ ...body, fontWeight: 500 }}>{cert.properties}</p>
                     <p className="text-[#3a2a1a]/50 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{cert.description}</p>
                   </motion.div>
                 ))}
@@ -445,7 +445,7 @@ export default function AwardsAndPress() {
                           {clip.property !== "Multiple Properties" && (
                             <>
                               <span className="text-[#3a2a1a]/15 text-[10px]">|</span>
-                              <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.08em] uppercase" style={body}>{clip.property}</span>
+                              <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.08em]" style={body}>{clip.property}</span>
                             </>
                           )}
                         </div>

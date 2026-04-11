@@ -80,7 +80,7 @@ export default function WebsiteGuide() {
             {SECTIONS[0].content.map((item) => (
               <div key={item.label} className="border border-[#3a2a1a]/8 rounded-xl p-4 text-center">
                 <p className="text-[#3a2a1a] text-[20px] mb-1" style={{ ...heading }}>{item.value}</p>
-                <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] uppercase" style={{ ...body, fontWeight: 500 }}>{item.label}</p>
+                <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em]" style={{ ...body, fontWeight: 500 }}>{item.label}</p>
               </div>
             ))}
           </div>

@@ -120,7 +120,7 @@ export default function NativeVideo({
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-6 left-6 z-30 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-all duration-300 group cursor-pointer"
+          className="absolute bottom-6 left-6 z-30 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#3a2a1a]/70 backdrop-blur-md border border-white/10 hover:bg-[#3a2a1a]/90 transition-all duration-300 group cursor-pointer"
         >
           {/* Pulse ring — draws attention, then fades */}
           {isMuted && showPulse && (
@@ -160,7 +160,7 @@ export default function NativeVideo({
 
           {/* Label */}
           <span
-            className="text-white/70 group-hover:text-white text-[10px] tracking-[0.2em] uppercase transition-colors"
+            className="text-white/70 group-hover:text-white text-[10px] tracking-[0.2em] transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {isMuted ? "Sound" : "Mute"}

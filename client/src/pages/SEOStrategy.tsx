@@ -211,7 +211,7 @@ function PropertyKeywords() {
           <h3 className="text-[#3a2a1a] text-[17px] mb-4" style={{ ...body, fontWeight: 600 }}>{p.property}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-[#5a8a5a] text-[10px] tracking-[0.15em] uppercase mb-2" style={{ ...body, fontWeight: 600 }}>Primary Keywords</label>
+              <label className="block text-[#5a8a5a] text-[10px] tracking-[0.15em] mb-2" style={{ ...body, fontWeight: 600 }}>Primary Keywords</label>
               <ul className="space-y-1.5">
                 {p.primary.map((kw) => (
                   <li key={kw} className="text-[#3a2a1a]/70 text-[14px]" style={body}>{kw}</li>
@@ -219,7 +219,7 @@ function PropertyKeywords() {
               </ul>
             </div>
             <div>
-              <label className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] uppercase mb-2" style={{ ...body, fontWeight: 500 }}>Secondary Keywords</label>
+              <label className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] mb-2" style={{ ...body, fontWeight: 500 }}>Secondary Keywords</label>
               <ul className="space-y-1.5">
                 {p.secondary.map((kw) => (
                   <li key={kw} className="text-[#3a2a1a]/50 text-[14px]" style={body}>{kw}</li>

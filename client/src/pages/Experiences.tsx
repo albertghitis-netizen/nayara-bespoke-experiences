@@ -99,7 +99,7 @@ function IntroSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Experience</p>
+          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Experience</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             Every Destination Tells a Different Story
           </h2>
@@ -119,7 +119,7 @@ function FilterBar({ activeFilter, onFilterChange }: { activeFilter: string; onF
   return (
     <section className="px-6 md:px-10 pb-8">
       <div className="max-w-[1200px] mx-auto">
-        <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
+        <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
         <div className="flex flex-wrap gap-2">
           {filterOptions.map((opt) => (
             <button
@@ -174,11 +174,11 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
                   {/* Content */}
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 600 }}>
+                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.2em]" style={{ ...body, fontWeight: 600 }}>
                         {ex.propertyName}
                       </span>
                       <span className="text-[#3a2a1a]/15">·</span>
-                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>
+                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>
                         {ex.category}
                       </span>
                     </div>

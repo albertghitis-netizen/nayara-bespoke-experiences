@@ -129,7 +129,7 @@ export default function BrandBook() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            className="text-[11px] tracking-[0.25em] uppercase mb-6"
+            className="text-[11px] tracking-[0.25em] mb-6"
             style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
           >
             Brand Guidelines
@@ -163,7 +163,7 @@ export default function BrandBook() {
       <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: "#f7f5f0" }}>
         <div className="max-w-[1100px] mx-auto">
           <p
-            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            className="text-[11px] tracking-[0.25em] mb-4"
             style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
           >
             01 — Color Palette
@@ -197,7 +197,7 @@ export default function BrandBook() {
                   {c.name}
                 </h3>
                 <p
-                  className="text-xs tracking-[0.08em] uppercase mb-2"
+                  className="text-xs tracking-[0.08em] mb-2"
                   style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
                 >
                   {c.hex}
@@ -234,7 +234,7 @@ export default function BrandBook() {
       >
         <div className="max-w-[1100px] mx-auto">
           <p
-            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            className="text-[11px] tracking-[0.25em] mb-4"
             style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
           >
             02 — Typography
@@ -264,7 +264,7 @@ export default function BrandBook() {
                     {f.name}
                   </h3>
                   <span
-                    className="text-xs tracking-[0.15em] uppercase"
+                    className="text-xs tracking-[0.15em]"
                     style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
                   >
                     {f.role}
@@ -284,7 +284,7 @@ export default function BrandBook() {
                   {f.weights.map((w) => (
                     <div key={w.label}>
                       <p
-                        className="text-[10px] tracking-[0.15em] uppercase mb-2"
+                        className="text-[10px] tracking-[0.15em] mb-2"
                         style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
                       >
                         {w.label} — {w.weight}
@@ -324,7 +324,7 @@ export default function BrandBook() {
       <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: "#f7f5f0" }}>
         <div className="max-w-[1100px] mx-auto">
           <p
-            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            className="text-[11px] tracking-[0.25em] mb-4"
             style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
           >
             03 — Property Palettes
@@ -360,7 +360,7 @@ export default function BrandBook() {
       >
         <div className="max-w-[1100px] mx-auto">
           <p
-            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            className="text-[11px] tracking-[0.25em] mb-4"
             style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
           >
             04 — Photography
@@ -393,7 +393,7 @@ export default function BrandBook() {
       <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: "#f7f5f0" }}>
         <div className="max-w-[1100px] mx-auto">
           <p
-            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            className="text-[11px] tracking-[0.25em] mb-4"
             style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
           >
             05 — Components
@@ -422,7 +422,7 @@ export default function BrandBook() {
       >
         <div className="max-w-[1100px] mx-auto">
           <p
-            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            className="text-[11px] tracking-[0.25em] mb-4"
             style={{ ...body, fontWeight: 500, color: "#9C9A98" }}
           >
             06 — Rules

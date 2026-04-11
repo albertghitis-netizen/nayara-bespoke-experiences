@@ -44,7 +44,7 @@ export default function ComingSoon() {
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="tracking-[0.2em] uppercase">All Properties</span>
+            <span className="tracking-[0.2em]">All Properties</span>
           </Link>
         </div>
       </header>
@@ -59,7 +59,7 @@ export default function ComingSoon() {
           >
             <MapPin className="w-10 h-10 text-stone-300 mx-auto mb-6" />
             <p
-              className="text-stone-400 text-xs tracking-[0.35em] uppercase mb-4"
+              className="text-stone-400 text-xs tracking-[0.35em] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               {info.location}, {info.country}
@@ -78,7 +78,7 @@ export default function ComingSoon() {
             </p>
             <div className="inline-block border border-stone-300 px-8 py-4">
               <p
-                className="text-stone-400 text-xs tracking-[0.35em] uppercase mb-1"
+                className="text-stone-400 text-xs tracking-[0.35em] mb-1"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 Bespoke Experiences

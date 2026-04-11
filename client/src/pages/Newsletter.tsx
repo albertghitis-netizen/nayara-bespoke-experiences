@@ -27,7 +27,7 @@ export default function Newsletter() {
       {/* ── INTRO ── */}
       <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-6 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#AD8F61] mb-6">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#AD8F61] mb-6">
             Nayara Newsletter &nbsp;&middot;&nbsp; April 2026
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
@@ -49,7 +49,7 @@ export default function Newsletter() {
       {/* ══════════ TOPIC 1 — World Health Day ══════════ */}
       <section className="bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#AD8F61] mb-6">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#AD8F61] mb-6">
             World Health Day &nbsp;&middot;&nbsp; April 7
           </p>
 
@@ -78,7 +78,7 @@ export default function Newsletter() {
             href="https://blog.nayararesorts.com/pura-vida"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-10 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
+            className="inline-block px-10 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
           >
             Read the Blog
           </a>
@@ -91,7 +91,7 @@ export default function Newsletter() {
       {/* ══════════ TOPIC 2 — Earth Day ══════════ */}
       <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#AD8F61] mb-6">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#AD8F61] mb-6">
             Earth Day &nbsp;&middot;&nbsp; April 22
           </p>
 
@@ -125,7 +125,7 @@ export default function Newsletter() {
               href="https://www.youtube.com/@NayaraResorts"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
+              className="inline-block px-8 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
             >
               Atacama Sustainability Video
             </a>
@@ -133,7 +133,7 @@ export default function Newsletter() {
               href="https://www.youtube.com/@NayaraResorts"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
+              className="inline-block px-8 py-3.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.25em] no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
             >
               Hangaroa Sustainability Video
             </a>
@@ -147,7 +147,7 @@ export default function Newsletter() {
       {/* ══════════ TOPIC 3 — Wellness Escape ══════════ */}
       <section className="bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#AD8F61] mb-6">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#AD8F61] mb-6">
             Wellness Escape &nbsp;&middot;&nbsp; Costa Rica
           </p>
 
@@ -196,7 +196,7 @@ export default function Newsletter() {
                 key={prop.name}
                 className="bg-[#e3dfd2] border border-[#c4bba8] text-center py-6 px-3 rounded"
               >
-                <p className="text-[11px] tracking-[0.3em] uppercase text-[#8a7a5a] mb-1">
+                <p className="text-[11px] tracking-[0.3em] text-[#8a7a5a] mb-1">
                   Nayara
                 </p>
                 <p
@@ -212,7 +212,7 @@ export default function Newsletter() {
                   href={prop.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-5 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
+                  className="inline-block px-5 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
                 >
                   Reserve
                 </a>
@@ -241,7 +241,7 @@ export default function Newsletter() {
               href={prop.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
+              className="inline-block px-6 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded-full"
             >
               {prop.name}
             </a>

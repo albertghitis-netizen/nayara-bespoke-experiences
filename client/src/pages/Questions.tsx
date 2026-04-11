@@ -78,10 +78,10 @@ export default function QuestionsPage() {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
                   <h3 className="text-[#3a2a1a] text-[15px]" style={{ ...body, fontWeight: 600 }}>{q.title}</h3>
                   <div className="flex gap-2 flex-shrink-0">
-                    <span className={`text-[10px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full border ${priorityColors[q.priority].bg} ${priorityColors[q.priority].text} ${priorityColors[q.priority].border}`} style={{ ...body, fontWeight: 600 }}>
+                    <span className={`text-[10px] tracking-[0.1em] px-2 py-0.5 rounded-full border ${priorityColors[q.priority].bg} ${priorityColors[q.priority].text} ${priorityColors[q.priority].border}`} style={{ ...body, fontWeight: 600 }}>
                       {q.priority}
                     </span>
-                    <span className="text-[10px] tracking-[0.1em] uppercase text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-full" style={{ ...body, fontWeight: 500 }}>
+                    <span className="text-[10px] tracking-[0.1em] text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-full" style={{ ...body, fontWeight: 500 }}>
                       {q.category}
                     </span>
                   </div>
@@ -105,10 +105,10 @@ export default function QuestionsPage() {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
                   <h3 className="text-[#3a2a1a] text-[15px]" style={{ ...body, fontWeight: 600 }}>{r.title}</h3>
                   <div className="flex gap-2 flex-shrink-0">
-                    <span className={`text-[10px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full border ${priorityColors[r.priority].bg} ${priorityColors[r.priority].text} ${priorityColors[r.priority].border}`} style={{ ...body, fontWeight: 600 }}>
+                    <span className={`text-[10px] tracking-[0.1em] px-2 py-0.5 rounded-full border ${priorityColors[r.priority].bg} ${priorityColors[r.priority].text} ${priorityColors[r.priority].border}`} style={{ ...body, fontWeight: 600 }}>
                       {r.priority}
                     </span>
-                    <span className="text-[10px] tracking-[0.1em] uppercase text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-full" style={{ ...body, fontWeight: 500 }}>
+                    <span className="text-[10px] tracking-[0.1em] text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-full" style={{ ...body, fontWeight: 500 }}>
                       {r.category}
                     </span>
                   </div>

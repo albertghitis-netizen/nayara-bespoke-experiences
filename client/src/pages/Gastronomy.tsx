@@ -110,7 +110,7 @@ function IntroSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Culinary Philosophy</p>
+          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Culinary Philosophy</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             Every Dish Tells the Story of Its Land
           </h2>
@@ -130,7 +130,7 @@ function FilterBar({ activeFilter, onFilterChange }: { activeFilter: string; onF
   return (
     <section className="px-6 md:px-10 pb-8">
       <div className="max-w-[1200px] mx-auto">
-        <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
+        <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
         <div className="flex flex-wrap gap-2">
           {FILTERS.map((f) => (
             <button
@@ -177,7 +177,7 @@ function PropertySections({ filtered, navigate }: { filtered: PropertyDining[]; 
               >
                 {/* Property header */}
                 <div className="mb-8">
-                  <p className="text-[#3a2a1a]/30 text-[10px] tracking-[0.3em] uppercase mb-2" style={{ ...body, fontWeight: 600 }}>{prop.propertyName}</p>
+                  <p className="text-[#3a2a1a]/30 text-[10px] tracking-[0.3em] mb-2" style={{ ...body, fontWeight: 600 }}>{prop.propertyName}</p>
                   <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-2" style={heading}>{prop.headline}</h2>
                   <p className="text-[#4B4A4A]/55 text-[14px] max-w-2xl leading-relaxed" style={body}>{prop.description}</p>
                 </div>
@@ -213,7 +213,7 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
     >
       <div className="h-0.5 bg-gradient-to-r from-[#c9b99a]/40 to-transparent" />
       <div className="p-6 flex-1 flex flex-col">
-        <span className={`inline-block self-start px-3 py-1 rounded-full text-[10px] tracking-[0.08em] uppercase mb-4 ${colorClass}`} style={{ ...body, fontWeight: 500 }}>
+        <span className={`inline-block self-start px-3 py-1 rounded-full text-[10px] tracking-[0.08em] mb-4 ${colorClass}`} style={{ ...body, fontWeight: 500 }}>
           {restaurant.cuisine}
         </span>
         <h3 className="text-[#3a2a1a] text-lg mb-1" style={{ ...heading, fontWeight: 500 }}>{restaurant.name}</h3>
@@ -230,7 +230,7 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
           ) : (
             <span className="text-[#3a2a1a]/20 text-[11px] italic" style={body}>Menu coming soon</span>
           )}
-          <button onClick={() => onNavigate(route)} className="text-[#c9b99a] text-[11px] tracking-[0.08em] uppercase hover:text-[#3a2a1a] transition-colors" style={{ ...body, fontWeight: 500 }}>
+          <button onClick={() => onNavigate(route)} className="text-[#c9b99a] text-[11px] tracking-[0.08em] hover:text-[#3a2a1a] transition-colors" style={{ ...body, fontWeight: 500 }}>
             View Property \u2192
           </button>
         </div>

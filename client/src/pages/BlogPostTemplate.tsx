@@ -121,7 +121,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
         {/* Pillar tag on hero */}
         <div className="absolute bottom-8 left-8 md:left-16 z-10">
           <span
-            className="inline-block px-4 py-1.5 bg-[#AD8F61] text-white text-[10px] tracking-[0.3em] uppercase rounded-full"
+            className="inline-block px-4 py-1.5 bg-[#AD8F61] text-white text-[10px] tracking-[0.3em] rounded-full"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {post.pillar}
@@ -135,7 +135,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
           {/* Pillar + Tags */}
           <div className="flex items-center gap-3 mb-5 flex-wrap">
             <span
-              className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#AD8F61]"
+              className="text-[11px] font-medium tracking-[0.35em] text-[#AD8F61]"
               style={{ fontFamily: "var(--font-body)" }}
             >
               {post.pillar}
@@ -143,7 +143,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
             {post.tags.filter(t => t !== post.pillar).slice(0, 2).map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] tracking-[0.2em] uppercase text-[#8a7a5a]/60 border border-[#c4bba8]/40 px-2 py-0.5 rounded-full"
+                className="text-[10px] tracking-[0.2em] text-[#8a7a5a]/60 border border-[#c4bba8]/40 px-2 py-0.5 rounded-full"
               >
                 {tag}
               </span>
@@ -321,7 +321,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
             <Link
               key={prop.name}
               href={prop.route}
-              className="inline-block px-6 py-2.5 border border-[#AD8F61] text-[#AD8F61] text-[11px] font-medium tracking-[0.2em] uppercase no-underline hover:bg-[#AD8F61] hover:text-white transition-colors rounded-full"
+              className="inline-block px-6 py-2.5 border border-[#AD8F61] text-[#AD8F61] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#AD8F61] hover:text-white transition-colors rounded-full"
             >
               {prop.name}
             </Link>

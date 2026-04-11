@@ -177,7 +177,7 @@ export default function Awards() {
                   style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 />
                 <p
-                  className="text-white/70 text-xs md:text-sm tracking-[0.1em] uppercase"
+                  className="text-white/70 text-xs md:text-sm tracking-[0.1em]"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   {stat.label}
@@ -205,7 +205,7 @@ export default function Awards() {
             className="text-center mb-12 md:mb-16"
           >
             <p
-              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
+              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               The Michelin Guide
@@ -252,7 +252,7 @@ export default function Awards() {
                   {item.property}
                 </h3>
                 <p
-                  className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase mb-4"
+                  className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] mb-4"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   {item.location} · {item.keys} Keys
@@ -280,7 +280,7 @@ export default function Awards() {
             className="text-center mb-12"
           >
             <p
-              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
+              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               By Property
@@ -363,7 +363,7 @@ export default function Awards() {
                         {section.awards.map((award, ai) => (
                           <div key={ai}>
                             <h4
-                              className="text-amber-700/80 text-[10px] md:text-xs tracking-[0.15em] uppercase mb-2"
+                              className="text-amber-700/80 text-[10px] md:text-xs tracking-[0.15em] mb-2"
                               style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
                             >
                               {award.source}
@@ -400,7 +400,7 @@ export default function Awards() {
             className="text-center mb-12 md:mb-16"
           >
             <p
-              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
+              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Sustainability
@@ -431,7 +431,7 @@ export default function Awards() {
                   {cert.name}
                 </h3>
                 <p
-                  className="text-emerald-700/60 text-[10px] tracking-[0.1em] uppercase mb-4"
+                  className="text-emerald-700/60 text-[10px] tracking-[0.1em] mb-4"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   {cert.properties}

@@ -22,7 +22,7 @@ const BERKSHIRES_HERO =
 
 /* Shared text styles */
 const storyLabel =
-  "text-[10px] tracking-[0.5em] uppercase mb-8 text-center";
+  "text-[10px] tracking-[0.5em] mb-8 text-center";
 const storyH2 =
   "text-2xl md:text-3xl leading-[1.2] text-center mb-10";
 const storyP =
@@ -145,7 +145,7 @@ export default function NewProjects() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-white/30 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
+            className="text-white/30 text-[10px] md:text-xs tracking-[0.4em] mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             Opening 2028
@@ -165,7 +165,7 @@ export default function NewProjects() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-white/35 text-xs md:text-sm tracking-[0.12em] uppercase mt-4 text-center"
+            className="text-white/35 text-xs md:text-sm tracking-[0.12em] mt-4 text-center"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
             Nayara Berkshires &middot; Massachusetts, USA
@@ -237,7 +237,7 @@ export default function NewProjects() {
                 "We looked at dozens of locations across North America. The Berkshires was the only one where we walked the land and felt what we feel in Arenal, in Atacama, on Easter Island. That thing where the landscape is so beautiful it makes you quiet. That is where Nayara belongs."
               </p>
               <p
-                className="mt-3 text-xs tracking-[0.15em] uppercase"
+                className="mt-3 text-xs tracking-[0.15em]"
                 style={{
                   fontFamily: "var(--font-body)",
                   fontWeight: 500,
@@ -371,7 +371,7 @@ export default function NewProjects() {
                 On the Moon, there is no breath to take. It felt like a natural fit."
               </p>
               <p
-                className="mt-3 text-xs tracking-[0.15em] uppercase"
+                className="mt-3 text-xs tracking-[0.15em]"
                 style={{
                   fontFamily: "var(--font-body)",
                   fontWeight: 500,
@@ -406,7 +406,7 @@ export default function NewProjects() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.4em] uppercase mb-10 md:mb-14"
+            className="text-center text-[10px] md:text-xs tracking-[0.4em] mb-10 md:mb-14"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.25)" }}
           >
             The Founding Family
@@ -460,7 +460,7 @@ export default function NewProjects() {
         </motion.p>
         <a
           href="/"
-          className="inline-block px-8 py-3 border text-[11px] font-medium tracking-[0.25em] uppercase no-underline hover:bg-white hover:text-[#0a0a10] transition-colors rounded-full"
+          className="inline-block px-8 py-3 border text-[11px] font-medium tracking-[0.25em] no-underline hover:bg-white hover:text-[#0a0a10] transition-colors rounded-full"
           style={{
             borderColor: "rgba(255,255,255,0.2)",
             color: "rgba(255,255,255,0.4)",

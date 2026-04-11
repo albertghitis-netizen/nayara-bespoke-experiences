@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4"
+            className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4"
             style={{ ...body, fontWeight: 600 }}
           >
             Legal

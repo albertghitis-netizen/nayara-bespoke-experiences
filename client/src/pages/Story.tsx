@@ -27,7 +27,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>{children}</p>;
+  return <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>{children}</p>;
 }
 
 /* ─── Timeline milestones ─── */
@@ -77,7 +77,7 @@ function HeroSection() {
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center" style={heading}>
           The Nayara Story
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase" style={{ ...body, fontWeight: 500 }}>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em]" style={{ ...body, fontWeight: 500 }}>
           Twenty Years of Luxury Rooted in Nature
         </motion.p>
       </div>
@@ -199,7 +199,7 @@ function DestinationsSection() {
     <section className={`${sectionPadding} bg-[#3a2a1a]`}>
       <div className={maxW}>
         <FadeIn>
-          <p className="text-white/25 text-[10px] tracking-[0.3em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Our Destinations</p>
+          <p className="text-white/25 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Our Destinations</p>
           <h2 className="text-white/80 mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Six Properties, Three Countries
           </h2>
@@ -211,7 +211,7 @@ function DestinationsSection() {
                 <h3 className="text-white/70 text-[16px] mb-1 group-hover:text-white/90 transition-colors" style={{ ...heading, fontWeight: 500 }}>
                   {p.name}
                 </h3>
-                <p className="text-white/30 text-[12px] tracking-[0.08em] uppercase" style={{ ...body, fontWeight: 500 }}>
+                <p className="text-white/30 text-[12px] tracking-[0.08em]" style={{ ...body, fontWeight: 500 }}>
                   {p.location}
                 </p>
               </Link>

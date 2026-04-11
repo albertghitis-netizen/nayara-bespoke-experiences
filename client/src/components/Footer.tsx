@@ -70,7 +70,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           {columns.map((col) => (
             <div key={col.title}>
               <span
-                className="text-white/40 text-[10px] tracking-[0.25em] uppercase block mb-4"
+                className="text-white/40 text-[10px] tracking-[0.25em] block mb-4"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {col.title}
@@ -100,7 +100,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           {/* Contact — always present as the last column */}
           <div>
             <span
-              className="text-white/40 text-[10px] tracking-[0.25em] uppercase block mb-4"
+              className="text-white/40 text-[10px] tracking-[0.25em] block mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Contact
@@ -139,15 +139,20 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           </div>
         </div>
 
-        {/* Newsletter CTA — pill button */}
-        <div className="flex justify-center mt-14 mb-6">
+        {/* Nayara leaf + Newsletter CTA */}
+        <div className="flex items-center justify-center gap-4 mt-14 mb-6">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
+            alt="Nayara leaf"
+            className="w-8 h-8 opacity-40"
+          />
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
             className="inline-flex items-center justify-center h-12 px-12 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
           >
             <span
-              className="text-white/70 text-[11px] tracking-[0.25em] uppercase"
+              className="text-white/70 text-[11px] tracking-[0.25em]"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Stay Inspired with the Nayara Newsletter

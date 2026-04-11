@@ -39,7 +39,7 @@ export default function PropertyDiningSection({
           className="text-center mb-16"
         >
           <span
-            className="text-[11px] tracking-[0.3em] uppercase text-[#8b6f47] block mb-4"
+            className="text-[11px] tracking-[0.3em] text-[#8b6f47] block mb-4"
             style={{ fontFamily: "var(--font-body)" }}
           >
             The Table
@@ -113,7 +113,7 @@ function RestaurantCard({
               {restaurant.name}
             </h3>
             <span
-              className={`${accentColor} text-white text-[10px] tracking-[0.15em] uppercase px-2.5 py-1`}
+              className={`${accentColor} text-white text-[10px] tracking-[0.15em] px-2.5 py-1`}
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               {restaurant.cuisine}
@@ -202,7 +202,7 @@ function MenuSectionBlock({
     <div className="mt-8">
       <div className="flex items-center gap-3 mb-1">
         <h4
-          className={`text-sm tracking-[0.15em] uppercase ${headingColor}/80`}
+          className={`text-sm tracking-[0.15em] ${headingColor}/80`}
           style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
         >
           {section.title}
@@ -254,7 +254,7 @@ function MenuItemRow({ item }: { item: MenuItem }) {
             <MapPin className="w-3 h-3 text-amber-600/60" />
           )}
           {item.isNonAlcoholic && (
-            <span className="text-[9px] tracking-[0.1em] uppercase text-emerald-600/60 border border-emerald-300/40 px-1.5 py-0.5 rounded">
+            <span className="text-[9px] tracking-[0.1em] text-emerald-600/60 border border-emerald-300/40 px-1.5 py-0.5 rounded">
               N/A
             </span>
           )}

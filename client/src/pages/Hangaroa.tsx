@@ -73,7 +73,7 @@ const maxW = "max-w-[1200px] mx-auto";
 function SectionLabel({ children, color }: { children: React.ReactNode; color?: string }) {
   return (
     <p
-      className="text-[11px] tracking-[0.2em] uppercase mb-4"
+      className="text-[11px] tracking-[0.2em] mb-4"
       style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: color || PALETTE.primary }}
     >
       {children}
@@ -203,7 +203,7 @@ export default function Hangaroa() {
         textSide="left"
       />
 
-      <Footer />
+      <Footer bgColor="#2A2420" />
     </div>
   );
 }
@@ -213,21 +213,26 @@ export default function Hangaroa() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0">
-        <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" hasAudio />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
-      </div>
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+    <>
+      <section className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" hasAudio />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+        </div>
+      </section>
+      <div
+        className="py-10 md:py-14 px-6 md:px-10 text-center"
+        style={{ backgroundColor: PALETTE.gradientStart, fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+      >
         <MultiLineReveal
           lines={["Where Ancient Culture Meets the Pacific"]}
-          lineClassName="text-white text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
+          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
           as="h1"
-          delay={0.4}
+          delay={0.2}
           staggerDelay={0.15}
         />
       </div>
-    </section>
+    </>
   );
 }
 
@@ -358,7 +363,7 @@ function ExperiencesSection() {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-500"
+                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] transition-all duration-500"
                     style={{
                       fontFamily: "var(--font-body)",
                       fontWeight: 500,
@@ -391,7 +396,7 @@ function ExperiencesSection() {
                   {excursion.name}
                 </h3>
                 {excursion.duration && (
-                  <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
+                  <p className="text-[11px] tracking-[0.1em] mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
                     {excursion.duration}{excursion.price ? ` · ${excursion.price}` : ""}
                   </p>
                 )}
@@ -500,7 +505,7 @@ function WellnessSection() {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-500"
+                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] transition-all duration-500"
                     style={{
                       fontFamily: "var(--font-body)",
                       fontWeight: 500,
@@ -532,7 +537,7 @@ function WellnessSection() {
                 <h3 className="text-[17px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
                   {treatment.name}
                 </h3>
-                <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
+                <p className="text-[11px] tracking-[0.1em] mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
                   {treatment.duration}{treatment.price ? ` · ${treatment.price}` : ""}
                 </p>
                 <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
@@ -578,7 +583,7 @@ function GastronomySection() {
                 <h3 className="text-[20px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
                   {restaurant.name}
                 </h3>
-                <p className="text-[11px] tracking-[0.1em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
+                <p className="text-[11px] tracking-[0.1em] mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
                   {restaurant.cuisine}
                 </p>
                 <p className="text-[14px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>

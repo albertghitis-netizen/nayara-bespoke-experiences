@@ -181,7 +181,7 @@ export default function BlobVideo({
 
           {/* Label */}
           <span
-            className="text-white/70 group-hover:text-white text-[10px] tracking-[0.2em] uppercase transition-colors"
+            className="text-white/70 group-hover:text-white text-[10px] tracking-[0.2em] transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {isMuted ? "Sound" : "Mute"}

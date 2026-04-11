@@ -65,7 +65,7 @@ export default function PropertySorter({
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <p
-          className="text-[11px] tracking-[0.2em] uppercase mb-4"
+          className="text-[11px] tracking-[0.2em] mb-4"
           style={{ ...body, fontWeight: 500, color: palette.primary }}
         >
           {sectionLabel}
@@ -89,7 +89,7 @@ export default function PropertySorter({
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-300"
+              className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] transition-all duration-300"
               style={{
                 ...body,
                 fontWeight: 500,
@@ -139,7 +139,7 @@ export default function PropertySorter({
                 </h3>
                 {card.subtitle && (
                   <p
-                    className="text-[12px] tracking-[0.08em] uppercase mb-3"
+                    className="text-[12px] tracking-[0.08em] mb-3"
                     style={{ ...body, fontWeight: 500, color: palette.primary }}
                   >
                     {card.subtitle}
@@ -156,7 +156,7 @@ export default function PropertySorter({
                     {card.tags.map((tag, j) => (
                       <span
                         key={j}
-                        className="text-[10px] tracking-[0.08em] uppercase px-2.5 py-1 rounded-full"
+                        className="text-[10px] tracking-[0.08em] px-2.5 py-1 rounded-full"
                         style={{
                           ...body,
                           fontWeight: 500,
@@ -178,7 +178,7 @@ export default function PropertySorter({
         <div className="mt-8">
           <a
             href={learnMoreLink}
-            className="inline-block text-[11px] tracking-[0.15em] uppercase transition-colors hover:opacity-70"
+            className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
             style={{ ...body, fontWeight: 500, color: palette.primary }}
           >
             {learnMoreLabel} →

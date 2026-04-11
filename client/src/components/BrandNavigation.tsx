@@ -67,8 +67,8 @@ export default function BrandNavigation({
 }: BrandNavigationProps) {
   /* Resolve palette — default brand brown */
   const dk = navPalette?.dark ?? "#3a2a1a";
-  const pillBg = navPalette?.pillBg ?? "#ece8e1";
-  const pillHv = navPalette?.pillHover ?? "#d4c9b8";
+  const pillBg = navPalette?.pillBg ?? "rgba(58,42,26,0.7)";
+  const pillHv = navPalette?.pillHover ?? "rgba(58,42,26,0.9)";
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -130,7 +130,7 @@ export default function BrandNavigation({
   /* ── Shared styles ── */
   const pillStyle: React.CSSProperties = {
     backgroundColor: pillBg,
-    borderColor: `${dk}26`,
+    borderColor: "rgba(255,255,255,0.1)",
   };
   const pillHoverBg = `${pillHv}99`;
 
@@ -172,8 +172,8 @@ export default function BrandNavigation({
               aria-label="Menu"
             >
               <div className="flex flex-col gap-1">
-                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: "rgba(255,255,255,0.85)" }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: "rgba(255,255,255,0.85)" }} />
               </div>
             </button>
 
@@ -185,7 +185,7 @@ export default function BrandNavigation({
                     {propertyItems.length > 0 && (
                       <>
                         <div className="px-5 pt-2 pb-1">
-                          <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em] uppercase" style={menuText}>
+                          <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em]" style={menuText}>
                             This Property
                           </span>
                         </div>
@@ -201,7 +201,7 @@ export default function BrandNavigation({
                     {/* Global links */}
                     {propertyItems.length > 0 && (
                       <div className="px-5 pt-1 pb-1">
-                        <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em] uppercase" style={menuText}>
+                        <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em]" style={menuText}>
                           Explore Nayara
                         </span>
                       </div>
@@ -215,7 +215,7 @@ export default function BrandNavigation({
                     {/* Resorts sub-section */}
                     <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
                     <div className="px-5 pt-1 pb-1">
-                      <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em] uppercase" style={menuText}>
+                      <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em]" style={menuText}>
                         Our Resorts
                       </span>
                     </div>
@@ -268,7 +268,7 @@ export default function BrandNavigation({
               className={`${pill} h-8 px-3.5`}
               style={pillStyle}
             >
-              <span className="text-xs" style={{ ...menuText, color: dk }}>Reserve</span>
+              <span className="text-xs" style={{ ...menuText, color: "rgba(255,255,255,0.85)" }}>Reserve</span>
             </button>
 
             <AnimatePresence>
@@ -288,7 +288,7 @@ export default function BrandNavigation({
                           {hotel.label}
                         </span>
                         {!hotel.available && (
-                          <span className="text-[8px] tracking-[0.1em] uppercase text-[#3a2a1a]/20 border border-[#3a2a1a]/12 px-1.5 py-0.5 rounded-full">
+                          <span className="text-[8px] tracking-[0.1em] text-[#3a2a1a]/20 border border-[#3a2a1a]/12 px-1.5 py-0.5 rounded-full">
                             Soon
                           </span>
                         )}
@@ -312,8 +312,8 @@ export default function BrandNavigation({
               aria-label="Menu"
             >
               <div className="flex flex-col gap-1">
-                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: "rgba(255,255,255,0.85)" }} />
+                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: "rgba(255,255,255,0.85)" }} />
               </div>
             </button>
 
@@ -324,7 +324,7 @@ export default function BrandNavigation({
                     {propertyItems.length > 0 && (
                       <>
                         <div className="px-4 pt-2 pb-1">
-                          <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.18em] uppercase" style={menuText}>
+                          <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.18em]" style={menuText}>
                             This Property
                           </span>
                         </div>
@@ -345,7 +345,7 @@ export default function BrandNavigation({
                     {/* Our Resorts */}
                     <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
                     <div className="px-4 pt-1 pb-1">
-                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.18em] uppercase" style={menuText}>
+                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.18em]" style={menuText}>
                         Our Resorts
                       </span>
                     </div>
@@ -374,7 +374,7 @@ export default function BrandNavigation({
               className={`${pill} h-8 px-3.5`}
               style={pillStyle}
             >
-              <span className="text-xs" style={{ ...menuText, color: dk }}>Reserve</span>
+              <span className="text-xs" style={{ ...menuText, color: "rgba(255,255,255,0.85)" }}>Reserve</span>
             </button>
 
             <AnimatePresence>

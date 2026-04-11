@@ -41,7 +41,7 @@ const maxW = "max-w-[1200px] mx-auto";
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
-      className="text-[10px] tracking-[0.3em] uppercase mb-4"
+      className="text-[10px] tracking-[0.3em] mb-4"
       style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: `${PALETTE.text}35` }}
     >
       {children}
@@ -159,25 +159,26 @@ export default function Home() {
 function HeroSection() {
   const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-final-audio_e6eda751.mp4";
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/60" />
-      </div>
-
-
-
-      {/* Tagline */}
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+    <>
+      <section className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/50" />
+        </div>
+      </section>
+      <div
+        className="py-10 md:py-14 px-6 md:px-10 text-center"
+        style={{ backgroundColor: PALETTE.bg, fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+      >
         <MultiLineReveal
           lines={["Luxury Resorts Rooted in Nature"]}
-          lineClassName="text-white text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
+          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
           as="h1"
-          delay={0.4}
+          delay={0.2}
           staggerDelay={0.15}
         />
       </div>
-    </section>
+    </>
   );
 }
 
@@ -281,7 +282,7 @@ function PropertiesSection() {
                     />
                     {prop.filter === "Adults-Only" && (
                       <span
-                        className="absolute top-3 right-3 px-3 py-1 rounded-full text-[9px] tracking-[0.12em] uppercase backdrop-blur-sm"
+                        className="absolute top-3 right-3 px-3 py-1 rounded-full text-[9px] tracking-[0.12em] backdrop-blur-sm"
                         style={{
                           fontFamily: "var(--font-body)",
                           fontWeight: 500,
@@ -305,7 +306,7 @@ function PropertiesSection() {
                 {prop.name}
               </h3>
               <p
-                className="text-[11px] tracking-[0.1em] uppercase mb-1"
+                className="text-[11px] tracking-[0.1em] mb-1"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textTertiary }}
               >
                 {prop.location}
@@ -322,7 +323,7 @@ function PropertiesSection() {
                   href={BOOKING_URLS[prop.bookingId]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-9 px-5 rounded-full text-[10px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
+                  className="inline-flex items-center justify-center h-9 px-5 rounded-full text-[10px] tracking-[0.12em] transition-all duration-500 hover:opacity-80"
                   style={{
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
@@ -334,7 +335,7 @@ function PropertiesSection() {
                 </a>
                 <Link
                   href={prop.route}
-                  className="inline-flex items-center justify-center h-9 px-5 rounded-full text-[10px] tracking-[0.12em] uppercase transition-all duration-500"
+                  className="inline-flex items-center justify-center h-9 px-5 rounded-full text-[10px] tracking-[0.12em] transition-all duration-500"
                   style={{
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
@@ -449,7 +450,7 @@ function PillarsSection() {
                   {pillar.desc}
                 </p>
                 <span
-                  className="text-[12px] tracking-[0.08em] uppercase group-hover:opacity-80 transition-opacity"
+                  className="text-[12px] tracking-[0.08em] group-hover:opacity-80 transition-opacity"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textTertiary }}
                 >
                   Explore {pillar.name} &rarr;

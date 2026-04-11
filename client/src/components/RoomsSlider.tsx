@@ -24,7 +24,7 @@ export default function RoomsSlider({ rooms, title = "Life under Canvas", subtit
     <div className="w-full">
       {/* Header */}
       <div className="mb-8">
-        <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+        <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
           {subtitle}
         </p>
         <h3 className="text-[#4B4A4A]" style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>

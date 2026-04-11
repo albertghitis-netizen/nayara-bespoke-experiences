@@ -428,7 +428,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
-      className="text-[11px] tracking-[0.2em] uppercase mb-4"
+      className="text-[11px] tracking-[0.2em] mb-4"
       style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
     >
       {children}
@@ -554,22 +554,26 @@ function HeroSection() {
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
-      </div>
-
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+    <>
+      <section className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+        </div>
+      </section>
+      <div
+        className="py-10 md:py-14 px-6 md:px-10 text-center"
+        style={{ backgroundColor: SECTION_COLORS[0], fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+      >
         <MultiLineReveal
           lines={["Overwater Villas on a Private Caribbean Island"]}
-          lineClassName="text-white text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
+          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
           as="h1"
-          delay={0.4}
+          delay={0.2}
           staggerDelay={0.15}
         />
       </div>
-    </section>
+    </>
   );
 }
 
@@ -598,7 +602,7 @@ export default function BocasDelToro() {
         textSide="left"
       />
 
-      <Footer />
+      <Footer bgColor="#0F2628" />
     </div>
   );
 }

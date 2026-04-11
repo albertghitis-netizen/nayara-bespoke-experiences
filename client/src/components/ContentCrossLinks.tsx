@@ -33,7 +33,7 @@ export default function ContentCrossLinks({ currentPage }: ContentCrossLinksProp
     <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]/[0.03]">
       <div className="max-w-[900px] mx-auto text-center">
         <p
-          className="text-[#3a2a1a]/30 text-[10px] tracking-[0.4em] uppercase mb-4"
+          className="text-[#3a2a1a]/30 text-[10px] tracking-[0.4em] mb-4"
           style={{ ...body, fontWeight: 500 }}
         >
           Explore More

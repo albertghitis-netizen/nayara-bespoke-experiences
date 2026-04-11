@@ -128,7 +128,7 @@ export default function ArchitecturePage() {
           <div className="space-y-8">
             {SITEMAP.map((section) => (
               <div key={section.section}>
-                <h3 className="text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>
+                <h3 className="text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] mb-3" style={{ ...body, fontWeight: 500 }}>
                   {section.section}
                 </h3>
                 <div className="border border-[#3a2a1a]/8 rounded-xl overflow-hidden divide-y divide-[#3a2a1a]/5">
@@ -185,9 +185,9 @@ export default function ArchitecturePage() {
           <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>Cross-Linking Model</h2>
           <div className="border border-[#3a2a1a]/8 rounded-xl overflow-hidden">
             <div className="grid grid-cols-3 bg-[#f7f5f0] px-5 py-3 border-b border-[#3a2a1a]/8">
-              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>From</span>
-              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>To</span>
-              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>Mechanism</span>
+              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>From</span>
+              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>To</span>
+              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>Mechanism</span>
             </div>
             {CROSS_LINKING.map((link, i) => (
               <div key={i} className="grid grid-cols-3 px-5 py-3 border-b border-[#3a2a1a]/5 last:border-0">

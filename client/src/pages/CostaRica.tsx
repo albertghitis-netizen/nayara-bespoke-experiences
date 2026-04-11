@@ -157,7 +157,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
           {/* Reserve — far right */}
           <button
             onClick={() => window.open(BOOKING_URLS["costa-rica"], "_blank")}
-            className="px-5 py-2 text-xs tracking-[0.2em] uppercase font-medium rounded-full transition-all duration-300 hover:scale-105 bg-emerald-800 text-white hover:bg-emerald-700 shadow-lg"
+            className="px-5 py-2 text-xs tracking-[0.2em] font-medium rounded-full transition-all duration-300 hover:scale-105 bg-emerald-800 text-white hover:bg-emerald-700 shadow-lg"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             Reserve
@@ -189,7 +189,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                 {/* Menu header */}
                 <div className="flex items-center justify-between px-6 h-16 border-b border-emerald-900/10">
                   <span
-                    className="text-sm tracking-[0.2em] uppercase text-emerald-900/60"
+                    className="text-sm tracking-[0.2em] text-emerald-900/60"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
                   >
                     Nayara Costa Rica
@@ -206,7 +206,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                 <div className="flex-1 px-6 py-8 flex flex-col gap-6">
                   <Link
                     href="/"
-                    className="text-sm tracking-[0.15em] uppercase text-emerald-900/70 hover:text-emerald-700 transition-colors"
+                    className="text-sm tracking-[0.15em] text-emerald-900/70 hover:text-emerald-700 transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 500 }}
                   >
                     ← All Properties
@@ -216,7 +216,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                     <button
                       key={item.id}
                       onClick={() => handleNavClick(item.id, item.label)}
-                      className={`text-left text-sm tracking-[0.15em] uppercase transition-colors ${
+                      className={`text-left text-sm tracking-[0.15em] transition-colors ${
                         activeSection === item.id
                           ? "text-emerald-700 font-semibold"
                           : "text-emerald-900/60 hover:text-emerald-900"
@@ -232,7 +232,7 @@ function ArenalNavigation({ activeSection }: { activeSection: string }) {
                 <div className="px-6 py-6 border-t border-emerald-900/10">
                   <button
                     onClick={() => { window.open(BOOKING_URLS["costa-rica"], "_blank"); setMenuOpen(false); }}
-                    className="w-full py-3 text-xs tracking-[0.2em] uppercase font-medium rounded-full bg-emerald-800 text-white hover:bg-emerald-700 transition-colors"
+                    className="w-full py-3 text-xs tracking-[0.2em] font-medium rounded-full bg-emerald-800 text-white hover:bg-emerald-700 transition-colors"
                     style={{ fontFamily: "'Montserrat', sans-serif" }}
                   >
                     Reserve
@@ -389,7 +389,7 @@ function ExploreNayaraSection({ onInView }: { onInView: () => void }) {
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-[#f7f5f0] text-emerald-950 border-[#f7f5f0]"
                   : "bg-transparent text-[#f7f5f0]/40 border-[#f7f5f0]/15 hover:border-[#f7f5f0]/30 hover:text-[#f7f5f0]/70"
@@ -486,7 +486,7 @@ function ExploreArenalSection({ onInView }: { onInView: () => void }) {
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-emerald-900 text-white border-emerald-900"
                   : "bg-transparent text-emerald-900/40 border-emerald-900/15 hover:border-emerald-900/30 hover:text-emerald-900/70"
@@ -595,7 +595,7 @@ function FeaturedExcursionCard({
                 <div className="text-center">
                   <MapPin className={`w-8 h-8 mx-auto mb-2 ${isDark ? "text-[#f7f5f0]/15" : "text-emerald-900/15"}`} />
                   <span
-                    className={`text-xs tracking-[0.2em] uppercase ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`}
+                    className={`text-xs tracking-[0.2em] ${isDark ? "text-[#f7f5f0]/25" : "text-emerald-900/25"}`}
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     Photo coming soon
@@ -608,7 +608,7 @@ function FeaturedExcursionCard({
             {/* Title overlay at bottom */}
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
               <p
-                className="text-white/60 text-[10px] tracking-[0.3em] uppercase mb-2"
+                className="text-white/60 text-[10px] tracking-[0.3em] mb-2"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {categoryLabels[excursion.category] || excursion.category}
@@ -626,7 +626,7 @@ function FeaturedExcursionCard({
                 {excursion.subtitle}
               </p>
               <span
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white text-xs tracking-[0.2em] uppercase transition-colors"
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white text-xs tracking-[0.2em] transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 Learn More
@@ -684,7 +684,7 @@ function FeaturedExcursionCard({
                       <div className={`aspect-[3/4] flex items-center justify-center ${
                         isDark ? "bg-emerald-900/30" : "bg-emerald-100/40"
                       }`}>
-                        <span className={`text-xs tracking-[0.2em] uppercase ${
+                        <span className={`text-xs tracking-[0.2em] ${
                           isDark ? "text-[#f7f5f0]/20" : "text-emerald-900/20"
                         }`} style={{ fontFamily: "var(--font-body)" }}>Video coming soon</span>
                       </div>
@@ -705,7 +705,7 @@ function FeaturedExcursionCard({
                         <div className={`w-full h-full flex items-center justify-center ${
                           isDark ? "bg-emerald-900/30" : "bg-emerald-100/40"
                         }`}>
-                          <span className={`text-xs tracking-[0.2em] uppercase ${
+                          <span className={`text-xs tracking-[0.2em] ${
                             isDark ? "text-[#f7f5f0]/20" : "text-emerald-900/20"
                           }`} style={{ fontFamily: "var(--font-body)" }}>Photo coming soon</span>
                         </div>
@@ -724,7 +724,7 @@ function FeaturedExcursionCard({
                         <div className={`w-full h-full flex items-center justify-center ${
                           isDark ? "bg-emerald-900/20" : "bg-emerald-100/30"
                         }`}>
-                          <span className={`text-xs tracking-[0.2em] uppercase ${
+                          <span className={`text-xs tracking-[0.2em] ${
                             isDark ? "text-[#f7f5f0]/15" : "text-emerald-900/15"
                           }`} style={{ fontFamily: "var(--font-body)" }}>Photo coming soon</span>
                         </div>
@@ -740,7 +740,7 @@ function FeaturedExcursionCard({
                   {/* Left: text content */}
                   <div className="md:col-span-7">
                     <p
-                      className={`text-[10px] tracking-[0.35em] uppercase mb-3 ${
+                      className={`text-[10px] tracking-[0.35em] mb-3 ${
                         isDark ? "text-[#f7f5f0]/35" : "text-emerald-900/35"
                       }`}
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
@@ -809,7 +809,7 @@ function FeaturedExcursionCard({
                       <div className={`aspect-[3/4] flex items-center justify-center ${
                         isDark ? "bg-emerald-900/15" : "bg-emerald-100/20"
                       }`}>
-                        <span className={`text-xs tracking-[0.2em] uppercase ${
+                        <span className={`text-xs tracking-[0.2em] ${
                           isDark ? "text-[#f7f5f0]/12" : "text-emerald-900/12"
                         }`} style={{ fontFamily: "var(--font-body)" }}>Photo coming soon</span>
                       </div>
@@ -823,7 +823,7 @@ function FeaturedExcursionCard({
                 }`}>
                   <div>
                     <p
-                      className={`text-[10px] tracking-[0.3em] uppercase mb-1 ${
+                      className={`text-[10px] tracking-[0.3em] mb-1 ${
                         isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
                       }`}
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
@@ -841,7 +841,7 @@ function FeaturedExcursionCard({
                   </div>
                   <div>
                     <p
-                      className={`text-[10px] tracking-[0.3em] uppercase mb-1 ${
+                      className={`text-[10px] tracking-[0.3em] mb-1 ${
                         isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
                       }`}
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
@@ -869,7 +869,7 @@ function FeaturedExcursionCard({
                   </div>
                   <div>
                     <p
-                      className={`text-[10px] tracking-[0.3em] uppercase mb-1 ${
+                      className={`text-[10px] tracking-[0.3em] mb-1 ${
                         isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
                       }`}
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
@@ -888,7 +888,7 @@ function FeaturedExcursionCard({
                   {excursion.suggestedTime && (
                     <div>
                       <p
-                        className={`text-[10px] tracking-[0.3em] uppercase mb-1 ${
+                        className={`text-[10px] tracking-[0.3em] mb-1 ${
                           isDark ? "text-[#f7f5f0]/30" : "text-[#999]"
                         }`}
                         style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
@@ -922,7 +922,7 @@ function FeaturedExcursionCard({
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span
-                      className="text-xs tracking-[0.2em] uppercase"
+                      className="text-xs tracking-[0.2em]"
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                     >
                       Speak to Concierge
@@ -1012,7 +1012,7 @@ function ArenalSpa({ onInView }: { onInView: () => void }) {
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-emerald-900 text-white border-emerald-900"
                   : "bg-transparent text-emerald-900/40 border-emerald-900/15 hover:border-emerald-900/30 hover:text-emerald-900/70"
@@ -1098,7 +1098,7 @@ function TreatmentCard({
                 {elementIcons[treatment.element] || <Leaf className="w-4 h-4" />}
               </span>
               <span
-                className="text-emerald-900/30 text-[10px] tracking-[0.2em] uppercase"
+                className="text-emerald-900/30 text-[10px] tracking-[0.2em]"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {treatment.element}
@@ -1185,7 +1185,7 @@ function ArenalFooter() {
             transition={{ duration: 0.6 }}
           >
             <p
-              className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] uppercase mb-2"
+              className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] mb-2"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Nayara Costa Rica
@@ -1213,7 +1213,7 @@ function ArenalFooter() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p
-              className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] uppercase mb-6"
+              className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] mb-6"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Explore
@@ -1246,7 +1246,7 @@ function ArenalFooter() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p
-              className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] uppercase mb-6"
+              className="text-[#f7f5f0]/40 text-xs tracking-[0.35em] mb-6"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Contact

@@ -234,7 +234,7 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <p
-            className="text-terracotta text-xs tracking-wide-editorial uppercase mb-4"
+            className="text-terracotta text-xs tracking-wide-editorial mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             Excursions & Adventures
@@ -273,7 +273,7 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 rounded-full text-xs tracking-editorial uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-editorial transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-volcanic text-desert-cream border-volcanic"
                   : "bg-transparent text-volcanic/50 border-volcanic/20 hover:border-volcanic/40 hover:text-volcanic/80"
@@ -317,7 +317,7 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
           className="border-t border-volcanic/10 pt-10"
         >
           <p
-            className="text-volcanic/40 text-xs tracking-wide-editorial uppercase mb-6"
+            className="text-volcanic/40 text-xs tracking-wide-editorial mb-6"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             From Our Journal
@@ -417,7 +417,7 @@ function ExcursionCard({
             <div className="text-center">
               <MapPin className="w-8 h-8 text-volcanic/20 mx-auto mb-2" />
               <span
-                className="text-volcanic/30 text-xs tracking-editorial uppercase"
+                className="text-volcanic/30 text-xs tracking-editorial"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Your photo here
@@ -431,7 +431,7 @@ function ExcursionCard({
         {/* Category badge */}
         <div className="absolute top-4 left-4">
           <span
-            className="px-3 py-1.5 bg-black/30 backdrop-blur-sm text-white/90 text-[10px] tracking-editorial uppercase"
+            className="px-3 py-1.5 bg-black/30 backdrop-blur-sm text-white/90 text-[10px] tracking-editorial"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {excursion.category}
@@ -444,7 +444,7 @@ function ExcursionCard({
             href={excursion.blogUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-4 right-4 px-3 py-1.5 bg-terracotta/80 backdrop-blur-sm text-white text-[10px] tracking-editorial uppercase hover:bg-terracotta transition-colors flex items-center gap-1.5"
+            className="absolute top-4 right-4 px-3 py-1.5 bg-terracotta/80 backdrop-blur-sm text-white text-[10px] tracking-editorial hover:bg-terracotta transition-colors flex items-center gap-1.5"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -513,7 +513,7 @@ function ExcursionCard({
           className="mt-4 flex items-center gap-2 text-terracotta/70 hover:text-terracotta transition-colors"
         >
           <span
-            className="text-xs tracking-editorial uppercase"
+            className="text-xs tracking-editorial"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {isExpanded ? "Less detail" : "More detail"}
@@ -536,7 +536,7 @@ function ExcursionCard({
             >
               <div className="pt-5 mt-5 border-t border-volcanic/8">
                 <p
-                  className="text-volcanic/40 text-xs tracking-editorial uppercase mb-3"
+                  className="text-volcanic/40 text-xs tracking-editorial mb-3"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   Highlights

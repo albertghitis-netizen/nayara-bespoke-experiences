@@ -133,7 +133,7 @@ export default function Press() {
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-[#3a2a1a] text-2xl md:text-3xl mb-1" style={heading}>{stat.number}</div>
-                <div className="text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>{stat.label}</div>
+                <div className="text-[#3a2a1a]/30 text-[10px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -143,13 +143,13 @@ export default function Press() {
       {/* Two-Axis Filters */}
       <div className="max-w-5xl mx-auto px-6 mb-12">
         <div className="flex flex-wrap items-center gap-2 mb-3 justify-center">
-          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] uppercase mr-1" style={{ ...body, fontWeight: 600 }}>Property</span>
+          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] mr-1" style={{ ...body, fontWeight: 600 }}>Property</span>
           {PROPERTIES.map((p) => (
             <button key={p} onClick={() => setActiveProperty(p)} className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${activeProperty === p ? "bg-[#3a2a1a] text-white border-[#3a2a1a]" : "bg-transparent text-[#5a4a3a]/40 border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:text-[#3a2a1a]"}`} style={{ ...body, fontWeight: 500 }}>{p}</button>
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-2 justify-center">
-          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] uppercase mr-1" style={{ ...body, fontWeight: 600 }}>Topic</span>
+          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] mr-1" style={{ ...body, fontWeight: 600 }}>Topic</span>
           {TOPICS.map((t) => (
             <button key={t} onClick={() => setActiveTopic(t)} className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${activeTopic === t ? "bg-[#3a2a1a] text-white border-[#3a2a1a]" : "bg-transparent text-[#5a4a3a]/40 border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:text-[#3a2a1a]"}`} style={{ ...body, fontWeight: 500 }}>{t}</button>
           ))}
@@ -184,13 +184,13 @@ export default function Press() {
                       {clip.property !== "Multiple Properties" && (
                         <>
                           <span className="text-[#3a2a1a]/15 text-[10px]">|</span>
-                          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.08em] uppercase" style={body}>{clip.property}</span>
+                          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.08em]" style={body}>{clip.property}</span>
                         </>
                       )}
                       {clip.topic && (
                         <>
                           <span className="text-[#3a2a1a]/15 text-[10px]">|</span>
-                          <span className="text-[#3a2a1a]/20 text-[9px] tracking-[0.1em] uppercase px-2 py-0.5 rounded-full border border-[#3a2a1a]/8" style={{ ...body, fontWeight: 500 }}>{clip.topic}</span>
+                          <span className="text-[#3a2a1a]/20 text-[9px] tracking-[0.1em] px-2 py-0.5 rounded-full border border-[#3a2a1a]/8" style={{ ...body, fontWeight: 500 }}>{clip.topic}</span>
                         </>
                       )}
                     </div>

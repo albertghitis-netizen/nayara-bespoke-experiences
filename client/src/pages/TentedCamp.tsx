@@ -115,7 +115,7 @@ const ASSETS = {
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
-      className="text-[11px] tracking-[0.2em] uppercase mb-4"
+      className="text-[11px] tracking-[0.2em] mb-4"
       style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
     >
       {children}
@@ -231,7 +231,7 @@ function CascadeSection({
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
                 href={section.link}
-                className="inline-block mt-6 text-[11px] tracking-[0.15em] uppercase transition-colors hover:opacity-70"
+                className="inline-block mt-6 text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
                 style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
               >
                 {section.linkLabel || "Explore More"} →
@@ -281,7 +281,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
       <div className="max-w-3xl mx-auto text-center">
         <AnimateOnScroll variants={fadeUp}>
           <p
-            className="text-[11px] tracking-[0.2em] uppercase mb-6"
+            className="text-[11px] tracking-[0.2em] mb-6"
             style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
           >
             Guest Voices
@@ -329,7 +329,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
             href="https://www.tripadvisor.com/Hotel_Review-g309226-d12099846-Reviews-Nayara_Tented_Camp-La_Fortuna_de_San_Carlos_Arenal_Volcano_National_Park_Province_of_Al.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-8 text-[11px] tracking-[0.15em] uppercase transition-opacity hover:opacity-70"
+            className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
             style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
           >
             Read All Reviews →
@@ -353,7 +353,7 @@ function JournalBreak({ bgColor }: { bgColor: string }) {
       <div className="max-w-3xl mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <p
-            className="text-[11px] tracking-[0.2em] uppercase mb-6"
+            className="text-[11px] tracking-[0.2em] mb-6"
             style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
           >
             From the Journal
@@ -381,7 +381,7 @@ function JournalBreak({ bgColor }: { bgColor: string }) {
               How our chefs transform the extraordinary biodiversity of the Arenal rainforest into a culinary journey that celebrates Costa Rica's terroir.
             </p>
             <span
-              className="text-[11px] tracking-[0.15em] uppercase group-hover:opacity-70 transition-opacity"
+              className="text-[11px] tracking-[0.15em] group-hover:opacity-70 transition-opacity"
               style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
             >
               Read the Story →
@@ -768,22 +768,26 @@ function HeroSection() {
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
-      </div>
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+    <>
+      <section className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+        </div>
+      </section>
+      <div
+        className="py-10 md:py-14 px-6 md:px-10 text-center"
+        style={{ backgroundColor: SECTION_COLORS[0], fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+      >
         <MultiLineReveal
           lines={["Luxury Tents in the Canopy"]}
-          lineClassName="text-white text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
+          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
           as="h1"
-          delay={0.4}
+          delay={0.2}
           staggerDelay={0.15}
         />
-
       </div>
-    </section>
+    </>
   );
 }
 
@@ -918,7 +922,7 @@ export default function TentedCamp() {
         textSide="right"
       />
 
-      <Footer />
+      <Footer bgColor="#1A2E1A" />
     </div>
   );
 }

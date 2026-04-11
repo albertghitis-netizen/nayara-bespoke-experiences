@@ -68,7 +68,7 @@ function GastronomyHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-white/50 text-[11px] tracking-[0.2em] uppercase mt-3"
+          className="text-white/50 text-[11px] tracking-[0.2em] mt-3"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
           Nayara Springs
@@ -111,7 +111,7 @@ function GastronomyContent() {
                 </h3>
                 {restaurant.cuisine && (
                   <p
-                    className="text-[11px] tracking-[0.1em] uppercase mb-4"
+                    className="text-[11px] tracking-[0.1em] mb-4"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
                   >
                     {restaurant.cuisine}
@@ -140,7 +140,7 @@ function GastronomyContent() {
           <div className="text-center mt-4">
             <a
               href="/springs"
-              className="inline-block text-[11px] tracking-[0.2em] uppercase pb-1"
+              className="inline-block text-[11px] tracking-[0.2em] pb-1"
               style={{
                 fontFamily: "var(--font-body)",
                 fontWeight: 500,

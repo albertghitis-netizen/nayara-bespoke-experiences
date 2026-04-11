@@ -218,7 +218,7 @@ export default function SpaSection({ onInView }: SpaSectionProps) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <p
-            className="text-gold/70 text-xs tracking-wide-editorial uppercase mb-4"
+            className="text-gold/70 text-xs tracking-wide-editorial mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             Spa Puri &mdash; Wellness
@@ -253,7 +253,7 @@ export default function SpaSection({ onInView }: SpaSectionProps) {
           <div className="text-center">
             <Droplets className="w-10 h-10 text-desert-cream/20 mx-auto mb-3" />
             <span
-              className="text-desert-cream/30 text-xs tracking-editorial uppercase"
+              className="text-desert-cream/30 text-xs tracking-editorial"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Your Spa Puri photo here
@@ -276,7 +276,7 @@ export default function SpaSection({ onInView }: SpaSectionProps) {
                 setActiveCategory(cat.id);
                 setExpandedId(null);
               }}
-              className={`px-5 py-2.5 rounded-full text-xs tracking-editorial uppercase transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs tracking-editorial transition-all duration-300 border ${
                 activeCategory === cat.id
                   ? "bg-desert-cream text-volcanic border-desert-cream"
                   : "bg-transparent text-desert-cream/40 border-desert-cream/15 hover:border-desert-cream/30 hover:text-desert-cream/70"
@@ -364,7 +364,7 @@ function TreatmentCard({
               {elementIcons[treatment.element]}
             </span>
             <span
-              className="text-desert-cream/30 text-[10px] tracking-editorial uppercase"
+              className="text-desert-cream/30 text-[10px] tracking-editorial"
               style={{ fontFamily: "var(--font-body)" }}
             >
               {treatment.element}

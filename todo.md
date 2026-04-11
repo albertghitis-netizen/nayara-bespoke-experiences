@@ -1840,3 +1840,9 @@
 - [ ] Consolidate GardensWellness + SpringsWellness into one shared Costa Rica Wellness sub-page
 - [ ] Consolidate GardensExperiences + SpringsExperiences into one shared Costa Rica Experiences sub-page (if separate exist)
 - [ ] Same for Sustainability and Gastronomy sub-pages across all 3 CR properties
+- [x] Remove H1 text overlays from ALL property + brand home hero videos — clean video only, H1 sits below video
+- [x] 6 property-colored footers: each property page gets its own footer color palette
+- [x] Make ALL floating buttons espresso colored (Sound, Henry, Reserve pill, hamburger pill)
+- [x] RULE: Nothing on the website in all caps — removed all `uppercase` CSS classes
+- [x] Fix Sound button label: not all caps
+- [x] Add Nayara leaf icon to the left of the newsletter signup pill in the footer

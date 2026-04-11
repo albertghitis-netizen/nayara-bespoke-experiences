@@ -25,7 +25,7 @@ export default function PillarCrossLink({ pillar, className = "" }: PillarCrossL
     <div className={`mt-8 md:mt-12 text-center ${className}`}>
       <Link
         href={route}
-        className="inline-flex items-center gap-2 text-[#3a2a1a]/40 text-[12px] tracking-[0.1em] uppercase hover:text-[#3a2a1a]/70 transition-colors"
+        className="inline-flex items-center gap-2 text-[#3a2a1a]/40 text-[12px] tracking-[0.1em] hover:text-[#3a2a1a]/70 transition-colors"
         style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
       >
         {label}

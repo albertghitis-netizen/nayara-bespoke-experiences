@@ -61,7 +61,7 @@ function HeroSection() {
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center" style={heading}>
           Podcast
         </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase" style={{ ...body, fontWeight: 500 }}>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em]" style={{ ...body, fontWeight: 500 }}>
           Conversations from Extraordinary Places
         </motion.p>
       </div>
@@ -79,7 +79,7 @@ function IntroSection() {
         <FadeIn>
           <div className="flex items-center justify-center gap-3 mb-6">
             <Play className="w-4 h-4 text-[#3a2a1a]/30" />
-            <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.35em] uppercase" style={{ ...body, fontWeight: 500 }}>Video Podcast</span>
+            <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.35em]" style={{ ...body, fontWeight: 500 }}>Video Podcast</span>
           </div>
           <p className="text-[#3a2a1a]/60 text-[16px] md:text-[18px] leading-relaxed" style={body}>
             Conversations with the people who shape our world — archaeologists,
@@ -139,14 +139,14 @@ function EpisodesSection({ episodes, activeEpisode, setActiveEpisode }: {
               {/* Episode info */}
               <div className="p-8 md:p-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
+                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
                   <span className="w-px h-3 bg-[#3a2a1a]/10" />
-                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em] uppercase" style={body}>{ep.duration}</span>
+                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.duration}</span>
                   <span className="w-px h-3 bg-[#3a2a1a]/10" />
-                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em] uppercase" style={body}>{ep.id.includes("rapanui") || ep.id.includes("hitorangi") ? "Hangaroa" : "All Properties"}</span>
+                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.id.includes("rapanui") || ep.id.includes("hitorangi") ? "Hangaroa" : "All Properties"}</span>
                 </div>
                 <h3 className="text-[#3a2a1a] text-xl md:text-2xl leading-[1.15]" style={heading}>{ep.title}</h3>
-                <p className="text-[#3a2a1a]/30 text-xs tracking-[0.1em] uppercase mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
+                <p className="text-[#3a2a1a]/30 text-xs tracking-[0.1em] mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
                 <p className="text-[#4B4A4A]/50 text-[14px] leading-relaxed max-w-2xl" style={body}>{ep.description}</p>
               </div>
             </div>

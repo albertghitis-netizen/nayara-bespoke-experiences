@@ -46,7 +46,7 @@ export function AwardBadgeStrip({ property }: { property: string }) {
             </span>
             {award.year && (
               <span
-                className="text-[9px] tracking-[0.08em] uppercase text-[#3a2a1a]/40 leading-tight"
+                className="text-[9px] tracking-[0.08em] text-[#3a2a1a]/40 leading-tight"
                 style={body}
               >
                 {award.year}
@@ -89,14 +89,14 @@ export function FloatingAwardBadge({
       />
       <div className="flex flex-col">
         <span
-          className="text-[10px] tracking-[0.12em] uppercase text-white/80 leading-tight"
+          className="text-[10px] tracking-[0.12em] text-white/80 leading-tight"
           style={{ ...body, fontWeight: 500 }}
         >
           {award.name}
         </span>
         {award.year && (
           <span
-            className="text-[8px] tracking-[0.08em] uppercase text-white/50 leading-tight"
+            className="text-[8px] tracking-[0.08em] text-white/50 leading-tight"
             style={body}
           >
             {award.year}

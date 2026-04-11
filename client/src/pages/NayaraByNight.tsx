@@ -65,7 +65,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="text-white/30 text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500 }}>{children}</p>;
+  return <p className="text-white/30 text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500 }}>{children}</p>;
 }
 
 function MediaBlock({
@@ -359,9 +359,9 @@ function StorySection() {
               rel="noopener noreferrer"
               className="group mt-8 block p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
             >
-              <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] uppercase block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
+              <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
               <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nayara by Night: Of Moon and Stars</h4>
-              <span className="text-white/30 text-[11px] tracking-[0.08em] uppercase mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+              <span className="text-white/30 text-[11px] tracking-[0.08em] mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
             </a>
           </FadeIn>
         </div>

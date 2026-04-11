@@ -60,7 +60,7 @@ export default function FAQ() {
           {/* Property filter */}
           <div className="mb-6">
             <label
-              className="block text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] uppercase mb-3"
+              className="block text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] mb-3"
               style={{ ...body, fontWeight: 500 }}
             >
               Filter by Property
@@ -86,7 +86,7 @@ export default function FAQ() {
           {/* Pillar filter */}
           <div>
             <label
-              className="block text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] uppercase mb-3"
+              className="block text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] mb-3"
               style={{ ...body, fontWeight: 500 }}
             >
               Filter by Topic
@@ -180,7 +180,7 @@ export default function FAQ() {
                                 return (
                                   <span
                                     key={pid}
-                                    className="text-[10px] tracking-[0.1em] uppercase text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-sm"
+                                    className="text-[10px] tracking-[0.1em] text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-sm"
                                     style={{ ...body, fontWeight: 500 }}
                                   >
                                     {prop?.label || pid}

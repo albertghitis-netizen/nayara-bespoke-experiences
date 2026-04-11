@@ -146,7 +146,7 @@ const body = { fontFamily: "var(--font-body)" } as const;
 function SectionLabel({ children, color }: { children: React.ReactNode; color?: string }) {
   return (
     <p
-      className="text-[11px] tracking-[0.2em] uppercase mb-4"
+      className="text-[11px] tracking-[0.2em] mb-4"
       style={{ ...body, fontWeight: 500, color: color || PALETTE.primary }}
     >
       {children}
@@ -253,7 +253,7 @@ function CascadeSection({
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <a
             href={link}
-            className="inline-block text-[11px] tracking-[0.15em] uppercase transition-colors hover:opacity-70"
+            className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
             style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
           >
             {linkLabel} →
@@ -573,7 +573,7 @@ export default function AltoAtacama() {
       <GettingHereSection />
       <AwardsSection />
       <ReserveCTA />
-      <Footer />
+      <Footer bgColor="#2C1E12" />
     </div>
   );
 }
@@ -586,22 +586,26 @@ function HeroSection() {
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
-      </div>
-      {/* Hero text — subtle fade-in */}
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+    <>
+      <section className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+        </div>
+      </section>
+      <div
+        className="py-10 md:py-14 px-6 md:px-10 text-center"
+        style={{ backgroundColor: SECTION_COLORS[0], fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+      >
         <MultiLineReveal
           lines={["Atacama Desert Oasis Lodge"]}
-          lineClassName="text-white text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
+          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
           as="h1"
-          delay={0.6}
+          delay={0.2}
           staggerDelay={0.15}
         />
       </div>
-    </section>
+    </>
   );
 }
 
@@ -687,7 +691,7 @@ function AwardsSection() {
           {awards.map((award, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.15}>
               <div className="p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.primary}06` }}>
-                <p className="text-[11px] tracking-[0.15em] uppercase mb-3" style={{ ...body, fontWeight: 500, color: PALETTE.primary }}>{award.year}</p>
+                <p className="text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500, color: PALETTE.primary }}>{award.year}</p>
                 <h3 className="text-[18px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{award.name}</h3>
                 <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{award.description}</p>
               </div>
@@ -715,7 +719,7 @@ function ReserveCTA() {
           </p>
           <a
             href="/reserve?property=alto-atacama"
-            className="inline-block px-10 py-3.5 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all hover:opacity-80"
+            className="inline-block px-10 py-3.5 rounded-full text-[11px] tracking-[0.2em] transition-all hover:opacity-80"
             style={{ ...body, fontWeight: 500, backgroundColor: PALETTE.primary, color: "#fff" }}
           >
             Reserve Your Stay

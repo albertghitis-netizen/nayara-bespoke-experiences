@@ -88,7 +88,7 @@ function SustainabilityHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-white/50 text-[11px] tracking-[0.2em] uppercase mt-3"
+          className="text-white/50 text-[11px] tracking-[0.2em] mt-3"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
           Nayara Hangaroa
@@ -147,7 +147,7 @@ function SustainabilityContent() {
           <div className="text-center mt-4">
             <a
               href="/hangaroa"
-              className="inline-block text-[11px] tracking-[0.2em] uppercase pb-1"
+              className="inline-block text-[11px] tracking-[0.2em] pb-1"
               style={{
                 fontFamily: "var(--font-body)",
                 fontWeight: 500,

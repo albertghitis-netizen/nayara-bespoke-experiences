@@ -123,7 +123,7 @@ export default function Journal() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-2.5 text-[12px] tracking-[0.12em] uppercase transition-all duration-300 border-b-2 ${
+                className={`px-6 py-2.5 text-[12px] tracking-[0.12em] transition-all duration-300 border-b-2 ${
                   activeTab === tab.id
                     ? "text-[#3a2a1a] border-[#3a2a1a]"
                     : "text-[#3a2a1a]/30 border-transparent hover:text-[#3a2a1a]/60"
@@ -175,19 +175,19 @@ function BlogTab({ posts }: { posts: BlogPost[] }) {
                 <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
                   <img src={featuredPost.image} alt={featuredPost.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" />
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block bg-[#3a2a1a]/70 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 rounded-full" style={{ ...body, fontWeight: 500 }}>Featured</span>
+                    <span className="inline-block bg-[#3a2a1a]/70 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] px-3 py-1.5 rounded-full" style={{ ...body, fontWeight: 500 }}>Featured</span>
                   </div>
                 </div>
                 <div className="flex flex-col justify-center p-8 md:p-12 lg:p-14">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 500 }}>{featuredPost.pillar}</span>
+                    <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>{featuredPost.pillar}</span>
                     <span className="w-px h-3 bg-[#3a2a1a]/10" />
-                    <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 500 }}>{featuredPost.destination}</span>
+                    <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>{featuredPost.destination}</span>
                   </div>
                   <h2 className="text-[#3a2a1a] text-2xl md:text-3xl leading-[1.1] group-hover:text-[#5a4a3a] transition-colors" style={heading}>{featuredPost.title}</h2>
                   <p className="text-[#4B4A4A]/55 text-[14px] leading-relaxed mt-4 line-clamp-3" style={body}>{featuredPost.excerpt}</p>
                   <div className="mt-6 flex items-center gap-2">
-                    <span className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] uppercase group-hover:text-[#3a2a1a] transition-colors" style={{ ...body, fontWeight: 500 }}>Read Story</span>
+                    <span className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] group-hover:text-[#3a2a1a] transition-colors" style={{ ...body, fontWeight: 500 }}>Read Story</span>
                     <ExternalLink className="w-3 h-3 text-[#3a2a1a]/30 group-hover:text-[#3a2a1a] transition-colors" />
                   </div>
                 </div>
@@ -223,9 +223,9 @@ function BlogTab({ posts }: { posts: BlogPost[] }) {
                       <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                     </div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>{post.pillar}</span>
+                      <span className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{post.pillar}</span>
                       <span className="w-px h-2.5 bg-[#3a2a1a]/10" />
-                      <span className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>{post.destination}</span>
+                      <span className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{post.destination}</span>
                     </div>
                     <h3 className="text-[#3a2a1a] text-lg leading-[1.2] group-hover:text-[#5a4a3a] transition-colors" style={heading}>{post.title}</h3>
                     {post.excerpt && <p className="text-[#4B4A4A]/45 text-[13px] leading-relaxed mt-2 line-clamp-2" style={body}>{post.excerpt}</p>}
@@ -234,7 +234,7 @@ function BlogTab({ posts }: { posts: BlogPost[] }) {
               </div>
               {hasMore && !showAll && (
                 <div className="flex justify-center mt-10">
-                  <button onClick={() => setShowAll(true)} className="flex items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-[#3a2a1a]/40 hover:text-[#3a2a1a] transition-colors py-3 px-6 border border-[#3a2a1a]/15 rounded-full hover:border-[#3a2a1a]/30" style={{ ...body, fontWeight: 500 }}>
+                  <button onClick={() => setShowAll(true)} className="flex items-center gap-2 text-[11px] tracking-[0.15em] text-[#3a2a1a]/40 hover:text-[#3a2a1a] transition-colors py-3 px-6 border border-[#3a2a1a]/15 rounded-full hover:border-[#3a2a1a]/30" style={{ ...body, fontWeight: 500 }}>
                     View All Stories
                     <ChevronDown className="w-3.5 h-3.5" />
                   </button>
@@ -262,7 +262,7 @@ function PodcastTab({ episodes }: { episodes: PodcastEpisode[] }) {
           <FadeIn>
             <div className="flex items-center justify-center gap-3 mb-6">
               <Play className="w-4 h-4 text-[#3a2a1a]/30" />
-              <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.35em] uppercase" style={{ ...body, fontWeight: 500 }}>Video Podcast</span>
+              <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.35em]" style={{ ...body, fontWeight: 500 }}>Video Podcast</span>
             </div>
             <p className="text-[#3a2a1a]/60 text-[16px] md:text-[18px] leading-relaxed" style={body}>
               Conversations with the people who shape our world — archaeologists,
@@ -306,12 +306,12 @@ function PodcastTab({ episodes }: { episodes: PodcastEpisode[] }) {
                   </div>
                   <div className="px-6 md:px-10 py-8 md:py-10 max-w-[1000px] mx-auto">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
+                      <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
                       <span className="w-px h-3 bg-[#3a2a1a]/10" />
-                      <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em] uppercase" style={body}>{ep.duration}</span>
+                      <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.duration}</span>
                     </div>
                     <h3 className="text-[#3a2a1a] text-xl md:text-2xl leading-[1.15]" style={heading}>{ep.title}</h3>
-                    <p className="text-[#3a2a1a]/30 text-xs tracking-[0.1em] uppercase mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
+                    <p className="text-[#3a2a1a]/30 text-xs tracking-[0.1em] mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
                     <p className="text-[#4B4A4A]/50 text-[14px] leading-relaxed max-w-2xl" style={body}>{ep.description}</p>
                   </div>
                 </div>
@@ -378,7 +378,7 @@ function FAQTab({ items }: { items: FAQItem[] }) {
                             {item.properties.map((pid) => {
                               const prop = FAQ_PROPERTIES.find((p) => p.id === pid);
                               return (
-                                <span key={pid} className="text-[10px] tracking-[0.1em] uppercase text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-sm" style={{ ...body, fontWeight: 500 }}>
+                                <span key={pid} className="text-[10px] tracking-[0.1em] text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-sm" style={{ ...body, fontWeight: 500 }}>
                                   {prop?.label || pid}
                                 </span>
                               );

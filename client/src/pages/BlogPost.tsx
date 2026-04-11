@@ -28,7 +28,7 @@ export default function BlogPost() {
       {/* ── HEADER ── */}
       <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-10 pb-8 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] uppercase text-[#AD8F61] mb-4">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#AD8F61] mb-4">
             Wellness &nbsp;&middot;&nbsp; World Health Day
           </p>
           <h1
@@ -39,7 +39,7 @@ export default function BlogPost() {
             <br />
             Costa Rica Feels Different
           </h1>
-          <p className="text-[13px] text-[#8a7a5a] tracking-[0.1em] uppercase">
+          <p className="text-[13px] text-[#8a7a5a] tracking-[0.1em]">
             Albert Ghitis &nbsp;&middot;&nbsp; March 15, 2026
           </p>
         </div>
@@ -508,7 +508,7 @@ export default function BlogPost() {
               href={prop.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] uppercase no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded"
+              className="inline-block px-6 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded"
             >
               {prop.name}
             </a>
@@ -522,7 +522,7 @@ export default function BlogPost() {
       {/* ── FOOTER ── */}
       <footer className="bg-[#3a2a1a] text-center py-12 px-8 md:px-16">
         <p
-          className="text-white/40 text-[10px] tracking-[0.25em] uppercase mb-6"
+          className="text-white/40 text-[10px] tracking-[0.25em] mb-6"
           style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
         >
           Contact Us

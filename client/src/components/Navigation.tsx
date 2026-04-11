@@ -84,7 +84,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
               className="flex flex-col items-start"
             >
               <span
-                className={`text-xs tracking-wide-editorial uppercase font-body transition-colors duration-500 ${
+                className={`text-xs tracking-wide-editorial font-body transition-colors duration-500 ${
                   scrolled ? "text-volcanic/60" : "text-white/0"
                 }`}
                 style={{ fontFamily: "var(--font-body)" }}
@@ -108,7 +108,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item)}
-                className={`text-sm tracking-editorial uppercase transition-all duration-300 ${
+                className={`text-sm tracking-editorial transition-all duration-300 ${
                   scrolled
                     ? activeSection === item.id
                       ? "text-terracotta"
@@ -158,7 +158,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
               {showBackLink && (
                 <Link
                   href="/"
-                  className="text-left text-sm tracking-editorial uppercase text-volcanic/70 hover:text-terracotta transition-colors"
+                  className="text-left text-sm tracking-editorial text-volcanic/70 hover:text-terracotta transition-colors"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   ← All Properties
@@ -168,7 +168,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item)}
-                  className="text-left text-sm tracking-editorial uppercase text-volcanic/70 hover:text-terracotta transition-colors"
+                  className="text-left text-sm tracking-editorial text-volcanic/70 hover:text-terracotta transition-colors"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   {item.label}
