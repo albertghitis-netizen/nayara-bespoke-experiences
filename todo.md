@@ -1851,3 +1851,24 @@
 - [ ] Keep Nayara by Night as its own page (not just part of gallery)
 - [x] Nayara by Night: black buttons + black footer
 - [x] Hide center nav text on ALL deep pages (32 property deep pages + 4 brand pillar pages)
+- [ ] Put H1s back on hero videos (property homes + brand home), same size as Beyond Sustainability text, overlaid on video
+- [ ] Fix Press & Awards page to match the rest of the site's design
+- [ ] Vine starts off left edge of page (not contained within max-w container)
+- [x] Remove vine from footer (keep leaf only)
+- [ ] H1 back on hero video, small size (start with Tented Camp)
+- [ ] H2 same size as H1, can't be bigger than H1
+- [ ] Build page-level vine that follows user down from top-left (start with Tented Camp)
+- [ ] Add location subtitle below property name in nav center label (e.g. "Arenal Volcano National Park, Costa Rica" below "Nayara Tented Camp")
+- [ ] Nav location subtitle: left-to-right typewriter animation effect on the location text
+- [x] Update Tented Camp story H2 to "Lifted On Stilts Above The Canopy / Eye to Eye with Arenal Volcano" (two lines)
+- [x] Update Tented Camp story body to new copy about barren cattle ranch / rainforest / tented suites / hot springs
+- [x] Update Gardens story H2 to "Rich Wildlife, Bold Discovery / Endless Rainforest" + new body
+- [x] Update Springs story H2 to "Romance without Distraction / Wellness without Walls" + new body
+- [x] Update Gardens story H2 to "Rich Wildlife, Bold Discovery / Endless Rainforest" + new body
+- [x] Update Springs story H2 to "Romance without Distraction / Wellness without Walls" + new body
+- [x] Brand Home: move H1 "Luxury Resorts Rooted in Nature" back onto hero video (overlaid, bottom center)
+- [x] Brand Home: replace story S1 photo with old Tented Camp photo (IMG_5354)
+- [x] Gardens: rebuild story section as cascade matching Tented Camp layout (text left, S1 video right, S2 video below)
+- [x] Gardens hero: H1 overlaid on video (matching Tented Camp) — done
+- [x] Springs hero: H1 overlaid on video (matching Tented Camp) — done
+- [x] Tented Camp S1: replaced photo with new vertical video — done

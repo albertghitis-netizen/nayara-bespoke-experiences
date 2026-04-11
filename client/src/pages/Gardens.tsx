@@ -233,69 +233,92 @@ export default function Gardens() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <>
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" hasAudio />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-        </div>
-      </section>
-      <div
-        className="py-10 md:py-14 px-6 md:px-10 text-center"
-        style={{ backgroundColor: PALETTE.gradientStart, fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-      >
-        <MultiLineReveal
-          lines={["Family-Friendly Rainforest Adventure"]}
-          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.2}
-          staggerDelay={0.15}
-        />
+    <section className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" hasAudio />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
-    </>
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Family-Friendly Rainforest Adventure
+        </motion.h1>
+      </div>
+    </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   STORY — Text left, video right, landscape video below
+   STORY — Cascade layout matching Tented Camp:
+   Text left + S1 vertical video right, S2 horizontal video below
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
-    <section id="story" className={sectionPadding}>
-      <div className={maxW}>
-        <div className="max-w-3xl mb-12 md:mb-16">
-            <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel>The Property</SectionLabel>
-            </AnimateOnScroll>
-            <TextReveal as="h2" className="mb-8" delay={0.1}>
+    <section id="story">
+      {/* ── Row: Text left + Vertical video right ── */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+        {/* Text column */}
+        <div
+          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
+          style={{ backgroundColor: PALETTE.gradientStart }}
+        >
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>The Property</SectionLabel>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-6 md:mb-8">
               <span
-                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
               >
-                Where Volcano Meets Rainforest
+                Rich Wildlife, Bold Discovery
               </span>
-            </TextReveal>
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                {gardens.heroSubtitle}
-              </p>
-              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Nayara Gardens is the original Nayara property — a collection of freestanding casitas nestled in tropical gardens with views of Arenal Volcano. Michelin 3 Key recognized, the resort combines Costa Rica's natural abundance with refined hospitality, offering guests access to five restaurants, a world-class spa, and guided adventures through the surrounding rainforest.
-              </p>
-            </AnimateOnScroll>
-            <AnimateOnScroll variants={fadeUp} delay={0.5}>
-              <AwardBadgeStrip property="gardens" />
-            </AnimateOnScroll>
+              <span
+                className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Endless Rainforest
+              </span>
+            </h2>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              The rainforest at the foot of Arenal Volcano is alive with possibility. Toucans, frogs, and howler monkeys share the canopy with your villa, and every trail leads somewhere worth discovering. Nayara Gardens welcomes families and couples alike, with experiences guided by naturalists who know this forest by name.
+            </p>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.35}>
+            <AwardBadgeStrip property="gardens" />
+          </AnimateOnScroll>
         </div>
 
-        {/* Landscape video — desktop only */}
-        <div className="hidden md:block">
+        {/* S1 — Vertical video right */}
+        <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
-            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <NativeVideo src={CDN.storyLandscapeVideo} className="w-full h-full object-cover" />
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s1-vertical_7d15a3b8.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
+      </div>
+
+      {/* S2 — Full-width horizontal video below, touching S1 */}
+      <div style={{ backgroundColor: PALETTE.gradientEnd }}>
+        <MediaReveal delay={0.05}>
+          <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+            <NativeVideo src={CDN.storyLandscapeVideo} className="w-full h-full object-cover" />
+          </div>
+        </MediaReveal>
       </div>
     </section>
   );

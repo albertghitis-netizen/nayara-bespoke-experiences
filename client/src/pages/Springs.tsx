@@ -209,26 +209,23 @@ export default function Springs() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <>
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" hasAudio />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-        </div>
-      </section>
-      <div
-        className="py-10 md:py-14 px-6 md:px-10 text-center"
-        style={{ backgroundColor: PALETTE.gradientStart, fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-      >
-        <MultiLineReveal
-          lines={["Adults-Only Private Hot Spring Villas"]}
-          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.2}
-          staggerDelay={0.15}
-        />
+    <section className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" hasAudio />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
-    </>
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Adults-Only Private Hot Spring Villas
+        </motion.h1>
+      </div>
+    </section>
   );
 }
 
@@ -247,18 +244,21 @@ function StorySection() {
             </AnimateOnScroll>
             <TextReveal as="h2" className="mb-8" delay={0.1}>
               <span
-                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
               >
-                Adults-Only Mineral Springs
+                Romance without Distraction
+              </span>
+              <span
+                className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Wellness without Walls
               </span>
             </TextReveal>
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                {springs.heroSubtitle}
-              </p>
               <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Nayara Springs is the adults-only sister property to Nayara Gardens. Each villa features a private natural hot spring pool fed by volcanic mineral water, surrounded by the sounds of the rainforest. Michelin 3 Key recognized, the resort offers an intimate, elevated experience with access to all five Nayara restaurants and the full-service Spa Arenal.
+                Hidden within the rainforest surrounding Arenal Volcano, Nayara Springs is an adults-only Relais &amp; Châteaux retreat built around hot springs, romance, and exceptional dining. Every villa has its own volcanic hot spring plunge pool screened by tropical gardens, and the spa draws its rituals from the geothermal earth and forest botanicals that surround it. Here, privacy is not a perk. It is the entire point.
               </p>
             </AnimateOnScroll>
 

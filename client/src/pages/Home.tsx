@@ -159,26 +159,23 @@ export default function Home() {
 function HeroSection() {
   const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-final-audio_e6eda751.mp4";
   return (
-    <>
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/50" />
-        </div>
-      </section>
-      <div
-        className="py-10 md:py-14 px-6 md:px-10 text-center"
-        style={{ backgroundColor: PALETTE.bg, fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-      >
-        <MultiLineReveal
-          lines={["Luxury Resorts Rooted in Nature"]}
-          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.2}
-          staggerDelay={0.15}
-        />
+    <section className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
-    </>
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Luxury Resorts Rooted in Nature
+        </motion.h1>
+      </div>
+    </section>
   );
 }
 
@@ -218,8 +215,8 @@ function BrandStorySection() {
           <MediaReveal delay={0.2}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
-                alt="Woman at Easter Island moai"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG"
+                alt="Nayara Tented Camp in the rainforest canopy"
                 className="w-full h-full object-cover"
                 loading="eager"
               />

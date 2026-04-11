@@ -223,16 +223,56 @@ html {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Vine grow animation — reveals from left to right */
+/* Vine grow animation — starts fully off-screen left, slides in naturally */
 @keyframes vineGrow {
-  from { clip-path: inset(0 100% 0 0); }
-  to   { clip-path: inset(0 0 0 0); }
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.05;
+  }
+  30% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 0.2;
+  }
 }
 .vine-grow {
-  clip-path: inset(0 100% 0 0);
-  animation: vineGrow 2.5s ease-out forwards;
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: vineGrow 6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-play-state: paused;
 }
 .vine-grow.in-view {
+  animation-play-state: running;
+}
+
+/* Leaf slide animation — starts off-screen right, slides in to position */
+@keyframes leafSlideIn {
+  0% {
+    transform: translateX(200%) translateY(-48%);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.05;
+  }
+  30% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateX(0%) translateY(-48%);
+    opacity: 0.15;
+  }
+}
+.leaf-slide {
+  transform: translateX(200%) translateY(-48%);
+  opacity: 0;
+  animation: leafSlideIn 6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-play-state: paused;
+}
+.leaf-slide.in-view {
   animation-play-state: running;
 }

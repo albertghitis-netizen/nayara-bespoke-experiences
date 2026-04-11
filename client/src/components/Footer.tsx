@@ -55,16 +55,16 @@ interface FooterProps {
 export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
-  const vineRef = useRef<HTMLImageElement>(null);
+  const leafRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const el = vineRef.current;
-    if (!el) return;
+    const leaf = leafRef.current;
+    if (!leaf) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { el.classList.add("in-view"); observer.disconnect(); } },
-      { threshold: 0.2 }
+      ([entry]) => { if (entry.isIntersecting) { entry.target.classList.add("in-view"); observer.disconnect(); } },
+      { threshold: 0.1 }
     );
-    observer.observe(el);
+    observer.observe(leaf);
     return () => observer.disconnect();
   }, []);
 
@@ -74,9 +74,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
   };
 
   return (
-    <footer className="relative overflow-hidden" style={{ backgroundColor: bgColor ?? "#3a2a1a" }}>
-
-
+    <footer className="relative overflow-x-clip" style={{ backgroundColor: bgColor ?? "#3a2a1a" }}>
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-10">
         {/* Dynamic columns from navigation config + Contact column */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed">
@@ -154,18 +152,13 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
 
         {/* Newsletter CTA — centered, with flourish left + leaf right */}
         <div className="relative flex justify-center mt-10 mb-6">
-          {/* Decorative vine — left side, grows in from left */}
-          <img
-            ref={vineRef}
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/footer-vine_72903c68.png"
-            alt=""
-            className="absolute left-0 top-1/2 -translate-y-[48%] w-[45%] h-auto opacity-20 pointer-events-none vine-grow"
-          />
+
           {/* Nayara leaf — right side */}
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
             alt="Nayara leaf"
-            className="absolute right-0 top-1/2 -translate-y-[48%] w-24 h-24 md:w-32 md:h-32 opacity-15 pointer-events-none"
+            ref={leafRef}
+            className="absolute right-[12%] top-1/2 w-24 h-24 md:w-32 md:h-32 pointer-events-none leaf-slide"
           />
           <a
             href="#"

@@ -66,7 +66,7 @@ const ASSETS = {
   heroDesktop: `${CDN}/tented-hero-new_c2f5b543.mp4`,
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
-  storyV: `${CDN}/IMG_5354_8a9b536e.PNG`,
+  storyV: `${CDN}/tented-s1-vertical_ca5d52ca.mp4`,
   storyH: `${CDN}/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,
@@ -209,7 +209,7 @@ function CascadeSection({
               {section.headline.split("\n").map((line, i) => (
                 <span
                   key={i}
-                  className="block text-2xl md:text-4xl lg:text-[48px] leading-[1.05] tracking-wide"
+                  className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
                   style={{ ...display, color: PALETTE.text }}
                 >
                   {line}
@@ -435,7 +435,7 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <h2 className="mb-4">
             <span
-              className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.1] tracking-wide"
               style={{ ...display, color: PALETTE.text }}
             >
               Your Journey to Arenal
@@ -514,11 +514,11 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
   {
     id: "story",
     label: "The Camp",
-    headline: "Where Jungle\nMeets Luxury",
-    body: "Nestled within the Arenal Volcano rainforest canopy, Nayara Tented Camp redefines luxury with open-air tented suites, private plunge pools, and uninterrupted views of the volcano. This is where wild nature and refined comfort become one.",
+    headline: "Lifted On Stilts Above The Canopy\nEye to Eye with Arenal Volcano",
+    body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.",
     verticalSrc: ASSETS.storyV,
     horizontalSrc: ASSETS.storyH,
-    verticalIsVideo: false,
+    verticalIsVideo: true,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -768,26 +768,23 @@ function HeroSection() {
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
-    <>
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-        </div>
-      </section>
-      <div
-        className="py-10 md:py-14 px-6 md:px-10 text-center"
-        style={{ backgroundColor: SECTION_COLORS[0], fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-      >
-        <MultiLineReveal
-          lines={["Luxury Tents in the Canopy"]}
-          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.2}
-          staggerDelay={0.15}
-        />
+    <section className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
-    </>
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Luxury Tents in the Canopy
+        </motion.h1>
+      </div>
+    </section>
   );
 }
 
@@ -822,7 +819,7 @@ function GallerySection() {
         </AnimateOnScroll>
         <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
           <span
-            className="text-2xl md:text-4xl lg:text-5xl tracking-wide"
+            className="text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide"
             style={{ ...display, color: PALETTE.text }}
           >
             Life in the Canopy
