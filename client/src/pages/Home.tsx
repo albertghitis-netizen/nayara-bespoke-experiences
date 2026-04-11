@@ -23,7 +23,6 @@ import {
   EASE_CINEMATIC,
 } from "@/components/motion";
 import { motion } from "framer-motion";
-import { useIsMobile } from "@/hooks/useMobile";
 
 /* ─── Shared styles ─── */
 const PALETTE = {
@@ -158,10 +157,7 @@ export default function Home() {
    HERO - Full-screen video with brand tagline
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
-  const isMobile = useIsMobile();
-  const heroVideo = isMobile
-    ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-final-audio_e6eda751.mp4";
+  const heroVideo = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-final-audio_e6eda751.mp4";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">

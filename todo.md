@@ -1741,3 +1741,6 @@
 - [x] Hangaroa Sustainability secondary page
 - [x] Hangaroa Wellness secondary page
 - [x] Hangaroa Gastronomy secondary page
+
+## Brand Home — Use Horizontal Hero for Both Orientations
+- [x] Replace vertical mobile hero video with the horizontal desktop hero video on the brand/home page
