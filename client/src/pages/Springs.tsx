@@ -281,6 +281,28 @@ function StorySection() {
               Hidden within the rainforest surrounding Arenal Volcano, Nayara Springs is an adults-only Relais &amp; Châteaux retreat built around hot springs, romance, and exceptional dining. Every villa has its own volcanic hot spring plunge pool screened by tropical gardens, and the spa draws its rituals from the geothermal earth and forest botanicals that surround it. Here, privacy is not a perk. It is the entire point.
             </p>
           </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <a
+              href="https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 mt-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 500,
+                fontSize: "12px",
+                letterSpacing: "0.08em",
+                color: "#fff",
+                backgroundColor: PALETTE.primary,
+              }}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+              </svg>
+              Read: 7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence
+            </a>
+          </AnimateOnScroll>
         </div>
 
         {/* S1 — Vertical video right */}

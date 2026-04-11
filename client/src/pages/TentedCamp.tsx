@@ -170,6 +170,8 @@ type CascadeSectionData = {
   linkLabel?: string;
   badges?: boolean;
   awards?: string;
+  blogUrl?: string;
+  blogTitle?: string;
 };
 
 function CascadeSection({
@@ -239,6 +241,30 @@ function CascadeSection({
                 style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
               >
                 {section.linkLabel || "Explore More"} →
+              </a>
+            </AnimateOnScroll>
+          )}
+
+          {section.blogUrl && section.blogTitle && (
+            <AnimateOnScroll variants={fadeUp} delay={0.35}>
+              <a
+                href={section.blogUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 mt-4 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                style={{
+                  ...body,
+                  fontWeight: 500,
+                  fontSize: "12px",
+                  letterSpacing: "0.08em",
+                  color: "#fff",
+                  backgroundColor: PALETTE.primary,
+                }}
+              >
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+                Read: {section.blogTitle}
               </a>
             </AnimateOnScroll>
           )}
@@ -570,6 +596,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[4],
     link: "/tented-camp/experiences",
     linkLabel: "Explore More",
+    blogUrl: "https://blog.nayararesorts.com/pura-vida",
+    blogTitle: "Pura Vida: The Science of Why Costa Rica Feels Different",
   },
   {
     id: "wellness",
@@ -621,6 +649,8 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
+    link: "/tented-camp/sustainability",
+    linkLabel: "Explore Sustainability",
   },
 ];
 
@@ -904,31 +934,13 @@ export default function TentedCamp() {
         />
       ))}
 
-      {/* ★ Functional break: Journal */}
-      <JournalBreak bgColor={SECTION_COLORS[7]} />
+      {/* ── TRIMMED: Journal, Adventure/Spa, Getting Here, Gallery cascade hidden for performance ── */}
+      {/* <JournalBreak bgColor={SECTION_COLORS[7]} /> */}
+      {/* {SECTIONS_AFTER_JOURNAL.map(...)} */}
+      {/* <GettingHereBreak bgColor={SECTION_COLORS[9]} /> */}
+      {/* {SECTIONS_GALLERY.map(...)} */}
 
-      {/* Cascade: Adventure → Spa */}
-      {SECTIONS_AFTER_JOURNAL.map((section, i) => (
-        <CascadeSection
-          key={section.id}
-          section={section}
-          index={i + SECTIONS_BEFORE_REVIEW.length + SECTIONS_AFTER_REVIEW.length}
-        />
-      ))}
-
-      {/* ★ Functional break: Getting Here */}
-      <GettingHereBreak bgColor={SECTION_COLORS[9]} />
-
-      {/* Cascade: Residence → Henry's Bar → Grand Tents → Camp Life (from gallery) */}
-      {SECTIONS_GALLERY.map((section, i) => (
-        <CascadeSection
-          key={section.id}
-          section={section}
-          index={i + SECTIONS_BEFORE_REVIEW.length + SECTIONS_AFTER_REVIEW.length + SECTIONS_AFTER_JOURNAL.length}
-        />
-      ))}
-
-      {/* ★ By Night — darkest end of cascade */}
+      {/* ★ By Night — transition to functional footer area */}
       <ByNightCTA
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
         verticalIsVideo

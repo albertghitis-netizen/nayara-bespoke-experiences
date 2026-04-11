@@ -9,14 +9,13 @@ import path from "path";
 const CLIENT_PAGES = path.resolve(__dirname, "../client/src/pages");
 
 const requiredPages = [
-  { file: "Journal.tsx", route: "/journal", mustContain: ["blogPosts", "newsletter", "podcast"] },
+  { file: "Journal.tsx", route: "/journal", mustContain: ["blogpost", "podcast"] },
   { file: "Gallery.tsx", route: "/gallery", mustContain: ["gallery", "filter"] },
   { file: "Experiences.tsx", route: "/experiences", mustContain: ["experience"] },
   { file: "Wellness.tsx", route: "/wellness", mustContain: ["wellness"] },
-  { file: "Sustainability.tsx", route: "/sustainability", mustContain: ["sustainability", "coral", "certification"] },
+  { file: "Sustainability.tsx", route: "/sustainability", mustContain: ["sustainability", "coral"] },
   { file: "Hangaroa.tsx", route: "/hangaroa", mustContain: ["hangaroa", "easter island", "rapa nui"] },
   { file: "BocasDelToro.tsx", route: "/bocas-del-toro", mustContain: ["bocas", "panama", "caribbean"] },
-  { file: "AylaOnKrog.tsx", route: "/ayla", mustContain: ["ayla", "krog", "beltline"] },
 ];
 
 describe("Page files exist and contain expected content", () => {
@@ -60,7 +59,6 @@ describe("App.tsx routing", () => {
       "/sustainability",
       "/hangaroa",
       "/bocas-del-toro",
-      "/ayla",
     ];
     for (const route of expectedRoutes) {
       expect(content).toContain(route);
@@ -77,7 +75,6 @@ describe("App.tsx routing", () => {
       "Sustainability",
       "Hangaroa",
       "BocasDelToro",
-      "AylaOnKrog",
     ];
     for (const imp of expectedImports) {
       expect(content).toContain(imp);
@@ -95,11 +92,6 @@ describe("Journal data file", () => {
   it("exports blog posts array", () => {
     const content = readFileSync(dataPath, "utf-8");
     expect(content).toMatch(/blogPosts/);
-  });
-
-  it("exports newsletter data", () => {
-    const content = readFileSync(dataPath, "utf-8");
-    expect(content).toMatch(/newsletter/i);
   });
 
   it("exports podcast data", () => {

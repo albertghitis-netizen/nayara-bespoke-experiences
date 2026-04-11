@@ -1920,15 +1920,26 @@
 - [ ] Apply property colors to buttons on all property and deep pages
 - [ ] Apply property colors to footer on all property and deep pages
 - [ ] Apply property colors to all CR deep pages (Experiences, Wellness, Gastronomy, Sustainability) per property
-- [ ] CR Experiences: restructure into "Explore the Hotel" vs "Explore Arenal" sections
+- [x] CR Experiences: restructure into "Explore Nayara" (on-property) vs "Explore Arenal" (off-property) sections
 - [ ] Tented Camp: add Pura Vida blog link in Experiences section
 - [ ] Tented Camp: add Alfaro podcast link in Sustainability section
 - [ ] Blog/podcast labels use property color palette
-- [ ] CR Experiences: restructure into "Explore the Hotel" vs "Explore Arenal" sections
+- [x] CR Experiences: restructure into "Explore Nayara" (on-property) vs "Explore Arenal" (off-property) sections (duplicate)
 - [ ] Tented Camp: add Pura Vida blog link in Experiences section
 - [ ] Tented Camp: add Alfaro podcast link in Sustainability section
 - [ ] Atacama: add "This is Mars" blog link in Story section
 - [ ] Atacama: add Stargazing blog link in Experiences section
 - [ ] Bocas del Toro: add Coral Reef Restoration podcast (Coming Soon) in Sustainability section
 - [ ] Blog/podcast labels use property color palette
-- [ ] Hangaroa: add two long-form Hangaroa videos in Sustainability section (from podcast section)
+- [x] Hangaroa: add two long-form Hangaroa videos in Sustainability section (from podcast section)
+- [x] Review brand palette: consider bone, espresso, and gravel as brand colors — keeping current (already bone/espresso aligned)
+- [x] Gardens palette: evaluate clover green vs current rich green — keeping current forest green (more muted/luxury)
+- [x] Bocas palette: evaluate stone blue vs current ocean blue-green — keeping current Caribbean teal (more geographically authentic)
+- [ ] Springs: add Michelin Keys blog link in Story/Awards section
+- [ ] Place S Certification blog link on relevant property/sustainability pages (Atacama)
+- [ ] Place Green Globe blog link on relevant property/sustainability pages (CR properties)
+- [ ] Blog links: make them visually prominent from the start (use accent color by default, not just on hover)
+- [x] Brand-level Pinterest-style masonry gallery page with mix of all properties, sparing short videos
+- [x] Cascade trim: cut off property pages after pillars + Nayara By Night, comment out extra sections (preserve, don't delete)
+- [x] Performance pass: reduce/cut heavy videos, optimize for speed (cascade trim removed bulk of heavy video load)
+- [x] Add deep page links (Rooms, Experiences, Wellness, Gastronomy, Sustainability) to all pillar sections on all 6 property pages

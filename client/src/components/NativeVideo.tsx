@@ -131,8 +131,9 @@ export default function NativeVideo({
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
           className="absolute bottom-6 left-6 z-30 hidden md:flex items-center gap-2 px-4.5 py-3 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group cursor-pointer"
-            style={{ backgroundColor: pillBg }}            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = pillHover)}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = pillBg)}
+          style={{ backgroundColor: pillBg }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = pillHover)}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = pillBg)}
         >
           {/* Pulse ring — draws attention, then fades */}
           {isMuted && showPulse && (

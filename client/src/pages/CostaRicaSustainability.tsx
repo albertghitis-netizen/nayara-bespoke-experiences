@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
-import { sustainabilityData, getSustainabilityKey } from "@/data/sustainability";
+import { sustainabilityData, getSustainabilityKey, type SustainabilityVideo } from "@/data/sustainability";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import {
   AnimateOnScroll,
@@ -62,6 +62,9 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero palette={palette} propertyName={propertyName} location={location} headline={data.headline} heroVideo={heroVideo} />
       <SustainabilityContent palette={palette} initiatives={data.initiatives} />
+      {data.videos && data.videos.length > 0 && (
+        <SustainabilityVideos palette={palette} videos={data.videos} />
+      )}
       <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
   );
@@ -165,6 +168,98 @@ function SustainabilityContent({
             <PillarCrossLink pillar="sustainability" />
           </div>
         </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+function SustainabilityVideos({
+  palette,
+  videos,
+}: {
+  palette: PropertyPalette;
+  videos: SustainabilityVideo[];
+}) {
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        {/* Divider */}
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+          >
+            Nayara Horizons: Beyond Travel
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            Voices from the Island
+          </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
+            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          >
+            Long-form conversations with the guardians, archaeologists, and community leaders
+            who are shaping the future of Rapa Nui.
+          </p>
+        </AnimateOnScroll>
+
+        <StaggerOnScroll
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
+        >
+          {videos.map((video) => (
+            <motion.div
+              key={video.youtubeId}
+              variants={fadeUp}
+              className="overflow-hidden"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.4)",
+                backdropFilter: "blur(8px)",
+                borderRadius: "12px",
+                borderBottom: `2px solid ${BRAND.divider}`,
+              }}
+            >
+              {/* YouTube Embed */}
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: "none" }}
+                />
+              </div>
+
+              {/* Info */}
+              <div className="p-6 md:p-8">
+                <h3
+                  className="text-[17px] mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                >
+                  {video.title}
+                </h3>
+                <p
+                  className="text-[11px] tracking-[0.1em] mb-4"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+                >
+                  {video.guest} &middot; {video.duration}
+                </p>
+                <p
+                  className="text-[13px] leading-[1.7]"
+                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                >
+                  {video.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
       </div>
     </section>
   );

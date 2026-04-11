@@ -128,7 +128,66 @@ function SustainabilityContent() {
           ))}
         </StaggerOnScroll>
 
+        {/* ── Podcast & Blog Links ── */}
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <div className="mt-20 pt-16" style={{ borderTop: `1px solid ${PALETTE.divider}` }}>
+            <p
+              className="text-[11px] tracking-[0.2em] mb-6"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            >
+              From Nayara Horizons
+            </p>
+            <h3
+              className="text-xl md:text-2xl mb-4"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Pioneering Sustainable Luxury
+            </h3>
+            <p
+              className="text-[14px] leading-[1.7] max-w-[600px] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Leo Ghitis explores the journey of building Nayara Resorts — a brand that seamlessly blends ultra-luxury with profound environmental stewardship. From reforesting a decimated mountain to achieving carbon neutrality.
+            </p>
+
+            {/* YouTube embed */}
+            <div className="relative w-full max-w-[640px] mb-8" style={{ aspectRatio: "16/9" }}>
+              <iframe
+                src="https://www.youtube.com/embed/7l072Yr__pE"
+                title="Pioneering Sustainable Luxury with Nayara Resorts"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full rounded-lg"
+                style={{ border: "none" }}
+              />
+            </div>
+
+            {/* Blog links */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://blog.nayararesorts.com/setting-the-standard-green-globe-certification"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 500,
+                  fontSize: "12px",
+                  letterSpacing: "0.08em",
+                  color: "#fff",
+                  backgroundColor: PALETTE.primary,
+                }}
+              >
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+                Read: Setting the Standard — Green Globe Certification
+              </a>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <div className="mt-16">
             <PillarCrossLink pillar="sustainability" />
           </div>

@@ -190,7 +190,8 @@ export default function Hangaroa() {
         palette={SLIDER_PALETTE}
       />
 
-      <GalleryIntegratedSections />
+      {/* ── TRIMMED: GalleryIntegratedSections hidden for performance ── */}
+      {/* <GalleryIntegratedSections /> */}
 
       {/* ★ By Night — Moai beneath the Milky Way */}
       <ByNightCTA

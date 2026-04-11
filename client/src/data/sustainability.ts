@@ -8,11 +8,20 @@ export interface Initiative {
   desc: string;
 }
 
+export interface SustainabilityVideo {
+  title: string;
+  guest: string;
+  description: string;
+  youtubeId: string;
+  duration: string;
+}
+
 export const sustainabilityData: Record<string, {
   headline: string;
   subtitle: string;
   heroOverlayColor: string;
   initiatives: Initiative[];
+  videos?: SustainabilityVideo[];
 }> = {
   /* ── Costa Rica (shared across Gardens, Springs, Tented Camp) ── */
   "costa-rica": {
@@ -110,6 +119,22 @@ export const sustainabilityData: Record<string, {
       {
         title: "Renewable Energy Transition",
         desc: "Transitioning to 100% renewable energy through solar panels and wind turbines, reducing the island's dependence on imported diesel fuel and setting a model for sustainable island tourism.",
+      },
+    ],
+    videos: [
+      {
+        title: "The Guardians of Rapa Nui",
+        guest: "Hitorangi Family",
+        description: "An intimate conversation with the Hitorangi family about preserving Rapa Nui's cultural heritage, the future of Easter Island, and what it means to be guardians of one of the world's most remote civilizations.",
+        youtubeId: "FRPVRcUTNmk",
+        duration: "45 min",
+      },
+      {
+        title: "Uncovering Rapa Nui: An Archaeologist's Perspective",
+        guest: "Archaeologist",
+        description: "A deep dive into the archaeological mysteries of Easter Island — from moai construction techniques to new discoveries that challenge everything we thought we knew about Rapa Nui civilization.",
+        youtubeId: "qFVLTTJa7hE",
+        duration: "38 min",
       },
     ],
   },

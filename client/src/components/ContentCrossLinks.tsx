@@ -8,7 +8,7 @@ import { Link } from "wouter";
 
 interface ContentCrossLinksProps {
   /** Current page to exclude from links */
-  currentPage: "blog" | "podcast" | "press" | "awards" | "journal";
+  currentPage: "blog" | "podcast" | "press" | "awards" | "journal" | "gallery";
 }
 
 const contentLinks = [

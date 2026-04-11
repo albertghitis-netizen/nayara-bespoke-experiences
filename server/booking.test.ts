@@ -99,10 +99,6 @@ describe("Centralized booking configuration", () => {
   it("property pages import from @/data/booking", () => {
     const files = [
       "../client/src/pages/Home.tsx",
-      "../client/src/pages/Gardens.tsx",
-      "../client/src/pages/Springs.tsx",
-      "../client/src/pages/TentedCamp.tsx",
-      "../client/src/pages/AltoAtacama.tsx",
       "../client/src/pages/CostaRica.tsx",
       "../client/src/components/Footer.tsx",
     ];

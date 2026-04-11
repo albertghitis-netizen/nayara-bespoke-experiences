@@ -152,6 +152,8 @@ type CascadeSectionData = {
   horizontalRatio: string;
   bgColor: string;
   nextBgColor: string;
+  link?: string;
+  linkLabel?: string;
 };
 
 const CASCADE_SECTIONS: CascadeSectionData[] = [
@@ -182,6 +184,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[2],
     nextBgColor: SECTION_COLORS[3],
+    link: "/bocas-del-toro/rooms",
+    linkLabel: "Explore Rooms",
   },
   {
     id: "experiences",
@@ -196,6 +200,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[3],
     nextBgColor: SECTION_COLORS[4],
+    link: "/bocas-del-toro/experiences",
+    linkLabel: "Explore More",
   },
   {
     id: "sustainability",
@@ -210,6 +216,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
+    link: "/bocas-del-toro/sustainability",
+    linkLabel: "Explore More",
   },
   {
     id: "wellness",
@@ -224,6 +232,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
+    link: "/bocas-del-toro/wellness",
+    linkLabel: "Explore Wellness",
   },
   {
     id: "gastronomy",
@@ -238,189 +248,15 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
+    link: "/bocas-del-toro/gastronomy",
+    linkLabel: "Explore Dining",
   },
-  {
-    id: "island-cocktails",
-    label: "Island Cocktails",
-    headline: "Tropical\nLibations",
-    body: "Our bar program draws inspiration from the Caribbean's botanical abundance — fresh coconut water, local citrus, and hand-muddled tropical fruits meet artisanal spirits in cocktails that capture the essence of island life. Every sip is a celebration of place.",
-    verticalSrc: ASSETS.gastro2V,
-    horizontalSrc: ASSETS.gastro2H,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[7],
-    nextBgColor: SECTION_COLORS[8],
-  },
-  {
-    id: "island-brunch",
-    label: "Island Brunch",
-    headline: "Morning\nRituals",
-    body: "Breakfast at Bocas del Toro is a leisurely affair — warm brioche fresh from the oven, tropical fruit platters, and eggs prepared to order, all served on your private overwater deck as the Caribbean Sea shimmers below.",
-    verticalSrc: ASSETS.gastro3V,
-    horizontalSrc: ASSETS.gastro3H,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[8],
-    nextBgColor: SECTION_COLORS[9],
-  },
-  {
-    id: "marine",
-    label: "Marine Life",
-    headline: "Beneath the\nSurface",
-    body: "The waters surrounding Bocas del Toro are home to an extraordinary diversity of marine life. From vibrant coral gardens to playful dolphins, the underwater world here is a living masterpiece. Our guided snorkeling and diving excursions reveal the hidden wonders of this Caribbean sanctuary.",
-    verticalSrc: ASSETS.marineV,
-    horizontalSrc: ASSETS.marineH,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[9],
-    nextBgColor: SECTION_COLORS[10],
-  },
-  {
-    id: "island",
-    label: "Island Life",
-    headline: "Tropical\nSeclusion",
-    body: "Beyond the villas, the island itself is a sanctuary of lush jungle, hidden trails, and secluded beaches. Discover the rhythms of island life — from sunrise yoga on the dock to sunset cocktails as the Caribbean sky transforms into a canvas of gold and violet.",
-    verticalSrc: ASSETS.islandV,
-    horizontalSrc: ASSETS.islandH,
-    verticalIsVideo: true,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[10],
-    nextBgColor: SECTION_COLORS[11],
-  },
-  {
-    id: "sunset",
-    label: "Golden Hour",
-    headline: "Caribbean\nSunsets",
-    body: "As the sun descends toward the horizon, the Caribbean Sea transforms into a mirror of molten gold. These are the moments that define Bocas del Toro — the quiet magic of a tropical evening, where time seems to pause and the world narrows to nothing but light on water.",
-    verticalSrc: ASSETS.sunsetV,
-    horizontalSrc: ASSETS.sunsetH,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "4/5",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[11],
-    nextBgColor: SECTION_COLORS[12],
-  },
-  {
-    id: "beach",
-    label: "Beach & Jungle",
-    headline: "Where Jungle\nMeets Sea",
-    body: "Step from your overwater villa onto powdery white sand, or follow jungle trails through lush tropical canopy. Bocas del Toro is a place where two worlds converge — the wild Caribbean coastline and the dense, vibrant rainforest that frames every view.",
-    verticalSrc: ASSETS.beachV,
-    horizontalSrc: ASSETS.beachH,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[12],
-    nextBgColor: SECTION_COLORS[13],
-  },
-  {
-    id: "reef",
-    label: "The Reef",
-    headline: "Coral\nGardens",
-    body: "Beneath the surface, a kaleidoscope of color awaits. The coral reefs surrounding Bocas del Toro are among the most biodiverse in the Caribbean — home to sea turtles, rays, and hundreds of species of tropical fish. Our marine guides lead intimate snorkeling excursions to the most pristine sites.",
-    verticalSrc: ASSETS.reefV,
-    horizontalSrc: ASSETS.reefH,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[13],
-    nextBgColor: SECTION_COLORS[14],
-  },
-  {
-    id: "aerial",
-    label: "From Above",
-    headline: "An Island\nSanctuary",
-    body: "Seen from above, the resort reveals its true character — a constellation of overwater villas and treehouses nestled among mangroves and turquoise lagoons. The aerial perspective captures the extraordinary harmony between architecture and nature that defines Nayara Bocas del Toro.",
-    verticalSrc: ASSETS.aerialV,
-    horizontalSrc: ASSETS.aerialH,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[14],
-    nextBgColor: SECTION_COLORS[15],
-  },
-  {
-    id: "lifestyle",
-    label: "Island Living",
-    headline: "Crystal\nWaters",
-    body: "Life at Bocas del Toro moves at the pace of the tides. Swim in waters so clear you can count the fish below, lounge on your private deck as the sun traces its arc across the sky, and let the gentle Caribbean breeze carry away everything but the present moment.",
-    verticalSrc: ASSETS.lifeV,
-    horizontalSrc: ASSETS.lifeH,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[15],
-    nextBgColor: SECTION_COLORS[16],
-  },
-  {
-    id: "dolphins",
-    label: "Marine Life",
-    headline: "Swimming with\nDolphins",
-    body: "The warm Caribbean waters surrounding Bocas del Toro are home to resident pods of bottlenose dolphins. Watch them leap and play from your overwater villa, or join a guided boat excursion to swim alongside these magnificent creatures in their natural habitat.",
-    verticalSrc: ASSETS.delfinesV,
-    horizontalSrc: ASSETS.lifeH,
-    verticalIsVideo: true,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[17],
-    nextBgColor: SECTION_COLORS[18],
-  },
-  {
-    id: "ocean-life",
-    label: "Ocean Immersion",
-    headline: "Caribbean\nRhythms",
-    body: "Life at Bocas del Toro moves to the rhythm of the ocean. The tides shape each day — morning snorkels over coral gardens, afternoon sails through the archipelago, and evenings watching the sun melt into the Pacific. Every moment is a reminder of why this place exists.",
-    verticalSrc: ASSETS.cascadeSharedV,
-    horizontalSrc: ASSETS.beachH,
-    verticalIsVideo: true,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[18],
-    nextBgColor: SECTION_COLORS[19],
-  },
-  {
-    id: "island-mood",
-    label: "Island Mood",
-    headline: "Tropical\nDreamscape",
-    body: "From the emerald canopy to the turquoise shallows, Bocas del Toro is a place where the natural world overwhelms the senses. The air is warm and salt-kissed, the water impossibly clear, and the jungle alive with color and sound.",
-    verticalSrc: ASSETS.cascadeExtraV,
-    horizontalSrc: ASSETS.reefH,
-    verticalIsVideo: true,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[19],
-    nextBgColor: SECTION_COLORS[19],
-  },
-  {
-    id: "final",
-    label: "Until Next Time",
-    headline: "Sunset\nFarewell",
-    body: "Every departure from Bocas del Toro carries the promise of return. The last sunset paints the archipelago in gold and rose, a final gift from this extraordinary corner of the Caribbean. The memory of turquoise waters and overwater dreams stays long after the journey home.",
-    verticalSrc: ASSETS.cascadeBgV,
-    horizontalSrc: ASSETS.finalH,
-    verticalIsVideo: true,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[19],
-    nextBgColor: SECTION_COLORS[19],
-  },
+  /* ── TRIMMED: Extended cascade sections hidden for performance ──
+   * Island Cocktails, Island Brunch, Marine Life, Island Life, Golden Hour,
+   * Beach & Jungle, The Reef, From Above, Island Living, Dolphins,
+   * Ocean Immersion, Island Mood, Sunset Farewell
+   * These sections are preserved in code but not rendered.
+   */
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -528,10 +364,22 @@ function CascadeSection({
               {section.body}
             </p>
           </AnimateOnScroll>
+
+          {section.link && (
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <a
+                href={section.link}
+                className="inline-block mt-6 text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              >
+                {section.linkLabel || "Explore More"} →
+              </a>
+            </AnimateOnScroll>
+          )}
         </div>
       </div>
 
-      {/* ── Full-width horizontal media ── */}
+      {/* \u2500\u2500 Full-width horizontal media \u2500\u2500 */}
       <div style={{ backgroundColor: section.nextBgColor }}>
         <MediaReveal delay={0.05}>
           <MediaBlock

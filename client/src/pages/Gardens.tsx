@@ -204,7 +204,8 @@ export default function Gardens() {
         palette={SLIDER_PALETTE}
       />
 
-      <GalleryIntegratedSections />
+      {/* ── TRIMMED: GalleryIntegratedSections hidden for performance ── */}
+      {/* <GalleryIntegratedSections /> */}
 
       {/* ★ By Night — rainforest after dark */}
       <ByNightCTA
