@@ -7,6 +7,7 @@
  * Accepts optional pageType prop to customize link groupings.
  */
 
+import { useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { DEFAULT_BOOKING_URL } from "@/data/booking";
 import { type PageType, getFooterColumns } from "@/data/navigation";
@@ -54,6 +55,18 @@ interface FooterProps {
 export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
+  const vineRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const el = vineRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.classList.add("in-view"); observer.disconnect(); } },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handlePlaceholder = (label: string) => (e: React.MouseEvent) => {
     e.preventDefault();
@@ -139,8 +152,16 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           </div>
         </div>
 
-        {/* Newsletter CTA — centered, with leaf aligned */}
+        {/* Newsletter CTA — centered, with flourish left + leaf right */}
         <div className="relative flex justify-center mt-10 mb-6">
+          {/* Decorative vine — left side, grows in from left */}
+          <img
+            ref={vineRef}
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/footer-vine_72903c68.png"
+            alt=""
+            className="absolute left-0 top-1/2 -translate-y-[48%] w-[45%] h-auto opacity-20 pointer-events-none vine-grow"
+          />
+          {/* Nayara leaf — right side */}
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
             alt="Nayara leaf"

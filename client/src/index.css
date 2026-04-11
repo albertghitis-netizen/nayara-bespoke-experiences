@@ -222,3 +222,17 @@ html {
 /* Hide scrollbar for horizontal property strip */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Vine grow animation — reveals from left to right */
+@keyframes vineGrow {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.vine-grow {
+  clip-path: inset(0 100% 0 0);
+  animation: vineGrow 2.5s ease-out forwards;
+  animation-play-state: paused;
+}
+.vine-grow.in-view {
+  animation-play-state: running;
+}
