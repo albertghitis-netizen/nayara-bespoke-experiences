@@ -551,7 +551,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalSrc: ASSETS.expH,
     verticalIsVideo: true,
     horizontalIsVideo: true,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[3],
     nextBgColor: SECTION_COLORS[4],
@@ -604,7 +604,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     horizontalSrc: ASSETS.wildH,
     verticalIsVideo: true,
     horizontalIsVideo: true,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
@@ -623,7 +623,7 @@ const SECTIONS_AFTER_JOURNAL: CascadeSectionData[] = [
     horizontalSrc: ASSETS.advH,
     verticalIsVideo: true,
     horizontalIsVideo: true,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
@@ -655,7 +655,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalSrc: ASSETS.galleryImg3,
     verticalIsVideo: true,
     horizontalIsVideo: false,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[10],
     nextBgColor: SECTION_COLORS[11],
@@ -669,7 +669,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalSrc: ASSETS.galleryImg2,
     verticalIsVideo: true,
     horizontalIsVideo: false,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[11],
     nextBgColor: SECTION_COLORS[12],
@@ -697,7 +697,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalSrc: ASSETS.galleryImg7,
     verticalIsVideo: true,
     horizontalIsVideo: false,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[13],
     nextBgColor: SECTION_COLORS[14],
@@ -711,7 +711,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalSrc: ASSETS.galleryImg8,
     verticalIsVideo: true,
     horizontalIsVideo: false,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[14],
     nextBgColor: SECTION_COLORS[15],
@@ -739,7 +739,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalSrc: ASSETS.advH,
     verticalIsVideo: true,
     horizontalIsVideo: true,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[16],
     nextBgColor: SECTION_COLORS[17],
@@ -753,7 +753,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalSrc: ASSETS.galleryVideo3,
     verticalIsVideo: true,
     horizontalIsVideo: true,
-    verticalRatio: "9/16",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[17],
     nextBgColor: SECTION_COLORS[17],
@@ -908,7 +908,7 @@ export default function TentedCamp() {
       <ByNightCTA
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
         verticalIsVideo
-        verticalRatio="9/16"
+        verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4"
         horizontalIsVideo
         horizontalRatio="16/9"

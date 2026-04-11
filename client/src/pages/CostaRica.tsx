@@ -668,7 +668,7 @@ function FeaturedExcursionCard({
                   {/* Left: Vertical 9:16 Video */}
                   <div className="md:col-span-5">
                     {excursion.verticalVideo ? (
-                      <div className="aspect-[9/16] overflow-hidden bg-black">
+                      <div className="aspect-[3/4] overflow-hidden bg-black">
                         <video
                           key={excursion.verticalVideo}
                           autoPlay
@@ -681,7 +681,7 @@ function FeaturedExcursionCard({
                         </video>
                       </div>
                     ) : (
-                      <div className={`aspect-[9/16] flex items-center justify-center ${
+                      <div className={`aspect-[3/4] flex items-center justify-center ${
                         isDark ? "bg-emerald-900/30" : "bg-emerald-100/40"
                       }`}>
                         <span className={`text-xs tracking-[0.2em] uppercase ${

@@ -99,7 +99,7 @@ export default function Springs() {
       <ByNightCTA
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
         verticalIsVideo
-        verticalRatio="9/16"
+        verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp"
         horizontalRatio="16/9"
         bgColor="#1a1a24"

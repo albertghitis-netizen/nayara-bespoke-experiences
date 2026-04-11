@@ -123,7 +123,7 @@ export default function Gardens() {
       <ByNightCTA
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/cascade-bg-video_dccee724.mp4"
         verticalIsVideo
-        verticalRatio="9/16"
+        verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-horizontal_5269da4d.mp4"
         horizontalIsVideo
         horizontalRatio="16/9"

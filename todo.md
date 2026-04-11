@@ -1685,3 +1685,7 @@
 - [x] Inventory all photos in Springs Gallery page (4 reused + 3 unique photos + 1 video)
 - [x] Remove Springs Gallery section from page
 - [x] Redistribute gallery photos: wildlife monkey → Experiences, jungle pathway → Sustainability, tropical bird → Wellness, nature video → Gastronomy
+
+## Mobile Vertical Hero Videos
+- [ ] Fix vertical hero videos not being full screen on mobile
+- [x] Change all vertical media (photos/videos) across all pages from 9:16 to 3:4 aspect ratio — AltoAtacama, BocasDelToro, TentedCamp, Springs, Gardens, NayaraByNight, CostaRica, all ByNightCTA sections
