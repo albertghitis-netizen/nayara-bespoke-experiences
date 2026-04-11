@@ -55,7 +55,7 @@ const ASSETS = {
   heroMobile: `${CDN}/bocas-vertical2_03bbe8e5.mp4`,
 
   // Section 1 — Story: room video V + lagoon photo H
-  storyV: `${CDN}/87D222D3-2D4E-437D-AAEF-92C3662EBFE9_1e00bdac.MP4`,
+  storyV: `${CDN}/bocas-drone-vertical_e44907ce.mp4`,
   storyH: `${CDN}/74_be6f8cb4.jpg`,
 
   // Section 2 — Rooms: villas walkway V + aerial curved villas H

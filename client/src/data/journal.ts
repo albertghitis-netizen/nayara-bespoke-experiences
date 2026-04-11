@@ -685,6 +685,7 @@ export const podcastEpisodes: PodcastEpisode[] = [
     youtubeId: "FPxFzOkKhbw",
     duration: "24 min",
     date: "2026",
+    coverImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-horses-sunset_8152e72d.jpg",
   },
   {
     id: "leo-suite-success",
@@ -703,6 +704,7 @@ export const podcastEpisodes: PodcastEpisode[] = [
     youtubeId: "_M3ATv4I0B8",
     duration: "3 min",
     date: "2026",
+    coverImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-pukao-ocean_dc261e27.jpg",
   },
   {
     id: "atacama-sustainability",
@@ -712,5 +714,6 @@ export const podcastEpisodes: PodcastEpisode[] = [
     youtubeId: "6cfkWsqWWc8",
     duration: "3 min",
     date: "2026",
+    coverImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
   },
 ];

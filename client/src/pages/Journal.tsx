@@ -277,8 +277,8 @@ function PodcastTab({ episodes }: { episodes: PodcastEpisode[] }) {
       </section>
 
       {/* Episodes */}
-      <section className="px-6 md:px-10 pb-16 md:pb-24">
-        <div className="max-w-[1000px] mx-auto flex flex-col gap-10">
+      <section className="pb-16 md:pb-24">
+        <div className="flex flex-col gap-10">
           {episodes.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-[#3a2a1a]/30 text-[14px]" style={body}>No episodes match the current filters.</p>
@@ -286,8 +286,8 @@ function PodcastTab({ episodes }: { episodes: PodcastEpisode[] }) {
           ) : (
             episodes.map((ep, i) => (
               <FadeIn key={ep.id} delay={i * 0.1}>
-                <div className="bg-white/60 rounded-xl overflow-hidden border border-[#3a2a1a]/5">
-                  <div className="relative aspect-video bg-stone-900">
+                <div className="bg-white/60 overflow-hidden">
+                  <div className="relative aspect-video bg-stone-900 w-full">
                     {activeEpisode === ep.id ? (
                       <iframe
                         src={`https://www.youtube.com/embed/${ep.youtubeId}?autoplay=1&rel=0`}
@@ -307,7 +307,7 @@ function PodcastTab({ episodes }: { episodes: PodcastEpisode[] }) {
                       </button>
                     )}
                   </div>
-                  <div className="p-8 md:p-10">
+                  <div className="px-6 md:px-10 py-8 md:py-10 max-w-[1000px] mx-auto">
                     <div className="flex items-center gap-3 mb-4">
                       <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
                       <span className="w-px h-3 bg-[#3a2a1a]/10" />

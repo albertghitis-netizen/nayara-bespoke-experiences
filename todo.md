@@ -1516,3 +1516,13 @@
 - [ ] Replace Tented Camp hero video (S1) with new Tentreel2.mov
 - [ ] Replace Tented Camp hero video (S1) with new Tentreel2.mov
 - [x] Use Hangaroa "Ancient Healing · Island Serenity" banner image as first podcast cover
+- [x] Make all podcast thumbnails full-screen width
+- [x] Add cover images to last two Hangaroa podcast episodes (+ ep 4 View from Afar)
+- [x] Replace Bocas del Toro S1 with new drone video (dji_fly_20250307_090920_566)
+- [x] Fix Atacama hero Sound button showing when video has no audio
+- [ ] Remove all gallery sections/pages site-wide
+- [ ] Integrate gallery photos into Nayara By Night page sections
+- [ ] Integrate gallery photos into Alto Atacama page sections
+- [ ] Integrate gallery photos into Bocas del Toro page sections
+- [ ] Integrate gallery photos into Tented Camp page sections
+- [ ] Remove gallery nav links and routes
