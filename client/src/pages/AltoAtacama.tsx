@@ -33,15 +33,19 @@ const SECTION_COLORS = [
   "#ECE5D6", // 3 experiences
   "#E8E0CF", // 4 sustainability
   "#E4DBC8", // 5 wellness
-  "#E0D6C1", // 6 gastronomy
-  "#DCD1BA", // 7 stargazing
-  "#D8CCB3", // 8 landscape
-  "#D4C7AC", // 9 wildlife
-  "#D0C2A5", // 10 adventure
-  "#CCBD9E", // 11 dusk
-  "#C8B390", // 12 architecture
-  "#C4AE89", // 13 the pool
-  "#C0A982", // 14 flamingo lagoon
+  "#E0D6C1", // 6 a taste of place
+  "#DED3BD", // 7 desert ingredients
+  "#DCD1BA", // 8 the art of plating
+  "#DACEB7", // 9 sweet finales
+  "#D8CCB3", // 10 dining & stars
+  "#D6C9B0", // 11 stargazing
+  "#D4C7AC", // 12 landscape
+  "#D2C4A9", // 13 wildlife
+  "#D0C2A5", // 14 adventure
+  "#CCBD9E", // 15 dusk
+  "#C8B390", // 16 architecture
+  "#C4AE89", // 17 the pool
+  "#C0A982", // 18 flamingo lagoon
 ];
 
 const PALETTE = {
@@ -82,9 +86,25 @@ const ASSETS = {
   wellV: `${CDN}/atacama-geyser-eruption-vertical_5c93579c.mp4`,
   wellH: `${CDN}/atacama-ultrawide-3_36588f6c.jpg`,
 
-  // Section 6 — Gastronomy: Milky Way bus V + flamingo UW video
-  gastroV: `${CDN}/atacama-milkyway-bus_88a347bc.jpg`,
-  gastroH: `${CDN}/atacama-flamingo-ultrawide_807f044f.mp4`,
+  // Section 6 — A Taste of Place: avocado mousse V + seared meat H
+  gastroV: `${CDN}/5178CD9B-559F-438F-BDFC-144084EAE0C2_e84fca90.jpeg`,
+  gastroH: `${CDN}/9412A109-CE32-4E36-8A0A-0CE9534A5B53_87d29b47.jpeg`,
+
+  // Section 6b — Desert Ingredients: spice jars V + avocado mousse H
+  gastro2V: `${CDN}/768AAA0F-6B6D-4B8C-A768-DBA73F5E73AF_b7113417.jpeg`,
+  gastro2H: `${CDN}/AFD1AB2D-E030-4E13-9D0D-99A62291DF39_4cab6068.jpeg`,
+
+  // Section 6c — The Art of Plating: tuna sashimi V + beetroot dessert H
+  gastro3V: `${CDN}/5E8F3F4E-BF87-4A5F-BBB2-2737E82CE424_ad01d722.jpeg`,
+  gastro3H: `${CDN}/96454375-D840-4B02-AEF7-98893DAD18AA_516b1771.jpeg`,
+
+  // Section 6d — Sweet Finales: crostini wine V + honeycomb consommé H
+  gastro4V: `${CDN}/AA6682ED-A08D-4F1E-A869-56222938841C_38b364f9.jpeg`,
+  gastro4H: `${CDN}/ACDF665C-3B75-4A15-9806-4E325514B1A9_b1da71b1.JPG`,
+
+  // Section 6e — Meringue star dessert (H) + Milky Way bus (V, moved here)
+  gastro5V: `${CDN}/atacama-milkyway-bus_88a347bc.jpg`,
+  gastro5H: `${CDN}/5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_c678c03f.JPG`,
 
   // Section 7 — Stargazing: Milky Way pillar V + Valle de la Luna H video
   starV: `${CDN}/atacama-milkyway-pillar_d9301ecc.jpg`,
@@ -366,12 +386,56 @@ const CASCADE_SECTIONS = [
   {
     label: "A Taste of Place",
     headline: "Desert Dining",
-    description: "Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine — from quinoa harvested at altitude to herbs cultivated in our desert gardens.",
+    description: "Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine — from quinoa harvested at altitude to herbs cultivated in our desert gardens. Each dish tells the story of this ancient landscape.",
     vSrc: ASSETS.gastroV, hSrc: ASSETS.gastroH,
-    vVideo: false, hVideo: true,
-    vRatio: "3/2", hRatio: "21/9",
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/gastronomy", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "Desert Ingredients",
+    headline: "From Earth\nto Table",
+    description: "The Atacama's pantry is as surprising as its landscape — native herbs, wild seeds, and ancient grains foraged from the desert floor. Our spice collection draws from centuries of Atacameño culinary tradition.",
+    vSrc: ASSETS.gastro2V, hSrc: ASSETS.gastro2H,
+    vVideo: false, hVideo: false,
+    vRatio: "1/1", hRatio: "16/9",
+    textSide: "left" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "The Art of Plating",
+    headline: "Color &\nComposition",
+    description: "Every plate is a canvas. Our kitchen team draws inspiration from the Atacama's mineral palette — the crimson of iron-rich earth, the gold of desert sunsets, the deep violet of volcanic stone.",
+    vSrc: ASSETS.gastro3V, hSrc: ASSETS.gastro3H,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "1/1",
+    textSide: "right" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "Sweet Finales",
+    headline: "Desert\nDesserts",
+    description: "Our pastry program celebrates the unexpected sweetness of the desert — honeycomb from Atacameño apiaries, native fruits preserved in altitude, and chocolate infused with local botanicals.",
+    vSrc: ASSETS.gastro4V, hSrc: ASSETS.gastro4H,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "1/1",
+    textSide: "left" as const,
+    link: undefined, linkLabel: undefined,
+    badges: false,
+  },
+  {
+    label: "Dining & Stars",
+    headline: "Under the\nMilky Way",
+    description: "On clear evenings, dinner moves outdoors beneath the southern hemisphere's most spectacular sky. A multi-course tasting menu unfolds as the Milky Way arcs overhead — cuisine and cosmos in perfect harmony.",
+    vSrc: ASSETS.gastro5V, hSrc: ASSETS.gastro5H,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "right" as const,
+    link: undefined, linkLabel: undefined,
     badges: false,
   },
   {

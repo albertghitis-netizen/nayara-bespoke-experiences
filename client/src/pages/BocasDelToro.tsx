@@ -30,14 +30,19 @@ const SECTION_COLORS = [
   "#E6EDEB", // 4 sustainability
   "#E3EBE8", // 5 wellness
   "#E0E8E5", // 6 gastronomy
-  "#DDE5E2", // 7 marine
-  "#DAE2DF", // 8 island
-  "#D7DFDC", // 9 sunset
-  "#D4DCD9", // 10 beach
-  "#D1D9D6", // 11 reef
-  "#CED6D3", // 12 aerial
-  "#CBD3D0", // 13 lifestyle
-  "#C8D0CD", // 14 final
+  "#DEE6E3", // 7 island cocktails
+  "#DCE4E1", // 8 brunch
+  "#DDE5E2", // 9 marine
+  "#DAE2DF", // 10 island
+  "#D7DFDC", // 11 sunset
+  "#D4DCD9", // 12 beach
+  "#D1D9D6", // 13 reef
+  "#CED6D3", // 14 aerial
+  "#CBD3D0", // 15 lifestyle
+  "#C8D0CD", // 16 final
+  "#C5CDCA", // 17 dolphins
+  "#C2CAC7", // 18 ocean life
+  "#BFC7C4", // 19 island mood
 ];
 
 const PALETTE = {
@@ -78,9 +83,17 @@ const ASSETS = {
   wellV: `${CDN}/bocas-gallery-video2_1dd3d81d.mp4`,
   wellH: `${CDN}/bocas-overwater-villas-deck_16555482.jpg`,
 
-  // Section 6 — Gastronomy: briceferre villa V + topdown villas H
-  gastroV: `${CDN}/bocas-briceferre-villa_c88fea38.jpg`,
-  gastroH: `${CDN}/bocas-topdown-villas-boardwalk_576d7415.jpg`,
+  // Section 6 — Gastronomy: copper mule V + tropical brunch H
+  gastroV: `${CDN}/4F968B04-CC38-4AB0-98A7-C378A57F9E9A_0c985f05.jpeg`,
+  gastroH: `${CDN}/5D0116B4-053F-4BD4-A320-5549FAC09ECD_6d70c92a.jpeg`,
+
+  // Section 6b — Island Cocktails: citrus highball V + coconut bowl H
+  gastro2V: `${CDN}/48250DE4-3015-4D89-AD19-54EC065D89EB_b238e17c.jpeg`,
+  gastro2H: `${CDN}/78549D66-67E3-43F0-A2FA-D9ABA81DD686_eaaa81e7.jpeg`,
+
+  // Section 6c — Brunch: brioche skillet V + briceferre villa H (reuse old gastroV)
+  gastro3V: `${CDN}/AE9734D5-7681-44D7-818F-D79FCA509603_fd830393.jpeg`,
+  gastro3H: `${CDN}/bocas-briceferre-villa_c88fea38.jpg`,
 
   // Section 7 — Marine: briceferre aerial V + lagoon aerial H
   marineV: `${CDN}/bocas-briceferre-aerial_60c5ff23.jpg`,
@@ -113,6 +126,12 @@ const ASSETS = {
   // Section 14 — Final: landscape V + closing H
   finalV: `${CDN}/88_33345812.jpg`,
   finalH: `${CDN}/bocas-aerial-sunset-panorama_a979b5b2.jpg`,
+
+  // New videos
+  delfinesV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-delfines-vertical_6069e867.mp4",
+  cascadeSharedV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4",
+  cascadeBgV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/cascade-bg-video_dccee724.mp4",
+  cascadeExtraV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-cascade-extra_d5268ba9.mp4",
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -206,7 +225,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   },
   {
     id: "gastronomy",
-    label: "Gastronomy",
+    label: "A Taste of Place",
     headline: "Caribbean\nFlavors",
     body: "Our culinary program celebrates the extraordinary bounty of the Caribbean Sea and the rich agricultural traditions of Panama. Fresh-caught seafood, tropical fruits, and locally grown ingredients are transformed into dishes that honor both the land and the ocean.",
     verticalSrc: ASSETS.gastroV,
@@ -219,6 +238,34 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[7],
   },
   {
+    id: "island-cocktails",
+    label: "Island Cocktails",
+    headline: "Tropical\nLibations",
+    body: "Our bar program draws inspiration from the Caribbean's botanical abundance — fresh coconut water, local citrus, and hand-muddled tropical fruits meet artisanal spirits in cocktails that capture the essence of island life. Every sip is a celebration of place.",
+    verticalSrc: ASSETS.gastro2V,
+    horizontalSrc: ASSETS.gastro2H,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "1/1",
+    bgColor: SECTION_COLORS[7],
+    nextBgColor: SECTION_COLORS[8],
+  },
+  {
+    id: "island-brunch",
+    label: "Island Brunch",
+    headline: "Morning\nRituals",
+    body: "Breakfast at Bocas del Toro is a leisurely affair — warm brioche fresh from the oven, tropical fruit platters, and eggs prepared to order, all served on your private overwater deck as the Caribbean Sea shimmers below.",
+    verticalSrc: ASSETS.gastro3V,
+    horizontalSrc: ASSETS.gastro3H,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "3/4",
+    bgColor: SECTION_COLORS[8],
+    nextBgColor: SECTION_COLORS[9],
+  },
+  {
     id: "marine",
     label: "Marine Life",
     headline: "Beneath the\nSurface",
@@ -229,8 +276,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[7],
-    nextBgColor: SECTION_COLORS[8],
+    bgColor: SECTION_COLORS[9],
+    nextBgColor: SECTION_COLORS[10],
   },
   {
     id: "island",
@@ -243,8 +290,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "9/16",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[8],
-    nextBgColor: SECTION_COLORS[9],
+    bgColor: SECTION_COLORS[10],
+    nextBgColor: SECTION_COLORS[11],
   },
   {
     id: "sunset",
@@ -257,8 +304,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "4/5",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[9],
-    nextBgColor: SECTION_COLORS[10],
+    bgColor: SECTION_COLORS[11],
+    nextBgColor: SECTION_COLORS[12],
   },
   {
     id: "beach",
@@ -271,8 +318,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[10],
-    nextBgColor: SECTION_COLORS[11],
+    bgColor: SECTION_COLORS[12],
+    nextBgColor: SECTION_COLORS[13],
   },
   {
     id: "reef",
@@ -285,8 +332,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[11],
-    nextBgColor: SECTION_COLORS[12],
+    bgColor: SECTION_COLORS[13],
+    nextBgColor: SECTION_COLORS[14],
   },
   {
     id: "aerial",
@@ -299,8 +346,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[12],
-    nextBgColor: SECTION_COLORS[13],
+    bgColor: SECTION_COLORS[14],
+    nextBgColor: SECTION_COLORS[15],
   },
   {
     id: "lifestyle",
@@ -313,22 +360,64 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[13],
-    nextBgColor: SECTION_COLORS[14],
+    bgColor: SECTION_COLORS[15],
+    nextBgColor: SECTION_COLORS[16],
+  },
+  {
+    id: "dolphins",
+    label: "Marine Life",
+    headline: "Swimming with\nDolphins",
+    body: "The warm Caribbean waters surrounding Bocas del Toro are home to resident pods of bottlenose dolphins. Watch them leap and play from your overwater villa, or join a guided boat excursion to swim alongside these magnificent creatures in their natural habitat.",
+    verticalSrc: ASSETS.delfinesV,
+    horizontalSrc: ASSETS.lifeH,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[17],
+    nextBgColor: SECTION_COLORS[18],
+  },
+  {
+    id: "ocean-life",
+    label: "Ocean Immersion",
+    headline: "Caribbean\nRhythms",
+    body: "Life at Bocas del Toro moves to the rhythm of the ocean. The tides shape each day — morning snorkels over coral gardens, afternoon sails through the archipelago, and evenings watching the sun melt into the Pacific. Every moment is a reminder of why this place exists.",
+    verticalSrc: ASSETS.cascadeSharedV,
+    horizontalSrc: ASSETS.beachH,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[18],
+    nextBgColor: SECTION_COLORS[19],
+  },
+  {
+    id: "island-mood",
+    label: "Island Mood",
+    headline: "Tropical\nDreamscape",
+    body: "From the emerald canopy to the turquoise shallows, Bocas del Toro is a place where the natural world overwhelms the senses. The air is warm and salt-kissed, the water impossibly clear, and the jungle alive with color and sound.",
+    verticalSrc: ASSETS.cascadeExtraV,
+    horizontalSrc: ASSETS.reefH,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[19],
+    nextBgColor: SECTION_COLORS[19],
   },
   {
     id: "final",
     label: "Until Next Time",
     headline: "Sunset\nFarewell",
     body: "Every departure from Bocas del Toro carries the promise of return. The last sunset paints the archipelago in gold and rose, a final gift from this extraordinary corner of the Caribbean. The memory of turquoise waters and overwater dreams stays long after the journey home.",
-    verticalSrc: ASSETS.finalV,
+    verticalSrc: ASSETS.cascadeBgV,
     horizontalSrc: ASSETS.finalH,
-    verticalIsVideo: false,
+    verticalIsVideo: true,
     horizontalIsVideo: false,
-    verticalRatio: "4/5",
+    verticalRatio: "9/16",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[14],
-    nextBgColor: SECTION_COLORS[14],
+    bgColor: SECTION_COLORS[19],
+    nextBgColor: SECTION_COLORS[19],
   },
 ];
 

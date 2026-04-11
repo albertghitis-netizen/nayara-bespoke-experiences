@@ -63,12 +63,12 @@ const propertyGrid: {
   filter: FilterTag;
 }[] = [
   {
-    name: "Nayara Alto Atacama",
-    location: "Atacama Desert, Chile",
-    route: "/alto-atacama",
-    bookingId: "alto-atacama",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
-    tagline: "Desert Lodge Villas",
+    name: "Nayara Tented Camp",
+    location: "Arenal Volcano, Costa Rica",
+    route: "/tented-camp",
+    bookingId: "tented-camp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-tented_0fd865a2.jpg",
+    tagline: "Clifftop Tents & Suites",
     filter: "Family-Friendly",
   },
   {
@@ -108,12 +108,12 @@ const propertyGrid: {
     filter: "Adults-Only",
   },
   {
-    name: "Nayara Tented Camp",
-    location: "Arenal Volcano, Costa Rica",
-    route: "/tented-camp",
-    bookingId: "tented-camp",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-tented_0fd865a2.jpg",
-    tagline: "Clifftop Tents & Suites",
+    name: "Nayara Alto Atacama",
+    location: "Atacama Desert, Chile",
+    route: "/alto-atacama",
+    bookingId: "alto-atacama",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
+    tagline: "Desert Lodge Villas",
     filter: "Family-Friendly",
   },
 ];
@@ -143,9 +143,7 @@ export default function Home() {
       <OrganizationSchema />
       <BrandNavigation pageType="brand" />
       <HeroSection />
-      <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="60px" />
       <BrandStorySection />
-      <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
       <PropertiesSection />
       <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="60px" />
       <TimelineSection />
@@ -192,62 +190,58 @@ function HeroSection() {
    ═══════════════════════════════════════════════════════════════ */
 function BrandStorySection() {
   return (
-    <section id="philosophy" className="py-16 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
-      <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-          <div className="md:flex-1">
-            <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel>Our Philosophy</SectionLabel>
-            </AnimateOnScroll>
-            <TextReveal as="h2" className="mb-8" delay={0.1}>
-              <span
-                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-              >
-                We Don't Build Hotels. We Reveal Places.
-              </span>
-            </TextReveal>
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Nayara Resorts began with a simple conviction: the most extraordinary places on Earth deserve hospitality that honors them. Not resorts that could exist anywhere, but properties that could only exist where they stand.
-              </p>
-              <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                In Costa Rica, that meant building among the trees, not instead of them. In the Atacama, it meant learning from the desert's silence. On Easter Island, it meant listening to the stone guardians. In Panama, it meant floating above the reef rather than disturbing it.
-              </p>
-              <p className="text-[15px] leading-[1.8] mb-8" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Today, six properties across three countries share this founding principle. Each is shaped by its landscape, informed by its culture, and designed to leave its ecosystem stronger than we found it.
-              </p>
-            </AnimateOnScroll>
-
-          </div>
-          <div className="md:flex-1">
-            <MediaReveal delay={0.2}>
-              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
-                  alt="Woman at Easter Island moai"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-              </div>
-            </MediaReveal>
-          </div>
+    <section id="philosophy" style={{ backgroundColor: "#f4f1eb" }}>
+      {/* S1: Text left + Portrait image right — full bleed */}
+      <div className="flex flex-col md:flex-row">
+        <div className="md:w-1/2 px-6 md:px-10 lg:px-16 py-16 md:py-28 flex flex-col justify-center">
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Our Philosophy</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-8" delay={0.1}>
+            <span
+              className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              We Don't Build Hotels. We Reveal Places.
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+              Nayara Resorts began with a simple conviction: the most extraordinary places on Earth deserve hospitality that honors them. Not resorts that could exist anywhere, but properties that could only exist where they stand.
+            </p>
+            <p className="text-[15px] leading-[1.8] mb-5" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+              In Costa Rica, that meant building among the trees, not instead of them. In the Atacama, it meant learning from the desert's silence. On Easter Island, it meant listening to the stone guardians. In Panama, it meant floating above the reef rather than disturbing it.
+            </p>
+            <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+              Today, six properties across three countries share this founding principle. Each is shaped by its landscape, informed by its culture, and designed to leave its ecosystem stronger than we found it.
+            </p>
+          </AnimateOnScroll>
         </div>
-
-        {/* Landscape image — hidden on mobile */}
-        <div className="hidden md:block">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+        <div className="md:w-1/2">
+          <MediaReveal delay={0.2}>
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG"
-                alt="Volcano view with tented camp at Nayara"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign_9702d152.JPEG"
+                alt="Woman at Easter Island moai"
                 className="w-full h-full object-cover"
-                loading="lazy"
+                loading="eager"
               />
             </div>
           </MediaReveal>
         </div>
       </div>
+
+      {/* S2: Landscape image — full bleed, edge to edge */}
+      <MediaReveal delay={0.1}>
+        <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG"
+            alt="Volcano view with tented camp at Nayara"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      </MediaReveal>
     </section>
   );
 }
@@ -370,7 +364,7 @@ function PropertiesSection() {
    ═══════════════════════════════════════════════════════════════ */
 function TimelineSection() {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
+    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
       <div className="max-w-[1000px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <SectionLabel>Our Journey</SectionLabel>

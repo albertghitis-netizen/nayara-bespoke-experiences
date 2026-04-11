@@ -50,7 +50,6 @@ const SITEMAP = [
       { path: "/rooms", name: "Rooms", desc: "Room types across properties" },
       { path: "/faq", name: "FAQ", desc: "Two-axis filtering (property + pillar)" },
       { path: "/arenal", name: "Costa Rica Hub", desc: "Arenal destination overview" },
-      { path: "/ayla", name: "Ayla on Krog", desc: "Atlanta restaurant" },
     ],
   },
   {

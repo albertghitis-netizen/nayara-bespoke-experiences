@@ -38,6 +38,8 @@ const SECTION_COLORS = [
   "#BEBC9F", // 11 henry's bar
   "#B9B798", // 12 grand tents
   "#B4B291", // 13 camp life
+  "#AFB08A", // 14 rainforest mornings
+  "#AAAD83", // 15 the canopy at dusk
 ];
 
 const PALETTE = {
@@ -99,6 +101,9 @@ const ASSETS = {
   galleryImg9: `${CDN}/Supersale-3_3588efbb.jpg`,
 
   badges: `${CDN}/award-badges-tented-camp_8aea5e71.webp`,
+
+  // New cascade video
+  cascadeNewV: `${CDN}/tented-camp-cascade-new_c993038d.mp4`,
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -692,7 +697,35 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     verticalRatio: "9/16",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[13],
-    nextBgColor: SECTION_COLORS[13],
+    nextBgColor: SECTION_COLORS[14],
+  },
+  {
+    id: "rainforest-mornings",
+    label: "Rainforest Mornings",
+    headline: "First Light\nThrough the Canopy",
+    body: "Dawn at Tented Camp is a sensory awakening — howler monkeys call across the valley, mist rises from the volcanic springs, and the first golden light filters through the canopy. Step onto your private deck and watch the rainforest come alive.",
+    verticalSrc: ASSETS.cascadeNewV,
+    horizontalSrc: ASSETS.galleryImg8,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[14],
+    nextBgColor: SECTION_COLORS[15],
+  },
+  {
+    id: "canopy-dusk",
+    label: "The Canopy at Dusk",
+    headline: "Golden Hour\nAbove the Trees",
+    body: "As the sun sets behind Arenal Volcano, the canopy transforms into a theater of color — scarlet macaws return to roost, fireflies begin their nightly dance, and the sky shifts from amber to deep violet. This is the magic hour that defines Tented Camp.",
+    verticalSrc: ASSETS.galleryImg9,
+    horizontalSrc: ASSETS.galleryImg7,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[15],
+    nextBgColor: SECTION_COLORS[15],
   },
 ];
 

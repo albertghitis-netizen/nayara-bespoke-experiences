@@ -69,7 +69,7 @@ function HeroSection() {
   return (
     <section className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
       <NativeVideo
-        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NAYARACOSTARICAINSTAGRAMHORIZONTAL_4b8f9483.MP4"
+        src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/50" />

@@ -21,16 +21,13 @@ const Sustainability = lazy(() => import("./pages/Sustainability"));
 const Experiences = lazy(() => import("./pages/Experiences"));
 const Wellness = lazy(() => import("./pages/Wellness"));
 
-const Rooms = lazy(() => import("./pages/Rooms"));
 const Gastronomy = lazy(() => import("./pages/Gastronomy"));
 const TentedCamp = lazy(() => import("./pages/TentedCamp"));
 const TentedExperiences = lazy(() => import("./pages/TentedExperiences"));
 const Gardens = lazy(() => import("./pages/Gardens"));
 const Springs = lazy(() => import("./pages/Springs"));
 const ConciergeChatWidget = lazy(() => import("./components/ConciergeChatWidget"));
-const ChatEmbed = lazy(() => import("./pages/ChatEmbed"));
 const Newsletter = lazy(() => import("./pages/Newsletter"));
-const HangaroaSuperSale = lazy(() => import("./pages/HangaroaSuperSale"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
@@ -62,7 +59,7 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS = ["/chat-embed", "/henry"];
+const HIDE_WIDGET_PATHS = ["/henry"];
 
 function Router() {
   const [location] = useLocation();
@@ -97,12 +94,9 @@ function Router() {
           <Route path="/tented-wellness">{() => { window.location.replace("/wellness"); return null; }}</Route>
           <Route path="/press">{() => { window.location.replace("/awards"); return null; }}</Route>
           <Route path="/story">{() => { window.location.replace("/"); return null; }}</Route>
-          <Route path="/rooms" component={Rooms} />
           <Route path="/gastronomy" component={Gastronomy} />
           <Route path="/faq">{() => { window.location.replace("/journal"); return null; }}</Route>
-          <Route path="/chat-embed" component={ChatEmbed} />
           <Route path="/newsletter" component={Newsletter} />
-          <Route path="/hangaroa-super-sale" component={HangaroaSuperSale} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
           <Route path="/new-projects" component={NewProjects} />

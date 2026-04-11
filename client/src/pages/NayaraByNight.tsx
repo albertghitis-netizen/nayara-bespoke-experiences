@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 const CDN = {
   /* Hero */
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/anakena-timelapse-hero_60211087.mp4",
+  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-hero-vertical-new_efde71a9.mp4",
   /* Story images */
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp",
@@ -35,6 +36,8 @@ const CDN = {
   /* Videos */
   videoShort: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4",
   videoLong: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-long_44b41d4c.mp4",
+  cascadeShared: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4",
+  cascadeBg: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/cascade-bg-video_dccee724.mp4",
 };
 
 /* ─── Typography ─────────────────────────────────────────────── */
@@ -253,6 +256,32 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: DARK_COLORS[4],
   },
+  {
+    id: "night-atmosphere",
+    label: "The Atmosphere",
+    headline: "Darkness\nReveals Beauty",
+    body: "At Nayara, nightfall is not an ending — it is a transformation. The jungle hums with nocturnal life, the sky deepens to reveal galaxies, and the resorts glow with intimate warmth. Every property is designed to celebrate the night as much as the day.",
+    verticalSrc: CDN.cascadeShared,
+    horizontalSrc: CDN.atacamaDusk,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: DARK_COLORS[3],
+  },
+  {
+    id: "night-immersion",
+    label: "Immersion",
+    headline: "Step Into\nthe Night",
+    body: "Whether you are watching bioluminescent plankton light up the Caribbean, tracing constellations from a private terrace in the Atacama, or listening to the rainforest chorus from your tented suite — Nayara by Night is an invitation to experience the world after dark.",
+    verticalSrc: CDN.cascadeBg,
+    horizontalSrc: CDN.biolumWaves,
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "9/16",
+    horizontalRatio: "16/9",
+    bgColor: DARK_COLORS[4],
+  },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -279,10 +308,11 @@ export default function NayaraByNight() {
    1. HERO — Full-screen video with "Nayara by Night" H1
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" />
+        <NativeVideo src={isMobile ? CDN.heroMobile : CDN.heroDesktop} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
 

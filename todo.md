@@ -1533,3 +1533,27 @@
 - [x] Delete orphaned Gallery.tsx page
 - [x] Replace Atacama S1 with new video (7FF5A7AF-F26F-417D-A250-B612FEA778EB)
 - [x] Delete Hangaroa newsletter page (removed page, route, and import)
+- [x] Delete Ayla on Krog page and all references (page deleted, Architecture ref removed, kept founder Ayla refs in NewProjects)
+- [ ] Remove 32MB atacama-flamingo-lagoon-audio video and replace with placeholder
+- [ ] Delete /rooms page and route
+- [ ] Delete /chat-embed page and route
+- [ ] Delete Hangaroa supersale page and route
+- [x] Add 5 Bocas food images to "A Taste of Place" cascade section
+- [x] Add 5 Atacama gastronomy images to "A Taste of Place" cascade section
+
+## Homepage Layout Updates
+- [x] Hero, S1, S2 all full bleed (edge to edge, no padding/margins), zero gap touching
+- [x] Swap Tented Camp and Atacama positions in properties section on homepage
+
+## Atacama Food Images
+- [x] Add 5 Atacama gastronomy images to "A Taste of Place" cascade sections
+
+## Tented Camp New Cascade Sections
+- [x] Compress and upload Tented Camp MOV video to CDN
+- [x] Add 2 new cascade sections to Tented Camp page
+
+## Bocas Food Images
+- [x] Add 5 Bocas food images to "A Taste of Place" cascade section
+
+## Homepage Spacing Fix
+- [x] Match gap between "Our Properties" and "Our Journey" to same gap as S2 → "Our Properties"
