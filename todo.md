@@ -1680,3 +1680,8 @@
 
 ## Wellness Page Hero Video
 - [x] Swap Wellness page hero from static image to spa/springs video with audio
+
+## Springs Gallery Removal
+- [x] Inventory all photos in Springs Gallery page (4 reused + 3 unique photos + 1 video)
+- [x] Remove Springs Gallery section from page
+- [x] Redistribute gallery photos: wildlife monkey → Experiences, jungle pathway → Sustainability, tropical bird → Wellness, nature video → Gastronomy

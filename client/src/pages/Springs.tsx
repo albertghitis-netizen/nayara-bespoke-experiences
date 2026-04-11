@@ -27,7 +27,6 @@ import {
   fadeIn,
   slideFromLeft,
   slideFromRight,
-  scaleReveal,
   staggerContainer,
   DURATION,
   EASE_CINEMATIC,
@@ -96,9 +95,6 @@ export default function Springs() {
       <WellnessSection />
       <GradientTransition from={PALETTE.gradientStart} to={PALETTE.gradientEnd} height="120px" />
       <GastronomySection />
-      <GradientTransition from={PALETTE.gradientEnd} to={PALETTE.gradientStart} height="120px" />
-      <GallerySection />
-
       {/* ★ By Night — hot springs under stars */}
       <ByNightCTA
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
@@ -329,6 +325,13 @@ function ExperiencesSection() {
           ))}
         </StaggerOnScroll>
 
+        {/* Gallery photo: Wildlife */}
+        <MediaReveal delay={0.2}>
+          <div className="mt-12 overflow-hidden" style={{ aspectRatio: "16/9" }}>
+            <img src={CDN.gallery5} alt="Wildlife in the Arenal rainforest" className="w-full h-full object-cover rounded-lg" loading="lazy" />
+          </div>
+        </MediaReveal>
+
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <div className="mt-12">
             <PillarCrossLink pillar="experiences" />
@@ -383,6 +386,13 @@ function SustainabilitySection() {
                 </motion.div>
               ))}
             </StaggerOnScroll>
+
+            {/* Gallery photo: Jungle pathway */}
+            <MediaReveal delay={0.2}>
+              <div className="mt-12 overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                <img src={CDN.gallery6} alt="Jungle pathway through the rainforest" className="w-full h-full object-cover rounded-lg" loading="lazy" />
+              </div>
+            </MediaReveal>
 
             <AnimateOnScroll variants={fadeUp} delay={0.4}>
               <div className="mt-12">
@@ -468,6 +478,13 @@ function WellnessSection() {
             </motion.div>
           ))}
         </StaggerOnScroll>
+
+        {/* Gallery photo: Tropical bird */}
+        <MediaReveal delay={0.2}>
+          <div className="mt-12 overflow-hidden" style={{ aspectRatio: "16/9" }}>
+            <img src={CDN.gallery7} alt="Tropical bird in the Arenal canopy" className="w-full h-full object-cover rounded-lg" loading="lazy" />
+          </div>
+        </MediaReveal>
       </div>
     </section>
   );
@@ -510,53 +527,14 @@ function GastronomySection() {
             </motion.div>
           ))}
         </StaggerOnScroll>
+
+        {/* Gallery video: Nature */}
+        <MediaReveal delay={0.2}>
+          <div className="mt-12 overflow-hidden" style={{ aspectRatio: "16/9" }}>
+            <video src={CDN.galleryVideo} className="w-full h-full object-cover rounded-lg" autoPlay muted loop playsInline />
+          </div>
+        </MediaReveal>
       </div>
     </TintedSection>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   GALLERY — Masonry grid with media reveal
-   ═══════════════════════════════════════════════════════════════ */
-function GallerySection() {
-  const media = [
-    { src: CDN.s1, alt: "Hot spring immersion", type: "image" as const },
-    { src: CDN.s2, alt: "Rainforest boardwalk", type: "image" as const },
-    { src: CDN.s3, alt: "Luxury villa interior", type: "image" as const },
-    { src: CDN.s4, alt: "Aerial property view", type: "image" as const },
-    { src: CDN.gallery5, alt: "Wildlife monkey", type: "image" as const },
-    { src: CDN.gallery6, alt: "Jungle pathway", type: "image" as const },
-    { src: CDN.gallery7, alt: "Tropical bird", type: "image" as const },
-    { src: CDN.galleryVideo, alt: "Nature video", type: "video" as const },
-  ];
-
-  return (
-    <section id="gallery" className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Gallery</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-5xl tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Volcanic Luxury
-          </span>
-        </TextReveal>
-
-        <StaggerOnScroll className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-          {media.map((item, i) => (
-            <motion.div key={i} variants={scaleReveal} className={i === 0 ? "col-span-2 md:col-span-2 row-span-2" : ""}>
-              {item.type === "video" ? (
-                <video src={item.src} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} autoPlay muted loop playsInline />
-              ) : (
-                <img src={item.src} alt={item.alt} className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: i === 0 ? "4/3" : "1/1" }} loading="lazy" />
-              )}
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
-      </div>
-    </section>
   );
 }
