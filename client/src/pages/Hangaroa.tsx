@@ -48,7 +48,7 @@ const PALETTE = {
    CDN ASSETS
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-hero-audio_529f0059.mp4",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-hero-new-audio_470b6050.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-20_b052852b.jpg",
   s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NH_45_42b93d04.JPG",
@@ -114,24 +114,7 @@ function HeroSection() {
         <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
       </div>
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
-        <MultiLineReveal
-          lines={["Ancient Mysteries", "Meet Modern Luxury"]}
-          lineClassName="text-white text-3xl md:text-5xl lg:text-6xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.4}
-          staggerDelay={0.15}
-        />
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: DURATION.slow, delay: 0.3, ease: EASE_CINEMATIC }}
-          className="text-white/50 text-[11px] md:text-[13px] mt-6 tracking-[0.3em] uppercase"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-        >
-          Easter Island - Chile
-        </motion.p>
-      </div>
+      {/* Hero text removed — clean video only */}
     </section>
   );
 }
@@ -221,7 +204,7 @@ function RoomsSection() {
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <NativeVideo src={CDN.s4} className="w-full h-full object-cover" />
+              <img src={CDN.s4} alt="Rapa Nui landscape" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>

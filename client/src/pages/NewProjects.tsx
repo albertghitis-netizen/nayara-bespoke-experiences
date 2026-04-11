@@ -74,35 +74,7 @@ export default function NewProjects() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/60" />
         </div>
 
-        <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-white/30 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Opening 2027
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-2xl md:text-4xl lg:text-5xl leading-[1.05] tracking-wide text-center"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Luxury Rooted in Rainforest &amp; Reef
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-white/35 text-xs md:text-sm tracking-[0.12em] uppercase mt-4 text-center"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Nayara Manuel Antonio &middot; Costa Rica
-          </motion.p>
-        </div>
+        {/* Hero text removed — clean video only */}
       </section>
 
       {/* Manuel Antonio Story */}
@@ -300,16 +272,6 @@ export default function NewProjects() {
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-white/30 text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Opening 2050
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -318,18 +280,8 @@ export default function NewProjects() {
             className="text-white text-2xl md:text-4xl lg:text-5xl leading-[1.05] tracking-wide text-center"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            A Luxury Tented Camp Perched on the Moon
+            Luxury Tented Camp Immersed in the Rainforest
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-white/35 text-xs md:text-sm tracking-[0.12em] uppercase mt-4 text-center max-w-[600px]"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            By the legendary moon hospitality pioneering team of Ayla and Paloma
-          </motion.p>
         </div>
       </section>
 
@@ -442,6 +394,46 @@ export default function NewProjects() {
             <StoryParagraph delay={0.25}>
               Opening 2050. Because some things are worth waiting for.
             </StoryParagraph>
+          </div>
+        </div>
+      </section>
+
+      {/* Moon Camp Family Gallery */}
+      <section className="py-16 md:py-24 px-6 md:px-10">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center text-[10px] md:text-xs tracking-[0.4em] uppercase mb-10 md:mb-14"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.25)" }}
+          >
+            The Founding Family
+          </motion.p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {[
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-family-robes_b1cc2b73.jpg", alt: "Family in robes at the resort" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-family-bed-smile_8935fb5f.jpg", alt: "Father and son smiling in bed" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-family-kids_194a0536.jpg", alt: "Father holding two kids laughing" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-family-bed-silly_625c602f.jpg", alt: "Father and son being silly in bed" },
+            ].map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                className="overflow-hidden rounded-sm"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full aspect-[3/4] object-cover hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

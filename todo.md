@@ -1506,3 +1506,11 @@
 - [x] Re-encode hero videos with audio preserved and upload to CDN
 - [x] Build elegant mute/unmute button into BlobVideo component
 - [x] Update all hero video URLs to new audio versions
+- [x] Restore original homepage hero video
+- [x] Place new vertical volcano video where it fits best on the site
+- [x] Remove property name/tagline text from bottom of hero sections on property pages
+- [x] Restore Tented Camp hero text to "Luxury Tented Camp Immersed in the Rainforest"
+- [x] Swap in new Hangaroa hero video
+- [x] Swap in new Hangaroa hero video
+- [x] Add family photos to Moon Camp section on New Projects page
+- [ ] Replace Tented Camp hero video (S1) with new Tentreel2.mov

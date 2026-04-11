@@ -52,7 +52,7 @@ const springs = properties.find((p) => p.id === "springs")!;
 
 const CDN = {
   heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4",
-  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-video2_1f850ac2.mp4",
+  heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/volcano-arenal-vertical_8f4b62b0.mp4",
   spa: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/spa-springs-compressed_4f2eb97d.mp4",
 };
 
@@ -278,18 +278,7 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
 
-      {/* Content — centered at bottom */}
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-wide text-center"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-        >
-          Bespoke Arenal Experiences
-        </motion.h2>
-      </div>
+      {/* Hero text removed — clean video only */}
     </section>
   );
 }

@@ -491,24 +491,7 @@ function HeroSection() {
         <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
       </div>
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
-        <MultiLineReveal
-          lines={["Atacama Desert Oasis", "Under the Stars"]}
-          lineClassName="text-white text-3xl md:text-5xl lg:text-6xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.4}
-          staggerDelay={0.15}
-        />
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: DURATION.slow, delay: 0.3, ease: EASE_CINEMATIC }}
-          className="text-white/50 text-[11px] md:text-[13px] mt-6 tracking-[0.3em] uppercase"
-          style={{ ...body, fontWeight: 400 }}
-        >
-          All Ages
-        </motion.p>
-      </div>
+      {/* Hero text removed — clean video only */}
     </section>
   );
 }
