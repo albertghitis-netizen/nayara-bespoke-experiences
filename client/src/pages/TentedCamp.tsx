@@ -11,7 +11,8 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import ByNightCTA from "@/components/ByNightCTA";
-import VineAnimation from "@/components/VineAnimation";
+import { AwardBadgeStrip } from "@/components/AwardBadges";
+
 import {
   AnimateOnScroll,
   TextReveal,
@@ -68,7 +69,7 @@ const ASSETS = {
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
   storyV: `${CDN}/tented-s1-vertical-compressed_c800fbf8.mp4`,
-  storyH: `${CDN}/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG`,
+  storyH: `${CDN}/Supersale-8_68853293.jpg`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,
   roomsH: `${CDN}/Supersale-3_38ac1aa5.jpg`,
@@ -167,6 +168,7 @@ type CascadeSectionData = {
   link?: string;
   linkLabel?: string;
   badges?: boolean;
+  awards?: string;
 };
 
 function CascadeSection({
@@ -196,7 +198,7 @@ function CascadeSection({
 
         {/* Text column */}
         <div
-          className={`w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 ${
+          className={`w-full md:w-1/2 flex flex-col justify-start px-8 py-12 md:py-20 md:px-16 lg:px-24 ${
             textLeft ? "md:order-1" : "md:order-2"
           }`}
           style={{ backgroundColor: section.bgColor }}
@@ -248,6 +250,14 @@ function CascadeSection({
                 className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-6"
                 loading="lazy"
               />
+            </AnimateOnScroll>
+          )}
+
+          {section.awards && (
+            <AnimateOnScroll variants={fadeUp} delay={0.4}>
+              <div className="mt-8">
+                <AwardBadgeStrip property={section.awards} />
+              </div>
             </AnimateOnScroll>
           )}
         </div>
@@ -526,6 +536,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
     badges: false,
+    awards: "tented-camp",
   },
   {
     id: "rooms",
@@ -862,7 +873,7 @@ function GallerySection() {
 export default function TentedCamp() {
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
-      <VineAnimation />
+
       <BrandNavigation pageType="property" />
       <HeroSection />
 

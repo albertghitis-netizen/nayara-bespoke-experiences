@@ -1877,3 +1877,13 @@
 - [x] Atacama: reconnect cascade (no gaps between sections)
 - [x] Tented Camp: scroll-driven vine animation that winds left-right down the page, growing as user scrolls — done: linear scroll mapping, seeded random path, visible leaves with gradients, vine behind images
 - [x] Tented Camp: disable vine animation on mobile (useIsMobile check)
+- [ ] Presentation sprint: audit and fix nav/button custom colors per property (green for CR, red/brown for Atacama, blue-green for Bocas)
+- [x] Presentation sprint: create shared Costa Rica deep pages as gold standard (/arenal/experiences, /arenal/wellness, /arenal/gastronomy, /arenal/sustainability)
+- [x] Presentation sprint: replicate Costa Rica deep page pattern for Atacama (red/brown palette)
+- [x] Presentation sprint: replicate Costa Rica deep page pattern for Bocas (blue-green palette)
+- [x] Presentation sprint: replicate Costa Rica deep page pattern for Hangaroa
+- [x] Remove vine animation from Tented Camp page entirely (scrapped — component deleted)
+- [ ] Add location subtitles below property names on deep pages (e.g., "Arenal Volcano National Park, Costa Rica", "Bocas del Toro, Panama", etc.)
+- [x] Tented Camp S1: push H2 text higher in the text column (not vertically centered — align toward top)
+- [x] Tented Camp S1: add awards display below body text (Travel + Leisure, Green Globe, Virtuoso badges)
+- [x] Atacama: change H1 to "Atacama Desert Oasis Under the Stars"

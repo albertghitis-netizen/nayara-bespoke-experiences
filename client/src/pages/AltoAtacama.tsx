@@ -601,7 +601,7 @@ function HeroSection() {
           className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Atacama Desert Oasis Lodge
+          Atacama Desert Oasis Under the Stars
         </motion.h1>
       </div>
     </section>
