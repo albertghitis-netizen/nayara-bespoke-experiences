@@ -46,9 +46,9 @@ export default function TentedExperiences() {
 }
 
 function ExperiencesSection() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const categories = tentedCamp.excursionCategories || [];
-  const filtered = activeCategory === "all" ? tentedCamp.excursions : tentedCamp.excursions.filter((e: Excursion) => e.category === activeCategory);
+  const categories = (tentedCamp.excursionCategories || []).filter(c => c.id !== "all");
+  const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "nature");
+  const filtered = tentedCamp.excursions.filter((e: Excursion) => e.category === activeCategory);
 
   return (
     <section className={`${sectionPadding} bg-white/30`}>

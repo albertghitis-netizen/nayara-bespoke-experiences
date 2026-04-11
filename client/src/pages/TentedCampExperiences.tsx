@@ -1,7 +1,7 @@
 /*
- * ATACAMA EXPERIENCES — Dedicated experiences sub-page
- * Accessible from Alto Atacama home via "Explore More" CTA
- * Uses Atacama "Mars" palette and motion system
+ * TENTED CAMP EXPERIENCES — Dedicated experiences sub-page
+ * Mirrors Alto Atacama secondary page structure with rainforest palette
+ * No "All" filter — users must choose a category
  */
 
 import { useState } from "react";
@@ -20,28 +20,30 @@ import {
   staggerContainer,
 } from "@/components/motion";
 
-const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
+const tentedCamp = properties.find((p: Property) => p.id === "tented-camp")!;
 
 const PALETTE = {
-  primary: "#8B5A3C",
-  secondary: "#9A7E5A",
-  accent: "#8A8B72",
-  gradientStart: "#F5F1EB",
-  gradientEnd: "#F2ECE4",
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  divider: "#E2DDD5",
+  primary: "#2D6A4F",
+  secondary: "#52796F",
+  accent: "#74A57F",
+  gradientStart: "#F5F7F4",
+  gradientEnd: "#EFF2ED",
+  text: "#1B2A22",
+  textSecondary: "#5A6B5E",
+  textTertiary: "#9AA89E",
+  divider: "#D5DDD8",
 };
 
+const CDN_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
+
 const CDN = {
-  desertExploration: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Video_Nayara_Atacama00003_aeb971e9.MP4",
+  heroVideo: `${CDN_BASE}/TentedExperienceVideo_fixed_75e9afca.mp4`,
 };
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
-export default function AtacamaExperiences() {
+export default function TentedCampExperiences() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <BrandNavigation pageType="property" />
@@ -56,7 +58,7 @@ function ExperiencesHero() {
   return (
     <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
       <div className="relative w-full h-[60vh]">
-        <NativeVideo src={CDN.desertExploration} className="w-full h-full object-cover" />
+        <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>
@@ -64,7 +66,7 @@ function ExperiencesHero() {
               className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
-              Desert Explorations
+              Rainforest Adventures
             </span>
           </TextReveal>
           <motion.p
@@ -74,7 +76,7 @@ function ExperiencesHero() {
             className="text-white/50 text-[11px] tracking-[0.2em] uppercase mt-3"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
           >
-            Nayara Alto Atacama
+            Nayara Tented Camp
           </motion.p>
         </div>
       </div>
@@ -83,9 +85,10 @@ function ExperiencesHero() {
 }
 
 function ExperiencesContent() {
-  const categories = (atacama.excursionCategories || []).filter(c => c.id !== "all");
-  const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "landscape");
-  const filtered = atacama.excursions.filter((e: Excursion) => e.category === activeCategory);
+  // No "All" filter — default to first non-"all" category
+  const categories = tentedCamp.excursionCategories.filter(c => c.id !== "all");
+  const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "nature");
+  const filtered = tentedCamp.excursions.filter((e: Excursion) => e.category === activeCategory);
 
   return (
     <section className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
@@ -102,7 +105,7 @@ function ExperiencesContent() {
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
                     backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
+                    color: activeCategory === cat.id ? "#F5F7F4" : PALETTE.textSecondary,
                     border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
                   }}
                 >

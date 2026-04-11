@@ -1698,21 +1698,21 @@
 - [x] Finish Wellness hero standardization (remove Explore More link, raise position)
 
 ## Secondary Pages — Tented Camp
-- [ ] TC Rooms secondary page
-- [ ] TC Experiences secondary page
-- [ ] TC Sustainability secondary page
-- [ ] TC Wellness secondary page
-- [ ] TC Gastronomy secondary page
+- [x] TC Rooms secondary page
+- [x] TC Experiences secondary page
+- [x] TC Sustainability secondary page
+- [x] TC Wellness secondary page
+- [x] TC Gastronomy secondary page
 
 ## Secondary Pages — Bocas del Toro
-- [ ] BDT Rooms secondary page
-- [ ] BDT Experiences secondary page
-- [ ] BDT Sustainability secondary page
-- [ ] BDT Wellness secondary page
-- [ ] BDT Gastronomy secondary page
+- [x] BDT Rooms secondary page
+- [x] BDT Experiences secondary page
+- [x] BDT Sustainability secondary page
+- [x] BDT Wellness secondary page
+- [x] BDT Gastronomy secondary page
 
 ## Remove "All" Filter on Secondary Pages
-- [ ] Remove "All" category option — users must choose a specific category
+- [x] Remove "All" category option — users must choose a specific category
 
 ## Cascade Aspect Ratio Standardization
 - [x] Standardize all horizontal cascade media to 16:9 — fixed AltoAtacama (2.34/1, 1/1) and BocasDelToro (2.34/1, 1/1, 3/4)
@@ -1720,3 +1720,24 @@
 
 ## Cascade Text Side — Always Start Left
 - [x] Ensure all property pages start with text on the left, then alternate — fixed TentedCamp, Gardens, Hangaroa, BocasDelToro, NayaraByNight (AltoAtacama & Springs already correct)
+
+## Secondary Pages — Gardens
+- [x] Gardens Rooms secondary page
+- [x] Gardens Experiences secondary page
+- [x] Gardens Sustainability secondary page
+- [x] Gardens Wellness secondary page
+- [x] Gardens Gastronomy secondary page
+
+## Secondary Pages — Springs
+- [x] Springs Rooms secondary page
+- [x] Springs Experiences secondary page
+- [x] Springs Sustainability secondary page
+- [x] Springs Wellness secondary page
+- [x] Springs Gastronomy secondary page
+
+## Secondary Pages — Hangaroa
+- [x] Hangaroa Rooms secondary page
+- [x] Hangaroa Experiences secondary page
+- [x] Hangaroa Sustainability secondary page
+- [x] Hangaroa Wellness secondary page
+- [x] Hangaroa Gastronomy secondary page

@@ -83,12 +83,9 @@ function WellnessHero() {
 }
 
 function WellnessContent() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const categories = atacama.spaCategories || [];
-  const filtered =
-    activeCategory === "all"
-      ? atacama.treatments
-      : atacama.treatments.filter((t: Treatment) => t.category === activeCategory);
+  const categories = (atacama.spaCategories || []).filter(c => c.id !== "all");
+  const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "exclusive");
+  const filtered = atacama.treatments.filter((t: Treatment) => t.category === activeCategory);
 
   return (
     <section className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>

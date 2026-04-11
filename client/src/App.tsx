@@ -41,6 +41,31 @@ const AtacamaExperiences = lazy(() => import("./pages/AtacamaExperiences"));
 const AtacamaWellness = lazy(() => import("./pages/AtacamaWellness"));
 const AtacamaGastronomy = lazy(() => import("./pages/AtacamaGastronomy"));
 const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability"));
+const TentedRooms = lazy(() => import("./pages/TentedRooms"));
+const TentedCampExperiences = lazy(() => import("./pages/TentedCampExperiences"));
+const TentedCampWellness = lazy(() => import("./pages/TentedCampWellness"));
+const TentedCampGastronomy = lazy(() => import("./pages/TentedCampGastronomy"));
+const TentedCampSustainability = lazy(() => import("./pages/TentedCampSustainability"));
+const BocasRooms = lazy(() => import("./pages/BocasRooms"));
+const BocasExperiences = lazy(() => import("./pages/BocasExperiences"));
+const BocasWellness = lazy(() => import("./pages/BocasWellness"));
+const BocasGastronomy = lazy(() => import("./pages/BocasGastronomy"));
+const BocasSustainability = lazy(() => import("./pages/BocasSustainability"));
+const GardensRooms = lazy(() => import("./pages/GardensRooms"));
+const GardensExperiences = lazy(() => import("./pages/GardensExperiences"));
+const GardensWellness = lazy(() => import("./pages/GardensWellness"));
+const GardensGastronomy = lazy(() => import("./pages/GardensGastronomy"));
+const GardensSustainability = lazy(() => import("./pages/GardensSustainability"));
+const SpringsRooms = lazy(() => import("./pages/SpringsRooms"));
+const SpringsExperiences = lazy(() => import("./pages/SpringsExperiences"));
+const SpringsWellness = lazy(() => import("./pages/SpringsWellness"));
+const SpringsGastronomy = lazy(() => import("./pages/SpringsGastronomy"));
+const SpringsSustainability = lazy(() => import("./pages/SpringsSustainability"));
+const HangaroaRooms = lazy(() => import("./pages/HangaroaRooms"));
+const HangaroaExperiences = lazy(() => import("./pages/HangaroaExperiences"));
+const HangaroaWellness = lazy(() => import("./pages/HangaroaWellness"));
+const HangaroaGastronomy = lazy(() => import("./pages/HangaroaGastronomy"));
+const HangaroaSustainability = lazy(() => import("./pages/HangaroaSustainability"));
 
 /* ── Minimal loading fallback ── */
 function PageLoader() {
@@ -80,11 +105,36 @@ function Router() {
           <Route path="/alto-atacama/sustainability" component={AtacamaSustainability} />
           <Route path="/arenal" component={CostaRica} />
           <Route path="/tented-camp" component={TentedCamp} />
+          <Route path="/tented-camp/rooms" component={TentedRooms} />
+          <Route path="/tented-camp/experiences" component={TentedCampExperiences} />
+          <Route path="/tented-camp/wellness" component={TentedCampWellness} />
+          <Route path="/tented-camp/gastronomy" component={TentedCampGastronomy} />
+          <Route path="/tented-camp/sustainability" component={TentedCampSustainability} />
           <Route path="/tented-experiences" component={TentedExperiences} />
           <Route path="/gardens" component={Gardens} />
+          <Route path="/gardens/rooms" component={GardensRooms} />
+          <Route path="/gardens/experiences" component={GardensExperiences} />
+          <Route path="/gardens/wellness" component={GardensWellness} />
+          <Route path="/gardens/gastronomy" component={GardensGastronomy} />
+          <Route path="/gardens/sustainability" component={GardensSustainability} />
           <Route path="/springs" component={Springs} />
+          <Route path="/springs/rooms" component={SpringsRooms} />
+          <Route path="/springs/experiences" component={SpringsExperiences} />
+          <Route path="/springs/wellness" component={SpringsWellness} />
+          <Route path="/springs/gastronomy" component={SpringsGastronomy} />
+          <Route path="/springs/sustainability" component={SpringsSustainability} />
           <Route path="/hangaroa" component={Hangaroa} />
+          <Route path="/hangaroa/rooms" component={HangaroaRooms} />
+          <Route path="/hangaroa/experiences" component={HangaroaExperiences} />
+          <Route path="/hangaroa/wellness" component={HangaroaWellness} />
+          <Route path="/hangaroa/gastronomy" component={HangaroaGastronomy} />
+          <Route path="/hangaroa/sustainability" component={HangaroaSustainability} />
           <Route path="/bocas-del-toro" component={BocasDelToro} />
+          <Route path="/bocas-del-toro/rooms" component={BocasRooms} />
+          <Route path="/bocas-del-toro/experiences" component={BocasExperiences} />
+          <Route path="/bocas-del-toro/wellness" component={BocasWellness} />
+          <Route path="/bocas-del-toro/gastronomy" component={BocasGastronomy} />
+          <Route path="/bocas-del-toro/sustainability" component={BocasSustainability} />
           <Route path="/journal" component={Journal} />
           <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
           <Route path="/podcast">{() => { window.location.replace("/journal"); return null; }}</Route>
