@@ -56,12 +56,12 @@ const PALETTE = {
    CDN ASSETS
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-hero-vertical-audio_042778dc.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-hero-compressed_8027ac33.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/6_0a37cc95.jpg",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/123_739860cc.jpg",
   s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s3-robe-canopy_c9c365ff.jpg",
   s4: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/61_0020df3e.jpg",
-  galleryVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/CCD6CF80-5F62-40B5-B82A-119D31106C0D_635597b5.mp4",
+  galleryVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-gallery-compressed_6c96d202.mp4",
   gallery5: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-3_e394353d.jpg",
   gallery6: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-5_f4b0874c.jpg",
   gallery7: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-14_6b456af8.jpg",
@@ -234,15 +234,20 @@ function HeroSection() {
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
-    <section id="story" className={sectionPadding}>
-      <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-          {/* Text left */}
-          <div className="md:flex-1">
-            <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel>The Property</SectionLabel>
-            </AnimateOnScroll>
-            <TextReveal as="h2" className="mb-8" delay={0.1}>
+    <section id="story">
+      {/* ── Row: Text left + S1 vertical video right ── */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+        {/* Text column */}
+        <div
+          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
+          style={{ backgroundColor: PALETTE.gradientStart }}
+        >
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>The Property</SectionLabel>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-6 md:mb-8">
               <span
                 className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
@@ -255,41 +260,41 @@ function StorySection() {
               >
                 Wellness without Walls
               </span>
-            </TextReveal>
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Hidden within the rainforest surrounding Arenal Volcano, Nayara Springs is an adults-only Relais &amp; Châteaux retreat built around hot springs, romance, and exceptional dining. Every villa has its own volcanic hot spring plunge pool screened by tropical gardens, and the spa draws its rituals from the geothermal earth and forest botanicals that surround it. Here, privacy is not a perk. It is the entire point.
-              </p>
-            </AnimateOnScroll>
+            </h2>
+          </AnimateOnScroll>
 
-            {/* Award badges */}
-            <AnimateOnScroll variants={fadeUp} delay={0.5}>
-              <AwardBadgeStrip property="springs" />
-            </AnimateOnScroll>
-          </div>
-          {/* Portrait photo (S1) right */}
-          <div className="md:flex-1">
-            <MediaReveal delay={0.2}>
-              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <img
-                  src={CDN.s1}
-                  alt="Hot spring pool at Nayara Springs"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-              </div>
-            </MediaReveal>
-          </div>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Hidden within the rainforest surrounding Arenal Volcano, Nayara Springs is an adults-only Relais &amp; Châteaux retreat built around hot springs, romance, and exceptional dining. Every villa has its own volcanic hot spring plunge pool screened by tropical gardens, and the spa draws its rituals from the geothermal earth and forest botanicals that surround it. Here, privacy is not a perk. It is the entire point.
+            </p>
+          </AnimateOnScroll>
         </div>
 
-        {/* Landscape photo (S2) below — hidden on mobile, touching portrait */}
-        <div className="hidden md:block">
+        {/* S1 — Vertical video right */}
+        <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
-            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <img src={CDN.s4} alt="Aerial view of Nayara Springs nestled in rainforest" className="w-full h-full object-cover" loading="lazy" />
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-vertical-compressed_903eb616.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
+      </div>
+
+      {/* S2 — Full-width horizontal photo below, touching S1 */}
+      <div style={{ backgroundColor: PALETTE.gradientEnd }}>
+        <MediaReveal delay={0.05}>
+          <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s2-couple-bridge_11a41ef8.jpg"
+              alt="Couple on rainforest bridge at Nayara Springs"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </MediaReveal>
       </div>
     </section>
   );

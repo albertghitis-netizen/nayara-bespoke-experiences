@@ -58,11 +58,8 @@ const PALETTE = {
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
   // Hero
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-hero-desktop_88c542ed.mp4",
-  // Story section — video replaces s1 photo
-  storyVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-toucan_a70ad74a.mp4",
-  // Story landscape — video replaces s2 photo
-  storyLandscapeVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wildlife-reel_7c30f53f.mp4",
+  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-hero-compressed_7b01313d.mp4",
+
   // Rooms — video replaces s3 photo
   roomsVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4",
   // Rooms landscape
@@ -71,9 +68,8 @@ const CDN = {
   // Experiences section background
   experiencesVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridges-horizontal_0bf48537.mp4",
   // Sustainability
-  sustainabilityVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/waterfall_19f4cbcf.mp4",
-  // Wellness
-  wellnessVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/costa-rica-spa-springs_89d85927.mp4",
+  sustainabilityVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-waterfall-compressed_d091f130.mp4",
+
   // Gastronomy
   gastronomyVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4",
   // Gallery videos
@@ -211,12 +207,9 @@ export default function Gardens() {
 
       {/* ★ By Night — rainforest after dark */}
       <ByNightCTA
-        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/cascade-bg-video_dccee724.mp4"
+        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-horizontal_5269da4d.mp4"
         verticalIsVideo
         verticalRatio="3/4"
-        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-horizontal_5269da4d.mp4"
-        horizontalIsVideo
-        horizontalRatio="16/9"
         bgColor="#1a1a24"
         headline={"Rainforest\nAfter Dark"}
         bodyText="When the sun sets behind the volcano, the rainforest transforms. Nocturnal creatures emerge, the air fills with the chorus of frogs, and the canopy becomes a living theater of sound and shadow. Discover the extraordinary nocturnal experiences across all Nayara properties."
@@ -297,28 +290,73 @@ function StorySection() {
             </p>
           </AnimateOnScroll>
 
-          <AnimateOnScroll variants={fadeUp} delay={0.35}>
-            <AwardBadgeStrip property="gardens" />
-          </AnimateOnScroll>
+
         </div>
 
         {/* S1 — Vertical video right */}
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s1-vertical_7d15a3b8.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s1-vertical-compressed_49dfa197.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
       </div>
 
-      {/* S2 — Full-width horizontal video below, touching S1 */}
+      {/* S2 — Full-width horizontal photo below, touching S1 */}
       <div style={{ backgroundColor: PALETTE.gradientEnd }}>
         <MediaReveal delay={0.05}>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <NativeVideo src={CDN.storyLandscapeVideo} className="w-full h-full object-cover" />
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s2-hanging-bridge_660745d7.jpeg"
+              alt="Woman on hanging bridge in rainforest canopy — Nayara Gardens"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
         </MediaReveal>
+      </div>
+
+      {/* S3 — Video left + Accommodations text right (flipped from S1) */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
+        {/* S3 vertical video — left */}
+        <div className="w-full md:w-1/2 md:order-1">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s3-v2-compressed_09a976b8.mp4" className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
+        </div>
+
+        {/* Text column — right */}
+        <div
+          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
+          style={{ backgroundColor: PALETTE.gradientEnd }}
+        >
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Accommodations</SectionLabel>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-6 md:mb-8">
+              <span
+                className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Arenal Casitas
+              </span>
+            </h2>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Each freestanding casita is a private sanctuary surrounded by lush tropical gardens. With private plunge pools, outdoor showers, and panoramic volcano views.
+            </p>
+          </AnimateOnScroll>
+        </div>
       </div>
     </section>
   );
@@ -542,7 +580,7 @@ function WellnessSection() {
       {/* Cinematic video header */}
       <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
         <div className="relative w-full h-[55vh]">
-          <NativeVideo src={CDN.wellnessVideo} className="w-full h-full object-cover" />
+          <NativeVideo src={CDN.sustainabilityVideo} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>

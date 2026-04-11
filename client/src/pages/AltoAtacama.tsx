@@ -338,7 +338,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     link: undefined, linkLabel: undefined,
-    badges: true,
+    badges: false,
   },
   {
     label: "Accommodations",
@@ -586,26 +586,25 @@ function HeroSection() {
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
-    <>
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-        </div>
-      </section>
-      <div
-        className="py-10 md:py-14 px-6 md:px-10 text-center"
-        style={{ backgroundColor: SECTION_COLORS[0], fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-      >
-        <MultiLineReveal
-          lines={["Atacama Desert Oasis Lodge"]}
-          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.2}
-          staggerDelay={0.15}
-        />
+    <section className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
       </div>
-    </>
+
+      {/* H1 overlaid on video — bottom center */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Atacama Desert Oasis Lodge
+        </motion.h1>
+      </div>
+    </section>
   );
 }
 

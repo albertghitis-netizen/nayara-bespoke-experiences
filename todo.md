@@ -1872,3 +1872,6 @@
 - [x] Gardens hero: H1 overlaid on video (matching Tented Camp) — done
 - [x] Springs hero: H1 overlaid on video (matching Tented Camp) — done
 - [x] Tented Camp S1: replaced photo with new vertical video — done
+- [ ] Atacama: H1 back on hero video (overlaid, bottom center)
+- [ ] Atacama: remove award badges from story section
+- [ ] Atacama: reconnect cascade (no gaps between sections)

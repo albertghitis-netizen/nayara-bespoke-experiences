@@ -66,7 +66,7 @@ const ASSETS = {
   heroDesktop: `${CDN}/tented-hero-new_c2f5b543.mp4`,
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
-  storyV: `${CDN}/tented-s1-vertical_ca5d52ca.mp4`,
+  storyV: `${CDN}/tented-s1-vertical-compressed_c800fbf8.mp4`,
   storyH: `${CDN}/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,
@@ -514,7 +514,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
   {
     id: "story",
     label: "The Camp",
-    headline: "Lifted On Stilts Above The Canopy\nEye to Eye with Arenal Volcano",
+    headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.",
     verticalSrc: ASSETS.storyV,
     horizontalSrc: ASSETS.storyH,
@@ -524,12 +524,12 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
-    badges: true,
+    badges: false,
   },
   {
     id: "rooms",
     label: "Accommodations",
-    headline: "Grand Tented\nSuites",
+    headline: "Life Under\nCanvas",
     body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.",
     verticalSrc: ASSETS.roomsV,
     horizontalSrc: ASSETS.roomsH,

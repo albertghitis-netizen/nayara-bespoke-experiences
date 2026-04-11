@@ -20,7 +20,7 @@ type ByNightCTAProps = {
   verticalIsVideo?: boolean;
   verticalRatio?: string;
   /** Horizontal media (full-width below) */
-  horizontalSrc: string;
+  horizontalSrc?: string;
   horizontalIsVideo?: boolean;
   horizontalRatio?: string;
   /** Dark background color — should be the darkest in the page's gradient */
@@ -129,17 +129,19 @@ export default function ByNightCTA({
       </div>
 
       {/* Horizontal media — full bleed */}
-      <div style={{ backgroundColor: bgColor }}>
-        <MediaReveal delay={0.05}>
-          <div className="overflow-hidden" style={{ aspectRatio: horizontalRatio }}>
-            {horizontalIsVideo ? (
-              <NativeVideo src={horizontalSrc} className="w-full h-full object-cover" />
-            ) : (
-              <img src={horizontalSrc} alt="Nayara by Night — landscape" className="w-full h-full object-cover" loading="lazy" />
-            )}
-          </div>
-        </MediaReveal>
-      </div>
+      {horizontalSrc && (
+        <div style={{ backgroundColor: bgColor }}>
+          <MediaReveal delay={0.05}>
+            <div className="overflow-hidden" style={{ aspectRatio: horizontalRatio }}>
+              {horizontalIsVideo ? (
+                <NativeVideo src={horizontalSrc} className="w-full h-full object-cover" />
+              ) : (
+                <img src={horizontalSrc} alt="Nayara by Night — landscape" className="w-full h-full object-cover" loading="lazy" />
+              )}
+            </div>
+          </MediaReveal>
+        </div>
+      )}
     </section>
   );
 }
