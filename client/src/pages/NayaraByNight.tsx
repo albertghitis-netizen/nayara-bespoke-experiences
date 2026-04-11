@@ -322,7 +322,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
+          className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
           style={heading}
         >
           Nayara by Night

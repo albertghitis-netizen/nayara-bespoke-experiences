@@ -124,31 +124,21 @@ export default function Wellness() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-end pb-6 md:pb-10 px-6 md:px-10">
+    <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         <NativeVideo src={WELLNESS_CDN.heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
-      <div className="relative z-10 flex flex-col items-center text-center max-w-[1200px] mx-auto">
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-xl md:text-3xl lg:text-4xl leading-tight"
+          className="text-white text-xl md:text-3xl lg:text-4xl tracking-wide text-center"
           style={{ ...heading, fontWeight: 400 }}
         >
           Nurtured by Nature
         </motion.h1>
-        <motion.a
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          href="/wellness-experiences"
-          className="text-white/70 hover:text-white text-sm tracking-[0.08em] uppercase transition-colors cursor-pointer underline mt-6"
-          style={{ ...body, fontWeight: 400 }}
-        >
-          Explore More
-        </motion.a>
       </div>
     </section>
   );

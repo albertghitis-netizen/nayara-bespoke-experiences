@@ -148,20 +148,11 @@ export default function Awards() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center"
-            style={{ fontFamily: 'var(--font-display)', fontWeight: 400, letterSpacing: '-2px', lineHeight: 1 }}
+            className="text-white text-xl md:text-3xl lg:text-4xl tracking-wide text-center"
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 400, lineHeight: 1 }}
           >
             Awards & Recognition
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em] uppercase"
-            style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
-          >
-            Two Decades of Excellence
-          </motion.p>
         </div>
       </section>
 

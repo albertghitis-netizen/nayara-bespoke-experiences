@@ -1689,3 +1689,31 @@
 ## Mobile Vertical Hero Videos
 - [ ] Fix vertical hero videos not being full screen on mobile
 - [x] Change all vertical media (photos/videos) across all pages from 9:16 to 3:4 aspect ratio — AltoAtacama, BocasDelToro, TentedCamp, Springs, Gardens, NayaraByNight, CostaRica, all ByNightCTA sections
+
+## Standardize All Hero H1s
+- [x] Audit all pages for hero H1 styles and content below them
+- [x] Standardize all hero H1s — same font (text-xl md:text-3xl lg:text-4xl), centered, nothing below
+- [x] Remove subtitles from Press, Awards, Experiences, Sustainability, Gastronomy, Journal
+- [x] Raise hero H1 position back up (pb-10 md:pb-16) on all property pages
+- [x] Finish Wellness hero standardization (remove Explore More link, raise position)
+
+## Secondary Pages — Tented Camp
+- [ ] TC Rooms secondary page
+- [ ] TC Experiences secondary page
+- [ ] TC Sustainability secondary page
+- [ ] TC Wellness secondary page
+- [ ] TC Gastronomy secondary page
+
+## Secondary Pages — Bocas del Toro
+- [ ] BDT Rooms secondary page
+- [ ] BDT Experiences secondary page
+- [ ] BDT Sustainability secondary page
+- [ ] BDT Wellness secondary page
+- [ ] BDT Gastronomy secondary page
+
+## Remove "All" Filter on Secondary Pages
+- [ ] Remove "All" category option — users must choose a specific category
+
+## Cascade Aspect Ratio Standardization
+- [ ] Standardize all horizontal cascade media to 16:9
+- [ ] Vertical cascade media already 3:4 (done)
