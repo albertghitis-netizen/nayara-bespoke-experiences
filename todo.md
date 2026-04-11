@@ -1715,5 +1715,8 @@
 - [ ] Remove "All" category option — users must choose a specific category
 
 ## Cascade Aspect Ratio Standardization
-- [ ] Standardize all horizontal cascade media to 16:9
-- [ ] Vertical cascade media already 3:4 (done)
+- [x] Standardize all horizontal cascade media to 16:9 — fixed AltoAtacama (2.34/1, 1/1) and BocasDelToro (2.34/1, 1/1, 3/4)
+- [x] Vertical cascade media already 3:4 (done)
+
+## Cascade Text Side — Always Start Left
+- [x] Ensure all property pages start with text on the left, then alternate — fixed TentedCamp, Gardens, Hangaroa, BocasDelToro, NayaraByNight (AltoAtacama & Springs already correct)

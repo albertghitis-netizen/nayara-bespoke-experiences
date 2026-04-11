@@ -175,14 +175,14 @@ function CascadeSection({
   section: CascadeSectionData;
   index: number;
 }) {
-  const isEven = index % 2 === 0;
+  const textLeft = index % 2 === 0;
 
   return (
     <section id={section.id}>
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media — full-bleed to its edge */}
-        <div className={`w-full md:w-1/2 ${isEven ? "md:order-1" : "md:order-2"}`}>
+        <div className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
               src={section.verticalSrc}
@@ -196,7 +196,7 @@ function CascadeSection({
         {/* Text column */}
         <div
           className={`w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 ${
-            isEven ? "md:order-2" : "md:order-1"
+            textLeft ? "md:order-1" : "md:order-2"
           }`}
           style={{ backgroundColor: section.bgColor }}
         >

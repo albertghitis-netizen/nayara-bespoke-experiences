@@ -164,7 +164,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     verticalIsVideo: true,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
-    horizontalRatio: "2.34/1",
+    horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
   },
@@ -248,7 +248,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
-    horizontalRatio: "1/1",
+    horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
   },
@@ -262,7 +262,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
-    horizontalRatio: "3/4",
+    horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[8],
     nextBgColor: SECTION_COLORS[9],
   },
@@ -474,7 +474,7 @@ function CascadeSection({
   section: CascadeSectionData;
   index: number;
 }) {
-  const isEven = index % 2 === 0;
+  const textLeft = index % 2 === 0;
 
   return (
     <section id={section.id}>
@@ -482,7 +482,7 @@ function CascadeSection({
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media — full-bleed to its edge */}
         <div
-          className={`w-full md:w-1/2 ${isEven ? "md:order-1" : "md:order-2"}`}
+          className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"}`}
         >
           <MediaReveal delay={0.1}>
             <MediaBlock
@@ -497,7 +497,7 @@ function CascadeSection({
         {/* Text column */}
         <div
           className={`w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 ${
-            isEven ? "md:order-2" : "md:order-1"
+            textLeft ? "md:order-1" : "md:order-2"
           }`}
           style={{ backgroundColor: section.bgColor }}
         >

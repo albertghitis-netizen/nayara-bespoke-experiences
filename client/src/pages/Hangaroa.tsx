@@ -563,11 +563,11 @@ function GalleryIntegratedSections() {
   return (
     <>
       {sections.map((section, i) => {
-        const isEven = i % 2 === 0;
+        const textLeft = i % 2 === 0;
         return (
           <section key={i} style={{ backgroundColor: section.bg }}>
             <div className="flex flex-col md:flex-row">
-              <div className={`w-full md:w-1/2 ${isEven ? "md:order-1" : "md:order-2"}`}>
+              <div className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
                 <MediaReveal delay={0.1}>
                   <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
                     {section.verticalIsVideo ? (
@@ -579,7 +579,7 @@ function GalleryIntegratedSections() {
                 </MediaReveal>
               </div>
               <div
-                className={`w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 py-16 md:py-0 ${isEven ? "md:order-2" : "md:order-1"}`}
+                className={`w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 py-16 md:py-0 ${textLeft ? "md:order-1" : "md:order-2"}`}
               >
                 <AnimateOnScroll variants={fadeUp}>
                   <SectionLabel>{section.label}</SectionLabel>
