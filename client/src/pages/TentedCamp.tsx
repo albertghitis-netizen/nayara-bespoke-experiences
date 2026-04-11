@@ -62,7 +62,7 @@ const body = { fontFamily: "var(--font-body)" } as const;
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const ASSETS = {
-  heroDesktop: `${CDN}/tented-camp-hero-desktop_90751603.mp4`,
+  heroDesktop: `${CDN}/tented-hero-new_c2f5b543.mp4`,
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
   storyV: `${CDN}/IMG_5354_8a9b536e.PNG`,
@@ -769,7 +769,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">

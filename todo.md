@@ -1575,3 +1575,6 @@
 
 ## Tented Camp Frog Reel
 - [x] Add frog-hunting reel video to Tented Camp cascade
+
+## Tented Camp Hero Video
+- [x] Replace Tented Camp hero video with new MOV (with audio)
