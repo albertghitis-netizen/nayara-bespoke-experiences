@@ -35,6 +35,7 @@ const NewProjects = lazy(() => import("./pages/NewProjects"));
 const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
 const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const BrandBook = lazy(() => import("./pages/BrandBook"));
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
 const AtacamaExperiences = lazy(() => import("./pages/AtacamaExperiences"));
 const AtacamaWellness = lazy(() => import("./pages/AtacamaWellness"));
@@ -103,6 +104,7 @@ function Router() {
           <Route path="/henry" component={HenryStandalone} />
           <Route path="/by-night" component={NayaraByNight} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/brand-book" component={BrandBook} />
 
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

@@ -1557,3 +1557,10 @@
 
 ## Homepage Spacing Fix
 - [x] Match gap between "Our Properties" and "Our Journey" to same gap as S2 → "Our Properties"
+
+## Brand Book Page
+- [x] Create BrandBook.tsx page with Alo Yoga color palette and site fonts (Cormorant Garamond, DM Sans)
+- [x] Register /brand-book route in App.tsx
+
+## Tented Camp Fix
+- [x] Remove duplicate vertical video from Volcanic Healing section (replaced with spa still image, fixed black space)
