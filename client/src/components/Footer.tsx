@@ -129,7 +129,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
                 className="text-white/50 hover:text-white/90 transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
-                +1 (844) 865-2002 (US)
+                844-865-2002 (US)
               </a>
               <a
                 href="tel:+50624791600"

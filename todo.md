@@ -1890,3 +1890,23 @@
 - [x] Swap wellness deep page hero video with new meter-based wellness video (with audio)
 - [x] Swap gastronomy deep page hero video with new A Taste of Place video (with audio)
 - [x] Swap experiences deep page hero video with new pillar experiences video (with audio)
+- [ ] Add location subtitles (place, country) to property page headers
+- [ ] Swap Awards/Press hero video with new pool video (with audio)
+- [ ] Update Awards page text style to match other pillar deep pages
+- [x] Add location subtitles to all 6 property page headers (TentedCamp, Gardens, Springs, AltoAtacama, BocasDelToro, Hangaroa)
+- [x] Swap Awards/AwardsAndPress hero video to new pool video with audio
+- [x] Update AwardsAndPress hero text style to match other pillar pages
+- [ ] Rebuild Brand Book page from scratch codifying all design rules
+- [ ] Update Awards/AwardsAndPress mobile hero with vertical timelapse video
+- [ ] Brand home: use Tented Camp photo as S2 in Our Properties section
+- [ ] Brand home: narrow spacing between Our Properties and Two Decades of Discovery
+- [ ] Compress and upload Nayara by Night timelapse video (with audio)
+- [x] Contact Us: remove 1 prefix and parentheses from 844 number
+- [x] Make Reserve pill, Henry badge, and Sound button slightly thicker to match hamburger pill
+- [x] Rename concierge button from "Henry" to "Ask Henry"
+- [x] Remove heavy wellness video from Nayara Gardens property page
+- [x] Remove all duplicate videos across all property pages (including frog video)
+- [x] Revert S2 back to tropical aerial photo
+- [x] Use tropical aerial photo for Tented Camp card in Our Properties grid
+- [ ] Fix Tented Camp awards: third badge should be Leading Hotels of the World (LHW)
+- [ ] Tented Camp: restructure experience section to have Explore the Hotel + Explore sections like old Arenal page

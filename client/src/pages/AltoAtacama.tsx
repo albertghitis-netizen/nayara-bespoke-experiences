@@ -603,6 +603,15 @@ function HeroSection() {
         >
           Atacama Desert Oasis Under the Stars
         </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.0 }}
+          className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          San Pedro de Atacama, Chile
+        </motion.p>
       </div>
     </section>
   );
@@ -659,7 +668,7 @@ function GettingHereSection() {
             <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>
               <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
               <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.primary, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
-              or call <a href="tel:+18448652002" style={{ color: PALETTE.primary, textDecoration: "underline" }}>1-844-865-2002</a>.
+              or call <a href="tel:+18448652002" style={{ color: PALETTE.primary, textDecoration: "underline" }}>844-865-2002</a>.
             </p>
           </div>
         </AnimateOnScroll>

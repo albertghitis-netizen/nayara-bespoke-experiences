@@ -66,7 +66,7 @@ const propertyGrid: {
     location: "Arenal Volcano, Costa Rica",
     route: "/tented-camp",
     bookingId: "tented-camp",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-tented_0fd865a2.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-s2-tropical-aerial_6cd5fc6c.jpg",
     tagline: "Clifftop Tents & Suites",
     filter: "Family-Friendly",
   },
@@ -144,9 +144,10 @@ export default function Home() {
       <HeroSection />
       <BrandStorySection />
       <PropertiesSection />
-      <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="60px" />
+      <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="20px" />
       <TimelineSection />
       <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
+      <ContentHubSection />
       <PillarsSection />
       <Footer />
     </div>
@@ -229,8 +230,8 @@ function BrandStorySection() {
       <MediaReveal delay={0.1}>
         <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG"
-            alt="Volcano view with tented camp at Nayara"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-s2-tropical-aerial_6cd5fc6c.jpg"
+            alt="Tropical aerial view of turquoise river through lush rainforest"
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -358,7 +359,7 @@ function PropertiesSection() {
    ═══════════════════════════════════════════════════════════════ */
 function TimelineSection() {
   return (
-    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
+    <section className="py-12 md:py-20 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
       <div className="max-w-[1000px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <SectionLabel>Our Journey</SectionLabel>
@@ -401,6 +402,91 @@ function TimelineSection() {
             </AnimateOnScroll>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENT HUB — Journal, Awards & Press, Podcast, FAQs
+   ═══════════════════════════════════════════════════════════════ */
+const contentLinks = [
+  {
+    label: "Journal",
+    desc: "Stories, dispatches, and reflections from across the Nayara world.",
+    route: "/journal",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  },
+  {
+    label: "Awards & Press",
+    desc: "Recognition from the world's leading travel publications and guides.",
+    route: "/awards",
+    icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
+  },
+  {
+    label: "Podcast",
+    desc: "Conversations with the people and places that shape Nayara.",
+    route: "/podcast",
+    icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z",
+  },
+  {
+    label: "FAQs",
+    desc: "Everything you need to know before your journey begins.",
+    route: "/faq",
+    icon: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+];
+
+function ContentHubSection() {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Explore & Discover</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            The Nayara Narrative
+          </span>
+        </TextReveal>
+
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {contentLinks.map((item) => (
+            <motion.div key={item.label} variants={fadeUp}>
+              <Link
+                href={item.route}
+                className="group block p-8 h-full transition-all duration-500 hover:translate-y-[-2px]"
+                style={{
+                  backgroundColor: PALETTE.cardBg,
+                  backdropFilter: "blur(8px)",
+                  borderBottom: `2px solid ${PALETTE.divider}`,
+                }}
+              >
+                <svg
+                  className="w-6 h-6 mb-5 transition-opacity group-hover:opacity-70"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke={PALETTE.accent}
+                  strokeWidth={1.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                </svg>
+                <h3
+                  className="text-[17px] mb-2 group-hover:opacity-70 transition-opacity"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
+                >
+                  {item.label}
+                </h3>
+                <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                  {item.desc}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
       </div>
     </section>
   );

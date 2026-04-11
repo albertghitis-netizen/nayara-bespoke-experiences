@@ -12,8 +12,8 @@ import NativeVideo from "@/components/NativeVideo";
 
 /* ── CDN assets ── */
 const CDN = {
-  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-hero-desktop-hq_732fe8b3.mp4",
-  heroVideoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/trim_764dfdeb.MOV",
+  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/awards-hero-pool_fb113dc7.mp4",
+  heroVideoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/awards-hero-pool_fb113dc7.mp4",
 };
 
 function useIsMobile() {
@@ -196,7 +196,7 @@ export default function AwardsAndPress() {
       {/* ── Hero Video ── */}
       <section className="relative w-full h-screen overflow-hidden">
         <div className="absolute inset-0">
-          <NativeVideo src={useIsMobile() ? CDN.heroVideoMobile : CDN.heroVideoDesktop} className="w-full h-full object-cover" />
+          <NativeVideo src={useIsMobile() ? CDN.heroVideoMobile : CDN.heroVideoDesktop} className="w-full h-full object-cover" hasAudio />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -204,17 +204,17 @@ export default function AwardsAndPress() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center"
-            style={{ ...heading, letterSpacing: "-2px", lineHeight: 1 }}
+            className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 400, lineHeight: 1 }}
           >
             Press & Awards
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em]"
-            style={{ ...body, fontWeight: 500 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+            style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
           >
             Two Decades of Excellence
           </motion.p>

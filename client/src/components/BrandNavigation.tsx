@@ -167,7 +167,7 @@ export default function BrandNavigation({
           <div ref={menuRef} className="relative shrink-0">
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-              className={`${pill} w-8 h-8`}
+              className={`${pill} w-9 h-9`}
               style={pillStyle}
               aria-label="Menu"
             >
@@ -265,7 +265,7 @@ export default function BrandNavigation({
           <div ref={reserveRef} className="relative shrink-0">
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
-              className={`${pill} h-8 px-3.5`}
+              className={`${pill} h-9 px-4`}
               style={pillStyle}
             >
               <span className="text-xs" style={{ ...menuText, color: "rgba(255,255,255,0.85)" }}>Reserve</span>
@@ -307,7 +307,7 @@ export default function BrandNavigation({
           <div ref={menuRef} className="relative">
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-              className={`${pill} w-8 h-8`}
+              className={`${pill} w-9 h-9`}
               style={pillStyle}
               aria-label="Menu"
             >
@@ -371,7 +371,7 @@ export default function BrandNavigation({
           <div ref={reserveRef} className="relative">
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
-              className={`${pill} h-8 px-3.5`}
+              className={`${pill} h-9 px-4`}
               style={pillStyle}
             >
               <span className="text-xs" style={{ ...menuText, color: "rgba(255,255,255,0.85)" }}>Reserve</span>

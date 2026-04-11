@@ -572,6 +572,15 @@ function HeroSection() {
           delay={0.2}
           staggerDelay={0.15}
         />
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mt-3 text-[11px] md:text-xs tracking-[0.25em] uppercase"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: PALETTE.textSecondary }}
+        >
+          Isla Pastores, Bocas del Toro, Panam\u00e1
+        </motion.p>
       </div>
     </>
   );

@@ -207,7 +207,7 @@ export default function Gardens() {
 
       {/* ★ By Night — rainforest after dark */}
       <ByNightCTA
-        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-horizontal_5269da4d.mp4"
+        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-by-night_e5dda355.mp4"
         verticalIsVideo
         verticalRatio="3/4"
         bgColor="#1a1a24"
@@ -241,6 +241,15 @@ function HeroSection() {
         >
           Family-Friendly Rainforest Adventure
         </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Arenal Volcano National Park, Costa Rica
+        </motion.p>
       </div>
     </section>
   );
@@ -577,20 +586,24 @@ function WellnessSection() {
 
   return (
     <section id="wellness">
-      {/* Cinematic video header */}
-      <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
-        <div className="relative w-full h-[55vh]">
-          <NativeVideo src={CDN.sustainabilityVideo} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
-          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-            <TextReveal as="h2" delay={0.2}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                {gardens.theme.spaHeadline.replace("\n", " ")}
-              </span>
-            </TextReveal>
-          </div>
+      {/* Wellness header — clean, no video */}
+      <div className={sectionPadding} style={{ backgroundColor: PALETTE.gradientEnd }}>
+        <div className={maxW}>
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Wellness</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-4" delay={0.1}>
+            <span className="text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}>
+              {gardens.theme.spaHeadline.replace("\n", " ")}
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p className="text-[15px] leading-[1.8] max-w-2xl" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+              Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy.
+            </p>
+          </AnimateOnScroll>
         </div>
-      </Parallax>
+      </div>
 
       <div className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
         <div className={maxW}>
