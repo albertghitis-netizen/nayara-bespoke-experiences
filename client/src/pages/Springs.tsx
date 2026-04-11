@@ -114,7 +114,7 @@ function HeroSection() {
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
         <MultiLineReveal
-          lines={["Private Hot Spring Villas", "in Costa Rica"]}
+          lines={["Private Hot Spring Villas"]}
           lineClassName="text-white text-3xl md:text-5xl lg:text-6xl leading-[1] tracking-wide text-center"
           as="h1"
           delay={0.4}

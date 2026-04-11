@@ -203,6 +203,11 @@ export default function BrandNavigation({
                       </button>
                     ))}
 
+                    {/* Back to brand home */}
+                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
+                    <button onClick={() => handleNavigate("/")} className={menuItem}>
+                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
+                    </button>
 
                   </div>
                 </motion.div>
@@ -326,6 +331,11 @@ export default function BrandNavigation({
                       </button>
                     ))}
 
+                    {/* Back to brand home */}
+                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
+                    <button onClick={() => handleNavigate("/")} className={menuItem}>
+                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
+                    </button>
 
                   </div>
                 </motion.div>

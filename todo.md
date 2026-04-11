@@ -1596,3 +1596,18 @@
 
 ## Fix Springs Hero Video Mix-up
 - [x] Fix hero swap: brand video (8492CD84) → homepage desktop, Springs-like video (Edits_NS_Vertical) → Springs desktop
+
+## Navigation - Nayara Resorts Link
+- [x] Add "Nayara Resorts" as last item in nav menu linking back to homepage (/)
+
+## Hero H1 Fixes
+- [x] Springs: remove "in Costa Rica", H1 is now just "Private Hot Spring Villas"
+- [x] Tented Camp: remove "Adults Only", H1 is now "Luxury Tents in the Canopy" one line
+- [x] Homepage: "Luxury Resorts Rooted in Nature" all on one line
+
+## Hero Video Swaps
+- [x] Move current sustainability hero video → brand experiences hero
+- [x] Replace sustainability hero with new video (with audio)
+
+## Atacama H1 Update
+- [x] Change Atacama hero H1 to "Atacama Desert Lodge & Oasis" (one line), removed "Desert & Stars" subtitle

@@ -174,7 +174,7 @@ function HeroSection() {
       {/* Tagline */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
         <MultiLineReveal
-          lines={["Luxury Resorts", "Rooted in Nature"]}
+          lines={["Luxury Resorts Rooted in Nature"]}
           lineClassName="text-white text-3xl md:text-5xl lg:text-6xl leading-[1] tracking-wide text-center"
           as="h1"
           delay={0.4}
