@@ -144,7 +144,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
             alt="Nayara leaf"
-            className="absolute right-0 top-1/2 -translate-y-[45%] w-24 h-24 md:w-32 md:h-32 opacity-15 pointer-events-none"
+            className="absolute right-0 top-1/2 -translate-y-[48%] w-24 h-24 md:w-32 md:h-32 opacity-15 pointer-events-none"
           />
           <a
             href="#"
