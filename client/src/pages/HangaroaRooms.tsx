@@ -60,7 +60,7 @@ const roomTypes = [
 export default function HangaroaRooms() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
       <RoomsContent />
       <Footer pageType="property" />

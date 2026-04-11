@@ -60,7 +60,7 @@ const roomTypes = [
 export default function BocasRooms() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
       <RoomsContent />
       <Footer pageType="property" />

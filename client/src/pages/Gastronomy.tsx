@@ -72,7 +72,7 @@ export default function Gastronomy() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="brand" />
+      <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
       <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />

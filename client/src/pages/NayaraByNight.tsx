@@ -290,7 +290,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
 export default function NayaraByNight() {
   return (
     <div className="min-h-screen bg-[#0a0a12]">
-      <BrandNavigation pageType="brand" />
+      <BrandNavigation pageType="brand" navPalette={{ dark: "#000000", pillBg: "rgba(0,0,0,0.7)", pillHover: "rgba(0,0,0,0.9)" }} />
       <HeroSection />
       <StorySection />
 
@@ -299,7 +299,7 @@ export default function NayaraByNight() {
         <NightCascadeSection key={section.id} section={section} index={i} />
       ))}
 
-      <Footer pageType="brand" />
+      <Footer pageType="brand" bgColor="#000000" />
     </div>
   );
 }

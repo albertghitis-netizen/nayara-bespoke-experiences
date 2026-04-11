@@ -139,13 +139,17 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           </div>
         </div>
 
-        {/* Nayara leaf + Newsletter CTA */}
-        <div className="flex items-center justify-center gap-4 mt-14 mb-6">
+        {/* Nayara leaf — left-aligned below column 1 */}
+        <div className="mt-10 mb-4">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
             alt="Nayara leaf"
-            className="w-8 h-8 opacity-40"
+            className="w-16 h-16 md:w-20 md:h-20 opacity-25"
           />
+        </div>
+
+        {/* Newsletter CTA — centered */}
+        <div className="flex justify-center mb-6">
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}

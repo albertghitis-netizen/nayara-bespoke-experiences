@@ -46,7 +46,7 @@ export default function GardensWellness() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <WellnessHero />
       <section className={sectionPadding} style={{ backgroundColor: PALETTE.gradientEnd }}>
         <div className={maxW}>

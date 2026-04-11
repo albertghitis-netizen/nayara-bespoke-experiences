@@ -99,7 +99,7 @@ export default function TentedWellness() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="brand" />
+      <BrandNavigation pageType="brand" hideCenterLabel />
       <IntroSection />
       <WellnessPillarsSection />
       <TreatmentsSection activeFilter={activeFilter} onFilterChange={setActiveFilter} treatments={filtered} />

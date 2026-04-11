@@ -40,7 +40,7 @@ const dining = costaRicaDining;
 export default function GardensGastronomy() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero />
       <GastronomyContent />
       <Footer pageType="property" />

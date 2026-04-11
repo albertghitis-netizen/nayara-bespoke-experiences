@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function TentedExperiences() {
   return (
     <>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesSection />
       <Footer pageType="property" />
     </>

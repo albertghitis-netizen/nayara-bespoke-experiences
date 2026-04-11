@@ -42,7 +42,7 @@ const maxW = "max-w-[1200px] mx-auto";
 export default function AtacamaGastronomy() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero />
       <GastronomyContent />
       <Footer pageType="property" />

@@ -47,7 +47,7 @@ export default function GardensExperiences() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero />
       <section className={sectionPadding} style={{ backgroundColor: PALETTE.gradientEnd }}>
         <div className={maxW}>

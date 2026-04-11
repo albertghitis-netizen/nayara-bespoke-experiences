@@ -46,7 +46,7 @@ const maxW = "max-w-[1200px] mx-auto";
 export default function TentedCampExperiences() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero />
       <ExperiencesContent />
       <Footer pageType="property" />

@@ -161,7 +161,7 @@ function Router() {
         </Switch>
         {!hideWidget && (
           <Suspense fallback={null}>
-            <ConciergeChatWidget />
+            <ConciergeChatWidget palette={location === "/by-night" ? { dark: "#000000", pillBg: "rgba(0,0,0,0.7)" } : undefined} />
           </Suspense>
         )}
       </Suspense>

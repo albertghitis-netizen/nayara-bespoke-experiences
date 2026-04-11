@@ -1846,3 +1846,8 @@
 - [x] RULE: Nothing on the website in all caps — removed all `uppercase` CSS classes
 - [x] Fix Sound button label: not all caps
 - [x] Add Nayara leaf icon to the left of the newsletter signup pill in the footer
+- [ ] Hide center nav text (no "Nayara Resorts" or property name) on ALL deep pages
+- [ ] Nayara by Night page: make all buttons black (hamburger, Reserve, Sound, Henry)
+- [ ] Keep Nayara by Night as its own page (not just part of gallery)
+- [x] Nayara by Night: black buttons + black footer
+- [x] Hide center nav text on ALL deep pages (32 property deep pages + 4 brand pillar pages)

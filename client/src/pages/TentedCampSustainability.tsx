@@ -59,7 +59,7 @@ const initiatives = [
 export default function TentedCampSustainability() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <SustainabilityContent />
       <Footer pageType="property" />

@@ -46,7 +46,7 @@ const maxW = "max-w-[1200px] mx-auto";
 export default function BocasWellness() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" hideCenterLabel />
       <WellnessHero />
       <WellnessContent />
       <Footer pageType="property" />
