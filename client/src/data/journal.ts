@@ -657,7 +657,7 @@ export const podcastEpisodes: PodcastEpisode[] = [
     youtubeId: "FRPVRcUTNmk",
     duration: "45 min",
     date: "2026",
-    coverImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/rapa-nui-warrior-portrait_60af8ef4.jpg",
+    coverImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-warrior-portrait_572aaf06.jpg",
   },
   {
     id: "archaeologist-rapanui",

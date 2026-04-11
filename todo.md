@@ -1514,3 +1514,5 @@
 - [x] Swap in new Hangaroa hero video
 - [x] Add family photos to Moon Camp section on New Projects page
 - [ ] Replace Tented Camp hero video (S1) with new Tentreel2.mov
+- [ ] Replace Tented Camp hero video (S1) with new Tentreel2.mov
+- [x] Use Hangaroa "Ancient Healing · Island Serenity" banner image as first podcast cover
