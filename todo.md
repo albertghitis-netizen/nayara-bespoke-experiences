@@ -2082,3 +2082,4 @@
 - [x] Moon Camp H1: "Luxury Tented Camp Perched on the Moon"
 
 - [ ] Fix video #7 (generated_1581360d) in Moon Camp cascade — it's portrait not landscape, upload correct vertical version and update layout
+- [x] Remove ALL old chapter content (chapters 1-3, old images, old videos) between Moon Camp ending and the 9-video cascade — cascade starts right after Moon Camp CTA

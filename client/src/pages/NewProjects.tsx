@@ -3,26 +3,12 @@
  * Three upcoming properties: Manuel Antonio (2027), Berkshires (2028), Tented Moon Camp (2050)
  */
 
-import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
 
-const NARRATION_AUDIO =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-narration_60c10fbc.m4a";
 
-/* Chapter timestamps in seconds (from narration recording) */
-const CHAPTER_TIMES = [
-  { id: "ch1", start: 0, end: 30 },
-  { id: "ch2", start: 30, end: 56 },
-  { id: "ch3", start: 56, end: 78 },
-  { id: "ch4", start: 78, end: 100 },
-  { id: "ch5", start: 100, end: 122 },
-  { id: "ch6", start: 128, end: 143 },
-  { id: "ch7", start: 143, end: 167 },
-  { id: "ch8", start: 169, end: 188 },
-];
 
 const MOON_CAMP_VIDEO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-moon-camp-hero-audio_22efe3b5.mp4";
@@ -72,54 +58,6 @@ function StoryParagraph({
 }
 
 export default function NewProjects() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const chapterRefs = useRef<(HTMLElement | null)[]>([]);
-  const scrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    audioRef.current = new Audio(NARRATION_AUDIO);
-    audioRef.current.preload = "auto";
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
-    };
-  }, []);
-
-  const scrollToChapter = (index: number) => {
-    const el = chapterRefs.current[index];
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  const startStory = () => {
-    if (!audioRef.current) return;
-    setIsPlaying(true);
-    audioRef.current.currentTime = 0;
-    audioRef.current.play();
-
-    // Schedule scrolls based on chapter timestamps
-    CHAPTER_TIMES.forEach((ch, i) => {
-      setTimeout(() => {
-        scrollToChapter(i);
-      }, ch.start * 1000);
-    });
-
-    // When audio ends
-    audioRef.current.onended = () => setIsPlaying(false);
-  };
-
-  const stopStory = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-    setIsPlaying(false);
-  };
 
   return (
     <div className="min-h-screen bg-[#0a0a10]">
@@ -498,724 +436,19 @@ export default function NewProjects() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          THE FALSE ENDING
-          ═══════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-40 px-6 md:px-10 text-center">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="text-2xl md:text-4xl lg:text-5xl italic leading-[1.3] max-w-[700px] mx-auto"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 400,
-            color: "rgba(255,255,255,0.6)",
-          }}
-        >
-          And they lived happily ever after.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.5 }}
-          className="mt-16 md:mt-24"
-        >
-          <p
-            className="text-xs tracking-[0.3em] uppercase mb-4"
-            style={{
-              fontFamily: "var(--font-body)",
-              fontWeight: 500,
-              color: "rgba(255,255,255,0.2)",
-            }}
-          >
-            Oh wait.
-          </p>
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 2.5 }}
-          className="text-lg md:text-2xl mt-6"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 400,
-            color: "rgba(255,255,255,0.5)",
-          }}
-        >
-          There's more.
-        </motion.p>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          THE ADVENTURE — Pink palette, alternating vertical video + text
-          The real story of Ayla & Paloma's Moon Camp
+          THE MOVIE — 9-video cascade, full bleed, connected
           ═══════════════════════════════════════════════════════════ */}
 
-      {/* Transition gradient from dark to pink */}
-      <div
-        className="h-32 md:h-48"
-        style={{ background: "linear-gradient(to bottom, #0a0a10, #2A1520)" }}
-      />
-
-      {/* Chapter 1 — Leaving Earth */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#2A1520" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.5em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
-          >
-            Chapter One
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-center text-2xl md:text-4xl mb-16 md:mb-24"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
-          >
-            The Girls Leave Earth
-          </motion.h2>
-
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            {/* Video left */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[45%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <video
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-giraffe-vertical_3fef42f3.mp4"
-                  autoPlay muted loop playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            {/* Text right */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="w-full md:w-[55%]"
-            >
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                Ayla and Paloma are the next generation of Nayara Resorts. And their boldest project yet? A luxury tented camp on the Moon.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                But first, they had to get there. So they left Earth, flew through the stars, and somewhere along the way became mermaids. As one does.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                They arrived at the Moon Camp ready to work. Lammie the giraffe came along for the ride.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Chapter 2 — Running the Moon Camp */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#321A28" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.5em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
-          >
-            Chapter Two
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-center text-2xl md:text-4xl mb-16 md:mb-24"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
-          >
-            The Mean Alien Guests
-          </motion.h2>
-
-          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
-            {/* Video right */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[45%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <video
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-mask_6da882c5.mp4"
-                  autoPlay muted loop playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            {/* Text left */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="w-full md:w-[55%]"
-            >
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                The Moon Camp was a hit. Five stars on every intergalactic review site. The problem? The guests.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                Aliens from the Crab Nebula complained the infinity pool wasn't infinite enough. Guests from Betelgeuse kept eating the decorative moon rocks. It was all getting really annoying.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                "Honestly," said Ayla, "this is so boring. Let's get out of here."
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Chapter 3 — The Great Escape */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#3A1E30" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.5em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
-          >
-            Chapter Three
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-center text-2xl md:text-4xl mb-16 md:mb-24"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
-          >
-            Escape on the Giraffe
-          </motion.h2>
-
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            {/* Video left */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[45%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-galaxy-giraffe-2_3743df9c.webp"
-                  alt="Ayla and Paloma escaping on a winged giraffe"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            {/* Text right */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="w-full md:w-[55%]"
-            >
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                So they took Lammie the giraffe and flew away.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                Lammie spread her magnificent wings. The girls climbed on, and just like that they were gone.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                The Moon Camp shrank behind them until it was just another dot among the craters. The universe stretched out ahead, full of possibility.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Chapter 4 — The Friendly Dinosaur */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#421E38" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.5em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
-          >
-            Chapter Four
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-center text-2xl md:text-4xl mb-16 md:mb-24"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
-          >
-            Mercury & Rex
-          </motion.h2>
-
-          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
-            {/* Image right */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[45%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-dinosaur-cascade_471be1e5.webp"
-                  alt="The friendly rainbow dinosaur Rex"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            {/* Text left */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="w-full md:w-[55%]"
-            >
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                Their first stop was Mercury, where they met a rainbow-colored dinosaur named Rex. They became really good friends.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                But Mercury was just too small and way too close to the sun. It was getting really hot.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                So they said goodbye to Rex and kept going.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Chapter 5 — Jupiter */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#4A1E40" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.5em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
-          >
-            Chapter Five
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-center text-2xl md:text-4xl mb-16 md:mb-24"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
-          >
-            Jupiter
-          </motion.h2>
-
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            {/* Image left */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[45%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-dino-orange-moon_56e99999.webp"
-                  alt="Approaching Jupiter's great orange storm"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            {/* Text right */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="w-full md:w-[55%]"
-            >
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                Next stop: Jupiter. Paloma's favorite planet.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                But even Jupiter turned out to be boring. "I expected more," said Paloma.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                So they left Jupiter and headed deeper into space.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Chapter 6 — Andromeda */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#521E48" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.5em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
-          >
-            Chapter Six
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-center text-2xl md:text-4xl mb-16 md:mb-24"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
-          >
-            The Edge of Andromeda
-          </motion.h2>
-
-          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
-            {/* Video right */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[45%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <video
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-giraffe-horizontal_0bb75ae2.mp4"
-                  autoPlay muted loop playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            {/* Text left */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="w-full md:w-[55%]"
-            >
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                They made it all the way to Andromeda.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                The Milky Way and Andromeda were getting closer and closer together. But with Lammie and their winged giraffe, they were basically superheroes.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                So it didn't matter.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Chapter 7 — Albert the Black Hole */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#5A1E50" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.5em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
-          >
-            The Final Chapter
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-center text-2xl md:text-4xl mb-16 md:mb-24"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
-          >
-            Albert
-          </motion.h2>
-
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            {/* Image left */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[45%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-galaxy-giraffe_a71e4f8b.webp"
-                  alt="Albert the black hole"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            {/* Text right */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="w-full md:w-[55%]"
-            >
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                And then they met Albert.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                At first he traveled with them, right into a black hole. But then, out of nowhere, Albert actually became the black hole.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                He was a really friendly black hole though.
-              </p>
-              <p
-                className="text-base md:text-lg leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#F2C6D8" }}
-              >
-                But the whole experience was getting really exhausting.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Real Ending */}
-      <section
-        className="py-24 md:py-40 px-6 md:px-10 text-center"
-        style={{ backgroundColor: "#5A1E50" }}
-      >
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-          className="text-2xl md:text-4xl lg:text-5xl italic leading-[1.3] max-w-[700px] mx-auto mb-8"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 400,
-            color: "#FFD6E8",
-          }}
-        >
-          And they all lived happily ever after.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-sm md:text-base max-w-[500px] mx-auto mb-12"
-          style={{
-            fontFamily: "var(--font-body)",
-            fontWeight: 300,
-            color: "#F2A7C3",
-          }}
-        >
-          Albert on his winged dinosaur. Ayla and Paloma on Lammie the giraffe.
-          All the way back to New York City, safe and sound.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="inline-block rounded-xl overflow-hidden shadow-2xl"
-        >
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-camp-nieces_cdd428a3.png"
-            alt="The real adventurers"
-            className="w-64 md:w-80 h-auto"
-          />
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 1.5 }}
-          className="mt-8 text-xs tracking-[0.2em]"
-          style={{
-            fontFamily: "var(--font-body)",
-            fontWeight: 500,
-            color: "#F2A7C3",
-          }}
-        >
-          For Ayla & Paloma. The bravest explorers in any galaxy. ❤️
-        </motion.p>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — THE MOVIE
-          Continuous full-bleed video cascade, no gaps
-          ═══════════════════════════════════════════════════════════ */}
-
-      {/* Transition from pink to dark */}
-      <div
-        className="h-32 md:h-48"
-        style={{ background: "linear-gradient(to bottom, #5A1E50, #0a0a10)" }}
-      />
-
-      {/* Dramatic Reveal — "But Wait... There's More." */}
-      <section
-        className="relative w-full flex items-center justify-center overflow-hidden"
-        style={{ backgroundColor: "#0a0a10", minHeight: "80vh" }}
-      >
-        <div className="text-center px-6">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2 }}
-            className="text-[11px] md:text-sm tracking-[0.6em] uppercase mb-8"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
-          >
-            But Wait
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, scale: 0.8, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.4, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl md:text-7xl lg:text-8xl"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
-          >
-            There's More.
-          </motion.h2>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="w-24 h-px mx-auto mt-10"
-            style={{ backgroundColor: "#F2A7C3", transformOrigin: "center" }}
-          />
-        </div>
-      </section>
-
-      {/* THE MOVIE — Continuous full-bleed cascade, no gaps */}
       <div style={{ backgroundColor: "#0a0a10" }}>
 
         {/* 1 — Landscape full-screen */}
         <div className="relative w-full" style={{ aspectRatio: "1104/832" }}>
-          <video
+          <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img1-landscape_30550e46.mp4"
-            autoPlay muted playsInline loop
             className="w-full h-full object-cover block"
+            hasAudio
+            pillBg="rgba(10, 10, 16, 0.7)"
+            pillColor="#F2A7C3"
           />
         </div>
 
@@ -1223,10 +456,12 @@ export default function NewProjects() {
         <div className="flex" style={{ backgroundColor: "#0a0a10" }}>
           <div className="w-full md:w-1/2">
             <div style={{ aspectRatio: "784/1044" }}>
-              <video
+              <BlobVideo
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img2-portrait_3bfede68.mp4"
-                autoPlay muted playsInline loop
                 className="w-full h-full object-cover block"
+                hasAudio
+                pillBg="rgba(10, 10, 16, 0.7)"
+                pillColor="#F2A7C3"
               />
             </div>
           </div>
@@ -1235,10 +470,12 @@ export default function NewProjects() {
 
         {/* 3 — Landscape full-screen */}
         <div className="relative w-full" style={{ aspectRatio: "784/626" }}>
-          <video
+          <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img3-landscape_d76f8082.mp4"
-            autoPlay muted playsInline loop
             className="w-full h-full object-cover block"
+            hasAudio
+            pillBg="rgba(10, 10, 16, 0.7)"
+            pillColor="#F2A7C3"
           />
         </div>
 
@@ -1247,10 +484,12 @@ export default function NewProjects() {
           <div className="hidden md:block w-1/2" />
           <div className="w-full md:w-1/2">
             <div style={{ aspectRatio: "784/1168" }}>
-              <video
+              <BlobVideo
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img4-portrait_3782a232.mp4"
-                autoPlay muted playsInline loop
                 className="w-full h-full object-cover block"
+                hasAudio
+                pillBg="rgba(10, 10, 16, 0.7)"
+                pillColor="#F2A7C3"
               />
             </div>
           </div>
@@ -1258,10 +497,12 @@ export default function NewProjects() {
 
         {/* 5 — Landscape full-screen */}
         <div className="relative w-full" style={{ aspectRatio: "928/696" }}>
-          <video
+          <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img5-landscape_acf3b3b3.mp4"
-            autoPlay muted playsInline loop
             className="w-full h-full object-cover block"
+            hasAudio
+            pillBg="rgba(10, 10, 16, 0.7)"
+            pillColor="#F2A7C3"
           />
         </div>
 
@@ -1269,10 +510,12 @@ export default function NewProjects() {
         <div className="flex" style={{ backgroundColor: "#0a0a10" }}>
           <div className="w-full md:w-1/2">
             <div style={{ aspectRatio: "784/1168" }}>
-              <video
+              <BlobVideo
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img6-portrait_4a466038.mp4"
-                autoPlay muted playsInline loop
                 className="w-full h-full object-cover block"
+                hasAudio
+                pillBg="rgba(10, 10, 16, 0.7)"
+                pillColor="#F2A7C3"
               />
             </div>
           </div>
@@ -1281,19 +524,23 @@ export default function NewProjects() {
 
         {/* 7 — Landscape full-screen */}
         <div className="relative w-full" style={{ aspectRatio: "784/626" }}>
-          <video
+          <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img7-landscape_d8406d81.mp4"
-            autoPlay muted playsInline loop
             className="w-full h-full object-cover block"
+            hasAudio
+            pillBg="rgba(10, 10, 16, 0.7)"
+            pillColor="#F2A7C3"
           />
         </div>
 
         {/* 8 — Landscape full-screen (connecting) */}
         <div className="relative w-full" style={{ aspectRatio: "784/588" }}>
-          <video
+          <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img8-landscape_8fd2a83a.mp4"
-            autoPlay muted playsInline loop
             className="w-full h-full object-cover block"
+            hasAudio
+            pillBg="rgba(10, 10, 16, 0.7)"
+            pillColor="#F2A7C3"
           />
         </div>
 
@@ -1302,10 +549,12 @@ export default function NewProjects() {
           <div className="hidden md:block w-1/2" />
           <div className="w-full md:w-1/2">
             <div style={{ aspectRatio: "784/1044" }}>
-              <video
+              <BlobVideo
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img9-portrait_2caf6a24.mp4"
-                autoPlay muted playsInline loop
                 className="w-full h-full object-cover block"
+                hasAudio
+                pillBg="rgba(10, 10, 16, 0.7)"
+                pillColor="#F2A7C3"
               />
             </div>
           </div>
