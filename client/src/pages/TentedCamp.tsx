@@ -69,7 +69,7 @@ const ASSETS = {
   heroDesktop: `${CDN}/tented-hero-new_c2f5b543.mp4`,
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
-  storyV: `${CDN}/tented-s1-vertical-compressed_c800fbf8.mp4`,
+  storyV: `${CDN}/nayara-tent-1_65574f07.mp4`,
   storyH: `${CDN}/Supersale-8_68853293.jpg`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,
@@ -84,8 +84,13 @@ const ASSETS = {
   gastroV: `${CDN}/atasteofplace_f64f6f71.jpg`,
   gastroH: `${CDN}/Supersale-4_7834ffc2.jpg`,
 
-  wildV: `${CDN}/costa-rica-toucan_a70ad74a.mp4`,
+  wildV: `${CDN}/nayara-tent-reel_08874d7a.mp4`,
   wildH: `${CDN}/tc-mainpool-vertical_81b6bb28.mp4`,
+
+  // Tent reel videos
+  tentReel1: `${CDN}/nayara-tent-1_65574f07.mp4`,
+  tentReel2: `${CDN}/nayara-tent-2_791909a6.mp4`,
+  tentReel3: `${CDN}/nayara-tent-3_c92dfadc.mp4`,
 
   advV: `${CDN}/frog-tour-vertical_17b18385.mp4`,
   advH: `${CDN}/wildlife-reel_7c30f53f.mp4`,
@@ -948,13 +953,13 @@ export default function TentedCamp() {
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4"
         horizontalIsVideo
         horizontalRatio="16/9"
-        bgColor="#3B2B26"
+        bgColor="#525642"
         headline={"When the\nJungle Sleeps"}
         bodyText="As darkness falls over the canopy, a different world awakens. The chorus of frogs, the flash of fireflies, the distant rumble of Arenal — Tented Camp by night is a symphony of the wild. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="right"
       />
 
-      <Footer bgColor="#3B2B26" />
+      <Footer bgColor="#525642" />
     </div>
   );
 }

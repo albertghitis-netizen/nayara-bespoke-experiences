@@ -48,7 +48,6 @@ export const JOURNAL_PROPERTIES: { id: JournalProperty | "all"; label: string }[
   { id: "alto-atacama", label: "Atacama" },
   { id: "hangaroa", label: "Hangaroa" },
   { id: "bocas-del-toro", label: "Bocas del Toro" },
-  { id: "brand", label: "Brand" },
 ];
 
 // ─── Fallback image for posts without og:image ───────────────
@@ -73,7 +72,7 @@ function destToProperty(dest: string): JournalProperty {
 const blogArticles: JournalEntry[] = [
   {
     id: "latin-america-luxury-brand",
-    title: "Why Nayara Resorts Is Latin America's Leading Luxury Brand",
+    title: "Luxury Resorts Rooted in Nature: The Nayara Story",
     url: "https://blog.nayararesorts.com/rom-deadly-sin-to-rainforest-royalty-the-soul-of-nayara",
     property: "brand",
     type: "article",
@@ -548,14 +547,32 @@ const videoEpisodes: JournalEntry[] = [
 
 // ─── Merged + Sorted Feed ────────────────────────────────────
 /** All journal entries — articles first (featured at top), then videos */
-export const journalEntries: JournalEntry[] = [
-  // Featured articles first
-  ...blogArticles.filter(e => e.featured),
-  // Video episodes
-  ...videoEpisodes,
-  // Non-featured articles
-  ...blogArticles.filter(e => !e.featured),
-];
+/** Interleave videos among articles so podcasts are spaced out, not clumped */
+function interleaveEntries(): JournalEntry[] {
+  const featured = blogArticles.filter(e => e.featured);
+  const nonFeatured = blogArticles.filter(e => !e.featured);
+  const videos = [...videoEpisodes];
+
+  // Start with featured articles
+  const result: JournalEntry[] = [...featured];
+
+  // Interleave: insert one video every ~5 articles
+  const spacing = Math.max(1, Math.floor(nonFeatured.length / (videos.length + 1)));
+  let videoIdx = 0;
+  for (let i = 0; i < nonFeatured.length; i++) {
+    result.push(nonFeatured[i]);
+    if ((i + 1) % spacing === 0 && videoIdx < videos.length) {
+      result.push(videos[videoIdx++]);
+    }
+  }
+  // Append any remaining videos
+  while (videoIdx < videos.length) {
+    result.push(videos[videoIdx++]);
+  }
+  return result;
+}
+
+export const journalEntries: JournalEntry[] = interleaveEntries();
 
 // ─── Legacy Exports (for any remaining imports) ──────────────
 export interface BlogPost {

@@ -44,9 +44,11 @@ const allAwards: PropertyAwards[] = [
   {
     property: "Nayara Tented Camp",
     awards: [
-      { source: "Travel & Leisure", accolades: ["No. 2 in Central America 2025", "No. 1 in Central America 2024, 2023, 2022, 2021"] },
+      { source: "Travel & Leisure", accolades: ["No. 2 in Central America 2025", "No. 1 in Central America 2024, 2023, 2022, 2021", "No. 1 in the World 2020 — Condé Nast Traveler Readers' Choice"] },
       { source: "Condé Nast Traveler", accolades: ["No. 3 in Central America 2023", "No. 1 in the World 2020"] },
-      { source: "Leading Hotels of the World", accolades: ["No. 1 Hotel 2022"] },
+      { source: "Leading Hotels of the World", accolades: ["LHW Member Property", "No. 1 Hotel 2022"] },
+      { source: "Green Globe", accolades: ["Certified Sustainable Property"] },
+      { source: "Carbon Neutral", accolades: ["100% Carbon Offset — Verified Conservation & Reforestation"] },
     ],
   },
   {

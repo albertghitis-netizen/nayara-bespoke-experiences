@@ -220,7 +220,7 @@ function FeaturedCard({
   const isVideo = entry.type === "video";
   const isPlaying = activeVideo === entry.id;
 
-  const propertyLabel = JOURNAL_PROPERTIES.find((p) => p.id === entry.property)?.label || "Brand";
+  const propertyLabel = JOURNAL_PROPERTIES.find((p) => p.id === entry.property)?.label || "Nayara";
 
   const content = (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-500">
@@ -347,7 +347,7 @@ function JournalCard({
 }) {
   const isVideo = entry.type === "video";
   const isPlaying = activeVideo === entry.id;
-  const propertyLabel = JOURNAL_PROPERTIES.find((p) => p.id === entry.property)?.label || "Brand";
+  const propertyLabel = JOURNAL_PROPERTIES.find((p) => p.id === entry.property)?.label || "Nayara";
 
   const cardContent = (
     <>

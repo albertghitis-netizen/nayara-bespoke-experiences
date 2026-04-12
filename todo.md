@@ -2013,3 +2013,47 @@
 - [x] Update scrollbar and selection colors
 - [x] Update BrandBook.tsx color names and descriptions
 - [x] Verify visual rendering on Home, Tented Camp, Alto Atacama, Gardens pages
+
+## New Video Assets — Tent Reels + Waterfall/Rio Celeste
+- [ ] Analyze 4 uploaded videos to identify content
+- [ ] Compress and upload Nayara Tent 1 to CDN
+- [ ] Compress and upload Nayara Tent 2 to CDN
+- [ ] Compress and upload Rio Celeste video to CDN
+- [ ] Compress and upload La Fortuna Waterfall video to CDN
+- [ ] Place tent videos on Tented Camp page
+- [ ] Place waterfall/Rio Celeste videos on experiences pages
+
+## Tented Camp Carousel Fix
+- [ ] Identify wrong photos in Tented Camp carousel (last 3-4 photos)
+- [ ] Remove non-Tented-Camp photos from carousel
+- [ ] Move Moai head photo to Hangaroa page
+- [ ] Delete removed photo files from CDN references to reduce file size
+
+## Footer Updates
+- [x] Change Tented Camp footer background color to Olive Tree (#525642)
+- [ ] Ensure footer says "Resorts" consistently on property pages
+
+## Tented Camp Property Card Image Fix
+- [ ] Replace bogus first photo in "Our Properties" Tented Camp card with aerial tent + volcano photo
+
+## Tented Moon Camp Page
+- [ ] Create dedicated Tented Moon Camp page
+- [ ] Remove Tented Moon Camp from Coming Soon section
+- [ ] Add Tented Moon Camp to navigation
+
+## Video Upload and Tented Camp Cascade Replacements
+- [ ] Upload all 4 new videos to CDN
+- [ ] Identify which videos are tent reels, Rio Celeste, La Fortuna
+- [ ] Replace S1 section (right below hero) with first tent reel video
+- [ ] Replace bad carousel items (toucan, Moai) with remaining tent reel and waterfall videos
+- [ ] Remove stacked photo grid on Tented Camp page and replace with empty slider/carousel
+
+## Session — Apr 12 2026
+- [x] Replace Tented Camp property card image with aerial tent+volcano photo (SidebarNavigation, AllDestinations, Home)
+- [x] Remove toucan video from gallery.ts and TentedCamp.tsx, replace with tent reel video
+- [x] Upload 4 tent reel videos to CDN (tent-1, tent-2, tent-3, tent-reel)
+- [x] Remove "Brand" filter from Journal page, keep only "All" + specific properties
+- [x] Rename first brand blog to "Luxury Resorts Rooted in Nature: The Nayara Story"
+- [x] Change fallback label from "Brand" to "Nayara" on Journal cards
+- [x] Interleave podcast/video episodes among articles (spaced out, not clumped)
+- [x] Add full awards to Tented Camp on Awards page (T+L, Condé Nast, LHW, Green Globe, Carbon Neutral)

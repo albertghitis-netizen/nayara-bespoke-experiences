@@ -68,7 +68,7 @@ const propertyGrid: {
     location: "Arenal Volcano, Costa Rica",
     route: "/tented-camp",
     bookingId: "tented-camp",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-s2-tropical-aerial_6cd5fc6c.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG",
     tagline: "Clifftop Tents & Suites",
     filter: "Family-Friendly",
   },

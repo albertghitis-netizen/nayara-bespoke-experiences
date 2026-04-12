@@ -56,7 +56,6 @@ export const springsGallery: GalleryItem[] = [
   { id: "cr-zipline", src: `${CDN}/zipline-photo_a5470805.jpeg`, alt: "Zipline canopy", type: "image", orientation: "landscape", tags: ["experiences", "shared-cr"] },
   { id: "cr-yoga", src: `${CDN}/yoga-photo_3b789b60.jpg`, alt: "Yoga in nature", type: "image", orientation: "landscape", tags: ["wellness", "shared-cr"] },
   { id: "cr-canyon", src: `${CDN}/canyoneering-photo_d3d8461c.jpg`, alt: "Canyoneering", type: "image", orientation: "landscape", tags: ["experiences", "shared-cr"] },
-  { id: "cr-toucan", src: `${CDN}/costa-rica-toucan_a70ad74a.mp4`, alt: "Toucan", type: "video", orientation: "portrait", tags: ["wildlife", "shared-cr"] },
   { id: "cr-wildlife", src: `${CDN}/wildlife-reel_7c30f53f.mp4`, alt: "Wildlife reel", type: "video", orientation: "portrait", tags: ["wildlife", "shared-cr"] },
   { id: "cr-hs-hero", src: `${CDN}/hot-springs-hero_a60a0e92.jpg`, alt: "Hot springs", type: "image", orientation: "landscape", tags: ["wellness", "shared-cr"] },
   { id: "cr-hs-h", src: `${CDN}/hot-springs-horizontal_2508b725.mp4`, alt: "Hot springs video", type: "video", orientation: "landscape", tags: ["wellness", "shared-cr"] },

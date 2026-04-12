@@ -75,7 +75,7 @@ const destinations: {
     id: "tented-camp",
     name: "Nayara Tented Camp",
     region: "Arenal Volcano, Costa Rica",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-tented_0fd865a2.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG",
     description: "Clifftop Tents & Suites",
     route: "/tented-camp",
     bookingId: "tented-camp",

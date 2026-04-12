@@ -30,7 +30,7 @@ const MENU_ITEMS = [
 ];
 
 const DESTINATIONS = [
-  { name: "Nayara Tented Camp", route: "/tented-camp", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ChatGPTImageMar18,2026,10_19_06PM_d4e5f3a9.png" },
+  { name: "Nayara Tented Camp", route: "/tented-camp", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG" },
   { name: "Nayara Springs", route: "/springs", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/61_53a2d75e.jpg" },
   { name: "Nayara Gardens", route: "/gardens", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NewAreaBriceFerre(2)_cf5128c9.webp" },
   { name: "Nayara Alto Atacama", route: "/alto-atacama", image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ChatGPTImageMar18,2026,10_19_06PM_d4e5f3a9.png" },
