@@ -2075,3 +2075,4 @@
 - [x] Place 8 videos as alternating left/right storybook sections after Moon Camp ending
 - [x] Girls hero photo as landscape hero for new storybook section
 - [ ] Add landscape connector videos between reels (waiting for user to send)
+- [x] Remove sound pill from mobile homepage header
