@@ -180,10 +180,8 @@ function HeroSection() {
     videoTimeRef.current = video;
 
     const onTime = () => {
-      if (!video.duration || video.duration === Infinity) return;
-      /* Show title when ~8 seconds remain before the loop restarts */
-      const remaining = video.duration - video.currentTime;
-      if (remaining <= 8 && !showTitle) setShowTitle(true);
+      /* Pop title at exactly 68.63s */
+      if (video.currentTime >= 68.63 && !showTitle) setShowTitle(true);
     };
     video.addEventListener("timeupdate", onTime);
     return () => video.removeEventListener("timeupdate", onTime);
@@ -197,8 +195,8 @@ function HeroSection() {
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-6 md:pb-8 px-6">
         <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={showTitle ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={showTitle ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}

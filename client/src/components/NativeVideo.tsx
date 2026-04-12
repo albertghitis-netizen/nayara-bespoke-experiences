@@ -138,12 +138,12 @@ export default function NativeVideo({
         <div className={`${className} absolute inset-0 bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900`} />
       )}
 
-      {/* Mute / Unmute pill — bottom-left, luxury aesthetic */}
+      {/* Mute / Unmute pill — top-left, aligned right of hamburger */}
       {hasAudio && isLoaded && (
         <button
-          onClick={toggleMute}
+          onClick={(e) => { e.stopPropagation(); toggleMute(); }}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className={`absolute bottom-6 left-6 z-30 ${mobileAudio ? 'flex' : 'hidden md:flex'} items-center gap-2 px-4.5 py-3 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group cursor-pointer`}
+          className={`absolute top-2 left-14 z-30 ${mobileAudio ? 'flex' : 'hidden md:flex'} items-center gap-2 h-9 px-3.5 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group cursor-pointer`}
           style={{ backgroundColor: pillBg }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = pillHover)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = pillBg)}
@@ -156,7 +156,7 @@ export default function NativeVideo({
           {/* Speaker icon */}
           {isMuted ? (
             <svg
-              className="w-4 h-4 text-white/80 group-hover:text-white transition-colors"
+              className="w-3.5 h-3.5 text-white/80 group-hover:text-white transition-colors"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -170,7 +170,7 @@ export default function NativeVideo({
             </svg>
           ) : (
             <svg
-              className="w-4 h-4 text-white/80 group-hover:text-white transition-colors"
+              className="w-3.5 h-3.5 text-white/80 group-hover:text-white transition-colors"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

@@ -182,13 +182,13 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
             onClick={() => setIsOpen(true)}
             className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 rounded-full backdrop-blur-md shadow-lg px-4 py-2 transition-colors group cursor-pointer border"
             style={{ backgroundColor: bg, borderColor: "rgba(255,255,255,0.1)" }}
-            aria-label="Nayara Concierge"
+            aria-label="Concierge"
           >
             <span
               className="text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ color: "rgba(255,255,255,0.85)", fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Nayara Concierge
+              Concierge
             </span>
 
             {/* Pulse indicator for new visitors */}
@@ -217,7 +217,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
             <div className="flex items-center justify-between px-5 py-3 border-b border-[#3a2a1a]/10 shrink-0">
               <div>
                 <h3 className="text-[#3a2a1a] text-sm font-medium tracking-[0.04em]" style={{ fontFamily: "var(--font-body)" }}>
-                  Henry, Your Nayara Concierge
+                  Henry, Your Concierge
                 </h3>
                 <p className="text-[#3a2a1a]/60 text-xs mt-0.5" style={{ fontFamily: "var(--font-body)" }}>
                   How may I help you today?
