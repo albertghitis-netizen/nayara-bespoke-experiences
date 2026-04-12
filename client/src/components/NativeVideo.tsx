@@ -18,6 +18,8 @@ interface NativeVideoProps {
   controls?: boolean;
   /** Set true to show the mute/unmute pill on this video */
   hasAudio?: boolean;
+  /** Set true to also show the audio pill on mobile (default: desktop only) */
+  mobileAudio?: boolean;
 }
 
 export default function NativeVideo({
@@ -30,6 +32,7 @@ export default function NativeVideo({
   poster,
   controls = false,
   hasAudio = false,
+  mobileAudio = false,
 }: NativeVideoProps) {
   /* Property color auto-detect for sound pill */
   const [loc] = useLocation();
@@ -91,8 +94,15 @@ export default function NativeVideo({
     return "video/mp4";
   };
 
+  /* Tap-to-play fallback for mobile browsers that block autoplay */
+  const handleTapToPlay = useCallback(() => {
+    const video = videoRef.current;
+    if (!video || !video.paused) return;
+    video.play().catch(() => {});
+  }, []);
+
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full" onClick={handleTapToPlay}>
       <video
         ref={videoRef}
         className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700`}
@@ -101,8 +111,11 @@ export default function NativeVideo({
         loop={loop}
         playsInline={playsInline}
         poster={poster}
-        preload="metadata"
+        preload="auto"
         controls={controls}
+        // Critical mobile attributes
+        webkit-playsinline="true"
+        x-webkit-airplay="allow"
         onLoadedData={() => setIsLoaded(true)}
         onError={() => {
           console.error("Video load error:", src);
@@ -130,7 +143,7 @@ export default function NativeVideo({
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-6 left-6 z-30 hidden md:flex items-center gap-2 px-4.5 py-3 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group cursor-pointer"
+          className={`absolute bottom-6 left-6 z-30 ${mobileAudio ? 'flex' : 'hidden md:flex'} items-center gap-2 px-4.5 py-3 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group cursor-pointer`}
           style={{ backgroundColor: pillBg }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = pillHover)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = pillBg)}

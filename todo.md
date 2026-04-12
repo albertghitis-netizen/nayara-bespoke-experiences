@@ -1950,3 +1950,42 @@
 - [ ] Re-enable audio on mobile vertical hero videos across all property pages
 - [ ] Add scrolling letter headers with property-specific colors to all deep pages
 - [x] Gallery: rebuilt as full media inventory — 139 assets, Pinterest masonry, property/media filters, snail badges, usage labels, native aspect ratios
+
+## Deeper Pages — Room Types (Individual Landing Pages)
+- [ ] Build reusable Room Deeper page template (hero, photo gallery, specs, amenities, booking CTA)
+- [ ] Gardens: Arenal Pool Casita deeper page
+- [ ] Gardens: Rainforest Pool Villa deeper page
+- [ ] Springs: Springs Villa deeper page
+- [ ] Tented Camp: Tent deeper page
+- [ ] Tented Camp: Family Tent deeper page
+- [ ] Tented Camp: Grand Tent deeper page
+- [ ] Tented Camp: Residences (Casa Paloma & Casa Dana) deeper page
+- [ ] Wire all room deeper page routes in App.tsx
+
+## Deeper Pages — Restaurant/Venue (Individual Landing Pages)
+- [ ] Build reusable Restaurant Deeper page template (hero, menu, chef, ambiance, reservation CTA)
+- [ ] Wire all restaurant deeper page routes in App.tsx
+- [ ] Content TBD — user will provide restaurant list and details
+
+## Deeper Pages — Experience (Individual Landing Pages)
+- [ ] Build reusable Experience Deeper page template (hero, description, highlights, gallery, booking CTA)
+- [ ] Sample experience deeper page (e.g., Frog Tour or Yoga)
+- [ ] Wire experience deeper page routes in App.tsx
+
+## Henry Chatbot Supercharge
+- [ ] Audit Henry's current system prompt and knowledge base
+- [ ] Build comprehensive knowledge base from all website content (properties, rooms, restaurants, experiences, awards, blog posts)
+- [ ] Enforce strict no-hallucination policy — if Henry doesn't know, admit it and hand off to reservations
+- [ ] Add reservations contact info (email + phone from footer) for handoff
+- [ ] Test Henry with edge cases to verify no false information
+
+## Unified Journal Rebuild
+- [x] Add property tags to all podcast episodes in journal.ts data
+- [x] Create unified JournalEntry type merging blog posts + podcast episodes
+- [x] Rebuild Journal page as single unified feed (no tabs)
+- [x] Property-only filter bar (no pillar/topic filters)
+- [x] Video/podcast cards get play button overlay to distinguish from articles
+- [x] Articles link out to blog.nayararesorts.com
+- [x] FAQ stays as separate section or accordion at bottom
+- [x] Remove separate Podcast page / redirect to /journal (already redirects)
+- [x] Verify build and save checkpoint

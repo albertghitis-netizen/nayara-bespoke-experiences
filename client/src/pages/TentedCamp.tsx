@@ -824,7 +824,7 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Luxury Tents in the Canopy
+          Whatever Mom Wants
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

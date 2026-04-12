@@ -11,6 +11,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Treatment } from "@/data/properties";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -77,6 +78,7 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
         spaHeadline={property.theme.spaHeadline}
         heroVideo={HERO_VIDEOS[propertySlug] || HERO_VIDEOS["tented-camp"]}
       />
+      <ScrollingPillarHeader word="WELLNESS" color={palette.primary} bgColor={palette.gradientStart} />
       <WellnessIntro palette={palette} spaSubheadline={property.theme.spaSubheadline} />
       <WellnessContent property={property} palette={palette} />
       <Footer pageType="property" bgColor={palette.footerBg} />

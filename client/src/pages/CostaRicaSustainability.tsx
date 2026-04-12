@@ -11,6 +11,7 @@ import { properties, type Property } from "@/data/properties";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
 import { sustainabilityData, getSustainabilityKey, type SustainabilityVideo } from "@/data/sustainability";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -61,6 +62,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero palette={palette} propertyName={propertyName} location={location} headline={data.headline} heroVideo={heroVideo} />
+      <ScrollingPillarHeader word="SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
       <SustainabilityContent palette={palette} initiatives={data.initiatives} />
       {data.videos && data.videos.length > 0 && (
         <SustainabilityVideos palette={palette} videos={data.videos} />

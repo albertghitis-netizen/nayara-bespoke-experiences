@@ -17,6 +17,7 @@ import {
 } from "@/data/dining";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -89,6 +90,7 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientEnd }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero palette={palette} propertyName={propertyName} location={location} heroVideo={heroVideo} headline={headline} />
+      <ScrollingPillarHeader word="GASTRONOMY" color={palette.primary} bgColor={palette.gradientEnd} />
       <GastronomyIntro palette={palette} description={dining.description} />
       <GastronomyContent palette={palette} restaurants={dining.restaurants} />
       <Footer pageType="property" bgColor={palette.footerBg} />

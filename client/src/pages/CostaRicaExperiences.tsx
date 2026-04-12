@@ -18,6 +18,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion } from "@/data/properties";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -97,6 +98,7 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero palette={palette} propertyName={propertyName} location={location} heroVideo={heroVideo} headline={headline} />
+      <ScrollingPillarHeader word="EXPERIENCES" color={palette.primary} bgColor={palette.gradientStart} />
       {isCR ? (
         <CRExperiencesSplit property={property} palette={palette} />
       ) : (

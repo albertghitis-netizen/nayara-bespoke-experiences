@@ -257,7 +257,7 @@ export default function BrandNavigation({
                 style={{ opacity: scrolled ? 0 : 1 }}
               >
                 <span
-                  className="tracking-[0.18em] text-[18px] md:text-[22px]"
+                  className="tracking-[0.18em] text-[13px] md:text-[22px]"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
                   {centerLabel || (currentPropertyId

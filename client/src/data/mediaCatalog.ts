@@ -15,6 +15,7 @@ export interface MediaAsset {
   usageLabel: string;
   orientation: "horizontal" | "vertical" | "unknown";
   format: string;
+  hasAudio?: boolean;
 }
 
 export const PROPERTY_FILTERS = [
