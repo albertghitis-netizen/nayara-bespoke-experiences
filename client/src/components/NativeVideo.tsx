@@ -39,9 +39,10 @@ export default function NativeVideo({
   const slug = loc.split("/")[1] || "";
   const propPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
     ? getPalette(slug) : null;
-  const pillBgBase = propPalette ? propPalette.navPillBg : "#3a2a1a";
-  const pillBg = `${pillBgBase}B3`;
-  const pillHover = `${pillBgBase}E6`;
+  const pillBgBase = propPalette ? propPalette.navPillBg : null;
+  const pillBg = pillBgBase ? `${pillBgBase}B3` : "rgba(228,218,200,0.75)";
+  const pillHover = pillBgBase ? `${pillBgBase}E6` : "rgba(228,218,200,0.92)";
+  const pillTextColor = propPalette ? "#fff" : "#3a2a1a";
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -156,7 +157,7 @@ export default function NativeVideo({
           {/* Speaker icon */}
           {isMuted ? (
             <svg
-              className="w-3.5 h-3.5 text-white/80 group-hover:text-white transition-colors"
+              className="w-3.5 h-3.5 transition-colors" style={{ color: pillTextColor }}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -170,7 +171,7 @@ export default function NativeVideo({
             </svg>
           ) : (
             <svg
-              className="w-3.5 h-3.5 text-white/80 group-hover:text-white transition-colors"
+              className="w-3.5 h-3.5 transition-colors" style={{ color: pillTextColor }}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -186,8 +187,8 @@ export default function NativeVideo({
 
           {/* Label */}
           <span
-            className="text-white/70 group-hover:text-white text-[10px] tracking-[0.2em] transition-colors"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            className="text-[10px] tracking-[0.2em] transition-colors"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: pillTextColor }}
           >
             {isMuted ? "Sound" : "Mute"}
           </span>

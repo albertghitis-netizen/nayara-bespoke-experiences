@@ -75,8 +75,8 @@ export default function BrandNavigation({
     ? getPalette(propertySlug)
     : null;
   const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#3a2a1a");
-  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(58,42,26,0.7)");
-  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(58,42,26,0.9)");
+  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(228,218,200,0.75)");
+  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(228,218,200,0.92)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -179,8 +179,8 @@ export default function BrandNavigation({
               aria-label="Menu"
             >
               <div className="flex flex-col gap-1">
-                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: "rgba(255,255,255,0.85)" }} />
-                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: "rgba(255,255,255,0.85)" }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
               </div>
             </button>
 
@@ -253,7 +253,7 @@ export default function BrandNavigation({
             if (!showCenter) return null;
             return (
               <span
-                className="mx-4 text-white/90 drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
+                className="mx-4 ml-6 text-white/90 drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
                 style={{ opacity: scrolled ? 0 : 1 }}
               >
                 <span
@@ -275,7 +275,7 @@ export default function BrandNavigation({
               className={`${pill} h-9 px-4`}
               style={pillStyle}
             >
-              <span className="text-xs" style={{ ...menuText, color: "rgba(255,255,255,0.85)" }}>Reserve</span>
+              <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
             </button>
 
             <AnimatePresence>
@@ -319,8 +319,8 @@ export default function BrandNavigation({
               aria-label="Menu"
             >
               <div className="flex flex-col gap-1">
-                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: "rgba(255,255,255,0.85)" }} />
-                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: "rgba(255,255,255,0.85)" }} />
+                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
               </div>
             </button>
 
@@ -381,7 +381,7 @@ export default function BrandNavigation({
               className={`${pill} h-9 px-4`}
               style={pillStyle}
             >
-              <span className="text-xs" style={{ ...menuText, color: "rgba(255,255,255,0.85)" }}>Reserve</span>
+              <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
             </button>
 
             <AnimatePresence>
