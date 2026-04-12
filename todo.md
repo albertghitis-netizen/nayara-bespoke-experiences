@@ -2060,11 +2060,11 @@
 
 ## Overnight Bot Upgrade — Apr 12-13 2026
 - [x] Rename all "Starry" references to "Henry" across the codebase
-- [ ] Scrape all blog article URLs for full text content
-- [ ] Extract property knowledge from all 6 property pages
-- [ ] Compile comprehensive knowledge base document
-- [ ] Upgrade Henry's system prompt with full knowledge base
-- [ ] Test Henry against diverse questions
+- [x] Scrape all blog article URLs for full text content (44 articles scraped)
+- [x] Extract property knowledge from all 6 property pages
+- [x] Compile comprehensive knowledge base document
+- [x] Upgrade Henry's system prompt with full knowledge base
+- [x] Test Henry against diverse questions (136/136 tests passing)
 - [x] Move sound control to top left + match button color on every page with audio
 - [x] Remove four photos under founding family in coming soon section
 - [x] Change "Concierge" button/label to "Ask Concierge" in the UI

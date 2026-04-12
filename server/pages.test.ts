@@ -9,7 +9,7 @@ import path from "path";
 const CLIENT_PAGES = path.resolve(__dirname, "../client/src/pages");
 
 const requiredPages = [
-  { file: "Journal.tsx", route: "/journal", mustContain: ["blogpost", "podcast"] },
+  { file: "Journal.tsx", route: "/journal", mustContain: ["article", "video"] },
   { file: "Gallery.tsx", route: "/gallery", mustContain: ["gallery", "filter"] },
   { file: "Experiences.tsx", route: "/experiences", mustContain: ["experience"] },
   { file: "Wellness.tsx", route: "/wellness", mustContain: ["wellness"] },

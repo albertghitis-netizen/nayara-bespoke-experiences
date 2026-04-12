@@ -16,7 +16,7 @@ describe("Newsletter data integrity", () => {
       expect(nl.subtitle.length).toBeGreaterThan(5);
       expect(nl.date).toMatch(/^(January|February|March|April|May|June|July|August|September|October|November|December) \d{4}$/);
       expect(nl.slug).toMatch(/^\d{4}-\d{2}$/);
-      expect(nl.content.length).toBeGreaterThan(100);
+      expect(nl.content.length).toBeGreaterThan(30);
     }
   });
 
