@@ -829,7 +829,7 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Whatever Mom Wants
+          Luxury Tented Camp Immersed in the Rainforest
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

@@ -2077,3 +2077,6 @@
 - [ ] Add landscape connector videos between reels (waiting for user to send)
 - [x] Remove sound pill from mobile homepage header
 - [x] Make sound pill stationary with the video (not fixed/following scroll)
+- [x] Rebuilt storybook section: dramatic reveal + 5 new videos (landscape-vertical-landscape-vertical-landscape) with audio
+- [x] Tented Camp H1: "Luxury Tented Camp Immersed in the Rainforest"
+- [x] Moon Camp H1: "Luxury Tented Camp Perched on the Moon"
