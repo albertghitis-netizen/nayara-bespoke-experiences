@@ -39,13 +39,13 @@ export default function FAQ() {
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1
-            className="text-[#3a2a1a] text-3xl md:text-5xl tracking-wide mb-4"
+            className="text-[#3B2B26] text-3xl md:text-5xl tracking-wide mb-4"
             style={heading}
           >
             Frequently Asked Questions
           </h1>
           <p
-            className="text-[#3a2a1a]/50 text-[15px] max-w-xl mx-auto"
+            className="text-[#3B2B26]/50 text-[15px] max-w-xl mx-auto"
             style={body}
           >
             Everything you need to know about our six properties across three
@@ -60,7 +60,7 @@ export default function FAQ() {
           {/* Property filter */}
           <div className="mb-6">
             <label
-              className="block text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] mb-3"
+              className="block text-[#3B2B26]/40 text-[11px] tracking-[0.2em] mb-3"
               style={{ ...body, fontWeight: 500 }}
             >
               Filter by Property
@@ -72,8 +72,8 @@ export default function FAQ() {
                   onClick={() => setSelectedProperty(p.id)}
                   className={`px-4 py-2 rounded-full text-[13px] transition-all border ${
                     selectedProperty === p.id
-                      ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                      : "bg-white text-[#3a2a1a]/70 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40"
+                      ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                      : "bg-white text-[#3B2B26]/70 border-[#3B2B26]/15 hover:border-[#3B2B26]/40"
                   }`}
                   style={{ ...body, fontWeight: 500 }}
                 >
@@ -86,7 +86,7 @@ export default function FAQ() {
           {/* Pillar filter */}
           <div>
             <label
-              className="block text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] mb-3"
+              className="block text-[#3B2B26]/40 text-[11px] tracking-[0.2em] mb-3"
               style={{ ...body, fontWeight: 500 }}
             >
               Filter by Topic
@@ -98,8 +98,8 @@ export default function FAQ() {
                   onClick={() => setSelectedPillar(p.id)}
                   className={`px-4 py-2 rounded-full text-[13px] transition-all border ${
                     selectedPillar === p.id
-                      ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                      : "bg-white text-[#3a2a1a]/70 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40"
+                      ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                      : "bg-white text-[#3B2B26]/70 border-[#3B2B26]/15 hover:border-[#3B2B26]/40"
                   }`}
                   style={{ ...body, fontWeight: 500 }}
                 >
@@ -117,7 +117,7 @@ export default function FAQ() {
           {filtered.length === 0 ? (
             <div className="text-center py-16">
               <p
-                className="text-[#3a2a1a]/40 text-[15px]"
+                className="text-[#3B2B26]/40 text-[15px]"
                 style={body}
               >
                 No questions match your current filters. Try adjusting your
@@ -125,7 +125,7 @@ export default function FAQ() {
               </p>
             </div>
           ) : (
-            <div className="divide-y divide-[#3a2a1a]/8">
+            <div className="divide-y divide-[#3B2B26]/8">
               {filtered.map((item) => (
                 <div key={item.id} className="py-1">
                   <button
@@ -133,7 +133,7 @@ export default function FAQ() {
                     className="w-full text-left py-5 flex items-start justify-between gap-4 group"
                   >
                     <span
-                      className="text-[#3a2a1a] text-[16px] md:text-[17px] leading-relaxed group-hover:text-[#3a2a1a]/70 transition-colors"
+                      className="text-[#3B2B26] text-[16px] md:text-[17px] leading-relaxed group-hover:text-[#3B2B26]/70 transition-colors"
                       style={{ ...body, fontWeight: 500 }}
                     >
                       {item.question}
@@ -141,7 +141,7 @@ export default function FAQ() {
                     <motion.svg
                       animate={{ rotate: openId === item.id ? 180 : 0 }}
                       transition={{ duration: 0.25 }}
-                      className="w-5 h-5 text-[#3a2a1a]/30 flex-shrink-0 mt-1"
+                      className="w-5 h-5 text-[#3B2B26]/30 flex-shrink-0 mt-1"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -166,7 +166,7 @@ export default function FAQ() {
                       >
                         <div className="pb-6 pr-10">
                           <p
-                            className="text-[#3a2a1a]/60 text-[15px] leading-relaxed"
+                            className="text-[#3B2B26]/60 text-[15px] leading-relaxed"
                             style={body}
                           >
                             {item.answer}
@@ -180,7 +180,7 @@ export default function FAQ() {
                                 return (
                                   <span
                                     key={pid}
-                                    className="text-[10px] tracking-[0.1em] text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-sm"
+                                    className="text-[10px] tracking-[0.1em] text-[#3B2B26]/30 border border-[#3B2B26]/10 px-2 py-0.5 rounded-sm"
                                     style={{ ...body, fontWeight: 500 }}
                                   >
                                     {prop?.label || pid}
@@ -201,7 +201,7 @@ export default function FAQ() {
           {/* Count */}
           <div className="mt-8 text-center">
             <span
-              className="text-[#3a2a1a]/25 text-[13px]"
+              className="text-[#3B2B26]/25 text-[13px]"
               style={body}
             >
               {filtered.length} question{filtered.length !== 1 ? "s" : ""}

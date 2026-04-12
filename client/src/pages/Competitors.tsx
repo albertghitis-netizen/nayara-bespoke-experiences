@@ -146,13 +146,13 @@ export default function Competitors() {
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <h1
-            className="text-[#3a2a1a] text-3xl md:text-5xl tracking-wide mb-4"
+            className="text-[#3B2B26] text-3xl md:text-5xl tracking-wide mb-4"
             style={heading}
           >
             Competitive Landscape
           </h1>
           <p
-            className="text-[#3a2a1a]/50 text-[15px] max-w-2xl mx-auto"
+            className="text-[#3B2B26]/50 text-[15px] max-w-2xl mx-auto"
             style={body}
           >
             How Nayara positions against key competitors across each property
@@ -169,8 +169,8 @@ export default function Competitors() {
               onClick={() => setActiveMarket("brand")}
               className={`px-5 py-2.5 rounded-full text-[13px] transition-all border ${
                 activeMarket === "brand"
-                  ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                  : "bg-white text-[#3a2a1a]/70 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40"
+                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                  : "bg-white text-[#3B2B26]/70 border-[#3B2B26]/15 hover:border-[#3B2B26]/40"
               }`}
               style={{ ...body, fontWeight: 500 }}
             >
@@ -182,8 +182,8 @@ export default function Competitors() {
                 onClick={() => setActiveMarket(m.id)}
                 className={`px-5 py-2.5 rounded-full text-[13px] transition-all border ${
                   activeMarket === m.id
-                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                    : "bg-white text-[#3a2a1a]/70 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40"
+                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                    : "bg-white text-[#3B2B26]/70 border-[#3B2B26]/15 hover:border-[#3B2B26]/40"
                 }`}
                 style={{ ...body, fontWeight: 500 }}
               >
@@ -219,12 +219,12 @@ function BrandView() {
     >
       <div className="mb-8">
         <h2
-          className="text-[#3a2a1a] text-xl md:text-2xl mb-3"
+          className="text-[#3B2B26] text-xl md:text-2xl mb-3"
           style={heading}
         >
           Brand-Level Competitors
         </h2>
-        <p className="text-[#3a2a1a]/50 text-[15px] leading-relaxed" style={body}>
+        <p className="text-[#3B2B26]/50 text-[15px] leading-relaxed" style={body}>
           At the brand level, Nayara competes with global luxury hospitality
           groups that share a nature-immersive, sustainability-forward
           positioning. Nayara's unique advantage is its concentration of
@@ -252,26 +252,26 @@ function MarketView({ market }: { market: Market }) {
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
           <span
-            className="text-[#3a2a1a]/30 text-[11px] tracking-[0.2em]"
+            className="text-[#3B2B26]/30 text-[11px] tracking-[0.2em]"
             style={{ ...body, fontWeight: 500 }}
           >
             {market.region}
           </span>
         </div>
         <h2
-          className="text-[#3a2a1a] text-xl md:text-2xl mb-2"
+          className="text-[#3B2B26] text-xl md:text-2xl mb-2"
           style={heading}
         >
           {market.title}
         </h2>
         <p
-          className="text-[#3a2a1a]/40 text-[13px] mb-4"
+          className="text-[#3B2B26]/40 text-[13px] mb-4"
           style={{ ...body, fontWeight: 500 }}
         >
           Nayara property: {market.nayaraProperty}
         </p>
         <p
-          className="text-[#3a2a1a]/60 text-[15px] leading-relaxed"
+          className="text-[#3B2B26]/60 text-[15px] leading-relaxed"
           style={body}
         >
           {market.overview}
@@ -289,24 +289,24 @@ function MarketView({ market }: { market: Market }) {
 
 function CompetitorCard({ competitor }: { competitor: Competitor }) {
   return (
-    <div className="border border-[#3a2a1a]/8 rounded-xl p-6 md:p-8">
+    <div className="border border-[#3B2B26]/8 rounded-xl p-6 md:p-8">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-5">
         <div>
           <h3
-            className="text-[#3a2a1a] text-[17px] md:text-[18px]"
+            className="text-[#3B2B26] text-[17px] md:text-[18px]"
             style={{ ...body, fontWeight: 600 }}
           >
             {competitor.name}
           </h3>
           <span
-            className="text-[#3a2a1a]/40 text-[13px]"
+            className="text-[#3B2B26]/40 text-[13px]"
             style={body}
           >
             {competitor.location}
           </span>
         </div>
         <span
-          className="text-[#3a2a1a]/50 text-[13px] bg-[#f7f5f0] px-3 py-1 rounded-full whitespace-nowrap"
+          className="text-[#3B2B26]/50 text-[13px] bg-[#f7f5f0] px-3 py-1 rounded-full whitespace-nowrap"
           style={{ ...body, fontWeight: 500 }}
         >
           {competitor.priceRange}
@@ -316,23 +316,23 @@ function CompetitorCard({ competitor }: { competitor: Competitor }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <div>
           <label
-            className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] mb-1.5"
+            className="block text-[#3B2B26]/30 text-[10px] tracking-[0.15em] mb-1.5"
             style={{ ...body, fontWeight: 500 }}
           >
             Positioning
           </label>
-          <p className="text-[#3a2a1a]/70 text-[14px] leading-relaxed" style={body}>
+          <p className="text-[#3B2B26]/70 text-[14px] leading-relaxed" style={body}>
             {competitor.positioning}
           </p>
         </div>
         <div>
           <label
-            className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] mb-1.5"
+            className="block text-[#3B2B26]/30 text-[10px] tracking-[0.15em] mb-1.5"
             style={{ ...body, fontWeight: 500 }}
           >
             Key Differentiator
           </label>
-          <p className="text-[#3a2a1a]/70 text-[14px] leading-relaxed" style={body}>
+          <p className="text-[#3B2B26]/70 text-[14px] leading-relaxed" style={body}>
             {competitor.keyDifferentiator}
           </p>
         </div>
@@ -343,7 +343,7 @@ function CompetitorCard({ competitor }: { competitor: Competitor }) {
           >
             Nayara Advantage
           </label>
-          <p className="text-[#3a2a1a]/80 text-[14px] leading-relaxed" style={{ ...body, fontWeight: 500 }}>
+          <p className="text-[#3B2B26]/80 text-[14px] leading-relaxed" style={{ ...body, fontWeight: 500 }}>
             {competitor.nayaraAdvantage}
           </p>
         </div>

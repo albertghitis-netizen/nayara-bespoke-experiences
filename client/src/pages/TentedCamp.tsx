@@ -28,7 +28,7 @@ import {
    ═══════════════════════════════════════════════════════════════ */
 /* Olive Tree gradient — warm olive-khaki cascade */
 const SECTION_COLORS = [
-  "#F5F1EB", // 0 hero
+  "#F7F5F0", // 0 hero
   "#F1EFE5", // 1 story
   "#EDEEE2", // 2 accommodations
   "#E8EADC", // 3 experiences
@@ -49,12 +49,12 @@ const SECTION_COLORS = [
 ];
 
 const PALETTE = {
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  primary: "#67703D",
-  accent: "#8A8B5A",
-  divider: "#E2DDD5",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  primary: "#525642",
+  accent: "#868B75",
+  divider: "#E6DFD5",
 };
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -948,13 +948,13 @@ export default function TentedCamp() {
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4"
         horizontalIsVideo
         horizontalRatio="16/9"
-        bgColor="#2E3320"
+        bgColor="#3B2B26"
         headline={"When the\nJungle Sleeps"}
         bodyText="As darkness falls over the canopy, a different world awakens. The chorus of frogs, the flash of fireflies, the distant rumble of Arenal — Tented Camp by night is a symphony of the wild. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="right"
       />
 
-      <Footer bgColor="#2E3320" />
+      <Footer bgColor="#3B2B26" />
     </div>
   );
 }

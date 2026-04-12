@@ -18,12 +18,12 @@ const PALETTE = {
   primary: "#5E5549",
   secondary: "#8B6B3E",
   accent: "#7A8568",
-  gradientStart: "#F5F1EB",
+  gradientStart: "#F7F5F0",
   gradientEnd: "#EDEAE4",
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  divider: "#E2DDD5",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  divider: "#E6DFD5",
 };
 
 const CDN_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";

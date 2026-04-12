@@ -368,7 +368,7 @@ interface DrawLineProps {
   delay?: number;
 }
 
-export function DrawLine({ className, color = "#E2DDD5", delay = 0 }: DrawLineProps) {
+export function DrawLine({ className, color = "#E6DFD5", delay = 0 }: DrawLineProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 

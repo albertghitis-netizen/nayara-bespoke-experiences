@@ -2002,3 +2002,14 @@
 - [ ] Add super subtle realistic vine/botanical texture overlay near H1 on brand homepage hero
 - [ ] Add super subtle realistic vine/botanical texture overlay across entire brand homepage (not just hero)
 - [x] Change H1, Nayara Resorts top text, and all nav button backgrounds to #F2EBE3 (cream/linen)
+
+## Color Palette Update — Official 36-Swatch Palette
+- [x] Extract hex values from 36 swatch images
+- [x] Map swatches to brand foundation colors (Warm White, Sand, Espresso, Blue Gray, Taupe)
+- [x] Map swatches to property primary colors (Olive Tree, Clover Green, Teal, Terracotta, Steel Blue, Ocean)
+- [x] Update propertyPalettes.ts with new hex values
+- [x] Replace all hardcoded old brand colors across 29+ page files
+- [x] Update CSS variables in index.css (brand foundation + property palettes + shadcn theme)
+- [x] Update scrollbar and selection colors
+- [x] Update BrandBook.tsx color names and descriptions
+- [x] Verify visual rendering on Home, Tented Camp, Alto Atacama, Gardens pages

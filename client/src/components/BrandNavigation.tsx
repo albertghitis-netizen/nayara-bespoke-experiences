@@ -45,7 +45,7 @@ PROPERTIES.forEach((p) => {
 });
 
 export interface NavPalette {
-  /** Dark text/icon color — replaces #3a2a1a */
+  /** Dark text/icon color — replaces #3B2B26 */
   dark: string;
   /** Light pill background — replaces #ece8e1 */
   pillBg: string;
@@ -74,7 +74,7 @@ export default function BrandNavigation({
   const propertyPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(propertySlug)
     ? getPalette(propertySlug)
     : null;
-  const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#3a2a1a");
+  const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#3B2B26");
   const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(242,235,227,0.75)");
   const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(242,235,227,0.92)");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -145,7 +145,7 @@ export default function BrandNavigation({
     "flex items-center justify-center rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border";
 
   const dropdown =
-    "absolute mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border border-[#3a2a1a]/10";
+    "absolute mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border border-[#3B2B26]/10";
 
   const menuItem =
     "w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/40 transition-colors";
@@ -192,50 +192,50 @@ export default function BrandNavigation({
                     {propertyItems.length > 0 && (
                       <>
                         <div className="px-5 pt-2 pb-1">
-                          <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em]" style={menuText}>
+                          <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
                             This Property
                           </span>
                         </div>
                         {propertyItems.map((item) => (
                           <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                            <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
                           </button>
                         ))}
-                        <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
+                        <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
                       </>
                     )}
 
                     {/* Global links */}
                     {propertyItems.length > 0 && (
                       <div className="px-5 pt-1 pb-1">
-                        <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em]" style={menuText}>
+                        <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
                           Explore Nayara
                         </span>
                       </div>
                     )}
                     {GLOBAL_MENU.map((item) => (
                       <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
                       </button>
                     ))}
 
                     {/* Resorts sub-section */}
-                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
+                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
                     <div className="px-5 pt-1 pb-1">
-                      <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.18em]" style={menuText}>
+                      <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
                         Our Resorts
                       </span>
                     </div>
                     {EXPLORE_ITEMS.map((item) => (
                       <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
                       </button>
                     ))}
 
                     {/* Back to brand home */}
-                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1.5" />
+                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
                     <button onClick={() => handleNavigate("/")} className={menuItem}>
-                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
                     </button>
 
                   </div>
@@ -289,13 +289,13 @@ export default function BrandNavigation({
                         className={`${menuItem} flex items-center justify-between`}
                       >
                         <span
-                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3a2a1a]/80" : "text-[#3a2a1a]/30"}`}
+                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3B2B26]/80" : "text-[#3B2B26]/30"}`}
                           style={menuText}
                         >
                           {hotel.label}
                         </span>
                         {!hotel.available && (
-                          <span className="text-[8px] tracking-[0.1em] text-[#3a2a1a]/20 border border-[#3a2a1a]/12 px-1.5 py-0.5 rounded-full">
+                          <span className="text-[8px] tracking-[0.1em] text-[#3B2B26]/20 border border-[#3B2B26]/12 px-1.5 py-0.5 rounded-full">
                             Soon
                           </span>
                         )}
@@ -331,41 +331,41 @@ export default function BrandNavigation({
                     {propertyItems.length > 0 && (
                       <>
                         <div className="px-4 pt-2 pb-1">
-                          <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.18em]" style={menuText}>
+                          <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.18em]" style={menuText}>
                             This Property
                           </span>
                         </div>
                         {propertyItems.map((item) => (
                           <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                            <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
                           </button>
                         ))}
-                        <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
+                        <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
                       </>
                     )}
                     {GLOBAL_MENU.map((item) => (
                       <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
                       </button>
                     ))}
 
                     {/* Our Resorts */}
-                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
+                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
                     <div className="px-4 pt-1 pb-1">
-                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.18em]" style={menuText}>
+                      <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.18em]" style={menuText}>
                         Our Resorts
                       </span>
                     </div>
                     {EXPLORE_ITEMS.map((item) => (
                       <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>{item.label}</span>
+                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
                       </button>
                     ))}
 
                     {/* Back to brand home */}
-                    <div className="h-px bg-[#3a2a1a]/8 mx-4 my-1" />
+                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
                     <button onClick={() => handleNavigate("/")} className={menuItem}>
-                      <span className="text-[#3a2a1a]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
                     </button>
 
                   </div>
@@ -395,7 +395,7 @@ export default function BrandNavigation({
                         className={`${menuItem} flex items-center justify-between`}
                       >
                         <span
-                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3a2a1a]/80" : "text-[#3a2a1a]/30"}`}
+                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3B2B26]/80" : "text-[#3B2B26]/30"}`}
                           style={menuText}
                         >
                           {hotel.label}

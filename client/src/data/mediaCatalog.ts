@@ -19,12 +19,12 @@ export interface MediaAsset {
 }
 
 export const PROPERTY_FILTERS = [
-  { key: "brand", label: "Brand", color: "#3a2a1a" },
+  { key: "brand", label: "Brand", color: "#3B2B26" },
   { key: "springs", label: "Springs", color: "#1a4a2e" },
   { key: "tented-camp", label: "Tented Camp", color: "#4a5a3a" },
-  { key: "gardens", label: "Gardens", color: "#3A5E3A" },
+  { key: "gardens", label: "Gardens", color: "#286241" },
   { key: "atacama", label: "Alto Atacama", color: "#8b4513" },
-  { key: "bocas", label: "Bocas del Toro", color: "#2A6B7A" },
+  { key: "bocas", label: "Bocas del Toro", color: "#2A6489" },
   { key: "hangaroa", label: "Hangaroa", color: "#5a5a5a" },
   { key: "costa-rica", label: "Costa Rica", color: "#2d5a27" },
   { key: "nbn", label: "By Night", color: "#1a1a2e" },

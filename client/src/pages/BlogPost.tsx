@@ -12,7 +12,7 @@ export default function BlogPost() {
       style={{
         fontFamily: "var(--font-body)",
         backgroundColor: "#f7f5f0",
-        color: "#3a2a1a",
+        color: "#3B2B26",
       }}
     >
       {/* ── HERO IMAGE ── */}
@@ -78,7 +78,7 @@ export default function BlogPost() {
         <div className="px-8 md:px-16 py-10">
           <div className="border border-[#c4bba8] rounded p-6 md:p-8 bg-[#F5F0E8]">
             <p
-              className="text-lg mb-4 text-[#3a2a1a]"
+              className="text-lg mb-4 text-[#3B2B26]"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               Key Findings
@@ -520,7 +520,7 @@ export default function BlogPost() {
       <div className="h-[3px] bg-[#c4bba8]" />
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#3a2a1a] text-center py-12 px-8 md:px-16">
+      <footer className="bg-[#3B2B26] text-center py-12 px-8 md:px-16">
         <p
           className="text-white/40 text-[10px] tracking-[0.25em] mb-6"
           style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}

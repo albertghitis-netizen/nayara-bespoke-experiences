@@ -157,7 +157,7 @@ export default function Awards() {
       </section>
 
       {/* ── Brand Stats Bar ── */}
-      <section className="bg-[#3a2a1a] py-10 md:py-14">
+      <section className="bg-[#3B2B26] py-10 md:py-14">
         <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {brandStats.map((stat, i) => (
@@ -205,19 +205,19 @@ export default function Awards() {
             className="text-center mb-12 md:mb-16"
           >
             <p
-              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
+              className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               The Michelin Guide
             </p>
             <h2
-              className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl mb-6"
+              className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               7 Michelin Keys
             </h2>
             <p
-              className="text-[#3a2a1a]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
+              className="text-[#3B2B26]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
               Michelin Keys are the hotel equivalent of Michelin Stars for restaurants. Awarded to properties that deliver an exceptional stay defined by outstanding architecture, interior design, quality of service, character, and a genuine sense of place. Three Keys is the highest distinction — reserved for the world's most extraordinary hotels.
@@ -246,19 +246,19 @@ export default function Awards() {
                   ))}
                 </div>
                 <h3
-                  className="text-[#3a2a1a] text-xl md:text-2xl mb-1"
+                  className="text-[#3B2B26] text-xl md:text-2xl mb-1"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
                   {item.property}
                 </h3>
                 <p
-                  className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] mb-4"
+                  className="text-[#3B2B26]/40 text-[10px] tracking-[0.2em] mb-4"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                 >
                   {item.location} · {item.keys} Keys
                 </p>
                 <p
-                  className="text-[#3a2a1a]/60 text-sm leading-relaxed"
+                  className="text-[#3B2B26]/60 text-sm leading-relaxed"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                 >
                   {item.description}
@@ -270,7 +270,7 @@ export default function Awards() {
       </section>
 
       {/* ── All Awards by Property ── */}
-      <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]/[0.03]">
+      <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3B2B26]/[0.03]">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -280,13 +280,13 @@ export default function Awards() {
             className="text-center mb-12"
           >
             <p
-              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
+              className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               By Property
             </p>
             <h2
-              className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl"
+              className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               Awards & Accolades
@@ -301,8 +301,8 @@ export default function Awards() {
                 onClick={() => { setActiveFilter(p); setExpandedProperty(null); }}
                 className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${
                   activeFilter === p
-                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                    : "bg-transparent text-[#5a4a3a]/40 border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:text-[#3a2a1a]"
+                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                    : "bg-transparent text-[#5a4a3a]/40 border-[#3B2B26]/10 hover:border-[#3B2B26]/25 hover:text-[#3B2B26]"
                 }`}
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
@@ -319,7 +319,7 @@ export default function Awards() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: si * 0.05 }}
-                className="border-b border-[#3a2a1a]/10"
+                className="border-b border-[#3B2B26]/10"
               >
                 {/* Property Header */}
                 <button
@@ -335,7 +335,7 @@ export default function Awards() {
                       </div>
                     )}
                     <span
-                      className="text-[#3a2a1a] text-base md:text-lg group-hover:text-[#3a2a1a]/70 transition-colors"
+                      className="text-[#3B2B26] text-base md:text-lg group-hover:text-[#3B2B26]/70 transition-colors"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       {section.property}
@@ -345,7 +345,7 @@ export default function Awards() {
                     animate={{ rotate: expandedProperty === section.property ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown className="w-5 h-5 text-[#3a2a1a]/30" />
+                    <ChevronDown className="w-5 h-5 text-[#3B2B26]/30" />
                   </motion.div>
                 </button>
 
@@ -371,7 +371,7 @@ export default function Awards() {
                             {award.accolades.map((accolade, aci) => (
                               <p
                                 key={aci}
-                                className="text-[#3a2a1a]/60 text-sm py-1.5 border-b border-[#3a2a1a]/5 last:border-0"
+                                className="text-[#3B2B26]/60 text-sm py-1.5 border-b border-[#3B2B26]/5 last:border-0"
                                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                               >
                                 {accolade}
@@ -400,13 +400,13 @@ export default function Awards() {
             className="text-center mb-12 md:mb-16"
           >
             <p
-              className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
+              className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Sustainability
             </p>
             <h2
-              className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl"
+              className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               Certifications
@@ -425,7 +425,7 @@ export default function Awards() {
               >
                 <ShieldCheck className="w-8 h-8 text-emerald-700/60 mb-5" />
                 <h3
-                  className="text-[#3a2a1a] text-xl mb-2"
+                  className="text-[#3B2B26] text-xl mb-2"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
                   {cert.name}
@@ -437,7 +437,7 @@ export default function Awards() {
                   {cert.properties}
                 </p>
                 <p
-                  className="text-[#3a2a1a]/50 text-sm leading-relaxed"
+                  className="text-[#3B2B26]/50 text-sm leading-relaxed"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                 >
                   {cert.description}

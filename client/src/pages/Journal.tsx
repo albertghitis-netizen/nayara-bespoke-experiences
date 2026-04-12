@@ -122,8 +122,8 @@ export default function Journal() {
                 }}
                 className={`flex-shrink-0 px-4 py-2 rounded-full text-[11px] tracking-[0.08em] transition-all duration-300 border ${
                   activeProperty === prop.id
-                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                    : "bg-transparent text-[#3a2a1a]/50 border-[#3a2a1a]/12 hover:text-[#3a2a1a] hover:border-[#3a2a1a]/30"
+                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                    : "bg-transparent text-[#3B2B26]/50 border-[#3B2B26]/12 hover:text-[#3B2B26] hover:border-[#3B2B26]/30"
                 }`}
                 style={{ ...body, fontWeight: 500 }}
               >
@@ -148,7 +148,7 @@ export default function Journal() {
         <div className="max-w-[1200px] mx-auto">
           {gridEntries.length === 0 && !featuredEntry ? (
             <div className="text-center py-16">
-              <p className="text-[#3a2a1a]/30 text-[14px]" style={body}>
+              <p className="text-[#3B2B26]/30 text-[14px]" style={body}>
                 No stories match the current filter.
               </p>
             </div>
@@ -169,7 +169,7 @@ export default function Journal() {
                 <div className="flex justify-center mt-10">
                   <button
                     onClick={() => setShowAll(true)}
-                    className="flex items-center gap-2 text-[11px] tracking-[0.15em] text-[#3a2a1a]/40 hover:text-[#3a2a1a] transition-colors py-3 px-6 border border-[#3a2a1a]/15 rounded-full hover:border-[#3a2a1a]/30"
+                    className="flex items-center gap-2 text-[11px] tracking-[0.15em] text-[#3B2B26]/40 hover:text-[#3B2B26] transition-colors py-3 px-6 border border-[#3B2B26]/15 rounded-full hover:border-[#3B2B26]/30"
                     style={{ ...body, fontWeight: 500 }}
                   >
                     View All Stories
@@ -188,7 +188,7 @@ export default function Journal() {
           <div className="max-w-3xl mx-auto">
             <FadeIn>
               <h2
-                className="text-[#3a2a1a] text-xl md:text-2xl text-center mb-10"
+                className="text-[#3B2B26] text-xl md:text-2xl text-center mb-10"
                 style={heading}
               >
                 Frequently Asked Questions
@@ -259,7 +259,7 @@ function FeaturedCard({
         )}
         <div className="absolute top-4 left-4 flex items-center gap-2">
           <span
-            className="inline-block bg-[#3a2a1a]/70 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] px-3 py-1.5 rounded-full"
+            className="inline-block bg-[#3B2B26]/70 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] px-3 py-1.5 rounded-full"
             style={{ ...body, fontWeight: 500 }}
           >
             Featured
@@ -277,16 +277,16 @@ function FeaturedCard({
       <div className="flex flex-col justify-center p-8 md:p-12 lg:p-14">
         <div className="flex items-center gap-3 mb-4">
           <span
-            className="text-[#3a2a1a]/30 text-[10px] tracking-[0.2em] uppercase"
+            className="text-[#3B2B26]/30 text-[10px] tracking-[0.2em] uppercase"
             style={{ ...body, fontWeight: 500 }}
           >
             {propertyLabel}
           </span>
           {isVideo && entry.guest && (
             <>
-              <span className="w-px h-3 bg-[#3a2a1a]/10" />
+              <span className="w-px h-3 bg-[#3B2B26]/10" />
               <span
-                className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em]"
+                className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]"
                 style={body}
               >
                 with {entry.guest}
@@ -295,7 +295,7 @@ function FeaturedCard({
           )}
         </div>
         <h2
-          className="text-[#3a2a1a] text-2xl md:text-3xl leading-[1.1] group-hover:text-[#5a4a3a] transition-colors"
+          className="text-[#3B2B26] text-2xl md:text-3xl leading-[1.1] group-hover:text-[#5a4a3a] transition-colors"
           style={heading}
         >
           {entry.title}
@@ -308,13 +308,13 @@ function FeaturedCard({
         </p>
         <div className="mt-6 flex items-center gap-2">
           <span
-            className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] group-hover:text-[#3a2a1a] transition-colors"
+            className="text-[#3B2B26]/40 text-[10px] tracking-[0.2em] group-hover:text-[#3B2B26] transition-colors"
             style={{ ...body, fontWeight: 500 }}
           >
             {isVideo ? "Watch Episode" : "Read Story"}
           </span>
-          {!isVideo && <ExternalLink className="w-3 h-3 text-[#3a2a1a]/30 group-hover:text-[#3a2a1a] transition-colors" />}
-          {isVideo && <Play className="w-3 h-3 text-[#3a2a1a]/30 group-hover:text-[#3a2a1a] transition-colors" />}
+          {!isVideo && <ExternalLink className="w-3 h-3 text-[#3B2B26]/30 group-hover:text-[#3B2B26] transition-colors" />}
+          {isVideo && <Play className="w-3 h-3 text-[#3B2B26]/30 group-hover:text-[#3B2B26] transition-colors" />}
         </div>
       </div>
     </div>
@@ -399,16 +399,16 @@ function JournalCard({
       </div>
       <div className="flex items-center gap-2 mb-2">
         <span
-          className="text-[#3a2a1a]/25 text-[9px] tracking-[0.15em] uppercase"
+          className="text-[#3B2B26]/25 text-[9px] tracking-[0.15em] uppercase"
           style={{ ...body, fontWeight: 500 }}
         >
           {propertyLabel}
         </span>
         {isVideo && entry.guest && (
           <>
-            <span className="w-px h-2.5 bg-[#3a2a1a]/10" />
+            <span className="w-px h-2.5 bg-[#3B2B26]/10" />
             <span
-              className="text-[#3a2a1a]/20 text-[9px] tracking-[0.1em]"
+              className="text-[#3B2B26]/20 text-[9px] tracking-[0.1em]"
               style={body}
             >
               {entry.guest}
@@ -417,7 +417,7 @@ function JournalCard({
         )}
       </div>
       <h3
-        className="text-[#3a2a1a] text-lg leading-[1.2] group-hover:text-[#5a4a3a] transition-colors"
+        className="text-[#3B2B26] text-lg leading-[1.2] group-hover:text-[#5a4a3a] transition-colors"
         style={heading}
       >
         {entry.title}
@@ -471,7 +471,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
   const toggle = (id: string) => setOpenId(openId === id ? null : id);
 
   return (
-    <div className="divide-y divide-[#3a2a1a]/8">
+    <div className="divide-y divide-[#3B2B26]/8">
       {items.map((item) => (
         <div key={item.id} className="py-1">
           <button
@@ -479,7 +479,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
             className="w-full text-left py-5 flex items-start justify-between gap-4 group"
           >
             <span
-              className="text-[#3a2a1a] text-[15px] md:text-[16px] leading-relaxed group-hover:text-[#3a2a1a]/70 transition-colors"
+              className="text-[#3B2B26] text-[15px] md:text-[16px] leading-relaxed group-hover:text-[#3B2B26]/70 transition-colors"
               style={{ ...body, fontWeight: 500 }}
             >
               {item.question}
@@ -487,7 +487,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
             <motion.svg
               animate={{ rotate: openId === item.id ? 180 : 0 }}
               transition={{ duration: 0.25 }}
-              className="w-5 h-5 text-[#3a2a1a]/30 flex-shrink-0 mt-1"
+              className="w-5 h-5 text-[#3B2B26]/30 flex-shrink-0 mt-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -506,7 +506,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
                 className="overflow-hidden"
               >
                 <div className="pb-6 pr-10">
-                  <p className="text-[#3a2a1a]/60 text-[14px] leading-relaxed" style={body}>
+                  <p className="text-[#3B2B26]/60 text-[14px] leading-relaxed" style={body}>
                     {item.answer}
                   </p>
                   {item.properties.length > 0 && (
@@ -516,7 +516,7 @@ function FAQAccordion({ items }: { items: FAQItem[] }) {
                         return (
                           <span
                             key={pid}
-                            className="text-[10px] tracking-[0.1em] text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-sm"
+                            className="text-[10px] tracking-[0.1em] text-[#3B2B26]/30 border border-[#3B2B26]/10 px-2 py-0.5 rounded-sm"
                             style={{ ...body, fontWeight: 500 }}
                           >
                             {prop?.label || pid}

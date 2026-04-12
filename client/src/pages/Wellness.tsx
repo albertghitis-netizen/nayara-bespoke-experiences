@@ -152,7 +152,7 @@ function IntroSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Philosophy</p>
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Philosophy</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             Nature as Healer
           </h2>
@@ -197,13 +197,13 @@ function WellnessPillarRow({ pillar, reversed, index }: { pillar: WellnessPillar
             </div>
           </div>
           <div className={reversed ? "md:order-1" : "md:order-2"}>
-            <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>{pillar.subtitle}</p>
-            <h3 className="text-[#3a2a1a] text-2xl md:text-3xl leading-[1.15] mb-6" style={heading}>{pillar.title}</h3>
+            <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>{pillar.subtitle}</p>
+            <h3 className="text-[#3B2B26] text-2xl md:text-3xl leading-[1.15] mb-6" style={heading}>{pillar.title}</h3>
             <p className="text-[#4B4A4A]/65 text-[15px] leading-relaxed mb-8" style={body}>{pillar.description}</p>
             <ul className="space-y-3">
               {pillar.details.map((d) => (
                 <li key={d} className="text-[#4B4A4A]/50 text-sm flex items-center gap-3" style={body}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#3a2a1a]/20 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#3B2B26]/20 flex-shrink-0" />
                   {d}
                 </li>
               ))}
@@ -223,7 +223,7 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
     <section className="py-16 md:py-24 px-6 md:px-10 bg-white/30">
       <div className="max-w-[1200px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Spa Treatments</p>
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Spa Treatments</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Treatments Shaped by Place
           </h2>
@@ -237,8 +237,8 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
               onClick={() => onFilterChange(opt.id)}
               className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
                 activeFilter === opt.id
-                  ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                  : "bg-transparent text-[#5a4a3a]/60 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40 hover:text-[#3a2a1a]"
+                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                  : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
               }`}
               style={{ ...body, fontWeight: 500 }}
             >
@@ -250,7 +250,7 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
         {/* Treatment cards */}
         {treatments.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-[#3a2a1a]/40 text-lg" style={heading}>No treatments match the selected filter</p>
+            <p className="text-[#3B2B26]/40 text-lg" style={heading}>No treatments match the selected filter</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -258,16 +258,16 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
               <FadeIn key={`${t.propertyId}-${t.id}`} delay={Math.min(i * 0.05, 0.3)}>
                 <div className="bg-white/60 rounded-xl p-6 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.2em]" style={{ ...body, fontWeight: 600 }}>{t.propertyName}</span>
-                    <span className="text-[#3a2a1a]/15">\u00b7</span>
-                    <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{t.category}</span>
+                    <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.2em]" style={{ ...body, fontWeight: 600 }}>{t.propertyName}</span>
+                    <span className="text-[#3B2B26]/15">\u00b7</span>
+                    <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{t.category}</span>
                   </div>
-                  <h3 className="text-[#3a2a1a] text-[16px] mb-1" style={{ ...heading, fontWeight: 500 }}>{t.name}</h3>
-                  {t.localName && <p className="text-[#3a2a1a]/30 text-[12px] italic mb-2" style={body}>{t.localName}</p>}
+                  <h3 className="text-[#3B2B26] text-[16px] mb-1" style={{ ...heading, fontWeight: 500 }}>{t.name}</h3>
+                  {t.localName && <p className="text-[#3B2B26]/30 text-[12px] italic mb-2" style={body}>{t.localName}</p>}
                   <p className="text-[#4B4A4A]/55 text-[13px] leading-relaxed mb-3 line-clamp-2" style={body}>{t.description}</p>
-                  <div className="flex items-center gap-3 text-[11px] text-[#3a2a1a]/35" style={{ ...body, fontWeight: 500 }}>
+                  <div className="flex items-center gap-3 text-[11px] text-[#3B2B26]/35" style={{ ...body, fontWeight: 500 }}>
                     <span>{t.duration}</span>
-                    <span className="text-[#3a2a1a]/15">\u00b7</span>
+                    <span className="text-[#3B2B26]/15">\u00b7</span>
                     <span>{t.price}</span>
                   </div>
                 </div>
@@ -277,7 +277,7 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
         )}
         {treatments.length > 12 && (
           <div className="text-center mt-8">
-            <p className="text-[#3a2a1a]/30 text-[13px]" style={body}>Showing 12 of {treatments.length} treatments</p>
+            <p className="text-[#3B2B26]/30 text-[13px]" style={body}>Showing 12 of {treatments.length} treatments</p>
           </div>
         )}
       </div>
@@ -290,7 +290,7 @@ function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activ
    ═══════════════════════════════════════════════════════════════ */
 function SpringsFeature() {
   return (
-    <section className="py-16 md:py-24 bg-[#3a2a1a] px-6 md:px-10">
+    <section className="py-16 md:py-24 bg-[#3B2B26] px-6 md:px-10">
       <div className="max-w-[800px] mx-auto text-center">
         <FadeIn>
           <p className="text-white/25 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Wellness Flagship</p>
@@ -318,19 +318,19 @@ function PropertyLinksSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[1100px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Wellness by Destination</p>
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Wellness by Destination</p>
           <h2 className="text-[#4B4A4A] mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Find Your Healing Landscape
           </h2>
         </FadeIn>
         <div className="space-y-0">
           {propertyWellnessLinks.map((prop) => (
-            <Link key={prop.name} href={prop.route} className="group flex items-center justify-between py-5 border-b border-[#3a2a1a]/10 hover:border-[#3a2a1a]/30 transition-colors">
+            <Link key={prop.name} href={prop.route} className="group flex items-center justify-between py-5 border-b border-[#3B2B26]/10 hover:border-[#3B2B26]/30 transition-colors">
               <div>
-                <h3 className="text-[#3a2a1a] text-lg md:text-xl group-hover:text-[#5a4a3a] transition-colors" style={heading}>{prop.name}</h3>
+                <h3 className="text-[#3B2B26] text-lg md:text-xl group-hover:text-[#5a4a3a] transition-colors" style={heading}>{prop.name}</h3>
                 <p className="text-[#4B4A4A]/40 text-[13px] mt-1" style={body}>{prop.focus}</p>
               </div>
-              <ChevronRight className="w-5 h-5 text-[#3a2a1a]/20 group-hover:text-[#3a2a1a]/50 group-hover:translate-x-1 transition-all" />
+              <ChevronRight className="w-5 h-5 text-[#3B2B26]/20 group-hover:text-[#3B2B26]/50 group-hover:translate-x-1 transition-all" />
             </Link>
           ))}
         </div>

@@ -96,12 +96,12 @@ export default function SidebarNavigation({
           className="fixed inset-0 z-50 flex flex-col bg-[#e3dfd2]"
         >
           {/* Close button — fixed at top, spans all columns */}
-          <div className="border-b border-[#3a2a1a]/10 px-6 py-4 flex items-center justify-start">
+          <div className="border-b border-[#3B2B26]/10 px-6 py-4 flex items-center justify-start">
             <button
               onClick={onClose}
               className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-[#d4c9b8]/50 transition-colors"
             >
-              <svg className="w-4 h-4 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 text-[#3B2B26]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -115,7 +115,7 @@ export default function SidebarNavigation({
               animate={{ x: 0 }}
               exit={{ x: -300 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="w-56 border-r border-[#3a2a1a]/10 overflow-y-auto"
+              className="w-56 border-r border-[#3B2B26]/10 overflow-y-auto"
             >
               {/* Menu items */}
               <div className="px-6 py-8">
@@ -126,8 +126,8 @@ export default function SidebarNavigation({
                       onClick={() => setSelectedMenu(selectedMenu === item.id ? null : item.id)}
                       className={`w-full text-left px-3 py-2 rounded transition-colors ${
                         selectedMenu === item.id
-                          ? "bg-[#d4c9b8]/50 text-[#3a2a1a]"
-                          : "text-[#3a2a1a] hover:bg-[#d4c9b8]/30"
+                          ? "bg-[#d4c9b8]/50 text-[#3B2B26]"
+                          : "text-[#3B2B26] hover:bg-[#d4c9b8]/30"
                       }`}
                       style={{ fontFamily: "var(--font-body)" }}
                     >
@@ -147,7 +147,7 @@ export default function SidebarNavigation({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="w-64 border-r border-[#3a2a1a]/10 overflow-y-auto"
+                  className="w-64 border-r border-[#3B2B26]/10 overflow-y-auto"
                 >
                   {/* Properties list */}
                   <div className="px-6 py-8">
@@ -162,8 +162,8 @@ export default function SidebarNavigation({
                           }}
                           className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
                             selectedDestination === destination.route
-                              ? "bg-[#d4c9b8]/50 text-[#3a2a1a] font-semibold"
-                              : "text-[#3a2a1a] hover:bg-[#d4c9b8]/30"
+                              ? "bg-[#d4c9b8]/50 text-[#3B2B26] font-semibold"
+                              : "text-[#3B2B26] hover:bg-[#d4c9b8]/30"
                           }`}
                           style={{ fontFamily: "var(--font-body)" }}
                         >
@@ -185,7 +185,7 @@ export default function SidebarNavigation({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="w-64 border-r border-[#3a2a1a]/10 overflow-y-auto"
+                  className="w-64 border-r border-[#3B2B26]/10 overflow-y-auto"
                 >
                   {/* Property sections list */}
                   <div className="px-6 py-8">
@@ -196,8 +196,8 @@ export default function SidebarNavigation({
                           onClick={() => setSelectedSection(section.id)}
                           className={`w-full text-left px-3 py-2 text-sm rounded transition-colors ${
                             selectedSection === section.id
-                              ? "bg-[#d4c9b8]/50 text-[#3a2a1a] font-semibold"
-                              : "text-[#3a2a1a] hover:bg-[#d4c9b8]/30"
+                              ? "bg-[#d4c9b8]/50 text-[#3B2B26] font-semibold"
+                              : "text-[#3B2B26] hover:bg-[#d4c9b8]/30"
                           }`}
                           style={{ fontFamily: "var(--font-body)" }}
                         >

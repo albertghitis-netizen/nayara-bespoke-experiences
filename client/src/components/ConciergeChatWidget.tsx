@@ -42,7 +42,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
   const slug = loc.split("/")[1] || "";
   const autoPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
     ? getPalette(slug) : null;
-  const dk = palette?.dark ?? (autoPalette ? "#fff" : "#3a2a1a");
+  const dk = palette?.dark ?? (autoPalette ? "#fff" : "#3B2B26");
   const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : "rgba(242,235,227,0.75)");
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -214,22 +214,22 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
             }}
           >
             {/* ── Header ── */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-[#3a2a1a]/10 shrink-0">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-[#3B2B26]/10 shrink-0">
               <div>
-                <h3 className="text-[#3a2a1a] text-sm font-medium tracking-[0.04em]" style={{ fontFamily: "var(--font-body)" }}>
+                <h3 className="text-[#3B2B26] text-sm font-medium tracking-[0.04em]" style={{ fontFamily: "var(--font-body)" }}>
                   Henry, Your Concierge
                 </h3>
-                <p className="text-[#3a2a1a]/60 text-xs mt-0.5" style={{ fontFamily: "var(--font-body)" }}>
+                <p className="text-[#3B2B26]/60 text-xs mt-0.5" style={{ fontFamily: "var(--font-body)" }}>
                   How may I help you today?
                 </p>
               </div>
               {/* ── Close button ── */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-[#3a2a1a]/10 transition-colors flex-shrink-0"
+                className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-[#3B2B26]/10 transition-colors flex-shrink-0"
               >
                 <svg
-                  className="w-4 h-4 text-[#3a2a1a]/40"
+                  className="w-4 h-4 text-[#3B2B26]/40"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -250,7 +250,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
               {showWelcome && messages.length === 0 && (
                 <div className="flex justify-start">
                   <div
-                    className="max-w-[85%] rounded-2xl rounded-bl-md px-4 py-3 bg-white text-[#3a2a1a] shadow-sm border border-white/20"
+                    className="max-w-[85%] rounded-2xl rounded-bl-md px-4 py-3 bg-white text-[#3B2B26] shadow-sm border border-white/20"
                   >
                     <p
                       className="text-[13px] leading-relaxed"
@@ -271,8 +271,8 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-3 ${
                       msg.role === "user"
-                        ? "bg-white text-[#3a2a1a] rounded-br-md border border-white/30 shadow-sm"
-                        : "bg-white text-[#3a2a1a] rounded-bl-md shadow-sm border border-white/30"
+                        ? "bg-white text-[#3B2B26] rounded-br-md border border-white/30 shadow-sm"
+                        : "bg-white text-[#3B2B26] rounded-bl-md shadow-sm border border-white/30"
                     }`}
                   >
                     {msg.role === "assistant" ? (
@@ -297,11 +297,11 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
               {/* Typing indicator */}
               {chatMutation.isPending && (
                 <div className="flex justify-start">
-                  <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-[#3a2a1a]/5">
+                  <div className="bg-white rounded-2xl rounded-bl-md px-4 py-3 shadow-sm border border-[#3B2B26]/5">
                     <div className="flex gap-1.5 items-center h-5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#3a2a1a]/30 animate-bounce" style={{ animationDelay: "0ms" }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#3a2a1a]/30 animate-bounce" style={{ animationDelay: "150ms" }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#3a2a1a]/30 animate-bounce" style={{ animationDelay: "300ms" }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3B2B26]/30 animate-bounce" style={{ animationDelay: "0ms" }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3B2B26]/30 animate-bounce" style={{ animationDelay: "150ms" }} />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3B2B26]/30 animate-bounce" style={{ animationDelay: "300ms" }} />
                     </div>
                   </div>
                 </div>
@@ -322,7 +322,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
                   onKeyDown={handleKeyDown}
                   placeholder="Ask us anything..."
                   rows={1}
-                  className="flex-1 resize-none bg-transparent text-[13px] text-[#3a2a1a] placeholder:text-[#3a2a1a]/35 focus:outline-none max-h-24 py-2"
+                  className="flex-1 resize-none bg-transparent text-[13px] text-[#3B2B26] placeholder:text-[#3B2B26]/35 focus:outline-none max-h-24 py-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 />
                 {/* Voice input button */}
@@ -332,7 +332,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
                   className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all ${
                     isListening
                       ? 'bg-red-500 hover:bg-red-600 animate-pulse'
-                      : 'bg-[#3a2a1a] hover:bg-[#4a3a2a]'
+                      : 'bg-[#3B2B26] hover:bg-[#4a3a2a]'
                   }`}
                   title={isListening ? 'Stop listening' : 'Start voice input'}
                 >
@@ -345,7 +345,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
                 <button
                   type="submit"
                   disabled={!input.trim() || chatMutation.isPending}
-                  className="shrink-0 w-9 h-9 rounded-full bg-[#3a2a1a] flex items-center justify-center disabled:opacity-30 hover:bg-[#4a3a2a] transition-all"
+                  className="shrink-0 w-9 h-9 rounded-full bg-[#3B2B26] flex items-center justify-center disabled:opacity-30 hover:bg-[#4a3a2a] transition-all"
                 >
                   <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />

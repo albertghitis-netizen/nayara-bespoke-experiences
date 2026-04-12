@@ -37,15 +37,15 @@ const hangaroa = properties.find((p: Property) => p.id === "hangaroa")!;
    ═══════════════════════════════════════════════════════════════ */
 /* Slate Gray palette — volcanic stone */
 const PALETTE = {
-  primary: "#5A5E64",
-  secondary: "#7A7E82",
-  accent: "#9A9EA2",
-  gradientStart: "#F5F1EB",
+  primary: "#536878",
+  secondary: "#67737C",
+  accent: "#9A9086",
+  gradientStart: "#F7F5F0",
   gradientEnd: "#EAEBED",
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  divider: "#E2DDD5",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  divider: "#E6DFD5",
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -97,7 +97,7 @@ const SLIDER_PALETTE = {
   cardBorder: `${PALETTE.primary}15`,
   pillBg: `${PALETTE.primary}08`,
   pillActiveBg: PALETTE.primary,
-  pillActiveText: "#F5F1EB",
+  pillActiveText: "#F7F5F0",
 };
 
 const roomCards = [
@@ -199,13 +199,13 @@ export default function Hangaroa() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-golden-sunset_f7d26dab.webp"
         horizontalRatio="16/9"
-        bgColor="#2A2C30"
+        bgColor="#1B2534"
         headline={"Moai Beneath\nthe Milky Way"}
         bodyText="On Rapa Nui, the ancient Moai stand sentinel beneath some of the most pristine night skies in the Southern Hemisphere. Far from any light pollution, the Milky Way blazes overhead in extraordinary detail. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
       />
 
-      <Footer bgColor="#2A2C30" />
+      <Footer bgColor="#1B2534" />
     </div>
   );
 }
@@ -379,7 +379,7 @@ function ExperiencesSection() {
                       fontFamily: "var(--font-body)",
                       fontWeight: 500,
                       backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                      color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
+                      color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
                       border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
                     }}
                   >
@@ -521,7 +521,7 @@ function WellnessSection() {
                       fontFamily: "var(--font-body)",
                       fontWeight: 500,
                       backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                      color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
+                      color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
                       border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
                     }}
                   >

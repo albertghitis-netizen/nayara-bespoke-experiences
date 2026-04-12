@@ -29,7 +29,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500 }}>
+    <p className="text-[#3B2B26]/40 text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500 }}>
       {children}
     </p>
   );
@@ -61,7 +61,7 @@ function ExperiencesSection() {
           <FadeIn delay={0.1}>
             <div className="flex flex-wrap gap-2 mb-8 md:mb-12">
               {categories.map((cat: { id: string; label: string }) => (
-                <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] transition-all ${activeCategory === cat.id ? "bg-[#3a2a1a] text-white" : "bg-[#3a2a1a]/5 text-[#3a2a1a]/60 hover:bg-[#3a2a1a]/10"}`} style={{ ...body, fontWeight: 500 }}>
+                <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] transition-all ${activeCategory === cat.id ? "bg-[#3B2B26] text-white" : "bg-[#3B2B26]/5 text-[#3B2B26]/60 hover:bg-[#3B2B26]/10"}`} style={{ ...body, fontWeight: 500 }}>
                   {cat.label}
                 </button>
               ))}
@@ -72,9 +72,9 @@ function ExperiencesSection() {
           {filtered.map((excursion: Excursion, i: number) => (
             <FadeIn key={excursion.id} delay={i * 0.05}>
               <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 hover:bg-white/80 transition-colors">
-                <h3 className="text-[#3a2a1a] text-[16px] mb-2" style={{ ...heading, fontWeight: 500 }}>{excursion.name}</h3>
+                <h3 className="text-[#3B2B26] text-[16px] mb-2" style={{ ...heading, fontWeight: 500 }}>{excursion.name}</h3>
                 {excursion.duration && (
-                  <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em] mb-3" style={{ ...body, fontWeight: 500 }}>
+                  <p className="text-[#3B2B26]/40 text-[11px] tracking-[0.1em] mb-3" style={{ ...body, fontWeight: 500 }}>
                     {excursion.duration}{excursion.price ? ` · ${excursion.price}` : ""}
                   </p>
                 )}

@@ -24,7 +24,7 @@ export default function RoomsSlider({ rooms, title = "Life under Canvas", subtit
     <div className="w-full">
       {/* Header */}
       <div className="mb-8">
-        <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em] mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+        <p className="text-[#3B2B26]/40 text-[11px] tracking-[0.15em] mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
           {subtitle}
         </p>
         <h3 className="text-[#4B4A4A]" style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
@@ -49,7 +49,7 @@ export default function RoomsSlider({ rooms, title = "Life under Canvas", subtit
         {/* Navigation arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/4 -translate-y-1/2 z-30 bg-[#3a2a1a]/60 hover:bg-[#3a2a1a]/80 backdrop-blur-sm p-3 rounded-full transition-all"
+          className="absolute left-6 top-1/4 -translate-y-1/2 z-30 bg-[#3B2B26]/60 hover:bg-[#3B2B26]/80 backdrop-blur-sm p-3 rounded-full transition-all"
           aria-label="Previous room"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,7 +58,7 @@ export default function RoomsSlider({ rooms, title = "Life under Canvas", subtit
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-6 top-1/4 -translate-y-1/2 z-30 bg-[#3a2a1a]/60 hover:bg-[#3a2a1a]/80 backdrop-blur-sm p-3 rounded-full transition-all"
+          className="absolute right-6 top-1/4 -translate-y-1/2 z-30 bg-[#3B2B26]/60 hover:bg-[#3B2B26]/80 backdrop-blur-sm p-3 rounded-full transition-all"
           aria-label="Next room"
         >
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@ export default function RoomsSlider({ rooms, title = "Life under Canvas", subtit
             key={idx}
             onClick={() => setActiveSlide(idx)}
             className={`h-1 rounded-full transition-all ${
-              idx === activeSlide ? "bg-[#3a2a1a] w-8" : "bg-[#3a2a1a]/30 w-2"
+              idx === activeSlide ? "bg-[#3B2B26] w-8" : "bg-[#3B2B26]/30 w-2"
             }`}
             aria-label={`Go to room ${idx + 1}`}
           />

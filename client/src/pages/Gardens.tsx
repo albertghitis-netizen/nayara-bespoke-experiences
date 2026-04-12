@@ -43,15 +43,15 @@ const gardens = properties.find((p: Property) => p.id === "gardens")!;
    ═══════════════════════════════════════════════════════════════ */
 /* Rich Green palette — full forest green */
 const PALETTE = {
-  primary: "#3A5E3A",
-  secondary: "#5A7A52",
-  accent: "#7A9A6A",
-  gradientStart: "#F5F1EB",
+  primary: "#286241",
+  secondary: "#424A3E",
+  accent: "#868B75",
+  gradientStart: "#F7F5F0",
   gradientEnd: "#E6EDE4",
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  divider: "#E2DDD5",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  divider: "#E6DFD5",
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -111,7 +111,7 @@ const SLIDER_PALETTE = {
   cardBorder: `${PALETTE.primary}15`,
   pillBg: `${PALETTE.primary}08`,
   pillActiveBg: PALETTE.primary,
-  pillActiveText: "#F5F1EB",
+  pillActiveText: "#F7F5F0",
 };
 
 const roomCards = [
@@ -212,13 +212,13 @@ export default function Gardens() {
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-by-night_e5dda355.mp4"
         verticalIsVideo
         verticalRatio="3/4"
-        bgColor="#1E2E1A"
+        bgColor="#22322E"
         headline={"Rainforest\nAfter Dark"}
         bodyText="When the sun sets behind the volcano, the rainforest transforms. Nocturnal creatures emerge, the air fills with the chorus of frogs, and the canopy becomes a living theater of sound and shadow. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="right"
       />
 
-      <Footer bgColor="#1E2E1A" />
+      <Footer bgColor="#22322E" />
     </div>
   );
 }
@@ -473,7 +473,7 @@ function ExperiencesSection() {
                       fontFamily: "var(--font-body)",
                       fontWeight: 500,
                       backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                      color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
+                      color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
                       border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
                     }}
                   >
@@ -621,7 +621,7 @@ function WellnessSection() {
                       fontFamily: "var(--font-body)",
                       fontWeight: 500,
                       backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                      color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
+                      color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
                       border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
                     }}
                   >

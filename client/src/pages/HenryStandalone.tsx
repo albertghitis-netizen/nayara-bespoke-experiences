@@ -97,7 +97,7 @@ export default function HenryStandalone() {
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b shrink-0" style={{ borderColor: "rgba(58,42,26,0.12)" }}>
         <div>
-          <h1 className="text-lg font-medium tracking-wide" style={{ color: "#3a2a1a", fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-lg font-medium tracking-wide" style={{ color: "#3B2B26", fontFamily: "'Playfair Display', serif" }}>
             Henry
           </h1>
           <p className="text-xs mt-0.5" style={{ color: "rgba(58,42,26,0.5)" }}>
@@ -107,7 +107,7 @@ export default function HenryStandalone() {
         <a
           href="/"
           className="text-xs px-4 py-2 rounded-full transition-colors"
-          style={{ background: "rgba(58,42,26,0.08)", color: "#3a2a1a", textDecoration: "none" }}
+          style={{ background: "rgba(58,42,26,0.08)", color: "#3B2B26", textDecoration: "none" }}
         >
           Visit Nayara
         </a>
@@ -119,7 +119,7 @@ export default function HenryStandalone() {
         {messages.length === 0 && (
           <>
             <div className="flex justify-start">
-              <div className="max-w-[85%] rounded-2xl rounded-bl-md px-4 py-3 bg-white shadow-sm" style={{ color: "#3a2a1a", border: "1px solid rgba(255,255,255,0.3)" }}>
+              <div className="max-w-[85%] rounded-2xl rounded-bl-md px-4 py-3 bg-white shadow-sm" style={{ color: "#3B2B26", border: "1px solid rgba(255,255,255,0.3)" }}>
                 <p className="text-sm leading-relaxed">
                   Welcome to Nayara Resorts. I'm Henry, your personal concierge. Ask me about our properties, experiences, dining, wellness, or anything else — I'm here to help.
                 </p>
@@ -130,7 +130,7 @@ export default function HenryStandalone() {
                 <button
                   key={p}
                   onClick={() => sendMessage(p)}
-                  className="text-xs border rounded-full px-3 py-1.5 transition-colors hover:border-[#3a2a1a]/40"
+                  className="text-xs border rounded-full px-3 py-1.5 transition-colors hover:border-[#3B2B26]/40"
                   style={{ color: "rgba(58,42,26,0.6)", borderColor: "rgba(58,42,26,0.15)" }}
                 >
                   {p}
@@ -148,7 +148,7 @@ export default function HenryStandalone() {
               }`}
               style={{
                 background: "#fff",
-                color: "#3a2a1a",
+                color: "#3B2B26",
                 border: "1px solid rgba(255,255,255,0.3)",
               }}
             >
@@ -186,14 +186,14 @@ export default function HenryStandalone() {
             onKeyDown={handleKeyDown}
             placeholder="Ask the concierge anything..."
             rows={1}
-            className="flex-1 resize-none bg-transparent text-sm placeholder:text-[#3a2a1a]/35 focus:outline-none max-h-24 py-2"
-            style={{ color: "#3a2a1a" }}
+            className="flex-1 resize-none bg-transparent text-sm placeholder:text-[#3B2B26]/35 focus:outline-none max-h-24 py-2"
+            style={{ color: "#3B2B26" }}
           />
           <button
             type="button"
             onClick={isListening ? stopVoiceInput : startVoiceInput}
             className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all ${
-              isListening ? "bg-red-500 hover:bg-red-600 animate-pulse" : "bg-[#3a2a1a] hover:bg-[#4a3a2a]"
+              isListening ? "bg-red-500 hover:bg-red-600 animate-pulse" : "bg-[#3B2B26] hover:bg-[#4a3a2a]"
             }`}
             title={isListening ? "Stop listening" : "Start voice input"}
           >
@@ -205,7 +205,7 @@ export default function HenryStandalone() {
           <button
             type="submit"
             disabled={!input.trim() || chatMutation.isPending}
-            className="shrink-0 w-9 h-9 rounded-full bg-[#3a2a1a] flex items-center justify-center disabled:opacity-30 hover:bg-[#4a3a2a] transition-all"
+            className="shrink-0 w-9 h-9 rounded-full bg-[#3B2B26] flex items-center justify-center disabled:opacity-30 hover:bg-[#4a3a2a] transition-all"
           >
             <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />

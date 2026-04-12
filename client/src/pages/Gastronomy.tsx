@@ -110,7 +110,7 @@ function IntroSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Culinary Philosophy</p>
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Culinary Philosophy</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             Every Dish Tells the Story of Its Land
           </h2>
@@ -130,7 +130,7 @@ function FilterBar({ activeFilter, onFilterChange }: { activeFilter: string; onF
   return (
     <section className="px-6 md:px-10 pb-8">
       <div className="max-w-[1200px] mx-auto">
-        <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
+        <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
         <div className="flex flex-wrap gap-2">
           {FILTERS.map((f) => (
             <button
@@ -138,8 +138,8 @@ function FilterBar({ activeFilter, onFilterChange }: { activeFilter: string; onF
               onClick={() => onFilterChange(f.slug)}
               className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
                 activeFilter === f.slug
-                  ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                  : "bg-transparent text-[#5a4a3a]/60 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40 hover:text-[#3a2a1a]"
+                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                  : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
               }`}
               style={{ ...body, fontWeight: 500 }}
             >
@@ -162,7 +162,7 @@ function PropertySections({ filtered, navigate }: { filtered: PropertyDining[]; 
         <AnimatePresence mode="popLayout">
           {filtered.length === 0 ? (
             <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-20">
-              <p className="text-[#3a2a1a]/40 text-lg" style={heading}>No restaurants match the selected filter</p>
+              <p className="text-[#3B2B26]/40 text-lg" style={heading}>No restaurants match the selected filter</p>
             </motion.div>
           ) : (
             filtered.map((prop, pi) => (
@@ -177,8 +177,8 @@ function PropertySections({ filtered, navigate }: { filtered: PropertyDining[]; 
               >
                 {/* Property header */}
                 <div className="mb-8">
-                  <p className="text-[#3a2a1a]/30 text-[10px] tracking-[0.3em] mb-2" style={{ ...body, fontWeight: 600 }}>{prop.propertyName}</p>
-                  <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-2" style={heading}>{prop.headline}</h2>
+                  <p className="text-[#3B2B26]/30 text-[10px] tracking-[0.3em] mb-2" style={{ ...body, fontWeight: 600 }}>{prop.propertyName}</p>
+                  <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-2" style={heading}>{prop.headline}</h2>
                   <p className="text-[#4B4A4A]/55 text-[14px] max-w-2xl leading-relaxed" style={body}>{prop.description}</p>
                 </div>
 
@@ -209,14 +209,14 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group bg-white/60 rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 border border-[#3a2a1a]/5 flex flex-col"
+      className="group bg-white/60 rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 border border-[#3B2B26]/5 flex flex-col"
     >
       <div className="h-0.5 bg-gradient-to-r from-[#c9b99a]/40 to-transparent" />
       <div className="p-6 flex-1 flex flex-col">
         <span className={`inline-block self-start px-3 py-1 rounded-full text-[10px] tracking-[0.08em] mb-4 ${colorClass}`} style={{ ...body, fontWeight: 500 }}>
           {restaurant.cuisine}
         </span>
-        <h3 className="text-[#3a2a1a] text-lg mb-1" style={{ ...heading, fontWeight: 500 }}>{restaurant.name}</h3>
+        <h3 className="text-[#3B2B26] text-lg mb-1" style={{ ...heading, fontWeight: 500 }}>{restaurant.name}</h3>
         <p className="text-[#c9b99a] text-[11px] tracking-[0.04em] italic mb-3" style={body}>{restaurant.tagline}</p>
         <p className="text-[#4B4A4A]/55 text-[13px] leading-relaxed mb-4 flex-1 line-clamp-3" style={body}>
           {restaurant.description}
@@ -224,13 +224,13 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
         {restaurant.atmosphere && (
           <p className="text-[#4B4A4A]/30 text-[11px] mb-4" style={body}>{restaurant.atmosphere}</p>
         )}
-        <div className="flex items-center justify-between pt-4 border-t border-[#3a2a1a]/5">
+        <div className="flex items-center justify-between pt-4 border-t border-[#3B2B26]/5">
           {hasMenu ? (
-            <span className="text-[#3a2a1a]/30 text-[11px]" style={body}>{totalItems} menu items</span>
+            <span className="text-[#3B2B26]/30 text-[11px]" style={body}>{totalItems} menu items</span>
           ) : (
-            <span className="text-[#3a2a1a]/20 text-[11px] italic" style={body}>Menu coming soon</span>
+            <span className="text-[#3B2B26]/20 text-[11px] italic" style={body}>Menu coming soon</span>
           )}
-          <button onClick={() => onNavigate(route)} className="text-[#c9b99a] text-[11px] tracking-[0.08em] hover:text-[#3a2a1a] transition-colors" style={{ ...body, fontWeight: 500 }}>
+          <button onClick={() => onNavigate(route)} className="text-[#c9b99a] text-[11px] tracking-[0.08em] hover:text-[#3B2B26] transition-colors" style={{ ...body, fontWeight: 500 }}>
             View Property \u2192
           </button>
         </div>
@@ -244,7 +244,7 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]">
+    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3B2B26]">
       <div className="max-w-[800px] mx-auto text-center">
         <FadeIn>
           <h2 className="text-white/80 mb-4" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>

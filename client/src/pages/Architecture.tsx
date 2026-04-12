@@ -112,10 +112,10 @@ export default function ArchitecturePage() {
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-[#3a2a1a] text-3xl md:text-5xl tracking-wide mb-4" style={heading}>
+          <h1 className="text-[#3B2B26] text-3xl md:text-5xl tracking-wide mb-4" style={heading}>
             Site Architecture
           </h1>
-          <p className="text-[#3a2a1a]/50 text-[15px] max-w-2xl mx-auto" style={body}>
+          <p className="text-[#3B2B26]/50 text-[15px] max-w-2xl mx-auto" style={body}>
             Complete sitemap, page hierarchy, navigation structure, cross-linking model, and content strategy rules.
           </p>
         </div>
@@ -124,19 +124,19 @@ export default function ArchitecturePage() {
       {/* Sitemap */}
       <section className="px-6 pb-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>Sitemap</h2>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>Sitemap</h2>
           <div className="space-y-8">
             {SITEMAP.map((section) => (
               <div key={section.section}>
-                <h3 className="text-[#3a2a1a]/40 text-[11px] tracking-[0.2em] mb-3" style={{ ...body, fontWeight: 500 }}>
+                <h3 className="text-[#3B2B26]/40 text-[11px] tracking-[0.2em] mb-3" style={{ ...body, fontWeight: 500 }}>
                   {section.section}
                 </h3>
-                <div className="border border-[#3a2a1a]/8 rounded-xl overflow-hidden divide-y divide-[#3a2a1a]/5">
+                <div className="border border-[#3B2B26]/8 rounded-xl overflow-hidden divide-y divide-[#3B2B26]/5">
                   {section.pages.map((page) => (
                     <div key={page.path} className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 px-5 py-3">
                       <code className="text-[#5a8a5a] text-[13px] font-mono flex-shrink-0 w-36">{page.path}</code>
-                      <span className="text-[#3a2a1a] text-[14px]" style={{ ...body, fontWeight: 500 }}>{page.name}</span>
-                      <span className="text-[#3a2a1a]/40 text-[13px] md:ml-auto" style={body}>{page.desc}</span>
+                      <span className="text-[#3B2B26] text-[14px]" style={{ ...body, fontWeight: 500 }}>{page.name}</span>
+                      <span className="text-[#3B2B26]/40 text-[13px] md:ml-auto" style={body}>{page.desc}</span>
                     </div>
                   ))}
                 </div>
@@ -149,31 +149,31 @@ export default function ArchitecturePage() {
       {/* Navigation Structure */}
       <section className="px-6 pb-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>Navigation Structure</h2>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>Navigation Structure</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border border-[#3a2a1a]/8 rounded-xl p-6">
-              <h3 className="text-[#3a2a1a] text-[15px] mb-4" style={{ ...body, fontWeight: 600 }}>Brand Page Menu</h3>
+            <div className="border border-[#3B2B26]/8 rounded-xl p-6">
+              <h3 className="text-[#3B2B26] text-[15px] mb-4" style={{ ...body, fontWeight: 600 }}>Brand Page Menu</h3>
               <ul className="space-y-1.5">
                 {NAV_STRUCTURE.hamburger.brand.map((item) => (
-                  <li key={item} className="text-[#3a2a1a]/60 text-[14px]" style={body}>{item}</li>
+                  <li key={item} className="text-[#3B2B26]/60 text-[14px]" style={body}>{item}</li>
                 ))}
               </ul>
             </div>
-            <div className="border border-[#3a2a1a]/8 rounded-xl p-6">
-              <h3 className="text-[#3a2a1a] text-[15px] mb-4" style={{ ...body, fontWeight: 600 }}>Property Page Menu</h3>
+            <div className="border border-[#3B2B26]/8 rounded-xl p-6">
+              <h3 className="text-[#3B2B26] text-[15px] mb-4" style={{ ...body, fontWeight: 600 }}>Property Page Menu</h3>
               <ul className="space-y-1.5">
                 {NAV_STRUCTURE.hamburger.property.map((item) => (
-                  <li key={item} className="text-[#3a2a1a]/60 text-[14px]" style={body}>{item}</li>
+                  <li key={item} className="text-[#3B2B26]/60 text-[14px]" style={body}>{item}</li>
                 ))}
               </ul>
             </div>
           </div>
-          <div className="mt-6 border border-[#3a2a1a]/8 rounded-xl p-6">
-            <h3 className="text-[#3a2a1a] text-[15px] mb-4" style={{ ...body, fontWeight: 600 }}>Top Bar Layout</h3>
+          <div className="mt-6 border border-[#3B2B26]/8 rounded-xl p-6">
+            <h3 className="text-[#3B2B26] text-[15px] mb-4" style={{ ...body, fontWeight: 600 }}>Top Bar Layout</h3>
             <div className="flex items-center justify-between bg-[#f7f5f0] rounded-lg px-6 py-4">
-              <span className="text-[#3a2a1a]/60 text-[13px]" style={body}>{NAV_STRUCTURE.pills.left}</span>
-              <span className="text-[#3a2a1a]/60 text-[13px] text-center" style={body}>{NAV_STRUCTURE.pills.center}</span>
-              <span className="text-[#3a2a1a]/60 text-[13px]" style={body}>{NAV_STRUCTURE.pills.right}</span>
+              <span className="text-[#3B2B26]/60 text-[13px]" style={body}>{NAV_STRUCTURE.pills.left}</span>
+              <span className="text-[#3B2B26]/60 text-[13px] text-center" style={body}>{NAV_STRUCTURE.pills.center}</span>
+              <span className="text-[#3B2B26]/60 text-[13px]" style={body}>{NAV_STRUCTURE.pills.right}</span>
             </div>
           </div>
         </div>
@@ -182,18 +182,18 @@ export default function ArchitecturePage() {
       {/* Cross-Linking Model */}
       <section className="px-6 pb-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>Cross-Linking Model</h2>
-          <div className="border border-[#3a2a1a]/8 rounded-xl overflow-hidden">
-            <div className="grid grid-cols-3 bg-[#f7f5f0] px-5 py-3 border-b border-[#3a2a1a]/8">
-              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>From</span>
-              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>To</span>
-              <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>Mechanism</span>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>Cross-Linking Model</h2>
+          <div className="border border-[#3B2B26]/8 rounded-xl overflow-hidden">
+            <div className="grid grid-cols-3 bg-[#f7f5f0] px-5 py-3 border-b border-[#3B2B26]/8">
+              <span className="text-[#3B2B26]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>From</span>
+              <span className="text-[#3B2B26]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>To</span>
+              <span className="text-[#3B2B26]/40 text-[11px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>Mechanism</span>
             </div>
             {CROSS_LINKING.map((link, i) => (
-              <div key={i} className="grid grid-cols-3 px-5 py-3 border-b border-[#3a2a1a]/5 last:border-0">
-                <span className="text-[#3a2a1a]/70 text-[14px]" style={body}>{link.from}</span>
-                <span className="text-[#3a2a1a]/70 text-[14px]" style={body}>{link.to}</span>
-                <span className="text-[#3a2a1a]/50 text-[13px]" style={body}>{link.mechanism}</span>
+              <div key={i} className="grid grid-cols-3 px-5 py-3 border-b border-[#3B2B26]/5 last:border-0">
+                <span className="text-[#3B2B26]/70 text-[14px]" style={body}>{link.from}</span>
+                <span className="text-[#3B2B26]/70 text-[14px]" style={body}>{link.to}</span>
+                <span className="text-[#3B2B26]/50 text-[13px]" style={body}>{link.mechanism}</span>
               </div>
             ))}
           </div>
@@ -203,12 +203,12 @@ export default function ArchitecturePage() {
       {/* Content Strategy Rules */}
       <section className="px-6 pb-24">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>Content Strategy Rules</h2>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>Content Strategy Rules</h2>
           <div className="space-y-4">
             {CONTENT_STRATEGY.map((rule) => (
-              <div key={rule.rule} className="border border-[#3a2a1a]/8 rounded-xl p-6">
-                <h3 className="text-[#3a2a1a] text-[15px] mb-2" style={{ ...body, fontWeight: 600 }}>{rule.rule}</h3>
-                <p className="text-[#3a2a1a]/60 text-[14px] leading-relaxed" style={body}>{rule.desc}</p>
+              <div key={rule.rule} className="border border-[#3B2B26]/8 rounded-xl p-6">
+                <h3 className="text-[#3B2B26] text-[15px] mb-2" style={{ ...body, fontWeight: 600 }}>{rule.rule}</h3>
+                <p className="text-[#3B2B26]/60 text-[14px] leading-relaxed" style={body}>{rule.desc}</p>
               </div>
             ))}
           </div>

@@ -19,7 +19,7 @@ export function AwardBadgeStrip({ property }: { property: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.3 }}
-      className="flex flex-wrap items-center justify-start gap-5 md:gap-8 mt-8 pt-6 border-t border-[#3a2a1a]/10"
+      className="flex flex-wrap items-center justify-start gap-5 md:gap-8 mt-8 pt-6 border-t border-[#3B2B26]/10"
     >
       {awards.map((award: Award, i: number) => (
         <motion.div
@@ -39,14 +39,14 @@ export function AwardBadgeStrip({ property }: { property: string }) {
           />
           <div className="flex flex-col">
             <span
-              className="text-[11px] tracking-[0.06em] text-[#3a2a1a]/70 leading-tight"
+              className="text-[11px] tracking-[0.06em] text-[#3B2B26]/70 leading-tight"
               style={{ ...body, fontWeight: 500 }}
             >
               {award.name}
             </span>
             {award.year && (
               <span
-                className="text-[9px] tracking-[0.08em] text-[#3a2a1a]/40 leading-tight"
+                className="text-[9px] tracking-[0.08em] text-[#3B2B26]/40 leading-tight"
                 style={body}
               >
                 {award.year}

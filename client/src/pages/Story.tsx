@@ -27,7 +27,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>{children}</p>;
+  return <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>{children}</p>;
 }
 
 /* ─── Timeline milestones ─── */
@@ -130,12 +130,12 @@ function TimelineSection() {
             <FadeIn key={m.year} delay={i * 0.08}>
               <div className="flex gap-6 md:gap-10 items-start">
                 <div className="flex-shrink-0 w-16 md:w-20">
-                  <span className="text-[#3a2a1a]/25 text-[28px] md:text-[36px]" style={{ ...heading, fontWeight: 300 }}>
+                  <span className="text-[#3B2B26]/25 text-[28px] md:text-[36px]" style={{ ...heading, fontWeight: 300 }}>
                     {m.year}
                   </span>
                 </div>
-                <div className="flex-1 border-l border-[#3a2a1a]/10 pl-6 md:pl-10">
-                  <h3 className="text-[#3a2a1a] text-[17px] mb-2" style={{ ...heading, fontWeight: 500 }}>
+                <div className="flex-1 border-l border-[#3B2B26]/10 pl-6 md:pl-10">
+                  <h3 className="text-[#3B2B26] text-[17px] mb-2" style={{ ...heading, fontWeight: 500 }}>
                     {m.title}
                   </h3>
                   <p className="text-[#4B4A4A]/60 text-[14px] leading-relaxed" style={body}>
@@ -168,7 +168,7 @@ function ValuesSection() {
           {values.map((v, i) => (
             <FadeIn key={v.title} delay={i * 0.1}>
               <div className="bg-white/40 backdrop-blur-sm rounded-xl p-8">
-                <h3 className="text-[#3a2a1a] text-[18px] mb-3" style={{ ...heading, fontWeight: 500 }}>
+                <h3 className="text-[#3B2B26] text-[18px] mb-3" style={{ ...heading, fontWeight: 500 }}>
                   {v.title}
                 </h3>
                 <p className="text-[#4B4A4A]/60 text-[14px] leading-relaxed" style={body}>
@@ -196,7 +196,7 @@ function DestinationsSection() {
     { name: "Nayara Tented Camp", location: "Arenal Volcano, Costa Rica", route: "/tented-camp" },
   ];
   return (
-    <section className={`${sectionPadding} bg-[#3a2a1a]`}>
+    <section className={`${sectionPadding} bg-[#3B2B26]`}>
       <div className={maxW}>
         <FadeIn>
           <p className="text-white/25 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Our Destinations</p>

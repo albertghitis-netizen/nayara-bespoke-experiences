@@ -176,7 +176,7 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
                     backgroundColor: activeCategory === cat.id ? palette.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F5F1EB" : BRAND.secondaryText,
+                    color: activeCategory === cat.id ? "#F7F5F0" : BRAND.secondaryText,
                     border: `1px solid ${activeCategory === cat.id ? palette.primary : BRAND.divider}`,
                   }}
                 >

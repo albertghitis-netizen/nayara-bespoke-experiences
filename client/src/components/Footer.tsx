@@ -1,6 +1,6 @@
 /*
  * Footer — Nayara Global Footer
- * Brown background (#3a2a1a) with light/white text
+ * Brown background (#3B2B26) with light/white text
  * Luxury editorial style — Aman/Rosewood inspired
  *
  * Now data-driven: columns come from navigation.ts getFooterColumns()
@@ -48,7 +48,7 @@ function TikTokIcon() {
 
 interface FooterProps {
   pageType?: PageType;
-  /** Override footer background color (default: #3a2a1a) */
+  /** Override footer background color (default: #3B2B26) */
   bgColor?: string;
 }
 
@@ -74,7 +74,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
   };
 
   return (
-    <footer className="relative overflow-x-clip" style={{ backgroundColor: bgColor ?? "#3a2a1a" }}>
+    <footer className="relative overflow-x-clip" style={{ backgroundColor: bgColor ?? "#3B2B26" }}>
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-10">
         {/* Dynamic columns from navigation config + Contact column */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed">

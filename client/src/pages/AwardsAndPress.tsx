@@ -222,7 +222,7 @@ export default function AwardsAndPress() {
       </section>
 
       {/* ── Brand Stats Bar ── */}
-      <section className="bg-[#3a2a1a] py-10 md:py-14">
+      <section className="bg-[#3B2B26] py-10 md:py-14">
         <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {brandStats.map((stat, i) => (
@@ -251,10 +251,10 @@ export default function AwardsAndPress() {
       <section className="py-16 md:py-24 px-6 md:px-10 bg-[#f4f1eb]">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <p className="text-[10px] tracking-[0.25em] mb-4" style={{ ...body, fontWeight: 500, color: "#3a2a1a", opacity: 0.4 }}>The Nayara Story</p>
+            <p className="text-[10px] tracking-[0.25em] mb-4" style={{ ...body, fontWeight: 500, color: "#3B2B26", opacity: 0.4 }}>The Nayara Story</p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <h2 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide mb-8" style={{ ...heading, color: "#3a2a1a" }}>
+            <h2 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide mb-8" style={{ ...heading, color: "#3B2B26" }}>
               Award-Winning Properties Defined by Destination
             </h2>
           </FadeIn>
@@ -280,8 +280,8 @@ export default function AwardsAndPress() {
                 onClick={() => setActiveTab(tab)}
                 className={`px-6 py-2.5 text-[12px] tracking-[0.12em] transition-all duration-300 border-b-2 ${
                   activeTab === tab
-                    ? "text-[#3a2a1a] border-[#3a2a1a]"
-                    : "text-[#3a2a1a]/30 border-transparent hover:text-[#3a2a1a]/60"
+                    ? "text-[#3B2B26] border-[#3B2B26]"
+                    : "text-[#3B2B26]/30 border-transparent hover:text-[#3B2B26]/60"
                 }`}
                 style={{ ...body, fontWeight: 500 }}
               >
@@ -298,8 +298,8 @@ export default function AwardsAndPress() {
                 onClick={() => { setActiveFilter(p); setExpandedProperty(null); }}
                 className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${
                   activeFilter === p
-                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                    : "bg-transparent text-[#5a4a3a]/40 border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:text-[#3a2a1a]"
+                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                    : "bg-transparent text-[#5a4a3a]/40 border-[#3B2B26]/10 hover:border-[#3B2B26]/25 hover:text-[#3B2B26]"
                 }`}
                 style={{ ...body, fontWeight: 500 }}
               >
@@ -317,9 +317,9 @@ export default function AwardsAndPress() {
           <section className="pb-16 md:pb-24 px-6 md:px-10">
             <div className="max-w-5xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
-                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>The Michelin Guide</p>
-                <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl mb-6" style={heading}>7 Michelin Keys</h2>
-                <p className="text-[#3a2a1a]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed" style={{ ...body, fontWeight: 300 }}>
+                <p className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>The Michelin Guide</p>
+                <h2 className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl mb-6" style={heading}>7 Michelin Keys</h2>
+                <p className="text-[#3B2B26]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed" style={{ ...body, fontWeight: 300 }}>
                   Michelin Keys are the hotel equivalent of Michelin Stars for restaurants. Awarded to properties that deliver an exceptional stay defined by outstanding architecture, interior design, quality of service, character, and a genuine sense of place. Three Keys is the highest distinction.
                 </p>
               </motion.div>
@@ -336,9 +336,9 @@ export default function AwardsAndPress() {
                         <Key key={ki} className="w-5 h-5 text-amber-600" />
                       ))}
                     </div>
-                    <h3 className="text-[#3a2a1a] text-xl md:text-2xl mb-1" style={heading}>{item.property}</h3>
-                    <p className="text-[#3a2a1a]/40 text-[10px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 500 }}>{item.location} · {item.keys} Keys</p>
-                    <p className="text-[#3a2a1a]/60 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{item.description}</p>
+                    <h3 className="text-[#3B2B26] text-xl md:text-2xl mb-1" style={heading}>{item.property}</h3>
+                    <p className="text-[#3B2B26]/40 text-[10px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 500 }}>{item.location} · {item.keys} Keys</p>
+                    <p className="text-[#3B2B26]/60 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{item.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -346,16 +346,16 @@ export default function AwardsAndPress() {
           </section>
 
           {/* Awards by Property */}
-          <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]/[0.03]">
+          <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3B2B26]/[0.03]">
             <div className="max-w-4xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12">
-                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>By Property</p>
-                <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl" style={heading}>Awards & Accolades</h2>
+                <p className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>By Property</p>
+                <h2 className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl" style={heading}>Awards & Accolades</h2>
               </motion.div>
 
               <div className="space-y-0">
                 {filteredAwards.map((section, si) => (
-                  <motion.div key={section.property} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: si * 0.05 }} className="border-b border-[#3a2a1a]/10">
+                  <motion.div key={section.property} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: si * 0.05 }} className="border-b border-[#3B2B26]/10">
                     <button onClick={() => toggleProperty(section.property)} className="flex items-center justify-between w-full py-5 md:py-6 text-left group">
                       <div className="flex items-center gap-3">
                         {section.michelinKeys && (
@@ -365,10 +365,10 @@ export default function AwardsAndPress() {
                             ))}
                           </div>
                         )}
-                        <span className="text-[#3a2a1a] text-base md:text-lg group-hover:text-[#3a2a1a]/70 transition-colors" style={heading}>{section.property}</span>
+                        <span className="text-[#3B2B26] text-base md:text-lg group-hover:text-[#3B2B26]/70 transition-colors" style={heading}>{section.property}</span>
                       </div>
                       <motion.div animate={{ rotate: expandedProperty === section.property ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                        <ChevronDown className="w-5 h-5 text-[#3a2a1a]/30" />
+                        <ChevronDown className="w-5 h-5 text-[#3B2B26]/30" />
                       </motion.div>
                     </button>
                     <AnimatePresence>
@@ -379,7 +379,7 @@ export default function AwardsAndPress() {
                               <div key={ai}>
                                 <h4 className="text-amber-700/80 text-[10px] md:text-xs tracking-[0.15em] mb-2" style={{ ...body, fontWeight: 600 }}>{award.source}</h4>
                                 {award.accolades.map((accolade, aci) => (
-                                  <p key={aci} className="text-[#3a2a1a]/60 text-sm py-1.5 border-b border-[#3a2a1a]/5 last:border-0" style={body}>{accolade}</p>
+                                  <p key={aci} className="text-[#3B2B26]/60 text-sm py-1.5 border-b border-[#3B2B26]/5 last:border-0" style={body}>{accolade}</p>
                                 ))}
                               </div>
                             ))}
@@ -397,16 +397,16 @@ export default function AwardsAndPress() {
           <section className="py-16 md:py-24 px-6 md:px-10">
             <div className="max-w-5xl mx-auto">
               <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
-                <p className="text-[#3a2a1a]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>Sustainability</p>
-                <h2 className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl" style={heading}>Certifications</h2>
+                <p className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>Sustainability</p>
+                <h2 className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl" style={heading}>Certifications</h2>
               </motion.div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {certifications.map((cert, i) => (
                   <motion.div key={cert.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.06 }} className="bg-white p-8 md:p-10 border border-stone-100">
                     <ShieldCheck className="w-8 h-8 text-emerald-700/60 mb-5" />
-                    <h3 className="text-[#3a2a1a] text-xl mb-2" style={heading}>{cert.name}</h3>
+                    <h3 className="text-[#3B2B26] text-xl mb-2" style={heading}>{cert.name}</h3>
                     <p className="text-emerald-700/60 text-[10px] tracking-[0.1em] mb-4" style={{ ...body, fontWeight: 500 }}>{cert.properties}</p>
-                    <p className="text-[#3a2a1a]/50 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{cert.description}</p>
+                    <p className="text-[#3B2B26]/50 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{cert.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -421,36 +421,36 @@ export default function AwardsAndPress() {
           <div className="max-w-4xl mx-auto">
             {sortedYears.length === 0 && (
               <div className="text-center py-16">
-                <p className="text-[#3a2a1a]/25 text-[14px]" style={body}>No press clips match the current filters.</p>
+                <p className="text-[#3B2B26]/25 text-[14px]" style={body}>No press clips match the current filters.</p>
               </div>
             )}
             {sortedYears.map((year) => (
               <FadeIn key={year} className="mb-14">
                 <div className="flex items-center gap-4 mb-6">
-                  <h2 className="text-[#3a2a1a] text-xl md:text-2xl" style={heading}>{year}</h2>
-                  <div className="flex-1 h-px bg-[#3a2a1a]/8" />
-                  <span className="text-[#3a2a1a]/20 text-[11px] tracking-[0.08em]" style={body}>
+                  <h2 className="text-[#3B2B26] text-xl md:text-2xl" style={heading}>{year}</h2>
+                  <div className="flex-1 h-px bg-[#3B2B26]/8" />
+                  <span className="text-[#3B2B26]/20 text-[11px] tracking-[0.08em]" style={body}>
                     {groupedPress[year].length} {groupedPress[year].length === 1 ? "article" : "articles"}
                   </span>
                 </div>
                 <div className="flex flex-col gap-1">
                   {groupedPress[year].map((clip, i) => (
-                    <a key={i} href={clip.url} target="_blank" rel="noopener noreferrer" className={`group flex items-start gap-4 py-4 px-4 -mx-4 rounded-lg transition-all duration-300 hover:bg-[#3a2a1a]/[0.03] ${clip.highlight ? "border-l-2 border-[#3a2a1a]/15 pl-5" : ""}`}>
+                    <a key={i} href={clip.url} target="_blank" rel="noopener noreferrer" className={`group flex items-start gap-4 py-4 px-4 -mx-4 rounded-lg transition-all duration-300 hover:bg-[#3B2B26]/[0.03] ${clip.highlight ? "border-l-2 border-[#3B2B26]/15 pl-5" : ""}`}>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-[#3a2a1a] text-sm md:text-base leading-snug group-hover:text-[#3a2a1a]/70 transition-colors" style={heading}>{clip.title}</h3>
+                        <h3 className="text-[#3B2B26] text-sm md:text-base leading-snug group-hover:text-[#3B2B26]/70 transition-colors" style={heading}>{clip.title}</h3>
                         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5">
-                          <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.04em]" style={{ ...body, fontWeight: 500 }}>{clip.publication}</span>
-                          <span className="text-[#3a2a1a]/15 text-[10px]">|</span>
-                          <span className="text-[#3a2a1a]/25 text-[11px]" style={body}>{clip.date}</span>
+                          <span className="text-[#3B2B26]/40 text-[11px] tracking-[0.04em]" style={{ ...body, fontWeight: 500 }}>{clip.publication}</span>
+                          <span className="text-[#3B2B26]/15 text-[10px]">|</span>
+                          <span className="text-[#3B2B26]/25 text-[11px]" style={body}>{clip.date}</span>
                           {clip.property !== "Multiple Properties" && (
                             <>
-                              <span className="text-[#3a2a1a]/15 text-[10px]">|</span>
-                              <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.08em]" style={body}>{clip.property}</span>
+                              <span className="text-[#3B2B26]/15 text-[10px]">|</span>
+                              <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.08em]" style={body}>{clip.property}</span>
                             </>
                           )}
                         </div>
                       </div>
-                      <ExternalLink className="w-4 h-4 text-[#3a2a1a]/12 group-hover:text-[#3a2a1a]/35 transition-colors flex-shrink-0 mt-1" />
+                      <ExternalLink className="w-4 h-4 text-[#3B2B26]/12 group-hover:text-[#3B2B26]/35 transition-colors flex-shrink-0 mt-1" />
                     </a>
                   ))}
                 </div>

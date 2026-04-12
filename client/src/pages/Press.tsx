@@ -132,8 +132,8 @@ export default function Press() {
               { number: "4/5", label: "T+L Best Resort Years" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
-                <div className="text-[#3a2a1a] text-2xl md:text-3xl mb-1" style={heading}>{stat.number}</div>
-                <div className="text-[#3a2a1a]/30 text-[10px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{stat.label}</div>
+                <div className="text-[#3B2B26] text-2xl md:text-3xl mb-1" style={heading}>{stat.number}</div>
+                <div className="text-[#3B2B26]/30 text-[10px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -143,15 +143,15 @@ export default function Press() {
       {/* Two-Axis Filters */}
       <div className="max-w-5xl mx-auto px-6 mb-12">
         <div className="flex flex-wrap items-center gap-2 mb-3 justify-center">
-          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] mr-1" style={{ ...body, fontWeight: 600 }}>Property</span>
+          <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.2em] mr-1" style={{ ...body, fontWeight: 600 }}>Property</span>
           {PROPERTIES.map((p) => (
-            <button key={p} onClick={() => setActiveProperty(p)} className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${activeProperty === p ? "bg-[#3a2a1a] text-white border-[#3a2a1a]" : "bg-transparent text-[#5a4a3a]/40 border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:text-[#3a2a1a]"}`} style={{ ...body, fontWeight: 500 }}>{p}</button>
+            <button key={p} onClick={() => setActiveProperty(p)} className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${activeProperty === p ? "bg-[#3B2B26] text-white border-[#3B2B26]" : "bg-transparent text-[#5a4a3a]/40 border-[#3B2B26]/10 hover:border-[#3B2B26]/25 hover:text-[#3B2B26]"}`} style={{ ...body, fontWeight: 500 }}>{p}</button>
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-2 justify-center">
-          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em] mr-1" style={{ ...body, fontWeight: 600 }}>Topic</span>
+          <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.2em] mr-1" style={{ ...body, fontWeight: 600 }}>Topic</span>
           {TOPICS.map((t) => (
-            <button key={t} onClick={() => setActiveTopic(t)} className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${activeTopic === t ? "bg-[#3a2a1a] text-white border-[#3a2a1a]" : "bg-transparent text-[#5a4a3a]/40 border-[#3a2a1a]/10 hover:border-[#3a2a1a]/25 hover:text-[#3a2a1a]"}`} style={{ ...body, fontWeight: 500 }}>{t}</button>
+            <button key={t} onClick={() => setActiveTopic(t)} className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${activeTopic === t ? "bg-[#3B2B26] text-white border-[#3B2B26]" : "bg-transparent text-[#5a4a3a]/40 border-[#3B2B26]/10 hover:border-[#3B2B26]/25 hover:text-[#3B2B26]"}`} style={{ ...body, fontWeight: 500 }}>{t}</button>
           ))}
         </div>
       </div>
@@ -160,42 +160,42 @@ export default function Press() {
       <div className="max-w-4xl mx-auto px-6 pb-24">
         {sortedYears.length === 0 && (
           <div className="text-center py-16">
-            <p className="text-[#3a2a1a]/25 text-[14px]" style={body}>No press clips match the current filters.</p>
+            <p className="text-[#3B2B26]/25 text-[14px]" style={body}>No press clips match the current filters.</p>
           </div>
         )}
         {sortedYears.map((year) => (
           <FadeIn key={year} className="mb-14">
             <div className="flex items-center gap-4 mb-6">
-              <h2 className="text-[#3a2a1a] text-xl md:text-2xl" style={heading}>{year}</h2>
-              <div className="flex-1 h-px bg-[#3a2a1a]/8" />
-              <span className="text-[#3a2a1a]/20 text-[11px] tracking-[0.08em]" style={body}>
+              <h2 className="text-[#3B2B26] text-xl md:text-2xl" style={heading}>{year}</h2>
+              <div className="flex-1 h-px bg-[#3B2B26]/8" />
+              <span className="text-[#3B2B26]/20 text-[11px] tracking-[0.08em]" style={body}>
                 {grouped[year].length} {grouped[year].length === 1 ? "article" : "articles"}
               </span>
             </div>
             <div className="flex flex-col gap-1">
               {grouped[year].map((clip, i) => (
-                <a key={i} href={clip.url} target="_blank" rel="noopener noreferrer" className={`group flex items-start gap-4 py-4 px-4 -mx-4 rounded-lg transition-all duration-300 hover:bg-[#3a2a1a]/[0.03] ${clip.highlight ? "border-l-2 border-[#3a2a1a]/15 pl-5" : ""}`}>
+                <a key={i} href={clip.url} target="_blank" rel="noopener noreferrer" className={`group flex items-start gap-4 py-4 px-4 -mx-4 rounded-lg transition-all duration-300 hover:bg-[#3B2B26]/[0.03] ${clip.highlight ? "border-l-2 border-[#3B2B26]/15 pl-5" : ""}`}>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-[#3a2a1a] text-sm md:text-base leading-snug group-hover:text-[#3a2a1a]/70 transition-colors" style={heading}>{clip.title}</h3>
+                    <h3 className="text-[#3B2B26] text-sm md:text-base leading-snug group-hover:text-[#3B2B26]/70 transition-colors" style={heading}>{clip.title}</h3>
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5">
-                      <span className="text-[#3a2a1a]/40 text-[11px] tracking-[0.04em]" style={{ ...body, fontWeight: 500 }}>{clip.publication}</span>
-                      <span className="text-[#3a2a1a]/15 text-[10px]">|</span>
-                      <span className="text-[#3a2a1a]/25 text-[11px]" style={body}>{clip.date}</span>
+                      <span className="text-[#3B2B26]/40 text-[11px] tracking-[0.04em]" style={{ ...body, fontWeight: 500 }}>{clip.publication}</span>
+                      <span className="text-[#3B2B26]/15 text-[10px]">|</span>
+                      <span className="text-[#3B2B26]/25 text-[11px]" style={body}>{clip.date}</span>
                       {clip.property !== "Multiple Properties" && (
                         <>
-                          <span className="text-[#3a2a1a]/15 text-[10px]">|</span>
-                          <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.08em]" style={body}>{clip.property}</span>
+                          <span className="text-[#3B2B26]/15 text-[10px]">|</span>
+                          <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.08em]" style={body}>{clip.property}</span>
                         </>
                       )}
                       {clip.topic && (
                         <>
-                          <span className="text-[#3a2a1a]/15 text-[10px]">|</span>
-                          <span className="text-[#3a2a1a]/20 text-[9px] tracking-[0.1em] px-2 py-0.5 rounded-full border border-[#3a2a1a]/8" style={{ ...body, fontWeight: 500 }}>{clip.topic}</span>
+                          <span className="text-[#3B2B26]/15 text-[10px]">|</span>
+                          <span className="text-[#3B2B26]/20 text-[9px] tracking-[0.1em] px-2 py-0.5 rounded-full border border-[#3B2B26]/8" style={{ ...body, fontWeight: 500 }}>{clip.topic}</span>
                         </>
                       )}
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-[#3a2a1a]/12 group-hover:text-[#3a2a1a]/35 transition-colors flex-shrink-0 mt-1" />
+                  <ExternalLink className="w-4 h-4 text-[#3B2B26]/12 group-hover:text-[#3B2B26]/35 transition-colors flex-shrink-0 mt-1" />
                 </a>
               ))}
             </div>

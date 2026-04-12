@@ -42,15 +42,15 @@ const springs = properties.find((p: Property) => p.id === "springs")!;
    ═══════════════════════════════════════════════════════════════ */
 /* Blue-Green palette — between Bocas blue and Tented Camp green */
 const PALETTE = {
-  primary: "#3A6B6B",
-  secondary: "#5A8A82",
-  accent: "#7AABA0",
-  gradientStart: "#F5F1EB",
+  primary: "#3B6E7B",
+  secondary: "#5A6F7B",
+  accent: "#86898C",
+  gradientStart: "#F7F5F0",
   gradientEnd: "#E4EDEB",
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  divider: "#E2DDD5",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  divider: "#E6DFD5",
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -94,7 +94,7 @@ const SLIDER_PALETTE = {
   cardBorder: `${PALETTE.primary}15`,
   pillBg: `${PALETTE.primary}08`,
   pillActiveBg: PALETTE.primary,
-  pillActiveText: "#F5F1EB",
+  pillActiveText: "#F7F5F0",
 };
 
 const roomCards = [
@@ -194,13 +194,13 @@ export default function Springs() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp"
         horizontalRatio="16/9"
-        bgColor="#1A3030"
+        bgColor="#22322E"
         headline={"Hot Springs\nUnder Stars"}
         bodyText="As night falls over the volcanic landscape, the hot springs take on an otherworldly glow. Steam rises into the starlit sky while the sounds of the rainforest envelop you in warmth and wonder. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
       />
 
-      <Footer bgColor="#1A3030" />
+      <Footer bgColor="#22322E" />
     </div>
   );
 }
@@ -418,7 +418,7 @@ function ExperiencesSection() {
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
                     backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
+                    color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
                     border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
                   }}
                 >
@@ -574,7 +574,7 @@ function WellnessSection() {
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
                     backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
+                    color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
                     border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
                   }}
                 >

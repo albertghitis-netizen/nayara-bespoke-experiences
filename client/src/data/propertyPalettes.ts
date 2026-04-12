@@ -3,12 +3,15 @@
  * Each property has a distinct, muted palette rooted in its landscape.
  * Colors are deliberately restrained — the luxury is in the subtlety.
  *
- * Tented Camp  → Olive Tree (warm olive-khaki)
- * Gardens      → Rich Green (full forest green)
- * Springs      → Blue-Green (between Bocas blue and Tented Camp green)
- * Bocas        → Ocean Blue-Green (Caribbean teal)
- * Atacama      → Desert Red-Brown (terracotta earth)
- * Hangaroa     → Slate Gray (volcanic stone)
+ * All colors sourced from the official Nayara 36-color brand swatch set.
+ *
+ * Tented Camp  → Olive Tree (#525642, swatch #4)
+ * Gardens      → Clover Green (#286241, swatch #12)
+ * Springs      → Teal (#3B6E7B, swatch #21)
+ * Bocas        → Ocean (#2A6489, swatch #31)
+ * Atacama      → Terracotta (#6F463D, swatch #7)
+ * Hangaroa     → Steel Blue (#536878, swatch #24)
+ * Brand        → Brown Gravel (#E2D7C8, swatch #9) + Espresso (#3B2B26, swatch #5)
  */
 
 export interface PropertyPalette {
@@ -37,104 +40,105 @@ export interface PropertyPalette {
 }
 
 export const BRAND = {
-  pageBackground: "#F5F1EB",
-  primaryText: "#2C2418",
-  secondaryText: "#7A6F63",
-  tertiaryText: "#B0A89E",
-  divider: "#E2DDD5",
-  navPill: "#3A2A1A",
-  navPillText: "#F5F1EB",
+  pageBackground: "#F7F5F0",    // Warm White (swatch #1)
+  primaryText: "#3B2B26",       // Espresso (swatch #5)
+  secondaryText: "#67737C",     // Blue Gray (swatch #28)
+  tertiaryText: "#9A9086",      // Taupe (swatch #26)
+  divider: "#E6DFD5",           // Sand (swatch #2)
+  navPill: "#3B2B26",           // Espresso (swatch #5)
+  navPillText: "#F7F5F0",       // Warm White (swatch #1)
+  bone: "#E2D7C8",              // Bone / Brown Gravel (swatch #9)
 } as const;
 
 export const palettes: Record<string, PropertyPalette> = {
-  /* ─── TENTED CAMP — Olive Tree ─── */
+  /* ─── TENTED CAMP — Olive Tree (swatch #4: #525642) ─── */
   "tented-camp": {
-    primary: "#67703D",       // olive tree
-    secondary: "#8A8B5A",    // warm olive-khaki
-    accent: "#A5A87C",       // light olive
-    gradientStart: "#F5F1EB",
-    gradientEnd: "#EDEEE2",  // warm olive tint
-    buttonBg: "#67703D",
-    buttonText: "#FAFAF5",
-    footerBg: "#2E3320",     // deep olive
-    footerText: "#E8E8DA",
-    navPillBg: "#67703D",
-    navPillText: "#FAFAF5",
+    primary: "#525642",          // Olive Dark / Olive Tree (swatch #4)
+    secondary: "#868B75",        // Sage (swatch #3)
+    accent: "#9A9086",           // Taupe (swatch #26)
+    gradientStart: "#F7F5F0",   // Warm White
+    gradientEnd: "#EDEEE2",     // warm olive tint
+    buttonBg: "#525642",         // Olive Tree
+    buttonText: "#F7F5F0",
+    footerBg: "#3B2B26",        // Espresso (swatch #5)
+    footerText: "#E6DFD5",      // Sand
+    navPillBg: "#525642",        // Olive Tree
+    navPillText: "#F7F5F0",
   },
 
-  /* ─── GARDENS — Rich Green ─── */
+  /* ─── GARDENS — Clover Green (swatch #12: #286241) ─── */
   gardens: {
-    primary: "#3A5E3A",       // full forest green
-    secondary: "#5A7A52",     // medium green
-    accent: "#7A9A6A",        // soft green
-    gradientStart: "#F5F1EB",
-    gradientEnd: "#E6EDE4",   // green tint
-    buttonBg: "#3A5E3A",
-    buttonText: "#F5F5F0",
-    footerBg: "#1E2E1A",     // deep forest
-    footerText: "#E0E8DA",
-    navPillBg: "#3A5E3A",
-    navPillText: "#F5F5F0",
+    primary: "#286241",          // Forest / Clover Green (swatch #12)
+    secondary: "#424A3E",        // Dark Olive (swatch #22)
+    accent: "#868B75",           // Sage (swatch #3)
+    gradientStart: "#F7F5F0",
+    gradientEnd: "#E6EDE4",     // green tint
+    buttonBg: "#286241",         // Clover Green
+    buttonText: "#F7F5F0",
+    footerBg: "#22322E",        // Dark Teal (swatch #30)
+    footerText: "#E6DFD5",
+    navPillBg: "#286241",        // Clover Green
+    navPillText: "#F7F5F0",
   },
 
-  /* ─── SPRINGS — Blue-Green ─── */
+  /* ─── SPRINGS — Teal (swatch #21: #3B6E7B) ─── */
   springs: {
-    primary: "#3A6B6B",       // teal blue-green
-    secondary: "#5A8A82",     // medium blue-green
-    accent: "#7AABA0",        // soft aqua
-    gradientStart: "#F5F1EB",
-    gradientEnd: "#E4EDEB",   // blue-green tint
-    buttonBg: "#3A6B6B",
-    buttonText: "#F5FAF8",
-    footerBg: "#1A3030",     // deep teal
+    primary: "#3B6E7B",          // Teal (swatch #21)
+    secondary: "#5A6F7B",        // Slate Blue (swatch #10)
+    accent: "#86898C",           // Cool Gray (swatch #15)
+    gradientStart: "#F7F5F0",
+    gradientEnd: "#E4EDEB",     // blue-green tint
+    buttonBg: "#3B6E7B",        // Teal
+    buttonText: "#F7F5F0",
+    footerBg: "#22322E",        // Dark Teal (swatch #30)
     footerText: "#D8E8E4",
-    navPillBg: "#3A6B6B",
-    navPillText: "#F5FAF8",
+    navPillBg: "#3B6E7B",       // Teal
+    navPillText: "#F7F5F0",
   },
 
-  /* ─── BOCAS DEL TORO — Ocean Blue-Green ─── */
+  /* ─── BOCAS DEL TORO — Ocean (swatch #31: #2A6489) ─── */
   "bocas-del-toro": {
-    primary: "#2A6B7A",       // Caribbean ocean blue
-    secondary: "#4A8A8E",     // medium ocean
-    accent: "#7AB0B4",        // soft Caribbean
-    gradientStart: "#F5F1EB",
-    gradientEnd: "#E2ECEE",   // ocean tint
-    buttonBg: "#2A6B7A",
-    buttonText: "#F5FAFA",
-    footerBg: "#142E34",     // deep ocean
-    footerText: "#D4E8EC",
-    navPillBg: "#2A6B7A",
-    navPillText: "#F5FAFA",
+    primary: "#2A6489",          // Ocean (swatch #31)
+    secondary: "#5A6F7B",        // Slate Blue (swatch #10)
+    accent: "#7FA9C9",           // Sky Blue (swatch #35)
+    gradientStart: "#F7F5F0",
+    gradientEnd: "#E2ECEE",     // ocean tint
+    buttonBg: "#2A6489",         // Ocean
+    buttonText: "#F7F5F0",
+    footerBg: "#1B2534",        // Navy (swatch #13)
+    footerText: "#C2D0D6",      // Ice Blue (swatch #8)
+    navPillBg: "#2A6489",        // Ocean
+    navPillText: "#F7F5F0",
   },
 
-  /* ─── ALTO ATACAMA — Desert Red-Brown ─── */
+  /* ─── ALTO ATACAMA — Terracotta (swatch #7: #6F463D) ─── */
   "alto-atacama": {
-    primary: "#8B5A3C",       // terracotta
-    secondary: "#A07A5A",     // warm sand
-    accent: "#B89A78",        // desert gold
-    gradientStart: "#F5F1EB",
-    gradientEnd: "#F2ECE4",   // warm sand tint
-    buttonBg: "#8B5A3C",
-    buttonText: "#FAF5F0",
-    footerBg: "#3A2418",     // deep earth
-    footerText: "#E8DCD0",
-    navPillBg: "#8B5A3C",
-    navPillText: "#FAF5F0",
+    primary: "#6F463D",          // Terracotta (swatch #7)
+    secondary: "#9A9086",        // Taupe (swatch #26)
+    accent: "#C29B70",           // Amber (swatch #32)
+    gradientStart: "#F7F5F0",
+    gradientEnd: "#F2ECE4",     // warm sand tint
+    buttonBg: "#6F463D",        // Terracotta
+    buttonText: "#F7F5F0",
+    footerBg: "#3B2B26",        // Espresso (swatch #5)
+    footerText: "#E2D7C8",      // Bone (swatch #9)
+    navPillBg: "#6F463D",        // Terracotta
+    navPillText: "#F7F5F0",
   },
 
-  /* ─── HANGAROA — Slate Gray ─── */
+  /* ─── HANGAROA — Steel Blue (swatch #24: #536878) ─── */
   hangaroa: {
-    primary: "#5A5E64",       // slate gray
-    secondary: "#7A7E82",     // medium stone
-    accent: "#9A9EA2",        // light slate
-    gradientStart: "#F5F1EB",
-    gradientEnd: "#EAEBED",   // cool gray tint
-    buttonBg: "#5A5E64",
-    buttonText: "#F5F5F5",
-    footerBg: "#2A2C30",     // deep slate
-    footerText: "#D8DADC",
-    navPillBg: "#5A5E64",
-    navPillText: "#F5F5F5",
+    primary: "#536878",          // Steel Blue (swatch #24)
+    secondary: "#67737C",        // Blue Gray (swatch #28)
+    accent: "#9A9086",           // Taupe (swatch #26)
+    gradientStart: "#F7F5F0",
+    gradientEnd: "#EAEBED",     // cool gray tint
+    buttonBg: "#536878",         // Steel Blue
+    buttonText: "#F7F5F0",
+    footerBg: "#1B2534",        // Navy (swatch #13)
+    footerText: "#C2D0D6",      // Ice Blue
+    navPillBg: "#536878",        // Steel Blue
+    navPillText: "#F7F5F0",
   },
 };
 

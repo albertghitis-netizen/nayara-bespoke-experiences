@@ -78,10 +78,10 @@ function IntroSection() {
       <div className="max-w-3xl mx-auto text-center">
         <FadeIn>
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Play className="w-4 h-4 text-[#3a2a1a]/30" />
-            <span className="text-[#3a2a1a]/30 text-[10px] tracking-[0.35em]" style={{ ...body, fontWeight: 500 }}>Video Podcast</span>
+            <Play className="w-4 h-4 text-[#3B2B26]/30" />
+            <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em]" style={{ ...body, fontWeight: 500 }}>Video Podcast</span>
           </div>
-          <p className="text-[#3a2a1a]/60 text-[16px] md:text-[18px] leading-relaxed" style={body}>
+          <p className="text-[#3B2B26]/60 text-[16px] md:text-[18px] leading-relaxed" style={body}>
             Conversations with the people who shape our world — archaeologists,
             conservationists, cultural guardians, and the communities that make
             each Nayara destination extraordinary.
@@ -105,7 +105,7 @@ function EpisodesSection({ episodes, activeEpisode, setActiveEpisode }: {
       <div className="max-w-[1000px] mx-auto flex flex-col gap-10">
         {episodes.map((ep, i) => (
           <FadeIn key={ep.id} delay={i * 0.1}>
-            <div className="bg-white/60 rounded-xl overflow-hidden border border-[#3a2a1a]/5">
+            <div className="bg-white/60 rounded-xl overflow-hidden border border-[#3B2B26]/5">
               {/* Video embed or thumbnail */}
               <div className="relative aspect-video bg-stone-900">
                 {activeEpisode === ep.id ? (
@@ -139,14 +139,14 @@ function EpisodesSection({ episodes, activeEpisode, setActiveEpisode }: {
               {/* Episode info */}
               <div className="p-8 md:p-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
-                  <span className="w-px h-3 bg-[#3a2a1a]/10" />
-                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.duration}</span>
-                  <span className="w-px h-3 bg-[#3a2a1a]/10" />
-                  <span className="text-[#3a2a1a]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.id.includes("rapanui") || ep.id.includes("hitorangi") ? "Hangaroa" : "All Properties"}</span>
+                  <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
+                  <span className="w-px h-3 bg-[#3B2B26]/10" />
+                  <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.duration}</span>
+                  <span className="w-px h-3 bg-[#3B2B26]/10" />
+                  <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.id.includes("rapanui") || ep.id.includes("hitorangi") ? "Hangaroa" : "All Properties"}</span>
                 </div>
-                <h3 className="text-[#3a2a1a] text-xl md:text-2xl leading-[1.15]" style={heading}>{ep.title}</h3>
-                <p className="text-[#3a2a1a]/30 text-xs tracking-[0.1em] mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
+                <h3 className="text-[#3B2B26] text-xl md:text-2xl leading-[1.15]" style={heading}>{ep.title}</h3>
+                <p className="text-[#3B2B26]/30 text-xs tracking-[0.1em] mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
                 <p className="text-[#4B4A4A]/50 text-[14px] leading-relaxed max-w-2xl" style={body}>{ep.description}</p>
               </div>
             </div>
@@ -165,12 +165,12 @@ function ComingSoonSection() {
     <section className="py-16 md:py-20 px-6 md:px-10">
       <div className="max-w-2xl mx-auto text-center">
         <FadeIn>
-          <Headphones className="w-6 h-6 text-[#3a2a1a]/15 mx-auto mb-4" />
-          <p className="text-[#3a2a1a]/30 text-[14px] leading-relaxed" style={body}>
+          <Headphones className="w-6 h-6 text-[#3B2B26]/15 mx-auto mb-4" />
+          <p className="text-[#3B2B26]/30 text-[14px] leading-relaxed" style={body}>
             New episodes coming soon — conversations on coral restoration,
             stargazing in the Atacama, and the future of regenerative travel.
           </p>
-          <p className="text-[#3a2a1a]/20 text-[12px] mt-4" style={{ ...body, fontWeight: 500 }}>
+          <p className="text-[#3B2B26]/20 text-[12px] mt-4" style={{ ...body, fontWeight: 500 }}>
             Available on Spotify, Apple Podcasts, and YouTube
           </p>
         </FadeIn>

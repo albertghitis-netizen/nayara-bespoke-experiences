@@ -12,7 +12,7 @@ export default function Newsletter() {
       style={{
         fontFamily: "var(--font-body)",
         backgroundColor: "#f7f5f0",
-        color: "#3a2a1a",
+        color: "#3B2B26",
       }}
     >
       {/* ── HEADER LOGO ── */}
@@ -253,7 +253,7 @@ export default function Newsletter() {
       <div className="h-[3px] bg-[#c4bba8]" />
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#3a2a1a] text-center py-12 px-8 md:px-16">
+      <footer className="bg-[#3B2B26] text-center py-12 px-8 md:px-16">
         <div className="flex flex-col gap-2 mb-6">
           <a
             href="mailto:reservations@nayararesorts.com"

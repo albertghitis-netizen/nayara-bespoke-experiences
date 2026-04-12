@@ -15,7 +15,7 @@ export default function NavPrototype() {
       {/* Simple trigger button */}
       <div className="text-center max-w-md">
         <h1
-          className="text-3xl md:text-4xl tracking-wide text-[#3a2a1a] mb-4"
+          className="text-3xl md:text-4xl tracking-wide text-[#3B2B26] mb-4"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Navigation Prototype
@@ -29,10 +29,10 @@ export default function NavPrototype() {
         </p>
         <button
           onClick={() => setSidebarOpen(true)}
-          className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#ece8e1] border border-[#3a2a1a]/20 hover:bg-[#d4c9b8]/50 transition-all duration-300"
+          className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#ece8e1] border border-[#3B2B26]/20 hover:bg-[#d4c9b8]/50 transition-all duration-300"
         >
           <span
-            className="text-[#3a2a1a] text-sm tracking-[0.08em]"
+            className="text-[#3B2B26] text-sm tracking-[0.08em]"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             Open Sidebar Nav

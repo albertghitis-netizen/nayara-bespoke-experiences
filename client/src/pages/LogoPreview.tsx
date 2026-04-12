@@ -15,7 +15,7 @@ export default function LogoPreview() {
         <div className="flex flex-col items-center gap-1">
           <img src={LEAF_URL} alt="Nayara leaf" className="w-6 h-auto opacity-90" />
           <span
-            className="text-[#F5F1EB] tracking-[0.35em]"
+            className="text-[#F7F5F0] tracking-[0.35em]"
             style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
               fontWeight: 300,
@@ -34,7 +34,7 @@ export default function LogoPreview() {
         <div className="flex flex-col items-center gap-2">
           <img src={LEAF_URL} alt="Nayara leaf" className="w-10 h-auto opacity-90" />
           <span
-            className="text-[#F5F1EB] tracking-[0.4em]"
+            className="text-[#F7F5F0] tracking-[0.4em]"
             style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
               fontWeight: 300,
@@ -53,7 +53,7 @@ export default function LogoPreview() {
         <div className="flex flex-col items-center gap-3">
           <img src={LEAF_URL} alt="Nayara leaf" className="w-14 h-auto opacity-90" />
           <span
-            className="text-[#F5F1EB] tracking-[0.45em]"
+            className="text-[#F7F5F0] tracking-[0.45em]"
             style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
               fontWeight: 300,
@@ -72,7 +72,7 @@ export default function LogoPreview() {
         <div className="flex flex-col items-center gap-2">
           <img src={LEAF_URL} alt="Nayara leaf" className="w-10 h-auto opacity-90" />
           <span
-            className="text-[#F5F1EB] tracking-[0.4em]"
+            className="text-[#F7F5F0] tracking-[0.4em]"
             style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
               fontWeight: 300,
@@ -83,7 +83,7 @@ export default function LogoPreview() {
             Nayara
           </span>
           <span
-            className="text-[#F5F1EB]/50 tracking-[0.3em]"
+            className="text-[#F7F5F0]/50 tracking-[0.3em]"
             style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
               fontWeight: 300,
@@ -97,15 +97,15 @@ export default function LogoPreview() {
       </div>
 
       {/* On light background */}
-      <div className="w-full py-20 flex flex-col items-center gap-12" style={{ backgroundColor: "#F5F1EB" }}>
-        <p className="text-[#2C2418]/30 text-xs tracking-widest mb-4" style={{ fontFamily: "var(--font-body)" }}>On Light Background</p>
+      <div className="w-full py-20 flex flex-col items-center gap-12" style={{ backgroundColor: "#F7F5F0" }}>
+        <p className="text-[#3B2B26]/30 text-xs tracking-widest mb-4" style={{ fontFamily: "var(--font-body)" }}>On Light Background</p>
         
         <div className="flex gap-20 items-start">
           {/* Brand only */}
           <div className="flex flex-col items-center gap-2">
             <img src={LEAF_URL} alt="Nayara leaf" className="w-10 h-auto brightness-[0.2]" />
             <span
-              className="text-[#2C2418] tracking-[0.4em]"
+              className="text-[#3B2B26] tracking-[0.4em]"
               style={{
                 fontFamily: "'Cormorant Garamond', 'Georgia', serif",
                 fontWeight: 300,
@@ -121,7 +121,7 @@ export default function LogoPreview() {
           <div className="flex flex-col items-center gap-2">
             <img src={LEAF_URL} alt="Nayara leaf" className="w-10 h-auto brightness-[0.2]" />
             <span
-              className="text-[#2C2418] tracking-[0.4em]"
+              className="text-[#3B2B26] tracking-[0.4em]"
               style={{
                 fontFamily: "'Cormorant Garamond', 'Georgia', serif",
                 fontWeight: 300,
@@ -132,7 +132,7 @@ export default function LogoPreview() {
               Nayara
             </span>
             <span
-              className="text-[#2C2418]/40 tracking-[0.3em]"
+              className="text-[#3B2B26]/40 tracking-[0.3em]"
               style={{
                 fontFamily: "'Cormorant Garamond', 'Georgia', serif",
                 fontWeight: 300,

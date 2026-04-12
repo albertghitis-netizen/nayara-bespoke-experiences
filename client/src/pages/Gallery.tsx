@@ -351,7 +351,7 @@ export default function Gallery() {
           {/* Logo / Title */}
           <div className="flex items-center gap-3">
             <span
-              className="text-[#3a2a1a] text-lg tracking-[0.15em] uppercase"
+              className="text-[#3B2B26] text-lg tracking-[0.15em] uppercase"
               style={{ ...display }}
             >
               Nayara
@@ -383,7 +383,7 @@ export default function Gallery() {
             onClick={() => { setTab("image"); setPropertyFilter("all"); }}
             className={`px-6 py-2.5 rounded-full text-[12px] tracking-[0.15em] uppercase transition-all ${
               tab === "image"
-                ? "bg-[#3a2a1a] text-white"
+                ? "bg-[#3B2B26] text-white"
                 : "bg-stone-200 text-stone-500 hover:bg-stone-300"
             }`}
             style={{ ...body, fontWeight: 500 }}
@@ -394,7 +394,7 @@ export default function Gallery() {
             onClick={() => { setTab("video"); setPropertyFilter("all"); }}
             className={`px-6 py-2.5 rounded-full text-[12px] tracking-[0.15em] uppercase transition-all ${
               tab === "video"
-                ? "bg-[#3a2a1a] text-white"
+                ? "bg-[#3B2B26] text-white"
                 : "bg-stone-200 text-stone-500 hover:bg-stone-300"
             }`}
             style={{ ...body, fontWeight: 500 }}
@@ -409,7 +409,7 @@ export default function Gallery() {
             onClick={() => setPropertyFilter("all")}
             className={`px-3.5 py-1.5 rounded-full text-[10px] tracking-[0.15em] uppercase transition-all ${
               propertyFilter === "all"
-                ? "bg-[#3a2a1a] text-white"
+                ? "bg-[#3B2B26] text-white"
                 : "bg-stone-200/80 text-stone-500 hover:bg-stone-300"
             }`}
             style={{ ...body, fontWeight: 500 }}
@@ -461,7 +461,7 @@ export default function Gallery() {
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-3 h-3 rounded-full" style={{ backgroundColor: propColor }} />
                   <h2
-                    className="text-xl text-[#3a2a1a] tracking-wide"
+                    className="text-xl text-[#3B2B26] tracking-wide"
                     style={display}
                   >
                     {group.label}

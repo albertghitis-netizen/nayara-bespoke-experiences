@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4"
+            className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4"
             style={{ ...body, fontWeight: 600 }}
           >
             Legal
@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-[#3a2a1a]"
+            className="text-[#3B2B26]"
             style={{ ...heading, fontSize: "clamp(28px, 4vw, 48px)", lineHeight: 1.15 }}
           >
             Privacy Policy
@@ -44,12 +44,12 @@ export default function PrivacyPolicy() {
         <div className="max-w-[720px] mx-auto">
 
           <PolicySection title="Who We Are">
-            <p>Our website address is: <a href="https://nayararesorts.com" className="underline hover:text-[#3a2a1a] transition-colors">https://nayararesorts.com</a></p>
+            <p>Our website address is: <a href="https://nayararesorts.com" className="underline hover:text-[#3B2B26] transition-colors">https://nayararesorts.com</a></p>
           </PolicySection>
 
           <PolicySection title="Comments">
             <p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor's IP address and browser user agent string to help spam detection.</p>
-            <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: <a href="https://automattic.com/privacy/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#3a2a1a] transition-colors">https://automattic.com/privacy/</a>. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>
+            <p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: <a href="https://automattic.com/privacy/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#3B2B26] transition-colors">https://automattic.com/privacy/</a>. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p>
           </PolicySection>
 
           <PolicySection title="Media">
@@ -86,7 +86,7 @@ export default function PrivacyPolicy() {
           </PolicySection>
 
           <PolicySection title="Contact">
-            <p>For any questions regarding this privacy policy, please contact us at <a href="mailto:reservations@nayararesorts.com" className="underline hover:text-[#3a2a1a] transition-colors">reservations@nayararesorts.com</a> or call <a href="tel:+18448652002" className="underline hover:text-[#3a2a1a] transition-colors">+1 (844) 865-2002</a>.</p>
+            <p>For any questions regarding this privacy policy, please contact us at <a href="mailto:reservations@nayararesorts.com" className="underline hover:text-[#3B2B26] transition-colors">reservations@nayararesorts.com</a> or call <a href="tel:+18448652002" className="underline hover:text-[#3B2B26] transition-colors">+1 (844) 865-2002</a>.</p>
           </PolicySection>
 
         </div>
@@ -101,7 +101,7 @@ function PolicySection({ title, children }: { title: string; children: React.Rea
   return (
     <div className="mb-10">
       <h2
-        className="text-[#3a2a1a] text-xl md:text-2xl mb-4"
+        className="text-[#3B2B26] text-xl md:text-2xl mb-4"
         style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
       >
         {title}

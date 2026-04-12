@@ -22,7 +22,7 @@ interface Props {
 export default function PropertyDiningSection({
   dining,
   bgClass = "bg-[#f0ebe0]",
-  headingColor = "text-[#3a2a1a]",
+  headingColor = "text-[#3B2B26]",
   accentColor = "bg-[#8b6f47]",
 }: Props) {
   const ref = useRef(null);
@@ -234,7 +234,7 @@ function MenuItemRow({ item }: { item: MenuItem }) {
       <div className="flex-1">
         <div className="flex items-center gap-2">
           <span
-            className="text-[#3a2a1a] text-sm"
+            className="text-[#3B2B26] text-sm"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {item.name}

@@ -28,7 +28,7 @@ const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
    More sections = more gradient steps
    ═══════════════════════════════════════════════════════════════ */
 const SECTION_COLORS = [
-  "#F5F1EB", // 0 hero
+  "#F7F5F0", // 0 hero
   "#F2EDE4", // 1 story
   "#EFE9DD", // 2 rooms
   "#ECE5D6", // 3 experiences
@@ -50,11 +50,11 @@ const SECTION_COLORS = [
 ];
 
 const PALETTE = {
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  primary: "#8B5A3C",
-  divider: "#E2DDD5",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  primary: "#6F463D",
+  divider: "#E6DFD5",
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -438,7 +438,7 @@ export default function AltoAtacama() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
         horizontalRatio="16/9"
-        bgColor="#3A2418"
+        bgColor="#3B2B26"
         headline={"The Clearest\nSkies on Earth"}
         bodyText="At 2,400 meters in the driest desert on the planet, the Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
@@ -447,7 +447,7 @@ export default function AltoAtacama() {
       <GettingHereSection />
       <AwardsSection />
       <ReserveCTA />
-      <Footer bgColor="#3A2418" />
+      <Footer bgColor="#3B2B26" />
     </div>
   );
 }

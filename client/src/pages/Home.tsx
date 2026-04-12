@@ -29,7 +29,7 @@ import { motion } from "framer-motion";
 /* ─── Shared styles ─── */
 const PALETTE = {
   bg: "#f7f5f0",
-  text: "#3a2a1a",
+  text: "#3B2B26",
   textSecondary: "#5a4a3a",
   textTertiary: "#8a7a6a",
   accent: "#AD8F61",

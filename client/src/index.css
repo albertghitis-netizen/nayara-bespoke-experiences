@@ -49,82 +49,82 @@
   --font-heading: "Jost", system-ui, sans-serif;
 
   /* ═══════════════════════════════════════════════════
-     BRAND FOUNDATION — Alo-inspired palette
-     Gravel (#9B8E82) · Bone (#E8E3DA) · Chocolate (#3A2A1A) · Olive Tree (#5C6B4F)
+     BRAND FOUNDATION — Official 36-Color Swatch Palette
+     Warm White (#F7F5F0) · Sand (#E6DFD5) · Bone (#E2D7C8) · Espresso (#3B2B26) · Olive Tree (#525642)
      ═══════════════════════════════════════════════════ */
-  --color-nayara-gravel: oklch(0.655 0.023 65.1);
-  --color-nayara-bone: oklch(0.917 0.013 82.4);
-  --color-nayara-chocolate: oklch(0.299 0.036 65.7);
-  --color-nayara-olive: oklch(0.507 0.047 130.9);
+  --color-nayara-gravel: oklch(0.659 0.019 67.4);   /* Taupe #9A9086 (swatch #26) */
+  --color-nayara-bone: oklch(0.970 0.007 88.7);     /* Warm White #F7F5F0 (swatch #1) */
+  --color-nayara-chocolate: oklch(0.306 0.026 38.0); /* Espresso #3B2B26 (swatch #5) */
+  --color-nayara-olive: oklch(0.444 0.032 116.9);   /* Olive Tree #525642 (swatch #4) */
 
-  --color-nayara-bg: oklch(0.917 0.013 82.4);
-  --color-nayara-text: oklch(0.299 0.036 65.7);
-  --color-nayara-text-secondary: oklch(0.655 0.023 65.1);
-  --color-nayara-text-tertiary: oklch(0.655 0.023 65.1);
-  --color-nayara-divider: oklch(0.840 0.015 75);
-  --color-nayara-nav: oklch(0.299 0.036 65.7);
+  --color-nayara-bg: oklch(0.970 0.007 88.7);       /* Warm White #F7F5F0 */
+  --color-nayara-text: oklch(0.306 0.026 38.0);     /* Espresso #3B2B26 */
+  --color-nayara-text-secondary: oklch(0.549 0.020 240.3); /* Blue Gray #67737C (swatch #28) */
+  --color-nayara-text-tertiary: oklch(0.659 0.019 67.4);   /* Taupe #9A9086 (swatch #26) */
+  --color-nayara-divider: oklch(0.906 0.015 77.0);  /* Sand #E6DFD5 (swatch #2) */
+  --color-nayara-nav: oklch(0.306 0.026 38.0);      /* Espresso #3B2B26 */
 
   /* ═══════════════════════════════════════════════════
-     PROPERTY PALETTES — Gardens (Canopy)
+     PROPERTY PALETTES — Gardens (Clover Green)
      ═══════════════════════════════════════════════════ */
-  --color-gardens-primary: oklch(0.342 0.027 95.3);
-  --color-gardens-secondary: oklch(0.365 0.026 30.9);
-  --color-gardens-accent: oklch(0.582 0.025 88.1);
+  --color-gardens-primary: oklch(0.448 0.082 155.9);   /* Clover Green #286241 (swatch #12) */
+  --color-gardens-secondary: oklch(0.398 0.022 135.2); /* Dark Olive #424A3E (swatch #22) */
+  --color-gardens-accent: oklch(0.626 0.032 117.8);    /* Sage #868B75 (swatch #3) */
   --color-gardens-gradient-end: oklch(0.934 0.008 90);
 
-  /* Springs (Mineral) */
-  --color-springs-primary: oklch(0.335 0.026 143.6);
-  --color-springs-secondary: oklch(0.339 0.008 36);
-  --color-springs-accent: oklch(0.554 0.020 143.1);
+  /* Springs (Teal) */
+  --color-springs-primary: oklch(0.508 0.058 216.3);   /* Teal #3B6E7B (swatch #21) */
+  --color-springs-secondary: oklch(0.529 0.031 233.3); /* Slate Blue #5A6F7B (swatch #10) */
+  --color-springs-accent: oklch(0.629 0.006 248.1);    /* Cool Gray #86898C (swatch #15) */
   --color-springs-gradient-end: oklch(0.927 0.005 140);
 
-  /* Tented Camp (Safari) */
-  --color-tented-primary: oklch(0.471 0.022 60);
-  --color-tented-secondary: oklch(0.462 0.042 33.3);
-  --color-tented-accent: oklch(0.621 0.017 60);
+  /* Tented Camp (Olive Tree) */
+  --color-tented-primary: oklch(0.444 0.032 116.9);   /* Olive Tree #525642 (swatch #4) */
+  --color-tented-secondary: oklch(0.626 0.032 117.8); /* Sage #868B75 (swatch #3) */
+  --color-tented-accent: oklch(0.659 0.019 67.4);     /* Taupe #9A9086 (swatch #26) */
   --color-tented-gradient-end: oklch(0.929 0.009 45);
 
-  /* Alto Atacama (Mineral Earth) */
-  --color-atacama-primary: oklch(0.385 0.062 22.8);
-  --color-atacama-secondary: oklch(0.507 0.050 33.8);
-  --color-atacama-accent: oklch(0.537 0.020 62.4);
+  /* Alto Atacama (Terracotta) */
+  --color-atacama-primary: oklch(0.439 0.059 33.0);    /* Terracotta #6F463D (swatch #7) */
+  --color-atacama-secondary: oklch(0.659 0.019 67.4);  /* Taupe #9A9086 (swatch #26) */
+  --color-atacama-accent: oklch(0.715 0.074 68.9);     /* Amber #C29B70 (swatch #32) */
   --color-atacama-gradient-end: oklch(0.928 0.011 34.3);
 
-  /* Hangaroa (Volcanic) */
-  --color-hangaroa-primary: oklch(0.337 0.016 34.3);
-  --color-hangaroa-secondary: oklch(0.434 0.060 35.1);
-  --color-hangaroa-accent: oklch(0.504 0.023 82.8);
+  /* Hangaroa (Steel Blue) */
+  --color-hangaroa-primary: oklch(0.506 0.036 241.3);  /* Steel Blue #536878 (swatch #24) */
+  --color-hangaroa-secondary: oklch(0.549 0.020 240.3); /* Blue Gray #67737C (swatch #28) */
+  --color-hangaroa-accent: oklch(0.659 0.019 67.4);    /* Taupe #9A9086 (swatch #26) */
   --color-hangaroa-gradient-end: oklch(0.918 0.007 40);
 
-  /* Bocas del Toro (Lagoon) */
-  --color-bocas-primary: oklch(0.379 0.038 180);
-  --color-bocas-secondary: oklch(0.383 0.026 120);
-  --color-bocas-accent: oklch(0.596 0.030 180);
+  /* Bocas del Toro (Ocean) */
+  --color-bocas-primary: oklch(0.482 0.085 239.9);     /* Ocean #2A6489 (swatch #31) */
+  --color-bocas-secondary: oklch(0.529 0.031 233.3);   /* Slate Blue #5A6F7B (swatch #10) */
+  --color-bocas-accent: oklch(0.716 0.065 241.6);      /* Sky Blue #7FA9C9 (swatch #35) */
   --color-bocas-gradient-end: oklch(0.927 0.006 180);
 }
 
 :root {
   --radius: 0.25rem;
-  /* Brand foundation — Alo-inspired: Bone bg, Chocolate text, Gravel muted, Olive accent */
-  --background: oklch(0.917 0.013 82.4);       /* Bone */
-  --foreground: oklch(0.299 0.036 65.7);       /* Chocolate */
-  --card: oklch(0.940 0.010 80);               /* Slightly lighter Bone */
-  --card-foreground: oklch(0.299 0.036 65.7);  /* Chocolate */
-  --popover: oklch(0.940 0.010 80);
-  --popover-foreground: oklch(0.299 0.036 65.7);
-  --primary: oklch(0.299 0.036 65.7);          /* Chocolate */
-  --primary-foreground: oklch(0.917 0.013 82.4); /* Bone */
-  --secondary: oklch(0.880 0.015 78);          /* Light Gravel */
-  --secondary-foreground: oklch(0.299 0.036 65.7);
-  --muted: oklch(0.880 0.015 78);
-  --muted-foreground: oklch(0.655 0.023 65.1); /* Gravel */
-  --accent: oklch(0.507 0.047 130.9);          /* Olive Tree */
-  --accent-foreground: oklch(0.917 0.013 82.4); /* Bone */
+  /* Brand foundation — Official 36-Color Swatch Palette */
+  --background: oklch(0.970 0.007 88.7);       /* Warm White #F7F5F0 */
+  --foreground: oklch(0.306 0.026 38.0);       /* Espresso #3B2B26 */
+  --card: oklch(0.970 0.007 88.7);             /* Warm White */
+  --card-foreground: oklch(0.306 0.026 38.0);  /* Espresso */
+  --popover: oklch(0.970 0.007 88.7);
+  --popover-foreground: oklch(0.306 0.026 38.0);
+  --primary: oklch(0.306 0.026 38.0);          /* Espresso */
+  --primary-foreground: oklch(0.970 0.007 88.7); /* Warm White */
+  --secondary: oklch(0.906 0.015 77.0);        /* Sand #E6DFD5 */
+  --secondary-foreground: oklch(0.306 0.026 38.0);
+  --muted: oklch(0.906 0.015 77.0);
+  --muted-foreground: oklch(0.659 0.019 67.4); /* Taupe #9A9086 */
+  --accent: oklch(0.444 0.032 116.9);          /* Olive Tree #525642 */
+  --accent-foreground: oklch(0.970 0.007 88.7); /* Warm White */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.840 0.015 75);             /* Warm divider */
-  --input: oklch(0.900 0.012 80);
-  --ring: oklch(0.507 0.047 130.9);            /* Olive Tree */
+  --border: oklch(0.906 0.015 77.0);           /* Sand #E6DFD5 */
+  --input: oklch(0.906 0.015 77.0);
+  --ring: oklch(0.444 0.032 116.9);            /* Olive Tree #525642 */
   --chart-1: oklch(0.385 0.062 22.8);
   --chart-2: oklch(0.507 0.050 33.8);
   --chart-3: oklch(0.379 0.038 180);
@@ -204,10 +204,10 @@ html {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: oklch(0.917 0.013 82.4);  /* Bone */
+  background: oklch(0.970 0.007 88.7);  /* Warm White #F7F5F0 */
 }
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.655 0.023 65.1);  /* Gravel */
+  background: oklch(0.659 0.019 67.4);  /* Taupe #9A9086 */
   border-radius: 3px;
 }
 

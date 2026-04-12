@@ -23,15 +23,15 @@ import {
 const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
 
 const PALETTE = {
-  primary: "#8B5A3C",
+  primary: "#6F463D",
   secondary: "#9A7E5A",
   accent: "#8A8B72",
-  gradientStart: "#F5F1EB",
+  gradientStart: "#F7F5F0",
   gradientEnd: "#F2ECE4",
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  divider: "#E2DDD5",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  divider: "#E6DFD5",
 };
 
 const CDN = {
@@ -102,7 +102,7 @@ function ExperiencesContent() {
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
                     backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F5F1EB" : PALETTE.textSecondary,
+                    color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
                     border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
                   }}
                 >

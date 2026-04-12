@@ -78,13 +78,13 @@ export default function AskConcierge() {
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1
-            className="text-[#3a2a1a] text-3xl md:text-5xl tracking-wide mb-4"
+            className="text-[#3B2B26] text-3xl md:text-5xl tracking-wide mb-4"
             style={heading}
           >
             Ask Our Concierge
           </h1>
           <p
-            className="text-[#3a2a1a]/50 text-[15px] max-w-xl mx-auto mb-8"
+            className="text-[#3B2B26]/50 text-[15px] max-w-xl mx-auto mb-8"
             style={body}
           >
             Our AI concierge is trained on comprehensive knowledge of all six
@@ -93,7 +93,7 @@ export default function AskConcierge() {
           </p>
           <button
             onClick={() => setShowChat(true)}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#3a2a1a] text-white text-[14px] hover:bg-[#3a2a1a]/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#3B2B26] text-white text-[14px] hover:bg-[#3B2B26]/90 transition-colors"
             style={{ ...body, fontWeight: 500 }}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -109,7 +109,7 @@ export default function AskConcierge() {
       <section className="px-6 pb-16">
         <div className="max-w-5xl mx-auto">
           <h2
-            className="text-[#3a2a1a] text-xl md:text-2xl mb-8 text-center"
+            className="text-[#3B2B26] text-xl md:text-2xl mb-8 text-center"
             style={heading}
           >
             What Our Concierge Knows
@@ -118,10 +118,10 @@ export default function AskConcierge() {
             {KNOWLEDGE_AREAS.map((area) => (
               <div
                 key={area.category}
-                className="border border-[#3a2a1a]/8 rounded-xl p-6"
+                className="border border-[#3B2B26]/8 rounded-xl p-6"
               >
                 <h3
-                  className="text-[#3a2a1a] text-[15px] mb-4"
+                  className="text-[#3B2B26] text-[15px] mb-4"
                   style={{ ...body, fontWeight: 600 }}
                 >
                   {area.category}
@@ -135,7 +135,7 @@ export default function AskConcierge() {
                         </svg>
                       </span>
                       <span
-                        className="text-[#3a2a1a]/60 text-[13px] leading-relaxed"
+                        className="text-[#3B2B26]/60 text-[13px] leading-relaxed"
                         style={body}
                       >
                         {item}
@@ -153,7 +153,7 @@ export default function AskConcierge() {
       <section className="px-6 pb-16">
         <div className="max-w-3xl mx-auto">
           <h2
-            className="text-[#3a2a1a] text-xl md:text-2xl mb-6 text-center"
+            className="text-[#3B2B26] text-xl md:text-2xl mb-6 text-center"
             style={heading}
           >
             What It Still Needs to Learn
@@ -168,7 +168,7 @@ export default function AskConcierge() {
                     </svg>
                   </span>
                   <span
-                    className="text-[#3a2a1a]/60 text-[14px] leading-relaxed"
+                    className="text-[#3B2B26]/60 text-[14px] leading-relaxed"
                     style={body}
                   >
                     {gap}
@@ -177,7 +177,7 @@ export default function AskConcierge() {
               ))}
             </ul>
             <p
-              className="mt-5 text-[#3a2a1a]/40 text-[13px]"
+              className="mt-5 text-[#3B2B26]/40 text-[13px]"
               style={body}
             >
               For these items, the concierge will direct you to our reservations
@@ -191,7 +191,7 @@ export default function AskConcierge() {
       <section className="px-6 pb-24">
         <div className="max-w-3xl mx-auto">
           <h2
-            className="text-[#3a2a1a] text-xl md:text-2xl mb-8 text-center"
+            className="text-[#3B2B26] text-xl md:text-2xl mb-8 text-center"
             style={heading}
           >
             How It Works
@@ -216,19 +216,19 @@ export default function AskConcierge() {
             ].map((item) => (
               <div key={item.step} className="text-center">
                 <span
-                  className="text-[#3a2a1a]/15 text-[32px]"
+                  className="text-[#3B2B26]/15 text-[32px]"
                   style={{ ...heading }}
                 >
                   {item.step}
                 </span>
                 <h3
-                  className="text-[#3a2a1a] text-[15px] mt-2 mb-2"
+                  className="text-[#3B2B26] text-[15px] mt-2 mb-2"
                   style={{ ...body, fontWeight: 600 }}
                 >
                   {item.title}
                 </h3>
                 <p
-                  className="text-[#3a2a1a]/50 text-[13px] leading-relaxed"
+                  className="text-[#3B2B26]/50 text-[13px] leading-relaxed"
                   style={body}
                 >
                   {item.desc}

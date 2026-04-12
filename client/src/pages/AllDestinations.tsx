@@ -96,7 +96,7 @@ export default function AllDestinations() {
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 px-6 md:px-10">
         <div className="max-w-[1200px] mx-auto">
           <h1
-            className="text-4xl md:text-5xl lg:text-6xl mb-4 text-[#3a2a1a]"
+            className="text-4xl md:text-5xl lg:text-6xl mb-4 text-[#3B2B26]"
             style={heading}
           >
             All Destinations
@@ -121,7 +121,7 @@ export default function AllDestinations() {
                 className={`px-5 py-2 rounded-full text-[11px] tracking-[0.12em] transition-all duration-300 border ${
                   activeFilter === tab
                     ? "bg-[#AD8F61] border-[#AD8F61] text-white"
-                    : "bg-transparent border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#AD8F61] hover:text-[#AD8F61]"
+                    : "bg-transparent border-[#3B2B26]/20 text-[#3B2B26]/60 hover:border-[#AD8F61] hover:text-[#AD8F61]"
                 }`}
                 style={{ ...body, fontWeight: 500 }}
               >
@@ -164,13 +164,13 @@ export default function AllDestinations() {
 
                   {/* Content */}
                   <h2
-                    className="text-[18px] text-[#3a2a1a] mb-1"
+                    className="text-[18px] text-[#3B2B26] mb-1"
                     style={{ ...heading, fontWeight: 500 }}
                   >
                     {dest.name}
                   </h2>
                   <p
-                    className="text-[11px] tracking-[0.1em] text-[#3a2a1a]/40 mb-1"
+                    className="text-[11px] tracking-[0.1em] text-[#3B2B26]/40 mb-1"
                     style={{ ...body, fontWeight: 500 }}
                   >
                     {dest.region}
@@ -195,7 +195,7 @@ export default function AllDestinations() {
                     </a>
                     <button
                       onClick={() => navigate(dest.route)}
-                      className="px-5 py-2 rounded-full text-[11px] tracking-[0.12em] border border-[#3a2a1a]/20 text-[#3a2a1a]/60 hover:border-[#3a2a1a] hover:text-[#3a2a1a] transition-all duration-300 cursor-pointer"
+                      className="px-5 py-2 rounded-full text-[11px] tracking-[0.12em] border border-[#3B2B26]/20 text-[#3B2B26]/60 hover:border-[#3B2B26] hover:text-[#3B2B26] transition-all duration-300 cursor-pointer"
                       style={{ ...body, fontWeight: 500 }}
                     >
                       Explore

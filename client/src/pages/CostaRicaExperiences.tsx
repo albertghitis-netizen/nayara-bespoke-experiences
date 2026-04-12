@@ -290,7 +290,7 @@ function ExperiencesContent({ property, palette }: { property: Property; palette
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
                     backgroundColor: activeCategory === cat.id ? palette.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F5F1EB" : BRAND.secondaryText,
+                    color: activeCategory === cat.id ? "#F7F5F0" : BRAND.secondaryText,
                     border: `1px solid ${activeCategory === cat.id ? palette.primary : BRAND.divider}`,
                   }}
                 >
@@ -348,7 +348,7 @@ function FilteredCardGrid({
                 fontFamily: "var(--font-body)",
                 fontWeight: 500,
                 backgroundColor: activeCategory === null ? palette.primary : "transparent",
-                color: activeCategory === null ? "#F5F1EB" : BRAND.secondaryText,
+                color: activeCategory === null ? "#F7F5F0" : BRAND.secondaryText,
                 border: `1px solid ${activeCategory === null ? palette.primary : BRAND.divider}`,
               }}
             >
@@ -363,7 +363,7 @@ function FilteredCardGrid({
                   fontFamily: "var(--font-body)",
                   fontWeight: 500,
                   backgroundColor: activeCategory === cat.id ? palette.primary : "transparent",
-                  color: activeCategory === cat.id ? "#F5F1EB" : BRAND.secondaryText,
+                  color: activeCategory === cat.id ? "#F7F5F0" : BRAND.secondaryText,
                   border: `1px solid ${activeCategory === cat.id ? palette.primary : BRAND.divider}`,
                 }}
               >

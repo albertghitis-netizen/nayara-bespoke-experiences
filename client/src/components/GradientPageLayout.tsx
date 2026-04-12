@@ -75,7 +75,7 @@ function DummySection({ label }: { label: string }) {
     <section className="w-full py-20 md:py-32 px-6 md:px-10">
       <div className="max-w-[1300px] mx-auto">
         <h2
-          className="text-[#3a2a1a]/40 mb-8"
+          className="text-[#3B2B26]/40 mb-8"
           style={{
             fontFamily: "var(--font-display)",
             fontWeight: 400,
@@ -85,11 +85,11 @@ function DummySection({ label }: { label: string }) {
           {label}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="w-full aspect-video bg-[#3a2a1a]/10 rounded-lg flex items-center justify-center">
-            <span className="text-[#3a2a1a]/30 text-sm">Image Placeholder</span>
+          <div className="w-full aspect-video bg-[#3B2B26]/10 rounded-lg flex items-center justify-center">
+            <span className="text-[#3B2B26]/30 text-sm">Image Placeholder</span>
           </div>
-          <div className="w-full aspect-video bg-[#3a2a1a]/10 rounded-lg flex items-center justify-center">
-            <span className="text-[#3a2a1a]/30 text-sm">Image Placeholder</span>
+          <div className="w-full aspect-video bg-[#3B2B26]/10 rounded-lg flex items-center justify-center">
+            <span className="text-[#3B2B26]/30 text-sm">Image Placeholder</span>
           </div>
         </div>
       </div>

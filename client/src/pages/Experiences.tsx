@@ -99,7 +99,7 @@ function IntroSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Experience</p>
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Experience</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             Every Destination Tells a Different Story
           </h2>
@@ -119,7 +119,7 @@ function FilterBar({ activeFilter, onFilterChange }: { activeFilter: string; onF
   return (
     <section className="px-6 md:px-10 pb-8">
       <div className="max-w-[1200px] mx-auto">
-        <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
+        <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
         <div className="flex flex-wrap gap-2">
           {filterOptions.map((opt) => (
             <button
@@ -127,8 +127,8 @@ function FilterBar({ activeFilter, onFilterChange }: { activeFilter: string; onF
               onClick={() => onFilterChange(opt.id)}
               className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
                 activeFilter === opt.id
-                  ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                  : "bg-transparent text-[#5a4a3a]/60 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40 hover:text-[#3a2a1a]"
+                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                  : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
               }`}
               style={{ ...body, fontWeight: 500 }}
             >
@@ -151,7 +151,7 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
         <AnimatePresence mode="popLayout">
           {excursions.length === 0 ? (
             <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-20">
-              <p className="text-[#3a2a1a]/40 text-lg" style={heading}>No experiences match the selected filter</p>
+              <p className="text-[#3B2B26]/40 text-lg" style={heading}>No experiences match the selected filter</p>
             </motion.div>
           ) : (
             <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -174,27 +174,27 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
                   {/* Content */}
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.2em]" style={{ ...body, fontWeight: 600 }}>
+                      <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.2em]" style={{ ...body, fontWeight: 600 }}>
                         {ex.propertyName}
                       </span>
-                      <span className="text-[#3a2a1a]/15">·</span>
-                      <span className="text-[#3a2a1a]/30 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>
+                      <span className="text-[#3B2B26]/15">·</span>
+                      <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>
                         {ex.category}
                       </span>
                     </div>
-                    <h3 className="text-[#3a2a1a] text-[17px] mb-2" style={{ ...heading, fontWeight: 500 }}>
+                    <h3 className="text-[#3B2B26] text-[17px] mb-2" style={{ ...heading, fontWeight: 500 }}>
                       {ex.name}
                     </h3>
                     <p className="text-[#4B4A4A]/55 text-[13px] leading-relaxed mb-4 line-clamp-3" style={body}>
                       {ex.description}
                     </p>
-                    <div className="flex items-center gap-4 text-[11px] text-[#3a2a1a]/35" style={{ ...body, fontWeight: 500 }}>
+                    <div className="flex items-center gap-4 text-[11px] text-[#3B2B26]/35" style={{ ...body, fontWeight: 500 }}>
                       <span>{ex.duration}</span>
-                      <span className="text-[#3a2a1a]/15">·</span>
+                      <span className="text-[#3B2B26]/15">·</span>
                       <span className="capitalize">{ex.difficulty}</span>
                       {ex.price && (
                         <>
-                          <span className="text-[#3a2a1a]/15">·</span>
+                          <span className="text-[#3B2B26]/15">·</span>
                           <span>{ex.price}</span>
                         </>
                       )}
@@ -215,7 +215,7 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]">
+    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3B2B26]">
       <div className="max-w-[800px] mx-auto text-center">
         <FadeIn>
           <h2 className="text-white/80 mb-4" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>

@@ -167,7 +167,7 @@ function IntroSection() {
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Our Commitment</p>
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Our Commitment</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
             We Leave Every Place Stronger Than We Found It
           </h2>
@@ -185,7 +185,7 @@ function IntroSection() {
    ═══════════════════════════════════════════════════════════════ */
 function BrandPillarsSection() {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3a2a1a]">
+    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3B2B26]">
       <div className="max-w-[1100px] mx-auto">
         <FadeIn>
           <p className="text-white/25 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>By the Numbers</p>
@@ -217,7 +217,7 @@ function PropertyInitiativesSection({ activeFilter, onFilterChange, filtered }: 
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[1100px] mx-auto">
         <FadeIn>
-          <p className="text-[#3a2a1a]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Property Initiatives</p>
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Property Initiatives</p>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
             Sustainability Shaped by Place
           </h2>
@@ -231,8 +231,8 @@ function PropertyInitiativesSection({ activeFilter, onFilterChange, filtered }: 
               onClick={() => onFilterChange(opt.id)}
               className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
                 activeFilter === opt.id
-                  ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                  : "bg-transparent text-[#5a4a3a]/60 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40 hover:text-[#3a2a1a]"
+                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                  : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
               }`}
               style={{ ...body, fontWeight: 500 }}
             >
@@ -255,13 +255,13 @@ function PropertyInitiativesSection({ activeFilter, onFilterChange, filtered }: 
                 className="bg-white/50 rounded-xl p-8"
               >
                 <Link href={prop.route} className="group">
-                  <h3 className="text-[#3a2a1a] text-[18px] mb-1 group-hover:text-[#5a4a3a] transition-colors" style={{ ...heading, fontWeight: 500 }}>{prop.name}</h3>
-                  <p className="text-[#3a2a1a]/30 text-[11px] tracking-[0.1em] mb-4" style={{ ...body, fontWeight: 500 }}>{prop.location}</p>
+                  <h3 className="text-[#3B2B26] text-[18px] mb-1 group-hover:text-[#5a4a3a] transition-colors" style={{ ...heading, fontWeight: 500 }}>{prop.name}</h3>
+                  <p className="text-[#3B2B26]/30 text-[11px] tracking-[0.1em] mb-4" style={{ ...body, fontWeight: 500 }}>{prop.location}</p>
                 </Link>
                 <ul className="space-y-3">
                   {prop.initiatives.map((init, j) => (
                     <li key={j} className="flex gap-3 items-start">
-                      <span className="text-[#3a2a1a]/20 text-[10px] mt-1.5">●</span>
+                      <span className="text-[#3B2B26]/20 text-[10px] mt-1.5">●</span>
                       <span className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>{init}</span>
                     </li>
                   ))}
@@ -289,7 +289,7 @@ function CTASection() {
           <p className="text-[#4B4A4A]/50 text-[14px] leading-relaxed mb-8" style={body}>
             Every stay at a Nayara property directly funds conservation, community development, and ecosystem restoration.
           </p>
-          <Link href="/story" className="inline-block px-8 py-3 bg-[#3a2a1a] text-white/80 text-[13px] tracking-[0.1em] rounded-full hover:bg-[#4a3a2a] transition-colors" style={{ ...body, fontWeight: 500 }}>
+          <Link href="/story" className="inline-block px-8 py-3 bg-[#3B2B26] text-white/80 text-[13px] tracking-[0.1em] rounded-full hover:bg-[#4a3a2a] transition-colors" style={{ ...body, fontWeight: 500 }}>
             Read Our Story
           </Link>
         </FadeIn>

@@ -64,10 +64,10 @@ export default function WebsiteGuide() {
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-[#3a2a1a] text-3xl md:text-5xl tracking-wide mb-4" style={heading}>
+          <h1 className="text-[#3B2B26] text-3xl md:text-5xl tracking-wide mb-4" style={heading}>
             Website Guide
           </h1>
-          <p className="text-[#3a2a1a]/50 text-[15px] max-w-2xl mx-auto" style={body}>
+          <p className="text-[#3B2B26]/50 text-[15px] max-w-2xl mx-auto" style={body}>
             Complete reference for the Nayara Resorts website — brand identity, design system, content strategy, technical architecture, and internal tools.
           </p>
         </div>
@@ -78,9 +78,9 @@ export default function WebsiteGuide() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {SECTIONS[0].content.map((item) => (
-              <div key={item.label} className="border border-[#3a2a1a]/8 rounded-xl p-4 text-center">
-                <p className="text-[#3a2a1a] text-[20px] mb-1" style={{ ...heading }}>{item.value}</p>
-                <p className="text-[#3a2a1a]/40 text-[11px] tracking-[0.1em]" style={{ ...body, fontWeight: 500 }}>{item.label}</p>
+              <div key={item.label} className="border border-[#3B2B26]/8 rounded-xl p-4 text-center">
+                <p className="text-[#3B2B26] text-[20px] mb-1" style={{ ...heading }}>{item.value}</p>
+                <p className="text-[#3B2B26]/40 text-[11px] tracking-[0.1em]" style={{ ...body, fontWeight: 500 }}>{item.label}</p>
               </div>
             ))}
           </div>
@@ -90,18 +90,18 @@ export default function WebsiteGuide() {
       {/* Internal Pages Directory */}
       <section className="px-6 pb-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>Internal Reference Pages</h2>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>Internal Reference Pages</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {INTERNAL_PAGES.map((page) => (
               <Link key={page.path} href={page.path}>
-                <div className="border border-[#3a2a1a]/8 rounded-xl p-5 hover:border-[#3a2a1a]/20 transition-colors cursor-pointer group">
+                <div className="border border-[#3B2B26]/8 rounded-xl p-5 hover:border-[#3B2B26]/20 transition-colors cursor-pointer group">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-[#3a2a1a] text-[15px] group-hover:text-[#5a8a5a] transition-colors" style={{ ...body, fontWeight: 600 }}>{page.name}</h3>
-                    <svg className="w-4 h-4 text-[#3a2a1a]/20 group-hover:text-[#5a8a5a] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <h3 className="text-[#3B2B26] text-[15px] group-hover:text-[#5a8a5a] transition-colors" style={{ ...body, fontWeight: 600 }}>{page.name}</h3>
+                    <svg className="w-4 h-4 text-[#3B2B26]/20 group-hover:text-[#5a8a5a] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
                   </div>
-                  <p className="text-[#3a2a1a]/50 text-[13px]" style={body}>{page.desc}</p>
+                  <p className="text-[#3B2B26]/50 text-[13px]" style={body}>{page.desc}</p>
                 </div>
               </Link>
             ))}
@@ -112,12 +112,12 @@ export default function WebsiteGuide() {
       {/* Design Principles */}
       <section className="px-6 pb-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>Design Principles</h2>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>Design Principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {DESIGN_PRINCIPLES.map((p) => (
-              <div key={p.title} className="border border-[#3a2a1a]/8 rounded-xl p-5">
-                <h3 className="text-[#3a2a1a] text-[15px] mb-2" style={{ ...body, fontWeight: 600 }}>{p.title}</h3>
-                <p className="text-[#3a2a1a]/50 text-[13px] leading-relaxed" style={body}>{p.desc}</p>
+              <div key={p.title} className="border border-[#3B2B26]/8 rounded-xl p-5">
+                <h3 className="text-[#3B2B26] text-[15px] mb-2" style={{ ...body, fontWeight: 600 }}>{p.title}</h3>
+                <p className="text-[#3B2B26]/50 text-[13px] leading-relaxed" style={body}>{p.desc}</p>
               </div>
             ))}
           </div>
@@ -127,12 +127,12 @@ export default function WebsiteGuide() {
       {/* Tech Stack */}
       <section className="px-6 pb-24">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>Technology Stack</h2>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>Technology Stack</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {TECH_STACK.map((t) => (
-              <div key={t.name} className="border border-[#3a2a1a]/8 rounded-xl p-4 text-center">
-                <p className="text-[#3a2a1a] text-[14px]" style={{ ...body, fontWeight: 600 }}>{t.name}</p>
-                <p className="text-[#3a2a1a]/40 text-[12px] mt-1" style={body}>{t.role}</p>
+              <div key={t.name} className="border border-[#3B2B26]/8 rounded-xl p-4 text-center">
+                <p className="text-[#3B2B26] text-[14px]" style={{ ...body, fontWeight: 600 }}>{t.name}</p>
+                <p className="text-[#3B2B26]/40 text-[12px] mt-1" style={body}>{t.role}</p>
               </div>
             ))}
           </div>

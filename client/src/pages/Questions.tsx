@@ -57,10 +57,10 @@ export default function QuestionsPage() {
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-[#3a2a1a] text-3xl md:text-5xl tracking-wide mb-4" style={heading}>
+          <h1 className="text-[#3B2B26] text-3xl md:text-5xl tracking-wide mb-4" style={heading}>
             Questions & Recommendations
           </h1>
-          <p className="text-[#3a2a1a]/50 text-[15px] max-w-2xl mx-auto" style={body}>
+          <p className="text-[#3B2B26]/50 text-[15px] max-w-2xl mx-auto" style={body}>
             Open questions requiring input, content gaps to fill, and strategic recommendations for the next phase of development.
           </p>
         </div>
@@ -69,24 +69,24 @@ export default function QuestionsPage() {
       {/* Questions */}
       <section className="px-6 pb-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>
             Open Questions ({QUESTIONS.length})
           </h2>
           <div className="space-y-4">
             {QUESTIONS.map((q) => (
-              <div key={q.title} className="border border-[#3a2a1a]/8 rounded-xl p-5 md:p-6">
+              <div key={q.title} className="border border-[#3B2B26]/8 rounded-xl p-5 md:p-6">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
-                  <h3 className="text-[#3a2a1a] text-[15px]" style={{ ...body, fontWeight: 600 }}>{q.title}</h3>
+                  <h3 className="text-[#3B2B26] text-[15px]" style={{ ...body, fontWeight: 600 }}>{q.title}</h3>
                   <div className="flex gap-2 flex-shrink-0">
                     <span className={`text-[10px] tracking-[0.1em] px-2 py-0.5 rounded-full border ${priorityColors[q.priority].bg} ${priorityColors[q.priority].text} ${priorityColors[q.priority].border}`} style={{ ...body, fontWeight: 600 }}>
                       {q.priority}
                     </span>
-                    <span className="text-[10px] tracking-[0.1em] text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-full" style={{ ...body, fontWeight: 500 }}>
+                    <span className="text-[10px] tracking-[0.1em] text-[#3B2B26]/30 border border-[#3B2B26]/10 px-2 py-0.5 rounded-full" style={{ ...body, fontWeight: 500 }}>
                       {q.category}
                     </span>
                   </div>
                 </div>
-                <p className="text-[#3a2a1a]/60 text-[14px] leading-relaxed" style={body}>{q.desc}</p>
+                <p className="text-[#3B2B26]/60 text-[14px] leading-relaxed" style={body}>{q.desc}</p>
               </div>
             ))}
           </div>
@@ -96,24 +96,24 @@ export default function QuestionsPage() {
       {/* Recommendations */}
       <section className="px-6 pb-24">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-[#3a2a1a] text-xl md:text-2xl mb-8" style={heading}>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-8" style={heading}>
             Recommendations ({RECOMMENDATIONS.length})
           </h2>
           <div className="space-y-4">
             {RECOMMENDATIONS.map((r) => (
-              <div key={r.title} className="border border-[#3a2a1a]/8 rounded-xl p-5 md:p-6">
+              <div key={r.title} className="border border-[#3B2B26]/8 rounded-xl p-5 md:p-6">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
-                  <h3 className="text-[#3a2a1a] text-[15px]" style={{ ...body, fontWeight: 600 }}>{r.title}</h3>
+                  <h3 className="text-[#3B2B26] text-[15px]" style={{ ...body, fontWeight: 600 }}>{r.title}</h3>
                   <div className="flex gap-2 flex-shrink-0">
                     <span className={`text-[10px] tracking-[0.1em] px-2 py-0.5 rounded-full border ${priorityColors[r.priority].bg} ${priorityColors[r.priority].text} ${priorityColors[r.priority].border}`} style={{ ...body, fontWeight: 600 }}>
                       {r.priority}
                     </span>
-                    <span className="text-[10px] tracking-[0.1em] text-[#3a2a1a]/30 border border-[#3a2a1a]/10 px-2 py-0.5 rounded-full" style={{ ...body, fontWeight: 500 }}>
+                    <span className="text-[10px] tracking-[0.1em] text-[#3B2B26]/30 border border-[#3B2B26]/10 px-2 py-0.5 rounded-full" style={{ ...body, fontWeight: 500 }}>
                       {r.category}
                     </span>
                   </div>
                 </div>
-                <p className="text-[#3a2a1a]/60 text-[14px] leading-relaxed" style={body}>{r.desc}</p>
+                <p className="text-[#3B2B26]/60 text-[14px] leading-relaxed" style={body}>{r.desc}</p>
               </div>
             ))}
           </div>

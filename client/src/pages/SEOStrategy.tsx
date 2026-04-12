@@ -129,10 +129,10 @@ export default function SEOStrategy() {
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-[#3a2a1a] text-3xl md:text-5xl tracking-wide mb-4" style={heading}>
+          <h1 className="text-[#3B2B26] text-3xl md:text-5xl tracking-wide mb-4" style={heading}>
             SEO / AEO / GEO Strategy
           </h1>
-          <p className="text-[#3a2a1a]/50 text-[15px] max-w-2xl mx-auto" style={body}>
+          <p className="text-[#3B2B26]/50 text-[15px] max-w-2xl mx-auto" style={body}>
             Search engine optimization, AI engine optimization, and geographic optimization strategy for all six Nayara properties.
           </p>
         </div>
@@ -148,8 +148,8 @@ export default function SEOStrategy() {
                 onClick={() => setActiveTab(t.id)}
                 className={`px-5 py-2.5 rounded-full text-[13px] transition-all border ${
                   activeTab === t.id
-                    ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                    : "bg-white text-[#3a2a1a]/70 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/40"
+                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                    : "bg-white text-[#3B2B26]/70 border-[#3B2B26]/15 hover:border-[#3B2B26]/40"
                 }`}
                 style={{ ...body, fontWeight: 500 }}
               >
@@ -179,12 +179,12 @@ export default function SEOStrategy() {
 function TopicalClusters() {
   return (
     <div className="space-y-8">
-      <p className="text-[#3a2a1a]/60 text-[15px] leading-relaxed" style={body}>
+      <p className="text-[#3B2B26]/60 text-[15px] leading-relaxed" style={body}>
         Each pillar serves as a topical cluster hub. Blog posts, podcast episodes, and property pages link back to the pillar page, building topical authority.
       </p>
       {TOPICAL_CLUSTERS.map((cluster) => (
-        <div key={cluster.pillar} className="border border-[#3a2a1a]/8 rounded-xl p-6">
-          <h3 className="text-[#3a2a1a] text-[17px] mb-4" style={{ ...body, fontWeight: 600 }}>{cluster.pillar}</h3>
+        <div key={cluster.pillar} className="border border-[#3B2B26]/8 rounded-xl p-6">
+          <h3 className="text-[#3B2B26] text-[17px] mb-4" style={{ ...body, fontWeight: 600 }}>{cluster.pillar}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {cluster.topics.map((topic) => (
               <div key={topic} className="flex items-center gap-2">
@@ -193,7 +193,7 @@ function TopicalClusters() {
                     <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                   </svg>
                 </span>
-                <span className="text-[#3a2a1a]/60 text-[14px]" style={body}>{topic}</span>
+                <span className="text-[#3B2B26]/60 text-[14px]" style={body}>{topic}</span>
               </div>
             ))}
           </div>
@@ -207,22 +207,22 @@ function PropertyKeywords() {
   return (
     <div className="space-y-6">
       {PROPERTY_KEYWORDS.map((p) => (
-        <div key={p.property} className="border border-[#3a2a1a]/8 rounded-xl p-6">
-          <h3 className="text-[#3a2a1a] text-[17px] mb-4" style={{ ...body, fontWeight: 600 }}>{p.property}</h3>
+        <div key={p.property} className="border border-[#3B2B26]/8 rounded-xl p-6">
+          <h3 className="text-[#3B2B26] text-[17px] mb-4" style={{ ...body, fontWeight: 600 }}>{p.property}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-[#5a8a5a] text-[10px] tracking-[0.15em] mb-2" style={{ ...body, fontWeight: 600 }}>Primary Keywords</label>
               <ul className="space-y-1.5">
                 {p.primary.map((kw) => (
-                  <li key={kw} className="text-[#3a2a1a]/70 text-[14px]" style={body}>{kw}</li>
+                  <li key={kw} className="text-[#3B2B26]/70 text-[14px]" style={body}>{kw}</li>
                 ))}
               </ul>
             </div>
             <div>
-              <label className="block text-[#3a2a1a]/30 text-[10px] tracking-[0.15em] mb-2" style={{ ...body, fontWeight: 500 }}>Secondary Keywords</label>
+              <label className="block text-[#3B2B26]/30 text-[10px] tracking-[0.15em] mb-2" style={{ ...body, fontWeight: 500 }}>Secondary Keywords</label>
               <ul className="space-y-1.5">
                 {p.secondary.map((kw) => (
-                  <li key={kw} className="text-[#3a2a1a]/50 text-[14px]" style={body}>{kw}</li>
+                  <li key={kw} className="text-[#3B2B26]/50 text-[14px]" style={body}>{kw}</li>
                 ))}
               </ul>
             </div>
@@ -236,13 +236,13 @@ function PropertyKeywords() {
 function AEOSection() {
   return (
     <div className="space-y-6">
-      <p className="text-[#3a2a1a]/60 text-[15px] leading-relaxed mb-4" style={body}>
+      <p className="text-[#3B2B26]/60 text-[15px] leading-relaxed mb-4" style={body}>
         AI Engine Optimization ensures Nayara content is accurately cited by ChatGPT, Perplexity, Google AI Overviews, and other AI-powered search tools.
       </p>
       {AEO_STRATEGIES.map((s) => (
-        <div key={s.title} className="border border-[#3a2a1a]/8 rounded-xl p-6">
-          <h3 className="text-[#3a2a1a] text-[15px] mb-2" style={{ ...body, fontWeight: 600 }}>{s.title}</h3>
-          <p className="text-[#3a2a1a]/60 text-[14px] leading-relaxed" style={body}>{s.desc}</p>
+        <div key={s.title} className="border border-[#3B2B26]/8 rounded-xl p-6">
+          <h3 className="text-[#3B2B26] text-[15px] mb-2" style={{ ...body, fontWeight: 600 }}>{s.title}</h3>
+          <p className="text-[#3B2B26]/60 text-[14px] leading-relaxed" style={body}>{s.desc}</p>
         </div>
       ))}
     </div>
@@ -252,13 +252,13 @@ function AEOSection() {
 function GEOSection() {
   return (
     <div className="space-y-6">
-      <p className="text-[#3a2a1a]/60 text-[15px] leading-relaxed mb-4" style={body}>
+      <p className="text-[#3B2B26]/60 text-[15px] leading-relaxed mb-4" style={body}>
         Geographic optimization targets travelers searching for specific destinations, ensuring Nayara appears in location-based queries.
       </p>
       {GEO_STRATEGIES.map((s) => (
-        <div key={s.title} className="border border-[#3a2a1a]/8 rounded-xl p-6">
-          <h3 className="text-[#3a2a1a] text-[15px] mb-2" style={{ ...body, fontWeight: 600 }}>{s.title}</h3>
-          <p className="text-[#3a2a1a]/60 text-[14px] leading-relaxed" style={body}>{s.desc}</p>
+        <div key={s.title} className="border border-[#3B2B26]/8 rounded-xl p-6">
+          <h3 className="text-[#3B2B26] text-[15px] mb-2" style={{ ...body, fontWeight: 600 }}>{s.title}</h3>
+          <p className="text-[#3B2B26]/60 text-[14px] leading-relaxed" style={body}>{s.desc}</p>
         </div>
       ))}
     </div>
@@ -268,18 +268,18 @@ function GEOSection() {
 function ContentCalendar() {
   return (
     <div className="space-y-6">
-      <p className="text-[#3a2a1a]/60 text-[15px] leading-relaxed mb-4" style={body}>
+      <p className="text-[#3B2B26]/60 text-[15px] leading-relaxed mb-4" style={body}>
         Quarterly content themes aligned with seasonal travel patterns and property events. Each quarter targets specific keyword clusters.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {CONTENT_CALENDAR.map((q) => (
-          <div key={q.month} className="border border-[#3a2a1a]/8 rounded-xl p-6">
-            <h3 className="text-[#3a2a1a] text-[17px] mb-4" style={{ ...body, fontWeight: 600 }}>{q.month}</h3>
+          <div key={q.month} className="border border-[#3B2B26]/8 rounded-xl p-6">
+            <h3 className="text-[#3B2B26] text-[17px] mb-4" style={{ ...body, fontWeight: 600 }}>{q.month}</h3>
             <ul className="space-y-2">
               {q.topics.map((topic) => (
                 <li key={topic} className="flex items-start gap-2">
                   <span className="text-[#c4a882] mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-current" />
-                  <span className="text-[#3a2a1a]/60 text-[14px]" style={body}>{topic}</span>
+                  <span className="text-[#3B2B26]/60 text-[14px]" style={body}>{topic}</span>
                 </li>
               ))}
             </ul>

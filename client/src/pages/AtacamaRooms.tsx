@@ -16,15 +16,15 @@ import {
 } from "@/components/motion";
 
 const PALETTE = {
-  primary: "#8B5A3C",
+  primary: "#6F463D",
   secondary: "#9A7E5A",
   accent: "#8A8B72",
-  gradientStart: "#F5F1EB",
+  gradientStart: "#F7F5F0",
   gradientEnd: "#F2ECE4",
-  text: "#2C2418",
-  textSecondary: "#7A6F63",
-  textTertiary: "#B0A89E",
-  divider: "#E2DDD5",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  divider: "#E6DFD5",
 };
 
 const CDN = {

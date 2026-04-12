@@ -42,7 +42,7 @@ export default function NativeVideo({
   const pillBgBase = propPalette ? propPalette.navPillBg : null;
   const pillBg = pillBgBase ? `${pillBgBase}B3` : "rgba(242,235,227,0.75)";
   const pillHover = pillBgBase ? `${pillBgBase}E6` : "rgba(242,235,227,0.92)";
-  const pillTextColor = propPalette ? "#fff" : "#3a2a1a";
+  const pillTextColor = propPalette ? "#fff" : "#3B2B26";
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);

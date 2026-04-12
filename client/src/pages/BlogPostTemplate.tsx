@@ -76,7 +76,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
       style={{
         fontFamily: "var(--font-body)",
         backgroundColor: "#f7f5f0",
-        color: "#3a2a1a",
+        color: "#3B2B26",
       }}
     >
       {/* ── SEO HEAD ── */}
@@ -178,7 +178,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
         <div className="max-w-3xl mx-auto px-8 md:px-16 py-12">
           <div className="border border-[#c4bba8] rounded-lg p-6 md:p-8 bg-[#f7f5f0]">
             <p
-              className="text-lg mb-5 text-[#3a2a1a]"
+              className="text-lg mb-5 text-[#3B2B26]"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               Key Findings
@@ -217,7 +217,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
 
                 {/* Body content */}
                 <div
-                  className="blog-body-content text-[15px] text-[#666666] leading-[1.9] [&_p]:mb-6 [&_a]:text-[#AD8F61] [&_a]:underline [&_a:hover]:text-[#8a7a5a] [&_a]:transition-colors [&_em]:italic [&_strong]:font-semibold [&_strong]:text-[#3a2a1a]"
+                  className="blog-body-content text-[15px] text-[#666666] leading-[1.9] [&_p]:mb-6 [&_a]:text-[#AD8F61] [&_a]:underline [&_a:hover]:text-[#8a7a5a] [&_a]:transition-colors [&_em]:italic [&_strong]:font-semibold [&_strong]:text-[#3B2B26]"
                   dangerouslySetInnerHTML={{ __html: section.content }}
                 />
 
@@ -225,7 +225,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
                 {section.pullQuote && (
                   <blockquote className="my-10 mx-4 md:mx-12 py-6 px-8 border-l-4 border-[#AD8F61] bg-[#f7f5f0]/60 rounded-r-lg">
                     <p
-                      className="text-[17px] md:text-[19px] text-[#3a2a1a] leading-[1.7] italic"
+                      className="text-[17px] md:text-[19px] text-[#3B2B26] leading-[1.7] italic"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                     >
                       "{section.pullQuote}"
