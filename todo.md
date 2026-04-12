@@ -2080,3 +2080,5 @@
 - [x] Rebuilt storybook section: dramatic reveal + 5 new videos (landscape-vertical-landscape-vertical-landscape) with audio
 - [x] Tented Camp H1: "Luxury Tented Camp Immersed in the Rainforest"
 - [x] Moon Camp H1: "Luxury Tented Camp Perched on the Moon"
+
+- [ ] Fix video #7 (generated_1581360d) in Moon Camp cascade — it's portrait not landscape, upload correct vertical version and update layout

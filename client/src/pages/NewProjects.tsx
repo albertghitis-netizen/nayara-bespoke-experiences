@@ -1160,11 +1160,11 @@ export default function NewProjects() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          SECTION 4 — THE STORYBOOK
-          Landscape full-screen + vertical reel cascade with audio
+          SECTION 4 — THE MOVIE
+          Continuous full-bleed video cascade, no gaps
           ═══════════════════════════════════════════════════════════ */}
 
-      {/* Transition from pink to storybook palette */}
+      {/* Transition from pink to dark */}
       <div
         className="h-32 md:h-48"
         style={{ background: "linear-gradient(to bottom, #5A1E50, #0a0a10)" }}
@@ -1207,114 +1207,111 @@ export default function NewProjects() {
         </div>
       </section>
 
-      {/* Girls' Photo — The Real Adventurers */}
-      <section
-        className="relative w-full overflow-hidden"
-        style={{ backgroundColor: "#0a0a10" }}
-      >
-        <div className="max-w-[1200px] mx-auto px-6 md:px-10 pb-16 md:pb-24">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full rounded-xl overflow-hidden shadow-2xl"
-          >
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-girls-hero_545646fd.jpg"
-              alt="Ayla and Paloma — the real adventurers"
-              className="w-full h-auto object-cover"
-            />
-          </motion.div>
+      {/* THE MOVIE — Continuous full-bleed cascade, no gaps */}
+      <div style={{ backgroundColor: "#0a0a10" }}>
+
+        {/* 1 — Landscape full-screen */}
+        <div className="relative w-full" style={{ aspectRatio: "1104/832" }}>
+          <video
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img1-landscape_30550e46.mp4"
+            autoPlay muted playsInline loop
+            className="w-full h-full object-cover block"
+          />
         </div>
-      </section>
 
-      {/* Image 1 — Landscape Full-Screen (with audio) */}
-      <section className="relative w-full h-screen overflow-hidden">
-        <video
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-storybook-hero-ch1_e608dbee.mp4"
-          autoPlay playsInline loop
-          className="w-full h-full object-cover"
-        />
-      </section>
+        {/* 2 — Portrait, left side */}
+        <div className="flex" style={{ backgroundColor: "#0a0a10" }}>
+          <div className="w-full md:w-1/2">
+            <div style={{ aspectRatio: "784/1044" }}>
+              <video
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img2-portrait_3bfede68.mp4"
+                autoPlay muted playsInline loop
+                className="w-full h-full object-cover block"
+              />
+            </div>
+          </div>
+          <div className="hidden md:block w-1/2" />
+        </div>
 
-      {/* Image 2 — Vertical Reel, Left Side (with audio) */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#0a0a10" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[50%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <video
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-storybook-reel-img2_9d44bd6f.mov"
-                  autoPlay playsInline loop
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            <div className="w-full md:w-[50%]" />
+        {/* 3 — Landscape full-screen */}
+        <div className="relative w-full" style={{ aspectRatio: "784/626" }}>
+          <video
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img3-landscape_d76f8082.mp4"
+            autoPlay muted playsInline loop
+            className="w-full h-full object-cover block"
+          />
+        </div>
+
+        {/* 4 — Portrait, right side */}
+        <div className="flex" style={{ backgroundColor: "#0a0a10" }}>
+          <div className="hidden md:block w-1/2" />
+          <div className="w-full md:w-1/2">
+            <div style={{ aspectRatio: "784/1168" }}>
+              <video
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img4-portrait_3782a232.mp4"
+                autoPlay muted playsInline loop
+                className="w-full h-full object-cover block"
+              />
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Image 3 — Landscape Full-Screen (with audio) */}
-      <section className="relative w-full h-screen overflow-hidden">
-        <video
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-storybook-hero-img3_59c5864c.mov"
-          autoPlay playsInline loop
-          className="w-full h-full object-cover"
-        />
-      </section>
+        {/* 5 — Landscape full-screen */}
+        <div className="relative w-full" style={{ aspectRatio: "928/696" }}>
+          <video
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img5-landscape_acf3b3b3.mp4"
+            autoPlay muted playsInline loop
+            className="w-full h-full object-cover block"
+          />
+        </div>
 
-      {/* Image 4 — Vertical Reel, Right Side (with audio) */}
-      <section
-        className="py-16 md:py-24 px-6 md:px-10"
-        style={{ backgroundColor: "#0a0a10" }}
-      >
-        <div className="max-w-[1100px] mx-auto">
-          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full md:w-[50%] flex-shrink-0"
-            >
-              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-                <video
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-storybook-reel-img4_3126a757.mp4"
-                  autoPlay playsInline loop
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-            <div className="w-full md:w-[50%]" />
+        {/* 6 — Portrait, left side */}
+        <div className="flex" style={{ backgroundColor: "#0a0a10" }}>
+          <div className="w-full md:w-1/2">
+            <div style={{ aspectRatio: "784/1168" }}>
+              <video
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img6-portrait_4a466038.mp4"
+                autoPlay muted playsInline loop
+                className="w-full h-full object-cover block"
+              />
+            </div>
+          </div>
+          <div className="hidden md:block w-1/2" />
+        </div>
+
+        {/* 7 — Landscape full-screen */}
+        <div className="relative w-full" style={{ aspectRatio: "784/626" }}>
+          <video
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img7-landscape_d8406d81.mp4"
+            autoPlay muted playsInline loop
+            className="w-full h-full object-cover block"
+          />
+        </div>
+
+        {/* 8 — Landscape full-screen (connecting) */}
+        <div className="relative w-full" style={{ aspectRatio: "784/588" }}>
+          <video
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img8-landscape_8fd2a83a.mp4"
+            autoPlay muted playsInline loop
+            className="w-full h-full object-cover block"
+          />
+        </div>
+
+        {/* 9 — Portrait, right side */}
+        <div className="flex" style={{ backgroundColor: "#0a0a10" }}>
+          <div className="hidden md:block w-1/2" />
+          <div className="w-full md:w-1/2">
+            <div style={{ aspectRatio: "784/1044" }}>
+              <video
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img9-portrait_2caf6a24.mp4"
+                autoPlay muted playsInline loop
+                className="w-full h-full object-cover block"
+              />
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Image 5 — Landscape Full-Screen (with audio) */}
-      <section className="relative w-full h-screen overflow-hidden">
-        <video
-          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-storybook-hero-img5_fa7a2493.mov"
-          autoPlay playsInline loop
-          className="w-full h-full object-cover"
-        />
-      </section>
-
-      {/* Gradient to dark for footer */}
-      <div
-        className="h-20 md:h-32"
-        style={{ background: "linear-gradient(to bottom, #0a0a10, #0a0a10)" }}
-      />
+      </div>
 
       <Footer pageType="brand" />
     </div>
