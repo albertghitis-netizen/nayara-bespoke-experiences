@@ -1989,3 +1989,8 @@
 - [x] FAQ stays as separate section or accordion at bottom
 - [x] Remove separate Podcast page / redirect to /journal (already redirects)
 - [x] Verify build and save checkpoint
+
+## New Brand Hero Video
+- [x] Upload new hero video to CDN
+- [x] Swap hero video URL in homepage
+- [x] Verify hero plays correctly
