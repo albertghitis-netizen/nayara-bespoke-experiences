@@ -2068,3 +2068,10 @@
 - [x] Move sound control to top left + match button color on every page with audio
 - [x] Remove four photos under founding family in coming soon section
 - [x] Change "Concierge" button/label to "Ask Concierge" in the UI
+
+## Moon Camp Adventure Videos — Apr 12 2026
+- [x] Analyze 8 new Moon Camp adventure videos
+- [x] Upload all 8 videos + girls hero photo to CDN
+- [x] Place 8 videos as alternating left/right storybook sections after Moon Camp ending
+- [x] Girls hero photo as landscape hero for new storybook section
+- [ ] Add landscape connector videos between reels (waiting for user to send)

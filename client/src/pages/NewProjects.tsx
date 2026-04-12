@@ -1159,10 +1159,280 @@ export default function NewProjects() {
         </motion.p>
       </section>
 
+      {/* ═══════════════════════════════════════════════════════════
+          SECTION 4 — THE STORYBOOK
+          Girls' hero photo + 8 vertical video reels alternating left/right
+          ═══════════════════════════════════════════════════════════ */}
+
+      {/* Transition from pink to storybook palette */}
+      <div
+        className="h-32 md:h-48"
+        style={{ background: "linear-gradient(to bottom, #5A1E50, #1a1225)" }}
+      />
+
+      {/* Storybook Hero — Girls' Photo */}
+      <section
+        className="relative w-full overflow-hidden"
+        style={{ backgroundColor: "#1a1225" }}
+      >
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 py-16 md:py-24">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center text-[10px] md:text-xs tracking-[0.5em] mb-6"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#F2A7C3" }}
+          >
+            But Wait
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-center text-2xl md:text-4xl mb-12 md:mb-16"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFD6E8" }}
+          >
+            There's More.
+          </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-full rounded-xl overflow-hidden shadow-2xl"
+          >
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-girls-hero_545646fd.jpg"
+              alt="Ayla and Paloma — the real adventurers"
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Storybook Reel 1 — Video Left */}
+      <section
+        className="py-16 md:py-24 px-6 md:px-10"
+        style={{ backgroundColor: "#1a1225" }}
+      >
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full md:w-[50%] flex-shrink-0"
+            >
+              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-reel-1_cc689f7b.mp4"
+                  autoPlay playsInline loop
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <div className="w-full md:w-[50%]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Storybook Reel 2 — Video Right */}
+      <section
+        className="py-16 md:py-24 px-6 md:px-10"
+        style={{ backgroundColor: "#1e1429" }}
+      >
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full md:w-[50%] flex-shrink-0"
+            >
+              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-reel-2_4b2c1dbb.mp4"
+                  autoPlay playsInline loop
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <div className="w-full md:w-[50%]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Storybook Reel 3 — Video Left */}
+      <section
+        className="py-16 md:py-24 px-6 md:px-10"
+        style={{ backgroundColor: "#1a1225" }}
+      >
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full md:w-[50%] flex-shrink-0"
+            >
+              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-reel-3_73781c92.mp4"
+                  autoPlay playsInline loop
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <div className="w-full md:w-[50%]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Storybook Reel 4 — Video Right */}
+      <section
+        className="py-16 md:py-24 px-6 md:px-10"
+        style={{ backgroundColor: "#1e1429" }}
+      >
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full md:w-[50%] flex-shrink-0"
+            >
+              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-reel-4_036d3e6e.mp4"
+                  autoPlay playsInline loop
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <div className="w-full md:w-[50%]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Storybook Reel 5 — Video Left */}
+      <section
+        className="py-16 md:py-24 px-6 md:px-10"
+        style={{ backgroundColor: "#1a1225" }}
+      >
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full md:w-[50%] flex-shrink-0"
+            >
+              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-reel-5_ebad65fd.mp4"
+                  autoPlay playsInline loop
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <div className="w-full md:w-[50%]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Storybook Reel 6 — Video Right */}
+      <section
+        className="py-16 md:py-24 px-6 md:px-10"
+        style={{ backgroundColor: "#1e1429" }}
+      >
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full md:w-[50%] flex-shrink-0"
+            >
+              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-reel-6_9de9963f.mp4"
+                  autoPlay playsInline loop
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <div className="w-full md:w-[50%]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Storybook Reel 7 — Video Left */}
+      <section
+        className="py-16 md:py-24 px-6 md:px-10"
+        style={{ backgroundColor: "#1a1225" }}
+      >
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full md:w-[50%] flex-shrink-0"
+            >
+              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-reel-7_418e09a5.mp4"
+                  autoPlay playsInline loop
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <div className="w-full md:w-[50%]" />
+          </div>
+        </div>
+      </section>
+
+      {/* Storybook Reel 8 — Video Right */}
+      <section
+        className="py-16 md:py-24 px-6 md:px-10"
+        style={{ backgroundColor: "#1e1429" }}
+      >
+        <div className="max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="w-full md:w-[50%] flex-shrink-0"
+            >
+              <div className="aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+                <video
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-reel-8_8dc367bf.mp4"
+                  autoPlay playsInline loop
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            <div className="w-full md:w-[50%]" />
+          </div>
+        </div>
+      </section>
+
       {/* Pink gradient back to dark for footer */}
       <div
         className="h-20 md:h-32"
-        style={{ background: "linear-gradient(to bottom, #5A1E50, #0a0a10)" }}
+        style={{ background: "linear-gradient(to bottom, #1e1429, #0a0a10)" }}
       />
 
       <Footer pageType="brand" />
