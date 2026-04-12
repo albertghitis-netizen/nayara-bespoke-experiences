@@ -162,8 +162,8 @@ export default function Home() {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = isMobile
-    ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-mobile-v2_7d9beda9.mp4"
-    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-desktop-v2_54464fb3.mp4";
+    ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-mobile-v3_39f26662.mp4"
+    : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-desktop-v3_5b739e00.mp4";
 
   /* Track when video nears its end to reveal H1 */
   const [showTitle, setShowTitle] = useState(false);

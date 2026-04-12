@@ -209,7 +209,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="fixed bottom-6 right-6 z-50 w-[92vw] sm:w-[420px] md:w-[460px] h-[70vh] max-h-[600px] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
             style={{
-              background: "#E8DCC8",
+              background: "#F2ECE0",
               border: "1px solid rgba(58, 42, 26, 0.12)",
             }}
           >
@@ -314,7 +314,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
               className="px-4 py-3 shrink-0"
               style={{ borderTop: "1.5px solid rgba(58, 42, 26, 0.15)" }}
             >
-              <div className="flex items-end gap-2 bg-[#E8DCC8] rounded-xl px-3 py-1.5" style={{ border: "1px solid rgba(58, 42, 26, 0.12)" }}>
+              <div className="flex items-end gap-2 bg-[#EBE4D6] rounded-xl px-3 py-1.5" style={{ border: "1px solid rgba(58, 42, 26, 0.12)" }}>
                 <textarea
                   ref={inputRef}
                   value={input}

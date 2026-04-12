@@ -144,7 +144,7 @@ export default function NativeVideo({
         <button
           onClick={(e) => { e.stopPropagation(); toggleMute(); }}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className={`absolute top-2 left-14 z-[60] ${mobileAudio ? 'flex' : 'hidden md:flex'} items-center gap-2 h-9 px-3.5 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group cursor-pointer`}
+          className={`fixed top-[11px] left-14 z-[60] ${mobileAudio ? 'flex' : 'hidden md:flex'} items-center gap-2 h-9 px-3.5 rounded-full backdrop-blur-md border border-white/10 transition-all duration-300 group cursor-pointer`}
           style={{ backgroundColor: pillBg }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = pillHover)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = pillBg)}
