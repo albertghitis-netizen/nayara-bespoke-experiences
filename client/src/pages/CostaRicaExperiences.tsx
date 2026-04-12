@@ -130,7 +130,7 @@ function ExperiencesHero({
     <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
       <div className="relative w-full h-[60vh]">
         <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>
             <span
@@ -419,7 +419,7 @@ function ExcursionCard({ excursion, palette }: { excursion: Excursion; palette: 
               loading="lazy"
             />
           ) : null}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
         </div>
       )}
 

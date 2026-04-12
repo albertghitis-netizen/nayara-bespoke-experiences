@@ -57,7 +57,7 @@ function ExperiencesHero() {
     <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
       <div className="relative w-full h-[60vh]">
         <NativeVideo src={CDN.desertExploration} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>
             <span

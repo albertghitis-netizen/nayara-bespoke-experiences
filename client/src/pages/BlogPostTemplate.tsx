@@ -116,7 +116,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
           />
         )}
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
 
         {/* Pillar tag on hero */}
         <div className="absolute bottom-8 left-8 md:left-16 z-10">

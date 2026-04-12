@@ -71,7 +71,7 @@ export default function NewProjects() {
             className="w-full h-full object-cover"
             hasAudio
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/60 pointer-events-none" />
         </div>
 
         {/* Hero text removed — clean video only */}
@@ -136,7 +136,7 @@ export default function NewProjects() {
             alt="The Berkshires — autumn foliage reflected in a still lake"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/60 pointer-events-none" />
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">
@@ -268,7 +268,7 @@ export default function NewProjects() {
             className="w-full h-full object-cover"
             hasAudio
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60 pointer-events-none" />
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-12 md:pb-20 px-6 md:px-10">

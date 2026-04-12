@@ -219,7 +219,7 @@ function HeroSection() {
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
           <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" hasAudio />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
         </div>
       </section>
       <div
@@ -354,7 +354,7 @@ function ExperiencesSection() {
       <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
         <div className="relative w-full h-[60vh]">
           <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
               <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
@@ -496,7 +496,7 @@ function WellnessSection() {
       <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
         <div className="relative w-full h-[55vh]">
           <img src={CDN.warriorPortrait} alt="Rapa Nui warrior" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
               <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
@@ -574,7 +574,7 @@ function GastronomySection() {
       <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
         <div className="relative w-full h-[55vh]">
           <img src={CDN.moaiPukao} alt="Moai with pukao hats overlooking ocean" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
               <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>

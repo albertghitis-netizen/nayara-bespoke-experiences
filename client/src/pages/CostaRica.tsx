@@ -273,8 +273,8 @@ function ArenalHero({ onInView }: { onInView: () => void }) {
           src={heroVideo}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* Hero text removed — clean video only */}
@@ -603,7 +603,7 @@ function FeaturedExcursionCard({
                 </div>
               </div>
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
             {/* Title overlay at bottom */}
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
