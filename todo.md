@@ -2076,3 +2076,4 @@
 - [x] Girls hero photo as landscape hero for new storybook section
 - [ ] Add landscape connector videos between reels (waiting for user to send)
 - [x] Remove sound pill from mobile homepage header
+- [x] Make sound pill stationary with the video (not fixed/following scroll)
