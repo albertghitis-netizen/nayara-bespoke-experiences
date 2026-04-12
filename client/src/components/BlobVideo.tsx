@@ -6,6 +6,7 @@
  * - Loading shimmer + error fallback
  * - Optional mute/unmute pill button for videos with audio
  *   (videos autoplay muted; user taps once to hear sound)
+ * - Sound pill positioned top-left, color-matched to page buttons
  */
 import { useRef, useState, useEffect, useCallback } from "react";
 
@@ -20,6 +21,10 @@ interface BlobVideoProps {
   controls?: boolean;
   /** Set true to show the mute/unmute pill on this video */
   hasAudio?: boolean;
+  /** Background color for the sound pill (matches page button color). Defaults to page nav pill style. */
+  pillBg?: string;
+  /** Text/icon color for the sound pill. Defaults to white. */
+  pillColor?: string;
 }
 
 export default function BlobVideo({
@@ -32,6 +37,8 @@ export default function BlobVideo({
   poster,
   controls = false,
   hasAudio = false,
+  pillBg,
+  pillColor,
 }: BlobVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -95,6 +102,10 @@ export default function BlobVideo({
     return "video/mp4";
   };
 
+  /* Pill styling — use provided colors or fall back to nav-pill defaults */
+  const bgStyle = pillBg || "rgba(58, 42, 26, 0.70)";
+  const fgStyle = pillColor || "#ffffff";
+
   return (
     <div className="relative w-full h-full">
       <video
@@ -136,22 +147,24 @@ export default function BlobVideo({
         />
       )}
 
-      {/* Mute / Unmute pill — bottom-left, luxury aesthetic */}
+      {/* Mute / Unmute pill — top-left, color-matched to page buttons */}
       {hasAudio && isLoaded && (
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-6 left-6 z-30 flex items-center gap-2 px-4 py-2.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-all duration-300 group cursor-pointer"
+          className="absolute top-6 left-6 z-30 flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-md border border-white/10 hover:opacity-90 transition-all duration-300 group cursor-pointer"
+          style={{ backgroundColor: bgStyle }}
         >
           {/* Pulse ring — draws attention, then fades */}
           {isMuted && showPulse && (
-            <span className="absolute inset-0 rounded-full border border-white/30 animate-ping" />
+            <span className="absolute inset-0 rounded-full border animate-ping" style={{ borderColor: `${fgStyle}30` }} />
           )}
 
           {/* Speaker icon */}
           {isMuted ? (
             <svg
-              className="w-4 h-4 text-white/80 group-hover:text-white transition-colors"
+              className="w-4 h-4 transition-colors"
+              style={{ color: `${fgStyle}CC` }}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -165,7 +178,8 @@ export default function BlobVideo({
             </svg>
           ) : (
             <svg
-              className="w-4 h-4 text-white/80 group-hover:text-white transition-colors"
+              className="w-4 h-4 transition-colors"
+              style={{ color: `${fgStyle}CC` }}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -181,8 +195,8 @@ export default function BlobVideo({
 
           {/* Label */}
           <span
-            className="text-white/70 group-hover:text-white text-[10px] tracking-[0.2em] transition-colors"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            className="text-[10px] tracking-[0.2em] transition-colors"
+            style={{ color: `${fgStyle}B3`, fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {isMuted ? "Sound" : "Mute"}
           </span>

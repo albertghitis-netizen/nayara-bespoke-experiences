@@ -2057,3 +2057,13 @@
 - [x] Change fallback label from "Brand" to "Nayara" on Journal cards
 - [x] Interleave podcast/video episodes among articles (spaced out, not clumped)
 - [x] Add full awards to Tented Camp on Awards page (T+L, Condé Nast, LHW, Green Globe, Carbon Neutral)
+
+## Overnight Bot Upgrade — Apr 12-13 2026
+- [x] Rename all "Starry" references to "Henry" across the codebase
+- [ ] Scrape all blog article URLs for full text content
+- [ ] Extract property knowledge from all 6 property pages
+- [ ] Compile comprehensive knowledge base document
+- [ ] Upgrade Henry's system prompt with full knowledge base
+- [ ] Test Henry against diverse questions
+- [x] Move sound control to top left + match button color on every page with audio
+- [x] Remove four photos under founding family in coming soon section

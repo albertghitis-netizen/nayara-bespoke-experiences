@@ -47,6 +47,7 @@ function createPublicContext(): TrpcContext {
 describe("Nayara Concierge System Prompt", () => {
   it("should not reference 'Starry' anywhere in the prompt", () => {
     expect(NAYARA_CONCIERGE_SYSTEM_PROMPT.toLowerCase()).not.toContain("starry");
+    expect(NAYARA_CONCIERGE_SYSTEM_PROMPT).toContain("Henry");
   });
 
   it("should identify as Henry, Nayara's AI concierge", () => {

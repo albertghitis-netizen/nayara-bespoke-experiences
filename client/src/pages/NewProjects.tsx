@@ -463,45 +463,7 @@ export default function NewProjects() {
         </div>
       </section>
 
-      {/* Moon Camp Family Gallery */}
-      <section className="py-16 md:py-24 px-6 md:px-10">
-        <div className="max-w-[1100px] mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-[10px] md:text-xs tracking-[0.4em] mb-10 md:mb-14"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.25)" }}
-          >
-            The Founding Family
-          </motion.p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {[
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-family-robes_b1cc2b73.jpg", alt: "Family in robes at the resort" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-family-bed-smile_8935fb5f.jpg", alt: "Father and son smiling in bed" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-family-kids_194a0536.jpg", alt: "Father holding two kids laughing" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/moon-family-bed-silly_625c602f.jpg", alt: "Father and son being silly in bed" },
-            ].map((img, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="overflow-hidden rounded-sm"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full aspect-[3/4] object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ── Divider ── */}
       <div className="max-w-[80px] mx-auto h-px bg-white/10" />

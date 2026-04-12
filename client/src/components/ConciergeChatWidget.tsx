@@ -1,7 +1,7 @@
 /**
  * Nayara Resorts — Website Concierge Chat Widget
  * A luxury-styled floating chat that represents the Nayara brand directly.
- * Warm, professional, knowledgeable — not a character, not "Starry."
+ * Warm, professional, knowledgeable — Henry, the Nayara concierge.
  */
 
 import { useState, useRef, useEffect } from "react";
