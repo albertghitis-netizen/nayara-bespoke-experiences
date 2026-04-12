@@ -205,7 +205,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={showTitle ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          className="text-[#F2EBE3] text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
           Luxury Resorts Rooted in Nature

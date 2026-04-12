@@ -75,8 +75,8 @@ export default function BrandNavigation({
     ? getPalette(propertySlug)
     : null;
   const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#3a2a1a");
-  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(228,218,200,0.75)");
-  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(228,218,200,0.92)");
+  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(242,235,227,0.75)");
+  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(242,235,227,0.92)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -253,7 +253,7 @@ export default function BrandNavigation({
             if (!showCenter) return null;
             return (
               <span
-                className="mx-4 ml-6 text-white/90 drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
+                className="mx-4 ml-6 text-[#F2EBE3] drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
                 style={{ opacity: scrolled ? 0 : 1 }}
               >
                 <span

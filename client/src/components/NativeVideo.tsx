@@ -40,8 +40,8 @@ export default function NativeVideo({
   const propPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
     ? getPalette(slug) : null;
   const pillBgBase = propPalette ? propPalette.navPillBg : null;
-  const pillBg = pillBgBase ? `${pillBgBase}B3` : "rgba(228,218,200,0.75)";
-  const pillHover = pillBgBase ? `${pillBgBase}E6` : "rgba(228,218,200,0.92)";
+  const pillBg = pillBgBase ? `${pillBgBase}B3` : "rgba(242,235,227,0.75)";
+  const pillHover = pillBgBase ? `${pillBgBase}E6` : "rgba(242,235,227,0.92)";
   const pillTextColor = propPalette ? "#fff" : "#3a2a1a";
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
