@@ -182,13 +182,13 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
             onClick={() => setIsOpen(true)}
             className="fixed bottom-4 right-4 z-50 flex items-center gap-1.5 rounded-full backdrop-blur-md shadow-lg px-4 py-2 transition-colors group cursor-pointer border"
             style={{ backgroundColor: bg, borderColor: "rgba(255,255,255,0.1)" }}
-            aria-label="Ask Henry"
+            aria-label="Nayara Concierge"
           >
             <span
               className="text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ color: "rgba(255,255,255,0.85)", fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              Ask Henry
+              Nayara Concierge
             </span>
 
             {/* Pulse indicator for new visitors */}

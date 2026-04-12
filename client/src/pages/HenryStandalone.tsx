@@ -184,7 +184,7 @@ export default function HenryStandalone() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask Henry anything..."
+            placeholder="Ask the concierge anything..."
             rows={1}
             className="flex-1 resize-none bg-transparent text-sm placeholder:text-[#3a2a1a]/35 focus:outline-none max-h-24 py-2"
             style={{ color: "#3a2a1a" }}

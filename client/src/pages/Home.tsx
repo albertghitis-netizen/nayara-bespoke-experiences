@@ -2,6 +2,7 @@
  * NAYARA RESORTS - Brand Homepage
  * Visual Identity: Cormorant Garamond + DM Sans, warm neutral palette, cinematic motion
  */
+import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -163,17 +164,42 @@ function HeroSection() {
   const heroVideo = isMobile
     ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-mobile_3bc537e2.mp4"
     : "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-desktop_5b784e99.mp4";
+
+  /* Track when video nears its end to reveal H1 */
+  const [showTitle, setShowTitle] = useState(false);
+  const videoTimeRef = useRef<HTMLVideoElement | null>(null);
+
+  /* Listen for timeupdate on the underlying <video> inside NativeVideo */
+  useEffect(() => {
+    /* NativeVideo renders a <video> inside a wrapper div.
+       We find it via the container's querySelector after mount. */
+    const container = document.querySelector("[data-hero-video]");
+    if (!container) return;
+    const video = container.querySelector("video");
+    if (!video) return;
+    videoTimeRef.current = video;
+
+    const onTime = () => {
+      if (!video.duration || video.duration === Infinity) return;
+      /* Show title when ~8 seconds remain before the loop restarts */
+      const remaining = video.duration - video.currentTime;
+      if (remaining <= 8 && !showTitle) setShowTitle(true);
+    };
+    video.addEventListener("timeupdate", onTime);
+    return () => video.removeEventListener("timeupdate", onTime);
+  }, [showTitle]);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" data-hero-video>
         <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio mobileAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-6 md:pb-8 px-6">
         <motion.h1
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={showTitle ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >

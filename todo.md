@@ -1994,3 +1994,10 @@
 - [x] Upload new hero video to CDN
 - [x] Swap hero video URL in homepage
 - [x] Verify hero plays correctly
+
+## UI Tweaks
+- [x] Lower "Luxury Resorts Rooted in Nature" headline closer to bottom of hero (brand homepage only)
+- [x] Rename "Ask Henry" to "Nayara Concierge" everywhere
+- [x] H1 "Luxury Resorts Rooted in Nature" hidden during hero video, fades in only near the end of the clip
+- [ ] Add super subtle realistic vine/botanical texture overlay near H1 on brand homepage hero
+- [ ] Add super subtle realistic vine/botanical texture overlay across entire brand homepage (not just hero)
