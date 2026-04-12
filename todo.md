@@ -2067,3 +2067,4 @@
 - [ ] Test Henry against diverse questions
 - [x] Move sound control to top left + match button color on every page with audio
 - [x] Remove four photos under founding family in coming soon section
+- [x] Change "Concierge" button/label to "Ask Concierge" in the UI
