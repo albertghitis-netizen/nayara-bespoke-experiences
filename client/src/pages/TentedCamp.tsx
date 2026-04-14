@@ -113,6 +113,9 @@ const ASSETS = {
 
   badges: `${CDN}/award-badges-tented-camp_8aea5e71.webp`,
 
+  // S4 horizontal photo — tented camp sunset plunge pool
+  s4Photo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-sunset-plunge_7573fe67.jpeg",
+
   // New cascade video
   cascadeNewV: `${CDN}/tented-camp-cascade-new_c993038d.mp4`,
 };
@@ -147,7 +150,7 @@ function MediaBlock({
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" />
+        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio />
       ) : (
         <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
       )}
@@ -610,9 +613,9 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Volcanic\nHealing",
     body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.",
     verticalSrc: ASSETS.spaV,
-    horizontalSrc: ASSETS.wellH,
+    horizontalSrc: ASSETS.s4Photo,
     verticalIsVideo: false,
-    horizontalIsVideo: true,
+    horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[4],
@@ -888,7 +891,7 @@ function GallerySection() {
             <MediaReveal key={i} delay={i * 0.05}>
               <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
                 {item.isVideo ? (
-                  <NativeVideo src={item.src} className="w-full h-full object-cover" />
+                  <NativeVideo src={item.src} className="w-full h-full object-cover" hasAudio />
                 ) : (
                   <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
                 )}

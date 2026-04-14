@@ -71,7 +71,7 @@ function RoomsHero() {
   return (
     <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={CDN.s3} className="w-full h-full object-cover" />
+        <NativeVideo src={CDN.s3} className="w-full h-full object-cover" hasAudio />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-10">

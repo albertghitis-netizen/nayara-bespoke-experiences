@@ -353,7 +353,7 @@ function ExperiencesSection() {
     <section id="experiences" className="overflow-hidden">
       <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
         <div className="relative w-full h-[60vh]">
-          <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
+          <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" hasAudio />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
@@ -677,7 +677,7 @@ function GalleryIntegratedSections() {
                 <MediaReveal delay={0.1}>
                   <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
                     {section.verticalIsVideo ? (
-                      <NativeVideo src={section.verticalSrc} className="w-full h-full object-cover" />
+                      <NativeVideo src={section.verticalSrc} className="w-full h-full object-cover" hasAudio />
                     ) : (
                       <img src={section.verticalSrc} alt="" className="w-full h-full object-cover" loading="lazy" />
                     )}
@@ -708,7 +708,7 @@ function GalleryIntegratedSections() {
             <MediaReveal delay={0.15}>
               <div className="overflow-hidden" style={{ aspectRatio: "21/9" }}>
                 {section.horizontalIsVideo ? (
-                  <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
+                  <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" hasAudio />
                 ) : (
                   <img src={section.horizontalSrc} alt="" className="w-full h-full object-cover" loading="lazy" />
                 )}

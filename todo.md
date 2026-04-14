@@ -2083,3 +2083,22 @@
 
 - [ ] Fix video #7 (generated_1581360d) in Moon Camp cascade — it's portrait not landscape, upload correct vertical version and update layout
 - [x] Remove ALL old chapter content (chapters 1-3, old images, old videos) between Moon Camp ending and the 9-video cascade — cascade starts right after Moon Camp CTA
+- [ ] Remove ALL horizontal photos and videos on mobile across EVERY page — no horizontal content on mobile, period. Everything must be vertical or square on mobile.
+- [ ] Reorder Tented Camp sections: after Rooms → Sustainability next
+- [ ] Reorder Springs sections: after Rooms → Wellness next
+- [ ] Reorder Gardens sections: after Rooms → Experiences next
+- [ ] Add "Adults Only" category to navigation (Springs, Bocas del Toro)
+- [ ] Add "Families" category to navigation (Gardens, Tented Camp, Alto Atacama, Hangaroa)
+- [ ] Create Wildlife hub page as a new pillar (alongside Experiences, Wellness, Gastronomy, Sustainability)
+- [ ] Add Wildlife to navigation menu
+- [ ] Create Adults Only hub page as a full pillar (Springs, Bocas del Toro)
+- [ ] Create Families hub page as a full pillar (Gardens, Tented Camp, Alto Atacama, Hangaroa)
+- [ ] Update PILLARS to 7 total: Experiences, Wellness, Gastronomy, Sustainability, Wildlife, Adults Only, Families
+- [x] Separate Podcast from Blog — Podcast gets its own page/route again at /podcast
+- [ ] Enable hasAudio on ALL videos across the entire site — any video that has audio gets the Sound pill, muted by default
+- [ ] Delete bottom photo grid section on homepage (aerial pool, sunset, resort photos below the main content)
+- [x] Upload tented camp sunset photo and add as S4 on Tented Camp page
+- [ ] New property page rule: S1=video hero, S2=horizontal photo always
+- [ ] Delete bottom photo grid section on homepage
+- [ ] Move Coming Soon page to internal/private section (like Brand Book) — not part of public site
+- [ ] Build auto-scroll cinematic mode prototype on Alto Atacama: "Ready to Begin" prompt → music + auto-scroll → touch to stop

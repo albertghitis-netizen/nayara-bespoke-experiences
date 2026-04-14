@@ -6,6 +6,7 @@
  */
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
+import CinematicScroll from "@/components/CinematicScroll";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import ByNightCTA from "@/components/ByNightCTA";
@@ -171,7 +172,7 @@ function MediaBlock({
   return (
     <div className="overflow-hidden w-full" style={{ aspectRatio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" />
+        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio />
       ) : (
         <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
       )}
@@ -409,6 +410,11 @@ const CASCADE_SECTIONS = [
 export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
+      <CinematicScroll
+        audioSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/desert-ambient_8703789b.mp3"
+        speed={1.2}
+        accentColor="rgba(58,42,26,0.7)"
+      />
       <BrandNavigation pageType="property" />
       <HeroSection />
 

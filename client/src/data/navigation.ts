@@ -35,13 +35,29 @@ export const PROPERTIES = [
 
 export const PILLARS = [
   { label: "Bespoke Experiences", route: "/experiences" },
-  { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
+  { label: "Regenerative Travel", route: "/sustainability" },
+  { label: "Flora & Fauna", route: "/flora-fauna" },
+  { label: "Romance or Family Fun", route: "/romance-or-family" },
+] as const;
+
+/* Romance or Family Fun — property categorization */
+export const ROMANCE_PROPERTIES = [
+  { id: "springs", name: "Nayara Springs", route: "/springs", tag: "Adults Only" },
+  { id: "bocas-del-toro", name: "Nayara Bocas del Toro", route: "/bocas-del-toro", tag: "Adults Only" },
+] as const;
+
+export const FAMILY_PROPERTIES = [
+  { id: "gardens", name: "Nayara Gardens", route: "/gardens", tag: "Family-Friendly" },
+  { id: "tented-camp", name: "Nayara Tented Camp", route: "/tented-camp", tag: "Family-Friendly" },
+  { id: "alto-atacama", name: "Nayara Alto Atacama", route: "/alto-atacama", tag: "Family-Friendly" },
+  { id: "hangaroa", name: "Nayara Hangaroa", route: "/hangaroa", tag: "Family-Friendly" },
 ] as const;
 
 export const CONTENT_SECTIONS = [
-  { label: "Journal & Podcast", route: "/journal" },
+  { label: "Blog", route: "/journal" },
+  { label: "Podcast", route: "/podcast" },
   { label: "Awards & Press", route: "/awards" },
 ] as const;
 
@@ -54,18 +70,20 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
-  { label: "Beyond Sustainability", route: "/sustainability" },
+  { label: "Regenerative Travel", route: "/sustainability" },
+  { label: "Flora & Fauna", route: "/flora-fauna" },
+  { label: "Romance or Family Fun", route: "/romance-or-family" },
   { label: "Coming Soon", route: "/new-projects" },
   { label: "Nayara By Night", route: "/by-night" },
 ];
 
-/* Nayara Journal column items — all route to /journal */
+/* Nayara Journal column items */
 const JOURNAL_MENU_ITEMS: MenuItem[] = [
   { label: "Blog", route: "/journal" },
-  { label: "Podcast", route: "/journal" },
+  { label: "Podcast", route: "/podcast" },
   { label: "FAQ", route: "/journal" },
-  { label: "Press", route: "/journal" },
-  { label: "Awards", route: "/journal" },
+  { label: "Press", route: "/awards" },
+  { label: "Awards", route: "/awards" },
 ];
 
 /* Brand page hamburger — standardized menu (no properties) */

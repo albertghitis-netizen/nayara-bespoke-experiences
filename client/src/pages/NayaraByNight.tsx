@@ -84,7 +84,7 @@ function MediaBlock({
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" />
+        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio />
       ) : (
         <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
       )}
@@ -162,16 +162,18 @@ function NightCascadeSection({ section, index }: { section: NightSectionData; in
       </div>
 
       {/* Horizontal media — full bleed */}
-      <div style={{ backgroundColor: section.bgColor }}>
-        <FadeIn delay={0.2}>
-          <MediaBlock
-            src={section.horizontalSrc}
-            isVideo={section.horizontalIsVideo}
-            ratio="16/9"
-            alt={`${section.label} — landscape`}
-          />
-        </FadeIn>
-      </div>
+      {section.horizontalSrc && (
+        <div style={{ backgroundColor: section.bgColor }}>
+          <FadeIn delay={0.2}>
+            <MediaBlock
+              src={section.horizontalSrc}
+              isVideo={section.horizontalIsVideo}
+              ratio="16/9"
+              alt={`${section.label} — landscape`}
+            />
+          </FadeIn>
+        </div>
+      )}
     </section>
   );
 }
@@ -210,26 +212,14 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     headline: "Moai Beneath\nthe Milky Way",
     body: "On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.",
     verticalSrc: CDN.moaiMilkyway,
-    horizontalSrc: CDN.moaiGoldenSunset,
+    horizontalSrc: "",
     verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: DARK_COLORS[2],
   },
-  {
-    id: "rapa-nui-golden",
-    label: "Golden Hour",
-    headline: "Ancient Stone\nin Golden Light",
-    body: "The Moai at sunrise and sunset are among the most photographed moments on Earth — and yet nothing prepares you for seeing them in person. The volcanic stone catches the light differently with each passing minute, shifting from deep shadow to warm amber to silhouette against a blazing sky.",
-    verticalSrc: CDN.moaiSunsetSilhouette,
-    horizontalSrc: CDN.moaiSunriseGolden,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: DARK_COLORS[2],
-  },
+
   {
     id: "bocas-bioluminescence",
     label: "Bocas del Toro",

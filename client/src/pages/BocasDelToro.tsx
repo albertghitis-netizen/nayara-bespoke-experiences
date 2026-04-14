@@ -292,7 +292,7 @@ function MediaBlock({
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" />
+        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio />
       ) : (
         <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
       )}

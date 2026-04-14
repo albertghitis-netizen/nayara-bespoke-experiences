@@ -407,10 +407,7 @@ function ExcursionCard({ excursion, palette }: { excursion: Excursion; palette: 
       {hasMedia && (
         <div className="relative w-full h-48 overflow-hidden">
           {excursion.verticalVideo ? (
-            <NativeVideo
-              src={excursion.verticalVideo}
-              className="w-full h-full object-cover"
-            />
+            <NativeVideo src={excursion.verticalVideo} className="w-full h-full object-cover" hasAudio />
           ) : excursion.image ? (
             <img
               src={excursion.image}

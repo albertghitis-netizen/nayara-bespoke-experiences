@@ -56,7 +56,7 @@ export default function ByNightCTA({
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: verticalRatio }}>
               {verticalIsVideo ? (
-                <NativeVideo src={verticalSrc} className="w-full h-full object-cover" />
+                <NativeVideo src={verticalSrc} className="w-full h-full object-cover" hasAudio />
               ) : (
                 <img src={verticalSrc} alt="Nayara by Night" className="w-full h-full object-cover" loading="lazy" />
               )}
@@ -134,7 +134,7 @@ export default function ByNightCTA({
           <MediaReveal delay={0.05}>
             <div className="overflow-hidden" style={{ aspectRatio: horizontalRatio }}>
               {horizontalIsVideo ? (
-                <NativeVideo src={horizontalSrc} className="w-full h-full object-cover" />
+                <NativeVideo src={horizontalSrc} className="w-full h-full object-cover" hasAudio />
               ) : (
                 <img src={horizontalSrc} alt="Nayara by Night — landscape" className="w-full h-full object-cover" loading="lazy" />
               )}
