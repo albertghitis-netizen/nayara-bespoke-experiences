@@ -129,7 +129,7 @@ export default function Springs() {
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <CinematicScroll
         audioSrc={CDN.heroDesktop}
-        speed={1.5}
+        speed={1.4}
       />
       <BrandNavigation pageType="property" />
       <HeroSection />

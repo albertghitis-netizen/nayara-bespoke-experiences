@@ -1,13 +1,12 @@
 /**
- * CinematicScroll — Auto-scroll cinematic experience (DESKTOP ONLY)
+ * CinematicScroll — Auto-scroll cinematic experience (MOBILE + DESKTOP)
  *
  * Flow:
  * 1. Page loads muted, static — "Ready to Begin" overlay on hero
  * 2. User taps "Ready to Begin" → ambient audio plays, page auto-scrolls
- * 3. User touches screen anywhere → scroll stops, audio pauses
+ * 3. User touches/clicks screen anywhere → scroll stops, audio pauses
  * 4. One fixed Sound pill follows the user (top-left, matches brand nav pill color)
  * 5. Tapping the Sound pill toggles audio without affecting scroll
- * 6. Disabled on mobile — returns null
  *
  * Audio source: Uses a hidden <video> element to play the hero video's audio
  * track as the ambient soundtrack for the entire page experience.
@@ -15,7 +14,6 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useIsMobile } from "@/hooks/useMobile";
 import { useLocation } from "wouter";
 import { getPalette, BRAND } from "@/data/propertyPalettes";
 
@@ -41,7 +39,6 @@ export default function CinematicScroll({
   audioSrc,
   speed = 1.5,
 }: CinematicScrollProps) {
-  const isMobile = useIsMobile();
   const [location] = useLocation();
 
   const [showOverlay, setShowOverlay] = useState(true);
@@ -76,8 +73,6 @@ export default function CinematicScroll({
 
   /* ── Initialize audio/video element ── */
   useEffect(() => {
-    if (isMobile) return;
-
     let media: HTMLVideoElement | HTMLAudioElement;
 
     if (isVideoSource) {
@@ -116,7 +111,7 @@ export default function CinematicScroll({
         media.parentNode.removeChild(media);
       }
     };
-  }, [audioSrc, isMobile, isVideoSource]);
+  }, [audioSrc, isVideoSource]);
 
   /* ── Auto-scroll loop ── */
   const startScrollLoop = useCallback(() => {
@@ -170,7 +165,7 @@ export default function CinematicScroll({
 
   /* ── Touch/click to stop ── */
   useEffect(() => {
-    if (isMobile || !hasStarted) return;
+    if (!hasStarted) return;
 
     const handleTouch = (e: TouchEvent | MouseEvent) => {
       // Don't stop if tapping the control buttons
@@ -192,7 +187,7 @@ export default function CinematicScroll({
       window.removeEventListener("touchstart", handleTouch);
       window.removeEventListener("mousedown", handleTouch);
     };
-  }, [hasStarted, stopScrollLoop, isMobile]);
+  }, [hasStarted, stopScrollLoop]);
 
   /* ── Mute toggle ── */
   const handleMuteToggle = useCallback(() => {
@@ -204,9 +199,6 @@ export default function CinematicScroll({
       mediaRef.current.play().catch(() => {});
     }
   }, [isMuted, isScrolling]);
-
-  // Desktop only — render nothing on mobile
-  if (isMobile) return null;
 
   return (
     <>
