@@ -70,7 +70,7 @@ const ASSETS = {
 
   // Section 1 — Story: geyser steam V + red landscape lady UW
   storyV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-red_bd8b7f0f.mp4",
-  storyH: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
+  storyH: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Edits_Atacama_horizontal_1_20260320_142142_9ccfc8e6.mov",
 
   // Section 2 — Rooms: new desert suites vertical video + resort pathway UW
   roomsV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-desert-suites-vertical_a742ab8f.mp4",
@@ -335,7 +335,7 @@ const CASCADE_SECTIONS = [
     headline: "Mars on Earth",
     description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
     vSrc: ASSETS.storyV, hSrc: ASSETS.storyH,
-    vVideo: true, hVideo: false,
+    vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     link: undefined, linkLabel: undefined,
