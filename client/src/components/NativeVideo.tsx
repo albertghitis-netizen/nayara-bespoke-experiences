@@ -6,6 +6,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useLocation } from "wouter";
 import { getPalette } from "@/data/propertyPalettes";
+import { useIsMobile } from "@/hooks/useMobile";
 
 interface NativeVideoProps {
   src: string;
@@ -43,6 +44,9 @@ export default function NativeVideo({
   const pillBg = pillBgBase ? `${pillBgBase}B3` : "rgba(242,235,227,0.75)";
   const pillHover = pillBgBase ? `${pillBgBase}E6` : "rgba(242,235,227,0.92)";
   const pillTextColor = propPalette ? "#fff" : "#3B2B26";
+  const isMobile = useIsMobile();
+  // On mobile, disable audio unless mobileAudio is explicitly true
+  const effectiveHasAudio = hasAudio && (!isMobile || mobileAudio);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -72,10 +76,10 @@ export default function NativeVideo({
 
   // Stop the attention pulse after 6 seconds
   useEffect(() => {
-    if (!hasAudio) return;
+    if (!effectiveHasAudio) return;
     const timer = setTimeout(() => setShowPulse(false), 6000);
     return () => clearTimeout(timer);
-  }, [hasAudio, src]);
+  }, [effectiveHasAudio, src]);
 
   const toggleMute = useCallback(() => {
     const video = videoRef.current;
@@ -140,7 +144,7 @@ export default function NativeVideo({
       )}
 
       {/* Mute / Unmute pill — top-left, aligned right of hamburger */}
-      {hasAudio && isLoaded && (
+      {effectiveHasAudio && isLoaded && (
         <button
           onClick={(e) => { e.stopPropagation(); toggleMute(); }}
           aria-label={isMuted ? "Unmute video" : "Mute video"}

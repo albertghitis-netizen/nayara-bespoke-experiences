@@ -141,7 +141,19 @@ export default function Springs() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ★ 2. EXPERIENCES — Sorter */}
+      {/* ★ 2. WELLNESS — Sorter (after Rooms per user request) */}
+      <PropertySorter
+        sectionLabel="Wellness"
+        headline={springs.theme.spaHeadline.replace("\n", " ")}
+        description="Volcanic mineral springs, open-air spa treatments, and ancient healing traditions merge in a sanctuary designed to restore body and spirit."
+        categories={wellnessCategories}
+        cards={wellnessCards}
+        learnMoreLink="/springs/wellness"
+        learnMoreLabel="Explore Wellness"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ★ 3. EXPERIENCES — Sorter */}
       <PropertySorter
         sectionLabel="Experiences"
         headline="Arenal Adventures"
@@ -153,7 +165,7 @@ export default function Springs() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ★ 3. SUSTAINABILITY — Slider */}
+      {/* ★ 4. SUSTAINABILITY — Slider */}
       <PropertySlider
         sectionLabel="Sustainability"
         headline="Protecting the Rainforest"
@@ -161,18 +173,6 @@ export default function Springs() {
         cards={sustainabilityCards}
         learnMoreLink="/springs/sustainability"
         learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 4. WELLNESS — Sorter */}
-      <PropertySorter
-        sectionLabel="Wellness"
-        headline={springs.theme.spaHeadline.replace("\n", " ")}
-        description="Volcanic mineral springs, open-air spa treatments, and ancient healing traditions merge in a sanctuary designed to restore body and spirit."
-        categories={wellnessCategories}
-        cards={wellnessCards}
-        learnMoreLink="/springs/wellness"
-        learnMoreLabel="Explore Wellness"
         palette={SLIDER_PALETTE}
       />
 

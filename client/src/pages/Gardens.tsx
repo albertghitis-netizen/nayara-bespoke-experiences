@@ -158,7 +158,7 @@ export default function Gardens() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ══ 2. EXPERIENCES — Sorter ══ */}
+      {/* ══ 2. EXPERIENCES — Sorter (after Rooms per user request) ══ */}
       <PropertySorter
         sectionLabel="Experiences"
         headline="Arenal Adventures"
@@ -170,18 +170,7 @@ export default function Gardens() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ══ 3. SUSTAINABILITY — Slider ══ */}
-      <PropertySlider
-        sectionLabel="Sustainability"
-        headline="Rooted in the Rainforest"
-        description="Nayara Gardens is committed to preserving the extraordinary biodiversity of the Arenal Volcano region through conservation, community, and responsible luxury."
-        cards={sustainabilityCards}
-        learnMoreLink="/gardens/sustainability"
-        learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ══ 4. WELLNESS — Sorter ══ */}
+      {/* ══ 3. WELLNESS — Sorter ══ */}
       <PropertySorter
         sectionLabel="Wellness"
         headline={gardens.theme.spaHeadline.replace("\n", " ")}
@@ -190,6 +179,17 @@ export default function Gardens() {
         cards={wellnessCards}
         learnMoreLink="/gardens/wellness"
         learnMoreLabel="Explore Wellness"
+        palette={SLIDER_PALETTE}
+      />
+
+      {/* ══ 4. SUSTAINABILITY — Slider ══ */}
+      <PropertySlider
+        sectionLabel="Sustainability"
+        headline="Rooted in the Rainforest"
+        description="Nayara Gardens is committed to preserving the extraordinary biodiversity of the Arenal Volcano region through conservation, community, and responsible luxury."
+        cards={sustainabilityCards}
+        learnMoreLink="/gardens/sustainability"
+        learnMoreLabel="Explore More"
         palette={SLIDER_PALETTE}
       />
 

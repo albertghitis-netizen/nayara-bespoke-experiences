@@ -2084,9 +2084,9 @@
 - [ ] Fix video #7 (generated_1581360d) in Moon Camp cascade — it's portrait not landscape, upload correct vertical version and update layout
 - [x] Remove ALL old chapter content (chapters 1-3, old images, old videos) between Moon Camp ending and the 9-video cascade — cascade starts right after Moon Camp CTA
 - [ ] Remove ALL horizontal photos and videos on mobile across EVERY page — no horizontal content on mobile, period. Everything must be vertical or square on mobile.
-- [ ] Reorder Tented Camp sections: after Rooms → Sustainability next
-- [ ] Reorder Springs sections: after Rooms → Wellness next
-- [ ] Reorder Gardens sections: after Rooms → Experiences next
+- [x] Reorder Tented Camp sections: after Rooms → Sustainability/Wildlife next
+- [x] Reorder Springs sections: after Rooms → Wellness next
+- [x] Reorder Gardens sections: after Rooms → Experiences next
 - [ ] Add "Adults Only" category to navigation (Springs, Bocas del Toro)
 - [ ] Add "Families" category to navigation (Gardens, Tented Camp, Alto Atacama, Hangaroa)
 - [ ] Create Wildlife hub page as a new pillar (alongside Experiences, Wellness, Gastronomy, Sustainability)
@@ -2100,5 +2100,8 @@
 - [x] Upload tented camp sunset photo and add as S4 on Tented Camp page
 - [ ] New property page rule: S1=video hero, S2=horizontal photo always
 - [ ] Delete bottom photo grid section on homepage
-- [ ] Move Coming Soon page to internal/private section (like Brand Book) — not part of public site
-- [ ] Build auto-scroll cinematic mode prototype on Alto Atacama: "Ready to Begin" prompt → music + auto-scroll → touch to stop
+- [x] Move Coming Soon page to internal/private section (like Brand Book) — at /internal/new-projects
+- [x] Build auto-scroll cinematic mode prototype on Alto Atacama: "Ready to Begin" prompt → music + auto-scroll → touch to stop
+- [x] Disable CinematicScroll on mobile — desktop only
+- [x] Disable all audio (Sound pills, hasAudio) on mobile — desktop only
+- [x] Use Alto Atacama hero video audio as the ambient audio for the entire cinematic scroll page

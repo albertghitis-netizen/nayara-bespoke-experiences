@@ -9,6 +9,7 @@
  * - Sound pill positioned top-left, color-matched to page buttons
  */
 import { useRef, useState, useEffect, useCallback } from "react";
+import { useIsMobile } from "@/hooks/useMobile";
 
 interface BlobVideoProps {
   src: string;
@@ -40,11 +41,15 @@ export default function BlobVideo({
   pillBg,
   pillColor,
 }: BlobVideoProps) {
+  const isMobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [showPulse, setShowPulse] = useState(true);
+
+  // On mobile, force no audio
+  const effectiveHasAudio = hasAudio && !isMobile;
 
   useEffect(() => {
     const video = videoRef.current;
@@ -78,10 +83,10 @@ export default function BlobVideo({
 
   // Stop the attention pulse after 6 seconds
   useEffect(() => {
-    if (!hasAudio) return;
+    if (!effectiveHasAudio) return;
     const timer = setTimeout(() => setShowPulse(false), 6000);
     return () => clearTimeout(timer);
-  }, [hasAudio, src]);
+  }, [effectiveHasAudio, src]);
 
   const toggleMute = useCallback(() => {
     const video = videoRef.current;
@@ -148,7 +153,7 @@ export default function BlobVideo({
       )}
 
       {/* Mute / Unmute pill — top-left, color-matched to page buttons */}
-      {hasAudio && isLoaded && (
+      {effectiveHasAudio && isLoaded && (
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}

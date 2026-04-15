@@ -31,7 +31,6 @@ const GLOBAL_MENU = [
   { label: "Podcast", route: "/podcast" },
   { label: "Press & Awards", route: "/awards" },
   { label: "Gallery", route: "/gallery" },
-  { label: "Coming Soon", route: "/new-projects" },
   { label: "Nayara By Night", route: "/by-night" },
 ];
 

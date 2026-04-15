@@ -65,7 +65,7 @@ export const CONTENT_SECTIONS = [
 export const PROPERTY_MENU: MenuItem[] = [];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
-/* Explore column items (four pillars + Coming Soon + By Night + Privacy) */
+/* Explore column items (six pillars + By Night) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
@@ -73,7 +73,6 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Regenerative Travel", route: "/sustainability" },
   { label: "Flora & Fauna", route: "/flora-fauna" },
   { label: "Romance or Family Fun", route: "/romance-or-family" },
-  { label: "Coming Soon", route: "/new-projects" },
   { label: "Nayara By Night", route: "/by-night" },
 ];
 

@@ -136,11 +136,16 @@ function Router() {
           <Route path="/newsletter" component={Newsletter} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
-          <Route path="/new-projects" component={NewProjects} />
-          <Route path="/henry" component={HenryStandalone} />
+          {/* ── Internal / Private pages ── */}
+          <Route path="/internal/new-projects" component={NewProjects} />
+          <Route path="/internal/henry" component={HenryStandalone} />
           <Route path="/by-night" component={NayaraByNight} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
-          <Route path="/brand-book" component={BrandBook} />
+          <Route path="/internal/brand-book" component={BrandBook} />
+          {/* Legacy redirects for internal pages */}
+          <Route path="/new-projects">{() => { window.location.replace("/internal/new-projects"); return null; }}</Route>
+          <Route path="/henry">{() => { window.location.replace("/internal/henry"); return null; }}</Route>
+          <Route path="/brand-book">{() => { window.location.replace("/internal/brand-book"); return null; }}</Route>
           <Route path="/gallery" component={Gallery} />
 
           <Route path="/404" component={NotFound} />

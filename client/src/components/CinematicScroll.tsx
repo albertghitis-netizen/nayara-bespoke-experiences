@@ -1,5 +1,5 @@
 /**
- * CinematicScroll — Auto-scroll cinematic experience
+ * CinematicScroll — Auto-scroll cinematic experience (DESKTOP ONLY)
  *
  * Flow:
  * 1. Page loads muted, static — "Ready to Begin" overlay on hero
@@ -7,15 +7,21 @@
  * 3. User touches screen anywhere → scroll stops, audio pauses
  * 4. One fixed mute button follows the user (top-left, matches brand nav style)
  * 5. Tapping the mute button toggles audio without affecting scroll
+ * 6. Disabled on mobile — returns null
+ *
+ * Audio source: Uses a hidden <video> element to play the hero video's audio
+ * track as the ambient soundtrack for the entire page experience.
  */
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "@/hooks/useMobile";
 
 interface CinematicScrollProps {
-  /** CDN URL for the ambient audio track */
+  /** CDN URL for the audio source — can be an .mp3, .mp4, or video file.
+   *  If it's a video, only the audio track is used (video hidden). */
   audioSrc: string;
-  /** Scroll speed in pixels per frame (~60fps). Default 1.2 */
+  /** Scroll speed in pixels per frame (~60fps). Default 1.5 */
   speed?: number;
   /** Brand accent color for the button. Default matches nav pills */
   accentColor?: string;
@@ -23,31 +29,66 @@ interface CinematicScrollProps {
 
 export default function CinematicScroll({
   audioSrc,
-  speed = 1.2,
+  speed = 1.5,
   accentColor = "rgba(58,42,26,0.7)",
 }: CinematicScrollProps) {
+  const isMobile = useIsMobile();
+
   const [showOverlay, setShowOverlay] = useState(true);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
 
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const mediaRef = useRef<HTMLVideoElement | HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const scrollingRef = useRef(false);
 
-  /* ── Initialize audio ── */
+  /* ── Detect if source is video (mp4/mov/webm) or audio (mp3/wav/ogg) ── */
+  const isVideoSource = /\.(mp4|mov|webm|m4v)/i.test(audioSrc);
+
+  /* ── Initialize audio/video element ── */
   useEffect(() => {
-    const audio = new Audio(audioSrc);
-    audio.loop = true;
-    audio.volume = 0.6;
-    audio.preload = "auto";
-    audioRef.current = audio;
+    if (isMobile) return;
+
+    let media: HTMLVideoElement | HTMLAudioElement;
+
+    if (isVideoSource) {
+      // Create a hidden video element — we only want its audio track
+      const video = document.createElement("video");
+      video.src = audioSrc;
+      video.loop = true;
+      video.volume = 0.6;
+      video.preload = "auto";
+      video.playsInline = true;
+      // Hide the video — we only want audio
+      video.style.position = "fixed";
+      video.style.top = "-9999px";
+      video.style.left = "-9999px";
+      video.style.width = "1px";
+      video.style.height = "1px";
+      video.style.opacity = "0";
+      video.style.pointerEvents = "none";
+      document.body.appendChild(video);
+      media = video;
+    } else {
+      // Standard audio element for .mp3 etc.
+      const audio = new Audio(audioSrc);
+      audio.loop = true;
+      audio.volume = 0.6;
+      audio.preload = "auto";
+      media = audio;
+    }
+
+    mediaRef.current = media;
 
     return () => {
-      audio.pause();
-      audio.src = "";
+      media.pause();
+      media.src = "";
+      if (isVideoSource && media.parentNode) {
+        media.parentNode.removeChild(media);
+      }
     };
-  }, [audioSrc]);
+  }, [audioSrc, isMobile, isVideoSource]);
 
   /* ── Auto-scroll loop ── */
   const startScrollLoop = useCallback(() => {
@@ -61,7 +102,7 @@ export default function CinematicScroll({
         // Reached bottom — stop
         scrollingRef.current = false;
         setIsScrolling(false);
-        audioRef.current?.pause();
+        mediaRef.current?.pause();
         return;
       }
 
@@ -87,10 +128,10 @@ export default function CinematicScroll({
     setIsScrolling(true);
     setIsMuted(false);
 
-    // Start audio
-    if (audioRef.current) {
-      audioRef.current.muted = false;
-      audioRef.current.play().catch(() => {
+    // Start audio (from video or audio element)
+    if (mediaRef.current) {
+      mediaRef.current.muted = false;
+      mediaRef.current.play().catch(() => {
         // Autoplay blocked — continue scroll without audio
       });
     }
@@ -99,9 +140,9 @@ export default function CinematicScroll({
     startScrollLoop();
   }, [startScrollLoop]);
 
-  /* ── Touch to stop ── */
+  /* ── Touch/click to stop ── */
   useEffect(() => {
-    if (!hasStarted) return;
+    if (isMobile || !hasStarted) return;
 
     const handleTouch = (e: TouchEvent | MouseEvent) => {
       // Don't stop if tapping the control buttons
@@ -112,7 +153,7 @@ export default function CinematicScroll({
         // Stop scrolling + pause audio
         stopScrollLoop();
         setIsScrolling(false);
-        audioRef.current?.pause();
+        mediaRef.current?.pause();
       }
     };
 
@@ -123,27 +164,30 @@ export default function CinematicScroll({
       window.removeEventListener("touchstart", handleTouch);
       window.removeEventListener("mousedown", handleTouch);
     };
-  }, [hasStarted, stopScrollLoop]);
+  }, [hasStarted, stopScrollLoop, isMobile]);
 
   /* ── Resume button ── */
   const handleResume = useCallback(() => {
     setIsScrolling(true);
-    if (audioRef.current && !isMuted) {
-      audioRef.current.play().catch(() => {});
+    if (mediaRef.current && !isMuted) {
+      mediaRef.current.play().catch(() => {});
     }
     startScrollLoop();
   }, [isMuted, startScrollLoop]);
 
   /* ── Mute toggle ── */
   const handleMuteToggle = useCallback(() => {
-    if (!audioRef.current) return;
+    if (!mediaRef.current) return;
     const newMuted = !isMuted;
     setIsMuted(newMuted);
-    audioRef.current.muted = newMuted;
+    mediaRef.current.muted = newMuted;
     if (!newMuted && isScrolling) {
-      audioRef.current.play().catch(() => {});
+      mediaRef.current.play().catch(() => {});
     }
   }, [isMuted, isScrolling]);
+
+  // Desktop only — render nothing on mobile
+  if (isMobile) return null;
 
   return (
     <>
