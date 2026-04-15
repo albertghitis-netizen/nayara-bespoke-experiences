@@ -2114,3 +2114,5 @@
 - [ ] Add CinematicScroll with hero video audio to brand Homepage
 - [ ] Remove all hasAudio/sound from non-home pages (pillars, deep, deeper pages)
 - [ ] Add CinematicScroll auto-scroll at 1.35 speed to all 7 home pages (6 hotels + brand homepage)
+- [x] CinematicScroll Sound pill must match hamburger/Reserve color on each respective page (not fixed accent)
+- [x] Remove Resume button from CinematicScroll

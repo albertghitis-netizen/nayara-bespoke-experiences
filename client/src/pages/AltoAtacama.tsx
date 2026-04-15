@@ -413,7 +413,6 @@ export default function AltoAtacama() {
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
         speed={1.3}
-        accentColor="rgba(58,42,26,0.7)"
       />
       <BrandNavigation pageType="property" />
       <HeroSection />

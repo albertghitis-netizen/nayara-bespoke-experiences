@@ -5,8 +5,8 @@
  * 1. Page loads muted, static — "Ready to Begin" overlay on hero
  * 2. User taps "Ready to Begin" → ambient audio plays, page auto-scrolls
  * 3. User touches screen anywhere → scroll stops, audio pauses
- * 4. One fixed mute button follows the user (top-left, matches brand nav style)
- * 5. Tapping the mute button toggles audio without affecting scroll
+ * 4. One fixed Sound pill follows the user (top-left, matches brand nav pill color)
+ * 5. Tapping the Sound pill toggles audio without affecting scroll
  * 6. Disabled on mobile — returns null
  *
  * Audio source: Uses a hidden <video> element to play the hero video's audio
@@ -16,6 +16,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/useMobile";
+import { useLocation } from "wouter";
+import { getPalette, BRAND } from "@/data/propertyPalettes";
 
 interface CinematicScrollProps {
   /** CDN URL for the audio source — can be an .mp3, .mp4, or video file.
@@ -23,16 +25,24 @@ interface CinematicScrollProps {
   audioSrc: string;
   /** Scroll speed in pixels per frame (~60fps). Default 1.5 */
   speed?: number;
-  /** Brand accent color for the button. Default matches nav pills */
-  accentColor?: string;
 }
+
+/* Map route prefixes to property slugs */
+const ROUTE_TO_SLUG: Record<string, string> = {
+  "/alto-atacama": "alto-atacama",
+  "/tented-camp": "tented-camp",
+  "/gardens": "gardens",
+  "/springs": "springs",
+  "/hangaroa": "hangaroa",
+  "/bocas-del-toro": "bocas-del-toro",
+};
 
 export default function CinematicScroll({
   audioSrc,
   speed = 1.5,
-  accentColor = "rgba(58,42,26,0.7)",
 }: CinematicScrollProps) {
   const isMobile = useIsMobile();
+  const [location] = useLocation();
 
   const [showOverlay, setShowOverlay] = useState(true);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -42,6 +52,24 @@ export default function CinematicScroll({
   const mediaRef = useRef<HTMLVideoElement | HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const scrollingRef = useRef(false);
+
+  /* ── Determine pill colors from current route ── */
+  const propertySlug = Object.entries(ROUTE_TO_SLUG).find(([prefix]) =>
+    location.startsWith(prefix)
+  )?.[1];
+
+  let pillBg: string;
+  let pillText: string;
+
+  if (propertySlug) {
+    const palette = getPalette(propertySlug);
+    pillBg = `${palette.navPillBg}B3`; // match BrandNavigation opacity
+    pillText = palette.navPillText;
+  } else {
+    // Brand homepage — light pill with dark text
+    pillBg = "rgba(242,235,227,0.75)";
+    pillText = BRAND.primaryText;
+  }
 
   /* ── Detect if source is video (mp4/mov/webm) or audio (mp3/wav/ogg) ── */
   const isVideoSource = /\.(mp4|mov|webm|m4v)/i.test(audioSrc);
@@ -166,15 +194,6 @@ export default function CinematicScroll({
     };
   }, [hasStarted, stopScrollLoop, isMobile]);
 
-  /* ── Resume button ── */
-  const handleResume = useCallback(() => {
-    setIsScrolling(true);
-    if (mediaRef.current && !isMuted) {
-      mediaRef.current.play().catch(() => {});
-    }
-    startScrollLoop();
-  }, [isMuted, startScrollLoop]);
-
   /* ── Mute toggle ── */
   const handleMuteToggle = useCallback(() => {
     if (!mediaRef.current) return;
@@ -229,15 +248,14 @@ export default function CinematicScroll({
         )}
       </AnimatePresence>
 
-      {/* ── Fixed control bar (top-left, aligned with nav hamburger & Reserve) ── */}
+      {/* ── Fixed Sound pill (top-left, aligned with nav hamburger & Reserve) ── */}
       {hasStarted && (
         <div className="fixed top-[11px] left-14 z-[55] flex items-center gap-2 pointer-events-none">
-          {/* Mute/Unmute button — matches nav pill: h-9, rounded-full, same backdrop */}
           <button
             data-cinematic-control
             onClick={handleMuteToggle}
             className="pointer-events-auto flex items-center justify-center gap-2 h-9 px-4 rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border hover:opacity-90"
-            style={{ backgroundColor: accentColor, color: "#fff", borderColor: "rgba(255,255,255,0.1)" }}
+            style={{ backgroundColor: pillBg, color: pillText, borderColor: "rgba(255,255,255,0.1)" }}
           >
             {isMuted ? (
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -255,32 +273,6 @@ export default function CinematicScroll({
               {isMuted ? "Muted" : "Sound"}
             </span>
           </button>
-
-          {/* Resume button — only shows when paused */}
-          <AnimatePresence>
-            {!isScrolling && (
-              <motion.button
-                data-cinematic-control
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                onClick={handleResume}
-                className="pointer-events-auto flex items-center justify-center gap-2 h-9 px-4 rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border hover:opacity-90"
-                style={{ backgroundColor: accentColor, color: "#fff", borderColor: "rgba(255,255,255,0.1)" }}
-              >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <span
-                  className="text-[10px] tracking-[0.15em] uppercase"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                >
-                  Resume
-                </span>
-              </motion.button>
-            )}
-          </AnimatePresence>
         </div>
       )}
     </>
