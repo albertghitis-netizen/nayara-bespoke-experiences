@@ -2105,3 +2105,12 @@
 - [x] Disable CinematicScroll on mobile — desktop only
 - [x] Disable all audio (Sound pills, hasAudio) on mobile — desktop only
 - [x] Use Alto Atacama hero video audio as the ambient audio for the entire cinematic scroll page
+- [ ] Fix CinematicScroll Sound pill alignment — must be even with hamburger and Reserve (same top/height as nav bar)
+- [ ] Add CinematicScroll with hero video audio to Tented Camp home page
+- [ ] Add CinematicScroll with hero video audio to Gardens home page
+- [ ] Add CinematicScroll with hero video audio to Springs home page
+- [ ] Add CinematicScroll with hero video audio to Hangaroa home page
+- [ ] Add CinematicScroll with hero video audio to Bocas del Toro home page
+- [ ] Add CinematicScroll with hero video audio to brand Homepage
+- [ ] Remove all hasAudio/sound from non-home pages (pillars, deep, deeper pages)
+- [ ] Add CinematicScroll auto-scroll at 1.35 speed to all 7 home pages (6 hotels + brand homepage)

@@ -172,7 +172,7 @@ function MediaBlock({
   return (
     <div className="overflow-hidden w-full" style={{ aspectRatio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={src} className="w-full h-full object-cover" />
       ) : (
         <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
       )}
@@ -468,7 +468,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
 

@@ -229,15 +229,15 @@ export default function CinematicScroll({
         )}
       </AnimatePresence>
 
-      {/* ── Fixed control bar (top-left, matches Sound pill style) ── */}
+      {/* ── Fixed control bar (top-left, aligned with nav hamburger & Reserve) ── */}
       {hasStarted && (
-        <div className="fixed top-6 left-20 z-[60] flex items-center gap-3 pointer-events-none">
-          {/* Mute/Unmute button */}
+        <div className="fixed top-[11px] left-14 z-[55] flex items-center gap-2 pointer-events-none">
+          {/* Mute/Unmute button — matches nav pill: h-9, rounded-full, same backdrop */}
           <button
             data-cinematic-control
             onClick={handleMuteToggle}
-            className="pointer-events-auto flex items-center gap-2 h-10 px-4 rounded-full backdrop-blur-md shadow-lg transition-all duration-300 hover:opacity-90"
-            style={{ backgroundColor: accentColor, color: "#fff" }}
+            className="pointer-events-auto flex items-center justify-center gap-2 h-9 px-4 rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border hover:opacity-90"
+            style={{ backgroundColor: accentColor, color: "#fff", borderColor: "rgba(255,255,255,0.1)" }}
           >
             {isMuted ? (
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -266,8 +266,8 @@ export default function CinematicScroll({
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 onClick={handleResume}
-                className="pointer-events-auto flex items-center gap-2 h-10 px-4 rounded-full backdrop-blur-md shadow-lg transition-all duration-300 hover:opacity-90"
-                style={{ backgroundColor: accentColor, color: "#fff" }}
+                className="pointer-events-auto flex items-center justify-center gap-2 h-9 px-4 rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border hover:opacity-90"
+                style={{ backgroundColor: accentColor, color: "#fff", borderColor: "rgba(255,255,255,0.1)" }}
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
