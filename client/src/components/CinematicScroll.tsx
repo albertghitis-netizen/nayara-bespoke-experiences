@@ -2,8 +2,8 @@
  * CinematicScroll — Auto-scroll cinematic experience (MOBILE + DESKTOP)
  *
  * Flow:
- * 1. Page loads muted, static — "Ready to Begin" overlay on hero
- * 2. User taps "Ready to Begin" → ambient audio plays, page auto-scrolls
+ * 1. Page loads muted, static — "Start Your Adventure" overlay on hero
+ * 2. User taps "Start Your Adventure" → ambient audio plays, page auto-scrolls
  * 3. User touches/clicks screen anywhere → scroll stops, audio pauses
  * 4. One fixed Sound pill follows the user (top-left, matches brand nav pill color)
  * 5. Tapping the Sound pill toggles audio without affecting scroll
@@ -202,7 +202,7 @@ export default function CinematicScroll({
 
   return (
     <>
-      {/* ── "Ready to Begin" overlay ── */}
+      {/* ── "Start Your Adventure" overlay ── */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div
@@ -233,7 +233,7 @@ export default function CinematicScroll({
                 className="text-white/70 text-[11px] tracking-[0.35em] uppercase group-hover:text-white/90 transition-colors duration-500"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
-                Ready to Begin
+                Start Your Adventure
               </span>
             </motion.button>
           </motion.div>
