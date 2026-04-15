@@ -2116,3 +2116,19 @@
 - [ ] Add CinematicScroll auto-scroll at 1.35 speed to all 7 home pages (6 hotels + brand homepage)
 - [x] CinematicScroll Sound pill must match hamburger/Reserve color on each respective page (not fixed accent)
 - [x] Remove Resume button from CinematicScroll
+- [x] Add CinematicScroll to Brand Homepage (speed 1.25, hero video audio)
+- [ ] Change Alto Atacama CinematicScroll speed to 1.3
+- [x] Add CinematicScroll to Tented Camp (speed 1.35, hero video audio)
+- [x] Add CinematicScroll to Gardens (speed 1.4, hero video audio)
+- [x] Add CinematicScroll to Springs (speed 1.45, hero video audio)
+- [x] Add CinematicScroll to Hangaroa (speed 1.5, hero video audio)
+- [x] Add CinematicScroll to Bocas del Toro (speed 1.4, hero video audio)
+- [ ] Add "Internal" label to Gallery, New Projects, Brand Book, and Henry pages
+- [ ] Consolidate Brand Book to just one page (remove duplicate)
+- [x] Remove animation on logo leaf at the bottom (footer)
+- [x] Add CinematicScroll to Brand Homepage (speed 1.25, hero video audio)
+- [x] Add CinematicScroll to Tented Camp (speed 1.35, hero video audio)
+- [x] Add CinematicScroll to Gardens (speed 1.4, hero video audio)
+- [x] Add CinematicScroll to Springs (speed 1.45, hero video audio)
+- [x] Add CinematicScroll to Hangaroa (speed 1.5, hero video audio)
+- [x] Add CinematicScroll to Bocas del Toro (speed 1.4, hero video audio)

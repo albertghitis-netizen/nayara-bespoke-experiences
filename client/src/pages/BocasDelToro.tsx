@@ -10,6 +10,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
+import CinematicScroll from "@/components/CinematicScroll";
 import {
   AnimateOnScroll,
   MultiLineReveal,
@@ -438,6 +439,10 @@ function HeroSection() {
 export default function BocasDelToro() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
+      <CinematicScroll
+        audioSrc={ASSETS.heroDesktop}
+        speed={1.6}
+      />
       <BrandNavigation pageType="property" />
       <HeroSection />
 

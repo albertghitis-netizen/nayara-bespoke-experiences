@@ -250,29 +250,8 @@ html {
   animation-play-state: running;
 }
 
-/* Leaf slide animation — starts off-screen right, slides in to position */
-@keyframes leafSlideIn {
-  0% {
-    transform: translateX(200%) translateY(-48%);
-    opacity: 0;
-  }
-  5% {
-    opacity: 0.05;
-  }
-  30% {
-    opacity: 0.1;
-  }
-  100% {
-    transform: translateX(0%) translateY(-48%);
-    opacity: 0.15;
-  }
-}
+/* Leaf — static, no animation */
 .leaf-slide {
-  transform: translateX(200%) translateY(-48%);
-  opacity: 0;
-  animation: leafSlideIn 6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-play-state: paused;
-}
-.leaf-slide.in-view {
-  animation-play-state: running;
+  transform: translateX(0%) translateY(-48%);
+  opacity: 0.15;
 }

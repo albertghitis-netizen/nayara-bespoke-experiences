@@ -8,6 +8,7 @@ import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
+import CinematicScroll from "@/components/CinematicScroll";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { hangaroaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
@@ -129,6 +130,10 @@ const wellnessCards = hangaroa.treatments.map((t: Treatment) => ({ title: t.name
 export default function Hangaroa() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <CinematicScroll
+        audioSrc={CDN.heroVideo}
+        speed={1.55}
+      />
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />

@@ -9,6 +9,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
+import CinematicScroll from "@/components/CinematicScroll";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
@@ -126,6 +127,10 @@ const wellnessCards = springs.treatments.map((t: Treatment) => ({ title: t.name,
 export default function Springs() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <CinematicScroll
+        audioSrc={CDN.heroDesktop}
+        speed={1.5}
+      />
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />

@@ -57,17 +57,6 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
   const columns = getFooterColumns(pageType);
   const leafRef = useRef<HTMLImageElement>(null);
 
-  useEffect(() => {
-    const leaf = leafRef.current;
-    if (!leaf) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { entry.target.classList.add("in-view"); observer.disconnect(); } },
-      { threshold: 0.1 }
-    );
-    observer.observe(leaf);
-    return () => observer.disconnect();
-  }, []);
-
   const handlePlaceholder = (label: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     import("sonner").then(({ toast }) => toast(label + " - Coming Soon"));

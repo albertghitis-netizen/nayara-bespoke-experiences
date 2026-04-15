@@ -10,6 +10,7 @@ import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import CinematicScroll from "@/components/CinematicScroll";
 import ByNightCTA from "@/components/ByNightCTA";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 
@@ -921,7 +922,10 @@ function GallerySection() {
 export default function TentedCamp() {
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
-
+      <CinematicScroll
+        audioSrc={ASSETS.heroDesktop}
+        speed={1.4}
+      />
       <BrandNavigation pageType="property" />
       <HeroSection />
 

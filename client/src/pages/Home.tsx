@@ -7,6 +7,7 @@ import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
+import CinematicScroll from "@/components/CinematicScroll";
 import Footer from "@/components/Footer";
 import { OrganizationSchema } from "@/components/SEOSchema";
 import { BOOKING_URLS } from "@/data/booking";
@@ -141,6 +142,10 @@ const pillars = [
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
+      <CinematicScroll
+        audioSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-desktop-v3_5b739e00.mp4"
+        speed={1.3}
+      />
       <OrganizationSchema />
       <BrandNavigation pageType="brand" />
       <HeroSection />
