@@ -412,7 +412,7 @@ export default function AltoAtacama() {
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
-        speed={1.5}
+        speed={1.35}
         accentColor="rgba(58,42,26,0.7)"
       />
       <BrandNavigation pageType="property" />
