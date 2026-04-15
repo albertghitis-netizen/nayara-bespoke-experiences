@@ -342,24 +342,13 @@ const CASCADE_SECTIONS = [
     badges: false,
   },
   {
-    label: "Accommodations",
-    headline: "Desert Suites",
-    description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
-    vSrc: ASSETS.roomsV, hSrc: ASSETS.roomsH,
-    vVideo: true, hVideo: false,
-    vRatio: "3/4", hRatio: "16/9",
-    textSide: "right" as const,
-    link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
-    badges: false,
-  },
-  {
     label: "Experiences",
     headline: "Desert Explorations",
     description: "From sunrise salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is led by expert local guides who reveal the Atacama's hidden wonders.",
     vSrc: ASSETS.expV, hSrc: ASSETS.expH,
     vVideo: true, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
-    textSide: "left" as const,
+    textSide: "right" as const,
     link: "/alto-atacama/experiences", linkLabel: "Explore More",
     badges: false,
   },
@@ -370,8 +359,19 @@ const CASCADE_SECTIONS = [
     vSrc: ASSETS.susV, hSrc: ASSETS.susH,
     vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
-    textSide: "right" as const,
+    textSide: "left" as const,
     link: "/alto-atacama/sustainability", linkLabel: "Explore More",
+    badges: false,
+  },
+  {
+    label: "A Taste of Place",
+    headline: "Desert Dining",
+    description: "Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine — from quinoa harvested at altitude to herbs cultivated in our desert gardens. Each dish tells the story of this ancient landscape.",
+    vSrc: ASSETS.gastroV, hSrc: ASSETS.gastroH,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "right" as const,
+    link: "/alto-atacama/gastronomy", linkLabel: "Explore More",
     badges: false,
   },
   {
@@ -386,14 +386,14 @@ const CASCADE_SECTIONS = [
     badges: false,
   },
   {
-    label: "A Taste of Place",
-    headline: "Desert Dining",
-    description: "Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine — from quinoa harvested at altitude to herbs cultivated in our desert gardens. Each dish tells the story of this ancient landscape.",
-    vSrc: ASSETS.gastroV, hSrc: ASSETS.gastroH,
-    vVideo: false, hVideo: false,
+    label: "Accommodations",
+    headline: "Desert Suites",
+    description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
+    vSrc: ASSETS.roomsV, hSrc: ASSETS.roomsH,
+    vVideo: true, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
-    link: "/alto-atacama/gastronomy", linkLabel: "Explore More",
+    link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
     badges: false,
   },
   /* ── TRIMMED: Extended cascade sections hidden for performance ──
@@ -412,7 +412,7 @@ export default function AltoAtacama() {
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
-        speed={1.35}
+        speed={1.3}
         accentColor="rgba(58,42,26,0.7)"
       />
       <BrandNavigation pageType="property" />
