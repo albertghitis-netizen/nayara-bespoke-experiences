@@ -28,6 +28,12 @@ export interface JournalEntry {
   featured?: boolean;
   /** Sort date (ISO-ish or descriptive — used for ordering) */
   date?: string;
+  /** Alternate language YouTube video ID (for ES/EN toggle) */
+  altYoutubeId?: string;
+  /** Alternate language label (e.g. "ES" or "EN") */
+  altLanguage?: string;
+  /** Alternate language duration */
+  altDuration?: string;
 }
 
 export type JournalProperty =
@@ -523,47 +529,31 @@ const videoEpisodes: JournalEntry[] = [
   },
   {
     id: "hangaroa-sustainability",
-    title: "Hangaroa Sustainability Video",
+    title: "Nayara Hangaroa Sustainability",
     type: "video",
     property: "hangaroa",
     youtubeId: "_M3ATv4I0B8",
     duration: "3 min",
     guest: "Nayara Resorts",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-pukao-ocean_dc261e27.jpg",
-    excerpt: "A look at Nayara Hangaroa's commitment to sustainability on Rapa Nui — from renewable energy and water conservation to supporting the local Rapanui community.",
+    excerpt: "Nayara Hangaroa's commitment to sustainability on Rapa Nui — renewable energy, water conservation, plastic elimination, cultural preservation, and community support.",
+    altYoutubeId: "EinNAkAoKE8",
+    altLanguage: "ES",
+    altDuration: "3:30 min",
   },
   {
     id: "atacama-sustainability",
-    title: "Nayara Alto Atacama Sustainability Video",
+    title: "Nayara Alto Atacama Sustainability",
     type: "video",
     property: "alto-atacama",
     youtubeId: "6cfkWsqWWc8",
     duration: "3 min",
     guest: "Nayara Resorts",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
-    excerpt: "Discover how Nayara Alto Atacama operates sustainably in one of the driest deserts on Earth — from solar energy and water recycling to deep partnerships with the Atacameño communities.",
-  },
-  {
-    id: "hangaroa-sustainability-es",
-    title: "Nayara Hangaroa: Sostenibilidad en Rapa Nui",
-    type: "video",
-    property: "hangaroa",
-    youtubeId: "EinNAkAoKE8",
-    duration: "3:30 min",
-    guest: "Nayara Resorts",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-pukao-ocean_dc261e27.jpg",
-    excerpt: "Versión en español: El compromiso de Nayara Hangaroa con la sostenibilidad en Rapa Nui — energía renovable, conservación del agua, eliminación del plástico, preservación cultural y apoyo a la comunidad local.",
-  },
-  {
-    id: "atacama-sustainability-es",
-    title: "Nayara Alto Atacama: Sostenibilidad en el Desierto",
-    type: "video",
-    property: "alto-atacama",
-    youtubeId: "H9VxyDgv31U",
-    duration: "1 min",
-    guest: "Nayara Resorts",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
-    excerpt: "Versión en español: Construido con adobe, piedra y paja inspirado en un pueblo Lican Antay, Nayara Alto Atacama opera con energía solar y reutiliza el 100% del agua para riego en el desierto más árido del mundo.",
+    excerpt: "How Nayara Alto Atacama operates sustainably in the driest desert on Earth — solar energy, adobe architecture, and 100% water reuse.",
+    altYoutubeId: "H9VxyDgv31U",
+    altLanguage: "ES",
+    altDuration: "1 min",
   },
 ];
 
@@ -617,6 +607,12 @@ export interface PodcastEpisode {
   duration: string;
   date: string;
   coverImage?: string;
+  /** Alternate language YouTube video ID */
+  altYoutubeId?: string;
+  /** Alternate language label (e.g. "ES" or "EN") */
+  altLanguage?: string;
+  /** Alternate language duration */
+  altDuration?: string;
 }
 
 /** Legacy blog posts array — maps from new unified entries */
@@ -641,6 +637,7 @@ export const podcastEpisodes: PodcastEpisode[] = videoEpisodes.map(e => ({
   duration: e.duration || "",
   date: e.date || "2026",
   coverImage: e.image,
+  ...(e.altYoutubeId ? { altYoutubeId: e.altYoutubeId, altLanguage: e.altLanguage, altDuration: e.altDuration } : {}),
 }));
 
 // ─── Newsletters (The Naiad) — kept separate for Newsletter page ──

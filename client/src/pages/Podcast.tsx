@@ -2,7 +2,7 @@
  * NAYARA PODCAST
  * Standalone podcast page with video + audio episodes
  * Two-axis filtering: Destination + Topic
- * User will provide final episode links later
+ * Language toggle (EN/ES) for dual-language episodes
  */
 
 import { useState, useRef } from "react";
@@ -33,13 +33,27 @@ const PODCAST_CDN = {
 
 export default function Podcast() {
   const [activeEpisode, setActiveEpisode] = useState<string | null>(null);
+  /* Track which language is selected per episode: key = ep.id, value = "en" | "es" */
+  const [langMap, setLangMap] = useState<Record<string, "en" | "es">>({});
+
+  const setLang = (id: string, lang: "en" | "es") => {
+    /* Reset playback when switching language */
+    setActiveEpisode(null);
+    setLangMap(prev => ({ ...prev, [id]: lang }));
+  };
 
   return (
     <div className="min-h-screen bg-white">
       <BrandNavigation pageType="content" />
       <HeroSection />
       <IntroSection />
-      <EpisodesSection episodes={podcastEpisodes} activeEpisode={activeEpisode} setActiveEpisode={setActiveEpisode} />
+      <EpisodesSection
+        episodes={podcastEpisodes}
+        activeEpisode={activeEpisode}
+        setActiveEpisode={setActiveEpisode}
+        langMap={langMap}
+        setLang={setLang}
+      />
       <ComingSoonSection />
       <ContentCrossLinks currentPage="podcast" />
       <Footer />
@@ -95,63 +109,111 @@ function IntroSection() {
 /* ═══════════════════════════════════════════════════════════════
    EPISODES
    ═══════════════════════════════════════════════════════════════ */
-function EpisodesSection({ episodes, activeEpisode, setActiveEpisode }: {
+function EpisodesSection({ episodes, activeEpisode, setActiveEpisode, langMap, setLang }: {
   episodes: PodcastEpisode[];
   activeEpisode: string | null;
   setActiveEpisode: (id: string | null) => void;
+  langMap: Record<string, "en" | "es">;
+  setLang: (id: string, lang: "en" | "es") => void;
 }) {
   return (
     <section className="px-6 md:px-10 pb-16 md:pb-24">
       <div className="max-w-[1000px] mx-auto flex flex-col gap-10">
-        {episodes.map((ep, i) => (
-          <FadeIn key={ep.id} delay={i * 0.1}>
-            <div className="bg-white/60 rounded-xl overflow-hidden border border-[#3B2B26]/5">
-              {/* Video embed or thumbnail */}
-              <div className="relative aspect-video bg-stone-900">
-                {activeEpisode === ep.id ? (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${ep.youtubeId}?autoplay=1&rel=0`}
-                    className="absolute inset-0 w-full h-full"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    title={ep.title}
-                  />
-                ) : (
-                  <button
-                    onClick={() => setActiveEpisode(ep.id)}
-                    className="absolute inset-0 w-full h-full group cursor-pointer"
-                  >
-                    <img
-                      src={ep.coverImage || `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`}
-                      alt={ep.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center group-hover:bg-white/25 transition-colors">
-                        <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1" />
-                      </div>
-                    </div>
-                  </button>
-                )}
-              </div>
+        {episodes.map((ep, i) => {
+          const hasAlt = !!ep.altYoutubeId;
+          const currentLang = langMap[ep.id] || "en";
+          const videoId = currentLang === "es" && hasAlt ? ep.altYoutubeId! : ep.youtubeId;
+          const duration = currentLang === "es" && hasAlt && ep.altDuration ? ep.altDuration : ep.duration;
 
-              {/* Episode info */}
-              <div className="p-8 md:p-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
-                  <span className="w-px h-3 bg-[#3B2B26]/10" />
-                  <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.duration}</span>
-                  <span className="w-px h-3 bg-[#3B2B26]/10" />
-                  <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.id.includes("rapanui") || ep.id.includes("hitorangi") ? "Hangaroa" : "All Properties"}</span>
+          return (
+            <FadeIn key={ep.id} delay={i * 0.1}>
+              <div className="bg-white/60 rounded-xl overflow-hidden border border-[#3B2B26]/5">
+                {/* Language toggle — only for dual-language episodes */}
+                {hasAlt && (
+                  <div className="flex items-center justify-end gap-1 px-8 pt-5 md:px-10 md:pt-6">
+                    <span className="text-[#3B2B26]/25 text-[9px] tracking-[0.2em] mr-2" style={{ ...body, fontWeight: 500 }}>
+                      LANGUAGE
+                    </span>
+                    <button
+                      onClick={() => setLang(ep.id, "en")}
+                      className={`px-3 py-1 rounded-full text-[10px] tracking-[0.15em] transition-all duration-300 cursor-pointer ${
+                        currentLang === "en"
+                          ? "bg-[#3B2B26] text-white"
+                          : "bg-[#3B2B26]/5 text-[#3B2B26]/40 hover:bg-[#3B2B26]/10"
+                      }`}
+                      style={{ ...body, fontWeight: 500 }}
+                    >
+                      EN
+                    </button>
+                    <button
+                      onClick={() => setLang(ep.id, "es")}
+                      className={`px-3 py-1 rounded-full text-[10px] tracking-[0.15em] transition-all duration-300 cursor-pointer ${
+                        currentLang === "es"
+                          ? "bg-[#3B2B26] text-white"
+                          : "bg-[#3B2B26]/5 text-[#3B2B26]/40 hover:bg-[#3B2B26]/10"
+                      }`}
+                      style={{ ...body, fontWeight: 500 }}
+                    >
+                      ES
+                    </button>
+                  </div>
+                )}
+
+                {/* Video embed or thumbnail */}
+                <div className={`relative aspect-video bg-stone-900 ${hasAlt ? "mt-3" : ""}`}>
+                  {activeEpisode === ep.id ? (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                      title={ep.title}
+                    />
+                  ) : (
+                    <button
+                      onClick={() => setActiveEpisode(ep.id)}
+                      className="absolute inset-0 w-full h-full group cursor-pointer"
+                    >
+                      <img
+                        src={ep.coverImage || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                        alt={ep.title}
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center group-hover:bg-white/25 transition-colors">
+                          <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1" />
+                        </div>
+                      </div>
+                    </button>
+                  )}
                 </div>
-                <h3 className="text-[#3B2B26] text-xl md:text-2xl leading-[1.15]" style={heading}>{ep.title}</h3>
-                <p className="text-[#3B2B26]/30 text-xs tracking-[0.1em] mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
-                <p className="text-[#4B4A4A]/50 text-[14px] leading-relaxed max-w-2xl" style={body}>{ep.description}</p>
+
+                {/* Episode info */}
+                <div className="p-8 md:p-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.2em]" style={{ ...body, fontWeight: 500 }}>Episode {i + 1}</span>
+                    <span className="w-px h-3 bg-[#3B2B26]/10" />
+                    <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]" style={body}>{duration}</span>
+                    {hasAlt && (
+                      <>
+                        <span className="w-px h-3 bg-[#3B2B26]/10" />
+                        <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]" style={body}>
+                          {currentLang === "en" ? "English" : "Español"}
+                        </span>
+                      </>
+                    )}
+                    <span className="w-px h-3 bg-[#3B2B26]/10" />
+                    <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]" style={body}>{ep.id.includes("rapanui") || ep.id.includes("hitorangi") || ep.id.includes("hangaroa") ? "Hangaroa" : ep.id.includes("atacama") ? "Atacama" : "All Properties"}</span>
+                  </div>
+                  <h3 className="text-[#3B2B26] text-xl md:text-2xl leading-[1.15]" style={heading}>{ep.title}</h3>
+                  <p className="text-[#3B2B26]/30 text-xs tracking-[0.1em] mt-3 mb-4" style={{ ...body, fontWeight: 500 }}>with {ep.guest}</p>
+                  <p className="text-[#4B4A4A]/50 text-[14px] leading-relaxed max-w-2xl" style={body}>{ep.description}</p>
+                </div>
               </div>
-            </div>
-          </FadeIn>
-        ))}
+            </FadeIn>
+          );
+        })}
       </div>
     </section>
   );

@@ -2152,3 +2152,4 @@
 - [x] Remove Flora & Fauna as separate nav category — it lives under Sustainability only
 - [x] Add Spanish version of Hangaroa sustainability podcast episode (YouTube: EinNAkAoKE8, 3:30)
 - [x] Add Spanish version of Atacama sustainability podcast episode (YouTube: H9VxyDgv31U, 1:01)
+- [x] Consolidate Hangaroa + Atacama sustainability videos: 2 entries with ES/EN language toggle instead of 4 separate entries
