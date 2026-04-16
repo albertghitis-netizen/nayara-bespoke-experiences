@@ -2168,3 +2168,17 @@
 - [x] Remove hamburger menu and Reserve button from top of all sustainability deep pages
 - [x] Add sustainability/wildlife-related blog articles to Voices sections on all sustainability deep pages
 - [x] Add Bocas del Toro coral reef restoration podcast and blog as Coming Soon placeholders
+- [ ] Split S Certification/Green Globe blog into two: S Certification (Hangaroa + Atacama) and Green Globe (Bocas + Costa Rica)
+- [x] Update all blog links to point to internal /journal/slug pages, not blog.nayararesorts.com
+- [ ] Split S Certification/Green Globe blog into two: S Certification (Hangaroa + Atacama) and Green Globe (Bocas + Costa Rica)
+- [x] Scrape blog.nayararesorts.com for all sustainability-related blog posts
+- [x] Create on-site duplicate blog posts for all sustainability articles from blog.nayararesorts.com
+- [x] Update all blog links to point to internal /journal/slug pages instead of blog.nayararesorts.com
+- [x] Add AFAR podcast, Leo Pioneering Sustainable Luxury, and Leo Suite Success videos to Costa Rica sustainability pages (Gardens, Springs, Tented Camp)
+- [x] Add Night at the Camp blog to Costa Rica sustainability Voices section
+- [x] Make all 8 cards (4 category + 4 initiative) on sustainability deep pages use brown styling matching the pillar Sustainability page
+- [x] Download and analyze Nayara ESG Sustainability Report PDF
+- [x] Incorporate ESG report data into all 4 property sustainability pages (Costa Rica, Alto Atacama, Bocas del Toro, Hangaroa)
+- [x] Create 5 new blog posts from scraped articles: Atacama Oasis, Hangaroa Regeneration, Bocas Condé Nast, Beyond Sustainability, Bocas & Atacama Study
+- [x] Create dynamic blog route (/journal/:slug) with DynamicBlogPost.tsx for all blog posts
+- [x] Add internal blog routing (wouter Link) for /journal/ URLs in sustainability BlogCards

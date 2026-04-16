@@ -30,6 +30,7 @@ const ConciergeChatWidget = lazy(() => import("./components/ConciergeChatWidget"
 const Newsletter = lazy(() => import("./pages/Newsletter"));
 const Podcast = lazy(() => import("./pages/Podcast"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const NewProjects = lazy(() => import("./pages/NewProjects"));
@@ -131,6 +132,7 @@ function Router() {
           <Route path="/gastronomy" component={Gastronomy} />
           <Route path="/faq">{() => { window.location.replace("/journal"); return null; }}</Route>
           <Route path="/newsletter" component={Newsletter} />
+          <Route path="/journal/:slug" component={DynamicBlogPost} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
           {/* ── Internal / Private pages ── */}

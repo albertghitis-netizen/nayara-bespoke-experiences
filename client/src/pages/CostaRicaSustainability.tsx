@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
@@ -179,10 +180,9 @@ function SustainabilityContent({
               variants={fadeUp}
               className="group cursor-pointer text-left p-5 md:p-6 transition-all duration-300 hover:shadow-lg"
               style={{
-                backgroundColor: "rgba(255,255,255,0.5)",
-                backdropFilter: "blur(8px)",
+                backgroundColor: BRAND.bone,
                 borderRadius: "12px",
-                border: `1px solid ${palette.primary}20`,
+                border: `1px solid ${BRAND.divider}`,
               }}
               whileHover={{ y: -4 }}
               onClick={() => {
@@ -220,8 +220,13 @@ function SustainabilityContent({
             <motion.div
               key={i}
               variants={fadeUp}
-              className="pl-6"
-              style={{ borderLeft: `2px solid ${palette.primary}30` }}
+              className="p-6 md:p-8"
+              style={{
+                backgroundColor: BRAND.bone,
+                borderRadius: "12px",
+                border: `1px solid ${BRAND.divider}`,
+                borderLeft: `3px solid ${palette.primary}`,
+              }}
             >
               <h3
                 className="text-[17px] mb-3"
@@ -274,10 +279,9 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
       variants={fadeUp}
       className="overflow-hidden"
       style={{
-        backgroundColor: "rgba(255,255,255,0.4)",
-        backdropFilter: "blur(8px)",
+        backgroundColor: BRAND.bone,
         borderRadius: "12px",
-        borderBottom: `2px solid ${BRAND.divider}`,
+        border: `1px solid ${BRAND.divider}`,
       }}
     >
       {/* YouTube Thumbnail / Embed */}
@@ -399,15 +403,28 @@ const VOICES_SECTION_TITLES: Record<string, { heading: string; description: stri
 
 function BlogCard({ blog, palette }: { blog: SustainabilityBlog; palette: PropertyPalette }) {
   const fallbackImg = "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png";
+  const isInternal = blog.url.startsWith("/");
+
+  const thumbnailContent = (
+    <>
+      <img
+        src={blog.image || fallbackImg}
+        alt={blog.title}
+        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        onError={(e) => { (e.target as HTMLImageElement).src = fallbackImg; }}
+      />
+      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300" />
+    </>
+  );
+
   return (
     <motion.div
       variants={fadeUp}
       className="overflow-hidden group"
       style={{
-        backgroundColor: "rgba(255,255,255,0.4)",
-        backdropFilter: "blur(8px)",
+        backgroundColor: BRAND.bone,
         borderRadius: "12px",
-        borderBottom: `2px solid ${BRAND.divider}`,
+        border: `1px solid ${BRAND.divider}`,
         opacity: blog.comingSoon ? 0.6 : 1,
       }}
     >
@@ -431,15 +448,13 @@ function BlogCard({ blog, palette }: { blog: SustainabilityBlog; palette: Proper
               Coming Soon
             </span>
           </div>
+        ) : isInternal ? (
+          <Link href={blog.url} className="absolute inset-0 w-full h-full">
+            {thumbnailContent}
+          </Link>
         ) : (
           <a href={blog.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 w-full h-full">
-            <img
-              src={blog.image || fallbackImg}
-              alt={blog.title}
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              onError={(e) => { (e.target as HTMLImageElement).src = fallbackImg; }}
-            />
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300" />
+            {thumbnailContent}
           </a>
         )}
       </div>
@@ -452,6 +467,10 @@ function BlogCard({ blog, palette }: { blog: SustainabilityBlog; palette: Proper
         >
           {blog.comingSoon ? (
             blog.title
+          ) : isInternal ? (
+            <Link href={blog.url} className="hover:opacity-70 transition-opacity">
+              {blog.title}
+            </Link>
           ) : (
             <a href={blog.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
               {blog.title}
@@ -536,10 +555,9 @@ function SustainabilityVoices({
               variants={fadeUp}
               className="overflow-hidden"
               style={{
-                backgroundColor: "rgba(255,255,255,0.4)",
-                backdropFilter: "blur(8px)",
+                backgroundColor: BRAND.bone,
                 borderRadius: "12px",
-                borderBottom: `2px solid ${BRAND.divider}`,
+                border: `1px solid ${BRAND.divider}`,
                 opacity: 0.6,
               }}
             >
