@@ -507,7 +507,7 @@ const videoEpisodes: JournalEntry[] = [
     youtubeId: "FPxFzOkKhbw",
     duration: "24 min",
     guest: "Leo Ghitis, CEO & Co-Founder",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-horses-sunset_8152e72d.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/afar-leo-ghitis_d2cfe61d.jpg",
     excerpt: "Recorded live at ILTM Cannes, Leo Ghitis shares how Nayara Resorts is pioneering regenerative travel through ambitious environmental restoration and deep community support.",
   },
   {
@@ -540,7 +540,7 @@ const videoEpisodes: JournalEntry[] = [
     youtubeId: "6cfkWsqWWc8",
     duration: "3 min",
     guest: "Nayara Resorts",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
     excerpt: "Discover how Nayara Alto Atacama operates sustainably in one of the driest deserts on Earth — from solar energy and water recycling to deep partnerships with the Atacameño communities.",
   },
 ];

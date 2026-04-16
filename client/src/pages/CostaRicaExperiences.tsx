@@ -129,7 +129,7 @@ function ExperiencesHero({
   return (
     <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
       <div className="relative w-full h-[60vh]">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>
@@ -407,7 +407,7 @@ function ExcursionCard({ excursion, palette }: { excursion: Excursion; palette: 
       {hasMedia && (
         <div className="relative w-full h-48 overflow-hidden">
           {excursion.verticalVideo ? (
-            <NativeVideo src={excursion.verticalVideo} className="w-full h-full object-cover" hasAudio />
+            <NativeVideo src={excursion.verticalVideo} className="w-full h-full object-cover" />
           ) : excursion.image ? (
             <img
               src={excursion.image}

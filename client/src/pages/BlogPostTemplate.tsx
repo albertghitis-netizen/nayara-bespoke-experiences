@@ -100,7 +100,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
       {/* ── 2. HERO VIDEO / IMAGE ── */}
       <section className="relative w-full overflow-hidden" style={{ aspectRatio: "21/9", minHeight: "400px", maxHeight: "70vh" }}>
         {post.heroVideo ? (
-          <NativeVideo src={post.heroVideo.desktop} className="absolute inset-0 w-full h-full object-cover" autoPlay muted hasAudio
+          <NativeVideo src={post.heroVideo.desktop} className="absolute inset-0 w-full h-full object-cover" autoPlay muted
             loop
             playsInline
           />
@@ -249,7 +249,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
                 {/* In-body video */}
                 {section.video && (
                   <div className="my-10 rounded-lg overflow-hidden shadow-md relative" style={{ aspectRatio: "16/9" }}>
-                    <NativeVideo src={section.video.src} className="absolute inset-0 w-full h-full object-cover" autoPlay={false} muted={false} hasAudio
+                    <NativeVideo src={section.video.src} className="absolute inset-0 w-full h-full object-cover" autoPlay={false} muted={false}
                       loop={false}
                       controls
                       poster={section.video.poster}

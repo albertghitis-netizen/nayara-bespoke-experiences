@@ -2112,7 +2112,7 @@
 - [ ] Add CinematicScroll with hero video audio to Hangaroa home page
 - [ ] Add CinematicScroll with hero video audio to Bocas del Toro home page
 - [ ] Add CinematicScroll with hero video audio to brand Homepage
-- [ ] Remove all hasAudio/sound from non-home pages (pillars, deep, deeper pages)
+- [x] Remove all hasAudio/sound from non-home pages (pillars, deep, deeper pages)
 - [ ] Add CinematicScroll auto-scroll at 1.35 speed to all 7 home pages (6 hotels + brand homepage)
 - [x] CinematicScroll Sound pill must match hamburger/Reserve color on each respective page (not fixed accent)
 - [x] Remove Resume button from CinematicScroll
@@ -2133,6 +2133,17 @@
 - [x] Add CinematicScroll to Hangaroa (speed 1.5, hero video audio)
 - [x] Add CinematicScroll to Bocas del Toro (speed 1.4, hero video audio)
 - [ ] Make brand homepage hero video sticky/fixed background that plays behind all content as user scrolls
-- [ ] Remove all per-section hasAudio sound pills from NativeVideo/BlobVideo across all pages — only CinematicScroll Sound pill at top
+- [x] Remove all per-section hasAudio sound pills from NativeVideo/BlobVideo across all pages — only CinematicScroll Sound pill at top
 - [ ] Add Resume button next to Reserve pill (top right) to restart auto-scroll
 - [x] Add uploaded video (VideoJul312025) to bottom of Atacama page
+- [x] Scaffold Capacitor project for native iOS + Android app wrapper
+- [ ] Disable CinematicScroll (auto-scroll + audio) on mobile — desktop only
+- [ ] Remove /story route and page entirely
+- [ ] Add "Internal" label to Brand Book, Henry, Gallery, and Coming Soon in nav
+- [ ] Rename "New Projects" to "Coming Soon" in nav and page
+- [x] Update podcast episode 4 cover with AFAR "View from Afar" Leo Ghitis image
+- [ ] Ensure no duplicate nav items (if Internal version exists, remove non-internal version)
+- [ ] Update last podcast episode cover with Piedras Rojas Atacama landscape image
+- [x] Replace image above "Geothermal Healing" on Atacama page with flamingos photo (below "Protecting the Desert")
+- [x] Update AFAR podcast episode 4 cover with Leo Ghitis image (IMG_7309)
+- [x] Remove all hasAudio props and Sound pills from ALL non-homepage pages (Sustainability, Awards, Podcast, Architecture, etc.)

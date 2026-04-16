@@ -70,7 +70,7 @@ function SustainabilityHero() {
   return (
     <div className="relative overflow-hidden" style={{ height: "50vh", minHeight: 320 }}>
       <div className="absolute inset-0">
-        <NativeVideo src={CDN.stargazing} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={CDN.stargazing} className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(139, 90, 60, 0.85)" }} />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-10">

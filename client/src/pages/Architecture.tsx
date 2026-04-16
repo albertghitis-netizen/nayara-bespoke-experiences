@@ -46,7 +46,6 @@ const SITEMAP = [
   {
     section: "Utility Pages",
     pages: [
-      { path: "/story", name: "Story", desc: "Brand origin and philosophy" },
       { path: "/rooms", name: "Rooms", desc: "Room types across properties" },
       { path: "/faq", name: "FAQ", desc: "Two-axis filtering (property + pillar)" },
       { path: "/arenal", name: "Costa Rica Hub", desc: "Arenal destination overview" },
@@ -75,8 +74,8 @@ const SITEMAP = [
 
 const NAV_STRUCTURE = {
   hamburger: {
-    brand: ["Story", "Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Podcast"],
-    property: ["Story", "Rooms", "Gallery", "Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Podcast"],
+    brand: ["Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Podcast"],
+    property: ["Rooms", "Gallery", "Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Podcast"],
   },
   pills: {
     left: "Hamburger menu",

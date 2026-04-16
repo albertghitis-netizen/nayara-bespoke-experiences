@@ -130,7 +130,6 @@ function Router() {
           <Route path="/wellness" component={Wellness} />
           <Route path="/tented-wellness">{() => { window.location.replace("/wellness"); return null; }}</Route>
           <Route path="/press">{() => { window.location.replace("/awards"); return null; }}</Route>
-          <Route path="/story">{() => { window.location.replace("/"); return null; }}</Route>
           <Route path="/gastronomy" component={Gastronomy} />
           <Route path="/faq">{() => { window.location.replace("/journal"); return null; }}</Route>
           <Route path="/newsletter" component={Newsletter} />

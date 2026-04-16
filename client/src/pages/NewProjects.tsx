@@ -72,7 +72,7 @@ export default function NewProjects() {
             src={MANUEL_ANTONIO_HERO_VIDEO}
             poster={MANUEL_ANTONIO_HERO_IMAGE}
             className="w-full h-full object-cover"
-            hasAudio
+           
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/60 pointer-events-none" />
         </div>
@@ -269,7 +269,7 @@ export default function NewProjects() {
           <BlobVideo
             src={MOON_CAMP_VIDEO}
             className="w-full h-full object-cover"
-            hasAudio
+           
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60 pointer-events-none" />
         </div>
@@ -446,7 +446,7 @@ export default function NewProjects() {
           <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img1-landscape_30550e46.mp4"
             className="w-full h-full object-cover block"
-            hasAudio
+           
             pillBg="rgba(10, 10, 16, 0.7)"
             pillColor="#F2A7C3"
           />
@@ -459,7 +459,7 @@ export default function NewProjects() {
               <BlobVideo
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img2-portrait_3bfede68.mp4"
                 className="w-full h-full object-cover block"
-                hasAudio
+               
                 pillBg="rgba(10, 10, 16, 0.7)"
                 pillColor="#F2A7C3"
               />
@@ -473,7 +473,7 @@ export default function NewProjects() {
           <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img3-landscape_d76f8082.mp4"
             className="w-full h-full object-cover block"
-            hasAudio
+           
             pillBg="rgba(10, 10, 16, 0.7)"
             pillColor="#F2A7C3"
           />
@@ -487,7 +487,7 @@ export default function NewProjects() {
               <BlobVideo
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img4-portrait_3782a232.mp4"
                 className="w-full h-full object-cover block"
-                hasAudio
+               
                 pillBg="rgba(10, 10, 16, 0.7)"
                 pillColor="#F2A7C3"
               />
@@ -500,7 +500,7 @@ export default function NewProjects() {
           <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img5-landscape_acf3b3b3.mp4"
             className="w-full h-full object-cover block"
-            hasAudio
+           
             pillBg="rgba(10, 10, 16, 0.7)"
             pillColor="#F2A7C3"
           />
@@ -513,7 +513,7 @@ export default function NewProjects() {
               <BlobVideo
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img6-portrait_4a466038.mp4"
                 className="w-full h-full object-cover block"
-                hasAudio
+               
                 pillBg="rgba(10, 10, 16, 0.7)"
                 pillColor="#F2A7C3"
               />
@@ -527,7 +527,7 @@ export default function NewProjects() {
           <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img7-landscape_d8406d81.mp4"
             className="w-full h-full object-cover block"
-            hasAudio
+           
             pillBg="rgba(10, 10, 16, 0.7)"
             pillColor="#F2A7C3"
           />
@@ -538,7 +538,7 @@ export default function NewProjects() {
           <BlobVideo
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img8-landscape_8fd2a83a.mp4"
             className="w-full h-full object-cover block"
-            hasAudio
+           
             pillBg="rgba(10, 10, 16, 0.7)"
             pillColor="#F2A7C3"
           />
@@ -552,7 +552,7 @@ export default function NewProjects() {
               <BlobVideo
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/img9-portrait_2caf6a24.mp4"
                 className="w-full h-full object-cover block"
-                hasAudio
+               
                 pillBg="rgba(10, 10, 16, 0.7)"
                 pillColor="#F2A7C3"
               />

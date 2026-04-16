@@ -88,7 +88,7 @@ function SustainabilityHero({
   return (
     <div className="relative overflow-hidden" style={{ height: "50vh", minHeight: 320 }}>
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div
           className="absolute inset-0"
           style={{ backgroundColor: `${palette.primary}BF` }}

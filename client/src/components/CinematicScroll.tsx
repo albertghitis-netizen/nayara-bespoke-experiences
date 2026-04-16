@@ -1,5 +1,7 @@
 /**
- * CinematicScroll — Auto-scroll cinematic experience (MOBILE + DESKTOP)
+ * CinematicScroll — Auto-scroll cinematic experience (DESKTOP ONLY)
+ *
+ * On mobile, this component renders nothing — users scroll manually.
  *
  * Flow:
  * 1. Page loads muted, static — "Start Your Adventure" overlay on hero
@@ -41,6 +43,9 @@ export default function CinematicScroll({
 }: CinematicScrollProps) {
   const [location] = useLocation();
 
+  /* ── Desktop only — skip on mobile/tablet ── */
+  const [isMobile, setIsMobile] = useState(false);
+
   const [showOverlay, setShowOverlay] = useState(true);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -49,6 +54,14 @@ export default function CinematicScroll({
   const mediaRef = useRef<HTMLVideoElement | HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const scrollingRef = useRef(false);
+
+  /* ── Check mobile on mount + resize ── */
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   /* ── Determine pill colors from current route ── */
   const propertySlug = Object.entries(ROUTE_TO_SLUG).find(([prefix]) =>
@@ -73,6 +86,8 @@ export default function CinematicScroll({
 
   /* ── Initialize audio/video element ── */
   useEffect(() => {
+    if (isMobile) return; // Don't load audio on mobile
+
     let media: HTMLVideoElement | HTMLAudioElement;
 
     if (isVideoSource) {
@@ -111,7 +126,7 @@ export default function CinematicScroll({
         media.parentNode.removeChild(media);
       }
     };
-  }, [audioSrc, isVideoSource]);
+  }, [audioSrc, isVideoSource, isMobile]);
 
   /* ── Auto-scroll loop ── */
   const startScrollLoop = useCallback(() => {
@@ -165,7 +180,7 @@ export default function CinematicScroll({
 
   /* ── Touch/click to stop ── */
   useEffect(() => {
-    if (!hasStarted) return;
+    if (!hasStarted || isMobile) return;
 
     const handleTouch = (e: TouchEvent | MouseEvent) => {
       // Don't stop if tapping the control buttons
@@ -187,7 +202,7 @@ export default function CinematicScroll({
       window.removeEventListener("touchstart", handleTouch);
       window.removeEventListener("mousedown", handleTouch);
     };
-  }, [hasStarted, stopScrollLoop]);
+  }, [hasStarted, stopScrollLoop, isMobile]);
 
   /* ── Mute toggle ── */
   const handleMuteToggle = useCallback(() => {
@@ -199,6 +214,9 @@ export default function CinematicScroll({
       mediaRef.current.play().catch(() => {});
     }
   }, [isMuted, isScrolling]);
+
+  /* ── On mobile, render nothing ── */
+  if (isMobile) return null;
 
   return (
     <>

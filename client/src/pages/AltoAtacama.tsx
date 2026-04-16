@@ -80,9 +80,9 @@ const ASSETS = {
   expV: `${CDN}/atacama-blue-saltflat-vertical_f1956a87.mp4`,
   expH: `${CDN}/atacama-ultrawide-4_bba8d87c.jpg`,
 
-  // Section 4 — Sustainability: Milky Way arch V + vicuna mountain UW
+  // Section 4 — Sustainability: Milky Way arch V + flamingos UW
   susV: `${CDN}/atacama-milkyway-arch_d146b04d.jpg`,
-  susH: `${CDN}/atacama-ultrawide-2_c9a936b3.jpg`,
+  susH: `https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/flamingos-atacama_76e1d3e0.jpg`,
 
   // Section 5 — Wellness: geyser eruption V + spa massage UW
   wellV: `${CDN}/atacama-geyser-eruption-vertical_5c93579c.mp4`,

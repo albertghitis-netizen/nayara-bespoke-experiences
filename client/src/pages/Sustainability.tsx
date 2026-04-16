@@ -147,7 +147,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -289,8 +289,8 @@ function CTASection() {
           <p className="text-[#4B4A4A]/50 text-[14px] leading-relaxed mb-8" style={body}>
             Every stay at a Nayara property directly funds conservation, community development, and ecosystem restoration.
           </p>
-          <Link href="/story" className="inline-block px-8 py-3 bg-[#3B2B26] text-white/80 text-[13px] tracking-[0.1em] rounded-full hover:bg-[#4a3a2a] transition-colors" style={{ ...body, fontWeight: 500 }}>
-            Read Our Story
+          <Link href="/" className="inline-block px-8 py-3 bg-[#3B2B26] text-white/80 text-[13px] tracking-[0.1em] rounded-full hover:bg-[#4a3a2a] transition-colors" style={{ ...body, fontWeight: 500 }}>
+            Explore Nayara
           </Link>
         </FadeIn>
       </div>
