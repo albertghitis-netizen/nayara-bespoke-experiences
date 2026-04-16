@@ -2157,3 +2157,5 @@
 - [x] Set CinematicScroll speed to 1.4 for the brand homepage (already at 1.4)
 - [x] Delete /brand-book route and related page/components
 - [x] Delete /henry route and related page/components
+- [x] Add sustainability videos (EN+ES toggle) to ALL sustainability deep pages, following Voices from the Island pattern
+- [x] Move Explore Sustainability CTA below the videos at the very bottom of all sustainability deep pages

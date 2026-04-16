@@ -3,6 +3,7 @@
  * Renders in the color palette of whichever property the user came from.
  */
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
@@ -65,8 +66,9 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
       <ScrollingPillarHeader word="SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
       <SustainabilityContent palette={palette} initiatives={data.initiatives} />
       {data.videos && data.videos.length > 0 && (
-        <SustainabilityVideos palette={palette} videos={data.videos} />
+        <SustainabilityVideos palette={palette} videos={data.videos} propertySlug={propertySlug} />
       )}
+      <ExploreSustainabilityCTA palette={palette} />
       <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
   );
@@ -165,23 +167,142 @@ function SustainabilityContent({
           ))}
         </StaggerOnScroll>
 
-        <AnimateOnScroll variants={fadeUp} delay={0.3}>
-          <div className="mt-16">
-            <PillarCrossLink pillar="sustainability" />
-          </div>
+      </div>
+    </section>
+  );
+}
+
+function ExploreSustainabilityCTA({ palette }: { palette: PropertyPalette }) {
+  return (
+    <section className="py-12 md:py-20 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <PillarCrossLink pillar="sustainability" />
         </AnimateOnScroll>
       </div>
     </section>
   );
 }
 
+function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: PropertyPalette }) {
+  const [isAlt, setIsAlt] = useState(false);
+  const hasAlt = !!video.altYoutubeId;
+  const activeId = isAlt && video.altYoutubeId ? video.altYoutubeId : video.youtubeId;
+  const activeDuration = isAlt && video.altDuration ? video.altDuration : video.duration;
+
+  return (
+    <motion.div
+      variants={fadeUp}
+      className="overflow-hidden"
+      style={{
+        backgroundColor: "rgba(255,255,255,0.4)",
+        backdropFilter: "blur(8px)",
+        borderRadius: "12px",
+        borderBottom: `2px solid ${BRAND.divider}`,
+      }}
+    >
+      {/* YouTube Embed */}
+      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+        <iframe
+          src={`https://www.youtube.com/embed/${activeId}`}
+          title={video.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full"
+          style={{ border: "none" }}
+        />
+      </div>
+
+      {/* Info */}
+      <div className="p-6 md:p-8">
+        <div className="flex items-start justify-between gap-4">
+          <h3
+            className="text-[17px] mb-1"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+          >
+            {video.title}
+          </h3>
+          {hasAlt && (
+            <div className="flex gap-1 shrink-0">
+              <button
+                onClick={() => setIsAlt(false)}
+                className="px-2.5 py-1 text-[10px] tracking-[0.1em] uppercase transition-all duration-300"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  borderRadius: "4px",
+                  backgroundColor: !isAlt ? palette.primary : "transparent",
+                  color: !isAlt ? "#fff" : BRAND.secondaryText,
+                  border: `1px solid ${!isAlt ? palette.primary : BRAND.divider}`,
+                }}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setIsAlt(true)}
+                className="px-2.5 py-1 text-[10px] tracking-[0.1em] uppercase transition-all duration-300"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  borderRadius: "4px",
+                  backgroundColor: isAlt ? palette.primary : "transparent",
+                  color: isAlt ? "#fff" : BRAND.secondaryText,
+                  border: `1px solid ${isAlt ? palette.primary : BRAND.divider}`,
+                }}
+              >
+                {video.altLanguage || "ES"}
+              </button>
+            </div>
+          )}
+        </div>
+        <p
+          className="text-[11px] tracking-[0.1em] mb-4"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+        >
+          {video.guest} &middot; {activeDuration}{isAlt ? " · Español" : hasAlt ? " · English" : ""}
+        </p>
+        <p
+          className="text-[13px] leading-[1.7]"
+          style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+        >
+          {video.description}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
+const VIDEO_SECTION_TITLES: Record<string, { heading: string; description: string }> = {
+  hangaroa: {
+    heading: "Voices from the Island",
+    description: "Long-form conversations with the guardians, archaeologists, and community leaders who are shaping the future of Rapa Nui.",
+  },
+  "alto-atacama": {
+    heading: "Voices from the Desert",
+    description: "Exploring how Nayara Alto Atacama operates sustainably in the world's driest desert — from solar energy to water stewardship.",
+  },
+  "bocas-del-toro": {
+    heading: "Voices from the Archipelago",
+    description: "Stories of marine conservation, mangrove restoration, and community partnership from the islands of Bocas del Toro.",
+  },
+  "costa-rica": {
+    heading: "Voices from the Rainforest",
+    description: "Conversations about protecting the Arenal rainforest, supporting wildlife corridors, and building a sustainable future in Costa Rica.",
+  },
+};
+
 function SustainabilityVideos({
   palette,
   videos,
+  propertySlug,
 }: {
   palette: PropertyPalette;
   videos: SustainabilityVideo[];
+  propertySlug: string;
 }) {
+  const crSlugs = ["tented-camp", "gardens", "springs"];
+  const sectionKey = crSlugs.includes(propertySlug) ? "costa-rica" : propertySlug;
+  const sectionMeta = VIDEO_SECTION_TITLES[sectionKey] || VIDEO_SECTION_TITLES["costa-rica"];
   return (
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
@@ -199,14 +320,13 @@ function SustainabilityVideos({
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
           >
-            Voices from the Island
+            {sectionMeta.heading}
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
             style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
           >
-            Long-form conversations with the guardians, archaeologists, and community leaders
-            who are shaping the future of Rapa Nui.
+            {sectionMeta.description}
           </p>
         </AnimateOnScroll>
 
@@ -215,51 +335,7 @@ function SustainabilityVideos({
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
         >
           {videos.map((video) => (
-            <motion.div
-              key={video.youtubeId}
-              variants={fadeUp}
-              className="overflow-hidden"
-              style={{
-                backgroundColor: "rgba(255,255,255,0.4)",
-                backdropFilter: "blur(8px)",
-                borderRadius: "12px",
-                borderBottom: `2px solid ${BRAND.divider}`,
-              }}
-            >
-              {/* YouTube Embed */}
-              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                <iframe
-                  src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                  title={video.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                  style={{ border: "none" }}
-                />
-              </div>
-
-              {/* Info */}
-              <div className="p-6 md:p-8">
-                <h3
-                  className="text-[17px] mb-1"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
-                >
-                  {video.title}
-                </h3>
-                <p
-                  className="text-[11px] tracking-[0.1em] mb-4"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
-                >
-                  {video.guest} &middot; {video.duration}
-                </p>
-                <p
-                  className="text-[13px] leading-[1.7]"
-                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
-                >
-                  {video.description}
-                </p>
-              </div>
-            </motion.div>
+            <VideoCard key={video.youtubeId} video={video} palette={palette} />
           ))}
         </StaggerOnScroll>
       </div>

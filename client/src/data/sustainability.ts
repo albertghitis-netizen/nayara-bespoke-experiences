@@ -14,6 +14,12 @@ export interface SustainabilityVideo {
   description: string;
   youtubeId: string;
   duration: string;
+  /** Alternate language YouTube video ID (for ES/EN toggle) */
+  altYoutubeId?: string;
+  /** Alternate language label (e.g. "ES" or "EN") */
+  altLanguage?: string;
+  /** Alternate language duration */
+  altDuration?: string;
 }
 
 export const sustainabilityData: Record<string, {
@@ -69,6 +75,18 @@ export const sustainabilityData: Record<string, {
       {
         title: "Carbon Neutral Operations",
         desc: "Committed to carbon neutrality through renewable energy, waste reduction, and offset programs.",
+      },
+    ],
+    videos: [
+      {
+        title: "Nayara Alto Atacama Sustainability",
+        guest: "Nayara Resorts",
+        description: "How Nayara Alto Atacama operates sustainably in the driest desert on Earth — solar energy, adobe architecture, and 100% water reuse.",
+        youtubeId: "6cfkWsqWWc8",
+        duration: "3 min",
+        altYoutubeId: "H9VxyDgv31U",
+        altLanguage: "ES",
+        altDuration: "1 min",
       },
     ],
   },
@@ -135,6 +153,16 @@ export const sustainabilityData: Record<string, {
         description: "A deep dive into the archaeological mysteries of Easter Island — from moai construction techniques to new discoveries that challenge everything we thought we knew about Rapa Nui civilization.",
         youtubeId: "qFVLTTJa7hE",
         duration: "38 min",
+      },
+      {
+        title: "Nayara Hangaroa Sustainability",
+        guest: "Nayara Resorts",
+        description: "Nayara Hangaroa's commitment to sustainability on Rapa Nui — renewable energy, water conservation, plastic elimination, cultural preservation, and community support.",
+        youtubeId: "_M3ATv4I0B8",
+        duration: "3 min",
+        altYoutubeId: "EinNAkAoKE8",
+        altLanguage: "ES",
+        altDuration: "3:30 min",
       },
     ],
   },
