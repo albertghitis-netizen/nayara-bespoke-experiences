@@ -2155,3 +2155,5 @@
 - [x] Consolidate Hangaroa + Atacama sustainability videos: 2 entries with ES/EN language toggle instead of 4 separate entries
 - [x] Set CinematicScroll speed to 1.35 for all 6 property homepages
 - [x] Set CinematicScroll speed to 1.4 for the brand homepage (already at 1.4)
+- [x] Delete /brand-book route and related page/components
+- [x] Delete /henry route and related page/components

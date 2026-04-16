@@ -27,7 +27,6 @@ const SECTIONS = [
 ];
 
 const INTERNAL_PAGES = [
-  { path: "/brand-book", name: "Brand Book", desc: "Colors, fonts, logos, photography rules, property palettes, component library" },
   { path: "/seo", name: "SEO / AEO / GEO Strategy", desc: "Search optimization, AI engine optimization, geographic targeting, content calendar" },
   { path: "/architecture", name: "Site Architecture", desc: "Sitemap, page hierarchy, navigation structure, cross-linking model" },
   { path: "/competitors", name: "Competitive Landscape", desc: "Market analysis per property, brand-level competitors, positioning" },

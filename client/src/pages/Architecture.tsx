@@ -54,7 +54,6 @@ const SITEMAP = [
   {
     section: "Internal Reference Pages",
     pages: [
-      { path: "/brand-book", name: "Brand Book", desc: "Visual identity guidelines" },
       { path: "/seo", name: "SEO Strategy", desc: "Search, AI, and geographic optimization" },
       { path: "/architecture", name: "Architecture", desc: "This page — site structure" },
       { path: "/competitors", name: "Competitors", desc: "Competitive landscape analysis" },

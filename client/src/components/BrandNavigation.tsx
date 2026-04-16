@@ -34,8 +34,6 @@ const GLOBAL_MENU = [
 
 /* ── Internal pages (visible only in menu with "Internal" label) ── */
 const INTERNAL_MENU = [
-  { label: "Brand Book", route: "/internal/brand-book" },
-  { label: "Henry", route: "/internal/henry" },
   { label: "Gallery", route: "/gallery" },
   { label: "Coming Soon", route: "/internal/new-projects" },
 ];

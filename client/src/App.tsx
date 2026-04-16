@@ -33,10 +33,8 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const NewProjects = lazy(() => import("./pages/NewProjects"));
-const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
 const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const BrandBook = lazy(() => import("./pages/BrandBook"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
 /* Atacama/Bocas/Hangaroa deep pages now use the universal shared components */
@@ -71,7 +69,7 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS = ["/henry"];
+const HIDE_WIDGET_PATHS: string[] = [];
 
 function Router() {
   const [location] = useLocation();
@@ -137,14 +135,10 @@ function Router() {
           <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
           {/* ── Internal / Private pages ── */}
           <Route path="/internal/new-projects" component={NewProjects} />
-          <Route path="/internal/henry" component={HenryStandalone} />
           <Route path="/by-night" component={NayaraByNight} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
-          <Route path="/internal/brand-book" component={BrandBook} />
           {/* Legacy redirects for internal pages */}
           <Route path="/new-projects">{() => { window.location.replace("/internal/new-projects"); return null; }}</Route>
-          <Route path="/henry">{() => { window.location.replace("/internal/henry"); return null; }}</Route>
-          <Route path="/brand-book">{() => { window.location.replace("/internal/brand-book"); return null; }}</Route>
           <Route path="/gallery" component={Gallery} />
 
           <Route path="/404" component={NotFound} />
