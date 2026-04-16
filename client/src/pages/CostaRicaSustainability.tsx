@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
-import { sustainabilityData, getSustainabilityKey, type SustainabilityVideo } from "@/data/sustainability";
+import { sustainabilityData, getSustainabilityKey, type SustainabilityVideo, type SustainabilityBlog } from "@/data/sustainability";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
 import {
@@ -64,8 +64,8 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
       <SustainabilityHero palette={palette} propertyName={propertyName} headline={data.headline} heroVideo={heroVideo} />
       <ScrollingPillarHeader word="BEYOND SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
       <SustainabilityContent palette={palette} initiatives={data.initiatives} />
-      {data.videos && data.videos.length > 0 && (
-        <SustainabilityVideos palette={palette} videos={data.videos} propertySlug={propertySlug} />
+      {((data.videos && data.videos.length > 0) || (data.blogs && data.blogs.length > 0)) && (
+        <SustainabilityVoices palette={palette} videos={data.videos || []} blogs={data.blogs || []} propertySlug={propertySlug} />
       )}
       <ExploreSustainabilityCTA palette={palette} />
       <Footer pageType="property" bgColor={palette.footerBg} />
@@ -378,37 +378,116 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
   );
 }
 
-const VIDEO_SECTION_TITLES: Record<string, { heading: string; description: string }> = {
+const VOICES_SECTION_TITLES: Record<string, { heading: string; description: string }> = {
   hangaroa: {
     heading: "Voices from the Island",
-    description: "Long-form conversations with the guardians, archaeologists, and community leaders who are shaping the future of Rapa Nui.",
+    description: "Stories of cultural preservation, ecological regeneration, and community resilience from the heart of Rapa Nui.",
   },
   "alto-atacama": {
     heading: "Voices from the Desert",
-    description: "Exploring how Nayara Alto Atacama operates sustainably in the world's driest desert — from solar energy to water stewardship.",
+    description: "Stories of sustainability, wildlife conservation, and community from the world's driest desert.",
   },
   "bocas-del-toro": {
     heading: "Voices from the Archipelago",
-    description: "Stories of marine conservation, mangrove restoration, and community partnership from the islands of Bocas del Toro.",
+    description: "Stories of marine conservation, coral restoration, and community partnership from the islands of Bocas del Toro.",
   },
   "costa-rica": {
     heading: "Voices from the Rainforest",
-    description: "Conversations about protecting the Arenal rainforest, supporting wildlife corridors, and building a sustainable future in Costa Rica.",
+    description: "Stories of wildlife conservation, community empowerment, and ecological stewardship from the Arenal rainforest.",
   },
 };
 
-function SustainabilityVideos({
+function BlogCard({ blog, palette }: { blog: SustainabilityBlog; palette: PropertyPalette }) {
+  const fallbackImg = "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png";
+  return (
+    <motion.div
+      variants={fadeUp}
+      className="overflow-hidden group"
+      style={{
+        backgroundColor: "rgba(255,255,255,0.4)",
+        backdropFilter: "blur(8px)",
+        borderRadius: "12px",
+        borderBottom: `2px solid ${BRAND.divider}`,
+        opacity: blog.comingSoon ? 0.6 : 1,
+      }}
+    >
+      {/* Thumbnail */}
+      <div className="relative w-full overflow-hidden" style={{ paddingBottom: "52%" }}>
+        {blog.comingSoon ? (
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ backgroundColor: `${palette.primary}20` }}
+          >
+            <span
+              className="text-[11px] tracking-[0.2em] uppercase px-4 py-2"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 600,
+                color: palette.primary,
+                border: `1px solid ${palette.primary}40`,
+                borderRadius: "4px",
+              }}
+            >
+              Coming Soon
+            </span>
+          </div>
+        ) : (
+          <a href={blog.url} target="_blank" rel="noopener noreferrer" className="absolute inset-0 w-full h-full">
+            <img
+              src={blog.image || fallbackImg}
+              alt={blog.title}
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onError={(e) => { (e.target as HTMLImageElement).src = fallbackImg; }}
+            />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-300" />
+          </a>
+        )}
+      </div>
+
+      {/* Info */}
+      <div className="p-6 md:p-8">
+        <h3
+          className="text-[17px] mb-3"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+        >
+          {blog.comingSoon ? (
+            blog.title
+          ) : (
+            <a href={blog.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+              {blog.title}
+            </a>
+          )}
+        </h3>
+        <p
+          className="text-[13px] leading-[1.7]"
+          style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+        >
+          {blog.excerpt}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
+function SustainabilityVoices({
   palette,
   videos,
+  blogs,
   propertySlug,
 }: {
   palette: PropertyPalette;
   videos: SustainabilityVideo[];
+  blogs: SustainabilityBlog[];
   propertySlug: string;
 }) {
   const crSlugs = ["tented-camp", "gardens", "springs"];
   const sectionKey = crSlugs.includes(propertySlug) ? "costa-rica" : propertySlug;
-  const sectionMeta = VIDEO_SECTION_TITLES[sectionKey] || VIDEO_SECTION_TITLES["costa-rica"];
+  const sectionMeta = VOICES_SECTION_TITLES[sectionKey] || VOICES_SECTION_TITLES["costa-rica"];
+
+  /* Filter out empty/coming-soon videos (Bocas placeholder has empty youtubeId) */
+  const activeVideos = videos.filter(v => v.youtubeId);
+  const comingSoonVideos = videos.filter(v => !v.youtubeId);
+
   return (
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
@@ -440,8 +519,64 @@ function SustainabilityVideos({
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
         >
-          {videos.map((video) => (
+          {/* Active video cards */}
+          {activeVideos.map((video) => (
             <VideoCard key={video.youtubeId} video={video} palette={palette} />
+          ))}
+
+          {/* Blog cards */}
+          {blogs.map((blog) => (
+            <BlogCard key={blog.title} blog={blog} palette={palette} />
+          ))}
+
+          {/* Coming Soon video cards (Bocas coral reef) */}
+          {comingSoonVideos.map((video) => (
+            <motion.div
+              key={video.title}
+              variants={fadeUp}
+              className="overflow-hidden"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.4)",
+                backdropFilter: "blur(8px)",
+                borderRadius: "12px",
+                borderBottom: `2px solid ${BRAND.divider}`,
+                opacity: 0.6,
+              }}
+            >
+              <div
+                className="relative w-full flex items-center justify-center"
+                style={{ paddingBottom: "52%", backgroundColor: `${palette.primary}15` }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span
+                    className="text-[11px] tracking-[0.2em] uppercase px-4 py-2"
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 600,
+                      color: palette.primary,
+                      border: `1px solid ${palette.primary}40`,
+                      borderRadius: "4px",
+                    }}
+                  >
+                    Coming Soon
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 md:p-8">
+                <h3
+                  className="text-[17px] mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                >
+                  {video.title}
+                </h3>
+                <p
+                  className="text-[13px] leading-[1.7] mt-3"
+                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                >
+                  {video.description}
+                </p>
+              </div>
+            </motion.div>
           ))}
         </StaggerOnScroll>
       </div>

@@ -22,12 +22,22 @@ export interface SustainabilityVideo {
   altDuration?: string;
 }
 
+export interface SustainabilityBlog {
+  title: string;
+  excerpt: string;
+  image: string;
+  url: string;
+  /** If true, shows a "Coming Soon" badge instead of a link */
+  comingSoon?: boolean;
+}
+
 export const sustainabilityData: Record<string, {
   headline: string;
   subtitle: string;
   heroOverlayColor: string;
   initiatives: Initiative[];
   videos?: SustainabilityVideo[];
+  blogs?: SustainabilityBlog[];
 }> = {
   /* ── Costa Rica (shared across Gardens, Springs, Tented Camp) ── */
   "costa-rica": {
@@ -50,6 +60,38 @@ export const sustainabilityData: Record<string, {
       {
         title: "Community Partnership",
         desc: "Supporting local communities in La Fortuna through employment, education programs, and cultural preservation initiatives that strengthen the region's social fabric.",
+      },
+    ],
+    blogs: [
+      {
+        title: "Wildlife Conservation in Arenal and Bocas del Toro",
+        excerpt: "From sloths to sea turtles — how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
+        image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
+        url: "https://blog.nayararesorts.com/wildlife-conservation-in-arenal-and-bocas-del-toro",
+      },
+      {
+        title: "Meeting The Toucans of Arenal Rainforest",
+        excerpt: "Six species of toucans call the Arenal rainforest home. Learn who they are, where to find them, and why they matter.",
+        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Meeting%20The%20Touca",
+        url: "https://blog.nayararesorts.com/meeting-the-toucans-of-arenal-rainforest-who-they-are-and-how-to-see-them",
+      },
+      {
+        title: "Birdwatching in Costa Rica",
+        excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans — a birdwatcher's paradise.",
+        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Meeting%20The%20Touca",
+        url: "https://blog.nayararesorts.com/birdwatching-in-costa-rica",
+      },
+      {
+        title: "Women's Empowerment Through Housing in La Fortuna",
+        excerpt: "How Nayara Resorts is building homes and empowering women in La Fortuna through community-driven housing initiatives.",
+        image: "https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg",
+        url: "https://blog.nayararesorts.com/womens-empowerment-through-housing-in-costa-ricas-la-fortuna",
+      },
+      {
+        title: "Setting the Standard: Green Globe Certification",
+        excerpt: "Discover how Nayara Resorts' Green Globe Certification underscores our commitment to sustainability across every property.",
+        image: "https://blog.nayararesorts.com/hubfs/Green%20globe-3-1.png",
+        url: "https://blog.nayararesorts.com/setting-the-standard-green-globe-certification",
       },
     ],
   },
@@ -89,6 +131,26 @@ export const sustainabilityData: Record<string, {
         altDuration: "1 min",
       },
     ],
+    blogs: [
+      {
+        title: "Wildlife Conservation in Chile's Atacama Desert and Easter Island",
+        excerpt: "Vicuñas, flamingos, and endemic species — conservation efforts protecting Chile's most fragile ecosystems.",
+        image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Hangaroa-Horses-2048x13",
+        url: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
+      },
+      {
+        title: "Sunlit Sustainability: Nature-Powered",
+        excerpt: "Explore how Nayara Resorts harnesses solar power for sustainable luxury, from the Atacama Desert to Easter Island.",
+        image: "https://blog.nayararesorts.com/hubfs/4-Aug-15-2025-06-36-01-1516-PM.png",
+        url: "https://blog.nayararesorts.com/sunlit-sustainability-powered-by-nature-clone",
+      },
+      {
+        title: "Rooted in Community: Human Hospitality",
+        excerpt: "Explore how Nayara Resorts' commitment to community and regenerative travel transforms lives and landscapes.",
+        image: "https://blog.nayararesorts.com/hubfs/IMG_8179.jpg",
+        url: "https://blog.nayararesorts.com/rooted-in-community-the-human-side-of-hospitality",
+      },
+    ],
   },
 
   /* ── Bocas del Toro ── */
@@ -112,6 +174,36 @@ export const sustainabilityData: Record<string, {
       {
         title: "Indigenous Community Support",
         desc: "Partnering with the Ngäbe-Buglé indigenous communities of Bocas del Toro through fair employment, cultural exchange programs, and support for traditional crafts and practices.",
+      },
+    ],
+    videos: [
+      {
+        title: "Coral Reef Restoration",
+        guest: "Coming Soon",
+        description: "A deep dive into Nayara Bocas del Toro's coral reef restoration program — protecting the marine ecosystems of Panama's Caribbean archipelago.",
+        youtubeId: "",
+        duration: "Coming Soon",
+      },
+    ],
+    blogs: [
+      {
+        title: "Biodensity, Underwater Mountains, and More",
+        excerpt: "A deep dive into the marine biodensity of Bocas del Toro — underwater mountains, coral reefs, and the ecosystems that sustain them.",
+        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Biodensity%2c%20Underwater",
+        url: "https://blog.nayararesorts.com/biodensity-underwater-mountains-and-more-a-different-perspective-on-our-ecosystems",
+      },
+      {
+        title: "Wildlife Conservation in Arenal and Bocas del Toro",
+        excerpt: "From sloths to sea turtles — how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
+        image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
+        url: "https://blog.nayararesorts.com/wildlife-conservation-in-arenal-and-bocas-del-toro",
+      },
+      {
+        title: "Coral Reef Restoration: Rebuilding the Caribbean",
+        excerpt: "How Nayara Bocas del Toro is partnering with marine biologists to restore and protect the coral reefs of the archipelago.",
+        image: "",
+        url: "",
+        comingSoon: true,
       },
     ],
   },
@@ -163,6 +255,32 @@ export const sustainabilityData: Record<string, {
         altYoutubeId: "EinNAkAoKE8",
         altLanguage: "ES",
         altDuration: "3:30 min",
+      },
+    ],
+    blogs: [
+      {
+        title: "How Nayara Hangaroa Leads Regeneration on Rapa Nui",
+        excerpt: "Rapa Nui's Hito family leads cultural and ecological regeneration. Learn how moai traditions, reforestation, and community shape the island's future.",
+        image: "https://blog.nayararesorts.com/hubfs/9-Aug-11-2025-08-40-19-5669-PM.png",
+        url: "https://blog.nayararesorts.com/walking-giants-the-hito-family-the-future-of-easter-island",
+      },
+      {
+        title: "A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us",
+        excerpt: "The Maya and Rapa Nui civilizations didn't collapse — they adapted. What their resilience teaches us about climate, survival, and cultural continuity.",
+        image: "https://blog.nayararesorts.com/hubfs/Photo%20Jan%2014%202026%2c%2007%2042%2012.j",
+        url: "https://blog.nayararesorts.com/a-collapse-that-wasnt-a-collapse",
+      },
+      {
+        title: "Wildlife Conservation in Chile's Atacama Desert and Easter Island",
+        excerpt: "Vicuñas, flamingos, and endemic species — conservation efforts protecting Chile's most fragile ecosystems.",
+        image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Hangaroa-Horses-2048x13",
+        url: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
+      },
+      {
+        title: "Ancient Origins of Nature-Based Wellness: Lessons from Easter Island",
+        excerpt: "Easter Island's Polynesian heritage holds ancient wellness wisdom — from ocean immersion to volcanic mineral baths and celestial navigation.",
+        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Drawing%20from%20Time",
+        url: "https://blog.nayararesorts.com/ancient-origins-of-nature-based-wellness-lessons-from-easter-island-and-polynesia",
       },
     ],
   },

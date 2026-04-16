@@ -2166,3 +2166,5 @@
 - [x] Change scrolling marquee text from "SUSTAINABILITY" to "BEYOND SUSTAINABILITY" on sustainability deep pages
 - [x] Remove location subtitle from sustainability deep page heroes (no San Pedro de Atacama, Rapa Nui, etc.)
 - [x] Remove hamburger menu and Reserve button from top of all sustainability deep pages
+- [x] Add sustainability/wildlife-related blog articles to Voices sections on all sustainability deep pages
+- [x] Add Bocas del Toro coral reef restoration podcast and blog as Coming Soon placeholders
