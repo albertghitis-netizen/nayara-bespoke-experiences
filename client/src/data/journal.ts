@@ -543,6 +543,28 @@ const videoEpisodes: JournalEntry[] = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
     excerpt: "Discover how Nayara Alto Atacama operates sustainably in one of the driest deserts on Earth — from solar energy and water recycling to deep partnerships with the Atacameño communities.",
   },
+  {
+    id: "hangaroa-sustainability-es",
+    title: "Nayara Hangaroa: Sostenibilidad en Rapa Nui",
+    type: "video",
+    property: "hangaroa",
+    youtubeId: "EinNAkAoKE8",
+    duration: "3:30 min",
+    guest: "Nayara Resorts",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-pukao-ocean_dc261e27.jpg",
+    excerpt: "Versión en español: El compromiso de Nayara Hangaroa con la sostenibilidad en Rapa Nui — energía renovable, conservación del agua, eliminación del plástico, preservación cultural y apoyo a la comunidad local.",
+  },
+  {
+    id: "atacama-sustainability-es",
+    title: "Nayara Alto Atacama: Sostenibilidad en el Desierto",
+    type: "video",
+    property: "alto-atacama",
+    youtubeId: "H9VxyDgv31U",
+    duration: "1 min",
+    guest: "Nayara Resorts",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
+    excerpt: "Versión en español: Construido con adobe, piedra y paja inspirado en un pueblo Lican Antay, Nayara Alto Atacama opera con energía solar y reutiliza el 100% del agua para riego en el desierto más árido del mundo.",
+  },
 ];
 
 // ─── Merged + Sorted Feed ────────────────────────────────────

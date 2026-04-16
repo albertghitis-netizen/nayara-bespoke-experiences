@@ -2150,3 +2150,5 @@
 - [x] Restructure Sustainability pillar page with 4 subcategories: Flora & Fauna, Certification, Community, Operations
 - [x] Add two-axis filtering on Sustainability page: subcategory (Flora & Fauna, Certification, Community, Operations — no "All") + hotel
 - [x] Remove Flora & Fauna as separate nav category — it lives under Sustainability only
+- [x] Add Spanish version of Hangaroa sustainability podcast episode (YouTube: EinNAkAoKE8, 3:30)
+- [x] Add Spanish version of Atacama sustainability podcast episode (YouTube: H9VxyDgv31U, 1:01)
