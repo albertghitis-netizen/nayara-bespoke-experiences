@@ -61,9 +61,8 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
-      <SustainabilityHero palette={palette} propertyName={propertyName} location={location} headline={data.headline} heroVideo={heroVideo} />
-      <ScrollingPillarHeader word="SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
+      <SustainabilityHero palette={palette} propertyName={propertyName} headline={data.headline} heroVideo={heroVideo} />
+      <ScrollingPillarHeader word="BEYOND SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
       <SustainabilityContent palette={palette} initiatives={data.initiatives} />
       {data.videos && data.videos.length > 0 && (
         <SustainabilityVideos palette={palette} videos={data.videos} propertySlug={propertySlug} />
@@ -77,13 +76,11 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 function SustainabilityHero({
   palette,
   propertyName,
-  location,
   headline,
   heroVideo,
 }: {
   palette: PropertyPalette;
   propertyName: string;
-  location: string;
   headline: string;
   heroVideo: string;
 }) {
@@ -114,21 +111,52 @@ function SustainabilityHero({
         >
           {propertyName}
         </motion.p>
-        {location && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="text-white/40 text-[10px] tracking-[0.15em] mt-1"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            {location}
-          </motion.p>
-        )}
+
       </div>
     </div>
   );
 }
+
+const CATEGORIES = [
+  {
+    label: "Flora & Fauna",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4-4-8-7.5-8-11a8 8 0 0116 0c0 3.5-4 7-8 11z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 11V7m0 0c-1.5 0-3 1-3 3m3-3c1.5 0 3 1 3 3" />
+      </svg>
+    ),
+    desc: "Protecting native ecosystems, wildlife corridors, and biodiversity.",
+  },
+  {
+    label: "Operations",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 010-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+    desc: "Energy, water, waste, and carbon-neutral resort operations.",
+  },
+  {
+    label: "Community",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+      </svg>
+    ),
+    desc: "Supporting local communities, culture, and education.",
+  },
+  {
+    label: "Certifications",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+      </svg>
+    ),
+    desc: "Third-party verified sustainability standards and awards.",
+  },
+];
 
 function SustainabilityContent({
   palette,
@@ -140,6 +168,50 @@ function SustainabilityContent({
   return (
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
+        {/* Category Cards — Row 1 */}
+        <StaggerOnScroll
+          variants={staggerContainer}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mb-16 md:mb-24"
+        >
+          {CATEGORIES.map((cat) => (
+            <motion.button
+              key={cat.label}
+              variants={fadeUp}
+              className="group cursor-pointer text-left p-5 md:p-6 transition-all duration-300 hover:shadow-lg"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.5)",
+                backdropFilter: "blur(8px)",
+                borderRadius: "12px",
+                border: `1px solid ${palette.primary}20`,
+              }}
+              whileHover={{ y: -4 }}
+              onClick={() => {
+                import("sonner").then(({ toast }) => toast(`${cat.label} — Coming Soon`));
+              }}
+            >
+              <div
+                className="mb-3 transition-colors duration-300"
+                style={{ color: palette.primary }}
+              >
+                {cat.icon}
+              </div>
+              <h3
+                className="text-[15px] md:text-[16px] mb-2"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+              >
+                {cat.label}
+              </h3>
+              <p
+                className="text-[12px] leading-[1.6]"
+                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              >
+                {cat.desc}
+              </p>
+            </motion.button>
+          ))}
+        </StaggerOnScroll>
+
+        {/* Initiative Cards — Row 2 */}
         <StaggerOnScroll
           variants={staggerContainer}
           className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12"
@@ -186,9 +258,16 @@ function ExploreSustainabilityCTA({ palette }: { palette: PropertyPalette }) {
 
 function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: PropertyPalette }) {
   const [isAlt, setIsAlt] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const hasAlt = !!video.altYoutubeId;
   const activeId = isAlt && video.altYoutubeId ? video.altYoutubeId : video.youtubeId;
   const activeDuration = isAlt && video.altDuration ? video.altDuration : video.duration;
+
+  /* Reset playing state when language toggles */
+  const handleLangSwitch = (alt: boolean) => {
+    setIsAlt(alt);
+    setPlaying(false);
+  };
 
   return (
     <motion.div
@@ -201,16 +280,43 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
         borderBottom: `2px solid ${BRAND.divider}`,
       }}
     >
-      {/* YouTube Embed */}
-      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${activeId}`}
-          title={video.title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="absolute inset-0 w-full h-full"
-          style={{ border: "none" }}
-        />
+      {/* YouTube Thumbnail / Embed */}
+      <div className="relative w-full overflow-hidden" style={{ paddingBottom: "52%" }}>
+        {playing ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${activeId}?autoplay=1`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+            style={{ border: "none" }}
+          />
+        ) : (
+          <button
+            onClick={() => setPlaying(true)}
+            className="absolute inset-0 w-full h-full group cursor-pointer"
+            aria-label={`Play ${video.title}`}
+          >
+            <img
+              src={`https://img.youtube.com/vi/${activeId}/maxresdefault.jpg`}
+              alt={video.title}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ transform: "scale(1.35)" }}
+              onError={(e) => {
+                /* Fallback to hqdefault if maxres not available */
+                (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${activeId}/hqdefault.jpg`;
+              }}
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all duration-300">
+                <svg className="w-6 h-6 md:w-7 md:h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </button>
+        )}
       </div>
 
       {/* Info */}
@@ -225,7 +331,7 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
           {hasAlt && (
             <div className="flex gap-1 shrink-0">
               <button
-                onClick={() => setIsAlt(false)}
+                onClick={() => handleLangSwitch(false)}
                 className="px-2.5 py-1 text-[10px] tracking-[0.1em] uppercase transition-all duration-300"
                 style={{
                   fontFamily: "var(--font-body)",
@@ -239,7 +345,7 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
                 EN
               </button>
               <button
-                onClick={() => setIsAlt(true)}
+                onClick={() => handleLangSwitch(true)}
                 className="px-2.5 py-1 text-[10px] tracking-[0.1em] uppercase transition-all duration-300"
                 style={{
                   fontFamily: "var(--font-body)",

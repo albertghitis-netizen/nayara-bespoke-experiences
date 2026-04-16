@@ -2159,3 +2159,10 @@
 - [x] Delete /henry route and related page/components
 - [x] Add sustainability videos (EN+ES toggle) to ALL sustainability deep pages, following Voices from the Island pattern
 - [x] Move Explore Sustainability CTA below the videos at the very bottom of all sustainability deep pages
+- [x] Remove black bars/letterboxing from YouTube video embed on sustainability video cards — make thumbnail fill full card width
+- [x] Add category overview section (Flora & Fauna, Operations, Community, Certifications) above the initiative cards on sustainability deep pages
+- [x] Tag each initiative card by its category on sustainability deep pages
+- [x] Add 4 clickable category cards (Flora & Fauna, Operations, Community, Certifications) above existing 4 initiative cards on sustainability deep pages (8 total)
+- [x] Change scrolling marquee text from "SUSTAINABILITY" to "BEYOND SUSTAINABILITY" on sustainability deep pages
+- [x] Remove location subtitle from sustainability deep page heroes (no San Pedro de Atacama, Rapa Nui, etc.)
+- [x] Remove hamburger menu and Reserve button from top of all sustainability deep pages
