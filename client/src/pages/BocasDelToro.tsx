@@ -293,7 +293,7 @@ function MediaBlock({
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={src} className="w-full h-full object-cover" />
       ) : (
         <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
       )}
@@ -406,7 +406,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -441,7 +441,7 @@ export default function BocasDelToro() {
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
-        speed={1.4}
+        speed={1.6}
       />
       <BrandNavigation pageType="property" />
       <HeroSection />

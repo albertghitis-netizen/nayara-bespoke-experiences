@@ -412,7 +412,7 @@ export default function AltoAtacama() {
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
-        speed={1.4}
+        speed={1.5}
       />
       <BrandNavigation pageType="property" />
       <HeroSection />
@@ -448,6 +448,16 @@ export default function AltoAtacama() {
         bodyText="At 2,400 meters in the driest desert on the planet, the Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
       />
+
+      {/* ★ Bottom Video — Desert Moments */}
+      <section className="w-full flex justify-center py-12 md:py-20 bg-[#3B2B26]">
+        <div className="w-full max-w-sm md:max-w-md aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
+          <NativeVideo
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-bottom-video_5897b211.mp4"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </section>
 
       <GettingHereSection />
       <AwardsSection />

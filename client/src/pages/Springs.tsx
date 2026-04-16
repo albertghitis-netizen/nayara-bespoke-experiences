@@ -129,7 +129,7 @@ export default function Springs() {
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <CinematicScroll
         audioSrc={CDN.heroDesktop}
-        speed={1.4}
+        speed={1.5}
       />
       <BrandNavigation pageType="property" />
       <HeroSection />
@@ -217,7 +217,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">

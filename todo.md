@@ -2132,3 +2132,7 @@
 - [x] Add CinematicScroll to Springs (speed 1.45, hero video audio)
 - [x] Add CinematicScroll to Hangaroa (speed 1.5, hero video audio)
 - [x] Add CinematicScroll to Bocas del Toro (speed 1.4, hero video audio)
+- [ ] Make brand homepage hero video sticky/fixed background that plays behind all content as user scrolls
+- [ ] Remove all per-section hasAudio sound pills from NativeVideo/BlobVideo across all pages — only CinematicScroll Sound pill at top
+- [ ] Add Resume button next to Reserve pill (top right) to restart auto-scroll
+- [x] Add uploaded video (VideoJul312025) to bottom of Atacama page

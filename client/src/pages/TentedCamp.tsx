@@ -85,7 +85,7 @@ const ASSETS = {
   gastroV: `${CDN}/atasteofplace_f64f6f71.jpg`,
   gastroH: `${CDN}/Supersale-4_7834ffc2.jpg`,
 
-  wildV: `${CDN}/nayara-tent-reel_08874d7a.mp4`,
+  wildV: `${CDN}/nayara-tent-1_65574f07.mp4`,
   wildH: `${CDN}/tc-mainpool-vertical_81b6bb28.mp4`,
 
   // Tent reel videos
@@ -151,7 +151,7 @@ function MediaBlock({
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={src} className="w-full h-full object-cover" />
       ) : (
         <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
       )}
@@ -822,7 +822,7 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio />
+        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -892,7 +892,7 @@ function GallerySection() {
             <MediaReveal key={i} delay={i * 0.05}>
               <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
                 {item.isVideo ? (
-                  <NativeVideo src={item.src} className="w-full h-full object-cover" hasAudio />
+                  <NativeVideo src={item.src} className="w-full h-full object-cover" />
                 ) : (
                   <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
                 )}
@@ -924,7 +924,7 @@ export default function TentedCamp() {
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
-        speed={1.5}
+        speed={1.55}
       />
       <BrandNavigation pageType="property" />
       <HeroSection />
