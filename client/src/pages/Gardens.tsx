@@ -146,7 +146,7 @@ export default function Gardens() {
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <CinematicScroll
         audioSrc={CDN.heroDesktop}
-        speed={1.45}
+        speed={1.35}
       />
       <BrandNavigation pageType="property" />
       <HeroSection />

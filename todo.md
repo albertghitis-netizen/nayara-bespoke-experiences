@@ -2153,3 +2153,5 @@
 - [x] Add Spanish version of Hangaroa sustainability podcast episode (YouTube: EinNAkAoKE8, 3:30)
 - [x] Add Spanish version of Atacama sustainability podcast episode (YouTube: H9VxyDgv31U, 1:01)
 - [x] Consolidate Hangaroa + Atacama sustainability videos: 2 entries with ES/EN language toggle instead of 4 separate entries
+- [x] Set CinematicScroll speed to 1.35 for all 6 property homepages
+- [x] Set CinematicScroll speed to 1.4 for the brand homepage (already at 1.4)
