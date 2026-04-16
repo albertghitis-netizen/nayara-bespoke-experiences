@@ -2147,3 +2147,6 @@
 - [x] Replace image above "Geothermal Healing" on Atacama page with flamingos photo (below "Protecting the Desert")
 - [x] Update AFAR podcast episode 4 cover with Leo Ghitis image (IMG_7309)
 - [x] Remove all hasAudio props and Sound pills from ALL non-homepage pages (Sustainability, Awards, Podcast, Architecture, etc.)
+- [x] Restructure Sustainability pillar page with 4 subcategories: Flora & Fauna, Certification, Community, Operations
+- [x] Add two-axis filtering on Sustainability page: subcategory (Flora & Fauna, Certification, Community, Operations — no "All") + hotel
+- [x] Remove Flora & Fauna as separate nav category — it lives under Sustainability only

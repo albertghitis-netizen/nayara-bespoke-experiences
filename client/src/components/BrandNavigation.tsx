@@ -25,7 +25,6 @@ const GLOBAL_MENU = [
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Regenerative Travel", route: "/sustainability" },
-  { label: "Flora & Fauna", route: "/flora-fauna" },
   { label: "Romance or Family Fun", route: "/romance-or-family" },
   { label: "Blog", route: "/journal" },
   { label: "Podcast", route: "/podcast" },
