@@ -2251,7 +2251,8 @@
 - [x] Add "Nayara Resorts" link to footer's Our Resorts column (matching hamburger menu)
 
 ## Camel Color Update
-- [x] Change accent gold (#AD8F61) to camel (#C19A6B) on brand homepage (PALETTE.accent, Nayara Story button, property card ovals)
-- [x] Change hamburger button background to camel
-- [x] Change Reserve pill button to camel
-- [x] Change Ask Concierge button to camel
+- [x] Change accent gold (#AD8F61) to gravel (#8a7a6a) on brand homepage (PALETTE.accent, Nayara Story button, property card ovals)
+- [x] Change hamburger button background to gravel
+- [x] Change Reserve pill button to gravel
+- [x] Change Ask Concierge button to gravel
+- [x] Change all brand pages (AllDestinations, BlogPost, BlogPostTemplate, Newsletter) from gold to gravel

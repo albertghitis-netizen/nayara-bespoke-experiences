@@ -120,8 +120,8 @@ export default function AllDestinations() {
                 onClick={() => setActiveFilter(tab)}
                 className={`px-5 py-2 rounded-full text-[11px] tracking-[0.12em] transition-all duration-300 border ${
                   activeFilter === tab
-                    ? "bg-[#AD8F61] border-[#AD8F61] text-white"
-                    : "bg-transparent border-[#3B2B26]/20 text-[#3B2B26]/60 hover:border-[#AD8F61] hover:text-[#AD8F61]"
+                    ? "bg-[#8a7a6a] border-[#8a7a6a] text-white"
+                    : "bg-transparent border-[#3B2B26]/20 text-[#3B2B26]/60 hover:border-[#8a7a6a] hover:text-[#8a7a6a]"
                 }`}
                 style={{ ...body, fontWeight: 500 }}
               >
@@ -188,7 +188,7 @@ export default function AllDestinations() {
                       href={BOOKING_URLS[dest.bookingId]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2 rounded-full text-[11px] tracking-[0.12em] border border-[#AD8F61] text-[#AD8F61] hover:bg-[#AD8F61] hover:text-white transition-all duration-300"
+                      className="px-5 py-2 rounded-full text-[11px] tracking-[0.12em] border border-[#8a7a6a] text-[#8a7a6a] hover:bg-[#8a7a6a] hover:text-white transition-all duration-300"
                       style={{ ...body, fontWeight: 500 }}
                     >
                       Reserve

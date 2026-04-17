@@ -33,7 +33,7 @@ const PALETTE = {
   text: "#3B2B26",
   textSecondary: "#5a4a3a",
   textTertiary: "#8a7a6a",
-  accent: "#7B5B3A",
+  accent: "#8a7a6a",
   divider: "#e0dbd4",
   cardBg: "rgba(255,255,255,0.4)",
 };
