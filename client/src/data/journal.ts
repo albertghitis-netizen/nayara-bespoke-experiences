@@ -505,17 +505,7 @@ const videoEpisodes: JournalEntry[] = [
     image: `https://img.youtube.com/vi/7l072Yr__pE/maxresdefault.jpg`,
     excerpt: "Leo Ghitis explores the journey of building Nayara Resorts — a brand that seamlessly blends ultra-luxury with profound environmental stewardship across Costa Rica, Panama, and Chile.",
   },
-  {
-    id: "leo-view-from-afar",
-    title: "Redefining Luxury: Regenerative Travel and Social Impact",
-    type: "video",
-    property: "tented-camp",
-    youtubeId: "FPxFzOkKhbw",
-    duration: "24 min",
-    guest: "Leo Ghitis, CEO & Co-Founder",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/afar-leo-ghitis_d2cfe61d.jpg",
-    excerpt: "Recorded live at ILTM Cannes, Leo Ghitis shares how Nayara Resorts is pioneering regenerative travel through ambitious environmental restoration and deep community support.",
-  },
+
   {
     id: "leo-suite-success",
     title: "Pioneering Eco-Luxury: The Nayara Story",

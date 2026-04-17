@@ -445,13 +445,13 @@ function TimelineSection() {
    ═══════════════════════════════════════════════════════════════ */
 const contentLinks = [
   {
-    label: "Blog",
-    desc: "Stories, dispatches, and reflections from across the Nayara world.",
+    label: "Blog & FAQ",
+    desc: "Stories, dispatches, and answers from across the Nayara world.",
     route: "/journal",
     icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
   },
   {
-    label: "Awards & Press",
+    label: "Press & Awards",
     desc: "Recognition from the world's leading travel publications and guides.",
     route: "/awards",
     icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
@@ -461,12 +461,6 @@ const contentLinks = [
     desc: "Conversations with the people and places that shape Nayara.",
     route: "/podcast",
     icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z",
-  },
-  {
-    label: "FAQs",
-    desc: "Everything you need to know before your journey begins.",
-    route: "/faq",
-    icon: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
   },
 ];
 

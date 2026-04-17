@@ -27,9 +27,9 @@ const GLOBAL_MENU = [
   { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Romantic Escape", route: "/romance-or-family" },
   { label: "Family Adventure", route: "/romance-or-family" },
-  { label: "Blog", route: "/journal" },
-  { label: "Long-Form Video", route: "/podcast" },
+  { label: "Blog & FAQ", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
+  { label: "Long-Form Video", route: "/podcast" },
   { label: "Nayara By Night", route: "/by-night" },
 ];
 

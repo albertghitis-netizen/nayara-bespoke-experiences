@@ -78,11 +78,9 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
 
 /* Nayara Journal column items */
 const JOURNAL_MENU_ITEMS: MenuItem[] = [
-  { label: "Blog", route: "/journal" },
+  { label: "Blog & FAQ", route: "/journal" },
+  { label: "Press & Awards", route: "/awards" },
   { label: "Long-Form Video", route: "/podcast" },
-  { label: "FAQ", route: "/journal" },
-  { label: "Press", route: "/awards" },
-  { label: "Awards", route: "/awards" },
 ];
 
 /* Brand page hamburger — standardized menu (no properties) */

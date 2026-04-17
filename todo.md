@@ -2270,3 +2270,12 @@
 
 ## Rename Journal to Blog
 - [x] Rename "Journal" to "Blog" across all navigation, footer, page titles, and visible labels
+
+## Nayara Journal Column Restructure
+- [x] Restructure Nayara Journal footer column to 3 items: "Blog & FAQ", "Press & Awards", "Long-Form Video"
+- [x] Update hamburger menu to match the same grouping
+
+## Nayara Journal Column Restructure
+- [x] Restructure Nayara Journal footer column to 3 items: "Blog & FAQ", "Press & Awards", "Long-Form Video"
+- [x] Update hamburger menu to match the same grouping
+- [x] Remove AFAR story from Long-Form Video (journal.ts) and sustainability.ts — not a video

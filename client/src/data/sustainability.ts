@@ -202,13 +202,7 @@ export const sustainabilityData: Record<string, {
         youtubeId: "7l072Yr__pE",
         duration: "45 min",
       },
-      {
-        title: "AFAR: A View from Afar with Leo Ghitis",
-        guest: "Leo Ghitis",
-        description: "AFAR Magazine's podcast featuring Leo Ghitis discussing the philosophy behind Nayara Resorts and the future of sustainable luxury travel.",
-        youtubeId: "FPxFzOkKhbw",
-        duration: "30 min",
-      },
+
       {
         title: "Suite Success: Leo Ghitis on Nayara Resorts",
         guest: "Leo Ghitis",
