@@ -81,9 +81,9 @@ export default function BrandNavigation({
   const propertyPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(propertySlug)
     ? getPalette(propertySlug)
     : null;
-  const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#3B2B26");
-  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(242,235,227,0.75)");
-  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(242,235,227,0.92)");
+  const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#fff");
+  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(193,154,107,0.8)");
+  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(193,154,107,0.95)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);

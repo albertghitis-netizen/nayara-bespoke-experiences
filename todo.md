@@ -2249,3 +2249,9 @@
 - [x] Remove bottom two stat counters (restaurants + certifications) from all property sustainability ESG sections — keep only top 4
 - [x] Change blog link on brand homepage to subtle box button, remove arrow symbol
 - [x] Add "Nayara Resorts" link to footer's Our Resorts column (matching hamburger menu)
+
+## Camel Color Update
+- [x] Change accent gold (#AD8F61) to camel (#C19A6B) on brand homepage (PALETTE.accent, Nayara Story button, property card ovals)
+- [x] Change hamburger button background to camel
+- [x] Change Reserve pill button to camel
+- [x] Change Ask Concierge button to camel
