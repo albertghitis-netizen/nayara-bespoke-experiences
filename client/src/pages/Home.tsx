@@ -476,7 +476,7 @@ function ContentHubSection() {
             className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
           >
-            The Nayara Narrative
+            The Nayara Journal
           </span>
         </TextReveal>
 

@@ -2296,3 +2296,4 @@
 - [x] Change footer text from white to bone (#ece8e1) tones for warmer readability
 - [x] Replace all gravel (#8a7a6a) with espresso (#3B2B26) across all brand pages (Home, AllDestinations, BlogPost, BlogPostTemplate, Newsletter)
 - [x] Remove "Romantic Escape" and "Family Adventure" from hamburger menu, footer, and explore navigation
+- [x] Change "The Nayara Narrative" to "The Nayara Journal" on brand homepage

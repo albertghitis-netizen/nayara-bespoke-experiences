@@ -104,11 +104,11 @@ export const palettes: Record<string, PropertyPalette> = {
     gradientStart: "#F7F5F0",
     gradientEnd: "#E2F0F0",     // aqua tint
     buttonBg: "#008E97",         // Aqua
-    buttonText: "#F7F5F0",
+    buttonText: "#FFFFFF",
     footerBg: "#008E97",        // Aqua (matches nav)
-    footerText: "#F7F5F0",      // Bone
+    footerText: "#FFFFFF",      // White
     navPillBg: "#008E97",        // Aqua
-    navPillText: "#F7F5F0",
+    navPillText: "#FFFFFF",
   },
 
   /* ─── ALTO ATACAMA — Terracotta (swatch #7: #6F463D) ─── */
