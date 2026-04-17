@@ -985,7 +985,7 @@ export const properties: Property[] = [
     shortName: "Springs",
     location: "Arenal Volcano",
     country: "Costa Rica",
-    tagline: "Adults-Only Sanctuary",
+    tagline: "Romantic Escape Sanctuary",
     heroSubtitle: "The most exclusive Nayara experience \u2014 adults-only villas with private plunge pools fed by natural hot springs. Where volcanic warmth meets rainforest serenity.",
     heroVideoDesktop: CDN.crSpa,
     heroVideoMobile: CDN.crSpa,

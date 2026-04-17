@@ -53,7 +53,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 /* ─── Property data for the grid ─── */
-type FilterTag = "Family-Friendly" | "Adults-Only";
+type FilterTag = "Family Adventure" | "Romantic Escape";
 
 const propertyGrid: {
   name: string;
@@ -71,7 +71,7 @@ const propertyGrid: {
     bookingId: "tented-camp",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG",
     tagline: "Clifftop Tents & Suites",
-    filter: "Family-Friendly",
+    filter: "Family Adventure",
   },
   {
     name: "Nayara Bocas del Toro",
@@ -80,7 +80,7 @@ const propertyGrid: {
     bookingId: "bocas-del-toro",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
     tagline: "Overwater Villas & Rainforest Treehouses",
-    filter: "Adults-Only",
+    filter: "Romantic Escape",
   },
   {
     name: "Nayara Gardens",
@@ -89,7 +89,7 @@ const propertyGrid: {
     bookingId: "gardens",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
     tagline: "Private Rainforest Villas & Casitas",
-    filter: "Family-Friendly",
+    filter: "Family Adventure",
   },
   {
     name: "Nayara Hangaroa",
@@ -98,7 +98,7 @@ const propertyGrid: {
     bookingId: "hangaroa",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
     tagline: "Oceanfront Villas",
-    filter: "Family-Friendly",
+    filter: "Family Adventure",
   },
   {
     name: "Nayara Springs",
@@ -107,7 +107,7 @@ const propertyGrid: {
     bookingId: "springs",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-plunge-pool-straight_a5d505d1.webp",
     tagline: "Private Hot Springs Villas",
-    filter: "Adults-Only",
+    filter: "Romantic Escape",
   },
   {
     name: "Nayara Alto Atacama",
@@ -116,7 +116,7 @@ const propertyGrid: {
     bookingId: "alto-atacama",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
     tagline: "Desert Lodge Villas",
-    filter: "Family-Friendly",
+    filter: "Family Adventure",
   },
 ];
 
@@ -325,7 +325,7 @@ function PropertiesSection() {
                       style={{ aspectRatio: "3/2" }}
                       loading="lazy"
                     />
-                    {prop.filter === "Adults-Only" && (
+                    {prop.filter === "Romantic Escape" && (
                       <span
                         className="absolute top-3 right-3 px-3 py-1 rounded-full text-[9px] tracking-[0.12em] backdrop-blur-sm"
                         style={{
@@ -335,7 +335,7 @@ function PropertiesSection() {
                           color: PALETTE.textTertiary,
                         }}
                       >
-                        Adults-Only
+                        Romantic Escape
                       </span>
                     )}
                   </div>

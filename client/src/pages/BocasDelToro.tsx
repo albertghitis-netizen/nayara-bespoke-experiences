@@ -1,6 +1,6 @@
 /**
  * NAYARA BOCAS DEL TORO — Pure Cascade (Option B)
- * Adults-Only Overwater Villas, Panama
+ * Romantic Escape Overwater Villas, Panama
  * Full-bleed edge-to-edge media, ocean gradient, ALL assets, no functional content
  * Zero-gap between all sections — one continuous visual journey
  */

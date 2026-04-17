@@ -2259,3 +2259,7 @@
 
 ## Remove ESG Pillar Boxes
 - [ ] Remove ESG pillar boxes (Flora & Fauna, Community, Operations, Certifications, etc.) from all 6 property sustainability pages
+
+## Rename Adults-Only / Family-Friendly
+- [x] Change "Adults-Only" to "Romantic Escape" everywhere
+- [x] Change "Family-Friendly" to "Family Adventure" everywhere

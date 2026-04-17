@@ -228,7 +228,7 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Adults-Only Private Hot Spring Villas
+          Romantic Escape Private Hot Spring Villas
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

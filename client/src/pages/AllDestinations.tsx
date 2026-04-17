@@ -8,8 +8,8 @@ import { BOOKING_URLS } from "@/data/booking";
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
-type FilterTag = "Family-Friendly" | "Adults-Only";
-const filterTabs: ("All" | FilterTag)[] = ["All", "Family-Friendly", "Adults-Only"];
+type FilterTag = "Family Adventure" | "Romantic Escape";
+const filterTabs: ("All" | FilterTag)[] = ["All", "Family Adventure", "Romantic Escape"];
 
 const destinations: {
   id: string;
@@ -29,7 +29,7 @@ const destinations: {
     description: "Desert Lodge Villas",
     route: "/alto-atacama",
     bookingId: "alto-atacama",
-    filter: "Family-Friendly",
+    filter: "Family Adventure",
   },
   {
     id: "bocas-del-toro",
@@ -39,7 +39,7 @@ const destinations: {
     description: "Overwater Villas & Rainforest Treehouses",
     route: "/bocas-del-toro",
     bookingId: "bocas-del-toro",
-    filter: "Adults-Only",
+    filter: "Romantic Escape",
   },
   {
     id: "gardens",
@@ -49,7 +49,7 @@ const destinations: {
     description: "Private Rainforest Villas & Casitas",
     route: "/gardens",
     bookingId: "gardens",
-    filter: "Family-Friendly",
+    filter: "Family Adventure",
   },
   {
     id: "hangaroa",
@@ -59,7 +59,7 @@ const destinations: {
     description: "Oceanfront Villas",
     route: "/hangaroa",
     bookingId: "hangaroa",
-    filter: "Family-Friendly",
+    filter: "Family Adventure",
   },
   {
     id: "springs",
@@ -69,7 +69,7 @@ const destinations: {
     description: "Private Hot Springs Villas",
     route: "/springs",
     bookingId: "springs",
-    filter: "Adults-Only",
+    filter: "Romantic Escape",
   },
   {
     id: "tented-camp",
@@ -79,7 +79,7 @@ const destinations: {
     description: "Clifftop Tents & Suites",
     route: "/tented-camp",
     bookingId: "tented-camp",
-    filter: "Family-Friendly",
+    filter: "Family Adventure",
   },
 ];
 

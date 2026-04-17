@@ -38,8 +38,8 @@ export const PILLARS = [
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Adults-Only", route: "/romance-or-family" },
-  { label: "Family-Friendly", route: "/romance-or-family" },
+  { label: "Romantic Escape", route: "/romance-or-family" },
+  { label: "Family Adventure", route: "/romance-or-family" },
 ] as const;
 
 /* Romance or Family Fun — property categorization */
@@ -49,10 +49,10 @@ export const ROMANCE_PROPERTIES = [
 ] as const;
 
 export const FAMILY_PROPERTIES = [
-  { id: "gardens", name: "Nayara Gardens", route: "/gardens", tag: "Family-Friendly" },
-  { id: "tented-camp", name: "Nayara Tented Camp", route: "/tented-camp", tag: "Family-Friendly" },
-  { id: "alto-atacama", name: "Nayara Alto Atacama", route: "/alto-atacama", tag: "Family-Friendly" },
-  { id: "hangaroa", name: "Nayara Hangaroa", route: "/hangaroa", tag: "Family-Friendly" },
+  { id: "gardens", name: "Nayara Gardens", route: "/gardens", tag: "Family Adventure" },
+  { id: "tented-camp", name: "Nayara Tented Camp", route: "/tented-camp", tag: "Family Adventure" },
+  { id: "alto-atacama", name: "Nayara Alto Atacama", route: "/alto-atacama", tag: "Family Adventure" },
+  { id: "hangaroa", name: "Nayara Hangaroa", route: "/hangaroa", tag: "Family Adventure" },
 ] as const;
 
 export const CONTENT_SECTIONS = [
@@ -71,8 +71,8 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Adults-Only", route: "/romance-or-family" },
-  { label: "Family-Friendly", route: "/romance-or-family" },
+  { label: "Romantic Escape", route: "/romance-or-family" },
+  { label: "Family Adventure", route: "/romance-or-family" },
   { label: "Nayara By Night", route: "/by-night" },
 ];
 
