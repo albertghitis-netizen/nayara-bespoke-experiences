@@ -38,8 +38,6 @@ export const PILLARS = [
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Romantic Escape", route: "/romance-or-family" },
-  { label: "Family Adventure", route: "/romance-or-family" },
 ] as const;
 
 /* Romance or Family Fun — property categorization */
@@ -71,8 +69,6 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Romantic Escape", route: "/romance-or-family" },
-  { label: "Family Adventure", route: "/romance-or-family" },
   { label: "Nayara By Night", route: "/by-night" },
 ];
 
