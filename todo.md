@@ -2188,12 +2188,12 @@
 - [x] Add /internal-brandbook route back
 - [x] Rename /gallery to /internal-gallery
 - [x] Bring back /internal-henry route
-- [ ] Standardize all property page and sub-page heroes to 18:9 (2:1) aspect ratio (homepage + brand/pillar pages stay 16:9)
+- [x] Standardize all property page and sub-page heroes to 18:9 (2:1) aspect ratio (homepage + brand/pillar pages stay 16:9)
 - [x] Hide leaf logo on mobile in footer (desktop only)
 - [x] Verify Tented Camp sustainability page has ESG report data incorporated
-- [ ] Ensure every property homepage and all its sub-pages (experiences, wellness, gastronomy, sustainability, rooms) consistently use that property's color palette — no hardcoded colors or wrong fallbacks
-- [ ] Audit and fix: every property homepage + all sub-pages must use that property's palette consistently (nav, hero, sections, buttons, footer) — 7 self-contained websites under one umbrella
-- [ ] Fix footer buttons/accents to use property palette on property pages
+- [x] Ensure every property homepage and all its sub-pages (experiences, wellness, gastronomy, sustainability, rooms) consistently use that property's color palette — no hardcoded colors or wrong fallbacks
+- [x] Audit and fix: every property homepage + all sub-pages must use that property's palette consistently (nav, hero, sections, buttons, footer) — 7 self-contained websites under one umbrella
+- [x] Fix footer buttons/accents to use property palette on property pages
 - [x] Update BrandBook page with 36 swatch images, hex values, and updated color names (Bone, Gravel, Olive Tree)
 - [x] Add rich ESG report sections to Costa Rica sustainability page: stats counters, timeline, charts/graphs, editorial storytelling blocks — beyond the existing 4 initiative cards
 - [x] Deduplicate all journal/blog post cover images — no image should repeat across any two posts

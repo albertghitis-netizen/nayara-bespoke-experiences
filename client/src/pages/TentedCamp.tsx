@@ -53,8 +53,9 @@ const PALETTE = {
   text: "#3B2B26",
   textSecondary: "#67737C",
   textTertiary: "#9A9086",
-  primary: "#525642",
-  accent: "#868B75",
+  primary: "#868B75",
+  secondary: "#525642",
+  accent: "#9A9086",
   divider: "#E6DFD5",
 };
 
@@ -960,13 +961,13 @@ export default function TentedCamp() {
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4"
         horizontalIsVideo
         horizontalRatio="16/9"
-        bgColor="#525642"
+        bgColor="#3B2B26"
         headline={"When the\nJungle Sleeps"}
         bodyText="As darkness falls over the canopy, a different world awakens. The chorus of frogs, the flash of fireflies, the distant rumble of Arenal — Tented Camp by night is a symphony of the wild. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="right"
       />
 
-      <Footer bgColor="#525642" />
+      <Footer bgColor="#3B2B26" />
     </div>
   );
 }

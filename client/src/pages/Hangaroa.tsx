@@ -356,8 +356,8 @@ function ExperiencesSection() {
 
   return (
     <section id="experiences" className="overflow-hidden">
-      <Parallax offset={60} className="w-full" style={{ height: "50vh", minHeight: 320 }}>
-        <div className="relative w-full h-[60vh]">
+      <Parallax offset={60} className="w-full" style={{ aspectRatio: "2/1" }}>
+        <div className="relative w-full aspect-[2/1]">
           <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
@@ -498,8 +498,8 @@ function WellnessSection() {
 
   return (
     <section id="wellness">
-      <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
-        <div className="relative w-full h-[55vh]">
+      <Parallax offset={50} className="w-full" style={{ aspectRatio: "2/1" }}>
+        <div className="relative w-full aspect-[2/1]">
           <img src={CDN.warriorPortrait} alt="Rapa Nui warrior" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
@@ -576,8 +576,8 @@ function GastronomySection() {
 
   return (
     <TintedSection backgroundColor={PALETTE.gradientEnd} className="overflow-hidden">
-      <Parallax offset={50} className="w-full" style={{ height: "45vh", minHeight: 280 }}>
-        <div className="relative w-full h-[55vh]">
+      <Parallax offset={50} className="w-full" style={{ aspectRatio: "2/1" }}>
+        <div className="relative w-full aspect-[2/1]">
           <img src={CDN.moaiPukao} alt="Moai with pukao hats overlooking ocean" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">

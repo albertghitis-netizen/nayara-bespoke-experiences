@@ -70,7 +70,7 @@ export default function SpringsRooms() {
 
 function RoomsHero() {
   return (
-    <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
+    <section className="relative aspect-[2/1] w-full overflow-hidden">
       <div className="absolute inset-0">
         <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />

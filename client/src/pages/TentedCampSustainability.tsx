@@ -69,7 +69,7 @@ export default function TentedCampSustainability() {
 
 function SustainabilityHero() {
   return (
-    <div className="relative overflow-hidden" style={{ height: "50vh", minHeight: 320 }}>
+    <div className="relative overflow-hidden" style={{ aspectRatio: "2/1" }}>
       <div className="absolute inset-0">
         <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(45, 106, 79, 0.80)" }} />

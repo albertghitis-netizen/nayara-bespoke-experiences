@@ -49,11 +49,11 @@ const SECTION_COLORS = [
 
 /* Caribbean Ocean Blue palette */
 const PALETTE = {
-  text: "#1A2F30",
-  textSecondary: "#5A7A7C",
-  textTertiary: "#8AACAE",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
   primary: "#2A6489",
-  divider: "#D0E2E0",
+  divider: "#E6DFD5",
 };
 
 /* ═══════════════════════════════════════════════════════════════

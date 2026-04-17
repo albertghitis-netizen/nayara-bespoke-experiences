@@ -17,15 +17,15 @@ import {
 } from "@/components/motion";
 
 const PALETTE = {
-  primary: "#1B6B7D",
-  secondary: "#3A8F9E",
-  accent: "#5AABB5",
-  gradientStart: "#F4F8F9",
-  gradientEnd: "#EDF4F5",
-  text: "#152B30",
-  textSecondary: "#4A6B72",
-  textTertiary: "#8AABB3",
-  divider: "#D0E2E6",
+  primary: "#2A6489",
+  secondary: "#5A6F7B",
+  accent: "#7FA9C9",
+  gradientStart: "#F7F5F0",
+  gradientEnd: "#E2ECEE",
+  text: "#3B2B26",
+  textSecondary: "#67737C",
+  textTertiary: "#9A9086",
+  divider: "#E6DFD5",
 };
 
 const CDN_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
@@ -62,14 +62,14 @@ export default function BocasSustainability() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <SustainabilityContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#1B2534" />
     </div>
   );
 }
 
 function SustainabilityHero() {
   return (
-    <div className="relative overflow-hidden" style={{ height: "50vh", minHeight: 320 }}>
+    <div className="relative overflow-hidden" style={{ aspectRatio: "2/1" }}>
       <div className="absolute inset-0">
         <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(27, 107, 125, 0.80)" }} />

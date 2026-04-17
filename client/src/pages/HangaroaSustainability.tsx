@@ -14,11 +14,11 @@ import {
 } from "@/components/motion";
 
 const PALETTE = {
-  primary: "#5E5549",
-  secondary: "#8B6B3E",
-  accent: "#7A8568",
+  primary: "#536878",
+  secondary: "#67737C",
+  accent: "#9A9086",
   gradientStart: "#F7F5F0",
-  gradientEnd: "#EDEAE4",
+  gradientEnd: "#EAEBED",
   text: "#3B2B26",
   textSecondary: "#67737C",
   textTertiary: "#9A9086",
@@ -63,14 +63,14 @@ export default function HangaroaSustainability() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <SustainabilityContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#1B2534" />
     </div>
   );
 }
 
 function SustainabilityHero() {
   return (
-    <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
+    <section className="relative aspect-[2/1] w-full overflow-hidden">
       <div className="absolute inset-0">
         <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />

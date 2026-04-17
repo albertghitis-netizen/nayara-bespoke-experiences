@@ -17,8 +17,8 @@ import {
 
 const PALETTE = {
   primary: "#6F463D",
-  secondary: "#9A7E5A",
-  accent: "#8A8B72",
+  secondary: "#9A9086",
+  accent: "#C29B70",
   gradientStart: "#F7F5F0",
   gradientEnd: "#F2ECE4",
   text: "#3B2B26",
@@ -62,14 +62,14 @@ export default function AtacamaRooms() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
       <RoomsContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#3B2B26" />
     </div>
   );
 }
 
 function RoomsHero() {
   return (
-    <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
+    <section className="relative aspect-[2/1] w-full overflow-hidden">
       <div className="absolute inset-0">
         <NativeVideo src={CDN.s3} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />

@@ -19,8 +19,8 @@ import {
 
 const PALETTE = {
   primary: "#6F463D",
-  secondary: "#9A7E5A",
-  accent: "#8A8B72",
+  secondary: "#9A9086",
+  accent: "#C29B70",
   gradientStart: "#F7F5F0",
   gradientEnd: "#F2ECE4",
   text: "#3B2B26",
@@ -61,14 +61,14 @@ export default function AtacamaSustainability() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <SustainabilityContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#3B2B26" />
     </div>
   );
 }
 
 function SustainabilityHero() {
   return (
-    <div className="relative overflow-hidden" style={{ height: "50vh", minHeight: 320 }}>
+    <div className="relative overflow-hidden" style={{ aspectRatio: "2/1" }}>
       <div className="absolute inset-0">
         <NativeVideo src={CDN.stargazing} className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(139, 90, 60, 0.85)" }} />
