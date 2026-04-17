@@ -2237,3 +2237,9 @@
 ## Hamburger Menu Label Updates
 - [x] Split "Romance or Family Fun" into two separate items: "Adults-Only" and "Family-Friendly"
 - [x] Rename "Regenerative Travel" to "Beyond Sustainability"
+
+## Homepage Text Edit
+- [ ] Remove third paragraph under first H2 ("We Don't Build Hotels. We Reveal Places.") on homepage
+
+## Homepage Text Edit
+- [x] Remove third paragraph under first H2 on brand homepage
