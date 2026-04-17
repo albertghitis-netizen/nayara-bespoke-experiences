@@ -261,30 +261,14 @@ function BrandStorySection() {
         </div>
         <div className="md:w-1/2">
           <MediaReveal delay={0.2}>
-            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s2-couple-bridge_11a41ef8.jpg"
-                alt="Couple crossing a bridge through the rainforest at Nayara Springs"
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "9/16" }}>
+              <NativeVideo
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-s1-vertical_26139a14.mp4"
                 className="w-full h-full object-cover"
-                loading="eager"
               />
             </div>
           </MediaReveal>
         </div>
-      </div>
-
-      {/* S2: Second vertical image */}
-      <div className="flex justify-center px-6 md:px-10 mt-4">
-        <MediaReveal delay={0.1}>
-          <div className="overflow-hidden w-full max-w-[600px]" style={{ aspectRatio: "3/4" }}>
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/rapa-nui-warrior-portrait_60af8ef4.jpg"
-              alt="Rapa Nui cultural portrait on Easter Island"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </MediaReveal>
       </div>
     </section>
   );
