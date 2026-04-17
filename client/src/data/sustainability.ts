@@ -235,7 +235,7 @@ export const sustainabilityData: Record<string, {
       {
         title: "Birdwatching in Costa Rica",
         excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans — a birdwatcher's paradise.",
-        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Meeting%20The%20Touca",
+        image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Scarlet-macaw-NA_CR_15-2048x1638.jpeg",
         url: "https://blog.nayararesorts.com/birdwatching-in-costa-rica",
       },
       {
@@ -268,6 +268,99 @@ export const sustainabilityData: Record<string, {
   /* ── Alto Atacama ── */
   "alto-atacama": {
     headline: "Guardians of the Desert",
+    esgReport: {
+      stats: [
+        { value: 1, suffix: "+", label: "Ton CO\u2082 Offset / Year", detail: "Visionary solar energy project mitigates over a ton of CO\u2082 emissions annually with state-of-the-art panels blending into the desert landscape" },
+        { value: 100, suffix: "%", label: "Water Reuse", detail: "Well water treated through reverse osmosis for consumption, then reused for irrigation — complete self-sufficiency in the world's driest desert" },
+        { value: 1, suffix: "", label: "S Certification (GSTC)", detail: "The only luxury hotel in the Atacama region certified with the S Seal of Sustainable Tourism, internationally validated by the GSTC" },
+        { value: 10000, suffix: "+", label: "Years of Human Adaptation", detail: "The Atacameño people have inhabited this desert for over 10,000 years — Nayara honors their legacy through cultural preservation and community partnerships" },
+        { value: 365, suffix: "", label: "Days of Sunshine", detail: "The Atacama's extreme solar exposure powers the resort's photovoltaic systems year-round, making solar energy the natural choice" },
+        { value: 0, suffix: "", label: "Grid Dependence Goal", detail: "Working toward full energy independence through expanded solar capacity and passive thermal design in the world's driest desert" },
+      ],
+      pillars: [
+        {
+          icon: "energy",
+          title: "Solar Energy & Carbon Reduction",
+          metrics: [
+            "State-of-the-art solar panels offsetting 1+ ton CO\u2082 annually",
+            "Panels blend seamlessly into the desert landscape",
+            "Continuous expansion of photovoltaic capacity",
+            "S Certification validates comprehensive sustainability practices",
+          ],
+        },
+        {
+          icon: "design",
+          title: "Passive Adobe Architecture",
+          metrics: [
+            "Adobe rooms strategically oriented for solar warmth and natural ventilation",
+            "Special thermal insulation retains warmth in winter, cool in summer",
+            "Minimizes need for artificial heating and cooling systems",
+            "Traditional construction methods adapted for modern luxury",
+          ],
+        },
+        {
+          icon: "water",
+          title: "Water Stewardship",
+          metrics: [
+            "Well water treated through reverse osmosis for safe consumption",
+            "100% water reuse — treated water irrigates gardens and greenery",
+            "Circular water system achieving complete self-sufficiency",
+            "Graywater recycling reinforces responsible desert operations",
+          ],
+        },
+        {
+          icon: "community",
+          title: "Community & Culture",
+          metrics: [
+            "Education programs and scholarships for local communities",
+            "Local sourcing prioritized for food and materials",
+            "Cultural preservation of Atacameño heritage and traditions",
+            "Fair employment and professional development opportunities",
+          ],
+        },
+        {
+          icon: "leaf",
+          title: "Desert Ecosystem Protection",
+          metrics: [
+            "Comprehensive waste reduction programs",
+            "Protection of fragile desert flora and fauna",
+            "Responsible land use minimizing ecological footprint",
+            "Support for vicuña, flamingo, and endemic species conservation",
+          ],
+        },
+        {
+          icon: "food",
+          title: "Zero-Kilometer Cuisine",
+          metrics: [
+            "Local farms and Atacameño ingredients prioritized",
+            "Fresh seafood sourced from Chile's Pacific coast",
+            "Seasonal, culturally authentic Andean menus",
+            "Reduced food miles supporting regional economies",
+          ],
+        },
+      ],
+      timeline: [
+        { year: "2007", title: "Alto Atacama Founded", desc: "Nayara Alto Atacama opens in Chile's San Pedro de Atacama — an oasis of luxury in the world's driest desert, built with traditional adobe construction." },
+        { year: "2012", title: "Solar Energy Initiative", desc: "State-of-the-art solar panels installed, beginning the journey toward energy independence and offsetting over a ton of CO\u2082 emissions annually." },
+        { year: "2018", title: "Water Reuse System", desc: "Complete circular water system implemented — reverse osmosis treatment for consumption, 100% reuse for irrigation in the arid landscape." },
+        { year: "2020", title: "Community Programs Expanded", desc: "Education scholarships and cultural preservation initiatives expanded to support Atacameño communities and protect indigenous heritage." },
+        { year: "2023", title: "S Certification Achieved", desc: "Nayara Alto Atacama becomes the only luxury hotel in the region certified with the S Seal of Sustainable Tourism, validated by the GSTC." },
+        { year: "2025", title: "Regenerative Desert Model", desc: "Recognized as a model for sustainable luxury in extreme environments — proving that responsible tourism can thrive even in the world's driest desert." },
+      ],
+      certifications: [
+        { name: "S Seal of Sustainable Tourism", body: "Global Sustainable Tourism Council (GSTC)", year: "2023", desc: "Internationally validated certification recognizing comprehensive sustainability practices — the only luxury hotel in the Atacama region to achieve this distinction. Covers environmental stewardship, community engagement, cultural preservation, and responsible operations." },
+      ],
+      narrative: {
+        title: "An Oasis of Responsibility",
+        subtitle: "Sustainable Luxury in the World's Driest Desert",
+        paragraphs: [
+          "The Atacama Desert presents one of the most extreme environments on Earth — a place where rainfall is measured in millimeters per decade and temperatures swing 30 degrees between day and night. Building a luxury resort here demands not just ambition but a profound respect for the land and its limits. Nayara Alto Atacama was designed from the ground up to work with the desert, not against it.",
+          "The resort's adobe architecture draws on thousands of years of Atacameño building tradition. Thick earthen walls capture solar warmth during the day and release it slowly through the night, while strategic orientation maximizes natural ventilation and minimizes the need for artificial climate control. A special thermal insulation layer — invisible to guests — ensures comfort in every season without excessive energy consumption.",
+          "Water, the desert's most precious resource, is treated with extraordinary care. Well water undergoes reverse osmosis purification for safe consumption, then begins a second life irrigating the resort's gardens and greenery. This circular system achieves complete self-sufficiency — a remarkable feat in a landscape where every drop matters. Meanwhile, state-of-the-art solar panels harness the Atacama's legendary sunshine to offset over a ton of CO\u2082 emissions annually.",
+          "But Nayara's commitment extends beyond infrastructure. The resort actively supports Atacameño communities through education programs, scholarships, and cultural preservation initiatives. Local sourcing is prioritized for both food and materials, reducing carbon emissions while strengthening regional economies. As the only luxury hotel in the region certified with the S Seal of Sustainable Tourism — validated by the Global Sustainable Tourism Council — Nayara Alto Atacama proves that even in the harshest environments, luxury and responsibility can coexist.",
+        ],
+      },
+    },
     subtitle: "Nayara Alto Atacama",
     heroOverlayColor: "rgba(139, 90, 60, 0.75)",
     initiatives: [
@@ -337,6 +430,99 @@ export const sustainabilityData: Record<string, {
   /* ── Bocas del Toro ── */
   "bocas-del-toro": {
     headline: "Island Stewardship",
+    esgReport: {
+      stats: [
+        { value: 100, suffix: "%", label: "Solar Powered", detail: "Nearly 100% of the resort's energy is generated by on-site solar panels — a fully off-grid model of self-sufficient luxury" },
+        { value: 100000, suffix: "", label: "Gallon Rainwater Capacity", detail: "Custom gutter systems collect rainfall into catchment basins holding up to 100,000 gallons, purified with advanced UV filtration" },
+        { value: 50, suffix: "ft", label: "Treehouse Canopy Height", detail: "IBUKU-designed bamboo treehouses rise 50 feet above the forest floor, crafted from locally sourced bamboo and reclaimed Panama Canal wood" },
+        { value: 0, suffix: "", label: "Grid Connection", detail: "The resort operates completely off-grid with custom-built water, power, and wastewater systems designed for the island" },
+        { value: 1, suffix: "st", label: "Floating Beach", detail: "The world's first floating beach, built on stilts to preserve the delicate mangrove and coral reef ecosystems below" },
+        { value: 1, suffix: "", label: "Green Globe Certification", detail: "Recognized with Green Globe Certification following extensive evaluation of environmental performance and sustainable construction" },
+      ],
+      pillars: [
+        {
+          icon: "energy",
+          title: "Off-Grid Solar Power",
+          metrics: [
+            "Nearly 100% of energy generated by on-site solar panels",
+            "Completely off-grid — no connection to external power infrastructure",
+            "Custom-designed power systems built for island conditions",
+            "Continuous monitoring of energy performance and efficiency",
+          ],
+        },
+        {
+          icon: "water",
+          title: "Rainwater Harvesting",
+          metrics: [
+            "100,000-gallon catchment capacity from custom gutter systems",
+            "Advanced ultraviolet filtration for drinking, bathing, and cooking",
+            "Complete freshwater self-sufficiency from rainfall alone",
+            "Custom wastewater treatment systems protecting marine ecosystems",
+          ],
+        },
+        {
+          icon: "design",
+          title: "Stilts & Sustainable Construction",
+          metrics: [
+            "Built entirely on stilts to protect native mangroves and coral reefs",
+            "IBUKU-designed treehouses from locally sourced bamboo",
+            "Reclaimed hardwoods including historic Panama Canal wood",
+            "World's first floating beach preserving ecosystems below",
+          ],
+        },
+        {
+          icon: "leaf",
+          title: "Marine & Ecosystem Protection",
+          metrics: [
+            "Coral reef monitoring and sustainable diving practices",
+            "Partnerships with marine biologists for reef restoration",
+            "Mangrove ecosystem preservation through stilt construction",
+            "Comprehensive waste management and environmental monitoring",
+          ],
+        },
+        {
+          icon: "community",
+          title: "Ng\u00e4be-Bugl\u00e9 Community Partnerships",
+          metrics: [
+            "Fair employment and cultural exchange programs",
+            "Support for traditional crafts and indigenous knowledge",
+            "Local sourcing of materials and labor",
+            "Community engagement and capacity building initiatives",
+          ],
+        },
+        {
+          icon: "food",
+          title: "Island-to-Table Cuisine",
+          metrics: [
+            "Fresh seafood sourced directly from surrounding Caribbean waters",
+            "Local farms and artisan producers prioritized",
+            "Seasonal menus reflecting Bocas del Toro's culinary heritage",
+            "Reduced food miles through regional sourcing networks",
+          ],
+        },
+      ],
+      timeline: [
+        { year: "2020", title: "Environmental Impact Studies", desc: "Extensive environmental studies conducted to design a resort that protects native mangroves and coral reefs — leading to the decision to build entirely on stilts." },
+        { year: "2021", title: "IBUKU Treehouse Design", desc: "Partnership with IBUKU to design iconic bamboo treehouses using locally sourced materials and reclaimed hardwoods from the Panama Canal." },
+        { year: "2022", title: "Off-Grid Systems Installed", desc: "Custom-built solar, water, and wastewater systems completed — achieving nearly 100% solar power and complete freshwater self-sufficiency from rainwater." },
+        { year: "2023", title: "Nayara Bocas del Toro Opens", desc: "The resort opens as a model of self-sufficient luxury — fully off-grid, built on stilts, with the world's first floating beach." },
+        { year: "2024", title: "Green Globe Certification", desc: "Recognized with Green Globe Certification following comprehensive evaluation of environmental, social, and governance practices." },
+        { year: "2025", title: "Marine Conservation Expansion", desc: "Expanded coral reef restoration and marine monitoring programs in partnership with marine biologists and the Ng\u00e4be-Bugl\u00e9 community." },
+      ],
+      certifications: [
+        { name: "Green Globe", body: "Green Globe International", year: "2024", desc: "Internationally recognized certification for sustainable tourism, awarded after extensive evaluation of off-grid operations, sustainable construction, marine ecosystem protection, and community engagement at Nayara Bocas del Toro." },
+      ],
+      narrative: {
+        title: "Sustainability on Stilts",
+        subtitle: "A Private Island Built to Protect What Lies Beneath",
+        paragraphs: [
+          "When Nayara set out to build on a private mangrove island in Panama's Bocas del Toro archipelago, the first question was not what to build — but how to build without destroying what was already there. Extensive environmental impact studies revealed a fragile ecosystem of mangroves and coral reefs that could not survive traditional construction. The answer was radical: build everything on stilts.",
+          "The entire resort — villas, restaurants, walkways, and even the beach — rises above the water and forest floor on carefully engineered stilts. The world's first floating beach was created not as a novelty but as a necessity, preserving the delicate ecosystems below. The iconic treehouses, designed by the renowned IBUKU studio, soar 50 feet above the forest floor, crafted from locally sourced bamboo and reclaimed hardwoods — including historic wood recovered from the Panama Canal.",
+          "The island operates completely off-grid. Custom-built solar panels generate nearly 100% of the resort's energy. Freshwater comes entirely from rainwater, collected through custom gutter systems into catchment basins holding up to 100,000 gallons, then purified using advanced ultraviolet filtration. Custom wastewater treatment systems ensure nothing harmful returns to the surrounding waters. Every system was designed from scratch for the unique conditions of a Caribbean mangrove island.",
+          "Beyond infrastructure, Nayara Bocas del Toro is deeply rooted in its community. Partnerships with the Ng\u00e4be-Bugl\u00e9 indigenous communities provide fair employment, cultural exchange, and support for traditional crafts. Marine biologists work alongside the resort to monitor coral reefs and develop sustainable diving practices. Green Globe Certification in 2024 recognized what was already evident: this is a resort that exists because of its environment, not in spite of it.",
+        ],
+      },
+    },
     subtitle: "Nayara Bocas del Toro",
     heroOverlayColor: "rgba(58, 107, 107, 0.75)",
     initiatives: [
@@ -376,7 +562,7 @@ export const sustainabilityData: Record<string, {
       {
         title: "Wildlife Conservation in Arenal and Bocas del Toro",
         excerpt: "From sloths to sea turtles — how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
-        image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
+        image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
         url: "https://blog.nayararesorts.com/wildlife-conservation-in-arenal-and-bocas-del-toro",
       },
       {
@@ -394,7 +580,7 @@ export const sustainabilityData: Record<string, {
       {
         title: "Nayara Resorts Partners with One Ocean Planet",
         excerpt: "A new partnership with One Ocean Planet brings marine conservation, coral restoration, and ocean education to the heart of Nayara Bocas del Toro.",
-        image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
+        image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
         url: "https://blog.nayararesorts.com/nayara-resorts-partners-with-one-ocean-planet",
       },
       {
@@ -410,6 +596,99 @@ export const sustainabilityData: Record<string, {
   /* ── Hangaroa ── */
   hangaroa: {
     headline: "Ancient Island, Living Future",
+    esgReport: {
+      stats: [
+        { value: 1, suffix: "", label: "S Certification (GSTC)", detail: "The only luxury hotel on Easter Island certified with the S Seal of Sustainable Tourism, internationally validated by the Global Sustainable Tourism Council" },
+        { value: 1000, suffix: "s", label: "Endemic Species Planted", detail: "Thousands of toromiro, mahute, and makoi planted annually to restore Rapa Nui's original ecosystem and provide habitat for native birds and insects" },
+        { value: 100, suffix: "%", label: "Graywater Recycled", detail: "Wastewater treatment plant recycles all graywater for irrigation, conserving water and maintaining vibrant landscapes on the remote island" },
+        { value: 3800, suffix: "km", label: "From Nearest Continent", detail: "One of the most remote inhabited islands on Earth \u2014 every resource decision carries extraordinary weight" },
+        { value: 3, suffix: "", label: "Endemic Species Restored", detail: "Toromiro, mahute, and makoi \u2014 three key endemic species being actively replanted to restore the island's pre-deforestation ecosystem" },
+        { value: 1, suffix: "", label: "Marine Protected Area", detail: "Supporting the Rapa Nui Marine Protected Area \u2014 one of the largest in the world, protecting the island's extraordinary marine biodiversity" },
+      ],
+      pillars: [
+        {
+          icon: "design",
+          title: "Green Roofs & Kainga Design",
+          metrics: [
+            "Green roofs cool buildings naturally while blending into volcanic landscape",
+            "Architecture inspired by Rapa Nui Kainga philosophy",
+            "Design reflects the iconic Orongo ceremonial village",
+            "Honors archaeological heritage while preserving natural resources",
+          ],
+        },
+        {
+          icon: "energy",
+          title: "Renewable Energy",
+          metrics: [
+            "Solar plant complements energy supply through renewable sources",
+            "Significant reduction in dependence on Rapa Nui's fragile electrical system",
+            "Decreases carbon emissions and relieves pressure on island infrastructure",
+            "Commitment to long-term protection of Pacific ecosystems",
+          ],
+        },
+        {
+          icon: "water",
+          title: "Water & Waste Management",
+          metrics: [
+            "Wastewater treatment plant recycles 100% of graywater for irrigation",
+            "Comprehensive waste management programs with recycling points",
+            "Coastal cleanups led by staff protecting shoreline ecosystems",
+            "Circular operational model minimizing environmental impact",
+          ],
+        },
+        {
+          icon: "leaf",
+          title: "Ecosystem Restoration",
+          metrics: [
+            "Thousands of endemic species planted annually (toromiro, mahute, makoi)",
+            "Restoring Rapa Nui's original pre-deforestation ecosystem",
+            "Creating habitat for native birds and insects",
+            "Supporting the Rapa Nui Marine Protected Area",
+          ],
+        },
+        {
+          icon: "community",
+          title: "Rapa Nui Cultural Preservation",
+          metrics: [
+            "Education programs and scholarships for island communities",
+            "Cultural preservation of Rapa Nui traditions and knowledge",
+            "Local sourcing prioritized for food and materials",
+            "Fair employment supporting the island's small population",
+          ],
+        },
+        {
+          icon: "food",
+          title: "Pacific Island Cuisine",
+          metrics: [
+            "Fresh seafood sourced from surrounding Pacific waters",
+            "Local Rapa Nui ingredients and traditional preparations",
+            "Seasonal menus reflecting Polynesian culinary heritage",
+            "Zero-kilometer philosophy adapted for remote island conditions",
+          ],
+        },
+      ],
+      timeline: [
+        { year: "2012", title: "Nayara Hangaroa Opens", desc: "Nayara Hangaroa opens on Easter Island with green roof architecture inspired by the Rapa Nui Kainga philosophy \u2014 the first luxury hotel designed to honor the island's archaeological heritage." },
+        { year: "2015", title: "Endemic Species Program", desc: "Large-scale planting of toromiro, mahute, and makoi begins \u2014 restoring three key endemic species to help rebuild Rapa Nui's pre-deforestation ecosystem." },
+        { year: "2018", title: "Solar Plant Installed", desc: "A solar plant is installed to complement the hotel's energy supply, reducing dependence on Rapa Nui's fragile electrical grid and decreasing carbon emissions." },
+        { year: "2020", title: "Graywater Recycling System", desc: "Wastewater treatment plant begins recycling 100% of graywater for irrigation, conserving water and maintaining vibrant landscapes on the remote island." },
+        { year: "2023", title: "S Certification Achieved", desc: "Nayara Hangaroa becomes the only luxury hotel on Easter Island certified with the S Seal of Sustainable Tourism, validated by the GSTC." },
+        { year: "2025", title: "Marine Protected Area Support", desc: "Expanded support for the Rapa Nui Marine Protected Area \u2014 one of the largest in the world \u2014 through marine research partnerships and coastal conservation programs." },
+      ],
+      certifications: [
+        { name: "S Seal of Sustainable Tourism", body: "Global Sustainable Tourism Council (GSTC)", year: "2023", desc: "Internationally validated certification recognizing comprehensive sustainability practices \u2014 the only luxury hotel on Easter Island to achieve this distinction. Covers environmental stewardship, cultural preservation, community engagement, and responsible island operations." },
+      ],
+      narrative: {
+        title: "Guardians of the Most Remote Island",
+        subtitle: "Where Every Resource Decision Carries Extraordinary Weight",
+        paragraphs: [
+          "Easter Island sits 3,800 kilometers from the nearest continent \u2014 one of the most remote inhabited places on Earth. Everything that arrives here \u2014 fuel, food, building materials \u2014 crosses an ocean. Everything that leaves \u2014 waste, wastewater, emissions \u2014 enters one of the planet's most fragile ecosystems. On Rapa Nui, sustainability is not a corporate initiative. It is a survival imperative.",
+          "Nayara Hangaroa was designed with this reality at its foundation. The green roofs that define the hotel's silhouette are not decorative \u2014 they cool buildings naturally, reduce energy consumption, and blend the architecture into the volcanic landscape. The design draws on the Rapa Nui Kainga philosophy and reflects the iconic Orongo ceremonial village, honoring centuries of indigenous architectural wisdom.",
+          "Beneath the surface, the hotel's systems work quietly to minimize its footprint. A solar plant reduces dependence on the island's fragile electrical grid. A wastewater treatment plant recycles 100% of graywater for irrigation, conserving water in a place where every drop is precious. Comprehensive waste management programs, recycling points, and regular coastal cleanups \u2014 led by staff \u2014 keep the island's shorelines clean.",
+          "But perhaps the most meaningful work happens in the soil. Each year, thousands of endemic species \u2014 toromiro, mahute, and makoi \u2014 are planted to restore the ecosystem that was devastated by centuries of deforestation. These plantings create habitat for native birds and insects, slowly rebuilding what was lost. Combined with support for the Rapa Nui Marine Protected Area, education programs, scholarships, and cultural preservation initiatives, Nayara Hangaroa is not just a hotel on Easter Island. It is a partner in the island's regeneration.",
+        ],
+      },
+    },
     subtitle: "Nayara Hangaroa",
     heroOverlayColor: "rgba(94, 85, 73, 0.75)",
     initiatives: [
@@ -472,7 +751,7 @@ export const sustainabilityData: Record<string, {
       {
         title: "Wildlife Conservation in Chile's Atacama Desert and Easter Island",
         excerpt: "Vicuñas, flamingos, and endemic species — conservation efforts protecting Chile's most fragile ecosystems.",
-        image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Hangaroa-Horses-2048x13",
+        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Challenge%20Easter%20Island%E2%80%99s%20Outdoors%20with%20Nayara%20Hangaroa%20(3",
         url: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
       },
       {

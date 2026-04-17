@@ -226,9 +226,9 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
               variants={fadeUp}
               className="p-6 md:p-8 group"
               style={{
-                backgroundColor: i === 0 ? palette.primary : BRAND.bone,
+                backgroundColor: palette.primary,
                 borderRadius: "12px",
-                border: i === 0 ? "none" : `1px solid ${BRAND.divider}`,
+                border: "none",
               }}
             >
               <div
@@ -236,7 +236,7 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
                 style={{
                   fontFamily: "var(--font-display)",
                   fontWeight: 400,
-                  color: i === 0 ? "#fff" : palette.primary,
+                  color: "#fff",
                   lineHeight: 1,
                 }}
               >
@@ -247,7 +247,7 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
                 style={{
                   fontFamily: "var(--font-display)",
                   fontWeight: 500,
-                  color: i === 0 ? "rgba(255,255,255,0.9)" : BRAND.primaryText,
+                  color: "rgba(255,255,255,0.9)",
                 }}
               >
                 {stat.label}
@@ -256,7 +256,7 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
                 className="text-[12px] leading-[1.6]"
                 style={{
                   fontFamily: "var(--font-body)",
-                  color: i === 0 ? "rgba(255,255,255,0.65)" : BRAND.secondaryText,
+                  color: "rgba(255,255,255,0.65)",
                 }}
               >
                 {stat.detail}

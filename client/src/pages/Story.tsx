@@ -92,7 +92,7 @@ function IntroSection() {
         <FadeIn>
           <SectionLabel>Our Philosophy</SectionLabel>
           <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-            We Don't Build Hotels. We Reveal Places.
+            We Don't Build Hotels.<br />We Reveal Places.
           </h2>
           <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8] mb-6" style={body}>
             Nayara Resorts began with a simple conviction: the most extraordinary places on Earth deserve hospitality that honors them. Not resorts that could exist anywhere, but properties that could only exist where they stand.

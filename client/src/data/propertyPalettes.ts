@@ -60,24 +60,24 @@ export const palettes: Record<string, PropertyPalette> = {
     gradientEnd: "#EDEEE2",     // warm olive tint
     buttonBg: "#868B75",         // Olive Tree
     buttonText: "#F7F5F0",
-    footerBg: "#3B2B26",        // Espresso (swatch #5)
-    footerText: "#E6DFD5",      // Gravel
+    footerBg: "#868B75",        // Olive Tree (primary)
+    footerText: "#F7F5F0",      // Bone
     navPillBg: "#868B75",        // Olive Tree
     navPillText: "#F7F5F0",
   },
 
-  /* ─── GARDENS — Clover Green (swatch #12: #286241) ─── */
+  /* ─── GARDENS — Dark Olive (swatch #22: #525642) ─── */
   gardens: {
-    primary: "#286241",          // Clover Green (swatch #12)
-    secondary: "#424A3E",        // Dark Olive (swatch #22)
+    primary: "#525642",          // Dark Olive (swatch #22)
+    secondary: "#424A3E",        // Deep Olive
     accent: "#868B75",           // Sage (swatch #3)
     gradientStart: "#F7F5F0",
-    gradientEnd: "#E6EDE4",     // green tint
-    buttonBg: "#286241",         // Clover Green
+    gradientEnd: "#EDEEE2",     // warm olive tint
+    buttonBg: "#525642",         // Dark Olive
     buttonText: "#F7F5F0",
-    footerBg: "#22322E",        // Dark Teal (swatch #30)
-    footerText: "#E6DFD5",
-    navPillBg: "#286241",        // Clover Green
+    footerBg: "#525642",        // Dark Olive (primary)
+    footerText: "#F7F5F0",      // Bone
+    navPillBg: "#525642",        // Dark Olive
     navPillText: "#F7F5F0",
   },
 
@@ -90,8 +90,8 @@ export const palettes: Record<string, PropertyPalette> = {
     gradientEnd: "#E4EDEB",     // blue-green tint
     buttonBg: "#3B6E7B",        // Teal
     buttonText: "#F7F5F0",
-    footerBg: "#22322E",        // Dark Teal (swatch #30)
-    footerText: "#D8E8E4",
+    footerBg: "#3B6E7B",        // Teal (primary)
+    footerText: "#F7F5F0",      // Bone
     navPillBg: "#3B6E7B",       // Teal
     navPillText: "#F7F5F0",
   },

@@ -15,11 +15,11 @@ import {
 } from "@/components/motion";
 
 const PALETTE = {
-  primary: "#4A5E3C",
-  secondary: "#6B5B4A",
-  accent: "#8B9A7A",
+  primary: "#525642",
+  secondary: "#424A3E",
+  accent: "#868B75",
   gradientStart: "#F7F5F0",
-  gradientEnd: "#EBF0E6",
+  gradientEnd: "#EDEEE2",
   text: "#3B2B26",
   textSecondary: "#67737C",
   textTertiary: "#9A9086",

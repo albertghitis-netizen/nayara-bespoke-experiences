@@ -237,7 +237,7 @@ function BrandStorySection() {
               className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
             >
-              We Don't Build Hotels. We Reveal Places.
+              We Don't Build Hotels.<br />We Reveal Places.
             </span>
           </TextReveal>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>

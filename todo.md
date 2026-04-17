@@ -2209,3 +2209,26 @@
 - [x] Add Tapati Rapa Nui Festival blog link to Hangaroa sustainability page
 - [x] Add hot springs history/science blog link to Costa Rica experiences page
 - [x] Add stargazing resort blog link to the stargazing section of Alto Atacama experiences page (already existed)
+- [x] Fix blog cover image issue at bottom of Tented Camp sustainability page
+- [x] Change footer background to use primary color for Gardens, Tented Camp, and Springs
+- [x] Change Gardens primary from Clover Green (#286241) to Dark Olive (#525642) — the old Tented Camp color
+- [ ] Deduplicate blog covers: change journal.ts covers for articles that duplicate sustainability.ts covers
+- [ ] Update sustainability blog cards to link to internal /journal/[slug] routes instead of blog.nayararesorts.com
+- [ ] Create internal blog posts for all sustainability articles (migrate from blog.nayararesorts.com):
+  - [ ] Wildlife Conservation in Arenal (Costa Rica)
+  - [ ] Birdwatching + Meeting The Toucans (MERGED into one post)
+  - [ ] Women's Empowerment Through Housing (Costa Rica)
+  - [ ] Green Globe Certification (Costa Rica / Bocas)
+  - [ ] Regenerative Tourism (Costa Rica)
+  - [ ] A Night at the Camp (Costa Rica)
+  - [ ] One Ocean Planet (Bocas)
+  - [ ] Biodiversity Underwater (Bocas)
+  - [ ] Private Island Paradise Bocas (Bocas)
+  - [ ] Hangaroa Horses / Wildlife Conservation Chile (Hangaroa)
+  - [ ] Challenge Easter Island Outdoors (Hangaroa)
+  - [ ] Drawing from Time (Hangaroa)
+  - [ ] Tapati Rapa Nui (Hangaroa)
+  - [ ] Atacama sustainability articles
+- [x] Build ESG report sections for Bocas del Toro sustainability page (stats, narrative, pillars, timeline, certifications)
+- [x] Build ESG report sections for Hangaroa sustainability page (stats, narrative, pillars, timeline, certifications)
+- [x] Build ESG report sections for Alto Atacama sustainability page (stats, narrative, pillars, timeline, certifications)

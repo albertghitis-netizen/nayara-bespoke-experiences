@@ -42,13 +42,13 @@ const gardens = properties.find((p: Property) => p.id === "gardens")!;
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Canopy"
    ═══════════════════════════════════════════════════════════════ */
-/* Rich Green palette — full forest green */
+/* Dark Olive palette — warm olive green */
 const PALETTE = {
-  primary: "#286241",
+  primary: "#525642",
   secondary: "#424A3E",
   accent: "#868B75",
   gradientStart: "#F7F5F0",
-  gradientEnd: "#E6EDE4",
+  gradientEnd: "#EDEEE2",
   text: "#3B2B26",
   textSecondary: "#67737C",
   textTertiary: "#9A9086",
