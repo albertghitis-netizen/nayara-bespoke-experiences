@@ -76,7 +76,7 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Nayara By Night", route: "/by-night" },
 ];
 
-/* Nayara Blog column items */
+/* Nayara Journal column items */
 const JOURNAL_MENU_ITEMS: MenuItem[] = [
   { label: "Blog", route: "/journal" },
   { label: "Long-Form Video", route: "/podcast" },
@@ -113,9 +113,9 @@ const RESORTS_COLUMN: FooterColumn = {
   ],
 };
 
-/* Nayara Blog column for footer */
+/* Nayara Journal column for footer */
 const JOURNAL_COLUMN: FooterColumn = {
-  title: "Nayara Blog",
+  title: "Nayara Journal",
   links: JOURNAL_MENU_ITEMS,
 };
 
