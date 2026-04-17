@@ -12,7 +12,7 @@ interface ContentCrossLinksProps {
 }
 
 const contentLinks = [
-  { id: "journal", label: "Journal", route: "/journal" },
+  { id: "journal", label: "Blog", route: "/journal" },
   { id: "awards", label: "Awards & Press", route: "/awards" },
 ];
 

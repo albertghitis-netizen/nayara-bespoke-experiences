@@ -2267,3 +2267,6 @@
 
 ## Rename Podcast
 - [x] Rename "Podcast" to "Long-Form Video" across all navigation, footer, and page references
+
+## Rename Journal to Blog
+- [x] Rename "Journal" to "Blog" across all navigation, footer, page titles, and visible labels
