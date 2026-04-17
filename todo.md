@@ -2279,3 +2279,4 @@
 - [x] Restructure Nayara Journal footer column to 3 items: "Blog & FAQ", "Press & Awards", "Long-Form Video"
 - [x] Update hamburger menu to match the same grouping
 - [x] Remove AFAR story from Long-Form Video (journal.ts) and sustainability.ts — not a video
+- [x] Replace woman in red (storyV) on Atacama homepage with Gil backdrop video
