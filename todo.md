@@ -2247,3 +2247,4 @@
 
 ## ESG Stats Trimming
 - [x] Remove bottom two stat counters (restaurants + certifications) from all property sustainability ESG sections — keep only top 4
+- [x] Change blog link on brand homepage to subtle box button, remove arrow symbol
