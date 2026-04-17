@@ -252,8 +252,8 @@ function BrandStorySection() {
               href="https://blog.nayararesorts.com/rom-deadly-sin-to-rainforest-royalty-the-soul-of-nayara"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-6 px-6 py-3 text-[11px] tracking-[0.15em] uppercase transition-all duration-300 hover:opacity-85"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#fff", backgroundColor: PALETTE.textTertiary }}
+              className="inline-block mt-6 px-7 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase transition-all duration-300 hover:opacity-85"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#fff", backgroundColor: PALETTE.accent }}
             >
               The Nayara Story
             </a>
