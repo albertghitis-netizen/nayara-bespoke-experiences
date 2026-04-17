@@ -2263,3 +2263,4 @@
 ## Rename Adults-Only / Family-Friendly
 - [x] Change "Adults-Only" to "Romantic Escape" everywhere
 - [x] Change "Family-Friendly" to "Family Adventure" everywhere
+- [x] Replace vertical + horizontal photos on brand homepage with two vertical photos (Springs couple bridge + Rapa Nui portrait)

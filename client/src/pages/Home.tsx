@@ -263,8 +263,8 @@ function BrandStorySection() {
           <MediaReveal delay={0.2}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/126_22a08627.jpg"
-                alt="Nayara Tented Camp in the rainforest canopy"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s2-couple-bridge_11a41ef8.jpg"
+                alt="Couple crossing a bridge through the rainforest at Nayara Springs"
                 className="w-full h-full object-cover"
                 loading="eager"
               />
@@ -273,17 +273,19 @@ function BrandStorySection() {
         </div>
       </div>
 
-      {/* S2: Landscape image — full bleed, edge to edge */}
-      <MediaReveal delay={0.1}>
-        <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-s2-tropical-aerial_6cd5fc6c.jpg"
-            alt="Tropical aerial view of turquoise river through lush rainforest"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-      </MediaReveal>
+      {/* S2: Second vertical image */}
+      <div className="flex justify-center px-6 md:px-10 mt-4">
+        <MediaReveal delay={0.1}>
+          <div className="overflow-hidden w-full max-w-[600px]" style={{ aspectRatio: "3/4" }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/rapa-nui-warrior-portrait_60af8ef4.jpg"
+              alt="Rapa Nui cultural portrait on Easter Island"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </MediaReveal>
+      </div>
     </section>
   );
 }
