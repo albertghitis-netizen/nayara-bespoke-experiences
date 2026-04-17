@@ -94,9 +94,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
         <>
           <ESGStatsSection palette={palette} stats={data.esgReport.stats} />
           <ESGNarrativeSection palette={palette} narrative={data.esgReport.narrative} />
-          <ESGPillarsSection palette={palette} pillars={data.esgReport.pillars} />
           <ESGTimelineSection palette={palette} timeline={data.esgReport.timeline} />
-          <ESGCertificationsSection palette={palette} certifications={data.esgReport.certifications} />
         </>
       )}
 
@@ -196,12 +194,6 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="text-[11px] tracking-[0.25em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
-          >
-            ESG Report 2024
-          </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}

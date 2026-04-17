@@ -2256,3 +2256,6 @@
 - [x] Change Reserve pill button to gravel
 - [x] Change Ask Concierge button to gravel
 - [x] Change all brand pages (AllDestinations, BlogPost, BlogPostTemplate, Newsletter) from gold to gravel
+
+## Remove ESG Pillar Boxes
+- [ ] Remove ESG pillar boxes (Flora & Fauna, Community, Operations, Certifications, etc.) from all 6 property sustainability pages
