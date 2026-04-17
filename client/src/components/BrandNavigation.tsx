@@ -245,18 +245,7 @@ export default function BrandNavigation({
                       <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
                     </button>
 
-                    {/* Internal pages */}
-                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
-                    <div className="px-5 pt-1 pb-1">
-                      <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
-                        Internal
-                      </span>
-                    </div>
-                    {INTERNAL_MENU.map((item) => (
-                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
-                    ))}
+
 
                   </div>
                 </motion.div>
@@ -388,18 +377,7 @@ export default function BrandNavigation({
                       <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
                     </button>
 
-                    {/* Internal pages */}
-                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
-                    <div className="px-4 pt-1 pb-1">
-                      <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.18em]" style={menuText}>
-                        Internal
-                      </span>
-                    </div>
-                    {INTERNAL_MENU.map((item) => (
-                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
-                    ))}
+
 
                   </div>
                 </motion.div>

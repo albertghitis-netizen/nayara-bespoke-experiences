@@ -2290,3 +2290,5 @@
 - [x] Add visual separator between six properties and "Nayara Resorts" in footer Our Resorts column
 - [x] Change brand page nav buttons (hamburger, Reserve, Ask Concierge) to brownstone (#7B5B3A) + brand footer to brownstone
 - [x] Ensure every property page footer matches the property nav/button color (Atacama=Terracotta, Bocas=Aqua, Hangaroa=Steel Blue)
+- [x] Make footer text white/bright for better readability against brownstone and property colors
+- [x] Remove Internal section (Gallery, Coming Soon) from hamburger menu (desktop + mobile)

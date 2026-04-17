@@ -70,7 +70,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           {columns.map((col) => (
             <div key={col.title}>
               <span
-                className="text-white/40 text-[10px] tracking-[0.25em] block mb-4"
+                className="text-white/70 text-[10px] tracking-[0.25em] block mb-4"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {col.title}
@@ -87,7 +87,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
                     }}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className={`text-white/50 hover:text-white/90 transition-colors${link.separatorBefore ? ' mt-3 pt-3 border-t border-white/10' : ''}`}
+                    className={`text-white/90 hover:text-white transition-colors${link.separatorBefore ? ' mt-3 pt-3 border-t border-white/15' : ''}`}
                     style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                   >
                     {link.label}
@@ -100,7 +100,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           {/* Contact — always present as the last column */}
           <div>
             <span
-              className="text-white/40 text-[10px] tracking-[0.25em] block mb-4"
+              className="text-white/70 text-[10px] tracking-[0.25em] block mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Contact
@@ -108,21 +108,21 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
             <div className="flex flex-col gap-[6px]">
               <a
                 href="mailto:reservations@nayararesorts.com"
-                className="text-white/50 hover:text-white/90 transition-colors"
+                className="text-white/90 hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 reservations@nayararesorts.com
               </a>
               <a
                 href="tel:+18448652002"
-                className="text-white/50 hover:text-white/90 transition-colors"
+                className="text-white/90 hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 844-865-2002 (US)
               </a>
               <a
                 href="tel:+50624791600"
-                className="text-white/50 hover:text-white/90 transition-colors"
+                className="text-white/90 hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 +506 2479-1600 (Costa Rica)
@@ -130,7 +130,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
               <a
                 href="/privacy-policy"
                 onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
-                className="text-white/50 hover:text-white/90 transition-colors"
+                className="text-white/90 hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 Privacy Policy
@@ -155,7 +155,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
             className="inline-flex items-center justify-center h-12 px-12 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
           >
             <span
-              className="text-white/70 text-[11px] tracking-[0.25em]"
+              className="text-white/90 text-[11px] tracking-[0.25em]"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Stay Inspired with the Nayara Newsletter
@@ -165,25 +165,25 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
 
         {/* Social icons — centered, larger */}
         <div className="flex items-center justify-center gap-8 mt-6 mb-8">
-          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><InstagramIcon /></a>
-          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><YouTubeIcon /></a>
-          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><FacebookIcon /></a>
-          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/80 transition-colors"><TikTokIcon /></a>
+          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors"><InstagramIcon /></a>
+          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors"><YouTubeIcon /></a>
+          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors"><FacebookIcon /></a>
+          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors"><TikTokIcon /></a>
         </div>
 
         {/* Copyright + Privacy */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
           <p
-            className="text-white/20 text-[10px]"
+            className="text-white/50 text-[10px]"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
           </p>
-          <span className="hidden sm:inline text-white/10">|</span>
+          <span className="hidden sm:inline text-white/30">|</span>
           <a
             href="/privacy-policy"
             onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
-            className="text-white/20 text-[10px] hover:text-white/50 transition-colors"
+            className="text-white/50 text-[10px] hover:text-white/80 transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             Privacy Policy
