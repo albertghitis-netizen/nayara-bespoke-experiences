@@ -2243,3 +2243,4 @@
 
 ## Homepage Text Edit
 - [x] Remove third paragraph under first H2 on brand homepage
+- [x] Change blog link text on brand homepage from "From Deadly Sin to Rainforest Royalty" to "Luxury Resorts Rooted in Nature: The Nayara Story"

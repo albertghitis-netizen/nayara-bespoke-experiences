@@ -255,7 +255,7 @@ function BrandStorySection() {
               className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mt-5 transition-colors hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent, fontStyle: "italic" }}
             >
-              Read: From Deadly Sin to Rainforest Royalty \u2197
+              Luxury Resorts Rooted in Nature: The Nayara Story \u2197
             </a>
           </AnimateOnScroll>
         </div>
