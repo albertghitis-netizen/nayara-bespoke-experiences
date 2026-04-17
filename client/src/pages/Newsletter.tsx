@@ -27,7 +27,7 @@ export default function Newsletter() {
       {/* ── INTRO ── */}
       <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-6 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] text-[#8a7a6a] mb-6">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
             Nayara Newsletter &nbsp;&middot;&nbsp; April 2026
           </p>
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
@@ -44,12 +44,12 @@ export default function Newsletter() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ══════════ TOPIC 1 — World Health Day ══════════ */}
       <section className="bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] text-[#8a7a6a] mb-6">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
             World Health Day &nbsp;&middot;&nbsp; April 7
           </p>
 
@@ -86,12 +86,12 @@ export default function Newsletter() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ══════════ TOPIC 2 — Earth Day ══════════ */}
       <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] text-[#8a7a6a] mb-6">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
             Earth Day &nbsp;&middot;&nbsp; April 22
           </p>
 
@@ -142,12 +142,12 @@ export default function Newsletter() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ══════════ TOPIC 3 — Wellness Escape ══════════ */}
       <section className="bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] text-[#8a7a6a] mb-6">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
             Wellness Escape &nbsp;&middot;&nbsp; Costa Rica
           </p>
 
@@ -223,7 +223,7 @@ export default function Newsletter() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── EXPLORE SISTER RESORTS ── */}
       <section className="bg-[#f7f5f0] text-center py-12 px-8 md:px-16">

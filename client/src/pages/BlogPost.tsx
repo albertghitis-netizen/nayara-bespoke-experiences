@@ -28,7 +28,7 @@ export default function BlogPost() {
       {/* ── HEADER ── */}
       <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-10 pb-8 text-center">
-          <p className="text-[11px] font-medium tracking-[0.35em] text-[#8a7a6a] mb-4">
+          <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-4">
             Wellness &nbsp;&middot;&nbsp; World Health Day
           </p>
           <h1
@@ -39,14 +39,14 @@ export default function BlogPost() {
             <br />
             Costa Rica Feels Different
           </h1>
-          <p className="text-[13px] text-[#8a7a5a] tracking-[0.1em]">
+          <p className="text-[13px] text-[#2a1e1a] tracking-[0.1em]">
             Albert Ghitis &nbsp;&middot;&nbsp; March 15, 2026
           </p>
         </div>
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── INTRO ── */}
       <section className="bg-[#F5F0E8]">
@@ -57,7 +57,7 @@ export default function BlogPost() {
               href="https://www.who.int/campaigns/world-health-day/2026"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors"
+              className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors"
             >
               World Health Day
             </a>
@@ -84,17 +84,17 @@ export default function BlogPost() {
               Key Findings
             </p>
             <ul className="space-y-3">
-              <li className="text-[15px] text-[#666666] leading-[1.9] pl-4 border-l-2 border-[#8a7a6a]">
+              <li className="text-[15px] text-[#666666] leading-[1.9] pl-4 border-l-2 border-[#3B2B26]">
                 Costa Rica has placed in the top 5 of the Happy Planet Index for
                 years: high wellbeing, low ecological footprint, no army since
                 1949.
               </li>
-              <li className="text-[15px] text-[#666666] leading-[1.9] pl-4 border-l-2 border-[#8a7a6a]">
+              <li className="text-[15px] text-[#666666] leading-[1.9] pl-4 border-l-2 border-[#3B2B26]">
                 The explanations are not mystical. Nature exposure, time
                 affluence, social density, and a modest sense of purpose overlap
                 in Costa Rica more densely than almost anywhere else on earth.
               </li>
-              <li className="text-[15px] text-[#666666] leading-[1.9] pl-4 border-l-2 border-[#8a7a6a]">
+              <li className="text-[15px] text-[#666666] leading-[1.9] pl-4 border-l-2 border-[#3B2B26]">
                 UNESCO records the 1949 abolition of the army as documentary
                 heritage, marking the moment Costa Rica chose social development
                 over military spending.
@@ -105,7 +105,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── SECTION: Why Costa Rica Feels the Way It Does ── */}
       <section className="bg-[#F5F0E8]">
@@ -154,7 +154,7 @@ export default function BlogPost() {
               href="https://happyplanetindex.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors"
+              className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors"
             >
               Happy Planet Index
             </a>
@@ -174,7 +174,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── SECTION: What Happens to You at Nayara ── */}
       <section className="bg-[#f7f5f0]">
@@ -192,9 +192,9 @@ export default function BlogPost() {
           <p className="text-[15px] text-[#666666] leading-[1.9] mb-6">
             That distinction is what makes Nayara relevant to this story without
             making Nayara the whole story.{" "}
-            <a href="https://www.nayararesorts.com/nayara-gardens" target="_blank" rel="noopener noreferrer" className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors">Nayara Gardens</a>,{" "}
-            <a href="https://www.nayararesorts.com/nayara-springs" target="_blank" rel="noopener noreferrer" className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors">Nayara Springs</a>, and{" "}
-            <a href="https://www.nayararesorts.com/nayara-tented-camp" target="_blank" rel="noopener noreferrer" className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors">Nayara Tented Camp</a>{" "}
+            <a href="https://www.nayararesorts.com/nayara-gardens" target="_blank" rel="noopener noreferrer" className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors">Nayara Gardens</a>,{" "}
+            <a href="https://www.nayararesorts.com/nayara-springs" target="_blank" rel="noopener noreferrer" className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors">Nayara Springs</a>, and{" "}
+            <a href="https://www.nayararesorts.com/nayara-tented-camp" target="_blank" rel="noopener noreferrer" className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors">Nayara Tented Camp</a>{" "}
             do not manufacture Costa Rican happiness. They remove friction between
             the guest and the conditions Costa Rica already provides.
           </p>
@@ -226,7 +226,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── SECTION: The Decision That Changed the Atmosphere ── */}
       <section className="bg-[#F5F0E8]">
@@ -247,7 +247,7 @@ export default function BlogPost() {
               href="https://en.unesco.org/memoryoftheworld"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors"
+              className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors"
             >
               UNESCO's Memory of the World listing
             </a>{" "}
@@ -274,7 +274,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── SECTION: What the Science Actually Suggests ── */}
       <section className="bg-[#f7f5f0]">
@@ -298,7 +298,7 @@ export default function BlogPost() {
               href="https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00722/full"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors"
+              className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors"
             >
               Frontiers in Psychology report
             </a>{" "}
@@ -314,7 +314,7 @@ export default function BlogPost() {
               href="https://hbswk.hbs.edu/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors"
+              className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors"
             >
               Harvard Business School
             </a>{" "}
@@ -329,7 +329,7 @@ export default function BlogPost() {
               href="https://www.adultdevelopmentstudy.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors"
+              className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors"
             >
               Harvard Study of Adult Development
             </a>{" "}
@@ -343,7 +343,7 @@ export default function BlogPost() {
               href="https://www.bluezones.com/exploration/nicoya-costa-rica/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors"
+              className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors"
             >
               Blue Zones profile of Nicoya
             </a>{" "}
@@ -355,7 +355,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── SECTION: Pura Vida Is Not Translation ── */}
       <section className="bg-[#F5F0E8]">
@@ -393,7 +393,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── SECTION: The Ecosystem That Makes It Possible ── */}
       <section className="bg-[#f7f5f0]">
@@ -432,7 +432,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── SOURCES ── */}
       <section className="bg-[#F5F0E8]">
@@ -443,7 +443,7 @@ export default function BlogPost() {
           >
             Sources &amp; Further Reading
           </h2>
-          <ul className="space-y-2 text-[13px] text-[#8a7a5a] leading-[1.8]">
+          <ul className="space-y-2 text-[13px] text-[#2a1e1a] leading-[1.8]">
             {[
               { label: "Happy Planet Index — Costa Rica", href: "https://happyplanetindex.org/" },
               { label: "UNESCO — Abolition of the Army in Costa Rica", href: "https://en.unesco.org/memoryoftheworld" },
@@ -461,7 +461,7 @@ export default function BlogPost() {
                   href={src.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#8a7a6a] no-underline hover:underline transition-colors"
+                  className="text-[#3B2B26] no-underline hover:underline transition-colors"
                 >
                   {src.label}
                 </a>
@@ -472,7 +472,7 @@ export default function BlogPost() {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── BEGIN YOUR NAYARA JOURNEY ── */}
       <section className="bg-[#f7f5f0] text-center py-12 px-8 md:px-16">
@@ -488,7 +488,7 @@ export default function BlogPost() {
             href="https://www.nayararesorts.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#8a7a6a] underline hover:text-[#8a7a5a] transition-colors"
+            className="text-[#3B2B26] underline hover:text-[#2a1e1a] transition-colors"
           >
             Nayara Resorts brand site
           </a>{" "}
@@ -508,7 +508,7 @@ export default function BlogPost() {
               href={prop.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2.5 border border-[#8a7a5a] text-[#8a7a5a] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#8a7a5a] hover:text-white transition-colors rounded"
+              className="inline-block px-6 py-2.5 border border-[#2a1e1a] text-[#2a1e1a] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#2a1e1a] hover:text-white transition-colors rounded"
             >
               {prop.name}
             </a>

@@ -117,7 +117,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
         {/* Pillar tag on hero */}
         <div className="absolute bottom-8 left-8 md:left-16 z-10">
           <span
-            className="inline-block px-4 py-1.5 bg-[#8a7a6a] text-white text-[10px] tracking-[0.3em] rounded-full"
+            className="inline-block px-4 py-1.5 bg-[#3B2B26] text-white text-[10px] tracking-[0.3em] rounded-full"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {post.pillar}
@@ -131,7 +131,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
           {/* Pillar + Tags */}
           <div className="flex items-center gap-3 mb-5 flex-wrap">
             <span
-              className="text-[11px] font-medium tracking-[0.35em] text-[#8a7a6a]"
+              className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26]"
               style={{ fontFamily: "var(--font-body)" }}
             >
               {post.pillar}
@@ -139,7 +139,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
             {post.tags.filter(t => t !== post.pillar).slice(0, 2).map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] tracking-[0.2em] text-[#8a7a5a]/60 border border-[#c4bba8]/40 px-2 py-0.5 rounded-full"
+                className="text-[10px] tracking-[0.2em] text-[#2a1e1a]/60 border border-[#c4bba8]/40 px-2 py-0.5 rounded-full"
               >
                 {tag}
               </span>
@@ -155,7 +155,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
           </h1>
 
           {/* Author + Date + Reading Time */}
-          <div className="flex items-center gap-3 text-[13px] text-[#8a7a5a] tracking-[0.05em] mb-6 flex-wrap">
+          <div className="flex items-center gap-3 text-[13px] text-[#2a1e1a] tracking-[0.05em] mb-6 flex-wrap">
             <span>{post.author}</span>
             <span className="text-[#c4bba8]">&middot;</span>
             <span>{post.date}</span>
@@ -167,7 +167,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── 4. KEY FINDINGS ── */}
       <section className="bg-[#F5F0E8]">
@@ -183,7 +183,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
               {post.keyFindings.map((finding, i) => (
                 <li
                   key={i}
-                  className="text-[15px] text-[#666666] leading-[1.9] pl-5 border-l-2 border-[#8a7a6a]"
+                  className="text-[15px] text-[#666666] leading-[1.9] pl-5 border-l-2 border-[#3B2B26]"
                 >
                   {finding}
                 </li>
@@ -194,7 +194,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── 5. BODY SECTIONS ── */}
       {post.sections.map((section, idx) => {
@@ -213,13 +213,13 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
 
                 {/* Body content */}
                 <div
-                  className="blog-body-content text-[15px] text-[#666666] leading-[1.9] [&_p]:mb-6 [&_a]:text-[#8a7a6a] [&_a]:underline [&_a:hover]:text-[#8a7a5a] [&_a]:transition-colors [&_em]:italic [&_strong]:font-semibold [&_strong]:text-[#3B2B26]"
+                  className="blog-body-content text-[15px] text-[#666666] leading-[1.9] [&_p]:mb-6 [&_a]:text-[#3B2B26] [&_a]:underline [&_a:hover]:text-[#2a1e1a] [&_a]:transition-colors [&_em]:italic [&_strong]:font-semibold [&_strong]:text-[#3B2B26]"
                   dangerouslySetInnerHTML={{ __html: section.content }}
                 />
 
                 {/* Pull quote */}
                 {section.pullQuote && (
-                  <blockquote className="my-10 mx-4 md:mx-12 py-6 px-8 border-l-4 border-[#8a7a6a] bg-[#f7f5f0]/60 rounded-r-lg">
+                  <blockquote className="my-10 mx-4 md:mx-12 py-6 px-8 border-l-4 border-[#3B2B26] bg-[#f7f5f0]/60 rounded-r-lg">
                     <p
                       className="text-[17px] md:text-[19px] text-[#3B2B26] leading-[1.7] italic"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
@@ -239,7 +239,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
                       loading="lazy"
                     />
                     {section.image.caption && (
-                      <figcaption className="mt-3 text-[12px] text-[#8a7a5a] text-center italic tracking-[0.03em]">
+                      <figcaption className="mt-3 text-[12px] text-[#2a1e1a] text-center italic tracking-[0.03em]">
                         {section.image.caption}
                       </figcaption>
                     )}
@@ -260,13 +260,13 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
             </section>
 
             {/* Gold divider between sections */}
-            {idx < post.sections.length - 1 && <div className="h-[3px] bg-[#8a7a6a]" />}
+            {idx < post.sections.length - 1 && <div className="h-[3px] bg-[#3B2B26]" />}
           </div>
         );
       })}
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── 6. SOURCES & FURTHER READING ── */}
       <section className="bg-[#F5F0E8]">
@@ -277,14 +277,14 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
           >
             Sources &amp; Further Reading
           </h2>
-          <ul className="space-y-2 text-[13px] text-[#8a7a5a] leading-[1.8]">
+          <ul className="space-y-2 text-[13px] text-[#2a1e1a] leading-[1.8]">
             {post.sources.map((src) => (
               <li key={src.label}>
                 <a
                   href={src.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#8a7a6a] no-underline hover:underline transition-colors"
+                  className="text-[#3B2B26] no-underline hover:underline transition-colors"
                 >
                   {src.label}
                 </a>
@@ -295,7 +295,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#8a7a6a]" />
+      <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── BEGIN YOUR JOURNEY CTA ── */}
       <section className="bg-[#f7f5f0] text-center py-14 px-8 md:px-16">
@@ -313,7 +313,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
             <Link
               key={prop.name}
               href={prop.route}
-              className="inline-block px-6 py-2.5 border border-[#8a7a6a] text-[#8a7a6a] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#8a7a6a] hover:text-white transition-colors rounded-full"
+              className="inline-block px-6 py-2.5 border border-[#3B2B26] text-[#3B2B26] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#3B2B26] hover:text-white transition-colors rounded-full"
             >
               {prop.name}
             </Link>
