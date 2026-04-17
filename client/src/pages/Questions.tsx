@@ -25,7 +25,7 @@ const QUESTIONS: Item[] = [
   { title: "Domain & SSL", desc: "What domain will the site live on? Needed for canonical URLs, sitemap, and SSL certificate.", priority: "high", category: "Technical" },
   { title: "Google Analytics / Tag Manager", desc: "Need GA4 measurement ID or GTM container ID for production analytics.", priority: "medium", category: "Technical" },
   { title: "Instagram API Access", desc: "Instagram DM simulator requires Meta Developer app approval. Need Meta Business account credentials.", priority: "low", category: "Technical" },
-  { title: "Podcast Episode Links", desc: "4 podcast episodes are referenced but need actual video/audio URLs for embedding.", priority: "medium", category: "Content" },
+  { title: "Long-Form Video Episode Links", desc: "4 long-form video episodes are referenced but need actual video/audio URLs for embedding.", priority: "medium", category: "Content" },
   { title: "Room Types & Pricing", desc: "Rooms page has placeholder content. Need detailed room type descriptions, amenities, and pricing per property.", priority: "high", category: "Content" },
   { title: "Wellness Video for Hero", desc: "Wellness page hero needs a converted video. Original file needs re-encoding for web playback.", priority: "low", category: "Media" },
 ];
@@ -37,7 +37,7 @@ const RECOMMENDATIONS: Item[] = [
   { title: "A/B Test Reserve CTA", desc: "Test 'Reserve' vs 'Book Now' vs 'Plan Your Stay' on the nav pill. Measure click-through to booking engine.", priority: "medium", category: "Conversion" },
   { title: "Guest Reviews Integration", desc: "Pull TripAdvisor or Google Reviews via API to show real guest testimonials on property pages instead of placeholder reviews.", priority: "medium", category: "Trust" },
   { title: "Progressive Web App", desc: "Add PWA manifest and service worker for offline access to property info. Useful for guests with limited connectivity at remote properties.", priority: "low", category: "Technical" },
-  { title: "Email Capture Strategy", desc: "Add newsletter signup to Blog, Podcast, and property pages. Offer 'Insider Guide to [Destination]' PDF as lead magnet.", priority: "high", category: "Growth" },
+  { title: "Email Capture Strategy", desc: "Add newsletter signup to Blog, Long-Form Video, and property pages. Offer 'Insider Guide to [Destination]' PDF as lead magnet.", priority: "high", category: "Growth" },
   { title: "Chatbot Knowledge Expansion", desc: "Train concierge on real-time availability, seasonal pricing, and specific excursion schedules as data becomes available.", priority: "medium", category: "AI" },
   { title: "Social Proof Badges", desc: "Add 'As seen in' media logos (Travel + Leisure, Condé Nast, Afar) to homepage and property pages.", priority: "low", category: "Trust" },
   { title: "Accessibility Audit", desc: "Run WCAG 2.1 AA compliance audit. Focus on color contrast ratios, keyboard navigation, and screen reader compatibility.", priority: "medium", category: "Quality" },

@@ -2264,3 +2264,6 @@
 - [x] Change "Adults-Only" to "Romantic Escape" everywhere
 - [x] Change "Family-Friendly" to "Family Adventure" everywhere
 - [x] Replace vertical + horizontal photos on brand homepage with two vertical photos (Springs couple bridge + Rapa Nui portrait)
+
+## Rename Podcast
+- [x] Rename "Podcast" to "Long-Form Video" across all navigation, footer, and page references

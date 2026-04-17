@@ -1,6 +1,6 @@
 /**
- * NAYARA PODCAST
- * Standalone podcast page with video + audio episodes
+ * NAYARA LONG-FORM VIDEO
+ * Standalone long-form video page with video + audio episodes
  * Two-axis filtering: Destination + Topic
  * Language toggle (EN/ES) for dual-language episodes
  */
@@ -93,7 +93,7 @@ function IntroSection() {
         <FadeIn>
           <div className="flex items-center justify-center gap-3 mb-6">
             <Play className="w-4 h-4 text-[#3B2B26]/30" />
-            <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em]" style={{ ...body, fontWeight: 500 }}>Video Podcast</span>
+            <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em]" style={{ ...body, fontWeight: 500 }}>Long-Form Video</span>
           </div>
           <p className="text-[#3B2B26]/60 text-[16px] md:text-[18px] leading-relaxed" style={body}>
             Conversations with the people who shape our world — archaeologists,
@@ -233,7 +233,7 @@ function ComingSoonSection() {
             stargazing in the Atacama, and the future of regenerative travel.
           </p>
           <p className="text-[#3B2B26]/20 text-[12px] mt-4" style={{ ...body, fontWeight: 500 }}>
-            Available on Spotify, Apple Podcasts, and YouTube
+            Available on YouTube
           </p>
         </FadeIn>
       </div>

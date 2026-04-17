@@ -158,7 +158,7 @@ const COMPONENT_LIBRARY = [
   { name: "PropertySlider", desc: "Horizontal scroll cards for pillar sections on newer property pages" },
   { name: "AwardBadgeStrip", desc: "Property-specific award logos displayed in Story sections" },
   { name: "PillarCrossLink", desc: "Cross-linking cards between property pages and pillar deep pages" },
-  { name: "ContentCrossLinks", desc: "Cross-linking between content hub pages (Blog, Podcast, Press, Awards)" },
+  { name: "ContentCrossLinks", desc: "Cross-linking between content hub pages (Blog, Long-Form Video, Press, Awards)" },
   { name: "ConciergeChatWidget", desc: "Floating AI concierge chat bubble — Henry, the virtual concierge" },
 ];
 

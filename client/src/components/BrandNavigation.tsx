@@ -28,7 +28,7 @@ const GLOBAL_MENU = [
   { label: "Romantic Escape", route: "/romance-or-family" },
   { label: "Family Adventure", route: "/romance-or-family" },
   { label: "Blog", route: "/journal" },
-  { label: "Podcast", route: "/podcast" },
+  { label: "Long-Form Video", route: "/podcast" },
   { label: "Press & Awards", route: "/awards" },
   { label: "Nayara By Night", route: "/by-night" },
 ];

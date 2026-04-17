@@ -38,7 +38,7 @@ const SITEMAP = [
     section: "Content Hub Pages (4)",
     pages: [
       { path: "/blog", name: "Blog", desc: "Articles with property + pillar filtering" },
-      { path: "/podcast", name: "Podcast", desc: "Video and audio episodes" },
+      { path: "/podcast", name: "Long-Form Video", desc: "Video and audio episodes" },
       { path: "/awards", name: "Awards", desc: "Recognition timeline with property filtering" },
       { path: "/press", name: "Press", desc: "Media coverage with property + topic filtering" },
     ],
@@ -73,8 +73,8 @@ const SITEMAP = [
 
 const NAV_STRUCTURE = {
   hamburger: {
-    brand: ["Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Podcast"],
-    property: ["Rooms", "Gallery", "Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Podcast"],
+    brand: ["Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Long-Form Video"],
+    property: ["Rooms", "Gallery", "Experiences", "Wellness", "The Table", "Sustainability", "Awards & Press", "Blog", "Long-Form Video"],
   },
   pills: {
     left: "Hamburger menu",

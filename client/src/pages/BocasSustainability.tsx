@@ -128,7 +128,7 @@ function SustainabilityContent() {
           ))}
         </StaggerOnScroll>
 
-        {/* ── Podcast & Blog Links ── */}
+        {/* ── Long-Form Video & Blog Links ── */}
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
           <div className="mt-20 pt-16" style={{ borderTop: `1px solid ${PALETTE.divider}` }}>
             <p
