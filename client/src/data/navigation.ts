@@ -107,7 +107,10 @@ export interface FooterColumn {
 /* Resorts column for footer */
 const RESORTS_COLUMN: FooterColumn = {
   title: "Our Resorts",
-  links: PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
+  links: [
+    ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
+    { label: "Nayara Resorts", route: "/" },
+  ],
 };
 
 /* Nayara Journal column for footer */
