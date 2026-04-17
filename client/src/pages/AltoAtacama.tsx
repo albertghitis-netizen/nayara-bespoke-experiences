@@ -197,6 +197,8 @@ function CascadeSection({
   bgColor,
   link,
   linkLabel = "Explore More",
+  blogLink,
+  blogLinkLabel,
   badges,
 }: {
   label: string;
@@ -212,6 +214,8 @@ function CascadeSection({
   bgColor: string;
   link?: string;
   linkLabel?: string;
+  blogLink?: string;
+  blogLinkLabel?: string;
   badges?: boolean;
 }) {
   const VerticalMedia = (
@@ -249,6 +253,17 @@ function CascadeSection({
         <p className="text-[15px] leading-[1.8] mb-6" style={{ ...body, color: PALETTE.textSecondary }}>
           {description}
         </p>
+        {blogLink && (
+          <a
+            href={blogLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mb-4 transition-colors hover:opacity-70"
+            style={{ ...body, fontWeight: 500, color: PALETTE.primary, fontStyle: "italic" }}
+          >
+            {blogLinkLabel || "Read More on the Journal"} ↗
+          </a>
+        )}
       </AnimateOnScroll>
       {link && (
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
@@ -339,6 +354,8 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     link: undefined, linkLabel: undefined,
+    blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
+    blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
   },
   {
@@ -433,6 +450,8 @@ export default function AltoAtacama() {
           bgColor={SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1]}
           link={section.link}
           linkLabel={section.linkLabel}
+          blogLink={(section as any).blogLink}
+          blogLinkLabel={(section as any).blogLinkLabel}
           badges={section.badges}
         />
       ))}

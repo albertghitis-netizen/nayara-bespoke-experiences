@@ -2201,3 +2201,11 @@
 - [ ] Build extensive ESG report section on Tented Camp sustainability page: stats counters, animated timelines, charts/graphs, editorial storytelling — as rich and detailed as possible
 - [x] Site-wide image deduplication audit: no image URL should appear twice anywhere across the entire site (blog heroes, journal covers, property cards, section images, sustainability pages, gallery, etc.) — exception: Gardens/Tented Camp/Springs shared Costa Rica pages are exempt since they share content
 - [ ] Build extensive ESG report section on Tented Camp sustainability page: stats counters, animated timelines, charts/graphs, editorial storytelling — as rich and detailed as possible
+- [x] Fix JSX namespace TypeScript error in CostaRicaSustainability.tsx
+- [x] Add One Ocean Planet partnership blog/content to Bocas del Toro sustainability data
+- [x] Add Mars/Atacama Final Frontier blog link below the Mars on Earth H2 body text on Alto Atacama homepage
+- [x] Add Adventures in Flavor blog link to Costa Rica gastronomy page
+- [x] Add "From Deadly Sin to Rainforest Royalty" blog link to the brand story page
+- [x] Add Tapati Rapa Nui Festival blog link to Hangaroa sustainability page
+- [x] Add hot springs history/science blog link to Costa Rica experiences page
+- [x] Add stargazing resort blog link to the stargazing section of Alto Atacama experiences page (already existed)

@@ -31,6 +31,44 @@ export interface SustainabilityBlog {
   comingSoon?: boolean;
 }
 
+export interface ESGStat {
+  value: number;
+  suffix: string;
+  label: string;
+  detail: string;
+}
+
+export interface ESGPillar {
+  icon: string; // icon name for lookup
+  title: string;
+  metrics: string[];
+}
+
+export interface ESGTimeline {
+  year: string;
+  title: string;
+  desc: string;
+}
+
+export interface ESGCertification {
+  name: string;
+  body: string;
+  year: string;
+  desc: string;
+}
+
+export interface ESGReport {
+  stats: ESGStat[];
+  pillars: ESGPillar[];
+  timeline: ESGTimeline[];
+  certifications: ESGCertification[];
+  narrative: {
+    title: string;
+    subtitle: string;
+    paragraphs: string[];
+  };
+}
+
 export const sustainabilityData: Record<string, {
   headline: string;
   subtitle: string;
@@ -38,10 +76,106 @@ export const sustainabilityData: Record<string, {
   initiatives: Initiative[];
   videos?: SustainabilityVideo[];
   blogs?: SustainabilityBlog[];
+  esgReport?: ESGReport;
 }> = {
   /* ── Costa Rica (shared across Gardens, Springs, Tented Camp) ── */
   "costa-rica": {
     headline: "Protecting the Rainforest",
+    esgReport: {
+      stats: [
+        { value: 380, suffix: "+", label: "Acres Protected", detail: "Primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of species" },
+        { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Full carbon neutrality achieved through measurement, reduction, and offsetting of all greenhouse gas emissions" },
+        { value: 5000, suffix: "+", label: "Native Trees Planted", detail: "Large-scale reforestation transforming a barren cattle ranch into thriving rainforest" },
+        { value: 900, suffix: "+", label: "Bird Species", detail: "Costa Rica is home to over 900 bird species, many found in the Arenal Volcano corridor" },
+        { value: 5, suffix: "", label: "On-Site Restaurants", detail: "Supplied by organic gardens using zero-kilometer food philosophy" },
+        { value: 3, suffix: "", label: "Properties Certified", detail: "Gardens, Springs, and Tented Camp — all Green Globe Certified in 2024" },
+      ],
+      pillars: [
+        {
+          icon: "leaf",
+          title: "Biodiversity & Conservation",
+          metrics: [
+            "380+ acres of primary and secondary rainforest protected",
+            "Wildlife corridors connecting to Arenal Volcano National Park",
+            "Cecropia trees planted specifically for sloth habitats",
+            "Habitat for jaguars, ocelots, toucans, and 900+ bird species",
+          ],
+        },
+        {
+          icon: "energy",
+          title: "Energy & Carbon",
+          metrics: [
+            "Full carbon neutrality achieved across all three properties",
+            "Energy-efficient systems integrated into all buildings",
+            "Modular construction methods minimizing environmental impact",
+            "Continuous monitoring and reduction of greenhouse gas emissions",
+          ],
+        },
+        {
+          icon: "water",
+          title: "Water & Waste",
+          metrics: [
+            "Comprehensive water conservation and recycling programs",
+            "Graywater treatment and reuse for landscape irrigation",
+            "Zero-waste kitchen philosophy across five restaurants",
+            "Dedicated Green Committee overseeing waste management",
+          ],
+        },
+        {
+          icon: "community",
+          title: "Community & Social",
+          metrics: [
+            "Subsidized housing project for staff — especially single mothers",
+            "Free early education programs for employees' children",
+            "Fair employment and professional growth opportunities",
+            "Homes remain accessible regardless of employment status",
+          ],
+        },
+        {
+          icon: "design",
+          title: "Sustainable Design",
+          metrics: [
+            "FSC-certified flooring throughout Tented Camp",
+            "Elevated construction preserving heritage trees",
+            "Native landscaping replacing invasive species",
+            "Modular building methods reducing construction waste",
+          ],
+        },
+        {
+          icon: "food",
+          title: "Zero-Kilometer Cuisine",
+          metrics: [
+            "Organic on-site gardens supplying five restaurants",
+            "Local farms and fresh ingredients prioritized",
+            "Seasonal, culturally authentic menus",
+            "Reduced food miles and carbon emissions from sourcing",
+          ],
+        },
+      ],
+      timeline: [
+        { year: "2006", title: "Nayara Gardens Founded", desc: "The first Nayara property opens in Arenal, Costa Rica — beginning the journey of luxury rooted in nature." },
+        { year: "2012", title: "Nayara Springs Opens", desc: "A second property joins the collection, expanding the commitment to sustainable luxury with natural hot spring villas." },
+        { year: "2016", title: "Tented Camp Reforestation Begins", desc: "A barren cattle ranch is acquired and large-scale reforestation begins — planting thousands of native trees to restore the rainforest." },
+        { year: "2019", title: "Nayara Tented Camp Opens", desc: "The tented camp opens with elevated, modular construction, FSC-certified materials, and a design philosophy that harmonizes with the restored rainforest." },
+        { year: "2022", title: "Carbon Neutrality Achieved", desc: "All three Costa Rica properties achieve full carbon neutrality through comprehensive measurement and offsetting of greenhouse gas emissions." },
+        { year: "2023", title: "Housing Initiative Launched", desc: "Nayara launches a subsidized housing project for staff — particularly single mothers — addressing the housing crisis in La Fortuna." },
+        { year: "2024", title: "Green Globe Certification", desc: "Gardens, Springs, and Tented Camp all achieve the prestigious Green Globe Certification following an extensive evaluation of environmental, social, and governance practices." },
+        { year: "2025", title: "Regenerative Tourism Model", desc: "Nayara Costa Rica is recognized as a global leader in regenerative tourism — not just sustaining, but actively improving local environments and communities." },
+      ],
+      certifications: [
+        { name: "Green Globe", body: "Green Globe International", year: "2024", desc: "Internationally recognized certification for sustainable tourism, awarded after extensive evaluation of environmental, social, and governance policies across all three Costa Rica properties." },
+      ],
+      narrative: {
+        title: "A Forest Reborn",
+        subtitle: "From Barren Ranch to Thriving Rainforest",
+        paragraphs: [
+          "Where Nayara Tented Camp now stands was once a barren cattle ranch — degraded land stripped of its native forest. Today, it is a thriving rainforest. Thousands of native trees have been planted, creating a dense canopy that supports an extraordinary diversity of life. Sloths hang from cecropia trees planted specifically for them. Toucans nest in the restored canopy. Jaguars and ocelots move through wildlife corridors that connect the property to Arenal Volcano National Park.",
+          "This transformation did not happen by accident. It was the result of a deliberate, decade-long commitment to ecological restoration — guided by local biologists, indigenous knowledge, and a belief that luxury hospitality can be a force for environmental regeneration rather than degradation.",
+          "The reforestation effort is complemented by a comprehensive approach to carbon neutrality. Every ton of greenhouse gas emitted by the resort's operations is carefully measured and offset. Energy-efficient systems, modular construction methods, and FSC-certified materials reduce the environmental footprint of the built environment. The zero-kilometer food philosophy — sourcing from organic on-site gardens and local farms — eliminates unnecessary food miles.",
+          "But Nayara's commitment extends beyond the environment. The resort's housing initiative provides subsidized homes for staff members, particularly single mothers, addressing a housing crisis in La Fortuna driven by rising property costs and short-term rentals. These homes remain accessible regardless of employment status — a rare commitment in the hospitality industry. Free early education programs, fair employment practices, and community partnerships create a model of regenerative tourism that strengthens both ecosystems and communities.",
+        ],
+      },
+    },
     subtitle: "Nayara Costa Rica",
     heroOverlayColor: "rgba(45, 106, 79, 0.75)",
     initiatives: [
@@ -258,6 +392,12 @@ export const sustainabilityData: Record<string, {
         url: "/journal/bocas-atacama-sustainability-study",
       },
       {
+        title: "Nayara Resorts Partners with One Ocean Planet",
+        excerpt: "A new partnership with One Ocean Planet brings marine conservation, coral restoration, and ocean education to the heart of Nayara Bocas del Toro.",
+        image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
+        url: "https://blog.nayararesorts.com/nayara-resorts-partners-with-one-ocean-planet",
+      },
+      {
         title: "Coral Reef Restoration: Rebuilding the Caribbean",
         excerpt: "How Nayara Bocas del Toro is partnering with marine biologists to restore and protect the coral reefs of the archipelago.",
         image: "",
@@ -340,6 +480,12 @@ export const sustainabilityData: Record<string, {
         excerpt: "Easter Island's Polynesian heritage holds ancient wellness wisdom — from ocean immersion to volcanic mineral baths and celestial navigation.",
         image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Drawing%20from%20Time",
         url: "https://blog.nayararesorts.com/ancient-origins-of-nature-based-wellness-lessons-from-easter-island-and-polynesia",
+      },
+      {
+        title: "What Is Tapati Rapa Nui and Why It Matters",
+        excerpt: "Each February, Rapa Nui enters a different rhythm. Tapati is a two-week cultural festival where athletic competition, music, craftsmanship, and ancestral ritual converge — a living system of cultural transmission.",
+        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Tapati%20Rapa%20Nui",
+        url: "https://blog.nayararesorts.com/the-tapati-rapa-nui-festival-at-nayara-hangaroa",
       },
     ],
   },

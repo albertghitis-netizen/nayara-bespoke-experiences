@@ -53,6 +53,13 @@ const LOCATIONS: Record<string, string> = {
   hangaroa: "Rapa Nui, Easter Island, Chile",
 };
 
+/** Blog links per property for gastronomy intro */
+const GASTRO_BLOG_LINKS: Record<string, { url: string; label: string }> = {
+  "tented-camp": { url: "https://blog.nayararesorts.com/nayara-arenals-adventures-in-flavor", label: "Read: Adventures in Flavor" },
+  gardens: { url: "https://blog.nayararesorts.com/nayara-arenals-adventures-in-flavor", label: "Read: Adventures in Flavor" },
+  springs: { url: "https://blog.nayararesorts.com/nayara-arenals-adventures-in-flavor", label: "Read: Adventures in Flavor" },
+};
+
 /** H1 headlines per property */
 const HEADLINES: Record<string, string> = {
   "tented-camp": "Rainforest Dining",
@@ -91,7 +98,7 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
       <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero palette={palette} propertyName={propertyName} location={location} heroVideo={heroVideo} headline={headline} />
       <ScrollingPillarHeader word="GASTRONOMY" color={palette.primary} bgColor={palette.gradientEnd} />
-      <GastronomyIntro palette={palette} description={dining.description} />
+      <GastronomyIntro palette={palette} description={dining.description} blogLink={GASTRO_BLOG_LINKS[propertySlug]} />
       <GastronomyContent palette={palette} restaurants={dining.restaurants} />
       <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
@@ -150,7 +157,7 @@ function GastronomyHero({
   );
 }
 
-function GastronomyIntro({ palette, description }: { palette: PropertyPalette; description: string }) {
+function GastronomyIntro({ palette, description, blogLink }: { palette: PropertyPalette; description: string; blogLink?: { url: string; label: string } }) {
   return (
     <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientEnd }}>
       <div className={maxW}>
@@ -161,6 +168,17 @@ function GastronomyIntro({ palette, description }: { palette: PropertyPalette; d
           >
             {description}
           </p>
+          {blogLink && (
+            <a
+              href={blogLink.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mt-4 transition-colors hover:opacity-70"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary, fontStyle: "italic" }}
+            >
+              {blogLink.label} \u2197
+            </a>
+          )}
         </AnimateOnScroll>
       </div>
     </section>

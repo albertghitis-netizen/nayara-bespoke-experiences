@@ -250,6 +250,15 @@ function BrandStorySection() {
             <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
               Today, six properties across three countries share this founding principle. Each is shaped by its landscape, informed by its culture, and designed to leave its ecosystem stronger than we found it.
             </p>
+            <a
+              href="https://blog.nayararesorts.com/rom-deadly-sin-to-rainforest-royalty-the-soul-of-nayara"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mt-5 transition-colors hover:opacity-70"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent, fontStyle: "italic" }}
+            >
+              Read: From Deadly Sin to Rainforest Royalty \u2197
+            </a>
           </AnimateOnScroll>
         </div>
         <div className="md:w-1/2">

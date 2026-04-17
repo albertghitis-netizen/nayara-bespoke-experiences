@@ -293,6 +293,8 @@ const exploreNayaraExperiences: Excursion[] = [
     placeholder: false,
     category: "wellness",
     section: "explore-nayara",
+    blogUrl: "https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools",
+    blogTitle: "The History & Science of Hot-Springs Plunge Pools",
   },
 ];
 
