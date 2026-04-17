@@ -188,13 +188,13 @@ export const sustainabilityData: Record<string, {
       {
         title: "The Best Place to Stay in the Atacama Desert Is an Oasis",
         excerpt: "Why a functioning oasis is not an amenity but the foundation of the experience — the science of desert microclimates and 10,000 years of human adaptation.",
-        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/97_e7aef760.jpg",
         url: "/journal/best-place-to-stay-atacama-desert-oasis",
       },
       {
         title: "Bocas del Toro & Alto Atacama: A Study in Sustainability",
         excerpt: "How Nayara's properties in Panama and Chile are leading sustainable tourism — off-grid solar power, coral restoration, and Chile's S Certification.",
-        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-overwater-villas-top_1842445d.jpg",
         url: "/journal/bocas-atacama-sustainability-study",
       },
     ],
@@ -248,13 +248,13 @@ export const sustainabilityData: Record<string, {
       {
         title: "Condé Nast Traveler 2025: #1 Resort in Central America",
         excerpt: "Why the future of overwater luxury belongs to a private island in Panama — Nayara Bocas del Toro named #1 by Condé Nast Traveler.",
-        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-walkway_66b2f48e.jpg",
         url: "/journal/conde-nast-bocas-del-toro",
       },
       {
         title: "Bocas del Toro & Alto Atacama: A Study in Sustainability",
         excerpt: "How Nayara's properties in Panama and Chile are leading sustainable tourism — off-grid solar power, coral restoration, and Chile's S Certification.",
-        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-sunset_2eeaa785.jpg",
         url: "/journal/bocas-atacama-sustainability-study",
       },
       {

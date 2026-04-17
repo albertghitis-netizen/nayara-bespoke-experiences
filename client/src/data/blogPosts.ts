@@ -108,7 +108,7 @@ export const puraVidaPost: BlogPostData = {
 <p>That is the real reason a Nayara stay can feel restorative without trying too hard to say so. It is not because the hotel imposes wellness. It is because it allows Costa Rica's underlying intelligence - the forest, the water, the pace, the warmth - to reach you without interruption.</p>
 <p>The volcanic hot springs are central to that effect. The water that feeds every private plunge pool at Nayara Springs and Nayara Tented Camp is heated by the magmatic systems beneath Arenal Volcano, carrying a mineral profile of calcium, magnesium, bicarbonate, and silica that has been restoring human beings in this region long before anyone built a hotel above it.</p>`,
       image: {
-        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/6_0a37cc95.jpg",
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/59_fbf56df9.jpg",
         alt: "Private hot springs plunge pool at Nayara Springs surrounded by tropical forest",
         caption: "Private volcanic hot springs at Nayara Springs - mineral-rich water heated by Arenal Volcano",
       },
@@ -223,8 +223,8 @@ export const sCertificationPost: BlogPostData = {
 <p>Properties are audited by an independent third party (ICOMCER) across socio-cultural, economic, and environmental criteria. These are not self-reported badges. They require documented evidence, on-site inspections, and annual re-certification. A property cannot hold them passively. It must demonstrate continuous improvement - or lose them.</p>
 <p>Nayara Alto Atacama and Nayara Hangaroa are the <strong>only luxury hotels in their respective destinations</strong> to carry this distinction.</p>`,
       image: {
-        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
-        alt: "Nayara Alto Atacama pool at sunset with desert mountains",
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-suite-interior_d3b1e9f2.jpg",
+        alt: "Nayara Alto Atacama adobe suite interior with desert views",
         caption: "Nayara Alto Atacama - the only luxury hotel in the region with Chile's S Certification",
       },
     },
@@ -235,8 +235,8 @@ export const sCertificationPost: BlogPostData = {
 <p>The hotel's adobe rooms reflect thoughtful sustainable design at every level. Strategically oriented to capture solar warmth and natural ventilation, they minimize the need for artificial heating and cooling. A special thermal insulation layer retains warmth during winter while maintaining cool interiors in summer - an engineering solution drawn directly from the ancestral building techniques of the Atacameño people who have lived in this desert for millennia.</p>
 <p>Water conservation is equally central. Well water is treated through reverse osmosis for safe consumption, then reused for irrigation - giving it a second life that nourishes gardens and supports greenery in one of the driest landscapes on the planet.</p>`,
       image: {
-        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
-        alt: "Nayara Alto Atacama pool at sunset",
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-stargazing_f5c3d8a4.jpg",
+        alt: "Stargazing at Nayara Alto Atacama under clear desert skies",
         caption: "Nayara Alto Atacama - solar-powered luxury in the driest desert on Earth",
       },
     },
@@ -332,8 +332,8 @@ export const greenGlobePost: BlogPostData = {
 <p>All three Costa Rica properties are <strong>certified carbon neutral</strong> through Eco Qualis, and have been <strong>plastic-free</strong> since 2021 - replacing all single-use plastics with biodegradable alternatives.</p>
 <p>These are not add-on programs. They are the operating model.</p>`,
       image: {
-        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-exterior_c9d0e1f2.jpg",
-        alt: "Nayara Tented Camp exterior - elevated luxury tents in the Costa Rican rainforest",
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-s3-rooms_0707176b.jpg",
+        alt: "Nayara Tented Camp luxury tent interior surrounded by rainforest canopy",
         caption: "Nayara Tented Camp - canvas structures with minimal permanent footprint, elevated above the forest floor",
       },
     },
@@ -426,7 +426,7 @@ export const atacamaOasisPost: BlogPostData = {
   pillar: "Sustainability",
   tags: ["Sustainability", "Atacama", "Oasis", "Desert", "Architecture"],
   readingTime: 14,
-  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
+  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/87_ab229191.jpg",
   keyFindings: [
     "A desert oasis functions as an environmental system where water, vegetation, and topography interact to create a stable microclimate within extreme aridity.",
     "Human settlement in the Atacama has always depended on these systems, with archaeological and cultural evidence tracing more than 10,000 years of adaptation along water corridors.",
@@ -440,8 +440,8 @@ export const atacamaOasisPost: BlogPostData = {
 <p>Modern science confirms what early inhabitants understood intuitively. Studies published in <strong>Scientific Reports</strong> and the <strong>Journal of Arid Environments</strong> demonstrate that desert oases measurably reduce temperature extremes, stabilize humidity, and soften wind exposure, creating microclimates that support sustained human activity.</p>
 <p>Across desert cultures globally, hospitality has always emerged where water, shelter, and restraint align, not where amenities are layered onto exposure. These lodges reflect a principle recognized by the United Nations Environment Programme: in arid environments, true comfort begins with respect for water, shade, and restraint.</p>`,
       image: {
-        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
-        alt: "Nayara Alto Atacama pool at sunset with desert mountains",
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/80_57ce5c18.jpg",
+        alt: "Atacama desert landscape with volcanic terrain",
         caption: "Nayara Alto Atacama — embedded within the Catarpe Valley oasis",
       },
     },
@@ -459,7 +459,7 @@ export const atacamaOasisPost: BlogPostData = {
 <p>The <strong>Lickanantay people</strong>, also known as the Atacameño, organized life around oasis corridors where rivers, springs, and groundwater made agriculture and continuity possible. These oases were not simply places to live. They were bases for seasonal movement, trade, and ceremony.</p>
 <p>Trade routes across the Atacama followed water. Caravans moved between oases carrying salt, maize, copper, and textiles, linking the Pacific coast with the Andean highlands. Without oases, these routes would not have existed. With them, the desert became navigable rather than impassable.</p>`,
       image: {
-        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/83_621b9b3f.jpg",
         alt: "Desert landscape of the Atacama with mountains",
         caption: "The Atacama — where human settlement has always followed water corridors",
       },
@@ -502,7 +502,7 @@ export const atacamaOasisPost: BlogPostData = {
       slug: "/journal/s-certification",
       title: "Chile's S Certification: Sustainable Tourism in the Desert and Easter Island",
       pillar: "Sustainability",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
       date: "April 2026",
     },
   ],
@@ -584,7 +584,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
       slug: "/journal/s-certification",
       title: "Chile's S Certification: Sustainable Tourism in the Desert and Easter Island",
       pillar: "Sustainability",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
       date: "April 2026",
     },
   ],
@@ -731,7 +731,7 @@ export const beyondSustainabilityPost: BlogPostData = {
 <p>We built two pedestrian bridges hanging over our forest canopy to protect the trees and wildlife below. After a rigorous multi-year effort, we became <strong>fully carbon neutral</strong>. We calculate and offset all our greenhouse gas emissions.</p>
 <p>The majority of our team comes from the neighboring town of La Fortuna de San Carlos. We offer them free transportation, sustainable tourism education, and health services. Additional local initiatives include free early education for our employees' children and support for Hogarcito de Niños, a local orphanage.</p>`,
       image: {
-        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-exterior_c9d0e1f2.jpg",
+        src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/11_576297a8.jpg",
         alt: "Nayara Tented Camp in the Costa Rican rainforest",
         caption: "Nayara Tented Camp — built on former cattle-ranching land, now a thriving wildlife corridor",
       },
@@ -766,7 +766,7 @@ export const beyondSustainabilityPost: BlogPostData = {
       slug: "/journal/s-certification",
       title: "Chile's S Certification at Nayara Alto Atacama and Hangaroa",
       pillar: "Sustainability",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
       date: "April 2026",
     },
   ],
@@ -796,7 +796,7 @@ export const bocasAtacamaSustainabilityPost: BlogPostData = {
   pillar: "Sustainability",
   tags: ["Sustainability", "Bocas del Toro", "Atacama", "Solar Energy", "Coral Restoration"],
   readingTime: 6,
-  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
+  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-overwater_f9b09985.jpg",
   keyFindings: [
     "Five environmental studies at a cost of $100,000 were conducted before building Nayara Bocas del Toro completely off-grid.",
     "Almost 100% of the hotel's energy needs are generated by solar panels, and all freshwater comes from harvested rainwater.",
@@ -851,7 +851,7 @@ export const bocasAtacamaSustainabilityPost: BlogPostData = {
       slug: "/journal/s-certification",
       title: "Chile's S Certification at Nayara Alto Atacama and Hangaroa",
       pillar: "Sustainability",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset_c4a2f7e1.jpg",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
       date: "April 2026",
     },
   ],

@@ -256,7 +256,7 @@ function BrandStorySection() {
           <MediaReveal delay={0.2}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG"
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/126_22a08627.jpg"
                 alt="Nayara Tented Camp in the rainforest canopy"
                 className="w-full h-full object-cover"
                 loading="eager"

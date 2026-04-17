@@ -111,7 +111,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/a-new-golden-age-of-luxury-travel-in-latin-america-nayara-leading-the-way",
     property: "brand",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-s2-tropical-aerial_6cd5fc6c.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg",
     excerpt: "Latin America is experiencing a renaissance in luxury travel. Nayara Resorts is at the forefront, redefining what it means to travel with purpose.",
   },
   {
@@ -120,7 +120,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/nayara-resorts-donde-el-lujo-se-vive-despacio",
     property: "brand",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hot-springs-hero_a60a0e92.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/135_de400071.jpg",
     excerpt: "El lujo en Nayara no se mide en hilos de oro, sino en la quietud de un amanecer sobre el volcán, en el murmullo del bosque tropical.",
   },
   {
@@ -129,7 +129,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/nayaras-seven-elements-of-place",
     property: "brand",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridge-canopy-walk_d193a7eb.jpeg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bird-watching-hero_ddf4b8c3.jpg",
     excerpt: "Every Nayara property is defined by seven elements that create a sense of place — from landscape and architecture to cuisine and community.",
   },
   {
@@ -283,7 +283,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/arenal-costa-rica-a-timeless-natural-wonder",
     property: "brand",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-hero_dc75898f.jpg",
     excerpt: "Arenal Volcano has shaped the landscape and culture of northern Costa Rica for millennia. Discover the geology, ecology, and spirit of this iconic destination.",
   },
   {
@@ -320,7 +320,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/nayarabocasdeltorotreehouse",
     property: "bocas-del-toro",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-bungalow_f4de28d6.jpg",
     excerpt: "Nayara Bocas del Toro's treehouse villas redefine luxury — suspended above the Caribbean, surrounded by mangroves and starlight.",
   },
   {
@@ -366,7 +366,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/why-nayara-alto-atacama-is-the-best-resort-in-the-atacama-desert-for-couples",
     property: "alto-atacama",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-salt-flats-flamingos_0ee14564.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg",
     excerpt: "Desert silence, mineral baths under the stars, and the world's clearest skies — why the Atacama winter is the ultimate romantic escape.",
   },
   {
@@ -393,7 +393,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/nayara-alto-atacama-exploring-an-alien-landscape-from-the-lap-of-luxury",
     property: "alto-atacama",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/canyoneering-photo_d3d8461c.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg",
     excerpt: "Understanding the Atacama Desert: landscape, climate, and extremes. How life persists at the edge of habitability.",
   },
   {
@@ -447,7 +447,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/the-fiery-heart-of-costa-ricas-rainforest-life-and-love-at-nayara-springs",
     property: "springs",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-plunge-pool-straight_a5d505d1.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-pools_8e255e18.png",
     excerpt: "Where volcanic warmth meets rainforest serenity — the story of Nayara Springs and why it's the most romantic resort in Costa Rica.",
   },
   {
@@ -480,7 +480,7 @@ const videoEpisodes: JournalEntry[] = [
     youtubeId: "FRPVRcUTNmk",
     duration: "45 min",
     guest: "Hitorangi Family",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-warrior-portrait_572aaf06.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-s2-moai-sunset_dcd66ecc.jpg",
     excerpt: "An intimate conversation with the Hitorangi family about preserving Rapa Nui's cultural heritage, the future of Easter Island, and what it means to be guardians of one of the world's most remote civilizations.",
   },
   {
@@ -535,7 +535,7 @@ const videoEpisodes: JournalEntry[] = [
     youtubeId: "_M3ATv4I0B8",
     duration: "3 min",
     guest: "Nayara Resorts",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-moai-pukao-ocean_dc261e27.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-sunset_1238744f.jpg",
     excerpt: "Nayara Hangaroa's commitment to sustainability on Rapa Nui — renewable energy, water conservation, plastic elimination, cultural preservation, and community support.",
     altYoutubeId: "EinNAkAoKE8",
     altLanguage: "ES",

@@ -2197,3 +2197,7 @@
 - [x] Update BrandBook page with 36 swatch images, hex values, and updated color names (Bone, Gravel, Olive Tree)
 - [ ] Add rich ESG report sections to Costa Rica sustainability page: stats counters, timeline, charts/graphs, editorial storytelling blocks — beyond the existing 4 initiative cards
 - [x] Deduplicate all journal/blog post cover images — no image should repeat across any two posts
+- [x] Site-wide image deduplication audit: no image URL should appear twice anywhere across the entire site (blog heroes, journal covers, property cards, section images, sustainability pages, gallery, etc.)
+- [ ] Build extensive ESG report section on Tented Camp sustainability page: stats counters, animated timelines, charts/graphs, editorial storytelling — as rich and detailed as possible
+- [x] Site-wide image deduplication audit: no image URL should appear twice anywhere across the entire site (blog heroes, journal covers, property cards, section images, sustainability pages, gallery, etc.) — exception: Gardens/Tented Camp/Springs shared Costa Rica pages are exempt since they share content
+- [ ] Build extensive ESG report section on Tented Camp sustainability page: stats counters, animated timelines, charts/graphs, editorial storytelling — as rich and detailed as possible
