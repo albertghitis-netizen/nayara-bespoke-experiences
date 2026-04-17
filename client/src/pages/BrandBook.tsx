@@ -10,51 +10,31 @@ import { palettes, BRAND } from "@/data/propertyPalettes";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
-/* ── Brand Foundation Colors ── */
-const BRAND_COLORS = [
-  {
-    name: "Warm White",
-    hex: BRAND.pageBackground,
-    rgb: "247, 245, 240",
-    profile: "The universal page background. A warm, creamy off-white from swatch #1.",
-    usage: "Page backgrounds, card surfaces",
-  },
-  {
-    name: "Espresso",
-    hex: BRAND.primaryText,
-    rgb: "59, 43, 38",
-    profile: "Deep espresso brown from swatch #5. Primary text color across all pages.",
-    usage: "Headlines, body text, navigation",
-  },
-  {
-    name: "Blue Gray",
-    hex: BRAND.secondaryText,
-    rgb: "103, 115, 124",
-    profile: "Cool blue-gray from swatch #28. Secondary text for descriptions and metadata.",
-    usage: "Subtitles, descriptions, captions",
-  },
-  {
-    name: "Taupe",
-    hex: BRAND.tertiaryText,
-    rgb: "154, 144, 134",
-    profile: "Warm taupe from swatch #26. Tertiary text for labels, timestamps, and subtle UI elements.",
-    usage: "Labels, timestamps, placeholders",
-  },
-  {
-    name: "Sand",
-    hex: BRAND.divider,
-    rgb: "230, 223, 213",
-    profile: "Warm sand from swatch #2. Section dividers and card borders.",
-    usage: "Dividers, borders, separators",
-  },
-  {
-    name: "Espresso (Nav)",
-    hex: BRAND.navPill,
-    rgb: "59, 43, 38",
-    profile: "Navigation pill background. Espresso from swatch #5.",
-    usage: "Nav pills, overlays, dark UI",
-  },
+/* ── Master Swatch Set (only the ones we use) ── */
+const SWATCHES = [
+  { num: 1, name: "Bone", hex: "#F7F5F0", role: "Page background, card surfaces" },
+  { num: 2, name: "Gravel", hex: "#E6DFD5", role: "Dividers, borders, separators" },
+  { num: 3, name: "Olive Tree", hex: "#868B75", role: "Tented Camp primary" },
+  { num: 4, name: "Dark Olive", hex: "#525642", role: "Tented Camp secondary" },
+  { num: 5, name: "Espresso", hex: "#3B2B26", role: "Brand text, nav pills, dark UI" },
+  { num: 7, name: "Terracotta", hex: "#6F463D", role: "Alto Atacama primary" },
+  { num: 8, name: "Ice Blue", hex: "#C2D0D6", role: "Bocas/Hangaroa footer text" },
+  { num: 9, name: "Brown Gravel", hex: "#E2D7C8", role: "Atacama footer text, brand bone" },
+  { num: 10, name: "Slate Blue", hex: "#5A6F7B", role: "Springs/Bocas secondary" },
+  { num: 12, name: "Clover Green", hex: "#286241", role: "Gardens primary" },
+  { num: 13, name: "Deep Navy", hex: "#1B2534", role: "Bocas/Hangaroa footer bg" },
+  { num: 15, name: "Cool Gray", hex: "#86898C", role: "Springs accent" },
+  { num: 21, name: "Teal", hex: "#3B6E7B", role: "Springs primary" },
+  { num: 22, name: "Dark Olive", hex: "#424A3E", role: "Gardens secondary" },
+  { num: 24, name: "Steel Blue", hex: "#536878", role: "Hangaroa primary" },
+  { num: 26, name: "Taupe", hex: "#9A9086", role: "Tertiary text, accents" },
+  { num: 28, name: "Blue Gray", hex: "#67737C", role: "Secondary text, Hangaroa secondary" },
+  { num: 30, name: "Dark Evergreen", hex: "#22322E", role: "Gardens/Springs footer bg" },
+  { num: 31, name: "Ocean", hex: "#2A6489", role: "Bocas del Toro primary" },
+  { num: 32, name: "Camel", hex: "#C29B70", role: "Atacama accent" },
+  { num: 35, name: "Sky Blue", hex: "#7FA9C9", role: "Bocas accent" },
 ];
 
 /* ── Property Palettes — pulled from the live system ── */
@@ -63,14 +43,14 @@ const PROPERTY_PALETTE_DATA = [
     property: "Nayara Tented Camp",
     slug: "tented-camp",
     landscape: "Olive Tree",
-    desc: "Olive Dark (#525642, swatch #4) — warm olive-khaki inspired by the rainforest canopy",
+    desc: "Olive Tree (#868B75, swatch #3) — warm sage-olive inspired by the rainforest canopy",
     palette: palettes["tented-camp"],
   },
   {
     property: "Nayara Gardens",
     slug: "gardens",
     landscape: "Clover Green",
-    desc: "Forest green (#286241, swatch #12) — rich clover green reflecting tropical gardens",
+    desc: "Clover Green (#286241, swatch #12) — rich clover green reflecting tropical gardens",
     palette: palettes.gardens,
   },
   {
@@ -172,7 +152,7 @@ const DESIGN_PRINCIPLES = [
 ];
 
 const COMPONENT_LIBRARY = [
-  { name: "BrandNavigation", desc: "Hamburger + Reserve pills, center label for property pages, warm beige (#ece8e1) pill color" },
+  { name: "BrandNavigation", desc: "Hamburger + Reserve pills, center label for property pages, Bone (#F7F5F0) pill color" },
   { name: "Footer", desc: "Standardized footer with Explore links matching hamburger menu order" },
   { name: "NativeVideo", desc: "Video player with autoPlay, muted, loop, playsInline — tap-to-unmute on mobile" },
   { name: "PropertySlider", desc: "Horizontal scroll cards for pillar sections on newer property pages" },
@@ -230,14 +210,14 @@ export default function BrandBook() {
         </div>
       </header>
 
-      {/* ── 01 Brand Foundation Colors ── */}
+      {/* ── 01 Master Swatch Set ── */}
       <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
         <div className="max-w-[1100px] mx-auto">
           <p
             className="text-[11px] tracking-[0.25em] mb-4"
             style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}
           >
-            01 — Brand Foundation
+            01 — Master Swatch Set
           </p>
           <h2
             className="text-2xl md:text-4xl leading-[0.95] tracking-wide mb-6"
@@ -249,58 +229,57 @@ export default function BrandBook() {
             className="text-[15px] leading-[1.8] max-w-[600px] mb-16"
             style={{ ...body, color: BRAND.secondaryText }}
           >
-            The brand foundation is warm and understated. These six colors appear
-            on every page regardless of property — they are the constants that
-            unify the entire Nayara digital experience.
+            The 21 active swatches drawn from the official 36-color brand set.
+            Every color on the site traces back to one of these — no ad-hoc hex
+            values, no bright tones, no exceptions.
           </p>
 
-          {/* Swatch grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-            {BRAND_COLORS.map((c, i) => (
+          {/* Swatch grid with images */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-4 md:gap-5">
+            {SWATCHES.map((s, i) => (
               <motion.div
-                key={c.name}
+                key={s.num}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.08 }}
+                transition={{ delay: i * 0.03 }}
+                className="text-center"
               >
-                <div
-                  className="w-full aspect-[4/3] rounded-sm mb-4"
+                <img
+                  src={`${CDN}/${s.num}_${
+                    // CDN hash lookup
+                    ({1:"29573dcd",2:"af32f380",3:"1874d5a1",4:"9800469b",5:"8dff3b35",7:"477366c8",8:"b1d3695c",9:"07201e20",10:"da2c579e",12:"f4d29504",13:"f8277772",15:"afa79c9b",21:"786dd9d0",22:"377eac60",24:"296a4fa2",26:"bdce13ff",28:"10d0d224",30:"2eb94661",31:"fb3c98dd",32:"54707cea",35:"c564794c"} as Record<number,string>)[s.num]
+                  }.png`}
+                  alt={`Swatch #${s.num} — ${s.name}`}
+                  className="w-full aspect-square rounded-sm mb-2"
                   style={{
-                    backgroundColor: c.hex,
-                    border: c.hex === BRAND.pageBackground || c.hex === BRAND.divider ? `1px solid ${BRAND.divider}` : "none",
+                    border: s.hex === "#F7F5F0" || s.hex === "#E6DFD5" ? `1px solid ${BRAND.divider}` : "none",
                   }}
                 />
-                <h3
-                  className="text-lg md:text-xl tracking-wide mb-1"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-                >
-                  {c.name}
-                </h3>
                 <p
-                  className="text-xs tracking-[0.08em] mb-1"
-                  style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}
+                  className="text-[10px] tracking-[0.08em] font-medium"
+                  style={{ ...body, fontWeight: 600, color: BRAND.primaryText }}
                 >
-                  {c.hex}
+                  #{s.num}
                 </p>
                 <p
-                  className="text-xs mb-1"
-                  style={{ ...body, color: BRAND.secondaryText }}
+                  className="text-[11px] tracking-wide mt-0.5"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
                 >
-                  RGB {c.rgb}
+                  {s.name}
                 </p>
                 <p
-                  className="text-[11px] leading-relaxed mb-1"
-                  style={{ ...body, color: BRAND.secondaryText }}
+                  className="text-[10px] font-mono mt-0.5"
+                  style={{ color: BRAND.secondaryText }}
                 >
-                  {c.profile}
+                  {s.hex}
                 </p>
                 <p
-                  className="text-[10px] tracking-[0.1em] mt-1"
-                  style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}
+                  className="text-[9px] mt-1 leading-tight"
+                  style={{ ...body, color: BRAND.tertiaryText }}
                 >
-                  {c.usage}
+                  {s.role}
                 </p>
               </motion.div>
             ))}
@@ -308,8 +287,8 @@ export default function BrandBook() {
 
           {/* Full-width palette strip */}
           <div className="mt-16 flex rounded-sm overflow-hidden h-16 md:h-24">
-            {BRAND_COLORS.map((c) => (
-              <div key={c.name} className="flex-1" style={{ backgroundColor: c.hex }} />
+            {SWATCHES.map((s) => (
+              <div key={s.num} className="flex-1" style={{ backgroundColor: s.hex }} />
             ))}
           </div>
         </div>
@@ -343,61 +322,46 @@ export default function BrandBook() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
               >
-                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-8">
-                  <h3
-                    className="text-2xl md:text-3xl tracking-wide"
-                    style={{ fontFamily: f.cssVar, fontWeight: 400 }}
-                  >
-                    {f.name}
-                  </h3>
-                  <span
-                    className="text-xs tracking-[0.15em]"
-                    style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}
-                  >
-                    {f.role}
-                  </span>
-                </div>
-
-                <p
-                  className="text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-wide mb-10"
-                  style={{ fontFamily: f.cssVar, fontWeight: 400 }}
-                >
-                  {f.specimen}
-                </p>
-
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-                  {f.weights.map((w) => (
-                    <div key={w.label}>
-                      <p
-                        className="text-[10px] tracking-[0.15em] mb-2"
-                        style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}
-                      >
-                        {w.label} — {w.weight}
-                      </p>
-                      <p
-                        className="text-lg md:text-xl leading-snug"
-                        style={{ fontFamily: f.cssVar, fontWeight: w.weight }}
-                      >
-                        Aa Bb Cc Dd
-                      </p>
-                      <p
-                        className="text-sm leading-snug mt-1"
-                        style={{ fontFamily: f.cssVar, fontWeight: w.weight, color: BRAND.tertiaryText }}
-                      >
-                        0123456789
-                      </p>
+                <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-16">
+                  <div className="md:w-1/3">
+                    <h3
+                      className="text-xl md:text-2xl tracking-wide mb-1"
+                      style={{ fontFamily: f.cssVar, fontWeight: 500 }}
+                    >
+                      {f.name}
+                    </h3>
+                    <p
+                      className="text-[11px] tracking-[0.15em] mb-4"
+                      style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}
+                    >
+                      {f.role}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {f.weights.map((w) => (
+                        <span
+                          key={w.label}
+                          className="text-[11px] px-2 py-1 rounded"
+                          style={{
+                            fontFamily: f.cssVar,
+                            fontWeight: w.weight,
+                            backgroundColor: "rgba(226,221,213,0.1)",
+                            color: BRAND.divider,
+                          }}
+                        >
+                          {w.label} ({w.weight})
+                        </span>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                  <div className="md:w-2/3">
+                    <p
+                      className="text-3xl md:text-5xl leading-[1.1] tracking-wide"
+                      style={{ fontFamily: f.cssVar, fontWeight: 400 }}
+                    >
+                      {f.specimen}
+                    </p>
+                  </div>
                 </div>
-
-                <p
-                  className="mt-8 text-sm tracking-[0.08em] leading-loose"
-                  style={{ fontFamily: f.cssVar, fontWeight: 400, color: BRAND.tertiaryText }}
-                >
-                  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-                  <br />
-                  a b c d e f g h i j k l m n o p q r s t u v w x y z
-                </p>
               </motion.div>
             ))}
           </div>
@@ -417,19 +381,18 @@ export default function BrandBook() {
             className="text-2xl md:text-4xl leading-[0.95] tracking-wide mb-6"
             style={heading}
           >
-            Six Properties, Six Worlds
+            Six Worlds, One System
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[600px] mb-16"
             style={{ ...body, color: BRAND.secondaryText }}
           >
-            Each property has a distinct palette drawn from its physical landscape.
-            Colors are deliberately muted — fresh, clean, and never bright. The
-            shared brand foundation keeps them unified while each palette gives
-            the property its own sense of place.
+            Each property draws its primary color from the landscape it inhabits.
+            The palette expands into secondary, accent, button, footer, and
+            navigation tones — all from the master swatch set.
           </p>
 
-          <div className="flex flex-col gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             {PROPERTY_PALETTE_DATA.map((p, i) => (
               <motion.div
                 key={p.slug}
@@ -437,86 +400,88 @@ export default function BrandBook() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: i * 0.06 }}
+                transition={{ delay: i * 0.08 }}
                 className="border rounded-sm overflow-hidden"
                 style={{ borderColor: BRAND.divider }}
               >
-                {/* Gradient bar */}
-                <div
-                  className="h-3"
-                  style={{
-                    background: `linear-gradient(to right, ${p.palette.gradientStart}, ${p.palette.gradientEnd})`,
-                  }}
-                />
-
-                <div className="p-6 md:p-8">
-                  {/* Header row */}
-                  <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-3">
+                {/* Primary swatch header */}
+                <div className="h-28 md:h-36 flex items-end p-5" style={{ backgroundColor: p.palette.primary }}>
+                  <div>
                     <h3
                       className="text-xl md:text-2xl tracking-wide"
-                      style={{ ...heading, color: p.palette.primary }}
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: p.palette.buttonText }}
                     >
                       {p.property}
                     </h3>
-                    <span
-                      className="text-[11px] tracking-[0.15em]"
-                      style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}
+                    <p
+                      className="text-[11px] tracking-[0.08em] mt-1"
+                      style={{ ...body, fontWeight: 400, color: `${p.palette.buttonText}99` }}
                     >
-                      {p.landscape}
-                    </span>
+                      {p.desc}
+                    </p>
                   </div>
-                  <p
-                    className="text-[14px] leading-relaxed mb-6 max-w-[500px]"
-                    style={{ ...body, color: BRAND.secondaryText }}
-                  >
-                    {p.desc}
-                  </p>
+                </div>
 
-                  {/* Color swatches row */}
-                  <div className="flex flex-wrap gap-4">
-                    {/* Primary */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-sm" style={{ backgroundColor: p.palette.primary }} />
-                      <div>
-                        <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Primary</p>
-                        <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.primary}</p>
-                      </div>
+                {/* Palette detail */}
+                <div className="p-5 grid grid-cols-2 gap-4">
+                  {/* Primary */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: p.palette.primary }}>
+                      <span className="text-[9px]" style={{ color: p.palette.buttonText }}>Aa</span>
                     </div>
-                    {/* Secondary */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-sm" style={{ backgroundColor: p.palette.secondary }} />
-                      <div>
-                        <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Secondary</p>
-                        <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.secondary}</p>
-                      </div>
+                    <div>
+                      <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Primary</p>
+                      <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.primary}</p>
                     </div>
-                    {/* Accent */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-sm" style={{ backgroundColor: p.palette.accent }} />
-                      <div>
-                        <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Accent</p>
-                        <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.accent}</p>
-                      </div>
+                  </div>
+                  {/* Secondary */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: p.palette.secondary }}>
+                      <span className="text-[9px] text-white">Aa</span>
                     </div>
-                    {/* Button */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: p.palette.buttonBg }}>
-                        <span className="text-[9px]" style={{ color: p.palette.buttonText }}>Aa</span>
-                      </div>
-                      <div>
-                        <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Button</p>
-                        <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.buttonBg}</p>
-                      </div>
+                    <div>
+                      <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Secondary</p>
+                      <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.secondary}</p>
                     </div>
-                    {/* Footer */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: p.palette.footerBg }}>
-                        <span className="text-[9px]" style={{ color: p.palette.footerText }}>Aa</span>
-                      </div>
-                      <div>
-                        <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Footer</p>
-                        <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.footerBg}</p>
-                      </div>
+                  </div>
+                  {/* Accent */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: p.palette.accent }}>
+                      <span className="text-[9px] text-white">Aa</span>
+                    </div>
+                    <div>
+                      <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Accent</p>
+                      <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.accent}</p>
+                    </div>
+                  </div>
+                  {/* Button */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: p.palette.buttonBg }}>
+                      <span className="text-[9px]" style={{ color: p.palette.buttonText }}>Aa</span>
+                    </div>
+                    <div>
+                      <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Button</p>
+                      <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.buttonBg}</p>
+                    </div>
+                  </div>
+                  {/* Nav Pill */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: p.palette.navPillBg }}>
+                      <span className="text-[9px]" style={{ color: p.palette.navPillText }}>Aa</span>
+                    </div>
+                    <div>
+                      <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Nav Pill</p>
+                      <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.navPillBg}</p>
+                    </div>
+                  </div>
+                  {/* Footer */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ backgroundColor: p.palette.footerBg }}>
+                      <span className="text-[9px]" style={{ color: p.palette.footerText }}>Aa</span>
+                    </div>
+                    <div>
+                      <p className="text-[10px] tracking-[0.1em]" style={{ ...body, fontWeight: 500, color: BRAND.tertiaryText }}>Footer</p>
+                      <p className="text-[12px] font-mono" style={{ color: BRAND.secondaryText }}>{p.palette.footerBg}</p>
                     </div>
                   </div>
                 </div>

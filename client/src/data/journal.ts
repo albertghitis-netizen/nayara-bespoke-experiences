@@ -111,7 +111,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/a-new-golden-age-of-luxury-travel-in-latin-america-nayara-leading-the-way",
     property: "brand",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-s2-tropical-aerial_6cd5fc6c.jpg",
     excerpt: "Latin America is experiencing a renaissance in luxury travel. Nayara Resorts is at the forefront, redefining what it means to travel with purpose.",
   },
   {
@@ -120,7 +120,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/nayara-resorts-donde-el-lujo-se-vive-despacio",
     property: "brand",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hot-springs-hero_a60a0e92.jpg",
     excerpt: "El lujo en Nayara no se mide en hilos de oro, sino en la quietud de un amanecer sobre el volcán, en el murmullo del bosque tropical.",
   },
   {
@@ -129,7 +129,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/nayaras-seven-elements-of-place",
     property: "brand",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridge-canopy-walk_d193a7eb.jpeg",
     excerpt: "Every Nayara property is defined by seven elements that create a sense of place — from landscape and architecture to cuisine and community.",
   },
   {
@@ -283,7 +283,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/arenal-costa-rica-a-timeless-natural-wonder",
     property: "brand",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
     excerpt: "Arenal Volcano has shaped the landscape and culture of northern Costa Rica for millennia. Discover the geology, ecology, and spirit of this iconic destination.",
   },
   {
@@ -320,7 +320,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/nayarabocasdeltorotreehouse",
     property: "bocas-del-toro",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
     excerpt: "Nayara Bocas del Toro's treehouse villas redefine luxury — suspended above the Caribbean, surrounded by mangroves and starlight.",
   },
   {
@@ -366,7 +366,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/why-nayara-alto-atacama-is-the-best-resort-in-the-atacama-desert-for-couples",
     property: "alto-atacama",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-salt-flats-flamingos_0ee14564.jpg",
     excerpt: "Desert silence, mineral baths under the stars, and the world's clearest skies — why the Atacama winter is the ultimate romantic escape.",
   },
   {
@@ -393,7 +393,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/nayara-alto-atacama-exploring-an-alien-landscape-from-the-lap-of-luxury",
     property: "alto-atacama",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/5-Jan-28-2026-12-18-54-4709-AM.png",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/canyoneering-photo_d3d8461c.jpg",
     excerpt: "Understanding the Atacama Desert: landscape, climate, and extremes. How life persists at the edge of habitability.",
   },
   {
@@ -438,7 +438,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/the-tapati-rapa-nui-festival-at-nayara-hangaroa",
     property: "hangaroa",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/9-Aug-11-2025-08-40-19-5669-PM.png",
+    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Tapati%20Rapa%20Nui%20Festival%20at%20Nayara%20Hangaroa%20(6).jpg",
     excerpt: "The Tapati Festival lights up Easter Island every February — music, dance, ancestral competitions, and the living spirit of Rapa Nui.",
   },
   {
@@ -447,7 +447,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/the-fiery-heart-of-costa-ricas-rainforest-life-and-love-at-nayara-springs",
     property: "springs",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-plunge-pool-straight_a5d505d1.webp",
     excerpt: "Where volcanic warmth meets rainforest serenity — the story of Nayara Springs and why it's the most romantic resort in Costa Rica.",
   },
   {
@@ -456,7 +456,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/birdwatching-in-costa-rica",
     property: "brand",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Scarlet-macaw-NA_CR_15-2048x1638.jpeg",
     excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans — a birdwatcher's paradise.",
   },
   {
@@ -465,7 +465,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/the-private-island-paradise-of-bocas-del-toro",
     property: "bocas-del-toro",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
     excerpt: "A private island sanctuary in Panama's Caribbean archipelago — overwater villas, bioluminescent bays, and pristine coral reefs.",
   },
 ];

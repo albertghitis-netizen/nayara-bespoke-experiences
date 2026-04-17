@@ -5,13 +5,13 @@
  *
  * All colors sourced from the official Nayara 36-color brand swatch set.
  *
- * Tented Camp  → Olive Tree (#525642, swatch #4)
+ * Tented Camp  → Olive Tree (#868B75, swatch #3)
  * Gardens      → Clover Green (#286241, swatch #12)
  * Springs      → Teal (#3B6E7B, swatch #21)
  * Bocas        → Ocean (#2A6489, swatch #31)
  * Atacama      → Terracotta (#6F463D, swatch #7)
  * Hangaroa     → Steel Blue (#536878, swatch #24)
- * Brand        → Brown Gravel (#E2D7C8, swatch #9) + Espresso (#3B2B26, swatch #5)
+ * Brand        → Bone (#F7F5F0, swatch #1) + Espresso (#3B2B26, swatch #5)
  */
 
 export interface PropertyPalette {
@@ -40,35 +40,35 @@ export interface PropertyPalette {
 }
 
 export const BRAND = {
-  pageBackground: "#F7F5F0",    // Warm White (swatch #1)
+  pageBackground: "#F7F5F0",    // Bone (swatch #1)
   primaryText: "#3B2B26",       // Espresso (swatch #5)
   secondaryText: "#67737C",     // Blue Gray (swatch #28)
   tertiaryText: "#9A9086",      // Taupe (swatch #26)
-  divider: "#E6DFD5",           // Sand (swatch #2)
+  divider: "#E6DFD5",           // Gravel (swatch #2)
   navPill: "#3B2B26",           // Espresso (swatch #5)
-  navPillText: "#F7F5F0",       // Warm White (swatch #1)
-  bone: "#E2D7C8",              // Bone / Brown Gravel (swatch #9)
+  navPillText: "#F7F5F0",       // Bone (swatch #1)
+  bone: "#E2D7C8",              // Brown Gravel (swatch #9)
 } as const;
 
 export const palettes: Record<string, PropertyPalette> = {
-  /* ─── TENTED CAMP — Olive Tree (swatch #4: #525642) ─── */
+  /* ─── TENTED CAMP — Olive Tree (swatch #3: #868B75) ─── */
   "tented-camp": {
-    primary: "#525642",          // Olive Dark / Olive Tree (swatch #4)
-    secondary: "#868B75",        // Sage (swatch #3)
+    primary: "#868B75",          // Olive Tree (swatch #3)
+    secondary: "#525642",        // Dark Olive (swatch #4)
     accent: "#9A9086",           // Taupe (swatch #26)
-    gradientStart: "#F7F5F0",   // Warm White
+    gradientStart: "#F7F5F0",   // Bone
     gradientEnd: "#EDEEE2",     // warm olive tint
-    buttonBg: "#525642",         // Olive Tree
+    buttonBg: "#868B75",         // Olive Tree
     buttonText: "#F7F5F0",
     footerBg: "#3B2B26",        // Espresso (swatch #5)
-    footerText: "#E6DFD5",      // Sand
-    navPillBg: "#525642",        // Olive Tree
+    footerText: "#E6DFD5",      // Gravel
+    navPillBg: "#868B75",        // Olive Tree
     navPillText: "#F7F5F0",
   },
 
   /* ─── GARDENS — Clover Green (swatch #12: #286241) ─── */
   gardens: {
-    primary: "#286241",          // Forest / Clover Green (swatch #12)
+    primary: "#286241",          // Clover Green (swatch #12)
     secondary: "#424A3E",        // Dark Olive (swatch #22)
     accent: "#868B75",           // Sage (swatch #3)
     gradientStart: "#F7F5F0",
@@ -121,7 +121,7 @@ export const palettes: Record<string, PropertyPalette> = {
     buttonBg: "#6F463D",        // Terracotta
     buttonText: "#F7F5F0",
     footerBg: "#3B2B26",        // Espresso (swatch #5)
-    footerText: "#E2D7C8",      // Bone (swatch #9)
+    footerText: "#E2D7C8",      // Brown Gravel (swatch #9)
     navPillBg: "#6F463D",        // Terracotta
     navPillText: "#F7F5F0",
   },
