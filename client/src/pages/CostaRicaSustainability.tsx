@@ -37,6 +37,11 @@ const HERO_VIDEOS: Record<string, string> = {
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
 };
 
+/** Per-property hero height overrides (default 70vh) */
+const HERO_HEIGHTS: Record<string, string> = {
+  "alto-atacama": "78vh",
+};
+
 /** Location subtitles per property */
 const LOCATIONS: Record<string, string> = {
   "tented-camp": "Arenal Volcano National Park, Costa Rica",
@@ -62,7 +67,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
-      <SustainabilityHero palette={palette} propertyName={propertyName} headline={data.headline} heroVideo={heroVideo} />
+      <SustainabilityHero palette={palette} propertyName={propertyName} headline={data.headline} heroVideo={heroVideo} heroHeight={HERO_HEIGHTS[propertySlug]} />
       <ScrollingPillarHeader word="BEYOND SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
       <SustainabilityContent palette={palette} initiatives={data.initiatives} />
       {((data.videos && data.videos.length > 0) || (data.blogs && data.blogs.length > 0)) && (
@@ -79,14 +84,16 @@ function SustainabilityHero({
   propertyName,
   headline,
   heroVideo,
+  heroHeight,
 }: {
   palette: PropertyPalette;
   propertyName: string;
   headline: string;
   heroVideo: string;
+  heroHeight?: string;
 }) {
   return (
-    <div className="relative overflow-hidden" style={{ height: "50vh", minHeight: 320 }}>
+    <div className="relative overflow-hidden" style={{ height: heroHeight || "70vh", minHeight: 420 }}>
       <div className="absolute inset-0">
         <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div

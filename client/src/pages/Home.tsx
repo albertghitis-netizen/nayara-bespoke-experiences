@@ -105,7 +105,7 @@ const propertyGrid: {
     location: "Arenal Volcano, Costa Rica",
     route: "/springs",
     bookingId: "springs",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-springs_16fe1ae6.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-plunge-pool-straight_a5d505d1.webp",
     tagline: "Private Hot Springs Villas",
     filter: "Adults-Only",
   },

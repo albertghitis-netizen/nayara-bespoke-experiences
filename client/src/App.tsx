@@ -33,7 +33,8 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
-const NewProjects = lazy(() => import("./pages/NewProjects"));
+const BrandBook = lazy(() => import("./pages/BrandBook"));
+const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
 const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Gallery = lazy(() => import("./pages/Gallery"));
@@ -136,12 +137,13 @@ function Router() {
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
           {/* ── Internal / Private pages ── */}
-          <Route path="/internal/new-projects" component={NewProjects} />
+          <Route path="/internal-brandbook" component={BrandBook} />
+          <Route path="/internal-henry" component={HenryStandalone} />
           <Route path="/by-night" component={NayaraByNight} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           {/* Legacy redirects for internal pages */}
-          <Route path="/new-projects">{() => { window.location.replace("/internal/new-projects"); return null; }}</Route>
-          <Route path="/gallery" component={Gallery} />
+          <Route path="/internal-gallery" component={Gallery} />
+          <Route path="/gallery">{() => { window.location.replace("/internal-gallery"); return null; }}</Route>
 
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

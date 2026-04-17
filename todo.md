@@ -2182,3 +2182,10 @@
 - [x] Create 5 new blog posts from scraped articles: Atacama Oasis, Hangaroa Regeneration, Bocas Condé Nast, Beyond Sustainability, Bocas & Atacama Study
 - [x] Create dynamic blog route (/journal/:slug) with DynamicBlogPost.tsx for all blog posts
 - [x] Add internal blog routing (wouter Link) for /journal/ URLs in sustainability BlogCards
+- [x] Increase sustainability property page hero height from 50vh to 70vh for more vertical length
+- [x] Replace Nayara Springs property card image on homepage with villa/plunge pool photo (no volcano)
+- [x] Remove /new-projects route
+- [x] Add /internal-brandbook route back
+- [x] Rename /gallery to /internal-gallery
+- [x] Bring back /internal-henry route
+- [ ] Standardize all property page and sub-page heroes to 18:9 (2:1) aspect ratio (homepage + brand/pillar pages stay 16:9)
