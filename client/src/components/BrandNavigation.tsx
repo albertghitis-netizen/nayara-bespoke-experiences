@@ -82,8 +82,8 @@ export default function BrandNavigation({
     ? getPalette(propertySlug)
     : null;
   const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#fff");
-  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(123,91,58,0.8)");
-  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(123,91,58,0.95)");
+  const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(59,43,38,0.8)");
+  const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(59,43,38,0.95)");
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);

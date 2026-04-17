@@ -2292,3 +2292,5 @@
 - [x] Ensure every property page footer matches the property nav/button color (Atacama=Terracotta, Bocas=Aqua, Hangaroa=Steel Blue)
 - [x] Make footer text white/bright for better readability against brownstone and property colors
 - [x] Remove Internal section (Gallery, Coming Soon) from hamburger menu (desktop + mobile)
+- [x] Change all brownstone (#7B5B3A) to espresso (#3B2B26) on brand nav pills, Concierge, and footer default
+- [x] Change footer text from white to bone (#ece8e1) tones for warmer readability

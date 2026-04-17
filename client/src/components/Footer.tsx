@@ -48,7 +48,7 @@ function TikTokIcon() {
 
 interface FooterProps {
   pageType?: PageType;
-  /** Override footer background color (default: #7B5B3A brownstone) */
+  /** Override footer background color (default: #3B2B26 espresso) */
   bgColor?: string;
 }
 
@@ -63,14 +63,14 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
   };
 
   return (
-    <footer className="relative overflow-x-clip" style={{ backgroundColor: bgColor ?? "#7B5B3A" }}>
+    <footer className="relative overflow-x-clip" style={{ backgroundColor: bgColor ?? "#3B2B26" }}>
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-10">
         {/* Dynamic columns from navigation config + Contact column */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed">
           {columns.map((col) => (
             <div key={col.title}>
               <span
-                className="text-white/70 text-[10px] tracking-[0.25em] block mb-4"
+                className="text-[#ece8e1]/50 text-[10px] tracking-[0.25em] block mb-4"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {col.title}
@@ -87,7 +87,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
                     }}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className={`text-white/90 hover:text-white transition-colors${link.separatorBefore ? ' mt-3 pt-3 border-t border-white/15' : ''}`}
+                    className={`text-[#ece8e1]/70 hover:text-[#ece8e1] transition-colors${link.separatorBefore ? ' mt-3 pt-3 border-t border-[#ece8e1]/15' : ''}`}
                     style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                   >
                     {link.label}
@@ -100,7 +100,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           {/* Contact — always present as the last column */}
           <div>
             <span
-              className="text-white/70 text-[10px] tracking-[0.25em] block mb-4"
+              className="text-[#ece8e1]/50 text-[10px] tracking-[0.25em] block mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Contact
@@ -108,21 +108,21 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
             <div className="flex flex-col gap-[6px]">
               <a
                 href="mailto:reservations@nayararesorts.com"
-                className="text-white/90 hover:text-white transition-colors"
+                className="text-[#ece8e1]/70 hover:text-[#ece8e1] transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 reservations@nayararesorts.com
               </a>
               <a
                 href="tel:+18448652002"
-                className="text-white/90 hover:text-white transition-colors"
+                className="text-[#ece8e1]/70 hover:text-[#ece8e1] transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 844-865-2002 (US)
               </a>
               <a
                 href="tel:+50624791600"
-                className="text-white/90 hover:text-white transition-colors"
+                className="text-[#ece8e1]/70 hover:text-[#ece8e1] transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 +506 2479-1600 (Costa Rica)
@@ -130,7 +130,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
               <a
                 href="/privacy-policy"
                 onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
-                className="text-white/90 hover:text-white transition-colors"
+                className="text-[#ece8e1]/70 hover:text-[#ece8e1] transition-colors"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 Privacy Policy
@@ -152,10 +152,10 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
-            className="inline-flex items-center justify-center h-12 px-12 rounded-full border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+            className="inline-flex items-center justify-center h-12 px-12 rounded-full border border-[#ece8e1]/20 hover:border-[#ece8e1]/40 hover:bg-[#ece8e1]/5 transition-all duration-300"
           >
             <span
-              className="text-white/90 text-[11px] tracking-[0.25em]"
+              className="text-[#ece8e1]/60 text-[11px] tracking-[0.25em]"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Stay Inspired with the Nayara Newsletter
@@ -165,25 +165,25 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
 
         {/* Social icons — centered, larger */}
         <div className="flex items-center justify-center gap-8 mt-6 mb-8">
-          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors"><InstagramIcon /></a>
-          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors"><YouTubeIcon /></a>
-          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors"><FacebookIcon /></a>
-          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors"><TikTokIcon /></a>
+          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-[#ece8e1]/50 hover:text-[#ece8e1]/80 transition-colors"><InstagramIcon /></a>
+          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#ece8e1]/50 hover:text-[#ece8e1]/80 transition-colors"><YouTubeIcon /></a>
+          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#ece8e1]/50 hover:text-[#ece8e1]/80 transition-colors"><FacebookIcon /></a>
+          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-[#ece8e1]/50 hover:text-[#ece8e1]/80 transition-colors"><TikTokIcon /></a>
         </div>
 
         {/* Copyright + Privacy */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
           <p
-            className="text-white/50 text-[10px]"
+            className="text-[#ece8e1]/40 text-[10px]"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
           </p>
-          <span className="hidden sm:inline text-white/30">|</span>
+          <span className="hidden sm:inline text-[#ece8e1]/20">|</span>
           <a
             href="/privacy-policy"
             onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
-            className="text-white/50 text-[10px] hover:text-white/80 transition-colors"
+            className="text-[#ece8e1]/40 text-[10px] hover:text-[#ece8e1]/70 transition-colors"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             Privacy Policy

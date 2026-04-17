@@ -43,7 +43,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
   const autoPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
     ? getPalette(slug) : null;
   const dk = palette?.dark ?? (autoPalette ? "#fff" : "#fff");
-  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : "rgba(123,91,58,0.8)");
+  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : "rgba(59,43,38,0.8)");
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
