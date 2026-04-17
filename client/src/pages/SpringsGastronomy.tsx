@@ -43,7 +43,7 @@ export default function SpringsGastronomy() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero />
       <GastronomyContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#3B6E7B" />
     </div>
   );
 }

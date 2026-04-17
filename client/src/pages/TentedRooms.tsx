@@ -63,7 +63,7 @@ export default function TentedRooms() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
       <RoomsContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#868B75" />
     </div>
   );
 }

@@ -49,7 +49,7 @@ export default function TentedCampExperiences() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero />
       <ExperiencesContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#868B75" />
     </div>
   );
 }

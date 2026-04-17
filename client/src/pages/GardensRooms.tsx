@@ -63,7 +63,7 @@ export default function GardensRooms() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
       <RoomsContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#525642" />
     </div>
   );
 }

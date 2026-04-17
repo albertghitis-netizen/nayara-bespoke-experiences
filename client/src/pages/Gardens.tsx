@@ -217,13 +217,13 @@ export default function Gardens() {
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-by-night_e5dda355.mp4"
         verticalIsVideo
         verticalRatio="3/4"
-        bgColor="#22322E"
+        bgColor="#525642"
         headline={"Rainforest\nAfter Dark"}
         bodyText="When the sun sets behind the volcano, the rainforest transforms. Nocturnal creatures emerge, the air fills with the chorus of frogs, and the canopy becomes a living theater of sound and shadow. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="right"
       />
 
-      <Footer bgColor="#22322E" />
+      <Footer bgColor="#525642" />
     </div>
   );
 }

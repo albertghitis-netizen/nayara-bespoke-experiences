@@ -40,7 +40,7 @@ export default function TentedExperiences() {
     <>
       <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesSection />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#868B75" />
     </>
   );
 }

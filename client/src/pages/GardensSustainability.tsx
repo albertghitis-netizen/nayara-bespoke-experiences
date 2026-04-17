@@ -64,7 +64,7 @@ export default function GardensSustainability() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <SustainabilityContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#525642" />
     </div>
   );
 }

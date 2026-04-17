@@ -105,7 +105,7 @@ export default function TentedWellness() {
       <TreatmentsSection activeFilter={activeFilter} onFilterChange={setActiveFilter} treatments={filtered} />
       <SpringsFeature />
       <PropertyLinksSection />
-      <Footer />
+      <Footer pageType="property" bgColor="#868B75" />
     </div>
   );
 }

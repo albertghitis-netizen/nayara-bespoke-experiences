@@ -49,7 +49,7 @@ export default function TentedCampWellness() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <WellnessHero />
       <WellnessContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#868B75" />
     </div>
   );
 }

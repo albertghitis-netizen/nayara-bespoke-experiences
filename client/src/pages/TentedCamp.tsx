@@ -963,13 +963,13 @@ export default function TentedCamp() {
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4"
         horizontalIsVideo
         horizontalRatio="16/9"
-        bgColor="#3B2B26"
+        bgColor="#868B75"
         headline={"When the\nJungle Sleeps"}
         bodyText="As darkness falls over the canopy, a different world awakens. The chorus of frogs, the flash of fireflies, the distant rumble of Arenal — Tented Camp by night is a symphony of the wild. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="right"
       />
 
-      <Footer bgColor="#3B2B26" />
+      <Footer bgColor="#868B75" />
     </div>
   );
 }

@@ -46,7 +46,7 @@ export default function TentedCampGastronomy() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero />
       <GastronomyContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#868B75" />
     </div>
   );
 }

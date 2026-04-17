@@ -146,7 +146,7 @@ export default function SpringsWellness() {
           </AnimateOnScroll>
         </div>
       </section>
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#3B6E7B" />
     </div>
   );
 }

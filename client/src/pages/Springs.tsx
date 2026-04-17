@@ -199,13 +199,13 @@ export default function Springs() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp"
         horizontalRatio="16/9"
-        bgColor="#22322E"
+        bgColor="#3B6E7B"
         headline={"Hot Springs\nUnder Stars"}
         bodyText="As night falls over the volcanic landscape, the hot springs take on an otherworldly glow. Steam rises into the starlit sky while the sounds of the rainforest envelop you in warmth and wonder. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
       />
 
-      <Footer bgColor="#22322E" />
+      <Footer bgColor="#3B6E7B" />
     </div>
   );
 }

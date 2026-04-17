@@ -63,7 +63,7 @@ export default function SpringsSustainability() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <SustainabilityContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#3B6E7B" />
     </div>
   );
 }

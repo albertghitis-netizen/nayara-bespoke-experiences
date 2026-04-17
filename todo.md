@@ -2302,3 +2302,11 @@
 - [x] Flatten Bocas del Toro SECTION_COLORS from gradient array to two alternating colors
 - [x] Flatten Alto Atacama SECTION_COLORS from gradient array to two alternating colors
 - [x] Flatten Tented Camp SECTION_COLORS from gradient array to two alternating colors
+
+## Nav/Footer Color Matching Fixes
+- [x] Fix Gardens.tsx footer bgColor from #22322E to #525642 (match nav)
+- [x] Fix Springs.tsx footer bgColor from #22322E to #3B6E7B (match nav)
+- [x] Fix TentedCamp.tsx footer — add bgColor=#868B75 (match nav)
+- [x] Fix Gardens subpages (Experiences, Gastronomy, Rooms, Sustainability, Wellness) — add bgColor=#525642
+- [x] Fix Springs subpages (Experiences, Gastronomy, Rooms, Sustainability, Wellness) — add bgColor=#3B6E7B
+- [x] Fix TentedCamp subpages (Experiences, Gastronomy, Sustainability, Wellness, Rooms) — add bgColor=#868B75

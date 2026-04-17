@@ -128,7 +128,7 @@ export default function GardensExperiences() {
           </AnimateOnScroll>
         </div>
       </section>
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#525642" />
     </div>
   );
 }

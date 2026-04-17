@@ -63,7 +63,7 @@ export default function SpringsRooms() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
       <RoomsContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#3B6E7B" />
     </div>
   );
 }

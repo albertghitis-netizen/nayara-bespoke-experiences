@@ -43,7 +43,7 @@ export default function GardensGastronomy() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero />
       <GastronomyContent />
-      <Footer pageType="property" />
+      <Footer pageType="property" bgColor="#525642" />
     </div>
   );
 }
