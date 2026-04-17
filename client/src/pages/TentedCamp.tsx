@@ -28,25 +28,27 @@ import {
    PALETTE — "Canopy" gradient: misty green → deep forest
    ═══════════════════════════════════════════════════════════════ */
 /* Olive Tree gradient — warm olive-khaki cascade */
+const COLOR_A = "#F7F5F0"; // bone
+const COLOR_B = "#EDEEE2"; // soft olive tint
 const SECTION_COLORS = [
-  "#F7F5F0", // 0 hero
-  "#F1EFE5", // 1 story
-  "#EDEEE2", // 2 accommodations
-  "#E8EADC", // 3 experiences
-  "#E3E6D6", // 4 wellness (before review break)
-  "#DEE2D0", // 5 gastronomy (after review break)
-  "#D9DECA", // 6 wildlife (before journal break)
-  "#D4DAC4", // 7 adventure (after journal break)
-  "#CFD6BE", // 8 spa
-  "#CAD2B8", // 9 getting here
-  "#C5CEB2", // 10 residence
-  "#C0CAAC", // 11 henry's bar
-  "#BBC6A6", // 12 grand tents
-  "#B6C2A0", // 13 camp life
-  "#B1BE9A", // 14 rainforest mornings
-  "#ACBA94", // 15 the canopy at dusk
-  "#A7B68E", // 16 looking for frogs
-  "#A2B288", // 17 return
+  COLOR_A, // 0 hero
+  COLOR_B, // 1 story
+  COLOR_A, // 2 accommodations
+  COLOR_B, // 3 experiences
+  COLOR_A, // 4 wellness
+  COLOR_B, // 5 gastronomy
+  COLOR_A, // 6 wildlife
+  COLOR_B, // 7 adventure
+  COLOR_A, // 8 spa
+  COLOR_B, // 9 getting here
+  COLOR_A, // 10 residence
+  COLOR_B, // 11 henry's bar
+  COLOR_A, // 12 grand tents
+  COLOR_B, // 13 camp life
+  COLOR_A, // 14 rainforest mornings
+  COLOR_B, // 15 the canopy at dusk
+  COLOR_A, // 16 looking for frogs
+  COLOR_B, // 17 return
 ];
 
 const PALETTE = {

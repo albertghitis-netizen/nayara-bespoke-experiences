@@ -2297,3 +2297,8 @@
 - [x] Replace all gravel (#8a7a6a) with espresso (#3B2B26) across all brand pages (Home, AllDestinations, BlogPost, BlogPostTemplate, Newsletter)
 - [x] Remove "Romantic Escape" and "Family Adventure" from hamburger menu, footer, and explore navigation
 - [x] Change "The Nayara Narrative" to "The Nayara Journal" on brand homepage
+
+## Flatten Section Background Colors
+- [x] Flatten Bocas del Toro SECTION_COLORS from gradient array to two alternating colors
+- [x] Flatten Alto Atacama SECTION_COLORS from gradient array to two alternating colors
+- [x] Flatten Tented Camp SECTION_COLORS from gradient array to two alternating colors

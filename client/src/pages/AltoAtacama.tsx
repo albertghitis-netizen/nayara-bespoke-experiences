@@ -28,26 +28,28 @@ const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
    PALETTE — Extended "Mars" gradient: warm sand → deep earth
    More sections = more gradient steps
    ═══════════════════════════════════════════════════════════════ */
+const COLOR_A = "#F7F5F0"; // bone
+const COLOR_B = "#F0EBE2"; // warm sand tint
 const SECTION_COLORS = [
-  "#F7F5F0", // 0 hero
-  "#F2EDE4", // 1 story
-  "#EFE9DD", // 2 rooms
-  "#ECE5D6", // 3 experiences
-  "#E8E0CF", // 4 sustainability
-  "#E4DBC8", // 5 wellness
-  "#E0D6C1", // 6 a taste of place
-  "#DED3BD", // 7 desert ingredients
-  "#DCD1BA", // 8 the art of plating
-  "#DACEB7", // 9 sweet finales
-  "#D8CCB3", // 10 dining & stars
-  "#D6C9B0", // 11 stargazing
-  "#D4C7AC", // 12 landscape
-  "#D2C4A9", // 13 wildlife
-  "#D0C2A5", // 14 adventure
-  "#CCBD9E", // 15 dusk
-  "#C8B390", // 16 architecture
-  "#C4AE89", // 17 the pool
-  "#C0A982", // 18 flamingo lagoon
+  COLOR_A, // 0 hero
+  COLOR_B, // 1 story
+  COLOR_A, // 2 rooms
+  COLOR_B, // 3 experiences
+  COLOR_A, // 4 sustainability
+  COLOR_B, // 5 wellness
+  COLOR_A, // 6 a taste of place
+  COLOR_B, // 7 desert ingredients
+  COLOR_A, // 8 the art of plating
+  COLOR_B, // 9 sweet finales
+  COLOR_A, // 10 dining & stars
+  COLOR_B, // 11 stargazing
+  COLOR_A, // 12 landscape
+  COLOR_B, // 13 wildlife
+  COLOR_A, // 14 adventure
+  COLOR_B, // 15 dusk
+  COLOR_A, // 16 architecture
+  COLOR_B, // 17 the pool
+  COLOR_A, // 18 flamingo lagoon
 ];
 
 const PALETTE = {

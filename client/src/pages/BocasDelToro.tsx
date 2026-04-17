@@ -24,27 +24,29 @@ import {
    PALETTE — "Ocean" gradient: pale aqua → deep teal
    Subtle enough to let the photography dominate
    ═══════════════════════════════════════════════════════════════ */
+const COLOR_A = "#F2F6F5"; // light aqua tint
+const COLOR_B = "#E6EDEB"; // slightly deeper aqua tint
 const SECTION_COLORS = [
-  "#F2F6F5", // 0 hero
-  "#EFF4F3", // 1 story
-  "#ECF2F1", // 2 rooms
-  "#E9F0EE", // 3 experiences
-  "#E6EDEB", // 4 sustainability
-  "#E3EBE8", // 5 wellness
-  "#E0E8E5", // 6 gastronomy
-  "#DEE6E3", // 7 island cocktails
-  "#DCE4E1", // 8 brunch
-  "#DDE5E2", // 9 marine
-  "#DAE2DF", // 10 island
-  "#D7DFDC", // 11 sunset
-  "#D4DCD9", // 12 beach
-  "#D1D9D6", // 13 reef
-  "#CED6D3", // 14 aerial
-  "#CBD3D0", // 15 lifestyle
-  "#C8D0CD", // 16 final
-  "#C5CDCA", // 17 dolphins
-  "#C2CAC7", // 18 ocean life
-  "#BFC7C4", // 19 island mood
+  COLOR_A, // 0 hero
+  COLOR_B, // 1 story
+  COLOR_A, // 2 rooms
+  COLOR_B, // 3 experiences
+  COLOR_A, // 4 sustainability
+  COLOR_B, // 5 wellness
+  COLOR_A, // 6 gastronomy
+  COLOR_B, // 7 island cocktails
+  COLOR_A, // 8 brunch
+  COLOR_B, // 9 marine
+  COLOR_A, // 10 island
+  COLOR_B, // 11 sunset
+  COLOR_A, // 12 beach
+  COLOR_B, // 13 reef
+  COLOR_A, // 14 aerial
+  COLOR_B, // 15 lifestyle
+  COLOR_A, // 16 final
+  COLOR_B, // 17 dolphins
+  COLOR_A, // 18 ocean life
+  COLOR_B, // 19 island mood
 ];
 
 /* Caribbean Ocean Blue palette */
