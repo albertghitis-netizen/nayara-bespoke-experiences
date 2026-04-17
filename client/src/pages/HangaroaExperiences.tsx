@@ -124,7 +124,7 @@ export default function HangaroaExperiences() {
           </AnimateOnScroll>
         </div>
       </section>
-      <Footer pageType="property" bgColor="#1B2534" />
+      <Footer pageType="property" bgColor="#536878" />
     </div>
   );
 }

@@ -62,7 +62,7 @@ export default function AtacamaRooms() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
       <RoomsContent />
-      <Footer pageType="property" bgColor="#3B2B26" />
+      <Footer pageType="property" bgColor="#6F463D" />
     </div>
   );
 }

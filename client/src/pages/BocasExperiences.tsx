@@ -23,7 +23,7 @@ import {
 const bocas = properties.find((p: Property) => p.id === "bocas-del-toro")!;
 
 const PALETTE = {
-  primary: "#2A6489",
+  primary: "#008E97",
   secondary: "#5A6F7B",
   accent: "#7FA9C9",
   gradientStart: "#F7F5F0",
@@ -49,7 +49,7 @@ export default function BocasExperiences() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero />
       <ExperiencesContent />
-      <Footer pageType="property" bgColor="#1B2534" />
+      <Footer pageType="property" bgColor="#008E97" />
     </div>
   );
 }

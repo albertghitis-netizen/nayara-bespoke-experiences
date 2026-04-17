@@ -2280,3 +2280,13 @@
 - [x] Update hamburger menu to match the same grouping
 - [x] Remove AFAR story from Long-Form Video (journal.ts) and sustainability.ts — not a video
 - [x] Replace woman in red (storyV) on Atacama homepage with Gil backdrop video
+
+## Footer & Color Consistency
+- [x] Add visual separator between six properties and "Nayara Resorts" in footer Our Resorts column
+- [x] Match footer background color to property nav/button color on every property page
+- [x] Match footer background color to brand nav color on brand pages
+
+## Footer & Color Consistency (Final)
+- [x] Add visual separator between six properties and "Nayara Resorts" in footer Our Resorts column
+- [x] Change brand page nav buttons (hamburger, Reserve, Ask Concierge) to brownstone (#7B5B3A) + brand footer to brownstone
+- [x] Ensure every property page footer matches the property nav/button color (Atacama=Terracotta, Bocas=Aqua, Hangaroa=Steel Blue)

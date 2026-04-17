@@ -63,7 +63,7 @@ export default function HangaroaSustainability() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <SustainabilityContent />
-      <Footer pageType="property" bgColor="#1B2534" />
+      <Footer pageType="property" bgColor="#536878" />
     </div>
   );
 }

@@ -48,7 +48,7 @@ function TikTokIcon() {
 
 interface FooterProps {
   pageType?: PageType;
-  /** Override footer background color (default: #3B2B26) */
+  /** Override footer background color (default: #7B5B3A brownstone) */
   bgColor?: string;
 }
 
@@ -63,7 +63,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
   };
 
   return (
-    <footer className="relative overflow-x-clip" style={{ backgroundColor: bgColor ?? "#3B2B26" }}>
+    <footer className="relative overflow-x-clip" style={{ backgroundColor: bgColor ?? "#7B5B3A" }}>
       <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-10">
         {/* Dynamic columns from navigation config + Contact column */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed">
@@ -87,7 +87,7 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
                     }}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-white/50 hover:text-white/90 transition-colors"
+                    className={`text-white/50 hover:text-white/90 transition-colors${link.separatorBefore ? ' mt-3 pt-3 border-t border-white/10' : ''}`}
                     style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
                   >
                     {link.label}

@@ -63,7 +63,7 @@ export default function HangaroaRooms() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
       <RoomsContent />
-      <Footer pageType="property" bgColor="#1B2534" />
+      <Footer pageType="property" bgColor="#536878" />
     </div>
   );
 }

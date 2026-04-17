@@ -17,7 +17,7 @@ import {
 } from "@/components/motion";
 
 const PALETTE = {
-  primary: "#2A6489",
+  primary: "#008E97",
   secondary: "#5A6F7B",
   accent: "#7FA9C9",
   gradientStart: "#F7F5F0",
@@ -62,7 +62,7 @@ export default function BocasSustainability() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <SustainabilityContent />
-      <Footer pageType="property" bgColor="#1B2534" />
+      <Footer pageType="property" bgColor="#008E97" />
     </div>
   );
 }

@@ -99,7 +99,7 @@ export function getContentMenu(): MenuSection[] {
 
 export interface FooterColumn {
   title: string;
-  links: { label: string; route: string; external?: boolean }[];
+  links: { label: string; route: string; external?: boolean; separatorBefore?: boolean }[];
 }
 
 /* Resorts column for footer */
@@ -107,7 +107,7 @@ const RESORTS_COLUMN: FooterColumn = {
   title: "Our Resorts",
   links: [
     ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
-    { label: "Nayara Resorts", route: "/" },
+    { label: "Nayara Resorts", route: "/", separatorBefore: true },
   ],
 };
 

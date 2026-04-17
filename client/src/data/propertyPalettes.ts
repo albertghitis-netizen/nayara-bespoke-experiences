@@ -8,7 +8,7 @@
  * Tented Camp  → Olive Tree (#868B75, swatch #3)
  * Gardens      → Clover Green (#286241, swatch #12)
  * Springs      → Teal (#3B6E7B, swatch #21)
- * Bocas        → Ocean (#2A6489, swatch #31)
+ * Bocas        → Aqua (#008E97, Miami Dolphins)
  * Atacama      → Terracotta (#6F463D, swatch #7)
  * Hangaroa     → Steel Blue (#536878, swatch #24)
  * Brand        → Bone (#F7F5F0, swatch #1) + Espresso (#3B2B26, swatch #5)
@@ -96,18 +96,18 @@ export const palettes: Record<string, PropertyPalette> = {
     navPillText: "#F7F5F0",
   },
 
-  /* ─── BOCAS DEL TORO — Ocean (swatch #31: #2A6489) ─── */
+  /* ─── BOCAS DEL TORO — Aqua (#008E97) ─── */
   "bocas-del-toro": {
-    primary: "#2A6489",          // Ocean (swatch #31)
-    secondary: "#5A6F7B",        // Slate Blue (swatch #10)
-    accent: "#7FA9C9",           // Sky Blue (swatch #35)
+    primary: "#008E97",          // Aqua (Miami Dolphins)
+    secondary: "#006D75",        // Deep Aqua
+    accent: "#4DC9D1",           // Light Aqua
     gradientStart: "#F7F5F0",
-    gradientEnd: "#E2ECEE",     // ocean tint
-    buttonBg: "#2A6489",         // Ocean
+    gradientEnd: "#E2F0F0",     // aqua tint
+    buttonBg: "#008E97",         // Aqua
     buttonText: "#F7F5F0",
-    footerBg: "#1B2534",        // Navy (swatch #13)
-    footerText: "#C2D0D6",      // Ice Blue (swatch #8)
-    navPillBg: "#2A6489",        // Ocean
+    footerBg: "#008E97",        // Aqua (matches nav)
+    footerText: "#F7F5F0",      // Bone
+    navPillBg: "#008E97",        // Aqua
     navPillText: "#F7F5F0",
   },
 
@@ -120,8 +120,8 @@ export const palettes: Record<string, PropertyPalette> = {
     gradientEnd: "#F2ECE4",     // warm sand tint
     buttonBg: "#6F463D",        // Terracotta
     buttonText: "#F7F5F0",
-    footerBg: "#3B2B26",        // Espresso (swatch #5)
-    footerText: "#E2D7C8",      // Brown Gravel (swatch #9)
+    footerBg: "#6F463D",        // Terracotta (matches nav)
+    footerText: "#F7F5F0",      // Bone
     navPillBg: "#6F463D",        // Terracotta
     navPillText: "#F7F5F0",
   },
@@ -135,8 +135,8 @@ export const palettes: Record<string, PropertyPalette> = {
     gradientEnd: "#EAEBED",     // cool gray tint
     buttonBg: "#536878",         // Steel Blue
     buttonText: "#F7F5F0",
-    footerBg: "#1B2534",        // Navy (swatch #13)
-    footerText: "#C2D0D6",      // Ice Blue
+    footerBg: "#536878",        // Steel Blue (matches nav)
+    footerText: "#F7F5F0",      // Bone
     navPillBg: "#536878",        // Steel Blue
     navPillText: "#F7F5F0",
   },

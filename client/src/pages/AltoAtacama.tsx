@@ -462,7 +462,7 @@ export default function AltoAtacama() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
         horizontalRatio="16/9"
-        bgColor="#3B2B26"
+        bgColor="#6F463D"
         headline={"The Clearest\nSkies on Earth"}
         bodyText="At 2,400 meters in the driest desert on the planet, the Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
@@ -481,7 +481,7 @@ export default function AltoAtacama() {
       <GettingHereSection />
       <AwardsSection />
       <ReserveCTA />
-      <Footer bgColor="#3B2B26" />
+      <Footer bgColor="#6F463D" />
     </div>
   );
 }

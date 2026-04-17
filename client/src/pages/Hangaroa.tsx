@@ -204,13 +204,13 @@ export default function Hangaroa() {
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-golden-sunset_f7d26dab.webp"
         horizontalRatio="16/9"
-        bgColor="#1B2534"
+        bgColor="#536878"
         headline={"Moai Beneath\nthe Milky Way"}
         bodyText="On Rapa Nui, the ancient Moai stand sentinel beneath some of the most pristine night skies in the Southern Hemisphere. Far from any light pollution, the Milky Way blazes overhead in extraordinary detail. Discover the extraordinary nocturnal experiences across all Nayara properties."
         textSide="left"
       />
 
-      <Footer bgColor="#1B2534" />
+      <Footer bgColor="#536878" />
     </div>
   );
 }

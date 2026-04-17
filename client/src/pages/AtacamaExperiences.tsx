@@ -47,7 +47,7 @@ export default function AtacamaExperiences() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero />
       <ExperiencesContent />
-      <Footer pageType="property" bgColor="#3B2B26" />
+      <Footer pageType="property" bgColor="#6F463D" />
     </div>
   );
 }
