@@ -37,8 +37,9 @@ export const PILLARS = [
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
-  { label: "Regenerative Travel", route: "/sustainability" },
-  { label: "Romance or Family Fun", route: "/romance-or-family" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
+  { label: "Adults-Only", route: "/romance-or-family" },
+  { label: "Family-Friendly", route: "/romance-or-family" },
 ] as const;
 
 /* Romance or Family Fun — property categorization */
@@ -69,8 +70,9 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
-  { label: "Regenerative Travel", route: "/sustainability" },
-  { label: "Romance or Family Fun", route: "/romance-or-family" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
+  { label: "Adults-Only", route: "/romance-or-family" },
+  { label: "Family-Friendly", route: "/romance-or-family" },
   { label: "Nayara By Night", route: "/by-night" },
 ];
 

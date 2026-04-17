@@ -2232,3 +2232,8 @@
 - [x] Build ESG report sections for Bocas del Toro sustainability page (stats, narrative, pillars, timeline, certifications)
 - [x] Build ESG report sections for Hangaroa sustainability page (stats, narrative, pillars, timeline, certifications)
 - [x] Build ESG report sections for Alto Atacama sustainability page (stats, narrative, pillars, timeline, certifications)
+
+
+## Hamburger Menu Label Updates
+- [x] Split "Romance or Family Fun" into two separate items: "Adults-Only" and "Family-Friendly"
+- [x] Rename "Regenerative Travel" to "Beyond Sustainability"
