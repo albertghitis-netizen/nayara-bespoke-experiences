@@ -87,8 +87,6 @@ export const sustainabilityData: Record<string, {
         { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Full carbon neutrality achieved through measurement, reduction, and offsetting of all greenhouse gas emissions" },
         { value: 5000, suffix: "+", label: "Native Trees Planted", detail: "Large-scale reforestation transforming a barren cattle ranch into thriving rainforest" },
         { value: 900, suffix: "+", label: "Bird Species", detail: "Costa Rica is home to over 900 bird species, many found in the Arenal Volcano corridor" },
-        { value: 5, suffix: "", label: "On-Site Restaurants", detail: "Supplied by organic gardens using zero-kilometer food philosophy" },
-        { value: 3, suffix: "", label: "Properties Certified", detail: "Gardens, Springs, and Tented Camp — all Green Globe Certified in 2024" },
       ],
       pillars: [
         {
@@ -274,8 +272,6 @@ export const sustainabilityData: Record<string, {
         { value: 100, suffix: "%", label: "Water Reuse", detail: "Well water treated through reverse osmosis for consumption, then reused for irrigation — complete self-sufficiency in the world's driest desert" },
         { value: 1, suffix: "", label: "S Certification (GSTC)", detail: "The only luxury hotel in the Atacama region certified with the S Seal of Sustainable Tourism, internationally validated by the GSTC" },
         { value: 10000, suffix: "+", label: "Years of Human Adaptation", detail: "The Atacameño people have inhabited this desert for over 10,000 years — Nayara honors their legacy through cultural preservation and community partnerships" },
-        { value: 365, suffix: "", label: "Days of Sunshine", detail: "The Atacama's extreme solar exposure powers the resort's photovoltaic systems year-round, making solar energy the natural choice" },
-        { value: 0, suffix: "", label: "Grid Dependence Goal", detail: "Working toward full energy independence through expanded solar capacity and passive thermal design in the world's driest desert" },
       ],
       pillars: [
         {
@@ -436,8 +432,6 @@ export const sustainabilityData: Record<string, {
         { value: 100000, suffix: "", label: "Gallon Rainwater Capacity", detail: "Custom gutter systems collect rainfall into catchment basins holding up to 100,000 gallons, purified with advanced UV filtration" },
         { value: 50, suffix: "ft", label: "Treehouse Canopy Height", detail: "IBUKU-designed bamboo treehouses rise 50 feet above the forest floor, crafted from locally sourced bamboo and reclaimed Panama Canal wood" },
         { value: 0, suffix: "", label: "Grid Connection", detail: "The resort operates completely off-grid with custom-built water, power, and wastewater systems designed for the island" },
-        { value: 1, suffix: "st", label: "Floating Beach", detail: "The world's first floating beach, built on stilts to preserve the delicate mangrove and coral reef ecosystems below" },
-        { value: 1, suffix: "", label: "Green Globe Certification", detail: "Recognized with Green Globe Certification following extensive evaluation of environmental performance and sustainable construction" },
       ],
       pillars: [
         {
@@ -602,8 +596,6 @@ export const sustainabilityData: Record<string, {
         { value: 1000, suffix: "s", label: "Endemic Species Planted", detail: "Thousands of toromiro, mahute, and makoi planted annually to restore Rapa Nui's original ecosystem and provide habitat for native birds and insects" },
         { value: 100, suffix: "%", label: "Graywater Recycled", detail: "Wastewater treatment plant recycles all graywater for irrigation, conserving water and maintaining vibrant landscapes on the remote island" },
         { value: 3800, suffix: "km", label: "From Nearest Continent", detail: "One of the most remote inhabited islands on Earth \u2014 every resource decision carries extraordinary weight" },
-        { value: 3, suffix: "", label: "Endemic Species Restored", detail: "Toromiro, mahute, and makoi \u2014 three key endemic species being actively replanted to restore the island's pre-deforestation ecosystem" },
-        { value: 1, suffix: "", label: "Marine Protected Area", detail: "Supporting the Rapa Nui Marine Protected Area \u2014 one of the largest in the world, protecting the island's extraordinary marine biodiversity" },
       ],
       pillars: [
         {
