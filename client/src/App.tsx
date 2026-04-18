@@ -142,7 +142,7 @@ function Router() {
           {/* ── Internal / Private pages ── */}
           <Route path="/internal-brandbook" component={BrandBook} />
           <Route path="/internal-henry" component={HenryStandalone} />
-          <Route path="/internal-gallery" component={Gallery} />
+          <Route path="/gallery" component={Gallery} />
 
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

@@ -70,6 +70,7 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Nayara By Night", route: "/by-night" },
+  { label: "Gallery", route: "/gallery" },
 ];
 
 /* Nayara Journal column items */

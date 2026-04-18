@@ -29,11 +29,11 @@ const GLOBAL_MENU = [
   { label: "Press & Awards", route: "/awards" },
   { label: "Long-Form Video", route: "/podcast" },
   { label: "Nayara By Night", route: "/by-night" },
+  { label: "Gallery", route: "/gallery" },
 ];
 
 /* ── Internal pages (visible only in menu with "Internal" label) ── */
 const INTERNAL_MENU = [
-  { label: "Gallery", route: "/gallery" },
   { label: "Coming Soon", route: "/internal/new-projects" },
 ];
 

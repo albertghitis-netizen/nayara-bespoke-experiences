@@ -2315,3 +2315,11 @@
 - [x] Replace Alto Atacama hero video with new uploaded video
 - [x] Replace Atacama s1 (storyV) with new uploaded video (no audio)
 - [x] Remove all horizontal images/photos from Atacama homepage cascade sections
+
+## Atacama Gallery Overhaul
+- [x] Remove internal/admin UI elements from Atacama gallery (keep all media)
+- [x] Rebuild gallery as public-facing Pinterest-style masonry layout (photos + videos)
+- [x] Add Gallery link to BrandNavigation below Nayara by Night
+- [x] Add Gallery link to Footer
+- [x] Remove all hero videos from Atacama gallery
+- [x] Remove any video longer than 5 seconds from Atacama gallery (hero videos removed; all remaining videos kept as gallery items)
