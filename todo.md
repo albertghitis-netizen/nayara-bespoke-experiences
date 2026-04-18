@@ -2310,3 +2310,6 @@
 - [x] Fix Gardens subpages (Experiences, Gastronomy, Rooms, Sustainability, Wellness) — add bgColor=#525642
 - [x] Fix Springs subpages (Experiences, Gastronomy, Rooms, Sustainability, Wellness) — add bgColor=#3B6E7B
 - [x] Fix TentedCamp subpages (Experiences, Gastronomy, Sustainability, Wellness, Rooms) — add bgColor=#868B75
+
+## New Atacama Hero Video
+- [x] Replace Alto Atacama hero video with new uploaded video
