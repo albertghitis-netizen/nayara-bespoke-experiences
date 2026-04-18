@@ -150,6 +150,7 @@ function MediaBlock({
   alt?: string;
   className?: string;
 }) {
+  if (!src) return null;
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
       {isVideo ? (
@@ -581,8 +582,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Accommodations",
     headline: "Life Under\nCanvas",
     body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.",
-    verticalSrc: ASSETS.roomsV,
-    horizontalSrc: ASSETS.roomsH,
+    verticalSrc: "",
+    horizontalSrc: "",
     verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",

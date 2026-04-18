@@ -2347,3 +2347,4 @@
 - [ ] Fix Atacama cascade — restore horizontal images on desktop, only hide on mobile
 - [x] Restore horizontal images on desktop in Atacama CascadeSection (only removed on mobile was intended)
 - [x] Remove floating vertical video in brown rectangle at bottom of Atacama page
+- [x] Remove all imagery from "Life Under Canvas" section on Tented Camp (keep section structure)
