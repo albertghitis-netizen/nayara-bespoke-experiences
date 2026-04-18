@@ -39,7 +39,6 @@ export const springsGallery: GalleryItem[] = [
   { id: "spr-vid1", src: `${CDN}/CCD6CF80-5F62-40B5-B82A-119D31106C0D_635597b5.mp4`, alt: "Nature video", type: "video", orientation: "portrait", tags: ["nature"] },
   { id: "spr-pools", src: `${CDN}/springs-s1-pools_8e255e18.png`, alt: "Springs plunge pools", type: "image", orientation: "landscape", tags: ["pools"] },
   { id: "spr-plunge", src: `${CDN}/springs-plunge-pool_e5f6a7b8.jpg`, alt: "Private plunge pool", type: "image", orientation: "landscape", tags: ["pools"] },
-  { id: "spr-img8113", src: `${CDN}/IMG_8113_311fa15c.jpeg`, alt: "Costa Rica nature", type: "image", orientation: "landscape", tags: ["nature", "shared-cr"] },
   { id: "spr-design", src: `${CDN}/Untitleddesign_9702d152.JPEG`, alt: "Nayara property", type: "image", orientation: "landscape", tags: ["property"] },
   // Shared CR assets (Springs ONLY)
   { id: "cr-bird-hero", src: `${CDN}/bird-watching-hero_ddf4b8c3.jpg`, alt: "Bird watching", type: "image", orientation: "landscape", tags: ["experiences", "shared-cr"] },
@@ -57,16 +56,12 @@ export const springsGallery: GalleryItem[] = [
   { id: "cr-yoga", src: `${CDN}/yoga-photo_3b789b60.jpg`, alt: "Yoga in nature", type: "image", orientation: "landscape", tags: ["wellness", "shared-cr"] },
   { id: "cr-canyon", src: `${CDN}/canyoneering-photo_d3d8461c.jpg`, alt: "Canyoneering", type: "image", orientation: "landscape", tags: ["experiences", "shared-cr"] },
   { id: "cr-wildlife", src: `${CDN}/wildlife-reel_7c30f53f.mp4`, alt: "Wildlife reel", type: "video", orientation: "portrait", tags: ["wildlife", "shared-cr"] },
-  { id: "cr-hs-hero", src: `${CDN}/hot-springs-hero_a60a0e92.jpg`, alt: "Hot springs", type: "image", orientation: "landscape", tags: ["wellness", "shared-cr"] },
   { id: "cr-hs-h", src: `${CDN}/hot-springs-horizontal_2508b725.mp4`, alt: "Hot springs video", type: "video", orientation: "landscape", tags: ["wellness", "shared-cr"] },
   { id: "cr-hs-v", src: `${CDN}/hot-springs-vertical_52b2b6ec.mp4`, alt: "Hot springs vertical", type: "video", orientation: "portrait", tags: ["wellness", "shared-cr"] },
   { id: "cr-spa", src: `${CDN}/costa-rica-spa-springs_89d85927.mp4`, alt: "Spa at Springs", type: "video", orientation: "landscape", tags: ["wellness", "shared-cr"] },
   { id: "cr-00d0-h", src: `${CDN}/video-00d0-horizontal_c856b795.mp4`, alt: "Costa Rica scenic", type: "video", orientation: "landscape", tags: ["nature", "shared-cr"] },
   { id: "cr-00d0-v", src: `${CDN}/video-00d0-vertical_5ef512b3.mp4`, alt: "Costa Rica scenic vertical", type: "video", orientation: "portrait", tags: ["nature", "shared-cr"] },
-  { id: "cr-6253", src: `${CDN}/IMG_6253_ffc4f157.PNG`, alt: "Costa Rica nature", type: "image", orientation: "portrait", tags: ["nature", "shared-cr"] },
-  { id: "cr-8113", src: `${CDN}/IMG_8113_9e8e2ecc.jpeg`, alt: "Costa Rica landscape", type: "image", orientation: "landscape", tags: ["nature", "shared-cr"] },
   { id: "cr-spa-c", src: `${CDN}/spa-springs-compressed_4f2eb97d.mp4`, alt: "Spa compressed", type: "video", orientation: "landscape", tags: ["wellness", "shared-cr"] },
-  { id: "cr-spa-kids", src: `${CDN}/spa-kids-robes_57409a94.jpg`, alt: "Kids in spa robes", type: "image", orientation: "landscape", tags: ["wellness", "shared-cr"] },
 ];
 
 /* ═══════════════════════════════════════════════════════════════

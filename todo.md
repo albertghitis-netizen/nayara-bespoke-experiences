@@ -2324,3 +2324,6 @@
 - [x] Remove all hero videos from Atacama gallery
 - [x] Remove any video longer than 5 seconds from Atacama gallery (hero videos removed; all remaining videos kept as gallery items)
 - [x] Remove Michelin 3 Keys image from gallery
+- [x] Remove spa kids in robes image from gallery
+- [x] Remove Costa Rica nature image from gallery
+- [x] Remove property grouping/sorting from gallery — mix all items into one shuffled masonry grid

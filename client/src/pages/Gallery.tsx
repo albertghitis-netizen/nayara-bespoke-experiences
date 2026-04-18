@@ -1,8 +1,8 @@
 /**
  * NAYARA GALLERY — Public-Facing Pinterest Masonry
- * Uses curated gallery.ts data across all properties.
- * Filters out hero-tagged items and videos over 5 seconds.
- * BrandNavigation + Footer integrated.
+ * All properties mixed together in one shuffled grid.
+ * No sorting, no grouping — just a beautiful jumble.
+ * Filters out hero-tagged items, awards, brand logos.
  */
 
 import { useState, useCallback, useMemo, useRef, useEffect } from "react";
@@ -16,42 +16,49 @@ import {
   tentedCampGallery,
   gardensGallery,
   hangaroaGallery,
-  brandGallery,
   type GalleryItem,
 } from "@/data/gallery";
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
-/* ─── Property metadata ─── */
-const PROPERTY_SECTIONS = [
-  { key: "springs", label: "Nayara Springs", color: "#3B6E7B", items: springsGallery },
-  { key: "gardens", label: "Nayara Gardens", color: "#525642", items: gardensGallery },
-  { key: "tented-camp", label: "Nayara Tented Camp", color: "#868B75", items: tentedCampGallery },
-  { key: "atacama", label: "Nayara Alto Atacama", color: "#6F463D", items: atacamaGallery },
-  { key: "bocas", label: "Nayara Bocas del Toro", color: "#008E97", items: bocasGallery },
-  { key: "hangaroa", label: "Nayara Hangaroa", color: "#536878", items: hangaroaGallery },
-] as const;
+/* ─── Deterministic shuffle (seeded) so layout is stable across renders ─── */
+function seededShuffle<T>(arr: T[], seed: number): T[] {
+  const result = [...arr];
+  let s = seed;
+  for (let i = result.length - 1; i > 0; i--) {
+    s = (s * 16807 + 0) % 2147483647;
+    const j = s % (i + 1);
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
 
-type FilterKey = "all" | string;
-
-/* ─── Filter: remove hero tags and long videos ─── */
+/* ─── Filter: remove hero, awards, brand/logo items ─── */
 function filterGalleryItems(items: readonly GalleryItem[]): GalleryItem[] {
   return items.filter((item) => {
-    // Remove hero-tagged items
     if (item.tags.includes("hero")) return false;
-    // Remove brand logos/icons
     if (item.tags.includes("brand") || item.tags.includes("logo")) return false;
-    // Remove awards badges (Michelin 3 Keys, etc.)
     if (item.tags.includes("awards")) return false;
     return true;
   });
 }
 
+/* ─── Collect all items from all properties, filter, and shuffle ─── */
+const ALL_RAW = [
+  ...springsGallery,
+  ...gardensGallery,
+  ...tentedCampGallery,
+  ...atacamaGallery,
+  ...bocasGallery,
+  ...hangaroaGallery,
+];
+const ALL_FILTERED = filterGalleryItems(ALL_RAW);
+const ALL_SHUFFLED = seededShuffle(ALL_FILTERED, 42);
+
 /* ─── Video Tile with autoplay on hover ─── */
 function VideoTile({ item, onClick }: { item: GalleryItem; onClick: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [loaded, setLoaded] = useState(false);
 
   return (
     <div
@@ -72,7 +79,6 @@ function VideoTile({ item, onClick }: { item: GalleryItem; onClick: () => void }
         playsInline
         muted
         loop
-        onLoadedData={() => setLoaded(true)}
         className="w-full h-auto block"
       />
       {/* Play icon overlay */}
@@ -203,56 +209,18 @@ function Lightbox({
 
 /* ─── Main Gallery Page ─── */
 export default function Gallery() {
-  const [filter, setFilter] = useState<FilterKey>("all");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
-  // Build flat list of all filtered items
-  const allItems = useMemo(() => {
-    const sections = filter === "all"
-      ? PROPERTY_SECTIONS
-      : PROPERTY_SECTIONS.filter((s) => s.key === filter);
+  const items = ALL_SHUFFLED;
 
-    return sections.flatMap((s) =>
-      filterGalleryItems(s.items).map((item) => ({ ...item, propertyKey: s.key, propertyLabel: s.label, propertyColor: s.color }))
-    );
-  }, [filter]);
-
-  // Grouped for display
-  const grouped = useMemo(() => {
-    const groups: { key: string; label: string; color: string; items: typeof allItems }[] = [];
-    const map = new Map<string, typeof allItems>();
-
-    for (const item of allItems) {
-      if (!map.has(item.propertyKey)) map.set(item.propertyKey, []);
-      map.get(item.propertyKey)!.push(item);
-    }
-
-    for (const section of PROPERTY_SECTIONS) {
-      const items = map.get(section.key);
-      if (items && items.length > 0) {
-        groups.push({ key: section.key, label: section.label, color: section.color, items });
-      }
-    }
-    return groups;
-  }, [allItems]);
-
-  // Flat index for lightbox navigation
-  const flatItems = useMemo(() => grouped.flatMap((g) => g.items), [grouped]);
-
-  const openLightbox = useCallback((item: GalleryItem) => {
-    const idx = flatItems.findIndex((fi) => fi.id === item.id);
-    setLightboxIdx(idx >= 0 ? idx : null);
-  }, [flatItems]);
-
+  const openLightbox = useCallback((idx: number) => setLightboxIdx(idx), []);
   const closeLightbox = useCallback(() => setLightboxIdx(null), []);
   const prevLightbox = useCallback(() => {
-    setLightboxIdx((i) => (i !== null ? (i - 1 + flatItems.length) % flatItems.length : null));
-  }, [flatItems.length]);
+    setLightboxIdx((i) => (i !== null ? (i - 1 + items.length) % items.length : null));
+  }, [items.length]);
   const nextLightbox = useCallback(() => {
-    setLightboxIdx((i) => (i !== null ? (i + 1) % flatItems.length : null));
-  }, [flatItems.length]);
-
-  const totalCount = allItems.length;
+    setLightboxIdx((i) => (i !== null ? (i + 1) % items.length : null));
+  }, [items.length]);
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
@@ -280,100 +248,34 @@ export default function Gallery() {
         </motion.p>
       </section>
 
-      {/* Filter pills */}
-      <section className="px-6 md:px-10 pb-8 max-w-[1400px] mx-auto">
-        <div className="flex flex-wrap justify-center gap-2">
-          <button
-            onClick={() => setFilter("all")}
-            className={`px-4 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase transition-all ${
-              filter === "all"
-                ? "bg-[#3B2B26] text-white"
-                : "bg-stone-200/80 text-stone-500 hover:bg-stone-300"
-            }`}
-            style={{ ...body, fontWeight: 500 }}
-          >
-            All ({totalCount})
-          </button>
-          {PROPERTY_SECTIONS.map((s) => {
-            const count = filterGalleryItems(s.items).length;
-            if (count === 0) return null;
-            return (
-              <button
-                key={s.key}
-                onClick={() => setFilter(s.key)}
-                className={`px-4 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase transition-all ${
-                  filter === s.key
-                    ? "text-white"
-                    : "bg-stone-200/80 text-stone-500 hover:bg-stone-300"
-                }`}
-                style={{
-                  ...body,
-                  fontWeight: 500,
-                  backgroundColor: filter === s.key ? s.color : undefined,
-                }}
-              >
-                {s.label.replace("Nayara ", "")} ({count})
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Masonry grid — Pinterest style */}
-      <section className="px-4 md:px-8 pb-20 max-w-[1400px] mx-auto">
-        {grouped.length === 0 ? (
-          <div className="text-center py-20">
-            <p className="text-stone-400 text-lg" style={display}>
-              No items match your selection
-            </p>
-          </div>
-        ) : (
-          grouped.map((group) => (
-            <div key={group.key} className="mb-14">
-              {/* Property heading */}
-              <div className="flex items-center gap-3 mb-6 px-2">
-                <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: group.color }} />
-                <h2
-                  className="text-lg md:text-xl text-[#3B2B26] tracking-wide"
-                  style={display}
-                >
-                  {group.label}
-                </h2>
-                <span className="text-stone-400 text-[11px] tracking-wider" style={body}>
-                  {group.items.length} items
-                </span>
-              </div>
-
-              {/* Masonry columns */}
-              <div
-                className="gap-3 md:gap-4"
-                style={{
-                  columnCount: typeof window !== "undefined" && window.innerWidth < 640 ? 2 : window.innerWidth < 1024 ? 3 : 4,
-                  columnGap: "0.75rem",
-                }}
-              >
-                {group.items.map((item) => (
-                  <div key={item.id} className="break-inside-avoid mb-3 md:mb-4">
-                    {item.type === "video" ? (
-                      <VideoTile item={item} onClick={() => openLightbox(item)} />
-                    ) : (
-                      <ImageTile item={item} onClick={() => openLightbox(item)} />
-                    )}
-                  </div>
-                ))}
-              </div>
+      {/* Single flat masonry grid — no grouping, no sorting */}
+      <section className="px-3 md:px-6 pb-20 max-w-[1400px] mx-auto">
+        <div
+          className="gap-3 md:gap-4"
+          style={{
+            columnCount: typeof window !== "undefined" && window.innerWidth < 640 ? 2 : window.innerWidth < 1024 ? 3 : 4,
+            columnGap: "0.75rem",
+          }}
+        >
+          {items.map((item, idx) => (
+            <div key={item.id} className="break-inside-avoid mb-3 md:mb-4">
+              {item.type === "video" ? (
+                <VideoTile item={item} onClick={() => openLightbox(idx)} />
+              ) : (
+                <ImageTile item={item} onClick={() => openLightbox(idx)} />
+              )}
             </div>
-          ))
-        )}
+          ))}
+        </div>
       </section>
 
       <Footer pageType="brand" />
 
       {/* Lightbox */}
       <AnimatePresence>
-        {lightboxIdx !== null && flatItems[lightboxIdx] && (
+        {lightboxIdx !== null && items[lightboxIdx] && (
           <Lightbox
-            item={flatItems[lightboxIdx]}
+            item={items[lightboxIdx]}
             onClose={closeLightbox}
             onPrev={prevLightbox}
             onNext={nextLightbox}
