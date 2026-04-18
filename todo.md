@@ -2376,5 +2376,7 @@
 - [x] Restore auto-scroll "Start Your Adventure" on Alto Atacama page (speed=1.35)
 - [x] Replace Atacama cascade with single continuous video playing through all H→V media slots (Property through last A Taste of Place H), CSS object-fit:cover to eliminate letterbox bars
 - [x] Flip cascade layout: H on top, V+Text below (desktop)
-- [x] Swap Wellness H (massage photo) with gastroH (food photo)
-- [x] A Taste of Place: hideH=true, V+Text only (no horizontal on top)
+- [x] Swap Wellness H back to wellness video clip (not food photo)
+- [x] A Taste of Place: H (gastroH food photo) on top, V (gastroV food photo) below — standard H→V layout
+- [x] Fix black bars/letterboxing on Atacama cascade videos — ffmpeg crop to clean 16:9 H and 3:4 V clips
+- [x] RULE: No black in any images or videos on any page, ever (letterbox bars, black borders, etc. must be eliminated). Backgrounds are fine. Exception: Nayara by Night.

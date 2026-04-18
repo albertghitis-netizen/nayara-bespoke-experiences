@@ -69,33 +69,33 @@ const ASSETS = {
   heroDesktop: `${CDN}/atacama-hero-new-full_f456455a.mp4`,
   heroMobile: `${CDN}/atacama-hero-new_96783d81.mp4`,
 
-  // Section 1 — Story: cascade desert aerial (letterboxed 9:16 → CSS crops to 3/4 & 16/9)
-  storyV: `${CDN}/atacama-cascade-s1-desert_e7ec70ab.mp4`,
-  storyH: `${CDN}/atacama-cascade-s1-desert_e7ec70ab.mp4`,
+  // Section 1 — Story: cascade desert aerial (cropped, no black bars)
+  storyV: `${CDN}/atacama-cascade-s1-desert-cropped-v_7069a95f.mp4`,
+  storyH: `${CDN}/atacama-cascade-s1-desert-cropped-h_cf1e8c8e.mp4`,
   storyV_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-new_7b2948d2.mp4",
   storyH_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-horizontal-1_618b6dd9.mp4",
 
-  // Section 2 — Rooms: cascade hotel property aerial (letterboxed 9:16 → CSS crops)
-  roomsV: `${CDN}/atacama-cascade-s2-property_fa020ca5.mp4`,
-  roomsH: `${CDN}/atacama-cascade-s2-property_fa020ca5.mp4`,
+  // Section 2 — Rooms: cascade hotel property aerial (cropped, no black bars)
+  roomsV: `${CDN}/atacama-cascade-s2-property-cropped-v_f291037d.mp4`,
+  roomsH: `${CDN}/atacama-cascade-s2-property-cropped-h_1f603858.mp4`,
   roomsV_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-desert-suites-vertical_a742ab8f.mp4",
   roomsH_old: `${CDN}/atacama-ultrawide-5_aeeaded2.jpg`,
 
-  // Section 3 — Experiences: cascade salt flat (letterboxed 9:16 → CSS crops)
-  expV: `${CDN}/atacama-cascade-s3-saltflat_f7b13775.mp4`,
-  expH: `${CDN}/atacama-cascade-s3-saltflat_f7b13775.mp4`,
+  // Section 3 — Experiences: cascade salt flat (cropped, no black bars)
+  expV: `${CDN}/atacama-cascade-s3-saltflat-cropped-v_06168dd1.mp4`,
+  expH: `${CDN}/atacama-cascade-s3-saltflat-cropped-h_ae543edc.mp4`,
   expV_old: `${CDN}/atacama-blue-saltflat-vertical_f1956a87.mp4`,
   expH_old: `${CDN}/atacama-ultrawide-4_bba8d87c.jpg`,
 
-  // Section 4 — Sustainability: cascade flamingos (letterboxed 9:16 → CSS crops)
-  susV: `${CDN}/atacama-cascade-s4-flamingos_84e64cd4.mp4`,
-  susH: `${CDN}/atacama-cascade-s4-flamingos_84e64cd4.mp4`,
+  // Section 4 — Sustainability: cascade flamingos (cropped, no black bars)
+  susV: `${CDN}/atacama-cascade-s4-flamingos-cropped-v_5fde45bc.mp4`,
+  susH: `${CDN}/atacama-cascade-s4-flamingos-cropped-h_b62a70fb.mp4`,
   susV_old: `${CDN}/atacama-milkyway-arch_d146b04d.jpg`,
   susH_old: `https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/flamingos-atacama_76e1d3e0.jpg`,
 
-  // Section 5 — Wellness: cascade spa/wellness (letterboxed 9:16 → CSS crops)
-  wellV: `${CDN}/atacama-cascade-s5-wellness_b119b52c.mp4`,
-  wellH: `${CDN}/atacama-cascade-s5-wellness_b119b52c.mp4`,
+  // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
+  wellV: `${CDN}/atacama-cascade-s5-wellness-cropped-v_4a87f73c.mp4`,
+  wellH: `${CDN}/atacama-cascade-s5-wellness-cropped-h_700e10be.mp4`,
   wellV_old: `${CDN}/atacama-geyser-eruption-vertical_5c93579c.mp4`,
   wellH_old: `${CDN}/atacama-ultrawide-3_36588f6c.jpg`,
 
@@ -174,33 +174,18 @@ function MediaBlock({
   alt,
   isVideo,
   aspectRatio,
-  letterboxed,
 }: {
   src: string;
   alt: string;
   isVideo: boolean;
   aspectRatio: string;
-  /** When true, the source is 9:16 with letterboxed 16:9 content.
-   *  We scale up ~180% and crop via overflow:hidden so only the
-   *  actual footage is visible, eliminating the black bars. */
-  letterboxed?: boolean;
 }) {
-  /* For letterboxed 9:16 videos displayed in 16:9 or 3:4 containers,
-     we need to scale up significantly so the actual content fills the
-     container and the black bars are pushed outside the overflow. */
-  const videoClass = letterboxed
-    ? "w-full h-full object-cover scale-[2.2] origin-center"
-    : "w-full h-full object-cover";
-  const imgClass = letterboxed
-    ? "w-full h-full object-cover scale-[2.2] origin-center"
-    : "w-full h-full object-cover";
-
   return (
     <div className="overflow-hidden w-full" style={{ aspectRatio }}>
       {isVideo ? (
-        <NativeVideo src={src} className={videoClass} />
+        <NativeVideo src={src} className="w-full h-full object-cover" />
       ) : (
-        <img src={src} alt={alt} className={imgClass} loading="lazy" />
+        <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
       )}
     </div>
   );
@@ -226,7 +211,6 @@ function CascadeSection({
   blogLink,
   blogLinkLabel,
   badges,
-  letterboxed,
   hideH,
 }: {
   label: string;
@@ -245,7 +229,6 @@ function CascadeSection({
   blogLink?: string;
   blogLinkLabel?: string;
   badges?: boolean;
-  letterboxed?: boolean;
   hideH?: boolean;
 }) {
   const VerticalMedia = (
@@ -254,7 +237,6 @@ function CascadeSection({
       alt={headline}
       isVideo={verticalIsVideo}
       aspectRatio={verticalRatio}
-      letterboxed={letterboxed}
     />
   );
 
@@ -264,7 +246,6 @@ function CascadeSection({
       alt={headline}
       isVideo={horizontalIsVideo}
       aspectRatio={horizontalRatio}
-      letterboxed={letterboxed}
     />
   );
 
@@ -378,7 +359,6 @@ const CASCADE_SECTIONS = [
     description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
     vSrc: ASSETS.storyV, hSrc: ASSETS.storyH,
     vVideo: true, hVideo: true,
-    letterboxed: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     link: undefined, linkLabel: undefined,
@@ -392,7 +372,6 @@ const CASCADE_SECTIONS = [
     description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
     vSrc: ASSETS.roomsV, hSrc: ASSETS.roomsH,
     vVideo: true, hVideo: true,
-    letterboxed: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
@@ -404,7 +383,6 @@ const CASCADE_SECTIONS = [
     description: "From sunrise salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is led by expert local guides who reveal the Atacama's hidden wonders.",
     vSrc: ASSETS.expV, hSrc: ASSETS.expH,
     vVideo: true, hVideo: true,
-    letterboxed: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     link: "/alto-atacama/experiences", linkLabel: "Explore More",
@@ -416,7 +394,6 @@ const CASCADE_SECTIONS = [
     description: "Our commitment to the Atacama goes beyond hospitality. We protect fragile ecosystems, support local communities, and operate with minimal environmental impact in one of Earth's most delicate landscapes.",
     vSrc: ASSETS.susV, hSrc: ASSETS.susH,
     vVideo: true, hVideo: true,
-    letterboxed: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/sustainability", linkLabel: "Explore More",
@@ -426,9 +403,8 @@ const CASCADE_SECTIONS = [
     label: "Wellness",
     headline: "Geothermal Healing",
     description: "Harness the healing power of the desert \u2014 from volcanic mud rituals to salt crystal therapies, each treatment draws on the Atacama's ancient minerals and infinite stillness.",
-    vSrc: ASSETS.wellV, hSrc: ASSETS.gastroH,
-    vVideo: true, hVideo: false,
-    letterboxed: true,
+    vSrc: ASSETS.wellV, hSrc: ASSETS.wellH,
+    vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     link: "/alto-atacama/wellness", linkLabel: "Explore More",
@@ -438,9 +414,8 @@ const CASCADE_SECTIONS = [
     label: "A Taste of Place",
     headline: "Desert Dining",
     description: "Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine \u2014 from quinoa harvested at altitude to herbs cultivated in our desert gardens. Each dish tells the story of this ancient landscape.",
-    vSrc: ASSETS.gastroV, hSrc: ASSETS.gastroV,
+    vSrc: ASSETS.gastroV, hSrc: ASSETS.gastroH,
     vVideo: false, hVideo: false,
-    hideH: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/gastronomy", linkLabel: "Explore More",
@@ -486,7 +461,6 @@ export default function AltoAtacama() {
           blogLink={(section as any).blogLink}
           blogLinkLabel={(section as any).blogLinkLabel}
           badges={section.badges}
-          letterboxed={(section as any).letterboxed}
           hideH={(section as any).hideH}
         />
       ))}

@@ -135,12 +135,12 @@ export default function NativeVideo({
 
       {/* Loading placeholder */}
       {!isLoaded && !hasError && (
-        <div className={`${className} absolute inset-0 bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900 animate-pulse`} />
+        <div className={`${className} absolute inset-0 bg-gradient-to-br from-stone-300 via-stone-200 to-stone-400 animate-pulse`} />
       )}
 
       {/* Error fallback */}
       {hasError && (
-        <div className={`${className} absolute inset-0 bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900`} />
+        <div className={`${className} absolute inset-0 bg-gradient-to-br from-stone-300 via-stone-200 to-stone-400`} />
       )}
 
       {/* Mute / Unmute pill — top-left, aligned right of hamburger */}
