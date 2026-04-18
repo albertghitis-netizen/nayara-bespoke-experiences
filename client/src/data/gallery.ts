@@ -61,7 +61,6 @@ export const springsGallery: GalleryItem[] = [
   { id: "cr-spa", src: `${CDN}/costa-rica-spa-springs_89d85927.mp4`, alt: "Spa at Springs", type: "video", orientation: "landscape", tags: ["wellness", "shared-cr"] },
   { id: "cr-00d0-h", src: `${CDN}/video-00d0-horizontal_c856b795.mp4`, alt: "Costa Rica scenic", type: "video", orientation: "landscape", tags: ["nature", "shared-cr"] },
   { id: "cr-00d0-v", src: `${CDN}/video-00d0-vertical_5ef512b3.mp4`, alt: "Costa Rica scenic vertical", type: "video", orientation: "portrait", tags: ["nature", "shared-cr"] },
-  { id: "cr-spa-c", src: `${CDN}/spa-springs-compressed_4f2eb97d.mp4`, alt: "Spa compressed", type: "video", orientation: "landscape", tags: ["wellness", "shared-cr"] },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -115,7 +114,6 @@ export const bocasGallery: GalleryItem[] = [
   { id: "boc-136", src: `${CDN}/136_350b411d.jpg`, alt: "Sunset panorama", type: "image", orientation: "landscape", tags: ["sunset"] },
   { id: "boc-139", src: `${CDN}/139_c6e2d973.jpg`, alt: "Villa at dusk", type: "image", orientation: "landscape", tags: ["property"] },
   { id: "boc-aerial2", src: `${CDN}/bocas-aerial_ff3a4ff3.jpg`, alt: "Bocas aerial view", type: "image", orientation: "landscape", tags: ["property"] },
-  { id: "boc-bungalow", src: `${CDN}/bocas-bungalow_f4de28d6.jpg`, alt: "Bocas bungalow", type: "image", orientation: "landscape", tags: ["property"] },
   { id: "boc-overwater", src: `${CDN}/bocas-overwater_f9b09985.jpg`, alt: "Overwater villa", type: "image", orientation: "landscape", tags: ["property"] },
   { id: "boc-sunset2", src: `${CDN}/bocas-sunset_2eeaa785.jpg`, alt: "Bocas sunset", type: "image", orientation: "landscape", tags: ["sunset"] },
   { id: "boc-villa-couple", src: `${CDN}/bocas-overwater-villa-couple_ff0c8415.jpg`, alt: "Overwater villa with couple and plunge pool", type: "image", orientation: "portrait", tags: ["rooms", "lifestyle"] },
@@ -175,7 +173,6 @@ export const hangaroaGallery: GalleryItem[] = [
   { id: "han-s1", src: `${CDN}/RapaNui2(1)_179dfb19.jpeg`, alt: "Rapa Nui landscape", type: "image", orientation: "landscape", tags: ["story", "s1"] },
   { id: "han-s2", src: `${CDN}/Untitleddesign-20_b052852b.jpg`, alt: "Easter Island sunset", type: "image", orientation: "landscape", tags: ["story", "s2"] },
   { id: "han-s3", src: `${CDN}/NH_45_42b93d04.JPG`, alt: "Room interior", type: "image", orientation: "portrait", tags: ["rooms", "s3"] },
-  { id: "han-s4", src: `${CDN}/han-hero-d_0bf06c29.mp4`, alt: "Property grounds", type: "video", orientation: "landscape", tags: ["rooms", "s4"] },
   { id: "han-moai", src: `${CDN}/Untitleddesign-16_aa3fc296.JPG`, alt: "Moai at sunset", type: "image", orientation: "landscape", tags: ["culture"] },
   { id: "han-coast", src: `${CDN}/Untitleddesign-21_c15d07fa.JPG`, alt: "Easter Island coast", type: "image", orientation: "landscape", tags: ["nature"] },
   { id: "han-volcanic", src: `${CDN}/Untitleddesign-22_3f8e6011.JPG`, alt: "Volcanic landscape", type: "image", orientation: "landscape", tags: ["nature"] },

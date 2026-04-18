@@ -2331,3 +2331,7 @@
 ## Nayara by Night Relocation
 - [x] Remove Nayara by Night from all property pages and cascades
 - [x] Add Nayara by Night section to brand homepage (Home.tsx)
+- [x] Remove Bocas bungalow from gallery
+- [x] Remove spa compressed from gallery
+- [x] Remove all duplicate entries from gallery (han-s4 was duplicate of han-hero-d)
+- [x] Remove before/after shots from gallery (none found in data)
