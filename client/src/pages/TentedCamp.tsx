@@ -932,15 +932,10 @@ export default function TentedCamp() {
       <BrandNavigation pageType="property" />
       <HeroSection />
 
-      {/* Cascade: Story → Rooms → Experiences → Wellness */}
+      {/* Cascade: Story → Rooms → Experiences → Wellness → Gastronomy */}
       {SECTIONS_BEFORE_REVIEW.map((section, i) => (
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
-
-      {/* ★ Functional break: Reviews */}
-      <ReviewsBreak bgColor={SECTION_COLORS[5]} />
-
-      {/* Cascade: Gastronomy → Wildlife */}
       {SECTIONS_AFTER_REVIEW.map((section, i) => (
         <CascadeSection
           key={section.id}
@@ -949,11 +944,11 @@ export default function TentedCamp() {
         />
       ))}
 
-      {/* ── TRIMMED: Journal, Adventure/Spa, Getting Here, Gallery cascade hidden for performance ── */}
-      {/* <JournalBreak bgColor={SECTION_COLORS[7]} /> */}
-      {/* {SECTIONS_AFTER_JOURNAL.map(...)} */}
-      {/* <GettingHereBreak bgColor={SECTION_COLORS[9]} /> */}
-      {/* {SECTIONS_GALLERY.map(...)} */}
+      {/* ★ Reviews below Gastronomy */}
+      <ReviewsBreak bgColor={SECTION_COLORS[6]} />
+
+      {/* ★ Getting Here below Reviews */}
+      <GettingHereBreak bgColor={SECTION_COLORS[7]} />
 
 
       <Footer bgColor="#868B75" />

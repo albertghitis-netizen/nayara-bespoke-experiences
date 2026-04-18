@@ -2,19 +2,19 @@
  * ATACAMA SUSTAINABILITY — Dedicated sustainability sub-page
  * Accessible from Alto Atacama home via "Explore More" CTA
  * Uses Atacama "Mars" palette and motion system
+ * S Certification for Atacama
  */
 
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import {
   AnimateOnScroll,
-  StaggerOnScroll,
   TextReveal,
   fadeUp,
-  staggerContainer,
 } from "@/components/motion";
 
 const PALETTE = {
@@ -36,31 +36,13 @@ const CDN = {
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
-const initiatives = [
-  {
-    title: "Desert Preservation",
-    desc: "Protecting the Atacama's unique ecosystem through sustainable tourism practices and habitat conservation programs.",
-  },
-  {
-    title: "Water Stewardship",
-    desc: "Minimizing water usage in the world's driest desert through advanced recycling and conservation technologies.",
-  },
-  {
-    title: "Community Support",
-    desc: "Supporting local communities through employment, education, and cultural preservation initiatives in the Atacama region.",
-  },
-  {
-    title: "Carbon Neutral Operations",
-    desc: "Committed to carbon neutrality through renewable energy, waste reduction, and offset programs.",
-  },
-];
-
 export default function AtacamaSustainability() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
-      <SustainabilityContent />
+      <SCertificationSection />
+      <JournalSection />
       <Footer pageType="property" bgColor="#6F463D" />
     </div>
   );
@@ -96,41 +78,96 @@ function SustainabilityHero() {
   );
 }
 
-function SustainabilityContent() {
+function SCertificationSection() {
   return (
     <section className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
       <div className={maxW}>
-        <StaggerOnScroll
-          variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12"
-        >
-          {initiatives.map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="pl-6"
-              style={{ borderLeft: `2px solid ${PALETTE.primary}30` }}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textTertiary }}
+          >
+            Certification
+          </p>
+          <h2
+            className="text-2xl md:text-3xl mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            S Certification
+          </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Nayara Alto Atacama holds S Certification — Chile's national standard for sustainable tourism,
+            recognizing our commitment to environmental stewardship, cultural preservation, and responsible
+            operations in one of the world's most fragile ecosystems. This certification reflects our ongoing
+            dedication to protecting the Atacama Desert while delivering exceptional guest experiences.
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <div className="mt-12">
+            <Link
+              href="/journal"
+              className="inline-flex items-center gap-2 text-[12px] tracking-[0.1em] transition-colors"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: `${PALETTE.primary}90` }}
             >
-              <h3
-                className="text-[17px] mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
-              >
-                {item.title}
-              </h3>
-              <p
-                className="text-[14px] leading-[1.7]"
-                style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
-              >
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
+              Read: S Certification at Nayara Alto Atacama
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </AnimateOnScroll>
 
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
           <div className="mt-16">
             <PillarCrossLink pillar="sustainability" />
           </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+function JournalSection() {
+  return (
+    <section
+      className="py-16 md:py-24 px-6 md:px-10"
+      style={{ backgroundColor: PALETTE.gradientEnd }}
+    >
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textTertiary }}
+          >
+            From Nayara Journal
+          </p>
+          <h3
+            className="text-xl md:text-2xl mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            Stories of Stewardship
+          </h3>
+          <p
+            className="text-[14px] leading-[1.7] max-w-[600px] mb-8"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Explore our journal for deeper stories about conservation, community, and the people behind
+            Nayara's sustainability efforts across all our destinations.
+          </p>
+          <Link
+            href="/journal"
+            className="inline-flex items-center gap-2 text-[12px] tracking-[0.1em] transition-colors"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: `${PALETTE.primary}90` }}
+          >
+            Explore Nayara Journal
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
         </AnimateOnScroll>
       </div>
     </section>

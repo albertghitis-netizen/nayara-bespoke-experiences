@@ -689,95 +689,29 @@ function SustainabilityContent({
         {/* Divider */}
         <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
 
+        {/* Green Globe Certification */}
         <AnimateOnScroll variants={fadeUp}>
           <p
-            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
           >
-            Key Initiatives
+            Certification
           </p>
           <h2
-            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-14"
+            className="text-2xl md:text-3xl mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
           >
-            Our Commitments
+            Green Globe Certification
           </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px]"
+            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          >
+            Our Costa Rica properties hold Green Globe Certification — the global standard for
+            sustainable tourism, recognizing our commitment to rainforest conservation, wildlife
+            protection, and responsible operations in the Arenal Volcano region.
+          </p>
         </AnimateOnScroll>
-
-        {/* Category Cards — Row 1 */}
-        <StaggerOnScroll
-          variants={staggerContainer}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mb-16 md:mb-24"
-        >
-          {CATEGORIES.map((cat) => (
-            <motion.button
-              key={cat.label}
-              variants={fadeUp}
-              className="group cursor-pointer text-left p-5 md:p-6 transition-all duration-300 hover:shadow-lg"
-              style={{
-                backgroundColor: BRAND.bone,
-                borderRadius: "12px",
-                border: `1px solid ${BRAND.divider}`,
-              }}
-              whileHover={{ y: -4 }}
-              onClick={() => {
-                import("sonner").then(({ toast }) => toast(`${cat.label} — Coming Soon`));
-              }}
-            >
-              <div
-                className="mb-3 transition-colors duration-300"
-                style={{ color: palette.primary }}
-              >
-                {cat.icon}
-              </div>
-              <h3
-                className="text-[15px] md:text-[16px] mb-2"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
-              >
-                {cat.label}
-              </h3>
-              <p
-                className="text-[12px] leading-[1.6]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
-              >
-                {cat.desc}
-              </p>
-            </motion.button>
-          ))}
-        </StaggerOnScroll>
-
-        {/* Initiative Cards — Row 2 */}
-        <StaggerOnScroll
-          variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12"
-        >
-          {initiatives.map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="p-6 md:p-8"
-              style={{
-                backgroundColor: BRAND.bone,
-                borderRadius: "12px",
-                border: `1px solid ${BRAND.divider}`,
-                borderLeft: `3px solid ${palette.primary}`,
-              }}
-            >
-              <h3
-                className="text-[17px] mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
-              >
-                {item.title}
-              </h3>
-              <p
-                className="text-[14px] leading-[1.7]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
-              >
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
       </div>
     </section>
   );
@@ -1045,7 +979,7 @@ function SustainabilityVoices({
             className="text-[11px] tracking-[0.2em] mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
           >
-            Nayara Horizons: Beyond Travel
+            From Nayara Journal
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"

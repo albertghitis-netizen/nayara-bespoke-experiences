@@ -2348,3 +2348,19 @@
 - [x] Restore horizontal images on desktop in Atacama CascadeSection (only removed on mobile was intended)
 - [x] Remove floating vertical video in brown rectangle at bottom of Atacama page
 - [x] Remove all imagery from "Life Under Canvas" section on Tented Camp (keep section structure)
+- [ ] Remove last block from Tented Camp cascade
+- [ ] Ensure "A Taste of Place" (Gastronomy) is directly below Wellness on Tented Camp
+- [ ] Move Reviews and Getting Here to below Gastronomy on Tented Camp
+- [ ] Move Reviews and Getting Here to below Gastronomy on Gardens
+- [ ] Move Reviews and Getting Here to below Gastronomy on Springs
+- [ ] Move Reviews and Getting Here to below Gastronomy on Alto Atacama
+- [ ] Move Reviews and Getting Here to below Gastronomy on Bocas del Toro
+- [ ] Move Reviews and Getting Here to below Gastronomy on Hangaroa
+- [ ] Remove last block from Tented Camp
+- [x] Remove 4 initiative cards from Atacama Sustainability page
+- [x] Add S certification content directly after hero on Atacama Sustainability
+- [ ] Convert Atacama Sustainability to HubSpot-compatible standalone HTML
+- [x] Remove 4 commitment/initiative cards from all 6 sustainability pages
+- [x] Change "Nayara Horizons" to "Nayara Journal" on all 6 sustainability pages
+- [x] Ensure Bocas + Costa Rica sustainability pages show Green Globe certification
+- [x] Ensure Atacama + Hangaroa sustainability pages show S certification

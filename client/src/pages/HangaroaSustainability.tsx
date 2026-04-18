@@ -1,9 +1,11 @@
 /*
  * HANGAROA SUSTAINABILITY — Dedicated sustainability sub-page
  * Hangaroa palette with Easter Island conservation focus
+ * S Certification for Hangaroa
  */
 
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
@@ -34,35 +36,13 @@ const CDN = {
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
-const initiatives = [
-  {
-    title: "Rapa Nui Heritage Preservation",
-    description:
-      "Nayara Hangaroa partners directly with the Rapa Nui community to protect and preserve the island's archaeological sites, oral traditions, and living culture. We fund restoration projects, support cultural education programs, and ensure that tourism benefits the island's indigenous community first.",
-  },
-  {
-    title: "Native Reforestation",
-    description:
-      "Easter Island lost nearly all of its native forest centuries ago. Our reforestation program plants thousands of endemic species each year — including toromiro, mahute, and makoi — working to restore the island's original ecosystem and provide habitat for native birds and insects.",
-  },
-  {
-    title: "Ocean Conservation",
-    description:
-      "The waters surrounding Rapa Nui are among the most pristine in the Pacific. We support marine research programs that monitor coral health, fish populations, and ocean temperatures, and we advocate for the expansion of the Rapa Nui Marine Protected Area — one of the largest in the world.",
-  },
-  {
-    title: "Renewable Energy Transition",
-    description:
-      "As one of the most remote inhabited islands on Earth, energy independence is critical. Nayara Hangaroa is transitioning to 100% renewable energy through solar panels and wind turbines, reducing the island's dependence on imported diesel fuel and setting a model for sustainable island tourism.",
-  },
-];
-
 export default function HangaroaSustainability() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
-      <SustainabilityContent />
+      <SCertificationSection />
+      <JournalSection />
       <Footer pageType="property" bgColor="#536878" />
     </div>
   );
@@ -98,13 +78,13 @@ function SustainabilityHero() {
   );
 }
 
-function SustainabilityContent() {
+function SCertificationSection() {
   return (
     <section className={sectionPadding} style={{ backgroundColor: PALETTE.gradientEnd }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <p
-            className="text-[15px] leading-[1.8] max-w-3xl mb-16"
+            className="text-[15px] leading-[1.8] max-w-3xl mb-12"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
             On one of the most remote islands on Earth, sustainability is not optional — it is survival.
@@ -114,50 +94,86 @@ function SustainabilityContent() {
           </p>
         </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16">
-          {initiatives.map((item, i) => (
-            <AnimateOnScroll key={item.title} variants={fadeUp} delay={i * 0.1}>
-              <div
-                className="p-6 md:p-8 h-full"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.4)",
-                  backdropFilter: "blur(8px)",
-                  borderRadius: "12px",
-                  borderBottom: `2px solid ${PALETTE.divider}`,
-                }}
-              >
-                <h3
-                  className="text-[18px] mb-3"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className="text-[14px] leading-[1.7]"
-                  style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
-                >
-                  {item.description}
-                </p>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
-
         <AnimateOnScroll variants={fadeUp}>
-          <div className="text-center mt-4">
-            <a
-              href="/hangaroa"
-              className="inline-block text-[11px] tracking-[0.2em] pb-1"
-              style={{
-                fontFamily: "var(--font-body)",
-                fontWeight: 500,
-                color: PALETTE.primary,
-                borderBottom: `1px solid ${PALETTE.primary}40`,
-              }}
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textTertiary }}
+          >
+            Certification
+          </p>
+          <h2
+            className="text-2xl md:text-3xl mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            S Certification
+          </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Nayara Hangaroa holds S Certification — Chile's national standard for sustainable tourism,
+            recognizing our commitment to environmental stewardship, cultural preservation, and responsible
+            operations on Easter Island. This certification reflects our dedication to protecting Rapa Nui's
+            fragile ecosystem while delivering meaningful guest experiences rooted in the island's heritage.
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <div className="mt-12">
+            <Link
+              href="/journal"
+              className="inline-flex items-center gap-2 text-[12px] tracking-[0.1em] transition-colors"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: `${PALETTE.primary}90` }}
             >
-              Explore All Sustainability
-            </a>
+              Read: S Certification at Nayara Hangaroa
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+function JournalSection() {
+  return (
+    <section
+      className="py-16 md:py-24 px-6 md:px-10"
+      style={{ backgroundColor: PALETTE.gradientStart }}
+    >
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textTertiary }}
+          >
+            From Nayara Journal
+          </p>
+          <h3
+            className="text-xl md:text-2xl mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            Stories of Stewardship
+          </h3>
+          <p
+            className="text-[14px] leading-[1.7] max-w-[600px] mb-8"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Explore our journal for deeper stories about conservation, community, and the people behind
+            Nayara's sustainability efforts across all our destinations.
+          </p>
+          <Link
+            href="/journal"
+            className="inline-flex items-center gap-2 text-[12px] tracking-[0.1em] transition-colors"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: `${PALETTE.primary}90` }}
+          >
+            Explore Nayara Journal
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
         </AnimateOnScroll>
       </div>
     </section>
