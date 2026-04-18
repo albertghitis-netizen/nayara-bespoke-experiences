@@ -54,10 +54,8 @@ export const springsGallery: GalleryItem[] = [
   { id: "cr-rafting", src: `${CDN}/rafting-photo_89375559.jpeg`, alt: "White water rafting", type: "image", orientation: "landscape", tags: ["experiences", "shared-cr"] },
   { id: "cr-zipline", src: `${CDN}/zipline-photo_a5470805.jpeg`, alt: "Zipline canopy", type: "image", orientation: "landscape", tags: ["experiences", "shared-cr"] },
   { id: "cr-yoga", src: `${CDN}/yoga-photo_3b789b60.jpg`, alt: "Yoga in nature", type: "image", orientation: "landscape", tags: ["wellness", "shared-cr"] },
-  { id: "cr-canyon", src: `${CDN}/canyoneering-photo_d3d8461c.jpg`, alt: "Canyoneering", type: "image", orientation: "landscape", tags: ["experiences", "shared-cr"] },
   { id: "cr-wildlife", src: `${CDN}/wildlife-reel_7c30f53f.mp4`, alt: "Wildlife reel", type: "video", orientation: "portrait", tags: ["wildlife", "shared-cr"] },
   { id: "cr-hs-h", src: `${CDN}/hot-springs-horizontal_2508b725.mp4`, alt: "Hot springs video", type: "video", orientation: "landscape", tags: ["wellness", "shared-cr"] },
-  { id: "cr-hs-v", src: `${CDN}/hot-springs-vertical_52b2b6ec.mp4`, alt: "Hot springs vertical", type: "video", orientation: "portrait", tags: ["wellness", "shared-cr"] },
   { id: "cr-spa", src: `${CDN}/costa-rica-spa-springs_89d85927.mp4`, alt: "Spa at Springs", type: "video", orientation: "landscape", tags: ["wellness", "shared-cr"] },
   { id: "cr-00d0-h", src: `${CDN}/video-00d0-horizontal_c856b795.mp4`, alt: "Costa Rica scenic", type: "video", orientation: "landscape", tags: ["nature", "shared-cr"] },
   { id: "cr-00d0-v", src: `${CDN}/video-00d0-vertical_5ef512b3.mp4`, alt: "Costa Rica scenic vertical", type: "video", orientation: "portrait", tags: ["nature", "shared-cr"] },
@@ -160,7 +158,6 @@ export const gardensGallery: GalleryItem[] = [
   { id: "gar-s2", src: `${CDN}/321D9B07-0FF2-459E-BBA0-623B1062AA25_38485c6d.jpeg`, alt: "Panoramic view", type: "image", orientation: "landscape", tags: ["story", "s2"] },
   { id: "gar-s3", src: `${CDN}/gardens-s3-casita_4be73573.jpg`, alt: "Casita room", type: "image", orientation: "portrait", tags: ["rooms", "s3"] },
   { id: "gar-s4", src: `${CDN}/106_d215cd45.jpg`, alt: "Property view", type: "image", orientation: "landscape", tags: ["rooms", "s4"] },
-  { id: "gar-logo", src: `${CDN}/nayara_gardens_logo_05492d2c.png`, alt: "Gardens logo", type: "image", orientation: "square", tags: ["brand"] },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -190,14 +187,11 @@ export const brandGallery: GalleryItem[] = [
   { id: "brand-logo", src: `${CDN}/nayara_resorts_logo_990b5471.png`, alt: "Nayara Resorts logo", type: "image", orientation: "landscape", tags: ["brand", "logo"] },
   { id: "brand-logo-m", src: `${CDN}/nayara-logo-mobile_b4d2ae65.svg`, alt: "Mobile logo", type: "image", orientation: "square", tags: ["brand", "logo"] },
   { id: "brand-logo-w", src: `${CDN}/nayara-logo-mobile-white_36c5a575.svg`, alt: "White logo", type: "image", orientation: "square", tags: ["brand", "logo"] },
-  { id: "brand-leaf", src: `${CDN}/nayara-leaf-beige_abbaf178.png`, alt: "Leaf motif", type: "image", orientation: "square", tags: ["brand"] },
-  { id: "brand-ig", src: `${CDN}/nayara_ig_profile_e5de9f8d.png`, alt: "Instagram profile", type: "image", orientation: "square", tags: ["brand", "social"] },
   { id: "brand-home", src: `${CDN}/homepage-hero-new-resorts_d66da8e1.mp4`, alt: "Homepage hero", type: "video", orientation: "landscape", tags: ["hero", "homepage"] },
   { id: "brand-sust", src: `${CDN}/sustainability-hero-new_df03d599.mp4`, alt: "Sustainability hero", type: "video", orientation: "landscape", tags: ["hero", "sustainability"] },
   { id: "brand-well", src: `${CDN}/wellness-hero-v2_25839541.mp4`, alt: "Wellness hero", type: "video", orientation: "landscape", tags: ["hero", "wellness"] },
   { id: "brand-gast", src: `${CDN}/gastronomy-hero-edited_3e0a63fa.mp4`, alt: "Gastronomy hero", type: "video", orientation: "landscape", tags: ["hero", "gastronomy"] },
   { id: "brand-pod", src: `${CDN}/nayara-horizons-hero-v2_63287f40.mp4`, alt: "Podcast hero", type: "video", orientation: "landscape", tags: ["hero", "podcast"] },
-  { id: "brand-awards", src: `${CDN}/michelin-2025-awards-hero_cff40bc3.webp`, alt: "Awards hero", type: "image", orientation: "landscape", tags: ["hero", "awards"] },
 ];
 
 /* ═══════════════════════════════════════════════════════════════

@@ -325,13 +325,16 @@ function CascadeSection({
           )}
         </div>
 
+        {/* H row: Full-width horizontal image below */}
+        <div className="w-full">
+          <MediaReveal delay={0.3}>{HorizontalMedia}</MediaReveal>
+        </div>
       </div>
 
       {/* === MOBILE: Stacked layout, contained === */}
       <div className="md:hidden px-5">
         <div className="pt-10 pb-6">{TextBlock}</div>
         <MediaReveal delay={0.1}>{VerticalMedia}</MediaReveal>
-
       </div>
     </section>
   );
@@ -452,16 +455,6 @@ export default function AltoAtacama() {
         />
       ))}
 
-
-      {/* ★ Bottom Video — Desert Moments */}
-      <section className="w-full flex justify-center py-12 md:py-20 bg-[#3B2B26]">
-        <div className="w-full max-w-sm md:max-w-md aspect-[9/16] rounded-lg overflow-hidden shadow-2xl">
-          <NativeVideo
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-bottom-video_5897b211.mp4"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </section>
 
       <GettingHereSection />
       <AwardsSection />

@@ -2335,3 +2335,15 @@
 - [x] Remove spa compressed from gallery
 - [x] Remove all duplicate entries from gallery (han-s4 was duplicate of han-hero-d)
 - [x] Remove before/after shots from gallery (none found in data)
+- [ ] Remove gallery items with text on the image
+- [ ] Remove gallery items with any kind of border
+- [ ] Remove gallery items with text on the image
+- [ ] Remove gallery items with any kind of border
+- [ ] Remove hot springs vertical from gallery
+- [ ] Remove gallery items with text on the image (gar-logo, brand-ig, brand-awards)
+- [ ] Remove gallery items that are graphics/logos not photos (brand-leaf, spr-michelin already filtered)
+- [ ] Remove hot springs vertical (cr-hs-v) from gallery
+- [ ] Remove canyoneering (cr-canyon) from gallery
+- [ ] Fix Atacama cascade — restore horizontal images on desktop, only hide on mobile
+- [x] Restore horizontal images on desktop in Atacama CascadeSection (only removed on mobile was intended)
+- [x] Remove floating vertical video in brown rectangle at bottom of Atacama page
