@@ -325,19 +325,14 @@ function CascadeSection({
             </>
           )}
         </div>
-        {/* H row: full viewport width, no container, no padding */}
-        <div>
-          <MediaReveal delay={0.1}>{HorizontalMedia}</MediaReveal>
-        </div>
+
       </div>
 
       {/* === MOBILE: Stacked layout, contained === */}
       <div className="md:hidden px-5">
         <div className="pt-10 pb-6">{TextBlock}</div>
         <MediaReveal delay={0.1}>{VerticalMedia}</MediaReveal>
-        <div className="mt-4">
-          <MediaReveal delay={0.2}>{HorizontalMedia}</MediaReveal>
-        </div>
+
       </div>
     </section>
   );
