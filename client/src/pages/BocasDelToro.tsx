@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import CinematicScroll from "@/components/CinematicScroll";
 import {
@@ -452,17 +451,6 @@ export default function BocasDelToro() {
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
 
-      {/* ★ By Night — bioluminescence at the darkest end */}
-      <ByNightCTA
-        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum2_9f24efa2.jpeg"
-        verticalRatio="3/4"
-        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum_007f69ec.webp"
-        horizontalRatio="16/9"
-        bgColor="#008E97"
-        headline={"Bioluminescent\nWaters"}
-        bodyText="In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow. Discover the extraordinary nocturnal experiences across all Nayara properties."
-        textSide="left"
-      />
 
       <Footer bgColor="#008E97" />
     </div>

@@ -9,7 +9,6 @@ import NativeVideo from "@/components/NativeVideo";
 import CinematicScroll from "@/components/CinematicScroll";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
 import {
@@ -453,17 +452,6 @@ export default function AltoAtacama() {
         />
       ))}
 
-      {/* ★ By Night — darkest end of cascade */}
-      <ByNightCTA
-        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp"
-        verticalRatio="3/4"
-        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
-        horizontalRatio="16/9"
-        bgColor="#6F463D"
-        headline={"The Clearest\nSkies on Earth"}
-        bodyText="At 2,400 meters in the driest desert on the planet, the Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Discover the extraordinary nocturnal experiences across all Nayara properties."
-        textSide="left"
-      />
 
       {/* ★ Bottom Video — Desert Moments */}
       <section className="w-full flex justify-center py-12 md:py-20 bg-[#3B2B26]">

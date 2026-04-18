@@ -6,7 +6,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
-import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import CinematicScroll from "@/components/CinematicScroll";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
@@ -198,17 +197,6 @@ export default function Hangaroa() {
       {/* ── TRIMMED: GalleryIntegratedSections hidden for performance ── */}
       {/* <GalleryIntegratedSections /> */}
 
-      {/* ★ By Night — Moai beneath the Milky Way */}
-      <ByNightCTA
-        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-milkyway_0588cd10.webp"
-        verticalRatio="3/4"
-        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-golden-sunset_f7d26dab.webp"
-        horizontalRatio="16/9"
-        bgColor="#536878"
-        headline={"Moai Beneath\nthe Milky Way"}
-        bodyText="On Rapa Nui, the ancient Moai stand sentinel beneath some of the most pristine night skies in the Southern Hemisphere. Far from any light pollution, the Milky Way blazes overhead in extraordinary detail. Discover the extraordinary nocturnal experiences across all Nayara properties."
-        textSide="left"
-      />
 
       <Footer bgColor="#536878" />
     </div>

@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import CinematicScroll from "@/components/CinematicScroll";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
@@ -192,18 +191,6 @@ export default function Springs() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ★ By Night — hot springs under stars */}
-      <ByNightCTA
-        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
-        verticalIsVideo
-        verticalRatio="3/4"
-        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rano-kau-milkyway_dd16a9d7.webp"
-        horizontalRatio="16/9"
-        bgColor="#3B6E7B"
-        headline={"Hot Springs\nUnder Stars"}
-        bodyText="As night falls over the volcanic landscape, the hot springs take on an otherworldly glow. Steam rises into the starlit sky while the sounds of the rainforest envelop you in warmth and wonder. Discover the extraordinary nocturnal experiences across all Nayara properties."
-        textSide="left"
-      />
 
       <Footer bgColor="#3B6E7B" />
     </div>

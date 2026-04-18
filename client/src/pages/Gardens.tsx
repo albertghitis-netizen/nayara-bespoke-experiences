@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
-import ByNightCTA from "@/components/ByNightCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import CinematicScroll from "@/components/CinematicScroll";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
@@ -212,16 +211,6 @@ export default function Gardens() {
       {/* ── TRIMMED: GalleryIntegratedSections hidden for performance ── */}
       {/* <GalleryIntegratedSections /> */}
 
-      {/* ★ By Night — rainforest after dark */}
-      <ByNightCTA
-        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-by-night_e5dda355.mp4"
-        verticalIsVideo
-        verticalRatio="3/4"
-        bgColor="#525642"
-        headline={"Rainforest\nAfter Dark"}
-        bodyText="When the sun sets behind the volcano, the rainforest transforms. Nocturnal creatures emerge, the air fills with the chorus of frogs, and the canopy becomes a living theater of sound and shadow. Discover the extraordinary nocturnal experiences across all Nayara properties."
-        textSide="right"
-      />
 
       <Footer bgColor="#525642" />
     </div>

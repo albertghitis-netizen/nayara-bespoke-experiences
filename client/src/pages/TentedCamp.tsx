@@ -11,7 +11,6 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import CinematicScroll from "@/components/CinematicScroll";
-import ByNightCTA from "@/components/ByNightCTA";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 
 import {
@@ -955,19 +954,6 @@ export default function TentedCamp() {
       {/* <GettingHereBreak bgColor={SECTION_COLORS[9]} /> */}
       {/* {SECTIONS_GALLERY.map(...)} */}
 
-      {/* ★ By Night — transition to functional footer area */}
-      <ByNightCTA
-        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
-        verticalIsVideo
-        verticalRatio="3/4"
-        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4"
-        horizontalIsVideo
-        horizontalRatio="16/9"
-        bgColor="#868B75"
-        headline={"When the\nJungle Sleeps"}
-        bodyText="As darkness falls over the canopy, a different world awakens. The chorus of frogs, the flash of fireflies, the distant rumble of Arenal — Tented Camp by night is a symphony of the wild. Discover the extraordinary nocturnal experiences across all Nayara properties."
-        textSide="right"
-      />
 
       <Footer bgColor="#868B75" />
     </div>

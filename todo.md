@@ -2327,3 +2327,7 @@
 - [x] Remove spa kids in robes image from gallery
 - [x] Remove Costa Rica nature image from gallery
 - [x] Remove property grouping/sorting from gallery — mix all items into one shuffled masonry grid
+
+## Nayara by Night Relocation
+- [x] Remove Nayara by Night from all property pages and cascades
+- [x] Add Nayara by Night section to brand homepage (Home.tsx)

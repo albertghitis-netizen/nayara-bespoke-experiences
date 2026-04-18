@@ -9,6 +9,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
 import CinematicScroll from "@/components/CinematicScroll";
 import Footer from "@/components/Footer";
+import ByNightCTA from "@/components/ByNightCTA";
 import { OrganizationSchema } from "@/components/SEOSchema";
 import { BOOKING_URLS } from "@/data/booking";
 import {
@@ -156,6 +157,17 @@ export default function Home() {
       <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
       <ContentHubSection />
       <PillarsSection />
+      <ByNightCTA
+        verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
+        verticalIsVideo
+        verticalRatio="3/4"
+        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
+        horizontalRatio="16/9"
+        bgColor="#1a1a24"
+        headline={"When Night\nFalls"}
+        bodyText="As darkness descends across six extraordinary landscapes, a different world reveals itself — starlit skies over the Atacama, bioluminescent waters in Bocas del Toro, Moai beneath the Milky Way. Discover the nocturnal experiences that define Nayara after sunset."
+        textSide="left"
+      />
       <Footer />
     </div>
   );
