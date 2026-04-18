@@ -2364,3 +2364,12 @@
 - [x] Change "Nayara Horizons" to "Nayara Journal" on all 6 sustainability pages
 - [x] Ensure Bocas + Costa Rica sustainability pages show Green Globe certification
 - [x] Ensure Atacama + Hangaroa sustainability pages show S certification
+- [x] Fix Atacama sustainability page — shows Green Globe, should be S Certification
+- [ ] Fix Hangaroa sustainability page — verify it shows S Certification (not Green Globe)
+- [x] Upload flamingo photo and use as cover for wildlife conservation blog card on Atacama sustainability page
+- [x] Fix /alto-atacama/sustainability route to show S Certification (currently uses CostaRicaSustainability with Green Globe)
+- [ ] Fix /hangaroa/sustainability route to show S Certification
+- [x] Fix "By the Numbers" on Atacama sustainability page to 2+2 grid (not 3+1)
+- [x] Use flamingo photo as cover for wildlife conservation blog card on Atacama sustainability page
+- [x] Use red Atacama property image from homepage for oasis blog card on Atacama sustainability page
+- [x] Remove auto-scroll "Start Your Adventure" from Atacama page (add back when all 7 are ready)

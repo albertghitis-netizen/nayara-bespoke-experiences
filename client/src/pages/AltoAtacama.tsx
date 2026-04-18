@@ -6,7 +6,6 @@
  */
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
-import CinematicScroll from "@/components/CinematicScroll";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
@@ -426,10 +425,6 @@ const CASCADE_SECTIONS = [
 export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
-      <CinematicScroll
-        audioSrc={ASSETS.heroDesktop}
-        speed={1.35}
-      />
       <BrandNavigation pageType="property" />
       <HeroSection />
 
