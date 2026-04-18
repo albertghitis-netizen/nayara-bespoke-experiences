@@ -2374,3 +2374,7 @@
 - [x] Use red Atacama property image from homepage for oasis blog card on Atacama sustainability page
 - [x] Remove auto-scroll "Start Your Adventure" from Atacama page (add back when all 7 are ready)
 - [x] Restore auto-scroll "Start Your Adventure" on Alto Atacama page (speed=1.35)
+- [x] Replace Atacama cascade with single continuous video playing through all H→V media slots (Property through last A Taste of Place H), CSS object-fit:cover to eliminate letterbox bars
+- [x] Flip cascade layout: H on top, V+Text below (desktop)
+- [x] Swap Wellness H (massage photo) with gastroH (food photo)
+- [x] A Taste of Place: hideH=true, V+Text only (no horizontal on top)
