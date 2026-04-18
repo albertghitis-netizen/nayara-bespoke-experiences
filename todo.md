@@ -2323,3 +2323,4 @@
 - [x] Add Gallery link to Footer
 - [x] Remove all hero videos from Atacama gallery
 - [x] Remove any video longer than 5 seconds from Atacama gallery (hero videos removed; all remaining videos kept as gallery items)
+- [x] Remove Michelin 3 Keys image from gallery

@@ -42,6 +42,8 @@ function filterGalleryItems(items: readonly GalleryItem[]): GalleryItem[] {
     if (item.tags.includes("hero")) return false;
     // Remove brand logos/icons
     if (item.tags.includes("brand") || item.tags.includes("logo")) return false;
+    // Remove awards badges (Michelin 3 Keys, etc.)
+    if (item.tags.includes("awards")) return false;
     return true;
   });
 }
