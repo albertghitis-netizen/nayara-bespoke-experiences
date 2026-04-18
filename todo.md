@@ -2373,3 +2373,4 @@
 - [x] Use flamingo photo as cover for wildlife conservation blog card on Atacama sustainability page
 - [x] Use red Atacama property image from homepage for oasis blog card on Atacama sustainability page
 - [x] Remove auto-scroll "Start Your Adventure" from Atacama page (add back when all 7 are ready)
+- [x] Restore auto-scroll "Start Your Adventure" on Alto Atacama page (speed=1.35)
