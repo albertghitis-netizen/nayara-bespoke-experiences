@@ -71,7 +71,7 @@ const ASSETS = {
   heroMobile: `${CDN}/atacama-hero-new_96783d81.mp4`,
 
   // Section 1 — Story: Gil backdrop V + horizontal landscape UW
-  storyV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-gil-backdrop_f401cba5.mov",
+  storyV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-new_7b2948d2.mp4",
   storyH: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-horizontal-1_618b6dd9.mp4",
 
   // Section 2 — Rooms: new desert suites vertical video + resort pathway UW

@@ -2313,3 +2313,4 @@
 
 ## New Atacama Hero Video
 - [x] Replace Alto Atacama hero video with new uploaded video
+- [x] Replace Atacama s1 (storyV) with new uploaded video (no audio)
