@@ -3,16 +3,18 @@
  *
  * Sequential playback with per-video audio:
  * - Videos start paused (frozen on frame 0)
- * - Play only when 30% visible in viewport via IntersectionObserver
+ * - Play when 30% visible in viewport via IntersectionObserver
  * - Pause and reset to 0:00 when scrolled out of view
- * - When a video enters viewport, it registers as the active audio source
+ * - AUDIO handoff uses a SEPARATE observer at 80% threshold:
+ *   Audio only activates when the video is mostly visible, ensuring
+ *   the previous video is nearly or fully off screen before the new
+ *   audio begins. This prevents premature handoff.
  * - Previous video's audio cuts off immediately via cascadeAudio manager
  * - Global mute state controlled by CinematicScroll's Sound pill
  *
- * AUDIO FIX: For hasAudio videos, the muted attribute is NOT set via React JSX.
- * Registration and loading are combined into a single effect to prevent race
- * conditions between registration (which sets muted=true) and autoStart
- * (which needs muted=false).
+ * For hasAudio videos, the muted attribute is NOT set via React JSX.
+ * It is controlled imperatively by cascadeAudio to prevent React from
+ * overriding the muted state on re-renders.
  */
 import { useRef, useState, useEffect, useCallback, useId } from "react";
 import { cascadeAudio } from "@/lib/cascadeAudio";
@@ -112,24 +114,19 @@ export default function NativeVideo({
     };
   }, [src, hasAudio, autoStart, uniqueId]);
 
-  /* ── IntersectionObserver: play when 30% visible, pause+reset when out ── */
+  /* ── IntersectionObserver #1: PLAY/PAUSE at 30% threshold ── */
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
     if (!video || !container) return;
 
-    const observer = new IntersectionObserver(
+    const playObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Video is 30% visible — start playing
+            // Video is 30% visible — start playing (muted until audio observer fires)
             if (video.paused) {
               video.play().catch(() => {});
-            }
-            // If this video has audio, tell the manager it's now active
-            if (hasAudio) {
-              cascadeAudio.activate(uniqueId);
-              // activate() sets video.muted imperatively
             }
           } else {
             // Video scrolled out — pause and reset to frame 0
@@ -137,19 +134,41 @@ export default function NativeVideo({
               video.pause();
             }
             video.currentTime = 0;
-            // NOTE: We do NOT call cascadeAudio.deactivate() here.
-            // Audio handoff is handled by activate() on the NEXT video.
-            // Calling deactivate() here causes a race condition where the
-            // hero video gets muted before the next video activates.
-            // The video is already paused, so no audio will play from it.
           }
         });
       },
       { threshold: 0.3 }
     );
 
-    observer.observe(container);
-    return () => observer.disconnect();
+    playObserver.observe(container);
+    return () => playObserver.disconnect();
+  }, [src]);
+
+  /* ── IntersectionObserver #2: AUDIO ACTIVATION at 80% threshold ──
+       Only for hasAudio videos. Audio activates when the video is mostly
+       visible, ensuring the previous video is nearly/fully off screen. */
+  useEffect(() => {
+    if (!hasAudio) return;
+    const container = containerRef.current;
+    if (!container) return;
+
+    const audioObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Video is 80% visible — take over audio
+            cascadeAudio.activate(uniqueId);
+          }
+          // NOTE: No deactivate on exit. Audio handoff is handled by
+          // activate() on the NEXT video. The current video is already
+          // paused by the play observer, so no audio leaks.
+        });
+      },
+      { threshold: 0.8 }
+    );
+
+    audioObserver.observe(container);
+    return () => audioObserver.disconnect();
   }, [src, hasAudio, uniqueId]);
 
   const getVideoType = (url: string): string => {

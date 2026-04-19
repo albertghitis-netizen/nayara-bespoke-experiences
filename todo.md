@@ -2409,3 +2409,12 @@
 - [x] Evaluate cascade scroll speed — is it appropriate?
 - [x] Evaluate vertical video length — is it too long relative to scroll?
 - [x] Ensure all 3 cascade videos are fully visible during scroll
+
+## Audio Handoff — Sequential Audio with Single Mute Toggle
+- [x] Three distinct audio tracks hand off sequentially: Hero → Cascade V → Cascade H
+- [x] Audio 1 (Hero) starts instantly on click
+- [x] Audio 2 (Cascade V) starts when hero is mostly off screen (80% threshold)
+- [x] Audio 3 (Cascade H) starts when Cascade V section is mostly done (80% threshold)
+- [x] No two audios ever play at the same time — verified with timeline data
+- [x] Single SOUND toggle controls all three audios globally
+- [x] Separate IntersectionObservers: play/pause at 30%, audio activation at 80%
