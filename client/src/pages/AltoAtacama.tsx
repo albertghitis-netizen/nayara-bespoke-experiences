@@ -67,7 +67,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const ASSETS = {
   // Hero
-  heroDesktop: `${CDN}/atacama-hero-new-full_f456455a.mp4`,
+  heroDesktop: "/manus-storage/atacama-new-hero_fa6a9bf5.mp4",
   heroMobile: `${CDN}/atacama-hero-new_96783d81.mp4`,
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
