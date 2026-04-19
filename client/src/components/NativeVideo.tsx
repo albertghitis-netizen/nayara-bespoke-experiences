@@ -2,6 +2,11 @@
  * NativeVideo — Lightweight native <video> wrapper
  * No blob fetching, no DRM protection. Fast streaming.
  * Optional mute/unmute pill for videos with audio.
+ *
+ * Sequential playback:
+ * - Videos start paused (frozen on frame 0)
+ * - Play only when 30% visible in viewport via IntersectionObserver
+ * - Pause and reset to 0:00 when scrolled out of view
  */
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useLocation } from "wouter";
@@ -48,31 +53,66 @@ export default function NativeVideo({
   // On mobile, disable audio unless mobileAudio is explicitly true
   const effectiveHasAudio = hasAudio && (!isMobile || mobileAudio);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [showPulse, setShowPulse] = useState(true);
 
+  /* ── Load video but keep it paused initially ── */
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     setIsLoaded(false);
     setHasError(false);
     setIsMuted(true);
+
+    // Don't autoplay — we control playback via IntersectionObserver
+    video.autoplay = false;
     video.load();
 
-    const tryPlay = () => {
-      if (autoPlay && video.paused) {
-        video.play().catch(() => {});
-      }
+    const onLoaded = () => {
+      setIsLoaded(true);
+      // Ensure video starts paused at frame 0
+      video.pause();
+      video.currentTime = 0;
     };
-    video.addEventListener("loadeddata", tryPlay);
-    video.addEventListener("canplay", tryPlay);
+
+    video.addEventListener("loadeddata", onLoaded);
     return () => {
-      video.removeEventListener("loadeddata", tryPlay);
-      video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("loadeddata", onLoaded);
     };
-  }, [src, autoPlay]);
+  }, [src]);
+
+  /* ── IntersectionObserver: play when 30% visible, pause+reset when out ── */
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = containerRef.current;
+    if (!video || !container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Video is 30% visible — start playing
+            if (video.paused) {
+              video.play().catch(() => {});
+            }
+          } else {
+            // Video scrolled out — pause and reset to frame 0
+            if (!video.paused) {
+              video.pause();
+            }
+            video.currentTime = 0;
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [src]);
 
   // Stop the attention pulse after 6 seconds
   useEffect(() => {
@@ -107,11 +147,11 @@ export default function NativeVideo({
   }, []);
 
   return (
-    <div className="relative w-full h-full" onClick={handleTapToPlay}>
+    <div ref={containerRef} className="relative w-full h-full" onClick={handleTapToPlay}>
       <video
         ref={videoRef}
         className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700`}
-        autoPlay={autoPlay}
+        autoPlay={false}
         muted={muted}
         loop={loop}
         playsInline={playsInline}

@@ -23,8 +23,10 @@ interface CinematicScrollProps {
   /** CDN URL for the audio source — can be an .mp3, .mp4, or video file.
    *  If it's a video, only the audio track is used (video hidden). */
   audioSrc: string;
-  /** Scroll speed in pixels per frame (~60fps). Default 1.5 */
+  /** Scroll speed in pixels per frame (~60fps). Default 1.45 */
   speed?: number;
+  /** Callback fired when user clicks "Start Your Adventure" */
+  onStart?: () => void;
 }
 
 /* Map route prefixes to property slugs */
@@ -39,7 +41,8 @@ const ROUTE_TO_SLUG: Record<string, string> = {
 
 export default function CinematicScroll({
   audioSrc,
-  speed = 1.5,
+  speed = 1.45,
+  onStart,
 }: CinematicScrollProps) {
   const [location] = useLocation();
 
@@ -54,6 +57,7 @@ export default function CinematicScroll({
   const mediaRef = useRef<HTMLVideoElement | HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const scrollingRef = useRef(false);
+  const startedAtRef = useRef<number>(0);
 
   /* ── Check mobile on mount + resize ── */
   useEffect(() => {
@@ -165,6 +169,8 @@ export default function CinematicScroll({
     setHasStarted(true);
     setIsScrolling(true);
     setIsMuted(false);
+    startedAtRef.current = Date.now();
+    onStart?.();
 
     // Start audio (from video or audio element)
     if (mediaRef.current) {
@@ -176,7 +182,7 @@ export default function CinematicScroll({
 
     // Start scrolling
     startScrollLoop();
-  }, [startScrollLoop]);
+  }, [startScrollLoop, onStart]);
 
   /* ── Touch/click to stop ── */
   useEffect(() => {
@@ -186,6 +192,9 @@ export default function CinematicScroll({
       // Don't stop if tapping the control buttons
       const target = e.target as HTMLElement;
       if (target.closest("[data-cinematic-control]")) return;
+
+      // Ignore clicks within 600ms of starting (prevents the start click from immediately stopping)
+      if (Date.now() - startedAtRef.current < 600) return;
 
       if (scrollingRef.current) {
         // Stop scrolling + pause audio

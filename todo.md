@@ -2380,3 +2380,8 @@
 - [x] A Taste of Place: H (gastroH food photo) on top, V (gastroV food photo) below — standard H→V layout
 - [x] Fix black bars/letterboxing on Atacama cascade videos — ffmpeg crop to clean 16:9 H and 3:4 V clips
 - [x] RULE: No black in any images or videos on any page, ever (letterbox bars, black borders, etc. must be eliminated). Backgrounds are fine. Exception: Nayara by Night.
+
+## Sequential Video Playback + Speed Fix
+- [x] NativeVideo: videos stay frozen (paused on frame 0) until they enter viewport AND the previous video has scrolled past
+- [x] CinematicScroll: constant 1.45 px/frame speed (no variable speed)
+- [x] Keep static images in cascade (gastro photos etc.)
