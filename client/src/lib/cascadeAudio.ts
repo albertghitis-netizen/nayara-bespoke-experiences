@@ -7,6 +7,11 @@
  * 3. The previous video's audio cuts off immediately
  * 4. One global mute toggle controls whether the active video is audible
  * 5. When muted globally, videos still play visually but with no audio
+ *
+ * AUDIO FIX: activate() now imperatively sets video.muted on both the
+ * previous and new active video, and also calls play() on the new video
+ * to ensure the browser's autoplay-with-audio policy is satisfied
+ * (the user gesture from clicking "Enter the Atacama" propagates here).
  */
 
 type Listener = (muted: boolean) => void;
@@ -51,8 +56,14 @@ class CascadeAudioManager {
   activate(id: string) {
     if (!this.started) return;
 
-    // If this is already the active video, do nothing
-    if (this.activeVideoId === id) return;
+    // If this is already the active video, just ensure muted state is correct
+    if (this.activeVideoId === id) {
+      const video = this.videos.get(id);
+      if (video) {
+        video.muted = this.globalMuted;
+      }
+      return;
+    }
 
     // Mute the previous active video immediately
     if (this.activeVideoId) {
@@ -66,8 +77,16 @@ class CascadeAudioManager {
     this.activeVideoId = id;
     const video = this.videos.get(id);
     if (video) {
+      // Imperatively set muted state
       video.muted = this.globalMuted;
+
+      // If the video is paused, try to play it (user gesture should propagate)
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
     }
+
+    this.notifyListeners();
   }
 
   /** Called when a video leaves the viewport */
@@ -106,6 +125,16 @@ class CascadeAudioManager {
   subscribe(listener: Listener) {
     this.listeners.add(listener);
     return () => this.listeners.delete(listener);
+  }
+
+  /** Get the ID of the currently active video (for debugging) */
+  getActiveId() {
+    return this.activeVideoId;
+  }
+
+  /** Get all registered video IDs (for debugging) */
+  getRegisteredIds() {
+    return Array.from(this.videos.keys());
   }
 
   private notifyListeners() {

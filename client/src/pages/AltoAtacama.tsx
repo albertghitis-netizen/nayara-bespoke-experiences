@@ -184,16 +184,18 @@ function MediaBlock({
   alt,
   isVideo,
   aspectRatio,
+  hasAudio = false,
 }: {
   src: string;
   alt: string;
   isVideo: boolean;
   aspectRatio: string;
+  hasAudio?: boolean;
 }) {
   return (
     <div className="overflow-hidden w-full" style={{ aspectRatio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" />
+        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio={hasAudio} />
       ) : (
         <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
       )}
@@ -479,6 +481,7 @@ const CASCADE_SECTIONS = [
     vSrc: ASSETS.cascadeV,
     hSrc: ASSETS.cascadeAccomH,
     vVideo: true, hVideo: true,
+    vHasAudio: true, hHasAudio: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     link: undefined, linkLabel: undefined,
@@ -493,6 +496,7 @@ const CASCADE_SECTIONS = [
     vSrc: ASSETS.cascadeAccomV,
     hSrc: "",
     vVideo: true, hVideo: false,
+    vHasAudio: true, hHasAudio: false,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
@@ -553,6 +557,7 @@ export default function AltoAtacama() {
                           alt={section.headline}
                           isVideo={section.vVideo}
                           aspectRatio={section.vRatio}
+                          hasAudio={(section as any).vHasAudio}
                         />
                       </MediaReveal>
                     </div>
@@ -566,6 +571,7 @@ export default function AltoAtacama() {
                           alt={section.headline}
                           isVideo={section.vVideo}
                           aspectRatio={section.vRatio}
+                          hasAudio={(section as any).vHasAudio}
                         />
                       </MediaReveal>
                     </div>
@@ -597,6 +603,7 @@ export default function AltoAtacama() {
                     alt={section.headline}
                     isVideo={section.hVideo}
                     aspectRatio={section.hRatio}
+                    hasAudio={(section as any).hHasAudio}
                   />
                 </MediaReveal>
               </div>
@@ -650,7 +657,7 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
       <div className="absolute inset-0">
         {/* Static photo by default — switches to video when user clicks CTA */}
         {showVideo ? (
-          <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio={true} autoStart={true} />
         ) : (
           <img
             src={ASSETS.heroDesktopPhoto}

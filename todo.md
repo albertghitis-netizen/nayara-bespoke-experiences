@@ -2396,3 +2396,10 @@
 - [ ] CTA text: Bocas del Toro = 'Enter the Archipelago'
 - [ ] CTA text: Costa Rica properties (Arenal, Gardens, Springs, Tented Camp) = 'Enter the Rainforest'
 - [ ] CTA text: Hangaroa = TBD (Easter Island themed)
+
+## Audio & Hero Video Bug Fixes
+- [x] Fix hero video not showing (only static image) — hero NativeVideo now has hasAudio={true} and autoStart={true}
+- [x] Fix no audio when clicking "Enter the Atacama" — React was overriding video.muted via JSX; now controlled imperatively for hasAudio videos
+- [x] Fix race condition: IntersectionObserver deactivate() was muting hero before cascade video activated — removed deactivate() from observer, let activate() on next video handle audio handoff
+- [x] Add hasAudio flags to all CASCADE_SECTIONS entries
+- [x] Pass hasAudio prop through MediaBlock to NativeVideo for cascade videos
