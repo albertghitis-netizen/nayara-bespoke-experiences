@@ -1014,7 +1014,6 @@ export default function TentedCamp() {
         speed={2.0}
         speedH={3.0}
         speedV={2.37}
-        enableMobile
       />
       <BrandNavigation pageType="property" />
       <HeroSection />

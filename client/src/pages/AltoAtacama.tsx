@@ -456,7 +456,6 @@ export default function AltoAtacama() {
         speedH={3.0}
         speedV={2.37}
         onStart={() => setAdventureStarted(true)}
-        enableMobile
       />
       <BrandNavigation pageType="property" />
       <HeroSection adventureStarted={adventureStarted} />

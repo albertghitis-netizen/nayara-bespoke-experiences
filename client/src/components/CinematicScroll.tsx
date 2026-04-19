@@ -102,6 +102,7 @@ export default function CinematicScroll({
   const mediaRef = useRef<HTMLVideoElement | HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const scrollingRef = useRef(false);
+  const startedAtRef = useRef<number>(0);
 
   /* Store speeds in refs so the animation loop always has current values */
   const speedRef = useRef(speed);
@@ -142,7 +143,7 @@ export default function CinematicScroll({
 
   /* ── Initialize audio/video element ── */
   useEffect(() => {
-    if (isMobile && !enableMobile) return; // Don't load audio on mobile unless enableMobile
+    if (isMobile) return; // Don't load audio on mobile
 
     let media: HTMLVideoElement | HTMLAudioElement;
 
@@ -228,6 +229,7 @@ export default function CinematicScroll({
     setHasStarted(true);
     setIsScrolling(true);
     setIsMuted(false);
+    startedAtRef.current = Date.now();
     onStart?.();
 
     // Start audio (from video or audio element)
@@ -244,12 +246,15 @@ export default function CinematicScroll({
 
   /* ── Touch/click to stop ── */
   useEffect(() => {
-    if (!hasStarted || (isMobile && !enableMobile)) return;
+    if (!hasStarted || isMobile) return;
 
     const handleTouch = (e: TouchEvent | MouseEvent) => {
       // Don't stop if tapping the control buttons
       const target = e.target as HTMLElement;
       if (target.closest("[data-cinematic-control]")) return;
+
+      // Ignore clicks within 600ms of starting (prevents the start click from immediately stopping)
+      if (Date.now() - startedAtRef.current < 600) return;
 
       if (scrollingRef.current) {
         // Stop scrolling + pause audio
@@ -279,8 +284,8 @@ export default function CinematicScroll({
     }
   }, [isMuted, isScrolling]);
 
-  /* ── On mobile, render nothing (unless enableMobile) ── */
-  if (isMobile && !enableMobile) return null;
+  /* ── On mobile, render nothing ── */
+  if (isMobile) return null;
 
   return (
     <>

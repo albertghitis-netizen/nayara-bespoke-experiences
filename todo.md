@@ -2402,3 +2402,7 @@
 - [x] Show H (horizontal) video sections on mobile in cascade layout (all 3 experiment pages)
 - [x] Show V (vertical) video sections on mobile in cascade layout (all 3 experiment pages)
 - [x] Enable auto-scroll + audio on mobile for all 3 experiment pages
+
+## Fix Desktop Scroll + Revert Mobile
+- [x] Fix desktop scroll not starting when clicking Start Your Adventure on Atacama
+- [x] Remove enableMobile from all 3 pages (revert to desktop-only scroll/audio)
