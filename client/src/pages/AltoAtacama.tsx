@@ -192,7 +192,83 @@ function MediaBlock({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CASCADE SECTION — Zero-gap, gradient bg, varied ratios
+   CASCADE TEXT BLOCK — Extracted for flat interleaved rendering
+   ═══════════════════════════════════════════════════════════════ */
+function CascadeTextBlock({
+  label,
+  headline,
+  description,
+  link,
+  linkLabel = "Explore More",
+  blogLink,
+  blogLinkLabel,
+  badges,
+}: {
+  label: string;
+  headline: string;
+  description: string;
+  link?: string;
+  linkLabel?: string;
+  blogLink?: string;
+  blogLinkLabel?: string;
+  badges?: boolean;
+}) {
+  return (
+    <div className="flex flex-col justify-center">
+      <AnimateOnScroll variants={fadeUp}>
+        <SectionLabel>{label}</SectionLabel>
+      </AnimateOnScroll>
+      <TextReveal as="h2" className="mb-6" delay={0.1}>
+        <span
+          className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+          style={{ ...display, color: PALETTE.text }}
+        >
+          {headline}
+        </span>
+      </TextReveal>
+      <AnimateOnScroll variants={fadeUp} delay={0.3}>
+        <p className="text-[15px] leading-[1.8] mb-6" style={{ ...body, color: PALETTE.textSecondary }}>
+          {description}
+        </p>
+        {blogLink && (
+          <a
+            href={blogLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mb-4 transition-colors hover:opacity-70"
+            style={{ ...body, fontWeight: 500, color: PALETTE.primary, fontStyle: "italic" }}
+          >
+            {blogLinkLabel || "Read More on the Journal"} ↗
+          </a>
+        )}
+      </AnimateOnScroll>
+      {link && (
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <a
+            href={link}
+            className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
+            style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
+          >
+            {linkLabel} →
+          </a>
+        </AnimateOnScroll>
+      )}
+      {badges && (
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <img
+            src={`${CDN}/award-badges-tented-camp_8aea5e71.webp`}
+            alt="Award badges"
+            className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-4"
+            loading="lazy"
+          />
+        </AnimateOnScroll>
+      )}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CASCADE SECTION — Zero-gap, gradient bg, varied ratios (LEGACY — kept for reference)
    ═══════════════════════════════════════════════════════════════ */
 function CascadeSection({
   label,
@@ -212,6 +288,7 @@ function CascadeSection({
   blogLinkLabel,
   badges,
   hideH,
+  order = "h-first",
 }: {
   label: string;
   headline: string;
@@ -230,6 +307,7 @@ function CascadeSection({
   blogLinkLabel?: string;
   badges?: boolean;
   hideH?: boolean;
+  order?: "h-first" | "v-first";
 }) {
   const VerticalMedia = (
     <MediaBlock
@@ -304,17 +382,47 @@ function CascadeSection({
 
   return (
     <section style={{ backgroundColor: bgColor }}>
-      {/* === DESKTOP: H on top, then V + Text row below === */}
+      {/* === DESKTOP: Alternating H/V order to prevent same-orientation stacking === */}
       <div className="hidden md:block">
-        {/* H row: Full-width horizontal on top */}
+        {/* V+Text first when order is v-first */}
+        {order === "v-first" && (
+          <div className="flex">
+            {textSide === "left" ? (
+              <>
+                <div className="w-1/2 flex items-center">
+                  <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px] ml-auto">
+                    {TextBlock}
+                  </div>
+                </div>
+                <div className="w-1/2">
+                  <MediaReveal delay={0.2}>{VerticalMedia}</MediaReveal>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="w-1/2">
+                  <MediaReveal delay={0.2}>{VerticalMedia}</MediaReveal>
+                </div>
+                <div className="w-1/2 flex items-center">
+                  <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px]">
+                    {TextBlock}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        )}
+
+        {/* H row */}
         {!hideH && (
           <div className="w-full">
             <MediaReveal delay={0.1}>{HorizontalMedia}</MediaReveal>
           </div>
         )}
 
-        {/* V row: 50/50 split — text + vertical media */}
-        <div className="flex">
+        {/* V+Text after H when order is h-first */}
+        {order === "h-first" && (
+          <div className="flex">
           {textSide === "left" ? (
             <>
               <div className="w-1/2 flex items-center">
@@ -339,6 +447,7 @@ function CascadeSection({
             </>
           )}
         </div>
+        )}
       </div>
 
       {/* === MOBILE: Stacked layout (unchanged for now) === */}
@@ -442,28 +551,117 @@ export default function AltoAtacama() {
       <BrandNavigation pageType="property" />
       <HeroSection />
 
-      {CASCADE_SECTIONS.map((section, i) => (
-        <CascadeSection
-          key={i}
-          label={section.label}
-          headline={section.headline}
-          description={section.description}
-          verticalSrc={section.vSrc}
-          horizontalSrc={section.hSrc}
-          verticalIsVideo={section.vVideo}
-          horizontalIsVideo={section.hVideo}
-          verticalRatio={section.vRatio}
-          horizontalRatio={section.hRatio}
-          textSide={section.textSide}
-          bgColor={SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1]}
-          link={section.link}
-          linkLabel={section.linkLabel}
-          blogLink={(section as any).blogLink}
-          blogLinkLabel={(section as any).blogLinkLabel}
-          badges={section.badges}
-          hideH={(section as any).hideH}
-        />
-      ))}
+      {/* === FLAT INTERLEAVED CASCADE ===
+         After Hero(H), the pattern is: V+Text → H → V+Text → H → ...
+         Each section contributes one V+Text block and one H block.
+         V+Text always comes before its own H, ensuring no H touches H
+         and no V touches V. */}
+      {CASCADE_SECTIONS.map((section, i) => {
+        const bg = SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1];
+        const isHidden = (section as any).hideH;
+        return (
+          <section key={i} style={{ backgroundColor: bg }}>
+            {/* V+Text row */}
+            <div className="hidden md:block">
+              <div className="flex">
+                {section.textSide === "left" ? (
+                  <>
+                    <div className="w-1/2 flex items-center">
+                      <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px] ml-auto">
+                        <CascadeTextBlock
+                          label={section.label}
+                          headline={section.headline}
+                          description={section.description}
+                          link={section.link}
+                          linkLabel={section.linkLabel}
+                          blogLink={(section as any).blogLink}
+                          blogLinkLabel={(section as any).blogLinkLabel}
+                          badges={section.badges}
+                        />
+                      </div>
+                    </div>
+                    <div className="w-1/2">
+                      <MediaReveal delay={0.2}>
+                        <MediaBlock
+                          src={section.vSrc}
+                          alt={section.headline}
+                          isVideo={section.vVideo}
+                          aspectRatio={section.vRatio}
+                        />
+                      </MediaReveal>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-1/2">
+                      <MediaReveal delay={0.2}>
+                        <MediaBlock
+                          src={section.vSrc}
+                          alt={section.headline}
+                          isVideo={section.vVideo}
+                          aspectRatio={section.vRatio}
+                        />
+                      </MediaReveal>
+                    </div>
+                    <div className="w-1/2 flex items-center">
+                      <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px]">
+                        <CascadeTextBlock
+                          label={section.label}
+                          headline={section.headline}
+                          description={section.description}
+                          link={section.link}
+                          linkLabel={section.linkLabel}
+                          blogLink={(section as any).blogLink}
+                          blogLinkLabel={(section as any).blogLinkLabel}
+                          badges={section.badges}
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* H row — full width */}
+            {!isHidden && (
+              <div className="hidden md:block w-full">
+                <MediaReveal delay={0.1}>
+                  <MediaBlock
+                    src={section.hSrc}
+                    alt={section.headline}
+                    isVideo={section.hVideo}
+                    aspectRatio={section.hRatio}
+                  />
+                </MediaReveal>
+              </div>
+            )}
+
+            {/* MOBILE: Stacked */}
+            <div className="md:hidden px-5">
+              <div className="pt-10 pb-6">
+                <CascadeTextBlock
+                  label={section.label}
+                  headline={section.headline}
+                  description={section.description}
+                  link={section.link}
+                  linkLabel={section.linkLabel}
+                  blogLink={(section as any).blogLink}
+                  blogLinkLabel={(section as any).blogLinkLabel}
+                  badges={section.badges}
+                />
+              </div>
+              <MediaReveal delay={0.1}>
+                <MediaBlock
+                  src={section.vSrc}
+                  alt={section.headline}
+                  isVideo={section.vVideo}
+                  aspectRatio={section.vRatio}
+                />
+              </MediaReveal>
+            </div>
+          </section>
+        );
+      })}
 
 
       <GettingHereSection />

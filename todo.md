@@ -2385,3 +2385,6 @@
 - [x] NativeVideo: videos stay frozen (paused on frame 0) until they enter viewport AND the previous video has scrolled past
 - [x] CinematicScroll: constant 1.45 px/frame speed (no variable speed)
 - [x] Keep static images in cascade (gastro photos etc.)
+
+## Fix Cascade Alternation
+- [x] Atacama: No H touches H, no V touches V — pattern must be Hero(H) → V+Text → H → V+Text → H...
