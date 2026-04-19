@@ -35,6 +35,8 @@ interface CinematicScrollProps {
   speedV?: number;
   /** Callback fired when user clicks "Start Your Adventure" */
   onStart?: () => void;
+  /** When true, CinematicScroll renders on mobile too (default: desktop only) */
+  enableMobile?: boolean;
 }
 
 /* Map route prefixes to property slugs */
@@ -85,6 +87,7 @@ export default function CinematicScroll({
   speedH = 3.0,
   speedV = 2.37,
   onStart,
+  enableMobile = false,
 }: CinematicScrollProps) {
   const [location] = useLocation();
 
@@ -139,7 +142,7 @@ export default function CinematicScroll({
 
   /* ── Initialize audio/video element ── */
   useEffect(() => {
-    if (isMobile) return; // Don't load audio on mobile
+    if (isMobile && !enableMobile) return; // Don't load audio on mobile unless enableMobile
 
     let media: HTMLVideoElement | HTMLAudioElement;
 
@@ -179,7 +182,7 @@ export default function CinematicScroll({
         media.parentNode.removeChild(media);
       }
     };
-  }, [audioSrc, isVideoSource, isMobile]);
+  }, [audioSrc, isVideoSource, isMobile, enableMobile]);
 
   /* ── Auto-scroll loop with variable speed ── */
   const startScrollLoop = useCallback(() => {
@@ -241,7 +244,7 @@ export default function CinematicScroll({
 
   /* ── Touch/click to stop ── */
   useEffect(() => {
-    if (!hasStarted || isMobile) return;
+    if (!hasStarted || (isMobile && !enableMobile)) return;
 
     const handleTouch = (e: TouchEvent | MouseEvent) => {
       // Don't stop if tapping the control buttons
@@ -263,7 +266,7 @@ export default function CinematicScroll({
       window.removeEventListener("touchstart", handleTouch);
       window.removeEventListener("mousedown", handleTouch);
     };
-  }, [hasStarted, stopScrollLoop, isMobile]);
+  }, [hasStarted, stopScrollLoop, isMobile, enableMobile]);
 
   /* ── Mute toggle ── */
   const handleMuteToggle = useCallback(() => {
@@ -276,8 +279,8 @@ export default function CinematicScroll({
     }
   }, [isMuted, isScrolling]);
 
-  /* ── On mobile, render nothing ── */
-  if (isMobile) return null;
+  /* ── On mobile, render nothing (unless enableMobile) ── */
+  if (isMobile && !enableMobile) return null;
 
   return (
     <>

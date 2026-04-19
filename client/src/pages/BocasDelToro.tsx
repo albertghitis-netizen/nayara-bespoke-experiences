@@ -317,8 +317,7 @@ function CascadeSection({
 
   return (
     <section id={section.id}>
-      {/* ── DESKTOP: H on top, then V + Text row below ── */}
-      {/* Full-width horizontal media on top */}
+      {/* === DESKTOP: H on top, then V + Text row below === */}
       <div className="hidden md:block w-full" data-cascade-h style={{ backgroundColor: section.bgColor }}>
         <MediaReveal delay={0.05}>
           <MediaBlock
@@ -331,12 +330,8 @@ function CascadeSection({
         </MediaReveal>
       </div>
 
-      {/* V + Text row below */}
-      <div className="flex flex-col md:flex-row" data-cascade-v style={{ backgroundColor: section.bgColor }}>
-        {/* Vertical media */}
-        <div
-          className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"}`}
-        >
+      <div className="hidden md:flex md:flex-row" data-cascade-v style={{ backgroundColor: section.bgColor }}>
+        <div className={`w-1/2 ${textLeft ? "order-2" : "order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
               src={section.verticalSrc}
@@ -346,18 +341,15 @@ function CascadeSection({
             />
           </MediaReveal>
         </div>
-
-        {/* Text column */}
         <div
-          className={`w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 ${
-            textLeft ? "md:order-1" : "md:order-2"
+          className={`w-1/2 flex flex-col justify-center px-16 lg:px-24 ${
+            textLeft ? "order-1" : "order-2"
           }`}
           style={{ backgroundColor: section.bgColor }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>{section.label}</SectionLabel>
           </AnimateOnScroll>
-
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2 className="mb-6 md:mb-8">
               {section.headline.split("\n").map((line, i) => (
@@ -371,7 +363,6 @@ function CascadeSection({
               ))}
             </h2>
           </AnimateOnScroll>
-
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
               className="text-[15px] leading-[1.85] max-w-[480px]"
@@ -380,7 +371,71 @@ function CascadeSection({
               {section.body}
             </p>
           </AnimateOnScroll>
+          {section.link && (
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <a
+                href={section.link}
+                className="inline-block mt-6 text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              >
+                {section.linkLabel || "Explore More"} →
+              </a>
+            </AnimateOnScroll>
+          )}
+        </div>
+      </div>
 
+      {/* === MOBILE: H → V → Text === */}
+      <div className="md:hidden" style={{ backgroundColor: section.bgColor }}>
+        {/* H: Full-width horizontal */}
+        <div className="w-full" data-cascade-h>
+          <MediaReveal delay={0.05}>
+            <MediaBlock
+              src={section.horizontalSrc}
+              isVideo={section.horizontalIsVideo}
+              ratio={section.horizontalRatio}
+              alt={`${section.label} landscape — Nayara Bocas del Toro`}
+              className="w-full"
+            />
+          </MediaReveal>
+        </div>
+        {/* V: Full-width vertical */}
+        <div data-cascade-v>
+          <MediaReveal delay={0.1}>
+            <MediaBlock
+              src={section.verticalSrc}
+              isVideo={section.verticalIsVideo}
+              ratio={section.verticalRatio}
+              alt={`${section.label} — Nayara Bocas del Toro`}
+            />
+          </MediaReveal>
+        </div>
+        {/* Text */}
+        <div className="px-6 pt-8 pb-6">
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>{section.label}</SectionLabel>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-6">
+              {section.headline.split("\n").map((line, i) => (
+                <span
+                  key={i}
+                  className="block text-2xl leading-[1.05] tracking-wide"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                >
+                  {line}
+                </span>
+              ))}
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p
+              className="text-[15px] leading-[1.85]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              {section.body}
+            </p>
+          </AnimateOnScroll>
           {section.link && (
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
@@ -447,6 +502,7 @@ export default function BocasDelToro() {
         speed={2.0}
         speedH={3.0}
         speedV={2.37}
+        enableMobile
       />
       <BrandNavigation pageType="property" />
       <HeroSection />

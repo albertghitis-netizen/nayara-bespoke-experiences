@@ -213,10 +213,90 @@ function CascadeSection({
         </div>
       )}
 
-      {/* V + Text row below */}
-      <div className="flex flex-col md:flex-row" data-cascade-v style={{ backgroundColor: section.bgColor }}>
+      {/* === MOBILE: H → V → Text === */}
+      <div className="md:hidden" style={{ backgroundColor: section.bgColor }}>
+        {/* H: Full-width horizontal (mobile) */}
+        {section.horizontalSrc && (
+          <div className="w-full" data-cascade-h>
+            <MediaReveal delay={0.05}>
+              <MediaBlock
+                src={section.horizontalSrc}
+                isVideo={section.horizontalIsVideo}
+                ratio={section.horizontalRatio}
+                alt={`${section.label} landscape — Nayara Tented Camp`}
+                className="w-full"
+              />
+            </MediaReveal>
+          </div>
+        )}
+        {/* V: Full-width vertical (mobile) */}
+        <div data-cascade-v>
+          <MediaReveal delay={0.1}>
+            <MediaBlock
+              src={section.verticalSrc}
+              isVideo={section.verticalIsVideo}
+              ratio={section.verticalRatio}
+              alt={`${section.label} — Nayara Tented Camp`}
+            />
+          </MediaReveal>
+        </div>
+        {/* Text (mobile) */}
+        <div className="px-6 pt-8 pb-6" style={{ backgroundColor: section.bgColor }}>
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>{section.label}</SectionLabel>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-6">
+              {section.headline.split("\n").map((line, i) => (
+                <span
+                  key={i}
+                  className="block text-2xl leading-[1.05] tracking-wide"
+                  style={{ ...display, color: PALETTE.text }}
+                >
+                  {line}
+                </span>
+              ))}
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p
+              className="text-[15px] leading-[1.85]"
+              style={{ ...body, color: PALETTE.textSecondary }}
+            >
+              {section.body}
+            </p>
+          </AnimateOnScroll>
+          {section.link && (
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <a
+                href={section.link}
+                className="inline-block mt-6 text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
+                style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
+              >
+                {section.linkLabel || "Explore More"} →
+              </a>
+            </AnimateOnScroll>
+          )}
+          {section.blogUrl && section.blogTitle && (
+            <AnimateOnScroll variants={fadeUp} delay={0.35}>
+              <a
+                href={section.blogUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-4 text-[12px] tracking-[0.08em] transition-colors hover:opacity-70"
+                style={{ ...body, fontWeight: 500, color: PALETTE.primary, fontStyle: "italic" }}
+              >
+                {section.blogTitle} ↗
+              </a>
+            </AnimateOnScroll>
+          )}
+        </div>
+      </div>
+
+      {/* === DESKTOP: V + Text row below === */}
+      <div className="hidden md:flex md:flex-row" data-cascade-v style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media */}
-        <div className={`w-full md:w-1/2 relative z-[2] ${textLeft ? "md:order-2" : "md:order-1"}`}>
+        <div className={`w-1/2 relative z-[2] ${textLeft ? "order-2" : "order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
               src={section.verticalSrc}
@@ -229,8 +309,8 @@ function CascadeSection({
 
         {/* Text column */}
         <div
-          className={`w-full md:w-1/2 flex flex-col justify-start px-8 py-12 md:py-20 md:px-16 lg:px-24 ${
-            textLeft ? "md:order-1" : "md:order-2"
+          className={`w-1/2 flex flex-col justify-start py-20 px-16 lg:px-24 ${
+            textLeft ? "order-1" : "order-2"
           }`}
           style={{ backgroundColor: section.bgColor }}
         >
@@ -934,6 +1014,7 @@ export default function TentedCamp() {
         speed={2.0}
         speedH={3.0}
         speedV={2.37}
+        enableMobile
       />
       <BrandNavigation pageType="property" />
       <HeroSection />

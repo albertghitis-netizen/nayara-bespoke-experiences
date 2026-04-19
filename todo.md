@@ -2392,3 +2392,13 @@
 - [x] Apply variable-speed cascade to Bocas del Toro
 - [x] Standardize cascade layout: H on top, V+Text below (all three properties)
 - [x] Browser-verify all three property pages on desktop
+
+## Mobile Cascade Preview (Atacama)
+- [x] Enable CinematicScroll (auto-scroll + audio) on mobile for Alto Atacama
+- [x] Ensure "Start Your Adventure" overlay appears on mobile
+- [x] Ensure audio plays on mobile after user taps Start
+
+## Full Cascade on Mobile
+- [x] Show H (horizontal) video sections on mobile in cascade layout (all 3 experiment pages)
+- [x] Show V (vertical) video sections on mobile in cascade layout (all 3 experiment pages)
+- [x] Enable auto-scroll + audio on mobile for all 3 experiment pages

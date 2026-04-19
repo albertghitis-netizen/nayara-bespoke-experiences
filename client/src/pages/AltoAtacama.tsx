@@ -343,10 +343,20 @@ function CascadeSection({
         </div>
       </div>
 
-      {/* === MOBILE: Stacked layout (unchanged for now) === */}
-      <div className="md:hidden px-5">
-        <div className="pt-10 pb-6">{TextBlock}</div>
-        <MediaReveal delay={0.1}>{VerticalMedia}</MediaReveal>
+      {/* === MOBILE: Full cascade — H → V → Text === */}
+      <div className="md:hidden">
+        {/* H: Full-width horizontal */}
+        {!hideH && (
+          <div className="w-full" data-cascade-h>
+            <MediaReveal delay={0.1}>{HorizontalMedia}</MediaReveal>
+          </div>
+        )}
+        {/* V: Full-width vertical */}
+        <div data-cascade-v>
+          <MediaReveal delay={0.15}>{VerticalMedia}</MediaReveal>
+        </div>
+        {/* Text */}
+        <div className="px-5 pt-8 pb-6">{TextBlock}</div>
       </div>
     </section>
   );
@@ -446,6 +456,7 @@ export default function AltoAtacama() {
         speedH={3.0}
         speedV={2.37}
         onStart={() => setAdventureStarted(true)}
+        enableMobile
       />
       <BrandNavigation pageType="property" />
       <HeroSection adventureStarted={adventureStarted} />
