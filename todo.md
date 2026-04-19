@@ -2380,3 +2380,15 @@
 - [x] A Taste of Place: H (gastroH food photo) on top, V (gastroV food photo) below — standard H→V layout
 - [x] Fix black bars/letterboxing on Atacama cascade videos — ffmpeg crop to clean 16:9 H and 3:4 V clips
 - [x] RULE: No black in any images or videos on any page, ever (letterbox bars, black borders, etc. must be eliminated). Backgrounds are fine. Exception: Nayara by Night.
+- [ ] Replace Property H, Property V, Accommodations H with user-provided clips (40056593, BD9D4E58, BC4941AF)
+- [ ] Fix double-horizontal bug in cascade layout
+
+## Variable-Speed Cascade Experiment
+- [x] Implement variable-speed CinematicScroll: H sections at 3.0 px/frame (6s), V sections at 2.37 px/frame (9s)
+- [x] CinematicScroll must detect which section type (H vs V) is currently in viewport and adjust speed
+- [x] Media stays frozen/static until the previous section finishes scrolling past
+- [x] Apply variable-speed cascade to Alto Atacama
+- [x] Apply variable-speed cascade to Tented Camp
+- [x] Apply variable-speed cascade to Bocas del Toro
+- [x] Standardize cascade layout: H on top, V+Text below (all three properties)
+- [x] Browser-verify all three property pages on desktop

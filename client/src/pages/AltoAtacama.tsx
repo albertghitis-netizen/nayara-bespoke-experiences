@@ -4,6 +4,7 @@
  * Every available asset shown — no repeats
  * Varied aspect ratios per section, zero-gap between all elements
  */
+import { useState } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import CinematicScroll from "@/components/CinematicScroll";
@@ -68,16 +69,17 @@ const ASSETS = {
   // Hero
   heroDesktop: `${CDN}/atacama-hero-new-full_f456455a.mp4`,
   heroMobile: `${CDN}/atacama-hero-new_96783d81.mp4`,
+  heroImage: `${CDN}/atacama-hero-image_36acd97b.webp`,
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
-  storyV: `${CDN}/atacama-cascade-s1-desert-cropped-v_7069a95f.mp4`,
-  storyH: `${CDN}/atacama-cascade-s1-desert-cropped-h_cf1e8c8e.mp4`,
+  storyV: `${CDN}/atacama-property-v_1314df37.mp4`,
+  storyH: `${CDN}/atacama-property-h_bd5a51f1.mp4`,
   storyV_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-new_7b2948d2.mp4",
   storyH_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-horizontal-1_618b6dd9.mp4",
 
   // Section 2 — Rooms: cascade hotel property aerial (cropped, no black bars)
   roomsV: `${CDN}/atacama-cascade-s2-property-cropped-v_f291037d.mp4`,
-  roomsH: `${CDN}/atacama-cascade-s2-property-cropped-h_1f603858.mp4`,
+  roomsH: `${CDN}/atacama-accommodations-h_31e19d02.mp4`,
   roomsV_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-desert-suites-vertical_a742ab8f.mp4",
   roomsH_old: `${CDN}/atacama-ultrawide-5_aeeaded2.jpg`,
 
@@ -308,13 +310,13 @@ function CascadeSection({
       <div className="hidden md:block">
         {/* H row: Full-width horizontal on top */}
         {!hideH && (
-          <div className="w-full">
+          <div className="w-full" data-cascade-h>
             <MediaReveal delay={0.1}>{HorizontalMedia}</MediaReveal>
           </div>
         )}
 
         {/* V row: 50/50 split — text + vertical media */}
-        <div className="flex">
+        <div className="flex" data-cascade-v>
           {textSide === "left" ? (
             <>
               <div className="w-1/2 flex items-center">
@@ -365,6 +367,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
+    hideH: true, // Hero video IS the Property H
   },
   {
     label: "Accommodations",
@@ -433,14 +436,19 @@ const CASCADE_SECTIONS = [
    MAIN PAGE — Extended gradient cascade, all touching, color flow
    ═══════════════════════════════════════════════════════════════ */
 export default function AltoAtacama() {
+  const [adventureStarted, setAdventureStarted] = useState(false);
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
-        speed={1.35}
+        speed={2.0}
+        speedH={3.0}
+        speedV={2.37}
+        onStart={() => setAdventureStarted(true)}
       />
       <BrandNavigation pageType="property" />
-      <HeroSection />
+      <HeroSection adventureStarted={adventureStarted} />
 
       {CASCADE_SECTIONS.map((section, i) => (
         <CascadeSection
@@ -477,15 +485,24 @@ export default function AltoAtacama() {
 /* ═══════════════════════════════════════════════════════════════
    HERO — Full-screen video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection() {
+function HeroSection({ adventureStarted }: { adventureStarted: boolean }) {
   const isMobile = useIsMobile();
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
+        {/* Video always mounted (preloading), hidden behind image until Start */}
         <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+        {/* Static image on top — fades away when adventure starts */}
+        {!adventureStarted && (
+          <img
+            src={ASSETS.heroImage}
+            alt="Atacama Desert Rainbow Valley"
+            className="absolute inset-0 w-full h-full object-cover z-[1]"
+          />
+        )}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none" />
       </div>
 
       {/* H1 overlaid on video — bottom center */}

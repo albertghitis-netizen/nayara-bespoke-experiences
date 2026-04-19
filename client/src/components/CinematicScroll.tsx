@@ -1,7 +1,11 @@
 /**
  * CinematicScroll — Auto-scroll cinematic experience (DESKTOP ONLY)
  *
- * On mobile, this component renders nothing — users scroll manually.
+ * Variable-speed scrolling:
+ * - Detects cascade sections marked with data-cascade-h and data-cascade-v
+ * - Scrolls faster through H (horizontal 16:9) sections: 3.0 px/frame → ~6s at 1920px
+ * - Scrolls slower through V (vertical 3:4 + text) sections: 2.37 px/frame → ~9s at 1920px
+ * - Default speed used for hero and non-cascade content
  *
  * Flow:
  * 1. Page loads muted, static — "Start Your Adventure" overlay on hero
@@ -23,8 +27,14 @@ interface CinematicScrollProps {
   /** CDN URL for the audio source — can be an .mp3, .mp4, or video file.
    *  If it's a video, only the audio track is used (video hidden). */
   audioSrc: string;
-  /** Scroll speed in pixels per frame (~60fps). Default 1.5 */
+  /** Default scroll speed in pixels per frame (~60fps). Used for hero/non-cascade areas. Default 2.0 */
   speed?: number;
+  /** Speed for horizontal (16:9) cascade sections. Default 3.0 → ~6s at 1920px */
+  speedH?: number;
+  /** Speed for vertical (3:4 + text) cascade sections. Default 2.37 → ~9s at 1920px */
+  speedV?: number;
+  /** Callback fired when user clicks "Start Your Adventure" */
+  onStart?: () => void;
 }
 
 /* Map route prefixes to property slugs */
@@ -37,9 +47,44 @@ const ROUTE_TO_SLUG: Record<string, string> = {
   "/bocas-del-toro": "bocas-del-toro",
 };
 
+/**
+ * Determine the current scroll speed based on which cascade section
+ * is currently at the top of the viewport.
+ */
+function getCurrentSpeed(defaultSpeed: number, hSpeed: number, vSpeed: number): number {
+  const viewportMid = window.scrollY + window.innerHeight * 0.5;
+
+  // Check all cascade-marked elements
+  const hSections = Array.from(document.querySelectorAll("[data-cascade-h]"));
+  const vSections = Array.from(document.querySelectorAll("[data-cascade-v]"));
+
+  for (let i = 0; i < hSections.length; i++) {
+    const rect = hSections[i].getBoundingClientRect();
+    const elTop = window.scrollY + rect.top;
+    const elBottom = elTop + rect.height;
+    if (viewportMid >= elTop && viewportMid <= elBottom) {
+      return hSpeed;
+    }
+  }
+
+  for (let i = 0; i < vSections.length; i++) {
+    const rect = vSections[i].getBoundingClientRect();
+    const elTop = window.scrollY + rect.top;
+    const elBottom = elTop + rect.height;
+    if (viewportMid >= elTop && viewportMid <= elBottom) {
+      return vSpeed;
+    }
+  }
+
+  return defaultSpeed;
+}
+
 export default function CinematicScroll({
   audioSrc,
-  speed = 1.5,
+  speed = 2.0,
+  speedH = 3.0,
+  speedV = 2.37,
+  onStart,
 }: CinematicScrollProps) {
   const [location] = useLocation();
 
@@ -54,6 +99,14 @@ export default function CinematicScroll({
   const mediaRef = useRef<HTMLVideoElement | HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const scrollingRef = useRef(false);
+
+  /* Store speeds in refs so the animation loop always has current values */
+  const speedRef = useRef(speed);
+  const speedHRef = useRef(speedH);
+  const speedVRef = useRef(speedV);
+  useEffect(() => { speedRef.current = speed; }, [speed]);
+  useEffect(() => { speedHRef.current = speedH; }, [speedH]);
+  useEffect(() => { speedVRef.current = speedV; }, [speedV]);
 
   /* ── Check mobile on mount + resize ── */
   useEffect(() => {
@@ -128,7 +181,7 @@ export default function CinematicScroll({
     };
   }, [audioSrc, isVideoSource, isMobile]);
 
-  /* ── Auto-scroll loop ── */
+  /* ── Auto-scroll loop with variable speed ── */
   const startScrollLoop = useCallback(() => {
     scrollingRef.current = true;
 
@@ -144,12 +197,19 @@ export default function CinematicScroll({
         return;
       }
 
-      window.scrollBy(0, speed);
+      // Dynamically determine speed based on current viewport position
+      const currentSpeed = getCurrentSpeed(
+        speedRef.current,
+        speedHRef.current,
+        speedVRef.current
+      );
+
+      window.scrollBy(0, currentSpeed);
       rafRef.current = requestAnimationFrame(step);
     };
 
     rafRef.current = requestAnimationFrame(step);
-  }, [speed]);
+  }, []);
 
   const stopScrollLoop = useCallback(() => {
     scrollingRef.current = false;
@@ -165,6 +225,7 @@ export default function CinematicScroll({
     setHasStarted(true);
     setIsScrolling(true);
     setIsMuted(false);
+    onStart?.();
 
     // Start audio (from video or audio element)
     if (mediaRef.current) {
@@ -176,7 +237,7 @@ export default function CinematicScroll({
 
     // Start scrolling
     startScrollLoop();
-  }, [startScrollLoop]);
+  }, [startScrollLoop, onStart]);
 
   /* ── Touch/click to stop ── */
   useEffect(() => {

@@ -197,9 +197,25 @@ function CascadeSection({
 
   return (
     <section id={section.id}>
-      {/* ── Row: Vertical media + Text column ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
-        {/* Vertical media — full-bleed to its edge */}
+      {/* ── DESKTOP: H on top, then V + Text row below ── */}
+      {/* Full-width horizontal media on top */}
+      {section.horizontalSrc && (
+        <div className="hidden md:block w-full" data-cascade-h style={{ backgroundColor: section.bgColor }}>
+          <MediaReveal delay={0.05}>
+            <MediaBlock
+              src={section.horizontalSrc}
+              isVideo={section.horizontalIsVideo}
+              ratio={section.horizontalRatio}
+              alt={`${section.label} landscape — Nayara Tented Camp`}
+              className="w-full"
+            />
+          </MediaReveal>
+        </div>
+      )}
+
+      {/* V + Text row below */}
+      <div className="flex flex-col md:flex-row" data-cascade-v style={{ backgroundColor: section.bgColor }}>
+        {/* Vertical media */}
         <div className={`w-full md:w-1/2 relative z-[2] ${textLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
@@ -302,18 +318,6 @@ function CascadeSection({
         </div>
       </div>
 
-      {/* ── Full-width horizontal media ── */}
-      <div className="relative z-[2]" style={{ backgroundColor: section.nextBgColor }}>
-        <MediaReveal delay={0.05}>
-          <MediaBlock
-            src={section.horizontalSrc}
-            isVideo={section.horizontalIsVideo}
-            ratio={section.horizontalRatio}
-            alt={`${section.label} landscape — Nayara Tented Camp`}
-            className="w-full"
-          />
-        </MediaReveal>
-      </div>
     </section>
   );
 }
@@ -927,7 +931,9 @@ export default function TentedCamp() {
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
-        speed={1.35}
+        speed={2.0}
+        speedH={3.0}
+        speedV={2.37}
       />
       <BrandNavigation pageType="property" />
       <HeroSection />
