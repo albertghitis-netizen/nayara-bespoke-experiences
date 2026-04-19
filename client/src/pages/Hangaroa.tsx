@@ -130,7 +130,6 @@ export default function Hangaroa() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <CinematicScroll
-        audioSrc={CDN.heroVideo}
         speed={1.35}
       />
       <BrandNavigation pageType="property" />

@@ -144,7 +144,6 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
       <CinematicScroll
-        audioSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-hero-desktop-v3_5b739e00.mp4"
         speed={1.4}
       />
       <OrganizationSchema />

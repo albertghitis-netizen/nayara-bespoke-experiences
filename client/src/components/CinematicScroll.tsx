@@ -4,25 +4,24 @@
  * On mobile, this component renders nothing — users scroll manually.
  *
  * Flow:
- * 1. Page loads muted, static — "Start Your Adventure" overlay on hero
- * 2. User taps "Start Your Adventure" → ambient audio plays, page auto-scrolls
- * 3. User touches/clicks screen anywhere → scroll stops, audio pauses
- * 4. One fixed Sound pill follows the user (top-left, matches brand nav pill color)
- * 5. Tapping the Sound pill toggles audio without affecting scroll
+ * 1. Page loads muted, static — "Enter the [Property]" overlay on hero
+ * 2. User clicks CTA → cascade begins, auto-scroll starts, audio unmutes
+ * 3. User touches/clicks screen anywhere → scroll stops
+ * 4. One fixed Sound pill follows the user (top-left)
+ * 5. Sound pill toggles global mute via cascadeAudio manager
  *
- * Audio source: Uses a hidden <video> element to play the hero video's audio
- * track as the ambient soundtrack for the entire page experience.
+ * Audio: Each video in the cascade plays its own audio via NativeVideo.
+ * CinematicScroll no longer manages its own audio element — it delegates
+ * to the cascadeAudio singleton which coordinates which video is active.
  */
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
 import { getPalette, BRAND } from "@/data/propertyPalettes";
+import { cascadeAudio } from "@/lib/cascadeAudio";
 
 interface CinematicScrollProps {
-  /** CDN URL for the audio source — can be an .mp3, .mp4, or video file.
-   *  If it's a video, only the audio track is used (video hidden). */
-  audioSrc: string;
   /** Scroll speed in pixels per frame (~60fps). Default 1.45 */
   speed?: number;
   /** Custom CTA button text. Default "Start Your Adventure" */
@@ -42,7 +41,6 @@ const ROUTE_TO_SLUG: Record<string, string> = {
 };
 
 export default function CinematicScroll({
-  audioSrc,
   speed = 1.45,
   ctaText = "Start Your Adventure",
   onStart,
@@ -57,7 +55,6 @@ export default function CinematicScroll({
   const [isMuted, setIsMuted] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
 
-  const mediaRef = useRef<HTMLVideoElement | HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const scrollingRef = useRef(false);
   const startedAtRef = useRef<number>(0);
@@ -70,6 +67,14 @@ export default function CinematicScroll({
     return () => window.removeEventListener("resize", check);
   }, []);
 
+  /* ── Subscribe to cascadeAudio mute state changes ── */
+  useEffect(() => {
+    const unsub = cascadeAudio.subscribe((muted) => {
+      setIsMuted(muted);
+    });
+    return () => { unsub(); };
+  }, []);
+
   /* ── Determine pill colors from current route ── */
   const propertySlug = Object.entries(ROUTE_TO_SLUG).find(([prefix]) =>
     location.startsWith(prefix)
@@ -80,60 +85,12 @@ export default function CinematicScroll({
 
   if (propertySlug) {
     const palette = getPalette(propertySlug);
-    pillBg = `${palette.navPillBg}B3`; // match BrandNavigation opacity
+    pillBg = `${palette.navPillBg}B3`;
     pillText = palette.navPillText;
   } else {
-    // Brand homepage — light pill with dark text
     pillBg = "rgba(242,235,227,0.75)";
     pillText = BRAND.primaryText;
   }
-
-  /* ── Detect if source is video (mp4/mov/webm) or audio (mp3/wav/ogg) ── */
-  const isVideoSource = /\.(mp4|mov|webm|m4v)/i.test(audioSrc);
-
-  /* ── Initialize audio/video element ── */
-  useEffect(() => {
-    if (isMobile) return; // Don't load audio on mobile
-
-    let media: HTMLVideoElement | HTMLAudioElement;
-
-    if (isVideoSource) {
-      // Create a hidden video element — we only want its audio track
-      const video = document.createElement("video");
-      video.src = audioSrc;
-      video.loop = true;
-      video.volume = 0.6;
-      video.preload = "auto";
-      video.playsInline = true;
-      // Hide the video — we only want audio
-      video.style.position = "fixed";
-      video.style.top = "-9999px";
-      video.style.left = "-9999px";
-      video.style.width = "1px";
-      video.style.height = "1px";
-      video.style.opacity = "0";
-      video.style.pointerEvents = "none";
-      document.body.appendChild(video);
-      media = video;
-    } else {
-      // Standard audio element for .mp3 etc.
-      const audio = new Audio(audioSrc);
-      audio.loop = true;
-      audio.volume = 0.6;
-      audio.preload = "auto";
-      media = audio;
-    }
-
-    mediaRef.current = media;
-
-    return () => {
-      media.pause();
-      media.src = "";
-      if (isVideoSource && media.parentNode) {
-        media.parentNode.removeChild(media);
-      }
-    };
-  }, [audioSrc, isVideoSource, isMobile]);
 
   /* ── Auto-scroll loop ── */
   const startScrollLoop = useCallback(() => {
@@ -144,10 +101,8 @@ export default function CinematicScroll({
 
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       if (window.scrollY >= maxScroll) {
-        // Reached bottom — stop
         scrollingRef.current = false;
         setIsScrolling(false);
-        mediaRef.current?.pause();
         return;
       }
 
@@ -173,15 +128,11 @@ export default function CinematicScroll({
     setIsScrolling(true);
     setIsMuted(false);
     startedAtRef.current = Date.now();
-    onStart?.();
 
-    // Start audio (from video or audio element)
-    if (mediaRef.current) {
-      mediaRef.current.muted = false;
-      mediaRef.current.play().catch(() => {
-        // Autoplay blocked — continue scroll without audio
-      });
-    }
+    // Tell cascadeAudio the experience has started — videos can now play audio
+    cascadeAudio.start();
+
+    onStart?.();
 
     // Start scrolling
     startScrollLoop();
@@ -192,18 +143,15 @@ export default function CinematicScroll({
     if (!hasStarted || isMobile) return;
 
     const handleTouch = (e: TouchEvent | MouseEvent) => {
-      // Don't stop if tapping the control buttons
       const target = e.target as HTMLElement;
       if (target.closest("[data-cinematic-control]")) return;
 
-      // Ignore clicks within 600ms of starting (prevents the start click from immediately stopping)
+      // Ignore clicks within 600ms of starting
       if (Date.now() - startedAtRef.current < 600) return;
 
       if (scrollingRef.current) {
-        // Stop scrolling + pause audio
         stopScrollLoop();
         setIsScrolling(false);
-        mediaRef.current?.pause();
       }
     };
 
@@ -216,23 +164,18 @@ export default function CinematicScroll({
     };
   }, [hasStarted, stopScrollLoop, isMobile]);
 
-  /* ── Mute toggle ── */
+  /* ── Mute toggle — delegates to cascadeAudio ── */
   const handleMuteToggle = useCallback(() => {
-    if (!mediaRef.current) return;
-    const newMuted = !isMuted;
+    const newMuted = cascadeAudio.toggleMute();
     setIsMuted(newMuted);
-    mediaRef.current.muted = newMuted;
-    if (!newMuted && isScrolling) {
-      mediaRef.current.play().catch(() => {});
-    }
-  }, [isMuted, isScrolling]);
+  }, []);
 
   /* ── On mobile, render nothing ── */
   if (isMobile) return null;
 
   return (
     <>
-      {/* ── "Start Your Adventure" overlay ── */}
+      {/* ── "Enter the [Property]" overlay ── */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div

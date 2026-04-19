@@ -926,7 +926,6 @@ export default function TentedCamp() {
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
-        audioSrc={ASSETS.heroDesktop}
         speed={1.35}
       />
       <BrandNavigation pageType="property" />

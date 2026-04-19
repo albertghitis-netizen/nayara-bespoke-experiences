@@ -66,9 +66,18 @@ const PALETTE = {
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const ASSETS = {
-  // Hero
-  heroDesktop: "/manus-storage/atacama-new-hero_fa6a9bf5.mp4",
-  heroMobile: `${CDN}/atacama-hero-new_96783d81.mp4`,
+  // Hero (cascade video 1 — horizontal)
+  heroDesktop: "/manus-storage/atacama-cascade-1-hero-h_94275ae6.mp4",
+  heroMobile: "/manus-storage/atacama-cascade-1-hero-h_94275ae6.mp4",
+
+  // Cascade video 2 — vertical
+  cascadeV: "/manus-storage/atacama-cascade-2-vertical_7da06aa6.mp4",
+
+  // Cascade video 3 — accommodations horizontal
+  cascadeAccomH: "/manus-storage/atacama-cascade-3-accom-h_7b491266.mp4",
+
+  // Cascade video 4 — accommodations vertical
+  cascadeAccomV: "/manus-storage/atacama-cascade-4-accom-v2_a9446d51.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
   storyV: `${CDN}/atacama-cascade-s1-desert-cropped-v_7069a95f.mp4`,
@@ -467,7 +476,8 @@ const CASCADE_SECTIONS = [
     label: "The Property",
     headline: "Mars on Earth",
     description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
-    vSrc: ASSETS.storyV, hSrc: ASSETS.storyH,
+    vSrc: ASSETS.cascadeV,
+    hSrc: ASSETS.cascadeAccomH,
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
@@ -480,63 +490,15 @@ const CASCADE_SECTIONS = [
     label: "Accommodations",
     headline: "Desert Suites",
     description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
-    vSrc: ASSETS.roomsV, hSrc: ASSETS.roomsH,
-    vVideo: true, hVideo: true,
+    vSrc: ASSETS.cascadeAccomV,
+    hSrc: "",
+    vVideo: true, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
     badges: false,
+    hideH: true,
   },
-  {
-    label: "Experiences",
-    headline: "Desert Explorations",
-    description: "From sunrise salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is led by expert local guides who reveal the Atacama's hidden wonders.",
-    vSrc: ASSETS.expV, hSrc: ASSETS.expH,
-    vVideo: true, hVideo: true,
-    vRatio: "3/4", hRatio: "16/9",
-    textSide: "left" as const,
-    link: "/alto-atacama/experiences", linkLabel: "Explore More",
-    badges: false,
-  },
-  {
-    label: "Sustainability",
-    headline: "Protecting the Desert",
-    description: "Our commitment to the Atacama goes beyond hospitality. We protect fragile ecosystems, support local communities, and operate with minimal environmental impact in one of Earth's most delicate landscapes.",
-    vSrc: ASSETS.susV, hSrc: ASSETS.susH,
-    vVideo: true, hVideo: true,
-    vRatio: "3/4", hRatio: "16/9",
-    textSide: "right" as const,
-    link: "/alto-atacama/sustainability", linkLabel: "Explore More",
-    badges: false,
-  },
-  {
-    label: "Wellness",
-    headline: "Geothermal Healing",
-    description: "Harness the healing power of the desert \u2014 from volcanic mud rituals to salt crystal therapies, each treatment draws on the Atacama's ancient minerals and infinite stillness.",
-    vSrc: ASSETS.wellV, hSrc: ASSETS.wellH,
-    vVideo: true, hVideo: true,
-    vRatio: "3/4", hRatio: "16/9",
-    textSide: "left" as const,
-    link: "/alto-atacama/wellness", linkLabel: "Explore More",
-    badges: false,
-  },
-  {
-    label: "A Taste of Place",
-    headline: "Desert Dining",
-    description: "Our chefs transform the Atacama's indigenous ingredients into extraordinary cuisine \u2014 from quinoa harvested at altitude to herbs cultivated in our desert gardens. Each dish tells the story of this ancient landscape.",
-    vSrc: ASSETS.gastroV, hSrc: ASSETS.gastroH,
-    vVideo: false, hVideo: false,
-    vRatio: "3/4", hRatio: "16/9",
-    textSide: "right" as const,
-    link: "/alto-atacama/gastronomy", linkLabel: "Explore More",
-    badges: false,
-  },
-  /* ── TRIMMED: Extended cascade sections hidden for performance ──
-   * Desert Ingredients, Art of Plating, Sweet Finales, Dining & Stars,
-   * Stargazing, The Landscape, Wildlife, Adventure, Desert Twilight,
-   * Architecture, The Pool, Flamingo Lagoon
-   * These sections are preserved in code but not rendered.
-   */
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -548,7 +510,6 @@ export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
-        audioSrc={ASSETS.heroDesktop}
         speed={1.45}
         ctaText="Enter the Atacama"
         onStart={() => setAdventureStarted(true)}
