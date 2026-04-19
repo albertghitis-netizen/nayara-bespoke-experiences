@@ -67,18 +67,30 @@ const PALETTE = {
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const ASSETS = {
-  // Hero (cascade video 1 — horizontal)
-  heroDesktop: "/manus-storage/atacama-cascade-1-hero-h_94275ae6.mp4",
-  heroMobile: "/manus-storage/atacama-cascade-1-hero-h_94275ae6.mp4",
+  // Hero (clip 1 — horizontal 16:9)
+  heroDesktop: "/manus-storage/clip1-h_b0053896.mp4",
+  heroMobile: "/manus-storage/clip1-h_b0053896.mp4",
 
-  // Cascade video 2 — vertical
-  cascadeV: "/manus-storage/atacama-cascade-2-vertical_7da06aa6.mp4",
+  // Clip 2 — vertical 3:4
+  clip2V: "/manus-storage/clip2-v_67fa9d14.mp4",
 
-  // Cascade video 3 — accommodations horizontal
-  cascadeAccomH: "/manus-storage/atacama-cascade-3-accom-h_7b491266.mp4",
+  // Clip 3 — horizontal 16:9
+  clip3H: "/manus-storage/clip3-h_918551ac.mp4",
 
-  // Cascade video 4 — accommodations vertical
-  cascadeAccomV: "/manus-storage/atacama-cascade-4-accom-v2_a9446d51.mp4",
+  // Clip 4 — vertical 3:4
+  clip4V: "/manus-storage/clip4-v_0ab7009a.mp4",
+
+  // Clip 5 — horizontal 16:9
+  clip5H: "/manus-storage/clip5-h_f17c403c.mp4",
+
+  // Clip 6 — vertical 3:4
+  clip6V: "/manus-storage/clip6-v_8d1b4aca.mp4",
+
+  // Clip 7 — horizontal 16:9
+  clip7H: "/manus-storage/clip7-h_8df11c59.mp4",
+
+  // Clip 8 — vertical 3:4
+  clip8V: "/manus-storage/clip8-v_794f1df4.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
   storyV: `${CDN}/atacama-cascade-s1-desert-cropped-v_7069a95f.mp4`,
@@ -194,11 +206,11 @@ function MediaBlock({
   hasAudio?: boolean;
 }) {
   return (
-    <div className="overflow-hidden w-full" style={{ aspectRatio }}>
+    <div className="overflow-hidden w-full block leading-[0]" style={{ aspectRatio }}>
       {isVideo ? (
         <NativeVideo src={src} className="w-full h-full object-cover" hasAudio={hasAudio} />
       ) : (
-        <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
+        <img src={src} alt={alt} className="w-full h-full object-cover block" loading="lazy" />
       )}
     </div>
   );
@@ -479,13 +491,11 @@ const CASCADE_SECTIONS = [
     label: "The Property",
     headline: "Mars on Earth",
     description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
-    vSrc: ASSETS.cascadeV,
-    hSrc: ASSETS.cascadeAccomH,
+    vSrc: ASSETS.clip2V,
+    hSrc: ASSETS.clip3H,
     vVideo: true, hVideo: true,
-    vHasAudio: true, hHasAudio: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
-    link: undefined, linkLabel: undefined,
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
@@ -494,15 +504,48 @@ const CASCADE_SECTIONS = [
     label: "Accommodations",
     headline: "Desert Suites",
     description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
-    vSrc: ASSETS.cascadeAccomV,
-    hSrc: "",
-    vVideo: true, hVideo: false,
-    vHasAudio: true, hHasAudio: false,
+    vSrc: ASSETS.clip4V,
+    hSrc: ASSETS.clip5H,
+    vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
     badges: false,
+  },
+  {
+    label: "Experiences",
+    headline: "Desert Adventures",
+    description: "From salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is guided by local experts who reveal the Atacama's hidden wonders.",
+    vSrc: ASSETS.clip6V,
+    hSrc: ASSETS.clip7H,
+    vVideo: true, hVideo: true,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "left" as const,
+    badges: false,
+  },
+  {
+    label: "Wellness",
+    headline: "Desert Renewal",
+    description: "Our spa draws on ancestral Atacameño healing traditions and the desert's mineral-rich waters. Surrender to treatments designed around the rhythms of this ancient landscape.",
+    vSrc: ASSETS.clip8V,
+    hSrc: "",
+    vVideo: true, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "right" as const,
+    badges: false,
     hideH: true,
+  },
+  {
+    label: "Gastronomy",
+    headline: "A Taste of the Desert",
+    description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
+    vSrc: ASSETS.gastroV,
+    hSrc: ASSETS.gastroH,
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "left" as const,
+    badges: false,
+    hFirst: true,
   },
 ];
 
@@ -515,7 +558,7 @@ export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
-        speed={1.45}
+        speed={1.35}
         ctaText="Enter the Atacama"
         onStart={() => setAdventureStarted(true)}
       />
@@ -530,84 +573,93 @@ export default function AltoAtacama() {
       {CASCADE_SECTIONS.map((section, i) => {
         const bg = SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1];
         const isHidden = (section as any).hideH;
+        const isHFirst = (section as any).hFirst;
+
+        const VTextRow = (
+          <div className="hidden md:block">
+            <div className="flex">
+              {section.textSide === "left" ? (
+                <>
+                  <div className="w-1/2 flex items-center">
+                    <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px] ml-auto">
+                      <CascadeTextBlock
+                        label={section.label}
+                        headline={section.headline}
+                        description={section.description}
+                        link={section.link}
+                        linkLabel={section.linkLabel}
+                        blogLink={(section as any).blogLink}
+                        blogLinkLabel={(section as any).blogLinkLabel}
+                        badges={section.badges}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-1/2">
+                    <MediaReveal delay={0.2}>
+                      <MediaBlock
+                        src={section.vSrc}
+                        alt={section.headline}
+                        isVideo={section.vVideo}
+                        aspectRatio={section.vRatio}
+                        hasAudio={(section as any).vHasAudio}
+                      />
+                    </MediaReveal>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="w-1/2">
+                    <MediaReveal delay={0.2}>
+                      <MediaBlock
+                        src={section.vSrc}
+                        alt={section.headline}
+                        isVideo={section.vVideo}
+                        aspectRatio={section.vRatio}
+                        hasAudio={(section as any).vHasAudio}
+                      />
+                    </MediaReveal>
+                  </div>
+                  <div className="w-1/2 flex items-center">
+                    <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px]">
+                      <CascadeTextBlock
+                        label={section.label}
+                        headline={section.headline}
+                        description={section.description}
+                        link={section.link}
+                        linkLabel={section.linkLabel}
+                        blogLink={(section as any).blogLink}
+                        blogLinkLabel={(section as any).blogLinkLabel}
+                        badges={section.badges}
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        );
+
+        const HRow = !isHidden ? (
+          <div className="hidden md:block w-full -mt-px">
+            <MediaReveal delay={0.1}>
+              <MediaBlock
+                src={section.hSrc}
+                alt={section.headline}
+                isVideo={section.hVideo}
+                aspectRatio={section.hRatio}
+                hasAudio={(section as any).hHasAudio}
+              />
+            </MediaReveal>
+          </div>
+        ) : null;
+
         return (
           <section key={i} style={{ backgroundColor: bg }}>
-            {/* V+Text row */}
-            <div className="hidden md:block">
-              <div className="flex">
-                {section.textSide === "left" ? (
-                  <>
-                    <div className="w-1/2 flex items-center">
-                      <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px] ml-auto">
-                        <CascadeTextBlock
-                          label={section.label}
-                          headline={section.headline}
-                          description={section.description}
-                          link={section.link}
-                          linkLabel={section.linkLabel}
-                          blogLink={(section as any).blogLink}
-                          blogLinkLabel={(section as any).blogLinkLabel}
-                          badges={section.badges}
-                        />
-                      </div>
-                    </div>
-                    <div className="w-1/2">
-                      <MediaReveal delay={0.2}>
-                        <MediaBlock
-                          src={section.vSrc}
-                          alt={section.headline}
-                          isVideo={section.vVideo}
-                          aspectRatio={section.vRatio}
-                          hasAudio={(section as any).vHasAudio}
-                        />
-                      </MediaReveal>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="w-1/2">
-                      <MediaReveal delay={0.2}>
-                        <MediaBlock
-                          src={section.vSrc}
-                          alt={section.headline}
-                          isVideo={section.vVideo}
-                          aspectRatio={section.vRatio}
-                          hasAudio={(section as any).vHasAudio}
-                        />
-                      </MediaReveal>
-                    </div>
-                    <div className="w-1/2 flex items-center">
-                      <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px]">
-                        <CascadeTextBlock
-                          label={section.label}
-                          headline={section.headline}
-                          description={section.description}
-                          link={section.link}
-                          linkLabel={section.linkLabel}
-                          blogLink={(section as any).blogLink}
-                          blogLinkLabel={(section as any).blogLinkLabel}
-                          badges={section.badges}
-                        />
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* H row — full width */}
-            {!isHidden && (
-              <div className="hidden md:block w-full">
-                <MediaReveal delay={0.1}>
-                  <MediaBlock
-                    src={section.hSrc}
-                    alt={section.headline}
-                    isVideo={section.hVideo}
-                    aspectRatio={section.hRatio}
-                    hasAudio={(section as any).hHasAudio}
-                  />
-                </MediaReveal>
-              </div>
+            {/* Desktop: H-first or V-first ordering */}
+            {isHFirst ? (
+              <>{HRow}{VTextRow}</>
+            ) : (
+              <>{VTextRow}{HRow}</>
             )}
 
             {/* MOBILE: Stacked */}

@@ -186,7 +186,7 @@ export default function NativeVideo({
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-full" onClick={handleTapToPlay}>
+    <div ref={containerRef} className="relative w-full h-full block leading-[0]" onClick={handleTapToPlay}>
       {hasAudio ? (
         /* For hasAudio videos: DO NOT set muted in JSX — controlled imperatively */
         <video

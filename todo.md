@@ -2418,3 +2418,15 @@
 - [x] No two audios ever play at the same time — verified with timeline data
 - [x] Single SOUND toggle controls all three audios globally
 - [x] Separate IntersectionObservers: play/pause at 30%, audio activation at 80%
+
+## Bug: Only Hero Audio Plays Throughout
+- [ ] Fix: cascade videos should play their own distinct audio tracks, not hero audio continuing
+- [ ] Each of the 3 videos has its own audio — handoff must switch to the new video's audio
+
+## 4-Second Stationary Hero + Audio Handoff Fix
+- [ ] Add 4-second stationary delay after click before auto-scroll begins (hero video plays with audio, page doesn't move)
+- [ ] Fix audio handoff: each cascade video must play its own distinct audio track
+
+## Black Line Fix + Gastronomy Section
+- [x] Fix tiny black line divider under Desert Adventures (between clip6-v and clip7-h)
+- [x] Add Gastronomy section after Wellness — big horizontal image, gastronomy info text, vertical image below, then flows into Getting Here
