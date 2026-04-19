@@ -2388,3 +2388,11 @@
 
 ## Fix Cascade Alternation
 - [x] Atacama: No H touches H, no V touches V — pattern must be Hero(H) → V+Text → H → V+Text → H...
+
+## Restore Static Hero Photo + Custom CTA Text
+- [ ] Show static photo as hero background by default on all property pages (not video)
+- [ ] Switch to video only when user clicks the CTA button
+- [ ] CTA text: Alto Atacama = 'Enter the Atacama'
+- [ ] CTA text: Bocas del Toro = 'Enter the Archipelago'
+- [ ] CTA text: Costa Rica properties (Arenal, Gardens, Springs, Tented Camp) = 'Enter the Rainforest'
+- [ ] CTA text: Hangaroa = TBD (Easter Island themed)

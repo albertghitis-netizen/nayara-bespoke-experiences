@@ -4,6 +4,7 @@
  * Every available asset shown — no repeats
  * Varied aspect ratios per section, zero-gap between all elements
  */
+import { useState } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import CinematicScroll from "@/components/CinematicScroll";
@@ -148,7 +149,7 @@ const ASSETS = {
   poolSunset: `${CDN}/atacama-pool-sunset_c4a2f7e1.jpg`,
   stargazingPhoto: `${CDN}/atacama-stargazing_f5c3d8a4.jpg`,
   suiteInterior: `${CDN}/atacama-suite-interior_d3b1e9f2.jpg`,
-  heroDesktopPhoto: `${CDN}/atacama-hero-desktop_8c8a5be0.jpg`,
+  heroDesktopPhoto: `${CDN}/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg`,
   propCard: `${CDN}/prop-atacama_704b4f26.jpg`,
 };
 
@@ -542,14 +543,18 @@ const CASCADE_SECTIONS = [
    MAIN PAGE — Extended gradient cascade, all touching, color flow
    ═══════════════════════════════════════════════════════════════ */
 export default function AltoAtacama() {
+  const [adventureStarted, setAdventureStarted] = useState(false);
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         audioSrc={ASSETS.heroDesktop}
         speed={1.45}
+        ctaText="Enter the Atacama"
+        onStart={() => setAdventureStarted(true)}
       />
       <BrandNavigation pageType="property" />
-      <HeroSection />
+      <HeroSection showVideo={adventureStarted} />
 
       {/* === FLAT INTERLEAVED CASCADE ===
          After Hero(H), the pattern is: V+Text → H → V+Text → H → ...
@@ -675,14 +680,23 @@ export default function AltoAtacama() {
 /* ═══════════════════════════════════════════════════════════════
    HERO — Full-screen video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection() {
+function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
   const isMobile = useIsMobile();
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        {/* Static photo by default — switches to video when user clicks CTA */}
+        {showVideo ? (
+          <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        ) : (
+          <img
+            src={ASSETS.heroDesktopPhoto}
+            alt="Atacama Desert"
+            className="w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
 

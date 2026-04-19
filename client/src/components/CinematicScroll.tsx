@@ -25,7 +25,9 @@ interface CinematicScrollProps {
   audioSrc: string;
   /** Scroll speed in pixels per frame (~60fps). Default 1.45 */
   speed?: number;
-  /** Callback fired when user clicks "Start Your Adventure" */
+  /** Custom CTA button text. Default "Start Your Adventure" */
+  ctaText?: string;
+  /** Callback fired when user clicks the CTA button */
   onStart?: () => void;
 }
 
@@ -42,6 +44,7 @@ const ROUTE_TO_SLUG: Record<string, string> = {
 export default function CinematicScroll({
   audioSrc,
   speed = 1.45,
+  ctaText = "Start Your Adventure",
   onStart,
 }: CinematicScrollProps) {
   const [location] = useLocation();
@@ -260,7 +263,7 @@ export default function CinematicScroll({
                 className="text-white/70 text-[11px] tracking-[0.35em] uppercase group-hover:text-white/90 transition-colors duration-500"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
-                Start Your Adventure
+                {ctaText}
               </span>
             </motion.button>
           </motion.div>
