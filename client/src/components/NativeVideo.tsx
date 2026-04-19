@@ -1,13 +1,6 @@
 /**
  * NativeVideo — Lightweight native <video> wrapper
  * No blob fetching, no DRM protection. Fast streaming.
- *
- * IntersectionObserver behavior:
- * - Video preloads but stays PAUSED and frozen on first frame
- * - Plays only when 30% of the video enters the viewport
- * - Pauses and resets to 0:00 when scrolled out of view
- * - This ensures videos stay "frozen/static" until their section scrolls into view
- *
  * Optional mute/unmute pill for videos with audio.
  */
 import { useRef, useState, useEffect, useCallback } from "react";
@@ -68,26 +61,16 @@ export default function NativeVideo({
     setIsMuted(true);
     video.load();
 
-    // Use IntersectionObserver to play only when visible
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && autoPlay) {
-            video.play().catch(() => {});
-          } else if (!entry.isIntersecting && !video.paused) {
-            video.pause();
-            // Reset to start so it plays fresh when scrolled back into view
-            video.currentTime = 0;
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(video);
-
+    const tryPlay = () => {
+      if (autoPlay && video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
     return () => {
-      observer.disconnect();
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
     };
   }, [src, autoPlay]);
 
@@ -128,7 +111,7 @@ export default function NativeVideo({
       <video
         ref={videoRef}
         className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700`}
-        autoPlay={false}
+        autoPlay={autoPlay}
         muted={muted}
         loop={loop}
         playsInline={playsInline}
