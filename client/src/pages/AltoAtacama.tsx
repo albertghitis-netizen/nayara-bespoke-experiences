@@ -4,9 +4,10 @@
  * Every available asset shown — no repeats
  * Varied aspect ratios per section, zero-gap between all elements
  */
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
+import { cascadeAudio } from "@/lib/cascadeAudio";
 import CinematicScroll from "@/components/CinematicScroll";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -651,20 +652,90 @@ export default function AltoAtacama() {
 function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
   const isMobile = useIsMobile();
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
+  const preloadRef = useRef<HTMLVideoElement>(null);
+  const heroUniqueId = useRef(`hero-preload-${Math.random().toString(36).slice(2, 8)}`).current;
+  const [videoReady, setVideoReady] = useState(false);
+  const hasActivated = useRef(false);
+
+  /* Preload: start buffering the hero video immediately on mount (while static photo shows) */
+  useEffect(() => {
+    const video = preloadRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.volume = 0.7;
+    video.preload = "auto";
+    video.load();
+
+    const onCanPlay = () => setVideoReady(true);
+    video.addEventListener("canplaythrough", onCanPlay);
+    // Also accept canplay as fallback for slower connections
+    video.addEventListener("canplay", onCanPlay);
+
+    // Register with cascadeAudio so it's ready for activation
+    cascadeAudio.register(heroUniqueId, video);
+
+    return () => {
+      video.removeEventListener("canplaythrough", onCanPlay);
+      video.removeEventListener("canplay", onCanPlay);
+      cascadeAudio.unregister(heroUniqueId);
+    };
+  }, [heroVideo, heroUniqueId]);
+
+  /* When showVideo becomes true, instantly play the preloaded video with audio */
+  useEffect(() => {
+    if (!showVideo || hasActivated.current) return;
+    const video = preloadRef.current;
+    if (!video) return;
+
+    hasActivated.current = true;
+
+    // Activate audio on this video
+    cascadeAudio.activate(heroUniqueId);
+    video.muted = cascadeAudio.isMuted();
+
+    // Play immediately — video is already buffered
+    video.play().catch(() => {});
+  }, [showVideo, heroUniqueId]);
+
+  /* Subscribe to mute state changes */
+  useEffect(() => {
+    const unsub = cascadeAudio.subscribe((globalMuted) => {
+      if (cascadeAudio.getActiveId() === heroUniqueId) {
+        const video = preloadRef.current;
+        if (video) video.muted = globalMuted;
+      }
+    });
+    return () => { unsub(); };
+  }, [heroUniqueId]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        {/* Static photo by default — switches to video when user clicks CTA */}
-        {showVideo ? (
-          <NativeVideo src={heroVideo} className="w-full h-full object-cover" hasAudio={true} autoStart={true} />
-        ) : (
-          <img
-            src={ASSETS.heroDesktopPhoto}
-            alt="Atacama Desert"
-            className="w-full h-full object-cover"
-          />
-        )}
+        {/* Static photo — visible until video starts */}
+        <img
+          src={ASSETS.heroDesktopPhoto}
+          alt="Atacama Desert"
+          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500 ${
+            showVideo ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        />
+
+        {/* Preloaded video — always in DOM, hidden until showVideo.
+            Uses visibility + opacity so the browser keeps buffering. */}
+        <video
+          ref={preloadRef}
+          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500 ${
+            showVideo ? "opacity-100" : "opacity-0"
+          }`}
+          playsInline
+          loop
+          preload="auto"
+          // Do NOT set muted in JSX — controlled imperatively by cascadeAudio
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
 

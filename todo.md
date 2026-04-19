@@ -2403,3 +2403,9 @@
 - [x] Fix race condition: IntersectionObserver deactivate() was muting hero before cascade video activated — removed deactivate() from observer, let activate() on next video handle audio handoff
 - [x] Add hasAudio flags to all CASCADE_SECTIONS entries
 - [x] Pass hasAudio prop through MediaBlock to NativeVideo for cascade videos
+
+## Instant Hero Video + Scroll Evaluation
+- [x] Hero video must start playing instantly on click — preload/buffer video while static photo is showing
+- [x] Evaluate cascade scroll speed — is it appropriate?
+- [x] Evaluate vertical video length — is it too long relative to scroll?
+- [x] Ensure all 3 cascade videos are fully visible during scroll
