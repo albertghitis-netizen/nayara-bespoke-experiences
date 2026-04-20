@@ -175,7 +175,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
     blogLink: "https://blog.nayararesorts.com/bocas-wins-cond%C3%A9-nast-traveler-award-2025",
-    blogLinkLabel: "Read: Condé Nast",
+    blogLinkLabel: "Read: Condé Nast names Bocas #1 in Central America",
   },
   {
     id: "rooms",
@@ -398,7 +398,7 @@ function CascadeSection({
             <img
               src="/manus-storage/badges-bocas-v3_b3bbc81d.png"
               alt="Green Globe Certified · Michelin 2025 · Leading Hotels of the World"
-              className="w-full max-w-[480px] h-auto object-contain mt-8 block"
+              className="w-full h-auto object-contain mt-8 block"
               loading="lazy"
             />
           )}
