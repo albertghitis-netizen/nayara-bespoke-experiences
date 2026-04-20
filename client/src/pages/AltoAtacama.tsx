@@ -68,17 +68,17 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const ASSETS = {
   // Hero (clip 1 — horizontal 16:9)
-  heroDesktop: "/manus-storage/clip1-h_f765bd5c.mp4",
-  heroMobile: "/manus-storage/clip1-h_f765bd5c.mp4",
+  heroDesktop: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
+  heroMobile: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
 
   // Clip 2 — vertical 3:4
-  clip2V: "/manus-storage/clip2-v_76ae123c.mp4",
+  clip2V: "/manus-storage/cropped_clip2_3x4_6272101e.mp4",
 
   // Clip 3 — horizontal 16:9
-  clip3H: "/manus-storage/clip3-h_123ad8ce.mp4",
+  clip3H: "/manus-storage/cropped_clip3_16x9_770433c1.mp4",
 
   // Clip 4 — vertical 3:4
-  clip4V: "/manus-storage/clip4-v_07b3d23c.mp4",
+  clip4V: "/manus-storage/cropped_clip4_3x4_cbdd0182.mp4",
 
   // Clip 5 — horizontal 16:9
   clip5H: "/manus-storage/clip5-h_0ead0fc7.mp4",
@@ -499,6 +499,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
+    badgeImage: "/manus-storage/Untitleddesign-8_382f455b.svg",
   },
   {
     label: "Accommodations",
@@ -558,7 +559,7 @@ export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
-        speed={1.79}
+        speed={1.5}
         ctaText="Enter the Atacama"
         onStart={() => setAdventureStarted(true)}
       />
@@ -660,6 +661,21 @@ export default function AltoAtacama() {
               <>{HRow}{VTextRow}</>
             ) : (
               <>{VTextRow}{HRow}</>
+            )}
+
+            {/* Full-width badge row after this section's content */}
+            {(section as any).badgeImage && (
+              <AnimateOnScroll variants={fadeUp} delay={0.3}>
+                <div className="w-full py-12 md:py-16 px-8 md:px-16 lg:px-24" style={{ backgroundColor: bg }}>
+                  <img
+                    src={(section as any).badgeImage}
+                    alt="Sustainability, Michelin 2025, Leading Hotels of the World"
+                    className="w-full h-auto object-contain opacity-75"
+                    style={{ maxHeight: '120px' }}
+                    loading="lazy"
+                  />
+                </div>
+              </AnimateOnScroll>
             )}
 
             {/* MOBILE: Stacked */}

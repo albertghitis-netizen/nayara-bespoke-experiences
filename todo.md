@@ -2440,3 +2440,7 @@
 
 ## Alto Atacama Background Color
 - [x] Unified entire page background to #F0EBE2 (warm sand) instead of alternating bone/sand
+
+## Alto Atacama — Badge & Video Updates
+- [x] Add 3-badge SVG (Sustainability + Michelin 2025 + LHW) below blog link in S1 "Mars on Earth"
+- [x] Upload 4 new cropped video clips (clip1-4) to CDN and update ASSETS
