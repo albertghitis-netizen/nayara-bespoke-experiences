@@ -285,7 +285,7 @@ function CascadeTextBlock({
       )}
       {badges && (
         <img
-          src={badgeImage || `/manus-storage/tented-camp-badges_b19fd7bf.svg`}
+          src={badgeImage || `/manus-storage/tented-camp-badges_a5f5c5f4.svg`}
           alt="Award badges"
           className="w-[70%] h-auto object-contain mt-8 block"
           loading="lazy"
@@ -407,7 +407,7 @@ function CascadeSection({
       )}
       {badges && (
         <img
-          src={badgeImage || `/manus-storage/tented-camp-badges_b19fd7bf.svg`}
+          src={badgeImage || `/manus-storage/tented-camp-badges_a5f5c5f4.svg`}
           alt="Award badges — Alto Atacama"
           className="w-[70%] h-auto object-contain mt-8 block"
           loading="lazy"
@@ -511,7 +511,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
-    badgeImage: "/manus-storage/badges-v2_eb7c83c1.svg",
+    badgeImage: "/manus-storage/badges-v2_4a908ae7.svg",
   },
   {
     label: "Accommodations",

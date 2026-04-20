@@ -274,7 +274,7 @@ function StorySection() {
           </AnimateOnScroll>
 
           <img
-            src="/manus-storage/springs-badges_5820de8b.svg"
+            src="/manus-storage/springs-badges_d7bd620a.svg"
             alt="Green Globe Certified · Michelin 2025 · Relais &amp; Châteaux"
             className="w-[70%] h-auto object-contain mt-8 block"
             loading="lazy"

@@ -283,7 +283,7 @@ function CascadeSection({
 
           {section.badges && (
             <img
-              src="/manus-storage/tented-camp-badges_b19fd7bf.svg"
+              src="/manus-storage/tented-camp-badges_a5f5c5f4.svg"
               alt="Award badges — Tented Camp"
               className="w-[70%] h-auto object-contain mt-8 block"
               loading="lazy"
