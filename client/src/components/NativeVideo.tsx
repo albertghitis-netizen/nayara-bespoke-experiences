@@ -132,9 +132,9 @@ export default function NativeVideo({
       // Is ANY part of the container visible?
       const isVisible = rect.bottom > 0 && rect.top < vh;
 
-      // Has the container's top edge reached the very top of the viewport?
-      // This means the previous content above has fully scrolled off screen.
-      const shouldPlay = rect.top <= 0 && rect.bottom > 0;
+      // Start playing when the container's top edge enters the top 40% of the viewport.
+      // This gives a head-start so the video is already playing when it fills the screen.
+      const shouldPlay = rect.top <= vh * 0.4 && rect.bottom > 0;
 
       if (shouldPlay && !isPlaying) {
         isPlaying = true;
