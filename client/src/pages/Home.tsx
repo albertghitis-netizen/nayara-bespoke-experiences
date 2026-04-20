@@ -156,7 +156,7 @@ export default function Home() {
       <AwardsSection />
       <PillarsSection />
       <ByNightCTA
-        verticalSrc="/manus-storage/7D567078-FBDD-4839-9A77-53528847899C%281%29_22af01c9.mov"
+        verticalSrc="/manus-storage/7D567078-FBDD-4839-9A77-53528847899C(1)_e0b7f8be.mov"
         verticalIsVideo
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
@@ -176,7 +176,7 @@ export default function Home() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = "/manus-storage/D94B25DD-5CEC-4435-A603-5D24B0F70198_3b9dcb1e.mov";
+  const heroVideo = "/manus-storage/D94B25DD-5CEC-4435-A603-5D24B0F70198_4036da78.mov";
 
   /* Track when video nears its end to reveal H1 */
   const [showTitle, setShowTitle] = useState(false);
