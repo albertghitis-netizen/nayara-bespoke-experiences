@@ -54,10 +54,12 @@ export default function CinematicScroll({
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [countdown, setCountdown] = useState<number | null>(null);
 
   const rafRef = useRef<number | null>(null);
   const scrollingRef = useRef(false);
   const startedAtRef = useRef<number>(0);
+  const countdownRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   /* ── Check mobile on mount + resize ── */
   useEffect(() => {
@@ -121,22 +123,41 @@ export default function CinematicScroll({
     }
   }, []);
 
-  /* ── Begin experience ── */
-  const handleBegin = useCallback(() => {
+  /* ── Launch the actual experience (called after countdown reaches 0) ── */
+  const launchExperience = useCallback(() => {
     setShowOverlay(false);
     setHasStarted(true);
     setIsScrolling(true);
     setIsMuted(false);
     startedAtRef.current = Date.now();
-
-    // Tell cascadeAudio the experience has started — videos can now play audio
     cascadeAudio.start();
-
     onStart?.();
-
-    // Start scroll immediately
     startScrollLoop();
   }, [startScrollLoop, onStart]);
+
+  /* ── Begin experience — start 5-second countdown ── */
+  const handleBegin = useCallback(() => {
+    setCountdown(5);
+    let count = 5;
+    countdownRef.current = setInterval(() => {
+      count -= 1;
+      if (count <= 0) {
+        clearInterval(countdownRef.current!);
+        countdownRef.current = null;
+        setCountdown(null);
+        launchExperience();
+      } else {
+        setCountdown(count);
+      }
+    }, 1000);
+  }, [launchExperience]);
+
+  /* ── Cleanup countdown on unmount ── */
+  useEffect(() => {
+    return () => {
+      if (countdownRef.current) clearInterval(countdownRef.current);
+    };
+  }, []);
 
   /* ── Touch/click to stop ── */
   useEffect(() => {
@@ -185,30 +206,56 @@ export default function CinematicScroll({
             className="fixed inset-0 z-[100] flex items-center justify-center"
             style={{ backgroundColor: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)" }}
           >
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              onClick={handleBegin}
-              className="flex flex-col items-center gap-6 group cursor-pointer"
-            >
-              {/* Play icon circle */}
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center border border-white/30 group-hover:border-white/60 transition-all duration-500 group-hover:scale-110"
-                style={{ backgroundColor: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)" }}
+            {countdown === null ? (
+              /* ── Initial CTA button ── */
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                onClick={handleBegin}
+                className="flex flex-col items-center gap-6 group cursor-pointer"
               >
-                <svg className="w-8 h-8 text-white/80 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-
-              <span
-                className="text-white/70 text-[11px] tracking-[0.35em] uppercase group-hover:text-white/90 transition-colors duration-500"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                {/* Play icon circle */}
+                <div
+                  className="w-20 h-20 rounded-full flex items-center justify-center border border-white/30 group-hover:border-white/60 transition-all duration-500 group-hover:scale-110"
+                  style={{ backgroundColor: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)" }}
+                >
+                  <svg className="w-8 h-8 text-white/80 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <span
+                  className="text-white/70 text-[11px] tracking-[0.35em] uppercase group-hover:text-white/90 transition-colors duration-500"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                >
+                  {ctaText}
+                </span>
+              </motion.button>
+            ) : (
+              /* ── Countdown display ── */
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-center gap-4"
               >
-                {ctaText}
-              </span>
-            </motion.button>
+                <span
+                  className="text-white/60 text-[11px] tracking-[0.35em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                >
+                  Enter the Atacama in...
+                </span>
+                <motion.span
+                  key={countdown}
+                  initial={{ opacity: 0, scale: 1.4 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-white text-7xl leading-none"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 300 }}
+                >
+                  {countdown}
+                </motion.span>
+              </motion.div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
