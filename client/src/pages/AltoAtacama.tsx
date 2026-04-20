@@ -29,8 +29,8 @@ const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
    PALETTE — Extended "Mars" gradient: warm sand → deep earth
    More sections = more gradient steps
    ═══════════════════════════════════════════════════════════════ */
-const COLOR_A = "#F7F5F0"; // bone
-const COLOR_B = "#F0EBE2"; // warm sand tint
+const COLOR_A = "#F0EBE2"; // warm sand — unified background
+const COLOR_B = "#F0EBE2"; // warm sand — unified background
 const SECTION_COLORS = [
   COLOR_A, // 0 hero
   COLOR_B, // 1 story
@@ -558,7 +558,7 @@ export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
-        speed={1.5}
+        speed={1.79}
         ctaText="Enter the Atacama"
         onStart={() => setAdventureStarted(true)}
       />
@@ -761,8 +761,30 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
     return () => { unsub(); };
   }, [heroUniqueId]);
 
+  /* Pause hero video when it scrolls completely off screen */
+  const heroSectionRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const section = heroSectionRef.current;
+    const video = preloadRef.current;
+    if (!section || !video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            // Hero fully off screen — pause to save resources
+            if (!video.paused) video.pause();
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section ref={heroSectionRef} className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {/* Static photo — visible until video starts */}
         <img

@@ -2437,3 +2437,6 @@
 ## Cascade Video Playback Sequencing
 - [x] Change scroll speed to 1.5px/frame
 - [x] Fix staccato scrolling: remove CSS scroll-behavior: smooth that conflicts with RAF loop
+
+## Alto Atacama Background Color
+- [x] Unified entire page background to #F0EBE2 (warm sand) instead of alternating bone/sand
