@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
-import BrandNavigation from "@/components/BrandNavigation";
+
 import PillarCrossLink from "@/components/PillarCrossLink";
 import {
   AnimateOnScroll,
@@ -39,7 +39,6 @@ const maxW = "max-w-[1200px] mx-auto";
 export default function TentedCampSustainability() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero />
       <GreenGlobeSection />
       <VideoSection />

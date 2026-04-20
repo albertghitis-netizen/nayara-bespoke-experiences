@@ -49,6 +49,8 @@ const CostaRicaWellness = lazy(() => import("./pages/CostaRicaWellness"));
 const CostaRicaGastronomy = lazy(() => import("./pages/CostaRicaGastronomy"));
 const CostaRicaSustainability = lazy(() => import("./pages/CostaRicaSustainability"));
 const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability"));
+const BocasSustainability = lazy(() => import("./pages/BocasSustainability"));
+const TentedCampSustainability = lazy(() => import("./pages/TentedCampSustainability"));
 const BocasRooms = lazy(() => import("./pages/BocasRooms"));
 const GardensRooms = lazy(() => import("./pages/GardensRooms"));
 const SpringsRooms = lazy(() => import("./pages/SpringsRooms"));
@@ -96,7 +98,7 @@ function Router() {
           <Route path="/tented-camp/experiences">{() => <CostaRicaExperiences propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/wellness">{() => <CostaRicaWellness propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/gastronomy">{() => <CostaRicaGastronomy propertySlug="tented-camp" />}</Route>
-          <Route path="/tented-camp/sustainability">{() => <CostaRicaSustainability propertySlug="tented-camp" />}</Route>
+          <Route path="/tented-camp/sustainability" component={TentedCampSustainability} />
           <Route path="/tented-experiences" component={TentedExperiences} />
           <Route path="/gardens" component={Gardens} />
           <Route path="/gardens/rooms" component={GardensRooms} />
@@ -121,7 +123,7 @@ function Router() {
           <Route path="/bocas-del-toro/experiences">{() => <CostaRicaExperiences propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy">{() => <CostaRicaGastronomy propertySlug="bocas-del-toro" />}</Route>
-          <Route path="/bocas-del-toro/sustainability">{() => <CostaRicaSustainability propertySlug="bocas-del-toro" />}</Route>
+          <Route path="/bocas-del-toro/sustainability" component={BocasSustainability} />
           <Route path="/journal" component={Journal} />
           <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
           <Route path="/podcast" component={Podcast} />
