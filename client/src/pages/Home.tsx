@@ -271,7 +271,7 @@ function BrandStorySection() {
           <MediaReveal delay={0.2}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "9/16" }}>
               <NativeVideo
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/brand-s1-vertical_26139a14.mp4"
+                src="/manus-storage/brand-s1-vertical-new_56e9c282.mov"
                 className="w-full h-full object-cover"
               />
             </div>
