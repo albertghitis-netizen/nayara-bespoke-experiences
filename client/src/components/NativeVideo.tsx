@@ -1,21 +1,13 @@
 /**
  * NativeVideo — Lightweight native <video> wrapper
  *
- * Sequential playback with per-video audio:
- * - Videos start paused (frozen on frame 0)
- * - Play when the video's TOP EDGE reaches the top of the viewport
- *   (meaning the previous content has fully scrolled off screen)
- * - Pause and reset to 0:00 only when FULLY scrolled out of view
- * - AUDIO handoff uses a SEPARATE observer at 80% threshold:
- *   Audio only activates when the video is mostly visible, ensuring
- *   the previous video is nearly or fully off screen before the new
- *   audio begins. This prevents premature handoff.
- * - Previous video's audio cuts off immediately via cascadeAudio manager
- * - Global mute state controlled by CinematicScroll's Sound pill
- *
- * For hasAudio videos, the muted attribute is NOT set via React JSX.
- * It is controlled imperatively by cascadeAudio to prevent React from
- * overriding the muted state on re-renders.
+ * Sequential playback rules:
+ * 1. On mount: preload="auto" + video.load() — buffers silently, stays paused at frame 0
+ * 2. START playing: when the previous video is almost gone — this video's top edge
+ *    reaches -80px above the viewport top (a sliver of previous still showing)
+ * 3. FREEZE on last frame: no loop, no reset — video.ended leaves it on last frame
+ * 4. PAUSE when off screen: when fully above (rect.bottom <= 0) or fully below (rect.top >= vh)
+ * 5. AUDIO handoff: when this video reaches 50% visibility
  */
 import { useRef, useState, useEffect, useCallback, useId } from "react";
 import { cascadeAudio } from "@/lib/cascadeAudio";
@@ -57,7 +49,8 @@ export default function NativeVideo({
   const uniqueId = useId();
 
   /**
-   * COMBINED EFFECT: Register + Load + AutoStart
+   * MOUNT EFFECT: Register with cascadeAudio + start buffering
+   * Does NOT play — just loads data into the buffer
    */
   useEffect(() => {
     const video = videoRef.current;
@@ -72,21 +65,19 @@ export default function NativeVideo({
 
     video.autoplay = false;
     video.muted = true;
-    video.load();
+    video.preload = "auto";
+    video.load(); // Start buffering immediately — does NOT play
 
     const onLoaded = () => {
       setIsLoaded(true);
 
       if (autoStart && hasAudio) {
+        // Hero video: activate audio and play immediately
         cascadeAudio.activate(uniqueId);
         video.muted = cascadeAudio.isMuted();
         video.play().catch(() => {});
-      } else if (!autoStart) {
-        // Start playing silently on mount so the video is already buffered
-        // when it scrolls into view — prevents staccato/stuttering
-        video.muted = true;
-        video.play().catch(() => {});
       }
+      // Non-autoStart videos: stay paused at frame 0, waiting for scroll trigger
     };
 
     video.addEventListener("loadeddata", onLoaded);
@@ -110,15 +101,11 @@ export default function NativeVideo({
   }, [src, hasAudio, autoStart, uniqueId]);
 
   /* ── SCROLL-BASED PLAY/PAUSE ──
-     Instead of IntersectionObserver thresholds (which fire based on % of element
-     visible and cause premature starts), we use a scroll listener that checks
-     the video container's position relative to the viewport:
-     
-     START: when the container's top edge is at or above the top 25% of the viewport
-            (meaning the previous content has scrolled mostly off screen)
-     STOP:  when the container is completely off screen (above or below viewport)
-     
-     This gives precise control over when each video starts relative to the scroll. */
+     START: when this video's top edge is within 80px above the viewport top.
+            This means the previous video has almost completely scrolled off —
+            just a sliver remains — giving a seamless handoff.
+     STOP:  when fully off screen (above or below viewport).
+     FREEZE: video.ended — no loop, no reset, stays on last frame. */
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
@@ -131,20 +118,18 @@ export default function NativeVideo({
       const rect = container.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      // Is ANY part of the container visible?
-      const isVisible = rect.bottom > 0 && rect.top < vh;
+      // Fully off screen — pause (but don't reset)
+      const isOffScreen = rect.bottom <= 0 || rect.top >= vh;
 
-      // Start playing when the container's top edge enters the top 40% of the viewport.
-      // This gives a head-start so the video is already playing when it fills the screen.
-      const shouldPlay = rect.top <= vh * 0.4 && rect.bottom > 0;
+      // Start when top edge is 80px above viewport top (sliver of previous still showing)
+      const shouldStart = rect.top <= 80 && rect.bottom > 0;
 
-      if (shouldPlay && !isPlaying) {
+      if (shouldStart && !isPlaying && !video.ended) {
         isPlaying = true;
         if (video.paused) {
           video.play().catch(() => {});
         }
-      } else if (!isVisible && isPlaying) {
-        // Fully off screen — pause in place (no reset)
+      } else if (isOffScreen && isPlaying) {
         isPlaying = false;
         if (!video.paused) {
           video.pause();
@@ -152,9 +137,8 @@ export default function NativeVideo({
       }
     };
 
-    // Use passive scroll listener for performance
     const onScroll = () => {
-      if (rafId !== null) return; // Throttle to one check per frame
+      if (rafId !== null) return;
       rafId = requestAnimationFrame(() => {
         rafId = null;
         checkPosition();
@@ -162,8 +146,7 @@ export default function NativeVideo({
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    // Also check immediately in case the video is already in position
-    checkPosition();
+    checkPosition(); // Check immediately on mount
 
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -171,9 +154,8 @@ export default function NativeVideo({
     };
   }, [src, autoStart]);
 
-  /* ── AUDIO ACTIVATION at 80% threshold ──
-       Only for hasAudio videos. Audio activates when the video is mostly
-       visible, ensuring the previous video is nearly/fully off screen. */
+  /* ── AUDIO ACTIVATION at 50% threshold ──
+     Audio hands off when this video is half visible — previous is mostly gone. */
   useEffect(() => {
     if (!hasAudio) return;
     const container = containerRef.current;
