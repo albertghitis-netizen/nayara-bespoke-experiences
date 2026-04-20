@@ -62,7 +62,7 @@ const PALETTE = {
 /* ═══════════════════════════════════════════════════════════════
    CDN ASSETS — EVERY Atacama asset, organized by section
    ═══════════════════════════════════════════════════════════════ */
-const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
+// Removed slow CloudFront CDN — using /manus-storage/ for all media
 
 const ASSETS = {
   // Hero (clip 1 — horizontal 16:9)
@@ -91,86 +91,76 @@ const ASSETS = {
   clip8V: "/manus-storage/clip8-v_d07a3c21.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
-  storyV: `${CDN}/atacama-cascade-s1-desert-cropped-v_7069a95f.mp4`,
-  storyH: `${CDN}/atacama-cascade-s1-desert-cropped-h_cf1e8c8e.mp4`,
-  storyV_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s1-new_7b2948d2.mp4",
-  storyH_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-horizontal-1_618b6dd9.mp4",
+  storyV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
+  storyH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
 
   // Section 2 — Rooms: cascade hotel property aerial (cropped, no black bars)
-  roomsV: `${CDN}/atacama-cascade-s2-property-cropped-v_f291037d.mp4`,
-  roomsH: `${CDN}/atacama-cascade-s2-property-cropped-h_1f603858.mp4`,
-  roomsV_old: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-desert-suites-vertical_a742ab8f.mp4",
-  roomsH_old: `${CDN}/atacama-ultrawide-5_aeeaded2.jpg`,
+  roomsV: "/manus-storage/atacama-cascade-4-accom-v_a9869d1c.mp4",
+  roomsH: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
   // Section 3 — Experiences: cascade salt flat (cropped, no black bars)
-  expV: `${CDN}/atacama-cascade-s3-saltflat-cropped-v_06168dd1.mp4`,
-  expH: `${CDN}/atacama-cascade-s3-saltflat-cropped-h_ae543edc.mp4`,
-  expV_old: `${CDN}/atacama-blue-saltflat-vertical_f1956a87.mp4`,
-  expH_old: `${CDN}/atacama-ultrawide-4_bba8d87c.jpg`,
+  expV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
+  expH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
 
   // Section 4 — Sustainability: cascade flamingos (cropped, no black bars)
-  susV: `${CDN}/atacama-cascade-s4-flamingos-cropped-v_5fde45bc.mp4`,
-  susH: `${CDN}/atacama-cascade-s4-flamingos-cropped-h_b62a70fb.mp4`,
-  susV_old: `${CDN}/atacama-milkyway-arch_d146b04d.jpg`,
-  susH_old: `https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/flamingos-atacama_76e1d3e0.jpg`,
+  susV: "/manus-storage/atacama-cascade-4-accom-v_a9869d1c.mp4",
+  susH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
 
   // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
-  wellV: `${CDN}/atacama-cascade-s5-wellness-cropped-v_4a87f73c.mp4`,
-  wellH: `${CDN}/atacama-cascade-s5-wellness-cropped-h_700e10be.mp4`,
-  wellV_old: `${CDN}/atacama-geyser-eruption-vertical_5c93579c.mp4`,
-  wellH_old: `${CDN}/atacama-ultrawide-3_36588f6c.jpg`,
+  wellV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
+  wellH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
 
   // Section 6 — A Taste of Place: avocado mousse V + seared meat H
-  gastroV: `${CDN}/5178CD9B-559F-438F-BDFC-144084EAE0C2_e84fca90.jpeg`,
-  gastroH: `${CDN}/9412A109-CE32-4E36-8A0A-0CE9534A5B53_87d29b47.jpeg`,
+  gastroV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
+  gastroH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
 
   // Section 6b — Desert Ingredients: spice jars V + avocado mousse H
-  gastro2V: `${CDN}/768AAA0F-6B6D-4B8C-A768-DBA73F5E73AF_b7113417.jpeg`,
-  gastro2H: `${CDN}/AFD1AB2D-E030-4E13-9D0D-99A62291DF39_4cab6068.jpeg`,
+  gastro2V: "/manus-storage/atacama-cascade-4-accom-v_a9869d1c.mp4",
+  gastro2H: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
   // Section 6c — The Art of Plating: tuna sashimi V + beetroot dessert H
-  gastro3V: `${CDN}/5E8F3F4E-BF87-4A5F-BBB2-2737E82CE424_ad01d722.jpeg`,
-  gastro3H: `${CDN}/96454375-D840-4B02-AEF7-98893DAD18AA_516b1771.jpeg`,
+  gastro3V: "/manus-storage/5E8F3F4E-BF87-4A5F-BBB2-2737E82CE424_ad01d722.jpeg`,
+  gastro3H: "/manus-storage/96454375-D840-4B02-AEF7-98893DAD18AA_516b1771.jpeg`,
 
   // Section 6d — Sweet Finales: crostini wine V + honeycomb consommé H
-  gastro4V: `${CDN}/AA6682ED-A08D-4F1E-A869-56222938841C_38b364f9.jpeg`,
-  gastro4H: `${CDN}/ACDF665C-3B75-4A15-9806-4E325514B1A9_b1da71b1.JPG`,
+  gastro4V: "/manus-storage/AA6682ED-A08D-4F1E-A869-56222938841C_38b364f9.jpeg`,
+  gastro4H: "/manus-storage/ACDF665C-3B75-4A15-9806-4E325514B1A9_b1da71b1.JPG`,
 
   // Section 6e — Meringue star dessert (H) + Milky Way bus (V, moved here)
-  gastro5V: `${CDN}/atacama-milkyway-bus_88a347bc.jpg`,
-  gastro5H: `${CDN}/5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_c678c03f.JPG`,
+  gastro5V: "/manus-storage/atacama-milkyway-bus_88a347bc.jpg`,
+  gastro5H: "/manus-storage/5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_c678c03f.JPG`,
 
   // Section 7 — Stargazing: Milky Way pillar V + Valle de la Luna H video
-  starV: `${CDN}/atacama-milkyway-pillar_d9301ecc.jpg`,
-  starH: `${CDN}/atacama-valle-luna-horizontal_1f6f7599.mp4`,
+  starV: "/manus-storage/atacama-milkyway-pillar_d9301ecc.jpg`,
+  starH: "/manus-storage/atacama-valle-luna-horizontal_1f6f7599.mp4`,
 
   // Section 8 — Landscape: Rainbow Valley aerial H video + Atacama00003 V video
-  landV: `${CDN}/Video_Nayara_Atacama00003_aeb971e9.MP4`,
-  landH: `${CDN}/atacama-rainbow-valley-aerial_55c86ce4.mp4`,
+  landV: "/manus-storage/Video_Nayara_Atacama00003_aeb971e9.MP4`,
+  landH: "/manus-storage/atacama-rainbow-valley-aerial_55c86ce4.mp4`,
 
   // Section 9 — Wildlife: flamingos golden photo H + Atacama00007 V video
-  wildV: `${CDN}/Video_Nayara_Atacama00007_8576aa55.MP4`,
-  wildH: `${CDN}/atacama-flamingos-golden_7a564e58.jpg`,
+  wildV: "/manus-storage/Video_Nayara_Atacama00007_8576aa55.MP4`,
+  wildH: "/manus-storage/atacama-flamingos-golden_7a564e58.jpg`,
 
   // Section 10 — Adventure: cfnetwork desert walk H + trim V (MOV)
-  advV: `${CDN}/trim_cb137ccb.mp4`,
-  advH: `${CDN}/cfnetwork_b9ae0ca4.mp4`,
+  advV: "/manus-storage/trim_cb137ccb.mp4`,
+  advH: "/manus-storage/cfnetwork_b9ae0ca4.mp4`,
 
   // Section 11 — Dusk: nbn dusk resort H + nbn dusk V
-  duskV: `${CDN}/nbn-atacama-dusk_9201508f.webp`,
-  duskH: `${CDN}/nbn-atacama-dusk-resort_b5829c95.webp`,
+  duskV: "/manus-storage/nbn-atacama-dusk_9201508f.webp`,
+  duskH: "/manus-storage/nbn-atacama-dusk-resort_b5829c95.webp`,
 
   // Section 12 — Architecture: courtyard cliff V + hero desktop photo H
-  archV: `${CDN}/atacama-courtyard-cliff-vertical_28dfbf06.mp4`,
-  archH: `${CDN}/atacama-hero-new_42efa04c.mp4`,
+  archV: "/manus-storage/atacama-courtyard-cliff-vertical_28dfbf06.mp4`,
+  archH: "/manus-storage/atacama-hero-new_42efa04c.mp4`,
 
   // Gallery extras
-  flamingoLagoon: `${CDN}/atacama-flamingo-lagoon-audio_8cc7cdf9.mp4`,
-  poolSunset: `${CDN}/atacama-pool-sunset_c4a2f7e1.jpg`,
-  stargazingPhoto: `${CDN}/atacama-stargazing_f5c3d8a4.jpg`,
-  suiteInterior: `${CDN}/atacama-suite-interior_d3b1e9f2.jpg`,
-  heroDesktopPhoto: `${CDN}/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg`,
-  propCard: `${CDN}/prop-atacama_704b4f26.jpg`,
+  flamingoLagoon: "/manus-storage/atacama-flamingo-lagoon-audio_8cc7cdf9.mp4`,
+  poolSunset: "/manus-storage/atacama-pool-sunset_c4a2f7e1.jpg`,
+  stargazingPhoto: "/manus-storage/atacama-stargazing_f5c3d8a4.jpg`,
+  suiteInterior: "/manus-storage/atacama-suite-interior_d3b1e9f2.jpg`,
+  heroDesktopPhoto: "/manus-storage/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg`,
+  propCard: "/manus-storage/prop-atacama_704b4f26.jpg`,
 };
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
