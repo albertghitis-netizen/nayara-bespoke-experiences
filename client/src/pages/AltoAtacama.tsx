@@ -68,17 +68,17 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const ASSETS = {
   // Hero (clip 1 — horizontal 16:9)
-  heroDesktop: "/manus-storage/ext_clip1_16x9_aa78234f.mp4",
-  heroMobile: "/manus-storage/ext_clip1_16x9_aa78234f.mp4",
+  heroDesktop: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
+  heroMobile: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
 
   // Clip 2 — vertical 3:4
-  clip2V: "/manus-storage/ext_clip2_3x4_e7b7184a.mp4",
+  clip2V: "/manus-storage/cropped_clip2_3x4_6272101e.mp4",
 
   // Clip 3 — horizontal 16:9
-  clip3H: "/manus-storage/ext_clip3_16x9_8df18201.mp4",
+  clip3H: "/manus-storage/cropped_clip3_16x9_770433c1.mp4",
 
   // Clip 4 — vertical 3:4
-  clip4V: "/manus-storage/ext_clip4_3x4_f61cf610.mp4",
+  clip4V: "/manus-storage/cropped_clip4_3x4_cbdd0182.mp4",
 
   // Clip 5 — horizontal 16:9
   clip5H: "/manus-storage/clip5-h_0ead0fc7.mp4",
@@ -582,7 +582,7 @@ export default function AltoAtacama() {
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         speed={1.4}
-        ctaText="Sound On"
+        ctaText="Enter the Atacama"
         onStart={() => setAdventureStarted(true)}
       />
       <BrandNavigation pageType="property" />
@@ -735,17 +735,33 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
   const [videoReady, setVideoReady] = useState(false);
   const hasActivated = useRef(false);
 
-  /* Register video with cascadeAudio on mount. Video autoplays muted via HTML attribute. */
+  /* Preload: start playing the hero video silently on mount (while static photo shows).
+     Playing muted behind the image ensures the video is already mid-stream when the
+     user clicks — no buffering lag on activation. */
   useEffect(() => {
     const video = preloadRef.current;
     if (!video) return;
 
+    video.muted = true;
     video.volume = 0.7;
+    video.preload = "auto";
 
     // Register with cascadeAudio so it's ready for activation
     cascadeAudio.register(heroUniqueId, video);
 
+    // Start playing silently immediately — video is hidden behind the static photo
+    const onCanPlay = () => {
+      setVideoReady(true);
+      // Play silently so it's already running when user clicks
+      if (!hasActivated.current) {
+        video.play().catch(() => {});
+      }
+    };
+    video.addEventListener("canplay", onCanPlay);
+    video.load();
+
     return () => {
+      video.removeEventListener("canplay", onCanPlay);
       cascadeAudio.unregister(heroUniqueId);
     };
   }, [heroVideo, heroUniqueId]);
@@ -802,21 +818,31 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
   return (
     <section ref={heroSectionRef} className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        {/* Video autoplays muted immediately on page load — button just unmutes + starts scroll */}
+        {/* Static photo — visible until video starts */}
+        <img
+          src={ASSETS.heroDesktopPhoto}
+          alt="Atacama Desert"
+          className={`w-full h-full object-cover absolute inset-0 ${
+            showVideo ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        />
+
+        {/* Preloaded video — always in DOM, hidden until showVideo.
+            Uses visibility + opacity so the browser keeps buffering. */}
         <video
           ref={preloadRef}
-          className="w-full h-full object-cover absolute inset-0"
+          className={`w-full h-full object-cover absolute inset-0 ${
+            showVideo ? "opacity-100" : "opacity-0"
+          }`}
           playsInline
           preload="auto"
-          autoPlay
-          muted
           // Do NOT set muted in JSX — controlled imperatively by cascadeAudio
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
 
-        {/* Gradient overlay — always visible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+        {/* Gradient only shows once video starts */}
+        {showVideo && <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />}
       </div>
 
       {/* H1 overlaid on video — bottom center */}
