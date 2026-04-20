@@ -194,9 +194,9 @@
   }
 }
 
-/* Smooth scrolling */
+/* Scroll behavior: auto (RAF loop handles smooth scrolling) */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Custom scrollbar — muted brand tones */

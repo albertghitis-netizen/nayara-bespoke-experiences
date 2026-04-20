@@ -2435,4 +2435,5 @@
 - [x] Re-upload all 8 cascade clips (clip1-h through clip8-v) to CDN and update URLs in AltoAtacama.tsx
 
 ## Cascade Video Playback Sequencing
-- [ ] Fix: clip2-v starts too early (when hero H1 appears) — should wait until hero has fully scrolled off before playing
+- [x] Change scroll speed to 1.5px/frame
+- [x] Fix staccato scrolling: remove CSS scroll-behavior: smooth that conflicts with RAF loop
