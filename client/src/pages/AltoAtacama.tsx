@@ -735,7 +735,9 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
   const [videoReady, setVideoReady] = useState(false);
   const hasActivated = useRef(false);
 
-  /* Preload: start buffering the hero video immediately on mount (while static photo shows) */
+  /* Preload: start playing the hero video silently on mount (while static photo shows).
+     Playing muted behind the image ensures the video is already mid-stream when the
+     user clicks — no buffering lag on activation. */
   useEffect(() => {
     const video = preloadRef.current;
     if (!video) return;
@@ -743,24 +745,28 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
     video.muted = true;
     video.volume = 0.7;
     video.preload = "auto";
-    video.load();
-
-    const onCanPlay = () => setVideoReady(true);
-    video.addEventListener("canplaythrough", onCanPlay);
-    // Also accept canplay as fallback for slower connections
-    video.addEventListener("canplay", onCanPlay);
 
     // Register with cascadeAudio so it's ready for activation
     cascadeAudio.register(heroUniqueId, video);
 
+    // Start playing silently immediately — video is hidden behind the static photo
+    const onCanPlay = () => {
+      setVideoReady(true);
+      // Play silently so it's already running when user clicks
+      if (!hasActivated.current) {
+        video.play().catch(() => {});
+      }
+    };
+    video.addEventListener("canplay", onCanPlay);
+    video.load();
+
     return () => {
-      video.removeEventListener("canplaythrough", onCanPlay);
       video.removeEventListener("canplay", onCanPlay);
       cascadeAudio.unregister(heroUniqueId);
     };
   }, [heroVideo, heroUniqueId]);
 
-  /* When showVideo becomes true, instantly play the preloaded video with audio */
+  /* When showVideo becomes true, unmute the already-playing video and activate audio */
   useEffect(() => {
     if (!showVideo || hasActivated.current) return;
     const video = preloadRef.current;
@@ -768,12 +774,12 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
 
     hasActivated.current = true;
 
-    // Activate audio on this video
+    // Activate audio — video is already playing silently, just unmute it
     cascadeAudio.activate(heroUniqueId);
     video.muted = cascadeAudio.isMuted();
 
-    // Play immediately — video is already buffered
-    video.play().catch(() => {});
+    // Ensure it's playing (in case canplay hadn't fired yet)
+    if (video.paused) video.play().catch(() => {});
   }, [showVideo, heroUniqueId]);
 
   /* Subscribe to mute state changes */
