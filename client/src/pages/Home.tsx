@@ -569,46 +569,24 @@ function AwardsSection() {
           </span>
         </TextReveal>
 
-        {/* Row 1: Relais & Châteaux, Leading Hotels, Green Globe */}
-        <div className="mb-8 md:mb-12 flex items-center justify-start gap-6 md:gap-8 flex-wrap">
+        {/* Row 1: Springs badges - Michelin, Relais & Châteaux, Green Globe */}
+        <div className="flex items-center justify-start gap-6 md:gap-8 flex-wrap">
           <img
-            src="/manus-storage/badge-relais-chateaux_7c2e5a1f.png"
+            src="/manus-storage/springs-badge-michelin_389046a1.png"
+            alt="Michelin Keys"
+            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
+            loading="lazy"
+          />
+          <img
+            src="/manus-storage/springs-badge-relais-chateaux_a7752e06.png"
             alt="Relais & Châteaux"
             className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
             loading="lazy"
           />
           <img
-            src="/manus-storage/badge-leading-hotels_88949161.png"
-            alt="Leading Hotels of the World"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-green-globe_a2a6d1d5.png"
+            src="/manus-storage/springs-badge-green-globe_8cf2866f.png"
             alt="Green Globe Certified"
             className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
-            loading="lazy"
-          />
-        </div>
-
-        {/* Row 2: Travel + Leisure, Michelin 3 Stars, S Sustainability */}
-        <div className="flex items-center justify-start gap-6 md:gap-8 flex-wrap">
-          <img
-            src="/manus-storage/badge-travel-leisure_e09dd7ef.png"
-            alt="Travel + Leisure"
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-michelin-3-stars_f4c8e2b1.png"
-            alt="Michelin 3 Stars"
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-s-sustainability_35d0a2a8.png"
-            alt="S Sustainability"
-            className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain transition-transform duration-300 hover:scale-110"
             loading="lazy"
           />
         </div>
