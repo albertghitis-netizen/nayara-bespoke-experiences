@@ -1,146 +1,63 @@
 /**
- * CascadeAudio — Global audio coordinator for the cascade experience
+ * cascadeAudio.ts
  *
- * Rules:
- * 1. Only ONE video plays audio at a time
- * 2. When a new video enters viewport and starts, it becomes the active audio source
- * 3. The previous video's audio cuts off immediately
- * 4. One global mute toggle controls whether the active video is audible
- * 5. When muted globally, videos still play visually but with no audio
+ * Single continuous audio track for the entire Atacama cascade.
+ * One HTMLAudioElement plays the merged MP3 from start to finish.
+ * All cascade videos are muted — audio comes only from here.
  *
- * AUDIO FIX: activate() now imperatively sets video.muted on both the
- * previous and new active video, and also calls play() on the new video
- * to ensure the browser's autoplay-with-audio policy is satisfied
- * (the user gesture from clicking "Enter the Atacama" propagates here).
+ * API:
+ *   cascadeAudio.start()      — call inside a user-gesture handler (onStart callback)
+ *   cascadeAudio.setMuted(b)  — toggle mute from the pill UI
+ *   cascadeAudio.stop()       — stop and reset
+ *   cascadeAudio.isMuted      — current mute state
  */
 
-type Listener = (muted: boolean) => void;
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
+const AUDIO_URL = `${CDN}/manus-storage/atacama_cascade_723eb845.mp3`;
 
 class CascadeAudioManager {
-  private globalMuted = false;
-  private activeVideoId: string | null = null;
-  private videos = new Map<string, HTMLVideoElement>();
-  private listeners = new Set<Listener>();
-  private started = false;
+  private el: HTMLAudioElement | null = null;
+  private _muted = false;
 
-  /** Register a video element with a unique ID */
-  register(id: string, video: HTMLVideoElement) {
-    this.videos.set(id, video);
-    // Start muted — audio only plays when this becomes the active video
-    video.muted = true;
-    video.volume = 0.7;
-  }
-
-  /** Unregister a video element */
-  unregister(id: string) {
-    this.videos.delete(id);
-    if (this.activeVideoId === id) {
-      this.activeVideoId = null;
+  private getOrCreate(): HTMLAudioElement {
+    if (!this.el) {
+      this.el = new Audio(AUDIO_URL);
+      this.el.preload = "auto";
+      this.el.loop = false;
+      this.el.muted = this._muted;
     }
+    return this.el;
   }
 
-  /** Mark the experience as started (user clicked Enter the Atacama) */
+  /** Call this inside a user-gesture handler so the browser allows playback. */
   start() {
-    this.started = true;
-    this.globalMuted = false;
-    this.notifyListeners();
+    const audio = this.getOrCreate();
+    audio.currentTime = 0;
+    audio.muted = this._muted;
+    audio.play().catch((err) => {
+      console.warn("[cascadeAudio] play() failed:", err);
+    });
   }
 
-  /** Has the experience started? */
-  isStarted() {
-    return this.started;
-  }
-
-  /** Called when a video enters the viewport and starts playing.
-   *  This video becomes the active audio source. */
-  activate(id: string) {
-    if (!this.started) return;
-
-    // If this is already the active video, just ensure muted state is correct
-    if (this.activeVideoId === id) {
-      const video = this.videos.get(id);
-      if (video) {
-        video.muted = this.globalMuted;
-      }
-      return;
-    }
-
-    // Mute the previous active video immediately
-    if (this.activeVideoId) {
-      const prev = this.videos.get(this.activeVideoId);
-      if (prev) {
-        prev.muted = true;
-      }
-    }
-
-    // Set the new active video
-    this.activeVideoId = id;
-    const video = this.videos.get(id);
-    if (video) {
-      // Imperatively set muted state
-      video.muted = this.globalMuted;
-
-      // If the video is paused, try to play it (user gesture should propagate)
-      if (video.paused) {
-        video.play().catch(() => {});
-      }
-    }
-
-    this.notifyListeners();
-  }
-
-  /** Called when a video leaves the viewport */
-  deactivate(id: string) {
-    const video = this.videos.get(id);
-    if (video) {
-      video.muted = true;
-    }
-    if (this.activeVideoId === id) {
-      this.activeVideoId = null;
+  /** Toggle mute state — called by the CinematicScroll mute pill. */
+  setMuted(muted: boolean) {
+    this._muted = muted;
+    if (this.el) {
+      this.el.muted = muted;
     }
   }
 
-  /** Toggle global mute — affects the currently active video */
-  toggleMute(): boolean {
-    this.globalMuted = !this.globalMuted;
-
-    // Apply to the active video
-    if (this.activeVideoId) {
-      const video = this.videos.get(this.activeVideoId);
-      if (video) {
-        video.muted = this.globalMuted;
-      }
+  /** Stop playback and reset position. */
+  stop() {
+    if (this.el) {
+      this.el.pause();
+      this.el.currentTime = 0;
     }
-
-    this.notifyListeners();
-    return this.globalMuted;
   }
 
-  /** Get current mute state */
-  isMuted() {
-    return this.globalMuted;
-  }
-
-  /** Subscribe to mute state changes */
-  subscribe(listener: Listener) {
-    this.listeners.add(listener);
-    return () => this.listeners.delete(listener);
-  }
-
-  /** Get the ID of the currently active video (for debugging) */
-  getActiveId() {
-    return this.activeVideoId;
-  }
-
-  /** Get all registered video IDs (for debugging) */
-  getRegisteredIds() {
-    return Array.from(this.videos.keys());
-  }
-
-  private notifyListeners() {
-    this.listeners.forEach((fn) => fn(this.globalMuted));
+  get isMuted(): boolean {
+    return this._muted;
   }
 }
 
-// Singleton instance
 export const cascadeAudio = new CascadeAudioManager();

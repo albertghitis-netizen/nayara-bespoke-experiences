@@ -5,14 +5,13 @@
  *
  * Flow:
  * 1. Page loads muted, static — "Enter the [Property]" overlay on hero
- * 2. User clicks CTA → cascade begins, auto-scroll starts, audio unmutes
+ * 2. User clicks CTA → 5-second countdown → cascade begins, auto-scroll starts, audio plays
  * 3. User touches/clicks screen anywhere → scroll stops
  * 4. One fixed Sound pill follows the user (top-left)
- * 5. Sound pill toggles global mute via cascadeAudio manager
+ * 5. Sound pill toggles global mute via cascadeAudio.setMuted()
  *
- * Audio: Each video in the cascade plays its own audio via NativeVideo.
- * CinematicScroll no longer manages its own audio element — it delegates
- * to the cascadeAudio singleton which coordinates which video is active.
+ * Audio: Single HTMLAudioElement in cascadeAudio plays the merged MP3 track.
+ * All cascade videos are always muted — audio comes only from cascadeAudio.
  */
 
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -69,14 +68,6 @@ export default function CinematicScroll({
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  /* ── Subscribe to cascadeAudio mute state changes ── */
-  useEffect(() => {
-    const unsub = cascadeAudio.subscribe((muted) => {
-      setIsMuted(muted);
-    });
-    return () => { unsub(); };
-  }, []);
-
   /* ── Determine pill colors from current route ── */
   const propertySlug = Object.entries(ROUTE_TO_SLUG).find(([prefix]) =>
     location.startsWith(prefix)
@@ -130,6 +121,7 @@ export default function CinematicScroll({
     setIsScrolling(true);
     setIsMuted(false);
     startedAtRef.current = Date.now();
+    // Start the single continuous audio track — must be called inside user-gesture context
     cascadeAudio.start();
     onStart?.();
     startScrollLoop();
@@ -185,11 +177,12 @@ export default function CinematicScroll({
     };
   }, [hasStarted, stopScrollLoop, isMobile]);
 
-  /* ── Mute toggle — delegates to cascadeAudio ── */
+  /* ── Mute toggle — delegates to cascadeAudio single audio element ── */
   const handleMuteToggle = useCallback(() => {
-    const newMuted = cascadeAudio.toggleMute();
+    const newMuted = !isMuted;
     setIsMuted(newMuted);
-  }, []);
+    cascadeAudio.setMuted(newMuted);
+  }, [isMuted]);
 
   /* ── On mobile, render nothing ── */
   if (isMobile) return null;

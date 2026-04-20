@@ -2,7 +2,7 @@
  * NAYARA HANGAROA - Easter Island, Chile
  * Visual Identity: "Stone" palette - Cormorant Garamond - Cinematic motion - Cultural immersion
  */
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
@@ -127,13 +127,16 @@ const wellnessCategories = (hangaroa.spaCategories || []).filter((c: { id: strin
 const wellnessCards = hangaroa.treatments.map((t: Treatment) => ({ title: t.name, description: t.description, category: t.category, tags: t.duration ? [t.duration] : [] }));
 
 export default function Hangaroa() {
+  const [adventureStarted, setAdventureStarted] = useState(false);
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
       <CinematicScroll
         speed={1.35}
+        ctaText="Enter Rapa Nui"
+        onStart={() => setAdventureStarted(true)}
       />
       <BrandNavigation pageType="property" />
-      <HeroSection />
+      <HeroSection showVideo={adventureStarted} />
       <StorySection />
 
       {/* ★ 1. ROOMS — Slider */}
@@ -205,36 +208,80 @@ export default function Hangaroa() {
 /* ═══════════════════════════════════════════════════════════════
    HERO - Full-screen video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection() {
+function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
+  const preloadRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+
+  /* Preload hero video silently on mount — already buffered when CTA fires */
+  useEffect(() => {
+    const video = preloadRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.preload = "auto";
+    const onCanPlay = () => {
+      setVideoReady(true);
+      video.play().catch(() => {});
+    };
+    video.addEventListener("canplay", onCanPlay);
+    video.load();
+    return () => video.removeEventListener("canplay", onCanPlay);
+  }, []);
+
+  /* Ensure video keeps playing when showVideo becomes true */
+  useEffect(() => {
+    if (!showVideo) return;
+    const video = preloadRef.current;
+    if (video && video.paused) video.play().catch(() => {});
+  }, [showVideo]);
+
   return (
     <>
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0">
-          <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
+          {/* Static photo shown until CTA is clicked */}
+          <img
+            src={CDN.moaiHorses}
+            alt="Moai at sunset, Easter Island"
+            className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ${
+              showVideo ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          />
+          {/* Hero video — preloaded silently, fades in on CTA click */}
+          <video
+            ref={preloadRef}
+            className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              showVideo ? "opacity-100" : "opacity-0"
+            }`}
+            playsInline
+            muted
+            preload="auto"
+          >
+            <source src={CDN.heroVideo} type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
         </div>
+        {/* H1 overlaid — bottom center */}
+        <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            Where Ancient Culture Meets the Pacific
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.0 }}
+            className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+          >
+            Rapa Nui (Easter Island), Chile
+          </motion.p>
+        </div>
       </section>
-      <div
-        className="py-10 md:py-14 px-6 md:px-10 text-center"
-        style={{ backgroundColor: PALETTE.gradientStart, fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-      >
-        <MultiLineReveal
-          lines={["Where Ancient Culture Meets the Pacific"]}
-          lineClassName="text-xl md:text-3xl lg:text-4xl leading-[1] tracking-wide text-center"
-          as="h1"
-          delay={0.2}
-          staggerDelay={0.15}
-        />
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-3 text-[11px] md:text-xs tracking-[0.25em] uppercase"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: PALETTE.textSecondary }}
-        >
-          Rapa Nui (Easter Island), Chile
-        </motion.p>
-      </div>
     </>
   );
 }

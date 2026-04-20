@@ -7,10 +7,11 @@
  *    reaches -80px above the viewport top (a sliver of previous still showing)
  * 3. FREEZE on last frame: no loop, no reset — video.ended leaves it on last frame
  * 4. PAUSE when off screen: when fully above (rect.bottom <= 0) or fully below (rect.top >= vh)
- * 5. AUDIO handoff: when this video reaches 50% visibility
+ *
+ * Audio: All cascade videos are ALWAYS muted. Audio comes from cascadeAudio's single
+ * HTMLAudioElement playing the merged MP3 track. The hasAudio prop has been removed.
  */
-import { useRef, useState, useEffect, useCallback, useId } from "react";
-import { cascadeAudio } from "@/lib/cascadeAudio";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 interface NativeVideoProps {
   src: string;
@@ -21,35 +22,23 @@ interface NativeVideoProps {
   playsInline?: boolean;
   poster?: string;
   controls?: boolean;
-  /** Set true if this video has meaningful audio that should play in the cascade */
-  hasAudio?: boolean;
-  /** Set true to also show the audio pill on mobile (default: desktop only) */
-  mobileAudio?: boolean;
-  /** Set true to play immediately on mount with audio (for the hero video after CTA click) */
-  autoStart?: boolean;
 }
 
 export default function NativeVideo({
   src,
   className = "",
-  autoPlay = true,
-  muted = true,
   loop = false,
   playsInline = true,
   poster,
   controls = false,
-  hasAudio = false,
-  mobileAudio = false,
-  autoStart = false,
 }: NativeVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const uniqueId = useId();
 
   /**
-   * MOUNT EFFECT: Register with cascadeAudio + start buffering
+   * MOUNT EFFECT: Start buffering
    * Does NOT play — just loads data into the buffer
    */
   useEffect(() => {
@@ -59,46 +48,21 @@ export default function NativeVideo({
     setIsLoaded(false);
     setHasError(false);
 
-    if (hasAudio) {
-      cascadeAudio.register(uniqueId, video);
-    }
-
     video.autoplay = false;
-    video.muted = true;
+    video.muted = true; // Always muted — audio from cascadeAudio
     video.preload = "auto";
     video.load(); // Start buffering immediately — does NOT play
 
     const onLoaded = () => {
       setIsLoaded(true);
-
-      if (autoStart && hasAudio) {
-        // Hero video: activate audio and play immediately
-        cascadeAudio.activate(uniqueId);
-        video.muted = cascadeAudio.isMuted();
-        video.play().catch(() => {});
-      }
-      // Non-autoStart videos: stay paused at frame 0, waiting for scroll trigger
     };
 
     video.addEventListener("loadeddata", onLoaded);
 
-    let unsub: (() => void) | undefined;
-    if (hasAudio) {
-      unsub = cascadeAudio.subscribe((globalMuted) => {
-        if (cascadeAudio.getActiveId() === uniqueId) {
-          video.muted = globalMuted;
-        }
-      });
-    }
-
     return () => {
       video.removeEventListener("loadeddata", onLoaded);
-      if (hasAudio) {
-        unsub?.();
-        cascadeAudio.unregister(uniqueId);
-      }
     };
-  }, [src, hasAudio, autoStart, uniqueId]);
+  }, [src]);
 
   /* ── SCROLL-BASED PLAY/PAUSE ──
      START: when this video's top edge is within 80px above the viewport top.
@@ -109,7 +73,7 @@ export default function NativeVideo({
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
-    if (!video || !container || autoStart) return;
+    if (!video || !container) return;
 
     let isPlaying = false;
     let rafId: number | null = null;
@@ -152,29 +116,7 @@ export default function NativeVideo({
       window.removeEventListener("scroll", onScroll);
       if (rafId !== null) cancelAnimationFrame(rafId);
     };
-  }, [src, autoStart]);
-
-  /* ── AUDIO ACTIVATION at 50% threshold ──
-     Audio hands off when this video is half visible — previous is mostly gone. */
-  useEffect(() => {
-    if (!hasAudio) return;
-    const container = containerRef.current;
-    if (!container) return;
-
-    const audioObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            cascadeAudio.activate(uniqueId);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    audioObserver.observe(container);
-    return () => audioObserver.disconnect();
-  }, [src, hasAudio, uniqueId]);
+  }, [src]);
 
   const getVideoType = (url: string): string => {
     const lower = url.toLowerCase();
@@ -192,54 +134,29 @@ export default function NativeVideo({
 
   return (
     <div ref={containerRef} className="relative w-full h-full block leading-[0]" onClick={handleTapToPlay}>
-      {hasAudio ? (
-        <video
-          ref={videoRef}
-          className={`${className}`}
-          autoPlay={false}
-          loop={loop}
-          playsInline={playsInline}
-          poster={poster}
-          preload="auto"
-          controls={controls}
-          webkit-playsinline="true"
-          x-webkit-airplay="allow"
-          onLoadedData={() => setIsLoaded(true)}
-          onError={() => {
-            console.error("Video load error:", src);
-            setHasError(true);
-          }}
-        >
-          <source src={src} type={getVideoType(src)} />
-          {getVideoType(src) !== "video/mp4" && (
-            <source src={src} type="video/mp4" />
-          )}
-        </video>
-      ) : (
-        <video
-          ref={videoRef}
-          className={`${className}`}
-          autoPlay={false}
-          muted={true}
-          loop={loop}
-          playsInline={playsInline}
-          poster={poster}
-          preload="auto"
-          controls={controls}
-          webkit-playsinline="true"
-          x-webkit-airplay="allow"
-          onLoadedData={() => setIsLoaded(true)}
-          onError={() => {
-            console.error("Video load error:", src);
-            setHasError(true);
-          }}
-        >
-          <source src={src} type={getVideoType(src)} />
-          {getVideoType(src) !== "video/mp4" && (
-            <source src={src} type="video/mp4" />
-          )}
-        </video>
-      )}
+      <video
+        ref={videoRef}
+        className={`${className}`}
+        autoPlay={false}
+        muted={true}
+        loop={loop}
+        playsInline={playsInline}
+        poster={poster}
+        preload="auto"
+        controls={controls}
+        webkit-playsinline="true"
+        x-webkit-airplay="allow"
+        onLoadedData={() => setIsLoaded(true)}
+        onError={() => {
+          console.error("Video load error:", src);
+          setHasError(true);
+        }}
+      >
+        <source src={src} type={getVideoType(src)} />
+        {getVideoType(src) !== "video/mp4" && (
+          <source src={src} type="video/mp4" />
+        )}
+      </video>
 
       {/* Loading placeholder */}
       {!isLoaded && !hasError && (

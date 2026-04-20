@@ -7,7 +7,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
-import { cascadeAudio } from "@/lib/cascadeAudio";
 import CinematicScroll from "@/components/CinematicScroll";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -197,18 +196,16 @@ function MediaBlock({
   alt,
   isVideo,
   aspectRatio,
-  hasAudio = false,
 }: {
   src: string;
   alt: string;
   isVideo: boolean;
   aspectRatio: string;
-  hasAudio?: boolean;
 }) {
   return (
     <div className="overflow-hidden w-full block leading-[0]" style={{ aspectRatio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" hasAudio={hasAudio} />
+        <NativeVideo src={src} className="w-full h-full object-cover" />
       ) : (
         <img src={src} alt={alt} className="w-full h-full object-cover block" loading="lazy" />
       )}
@@ -515,7 +512,7 @@ const CASCADE_SECTIONS = [
     hSrc: ASSETS.clip3H,
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
-    vHasAudio: true, hHasAudio: true,
+
     textSide: "left" as const,
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
@@ -530,7 +527,6 @@ const CASCADE_SECTIONS = [
     hSrc: ASSETS.clip5H,
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
-    vHasAudio: true,
     textSide: "right" as const,
     link: "/alto-atacama/rooms", linkLabel: "Explore Rooms",
     badges: false,
@@ -625,7 +621,7 @@ export default function AltoAtacama() {
                         alt={section.headline}
                         isVideo={section.vVideo}
                         aspectRatio={section.vRatio}
-                        hasAudio={(section as any).vHasAudio}
+
                       />
                     </MediaReveal>
                   </div>
@@ -639,7 +635,7 @@ export default function AltoAtacama() {
                         alt={section.headline}
                         isVideo={section.vVideo}
                         aspectRatio={section.vRatio}
-                        hasAudio={(section as any).vHasAudio}
+
                       />
                     </MediaReveal>
                   </div>
@@ -672,7 +668,7 @@ export default function AltoAtacama() {
                 alt={section.headline}
                 isVideo={section.hVideo}
                 aspectRatio={section.hRatio}
-                hasAudio={(section as any).hHasAudio}
+
               />
             </MediaReveal>
           </div>
@@ -731,9 +727,7 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
   const isMobile = useIsMobile();
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
   const preloadRef = useRef<HTMLVideoElement>(null);
-  const heroUniqueId = useRef(`hero-preload-${Math.random().toString(36).slice(2, 8)}`).current;
   const [videoReady, setVideoReady] = useState(false);
-  const hasActivated = useRef(false);
 
   /* Preload: start playing the hero video silently on mount (while static photo shows).
      Playing muted behind the image ensures the video is already mid-stream when the
@@ -743,55 +737,29 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
     if (!video) return;
 
     video.muted = true;
-    video.volume = 0.7;
     video.preload = "auto";
-
-    // Register with cascadeAudio so it's ready for activation
-    cascadeAudio.register(heroUniqueId, video);
 
     // Start playing silently immediately — video is hidden behind the static photo
     const onCanPlay = () => {
       setVideoReady(true);
-      // Play silently so it's already running when user clicks
-      if (!hasActivated.current) {
-        video.play().catch(() => {});
-      }
+      video.play().catch(() => {});
     };
     video.addEventListener("canplay", onCanPlay);
     video.load();
 
     return () => {
       video.removeEventListener("canplay", onCanPlay);
-      cascadeAudio.unregister(heroUniqueId);
     };
-  }, [heroVideo, heroUniqueId]);
+  }, [heroVideo]);
 
-  /* When showVideo becomes true, unmute the already-playing video and activate audio */
+  /* When showVideo becomes true, ensure the hero video is playing */
   useEffect(() => {
-    if (!showVideo || hasActivated.current) return;
+    if (!showVideo) return;
     const video = preloadRef.current;
     if (!video) return;
-
-    hasActivated.current = true;
-
-    // Activate audio — video is already playing silently, just unmute it
-    cascadeAudio.activate(heroUniqueId);
-    video.muted = cascadeAudio.isMuted();
-
-    // Ensure it's playing (in case canplay hadn't fired yet)
+    // Video is already playing muted — just ensure it continues
     if (video.paused) video.play().catch(() => {});
-  }, [showVideo, heroUniqueId]);
-
-  /* Subscribe to mute state changes */
-  useEffect(() => {
-    const unsub = cascadeAudio.subscribe((globalMuted) => {
-      if (cascadeAudio.getActiveId() === heroUniqueId) {
-        const video = preloadRef.current;
-        if (video) video.muted = globalMuted;
-      }
-    });
-    return () => { unsub(); };
-  }, [heroUniqueId]);
+  }, [showVideo]);
 
   /* Pause hero video when it scrolls completely off screen */
   const heroSectionRef = useRef<HTMLElement>(null);
