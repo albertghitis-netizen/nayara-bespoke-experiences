@@ -380,14 +380,12 @@ function CascadeSection({
           )}
 
           {section.id === "story" && (
-            <AnimateOnScroll variants={fadeUp} delay={0.35}>
-              <img
-                src="/manus-storage/bocas-badges_6c8efb31.svg"
-                alt="Green Globe Certified · Michelin 2025 · Leading Hotels of the World"
-                className="mt-6 opacity-50"
-                style={{ width: "60%" }}
-              />
-            </AnimateOnScroll>
+            <img
+              src="/manus-storage/tented-camp-badges_b19fd7bf.svg"
+              alt="Green Globe Certified · Travel + Leisure World's Best · Leading Hotels of the World"
+              className="w-[70%] h-auto object-contain mt-8 block"
+              loading="lazy"
+            />
           )}
         </div>
       </div>
