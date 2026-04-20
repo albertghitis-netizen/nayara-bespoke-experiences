@@ -581,7 +581,7 @@ export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
-        speed={1.4}
+        speed={1.2}
         ctaText="Enter the Atacama"
         onStart={() => setAdventureStarted(true)}
       />
@@ -831,7 +831,7 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
             Uses visibility + opacity so the browser keeps buffering. */}
         <video
           ref={preloadRef}
-          className={`w-full h-full object-cover absolute inset-0 ${
+          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             showVideo ? "opacity-100" : "opacity-0"
           }`}
           playsInline
