@@ -180,7 +180,6 @@ function HeroSection() {
 
   /* Track when video nears its end to reveal H1 */
   const [showTitle, setShowTitle] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
   const videoTimeRef = useRef<HTMLVideoElement | null>(null);
 
   /* Listen for timeupdate on the underlying <video> inside NativeVideo */
@@ -213,28 +212,6 @@ function HeroSection() {
       <div className="absolute inset-0" data-hero-video>
         <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
-        {/* Mute pill - desktop only */}
-        <button
-          onClick={() => {
-            const video = document.querySelector("[data-hero-video] video") as HTMLVideoElement;
-            if (video) {
-              video.muted = !video.muted;
-              setIsMuted(!isMuted);
-            }
-          }}
-          className="hidden md:flex absolute top-6 left-6 z-20 items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300"
-          title={isMuted ? "Unmute" : "Mute"}
-        >
-          {isMuted ? (
-            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M13.5 4.06c0-1.336-1.616-2.256-2.73-1.72l-5.24 3.102A1 1 0 005 6.94V19.06a1 1 0 00.53.882l5.24 3.102c1.11.536 2.73-.384 2.73-1.72V4.06zM15.657 16.657L19.071 20.07m2.828-2.829l-3.414 3.414M17.485 17.485L20.899 20.899m2.828-2.829l-3.414 3.414" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" />
-            </svg>
-          ) : (
-            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M13.5 4.06c0-1.336-1.616-2.256-2.73-1.72l-5.24 3.102A1 1 0 005 6.94V19.06a1 1 0 00.53.882l5.24 3.102c1.11.536 2.73-.384 2.73-1.72V4.06zM15.657 16.657L19.071 20.07" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" />
-            </svg>
-          )}
-        </button>
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1
