@@ -81,9 +81,11 @@ export default function NativeVideo({
         cascadeAudio.activate(uniqueId);
         video.muted = cascadeAudio.isMuted();
         video.play().catch(() => {});
-      } else {
-        video.pause();
-        video.currentTime = 0;
+      } else if (!autoStart) {
+        // Start playing silently on mount so the video is already buffered
+        // when it scrolls into view — prevents staccato/stuttering
+        video.muted = true;
+        video.play().catch(() => {});
       }
     };
 
