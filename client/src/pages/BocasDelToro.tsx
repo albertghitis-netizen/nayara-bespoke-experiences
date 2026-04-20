@@ -378,6 +378,17 @@ function CascadeSection({
               </a>
             </AnimateOnScroll>
           )}
+
+          {section.id === "story" && (
+            <AnimateOnScroll variants={fadeUp} delay={0.35}>
+              <img
+                src="/manus-storage/bocas-badges_6c8efb31.svg"
+                alt="Green Globe Certified · Michelin 2025 · Leading Hotels of the World"
+                className="mt-6 opacity-50"
+                style={{ width: "75%" }}
+              />
+            </AnimateOnScroll>
+          )}
         </div>
       </div>
 
