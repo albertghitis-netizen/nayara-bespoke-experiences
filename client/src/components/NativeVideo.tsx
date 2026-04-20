@@ -42,7 +42,7 @@ export default function NativeVideo({
   className = "",
   autoPlay = true,
   muted = true,
-  loop = true,
+  loop = false,
   playsInline = true,
   poster,
   controls = false,
@@ -142,12 +142,11 @@ export default function NativeVideo({
           video.play().catch(() => {});
         }
       } else if (!isVisible && isPlaying) {
-        // Fully off screen — pause and reset
+        // Fully off screen — pause in place (no reset)
         isPlaying = false;
         if (!video.paused) {
           video.pause();
         }
-        video.currentTime = 0;
       }
     };
 

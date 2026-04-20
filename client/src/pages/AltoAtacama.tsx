@@ -835,7 +835,6 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
             showVideo ? "opacity-100" : "opacity-0"
           }`}
           playsInline
-          loop
           preload="auto"
           // Do NOT set muted in JSX — controlled imperatively by cascadeAudio
         >
