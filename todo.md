@@ -2449,3 +2449,15 @@
 - [x] Add Guest Voices (ReviewsBreak) section to Alto Atacama before How to Get Here, matching Tented Camp style
 - [x] Add Guest Voices (ReviewsBreak) section to Bocas del Toro, matching Tented Camp style
 - [x] Extend Atacama audio clip 2 — CANCELLED: user said no audio
+
+## Mute Button Styling & Audio Re-enabling (All Hero Sections)
+- [x] Update Home.tsx mute button to espresso color (#3a2a1a) with "Sound"/"Mute" label and top-left alignment
+- [x] Add mute button to Hangaroa hero section with espresso color and audio control
+- [x] Verify mute button styling on Alto Atacama property page (espresso color, top-left)
+- [x] Verify mute button styling on Bocas del Toro property page (espresso color, top-left)
+- [x] Verify mute button styling on Tented Camp property page (espresso color, top-left)
+- [x] Verify mute button styling on Gardens property page (espresso color, top-left)
+- [x] Verify mute button styling on Springs property page (espresso color, top-left)
+- [x] Verify mute button styling on Hangaroa property page (espresso color, top-left)
+- [x] All seven property pages now have consistent mute button styling (espresso color, top-left alignment)
+- [x] Audio re-enabled for all heroes with audio files (Home, Alto Atacama, Bocas del Toro, Tented Camp, Gardens, Springs, Hangaroa)

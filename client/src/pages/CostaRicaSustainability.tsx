@@ -9,7 +9,6 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
-import Footer from "@/components/Footer";
 import { properties, type Property } from "@/data/properties";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
 import {
@@ -98,12 +97,11 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
         </>
       )}
 
-      <SustainabilityContent palette={palette} initiatives={data.initiatives} />
+      <SustainabilityContent palette={palette} initiatives={data.initiatives} certifications={data.esgReport?.certifications} />
       {((data.videos && data.videos.length > 0) || (data.blogs && data.blogs.length > 0)) && (
         <SustainabilityVoices palette={palette} videos={data.videos || []} blogs={data.blogs || []} propertySlug={propertySlug} />
       )}
       <ExploreSustainabilityCTA palette={palette} />
-      <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
   );
 }
@@ -679,17 +677,23 @@ const CATEGORIES = [
 function SustainabilityContent({
   palette,
   initiatives,
+  certifications,
 }: {
   palette: PropertyPalette;
   initiatives: { title: string; desc: string }[];
+  certifications?: ESGCertification[];
 }) {
+  const cert = certifications?.[0];
+  const certName = cert?.name || "Green Globe";
+  const certDesc = cert?.desc || "Internationally recognized certification for sustainable tourism, awarded after extensive evaluation of environmental, social, and governance practices.";
+
   return (
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         {/* Divider */}
         <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
 
-        {/* Green Globe Certification */}
+        {/* Certification */}
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.2em] uppercase mb-4"
@@ -701,15 +705,13 @@ function SustainabilityContent({
             className="text-2xl md:text-3xl mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
           >
-            Green Globe Certification
+            {certName} Certification
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px]"
             style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
           >
-            Our Costa Rica properties hold Green Globe Certification — the global standard for
-            sustainable tourism, recognizing our commitment to rainforest conservation, wildlife
-            protection, and responsible operations in the Arenal Volcano region.
+            {certDesc}
           </p>
         </AnimateOnScroll>
       </div>

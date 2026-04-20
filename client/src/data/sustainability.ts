@@ -86,7 +86,6 @@ export const sustainabilityData: Record<string, {
         { value: 380, suffix: "+", label: "Acres Protected", detail: "Primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of species" },
         { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Full carbon neutrality achieved through measurement, reduction, and offsetting of all greenhouse gas emissions" },
         { value: 5000, suffix: "+", label: "Native Trees Planted", detail: "Large-scale reforestation transforming a barren cattle ranch into thriving rainforest" },
-        { value: 900, suffix: "+", label: "Bird Species", detail: "Costa Rica is home to over 900 bird species, many found in the Arenal Volcano corridor" },
       ],
       pillars: [
         {
@@ -214,16 +213,11 @@ export const sustainabilityData: Record<string, {
     blogs: [
       {
         title: "Wildlife Conservation in Arenal and Bocas del Toro",
-        excerpt: "From sloths to sea turtles — how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
-        image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
+        excerpt: "From sloths to sea turtles — how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean coast.",
+        image: "/manus-storage/tented-sloth-drinking_18446c6a.jpg",
         url: "https://blog.nayararesorts.com/wildlife-conservation-in-arenal-and-bocas-del-toro",
       },
-      {
-        title: "Meeting The Toucans of Arenal Rainforest",
-        excerpt: "Six species of toucans call the Arenal rainforest home. Learn who they are, where to find them, and why they matter.",
-        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Meeting%20The%20Touca",
-        url: "https://blog.nayararesorts.com/meeting-the-toucans-of-arenal-rainforest-who-they-are-and-how-to-see-them",
-      },
+
       {
         title: "Birdwatching in Costa Rica",
         excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans — a birdwatcher's paradise.",
@@ -236,23 +230,13 @@ export const sustainabilityData: Record<string, {
         image: "https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg",
         url: "https://blog.nayararesorts.com/womens-empowerment-through-housing-in-costa-ricas-la-fortuna",
       },
+
+
       {
-        title: "Setting the Standard: Green Globe Certification",
-        excerpt: "Discover how Nayara Resorts' Green Globe Certification underscores our commitment to sustainability across every property.",
-        image: "https://blog.nayararesorts.com/hubfs/Green%20globe-3-1.png",
-        url: "/journal/green-globe-certification",
-      },
-      {
-        title: "Beyond Sustainability: Regenerative Tourism at Nayara",
-        excerpt: "From the first eco-lodges in Costa Rica to regenerative luxury across six destinations — how Nayara is redefining sustainable hospitality.",
-        image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
-        url: "/journal/beyond-sustainability-regenerative-tourism",
-      },
-      {
-        title: "A Night at the Camp: Nayara Tented Camp After Dark",
-        excerpt: "What happens when the rainforest comes alive at night — nocturnal wildlife, volcanic hot springs under the stars, and the sounds of the canopy.",
-        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Night%20at%20the%20Camp",
-        url: "https://blog.nayararesorts.com/a-night-at-the-camp",
+        title: "Nayara by Night: Of Moon and Stars",
+        excerpt: "When the sun sets, the rainforest awakens — red-eyed tree frogs, glass frogs, and nocturnal creatures emerge under moonlight on guided night walks.",
+        image: "https://blog.nayararesorts.com/hs-fs/hubfs/Im%C3%A1genes%20BLOGS/2025/Red-eyed%20tree%20frogs%2c%20glass%20frogs.jpg?width=1100&height=550&name=Red-eyed%20tree%20frogs%2c%20glass%20frogs.jpg",
+        url: "https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars",
       },
     ],
   },
@@ -264,7 +248,6 @@ export const sustainabilityData: Record<string, {
       stats: [
         { value: 1, suffix: "+", label: "Ton CO\u2082 Offset / Year", detail: "Visionary solar energy project mitigates over a ton of CO\u2082 emissions annually with state-of-the-art panels blending into the desert landscape" },
         { value: 100, suffix: "%", label: "Water Reuse", detail: "Well water treated through reverse osmosis for consumption, then reused for irrigation — complete self-sufficiency in the world's driest desert" },
-        { value: 1, suffix: "", label: "S Certification (GSTC)", detail: "The only luxury hotel in the Atacama region certified with the S Seal of Sustainable Tourism, internationally validated by the GSTC" },
         { value: 10000, suffix: "+", label: "Years of Human Adaptation", detail: "The Atacameño people have inhabited this desert for over 10,000 years — Nayara honors their legacy through cultural preservation and community partnerships" },
       ],
       pillars: [
@@ -338,7 +321,7 @@ export const sustainabilityData: Record<string, {
         { year: "2025", title: "Regenerative Desert Model", desc: "Recognized as a model for sustainable luxury in extreme environments — proving that responsible tourism can thrive even in the world's driest desert." },
       ],
       certifications: [
-        { name: "S Seal of Sustainable Tourism", body: "Global Sustainable Tourism Council (GSTC)", year: "2023", desc: "Internationally validated certification recognizing comprehensive sustainability practices — the only luxury hotel in the Atacama region to achieve this distinction. Covers environmental stewardship, community engagement, cultural preservation, and responsible operations." },
+        { name: "S", body: "Global Sustainable Tourism Council (GSTC)", year: "2023", desc: "Chile's S Seal of Sustainable Tourism — internationally validated by the Global Sustainable Tourism Council. Nayara Alto Atacama is the only luxury hotel in the Atacama region to achieve this distinction, recognizing comprehensive sustainability practices across environmental stewardship, community engagement, cultural preservation, and responsible operations." },
       ],
       narrative: {
         title: "An Oasis of Responsibility",
@@ -387,31 +370,31 @@ export const sustainabilityData: Record<string, {
       {
         title: "Wildlife Conservation in Chile's Atacama Desert and Easter Island",
         excerpt: "Vicuñas, flamingos, and endemic species — conservation efforts protecting Chile's most fragile ecosystems.",
-        image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Hangaroa-Horses-2048x13",
+        image: "/manus-storage/atacama-stargazing-new_d90af018.jpg",
         url: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
       },
       {
         title: "Sunlit Sustainability: Nature-Powered",
         excerpt: "Explore how Nayara Resorts harnesses solar power for sustainable luxury, from the Atacama Desert to Easter Island.",
-        image: "https://blog.nayararesorts.com/hubfs/4-Aug-15-2025-06-36-01-1516-PM.png",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-salt-flats-flamingos_0ee14564.jpg",
         url: "https://blog.nayararesorts.com/sunlit-sustainability-powered-by-nature-clone",
       },
       {
         title: "Rooted in Community: Human Hospitality",
         excerpt: "Explore how Nayara Resorts' commitment to community and regenerative travel transforms lives and landscapes.",
-        image: "https://blog.nayararesorts.com/hubfs/IMG_8179.jpg",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-atacama-dusk-resort_b5829c95.webp",
         url: "https://blog.nayararesorts.com/rooted-in-community-the-human-side-of-hospitality",
       },
       {
         title: "The Best Place to Stay in the Atacama Desert Is an Oasis",
         excerpt: "Why a functioning oasis is not an amenity but the foundation of the experience — the science of desert microclimates and 10,000 years of human adaptation.",
-        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/97_e7aef760.jpg",
+        image: "/manus-storage/atacama-pool-sunset-new_c0361231.jpg",
         url: "/journal/best-place-to-stay-atacama-desert-oasis",
       },
       {
         title: "Bocas del Toro & Alto Atacama: A Study in Sustainability",
         excerpt: "How Nayara's properties in Panama and Chile are leading sustainable tourism — off-grid solar power, coral restoration, and Chile's S Certification.",
-        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-overwater-villas-top_1842445d.jpg",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
         url: "/journal/bocas-atacama-sustainability-study",
       },
     ],
@@ -425,7 +408,6 @@ export const sustainabilityData: Record<string, {
         { value: 100, suffix: "%", label: "Solar Powered", detail: "Nearly 100% of the resort's energy is generated by on-site solar panels — a fully off-grid model of self-sufficient luxury" },
         { value: 100000, suffix: "", label: "Gallon Rainwater Capacity", detail: "Custom gutter systems collect rainfall into catchment basins holding up to 100,000 gallons, purified with advanced UV filtration" },
         { value: 50, suffix: "ft", label: "Treehouse Canopy Height", detail: "IBUKU-designed bamboo treehouses rise 50 feet above the forest floor, crafted from locally sourced bamboo and reclaimed Panama Canal wood" },
-        { value: 0, suffix: "", label: "Grid Connection", detail: "The resort operates completely off-grid with custom-built water, power, and wastewater systems designed for the island" },
       ],
       pillars: [
         {
@@ -544,13 +526,13 @@ export const sustainabilityData: Record<string, {
       {
         title: "Biodensity, Underwater Mountains, and More",
         excerpt: "A deep dive into the marine biodensity of Bocas del Toro — underwater mountains, coral reefs, and the ecosystems that sustain them.",
-        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Biodensity%2c%20Underwater",
+        image: "/manus-storage/bocas-aerial-island_34b68171.jpg",
         url: "https://blog.nayararesorts.com/biodensity-underwater-mountains-and-more-a-different-perspective-on-our-ecosystems",
       },
       {
         title: "Wildlife Conservation in Arenal and Bocas del Toro",
         excerpt: "From sloths to sea turtles — how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
-        image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-sunset_2eeaa785.jpg",
         url: "https://blog.nayararesorts.com/wildlife-conservation-in-arenal-and-bocas-del-toro",
       },
       {
@@ -562,7 +544,7 @@ export const sustainabilityData: Record<string, {
       {
         title: "Bocas del Toro & Alto Atacama: A Study in Sustainability",
         excerpt: "How Nayara's properties in Panama and Chile are leading sustainable tourism — off-grid solar power, coral restoration, and Chile's S Certification.",
-        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-sunset_2eeaa785.jpg",
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
         url: "/journal/bocas-atacama-sustainability-study",
       },
       {
@@ -571,13 +553,7 @@ export const sustainabilityData: Record<string, {
         image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
         url: "https://blog.nayararesorts.com/nayara-resorts-partners-with-one-ocean-planet",
       },
-      {
-        title: "Coral Reef Restoration: Rebuilding the Caribbean",
-        excerpt: "How Nayara Bocas del Toro is partnering with marine biologists to restore and protect the coral reefs of the archipelago.",
-        image: "",
-        url: "",
-        comingSoon: true,
-      },
+
     ],
   },
 
@@ -589,7 +565,6 @@ export const sustainabilityData: Record<string, {
         { value: 1, suffix: "", label: "S Certification (GSTC)", detail: "The only luxury hotel on Easter Island certified with the S Seal of Sustainable Tourism, internationally validated by the Global Sustainable Tourism Council" },
         { value: 1000, suffix: "s", label: "Endemic Species Planted", detail: "Thousands of toromiro, mahute, and makoi planted annually to restore Rapa Nui's original ecosystem and provide habitat for native birds and insects" },
         { value: 100, suffix: "%", label: "Graywater Recycled", detail: "Wastewater treatment plant recycles all graywater for irrigation, conserving water and maintaining vibrant landscapes on the remote island" },
-        { value: 3800, suffix: "km", label: "From Nearest Continent", detail: "One of the most remote inhabited islands on Earth \u2014 every resource decision carries extraordinary weight" },
       ],
       pillars: [
         {

@@ -220,12 +220,19 @@ function HeroSection() {
         <source src={heroAudio} type="audio/mpeg" />
       </audio>
       
-      <button onClick={() => setIsMuted(!isMuted)} className="absolute top-6 left-6 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-md hover:bg-white/30 transition-all" aria-label={isMuted ? "Unmute" : "Mute"}>
+      <button onClick={() => setIsMuted(!isMuted)} className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-md border border-white/10 hover:opacity-90 transition-all" style={{ backgroundColor: "rgba(58, 42, 26, 0.70)" }} aria-label={isMuted ? "Unmute" : "Mute"}>
         {isMuted ? (
-          <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM19 12c0 .94-.2 1.82-.54 2.64l1.51 1.51C23.16 14.56 24 13.34 24 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" /></svg>
+          <svg className="w-4 h-4" style={{ color: "rgba(255, 255, 255, 0.8)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
+          </svg>
         ) : (
-          <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" /></svg>
+          <svg className="w-4 h-4" style={{ color: "rgba(255, 255, 255, 0.8)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
+          </svg>
         )}
+        <span className="text-[10px] tracking-[0.2em]" style={{ color: "rgba(255, 255, 255, 0.7)", fontFamily: "var(--font-body)", fontWeight: 500 }}>
+          {isMuted ? "Sound" : "Mute"}
+        </span>
       </button>
       
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
