@@ -324,8 +324,9 @@ function CascadeSection({
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media — full-bleed to its edge */}
+        {/* On mobile: story section shows text first (order-2), all others show image first (order-1) */}
         <div
-          className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"}`}
+          className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"} ${section.id === "story" ? "order-2 md:order-2" : "order-1"}`}
         >
           <MediaReveal delay={0.1}>
             <MediaBlock
@@ -395,24 +396,24 @@ function CascadeSection({
           )}
 
           {section.id === "story" && (
-            <div className="mt-8 flex items-center justify-start gap-8">
+            <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
               {/* Michelin — circular badge */}
               <img
-                src="/manus-storage/bocas-badge-michelin-tight_347daa2c.png"
+                src="/manus-storage/bocas-badge-michelin-trans_9abb26c3.png"
                 alt="Michelin 2025"
                 className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0"
                 loading="lazy"
               />
               {/* Leading Hotels — wider logo */}
               <img
-                src="/manus-storage/bocas-badge-leading-hotels-tight_dd7cff34.png"
+                src="/manus-storage/bocas-badge-leading-hotels-trans_a85920e2.png"
                 alt="Leading Hotels of the World"
                 className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0"
                 loading="lazy"
               />
               {/* Green Globe — circular badge */}
               <img
-                src="/manus-storage/bocas-badge-green-globe-tight_a612a568.png"
+                src="/manus-storage/bocas-badge-green-globe-trans_ec0bd048.png"
                 alt="Green Globe Certified"
                 className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0"
                 loading="lazy"
@@ -474,7 +475,7 @@ function HeroSection() {
           className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
-          Isla Pastores, Bocas del Toro, Panamá
+          Bocas del Toro, Panamá
         </motion.p>
       </div>
     </section>
