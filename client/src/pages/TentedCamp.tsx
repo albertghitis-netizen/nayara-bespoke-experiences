@@ -290,13 +290,7 @@ function CascadeSection({
             />
           )}
 
-          {section.awards && (
-            <AnimateOnScroll variants={fadeUp} delay={0.4}>
-              <div className="mt-8">
-                <AwardBadgeStrip property={section.awards} />
-              </div>
-            </AnimateOnScroll>
-          )}
+
         </div>
       </div>
 

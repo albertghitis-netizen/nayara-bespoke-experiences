@@ -273,13 +273,6 @@ function StorySection() {
             </p>
           </AnimateOnScroll>
 
-          <img
-            src="/manus-storage/springs-badges_d7bd620a.svg"
-            alt="Green Globe Certified · Michelin 2025 · Relais &amp; Châteaux"
-            className="w-[70%] h-auto object-contain mt-8 block"
-            loading="lazy"
-          />
-
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment"
@@ -301,6 +294,13 @@ function StorySection() {
               Read: 7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence
             </a>
           </AnimateOnScroll>
+
+          <img
+            src="/manus-storage/springs-badges_d7bd620a.svg"
+            alt="Green Globe Certified · Michelin 2025 · Relais &amp; Châteaux"
+            className="w-[70%] h-auto object-contain mt-8 block"
+            loading="lazy"
+          />
         </div>
 
         {/* S1 — Vertical video right */}
