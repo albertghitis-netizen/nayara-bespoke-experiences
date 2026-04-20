@@ -272,7 +272,7 @@ function CascadeTextBlock({
           <img
             src={badgeImage}
             alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-            className="w-[85%] h-auto object-contain opacity-50 mt-6 block"
+            className="w-[75%] h-auto object-contain opacity-50 mt-6 block"
             loading="lazy"
           />
         )}
@@ -396,7 +396,7 @@ function CascadeSection({
           <img
             src={badgeImage}
             alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-            className="w-[85%] h-auto object-contain opacity-50 mt-6 block"
+            className="w-[75%] h-auto object-contain opacity-50 mt-6 block"
             loading="lazy"
           />
         )}
