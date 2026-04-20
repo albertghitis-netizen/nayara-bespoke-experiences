@@ -272,8 +272,7 @@ function CascadeTextBlock({
           <img
             src={badgeImage}
             alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-            className="w-full h-auto object-contain opacity-75 mt-6"
-            style={{ maxHeight: '72px' }}
+            className="w-full h-auto object-contain opacity-50 mt-6 block"
             loading="lazy"
           />
         )}
@@ -397,8 +396,7 @@ function CascadeSection({
           <img
             src={badgeImage}
             alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-            className="w-full h-auto object-contain opacity-75 mt-6"
-            style={{ maxHeight: '72px' }}
+            className="w-full h-auto object-contain opacity-50 mt-6 block"
             loading="lazy"
           />
         )}
@@ -521,7 +519,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
-    badgeImage: "/manus-storage/Untitleddesign-8_c0a4ae1f.svg",
+    badgeImage: "/manus-storage/badges-v2_eb7c83c1.svg",
   },
   {
     label: "Accommodations",
