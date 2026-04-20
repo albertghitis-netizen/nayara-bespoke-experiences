@@ -7,7 +7,7 @@ import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
-import CinematicScroll from "@/components/CinematicScroll";
+
 import Footer from "@/components/Footer";
 import ByNightCTA from "@/components/ByNightCTA";
 import { OrganizationSchema } from "@/components/SEOSchema";
@@ -143,9 +143,7 @@ const pillars = [
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
-      <CinematicScroll
-        speed={1.4}
-      />
+
       <OrganizationSchema />
       <BrandNavigation pageType="brand" />
       <HeroSection />
