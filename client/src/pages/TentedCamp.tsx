@@ -282,14 +282,12 @@ function CascadeSection({
           )}
 
           {section.badges && (
-            <AnimateOnScroll variants={fadeUp} delay={0.35}>
-              <img
-                src={ASSETS.badges}
-                alt="Award badges — Tented Camp"
-                className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-6"
-                loading="lazy"
-              />
-            </AnimateOnScroll>
+            <img
+              src="/manus-storage/tented-camp-badges_b19fd7bf.svg"
+              alt="Award badges — Tented Camp"
+              className="w-[70%] h-auto object-contain mt-8 block"
+              loading="lazy"
+            />
           )}
 
           {section.awards && (
@@ -574,7 +572,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
-    badges: false,
+    badges: true,
     awards: "tented-camp",
   },
   {

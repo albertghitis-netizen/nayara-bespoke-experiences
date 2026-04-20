@@ -4,10 +4,8 @@
  * Every available asset shown — no repeats
  * Varied aspect ratios per section, zero-gap between all elements
  */
-import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
-import CinematicScroll from "@/components/CinematicScroll";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
@@ -265,15 +263,15 @@ function CascadeTextBlock({
             {blogLinkLabel || "Read More on the Journal"} ↗
           </a>
         )}
+        {badgeImage && (
+          <img
+            src={badgeImage}
+            alt="Sustainability, Michelin 2025, Leading Hotels of the World"
+            className="w-[75%] h-auto object-contain opacity-50 mt-6 block"
+            loading="lazy"
+          />
+        )}
       </AnimateOnScroll>
-      {badgeImage && (
-        <img
-          src={badgeImage}
-          alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-          className="w-[70%] h-auto object-contain mt-8 block"
-          loading="lazy"
-        />
-      )}
       {link && (
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <a
@@ -286,12 +284,14 @@ function CascadeTextBlock({
         </AnimateOnScroll>
       )}
       {badges && (
-        <img
-          src={`${CDN}/award-badges-tented-camp_8aea5e71.webp`}
-          alt="Award badges"
-          className="w-[70%] h-auto object-contain mt-8 block"
-          loading="lazy"
-        />
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <img
+            src={`${CDN}/award-badges-tented-camp_8aea5e71.webp`}
+            alt="Award badges"
+            className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-4"
+            loading="lazy"
+          />
+        </AnimateOnScroll>
       )}
     </div>
   );
@@ -387,15 +387,15 @@ function CascadeSection({
             {blogLinkLabel || "Read More on the Journal"} ↗
           </a>
         )}
+        {badgeImage && (
+          <img
+            src={badgeImage}
+            alt="Sustainability, Michelin 2025, Leading Hotels of the World"
+            className="w-[75%] h-auto object-contain opacity-50 mt-6 block"
+            loading="lazy"
+          />
+        )}
       </AnimateOnScroll>
-      {badgeImage && (
-        <img
-          src={badgeImage}
-          alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-          className="w-[70%] h-auto object-contain mt-8 block"
-          loading="lazy"
-        />
-      )}
       {link && (
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <a
@@ -408,12 +408,14 @@ function CascadeSection({
         </AnimateOnScroll>
       )}
       {badges && (
-        <img
-          src="/manus-storage/tented-camp-badges_b19fd7bf.svg"
-          alt="Award badges — Alto Atacama"
-          className="w-[70%] h-auto object-contain mt-8 block"
-          loading="lazy"
-        />
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <img
+            src={`${CDN}/award-badges-tented-camp_8aea5e71.webp`}
+            alt="Award badges — Alto Atacama"
+            className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-4"
+            loading="lazy"
+          />
+        </AnimateOnScroll>
       )}
     </div>
   );
@@ -513,7 +515,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
-    badgeImage: "/manus-storage/tented-camp-badges_b19fd7bf.svg",
+    badgeImage: "/manus-storage/badges-v2_eb7c83c1.svg",
   },
   {
     label: "Accommodations",
@@ -568,17 +570,10 @@ const CASCADE_SECTIONS = [
    MAIN PAGE — Extended gradient cascade, all touching, color flow
    ═══════════════════════════════════════════════════════════════ */
 export default function AltoAtacama() {
-  const [adventureStarted, setAdventureStarted] = useState(false);
-
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
-      <CinematicScroll
-        speed={1.3}
-        ctaText="Enter the Atacama"
-        onStart={() => setAdventureStarted(true)}
-      />
       <BrandNavigation pageType="property" />
-      <HeroSection showVideo={adventureStarted} />
+      <HeroSection />
 
       {/* === FLAT INTERLEAVED CASCADE ===
          After Hero(H), the pattern is: V+Text → H → V+Text → H → ...
@@ -792,94 +787,18 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 /* ═══════════════════════════════════════════════════════════════
    HERO — Full-screen video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
+function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
-  const preloadRef = useRef<HTMLVideoElement>(null);
-  const [videoReady, setVideoReady] = useState(false);
-
-  /* Preload: start playing the hero video silently on mount (while static photo shows).
-     Playing muted behind the image ensures the video is already mid-stream when the
-     user clicks — no buffering lag on activation. */
-  useEffect(() => {
-    const video = preloadRef.current;
-    if (!video) return;
-
-    video.muted = true;
-    video.preload = "auto";
-
-    // Start playing silently immediately — video is hidden behind the static photo
-    const onCanPlay = () => {
-      setVideoReady(true);
-      video.play().catch(() => {});
-    };
-    video.addEventListener("canplay", onCanPlay);
-    video.load();
-
-    return () => {
-      video.removeEventListener("canplay", onCanPlay);
-    };
-  }, [heroVideo]);
-
-  /* When showVideo becomes true, ensure the hero video is playing */
-  useEffect(() => {
-    if (!showVideo) return;
-    const video = preloadRef.current;
-    if (!video) return;
-    // Video is already playing muted — just ensure it continues
-    if (video.paused) video.play().catch(() => {});
-  }, [showVideo]);
-
-  /* Pause hero video when it scrolls completely off screen */
-  const heroSectionRef = useRef<HTMLElement>(null);
-  useEffect(() => {
-    const section = heroSectionRef.current;
-    const video = preloadRef.current;
-    if (!section || !video) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            // Hero fully off screen — pause to save resources
-            if (!video.paused) video.pause();
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <section ref={heroSectionRef} className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        {/* Static photo — visible until video starts */}
-        <img
-          src={ASSETS.heroDesktopPhoto}
-          alt="Atacama Desert"
-          className={`w-full h-full object-cover absolute inset-0 ${
-            showVideo ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
+        <NativeVideo
+          src={heroVideo}
+          className="w-full h-full object-cover"
         />
-
-        {/* Preloaded video — always in DOM, hidden until showVideo.
-            Uses visibility + opacity so the browser keeps buffering. */}
-        <video
-          ref={preloadRef}
-          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            showVideo ? "opacity-100" : "opacity-0"
-          }`}
-          playsInline
-          preload="auto"
-          // Do NOT set muted in JSX — controlled imperatively by cascadeAudio
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
-
-        {/* Gradient only shows once video starts */}
-        {showVideo && <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
 
       {/* H1 overlaid on video — bottom center */}
