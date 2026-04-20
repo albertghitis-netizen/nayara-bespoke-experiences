@@ -263,15 +263,15 @@ function CascadeTextBlock({
             {blogLinkLabel || "Read More on the Journal"} ↗
           </a>
         )}
-        {badgeImage && (
-          <img
-            src={badgeImage}
-            alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-            className="w-[75%] h-auto object-contain opacity-50 mt-6 block"
-            loading="lazy"
-          />
-        )}
       </AnimateOnScroll>
+      {badgeImage && (
+        <img
+          src={badgeImage}
+          alt="Sustainability, Michelin 2025, Leading Hotels of the World"
+          className="w-[70%] h-auto object-contain mt-8 block"
+          loading="lazy"
+        />
+      )}
       {link && (
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <a
@@ -284,14 +284,12 @@ function CascadeTextBlock({
         </AnimateOnScroll>
       )}
       {badges && (
-        <AnimateOnScroll variants={fadeUp} delay={0.4}>
-          <img
-            src={`${CDN}/award-badges-tented-camp_8aea5e71.webp`}
-            alt="Award badges"
-            className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-4"
-            loading="lazy"
-          />
-        </AnimateOnScroll>
+        <img
+          src={badgeImage || `/manus-storage/tented-camp-badges_b19fd7bf.svg`}
+          alt="Award badges"
+          className="w-[70%] h-auto object-contain mt-8 block"
+          loading="lazy"
+        />
       )}
     </div>
   );
@@ -387,15 +385,15 @@ function CascadeSection({
             {blogLinkLabel || "Read More on the Journal"} ↗
           </a>
         )}
-        {badgeImage && (
-          <img
-            src={badgeImage}
-            alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-            className="w-[75%] h-auto object-contain opacity-50 mt-6 block"
-            loading="lazy"
-          />
-        )}
       </AnimateOnScroll>
+      {badgeImage && (
+        <img
+          src={badgeImage}
+          alt="Sustainability, Michelin 2025, Leading Hotels of the World"
+          className="w-[70%] h-auto object-contain mt-8 block"
+          loading="lazy"
+        />
+      )}
       {link && (
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <a
@@ -408,14 +406,12 @@ function CascadeSection({
         </AnimateOnScroll>
       )}
       {badges && (
-        <AnimateOnScroll variants={fadeUp} delay={0.4}>
-          <img
-            src={`${CDN}/award-badges-tented-camp_8aea5e71.webp`}
-            alt="Award badges — Alto Atacama"
-            className="h-28 md:h-36 lg:h-48 w-auto object-contain opacity-60 mt-4"
-            loading="lazy"
-          />
-        </AnimateOnScroll>
+        <img
+          src={badgeImage || `/manus-storage/tented-camp-badges_b19fd7bf.svg`}
+          alt="Award badges — Alto Atacama"
+          className="w-[70%] h-auto object-contain mt-8 block"
+          loading="lazy"
+        />
       )}
     </div>
   );
