@@ -68,17 +68,17 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const ASSETS = {
   // Hero (clip 1 — horizontal 16:9)
-  heroDesktop: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
-  heroMobile: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
+  heroDesktop: "/manus-storage/ext_clip1_16x9_aa78234f.mp4",
+  heroMobile: "/manus-storage/ext_clip1_16x9_aa78234f.mp4",
 
   // Clip 2 — vertical 3:4
-  clip2V: "/manus-storage/cropped_clip2_3x4_6272101e.mp4",
+  clip2V: "/manus-storage/ext_clip2_3x4_e7b7184a.mp4",
 
   // Clip 3 — horizontal 16:9
-  clip3H: "/manus-storage/cropped_clip3_16x9_770433c1.mp4",
+  clip3H: "/manus-storage/ext_clip3_16x9_8df18201.mp4",
 
   // Clip 4 — vertical 3:4
-  clip4V: "/manus-storage/cropped_clip4_3x4_cbdd0182.mp4",
+  clip4V: "/manus-storage/ext_clip4_3x4_f61cf610.mp4",
 
   // Clip 5 — horizontal 16:9
   clip5H: "/manus-storage/clip5-h_0ead0fc7.mp4",
