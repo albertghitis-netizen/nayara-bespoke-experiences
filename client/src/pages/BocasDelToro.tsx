@@ -398,7 +398,7 @@ function CascadeSection({
             <img
               src="/manus-storage/badges-bocas-v3-large_4ac96936.png"
               alt="Green Globe Certified · Michelin 2025 · Leading Hotels of the World"
-              className="w-full h-auto object-contain mt-8 block"
+              className="w-full h-auto object-contain mt-8 block -ml-8 md:-ml-16 lg:-ml-24"
               loading="lazy"
             />
           )}
