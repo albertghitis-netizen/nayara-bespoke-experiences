@@ -119,48 +119,48 @@ const ASSETS = {
   gastro2H: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
   // Section 6c — The Art of Plating: tuna sashimi V + beetroot dessert H
-  gastro3V: "/manus-storage/5E8F3F4E-BF87-4A5F-BBB2-2737E82CE424_ad01d722.jpeg`,
-  gastro3H: "/manus-storage/96454375-D840-4B02-AEF7-98893DAD18AA_516b1771.jpeg`,
+  gastro3V: "/manus-storage/5E8F3F4E-BF87-4A5F-BBB2-2737E82CE424_ad01d722.jpeg",
+  gastro3H: "/manus-storage/96454375-D840-4B02-AEF7-98893DAD18AA_516b1771.jpeg",
 
   // Section 6d — Sweet Finales: crostini wine V + honeycomb consommé H
-  gastro4V: "/manus-storage/AA6682ED-A08D-4F1E-A869-56222938841C_38b364f9.jpeg`,
-  gastro4H: "/manus-storage/ACDF665C-3B75-4A15-9806-4E325514B1A9_b1da71b1.JPG`,
+  gastro4V: "/manus-storage/AA6682ED-A08D-4F1E-A869-56222938841C_38b364f9.jpeg",
+  gastro4H: "/manus-storage/ACDF665C-3B75-4A15-9806-4E325514B1A9_b1da71b1.JPG",
 
   // Section 6e — Meringue star dessert (H) + Milky Way bus (V, moved here)
-  gastro5V: "/manus-storage/atacama-milkyway-bus_88a347bc.jpg`,
-  gastro5H: "/manus-storage/5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_c678c03f.JPG`,
+  gastro5V: "/manus-storage/atacama-milkyway-bus_88a347bc.jpg",
+  gastro5H: "/manus-storage/5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_c678c03f.JPG",
 
   // Section 7 — Stargazing: Milky Way pillar V + Valle de la Luna H video
-  starV: "/manus-storage/atacama-milkyway-pillar_d9301ecc.jpg`,
-  starH: "/manus-storage/atacama-valle-luna-horizontal_1f6f7599.mp4`,
+  starV: "/manus-storage/atacama-milkyway-pillar_d9301ecc.jpg",
+  starH: "/manus-storage/atacama-valle-luna-horizontal_1f6f7599.mp4",
 
   // Section 8 — Landscape: Rainbow Valley aerial H video + Atacama00003 V video
-  landV: "/manus-storage/Video_Nayara_Atacama00003_aeb971e9.MP4`,
-  landH: "/manus-storage/atacama-rainbow-valley-aerial_55c86ce4.mp4`,
+  landV: "/manus-storage/Video_Nayara_Atacama00003_aeb971e9.MP4",
+  landH: "/manus-storage/atacama-rainbow-valley-aerial_55c86ce4.mp4",
 
   // Section 9 — Wildlife: flamingos golden photo H + Atacama00007 V video
-  wildV: "/manus-storage/Video_Nayara_Atacama00007_8576aa55.MP4`,
-  wildH: "/manus-storage/atacama-flamingos-golden_7a564e58.jpg`,
+  wildV: "/manus-storage/Video_Nayara_Atacama00007_8576aa55.MP4",
+  wildH: "/manus-storage/atacama-flamingos-golden_7a564e58.jpg",
 
   // Section 10 — Adventure: cfnetwork desert walk H + trim V (MOV)
-  advV: "/manus-storage/trim_cb137ccb.mp4`,
-  advH: "/manus-storage/cfnetwork_b9ae0ca4.mp4`,
+  advV: "/manus-storage/trim_cb137ccb.mp4",
+  advH: "/manus-storage/cfnetwork_b9ae0ca4.mp4",
 
   // Section 11 — Dusk: nbn dusk resort H + nbn dusk V
-  duskV: "/manus-storage/nbn-atacama-dusk_9201508f.webp`,
-  duskH: "/manus-storage/nbn-atacama-dusk-resort_b5829c95.webp`,
+  duskV: "/manus-storage/nbn-atacama-dusk_9201508f.webp",
+  duskH: "/manus-storage/nbn-atacama-dusk-resort_b5829c95.webp",
 
   // Section 12 — Architecture: courtyard cliff V + hero desktop photo H
-  archV: "/manus-storage/atacama-courtyard-cliff-vertical_28dfbf06.mp4`,
-  archH: "/manus-storage/atacama-hero-new_42efa04c.mp4`,
+  archV: "/manus-storage/atacama-courtyard-cliff-vertical_28dfbf06.mp4",
+  archH: "/manus-storage/atacama-hero-new_42efa04c.mp4",
 
   // Gallery extras
-  flamingoLagoon: "/manus-storage/atacama-flamingo-lagoon-audio_8cc7cdf9.mp4`,
-  poolSunset: "/manus-storage/atacama-pool-sunset_c4a2f7e1.jpg`,
-  stargazingPhoto: "/manus-storage/atacama-stargazing_f5c3d8a4.jpg`,
-  suiteInterior: "/manus-storage/atacama-suite-interior_d3b1e9f2.jpg`,
-  heroDesktopPhoto: "/manus-storage/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg`,
-  propCard: "/manus-storage/prop-atacama_704b4f26.jpg`,
+  flamingoLagoon: "/manus-storage/atacama-flamingo-lagoon-audio_8cc7cdf9.mp4",
+  poolSunset: "/manus-storage/atacama-pool-sunset_c4a2f7e1.jpg",
+  stargazingPhoto: "/manus-storage/atacama-stargazing_f5c3d8a4.jpg",
+  suiteInterior: "/manus-storage/atacama-suite-interior_d3b1e9f2.jpg",
+  heroDesktopPhoto: "/manus-storage/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
+  propCard: "/manus-storage/prop-atacama_704b4f26.jpg",
 };
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -257,9 +257,9 @@ function CascadeTextBlock({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-          <img src="/manus-storage/atacama-badge-michelin_46163b34.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-leading-hotels_7fbff555.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-s-sustainability_da621709.png" alt="S Sustainability" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-michelin-trans_9abb26c3.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-leading-hotels-trans_a85920e2.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-s-sustainability-trans_ec0bd048.png" alt="S Sustainability" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
         </div>
       )}
       {link && (
@@ -275,9 +275,9 @@ function CascadeTextBlock({
       )}
       {badges && (
         <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-          <img src="/manus-storage/atacama-badge-michelin_46163b34.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-leading-hotels_7fbff555.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-s-sustainability_da621709.png" alt="S Sustainability" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-michelin-trans_9abb26c3.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-leading-hotels-trans_a85920e2.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-s-sustainability-trans_ec0bd048.png" alt="S Sustainability" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
         </div>
       )}
     </div>
