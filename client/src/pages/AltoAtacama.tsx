@@ -582,7 +582,7 @@ export default function AltoAtacama() {
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
         speed={1.4}
-        ctaText="Enter the Atacama"
+        ctaText="Sound On"
         onStart={() => setAdventureStarted(true)}
       />
       <BrandNavigation pageType="property" />
