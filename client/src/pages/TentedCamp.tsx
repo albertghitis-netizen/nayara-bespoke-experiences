@@ -282,12 +282,29 @@ function CascadeSection({
           )}
 
           {section.badges && (
-            <img
-              src="/manus-storage/badges-tented-v3_da230262.png"
-              alt="Award badges — Tented Camp"
-              className="w-[70%] h-auto object-contain mt-8 block"
-              loading="lazy"
-            />
+            <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
+              {/* Travel + Leisure */}
+              <img
+                src="/manus-storage/tented-badge-travel-leisure-trans_9abb26c3.png"
+                alt="Travel + Leisure"
+                className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+                loading="lazy"
+              />
+              {/* Leading Hotels */}
+              <img
+                src="/manus-storage/tented-badge-leading-hotels-trans_a85920e2.png"
+                alt="Leading Hotels of the World"
+                className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+                loading="lazy"
+              />
+              {/* Green Globe */}
+              <img
+                src="/manus-storage/tented-badge-green-globe-trans_ec0bd048.png"
+                alt="Green Globe Certified"
+                className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+                loading="lazy"
+              />
+            </div>
           )}
 
 
