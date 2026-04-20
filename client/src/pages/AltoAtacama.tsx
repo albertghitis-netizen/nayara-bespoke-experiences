@@ -558,7 +558,7 @@ export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <CinematicScroll
-        speed={1.35}
+        speed={1.5}
         ctaText="Enter the Atacama"
         onStart={() => setAdventureStarted(true)}
       />
