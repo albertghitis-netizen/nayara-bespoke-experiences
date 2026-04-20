@@ -134,8 +134,10 @@ export default function CinematicScroll({
 
     onStart?.();
 
-    // Start scrolling
-    startScrollLoop();
+    // Delay scroll by 2 seconds so video plays on the static hero first
+    setTimeout(() => {
+      startScrollLoop();
+    }, 2000);
   }, [startScrollLoop, onStart]);
 
   /* ── Touch/click to stop ── */
