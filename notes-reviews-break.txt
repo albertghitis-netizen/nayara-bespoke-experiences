@@ -1,0 +1,15 @@
+ReviewsBreak pattern from TentedCamp.tsx:
+- Takes bgColor prop
+- Section with py-20 md:py-28 px-8 md:px-16
+- max-w-3xl mx-auto text-center
+- "Guest Voices" label (11px, tracking 0.2em, PALETTE.primary)
+- 5 star SVGs filled with PALETTE.primary
+- "Based on X reviews on TripAdvisor" (13px, PALETTE.textTertiary)
+- Blockquote with italic review text (17px md:20px, PALETTE.text)
+- Cite with reviewer name (12px, PALETTE.textTertiary)
+- "Read All Reviews →" link to TripAdvisor (11px, PALETTE.primary)
+- Uses AnimateOnScroll + fadeUp with staggered delays
+- Uses body and display font style objects
+
+For Atacama: need PALETTE, body/display refs, TripAdvisor link, real review
+For Bocas: same pattern, different PALETTE, different review/link

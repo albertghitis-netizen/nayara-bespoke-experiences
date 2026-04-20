@@ -2444,3 +2444,8 @@
 ## Alto Atacama — Badge & Video Updates
 - [x] Add 3-badge SVG (Sustainability + Michelin 2025 + LHW) below blog link in S1 "Mars on Earth"
 - [x] Upload 4 new cropped video clips (clip1-4) to CDN and update ASSETS
+
+## Guest Voices Sections
+- [x] Add Guest Voices (ReviewsBreak) section to Alto Atacama before How to Get Here, matching Tented Camp style
+- [x] Add Guest Voices (ReviewsBreak) section to Bocas del Toro, matching Tented Camp style
+- [x] Extend Atacama audio clip 2 — CANCELLED: user said no audio

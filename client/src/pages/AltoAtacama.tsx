@@ -712,11 +712,84 @@ export default function AltoAtacama() {
       })}
 
 
+      <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
       <GettingHereSection />
       <AwardsSection />
       <ReserveCTA />
       <Footer bgColor="#6F463D" />
     </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FUNCTIONAL BREAK — Guest Voices (Reviews)
+   Matches Tented Camp ReviewsBreak pattern exactly
+   ═══════════════════════════════════════════════════════════════ */
+function ReviewsBreak({ bgColor }: { bgColor: string }) {
+  return (
+    <section
+      className="py-20 md:py-28 px-8 md:px-16"
+      style={{ backgroundColor: bgColor }}
+    >
+      <div className="max-w-3xl mx-auto text-center">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] mb-6"
+            style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
+          >
+            Guest Voices
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <div className="flex justify-center gap-1 mb-6">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-5 h-5" fill={PALETTE.primary} viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <p
+            className="text-[13px] tracking-[0.04em] mb-8"
+            style={{ ...body, color: PALETTE.textTertiary }}
+          >
+            Based on 800+ reviews on TripAdvisor
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <blockquote>
+            <p
+              className="text-[17px] md:text-[20px] leading-relaxed italic mb-4"
+              style={{ ...body, color: PALETTE.text }}
+            >
+              "A once-in-a-lifetime experience. The desert landscape is otherworldly, the stargazing is beyond anything we've ever seen, and the excursions are perfectly curated. The staff made us feel like family from the moment we arrived."
+            </p>
+            <cite
+              className="text-[12px] tracking-[0.08em] not-italic"
+              style={{ ...body, color: PALETTE.textTertiary }}
+            >
+              — Carolina, TripAdvisor
+            </cite>
+          </blockquote>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <a
+            href="https://www.tripadvisor.com/Hotel_Review-g303681-d1063858-Reviews-Alto_Atacama_Desert_Lodge_Spa-San_Pedro_de_Atacama_Antofagasta_Region.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+            style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
+          >
+            Read All Reviews →
+          </a>
+        </AnimateOnScroll>
+      </div>
+    </section>
   );
 }
 
