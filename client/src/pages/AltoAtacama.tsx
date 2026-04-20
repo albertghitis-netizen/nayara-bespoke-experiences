@@ -5,6 +5,7 @@
  * Varied aspect ratios per section, zero-gap between all elements
  */
 import { motion } from "framer-motion";
+import BlobVideo from "@/components/BlobVideo";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -788,9 +789,12 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo
+        <BlobVideo
           src={heroVideo}
           className="w-full h-full object-cover"
+          hasAudio={true}
+          pillBg="rgba(58, 42, 26, 0.70)"
+          pillColor="#ffffff"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
