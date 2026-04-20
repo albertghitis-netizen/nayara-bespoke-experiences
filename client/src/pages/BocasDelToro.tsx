@@ -9,7 +9,7 @@ import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import CinematicScroll from "@/components/CinematicScroll";
+import BlobVideo from "@/components/BlobVideo";
 import {
   AnimateOnScroll,
   MultiLineReveal,
@@ -156,6 +156,8 @@ type CascadeSectionData = {
   nextBgColor: string;
   link?: string;
   linkLabel?: string;
+  blogLink?: string;
+  blogLinkLabel?: string;
 };
 
 const CASCADE_SECTIONS: CascadeSectionData[] = [
@@ -172,6 +174,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
+    blogLink: "https://blog.nayararesorts.com/bocas-wins-cond%C3%A9-nast-traveler-award-2025",
+    blogLinkLabel: "Read: Condé Nast",
   },
   {
     id: "rooms",
@@ -367,6 +371,20 @@ function CascadeSection({
             </p>
           </AnimateOnScroll>
 
+          {section.blogLink && (
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <a
+                href={section.blogLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mb-6 transition-colors hover:opacity-70"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary, fontStyle: "italic" }}
+              >
+                {section.blogLinkLabel || "Read More"} ↗
+              </a>
+            </AnimateOnScroll>
+          )}
+
           {section.link && (
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
@@ -381,9 +399,9 @@ function CascadeSection({
 
           {section.id === "story" && (
             <img
-              src="/manus-storage/bocas-badges_6a524952.svg"
+              src="/manus-storage/badges-bocas-v3_e5349a53.png"
               alt="Green Globe Certified · Michelin 2025 · Leading Hotels of the World"
-              className="w-[70%] h-auto object-contain mt-8 block"
+              className="w-full max-w-[600px] h-auto object-contain mt-8 block"
               loading="lazy"
             />
           )}
@@ -416,7 +434,13 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <BlobVideo
+          src={heroVideo}
+          className="w-full h-full object-cover"
+          hasAudio={true}
+          pillBg="rgba(0,142,151,0.70)"
+          pillColor="#FFFFFF"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -521,9 +545,6 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 export default function BocasDelToro() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
-      <CinematicScroll
-        speed={1.35}
-      />
       <BrandNavigation pageType="property" />
       <HeroSection />
 

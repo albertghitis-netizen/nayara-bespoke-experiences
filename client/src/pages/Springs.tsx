@@ -8,7 +8,7 @@ import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import CinematicScroll from "@/components/CinematicScroll";
+import BlobVideo from "@/components/BlobVideo";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
@@ -126,9 +126,6 @@ const wellnessCards = springs.treatments.map((t: Treatment) => ({ title: t.name,
 export default function Springs() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <CinematicScroll
-        speed={1.35}
-      />
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
@@ -203,7 +200,13 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={CDN.heroDesktop} className="w-full h-full object-cover" />
+        <BlobVideo
+          src={CDN.heroDesktop}
+          className="w-full h-full object-cover"
+          hasAudio={true}
+          pillBg="rgba(59,110,123,0.70)"
+          pillColor="#F7F5F0"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -286,7 +289,7 @@ function StorySection() {
           </AnimateOnScroll>
 
           <img
-            src="/manus-storage/springs-badges_d7bd620a.svg"
+            src="/manus-storage/badges-springs-v3_889566bb.png"
             alt="Green Globe Certified · Michelin 2025 · Relais &amp; Châteaux"
             className="w-[70%] h-auto object-contain mt-8 block"
             loading="lazy"

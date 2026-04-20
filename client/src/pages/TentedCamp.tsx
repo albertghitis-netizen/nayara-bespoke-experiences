@@ -10,7 +10,7 @@ import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import CinematicScroll from "@/components/CinematicScroll";
+import BlobVideo from "@/components/BlobVideo";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 
 import {
@@ -283,7 +283,7 @@ function CascadeSection({
 
           {section.badges && (
             <img
-              src="/manus-storage/tented-camp-badges_a5f5c5f4.svg"
+              src="/manus-storage/badges-tented-v3_da230262.png"
               alt="Award badges — Tented Camp"
               className="w-[70%] h-auto object-contain mt-8 block"
               loading="lazy"
@@ -817,7 +817,13 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <BlobVideo
+          src={heroVideo}
+          className="w-full h-full object-cover"
+          hasAudio={true}
+          pillBg="rgba(134,139,117,0.70)"
+          pillColor="#F7F5F0"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -917,9 +923,6 @@ function GallerySection() {
 export default function TentedCamp() {
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
-      <CinematicScroll
-        speed={1.35}
-      />
       <BrandNavigation pageType="property" />
       <HeroSection />
 
