@@ -816,7 +816,7 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
         <img
           src={ASSETS.heroDesktopPhoto}
           alt="Atacama Desert"
-          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500 ${
+          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-200 ${
             showVideo ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
         />
@@ -825,7 +825,7 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
             Uses visibility + opacity so the browser keeps buffering. */}
         <video
           ref={preloadRef}
-          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500 ${
+          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-200 ${
             showVideo ? "opacity-100" : "opacity-0"
           }`}
           playsInline
