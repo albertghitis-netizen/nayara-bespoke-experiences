@@ -395,13 +395,29 @@ function CascadeSection({
           )}
 
           {section.id === "story" && (
-            <img
-              src="/manus-storage/badges-bocas-v3-xl_8ff28e07.png"
-              alt="Green Globe Certified · Michelin 2025 · Leading Hotels of the World"
-              className="h-auto object-contain mt-8 block" 
-              style={{ width: 'calc(100% + 2rem)', marginLeft: '-1rem' }}
-              loading="lazy"
-            />
+            <div className="mt-8 flex items-center justify-start gap-8">
+              {/* Michelin — circular badge */}
+              <img
+                src="/manus-storage/bocas-badge-michelin-tight_347daa2c.png"
+                alt="Michelin 2025"
+                className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0"
+                loading="lazy"
+              />
+              {/* Leading Hotels — wider logo */}
+              <img
+                src="/manus-storage/bocas-badge-leading-hotels-tight_dd7cff34.png"
+                alt="Leading Hotels of the World"
+                className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0"
+                loading="lazy"
+              />
+              {/* Green Globe — circular badge */}
+              <img
+                src="/manus-storage/bocas-badge-green-globe-tight_a612a568.png"
+                alt="Green Globe Certified"
+                className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0"
+                loading="lazy"
+              />
+            </div>
           )}
         </div>
       </div>
