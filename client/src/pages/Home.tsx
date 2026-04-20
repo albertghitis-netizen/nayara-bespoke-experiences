@@ -176,7 +176,7 @@ export default function Home() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = ""; // TODO: Add hero video
+  const heroVideo = "/manus-storage/brand-hero-new_1f03591c.mp4";
 
   /* Track when video nears its end to reveal H1 */
   const [showTitle, setShowTitle] = useState(false);
@@ -271,7 +271,7 @@ function BrandStorySection() {
           <MediaReveal delay={0.2}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <NativeVideo
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663090891297/GOFjlTCXrVegUHFa.mov"
+                src="/manus-storage/brand-s1-philosophy_510ddc6e.mp4"
                 className="w-full h-full object-cover"
               />
             </div>
