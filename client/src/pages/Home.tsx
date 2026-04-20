@@ -147,6 +147,7 @@ export default function Home() {
       <OrganizationSchema />
       <BrandNavigation pageType="brand" />
       <HeroSection />
+      <H2BadgesSection />
       <BrandStorySection />
       <PropertiesSection />
       <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="20px" />
@@ -168,6 +169,70 @@ export default function Home() {
       />
       <Footer />
     </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   H2 BADGES SECTION - Full-width heading and 6 badges in single row
+   ═══════════════════════════════════════════════════════════════ */
+function H2BadgesSection() {
+  return (
+    <section className="w-full py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
+      {/* Full-width H2 and label */}
+      <div className="w-full mb-12 md:mb-16">
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Recognition & Certification</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            Honored by the World's Leading Authorities
+          </span>
+        </TextReveal>
+      </div>
+
+      {/* Full-width 6 badges in single row, centered */}
+      <div className="w-full flex items-center justify-center gap-6 md:gap-8 lg:gap-10 flex-nowrap">
+        <img
+          src="/manus-storage/springs-badge-relais-chateaux.png"
+          alt="Relais & Châteaux"
+          className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
+          loading="lazy"
+        />
+        <img
+          src="/manus-storage/atacama-badge-leading-hotels.png"
+          alt="Leading Hotels of the World"
+          className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
+          loading="lazy"
+        />
+        <img
+          src="/manus-storage/bocas-badge-green-globe.png"
+          alt="Green Globe Certified"
+          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
+          loading="lazy"
+        />
+        <img
+          src="/manus-storage/tented-badge-travel-leisure.png"
+          alt="Travel + Leisure"
+          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
+          loading="lazy"
+        />
+        <img
+          src="/manus-storage/atacama-badge-michelin.png"
+          alt="Michelin 3 Stars"
+          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
+          loading="lazy"
+        />
+        <img
+          src="/manus-storage/atacama-badge-s-sustainability.png"
+          alt="S Sustainability"
+          className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
+          loading="lazy"
+        />
+      </div>
+    </section>
   );
 }
 
