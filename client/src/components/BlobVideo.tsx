@@ -48,8 +48,8 @@ export default function BlobVideo({
   const [isMuted, setIsMuted] = useState(true);
   const [showPulse, setShowPulse] = useState(true);
 
-  // On mobile, force no audio
-  const effectiveHasAudio = hasAudio && !isMobile;
+  // Enable audio on all devices (mobile + desktop)
+  const effectiveHasAudio = hasAudio;
 
   useEffect(() => {
     const video = videoRef.current;

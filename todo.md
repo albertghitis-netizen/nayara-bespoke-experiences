@@ -2461,3 +2461,9 @@
 - [x] Verify mute button styling on Hangaroa property page (espresso color, top-left)
 - [x] All seven property pages now have consistent mute button styling (espresso color, top-left alignment)
 - [x] Audio re-enabled for all heroes with audio files (Home, Alto Atacama, Bocas del Toro, Tented Camp, Gardens, Springs, Hangaroa)
+
+## Mobile Mute Button & Audio Support
+- [x] Remove mobile restriction on audio in BlobVideo component (line 52)
+- [x] Enable mute button visibility on mobile for all property pages using BlobVideo
+- [x] Verify mute button appears on mobile viewport
+- [x] Verify audio playback works on mobile heroes
