@@ -735,33 +735,17 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
   const [videoReady, setVideoReady] = useState(false);
   const hasActivated = useRef(false);
 
-  /* Preload: start playing the hero video silently on mount (while static photo shows).
-     Playing muted behind the image ensures the video is already mid-stream when the
-     user clicks — no buffering lag on activation. */
+  /* Register video with cascadeAudio on mount. Video autoplays muted via HTML attribute. */
   useEffect(() => {
     const video = preloadRef.current;
     if (!video) return;
 
-    video.muted = true;
     video.volume = 0.7;
-    video.preload = "auto";
 
     // Register with cascadeAudio so it's ready for activation
     cascadeAudio.register(heroUniqueId, video);
 
-    // Start playing silently immediately — video is hidden behind the static photo
-    const onCanPlay = () => {
-      setVideoReady(true);
-      // Play silently so it's already running when user clicks
-      if (!hasActivated.current) {
-        video.play().catch(() => {});
-      }
-    };
-    video.addEventListener("canplay", onCanPlay);
-    video.load();
-
     return () => {
-      video.removeEventListener("canplay", onCanPlay);
       cascadeAudio.unregister(heroUniqueId);
     };
   }, [heroVideo, heroUniqueId]);
@@ -818,31 +802,21 @@ function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
   return (
     <section ref={heroSectionRef} className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        {/* Static photo — visible until video starts */}
-        <img
-          src={ASSETS.heroDesktopPhoto}
-          alt="Atacama Desert"
-          className={`w-full h-full object-cover absolute inset-0 ${
-            showVideo ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
-        />
-
-        {/* Preloaded video — always in DOM, hidden until showVideo.
-            Uses visibility + opacity so the browser keeps buffering. */}
+        {/* Video autoplays muted immediately on page load — button just unmutes + starts scroll */}
         <video
           ref={preloadRef}
-          className={`w-full h-full object-cover absolute inset-0 ${
-            showVideo ? "opacity-100" : "opacity-0"
-          }`}
+          className="w-full h-full object-cover absolute inset-0"
           playsInline
           preload="auto"
+          autoPlay
+          muted
           // Do NOT set muted in JSX — controlled imperatively by cascadeAudio
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
 
-        {/* Gradient only shows once video starts */}
-        {showVideo && <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />}
+        {/* Gradient overlay — always visible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
 
       {/* H1 overlaid on video — bottom center */}
