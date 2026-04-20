@@ -228,6 +228,7 @@ function CascadeTextBlock({
   blogLink,
   blogLinkLabel,
   badges,
+  badgeImage,
 }: {
   label: string;
   headline: string;
@@ -237,6 +238,7 @@ function CascadeTextBlock({
   blogLink?: string;
   blogLinkLabel?: string;
   badges?: boolean;
+  badgeImage?: string;
 }) {
   return (
     <div className="flex flex-col justify-center">
@@ -260,11 +262,20 @@ function CascadeTextBlock({
             href={blogLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mb-4 transition-colors hover:opacity-70"
+            className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mb-6 transition-colors hover:opacity-70"
             style={{ ...body, fontWeight: 500, color: PALETTE.primary, fontStyle: "italic" }}
           >
             {blogLinkLabel || "Read More on the Journal"} ↗
           </a>
+        )}
+        {badgeImage && (
+          <img
+            src={badgeImage}
+            alt="Sustainability, Michelin 2025, Leading Hotels of the World"
+            className="w-full h-auto object-contain opacity-75 mt-6"
+            style={{ maxHeight: '72px' }}
+            loading="lazy"
+          />
         )}
       </AnimateOnScroll>
       {link && (
@@ -314,6 +325,7 @@ function CascadeSection({
   badges,
   hideH,
   order = "h-first",
+  badgeImage,
 }: {
   label: string;
   headline: string;
@@ -333,6 +345,7 @@ function CascadeSection({
   badges?: boolean;
   hideH?: boolean;
   order?: "h-first" | "v-first";
+  badgeImage?: string;
 }) {
   const VerticalMedia = (
     <MediaBlock
@@ -374,11 +387,20 @@ function CascadeSection({
             href={blogLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mb-4 transition-colors hover:opacity-70"
+            className="inline-flex items-center gap-1.5 text-[12px] tracking-[0.08em] mb-6 transition-colors hover:opacity-70"
             style={{ ...body, fontWeight: 500, color: PALETTE.primary, fontStyle: "italic" }}
           >
             {blogLinkLabel || "Read More on the Journal"} ↗
           </a>
+        )}
+        {badgeImage && (
+          <img
+            src={badgeImage}
+            alt="Sustainability, Michelin 2025, Leading Hotels of the World"
+            className="w-full h-auto object-contain opacity-75 mt-6"
+            style={{ maxHeight: '72px' }}
+            loading="lazy"
+          />
         )}
       </AnimateOnScroll>
       {link && (
@@ -499,7 +521,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
-    badgeImage: "/manus-storage/Untitleddesign-8_382f455b.svg",
+    badgeImage: "/manus-storage/Untitleddesign-8_c0a4ae1f.svg",
   },
   {
     label: "Accommodations",
@@ -592,6 +614,7 @@ export default function AltoAtacama() {
                         blogLink={(section as any).blogLink}
                         blogLinkLabel={(section as any).blogLinkLabel}
                         badges={section.badges}
+                        badgeImage={(section as any).badgeImage}
                       />
                     </div>
                   </div>
@@ -631,6 +654,7 @@ export default function AltoAtacama() {
                         blogLink={(section as any).blogLink}
                         blogLinkLabel={(section as any).blogLinkLabel}
                         badges={section.badges}
+                        badgeImage={(section as any).badgeImage}
                       />
                     </div>
                   </div>
@@ -663,21 +687,6 @@ export default function AltoAtacama() {
               <>{VTextRow}{HRow}</>
             )}
 
-            {/* Full-width badge row after this section's content */}
-            {(section as any).badgeImage && (
-              <AnimateOnScroll variants={fadeUp} delay={0.3}>
-                <div className="w-full py-12 md:py-16 px-8 md:px-16 lg:px-24" style={{ backgroundColor: bg }}>
-                  <img
-                    src={(section as any).badgeImage}
-                    alt="Sustainability, Michelin 2025, Leading Hotels of the World"
-                    className="w-full h-auto object-contain opacity-75"
-                    style={{ maxHeight: '120px' }}
-                    loading="lazy"
-                  />
-                </div>
-              </AnimateOnScroll>
-            )}
-
             {/* MOBILE: Stacked */}
             <div className="md:hidden px-5">
               <div className="pt-10 pb-6">
@@ -690,6 +699,7 @@ export default function AltoAtacama() {
                   blogLink={(section as any).blogLink}
                   blogLinkLabel={(section as any).blogLinkLabel}
                   badges={section.badges}
+                  badgeImage={(section as any).badgeImage}
                 />
               </div>
               <MediaReveal delay={0.1}>
