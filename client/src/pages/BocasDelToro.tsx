@@ -424,7 +424,7 @@ function CascadeSection({
       </div>
 
       {/* \u2500\u2500 Full-width horizontal media \u2500\u2500 */}
-      <div style={{ backgroundColor: section.nextBgColor }}>
+      <div style={{ backgroundColor: section.nextBgColor }} className="hidden md:block">
         <MediaReveal delay={0.05}>
           <MediaBlock
             src={section.horizontalSrc}

@@ -268,7 +268,7 @@ function CascadeTextBlock({
         <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
           <img src="/manus-storage/atacama-badge-michelin_46163b34.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0" loading="lazy" />
           <img src="/manus-storage/atacama-badge-leading-hotels_7fbff555.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-s-sustainability_da621709.png" alt="S Sustainability" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-s-sustainability_da621709.png" alt="S Sustainability" className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain flex-shrink-0" loading="lazy" />
         </div>
       )}
       {link && (
@@ -286,7 +286,7 @@ function CascadeTextBlock({
         <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
           <img src="/manus-storage/atacama-badge-michelin_46163b34.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0" loading="lazy" />
           <img src="/manus-storage/atacama-badge-leading-hotels_7fbff555.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-s-sustainability_da621709.png" alt="S Sustainability" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-s-sustainability_da621709.png" alt="S Sustainability" className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain flex-shrink-0" loading="lazy" />
         </div>
       )}
     </div>
