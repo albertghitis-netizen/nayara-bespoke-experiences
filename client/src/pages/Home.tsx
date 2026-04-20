@@ -176,7 +176,7 @@ export default function Home() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = "/manus-storage/D94B25DD-5CEC-4435-A603-5D24B0F70198_4036da78.mov";
+  const heroVideo = ""; // TODO: Add hero video
 
   /* Track when video nears its end to reveal H1 */
   const [showTitle, setShowTitle] = useState(false);
