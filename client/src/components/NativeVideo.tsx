@@ -195,7 +195,7 @@ export default function NativeVideo({
       {hasAudio ? (
         <video
           ref={videoRef}
-          className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700`}
+          className={`${className}`}
           autoPlay={false}
           loop={loop}
           playsInline={playsInline}
@@ -218,7 +218,7 @@ export default function NativeVideo({
       ) : (
         <video
           ref={videoRef}
-          className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700`}
+          className={`${className}`}
           autoPlay={false}
           muted={true}
           loop={loop}
