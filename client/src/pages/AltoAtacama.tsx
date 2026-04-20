@@ -257,9 +257,9 @@ function CascadeTextBlock({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-          <img src="/manus-storage/atacama-badge-michelin-trans_9abb26c3.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-leading-hotels-trans_a85920e2.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-s-sustainability-trans_ec0bd048.png" alt="S Sustainability" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-michelin.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-leading-hotels.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-s-sustainability_35d0a2a8.png" alt="S Sustainability" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
         </div>
       )}
       {link && (
@@ -275,9 +275,9 @@ function CascadeTextBlock({
       )}
       {badges && (
         <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-          <img src="/manus-storage/atacama-badge-michelin-trans_9abb26c3.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-leading-hotels-trans_a85920e2.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
-          <img src="/manus-storage/atacama-badge-s-sustainability-trans_ec0bd048.png" alt="S Sustainability" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-michelin.png" alt="Michelin 2 Keys" className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-leading-hotels.png" alt="Leading Hotels" className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
+          <img src="/manus-storage/atacama-badge-s-sustainability_35d0a2a8.png" alt="S Sustainability" className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110" loading="lazy" />
         </div>
       )}
     </div>

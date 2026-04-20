@@ -290,21 +290,21 @@ function StorySection() {
           <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
             {/* Michelin 3 Stars */}
             <img
-              src="/manus-storage/springs-badge-michelin-trans_9abb26c3.png"
+              src="/manus-storage/springs-badge-michelin_389046a1.png"
               alt="Michelin 3 Stars"
               className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
               loading="lazy"
             />
             {/* Relais & Châteaux */}
             <img
-              src="/manus-storage/springs-badge-relais-trans_a85920e2.png"
+              src="/manus-storage/springs-badge-relais-chateaux_a7752e06.png"
               alt="Relais & Châteaux"
               className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
               loading="lazy"
             />
             {/* Green Globe */}
             <img
-              src="/manus-storage/springs-badge-green-globe-trans_ec0bd048.png"
+              src="/manus-storage/springs-badge-green-globe_8cf2866f.png"
               alt="Green Globe Certified"
               className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
               loading="lazy"
