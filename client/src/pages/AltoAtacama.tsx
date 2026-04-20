@@ -68,29 +68,29 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const ASSETS = {
   // Hero (clip 1 — horizontal 16:9)
-  heroDesktop: "/manus-storage/clip1-h_b0053896.mp4",
-  heroMobile: "/manus-storage/clip1-h_b0053896.mp4",
+  heroDesktop: "/manus-storage/clip1-h_f765bd5c.mp4",
+  heroMobile: "/manus-storage/clip1-h_f765bd5c.mp4",
 
   // Clip 2 — vertical 3:4
-  clip2V: "/manus-storage/clip2-v_67fa9d14.mp4",
+  clip2V: "/manus-storage/clip2-v_76ae123c.mp4",
 
   // Clip 3 — horizontal 16:9
-  clip3H: "/manus-storage/clip3-h_918551ac.mp4",
+  clip3H: "/manus-storage/clip3-h_123ad8ce.mp4",
 
   // Clip 4 — vertical 3:4
-  clip4V: "/manus-storage/clip4-v_0ab7009a.mp4",
+  clip4V: "/manus-storage/clip4-v_07b3d23c.mp4",
 
   // Clip 5 — horizontal 16:9
-  clip5H: "/manus-storage/clip5-h_f17c403c.mp4",
+  clip5H: "/manus-storage/clip5-h_0ead0fc7.mp4",
 
   // Clip 6 — vertical 3:4
-  clip6V: "/manus-storage/clip6-v_8d1b4aca.mp4",
+  clip6V: "/manus-storage/clip6-v_7fa106fe.mp4",
 
   // Clip 7 — horizontal 16:9
-  clip7H: "/manus-storage/clip7-h_8df11c59.mp4",
+  clip7H: "/manus-storage/clip7-h_c78572cc.mp4",
 
   // Clip 8 — vertical 3:4
-  clip8V: "/manus-storage/clip8-v_794f1df4.mp4",
+  clip8V: "/manus-storage/clip8-v_d07a3c21.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
   storyV: `${CDN}/atacama-cascade-s1-desert-cropped-v_7069a95f.mp4`,

@@ -2430,3 +2430,6 @@
 ## Black Line Fix + Gastronomy Section
 - [x] Fix tiny black line divider under Desert Adventures (between clip6-v and clip7-h)
 - [x] Add Gastronomy section after Wellness — big horizontal image, gastronomy info text, vertical image below, then flows into Getting Here
+
+## Fix Broken Cascade Video URLs
+- [x] Re-upload all 8 cascade clips (clip1-h through clip8-v) to CDN and update URLs in AltoAtacama.tsx
