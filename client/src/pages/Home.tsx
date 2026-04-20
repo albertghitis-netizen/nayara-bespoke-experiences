@@ -156,7 +156,7 @@ export default function Home() {
       <AwardsSection />
       <PillarsSection />
       <ByNightCTA
-        verticalSrc="/manus-storage/7D567078-FBDD-4839-9A77-53528847899C(1)_22af01c9.mov"
+        verticalSrc="/manus-storage/7D567078-FBDD-4839-9A77-53528847899C%281%29_22af01c9.mov"
         verticalIsVideo
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
