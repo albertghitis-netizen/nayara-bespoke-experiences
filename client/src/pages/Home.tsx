@@ -549,7 +549,7 @@ function AwardsSection() {
         </TextReveal>
 
         {/* Row 1: Relais & Châteaux, Leading Hotels, Green Globe */}
-        <div className="mb-8 md:mb-12 flex items-center justify-start gap-6 md:gap-8 flex-wrap">
+        <div className="mb-8 md:mb-12 flex items-center justify-start gap-6 md:gap-8 flex-wrap -ml-3">
           <img
             src="/manus-storage/springs-badge-relais-chateaux_e497d355.png"
             alt="Relais & Châteaux"
@@ -571,7 +571,7 @@ function AwardsSection() {
         </div>
 
         {/* Row 2: Travel + Leisure, Michelin 3 Stars, S Sustainability */}
-        <div className="flex items-center justify-start gap-6 md:gap-8 flex-wrap">
+        <div className="flex items-center justify-start gap-6 md:gap-8 flex-wrap -ml-3">
           <img
             src="/manus-storage/tented-badge-travel-leisure_4d8b321b.png"
             alt="Travel + Leisure"
