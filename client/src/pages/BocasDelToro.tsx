@@ -364,15 +364,12 @@ function CascadeSection({
 
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
-              className="text-[15px] leading-[1.85] max-w-[480px]"
+              className="text-[15px] leading-[1.85] max-w-[480px] mb-6"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
               {section.body}
             </p>
-          </AnimateOnScroll>
-
-          {section.blogLink && (
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            {section.blogLink && (
               <a
                 href={section.blogLink}
                 target="_blank"
@@ -382,8 +379,8 @@ function CascadeSection({
               >
                 {section.blogLinkLabel || "Read More"} ↗
               </a>
-            </AnimateOnScroll>
-          )}
+            )}
+          </AnimateOnScroll>
 
           {section.link && (
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
