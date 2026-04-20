@@ -147,13 +147,13 @@ export default function Home() {
       <OrganizationSchema />
       <BrandNavigation pageType="brand" />
       <HeroSection />
-      <H2BadgesSection />
       <BrandStorySection />
       <PropertiesSection />
       <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="20px" />
       <TimelineSection />
       <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
       <ContentHubSection />
+      <AwardsSection />
       <PillarsSection />
       <ByNightCTA
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
@@ -168,70 +168,6 @@ export default function Home() {
       />
       <Footer />
     </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   H2 BADGES SECTION - Full-width heading and 6 badges in single row
-   ═══════════════════════════════════════════════════════════════ */
-function H2BadgesSection() {
-  return (
-    <section className="w-full py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
-      {/* Full-width H2 and label */}
-      <div className="w-full mb-12 md:mb-16">
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Recognition & Certification</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Honored by the World's Leading Authorities
-          </span>
-        </TextReveal>
-      </div>
-
-      {/* Full-width 6 badges in single row, centered */}
-      <div className="w-full flex items-center justify-center gap-6 md:gap-8 lg:gap-10 flex-nowrap">
-        <img
-          src="/manus-storage/springs-badge-relais-chateaux_a7752e06.png"
-          alt="Relais & Châteaux"
-          className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/tented-badge-leading-hotels_88949161.png"
-          alt="Leading Hotels of the World"
-          className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/springs-badge-green-globe_8cf2866f.png"
-          alt="Green Globe Certified"
-          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/tented-badge-travel-leisure_e09dd7ef.png"
-          alt="Travel + Leisure"
-          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/springs-badge-michelin_389046a1.png"
-          alt="Michelin 3 Stars"
-          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/atacama-badge-s-sustainability_35d0a2a8.png"
-          alt="S Sustainability"
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-      </div>
-    </section>
   );
 }
 
@@ -599,8 +535,7 @@ function ContentHubSection() {
 function AwardsSection() {
   return (
     <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
-      {/* Full-width H2, label, and badges */}
-      <div className="w-full px-6 md:px-10">
+      <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <SectionLabel>Recognition & Certification</SectionLabel>
         </AnimateOnScroll>
@@ -612,46 +547,50 @@ function AwardsSection() {
             Honored by the World's Leading Authorities
           </span>
         </TextReveal>
-      </div>
 
-      {/* Full-width 6 badges in single row, centered */}
-      <div className="w-full flex items-center justify-center gap-6 md:gap-8 lg:gap-10 px-6 md:px-10 flex-nowrap mt-8 md:mt-12">
-        <img
-          src="/manus-storage/springs-badge-relais-chateaux.png"
-          alt="Relais & Châteaux"
-          className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/atacama-badge-leading-hotels.png"
-          alt="Leading Hotels of the World"
-          className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/bocas-badge-green-globe.png"
-          alt="Green Globe Certified"
-          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/tented-badge-travel-leisure.png"
-          alt="Travel + Leisure"
-          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/atacama-badge-michelin.png"
-          alt="Michelin 3 Stars"
-          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
-        <img
-          src="/manus-storage/atacama-badge-s-sustainability.png"
-          alt="S Sustainability"
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
-          loading="lazy"
-        />
+        {/* Row 1: Relais & Châteaux, Leading Hotels, Green Globe */}
+        <div className="mb-8 md:mb-12 flex items-center justify-start gap-6 md:gap-8 flex-wrap">
+          <img
+            src="/manus-storage/badge-relais-chateaux_7c2e5a1f.png"
+            alt="Relais & Châteaux"
+            className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
+            loading="lazy"
+          />
+          <img
+            src="/manus-storage/badge-leading-hotels_88949161.png"
+            alt="Leading Hotels of the World"
+            className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
+            loading="lazy"
+          />
+          <img
+            src="/manus-storage/badge-green-globe_a2a6d1d5.png"
+            alt="Green Globe Certified"
+            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
+            loading="lazy"
+          />
+        </div>
+
+        {/* Row 2: Travel + Leisure, Michelin 3 Stars, S Sustainability */}
+        <div className="flex items-center justify-start gap-6 md:gap-8 flex-wrap">
+          <img
+            src="/manus-storage/badge-travel-leisure_e09dd7ef.png"
+            alt="Travel + Leisure"
+            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
+            loading="lazy"
+          />
+          <img
+            src="/manus-storage/badge-michelin-3-stars_f4c8e2b1.png"
+            alt="Michelin 3 Stars"
+            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
+            loading="lazy"
+          />
+          <img
+            src="/manus-storage/badge-s-sustainability_35d0a2a8.png"
+            alt="S Sustainability"
+            className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain transition-transform duration-300 hover:scale-110"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
   );
