@@ -535,8 +535,8 @@ function ContentHubSection() {
 function AwardsSection() {
   return (
     <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
-      {/* H2 and label in constrained width */}
-      <div className={maxW}>
+      {/* Full-width H2, label, and badges */}
+      <div className="w-full px-6 md:px-10">
         <AnimateOnScroll variants={fadeUp}>
           <SectionLabel>Recognition & Certification</SectionLabel>
         </AnimateOnScroll>
@@ -551,41 +551,41 @@ function AwardsSection() {
       </div>
 
       {/* Full-width 6 badges in single row, centered */}
-      <div className="w-full flex items-center justify-center gap-6 md:gap-8 lg:gap-10 px-6 md:px-10 flex-wrap mt-8 md:mt-12">
+      <div className="w-full flex items-center justify-center gap-6 md:gap-8 lg:gap-10 px-6 md:px-10 flex-nowrap mt-8 md:mt-12">
         <img
           src="/manus-storage/springs-badge-relais-chateaux_e497d355.png"
           alt="Relais & Châteaux"
-          className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
+          className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
           src="/manus-storage/atacama-badge-leading-hotels_fd8579cb.png"
           alt="Leading Hotels of the World"
-          className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
+          className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
           src="/manus-storage/bocas-badge-green-globe-trans_c30634e2.png"
           alt="Green Globe Certified"
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
+          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
           src="/manus-storage/tented-badge-travel-leisure_4d8b321b.png"
           alt="Travel + Leisure"
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
+          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
           src="/manus-storage/springs-badge-michelin_5be6618e.png"
           alt="Michelin 3 Stars"
-          className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
+          className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
           src="/manus-storage/atacama-badge-s-sustainability_b5ef1c79.png"
           alt="S Sustainability"
-          className="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain transition-transform duration-300 hover:scale-110"
+          className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
       </div>
