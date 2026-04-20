@@ -64,6 +64,8 @@ interface BrandNavigationProps {
   centerLinkHome?: boolean;
   hideCenterLabel?: boolean;
   navPalette?: NavPalette;
+  isMuted?: boolean;
+  onMuteToggle?: (muted: boolean) => void;
 }
 
 export default function BrandNavigation({
@@ -71,6 +73,8 @@ export default function BrandNavigation({
   centerLabel,
   hideCenterLabel = false,
   navPalette,
+  isMuted = true,
+  onMuteToggle,
 }: BrandNavigationProps) {
   /* Resolve palette — auto-detect from URL or use brand brown */
   const [location] = useLocation();
@@ -175,33 +179,34 @@ export default function BrandNavigation({
       <nav className="fixed top-2 left-0 right-0 z-50 px-3 pointer-events-none">
         {/* ── DESKTOP NAV ── */}
         <div className="hidden md:flex items-center justify-between pointer-events-auto">
-          {/* Left: Hamburger */}
-          <div ref={menuRef} className="relative shrink-0">
-            <button
-              onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-              className={`${pill} w-9 h-9`}
-              style={pillStyle}
-              aria-label="Menu"
-            >
-              <div className="flex flex-col gap-1">
-                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-              </div>
-            </button>
+          {/* Left: Hamburger + Mute */}
+          <div className="flex items-center gap-2 shrink-0">
+            <div ref={menuRef} className="relative shrink-0">
+              <button
+                onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
+                className={`${pill} w-9 h-9`}
+                style={pillStyle}
+                aria-label="Menu"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                  <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                </div>
+              </button>
 
-            <AnimatePresence>
-              {menuOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-56`}>
-                  <div className="py-2 max-h-[75vh] overflow-y-auto">
-                    {/* Property section anchors (only on property pages) */}
-                    {propertyItems.length > 0 && (
-                      <>
-                        <div className="px-5 pt-2 pb-1">
-                          <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
-                            This Property
-                          </span>
-                        </div>
-                        {propertyItems.map((item) => (
+              <AnimatePresence>
+                {menuOpen && (
+                  <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-56`}>
+                    <div className="py-2 max-h-[75vh] overflow-y-auto">
+                      {/* Property section anchors (only on property pages) */}
+                      {propertyItems.length > 0 && (
+                        <>
+                          <div className="px-5 pt-2 pb-1">
+                            <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
+                              This Property
+                            </span>
+                          </div>
+                          {propertyItems.map((item) => (
                           <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
                             <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
                           </button>
@@ -246,9 +251,26 @@ export default function BrandNavigation({
 
 
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Mute Button */}
+            {pageType === "brand" && location === "/" && (
+              <button
+                onClick={() => onMuteToggle && onMuteToggle(!isMuted)}
+                className={`${pill} w-9 h-9`}
+                style={pillStyle}
+                aria-label={isMuted ? "Unmute" : "Mute"}
+              >
+                {isMuted ? (
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" style={{ color: dk }}><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM19 12c0 .94-.2 1.82-.54 2.64l1.51 1.51C23.16 14.56 24 13.34 24 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" /></svg>
+                ) : (
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" style={{ color: dk }}><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" /></svg>
+                )}
+              </button>
+            )}
           </div>
 
           {/* Center: Brand or Property Name — hidden on non-home brand/content pages unless centerLabel is set */}
