@@ -154,7 +154,6 @@ export default function Home() {
       <TimelineSection />
       <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
       <ContentHubSection />
-      <AwardsSection />
       <PillarsSection />
       <ByNightCTA
         verticalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-video-short_174183ae.mp4"
@@ -196,37 +195,37 @@ function H2BadgesSection() {
       {/* Full-width 6 badges in single row, centered */}
       <div className="w-full flex items-center justify-center gap-6 md:gap-8 lg:gap-10 flex-nowrap">
         <img
-          src="/manus-storage/springs-badge-relais-chateaux.png"
+          src="/manus-storage/springs-badge-relais-chateaux_a7752e06.png"
           alt="Relais & Châteaux"
           className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
-          src="/manus-storage/atacama-badge-leading-hotels.png"
+          src="/manus-storage/tented-badge-leading-hotels_88949161.png"
           alt="Leading Hotels of the World"
           className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
-          src="/manus-storage/bocas-badge-green-globe.png"
+          src="/manus-storage/springs-badge-green-globe_8cf2866f.png"
           alt="Green Globe Certified"
           className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
-          src="/manus-storage/tented-badge-travel-leisure.png"
+          src="/manus-storage/tented-badge-travel-leisure_e09dd7ef.png"
           alt="Travel + Leisure"
           className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
-          src="/manus-storage/atacama-badge-michelin.png"
+          src="/manus-storage/springs-badge-michelin_389046a1.png"
           alt="Michelin 3 Stars"
           className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
         />
         <img
-          src="/manus-storage/atacama-badge-s-sustainability.png"
+          src="/manus-storage/atacama-badge-s-sustainability_35d0a2a8.png"
           alt="S Sustainability"
           className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110 flex-shrink-0"
           loading="lazy"
