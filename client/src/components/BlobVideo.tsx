@@ -123,9 +123,6 @@ export default function BlobVideo({
         poster={poster}
         preload="metadata"
         controls={controls}
-        // Critical mobile attributes
-        webkit-playsinline="true"
-        x-webkit-airplay="allow"
         onLoadedData={() => setIsLoaded(true)}
         onError={() => {
           console.error("Video load error:", src);

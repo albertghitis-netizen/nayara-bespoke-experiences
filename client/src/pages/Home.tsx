@@ -220,20 +220,31 @@ function HeroSection() {
         <source src={heroAudio} type="audio/mpeg" />
       </audio>
       
-      <button onClick={() => setIsMuted(!isMuted)} className="absolute top-6 left-6 z-20 flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-md border border-white/10 hover:opacity-90 transition-all" style={{ backgroundColor: "rgba(58, 42, 26, 0.70)" }} aria-label={isMuted ? "Unmute" : "Mute"}>
-        {isMuted ? (
-          <svg className="w-4 h-4" style={{ color: "rgba(255, 255, 255, 0.8)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
-          </svg>
-        ) : (
-          <svg className="w-4 h-4" style={{ color: "rgba(255, 255, 255, 0.8)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
-          </svg>
-        )}
-        <span className="text-[10px] tracking-[0.2em]" style={{ color: "rgba(255, 255, 255, 0.7)", fontFamily: "var(--font-body)", fontWeight: 500 }}>
-          {isMuted ? "Sound" : "Mute"}
-        </span>
-      </button>
+      {/* Top nav pills — mute (left) and ask concierge (right) */}
+      <div className="absolute top-6 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
+        {/* Mute button — left */}
+        <button onClick={() => setIsMuted(!isMuted)} className="pointer-events-auto flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-md border border-white/10 hover:opacity-90 transition-all" style={{ backgroundColor: "rgba(58, 42, 26, 0.70)" }} aria-label={isMuted ? "Unmute" : "Mute"}>
+          {isMuted ? (
+            <svg className="w-4 h-4" style={{ color: "rgba(255, 255, 255, 0.8)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
+            </svg>
+          ) : (
+            <svg className="w-4 h-4" style={{ color: "rgba(255, 255, 255, 0.8)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
+            </svg>
+          )}
+          <span className="text-[10px] tracking-[0.2em]" style={{ color: "rgba(255, 255, 255, 0.7)", fontFamily: "var(--font-body)", fontWeight: 500 }}>
+            {isMuted ? "Sound" : "Mute"}
+          </span>
+        </button>
+
+        {/* Ask Concierge button — right */}
+        <button className="pointer-events-auto flex items-center justify-center h-9 px-5 rounded-full backdrop-blur-md border border-white/10 hover:opacity-90 transition-all" style={{ backgroundColor: "rgba(58, 42, 26, 0.70)" }} aria-label="Ask Concierge">
+          <span className="text-[10px] tracking-[0.2em]" style={{ color: "rgba(255, 255, 255, 0.8)", fontFamily: "var(--font-body)", fontWeight: 500 }}>
+            Ask Concierge
+          </span>
+        </button>
+      </div>
       
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1
