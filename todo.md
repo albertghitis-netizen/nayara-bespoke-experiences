@@ -2489,3 +2489,4 @@
 - [x] Replace Alto Atacama individual badges with pre-composed badge strip image (2.png)
 - [x] Tented Camp mobile: Hero → H2 body text + badges → first vertical. Remove horizontal between hero and text block on mobile.
 - [x] Bocas del Toro mobile: Hero → H2 body text + badges → first vertical. Remove horizontal between hero and text block on mobile. (Already implemented)
+- [x] Tented Camp: Replace S2 horizontal with the sunset plunge pool photo (currently S4 horizontal). Flow: Hero → S1 vertical → pool photo.
