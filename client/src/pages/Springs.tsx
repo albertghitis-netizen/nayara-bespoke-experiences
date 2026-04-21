@@ -289,7 +289,7 @@ function StorySection() {
 
           <div className="mt-8">
             <img
-              src="/manus-storage/badge-strip-springs_5b623620.png"
+              src="/manus-storage/badge-strip-springs-v2_ef150cda.png"
               alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
               className="h-16 md:h-20 lg:h-24 w-auto object-contain"
               loading="lazy"

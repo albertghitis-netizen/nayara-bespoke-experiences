@@ -2495,3 +2495,5 @@
 - [x] Tented Camp: Experiences section — move horizontal above the vertical+text to maintain vertical-horizontal-vertical cascade
 - [x] Bocas del Toro: All videos (vertical + horizontal) should NOT loop — play once and stop on last frame
 - [x] Global rule: Only hero videos loop. All cascade videos (vertical + horizontal) play once and freeze on last frame. No looping.
+- [x] Replace 2 Michelin Keys image in badge strips (Atacama, Bocas) with new properly-spaced version (5.png)
+- [x] Replace 3 Michelin Keys image in badge strip (Springs) with new properly-spaced version (4.png)
