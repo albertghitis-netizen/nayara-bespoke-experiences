@@ -73,7 +73,7 @@ function HeroSection() {
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center" style={heading}>
-          Podcast
+          Long-Form Video
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="text-white/50 text-[13px] md:text-[15px] mt-4 tracking-[0.12em]" style={{ ...body, fontWeight: 500 }}>
           Conversations from Extraordinary Places
@@ -229,7 +229,7 @@ function ComingSoonSection() {
         <FadeIn>
           <Headphones className="w-6 h-6 text-[#3B2B26]/15 mx-auto mb-4" />
           <p className="text-[#3B2B26]/30 text-[14px] leading-relaxed" style={body}>
-            New episodes coming soon — conversations on coral restoration,
+            New videos coming soon — conversations on coral restoration,
             stargazing in the Atacama, and the future of regenerative travel.
           </p>
           <p className="text-[#3B2B26]/20 text-[12px] mt-4" style={{ ...body, fontWeight: 500 }}>

@@ -72,7 +72,7 @@ const ASSETS = {
   heroDesktop: `${CDN}/tented-hero-new_c2f5b543.mp4`,
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
-  storyV: "/manus-storage/nayara-by-night-s1_80392a32.mp4",
+  storyV: "/manus-storage/tented-s1-vertical-new_774e62da.mp4",
   storyH: `${CDN}/Supersale-8_68853293.jpg`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,
@@ -279,22 +279,21 @@ function CascadeSection({
             <AnimateOnScroll variants={fadeUp} delay={0.35}>
               <a
                 href={section.blogUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 mt-4 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                className="inline-flex items-center gap-2.5 mt-8 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
                 style={{
                   ...body,
                   fontWeight: 500,
                   fontSize: "12px",
                   letterSpacing: "0.08em",
-                  color: "#fff",
-                  backgroundColor: PALETTE.primary,
+                  color: PALETTE.primary,
+                  borderColor: `${PALETTE.primary}30`,
+                  backgroundColor: `${PALETTE.primary}08`,
                 }}
               >
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
                 </svg>
-                Read: {section.blogTitle}
+                Watch: {section.blogTitle}
               </a>
             </AnimateOnScroll>
           )}
@@ -596,7 +595,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[2],
+    bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[3],
     link: "/tented-camp/rooms",
     linkLabel: "Explore Rooms",
@@ -616,8 +615,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[5],
     link: "/tented-camp/experiences",
     linkLabel: "Explore More",
-    blogUrl: "https://blog.nayararesorts.com/pura-vida",
-    blogTitle: "Pura Vida: The Science of Why Costa Rica Feels Different",
+    blogUrl: "/podcast",
+    blogTitle: "Pioneering Sustainable Luxury with Nayara Resorts",
   },
   {
     id: "wellness",

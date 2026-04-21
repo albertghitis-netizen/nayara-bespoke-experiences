@@ -2593,3 +2593,9 @@
 
 ## Instagram Grid Section on Brand Homepage (Apr 21)
 - [x] Add Instagram photo grid section between By Night and Footer on brand homepage
+
+## Tented Camp Story Section Blog Link (Apr 21)
+- [x] Update blog link in Tented Camp story section — link to long-form video, text "Pioneering Sustainable Luxury with Nayara Resorts", full oval pill style, lower position
+- [x] Rename "Podcast" to "Long-Form Video" on the podcast page itself
+- [x] Replace first vertical S1 video on Tented Camp page with new uploaded video
+- [x] Make "Life Under Canvas" section background match the page light green color
