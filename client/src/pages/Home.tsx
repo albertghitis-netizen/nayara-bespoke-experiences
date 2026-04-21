@@ -149,9 +149,7 @@ export default function Home() {
       <HeroSection />
       <BrandStorySection />
       <PropertiesSection />
-      <GradientTransition from={PALETTE.bg} to="#f4f1eb" height="20px" />
-      <TimelineSection />
-      <GradientTransition from="#f4f1eb" to={PALETTE.bg} height="60px" />
+
       <ContentHubSection />
       <AwardsSection />
       <PillarsSection />
@@ -299,6 +297,16 @@ function BrandStorySection() {
               Read: The Nayara Story ↗
             </a>
           </AnimateOnScroll>
+
+          {/* Badge strip — same as property pages */}
+          <div className="mt-4">
+            <img
+              src="/manus-storage/badge-strip-springs-v3_43c1e3f8.png"
+              alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
+              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
+              loading="lazy"
+            />
+          </div>
         </div>
         <div className="md:w-1/2">
           <MediaReveal delay={0.2}>

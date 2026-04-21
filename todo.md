@@ -2506,3 +2506,10 @@
 - [x] Replace Experiences vertical with new waterfall video (tented-experiences-vertical_90b80829.mp4)
 - [x] Verify cascade flow: Story → pool H → Rooms vertical+text → rooms H → Experiences vertical+text → exp H → Wellness H (horizontalFirst) → wellness vertical+text
 - [x] Replace Experiences horizontal with new user-provided video (tented-experiences-horizontal-new_b0279ced.mp4)
+
+## Brand Page Updates (Apr 21)
+- [x] Add Nayara Springs badge strip below the blog link on the brand/home page
+- [x] Remove timeline section from the brand/home page
+
+## Bocas del Toro Updates (Apr 21)
+- [ ] Add Getting Here section to Bocas del Toro page under Guest Voices
