@@ -85,7 +85,7 @@ const ASSETS = {
   clip6V: "/manus-storage/atacama-s1-vertical_b68ea605.mp4",
 
   // Clip 7 — horizontal 16:9
-  clip7H: "/manus-storage/clip7-h_c78572cc.mp4",
+  clip7H: "/manus-storage/atacama-s6-horizontal_ba236b53.mp4",
 
   // Clip 8 — vertical 3:4
   clip8V: "/manus-storage/clip8-v_d07a3c21.mp4",
@@ -104,7 +104,7 @@ const ASSETS = {
 
   // Section 4 — Sustainability: cascade flamingos (cropped, no black bars)
   susV: "/manus-storage/atacama-s7-vertical-v2_48f270ff.mp4",
-  susH: "/manus-storage/atacama-s6-horizontal_ba236b53.mp4",
+  susH: "/manus-storage/clip7-h_c78572cc.mp4",
 
   // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
   wellV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
