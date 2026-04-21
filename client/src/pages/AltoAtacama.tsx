@@ -76,7 +76,7 @@ const ASSETS = {
   clip3H: "/manus-storage/atacama-s2-horizontal-v2_347c0422.mp4",
 
   // Clip 4 — vertical 3:4
-  clip4V: "/manus-storage/cropped_clip4_3x4_cbdd0182.mp4",
+  clip4V: "/manus-storage/atacama-s3-vertical_ba3fbf5a.mp4",
 
   // Clip 5 — horizontal 16:9
   clip5H: "/manus-storage/atacama-s2-horizontal_6369d51b.mp4",

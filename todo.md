@@ -2480,3 +2480,4 @@
 - [x] Make Atacama badges match Tented Camp badge structure, spacing, and size
 - [x] Make S Tourism badge bigger so text is readable
 - [x] Make badge label text more readable
+- [x] Replace S3 (second vertical) on Atacama with new video DF334B2C
