@@ -2483,3 +2483,7 @@
 - [x] Replace S3 (second vertical) on Atacama with new video DF334B2C
 - [x] Fix badges on AltoAtacama: all 3 (Michelin, LHW, S) same size, evenly spaced, aligned with body text left margin, no text labels
 - [x] Fix badges on all other property pages: same uniform sizing and alignment
+- [x] Replace Tented Camp individual badges with pre-composed badge strip image (1.png)
+- [x] Replace Bocas del Toro individual badges with pre-composed badge strip image (4.png)
+- [x] Replace Springs individual badges with pre-composed badge strip image (3.png)
+- [x] Replace Alto Atacama individual badges with pre-composed badge strip image (2.png)

@@ -396,20 +396,11 @@ function CascadeSection({
           )}
 
           {section.id === "story" && (
-            <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
-              <img src="/manus-storage/bocas-badge-michelin-trans_d3e03ec6.png"
-                alt="Michelin 2025"
-                className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-                loading="lazy"
-              />
-              <img src="/manus-storage/badge-lhw-new_4ee97f75.png"
-                alt="Leading Hotels of the World"
-                className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-                loading="lazy"
-              />
-              <img src="/manus-storage/bocas-badge-green-globe-trans_0f693010.png"
-                alt="Green Globe Certified"
-                className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
+            <div className="mt-8">
+              <img
+                src="/manus-storage/badge-strip-bocas_3160cf92.png"
+                alt="Michelin 2 Keys, Leading Hotels of the World, Green Globe Certified"
+                className="h-16 md:h-20 lg:h-24 w-auto object-contain"
                 loading="lazy"
               />
             </div>

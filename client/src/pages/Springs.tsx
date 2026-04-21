@@ -287,23 +287,11 @@ function StorySection() {
             </a>
           </AnimateOnScroll>
 
-          <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
+          <div className="mt-8">
             <img
-              src="/manus-storage/springs-badge-michelin_389046a1.png"
-              alt="Michelin 3 Keys"
-              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-              loading="lazy"
-            />
-            <img
-              src="/manus-storage/springs-badge-relais-chateaux_a7752e06.png"
-              alt="Relais & Châteaux"
-              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-              loading="lazy"
-            />
-            <img
-              src="/manus-storage/springs-badge-green-globe_8cf2866f.png"
-              alt="Green Globe Certified"
-              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
+              src="/manus-storage/badge-strip-springs_5b623620.png"
+              alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
+              className="h-16 md:h-20 lg:h-24 w-auto object-contain"
               loading="lazy"
             />
           </div>

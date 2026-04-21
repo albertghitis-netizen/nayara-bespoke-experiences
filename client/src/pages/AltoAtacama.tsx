@@ -256,23 +256,11 @@ function CascadeTextBlock({
         )}
       </AnimateOnScroll>
       {badgeImage && (
-        <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
+        <div className="mt-8">
           <img
-            src="/manus-storage/atacama-badge-michelin_e5872f3c.png"
-            alt="Michelin 2 Keys 2025"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-lhw-new_4ee97f75.png"
-            alt="The Leading Hotels of the World"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
-            alt="Distinción Turismo Sustentable"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
+            src="/manus-storage/badge-strip-atacama_0ed41dd9.png"
+            alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
+            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
             loading="lazy"
           />
         </div>
@@ -289,23 +277,11 @@ function CascadeTextBlock({
         </AnimateOnScroll>
       )}
       {badges && (
-        <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
+        <div className="mt-8">
           <img
-            src="/manus-storage/atacama-badge-michelin_e5872f3c.png"
-            alt="Michelin 2 Keys 2025"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-lhw-new_4ee97f75.png"
-            alt="The Leading Hotels of the World"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
-            alt="Distinción Turismo Sustentable"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
+            src="/manus-storage/badge-strip-atacama_0ed41dd9.png"
+            alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
+            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
             loading="lazy"
           />
         </div>
@@ -406,23 +382,11 @@ function CascadeSection({
         )}
       </AnimateOnScroll>
       {badgeImage && (
-        <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
+        <div className="mt-8">
           <img
-            src="/manus-storage/atacama-badge-michelin_e5872f3c.png"
-            alt="Michelin 2 Keys 2025"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-lhw-new_4ee97f75.png"
-            alt="The Leading Hotels of the World"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
-            alt="Distinción Turismo Sustentable"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
+            src="/manus-storage/badge-strip-atacama_0ed41dd9.png"
+            alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
+            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
             loading="lazy"
           />
         </div>
@@ -439,23 +403,11 @@ function CascadeSection({
         </AnimateOnScroll>
       )}
       {badges && (
-        <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
+        <div className="mt-8">
           <img
-            src="/manus-storage/atacama-badge-michelin_e5872f3c.png"
-            alt="Michelin 2 Keys 2025"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-lhw-new_4ee97f75.png"
-            alt="The Leading Hotels of the World"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
-            alt="Distinción Turismo Sustentable"
-            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
+            src="/manus-storage/badge-strip-atacama_0ed41dd9.png"
+            alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
+            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
             loading="lazy"
           />
         </div>
