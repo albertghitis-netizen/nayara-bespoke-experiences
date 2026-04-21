@@ -2537,3 +2537,6 @@
 - [x] Fix Tented Camp mobile: verticals must always have a copy section between them, never touching
 - [x] Convert Tented Camp deeper rooms page to use PropertySlider component (same as Springs rooms/sustainability)
 - [x] Remove horizontal images from Springs homepage (S2 couple-bridge was the only one rendered)
+
+## Tented Camp Room Slider Update (Apr 21)
+- [x] Update Tented Camp room slider to: Tent, Family Tent, Grand Tent, Residence

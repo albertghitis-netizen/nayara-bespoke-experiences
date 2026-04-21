@@ -39,10 +39,16 @@ const CDN = {
 
 const roomCards = [
   {
-    title: "Nayara Tent",
+    title: "Tent",
     description:
       "Safari-style luxury tents elevated above the rainforest canopy. Each tent features a private deck with plunge pool, outdoor shower, and unobstructed views of the Arenal Volcano through floor-to-ceiling mesh walls that bring the jungle inside.",
     tags: ["Private plunge pool", "Volcano views", "Outdoor shower", "Canopy deck"],
+  },
+  {
+    title: "Family Tent",
+    description:
+      "Designed for families seeking an unforgettable rainforest adventure, these interconnected tents offer generous space, private plunge pools, and direct access to nature trails — all while keeping the safari-luxury experience intact for every generation.",
+    tags: ["Interconnected tents", "Private plunge pool", "Family-friendly", "Nature trails"],
   },
   {
     title: "Grand Tent",
