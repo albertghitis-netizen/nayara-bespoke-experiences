@@ -2580,3 +2580,6 @@
 - [x] Add Gardens badge strip (Virtuoso + LHW + S) below existing three badges on brand homepage
 - [x] Build interactive illustrated SVG map of the Americas with Nayara property locations
 - [x] Integrate map into timeline section with scroll-triggered location reveals (desktop only)
+
+## Map offsetDistance React Warning Fix (Apr 21)
+- [x] Fix React offsetDistance prop warning — move from Framer Motion initial/animate to style prop

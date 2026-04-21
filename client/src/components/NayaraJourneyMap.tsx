@@ -114,6 +114,7 @@ function generateCurvedPath(from: MapLocation, to: MapLocation): string {
 }
 
 const EASE = [0.25, 0.8, 0.25, 1] as [number, number, number, number];
+const EASE_CSS = "cubic-bezier(0.25, 0.8, 0.25, 1)";
 
 /* ─── Refined Color Palette — warm editorial tones ─── */
 const OCEAN_LIGHT = "#e8e2d8";
@@ -174,6 +175,12 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
 
   return (
     <div className="relative w-full" style={{ aspectRatio: "800/680" }}>
+      <style>{`
+        @keyframes travelDot {
+          from { offset-distance: 0%; }
+          to { offset-distance: 100%; }
+        }
+      `}</style>
       <svg
         viewBox="0 0 800 680"
         className="w-full h-full"
@@ -340,29 +347,32 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                   opacity: { duration: 0.8, delay: 0.2 },
                 }}
               />
-              {/* Animated traveling dot */}
+              {/* Animated traveling dot — uses CSS offset-path animation */}
               <motion.circle
                 r={isEasterIslandPath ? 3.5 : 2.5}
                 fill={ACCENT_GOLD}
                 fillOpacity="0.7"
-                initial={{ offsetDistance: "0%" }}
-                animate={{ offsetDistance: "100%" }}
-                transition={{ duration: isEasterIslandPath ? 3.5 : 2.5, ease: EASE, delay: 0.3 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.7 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 style={{
                   offsetPath: `path('${fp.path}')`,
+                  offsetDistance: "100%",
+                  animation: `travelDot ${isEasterIslandPath ? 3.5 : 2.5}s ${EASE_CSS} 0.3s forwards`,
                 }}
               />
-              {/* Small plane icon for Easter Island path */}
+              {/* Small sparkle icon for Easter Island path */}
               {isEasterIslandPath && (
                 <motion.text
                   fontSize="10"
                   fill={ACCENT_GOLD}
-                  fillOpacity="0.5"
-                  initial={{ offsetDistance: "0%", opacity: 0 }}
-                  animate={{ offsetDistance: "100%", opacity: [0, 0.6, 0.6, 0] }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 0.6, 0.6, 0] }}
                   transition={{ duration: 3.5, ease: EASE, delay: 0.3 }}
                   style={{
                     offsetPath: `path('${fp.path}')`,
+                    offsetDistance: "100%",
+                    animation: `travelDot 3.5s ${EASE_CSS} 0.3s forwards`,
                   }}
                 >
                   ✦
