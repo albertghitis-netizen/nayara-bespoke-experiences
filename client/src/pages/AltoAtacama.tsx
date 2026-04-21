@@ -70,7 +70,7 @@ const ASSETS = {
   heroMobile: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
 
   // Clip 2 — vertical 3:4
-  clip2V: "/manus-storage/cropped_clip2_3x4_6272101e.mp4",
+  clip2V: "/manus-storage/tentreel4-v2_5c99cbb7.mp4",
 
   // Clip 3 — horizontal 16:9
   clip3H: "/manus-storage/cropped_clip3_16x9_770433c1.mp4",
@@ -79,7 +79,7 @@ const ASSETS = {
   clip4V: "/manus-storage/cropped_clip4_3x4_cbdd0182.mp4",
 
   // Clip 5 — horizontal 16:9
-  clip5H: "/manus-storage/clip5-h_0ead0fc7.mp4",
+  clip5H: "/manus-storage/atacama-s2-horizontal_6369d51b.mp4",
 
   // Clip 6 — vertical 3:4
   clip6V: "/manus-storage/clip6-v_7fa106fe.mp4",
