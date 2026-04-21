@@ -2476,3 +2476,4 @@
 - [x] Springs: Sound pill already correct (property green color)
 - [x] Ensure audio works on all 7 property pages
 - [x] Fix badges on Alto Atacama property page
+- [x] Replace S1 video on Tented Camp page with Tentreel4.mov (no audio)
