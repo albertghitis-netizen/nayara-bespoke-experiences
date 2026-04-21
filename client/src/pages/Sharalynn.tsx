@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
  */
 
 export default function Sharalynn() {
-  const [isMuted, setIsMuted] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -17,8 +16,8 @@ export default function Sharalynn() {
   }, []);
 
   const heroVideoUrl = isMobile
-    ? "/manus-storage/hero-mobile_8530945e.mov"
-    : "/manus-storage/hero-desktop_f078663d.mov";
+    ? "/manus-storage/shara-mobile-hq_c905c8c2.mp4"
+    : "/manus-storage/shara-desktop-hq_e01fce5e.mp4";
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#ffffff" }}>
@@ -33,7 +32,7 @@ export default function Sharalynn() {
       >
         <video
           autoPlay
-          muted={isMuted}
+          muted
           loop
           playsInline
           style={{
@@ -45,7 +44,7 @@ export default function Sharalynn() {
           }}
           key={heroVideoUrl}
         >
-          <source src={heroVideoUrl} type="video/quicktime" />
+          <source src={heroVideoUrl} type="video/mp4" />
         </video>
 
         {/* Overlay */}
@@ -56,47 +55,6 @@ export default function Sharalynn() {
             backgroundColor: "rgba(0, 0, 0, 0.3)",
           }}
         />
-
-        {/* Sound Button - Top Left */}
-        <button
-          onClick={() => setIsMuted(!isMuted)}
-          style={{
-            position: "fixed",
-            top: "24px",
-            left: "24px",
-            zIndex: 50,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "48px",
-            paddingLeft: "24px",
-            paddingRight: "24px",
-            borderRadius: "9999px",
-            backgroundColor: "rgba(220, 38, 38, 0.85)",
-            backdropFilter: "blur(12px)",
-            border: "none",
-            cursor: "pointer",
-            color: "white",
-            fontSize: "11px",
-            fontWeight: 600,
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            transition: "all 0.3s ease",
-            fontFamily: "DM Sans, sans-serif",
-            boxShadow: "0 8px 32px rgba(220, 38, 38, 0.3)",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 1)";
-            e.currentTarget.style.boxShadow = "0 12px 40px rgba(220, 38, 38, 0.4)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.85)";
-            e.currentTarget.style.boxShadow = "0 8px 32px rgba(220, 38, 38, 0.3)";
-          }}
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
-        >
-          {isMuted ? "🔊 Sound" : "🔇 Mute"}
-        </button>
 
         {/* Ask Shara Button - Top Right */}
         <button
@@ -121,7 +79,7 @@ export default function Sharalynn() {
             fontSize: "11px",
             fontWeight: 600,
             letterSpacing: "0.15em",
-            textTransform: "uppercase",
+            textTransform: "uppercase" as const,
             transition: "all 0.3s ease",
             fontFamily: "DM Sans, sans-serif",
             boxShadow: "0 8px 32px rgba(220, 38, 38, 0.3)",
@@ -189,46 +147,141 @@ export default function Sharalynn() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section with Headshot */}
       <section
         style={{
           padding: isMobile ? "40px 24px" : "80px 48px",
           maxWidth: "1200px",
           margin: "0 auto",
+          display: isMobile ? "block" : "flex",
+          gap: "48px",
+          alignItems: "center",
         }}
       >
-        <h2
+        {/* Headshot */}
+        <div
           style={{
-            fontSize: isMobile ? "24px" : "36px",
+            flexShrink: 0,
+            marginBottom: isMobile ? "32px" : 0,
+            textAlign: "center",
+          }}
+        >
+          <img
+            src="/manus-storage/sharalynn-headshot_300d87ab.jpeg"
+            alt="Sharalynn Zeitlin"
+            style={{
+              width: isMobile ? "200px" : "280px",
+              height: isMobile ? "260px" : "360px",
+              objectFit: "cover",
+              objectPosition: "top",
+              borderRadius: "8px",
+              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.15)",
+            }}
+          />
+        </div>
+
+        {/* Bio */}
+        <div>
+          <h2
+            style={{
+              fontSize: isMobile ? "24px" : "36px",
+              fontWeight: 300,
+              marginBottom: "24px",
+              fontFamily: "Playfair Display, serif",
+              color: "#1f2937",
+            }}
+          >
+            Sharalynn Zeitlin
+          </h2>
+          <p
+            style={{
+              fontSize: "16px",
+              lineHeight: 1.8,
+              color: "#4b5563",
+              marginBottom: "16px",
+              fontFamily: "DM Sans, sans-serif",
+            }}
+          >
+            Luxury real estate broker and expert matchmaker specializing in Miami's most discerning professionals. With deep expertise in both luxury real estate and meaningful introductions, Sharalynn understands that where you live and who you meet are intrinsically connected.
+          </p>
+          <p
+            style={{
+              fontSize: "16px",
+              lineHeight: 1.8,
+              color: "#4b5563",
+              fontFamily: "DM Sans, sans-serif",
+            }}
+          >
+            Based in Miami's most prestigious neighborhoods, she works with accomplished individuals, executives, and high-net-worth clients seeking both the perfect home and meaningful connections.
+          </p>
+        </div>
+      </section>
+
+      {/* Featured Blog Section */}
+      <section
+        style={{
+          padding: isMobile ? "40px 24px" : "60px 48px",
+          backgroundColor: "#fef2f2",
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "11px",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase" as const,
+            color: "#dc2626",
+            marginBottom: "12px",
+            fontFamily: "DM Sans, sans-serif",
+            fontWeight: 600,
+          }}
+        >
+          Featured Blog
+        </p>
+        <h3
+          style={{
+            fontSize: isMobile ? "20px" : "28px",
             fontWeight: 300,
-            marginBottom: "24px",
+            marginBottom: "16px",
             fontFamily: "Playfair Display, serif",
             color: "#1f2937",
           }}
         >
-          Sharalynn Zeitlin
-        </h2>
+          Love and Home: Why Where You Live Shapes Who You Meet
+        </h3>
         <p
           style={{
-            fontSize: "16px",
-            lineHeight: 1.8,
+            fontSize: "15px",
+            lineHeight: 1.7,
             color: "#4b5563",
-            marginBottom: "16px",
+            maxWidth: "700px",
+            margin: "0 auto 24px",
             fontFamily: "DM Sans, sans-serif",
           }}
         >
-          Luxury real estate broker and expert matchmaker specializing in Miami's most discerning professionals. With deep expertise in both luxury real estate and meaningful introductions, Sharalynn understands that where you live and who you meet are intrinsically connected.
+          Millions of users. Billions in revenue. And yet — real connection is declining. Discover why discerning individuals are choosing a more refined approach with 6-9x higher success rates.
         </p>
-        <p
+        <a
+          href="/sharalynn/blog"
           style={{
-            fontSize: "16px",
-            lineHeight: 1.8,
-            color: "#4b5563",
+            display: "inline-block",
+            padding: "12px 32px",
+            backgroundColor: "#dc2626",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            fontSize: "13px",
+            fontWeight: 600,
+            cursor: "pointer",
+            textDecoration: "none",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase" as const,
+            transition: "all 0.3s ease",
             fontFamily: "DM Sans, sans-serif",
           }}
         >
-          Based in Miami's most prestigious neighborhoods, she works with accomplished individuals, executives, and high-net-worth clients seeking both the perfect home and meaningful connections.
-        </p>
+          Read the Blog
+        </a>
       </section>
 
       {/* Services Section */}

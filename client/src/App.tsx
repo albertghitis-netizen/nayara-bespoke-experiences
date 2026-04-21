@@ -75,7 +75,7 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS: string[] = [];
+const HIDE_WIDGET_PATHS: string[] = ["/sharalynn", "/sharalynn/blog"];
 
 function Router() {
   const [location] = useLocation();
