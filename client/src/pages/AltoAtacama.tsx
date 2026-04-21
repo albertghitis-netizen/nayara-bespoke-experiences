@@ -513,8 +513,8 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "16/9",
 
     textSide: "left" as const,
-    blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
-    blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
+    blogLink: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
+    blogLinkLabel: "Read: Best Place to Stay in the Atacama Desert",
     badges: false,
     badgeImage: "/manus-storage/badges-atacama-v3_35a2ae06.png",
   },
@@ -539,6 +539,8 @@ const CASCADE_SECTIONS = [
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
+    blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
+    blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
   },
   {

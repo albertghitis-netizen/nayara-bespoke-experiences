@@ -2545,3 +2545,10 @@
 - [x] Add "Pura Vida: The Science of Why Costa Rica Feels Different" above the badges on Tented Camp story section
 - [x] Convert all blog "Read:" hyperlinks to oval pill style (book icon + text in property color oval) across all property pages
   - Home.tsx, Springs.tsx, AltoAtacama.tsx, BocasDelToro.tsx, TentedCampSustainability.tsx, SpringsSustainability.tsx, GardensSustainability.tsx, BocasSustainability.tsx, HangaroaSustainability.tsx, AtacamaSustainability.tsx, CostaRicaExperiences.tsx, CostaRicaGastronomy.tsx, NayaraByNight.tsx, Newsletter.tsx, ExcursionsSection.tsx
+
+## Brand Page Button Fix (Apr 21)
+- [x] Fix brand page buttons — warped on full screen, space them naturally, match property page sizing (h-10 px-6 text-[11px] gap-4)
+
+## Atacama Blog Link Swap (Apr 21)
+- [x] Move Mars blog from Atacama property story to Experiences cascade section
+- [x] Add new blog "Best Place to Stay Atacama Desert Oasis" to Atacama property story section

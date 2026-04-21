@@ -412,12 +412,12 @@ function PropertiesSection() {
                 {prop.tagline}
               </p>
 
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <a
                   href={BOOKING_URLS[prop.bookingId]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-9 px-5 rounded-full text-[10px] tracking-[0.12em] transition-all duration-500 hover:opacity-80"
+                  className="inline-flex items-center justify-center h-10 px-6 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500 hover:opacity-80"
                   style={{
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
@@ -429,7 +429,7 @@ function PropertiesSection() {
                 </a>
                 <Link
                   href={prop.route}
-                  className="inline-flex items-center justify-center h-9 px-5 rounded-full text-[10px] tracking-[0.12em] transition-all duration-500"
+                  className="inline-flex items-center justify-center h-10 px-6 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500"
                   style={{
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
