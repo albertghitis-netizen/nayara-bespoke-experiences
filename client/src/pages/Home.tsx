@@ -156,7 +156,7 @@ export default function Home() {
       <AwardsSection />
       <PillarsSection />
       <ByNightCTA
-        verticalSrc="/manus-storage/nayara-by-night-s1_1a1275e8.mov"
+        verticalSrc="/manus-storage/nayara-by-night-s1_ad25636d.mov"
         verticalIsVideo
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
@@ -220,31 +220,31 @@ function HeroSection() {
         <source src={heroAudio} type="audio/mpeg" />
       </audio>
       
-      {/* Top nav pills — mute (left) and ask concierge (right) */}
-      <div className="absolute top-6 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
-        {/* Mute button — left */}
-        <button onClick={() => setIsMuted(!isMuted)} className="pointer-events-auto flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-md border border-white/10 hover:opacity-90 transition-all" style={{ backgroundColor: "rgba(58, 42, 26, 0.70)" }} aria-label={isMuted ? "Unmute" : "Mute"}>
-          {isMuted ? (
-            <svg className="w-4 h-4" style={{ color: "rgba(255, 255, 255, 0.8)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
-            </svg>
-          ) : (
-            <svg className="w-4 h-4" style={{ color: "rgba(255, 255, 255, 0.8)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
-            </svg>
-          )}
-          <span className="text-[10px] tracking-[0.2em]" style={{ color: "rgba(255, 255, 255, 0.7)", fontFamily: "var(--font-body)", fontWeight: 500 }}>
-            {isMuted ? "Sound" : "Mute"}
-          </span>
-        </button>
-
-        {/* Ask Concierge button — right */}
-        <button className="pointer-events-auto flex items-center justify-center h-9 px-5 rounded-full backdrop-blur-md border border-white/10 hover:opacity-90 transition-all" style={{ backgroundColor: "rgba(58, 42, 26, 0.70)" }} aria-label="Ask Concierge">
-          <span className="text-[10px] tracking-[0.2em]" style={{ color: "rgba(255, 255, 255, 0.8)", fontFamily: "var(--font-body)", fontWeight: 500 }}>
-            Ask Concierge
-          </span>
-        </button>
-      </div>
+      {/* Sound pill — FIXED, aligned with BrandNavigation hamburger (same row) */}
+      <button
+        onClick={() => setIsMuted(!isMuted)}
+        aria-label={isMuted ? "Unmute" : "Mute"}
+        className="fixed z-50 flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
+        style={{
+          top: "8px",
+          left: "56px",
+          backgroundColor: "rgba(59,43,38,0.8)",
+          borderColor: "rgba(255,255,255,0.1)",
+        }}
+      >
+        {isMuted ? (
+          <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: "#F7F5F0" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
+          </svg>
+        ) : (
+          <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: "#F7F5F0" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
+          </svg>
+        )}
+        <span className="text-xs tracking-[0.08em]" style={{ color: "#F7F5F0", fontFamily: "var(--font-body)", fontWeight: 500 }}>
+          {isMuted ? "Sound" : "Mute"}
+        </span>
+      </button>
       
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1

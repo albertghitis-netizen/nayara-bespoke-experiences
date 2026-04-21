@@ -450,7 +450,7 @@ function HeroSection() {
           src={heroVideo}
           className="w-full h-full object-cover"
           hasAudio={true}
-          pillBg="rgba(0,142,151,0.70)"
+          pillBg="#008E97B3"
           pillColor="#FFFFFF"/>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>

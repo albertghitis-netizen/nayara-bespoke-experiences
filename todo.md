@@ -2467,3 +2467,11 @@
 - [x] Enable mute button visibility on mobile for all property pages using BlobVideo
 - [x] Verify mute button appears on mobile viewport
 - [x] Verify audio playback works on mobile heroes
+- [x] Home page: Remove Ask Concierge button from top hero (keep only bottom-right floating widget)
+- [x] Home page: Align Sound button properly with hamburger at top-left
+- [x] Fix nayara-by-night video error on Home page
+- [x] Bocas del Toro: Sound pill already correct (property teal color)
+- [x] Tented Camp: Sound pill already correct (property brown color)
+- [x] Gardens: Sound pill already correct (property green color)
+- [x] Springs: Sound pill already correct (property green color)
+- [x] Ensure audio works on all 7 property pages

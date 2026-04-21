@@ -224,7 +224,7 @@ function HeroSection() {
           src={CDN.heroDesktop}
           className="w-full h-full object-cover"
           hasAudio={true}
-          pillBg="rgba(82,86,66,0.70)"
+          pillBg="#525642B3"
           pillColor="#F7F5F0"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />

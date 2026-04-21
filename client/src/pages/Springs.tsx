@@ -204,8 +204,8 @@ function HeroSection() {
           src={CDN.heroDesktop}
           className="w-full h-full object-cover"
           hasAudio={true}
-          pillBg="rgba(76, 110, 90, 0.70)"
-          pillColor="#FFFFFF"/>
+          pillBg="#3B6E7BB3"
+          pillColor="#F7F5F0"/>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">

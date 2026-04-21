@@ -6,10 +6,10 @@
  * - Loading shimmer + error fallback
  * - Optional mute/unmute pill button for videos with audio
  *   (videos autoplay muted; user taps once to hear sound)
- * - Sound pill positioned top-left, color-matched to page buttons
+ * - Sound pill is FIXED positioned to align with BrandNavigation
+ *   (same row as hamburger + reserve: fixed top-2, next to hamburger)
  */
 import { useRef, useState, useEffect, useCallback } from "react";
-import { useIsMobile } from "@/hooks/useMobile";
 
 interface BlobVideoProps {
   src: string;
@@ -22,9 +22,9 @@ interface BlobVideoProps {
   controls?: boolean;
   /** Set true to show the mute/unmute pill on this video */
   hasAudio?: boolean;
-  /** Background color for the sound pill (matches page button color). Defaults to page nav pill style. */
+  /** Background color for the sound pill (matches page nav pill color). Defaults to espresso. */
   pillBg?: string;
-  /** Text/icon color for the sound pill. Defaults to white. */
+  /** Text/icon color for the sound pill. Defaults to bone. */
   pillColor?: string;
 }
 
@@ -41,7 +41,6 @@ export default function BlobVideo({
   pillBg,
   pillColor,
 }: BlobVideoProps) {
-  const isMobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -107,9 +106,18 @@ export default function BlobVideo({
     return "video/mp4";
   };
 
-  /* Pill styling — use provided colors or fall back to nav-pill defaults */
-  const bgStyle = pillBg || "rgba(58, 42, 26, 0.70)";
-  const fgStyle = pillColor || "#ffffff";
+  /* Pill styling — use provided colors or fall back to brand espresso */
+  const bgStyle = pillBg || "rgba(59,43,38,0.8)";
+  const fgStyle = pillColor || "#F7F5F0";
+
+  /*
+   * Nav alignment reference (from BrandNavigation):
+   * nav: fixed top-2 left-0 right-0 z-50 px-3
+   * hamburger: w-9 h-9 (36px)
+   * So Sound pill sits at: fixed top-2, left = px-3 + w-9 + gap
+   * = 12px + 36px + 8px = 56px from left
+   * On mobile: same calculation applies
+   */
 
   return (
     <div className="relative w-full h-full">
@@ -149,13 +157,18 @@ export default function BlobVideo({
         />
       )}
 
-      {/* Mute / Unmute pill — top-left, color-matched to page buttons */}
+      {/* Mute / Unmute pill — FIXED, aligned with BrandNavigation hamburger */}
       {effectiveHasAudio && isLoaded && (
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="absolute top-6 left-6 z-30 flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-md border border-white/10 hover:opacity-90 transition-all duration-300 group cursor-pointer"
-          style={{ backgroundColor: bgStyle }}
+          className="fixed z-50 flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
+          style={{
+            top: "8px",       /* top-2 = 0.5rem = 8px — matches nav */
+            left: "56px",     /* px-3 (12px) + w-9 (36px) + 8px gap = 56px */
+            backgroundColor: bgStyle,
+            borderColor: "rgba(255,255,255,0.1)",
+          }}
         >
           {/* Pulse ring — draws attention, then fades */}
           {isMuted && showPulse && (
@@ -165,8 +178,8 @@ export default function BlobVideo({
           {/* Speaker icon */}
           {isMuted ? (
             <svg
-              className="w-4 h-4 transition-colors"
-              style={{ color: `${fgStyle}CC` }}
+              className="w-3.5 h-3.5 mr-1.5 transition-colors"
+              style={{ color: fgStyle }}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -180,8 +193,8 @@ export default function BlobVideo({
             </svg>
           ) : (
             <svg
-              className="w-4 h-4 transition-colors"
-              style={{ color: `${fgStyle}CC` }}
+              className="w-3.5 h-3.5 mr-1.5 transition-colors"
+              style={{ color: fgStyle }}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -195,10 +208,10 @@ export default function BlobVideo({
             </svg>
           )}
 
-          {/* Label */}
+          {/* Label — matches Reserve button text style */}
           <span
-            className="text-[10px] tracking-[0.2em] transition-colors"
-            style={{ color: `${fgStyle}B3`, fontFamily: "var(--font-body)", fontWeight: 500 }}
+            className="text-xs tracking-[0.08em] transition-colors"
+            style={{ color: fgStyle, fontFamily: "var(--font-body)", fontWeight: 500 }}
           >
             {isMuted ? "Sound" : "Mute"}
           </span>
