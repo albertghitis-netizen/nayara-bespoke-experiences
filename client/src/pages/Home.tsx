@@ -152,6 +152,7 @@ export default function Home() {
       <PropertiesSection />
 
       <TimelineSection />
+      <AwardsHighlightSection />
       <ByNightCTA
         verticalSrc="/manus-storage/brand-bynight-vertical-new_a9c824f4.mp4"
         verticalIsVideo
@@ -585,6 +586,141 @@ function TimelineSection() {
             ))}
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AWARDS HIGHLIGHT — 4 key accolades before By Night
+   ═══════════════════════════════════════════════════════════════ */
+const awardsData = [
+  {
+    stat: "#1",
+    property: "Nayara Bocas del Toro",
+    accolade: "Best Resort in Central America",
+    source: "Condé Nast Traveler Readers' Choice Awards",
+    year: "2025",
+    route: "/bocas-del-toro",
+  },
+  {
+    stat: "4×",
+    property: "Nayara Tented Camp",
+    accolade: "#1 Resort in Central America",
+    source: "Travel + Leisure World's Best Awards",
+    year: "4 of last 5 years",
+    route: "/tented-camp",
+  },
+  {
+    stat: "Top 15",
+    property: "Nayara Resorts",
+    accolade: "Top 15 Resort Brands in the World",
+    source: "Travel + Leisure World's Best Awards",
+    year: "2 consecutive years",
+    route: "/awards",
+  },
+  {
+    stat: "3",
+    property: "Nayara Springs",
+    accolade: "Only 3 Michelin Key Hotel in Costa Rica",
+    source: "MICHELIN Guide",
+    year: "2025",
+    route: "/springs",
+  },
+];
+
+function AwardsHighlightSection() {
+  return (
+    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Recognition</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-14 md:mb-20" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            Recognized by the World's Most Trusted Voices in Travel
+          </span>
+        </TextReveal>
+
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ backgroundColor: PALETTE.divider }}>
+          {awardsData.map((award) => (
+            <motion.div key={award.property} variants={fadeUp}>
+              <Link
+                href={award.route}
+                className="group block h-full p-8 md:p-10 transition-all duration-500 hover:translate-y-[-2px]"
+                style={{ backgroundColor: PALETTE.bg }}
+              >
+                {/* Big stat number */}
+                <span
+                  className="block text-[48px] md:text-[56px] lg:text-[64px] leading-none mb-4"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 300,
+                    color: `${PALETTE.text}18`,
+                  }}
+                >
+                  {award.stat}
+                </span>
+
+                {/* Thin accent line */}
+                <div
+                  className="w-8 h-px mb-5 group-hover:w-12 transition-all duration-500"
+                  style={{ backgroundColor: PALETTE.accent }}
+                />
+
+                {/* Accolade */}
+                <h3
+                  className="text-[16px] md:text-[17px] leading-[1.35] mb-2"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
+                >
+                  {award.accolade}
+                </h3>
+
+                {/* Property name */}
+                <p
+                  className="text-[12px] tracking-[0.06em] mb-4"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary }}
+                >
+                  {award.property}
+                </p>
+
+                {/* Source + year */}
+                <p
+                  className="text-[11px] leading-[1.6]"
+                  style={{ fontFamily: "var(--font-body)", color: `${PALETTE.textSecondary}80` }}
+                >
+                  {award.source}
+                  <br />
+                  {award.year}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
+
+        {/* CTA to full awards page */}
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <div className="mt-12 text-center">
+            <Link
+              href="/awards"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500 hover:opacity-80"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 500,
+                border: `1px solid ${PALETTE.divider}`,
+                color: PALETTE.textSecondary,
+              }}
+            >
+              View All Awards & Press
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

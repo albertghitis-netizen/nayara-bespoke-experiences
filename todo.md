@@ -2583,3 +2583,6 @@
 
 ## Map offsetDistance React Warning Fix (Apr 21)
 - [x] Fix React offsetDistance prop warning — move from Framer Motion initial/animate to style prop
+
+## Awards Section on Brand Homepage (Apr 21)
+- [x] Add Awards section to brand homepage, positioned before By Night section
