@@ -258,9 +258,9 @@ function CascadeTextBlock({
       {badgeImage && (
         <div className="mt-8">
           <img
-            src="/manus-storage/badge-strip-atacama-v2_54f94407.png"
+            src="/manus-storage/badge-strip-atacama-v3_74bdec66.png"
             alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+            className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
             loading="lazy"
           />
         </div>
@@ -279,9 +279,9 @@ function CascadeTextBlock({
       {badges && (
         <div className="mt-8">
           <img
-            src="/manus-storage/badge-strip-atacama-v2_54f94407.png"
+            src="/manus-storage/badge-strip-atacama-v3_74bdec66.png"
             alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+            className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
             loading="lazy"
           />
         </div>
@@ -384,9 +384,9 @@ function CascadeSection({
       {badgeImage && (
         <div className="mt-8">
           <img
-            src="/manus-storage/badge-strip-atacama-v2_54f94407.png"
+            src="/manus-storage/badge-strip-atacama-v3_74bdec66.png"
             alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+            className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
             loading="lazy"
           />
         </div>
@@ -405,9 +405,9 @@ function CascadeSection({
       {badges && (
         <div className="mt-8">
           <img
-            src="/manus-storage/badge-strip-atacama-v2_54f94407.png"
+            src="/manus-storage/badge-strip-atacama-v3_74bdec66.png"
             alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+            className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
             loading="lazy"
           />
         </div>
