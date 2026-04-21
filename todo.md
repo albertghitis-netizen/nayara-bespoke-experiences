@@ -2499,3 +2499,4 @@
 - [x] Replace 3 Michelin Keys image in badge strip (Springs) with new properly-spaced version (4.png)
 - [x] Gardens: Change hero H1 to "Family-Friendly Rainforest Adventure"
 - [x] Gardens: Replace S1 vertical with new video (DEE1EE99 mov)
+- [x] Atacama: Make badge strip bigger and more spread out — increase image height and spacing

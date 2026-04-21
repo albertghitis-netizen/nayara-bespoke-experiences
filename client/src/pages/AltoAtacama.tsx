@@ -260,7 +260,7 @@ function CascadeTextBlock({
           <img
             src="/manus-storage/badge-strip-atacama-v2_54f94407.png"
             alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+            className="h-24 md:h-32 lg:h-40 w-auto object-contain"
             loading="lazy"
           />
         </div>
@@ -281,7 +281,7 @@ function CascadeTextBlock({
           <img
             src="/manus-storage/badge-strip-atacama-v2_54f94407.png"
             alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+            className="h-24 md:h-32 lg:h-40 w-auto object-contain"
             loading="lazy"
           />
         </div>
@@ -386,7 +386,7 @@ function CascadeSection({
           <img
             src="/manus-storage/badge-strip-atacama-v2_54f94407.png"
             alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+            className="h-24 md:h-32 lg:h-40 w-auto object-contain"
             loading="lazy"
           />
         </div>
@@ -407,7 +407,7 @@ function CascadeSection({
           <img
             src="/manus-storage/badge-strip-atacama-v2_54f94407.png"
             alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+            className="h-24 md:h-32 lg:h-40 w-auto object-contain"
             loading="lazy"
           />
         </div>
