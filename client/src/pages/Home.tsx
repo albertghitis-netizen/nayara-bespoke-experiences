@@ -650,9 +650,18 @@ function AwardsHighlightSection() {
             <motion.div key={award.property} variants={fadeUp}>
               <Link
                 href={award.route}
-                className="group block h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_12px_40px_-8px_rgba(59,43,38,0.15)] hover:z-10 relative"
+                className="group block h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_12px_40px_-8px_rgba(59,43,38,0.15)] hover:z-10 relative overflow-hidden"
                 style={{ backgroundColor: PALETTE.bg }}
               >
+                {/* Gravel / grain texture overlay */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
+                  <filter id={`grain-${award.property.replace(/\s+/g, '-')}`}>
+                    <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" seed={42} />
+                    <feColorMatrix type="saturate" values="0" />
+                  </filter>
+                  <rect width="100%" height="100%" filter={`url(#grain-${award.property.replace(/\s+/g, '-')})`} />
+                </svg>
+
                 {/* Big stat number — fades in on hover */}
                 <span
                   className="block text-[48px] md:text-[56px] lg:text-[64px] leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1"

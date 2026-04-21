@@ -2587,3 +2587,4 @@
 ## Awards Section on Brand Homepage (Apr 21)
 - [x] Add Awards section to brand homepage, positioned before By Night section
 - [x] Add more impactful hover effects to Awards Highlight cards on brand homepage
+- [x] Add subtle gravel/grain texture overlay to Awards Highlight cards
