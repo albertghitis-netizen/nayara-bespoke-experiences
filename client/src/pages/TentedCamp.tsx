@@ -34,9 +34,9 @@ const SECTION_COLORS = [
   COLOR_B, // 1 story
   COLOR_A, // 2 accommodations
   COLOR_B, // 3 experiences
-  COLOR_A, // 4 wellness
-  COLOR_B, // 5 gastronomy
-  COLOR_A, // 6 wildlife
+  COLOR_A, // 4 sustainability
+  COLOR_B, // 5 wellness
+  COLOR_A, // 6 gastronomy
   COLOR_B, // 7 adventure
   COLOR_A, // 8 spa
   COLOR_B, // 9 getting here
@@ -47,7 +47,8 @@ const SECTION_COLORS = [
   COLOR_A, // 14 rainforest mornings
   COLOR_B, // 15 the canopy at dusk
   COLOR_A, // 16 looking for frogs
-  COLOR_B, // 17 return
+  COLOR_B, // 17 return-a
+  COLOR_A, // 18 return-b
 ];
 
 const PALETTE = {
@@ -619,6 +620,22 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     blogTitle: "Pioneering Sustainable Luxury with Nayara Resorts",
   },
   {
+    id: "sustainability",
+    label: "Sustainability",
+    headline: "Rooted in\nResponsibility",
+    body: "What began as a barren cattle ranch is now a thriving 1,400-acre rainforest reserve. Every decision at Tented Camp — from solar-heated pools to zero single-use plastics — is guided by a simple principle: leave the land better than we found it.",
+    verticalSrc: "/manus-storage/tented-sustainability-vertical_51ad5d43.mp4",
+    horizontalSrc: ASSETS.wildH,
+    verticalIsVideo: true,
+    horizontalIsVideo: true,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: SECTION_COLORS[5],
+    nextBgColor: SECTION_COLORS[6],
+    link: "/sustainability",
+    linkLabel: "Our Commitment",
+  },
+  {
     id: "wellness",
     label: "Wellness",
     headline: "Volcanic\nHealing",
@@ -629,8 +646,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "13/5",
-    bgColor: SECTION_COLORS[5],
-    nextBgColor: SECTION_COLORS[6],
+    bgColor: SECTION_COLORS[6],
+    nextBgColor: SECTION_COLORS[7],
     link: "/tented-camp/wellness",
     linkLabel: "Explore More",
   },
@@ -650,8 +667,8 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[6],
-    nextBgColor: SECTION_COLORS[7],
+    bgColor: SECTION_COLORS[7],
+    nextBgColor: SECTION_COLORS[8],
     link: "/tented-camp/gastronomy",
     linkLabel: "Explore More",
   },
@@ -671,8 +688,8 @@ const SECTIONS_AFTER_JOURNAL: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[7],
-    nextBgColor: SECTION_COLORS[8],
+    bgColor: SECTION_COLORS[8],
+    nextBgColor: SECTION_COLORS[9],
   },
   {
     id: "spa",
@@ -685,8 +702,8 @@ const SECTIONS_AFTER_JOURNAL: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[8],
-    nextBgColor: SECTION_COLORS[9],
+    bgColor: SECTION_COLORS[9],
+    nextBgColor: SECTION_COLORS[10],
   },
 ];
 
@@ -703,8 +720,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[10],
-    nextBgColor: SECTION_COLORS[11],
+    bgColor: SECTION_COLORS[11],
+    nextBgColor: SECTION_COLORS[12],
   },
   {
     id: "henrys-bar",
@@ -717,8 +734,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[11],
-    nextBgColor: SECTION_COLORS[12],
+    bgColor: SECTION_COLORS[12],
+    nextBgColor: SECTION_COLORS[13],
   },
   {
     id: "grand-tents",
@@ -731,8 +748,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[12],
-    nextBgColor: SECTION_COLORS[13],
+    bgColor: SECTION_COLORS[13],
+    nextBgColor: SECTION_COLORS[14],
   },
   {
     id: "camp-life",
@@ -745,8 +762,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[13],
-    nextBgColor: SECTION_COLORS[14],
+    bgColor: SECTION_COLORS[14],
+    nextBgColor: SECTION_COLORS[15],
   },
   {
     id: "rainforest-mornings",
@@ -759,8 +776,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[14],
-    nextBgColor: SECTION_COLORS[15],
+    bgColor: SECTION_COLORS[15],
+    nextBgColor: SECTION_COLORS[16],
   },
   {
     id: "canopy-dusk",
@@ -773,8 +790,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[15],
-    nextBgColor: SECTION_COLORS[16],
+    bgColor: SECTION_COLORS[16],
+    nextBgColor: SECTION_COLORS[17],
   },
   {
     id: "looking-for-frogs",
@@ -787,8 +804,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[16],
-    nextBgColor: SECTION_COLORS[17],
+    bgColor: SECTION_COLORS[17],
+    nextBgColor: SECTION_COLORS[18],
   },
   {
     id: "return",
@@ -801,8 +818,8 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[17],
-    nextBgColor: SECTION_COLORS[17],
+    bgColor: SECTION_COLORS[18],
+    nextBgColor: SECTION_COLORS[18],
   },
 ];
 
@@ -937,10 +954,10 @@ export default function TentedCamp() {
       ))}
 
       {/* ★ Reviews below Gastronomy */}
-      <ReviewsBreak bgColor={SECTION_COLORS[6]} />
+      <ReviewsBreak bgColor={SECTION_COLORS[7]} />
 
       {/* ★ Getting Here below Reviews */}
-      <GettingHereBreak bgColor={SECTION_COLORS[7]} />
+      <GettingHereBreak bgColor={SECTION_COLORS[8]} />
 
 
       <Footer bgColor="#868B75" />

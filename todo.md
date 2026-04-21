@@ -2599,3 +2599,6 @@
 - [x] Rename "Podcast" to "Long-Form Video" on the podcast page itself
 - [x] Replace first vertical S1 video on Tented Camp page with new uploaded video
 - [x] Make "Life Under Canvas" section background match the page light green color
+
+## Tented Camp Sustainability Section (Apr 21)
+- [x] Add Sustainability section to Tented Camp page between Experiences and Wellness, with provided video as vertical on left
