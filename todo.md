@@ -2577,3 +2577,4 @@
 - [x] By Night: restore Moai video as vertical (PERMANENT — never change again)
 - [x] By Night: convert star observatory .mov to .mp4 and set as horizontal video
 - [x] By Night: change headline to "Nayara by Night", hide section label
+- [x] Add Gardens badge strip (Virtuoso + LHW + S) below existing three badges on brand homepage

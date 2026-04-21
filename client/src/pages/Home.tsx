@@ -309,6 +309,14 @@ function BrandStorySection() {
               loading="lazy"
             />
           </div>
+          <div className="mt-4">
+            <img
+              src="/manus-storage/badge-strip-gardens_e83d0225.png"
+              alt="Virtuoso, Leading Hotels of the World, Distinción Turismo Sustentable"
+              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
+              loading="lazy"
+            />
+          </div>
         </div>
         <div className="md:w-1/2">
           <MediaReveal delay={0.2}>
