@@ -176,6 +176,7 @@ type CascadeSectionData = {
   horizontalIsVideo: boolean;
   verticalRatio: string;
   horizontalRatio: string;
+  horizontalFirst?: boolean;
   bgColor: string;
   nextBgColor: string;
   link?: string;
@@ -195,8 +196,25 @@ function CascadeSection({
 }) {
   const textLeft = index % 2 === 0;
 
+  const horizontalBlock = section.horizontalSrc ? (
+    <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
+      <MediaReveal delay={0.05}>
+        <MediaBlock
+          src={section.horizontalSrc}
+          isVideo={section.horizontalIsVideo}
+          ratio={section.horizontalRatio}
+          alt={`${section.label} landscape — Nayara Tented Camp`}
+          className="w-full"
+        />
+      </MediaReveal>
+    </div>
+  ) : null;
+
   return (
     <section id={section.id}>
+      {/* ── Horizontal FIRST if flagged ── */}
+      {section.horizontalFirst && horizontalBlock}
+
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media — on mobile: appears after text (order-2), on desktop: alternates */}
@@ -296,18 +314,8 @@ function CascadeSection({
         </div>
       </div>
 
-      {/* ── Full-width horizontal media — hidden on mobile ── */}
-      <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.nextBgColor }}>
-        <MediaReveal delay={0.05}>
-          <MediaBlock
-            src={section.horizontalSrc}
-            isVideo={section.horizontalIsVideo}
-            ratio={section.horizontalRatio}
-            alt={`${section.label} landscape — Nayara Tented Camp`}
-            className="w-full"
-          />
-        </MediaReveal>
-      </div>
+      {/* ── Full-width horizontal media AFTER (default) — hidden on mobile ── */}
+      {!section.horizontalFirst && horizontalBlock}
     </section>
   );
 }
@@ -591,6 +599,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     id: "experiences",
     label: "Experiences",
     headline: "Rainforest\nAdventures",
+    horizontalFirst: true,
     body: "Cross hanging bridges through the canopy, rappel down waterfalls, or trek to hidden volcanic hot springs. Every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
     verticalSrc: ASSETS.expV,
     horizontalSrc: ASSETS.expH,
