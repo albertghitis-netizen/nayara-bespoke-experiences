@@ -2525,3 +2525,6 @@
 
 ## Badge Strip Redo (Apr 21)
 - [x] Redo 5-badge strip — S Cert and LHW must match same style/size as Michelin, R&C, Green Globe (v2 — kept original 3, appended LHW + CST at matching height)
+
+## Brand Page Cleanup (Apr 21)
+- [x] Remove "Honored by the Best Authorities" section from brand page (redundant with badge strip in story)

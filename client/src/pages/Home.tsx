@@ -151,7 +151,6 @@ export default function Home() {
       <PropertiesSection />
 
       <ContentHubSection />
-      <AwardsSection />
       <PillarsSection />
       <ByNightCTA
         verticalSrc="/manus-storage/nayara-by-night-s1_80392a32.mp4"
@@ -568,50 +567,6 @@ function ContentHubSection() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   AWARDS & CERTIFICATIONS - Six badges in two rows
-   ═══════════════════════════════════════════════════════════════ */
-function AwardsSection() {
-  return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Recognition & Certification</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Honored by the World's Leading Authorities
-          </span>
-        </TextReveal>
-
-        {/* Row 1: Springs badges - Michelin, Relais & Châteaux, Green Globe */}
-        <div className="flex items-center justify-start gap-6 md:gap-8 flex-wrap">
-          <img
-            src="/manus-storage/springs-badge-michelin_389046a1.png"
-            alt="Michelin Keys"
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/springs-badge-relais-chateaux_a7752e06.png"
-            alt="Relais & Châteaux"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 hover:scale-110"
-            loading="lazy"
-          />
-          <img
-            src="/manus-storage/springs-badge-green-globe_8cf2866f.png"
-            alt="Green Globe Certified"
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain transition-transform duration-300 hover:scale-110"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════════
    PILLARS - Four brand pillars with links
