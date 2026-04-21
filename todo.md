@@ -2578,5 +2578,5 @@
 - [x] By Night: convert star observatory .mov to .mp4 and set as horizontal video
 - [x] By Night: change headline to "Nayara by Night", hide section label
 - [x] Add Gardens badge strip (Virtuoso + LHW + S) below existing three badges on brand homepage
-- [ ] Build interactive illustrated SVG map of the Americas with Nayara property locations
-- [ ] Integrate map into timeline section with scroll-triggered location reveals (desktop only)
+- [x] Build interactive illustrated SVG map of the Americas with Nayara property locations
+- [x] Integrate map into timeline section with scroll-triggered location reveals (desktop only)
