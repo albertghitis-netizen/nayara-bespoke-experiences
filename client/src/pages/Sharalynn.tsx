@@ -6,9 +6,9 @@ export default function Sharalynn() {
   const [isMuted, setIsMuted] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   
-  // Wide video for desktop, vertical for mobile
-  const heroVideoUrlDesktop = "/manus-storage/sharalynn-hero-1_7131d5f7.mov";
-  const heroVideoUrlMobile = "/manus-storage/sharalynn-hero-2_c2c135e4.mov";
+  // Wide video for desktop, vertical for mobile (MP4 format with audio)
+  const heroVideoUrlDesktop = "/manus-storage/sharalynn-hero-desktop_caa42295.mp4";
+  const heroVideoUrlMobile = "/manus-storage/sharalynn-hero-mobile_7e91986a.mp4";
   const heroVideoUrl = isMobile ? heroVideoUrlMobile : heroVideoUrlDesktop;
   
   const logoUrl = "/manus-storage/sharalynn-logo.png";
@@ -76,7 +76,7 @@ export default function Sharalynn() {
           className="absolute inset-0 w-full h-full object-cover"
           key={heroVideoUrl}
         >
-          <source src={heroVideoUrl} type="video/quicktime" />
+          <source src={heroVideoUrl} type="video/mp4" />
         </video>
 
         {/* Overlay */}
