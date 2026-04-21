@@ -2493,3 +2493,5 @@
 - [x] Tented Camp: Add vertical video to "Life Under Canvas" (rooms) section from ReelNayara reel
 - [x] Tented Camp: Delete entire "Toucans & Tree Frogs" (Regenerative Travel / wildlife) section so Life Under Canvas flows directly into Experiences horizontal
 - [x] Tented Camp: Experiences section — move horizontal above the vertical+text to maintain vertical-horizontal-vertical cascade
+- [x] Bocas del Toro: All videos (vertical + horizontal) should NOT loop — play once and stop on last frame
+- [x] Global rule: Only hero videos loop. All cascade videos (vertical + horizontal) play once and freeze on last frame. No looping.

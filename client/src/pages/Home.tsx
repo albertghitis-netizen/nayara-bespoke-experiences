@@ -306,7 +306,6 @@ function BrandStorySection() {
               <NativeVideo
                 src="/manus-storage/brand-s1-philosophy_510ddc6e.mp4"
                 className="w-full h-full object-cover"
-                loop={true}
               />
             </div>
           </MediaReveal>

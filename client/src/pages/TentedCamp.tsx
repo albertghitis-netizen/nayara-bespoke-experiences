@@ -598,7 +598,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
   {
     id: "experiences",
     label: "Experiences",
-    headline: "Rainforest\nAdventures",
+    headline: "Discover the Magic\nof the Rainforest",
     horizontalFirst: true,
     body: "Cross hanging bridges through the canopy, rappel down waterfalls, or trek to hidden volcanic hot springs. Every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
     verticalSrc: ASSETS.expV,
