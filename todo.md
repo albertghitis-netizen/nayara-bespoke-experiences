@@ -2528,3 +2528,6 @@
 
 ## Brand Page Cleanup (Apr 21)
 - [x] Remove "Honored by the Best Authorities" section from brand page (redundant with badge strip in story)
+
+## Brand Page S2 Cascade (Apr 21)
+- [x] Add horizontal S2 video below vertical S1 on brand page (cascade start before properties)
