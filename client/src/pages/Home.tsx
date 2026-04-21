@@ -650,30 +650,32 @@ function AwardsHighlightSection() {
             <motion.div key={award.property} variants={fadeUp}>
               <Link
                 href={award.route}
-                className="group block h-full p-8 md:p-10 transition-all duration-500 hover:translate-y-[-2px]"
+                className="group block h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_12px_40px_-8px_rgba(59,43,38,0.15)] hover:z-10 relative"
                 style={{ backgroundColor: PALETTE.bg }}
               >
-                {/* Big stat number */}
+                {/* Big stat number — fades in on hover */}
                 <span
-                  className="block text-[48px] md:text-[56px] lg:text-[64px] leading-none mb-4"
+                  className="block text-[48px] md:text-[56px] lg:text-[64px] leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1"
                   style={{
                     fontFamily: "var(--font-display)",
                     fontWeight: 300,
                     color: `${PALETTE.text}18`,
+                    transitionProperty: "color, transform",
                   }}
                 >
-                  {award.stat}
+                  <span className="group-hover:hidden">{award.stat}</span>
+                  <span className="hidden group-hover:inline" style={{ color: `${PALETTE.text}35` }}>{award.stat}</span>
                 </span>
 
-                {/* Thin accent line */}
+                {/* Accent line — grows wider + taller on hover */}
                 <div
-                  className="w-8 h-px mb-5 group-hover:w-12 transition-all duration-500"
+                  className="w-8 h-px mb-5 group-hover:w-16 group-hover:h-[2px] transition-all duration-500 ease-out"
                   style={{ backgroundColor: PALETTE.accent }}
                 />
 
                 {/* Accolade */}
                 <h3
-                  className="text-[16px] md:text-[17px] leading-[1.35] mb-2"
+                  className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-colors duration-500"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
                 >
                   {award.accolade}
@@ -681,7 +683,7 @@ function AwardsHighlightSection() {
 
                 {/* Property name */}
                 <p
-                  className="text-[12px] tracking-[0.06em] mb-4"
+                  className="text-[12px] tracking-[0.06em] mb-4 transition-colors duration-500"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary }}
                 >
                   {award.property}
@@ -689,13 +691,20 @@ function AwardsHighlightSection() {
 
                 {/* Source + year */}
                 <p
-                  className="text-[11px] leading-[1.6]"
+                  className="text-[11px] leading-[1.6] transition-colors duration-500"
                   style={{ fontFamily: "var(--font-body)", color: `${PALETTE.textSecondary}80` }}
                 >
                   {award.source}
                   <br />
                   {award.year}
                 </p>
+
+                {/* Arrow indicator — appears on hover */}
+                <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
+                  <svg className="w-4 h-4 translate-x-[-8px] group-hover:translate-x-0 opacity-0 group-hover:opacity-60 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke={PALETTE.accent} strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
               </Link>
             </motion.div>
           ))}
