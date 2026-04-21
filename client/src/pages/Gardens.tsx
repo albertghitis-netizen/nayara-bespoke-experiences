@@ -237,7 +237,7 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Family Adventure Rainforest Adventure
+          Family-Friendly Rainforest Adventure
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -304,7 +304,7 @@ function StorySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s1-vertical-compressed_49dfa197.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/gardens-s1-vertical_118ff65b.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>

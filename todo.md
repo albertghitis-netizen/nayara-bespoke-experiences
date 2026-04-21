@@ -2497,3 +2497,5 @@
 - [x] Global rule: Only hero videos loop. All cascade videos (vertical + horizontal) play once and freeze on last frame. No looping.
 - [x] Replace 2 Michelin Keys image in badge strips (Atacama, Bocas) with new properly-spaced version (5.png)
 - [x] Replace 3 Michelin Keys image in badge strip (Springs) with new properly-spaced version (4.png)
+- [x] Gardens: Change hero H1 to "Family-Friendly Rainforest Adventure"
+- [x] Gardens: Replace S1 vertical with new video (DEE1EE99 mov)
