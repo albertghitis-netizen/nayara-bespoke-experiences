@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 /**
  * SHARALYNN LANDING PAGE
@@ -7,8 +7,6 @@ import { useState, useEffect, useRef } from "react";
  */
 
 export default function Sharalynn() {
-  const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -33,9 +31,7 @@ export default function Sharalynn() {
         }}
       >
         <video
-          ref={videoRef}
           autoPlay
-          muted={isMuted}
           loop
           playsInline
           style={{
@@ -59,14 +55,9 @@ export default function Sharalynn() {
           }}
         />
 
-        {/* Sound Button - Bottom Left */}
+        {/* Email Button - Bottom Left */}
         <button
-          onClick={() => {
-            setIsMuted(!isMuted);
-            if (videoRef.current) {
-              videoRef.current.muted = !isMuted;
-            }
-          }}
+          onClick={() => (window.location.href = "mailto:Shara.Zeitlin@compass.com")}
           style={{
             position: "fixed",
             bottom: "24px",
@@ -100,9 +91,9 @@ export default function Sharalynn() {
             e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.85)";
             e.currentTarget.style.boxShadow = "0 8px 32px rgba(220, 38, 38, 0.3)";
           }}
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
+          aria-label="Email Sharalynn"
         >
-          {isMuted ? "\uD83D\uDD0A Sound" : "\uD83D\uDD07 Mute"}
+          Email
         </button>
 
         {/* Ask Shara Button - Bottom Right */}
