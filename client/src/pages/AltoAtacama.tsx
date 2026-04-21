@@ -70,7 +70,7 @@ const ASSETS = {
   heroMobile: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
 
   // Clip 2 — vertical 3:4
-  clip2V: "/manus-storage/atacama-new-s1-vertical_aa032b18.mp4",
+  clip2V: "/manus-storage/atacama-s1-vertical-v3_b6fd3496.mp4",
 
   // Clip 3 — horizontal 16:9
   clip3H: "/manus-storage/atacama-s2-horizontal-v2_347c0422.mp4",
