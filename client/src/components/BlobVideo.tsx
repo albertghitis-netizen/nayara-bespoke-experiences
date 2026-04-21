@@ -158,7 +158,7 @@ export default function BlobVideo({
       )}
 
       {/* Mute / Unmute pill — FIXED, aligned with BrandNavigation hamburger */}
-      {effectiveHasAudio && isLoaded && (
+      {effectiveHasAudio && (
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}

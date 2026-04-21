@@ -514,7 +514,7 @@ const CASCADE_SECTIONS = [
 
     textSide: "left" as const,
     blogLink: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
-    blogLinkLabel: "Read: Best Place to Stay in the Atacama Desert",
+    blogLinkLabel: "Read: Atacama Desert's True Oasis",
     badges: false,
     badgeImage: "/manus-storage/badges-atacama-v3_35a2ae06.png",
   },
@@ -829,7 +829,7 @@ function HeroSection() {
           className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Atacama Desert Oasis Under the Stars
+          Luxury Atacama Desert Lodge
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

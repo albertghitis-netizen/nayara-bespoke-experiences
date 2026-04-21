@@ -2,7 +2,8 @@
  * NAYARA RESORTS - Brand Homepage
  * Visual Identity: Cormorant Garamond + DM Sans, warm neutral palette, cinematic motion
  */
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import NayaraJourneyMap from "@/components/NayaraJourneyMap";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -300,18 +301,8 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge strip — slide-in from left with blur reveal */}
-          <AnimateOnScroll
-            variants={{
-              hidden: { opacity: 0, x: -60, filter: "blur(8px)" },
-              visible: {
-                opacity: 1,
-                x: 0,
-                filter: "blur(0px)",
-                transition: { duration: 1.8, ease: EASE_CINEMATIC },
-              },
-            }}
-          >
+          {/* Badge strips */}
+          <AnimateOnScroll variants={fadeUp}>
             <div className="mt-6">
               <img
                 src="/manus-storage/badge-strip-springs-v6_7de15d51.png"
@@ -320,18 +311,6 @@ function BrandStorySection() {
                 loading="lazy"
               />
             </div>
-          </AnimateOnScroll>
-          <AnimateOnScroll
-            variants={{
-              hidden: { opacity: 0, x: -60, filter: "blur(8px)" },
-              visible: {
-                opacity: 1,
-                x: 0,
-                filter: "blur(0px)",
-                transition: { duration: 1.8, delay: 0.5, ease: EASE_CINEMATIC },
-              },
-            }}
-          >
             <div className="-mt-2">
               <img
                 src="/manus-storage/badge-strip-gardens-v8_32e10cf2.png"
@@ -343,8 +322,8 @@ function BrandStorySection() {
           </AnimateOnScroll>
         </div>
         <div className="md:w-1/2">
-          <MediaReveal delay={0.2}>
-            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+          <MediaReveal delay={0.2} className="h-full">
+            <div className="overflow-hidden w-full h-full">
               <NativeVideo
                 src="/manus-storage/brand-s1-philosophy_510ddc6e.mp4"
                 className="w-full h-full object-cover"
@@ -483,16 +462,45 @@ function PropertiesSection() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   TIMELINE — Two Decades of Discovery (from Story page)
+   TIMELINE — Two Decades of Discovery
+   Map on left (sticky), milestones on right (scroll-tracked)
    ═══════════════════════════════════════════════════════════════ */
 function TimelineSection() {
+  const [activeMilestone, setActiveMilestone] = useState(0);
+  const milestoneRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  /* Scroll-based milestone tracking via IntersectionObserver */
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    milestoneRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveMilestone(i);
+          }
+        },
+        { threshold: 0.6, rootMargin: "-20% 0px -40% 0px" }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   return (
-    <section className="py-12 md:py-20 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
-      <div className="max-w-[1000px] mx-auto">
+    <section
+      ref={sectionRef}
+      className="py-16 md:py-24 px-6 md:px-10"
+      style={{ backgroundColor: "#f4f1eb" }}
+    >
+      <div className="max-w-[1300px] mx-auto">
+        {/* Section header */}
         <AnimateOnScroll variants={fadeUp}>
           <SectionLabel>Our Journey</SectionLabel>
         </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-12" delay={0.1}>
+        <TextReveal as="h2" className="mb-16" delay={0.1}>
           <span
             className="text-xl md:text-3xl lg:text-[32px] leading-[1.2] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#4B4A4A" }}
@@ -500,35 +508,82 @@ function TimelineSection() {
             Two Decades of Discovery
           </span>
         </TextReveal>
-        <div className="space-y-10">
-          {milestones.map((m, i) => (
-            <AnimateOnScroll key={m.year} variants={fadeUp} delay={i * 0.08}>
-              <div className="flex gap-6 md:gap-10 items-start">
-                <div className="flex-shrink-0 w-16 md:w-20">
-                  <span
-                    className="text-[28px] md:text-[36px]"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: `${PALETTE.text}40` }}
+
+        {/* Desktop: Map left + Timeline right */}
+        <div className="flex gap-16 lg:gap-20">
+          {/* Map — sticky on the left */}
+          <div className="hidden lg:block w-[55%] flex-shrink-0">
+            <div className="sticky top-24">
+              <AnimateOnScroll variants={fadeUp}>
+                <NayaraJourneyMap activeMilestoneIndex={activeMilestone} />
+              </AnimateOnScroll>
+              {/* Current location indicator */}
+              <motion.div
+                className="mt-6 text-center"
+                key={activeMilestone}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <span
+                  className="text-[10px] tracking-[0.25em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: `${PALETTE.text}40` }}
+                >
+                  {milestones[activeMilestone]?.year} — {milestones[activeMilestone]?.title}
+                </span>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Milestones — scrollable on the right */}
+          <div className="flex-1 space-y-16 lg:space-y-20">
+            {milestones.map((m, i) => (
+              <div
+                key={m.year}
+                ref={(el) => { milestoneRefs.current[i] = el; }}
+              >
+                <AnimateOnScroll variants={fadeUp} delay={0.05}>
+                  <div
+                    className="transition-opacity duration-700"
+                    style={{ opacity: activeMilestone === i ? 1 : 0.35 }}
                   >
-                    {m.year}
-                  </span>
-                </div>
-                <div className="flex-1 border-l pl-6 md:pl-10" style={{ borderColor: `${PALETTE.text}15` }}>
-                  <h3
-                    className="text-[17px] mb-2"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
-                  >
-                    {m.title}
-                  </h3>
-                  <p
-                    className="text-[14px] leading-relaxed"
-                    style={{ fontFamily: "var(--font-body)", color: "#4B4A4A", opacity: 0.6 }}
-                  >
-                    {m.desc}
-                  </p>
-                </div>
+                    <div className="flex gap-6 items-baseline mb-4">
+                      <span
+                        className="text-[42px] lg:text-[56px] leading-none"
+                        style={{
+                          fontFamily: "var(--font-display)",
+                          fontWeight: 300,
+                          color: activeMilestone === i ? PALETTE.text : `${PALETTE.text}30`,
+                          transition: "color 0.7s ease",
+                        }}
+                      >
+                        {m.year}
+                      </span>
+                      <div
+                        className="flex-1 h-px"
+                        style={{
+                          backgroundColor: activeMilestone === i ? `${PALETTE.text}20` : `${PALETTE.text}08`,
+                          transition: "background-color 0.7s ease",
+                        }}
+                      />
+                    </div>
+                    <h3
+                      className="text-[20px] lg:text-[22px] mb-3"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
+                    >
+                      {m.title}
+                    </h3>
+                    <p
+                      className="text-[14px] lg:text-[15px] leading-[1.8] max-w-[420px]"
+                      style={{ fontFamily: "var(--font-body)", color: "#4B4A4A", opacity: 0.65 }}
+                    >
+                      {m.desc}
+                    </p>
+                  </div>
+                </AnimateOnScroll>
               </div>
-            </AnimateOnScroll>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
