@@ -38,6 +38,7 @@ const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
 const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+const Sharalynn = lazy(() => import("./pages/Sharalynn"));
 
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
 /* Atacama/Bocas/Hangaroa deep pages now use the universal shared components */
@@ -146,6 +147,7 @@ function Router() {
           <Route path="/internal-brandbook" component={BrandBook} />
           <Route path="/internal-henry" component={HenryStandalone} />
           <Route path="/gallery" component={Gallery} />
+          <Route path="/sharalynn" component={Sharalynn} />
 
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
