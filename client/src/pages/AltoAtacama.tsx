@@ -70,7 +70,7 @@ const ASSETS = {
   heroMobile: "/manus-storage/cropped_clip1_16x9_c0ed748e.mp4",
 
   // Clip 2 — vertical 3:4
-  clip2V: "/manus-storage/atacama-s1-vertical_b68ea605.mp4",
+  clip2V: "/manus-storage/atacama-new-s1-vertical_aa032b18.mp4",
 
   // Clip 3 — horizontal 16:9
   clip3H: "/manus-storage/atacama-s2-horizontal-v2_347c0422.mp4",
@@ -85,10 +85,10 @@ const ASSETS = {
   clip6V: "/manus-storage/clip6-v_7fa106fe.mp4",
 
   // Clip 7 — horizontal 16:9
-  clip7H: "/manus-storage/clip7-h_c78572cc.mp4",
+  clip7H: "/manus-storage/atacama-s4-horizontal_4bf0d8e9.mp4",
 
   // Clip 8 — vertical 3:4
-  clip8V: "/manus-storage/clip8-v_d07a3c21.mp4",
+  clip8V: "/manus-storage/atacama-s1-vertical_b68ea605.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
   storyV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
@@ -559,7 +559,7 @@ function CascadeSection({
 const CASCADE_SECTIONS = [
   {
     label: "The Property",
-    headline: "Mars on Earth",
+    headline: "Life in an Oasis",
     description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
     vSrc: ASSETS.clip2V,
     hSrc: ASSETS.clip3H,
@@ -586,7 +586,7 @@ const CASCADE_SECTIONS = [
   },
   {
     label: "Experiences",
-    headline: "Desert Adventures",
+    headline: "Mars on Earth",
     description: "From salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is guided by local experts who reveal the Atacama's hidden wonders.",
     vSrc: ASSETS.clip6V,
     hSrc: ASSETS.clip7H,
