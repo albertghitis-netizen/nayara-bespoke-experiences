@@ -255,7 +255,7 @@ export default function CinematicScroll({
 
       {/* ── Fixed Sound pill (top-left, aligned with nav hamburger & Reserve) ── */}
       {hasStarted && (
-        <div className="fixed top-[11px] left-14 z-[55] flex items-center gap-2 pointer-events-none">
+        <div className="fixed top-[10px] left-14 z-[55] flex items-center gap-2 pointer-events-none">
           <button
             data-cinematic-control
             onClick={handleMuteToggle}

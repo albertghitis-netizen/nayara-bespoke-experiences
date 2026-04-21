@@ -225,7 +225,7 @@ function HeroSection() {
         aria-label={isMuted ? "Unmute" : "Mute"}
         className="fixed z-50 flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
         style={{
-          top: "8px",
+          top: "10px",
           left: "56px",
           backgroundColor: "rgba(59,43,38,0.8)",
           borderColor: "rgba(255,255,255,0.1)",

@@ -68,7 +68,7 @@ export default function MutePill({ videoRef }: MutePillProps) {
   if (isMobile) return null;
 
   return (
-    <div className="fixed top-[11px] left-14 z-[55] flex items-center gap-2 pointer-events-none">
+    <div className="fixed top-[10px] left-14 z-[55] flex items-center gap-2 pointer-events-none">
       <button
         onClick={handleToggle}
         className="pointer-events-auto flex items-center justify-center gap-2 h-9 px-4 rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border hover:opacity-90"

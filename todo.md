@@ -2588,3 +2588,5 @@
 - [x] Add Awards section to brand homepage, positioned before By Night section
 - [x] Add more impactful hover effects to Awards Highlight cards on brand homepage
 - [x] Add subtle gravel/grain texture overlay to Awards Highlight cards
+- [x] Fix audio pill (Sound/Mute) alignment on brand homepage
+- [x] Fix audio pill (Sound/Mute) alignment on all pages — top: 10px consistently across Home.tsx, BlobVideo.tsx, CinematicScroll.tsx, MutePill.tsx
