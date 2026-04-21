@@ -79,16 +79,16 @@ const ASSETS = {
   clip4V: "/manus-storage/atacama-s3-vertical_ba3fbf5a.mp4",
 
   // Clip 5 — horizontal 16:9
-  clip5H: "/manus-storage/atacama-s2-horizontal_6369d51b.mp4",
+  clip5H: "/manus-storage/atacama-s4-horizontal_4bf0d8e9.mp4",
 
   // Clip 6 — vertical 3:4
-  clip6V: "/manus-storage/clip6-v_7fa106fe.mp4",
+  clip6V: "/manus-storage/atacama-s1-vertical_b68ea605.mp4",
 
   // Clip 7 — horizontal 16:9
-  clip7H: "/manus-storage/atacama-s4-horizontal_4bf0d8e9.mp4",
+  clip7H: "/manus-storage/clip7-h_c78572cc.mp4",
 
   // Clip 8 — vertical 3:4
-  clip8V: "/manus-storage/atacama-s1-vertical_b68ea605.mp4",
+  clip8V: "/manus-storage/clip8-v_d07a3c21.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
   storyV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
