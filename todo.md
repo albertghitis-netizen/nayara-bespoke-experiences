@@ -2517,3 +2517,8 @@
 ## Tented Camp Video URL Fixes (Apr 21)
 - [x] Fix broken /manus-storage/ video paths — re-uploaded and replaced all 6 videos + badge strip image
 - [x] Add S Certification and LHW badges to brand page badge strip (5 across, evenly spaced)
+
+## Tented Camp Sustainability Section Corrections (Apr 21)
+- [x] Change 380 acres to 68 acres
+- [x] Change 5000 native trees to 15000 native trees and plants
+- [x] Gardens opens 2007, Springs opens 2013, Tented Camp reforestation begins 2018, Green Globe 2025

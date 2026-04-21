@@ -83,16 +83,16 @@ export const sustainabilityData: Record<string, {
     headline: "Protecting the Rainforest",
     esgReport: {
       stats: [
-        { value: 380, suffix: "+", label: "Acres Protected", detail: "Primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of species" },
+        { value: 68, suffix: "+", label: "Acres Protected", detail: "Primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of species" },
         { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Full carbon neutrality achieved through measurement, reduction, and offsetting of all greenhouse gas emissions" },
-        { value: 5000, suffix: "+", label: "Native Trees Planted", detail: "Large-scale reforestation transforming a barren cattle ranch into thriving rainforest" },
+        { value: 15000, suffix: "+", label: "Native Trees & Plants", detail: "Large-scale reforestation transforming a barren cattle ranch into thriving rainforest" },
       ],
       pillars: [
         {
           icon: "leaf",
           title: "Biodiversity & Conservation",
           metrics: [
-            "380+ acres of primary and secondary rainforest protected",
+            "68+ acres of primary and secondary rainforest protected",
             "Wildlife corridors connecting to Arenal Volcano National Park",
             "Cecropia trees planted specifically for sloth habitats",
             "Habitat for jaguars, ocelots, toucans, and 900+ bird species",
@@ -150,17 +150,17 @@ export const sustainabilityData: Record<string, {
         },
       ],
       timeline: [
-        { year: "2006", title: "Nayara Gardens Founded", desc: "The first Nayara property opens in Arenal, Costa Rica - beginning the journey of luxury rooted in nature." },
-        { year: "2012", title: "Nayara Springs Opens", desc: "A second property joins the collection, expanding the commitment to sustainable luxury with natural hot spring villas." },
-        { year: "2016", title: "Tented Camp Reforestation Begins", desc: "A barren cattle ranch is acquired and large-scale reforestation begins - planting thousands of native trees to restore the rainforest." },
+        { year: "2007", title: "Nayara Gardens Opens", desc: "The first Nayara property opens in Arenal, Costa Rica - beginning the journey of luxury rooted in nature." },
+        { year: "2013", title: "Nayara Springs Opens", desc: "A second property joins the collection, expanding the commitment to sustainable luxury with natural hot spring villas." },
+        { year: "2018", title: "Tented Camp Reforestation Begins", desc: "A barren cattle ranch is acquired and large-scale reforestation begins - planting thousands of native trees and plants to restore the rainforest." },
         { year: "2019", title: "Nayara Tented Camp Opens", desc: "The tented camp opens with elevated, modular construction, FSC-certified materials, and a design philosophy that harmonizes with the restored rainforest." },
         { year: "2022", title: "Carbon Neutrality Achieved", desc: "All three Costa Rica properties achieve full carbon neutrality through comprehensive measurement and offsetting of greenhouse gas emissions." },
         { year: "2023", title: "Housing Initiative Launched", desc: "Nayara launches a subsidized housing project for staff - particularly single mothers - addressing the housing crisis in La Fortuna." },
-        { year: "2024", title: "Green Globe Certification", desc: "Gardens, Springs, and Tented Camp all achieve the prestigious Green Globe Certification following an extensive evaluation of environmental, social, and governance practices." },
+        { year: "2025", title: "Green Globe Certification", desc: "Gardens, Springs, and Tented Camp all achieve the prestigious Green Globe Certification following an extensive evaluation of environmental, social, and governance practices." },
         { year: "2025", title: "Regenerative Tourism Model", desc: "Nayara Costa Rica is recognized as a global leader in regenerative tourism - not just sustaining, but actively improving local environments and communities." },
       ],
       certifications: [
-        { name: "Green Globe", body: "Green Globe International", year: "2024", desc: "Internationally recognized certification for sustainable tourism, awarded after extensive evaluation of environmental, social, and governance policies across all three Costa Rica properties." },
+        { name: "Green Globe", body: "Green Globe International", year: "2025", desc: "Internationally recognized certification for sustainable tourism, awarded after extensive evaluation of environmental, social, and governance policies across all three Costa Rica properties." },
       ],
       narrative: {
         title: "A Forest Reborn",
@@ -182,7 +182,7 @@ export const sustainabilityData: Record<string, {
       },
       {
         title: "Green Globe Certified",
-        desc: "All three Costa Rica properties - Nayara Gardens, Nayara Springs, and Nayara Tented Camp - have achieved the prestigious Green Globe Certification following an extensive 2024 evaluation. A dedicated Green Committee oversees continuous staff training on waste management, energy efficiency, and water conservation, alongside ongoing reforestation programs and renewable energy sourcing.",
+        desc: "All three Costa Rica properties - Nayara Gardens, Nayara Springs, and Nayara Tented Camp - have achieved the prestigious Green Globe Certification following an extensive 2025 evaluation. A dedicated Green Committee oversees continuous staff training on waste management, energy efficiency, and water conservation, alongside ongoing reforestation programs and renewable energy sourcing.",
       },
       {
         title: "Sustainable Design & Zero-Kilometer Cuisine",
