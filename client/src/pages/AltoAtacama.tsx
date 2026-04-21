@@ -103,8 +103,8 @@ const ASSETS = {
   expH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
 
   // Section 4 — Sustainability: cascade flamingos (cropped, no black bars)
-  susV: "/manus-storage/atacama-cascade-4-accom-v_a9869d1c.mp4",
-  susH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
+  susV: "/manus-storage/atacama-s7-vertical_cfc1b32f.mp4",
+  susH: "/manus-storage/atacama-s6-horizontal_ba236b53.mp4",
 
   // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
   wellV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
