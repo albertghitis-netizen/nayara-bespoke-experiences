@@ -59,7 +59,7 @@ export default function Sharalynn() {
           }}
         />
 
-        {/* Play Audio / Mute Button - Bottom Left */}
+        {/* Play Audio / Mute Button - Top Left */}
         <button
           onClick={() => {
             if (videoRef.current) {
@@ -75,7 +75,7 @@ export default function Sharalynn() {
           }}
           style={{
             position: "fixed",
-            bottom: "24px",
+            top: "24px",
             left: "24px",
             zIndex: 50,
             display: "flex",
@@ -111,12 +111,12 @@ export default function Sharalynn() {
           {audioPlaying ? "\uD83D\uDD07 Mute" : "\uD83D\uDD0A Sound"}
         </button>
 
-        {/* Ask Shara Button - Bottom Right */}
+        {/* Ask Shara Button - Top Right */}
         <button
           onClick={() => (window.location.href = "mailto:Shara.Zeitlin@compass.com")}
           style={{
             position: "fixed",
-            bottom: "24px",
+            top: "24px",
             right: "24px",
             zIndex: 50,
             display: "flex",
