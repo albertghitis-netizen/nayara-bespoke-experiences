@@ -165,6 +165,7 @@ export default function Home() {
         bodyText="As darkness descends across six extraordinary landscapes, a different world reveals itself — starlit skies over the Atacama, bioluminescent waters in Bocas del Toro, Moai beneath the Milky Way. Discover the nocturnal experiences that define Nayara after sunset."
         textSide="left"
       />
+      <InstagramGrid />
       <Footer />
     </div>
   );
@@ -872,6 +873,100 @@ function PillarsSection() {
                 </span>
               </Link>
             </motion.div>
+          ))}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   INSTAGRAM GRID — Single row, 6 images from @nayararesorts
+   Warm transition from dark By Night back to footer
+   ═══════════════════════════════════════════════════════════════ */
+const instagramPosts = [
+  { src: "/manus-storage/ig-tented-camp_b848ffa1.jpg", alt: "Nayara Tented Camp at sunset" },
+  { src: "/manus-storage/ig-bocas_0fb4ac84.jpg", alt: "Nayara Bocas del Toro overwater villas" },
+  { src: "/manus-storage/ig-atacama_ff6b476d.jpg", alt: "Nayara Alto Atacama desert lodge" },
+  { src: "/manus-storage/ig-hangaroa_6a9424bd.jpeg", alt: "Easter Island Moai at sunset" },
+  { src: "/manus-storage/ig-springs_625d0bc3.jpg", alt: "Nayara Springs private villa pool" },
+  { src: "/manus-storage/ig-gardens_e183b9a8.jpg", alt: "Nayara Gardens with Arenal Volcano" },
+];
+
+function InstagramGrid() {
+  return (
+    <section
+      className="py-16 md:py-24 px-6 md:px-10"
+      style={{ backgroundColor: PALETTE.bg }}
+    >
+      <div className="max-w-[1400px] mx-auto">
+        {/* Header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <div className="flex items-center justify-between mb-8 md:mb-12">
+            <div>
+              <p
+                className="text-[10px] tracking-[0.3em] mb-3"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: `${PALETTE.text}35` }}
+              >
+                FOLLOW ALONG
+              </p>
+              <h2
+                className="text-xl md:text-2xl lg:text-3xl tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                @nayararesorts
+              </h2>
+            </div>
+            <a
+              href="https://www.instagram.com/nayararesorts/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full border transition-all duration-300 hover:translate-y-[-1px] hover:shadow-md"
+              style={{
+                borderColor: `${PALETTE.text}20`,
+                color: PALETTE.text,
+                fontFamily: "var(--font-body)",
+                fontWeight: 500,
+                fontSize: "12px",
+                letterSpacing: "0.06em",
+              }}
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+              Follow Us
+            </a>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Single-row grid — 6 images */}
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3">
+          {instagramPosts.map((post, i) => (
+            <motion.a
+              key={i}
+              variants={fadeUp}
+              href="https://www.instagram.com/nayararesorts/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative aspect-square overflow-hidden"
+            >
+              <img
+                src={post.src}
+                alt={post.alt}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center">
+                <svg
+                  className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 drop-shadow-lg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
+              </div>
+            </motion.a>
           ))}
         </StaggerOnScroll>
       </div>

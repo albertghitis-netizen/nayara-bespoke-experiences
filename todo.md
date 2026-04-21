@@ -2590,3 +2590,6 @@
 - [x] Add subtle gravel/grain texture overlay to Awards Highlight cards
 - [x] Fix audio pill (Sound/Mute) alignment on brand homepage
 - [x] Fix audio pill (Sound/Mute) alignment on all pages — top: 10px consistently across Home.tsx, BlobVideo.tsx, CinematicScroll.tsx, MutePill.tsx
+
+## Instagram Grid Section on Brand Homepage (Apr 21)
+- [x] Add Instagram photo grid section between By Night and Footer on brand homepage
