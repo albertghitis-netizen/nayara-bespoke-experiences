@@ -300,23 +300,47 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge strip — same as property pages */}
-          <div className="mt-6">
-            <img
-              src="/manus-storage/badge-strip-springs-v5_8a7abf4f.png"
-              alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
-              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
-              loading="lazy"
-            />
-          </div>
-          <div className="mt-4">
-            <img
-              src="/manus-storage/badge-strip-gardens-v5_319fc323.png"
-              alt="Virtuoso, Leading Hotels of the World, Distinción Turismo Sustentable"
-              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
-              loading="lazy"
-            />
-          </div>
+          {/* Badge strip — slide-in from left with blur reveal */}
+          <AnimateOnScroll
+            variants={{
+              hidden: { opacity: 0, x: -60, filter: "blur(8px)" },
+              visible: {
+                opacity: 1,
+                x: 0,
+                filter: "blur(0px)",
+                transition: { duration: 1.8, ease: EASE_CINEMATIC },
+              },
+            }}
+          >
+            <div className="mt-6">
+              <img
+                src="/manus-storage/badge-strip-springs-v6_7de15d51.png"
+                alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
+                className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
+                loading="lazy"
+              />
+            </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll
+            variants={{
+              hidden: { opacity: 0, x: -60, filter: "blur(8px)" },
+              visible: {
+                opacity: 1,
+                x: 0,
+                filter: "blur(0px)",
+                transition: { duration: 1.8, delay: 0.5, ease: EASE_CINEMATIC },
+              },
+            }}
+          >
+            <div className="-mt-2">
+              <img
+                src="/manus-storage/badge-strip-gardens-v8_32e10cf2.png"
+                alt="Virtuoso, Leading Hotels of the World, Distinción Turismo Sustentable"
+                className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
+                loading="lazy"
+              />
+            </div>
+          </AnimateOnScroll>
         </div>
         <div className="md:w-1/2">
           <MediaReveal delay={0.2}>
