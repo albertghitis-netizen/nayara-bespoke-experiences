@@ -216,7 +216,7 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Romantic Escape Private Hot Spring Villas
+          Private Hot Springs Villas
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -289,7 +289,7 @@ function StorySection() {
 
           <div className="mt-8">
             <img
-              src="/manus-storage/badge-strip-springs-v2_ef150cda.png"
+              src="/manus-storage/badge-strip-springs-v3_43c1e3f8.png"
               alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
               className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
               loading="lazy"
