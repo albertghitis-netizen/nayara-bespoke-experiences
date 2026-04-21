@@ -287,26 +287,23 @@ function StorySection() {
             </a>
           </AnimateOnScroll>
 
-          <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-            {/* Michelin 3 Stars */}
+          <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
             <img
               src="/manus-storage/springs-badge-michelin_389046a1.png"
-              alt="Michelin 3 Stars"
-              className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+              alt="Michelin 3 Keys"
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
               loading="lazy"
             />
-            {/* Relais & Châteaux */}
             <img
               src="/manus-storage/springs-badge-relais-chateaux_a7752e06.png"
               alt="Relais & Châteaux"
-              className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
               loading="lazy"
             />
-            {/* Green Globe */}
             <img
               src="/manus-storage/springs-badge-green-globe_8cf2866f.png"
               alt="Green Globe Certified"
-              className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+              className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
               loading="lazy"
             />
           </div>

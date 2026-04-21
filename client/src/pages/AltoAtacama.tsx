@@ -256,26 +256,23 @@ function CascadeTextBlock({
         )}
       </AnimateOnScroll>
       {badgeImage && (
-        <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-          {/* Michelin 2 Keys */}
+        <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
           <img
             src="/manus-storage/atacama-badge-michelin_e5872f3c.png"
             alt="Michelin 2 Keys 2025"
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
-          {/* Leading Hotels of the World */}
           <img
             src="/manus-storage/badge-lhw-new_4ee97f75.png"
             alt="The Leading Hotels of the World"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
-          {/* Distinción Turismo Sustentable — larger for text readability */}
           <img
             src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
             alt="Distinción Turismo Sustentable"
-            className="h-20 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
         </div>
@@ -292,26 +289,23 @@ function CascadeTextBlock({
         </AnimateOnScroll>
       )}
       {badges && (
-        <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-          {/* Michelin 2 Keys */}
+        <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
           <img
             src="/manus-storage/atacama-badge-michelin_e5872f3c.png"
             alt="Michelin 2 Keys 2025"
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
-          {/* Leading Hotels of the World */}
           <img
             src="/manus-storage/badge-lhw-new_4ee97f75.png"
             alt="The Leading Hotels of the World"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
-          {/* Distinción Turismo Sustentable — larger for text readability */}
           <img
             src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
             alt="Distinción Turismo Sustentable"
-            className="h-20 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
         </div>
@@ -412,26 +406,23 @@ function CascadeSection({
         )}
       </AnimateOnScroll>
       {badgeImage && (
-        <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-          {/* Michelin 2 Keys */}
+        <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
           <img
             src="/manus-storage/atacama-badge-michelin_e5872f3c.png"
             alt="Michelin 2 Keys 2025"
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
-          {/* Leading Hotels of the World */}
           <img
             src="/manus-storage/badge-lhw-new_4ee97f75.png"
             alt="The Leading Hotels of the World"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
-          {/* Distinción Turismo Sustentable — larger for text readability */}
           <img
             src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
             alt="Distinción Turismo Sustentable"
-            className="h-20 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
         </div>
@@ -448,26 +439,23 @@ function CascadeSection({
         </AnimateOnScroll>
       )}
       {badges && (
-        <div className="mt-8 flex items-center justify-start gap-6 md:gap-8 -ml-1">
-          {/* Michelin 2 Keys */}
+        <div className="mt-8 flex items-center justify-start gap-8 md:gap-10">
           <img
             src="/manus-storage/atacama-badge-michelin_e5872f3c.png"
             alt="Michelin 2 Keys 2025"
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
-          {/* Leading Hotels of the World */}
           <img
             src="/manus-storage/badge-lhw-new_4ee97f75.png"
             alt="The Leading Hotels of the World"
-            className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
-          {/* Distinción Turismo Sustentable — larger for text readability */}
           <img
             src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
             alt="Distinción Turismo Sustentable"
-            className="h-20 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0"
             loading="lazy"
           />
         </div>

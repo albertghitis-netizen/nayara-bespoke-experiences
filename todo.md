@@ -2481,3 +2481,5 @@
 - [x] Make S Tourism badge bigger so text is readable
 - [x] Make badge label text more readable
 - [x] Replace S3 (second vertical) on Atacama with new video DF334B2C
+- [x] Fix badges on AltoAtacama: all 3 (Michelin, LHW, S) same size, evenly spaced, aligned with body text left margin, no text labels
+- [x] Fix badges on all other property pages: same uniform sizing and alignment
