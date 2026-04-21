@@ -301,8 +301,8 @@ function BrandStorySection() {
           {/* Badge strip — same as property pages */}
           <div className="mt-4">
             <img
-              src="/manus-storage/badge-strip-springs-v3_43c1e3f8.png"
-              alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
+src="/manus-storage/badge-strip-brand-5_99c8c566.png"
+               alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified, CST Sustainable Tourism, Leading Hotels of the World"
               className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
               loading="lazy"
             />

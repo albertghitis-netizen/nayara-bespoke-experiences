@@ -2513,3 +2513,7 @@
 
 ## Bocas del Toro Updates (Apr 21)
 - [x] Add Getting Here section to Bocas del Toro page under Guest Voices
+
+## Tented Camp Video URL Fixes (Apr 21)
+- [x] Fix broken /manus-storage/ video paths — re-uploaded and replaced all 6 videos + badge strip image
+- [x] Add S Certification and LHW badges to brand page badge strip (5 across, evenly spaced)

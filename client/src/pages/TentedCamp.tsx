@@ -72,7 +72,7 @@ const ASSETS = {
   heroDesktop: `${CDN}/tented-hero-new_c2f5b543.mp4`,
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
-  storyV: "/manus-storage/tentreel4-v2_5c99cbb7.mp4",
+  storyV: "/manus-storage/tentreel4-v2_c5138302.mp4",
   storyH: `${CDN}/Supersale-8_68853293.jpg`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,
@@ -87,11 +87,11 @@ const ASSETS = {
   gastroV: `${CDN}/atasteofplace_f64f6f71.jpg`,
   gastroH: `${CDN}/Supersale-4_7834ffc2.jpg`,
 
-  wildV: "/manus-storage/tentreel4-v2_5c99cbb7.mp4",
+  wildV: "/manus-storage/tentreel4-v2_c5138302.mp4",
   wildH: `${CDN}/tc-mainpool-vertical_81b6bb28.mp4`,
 
   // Tent reel videos
-  tentReel1: "/manus-storage/tentreel4-v2_5c99cbb7.mp4",
+  tentReel1: "/manus-storage/tentreel4-v2_c5138302.mp4",
   tentReel2: `${CDN}/nayara-tent-2_791909a6.mp4`,
   tentReel3: `${CDN}/nayara-tent-3_c92dfadc.mp4`,
 
@@ -302,7 +302,7 @@ function CascadeSection({
           {section.badges && (
             <div className="mt-8">
               <img
-                src="/manus-storage/badge-strip-tented-camp_e73378cd.png"
+                src="/manus-storage/badge-strip-tented-camp_c759b53d.png"
                 alt="Travel + Leisure World's Best Awards, Leading Hotels of the World, Green Globe Certified"
                 className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
                 loading="lazy"
@@ -584,8 +584,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Accommodations",
     headline: "Life Under\nCanvas",
     body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.",
-    verticalSrc: "/manus-storage/reel-nayara-life-under-canvas_62bc58be.mp4",
-    horizontalSrc: "/manus-storage/tented-rooms-horizontal_96c57cec.mp4",
+    verticalSrc: "/manus-storage/reel-nayara-life-under-canvas_233054e4.mp4",
+    horizontalSrc: "/manus-storage/tented-rooms-horizontal_be5c1652.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -600,8 +600,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Experiences",
     headline: "Discover the Magic\nof the Rainforest",
     body: "Cross hanging bridges through the canopy, rappel down waterfalls, or trek to hidden volcanic hot springs. Every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
-    verticalSrc: "/manus-storage/tented-experiences-vertical_90b80829.mp4",
-    horizontalSrc: "/manus-storage/tented-experiences-horizontal-new_b0279ced.mp4",
+    verticalSrc: "/manus-storage/tented-experiences-vertical_581ed2b2.mp4",
+    horizontalSrc: "/manus-storage/tented-experiences-horizontal-new_312e978e.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -619,7 +619,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Volcanic\nHealing",
     body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.",
     verticalSrc: ASSETS.spaV,
-    horizontalSrc: "/manus-storage/tented-wellness-horizontal-new_0007a488.mp4",
+    horizontalSrc: "/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4",
     verticalIsVideo: false,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
