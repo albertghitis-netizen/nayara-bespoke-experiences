@@ -2562,3 +2562,18 @@
 ## Video Swap — Brand By Night → Tented S1 (Apr 21)
 - [x] Move current By Night vertical from brand homepage to Tented Camp S1 (story vertical)
 - [x] Replace brand homepage By Night vertical with new user-provided video
+
+## Brand Homepage Restructure (Apr 21)
+- [x] Remove Pillars section from brand homepage
+- [x] Remove Nayara Journal / ContentHub section from brand homepage
+- [x] Bring back Timeline section on brand homepage
+- [x] Reorder: after properties → Timeline → By Night
+- [x] Fix By Night vertical to use the correct video (user approved current state)
+
+## Gardens Badges (Apr 21)
+- [x] Add Virtuoso, LHW, and S badges to Nayara Gardens page (same style/config as other properties)
+- [x] Replace By Night horizontal image on brand homepage with new user-provided video
+## By Night Section Fixes (Apr 21)
+- [x] By Night: restore Moai video as vertical (PERMANENT — never change again)
+- [x] By Night: convert star observatory .mov to .mp4 and set as horizontal video
+- [x] By Night: change headline to "Nayara by Night", hide section label

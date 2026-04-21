@@ -73,7 +73,7 @@ export default function ByNightCTA({
         >
           <AnimateOnScroll variants={fadeUp}>
             <p
-              className="text-[11px] tracking-[0.2em] mb-4"
+              className="text-[11px] tracking-[0.2em] mb-4 hidden"
               style={{ ...body, fontWeight: 500, color: "rgba(255,255,255,0.3)" }}
             >
               Nayara by Night

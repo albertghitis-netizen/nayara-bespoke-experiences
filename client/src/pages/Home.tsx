@@ -150,16 +150,16 @@ export default function Home() {
       <BrandStorySection />
       <PropertiesSection />
 
-      <ContentHubSection />
-      <PillarsSection />
+      <TimelineSection />
       <ByNightCTA
         verticalSrc="/manus-storage/brand-bynight-vertical-new_a9c824f4.mp4"
         verticalIsVideo
         verticalRatio="3/4"
-        horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
+        horizontalSrc="/manus-storage/brand-bynight-horizontal-stars_3e61c66b.mp4"
+        horizontalIsVideo
         horizontalRatio="16/9"
         bgColor="#1a1a24"
-        headline={"When Night\nFalls"}
+        headline={"Nayara\nby Night"}
         bodyText="As darkness descends across six extraordinary landscapes, a different world reveals itself — starlit skies over the Atacama, bioluminescent waters in Bocas del Toro, Moai beneath the Milky Way. Discover the nocturnal experiences that define Nayara after sunset."
         textSide="left"
       />
