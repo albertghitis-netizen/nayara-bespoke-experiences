@@ -2602,3 +2602,6 @@
 
 ## Tented Camp Sustainability Section (Apr 21)
 - [x] Add Sustainability section to Tented Camp page between Experiences and Wellness, with provided video as vertical on left
+
+## Bocas del Toro Video Replacement (Apr 21)
+- [x] Replace Experiences vertical video on Bocas del Toro homepage with zapatilla.mov

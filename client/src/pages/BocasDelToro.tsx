@@ -76,7 +76,7 @@ const ASSETS = {
   roomsH: `${CDN}/80_57ce5c18.jpg`,
 
   // Section 3 — Experiences: gallery video1 V + resort aerial sunset H
-  expV: `${CDN}/bocas-gallery-video1_d18b5ced.mp4`,
+  expV: "/manus-storage/bocas-zapatilla-vertical_30319668.mp4",
   expH: `${CDN}/bocas-resort-aerial-sunset_d536b07d.jpg`,
 
   // Section 4 — Sustainability: couple villa V + aerial mangroves H
