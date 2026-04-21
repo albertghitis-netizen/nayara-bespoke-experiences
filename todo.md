@@ -2491,3 +2491,4 @@
 - [x] Bocas del Toro mobile: Hero → H2 body text + badges → first vertical. Remove horizontal between hero and text block on mobile. (Already implemented)
 - [x] Tented Camp: Replace S2 horizontal with the sunset plunge pool photo (currently S4 horizontal). Flow: Hero → S1 vertical → pool photo.
 - [x] Tented Camp: Add vertical video to "Life Under Canvas" (rooms) section from ReelNayara reel
+- [x] Tented Camp: Delete entire "Toucans & Tree Frogs" (Regenerative Travel / wildlife) section so Life Under Canvas flows directly into Experiences horizontal
