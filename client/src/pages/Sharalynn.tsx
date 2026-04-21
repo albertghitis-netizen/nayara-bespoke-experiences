@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /**
  * SHARALYNN LANDING PAGE
@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
  */
 
 export default function Sharalynn() {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -31,8 +33,9 @@ export default function Sharalynn() {
         }}
       >
         <video
+          ref={videoRef}
           autoPlay
-          muted
+          muted={isMuted}
           loop
           playsInline
           style={{
@@ -56,12 +59,58 @@ export default function Sharalynn() {
           }}
         />
 
-        {/* Ask Shara Button - Top Right */}
+        {/* Sound Button - Bottom Left */}
+        <button
+          onClick={() => {
+            setIsMuted(!isMuted);
+            if (videoRef.current) {
+              videoRef.current.muted = !isMuted;
+            }
+          }}
+          style={{
+            position: "fixed",
+            bottom: "24px",
+            left: "24px",
+            zIndex: 50,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "48px",
+            paddingLeft: "24px",
+            paddingRight: "24px",
+            borderRadius: "9999px",
+            backgroundColor: "rgba(220, 38, 38, 0.85)",
+            backdropFilter: "blur(12px)",
+            border: "none",
+            cursor: "pointer",
+            color: "white",
+            fontSize: "11px",
+            fontWeight: 600,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase" as const,
+            transition: "all 0.3s ease",
+            fontFamily: "DM Sans, sans-serif",
+            boxShadow: "0 8px 32px rgba(220, 38, 38, 0.3)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 1)";
+            e.currentTarget.style.boxShadow = "0 12px 40px rgba(220, 38, 38, 0.4)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.85)";
+            e.currentTarget.style.boxShadow = "0 8px 32px rgba(220, 38, 38, 0.3)";
+          }}
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+        >
+          {isMuted ? "\uD83D\uDD0A Sound" : "\uD83D\uDD07 Mute"}
+        </button>
+
+        {/* Ask Shara Button - Bottom Right */}
         <button
           onClick={() => (window.location.href = "mailto:Shara.Zeitlin@compass.com")}
           style={{
             position: "fixed",
-            top: "24px",
+            bottom: "24px",
             right: "24px",
             zIndex: 50,
             display: "flex",
