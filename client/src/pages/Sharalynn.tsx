@@ -57,7 +57,7 @@ export default function Sharalynn() {
           }}
         />
 
-        {/* Mute Button - Top Left */}
+        {/* Sound Button - Top Left */}
         <button
           onClick={() => setIsMuted(!isMuted)}
           style={{
@@ -68,30 +68,34 @@ export default function Sharalynn() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            width: "48px",
             height: "48px",
+            paddingLeft: "24px",
+            paddingRight: "24px",
             borderRadius: "9999px",
-            backgroundColor: "rgba(220, 38, 38, 0.7)",
-            backdropFilter: "blur(10px)",
+            backgroundColor: "rgba(220, 38, 38, 0.85)",
+            backdropFilter: "blur(12px)",
             border: "none",
             cursor: "pointer",
             color: "white",
-            fontSize: "12px",
-            fontWeight: 500,
-            letterSpacing: "0.25em",
+            fontSize: "11px",
+            fontWeight: 600,
+            letterSpacing: "0.15em",
             textTransform: "uppercase",
             transition: "all 0.3s ease",
             fontFamily: "DM Sans, sans-serif",
+            boxShadow: "0 8px 32px rgba(220, 38, 38, 0.3)",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.9)";
+            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 1)";
+            e.currentTarget.style.boxShadow = "0 12px 40px rgba(220, 38, 38, 0.4)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.7)";
+            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.85)";
+            e.currentTarget.style.boxShadow = "0 8px 32px rgba(220, 38, 38, 0.3)";
           }}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
         >
-          Sound
+          {isMuted ? "🔊 Sound" : "🔇 Mute"}
         </button>
 
         {/* Ask Shara Button - Top Right */}
@@ -109,23 +113,26 @@ export default function Sharalynn() {
             paddingLeft: "24px",
             paddingRight: "24px",
             borderRadius: "9999px",
-            backgroundColor: "rgba(220, 38, 38, 0.7)",
-            backdropFilter: "blur(10px)",
+            backgroundColor: "rgba(220, 38, 38, 0.85)",
+            backdropFilter: "blur(12px)",
             border: "none",
             cursor: "pointer",
             color: "white",
             fontSize: "11px",
-            fontWeight: 500,
-            letterSpacing: "0.25em",
+            fontWeight: 600,
+            letterSpacing: "0.15em",
             textTransform: "uppercase",
             transition: "all 0.3s ease",
             fontFamily: "DM Sans, sans-serif",
+            boxShadow: "0 8px 32px rgba(220, 38, 38, 0.3)",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.9)";
+            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 1)";
+            e.currentTarget.style.boxShadow = "0 12px 40px rgba(220, 38, 38, 0.4)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.7)";
+            e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.85)";
+            e.currentTarget.style.boxShadow = "0 8px 32px rgba(220, 38, 38, 0.3)";
           }}
         >
           Ask Shara
