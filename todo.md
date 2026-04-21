@@ -2555,3 +2555,6 @@
 
 ## Badge Strip Full Screen Fix (Apr 21)
 - [x] Fix brand page badge strip — all 5 badges evenly spaced with icon-only LHW monogram and S shield (v5, extracted from Atacama strip)
+
+## Badge Strip 2-Row Layout (Apr 21)
+- [x] Restructure brand page badges to 2 rows of 3: Row 1 (Keys, R&C, Green Globe), Row 2 (LHW, S, Virtuoso)

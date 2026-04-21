@@ -300,12 +300,18 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge strip — same as property pages */}
-          <div className="mt-4">
+          {/* Badge strips — 2 rows of 3 */}
+          <div className="mt-4 flex flex-col gap-2 md:gap-3">
             <img
-src="/manus-storage/badge-strip-brand-5-v5_5544cb95.png"
-               alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified, CST Sustainable Tourism, Leading Hotels of the World"
-              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
+              src="/manus-storage/badge-strip-springs-v3_9614e222.png"
+              alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
+              className="h-20 md:h-28 lg:h-36 w-auto -ml-4 md:-ml-6 lg:-ml-8"
+              loading="lazy"
+            />
+            <img
+              src="/manus-storage/badge-strip-brand-row2_6482c22f.png"
+              alt="Leading Hotels of the World, S Sustainability Certification, Virtuoso"
+              className="h-20 md:h-28 lg:h-36 w-auto -ml-4 md:-ml-6 lg:-ml-8"
               loading="lazy"
             />
           </div>
