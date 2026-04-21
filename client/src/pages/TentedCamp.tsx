@@ -72,7 +72,7 @@ const ASSETS = {
   heroDesktop: `${CDN}/tented-hero-new_c2f5b543.mp4`,
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
-  storyV: "/manus-storage/tentreel4_bfa98c2e.mp4",
+  storyV: "/manus-storage/tentreel4-v2_5c99cbb7.mp4",
   storyH: `${CDN}/Supersale-8_68853293.jpg`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,
@@ -87,11 +87,11 @@ const ASSETS = {
   gastroV: `${CDN}/atasteofplace_f64f6f71.jpg`,
   gastroH: `${CDN}/Supersale-4_7834ffc2.jpg`,
 
-  wildV: "/manus-storage/tentreel4_bfa98c2e.mp4",
+  wildV: "/manus-storage/tentreel4-v2_5c99cbb7.mp4",
   wildH: `${CDN}/tc-mainpool-vertical_81b6bb28.mp4`,
 
   // Tent reel videos
-  tentReel1: "/manus-storage/tentreel4_bfa98c2e.mp4",
+  tentReel1: "/manus-storage/tentreel4-v2_5c99cbb7.mp4",
   tentReel2: `${CDN}/nayara-tent-2_791909a6.mp4`,
   tentReel3: `${CDN}/nayara-tent-3_c92dfadc.mp4`,
 
