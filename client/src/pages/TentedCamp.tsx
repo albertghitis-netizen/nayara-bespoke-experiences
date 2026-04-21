@@ -601,7 +601,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Discover the Magic\nof the Rainforest",
     body: "Cross hanging bridges through the canopy, rappel down waterfalls, or trek to hidden volcanic hot springs. Every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
     verticalSrc: "/manus-storage/tented-experiences-vertical_90b80829.mp4",
-    horizontalSrc: ASSETS.expH,
+    horizontalSrc: "/manus-storage/tented-experiences-horizontal-new_b0279ced.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",

@@ -2505,3 +2505,4 @@
 - [x] Remove horizontalFirst from Experiences section to fix double-stacking of horizontals
 - [x] Replace Experiences vertical with new waterfall video (tented-experiences-vertical_90b80829.mp4)
 - [x] Verify cascade flow: Story → pool H → Rooms vertical+text → rooms H → Experiences vertical+text → exp H → Wellness H (horizontalFirst) → wellness vertical+text
+- [x] Replace Experiences horizontal with new user-provided video (tented-experiences-horizontal-new_b0279ced.mp4)
