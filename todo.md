@@ -2487,3 +2487,5 @@
 - [x] Replace Bocas del Toro individual badges with pre-composed badge strip image (4.png)
 - [x] Replace Springs individual badges with pre-composed badge strip image (3.png)
 - [x] Replace Alto Atacama individual badges with pre-composed badge strip image (2.png)
+- [x] Tented Camp mobile: Hero → H2 body text + badges → first vertical. Remove horizontal between hero and text block on mobile.
+- [x] Bocas del Toro mobile: Hero → H2 body text + badges → first vertical. Remove horizontal between hero and text block on mobile. (Already implemented)

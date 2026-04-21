@@ -199,8 +199,8 @@ function CascadeSection({
     <section id={section.id}>
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
-        {/* Vertical media — full-bleed to its edge */}
-        <div className={`w-full md:w-1/2 relative z-[2] ${textLeft ? "md:order-2" : "md:order-1"}`}>
+        {/* Vertical media — on mobile: appears after text (order-2), on desktop: alternates */}
+        <div className={`w-full md:w-1/2 relative z-[2] ${section.id === "story" ? "order-2 md:order-2" : ""} ${textLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
               src={section.verticalSrc}
@@ -296,8 +296,8 @@ function CascadeSection({
         </div>
       </div>
 
-      {/* ── Full-width horizontal media ── */}
-      <div className="relative z-[2]" style={{ backgroundColor: section.nextBgColor }}>
+      {/* ── Full-width horizontal media — hidden on mobile ── */}
+      <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.nextBgColor }}>
         <MediaReveal delay={0.05}>
           <MediaBlock
             src={section.horizontalSrc}
