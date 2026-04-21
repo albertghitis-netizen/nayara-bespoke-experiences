@@ -2522,3 +2522,6 @@
 - [x] Change 380 acres to 68 acres
 - [x] Change 5000 native trees to 15000 native trees and plants
 - [x] Gardens opens 2007, Springs opens 2013, Tented Camp reforestation begins 2018, Green Globe 2025
+
+## Badge Strip Redo (Apr 21)
+- [x] Redo 5-badge strip — S Cert and LHW must match same style/size as Michelin, R&C, Green Globe (v2 — kept original 3, appended LHW + CST at matching height)
