@@ -319,8 +319,8 @@ src="/manus-storage/badge-strip-brand-5-v3_55158e9f.png"
         </div>
       </div>
 
-      {/* S2: Horizontal video — full bleed, connected below S1 */}
-      <div className="w-full">
+      {/* S2: Horizontal video — full bleed, connected below S1 (desktop only) */}
+      <div className="hidden md:block w-full">
         <MediaReveal>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
             <NativeVideo
