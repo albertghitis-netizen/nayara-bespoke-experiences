@@ -539,6 +539,119 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   FUNCTIONAL BREAK — Getting Here
+   ═══════════════════════════════════════════════════════════════ */
+function GettingHereBreak({ bgColor }: { bgColor: string }) {
+  const routes = [
+    {
+      title: "International Flights",
+      description: "Fly into Panama City’s Tocumen International Airport (PTY), a major hub with direct flights from the US, Europe, and Latin America.",
+      icon: "✈",
+    },
+    {
+      title: "Domestic Flight to Bocas",
+      description: "Take a short domestic flight from Panama City to Bocas del Toro (BOC) — approximately 1 hour. Air Panama operates daily flights.",
+      icon: "⏱",
+    },
+    {
+      title: "Private Boat Transfer",
+      description: "From Bocas Town, a private boat transfer brings you directly to the resort’s dock on Isla Pastores. The scenic ride takes approximately 20 minutes.",
+      icon: "⛵",
+    },
+    {
+      title: "Full Concierge Arrangement",
+      description: "Our reservations team can arrange your complete journey — flights, boat transfers, and any ground transportation — so you arrive seamlessly.",
+      icon: "✨",
+    },
+  ];
+
+  return (
+    <section
+      id="getting-here"
+      className="py-20 md:py-28 px-8 md:px-16"
+      style={{ backgroundColor: bgColor }}
+    >
+      <div className="max-w-[1000px] mx-auto">
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Getting Here</SectionLabel>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <h2 className="mb-4">
+            <span
+              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.1] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Your Journey to Bocas del Toro
+            </span>
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <p
+            className="text-[15px] leading-relaxed mb-12 md:mb-16 max-w-xl"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Nayara Bocas del Toro is located on a private island in Panama’s Caribbean archipelago, accessible by a short flight and scenic boat ride.
+          </p>
+        </AnimateOnScroll>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+          {routes.map((route, i) => (
+            <AnimateOnScroll key={i} variants={fadeUp} delay={0.1 + i * 0.08}>
+              <div className="flex gap-5">
+                <div
+                  className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
+                  style={{ backgroundColor: `${PALETTE.primary}10`, color: PALETTE.primary }}
+                >
+                  {route.icon}
+                </div>
+                <div>
+                  <h3
+                    className="text-[16px] mb-2"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
+                  >
+                    {route.title}
+                  </h3>
+                  <p
+                    className="text-[13px] leading-relaxed"
+                    style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+                  >
+                    {route.description}
+                  </p>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.5}>
+          <div
+            className="mt-12 md:mt-16 p-6"
+            style={{ borderLeft: `2px solid ${PALETTE.primary}30` }}
+          >
+            <p
+              className="text-[13px] leading-relaxed"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span>{" "}
+              Our reservations team can arrange all transfers and flights. Contact us at{" "}
+              <a href="mailto:reservations@nayararesorts.com" className="underline" style={{ color: PALETTE.primary }}>
+                reservations@nayararesorts.com
+              </a>{" "}
+              or call{" "}
+              <a href="tel:+18448652002" className="underline" style={{ color: PALETTE.primary }}>
+                1-844-865-2002
+              </a>.
+            </p>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    MAIN PAGE — Pure cascade, no functional content (Option B)
    ═══════════════════════════════════════════════════════════════ */
 export default function BocasDelToro() {
@@ -552,6 +665,8 @@ export default function BocasDelToro() {
       ))}
 
       <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
+
+      <GettingHereBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 2]} />
 
       <Footer bgColor="#008E97" />
     </div>

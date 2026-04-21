@@ -2512,4 +2512,4 @@
 - [x] Remove timeline section from the brand/home page
 
 ## Bocas del Toro Updates (Apr 21)
-- [ ] Add Getting Here section to Bocas del Toro page under Guest Voices
+- [x] Add Getting Here section to Bocas del Toro page under Guest Voices
