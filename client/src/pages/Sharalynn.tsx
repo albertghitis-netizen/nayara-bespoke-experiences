@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /**
  * SHARALYNN LANDING PAGE
@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
  */
 
 export default function Sharalynn() {
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -16,8 +18,8 @@ export default function Sharalynn() {
   }, []);
 
   const heroVideoUrl = isMobile
-    ? "/manus-storage/shara-mobile-hq_c905c8c2.mp4"
-    : "/manus-storage/shara-desktop-hq_e01fce5e.mp4";
+    ? "/manus-storage/shara-mobile-audio_9e8fde66.mp4"
+    : "/manus-storage/shara-desktop-audio_ba89afd9.mp4";
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#ffffff" }}>
@@ -31,7 +33,9 @@ export default function Sharalynn() {
         }}
       >
         <video
+          ref={videoRef}
           autoPlay
+          muted
           loop
           playsInline
           style={{
@@ -55,9 +59,20 @@ export default function Sharalynn() {
           }}
         />
 
-        {/* Email Button - Bottom Left */}
+        {/* Play Audio / Mute Button - Bottom Left */}
         <button
-          onClick={() => (window.location.href = "mailto:Shara.Zeitlin@compass.com")}
+          onClick={() => {
+            if (videoRef.current) {
+              if (audioPlaying) {
+                videoRef.current.muted = true;
+                setAudioPlaying(false);
+              } else {
+                videoRef.current.muted = false;
+                videoRef.current.play();
+                setAudioPlaying(true);
+              }
+            }
+          }}
           style={{
             position: "fixed",
             bottom: "24px",
@@ -91,9 +106,9 @@ export default function Sharalynn() {
             e.currentTarget.style.backgroundColor = "rgba(220, 38, 38, 0.85)";
             e.currentTarget.style.boxShadow = "0 8px 32px rgba(220, 38, 38, 0.3)";
           }}
-          aria-label="Email Sharalynn"
+          aria-label={audioPlaying ? "Mute audio" : "Play audio"}
         >
-          Email
+          {audioPlaying ? "\uD83D\uDD07 Mute" : "\uD83D\uDD0A Sound"}
         </button>
 
         {/* Ask Shara Button - Bottom Right */}
