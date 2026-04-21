@@ -301,6 +301,12 @@ function CascadeSection({
 
           {section.badges && (
             <div className="mt-8">
+              <p
+                className="text-[13px] md:text-[15px] leading-relaxed italic mb-6"
+                style={{ ...body, color: PALETTE.textSecondary, fontWeight: 400 }}
+              >
+                Pura Vida: The Science of Why Costa Rica Feels Different
+              </p>
               <img
                 src="/manus-storage/badge-strip-tented-camp_c759b53d.png"
                 alt="Travel + Leisure World's Best Awards, Leading Hotels of the World, Green Globe Certified"
