@@ -2552,3 +2552,6 @@
 ## Atacama Blog Link Swap (Apr 21)
 - [x] Move Mars blog from Atacama property story to Experiences cascade section
 - [x] Add new blog "Best Place to Stay Atacama Desert Oasis" to Atacama property story section
+
+## Badge Strip Full Screen Fix (Apr 21)
+- [x] Fix brand page badge strip — all 5 badges evenly spaced with icon-only LHW monogram and S shield (v5, extracted from Atacama strip)
