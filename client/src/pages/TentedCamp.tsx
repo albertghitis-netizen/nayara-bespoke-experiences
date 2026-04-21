@@ -217,8 +217,8 @@ function CascadeSection({
 
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
-        {/* Vertical media — on mobile: appears after text (order-2), on desktop: alternates */}
-        <div className={`w-full md:w-1/2 relative z-[2] ${section.id === "story" ? "order-2 md:order-2" : ""} ${textLeft ? "md:order-2" : "md:order-1"}`}>
+        {/* Vertical media — on mobile: always after text (order-2), on desktop: alternates */}
+        <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
               src={section.verticalSrc}
@@ -231,7 +231,7 @@ function CascadeSection({
 
         {/* Text column */}
         <div
-          className={`w-full md:w-1/2 flex flex-col justify-start px-8 py-12 md:py-20 md:px-16 lg:px-24 ${
+          className={`w-full md:w-1/2 flex flex-col justify-start px-8 py-12 md:py-20 md:px-16 lg:px-24 order-1 ${
             textLeft ? "md:order-1" : "md:order-2"
           }`}
           style={{ backgroundColor: section.bgColor }}

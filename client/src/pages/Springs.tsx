@@ -307,19 +307,7 @@ function StorySection() {
         </div>
       </div>
 
-      {/* S2 — Full-width horizontal photo below, touching S1 */}
-      <div style={{ backgroundColor: PALETTE.gradientEnd }}>
-        <MediaReveal delay={0.05}>
-          <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s2-couple-bridge_11a41ef8.jpg"
-              alt="Couple on rainforest bridge at Nayara Springs"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </MediaReveal>
-      </div>
+
     </section>
   );
 }

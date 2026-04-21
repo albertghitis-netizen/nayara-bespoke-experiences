@@ -1,18 +1,14 @@
 /*
  * TENTED CAMP ROOMS — Dedicated rooms/accommodations sub-page
- * Mirrors Alto Atacama secondary page structure with rainforest palette
+ * Uses PropertySlider component (same as Springs rooms/sustainability)
  */
 
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import {
-  AnimateOnScroll,
-  TextReveal,
-  MediaReveal,
-  fadeUp,
-} from "@/components/motion";
+import PropertySlider from "@/components/PropertySlider";
+import { TextReveal } from "@/components/motion";
 
 const PALETTE = {
   primary: "#2D6A4F",
@@ -26,34 +22,39 @@ const PALETTE = {
   divider: "#D5DDD8",
 };
 
+const SLIDER_PALETTE = {
+  bg: PALETTE.gradientEnd,
+  text: PALETTE.text,
+  textSecondary: PALETTE.textSecondary,
+  primary: PALETTE.primary,
+  cardBg: "rgba(255,255,255,0.5)",
+  cardBorder: PALETTE.divider,
+};
+
 const CDN_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const CDN = {
   heroVideo: `${CDN_BASE}/tented-hero-new_c2f5b543.mp4`,
-  landscapeImg: `${CDN_BASE}/Grand(1)_0127cf09.webp`,
 };
 
-const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
-const maxW = "max-w-[1200px] mx-auto";
-
-const roomTypes = [
+const roomCards = [
   {
-    name: "Nayara Tent",
+    title: "Nayara Tent",
     description:
       "Safari-style luxury tents elevated above the rainforest canopy. Each tent features a private deck with plunge pool, outdoor shower, and unobstructed views of the Arenal Volcano through floor-to-ceiling mesh walls that bring the jungle inside.",
-    features: ["Private plunge pool", "Volcano views", "Outdoor shower", "Canopy deck"],
+    tags: ["Private plunge pool", "Volcano views", "Outdoor shower", "Canopy deck"],
   },
   {
-    name: "Grand Tent",
+    title: "Grand Tent",
     description:
       "Our most spacious tented accommodations, offering a generous living area, king bed, and an expansive private terrace with heated plunge pool. The Grand Tent is designed for those who want the safari experience with the space of a luxury villa.",
-    features: ["Heated plunge pool", "Spacious living area", "King bed", "Rainforest terrace"],
+    tags: ["Heated plunge pool", "Spacious living area", "King bed", "Rainforest terrace"],
   },
   {
-    name: "Residence",
+    title: "Residence",
     description:
       "The ultimate Tented Camp experience — a multi-room residence with private pool, dedicated butler service, and panoramic views of the Arenal Volcano. Perfect for families or those seeking the most exclusive rainforest retreat.",
-    features: ["Multiple bedrooms", "Private pool", "Butler service", "Panoramic volcano views"],
+    tags: ["Multiple bedrooms", "Private pool", "Butler service", "Panoramic volcano views"],
   },
 ];
 
@@ -62,7 +63,18 @@ export default function TentedRooms() {
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
-      <RoomsContent />
+
+      {/* Room types — PropertySlider */}
+      <PropertySlider
+        sectionLabel="Accommodations"
+        headline="Tented Suites"
+        description="Elevated above the rainforest canopy, each safari-style tent is a private sanctuary with panoramic volcano views, heated plunge pools, and the sounds of the jungle as your soundtrack. Designed for adults seeking an intimate connection with nature without compromising on luxury."
+        cards={roomCards}
+        learnMoreLink="/tented-camp"
+        learnMoreLabel="Back to Tented Camp"
+        palette={SLIDER_PALETTE}
+      />
+
       <Footer pageType="property" bgColor="#868B75" />
     </div>
   );
@@ -93,87 +105,6 @@ function RoomsHero() {
         >
           Nayara Tented Camp
         </motion.p>
-      </div>
-    </section>
-  );
-}
-
-function RoomsContent() {
-  return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <div className={maxW}>
-        {/* Intro copy */}
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="text-[15px] leading-[1.8] max-w-3xl mb-16"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
-          >
-            Elevated above the rainforest canopy, each safari-style tent is a private sanctuary
-            with panoramic volcano views, heated plunge pools, and the sounds of the jungle as
-            your soundtrack. Designed for adults seeking an intimate connection with nature
-            without compromising on luxury.
-          </p>
-        </AnimateOnScroll>
-
-        {/* Room type cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-16">
-          {roomTypes.map((room, i) => (
-            <AnimateOnScroll key={room.name} variants={fadeUp} delay={i * 0.1}>
-              <div
-                className="p-6 md:p-8 h-full"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.4)",
-                  backdropFilter: "blur(8px)",
-                  borderRadius: "12px",
-                  borderBottom: `2px solid ${PALETTE.divider}`,
-                }}
-              >
-                <h3
-                  className="text-[20px] mb-4"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
-                >
-                  {room.name}
-                </h3>
-                <p
-                  className="text-[14px] leading-[1.7] mb-6"
-                  style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
-                >
-                  {room.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {room.features.map((f) => (
-                    <span
-                      key={f}
-                      className="text-[10px] tracking-[0.1em] px-3 py-1.5 rounded-full"
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontWeight: 500,
-                        color: PALETTE.primary,
-                        border: `1px solid ${PALETTE.primary}30`,
-                      }}
-                    >
-                      {f}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
-
-        {/* Landscape image */}
-        <div className="hidden md:block">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <img
-                src={CDN.landscapeImg}
-                alt="Grand Tent with rainforest canopy and volcano views"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </MediaReveal>
-        </div>
       </div>
     </section>
   );

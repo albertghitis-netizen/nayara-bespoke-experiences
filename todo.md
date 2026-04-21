@@ -2531,3 +2531,9 @@
 
 ## Brand Page S2 Cascade (Apr 21)
 - [x] Add horizontal S2 video below vertical S1 on brand page (cascade start before properties)
+
+## Badge + Tented Camp Mobile Fixes (Apr 21)
+- [x] Update brand badge strip to v4 (LHW shifted right)
+- [x] Fix Tented Camp mobile: verticals must always have a copy section between them, never touching
+- [x] Convert Tented Camp deeper rooms page to use PropertySlider component (same as Springs rooms/sustainability)
+- [x] Remove horizontal images from Springs homepage (S2 couple-bridge was the only one rendered)
