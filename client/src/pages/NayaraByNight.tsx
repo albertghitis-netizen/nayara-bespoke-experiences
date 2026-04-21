@@ -347,11 +347,13 @@ function StorySection() {
               href="https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars"
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-8 block p-4 rounded-lg border border-white/10 hover:border-white/25 hover:bg-white/5 transition-all"
+              className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#1a1a2e", backgroundColor: "#c9b99a" }}
             >
-              <span className="text-[#c9b99a]/50 text-[9px] tracking-[0.15em] block mb-2" style={{ ...body, fontWeight: 600 }}>From the Journal</span>
-              <h4 className="text-white/80 text-[14px] leading-snug group-hover:text-[#c9b99a] transition-colors" style={{ ...heading, fontWeight: 500 }}>Nayara by Night: Of Moon and Stars</h4>
-              <span className="text-white/30 text-[11px] tracking-[0.08em] mt-3 inline-block group-hover:text-[#c9b99a]/60 transition-colors" style={{ ...body, fontWeight: 500 }}>Read →</span>
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+              </svg>
+              Read: Nayara by Night — Of Moon and Stars
             </a>
           </FadeIn>
         </div>

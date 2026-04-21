@@ -2540,3 +2540,8 @@
 
 ## Tented Camp Room Slider Update (Apr 21)
 - [x] Update Tented Camp room slider to: Tent, Family Tent, Grand Tent, Residence
+
+## Tented Camp Story — Pura Vida Tagline (Apr 21)
+- [ ] Add "Pura Vida: The Science of Why Costa Rica Feels Different" above the badges on Tented Camp story section
+- [x] Convert all blog "Read:" hyperlinks to oval pill style (book icon + text in property color oval) across all property pages
+  - Home.tsx, Springs.tsx, AltoAtacama.tsx, BocasDelToro.tsx, TentedCampSustainability.tsx, SpringsSustainability.tsx, GardensSustainability.tsx, BocasSustainability.tsx, HangaroaSustainability.tsx, AtacamaSustainability.tsx, CostaRicaExperiences.tsx, CostaRicaGastronomy.tsx, NayaraByNight.tsx, Newsletter.tsx, ExcursionsSection.tsx
