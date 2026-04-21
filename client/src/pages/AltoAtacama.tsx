@@ -266,14 +266,14 @@ function CascadeTextBlock({
           />
           {/* Leading Hotels of the World */}
           <img
-            src="/manus-storage/atacama-badge-leading-hotels_aa22006a.png"
+            src="/manus-storage/badge-lhw-new_4ee97f75.png"
             alt="The Leading Hotels of the World"
             className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
             loading="lazy"
           />
           {/* Distinción Turismo Sustentable — larger for text readability */}
           <img
-            src="/manus-storage/atacama-badge-s-sustainability_35d0a2a8.png"
+            src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
             alt="Distinción Turismo Sustentable"
             className="h-20 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
             loading="lazy"
@@ -302,14 +302,14 @@ function CascadeTextBlock({
           />
           {/* Leading Hotels of the World */}
           <img
-            src="/manus-storage/atacama-badge-leading-hotels_aa22006a.png"
+            src="/manus-storage/badge-lhw-new_4ee97f75.png"
             alt="The Leading Hotels of the World"
             className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
             loading="lazy"
           />
           {/* Distinción Turismo Sustentable — larger for text readability */}
           <img
-            src="/manus-storage/atacama-badge-s-sustainability_35d0a2a8.png"
+            src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
             alt="Distinción Turismo Sustentable"
             className="h-20 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
             loading="lazy"
@@ -422,14 +422,14 @@ function CascadeSection({
           />
           {/* Leading Hotels of the World */}
           <img
-            src="/manus-storage/atacama-badge-leading-hotels_aa22006a.png"
+            src="/manus-storage/badge-lhw-new_4ee97f75.png"
             alt="The Leading Hotels of the World"
             className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
             loading="lazy"
           />
           {/* Distinción Turismo Sustentable — larger for text readability */}
           <img
-            src="/manus-storage/atacama-badge-s-sustainability_35d0a2a8.png"
+            src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
             alt="Distinción Turismo Sustentable"
             className="h-20 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
             loading="lazy"
@@ -458,14 +458,14 @@ function CascadeSection({
           />
           {/* Leading Hotels of the World */}
           <img
-            src="/manus-storage/atacama-badge-leading-hotels_aa22006a.png"
+            src="/manus-storage/badge-lhw-new_4ee97f75.png"
             alt="The Leading Hotels of the World"
             className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
             loading="lazy"
           />
           {/* Distinción Turismo Sustentable — larger for text readability */}
           <img
-            src="/manus-storage/atacama-badge-s-sustainability_35d0a2a8.png"
+            src="/manus-storage/badge-s-sustainability-new_d02185c3.png"
             alt="Distinción Turismo Sustentable"
             className="h-20 md:h-24 lg:h-28 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
             loading="lazy"

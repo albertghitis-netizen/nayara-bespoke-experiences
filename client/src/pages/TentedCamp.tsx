@@ -292,7 +292,7 @@ function CascadeSection({
               />
               {/* Leading Hotels */}
               <img
-                src="/manus-storage/tented-badge-leading-hotels_88949161.png"
+                src="/manus-storage/badge-lhw-new_4ee97f75.png"
                 alt="Leading Hotels of the World"
                 className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0 transition-transform duration-300 hover:scale-110"
                 loading="lazy"

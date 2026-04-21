@@ -404,7 +404,7 @@ function CascadeSection({
                 loading="lazy"
               />
               {/* Leading Hotels — wider logo */}
-              <img src="/manus-storage/bocas-badge-leading-hotels-trans_b99ec383.png"
+              <img src="/manus-storage/badge-lhw-new_4ee97f75.png"
                 alt="Leading Hotels of the World"
                 className="h-16 md:h-20 lg:h-24 w-auto object-contain flex-shrink-0"
                 loading="lazy"
