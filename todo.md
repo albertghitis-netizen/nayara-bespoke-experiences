@@ -2558,3 +2558,7 @@
 
 ## Badge Strip 2-Row Layout (Apr 21)
 - [x] Restructure brand page badges to 2 rows of 3: Row 1 (Keys, R&C, Green Globe), Row 2 (LHW, S, Virtuoso)
+
+## Video Swap — Brand By Night → Tented S1 (Apr 21)
+- [x] Move current By Night vertical from brand homepage to Tented Camp S1 (story vertical)
+- [x] Replace brand homepage By Night vertical with new user-provided video

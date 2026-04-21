@@ -153,7 +153,7 @@ export default function Home() {
       <ContentHubSection />
       <PillarsSection />
       <ByNightCTA
-        verticalSrc="/manus-storage/nayara-by-night-s1_80392a32.mp4"
+        verticalSrc="/manus-storage/brand-bynight-vertical-new_a9c824f4.mp4"
         verticalIsVideo
         verticalRatio="3/4"
         horizontalSrc="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp"
