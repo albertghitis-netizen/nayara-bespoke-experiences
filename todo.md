@@ -2500,3 +2500,8 @@
 - [x] Gardens: Change hero H1 to "Family-Friendly Rainforest Adventure"
 - [x] Gardens: Replace S1 vertical with new video (DEE1EE99 mov)
 - [x] Atacama: Make badge strip bigger and more spread out — increase image height and spacing
+
+## Tented Camp — Cascade Fix (Apr 21)
+- [x] Remove horizontalFirst from Experiences section to fix double-stacking of horizontals
+- [x] Replace Experiences vertical with new waterfall video (tented-experiences-vertical_90b80829.mp4)
+- [x] Verify cascade flow: Story → pool H → Rooms vertical+text → rooms H → Experiences vertical+text → exp H → Wellness H (horizontalFirst) → wellness vertical+text
