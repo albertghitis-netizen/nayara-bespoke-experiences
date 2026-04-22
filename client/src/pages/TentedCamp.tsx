@@ -145,18 +145,20 @@ function MediaBlock({
   ratio,
   alt,
   className = "",
+  loop = false,
 }: {
   src: string;
   isVideo: boolean;
   ratio: string;
   alt?: string;
   className?: string;
+  loop?: boolean;
 }) {
   if (!src) return null;
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
       {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" />
+        <NativeVideo src={src} className="w-full h-full object-cover" loop={loop} />
       ) : (
         <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
       )}
@@ -187,6 +189,8 @@ type CascadeSectionData = {
   awards?: string;
   blogUrl?: string;
   blogTitle?: string;
+  horizontalLoop?: boolean;
+  verticalLoop?: boolean;
 };
 
 function CascadeSection({
@@ -207,6 +211,7 @@ function CascadeSection({
           ratio={section.horizontalRatio}
           alt={`${section.label} landscape — Nayara Tented Camp`}
           className="w-full"
+          loop={section.horizontalLoop}
         />
       </MediaReveal>
     </div>
@@ -227,6 +232,7 @@ function CascadeSection({
               isVideo={section.verticalIsVideo}
               ratio={section.verticalRatio}
               alt={`${section.label} — Nayara Tented Camp`}
+              loop={section.verticalLoop}
             />
           </MediaReveal>
         </div>
@@ -594,6 +600,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "1920/1000",
+    horizontalLoop: true,
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[1],
     badges: true,
@@ -654,12 +661,13 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Wellness",
     headline: "Volcanic\nHealing",
     body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.",
-    verticalSrc: ASSETS.spaV,
+    verticalSrc: "/manus-storage/tented-wellness-vertical-new_e0367ea8.mp4",
     horizontalSrc: "/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4",
-    verticalIsVideo: false,
+    verticalIsVideo: true,
     horizontalIsVideo: true,
-    verticalRatio: "3/4",
+    verticalRatio: "720/960",
     horizontalRatio: "13/5",
+    verticalLoop: true,
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
     link: "/tented-camp/wellness",
