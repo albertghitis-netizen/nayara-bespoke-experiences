@@ -669,7 +669,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "13/5",
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
-    link: "/sustainability",
+    link: "/tented-camp/sustainability",
     linkLabel: "Our Commitment",
   },
   {

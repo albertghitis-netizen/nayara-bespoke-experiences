@@ -1791,7 +1791,7 @@
 - [ ] Tented Camp: Hamburger, Reserve, Henry buttons use Tented Camp dark palette
 - [ ] Bocas del Toro: Footer uses Bocas palette dark colors
 - [ ] Bocas del Toro: Hamburger, Reserve, Henry buttons use Bocas dark palette
-- [ ] Add sustainability Explore More link to Tented Camp cascade
+- [x] Add sustainability Explore More link to Tented Camp cascade
 - [ ] Add sustainability Explore More link to Bocas cascade (if missing)
 
 ## Media Numbering Convention
@@ -2663,3 +2663,13 @@
 
 ## Brand Homepage S2 Video Replacement (Apr 22)
 - [x] Replace S2 horizontal video on brand homepage (between badges and "Six Destinations" section) with new video
+
+## Springs Sustainability Section (Apr 22)
+- [x] Duplicate Tented Camp sustainability section onto Springs page with Springs colors
+- [x] Read Reportdraft.pdf and extract relevant Nayara Tented Camp / Costa Rica sustainability content
+- [x] Incorporate report content into the Springs sustainability section
+- [x] Verify in browser and save checkpoint
+
+## Sustainability Pages Navigation & Links (Apr 22)
+- [x] Add BrandNavigation to all sustainability landing pages (treat them as part of main site)
+- [x] Wire "Explore More" sustainability links on property homepages to the sustainability pages

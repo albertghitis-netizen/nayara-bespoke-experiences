@@ -57,6 +57,47 @@ export interface ESGCertification {
   desc: string;
 }
 
+export interface EnvironmentalPillar {
+  id: string;
+  icon: string;
+  title: string;
+  subtitle: string;
+  paragraphs: string[];
+  highlights: { label: string; value: string }[];
+}
+
+export interface SocialImpact {
+  headline: string;
+  subtitle: string;
+  paragraphs: string[];
+  stats: { value: number; suffix: string; label: string }[];
+}
+
+export interface CommunityProgram {
+  title: string;
+  desc: string;
+  icon: string;
+}
+
+export interface GovernanceItem {
+  title: string;
+  desc: string;
+}
+
+export interface CarbonOffset {
+  headline: string;
+  paragraphs: string[];
+  partnerName: string;
+  partnerDesc: string;
+  guestProgram: string;
+}
+
+export interface SDGAlignment {
+  number: number;
+  title: string;
+  desc: string;
+}
+
 export interface ESGReport {
   stats: ESGStat[];
   pillars: ESGPillar[];
@@ -66,6 +107,26 @@ export interface ESGReport {
     title: string;
     subtitle: string;
     paragraphs: string[];
+  };
+  environmentalPillars?: EnvironmentalPillar[];
+  socialImpact?: SocialImpact;
+  communityPrograms?: CommunityProgram[];
+  governance?: GovernanceItem[];
+  carbonOffset?: CarbonOffset;
+  sdgs?: SDGAlignment[];
+  housingProject?: {
+    headline: string;
+    paragraphs: string[];
+    stats: { value: number; suffix: string; label: string }[];
+  };
+  employeeDevelopment?: {
+    headline: string;
+    paragraphs: string[];
+    programs: { title: string; desc: string }[];
+  };
+  promotingAwareness?: {
+    headline: string;
+    events: { title: string; desc: string }[];
   };
 }
 
@@ -84,8 +145,11 @@ export const sustainabilityData: Record<string, {
     esgReport: {
       stats: [
         { value: 68, suffix: "+", label: "Acres Protected", detail: "Primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of species" },
-        { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Full carbon neutrality achieved through measurement, reduction, and offsetting of all greenhouse gas emissions" },
-        { value: 15000, suffix: "+", label: "Native Trees & Plants", detail: "Large-scale reforestation transforming a barren cattle ranch into thriving rainforest" },
+        { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Verified by EcoQualis using GHG Protocol - net-zero carbon footprint via certified carbon credits through FONAFIFO" },
+        { value: 50000, suffix: "+", label: "Plants Restored", detail: "Over 50,000 small plants and 30,000 ornamental plants and native tree species planted in carefully planned reforestation sequence" },
+        { value: 100, suffix: "%", label: "Renewable Energy", detail: "All electricity sourced from Coopelesca - hydroelectric, geothermal, wind, and solar power" },
+        { value: 85, suffix: "%", label: "Local Workforce", detail: "85% of employees from La Fortuna and surrounding communities - largest employer in town" },
+        { value: 95, suffix: "%", label: "LED Lighting", detail: "95% LED lighting across all three properties - 75% less energy than incandescent, with motion sensors in outdoor areas" },
       ],
       pillars: [
         {
@@ -160,8 +224,164 @@ export const sustainabilityData: Record<string, {
         { year: "2025", title: "Regenerative Tourism Model", desc: "Nayara Costa Rica is recognized as a global leader in regenerative tourism - not just sustaining, but actively improving local environments and communities." },
       ],
       certifications: [
-        { name: "Green Globe", body: "Green Globe International", year: "2025", desc: "Internationally recognized certification for sustainable tourism, awarded after extensive evaluation of environmental, social, and governance policies across all three Costa Rica properties." },
+        { name: "Green Globe", body: "Green Globe International", year: "2025", desc: "Standard 1.7, Hotel & Resort category. Internationally recognized certification for sustainable tourism, awarded after extensive evaluation of environmental, social, and governance policies across all three Costa Rica properties." },
+        { name: "Carbon Neutral", body: "EcoQualis / GHG Protocol", year: "2026", desc: "Verified carbon neutral certification valid March 2026 to March 2027. Net-zero carbon footprint achieved through comprehensive measurement of Scope 1, 2, and 3 emissions and offsetting via certified carbon credits through FONAFIFO." },
       ],
+      environmentalPillars: [
+        {
+          id: "reforestation",
+          icon: "leaf",
+          title: "Reforestation",
+          subtitle: "From Barren Cattle Ranch to Thriving Rainforest",
+          paragraphs: [
+            "Where Nayara Tented Camp now stands was once a mountain severely degraded by years of human intervention \u2014 an empty, sterile landscape where no trees could grow and no wildlife survived. Through years of careful research and soil restoration, the land has been gradually brought back to its natural state, recreating conditions from over a century ago.",
+            "Today it is a thriving ecosystem with lush vegetation where wildlife has naturally returned. Over 50,000 small plants were planted in a carefully planned sequence, alongside 30,000 ornamental plants and native tree species. Volcanic rocks were placed along trails to prevent erosion from heavy rainfall. Biologists were consulted to plant specific species that create shelter and breeding grounds for amphibians, including the iconic red-eyed tree frog.",
+            "Guest engagement is central to the reforestation effort. Guided reforestation tours allow visitors to witness the transformation firsthand and participate in planting native species, creating a tangible connection between luxury travel and ecological restoration.",
+          ],
+          highlights: [
+            { label: "Plants Restored", value: "50,000+" },
+            { label: "Ornamental & Native Species", value: "30,000+" },
+            { label: "Frog Habitat", value: "Biologist-Designed" },
+            { label: "Guest Tours", value: "Guided Reforestation" },
+          ],
+        },
+        {
+          id: "energy",
+          icon: "energy",
+          title: "Energy Efficiency",
+          subtitle: "100% Renewable, 95% LED, Zero Compromise",
+          paragraphs: [
+            "All electricity across Nayara Gardens, Nayara Springs, and Nayara Tented Camp is sourced from Coopelesca \u2014 a Costa Rican cooperative that generates power exclusively from renewable sources including hydroelectric, geothermal, wind, and solar energy. This means every light, every kitchen, every spa treatment runs on clean power.",
+            "Across all three properties, 95% of lighting has been converted to LED technology, consuming 75% less energy than traditional incandescent bulbs. Motion-sensing technology in outdoor areas such as parking lots and photocell sensors for exterior lighting have achieved a 20% reduction in outdoor lighting energy costs. Electric golf cars provide low-emission mobility across the properties.",
+            "Monthly energy consumption is carefully monitored, with the Green Committee reviewing data and setting reduction targets at regular meetings. Every operational decision is evaluated through the lens of energy efficiency.",
+          ],
+          highlights: [
+            { label: "Renewable Energy", value: "100%" },
+            { label: "LED Lighting", value: "95%" },
+            { label: "Outdoor Energy Savings", value: "20%" },
+            { label: "Transport", value: "Electric Golf Cars" },
+          ],
+        },
+        {
+          id: "water",
+          icon: "water",
+          title: "Water Conservation",
+          subtitle: "Natural Sources, Thermal Wells, Complete Stewardship",
+          paragraphs: [
+            "Nayara\u2019s water stewardship begins with its natural sources. A thermal well located 4 kilometers from the properties provides geothermal water for the hot spring pools, requiring minimal treatment. This natural resource is the foundation of the wellness experience at Nayara Springs and Nayara Tented Camp.",
+            "Laundry operations employ advanced water treatment processes that remove chemicals and purify water before discharge, ensuring no harmful substances enter the local watershed. Guest participation is encouraged through towel and linen reuse programs, with informational notes placed in every room explaining the environmental impact of daily laundering.",
+            "The comprehensive approach to water conservation reflects Nayara\u2019s understanding that in a tropical rainforest environment, responsible water management is not about scarcity but about protecting the quality of an abundant and precious ecosystem.",
+          ],
+          highlights: [
+            { label: "Thermal Source", value: "Natural Well" },
+            { label: "Laundry Treatment", value: "Chemical Removal" },
+            { label: "Guest Program", value: "Towel & Linen Reuse" },
+            { label: "Discharge", value: "Purified" },
+          ],
+        },
+        {
+          id: "waste",
+          icon: "waste",
+          title: "Waste Management",
+          subtitle: "10-Category Recycling, Zero Single-Use Plastics",
+          paragraphs: [
+            "Every guest room across all three properties is completely plastic-free. Reusable water bottles are provided to every guest, filled with locally sourced JungleSpring Water. Bamboo room keys have replaced plastic cards. Even waste bins throughout the property use paper alternatives instead of plastic liners.",
+            "On-site waste is sorted into 10 categories for recycling, with dedicated sorting stations and local recycling collaborations ensuring maximum diversion from landfill. Food waste from the five restaurants is repurposed as animal feed for local farmers, closing the loop between kitchen and community. Supplier partnerships prioritize sustainable packaging, reducing waste at the source.",
+            "The composting program transforms organic waste into valuable resources on-site, with a dedicated greenhouse where guests can learn about the process during Earth Day tours. Ongoing monitoring and goal-setting by the Green Committee ensures continuous improvement in waste reduction metrics.",
+          ],
+          highlights: [
+            { label: "Recycling Categories", value: "10" },
+            { label: "Single-Use Plastics", value: "Zero" },
+            { label: "Room Keys", value: "Bamboo" },
+            { label: "Food Waste", value: "Animal Feed & Compost" },
+          ],
+        },
+      ],
+      socialImpact: {
+        headline: "People at the Center",
+        subtitle: "Equity, Opportunity, and Dignity",
+        paragraphs: [
+          "Nayara Resorts is the largest employer in La Fortuna, with 85% of its workforce drawn from the local community, 10% from surrounding states, and just 5% from abroad. This commitment to local hiring ensures that the economic benefits of tourism flow directly into the community that hosts it.",
+          "There is no wage inequality at Nayara \u2014 salaries are determined by position, not gender or background. The gender ratio of 60% men to 40% women continues to close, with equal access to jobs, training, and promotions for all employees. Remarkably, 95% of team leaders have been trained internally, reflecting a culture of professional development and upward mobility.",
+          "Living wages exceed the national minimum, and the resort\u2019s impact extends far beyond its gates \u2014 an estimated 15% of La Fortuna\u2019s population is positively impacted by Nayara\u2019s operations, employment, and community programs.",
+        ],
+        stats: [
+          { value: 85, suffix: "%", label: "Local Workforce" },
+          { value: 95, suffix: "%", label: "Leaders Trained Internally" },
+          { value: 15, suffix: "%", label: "Town Population Impacted" },
+          { value: 0, suffix: "", label: "Wage Inequality" },
+        ],
+      },
+      communityPrograms: [
+        { title: "Proyecto ASIS", desc: "Staff volunteer at this wildlife refuge, supporting the rehabilitation and care of rescued animals in the Arenal region.", icon: "wildlife" },
+        { title: "Early Education", desc: "Free early education programs for employees\u2019 children, ensuring access to quality learning from the earliest years.", icon: "education" },
+        { title: "Community Meals", desc: "Free meals distribution as an ongoing community project, extending Nayara\u2019s kitchen beyond its restaurants.", icon: "food" },
+        { title: "Orphanage Support", desc: "Financial support for local orphanages and artists, investing in the cultural and social fabric of La Fortuna.", icon: "heart" },
+        { title: "Adifort Collaboration", desc: "Partnership with Adifort for social and environmental projects that benefit the broader Fortuna district.", icon: "community" },
+        { title: "Friday Market", desc: "Every Friday, guests join guided visits to the local market with resort staff \u2014 discovering regional products, meeting vendors, and supporting local businesses.", icon: "market" },
+      ],
+      housingProject: {
+        headline: "40 Homes for Our People",
+        paragraphs: [
+          "\u201COne of our most anticipated projects is the construction of 40 homes for specific staff members, such as single mothers. These homes will remain in the possession of the staff, regardless of whether they choose to leave Nayara at any point.\u201D \u2014 Jairo Quesada, General Manager",
+          "The selection process prioritizes non-homeowner, vulnerable, single-parent families with minor children, considering tenure and commitment to the company. Nayara donates the land and labor, with employees paying only the cost of construction materials \u2014 making homeownership achievable for those who need it most.",
+          "Working with BANHVI (Banco Hipotecario de la Vivienda), Nayara negotiates government subsidies to reduce total loan amounts. A financial advisor with over twenty years of experience provides ongoing guidance, and employees participate in a financial literacy program covering budgeting, saving, and managing credit responsibly.",
+          "Since platforms like Airbnb were established, housing values in La Fortuna have increased dramatically and rental costs have become prohibitive. This initiative directly addresses that crisis \u2014 creating permanent, dignified housing that belongs to the families who call Nayara home.",
+        ],
+        stats: [
+          { value: 40, suffix: "", label: "Homes Planned" },
+          { value: 100, suffix: "%", label: "Land Donated" },
+          { value: 100, suffix: "%", label: "Labor Donated" },
+        ],
+      },
+      employeeDevelopment: {
+        headline: "Developing People, Not Just Skills",
+        paragraphs: [
+          "\u201CWe don\u2019t train people. We develop people so that they can grow personally and professionally.\u201D \u2014 Leo Ghitis",
+          "Nayara conducts ongoing training programs aimed at enhancing employee skills and knowledge across key areas. Tailored courses are offered to each department, ensuring every team member can actively contribute to Nayara\u2019s sustainability vision while delivering exceptional service. The hotel has implemented a structured sustainability workshop series in collaboration with EcoQualis, focusing on emissions, waste, water, and broader sustainability concepts.",
+        ],
+        programs: [
+          { title: "Sustainability Training", desc: "Annual training for all departments on waste, water, and electricity reduction in collaboration with EcoQualis." },
+          { title: "Financial Education", desc: "Covering financial planning, budgeting, saving, and responsible credit use for all employees." },
+          { title: "Leadership Development", desc: "Courses enhancing management capabilities and leadership qualities for supervisors and managers." },
+          { title: "Culinary Excellence", desc: "Chef exchange programs with three Michelin star restaurants in Argentina and Peru." },
+          { title: "British Butler Institute", desc: "Top-tier service training through the internationally renowned British Butler Institute." },
+          { title: "Cultural Competency", desc: "Customer service training focused on understanding and serving European guests and diverse cultures." },
+          { title: "Food Safety & Handling", desc: "Comprehensive training for all food handling staff to manage food allergy issues and safety protocols." },
+          { title: "Cyber Security", desc: "Best practices training for staff with access to digital systems and guest data." },
+        ],
+      },
+      governance: [
+        { title: "Green Committee", desc: "Department managers form the Green Committee, holding regular meetings to review sustainability initiatives including energy reduction, waste management, water conservation, and community programs. The committee executes and monitors the Sustainable Management Plan (SMP), setting new goals and driving continuous progress." },
+        { title: "Sustainable Management Plan", desc: "A comprehensive framework governing all environmental, social, and governance practices across the three Costa Rica properties. The SMP is reviewed and updated regularly by the Green Committee to ensure alignment with evolving standards and certifications." },
+        { title: "Third-Party Verification", desc: "All sustainability claims are independently verified \u2014 Green Globe International for environmental and social governance, EcoQualis for carbon neutrality using the GHG Protocol, and FONAFIFO for carbon offset investments supporting national reforestation." },
+      ],
+      carbonOffset: {
+        headline: "Carbon Neutrality Through Partnership",
+        paragraphs: [
+          "Nayara Resorts is committed to reducing its environmental impact through a structured carbon offsetting strategy. The goal is to achieve and maintain carbon neutrality, offsetting Scope 1 and Scope 2 greenhouse gas emissions through the acquisition of certified carbon credits. Over time, this initiative will be progressively expanded to include additional areas of impact.",
+          "This effort is developed in collaboration with FONAFIFO (Fondo Nacional de Financiamiento Forestal), a Costa Rican public institution whose mission is to implement financial mechanisms for environmental services across forests and ecosystems. Through this partnership, carbon offset investments directly support national reforestation and conservation programs, contributing to the regeneration of ecosystems and biodiversity.",
+        ],
+        partnerName: "FONAFIFO",
+        partnerDesc: "Fondo Nacional de Financiamiento Forestal \u2014 a Costa Rican public institution promoting sustainable development by supporting those who actively preserve and restore natural resources through innovative public management.",
+        guestProgram: "At the end of their stay, guests can choose to make a voluntary donation to further offset their travel footprint \u2014 actively contributing to environmental protection through certified carbon credit projects such as Nuevo Guanacaste.",
+      },
+      sdgs: [
+        { number: 5, title: "Gender Equality", desc: "No wage inequality, female representation growing, equal access to jobs, training, and promotions." },
+        { number: 6, title: "Clean Water", desc: "On-site water filtration, geothermal water for pools, laundry water treatment and purification." },
+        { number: 7, title: "Affordable & Clean Energy", desc: "100% renewable energy via Coopelesca, 95% LED lighting, motion sensors, electric transport." },
+        { number: 8, title: "Decent Work", desc: "Fair salaries above minimum wage, stability, inclusivity, local SME engagement, largest employer in town." },
+        { number: 12, title: "Responsible Consumption", desc: "Food waste repurposed as animal feed, plastic-free rooms, 10-category recycling, sustainable packaging." },
+        { number: 15, title: "Life on Land", desc: "Halt deforestation, restore degraded ecosystems, 50,000+ plants restored, FONAFIFO partnership." },
+      ],
+      promotingAwareness: {
+        headline: "Engaging Guests & Staff",
+        events: [
+          { title: "Earth Day Composting Tours", desc: "Guests join guided tours of the property and greenhouse, learning about the composting process and how to replicate it at home. Organic waste is managed on-site and transformed into valuable resources." },
+          { title: "Friday Market Visits", desc: "Every Friday, guests take part in guided visits to the local market accompanied by resort staff \u2014 discovering regional products, meeting local vendors, and engaging directly with the community." },
+          { title: "International Recycling Day", desc: "Staff participate in a friendly competition to collect the most recyclable materials, with plans to extend the initiative to guests. The event raises awareness and encourages responsible waste behavior." },
+        ],
+      },
       narrative: {
         title: "A Forest Reborn",
         subtitle: "From Barren Ranch to Thriving Rainforest",

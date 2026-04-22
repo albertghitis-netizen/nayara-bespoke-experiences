@@ -9,6 +9,8 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
+import Footer from "@/components/Footer";
+import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
 import {
@@ -21,6 +23,12 @@ import {
   type ESGPillar,
   type ESGTimeline,
   type ESGCertification,
+  type EnvironmentalPillar,
+  type SocialImpact,
+  type CommunityProgram,
+  type GovernanceItem,
+  type CarbonOffset,
+  type SDGAlignment,
 } from "@/data/sustainability";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
@@ -85,6 +93,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
+      <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero palette={palette} propertyName={propertyName} headline={data.headline} heroVideo={heroVideo} heroHeight={HERO_HEIGHTS[propertySlug]} />
       <ScrollingPillarHeader word="BEYOND SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
 
@@ -93,6 +102,52 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
         <>
           <ESGStatsSection palette={palette} stats={data.esgReport.stats} />
           <ESGNarrativeSection palette={palette} narrative={data.esgReport.narrative} />
+
+          {/* Deep Environmental Pillars — Reforestation, Energy, Water, Waste */}
+          {data.esgReport.environmentalPillars && data.esgReport.environmentalPillars.length > 0 && (
+            <EnvironmentalPillarsSection palette={palette} pillars={data.esgReport.environmentalPillars} />
+          )}
+
+          {/* Social Impact — Employment, Equity, Local Workforce */}
+          {data.esgReport.socialImpact && (
+            <SocialImpactSection palette={palette} impact={data.esgReport.socialImpact} />
+          )}
+
+          {/* Housing Project */}
+          {data.esgReport.housingProject && (
+            <HousingProjectSection palette={palette} housing={data.esgReport.housingProject} />
+          )}
+
+          {/* Employee Development */}
+          {data.esgReport.employeeDevelopment && (
+            <EmployeeDevelopmentSection palette={palette} dev={data.esgReport.employeeDevelopment} />
+          )}
+
+          {/* Community Programs */}
+          {data.esgReport.communityPrograms && data.esgReport.communityPrograms.length > 0 && (
+            <CommunityProgramsSection palette={palette} programs={data.esgReport.communityPrograms} />
+          )}
+
+          {/* Carbon Offset */}
+          {data.esgReport.carbonOffset && (
+            <CarbonOffsetSection palette={palette} offset={data.esgReport.carbonOffset} />
+          )}
+
+          {/* Governance */}
+          {data.esgReport.governance && data.esgReport.governance.length > 0 && (
+            <GovernanceSection palette={palette} items={data.esgReport.governance} />
+          )}
+
+          {/* SDG Alignment */}
+          {data.esgReport.sdgs && data.esgReport.sdgs.length > 0 && (
+            <SDGSection palette={palette} sdgs={data.esgReport.sdgs} />
+          )}
+
+          {/* Promoting Awareness */}
+          {data.esgReport.promotingAwareness && (
+            <AwarenessSection palette={palette} awareness={data.esgReport.promotingAwareness} />
+          )}
+
           <ESGTimelineSection palette={palette} timeline={data.esgReport.timeline} />
         </>
       )}
@@ -102,6 +157,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
         <SustainabilityVoices palette={palette} videos={data.videos || []} blogs={data.blogs || []} propertySlug={propertySlug} />
       )}
       <ExploreSustainabilityCTA palette={palette} />
+      <Footer pageType="property" bgColor={palette.footerBg} />
     </div>
   );
 }
@@ -1052,6 +1108,835 @@ function SustainabilityVoices({
                   {video.description}
                 </p>
               </div>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ENVIRONMENTAL PILLARS — Deep-dive into Reforestation, Energy, Water, Waste
+   ═══════════════════════════════════════════════════════════════ */
+const ENV_PILLAR_ICONS: Record<string, React.ReactNode> = {
+  leaf: PILLAR_ICONS.leaf,
+  energy: PILLAR_ICONS.energy,
+  water: PILLAR_ICONS.water,
+  waste: (
+    <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+    </svg>
+  ),
+};
+
+function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPalette; pillars: EnvironmentalPillar[] }) {
+  const [activePillar, setActivePillar] = useState(0);
+  const current = pillars[activePillar];
+
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+          >
+            Environmental Stewardship
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            Four Pillars of Action
+          </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px] mb-10"
+            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          >
+            From reforestation to zero-waste operations — the environmental commitments that define how Nayara operates.
+          </p>
+        </AnimateOnScroll>
+
+        {/* Pillar tabs */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          {pillars.map((p, i) => (
+            <button
+              key={p.id}
+              onClick={() => setActivePillar(i)}
+              className="flex items-center gap-2 px-5 py-3 transition-all duration-300"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "13px",
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+                borderRadius: "8px",
+                backgroundColor: activePillar === i ? palette.primary : BRAND.bone,
+                color: activePillar === i ? "#fff" : BRAND.secondaryText,
+                border: `1px solid ${activePillar === i ? palette.primary : BRAND.divider}`,
+              }}
+            >
+              <span className="w-5 h-5" style={{ color: activePillar === i ? "#fff" : palette.primary }}>
+                {ENV_PILLAR_ICONS[p.icon] || ENV_PILLAR_ICONS.leaf}
+              </span>
+              {p.title}
+            </button>
+          ))}
+        </div>
+
+        {/* Active pillar content */}
+        <motion.div
+          key={current.id}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: EASE_EDITORIAL }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16"
+        >
+          {/* Left — subtitle + highlights */}
+          <div className="lg:col-span-4">
+            <h3
+              className="text-xl md:text-2xl tracking-wide mb-3"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            >
+              {current.title}
+            </h3>
+            <p
+              className="text-[14px] leading-[1.7] mb-8"
+              style={{ fontFamily: "var(--font-body)", color: palette.accent || BRAND.secondaryText }}
+            >
+              {current.subtitle}
+            </p>
+
+            {/* Highlight metrics */}
+            <div className="grid grid-cols-2 gap-4">
+              {current.highlights.map((h, i) => (
+                <div
+                  key={i}
+                  className="p-4"
+                  style={{
+                    backgroundColor: `${palette.primary}10`,
+                    borderRadius: "8px",
+                    borderLeft: `3px solid ${palette.primary}`,
+                  }}
+                >
+                  <span
+                    className="block text-[18px] md:text-[20px] mb-1"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: palette.primary }}
+                  >
+                    {h.value}
+                  </span>
+                  <span
+                    className="text-[11px] tracking-[0.04em]"
+                    style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                  >
+                    {h.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — editorial paragraphs */}
+          <div className="lg:col-span-8 flex flex-col gap-6">
+            {current.paragraphs.map((para, i) => (
+              <p
+                key={i}
+                className="text-[15px] md:text-[16px] leading-[1.85]"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  color: BRAND.primaryText,
+                  textAlign: "justify",
+                  hyphens: "auto" as const,
+                }}
+              >
+                {para}
+              </p>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SOCIAL IMPACT — Employment, Equity, Local Workforce
+   ═══════════════════════════════════════════════════════════════ */
+function SocialImpactSection({ palette, impact }: { palette: PropertyPalette; impact: SocialImpact }) {
+  return (
+    <section
+      className={sectionPadding}
+      style={{ backgroundColor: palette.gradientEnd || palette.gradientStart }}
+    >
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          {/* Left — headline + stats */}
+          <div className="lg:col-span-5">
+            <AnimateOnScroll variants={slideFromLeft}>
+              <p
+                className="text-[11px] tracking-[0.25em] uppercase mb-4"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+              >
+                Social Impact
+              </p>
+              <h2
+                className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+              >
+                {impact.headline}
+              </h2>
+              <p
+                className="text-[15px] leading-[1.8] mb-10"
+                style={{ fontFamily: "var(--font-body)", color: palette.accent || BRAND.secondaryText }}
+              >
+                {impact.subtitle}
+              </p>
+
+              {/* Stats grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {impact.stats.map((stat, i) => (
+                  <div
+                    key={i}
+                    className="p-5"
+                    style={{
+                      backgroundColor: palette.primary,
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <div
+                      className="text-2xl md:text-3xl mb-1"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff", lineHeight: 1 }}
+                    >
+                      <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                    </div>
+                    <span
+                      className="text-[11px] tracking-[0.04em]"
+                      style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
+                    >
+                      {stat.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </AnimateOnScroll>
+          </div>
+
+          {/* Right — editorial paragraphs */}
+          <div className="lg:col-span-7">
+            <StaggerOnScroll variants={staggerContainerSlow} className="flex flex-col gap-8">
+              {impact.paragraphs.map((para, i) => (
+                <motion.p
+                  key={i}
+                  variants={fadeUp}
+                  className="text-[15px] md:text-[16px] leading-[1.85]"
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    color: BRAND.primaryText,
+                    textAlign: "justify",
+                    hyphens: "auto" as const,
+                  }}
+                >
+                  {para}
+                </motion.p>
+              ))}
+            </StaggerOnScroll>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HOUSING PROJECT — 40 Homes for Staff
+   ═══════════════════════════════════════════════════════════════ */
+function HousingProjectSection({
+  palette,
+  housing,
+}: {
+  palette: PropertyPalette;
+  housing: NonNullable<ESGReport["housingProject"]>;
+}) {
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+          >
+            Housing Initiative
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            {housing.headline}
+          </h2>
+        </AnimateOnScroll>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          {/* Stats */}
+          <div className="lg:col-span-4">
+            <StaggerOnScroll variants={staggerContainer} className="flex flex-col gap-4">
+              {housing.stats.map((stat, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="p-5 flex items-center gap-4"
+                  style={{
+                    backgroundColor: BRAND.bone,
+                    borderRadius: "10px",
+                    border: `1px solid ${BRAND.divider}`,
+                    borderLeft: `4px solid ${palette.primary}`,
+                  }}
+                >
+                  <span
+                    className="text-2xl md:text-3xl shrink-0"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary, lineHeight: 1 }}
+                  >
+                    <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                  </span>
+                  <span
+                    className="text-[13px]"
+                    style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                  >
+                    {stat.label}
+                  </span>
+                </motion.div>
+              ))}
+            </StaggerOnScroll>
+          </div>
+
+          {/* Paragraphs */}
+          <div className="lg:col-span-8">
+            <StaggerOnScroll variants={staggerContainerSlow} className="flex flex-col gap-6">
+              {housing.paragraphs.map((para, i) => (
+                <motion.p
+                  key={i}
+                  variants={fadeUp}
+                  className="text-[15px] md:text-[16px] leading-[1.85]"
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    color: BRAND.primaryText,
+                    textAlign: "justify",
+                    hyphens: "auto" as const,
+                    ...(para.startsWith("\u201C") ? { fontStyle: "italic" as const } : {}),
+                  }}
+                >
+                  {para}
+                </motion.p>
+              ))}
+            </StaggerOnScroll>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EMPLOYEE DEVELOPMENT — Training Programs
+   ═══════════════════════════════════════════════════════════════ */
+function EmployeeDevelopmentSection({
+  palette,
+  dev,
+}: {
+  palette: PropertyPalette;
+  dev: NonNullable<ESGReport["employeeDevelopment"]>;
+}) {
+  return (
+    <section
+      className={sectionPadding}
+      style={{ backgroundColor: palette.gradientEnd || palette.gradientStart }}
+    >
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+          >
+            Employee Development
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            {dev.headline}
+          </h2>
+        </AnimateOnScroll>
+
+        {/* Quote / intro paragraphs */}
+        <StaggerOnScroll variants={staggerContainerSlow} className="max-w-[800px] mb-12">
+          {dev.paragraphs.map((para, i) => (
+            <motion.p
+              key={i}
+              variants={fadeUp}
+              className="text-[15px] md:text-[16px] leading-[1.85] mb-4"
+              style={{
+                fontFamily: "var(--font-body)",
+                color: BRAND.primaryText,
+                ...(para.startsWith("\u201C") ? { fontStyle: "italic" as const } : {}),
+              }}
+            >
+              {para}
+            </motion.p>
+          ))}
+        </StaggerOnScroll>
+
+        {/* Program cards */}
+        <StaggerOnScroll
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+        >
+          {dev.programs.map((prog, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="p-6"
+              style={{
+                backgroundColor: BRAND.bone,
+                borderRadius: "10px",
+                border: `1px solid ${BRAND.divider}`,
+                borderTop: `3px solid ${palette.primary}`,
+              }}
+            >
+              <h4
+                className="text-[14px] mb-3"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+              >
+                {prog.title}
+              </h4>
+              <p
+                className="text-[13px] leading-[1.6]"
+                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              >
+                {prog.desc}
+              </p>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COMMUNITY PROGRAMS — Grid of community initiatives
+   ═══════════════════════════════════════════════════════════════ */
+const COMMUNITY_ICONS: Record<string, React.ReactNode> = {
+  wildlife: (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4-4-8-7.5-8-11a8 8 0 0116 0c0 3.5-4 7-8 11z" />
+    </svg>
+  ),
+  education: (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+    </svg>
+  ),
+  food: PILLAR_ICONS.food,
+  heart: (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+    </svg>
+  ),
+  community: PILLAR_ICONS.community,
+  market: (
+    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.15c0 .415.336.75.75.75z" />
+    </svg>
+  ),
+};
+
+function CommunityProgramsSection({ palette, programs }: { palette: PropertyPalette; programs: CommunityProgram[] }) {
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+          >
+            Community Involvement
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            Beyond Our Gates
+          </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
+            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          >
+            Active partnerships and programs that strengthen the social fabric of La Fortuna and the broader Arenal community.
+          </p>
+        </AnimateOnScroll>
+
+        <StaggerOnScroll
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {programs.map((prog, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="p-6 md:p-8"
+              style={{
+                backgroundColor: BRAND.bone,
+                borderRadius: "10px",
+                border: `1px solid ${BRAND.divider}`,
+              }}
+            >
+              <div className="mb-4" style={{ color: palette.primary }}>
+                {COMMUNITY_ICONS[prog.icon] || COMMUNITY_ICONS.community}
+              </div>
+              <h4
+                className="text-[15px] mb-3"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+              >
+                {prog.title}
+              </h4>
+              <p
+                className="text-[13px] leading-[1.7]"
+                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              >
+                {prog.desc}
+              </p>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARBON OFFSET — FONAFIFO Partnership
+   ═══════════════════════════════════════════════════════════════ */
+function CarbonOffsetSection({ palette, offset }: { palette: PropertyPalette; offset: CarbonOffset }) {
+  return (
+    <section
+      className={sectionPadding}
+      style={{ backgroundColor: palette.gradientEnd || palette.gradientStart }}
+    >
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-5">
+            <AnimateOnScroll variants={slideFromLeft}>
+              <p
+                className="text-[11px] tracking-[0.25em] uppercase mb-4"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+              >
+                Carbon Neutrality
+              </p>
+              <h2
+                className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+              >
+                {offset.headline}
+              </h2>
+
+              {/* Partner card */}
+              <div
+                className="p-6 mb-6"
+                style={{
+                  backgroundColor: `${palette.primary}10`,
+                  borderRadius: "10px",
+                  borderLeft: `4px solid ${palette.primary}`,
+                }}
+              >
+                <h4
+                  className="text-[15px] mb-2"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                >
+                  {offset.partnerName}
+                </h4>
+                <p
+                  className="text-[13px] leading-[1.7]"
+                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                >
+                  {offset.partnerDesc}
+                </p>
+              </div>
+
+              {/* Guest program */}
+              <div
+                className="p-6"
+                style={{
+                  backgroundColor: BRAND.bone,
+                  borderRadius: "10px",
+                  border: `1px solid ${BRAND.divider}`,
+                }}
+              >
+                <p
+                  className="text-[11px] tracking-[0.15em] uppercase mb-2"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: palette.primary }}
+                >
+                  Guest Participation
+                </p>
+                <p
+                  className="text-[13px] leading-[1.7]"
+                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                >
+                  {offset.guestProgram}
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+
+          <div className="lg:col-span-7">
+            <StaggerOnScroll variants={staggerContainerSlow} className="flex flex-col gap-6">
+              {offset.paragraphs.map((para, i) => (
+                <motion.p
+                  key={i}
+                  variants={fadeUp}
+                  className="text-[15px] md:text-[16px] leading-[1.85]"
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    color: BRAND.primaryText,
+                    textAlign: "justify",
+                    hyphens: "auto" as const,
+                  }}
+                >
+                  {para}
+                </motion.p>
+              ))}
+            </StaggerOnScroll>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GOVERNANCE — Green Committee & Management Plan
+   ═══════════════════════════════════════════════════════════════ */
+function GovernanceSection({ palette, items }: { palette: PropertyPalette; items: GovernanceItem[] }) {
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+          >
+            Governance
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            Structure & Accountability
+          </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
+            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          >
+            Transparent governance structures ensure every sustainability commitment is measured, verified, and continuously improved.
+          </p>
+        </AnimateOnScroll>
+
+        <StaggerOnScroll variants={staggerContainer} className="flex flex-col gap-6">
+          {items.map((item, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="p-8 md:p-10"
+              style={{
+                backgroundColor: BRAND.bone,
+                borderRadius: "12px",
+                border: `1px solid ${BRAND.divider}`,
+                borderLeft: `4px solid ${palette.primary}`,
+              }}
+            >
+              <h4
+                className="text-[17px] mb-3"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+              >
+                {item.title}
+              </h4>
+              <p
+                className="text-[14px] leading-[1.75]"
+                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              >
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SDG ALIGNMENT — UN Sustainable Development Goals
+   ═══════════════════════════════════════════════════════════════ */
+const SDG_COLORS: Record<number, string> = {
+  5: "#FF3A21",
+  6: "#26BDE2",
+  7: "#FCC30B",
+  8: "#A21942",
+  12: "#BF8B2E",
+  15: "#56C02B",
+};
+
+function SDGSection({ palette, sdgs }: { palette: PropertyPalette; sdgs: SDGAlignment[] }) {
+  return (
+    <section
+      className={sectionPadding}
+      style={{ backgroundColor: palette.gradientEnd || palette.gradientStart }}
+    >
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+          >
+            Global Framework
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            UN Sustainable Development Goals
+          </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
+            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          >
+            Our sustainability practices align with six of the United Nations Sustainable Development Goals — connecting local action to global impact.
+          </p>
+        </AnimateOnScroll>
+
+        <StaggerOnScroll
+          variants={staggerContainer}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {sdgs.map((sdg, i) => {
+            const sdgColor = SDG_COLORS[sdg.number] || palette.primary;
+            return (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="p-6 md:p-8 flex flex-col"
+                style={{
+                  backgroundColor: BRAND.bone,
+                  borderRadius: "10px",
+                  border: `1px solid ${BRAND.divider}`,
+                  borderTop: `4px solid ${sdgColor}`,
+                }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-white text-[14px] shrink-0"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 600, backgroundColor: sdgColor }}
+                  >
+                    {sdg.number}
+                  </span>
+                  <h4
+                    className="text-[15px]"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                  >
+                    {sdg.title}
+                  </h4>
+                </div>
+                <p
+                  className="text-[13px] leading-[1.7]"
+                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                >
+                  {sdg.desc}
+                </p>
+              </motion.div>
+            );
+          })}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROMOTING AWARENESS — Guest & Staff Engagement Events
+   ═══════════════════════════════════════════════════════════════ */
+function AwarenessSection({
+  palette,
+  awareness,
+}: {
+  palette: PropertyPalette;
+  awareness: NonNullable<ESGReport["promotingAwareness"]>;
+}) {
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.25em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+          >
+            Promoting Awareness
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            {awareness.headline}
+          </h2>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
+            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          >
+            Sustainability is a shared responsibility — these programs invite guests and staff to participate directly.
+          </p>
+        </AnimateOnScroll>
+
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {awareness.events.map((event, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="p-6 md:p-8"
+              style={{
+                backgroundColor: BRAND.bone,
+                borderRadius: "10px",
+                border: `1px solid ${BRAND.divider}`,
+                borderTop: `3px solid ${palette.primary}`,
+              }}
+            >
+              <h4
+                className="text-[15px] mb-3"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+              >
+                {event.title}
+              </h4>
+              <p
+                className="text-[13px] leading-[1.7]"
+                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              >
+                {event.desc}
+              </p>
             </motion.div>
           ))}
         </StaggerOnScroll>
