@@ -2610,3 +2610,6 @@
 - [x] Make hero video play once (no loop), show "Enter the Rainforest" CTA when video ends
 - [x] On CTA click, trigger auto-scroll at 1.45x speed through entire cascade
 - [x] Auto-scroll interruptible by user manual scroll/touch
+
+## Tented Camp Sustainability Horizontal Video (Apr 22)
+- [x] Replace sustainability section horizontal video with Livinglegacy.MOV (ultra-narrow widescreen 21/6 ratio, touches verticals above and below)
