@@ -2625,3 +2625,6 @@
 ## Brand Homepage Hero H1 (Apr 22)
 - [x] Make H1 "Luxury Resorts Rooted in Nature" always visible on load (no delayed reveal, no location subtitle)
 - [ ] Swap hero video when user provides new one (without baked-in text)
+
+## Tented Camp Auto-Scroll Bug Fix (Apr 22)
+- [x] Fix auto-scroll on Tented Camp — clicking CTA turns off instead of triggering scroll

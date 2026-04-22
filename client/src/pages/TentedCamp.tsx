@@ -999,8 +999,8 @@ function useAutoScroll() {
   const isScrollingRef = useRef(false);
   const rafRef = useRef<number>(0);
   const lastTimeRef = useRef<number>(0);
-
-  // Base speed: pixels per millisecond. 1.45 * ~60px/s ≈ 87px/s
+  const cleanupRef = useRef<(() => void) | null>(null);
+  // Base speed: pixels per millisecond. 1.45 * ~60px/s = 87px/s
   const SPEED = 1.45 * 60 / 1000; // px per ms
 
   const stop = useCallback(() => {
@@ -1008,6 +1008,11 @@ function useAutoScroll() {
     if (rafRef.current) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = 0;
+    }
+    // Remove interrupt listeners
+    if (cleanupRef.current) {
+      cleanupRef.current();
+      cleanupRef.current = null;
     }
   }, []);
 
@@ -1018,48 +1023,40 @@ function useAutoScroll() {
 
     const step = (timestamp: number) => {
       if (!isScrollingRef.current) return;
-
       if (lastTimeRef.current === 0) {
         lastTimeRef.current = timestamp;
         rafRef.current = requestAnimationFrame(step);
         return;
       }
-
       const delta = timestamp - lastTimeRef.current;
       lastTimeRef.current = timestamp;
-
       const px = delta * SPEED;
       window.scrollBy(0, px);
-
       // Stop if we've reached the bottom
       const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
       if (atBottom) {
         stop();
         return;
       }
-
       rafRef.current = requestAnimationFrame(step);
     };
-
     rafRef.current = requestAnimationFrame(step);
+
+    // Register interrupt listeners after a grace period so the initial
+    // smooth-scroll animation doesn't immediately kill auto-scroll
+    setTimeout(() => {
+      if (!isScrollingRef.current) return;
+      const interrupt = () => stop();
+      window.addEventListener("wheel", interrupt, { passive: true });
+      window.addEventListener("touchstart", interrupt, { passive: true });
+      window.addEventListener("keydown", interrupt, { passive: true });
+      cleanupRef.current = () => {
+        window.removeEventListener("wheel", interrupt);
+        window.removeEventListener("touchstart", interrupt);
+        window.removeEventListener("keydown", interrupt);
+      };
+    }, 500);
   }, [stop, SPEED]);
-
-  // Listen for user interaction to interrupt auto-scroll
-  useEffect(() => {
-    if (!isScrollingRef.current) return;
-
-    const interrupt = () => stop();
-    // wheel and touch events indicate user wants to take over
-    window.addEventListener("wheel", interrupt, { passive: true });
-    window.addEventListener("touchstart", interrupt, { passive: true });
-    window.addEventListener("keydown", interrupt, { passive: true });
-
-    return () => {
-      window.removeEventListener("wheel", interrupt);
-      window.removeEventListener("touchstart", interrupt);
-      window.removeEventListener("keydown", interrupt);
-    };
-  });
 
   // Cleanup on unmount
   useEffect(() => {
@@ -1068,7 +1065,6 @@ function useAutoScroll() {
 
   return { start, stop, isScrolling: isScrollingRef };
 }
-
 export default function TentedCamp() {
   const { start: startAutoScroll } = useAutoScroll();
 
