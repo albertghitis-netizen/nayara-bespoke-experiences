@@ -4,6 +4,7 @@
  */
 import { useState } from "react";
 import { motion } from "framer-motion";
+import OneRainforestGardens from "@/components/OneRainforestGardens";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -146,6 +147,7 @@ export default function Gardens() {
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
+      <OneRainforestGardens />
 
       {/* ══ 1. ROOMS — Slider ══ */}
       <PropertySlider

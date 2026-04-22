@@ -4,6 +4,7 @@
  */
 import { useState } from "react";
 import { motion } from "framer-motion";
+import OneRainforestSprings from "@/components/OneRainforestSprings";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -129,6 +130,7 @@ export default function Springs() {
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
+      <OneRainforestSprings />
 
       {/* ★ 1. ROOMS — Slider */}
       <PropertySlider
