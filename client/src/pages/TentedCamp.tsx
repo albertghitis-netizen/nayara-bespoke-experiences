@@ -1001,7 +1001,7 @@ function useAutoScroll() {
   const lastTimeRef = useRef<number>(0);
   const cleanupRef = useRef<(() => void) | null>(null);
   // Base speed: pixels per millisecond. 1.45 * ~60px/s = 87px/s
-  const SPEED = 1.45 * 60 / 1000; // px per ms
+  const SPEED = 1.2325 * 60 / 1000; // px per ms (1.45 slowed 15%)
 
   const stop = useCallback(() => {
     isScrollingRef.current = false;

@@ -116,7 +116,7 @@ const propertyGrid: {
     location: "Atacama Desert, Chile",
     route: "/alto-atacama",
     bookingId: "alto-atacama",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
+    image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
     tagline: "Desert Lodge Villas",
     filter: "Family Adventure",
   },
@@ -277,14 +277,15 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge strips — slow subtle fade-in, both at the same time */}
+          {/* Badge strips — slow staggered fade-in, each row animates separately on scroll */}
           <AnimateOnScroll
-            threshold={0.5}
+            threshold={0.3}
             variants={{
-              hidden: { opacity: 0 },
+              hidden: { opacity: 0, y: 12 },
               visible: {
                 opacity: 1,
-                transition: { duration: 4, ease: [0.22, 1, 0.36, 1] },
+                y: 0,
+                transition: { duration: 2.5, ease: [0.22, 1, 0.36, 1] },
               },
             }}
           >
@@ -296,6 +297,19 @@ function BrandStorySection() {
                 loading="lazy"
               />
             </div>
+          </AnimateOnScroll>
+          <AnimateOnScroll
+            threshold={0.3}
+            delay={0.8}
+            variants={{
+              hidden: { opacity: 0, y: 12 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 2.5, ease: [0.22, 1, 0.36, 1] },
+              },
+            }}
+          >
             <div className="-mt-2">
               <img
                 src="/manus-storage/badge-strip-gardens-v8_32e10cf2.png"

@@ -2628,3 +2628,6 @@
 
 ## Tented Camp Auto-Scroll Bug Fix (Apr 22)
 - [x] Fix auto-scroll on Tented Camp — clicking CTA turns off instead of triggering scroll
+
+## Brand Homepage Badge Animation (Apr 22)
+- [x] Add slow scroll-triggered animation to resort badges — animation starts only when badges scroll into view
