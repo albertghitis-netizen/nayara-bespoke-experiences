@@ -2637,9 +2637,9 @@
 - [x] Ensure hero video audio works with the page sound system (already wired — muted by default, Sound pill toggles)
 
 ## Hangaroa Page Overhaul (Apr 22)
-- [ ] Remove auto-scroll system from Hangaroa
-- [ ] Replace Hangaroa hero video (already uploaded new one)
-- [ ] Add trim.mov as S1 — vertical video on right, H2+copy on left (first cascade section)
+- [x] Remove auto-scroll system from Hangaroa
+- [x] Replace Hangaroa hero video (already uploaded new one)
+- [x] Add trim.mov as S1 — vertical video on right, H2+copy on left (first cascade section)
 
 ## Badge Animation Removal (Apr 22)
 - [x] Remove all animations from badges on brand homepage — make them static/always visible

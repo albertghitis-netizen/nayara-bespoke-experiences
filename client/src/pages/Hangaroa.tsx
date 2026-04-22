@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import CinematicScroll from "@/components/CinematicScroll";
+// CinematicScroll removed — no auto-scroll on Hangaroa
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { hangaroaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
@@ -53,6 +53,7 @@ const PALETTE = {
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
   heroVideo: "/manus-storage/hangaroa-hero-new_9babcec4.mp4",
+  s1Vertical: "/manus-storage/hangaroa-s1-vertical_db0be629.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-20_b052852b.jpg",
   s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NH_45_42b93d04.JPG",
@@ -127,17 +128,12 @@ const wellnessCategories = (hangaroa.spaCategories || []).filter((c: { id: strin
 const wellnessCards = hangaroa.treatments.map((t: Treatment) => ({ title: t.name, description: t.description, category: t.category, tags: t.duration ? [t.duration] : [] }));
 
 export default function Hangaroa() {
-  const [adventureStarted, setAdventureStarted] = useState(false);
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <CinematicScroll
-        speed={1.35}
-        ctaText="Enter Rapa Nui"
-        onStart={() => setAdventureStarted(true)}
-      />
       <BrandNavigation pageType="property" />
-      <HeroSection showVideo={adventureStarted} />
+      <HeroSection />
       <StorySection />
+      <S1CascadeSection />
 
       {/* ★ 1. ROOMS — Slider */}
       <PropertySlider
@@ -208,109 +204,132 @@ export default function Hangaroa() {
 /* ═══════════════════════════════════════════════════════════════
    HERO - Full-screen video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection({ showVideo = false }: { showVideo?: boolean }) {
-  const preloadRef = useRef<HTMLVideoElement>(null);
-  const [videoReady, setVideoReady] = useState(false);
+function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
-  /* Preload hero video silently on mount — already buffered when CTA fires */
   useEffect(() => {
-    const video = preloadRef.current;
+    const video = videoRef.current;
     if (!video) return;
-    video.muted = true;
-    video.preload = "auto";
-    const onCanPlay = () => {
-      setVideoReady(true);
-      video.play().catch(() => {});
-    };
-    video.addEventListener("canplay", onCanPlay);
-    video.load();
-    return () => video.removeEventListener("canplay", onCanPlay);
+    video.play().catch(() => {});
   }, []);
 
-  /* Ensure video keeps playing when showVideo becomes true */
+  /* Sync muted state */
   useEffect(() => {
-    if (!showVideo) return;
-    const video = preloadRef.current;
-    if (video && video.paused) video.play().catch(() => {});
-  }, [showVideo]);
+    if (videoRef.current) videoRef.current.muted = isMuted;
+  }, [isMuted]);
 
   return (
-    <>
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0">
-          {/* Static photo shown until CTA is clicked */}
-          <img
-            src={CDN.moaiHorses}
-            alt="Moai at sunset, Easter Island"
-            className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ${
-              showVideo ? "opacity-0 pointer-events-none" : "opacity-100"
-            }`}
-          />
-          {/* Hero video — preloaded silently, fades in on CTA click */}
-          <video
-            ref={preloadRef}
-            className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              showVideo ? "opacity-100" : "opacity-0"
-            }`}
-            playsInline
-            muted={isMuted}
-            preload="auto"
-          >
-            <source src={CDN.heroVideo} type="video/mp4" />
-          </video>
-          {/* Sound pill — FIXED, aligned with nav bar, steel blue to match Hangaroa nav */}
-          {showVideo && (
-            <button
-              onClick={() => setIsMuted(!isMuted)}
-              aria-label={isMuted ? "Unmute" : "Mute"}
-              className="fixed z-50 flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
-              style={{
-                top: "8px",
-                left: "56px",
-                backgroundColor: "#536878B3",
-                borderColor: "rgba(255,255,255,0.1)",
-              }}
-            >
-              {isMuted ? (
-                <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: "#F7F5F0" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
-                </svg>
-              ) : (
-                <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: "#F7F5F0" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
-                </svg>
-              )}
-              <span className="text-xs tracking-[0.08em]" style={{ color: "#F7F5F0", fontFamily: "var(--font-body)", fontWeight: 500 }}>
-                {isMuted ? "Sound" : "Mute"}
-              </span>
-            </button>
+    <section className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0">
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          playsInline
+          muted
+          loop
+          preload="auto"
+        >
+          <source src={CDN.heroVideo} type="video/mp4" />
+        </video>
+        {/* Sound pill */}
+        <button
+          onClick={() => setIsMuted(!isMuted)}
+          aria-label={isMuted ? "Unmute" : "Mute"}
+          className="fixed z-50 flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
+          style={{
+            top: "8px",
+            left: "56px",
+            backgroundColor: "#536878B3",
+            borderColor: "rgba(255,255,255,0.1)",
+          }}
+        >
+          {isMuted ? (
+            <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: "#F7F5F0" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
+            </svg>
+          ) : (
+            <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: "#F7F5F0" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
+            </svg>
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+          <span className="text-xs tracking-[0.08em]" style={{ color: "#F7F5F0", fontFamily: "var(--font-body)", fontWeight: 500 }}>
+            {isMuted ? "Sound" : "Mute"}
+          </span>
+        </button>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+      </div>
+      {/* H1 overlaid — bottom center */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Where Ancient Culture Meets the Pacific
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.0 }}
+          className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Rapa Nui (Easter Island), Chile
+        </motion.p>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   S1 CASCADE — Vertical video right, H2 + copy left
+   ═══════════════════════════════════════════════════════════════ */
+function S1CascadeSection() {
+  const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+  const body = { fontFamily: "var(--font-body)" } as const;
+  return (
+    <section className={sectionPadding}>
+      <div className={maxW}>
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+          {/* Left — H2 + copy */}
+          <div className="flex-1 order-2 md:order-1">
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>The Island</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" className="mb-8" delay={0.1}>
+              <span
+                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                style={{ ...display, color: PALETTE.text }}
+              >
+                Te Pito o Te Henua
+              </span>
+            </TextReveal>
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <p className="text-[15px] leading-[1.8] mb-5" style={{ ...body, color: PALETTE.textSecondary }}>
+                Known as "The Navel of the World," Rapa Nui sits over 2,000 miles from the nearest inhabited land. Its volcanic peaks rise from the Pacific like ancient sentinels, guarding nearly a thousand Moai statues carved by a civilization that navigated by the stars.
+              </p>
+              <p className="text-[15px] leading-[1.8]" style={{ ...body, color: PALETTE.textSecondary }}>
+                Here, the wind carries stories of ancestral voyagers, and every sunset paints the stone guardians in hues of amber and rose. Nayara Hangaroa is your gateway to this sacred landscape — where luxury meets the world's most remote living culture.
+              </p>
+            </AnimateOnScroll>
+          </div>
+          {/* Right — vertical video */}
+          <div className="flex-1 order-1 md:order-2">
+            <MediaReveal>
+              <div className="overflow-hidden rounded-sm" style={{ aspectRatio: "3/4" }}>
+                <NativeVideo
+                  src={CDN.s1Vertical}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </MediaReveal>
+          </div>
         </div>
-        {/* H1 overlaid — bottom center */}
-        <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Where Ancient Culture Meets the Pacific
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.0 }}
-            className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Rapa Nui (Easter Island), Chile
-          </motion.p>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
