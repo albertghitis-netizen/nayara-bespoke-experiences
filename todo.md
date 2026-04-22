@@ -2660,3 +2660,6 @@
 ## Instagram Grid Replacement (Apr 22)
 - [x] Replace Instagram images on homepage bottom with 4 new items cropped to squares
 - [x] Order: 1) Flamingo video, 2) Woman in pool image, 3) Drone shot video, 4) Additional video
+
+## Brand Homepage S2 Video Replacement (Apr 22)
+- [x] Replace S2 horizontal video on brand homepage (between badges and "Six Destinations" section) with new video
