@@ -1764,10 +1764,10 @@
 - [ ] Replace current Gallery page with this new brand-level gallery
 
 ## Shared Costa Rica Pages (Slider + Sorter Combo)
-- [ ] Costa Rica Experiences — shared page for Gardens, Springs, Tented Camp with Slider + Sorter combo
+- [x] Costa Rica Experiences — shared page for Gardens, Springs, Tented Camp with Slider + Sorter combo
 - [ ] Costa Rica Sustainability — shared page with Slider + Sorter combo
 - [ ] Costa Rica Wellness — shared page with Slider + Sorter combo
-- [ ] Costa Rica Gastronomy — shared page with Slider + Sorter combo
+- [x] Costa Rica Gastronomy — shared page with Slider + Sorter combo
 - [ ] Update Gardens, Springs, Tented Camp homepage links to point to shared Costa Rica pages
 - [ ] Update App.tsx routing for shared Costa Rica pages
 
@@ -1838,7 +1838,7 @@
 - [x] Move current Experiences pillar hero → Alto Atacama Experiences sub-page hero
 - [ ] RULE: All 3 Costa Rica properties (Gardens, Springs, Tented Camp) share the SAME sub-pages for Wellness, Experiences, Sustainability, Gastronomy — one page each, Arenal/Tented Camp cascade format
 - [ ] Consolidate GardensWellness + SpringsWellness into one shared Costa Rica Wellness sub-page
-- [ ] Consolidate GardensExperiences + SpringsExperiences into one shared Costa Rica Experiences sub-page (if separate exist)
+- [x] Consolidate GardensExperiences + SpringsExperiences into one shared Costa Rica Experiences sub-page (if separate exist)
 - [ ] Same for Sustainability and Gastronomy sub-pages across all 3 CR properties
 - [x] Remove H1 text overlays from ALL property + brand home hero videos — clean video only, H1 sits below video
 - [x] 6 property-colored footers: each property page gets its own footer color palette
@@ -2681,3 +2681,17 @@
 - [x] Create Gastronomy blog landing page (matching existing blog page pattern)
 - [x] Create In-House Activities blog landing page (matching existing blog page pattern)
 - [x] Wire routes for both new blog pages in App.tsx (using dynamic /journal/:slug routing)
+
+## Costa Rica Experiences & Gastronomy Deep Pages (Apr 22)
+- [x] Build CostaRicaExperiences.tsx — comprehensive deep page modeled after sustainability pattern
+- [x] Include sections: Hero, Stats, Shared Philosophy, Yoga, Nature (Botanical/Birding/Tony), Las Thermas, Adventure
+- [x] Build CostaRicaGastronomy.tsx — comprehensive deep page modeled after sustainability pattern
+- [x] Include sections: Hero, Stats, Shared Dining Philosophy, Restaurants (6), Bars (5), Gelato, Classes (5)
+- [x] Both pages shared across Tented Camp, Springs, Gardens with property-specific colors
+- [x] Wire routes for /springs/experiences, /gardens/experiences, /tented-camp/experiences (gastronomy same)
+
+## Costa Rica Experiences & Gastronomy Deep Pages (Apr 22)
+- [x] Build CostaRicaExperiences.tsx — deep page: Hero, Stats, Shared Philosophy, Yoga, Nature (Botanical/Birding/Tony), Las Thermas, Adventure
+- [x] Build CostaRicaGastronomy.tsx — deep page: Hero, Stats, Shared Dining Philosophy, Restaurants (6), Bars (5), Gelato, Classes (5)
+- [x] Both shared across TC/Springs/Gardens with property-specific colors
+- [ ] Wire routes for /{property}/experiences and /{property}/gastronomy
