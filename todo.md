@@ -2613,7 +2613,7 @@
 
 ## Tented Camp Sustainability Horizontal Video (Apr 22)
 - [x] Replace sustainability section horizontal video with Livinglegacy.MOV (ultra-narrow widescreen 21/6 ratio, touches verticals above and below)
-- [ ] Replace S2 pool horizontal video on Tented Camp with new cropped pool video (30SecondsSequence-Mainpool.mov)
+- [x] Replace S2 pool horizontal video on Tented Camp with new cropped pool video (30SecondsSequence-Mainpool.mov)
 
 ## One Rainforest, Three Resorts Sections (Apr 22)
 - [x] Gardens: "Three Keys, One Door" card reveal section below badges in story section
@@ -2621,3 +2621,7 @@
 - [x] Both sections must be premium, creative, with scroll animations
 - [x] Responsive design for both sections
 - [x] Self-review and iterate to best version
+
+## Brand Homepage Hero H1 (Apr 22)
+- [x] Make H1 "Luxury Resorts Rooted in Nature" always visible on load (no delayed reveal, no location subtitle)
+- [ ] Swap hero video when user provides new one (without baked-in text)

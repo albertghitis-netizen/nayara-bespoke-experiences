@@ -180,34 +180,8 @@ function HeroSection() {
   const heroAudio = "/manus-storage/brand-hero-audio_22cb3160.mp3";
   const [isMuted, setIsMuted] = useState(true);
 
-  /* Track when video nears its end to reveal H1 */
-  const [showTitle, setShowTitle] = useState(false);
-  const videoTimeRef = useRef<HTMLVideoElement | null>(null);
 
-  /* Listen for timeupdate on the underlying <video> inside NativeVideo */
-  useEffect(() => {
-    /* NativeVideo renders a <video> inside a wrapper div.
-       We find it via the container's querySelector after mount. */
-    const container = document.querySelector("[data-hero-video]");
-    if (!container) return;
-    const video = container.querySelector("video");
-    if (!video) return;
-    videoTimeRef.current = video;
 
-    const onTime = () => {
-      const t = video.currentTime;
-      /* Hide title when video loops back to start */
-      if (t < 5) {
-        setShowTitle(false);
-      }
-      /* Reveal title at 69s */
-      if (t >= 69) {
-        setShowTitle(true);
-      }
-    };
-    video.addEventListener("timeupdate", onTime);
-    return () => video.removeEventListener("timeupdate", onTime);
-  }, []);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -249,9 +223,9 @@ function HeroSection() {
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
-          animate={showTitle ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[#F2EBE3] text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
           Luxury Resorts Rooted in Nature

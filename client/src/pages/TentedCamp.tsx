@@ -595,7 +595,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.",
     verticalSrc: ASSETS.storyV,
-    horizontalSrc: "/manus-storage/tented-camp-mainpool-new_8e60b570.mp4",
+    horizontalSrc: "/manus-storage/tented-camp-mainpool-new_72169ddd.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
