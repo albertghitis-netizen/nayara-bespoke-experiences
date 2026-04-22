@@ -630,7 +630,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
-    horizontalRatio: "21/6",
+    horizontalRatio: "13/5",
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
     link: "/sustainability",
