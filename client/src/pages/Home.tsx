@@ -63,7 +63,6 @@ const propertyGrid: {
   route: string;
   bookingId: string;
   image: string;
-  video?: string;
   tagline: string;
   filter: FilterTag;
 }[] = [
@@ -118,7 +117,6 @@ const propertyGrid: {
     route: "/alto-atacama",
     bookingId: "alto-atacama",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
-    video: "/manus-storage/atacama-property-card_086e02eb.mp4",
     tagline: "Desert Lodge Villas",
     filter: "Family Adventure",
   },
@@ -382,26 +380,13 @@ function PropertiesSection() {
               <Link href={prop.route} className="block">
                 <MediaReveal>
                   <div className="relative overflow-hidden mb-5">
-                    {prop.video ? (
-                      <video
-                        src={prop.video}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        style={{ aspectRatio: "3/2" }}
-                        poster={prop.image}
-                      />
-                    ) : (
-                      <img
-                        src={prop.image}
-                        alt={prop.name}
-                        className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        style={{ aspectRatio: "3/2" }}
-                        loading="lazy"
-                      />
-                    )}
+                    <img
+                      src={prop.image}
+                      alt={prop.name}
+                      className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      style={{ aspectRatio: "3/2" }}
+                      loading="lazy"
+                    />
                     {prop.filter === "Romantic Escape" && (
                       <span
                         className="absolute top-3 right-3 px-3 py-1 rounded-full text-[9px] tracking-[0.12em] backdrop-blur-sm"
@@ -899,12 +884,13 @@ function PillarsSection() {
    INSTAGRAM GRID — Single row, 6 images from @nayararesorts
    Warm transition from dark By Night back to footer
    ═══════════════════════════════════════════════════════════════ */
-const instagramPosts: { src: string; alt: string; type: "image" | "video" }[] = [
-  { src: "/manus-storage/ig-img-1_2902595e.jpg", alt: "Bocas del Toro overwater villa aerial", type: "image" },
-  { src: "/manus-storage/ig-vid-1_affc70bd.mp4", alt: "Nayara Resorts moment", type: "video" },
-  { src: "/manus-storage/ig-img-2_acdbd077.jpg", alt: "Private pool villa at dusk", type: "image" },
-  { src: "/manus-storage/ig-vid-2_961f73e6.mp4", alt: "Nayara Resorts experience", type: "video" },
-  { src: "/manus-storage/ig-vid-3_a1e35589.mp4", alt: "Nayara Resorts lifestyle", type: "video" },
+const instagramPosts = [
+  { src: "/manus-storage/ig-tented-camp_b848ffa1.jpg", alt: "Nayara Tented Camp at sunset" },
+  { src: "/manus-storage/ig-bocas_0fb4ac84.jpg", alt: "Nayara Bocas del Toro overwater villas" },
+  { src: "/manus-storage/ig-atacama_ff6b476d.jpg", alt: "Nayara Alto Atacama desert lodge" },
+  { src: "/manus-storage/ig-hangaroa_6a9424bd.jpeg", alt: "Easter Island Moai at sunset" },
+  { src: "/manus-storage/ig-springs_625d0bc3.jpg", alt: "Nayara Springs private villa pool" },
+  { src: "/manus-storage/ig-gardens_e183b9a8.jpg", alt: "Nayara Gardens with Arenal Volcano" },
 ];
 
 function InstagramGrid() {
@@ -954,7 +940,7 @@ function InstagramGrid() {
         </AnimateOnScroll>
 
         {/* Single-row grid — 6 images */}
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-3">
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3">
           {instagramPosts.map((post, i) => (
             <motion.a
               key={i}
@@ -964,23 +950,12 @@ function InstagramGrid() {
               rel="noopener noreferrer"
               className="group relative aspect-square overflow-hidden"
             >
-              {post.type === "video" ? (
-                <video
-                  src={post.src}
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              ) : (
-                <img
-                  src={post.src}
-                  alt={post.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              )}
+              <img
+                src={post.src}
+                alt={post.alt}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center">
                 <svg
