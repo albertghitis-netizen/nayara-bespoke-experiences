@@ -2673,3 +2673,4 @@
 ## Sustainability Pages Navigation & Links (Apr 22)
 - [x] Add BrandNavigation to all sustainability landing pages (treat them as part of main site)
 - [x] Wire "Explore More" sustainability links on property homepages to the sustainability pages
+- [x] Hangaroa: Change H1 to "Where Moai & Rapa Nui Culture Meet the Pacific"

@@ -268,7 +268,7 @@ function HeroSection() {
           className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Where Ancient Culture Meets the Pacific
+          Where Moai & Rapa Nui Culture Meet the Pacific
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
