@@ -2613,3 +2613,4 @@
 
 ## Tented Camp Sustainability Horizontal Video (Apr 22)
 - [x] Replace sustainability section horizontal video with Livinglegacy.MOV (ultra-narrow widescreen 21/6 ratio, touches verticals above and below)
+- [ ] Replace S2 pool horizontal video on Tented Camp with new cropped pool video (30SecondsSequence-Mainpool.mov)

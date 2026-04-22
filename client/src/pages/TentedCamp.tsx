@@ -302,12 +302,25 @@ function CascadeSection({
 
           {section.badges && (
             <div className="mt-8">
-              <p
-                className="text-[13px] md:text-[15px] leading-relaxed italic mb-6"
-                style={{ ...body, color: PALETTE.textSecondary, fontWeight: 400 }}
+              <a
+                href="/long-form-video"
+                className="inline-flex items-center gap-2.5 mb-6 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                style={{
+                  ...body,
+                  fontWeight: 500,
+                  fontSize: "12px",
+                  letterSpacing: "0.08em",
+                  color: "#fff",
+                  borderColor: PALETTE.primary,
+                  backgroundColor: `${PALETTE.primary}B3`,
+                  backdropFilter: "blur(8px)",
+                }}
               >
-                Pura Vida: The Science of Why Costa Rica Feels Different
-              </p>
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
+                </svg>
+                Watch: Pioneering Sustainable Luxury with Leo Ghitis
+              </a>
               <img
                 src="/manus-storage/badge-strip-tented-camp_c759b53d.png"
                 alt="Travel + Leisure World's Best Awards, Leading Hotels of the World, Green Globe Certified"
@@ -576,13 +589,13 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.",
     verticalSrc: ASSETS.storyV,
-    horizontalSrc: ASSETS.wildH,
+    horizontalSrc: "/manus-storage/tented-pool-h-new_25a04e18.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
-    horizontalRatio: "16/9",
+    horizontalRatio: "3840/2136",
     bgColor: SECTION_COLORS[1],
-    nextBgColor: SECTION_COLORS[2],
+    nextBgColor: SECTION_COLORS[1],
     badges: true,
     awards: "tented-camp",
   },
