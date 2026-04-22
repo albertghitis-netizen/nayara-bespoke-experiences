@@ -63,6 +63,7 @@ const propertyGrid: {
   route: string;
   bookingId: string;
   image: string;
+  video?: string;
   tagline: string;
   filter: FilterTag;
 }[] = [
@@ -117,6 +118,7 @@ const propertyGrid: {
     route: "/alto-atacama",
     bookingId: "alto-atacama",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
+    video: "/manus-storage/atacama-property-card_086e02eb.mp4",
     tagline: "Desert Lodge Villas",
     filter: "Family Adventure",
   },
@@ -380,13 +382,26 @@ function PropertiesSection() {
               <Link href={prop.route} className="block">
                 <MediaReveal>
                   <div className="relative overflow-hidden mb-5">
-                    <img
-                      src={prop.image}
-                      alt={prop.name}
-                      className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      style={{ aspectRatio: "3/2" }}
-                      loading="lazy"
-                    />
+                    {prop.video ? (
+                      <video
+                        src={prop.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        style={{ aspectRatio: "3/2" }}
+                        poster={prop.image}
+                      />
+                    ) : (
+                      <img
+                        src={prop.image}
+                        alt={prop.name}
+                        className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        style={{ aspectRatio: "3/2" }}
+                        loading="lazy"
+                      />
+                    )}
                     {prop.filter === "Romantic Escape" && (
                       <span
                         className="absolute top-3 right-3 px-3 py-1 rounded-full text-[9px] tracking-[0.12em] backdrop-blur-sm"

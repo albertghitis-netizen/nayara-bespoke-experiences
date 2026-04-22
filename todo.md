@@ -2617,3 +2617,18 @@
 
 ## Instagram Grid Media Replacement (Apr 22)
 - [x] Replace Instagram grid on brand homepage with user-provided 2 images + 3 videos (5 square tiles, auto-playing muted videos)
+
+## Badge Layout & T&L Animation (Apr 22)
+- [ ] Match badge layout/spacing/sizing on Tented Camp to brand Awards page first row
+- [ ] Match badge layout/spacing/sizing on Atacama to brand Awards page first row
+- [ ] Match badge layout/spacing/sizing on Bocas to brand Awards page first row
+- [ ] Add T&L years animation on Tented Camp showing wins: 2021, 2022, 2023, 2024, 2026 (skip 2025)
+
+## Brand Homepage Badge Rows — Add 4th Badge (Apr 22)
+- [x] Add T&L World's Best Awards badge to right of row 1 (don't touch existing 3 badges)
+- [x] Add Condé Nast Traveler Readers' Choice badge to right of row 2 (don't touch existing 3 badges)
+- [x] Same sizing and spacing as existing badges
+
+## Brand Homepage Updates (Apr 22)
+- [x] Restore badge animations on brand homepage badge strips (already had AnimateOnScroll fadeUp)
+- [x] Replace Atacama property card image with new horizontal video (Edits_Atacama_horizontal_1)
