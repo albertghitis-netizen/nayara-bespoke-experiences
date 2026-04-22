@@ -5,7 +5,8 @@
  * Functional breaks: Reviews pull-quote, Journal link, Getting Here
  * woven between cascade sections — not appended at the end
  */
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -824,11 +825,12 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO
+   HERO — Plays once, then shows "Enter the Rainforest" CTA
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection() {
+function HeroSection({ onEnterRainforest }: { onEnterRainforest: () => void }) {
   const isMobile = useIsMobile();
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
+  const [videoEnded, setVideoEnded] = useState(false);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -837,8 +839,11 @@ function HeroSection() {
           src={heroVideo}
           className="w-full h-full object-cover"
           hasAudio={true}
+          loop={false}
           pillBg="#868B75B3"
-          pillColor="#F7F5F0"/>
+          pillColor="#F7F5F0"
+          onEnded={() => setVideoEnded(true)}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -860,6 +865,35 @@ function HeroSection() {
         >
           Arenal Volcano National Park, Costa Rica
         </motion.p>
+
+        {/* "Enter the Rainforest" CTA — appears when video ends */}
+        <AnimatePresence>
+          {videoEnded && (
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              onClick={onEnterRainforest}
+              className="mt-8 group relative flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/30 backdrop-blur-md hover:border-white/60 transition-all duration-500 cursor-pointer"
+              style={{ backgroundColor: "rgba(134,139,117,0.4)" }}
+            >
+              <span
+                className="text-white text-[11px] md:text-xs tracking-[0.25em] uppercase group-hover:tracking-[0.35em] transition-all duration-500"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                Enter the Rainforest
+              </span>
+              {/* Downward arrow */}
+              <svg
+                className="w-3.5 h-3.5 text-white/70 group-hover:text-white group-hover:translate-y-0.5 transition-all duration-500"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+              </svg>
+            </motion.button>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
@@ -935,13 +969,104 @@ function GallerySection() {
    8. Gallery
    9. Footer
    ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   AUTO-SCROLL HOOK
+   Smooth requestAnimationFrame scroll at 1.45x base speed.
+   Stops when user scrolls/touches or reaches page bottom.
+   ═══════════════════════════════════════════════════════════════ */
+function useAutoScroll() {
+  const isScrollingRef = useRef(false);
+  const rafRef = useRef<number>(0);
+  const lastTimeRef = useRef<number>(0);
+
+  // Base speed: pixels per millisecond. 1.45 * ~60px/s ≈ 87px/s
+  const SPEED = 1.45 * 60 / 1000; // px per ms
+
+  const stop = useCallback(() => {
+    isScrollingRef.current = false;
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
+    }
+  }, []);
+
+  const start = useCallback(() => {
+    if (isScrollingRef.current) return;
+    isScrollingRef.current = true;
+    lastTimeRef.current = 0;
+
+    const step = (timestamp: number) => {
+      if (!isScrollingRef.current) return;
+
+      if (lastTimeRef.current === 0) {
+        lastTimeRef.current = timestamp;
+        rafRef.current = requestAnimationFrame(step);
+        return;
+      }
+
+      const delta = timestamp - lastTimeRef.current;
+      lastTimeRef.current = timestamp;
+
+      const px = delta * SPEED;
+      window.scrollBy(0, px);
+
+      // Stop if we've reached the bottom
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
+      if (atBottom) {
+        stop();
+        return;
+      }
+
+      rafRef.current = requestAnimationFrame(step);
+    };
+
+    rafRef.current = requestAnimationFrame(step);
+  }, [stop, SPEED]);
+
+  // Listen for user interaction to interrupt auto-scroll
+  useEffect(() => {
+    if (!isScrollingRef.current) return;
+
+    const interrupt = () => stop();
+    // wheel and touch events indicate user wants to take over
+    window.addEventListener("wheel", interrupt, { passive: true });
+    window.addEventListener("touchstart", interrupt, { passive: true });
+    window.addEventListener("keydown", interrupt, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", interrupt);
+      window.removeEventListener("touchstart", interrupt);
+      window.removeEventListener("keydown", interrupt);
+    };
+  });
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => stop();
+  }, [stop]);
+
+  return { start, stop, isScrolling: isScrollingRef };
+}
+
 export default function TentedCamp() {
+  const { start: startAutoScroll } = useAutoScroll();
+
+  const handleEnterRainforest = useCallback(() => {
+    // Scroll past the hero first, then start auto-scroll
+    const heroHeight = window.innerHeight;
+    window.scrollTo({ top: heroHeight, behavior: "smooth" });
+    // Start auto-scroll after the smooth scroll settles
+    setTimeout(() => {
+      startAutoScroll();
+    }, 800);
+  }, [startAutoScroll]);
+
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <BrandNavigation pageType="property" />
-      <HeroSection />
+      <HeroSection onEnterRainforest={handleEnterRainforest} />
 
-      {/* Cascade: Story → Rooms → Experiences → Wellness → Gastronomy */}
+      {/* Cascade: Story → Rooms → Experiences → Sustainability → Wellness → Gastronomy */}
       {SECTIONS_BEFORE_REVIEW.map((section, i) => (
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
@@ -958,7 +1083,6 @@ export default function TentedCamp() {
 
       {/* ★ Getting Here below Reviews */}
       <GettingHereBreak bgColor={SECTION_COLORS[8]} />
-
 
       <Footer bgColor="#868B75" />
     </div>

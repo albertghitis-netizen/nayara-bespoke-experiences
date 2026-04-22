@@ -26,6 +26,8 @@ interface BlobVideoProps {
   pillBg?: string;
   /** Text/icon color for the sound pill. Defaults to bone. */
   pillColor?: string;
+  /** Callback when video playback ends (only fires if loop=false) */
+  onEnded?: () => void;
 }
 
 export default function BlobVideo({
@@ -40,6 +42,7 @@ export default function BlobVideo({
   hasAudio = false,
   pillBg,
   pillColor,
+  onEnded,
 }: BlobVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -136,6 +139,7 @@ export default function BlobVideo({
           console.error("Video load error:", src);
           setHasError(true);
         }}
+        onEnded={onEnded}
       >
         <source src={src} type={getVideoType(src)} />
         {getVideoType(src) !== "video/mp4" && (

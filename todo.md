@@ -2605,3 +2605,8 @@
 
 ## Bocas del Toro Video Replacement (Apr 21)
 - [x] Replace Experiences vertical video on Bocas del Toro homepage with zapatilla.mov
+
+## Tented Camp Auto-Scroll Cascade (Apr 21)
+- [x] Make hero video play once (no loop), show "Enter the Rainforest" CTA when video ends
+- [x] On CTA click, trigger auto-scroll at 1.45x speed through entire cascade
+- [x] Auto-scroll interruptible by user manual scroll/touch
