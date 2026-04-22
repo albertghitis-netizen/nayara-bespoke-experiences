@@ -2674,3 +2674,5 @@
 - [x] Add BrandNavigation to all sustainability landing pages (treat them as part of main site)
 - [x] Wire "Explore More" sustainability links on property homepages to the sustainability pages
 - [x] Hangaroa: Change H1 to "Where Moai & Rapa Nui Culture Meet the Pacific"
+- [x] Remove "Nayara by Night" blog entry from Costa Rica sustainability pages (Tented Camp, Gardens, Springs)
+- [x] Replace "Pioneering Sustainable Luxury" Leo video on Tented Camp homepage with AFAR podcast (YouTube: FPxFzOkKhbw)

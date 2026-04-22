@@ -296,9 +296,9 @@ function CascadeSection({
                   fontWeight: 500,
                   fontSize: "12px",
                   letterSpacing: "0.08em",
-                  color: PALETTE.primary,
-                  borderColor: `${PALETTE.primary}30`,
-                  backgroundColor: `${PALETTE.primary}08`,
+                  color: "#fff",
+                  borderColor: "#3a2a1a",
+                  backgroundColor: "rgba(58,42,26,0.7)", backdropFilter: "blur(8px)",
                 }}
               >
                 {section.blogIsRead ? (
@@ -318,7 +318,7 @@ function CascadeSection({
           {section.badges && (
             <div className="mt-8">
               <a
-                href="/long-form-video"
+                href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 mb-6 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
                 style={{
                   ...body,
@@ -326,8 +326,8 @@ function CascadeSection({
                   fontSize: "12px",
                   letterSpacing: "0.08em",
                   color: "#fff",
-                  borderColor: PALETTE.primary,
-                  backgroundColor: `${PALETTE.primary}B3`,
+                  borderColor: "#3a2a1a",
+                  backgroundColor: "rgba(58,42,26,0.7)",
                   backdropFilter: "blur(8px)",
                 }}
               >
@@ -340,7 +340,7 @@ function CascadeSection({
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
                   </svg>
                 )}
-                Watch: Pioneering Sustainable Luxury with Leo Ghitis
+                Listen: Leo Ghitis on Sustainability with AFAR
               </a>
               <img
                 src="/manus-storage/badge-strip-tented-camp_c759b53d.png"
@@ -671,6 +671,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[6],
     link: "/tented-camp/sustainability",
     linkLabel: "Our Commitment",
+    blogUrl: "/long-form-video",
+    blogTitle: "Pioneering Sustainable Luxury",
   },
   {
     id: "wellness",

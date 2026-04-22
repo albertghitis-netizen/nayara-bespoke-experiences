@@ -450,14 +450,6 @@ export const sustainabilityData: Record<string, {
         image: "https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg",
         url: "https://blog.nayararesorts.com/womens-empowerment-through-housing-in-costa-ricas-la-fortuna",
       },
-
-
-      {
-        title: "Nayara by Night: Of Moon and Stars",
-        excerpt: "When the sun sets, the rainforest awakens - red-eyed tree frogs, glass frogs, and nocturnal creatures emerge under moonlight on guided night walks.",
-        image: "https://blog.nayararesorts.com/hs-fs/hubfs/Im%C3%A1genes%20BLOGS/2025/Red-eyed%20tree%20frogs%2c%20glass%20frogs.jpg?width=1100&height=550&name=Red-eyed%20tree%20frogs%2c%20glass%20frogs.jpg",
-        url: "https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars",
-      },
     ],
   },
 
