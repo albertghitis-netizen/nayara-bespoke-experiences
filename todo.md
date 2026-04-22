@@ -2614,3 +2614,6 @@
 ## Tented Camp Sustainability Horizontal Video (Apr 22)
 - [x] Replace sustainability section horizontal video with Livinglegacy.MOV (ultra-narrow widescreen 21/6 ratio, touches verticals above and below)
 - [ ] Replace S2 pool horizontal video on Tented Camp with new cropped pool video (30SecondsSequence-Mainpool.mov)
+
+## Instagram Grid Media Replacement (Apr 22)
+- [x] Replace Instagram grid on brand homepage with user-provided 2 images + 3 videos (5 square tiles, auto-playing muted videos)
