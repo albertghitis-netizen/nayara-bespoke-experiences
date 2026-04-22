@@ -303,8 +303,16 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge strips */}
-          <AnimateOnScroll variants={fadeUp}>
+          {/* Badge strips — slow subtle fade-in, both at the same time */}
+          <AnimateOnScroll
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { duration: 2.4, ease: [0.22, 1, 0.36, 1] },
+              },
+            }}
+          >
             <div className="mt-6">
               <img
                 src="/manus-storage/badge-strip-springs-v6_7de15d51.png"
