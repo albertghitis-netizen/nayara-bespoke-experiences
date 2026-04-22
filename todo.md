@@ -2676,3 +2676,8 @@
 - [x] Hangaroa: Change H1 to "Where Moai & Rapa Nui Culture Meet the Pacific"
 - [x] Remove "Nayara by Night" blog entry from Costa Rica sustainability pages (Tented Camp, Gardens, Springs)
 - [x] Replace "Pioneering Sustainable Luxury" Leo video on Tented Camp homepage with AFAR podcast (YouTube: FPxFzOkKhbw)
+
+## New Blog Pages — Gastronomy & In-House Activities (Apr 22)
+- [x] Create Gastronomy blog landing page (matching existing blog page pattern)
+- [x] Create In-House Activities blog landing page (matching existing blog page pattern)
+- [x] Wire routes for both new blog pages in App.tsx (using dynamic /journal/:slug routing)

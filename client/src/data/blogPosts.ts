@@ -3,6 +3,7 @@
  * Each blog post is a structured object rendered by the BlogPostTemplate component.
  * Content is HTML-safe strings (rendered via dangerouslySetInnerHTML).
  */
+import { gastronomyBlogPost, inHouseActivitiesBlogPost } from "./blogPostsNew";
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -877,6 +878,8 @@ export const allBlogPosts: Record<string, BlogPostData> = {
   "conde-nast-bocas-del-toro": bocasCondeNastPost,
   "beyond-sustainability-regenerative-tourism": beyondSustainabilityPost,
   "bocas-atacama-sustainability-study": bocasAtacamaSustainabilityPost,
+  "three-kitchens-one-rainforest": gastronomyBlogPost,
+  "in-house-activities-three-hotels-infinite-experiences": inHouseActivitiesBlogPost,
 };
 
 /** Helper to get a blog post by slug */
