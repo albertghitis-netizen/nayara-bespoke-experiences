@@ -277,15 +277,16 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge strips — slow staggered fade-in, each row animates separately on scroll */}
+          {/* Badge strips — very slow staggered fade-in, each row animates separately on scroll */}
           <AnimateOnScroll
-            threshold={0.3}
+            threshold={0.6}
+            delay={1.5}
             variants={{
-              hidden: { opacity: 0, y: 12 },
+              hidden: { opacity: 0, y: 18 },
               visible: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 2.5, ease: [0.22, 1, 0.36, 1] },
+                transition: { duration: 4, ease: [0.22, 1, 0.36, 1] },
               },
             }}
           >
@@ -299,14 +300,14 @@ function BrandStorySection() {
             </div>
           </AnimateOnScroll>
           <AnimateOnScroll
-            threshold={0.3}
-            delay={0.8}
+            threshold={0.6}
+            delay={3.0}
             variants={{
-              hidden: { opacity: 0, y: 12 },
+              hidden: { opacity: 0, y: 18 },
               visible: {
                 opacity: 1,
                 y: 0,
-                transition: { duration: 2.5, ease: [0.22, 1, 0.36, 1] },
+                transition: { duration: 4, ease: [0.22, 1, 0.36, 1] },
               },
             }}
           >

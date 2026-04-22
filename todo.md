@@ -2631,3 +2631,7 @@
 
 ## Brand Homepage Badge Animation (Apr 22)
 - [x] Add slow scroll-triggered animation to resort badges — animation starts only when badges scroll into view
+
+## Hangaroa Hero Video Replacement (Apr 22)
+- [x] Replace Hangaroa hero video with new video (with audio)
+- [x] Ensure hero video audio works with the page sound system (already wired — muted by default, Sound pill toggles)
