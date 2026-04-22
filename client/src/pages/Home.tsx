@@ -176,9 +176,15 @@ export default function Home() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = "/manus-storage/brand-hero-new_1f03591c.mp4";
-  const heroAudio = "/manus-storage/brand-hero-audio_22cb3160.mp3";
+  const heroVideo = "/manus-storage/brand-hero-final_a81c08c3.mp4";
   const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
 
 
 
@@ -186,13 +192,17 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0" data-hero-video>
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <video
+          ref={videoRef}
+          src={heroVideo}
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          playsInline
+          muted
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
-      
-      <audio autoPlay loop muted={isMuted} className="hidden">
-        <source src={heroAudio} type="audio/mpeg" />
-      </audio>
       
       {/* Sound pill — FIXED, aligned with BrandNavigation hamburger (same row) */}
       <button
@@ -277,49 +287,23 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge strips — very slow staggered fade-in, each row animates separately on scroll */}
-          <AnimateOnScroll
-            threshold={0.6}
-            delay={1.5}
-            variants={{
-              hidden: { opacity: 0, y: 18 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 4, ease: [0.22, 1, 0.36, 1] },
-              },
-            }}
-          >
-            <div className="mt-6">
-              <img
-                src="/manus-storage/badge-strip-springs-v6_7de15d51.png"
-                alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
-                className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
-                loading="lazy"
-              />
-            </div>
-          </AnimateOnScroll>
-          <AnimateOnScroll
-            threshold={0.6}
-            delay={3.0}
-            variants={{
-              hidden: { opacity: 0, y: 18 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 4, ease: [0.22, 1, 0.36, 1] },
-              },
-            }}
-          >
-            <div className="-mt-2">
-              <img
-                src="/manus-storage/badge-strip-gardens-v8_32e10cf2.png"
-                alt="Virtuoso, Leading Hotels of the World, Distinción Turismo Sustentable"
-                className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
-                loading="lazy"
-              />
-            </div>
-          </AnimateOnScroll>
+          {/* Badge strips — static, no animation */}
+          <div className="mt-6">
+            <img
+              src="/manus-storage/badge-strip-springs-v6_7de15d51.png"
+              alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
+              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
+              loading="lazy"
+            />
+          </div>
+          <div className="-mt-2">
+            <img
+              src="/manus-storage/badge-strip-gardens-v8_32e10cf2.png"
+              alt="Virtuoso, Leading Hotels of the World, Distinción Turismo Sustentable"
+              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
+              loading="lazy"
+            />
+          </div>
         </div>
         <div className="md:w-1/2">
           <MediaReveal delay={0.2} className="h-full">
@@ -882,13 +866,11 @@ function PillarsSection() {
    INSTAGRAM GRID — Single row, 6 images from @nayararesorts
    Warm transition from dark By Night back to footer
    ═══════════════════════════════════════════════════════════════ */
-const instagramPosts = [
-  { src: "/manus-storage/ig-tented-camp_b848ffa1.jpg", alt: "Nayara Tented Camp at sunset" },
-  { src: "/manus-storage/ig-bocas_0fb4ac84.jpg", alt: "Nayara Bocas del Toro overwater villas" },
-  { src: "/manus-storage/ig-atacama_ff6b476d.jpg", alt: "Nayara Alto Atacama desert lodge" },
-  { src: "/manus-storage/ig-hangaroa_6a9424bd.jpeg", alt: "Easter Island Moai at sunset" },
-  { src: "/manus-storage/ig-springs_625d0bc3.jpg", alt: "Nayara Springs private villa pool" },
-  { src: "/manus-storage/ig-gardens_e183b9a8.jpg", alt: "Nayara Gardens with Arenal Volcano" },
+const instagramPosts: { src: string; alt: string; isVideo?: boolean }[] = [
+  { src: "/manus-storage/ig-1-flamingo_0ed37fec.mp4", alt: "Flamingo wading in Atacama salt flats", isVideo: true },
+  { src: "/manus-storage/ig-2-pool_e3e8376f.jpg", alt: "Guest enjoying private plunge pool at Nayara Tented Camp" },
+  { src: "/manus-storage/ig-3-drone_551a1d3f.mp4", alt: "Aerial view of Nayara resort", isVideo: true },
+  { src: "/manus-storage/ig-4-extra_db83b788.mp4", alt: "Nayara resort experience", isVideo: true },
 ];
 
 function InstagramGrid() {
@@ -937,8 +919,8 @@ function InstagramGrid() {
           </div>
         </AnimateOnScroll>
 
-        {/* Single-row grid — 6 images */}
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3">
+        {/* Single-row grid — 4 items */}
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
           {instagramPosts.map((post, i) => (
             <motion.a
               key={i}
@@ -948,12 +930,23 @@ function InstagramGrid() {
               rel="noopener noreferrer"
               className="group relative aspect-square overflow-hidden"
             >
-              <img
-                src={post.src}
-                alt={post.alt}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              {post.isVideo ? (
+                <video
+                  src={post.src}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              ) : (
+                <img
+                  src={post.src}
+                  alt={post.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              )}
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500 flex items-center justify-center">
                 <svg

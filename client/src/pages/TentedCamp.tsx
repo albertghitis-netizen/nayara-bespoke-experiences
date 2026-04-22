@@ -28,7 +28,7 @@ import {
    PALETTE — "Canopy" gradient: misty green → deep forest
    ═══════════════════════════════════════════════════════════════ */
 /* Olive Tree gradient — warm olive-khaki cascade */
-const COLOR_A = "#F7F5F0"; // bone
+const COLOR_A = "#EDEEE2"; // unified olive tint (was bone #F7F5F0)
 const COLOR_B = "#EDEEE2"; // soft olive tint
 const SECTION_COLORS = [
   COLOR_A, // 0 hero
@@ -189,6 +189,7 @@ type CascadeSectionData = {
   awards?: string;
   blogUrl?: string;
   blogTitle?: string;
+  blogIsRead?: boolean;
   horizontalLoop?: boolean;
   verticalLoop?: boolean;
 };
@@ -287,6 +288,8 @@ function CascadeSection({
             <AnimateOnScroll variants={fadeUp} delay={0.35}>
               <a
                 href={section.blogUrl}
+                target={section.blogUrl.startsWith("http") ? "_blank" : undefined}
+                rel={section.blogUrl.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="inline-flex items-center gap-2.5 mt-8 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
                 style={{
                   ...body,
@@ -298,10 +301,16 @@ function CascadeSection({
                   backgroundColor: `${PALETTE.primary}08`,
                 }}
               >
-                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
-                </svg>
-                Watch: {section.blogTitle}
+                {section.blogIsRead ? (
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
+                  </svg>
+                )}
+                {section.blogIsRead ? "Read" : "Watch"}: {section.blogTitle}
               </a>
             </AnimateOnScroll>
           )}
@@ -322,9 +331,15 @@ function CascadeSection({
                   backdropFilter: "blur(8px)",
                 }}
               >
-                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
-                </svg>
+                {section.blogIsRead ? (
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
+                  </svg>
+                )}
                 Watch: Pioneering Sustainable Luxury with Leo Ghitis
               </a>
               <img
@@ -637,8 +652,9 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[5],
     link: "/tented-camp/experiences",
     linkLabel: "Explore More",
-    blogUrl: "/podcast",
-    blogTitle: "Pioneering Sustainable Luxury with Nayara Resorts",
+    blogUrl: "https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools",
+    blogTitle: "The History & Science of Private Hot Springs Plunge Pools",
+    blogIsRead: true,
   },
   {
     id: "sustainability",

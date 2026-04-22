@@ -2635,3 +2635,28 @@
 ## Hangaroa Hero Video Replacement (Apr 22)
 - [x] Replace Hangaroa hero video with new video (with audio)
 - [x] Ensure hero video audio works with the page sound system (already wired — muted by default, Sound pill toggles)
+
+## Hangaroa Page Overhaul (Apr 22)
+- [ ] Remove auto-scroll system from Hangaroa
+- [ ] Replace Hangaroa hero video (already uploaded new one)
+- [ ] Add trim.mov as S1 — vertical video on right, H2+copy on left (first cascade section)
+
+## Badge Animation Removal (Apr 22)
+- [x] Remove all animations from badges on brand homepage — make them static/always visible
+
+## Tented Camp Blog Link (Apr 22)
+- [x] Add blog link to Tented Camp experiences section — "Read: The History and Science of Private Villas Hot Springs Plunge Pools" styled like the story section link
+
+## Blog Link Colors Match Navigation (Apr 22)
+- [ ] All blog link pills on property pages and brand homepage should use the page's navigation color
+
+## Tented Camp Background Color (Apr 22)
+- [x] Use the "Lifted on Stilts" section background color (#EDEEE2 olive tint) as the entire Tented Camp page background
+
+## Brand Hero Video Final (Apr 22)
+- [x] Replace brand homepage hero video with final version (with audio)
+- [x] Wire up sound pill for brand hero audio (using native video audio, removed separate audio element)
+
+## Instagram Grid Replacement (Apr 22)
+- [x] Replace Instagram images on homepage bottom with 4 new items cropped to squares
+- [x] Order: 1) Flamingo video, 2) Woman in pool image, 3) Drone shot video, 4) Additional video
