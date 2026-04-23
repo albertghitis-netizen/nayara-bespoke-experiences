@@ -29,9 +29,9 @@ import { useCountUp } from "@/hooks/useCountUp";
 
 /* ── Palette (Gardens Canopy) ── */
 const P = {
-  primary: "#525642",
-  secondary: "#424A3E",
-  accent: "#868B75",
+  primary: "#286241",
+  secondary: "#1E4D33",
+  accent: "#3A7A55",
   bg: "#F7F5F0",
   bgTint: "#EDEEE2",
   text: "#3B2B26",
@@ -60,7 +60,7 @@ const PROPERTIES = [
     description: "The original Nayara — lush tropical gardens, volcano views, and the warm hospitality that started it all. Families and couples alike.",
     image: `${CDN}/prop-gardens_5931d8af.jpg`,
     route: "/gardens",
-    accent: "#525642",
+    accent: "#286241",
     current: true,
   },
   {

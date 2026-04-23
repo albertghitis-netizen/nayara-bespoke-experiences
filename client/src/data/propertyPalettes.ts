@@ -66,18 +66,18 @@ export const palettes: Record<string, PropertyPalette> = {
     navPillText: "#F7F5F0",
   },
 
-  /* ─── GARDENS — Dark Olive (swatch #22: #525642) ─── */
+  /* ─── GARDENS — Clover Green (swatch #12: #286241) ─── */
   gardens: {
-    primary: "#525642",          // Dark Olive (swatch #22)
-    secondary: "#424A3E",        // Deep Olive
-    accent: "#868B75",           // Sage (swatch #3)
+    primary: "#286241",          // Clover Green (swatch #12)
+    secondary: "#1E4F34",        // Deep Clover
+    accent: "#3A7B55",           // Light Clover
     gradientStart: "#F7F5F0",
     gradientEnd: "#EDEEE2",     // warm olive tint
-    buttonBg: "#525642",         // Dark Olive
+    buttonBg: "#286241",         // Clover Green
     buttonText: "#F7F5F0",
-    footerBg: "#525642",        // Dark Olive (primary)
+    footerBg: "#286241",        // Clover Green
     footerText: "#F7F5F0",      // Bone
-    navPillBg: "#525642",        // Dark Olive
+    navPillBg: "#286241",        // Clover Green
     navPillText: "#F7F5F0",
   },
 

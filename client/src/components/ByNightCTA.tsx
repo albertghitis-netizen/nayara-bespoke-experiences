@@ -104,15 +104,17 @@ export default function ByNightCTA({
           </AnimateOnScroll>
 
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <Link
-              href="/by-night"
+            <a
+              href="https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group mt-8 inline-flex items-center gap-2 text-white/60 hover:text-white/90 transition-colors"
             >
               <span
                 className="text-[11px] tracking-[0.2em]"
                 style={{ ...body, fontWeight: 500 }}
               >
-                Explore Nayara by Night
+                Of Moon and Stars
               </span>
               <svg
                 className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
@@ -123,7 +125,7 @@ export default function ByNightCTA({
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </Link>
+            </a>
           </AnimateOnScroll>
         </div>
       </div>

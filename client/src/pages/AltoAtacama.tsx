@@ -963,7 +963,7 @@ function ReserveCTA() {
         <AnimateOnScroll variants={fadeUp}>
           <TextReveal as="h2" className="mb-6" delay={0.1}>
             <span className="text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
-              Begin Your Desert Journey
+              Begin Your Desert Adventure
             </span>
           </TextReveal>
           <p className="text-[15px] leading-[1.8] mb-8" style={{ ...body, color: PALETTE.textSecondary }}>

@@ -44,9 +44,9 @@ const gardens = properties.find((p: Property) => p.id === "gardens")!;
    ═══════════════════════════════════════════════════════════════ */
 /* Dark Olive palette — warm olive green */
 const PALETTE = {
-  primary: "#525642",
-  secondary: "#424A3E",
-  accent: "#868B75",
+  primary: "#286241",
+  secondary: "#1E4D33",
+  accent: "#3A7A55",
   gradientStart: "#F7F5F0",
   gradientEnd: "#EDEEE2",
   text: "#3B2B26",
@@ -210,7 +210,7 @@ export default function Gardens() {
       {/* <GalleryIntegratedSections /> */}
 
 
-      <Footer bgColor="#525642" />
+      <Footer bgColor="#286241" />
     </div>
   );
 }
@@ -226,7 +226,7 @@ function HeroSection() {
           src={CDN.heroDesktop}
           className="w-full h-full object-cover"
           hasAudio={true}
-          pillBg="#525642B3"
+          pillBg="#286241B3"
           pillColor="#F7F5F0"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />

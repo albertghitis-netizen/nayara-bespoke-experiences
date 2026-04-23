@@ -297,8 +297,8 @@ function CascadeSection({
                   fontSize: "12px",
                   letterSpacing: "0.08em",
                   color: "#fff",
-                  borderColor: "#3a2a1a",
-                  backgroundColor: "rgba(58,42,26,0.7)", backdropFilter: "blur(8px)",
+                  borderColor: "#868B75",
+                  backgroundColor: "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)",
                 }}
               >
                 {section.blogIsRead ? (
@@ -326,8 +326,8 @@ function CascadeSection({
                   fontSize: "12px",
                   letterSpacing: "0.08em",
                   color: "#fff",
-                  borderColor: "#3a2a1a",
-                  backgroundColor: "rgba(58,42,26,0.7)",
+                  borderColor: "#868B75",
+                  backgroundColor: "rgba(134,139,117,0.7)",
                   backdropFilter: "blur(8px)",
                 }}
               >

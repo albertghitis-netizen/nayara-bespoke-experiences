@@ -2704,3 +2704,15 @@
 - [x] Atacama: Replace rooms section horizontal video (Rainbow Valley) with Hotel_Drone_NAA00136.MOV
 - [x] Atacama: Extract first frame from 64F69550 video as still image, use as vertical below wellness horizontal
 - [x] Atacama: Add NayaraAltoAtacama_1.jpg (plated dish) as horizontal below the spice bowl vertical — final cascade piece
+- [x] Homepage: Replace Nayara By Night vertical video with new user-provided video (4825BC12)
+- [x] Homepage: Replace Nayara By Night horizontal video with new user-provided video (Edits_Atacama_horizontal_1)
+- [x] Homepage: Change By Night section background to black
+- [x] Homepage: Replace By Night link with moon blog link
+- [x] Gardens: Change nav and footer colors back to clover green (#286241)
+- [x] Tented Camp: Change blog link colors to olive tree (#868B75) to match navigation
+- [ ] Atacama: Change "Begin Your Desert Journey" to "Begin Your Desert Adventure"
+- [ ] Tented Camp: Change CTA to "Begin Your Rainforest Adventure"
+- [ ] Bocas del Toro: Change CTA to "Begin Your Caribbean Adventure"
+- [x] Gardens: Fix hamburger and reserve pill colors to clover green (#286241)
+- [x] Hangaroa: Replace hero video with new user-provided video (0F543D4F)
+- [x] Hangaroa: Change H1 — user decided to keep existing text

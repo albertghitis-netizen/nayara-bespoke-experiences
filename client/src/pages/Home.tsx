@@ -154,13 +154,13 @@ export default function Home() {
       <TimelineSection />
       <AwardsHighlightSection />
       <ByNightCTA
-        verticalSrc="/manus-storage/brand-bynight-vertical-new_a9c824f4.mp4"
+        verticalSrc="/manus-storage/homepage-bynight-v_a69c6648.mp4"
         verticalIsVideo
         verticalRatio="3/4"
-        horizontalSrc="/manus-storage/brand-bynight-horizontal-stars_3e61c66b.mp4"
+        horizontalSrc="/manus-storage/homepage-bynight-h_c20386f7.mp4"
         horizontalIsVideo
         horizontalRatio="16/9"
-        bgColor="#1a1a24"
+        bgColor="#000000"
         headline={"Nayara\nby Night"}
         bodyText="As darkness descends across six extraordinary landscapes, a different world reveals itself — starlit skies over the Atacama, bioluminescent waters in Bocas del Toro, Moai beneath the Milky Way. Discover the nocturnal experiences that define Nayara after sunset."
         textSide="left"
