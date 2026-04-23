@@ -47,7 +47,7 @@ const PALETTE = {
   primary: "#286241",
   secondary: "#1E4D33",
   accent: "#3A7A55",
-  gradientStart: "#F7F5F0",
+  gradientStart: "#F4FFEA",
   gradientEnd: "#EDEEE2",
   text: "#3B2B26",
   textSecondary: "#67737C",
