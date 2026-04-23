@@ -582,42 +582,37 @@ const awardsData = [
     accolade: "Best Resort in Central America",
     property: "Nayara Bocas del Toro \u2014 Cond\u00e9 Nast",
     route: "/blog/conde-nast-bocas-del-toro",
-    blogLabel: "Read More",
   },
   {
     stat: "#1",
     accolade: "Best Resort in Central America",
-    property: "Nayara Tented Camp — Travel + Leisure",
+    property: "Nayara Tented Camp \u2014 Travel + Leisure",
     route: "/tented-camp",
-    blogLabel: "Read More",
   },
   {
-    stat: "Top 10",
-    accolade: "Top 10 Resort Brands in the World",
-    property: "Nayara Resorts — Travel + Leisure",
+    stat: "Top 15",
+    accolade: "Top 15 Resort Brands in the World",
+    property: "Nayara Resorts \u2014 Travel + Leisure",
     route: "/awards",
-    blogLabel: "Read More",
   },
   {
     stat: "3",
     accolade: "Only 3 Michelin Key Hotel in Costa Rica",
     property: "Nayara Springs \u2014 MICHELIN Guide",
     route: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
-    blogLabel: "Read More",
   },
   {
     stat: "Top 15",
     accolade: "Top 15 Resorts in South America",
     property: "Nayara Alto Atacama \u2014 Cond\u00e9 Nast",
     route: "https://www.cntraveler.com/gallery/top-resorts-in-south-america",
-    blogLabel: "Read More",
   },
   {
-    stat: "",
-    accolade: "",
-    property: "Nayara Gardens",
+    stat: "Hall of Fame",
+    accolade: "World's Best Awards Hall of Fame",
+    property: "Nayara Gardens \u2014 Travel + Leisure",
     route: "/gardens",
-    blogLabel: "Read More",
+
   },
 ];
 
@@ -697,28 +692,12 @@ function AwardsHighlightSection() {
                 >
                   {award.property}
                 </p>
-                {/* Read pill — only on cards with blog links */}
-                {award.blogLabel && (
-                  <div className="mt-5">
-                    <span
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-md"
-                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: cardAccent }}
-                    >
-                      <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                      </svg>
-                      {award.blogLabel}
-                    </span>
-                  </div>
-                )}
-                {/* Arrow indicator — appears on hover (non-blog cards) */}
-                {!award.blogLabel && (
+                {/* Arrow indicator — appears on hover */}
                 <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
                   <svg className="w-4 h-4 translate-x-[-8px] group-hover:translate-x-0 opacity-0 group-hover:opacity-60 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke={cardAccent} strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </div>
-                )}
               </Wrapper>
                 );
               })()}
