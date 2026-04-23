@@ -52,6 +52,7 @@ const SECTION_COLORS = [
   COLOR_A, // 17 architecture
   COLOR_A, // 18 the pool
   COLOR_A, // 19 flamingo lagoon
+  "#6F463D", // 20 nayara by night
 ];
 
 /* 3-COLOR SYSTEM
@@ -622,6 +623,19 @@ const CASCADE_SECTIONS = [
     hFirst: true,
     hideMobileV: true,
   },
+  {
+    label: "Nayara by Night",
+    headline: "The Clearest Skies on Earth",
+    description: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
+    vSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
+    hSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp",
+    vVideo: false, hVideo: false,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "left" as const,
+    badges: false,
+    isDarkSection: true,
+    bgOverride: "#000000",
+  },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -639,11 +653,11 @@ export default function AltoAtacama() {
          V+Text always comes before its own H, ensuring no H touches H
          and no V touches V. */}
       {CASCADE_SECTIONS.map((section, i) => {
-        const bg = SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1];
+        const bg = (section as any).bgOverride || SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1];
         const isHidden = (section as any).hideH;
         const isHFirst = (section as any).hFirst;
 
-        const isDarkSection = false; // all sections are light — Dark used only for accents/transitions
+        const isDarkSection = !!(section as any).isDarkSection;
 
         const VTextRow = (
           <div className="hidden md:block relative z-[1]" style={{ marginTop: '-1px' }}>

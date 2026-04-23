@@ -47,6 +47,7 @@ const SECTION_COLORS = [
   COLOR_B, // 17 dolphins
   COLOR_A, // 18 ocean life
   COLOR_B, // 19 island mood
+  "#000000", // 20 nayara by night (deep ocean dark)
 ];
 
 /* Caribbean Ocean Blue palette */
@@ -57,6 +58,8 @@ const PALETTE = {
   primary: "#008E97",
   divider: "#E6DFD5",
 };
+const BONE = "#F9F6F3";
+const DARK_SECTION_IDS = ["nayara-by-night"];
 
 /* ═══════════════════════════════════════════════════════════════
    CDN ASSETS — EVERY Bocas asset, organized by section
@@ -258,6 +261,20 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     link: "/bocas-del-toro/gastronomy",
     linkLabel: "Explore Dining",
   },
+  {
+    id: "nayara-by-night",
+    label: "Nayara by Night",
+    headline: "Bioluminescent\nWaters",
+    body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
+    verticalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum2_9f24efa2.jpeg",
+    horizontalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum_007f69ec.webp",
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    bgColor: "#000000",
+    nextBgColor: "#000000",
+  },
   /* ── TRIMMED: Extended cascade sections hidden for performance ──
    * Island Cocktails, Island Brunch, Marine Life, Island Life, Golden Hour,
    * Beach & Jungle, The Reef, From Above, Island Living, Dolphins,
@@ -269,11 +286,11 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
 /* ═══════════════════════════════════════════════════════════════
    HELPER — Section label
    ═══════════════════════════════════════════════════════════════ */
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({ children, color }: { children: React.ReactNode; color?: string }) {
   return (
     <p
       className="text-[11px] tracking-[0.2em] mb-4"
-      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
     >
       {children}
     </p>
@@ -319,6 +336,10 @@ function CascadeSection({
   index: number;
 }) {
   const textLeft = index % 2 === 0;
+  const isDark = DARK_SECTION_IDS.includes(section.id);
+  const textColor = isDark ? BONE : PALETTE.text;
+  const textSecondaryColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
+  const accentColor = isDark ? BONE : PALETTE.primary;
 
   return (
     <section id={section.id}>
@@ -347,7 +368,7 @@ function CascadeSection({
           style={{ backgroundColor: section.bgColor }}
         >
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>{section.label}</SectionLabel>
+            <SectionLabel color={isDark ? BONE : undefined}>{section.label}</SectionLabel>
           </AnimateOnScroll>
 
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
@@ -356,7 +377,7 @@ function CascadeSection({
                 <span
                   key={i}
                   className="block text-2xl md:text-4xl lg:text-[48px] leading-[1.05] tracking-wide"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: textColor }}
                 >
                   {line}
                 </span>
@@ -367,7 +388,7 @@ function CascadeSection({
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
               className="text-[15px] leading-[1.85] max-w-[480px] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+              style={{ fontFamily: "var(--font-body)", color: textSecondaryColor }}
             >
               {section.body}
             </p>
@@ -392,7 +413,7 @@ function CascadeSection({
               <a
                 href={section.link}
                 className="inline-block mt-6 text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
               >
                 {section.linkLabel || "Explore More"} →
               </a>
@@ -484,7 +505,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.2em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
           >
             Guest Voices
           </p>
@@ -532,7 +553,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
           >
             Read All Reviews →
           </a>

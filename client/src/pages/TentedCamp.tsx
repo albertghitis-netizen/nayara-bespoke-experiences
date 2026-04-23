@@ -61,6 +61,9 @@ const PALETTE = {
   accent: "#9A9086",
   divider: "#E6DFD5",
 };
+const BONE = "#F9F6F3";
+const DARK_SECTION_IDS = ["nayara-by-night"];
+
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)" } as const;
@@ -201,6 +204,10 @@ function CascadeSection({
   section: CascadeSectionData;
   index: number;
 }) {
+  const isDark = DARK_SECTION_IDS.includes(section.id);
+  const textColor = isDark ? BONE : PALETTE.text;
+  const textSecondaryColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
+  const accentColor = isDark ? BONE : PALETTE.primary;
   const textLeft = index % 2 === 0;
 
   const horizontalBlock = section.horizontalSrc ? (
@@ -738,6 +745,21 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[8],
     link: "/tented-camp/gastronomy",
     linkLabel: "Explore More",
+  },
+  {
+    id: "nayara-by-night",
+    label: "Nayara by Night",
+    headline: "Darkness\nReveals Beauty",
+    body: "At Nayara, nightfall is not an ending — it is a transformation. The jungle hums with nocturnal life, the sky deepens to reveal galaxies, and the resorts glow with intimate warmth. Every property is designed to celebrate the night as much as the day.",
+    verticalSrc: "/manus-storage/tented-night-frogs-vertical_f4faf46c.mov",
+    horizontalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-dusk_7f5e4a2b.webp",
+    verticalIsVideo: true,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "16/9",
+    verticalLoop: true,
+    bgColor: "#000000",
+    nextBgColor: "#000000",
   },
 ];
 

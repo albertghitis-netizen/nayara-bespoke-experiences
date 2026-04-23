@@ -2746,3 +2746,15 @@
 - [x] Atacama: Three distinct section transitions using Dark #6F463D — DrawLine rule (Story→Rooms), SVG diagonal cut (Rooms→Experiences), gradient dip (Experiences→Sustainability)
 - [x] Atacama: Remove AwardsSection from render (was re-added during dark experiment)
 - [x] Atacama: Final palette — Middle nav/footer, Dark for decorative accents + transitions, all sections Light background
+- [ ] Atacama: Remove three section transitions (DrawLine, SVG diagonal, gradient dip)
+- [ ] Atacama: Add "Nayara by Night" Dark (#6F463D) cascade section after "A Taste of Place" — left text, right vertical placeholder, bottom horizontal placeholder
+- [ ] Atacama: Section order — Story, Rooms, Experiences, Sustainability, Gastronomy, Nayara by Night, Guest Voices, Getting Here, Begin Your Desert Adventure
+- [ ] Atacama: Remove three section transitions, add Nayara by Night Dark section (stargazing/night sky) after Gastronomy — left text, right vertical placeholder, bottom horizontal placeholder
+- [ ] Bocas del Toro: Add Nayara by Night Dark section (bioluminescence focus) after last cascade section — same layout
+- [ ] Tented Camp: Add Nayara by Night Dark section (nocturnal rainforest focus) after last cascade section — same layout
+- [ ] Hanga Roa: Add Nayara by Night Dark section — vertical: moaiMilkyway, horizontal: craterMilkyway, exact copy from NayaraByNight Rapa Nui section
+- [x] Atacama: Add Nayara by Night Dark section — black bg, cactus Milky Way vertical, rock arch Milky Way horizontal, exact copy from NayaraByNight
+- [x] Bocas: Add Nayara by Night Dark section — black bg, bioluminescence content
+- [x] TentedCamp: Add Nayara by Night Dark section — black bg, frog reel vertical (Lookingforfrogs.REEL5)
+- [x] Hangaroa: Add Nayara by Night Dark section — black bg, moai Milky Way vertical, crater horizontal
+- [x] All four: Nayara by Night background set to pure black (#000000)

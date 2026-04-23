@@ -194,10 +194,76 @@ export default function Hangaroa() {
 
       {/* ── TRIMMED: GalleryIntegratedSections hidden for performance ── */}
       {/* <GalleryIntegratedSections /> */}
-
-
+      {/* ★ 6. NAYARA BY NIGHT */}
+      <NayaraByNightSection />
       <Footer bgColor="#536878" />
     </div>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   NAYARA BY NIGHT — Moai beneath the Milky Way
+   ═══════════════════════════════════════════════════════════════ */
+function NayaraByNightSection() {
+  const DARK = "#000000";
+  const BONE = "#F9F6F3";
+  const MIDDLE = "#536878";
+  return (
+    <section style={{ backgroundColor: DARK }}>
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24 md:order-1">
+          <AnimateOnScroll variants={fadeUp}>
+            <p
+              className="text-[11px] tracking-[0.2em] mb-4 uppercase"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: MIDDLE }}
+            >
+              Nayara by Night
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2
+              className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-6"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BONE }}
+            >
+              Moai Beneath<br />the Milky Way
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p
+              className="text-[15px] leading-[1.8] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: "#F9F6F3CC" }}
+            >
+              On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.
+            </p>
+          </AnimateOnScroll>
+        </div>
+        <div className="w-full md:w-1/2 md:order-2">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-milkyway_0588cd10.webp"
+                alt="Moai beneath the Milky Way — Nayara Hangaroa"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </MediaReveal>
+        </div>
+      </div>
+      <div className="hidden md:block" style={{ backgroundColor: DARK }}>
+        <MediaReveal delay={0.05}>
+          <div className="overflow-hidden" style={{ aspectRatio: "21/9" }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-crater-milkyway_00741a91.webp"
+              alt="Rano Kau crater beneath the Milky Way — Easter Island"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </MediaReveal>
+      </div>
+    </section>
   );
 }
 
