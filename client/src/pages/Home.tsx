@@ -630,7 +630,7 @@ function AwardsHighlightSection() {
               <Link
                 href={award.route}
                 className="group block h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_12px_40px_-8px_rgba(59,43,38,0.15)] hover:z-10 relative overflow-hidden"
-                style={{ backgroundColor: PALETTE.bg }}
+                style={{ backgroundColor: "#E6DFD5" }}
               >
                 {/* Gravel / grain texture overlay */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
