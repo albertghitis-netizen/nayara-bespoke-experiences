@@ -654,12 +654,12 @@ function AwardsHighlightSection() {
                   style={{
                     fontFamily: "var(--font-display)",
                     fontWeight: 300,
-                    color: `${cardText}30`,
+                    color: `${cardAccent}40`,
                     transitionProperty: "color, transform",
                   }}
                 >
                   <span className="group-hover:hidden">{award.stat}</span>
-                  <span className="hidden group-hover:inline" style={{ color: `${cardText}50` }}>{award.stat}</span>
+                  <span className="hidden group-hover:inline" style={{ color: `${cardAccent}70` }}>{award.stat}</span>
                 </span>
                 {/* Accent line — gold, grows wider on hover */}
                 <div
@@ -676,7 +676,7 @@ function AwardsHighlightSection() {
                 {/* Property name */}
                 <p
                   className="text-[12px] tracking-[0.06em] mb-4 transition-colors duration-500"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: cardTextMuted }}
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: cardTextSoft }}
                 >
                   {award.property}
                 </p>
