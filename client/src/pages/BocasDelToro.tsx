@@ -266,9 +266,9 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum2_9f24efa2.jpeg",
-    horizontalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum_007f69ec.webp",
-    verticalIsVideo: false,
+    verticalSrc: "/manus-storage/bocas-by-night-vertical_0352423e.mp4",
+    horizontalSrc: "/manus-storage/Untitleddesign(1)_39777eb6.JPG",
+    verticalIsVideo: true,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -290,7 +290,7 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
   return (
     <p
       className="text-[11px] tracking-[0.2em] mb-4"
-      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
+      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: color }}
     >
       {children}
     </p>
@@ -495,7 +495,7 @@ function HeroSection() {
    FUNCTIONAL BREAK — Guest Voices (Reviews)
    Matches Tented Camp ReviewsBreak pattern exactly
    ═══════════════════════════════════════════════════════════════ */
-function ReviewsBreak({ bgColor }: { bgColor: string }) {
+function ReviewsBreak({ bgColor, accentColor }: { bgColor: string; accentColor: string }) {
   return (
     <section
       className="py-20 md:py-28 px-8 md:px-16"
@@ -566,7 +566,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 /* ═══════════════════════════════════════════════════════════════
    FUNCTIONAL BREAK — Getting Here
    ═══════════════════════════════════════════════════════════════ */
-function GettingHereBreak({ bgColor }: { bgColor: string }) {
+function GettingHereBreak({ bgColor, accentColor }: { bgColor: string; accentColor: string }) {
   const routes = [
     {
       title: "International Flights",
@@ -720,9 +720,9 @@ export default function BocasDelToro() {
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
 
-      <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
+      <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} accentColor={PALETTE.primary} />
 
-      <GettingHereBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 2]} />
+      <GettingHereBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 2]} accentColor={PALETTE.primary} />
       <ReserveCTA />
       <Footer bgColor="#008E97" />
     </div>
