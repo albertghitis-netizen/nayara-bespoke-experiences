@@ -54,9 +54,9 @@ export const tentedCampAwards: Award[] = [
   {
     id: "ntc-tl",
     name: "#1 Resort in Central America",
-    description: "Travel + Leisure World's Best Awards — #1 in Central America for 4 consecutive years",
+    description: "Travel + Leisure World's Best Awards — #1 in Central America 5 of the last 6 years",
     logo: LOGOS.travelLeisure2025,
-    year: "2022–2025",
+    year: "2020–2026",
   },
   {
     id: "ntc-green-globe",

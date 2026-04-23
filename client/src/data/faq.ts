@@ -226,7 +226,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "gen-1",
     question: "What awards has Nayara won?",
-    answer: "Nayara Resorts was named a Top 15 Resort Brand in the World by Travel + Leisure in both 2024 and 2025. Nayara Springs holds 3 Michelin Keys. Nayara Tented Camp was named #1 Resort in Central America by Travel + Leisure for four consecutive years. Individual properties hold recognitions from Condé Nast Traveler, Virtuoso, Relais & Châteaux, and Green Globe.",
+    answer: "Nayara Resorts was named a Top 15 Resort Brand in the World by Travel + Leisure in both 2024 and 2025. Nayara Springs holds 3 Michelin Keys. Nayara Tented Camp was named #1 Resort in Central America by Travel + Leisure 5 of the last 6 years. Individual properties hold recognitions from Condé Nast Traveler, Virtuoso, Relais & Châteaux, and Green Globe.",
     properties: [],
     pillar: "general",
   },
