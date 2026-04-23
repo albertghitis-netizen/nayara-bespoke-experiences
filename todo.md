@@ -2758,9 +2758,3 @@
 - [x] TentedCamp: Add Nayara by Night Dark section — black bg, frog reel vertical (Lookingforfrogs.REEL5)
 - [x] Hangaroa: Add Nayara by Night Dark section — black bg, moai Milky Way vertical, crater horizontal
 - [x] All four: Nayara by Night background set to pure black (#000000)
-- [ ] Hangaroa: Replace Nayara by Night vertical with brand homepage Moai video (homepage-bynight-v)
-- [ ] Atacama: Replace Nayara by Night horizontal with brand homepage horizontal (homepage-bynight-h)
-- [ ] Home: Remove ByNightCTA section and import from brand homepage entirely
-- [x] Hangaroa: Replace Nayara by Night vertical with brand homepage Moai video (homepage-bynight-v) — rendered as autoplay video
-- [x] Atacama: Replace Nayara by Night horizontal with brand homepage horizontal (homepage-bynight-h) — hVideo: true
-- [x] Home: Remove ByNightCTA section and import from brand homepage entirely

@@ -10,6 +10,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
 
 import Footer from "@/components/Footer";
+import ByNightCTA from "@/components/ByNightCTA";
 import { OrganizationSchema } from "@/components/SEOSchema";
 import { BOOKING_URLS } from "@/data/booking";
 import {
@@ -152,7 +153,18 @@ export default function Home() {
 
       <TimelineSection />
       <AwardsHighlightSection />
-
+      <ByNightCTA
+        verticalSrc="/manus-storage/homepage-bynight-v_a69c6648.mp4"
+        verticalIsVideo
+        verticalRatio="3/4"
+        horizontalSrc="/manus-storage/homepage-bynight-h_c20386f7.mp4"
+        horizontalIsVideo
+        horizontalRatio="16/9"
+        bgColor="#000000"
+        headline={"Nayara\nby Night"}
+        bodyText="As darkness descends across six extraordinary landscapes, a different world reveals itself — starlit skies over the Atacama, bioluminescent waters in Bocas del Toro, Moai beneath the Milky Way. Discover the nocturnal experiences that define Nayara after sunset."
+        textSide="left"
+      />
       <Footer />
     </div>
   );
