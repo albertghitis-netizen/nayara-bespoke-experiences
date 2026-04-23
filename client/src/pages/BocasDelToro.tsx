@@ -422,11 +422,12 @@ function CascadeSection({
 
           {section.id === "story" && (
             <div className="mt-8">
-              <img
-                src="/manus-storage/badge-strip-bocas-v2_de887869.png"
-                alt="Michelin 2 Keys, Leading Hotels of the World, Green Globe Certified"
-                className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
-                loading="lazy"
+              <video
+                src="/manus-storage/badge-bocas-final_15068a56.mp4"
+                autoPlay
+                muted
+                playsInline
+                className="h-24 md:h-32 lg:h-40 w-auto -ml-2 md:-ml-3 lg:-ml-6"
               />
             </div>
           )}
