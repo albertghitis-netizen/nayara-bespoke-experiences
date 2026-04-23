@@ -4,6 +4,7 @@
  * Every available asset shown — no repeats
  * Varied aspect ratios per section, zero-gap between all elements
  */
+import { Fragment, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import BlobVideo from "@/components/BlobVideo";
 import NativeVideo from "@/components/NativeVideo";
@@ -16,6 +17,8 @@ import {
   TextReveal,
   MultiLineReveal,
   MediaReveal,
+  DrawLine,
+  GradientTransition,
   fadeUp,
   DURATION,
   EASE_CINEMATIC,
@@ -28,27 +31,26 @@ const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
    More sections = more gradient steps
    ═══════════════════════════════════════════════════════════════ */
 const COLOR_A = "#F9EBE0"; // light — warm peach sand
-const COLOR_D = "#6F463D"; // dark — deep earth terracotta
 const SECTION_COLORS = [
   COLOR_A, // 0 hero
   COLOR_A, // 1 story
-  COLOR_D, // 2 rooms — DARK
+  COLOR_A, // 2 rooms
   COLOR_A, // 3 experiences
-  COLOR_D, // 4 sustainability — DARK
+  COLOR_A, // 4 sustainability
   COLOR_A, // 5 wellness
-  COLOR_D, // 6 wellness healing — DARK
+  COLOR_A, // 6 wellness healing
   COLOR_A, // 7 a taste of place
-  COLOR_D, // 8 desert ingredients — DARK
+  COLOR_A, // 8 desert ingredients
   COLOR_A, // 9 the art of plating
-  COLOR_D, // 10 sweet finales — DARK
+  COLOR_A, // 10 sweet finales
   COLOR_A, // 11 dining & stars
-  COLOR_D, // 12 stargazing — DARK
+  COLOR_A, // 12 stargazing
   COLOR_A, // 13 landscape
-  COLOR_D, // 14 wildlife — DARK
+  COLOR_A, // 14 wildlife
   COLOR_A, // 15 adventure
-  COLOR_D, // 16 dusk — DARK
+  COLOR_A, // 16 dusk
   COLOR_A, // 17 architecture
-  COLOR_D, // 18 the pool — DARK
+  COLOR_A, // 18 the pool
   COLOR_A, // 19 flamingo lagoon
 ];
 
@@ -184,7 +186,7 @@ const ASSETS = {
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)" } as const;
 
-function SectionLabel({ children, color }: { children: React.ReactNode; color?: string }) {
+function SectionLabel({ children, color }: { children: ReactNode; color?: string }) {
   return (
     <p
       className="text-[11px] tracking-[0.2em] mb-4"
@@ -641,7 +643,7 @@ export default function AltoAtacama() {
         const isHidden = (section as any).hideH;
         const isHFirst = (section as any).hFirst;
 
-        const isDarkSection = bg === COLOR_D;
+        const isDarkSection = false; // all sections are light — Dark used only for accents/transitions
 
         const VTextRow = (
           <div className="hidden md:block relative z-[1]" style={{ marginTop: '-1px' }}>
@@ -725,49 +727,85 @@ export default function AltoAtacama() {
           </div>
         ) : null;
 
-        return (
-          <section key={i} style={{ backgroundColor: bg }}>
-            {/* Desktop: H-first or V-first ordering */}
-            {isHFirst ? (
-              <>{HRow}{VTextRow}</>
-            ) : (
-              <>{VTextRow}{HRow}</>
-            )}
+        // ── TRANSITION ELEMENTS injected BEFORE each section ──────────────────
+        // Transition 0 (Story → Accommodations): Full-width animated rule — a chapter break
+        const Transition0 = i === 1 ? (
+          <div className="px-10 md:px-20 py-6" style={{ backgroundColor: LIGHT }}>
+            <DrawLine color={`${DARK}40`} />
+          </div>
+        ) : null;
 
-            {/* MOBILE: Stacked */}
-            <div className="md:hidden px-5">
-              <div className="pt-10 pb-6">
-                <CascadeTextBlock
-                  label={section.label}
-                  headline={section.headline}
-                  description={section.description}
-                  link={section.link}
-                  linkLabel={section.linkLabel}
-                  blogLink={(section as any).blogLink}
-                  blogLinkLabel={(section as any).blogLinkLabel}
-                  badges={section.badges}
-                  badgeImage={(section as any).badgeImage}
-                  isDark={isDarkSection}
-                />
-              </div>
-              {!(section as any).hideMobileV && (
-                <MediaReveal delay={0.1}>
-                  <MediaBlock
-                    src={section.vSrc}
-                    alt={section.headline}
-                    isVideo={section.vVideo}
-                    aspectRatio={section.vRatio}
-                  />
-                </MediaReveal>
+        // Transition 1 (Accommodations → Experiences): SVG diagonal cut using Dark
+        const Transition1 = i === 2 ? (
+          <div className="relative overflow-hidden" style={{ height: 80, backgroundColor: LIGHT }}>
+            <svg
+              viewBox="0 0 1440 80"
+              preserveAspectRatio="none"
+              className="absolute inset-0 w-full h-full"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon points="0,0 1440,0 1440,80 0,40" fill={`${DARK}18`} />
+              <polygon points="0,40 1440,80 1440,80 0,80" fill={`${DARK}08`} />
+            </svg>
+          </div>
+        ) : null;
+
+        // Transition 2 (Experiences → Sustainability): Gradient dip — Light fades to Dark tint and back
+        const Transition2 = i === 3 ? (
+          <>
+            <GradientTransition from={LIGHT} to={`${DARK}28`} height="80px" />
+            <GradientTransition from={`${DARK}28`} to={LIGHT} height="80px" />
+          </>
+        ) : null;
+
+        return (
+          <Fragment key={i}>
+            {Transition0}
+            {Transition1}
+            {Transition2}
+            <section style={{ backgroundColor: bg }}>
+              {/* Desktop: H-first or V-first ordering */}
+              {isHFirst ? (
+                <>{HRow}{VTextRow}</>
+              ) : (
+                <>{VTextRow}{HRow}</>
               )}
-            </div>
-          </section>
+
+              {/* MOBILE: Stacked */}
+              <div className="md:hidden px-5">
+                <div className="pt-10 pb-6">
+                  <CascadeTextBlock
+                    label={section.label}
+                    headline={section.headline}
+                    description={section.description}
+                    link={section.link}
+                    linkLabel={section.linkLabel}
+                    blogLink={(section as any).blogLink}
+                    blogLinkLabel={(section as any).blogLinkLabel}
+                    badges={section.badges}
+                    badgeImage={(section as any).badgeImage}
+                    isDark={isDarkSection}
+                  />
+                </div>
+                {!(section as any).hideMobileV && (
+                  <MediaReveal delay={0.1}>
+                    <MediaBlock
+                      src={section.vSrc}
+                      alt={section.headline}
+                      isVideo={section.vVideo}
+                      aspectRatio={section.vRatio}
+                    />
+                  </MediaReveal>
+                )}
+              </div>
+            </section>
+          </Fragment>
         );
       })}
 
 
-      <ReviewsBreak bgColor={DARK} />
-      <AwardsSection />
+
+      <ReviewsBreak bgColor={LIGHT} />
       <GettingHereSection />
       <ReserveCTA />
       <Footer bgColor={MIDDLE} />
@@ -910,18 +948,18 @@ function GettingHereSection() {
     { title: "Altitude Guidance", description: "At 2,400m elevation, we schedule excursions progressively. Coca tea available throughout the property.", icon: "⛰" },
   ];
   return (
-    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: DARK }}>
+    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: LIGHT }}>
       <div className="max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel color={MIDDLE}>Getting Here</SectionLabel>
+          <SectionLabel>Getting Here</SectionLabel>
         </AnimateOnScroll>
         <TextReveal as="h2" className="mb-3" delay={0.1}>
-          <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: BONE }}>
+          <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
             Your Journey to the Desert
           </span>
         </TextReveal>
         <AnimateOnScroll variants={fadeUp} delay={0.2}>
-          <p className="text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={{ ...body, color: `${BONE}CC` }}>
+          <p className="text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={{ ...body, color: PALETTE.textSecondary }}>
             Nayara Alto Atacama operates on a full-board basis including all meals, open bar, daily guided excursions, and airport transfers.
           </p>
         </AnimateOnScroll>
@@ -931,24 +969,24 @@ function GettingHereSection() {
               <div className="flex gap-4">
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: `${MIDDLE}30`, color: MIDDLE }}
+                  style={{ backgroundColor: `${DARK}15`, color: DARK }}
                 >
                   {route.icon}
                 </div>
                 <div>
-                  <h3 className="text-[16px] mb-2" style={{ ...display, fontWeight: 500, color: BONE }}>{route.title}</h3>
-                  <p className="text-[13px] leading-relaxed" style={{ ...body, color: `${BONE}CC` }}>{route.description}</p>
+                  <h3 className="text-[16px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{route.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{route.description}</p>
                 </div>
               </div>
             </AnimateOnScroll>
           ))}
         </div>
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
-          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${BONE}10` }}>
-            <p className="text-[13px] leading-relaxed" style={{ ...body, color: `${BONE}CC` }}>
-              <span style={{ fontWeight: 500, color: BONE }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
-              <a href="mailto:reservations@nayararesorts.com" style={{ color: MIDDLE, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
-              or call <a href="tel:+18448652002" style={{ color: MIDDLE, textDecoration: "underline" }}>844-865-2002</a>.
+          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${DARK}08` }}>
+            <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>
+              <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
+              <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.accent, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
+              or call <a href="tel:+18448652002" style={{ color: PALETTE.accent, textDecoration: "underline" }}>844-865-2002</a>.
             </p>
           </div>
         </AnimateOnScroll>

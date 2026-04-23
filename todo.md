@@ -2743,3 +2743,6 @@
 - [x] Atacama: Incorporate Dark #6F463D for display headlines, card titles, quote text — Dark for hierarchy, Middle for interactive accents
 - [x] Atacama: Incorporate Dark #6F463D into decorative/structural non-text elements (icon circles, award card tints, review stars, help box bg) — text stays Espresso/Bone
 - [x] Atacama: Aggressively use Dark #6F463D — full section backgrounds (reviews, awards, gastronomy), badge strip, section dividers, card fills — creating strong light/dark rhythm
+- [x] Atacama: Three distinct section transitions using Dark #6F463D — DrawLine rule (Story→Rooms), SVG diagonal cut (Rooms→Experiences), gradient dip (Experiences→Sustainability)
+- [x] Atacama: Remove AwardsSection from render (was re-added during dark experiment)
+- [x] Atacama: Final palette — Middle nav/footer, Dark for decorative accents + transitions, all sections Light background
