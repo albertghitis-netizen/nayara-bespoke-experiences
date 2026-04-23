@@ -421,13 +421,13 @@ function CascadeSection({
           )}
 
           {section.id === "story" && (
-            <div className="mt-8">
+            <div className="mt-8 hidden md:block">
               <video
                 src="/manus-storage/badge-bocas-final_15068a56.mp4"
                 autoPlay
                 muted
                 playsInline
-                className="h-24 md:h-32 lg:h-40 w-auto -ml-10 md:-ml-14 lg:-ml-20"
+                className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10"
               />
             </div>
           )}

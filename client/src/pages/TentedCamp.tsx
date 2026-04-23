@@ -323,10 +323,10 @@ function CascadeSection({
           )}
 
           {section.badges && (
-            <p className="text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500, color: accentColor, marginBottom: "0.5rem" }}>Leo Ghitis on AFAR Podcast</p>
+            <p className="hidden md:block text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500, color: accentColor, marginBottom: "0.5rem" }}>Leo Ghitis on AFAR Podcast</p>
           )}
           {section.badges && (
-            <div className="mt-8">
+            <div className="mt-8 hidden md:block">
               <a
                 href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 mb-6 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
@@ -352,7 +352,7 @@ function CascadeSection({
                 )}
                 Listen: Leo Ghitis on Sustainability with AFAR
               </a>
-              <video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+              <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
             </div>
           )}
 

@@ -428,9 +428,11 @@ function StorySection() {
                 Nayara Hangaroa is perched on one of the world's most remote islands, where ancient Rapa Nui culture thrives alongside contemporary luxury. Surrounded by iconic Moai statues and pristine Pacific vistas, this sanctuary offers cultural immersion, spiritual exploration, and world-class hospitality in a place where time feels suspended.
               </p>
             </AnimateOnScroll>
-            <AnimateOnScroll variants={fadeUp} delay={0.5}>
-              <AwardBadgeStrip property="hangaroa" />
-            </AnimateOnScroll>
+            <div className="hidden md:block">
+              <AnimateOnScroll variants={fadeUp} delay={0.5}>
+                <AwardBadgeStrip property="hangaroa" />
+              </AnimateOnScroll>
+            </div>
         </div>
 
         {/* Landscape image — hidden on mobile */}

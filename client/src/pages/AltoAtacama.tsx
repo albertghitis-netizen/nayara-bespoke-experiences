@@ -287,8 +287,8 @@ function CascadeTextBlock({
         )}
       </AnimateOnScroll>
       {badgeImage && (
-        <div className="mt-8">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+        <div className="mt-8 hidden md:block">
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -303,8 +303,8 @@ function CascadeTextBlock({
         </AnimateOnScroll>
       )}
       {badges && (
-        <div className="mt-8">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+        <div className="mt-8 hidden md:block">
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -406,8 +406,8 @@ function CascadeSection({
         )}
       </AnimateOnScroll>
       {badgeImage && (
-        <div className="mt-8">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+        <div className="mt-8 hidden md:block">
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -422,8 +422,8 @@ function CascadeSection({
         </AnimateOnScroll>
       )}
       {badges && (
-        <div className="mt-8">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+        <div className="mt-8 hidden md:block">
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>

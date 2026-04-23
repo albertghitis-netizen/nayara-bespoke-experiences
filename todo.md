@@ -2764,3 +2764,13 @@
 - [x] Hangaroa: Replace Nayara by Night vertical with brand homepage Moai video (homepage-bynight-v) — rendered as autoplay video
 - [x] Atacama: Replace Nayara by Night horizontal with brand homepage horizontal (homepage-bynight-h) — hVideo: true
 - [x] Home: Remove ByNightCTA section and import from brand homepage entirely
+- [x] Mobile badge fallback: static PNG on mobile, video on desktop — AltoAtacama (superseded: no badges on mobile)
+- [x] Mobile badge fallback: static PNG on mobile, video on desktop — TentedCamp (superseded: no badges on mobile)
+- [x] Mobile badge fallback: static PNG on mobile, video on desktop — Gardens (superseded: no badges on mobile)
+- [x] Mobile badge fallback: static PNG on mobile, video on desktop — BocasDelToro (superseded: no badges on mobile)
+- [x] Mobile badge fallback: static PNG on mobile, video on desktop — Springs (superseded: no badges on mobile)
+- [x] Hide badges on mobile (hidden md:block) — AltoAtacama
+- [x] Hide badges on mobile (hidden md:block) — TentedCamp
+- [x] Hide badges on mobile (hidden md:block) — Gardens
+- [x] Hide badges on mobile (hidden md:block) — BocasDelToro
+- [x] Hide badges on mobile (hidden md:block) — Springs

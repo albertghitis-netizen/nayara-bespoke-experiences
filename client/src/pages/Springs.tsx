@@ -292,13 +292,13 @@ function StorySection() {
             </a>
           </AnimateOnScroll>
 
-          <div className="mt-8">
+          <div className="mt-8 hidden md:block">
             <video
               src="/manus-storage/badge-animation-final_80c614a1.mp4"
               autoPlay
               muted
               playsInline
-              className="h-24 md:h-32 lg:h-40 w-auto -ml-2 md:-ml-3 lg:-ml-6"
+              className="h-32 lg:h-40 w-auto -ml-3 lg:-ml-6"
             />
           </div>
         </div>
