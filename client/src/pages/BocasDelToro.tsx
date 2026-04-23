@@ -290,7 +290,7 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
   return (
     <p
       className="text-[11px] tracking-[0.2em] mb-4"
-      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
     >
       {children}
     </p>
@@ -505,7 +505,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.2em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
           >
             Guest Voices
           </p>
@@ -553,7 +553,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
           >
             Read All Reviews →
           </a>
