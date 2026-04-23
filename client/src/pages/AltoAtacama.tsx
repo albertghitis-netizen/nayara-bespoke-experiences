@@ -288,7 +288,7 @@ function CascadeTextBlock({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-final_80c614a1.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+          <video src="/manus-storage/badge-atacama-new_4ef6b136.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -304,7 +304,7 @@ function CascadeTextBlock({
       )}
       {badges && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-final_80c614a1.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+          <video src="/manus-storage/badge-atacama-new_4ef6b136.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -407,7 +407,7 @@ function CascadeSection({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-final_80c614a1.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+          <video src="/manus-storage/badge-atacama-new_4ef6b136.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -423,7 +423,7 @@ function CascadeSection({
       )}
       {badges && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-final_80c614a1.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+          <video src="/manus-storage/badge-atacama-new_4ef6b136.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -524,7 +524,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
     blogLinkLabel: "Read: Atacama Desert's True Oasis",
     badges: false,
-    badgeImage: "/manus-storage/badge-animation-final_80c614a1.mp4",
+    badgeImage: "/manus-storage/badge-atacama-new_4ef6b136.mp4",
   },
   {
     label: "Accommodations",
