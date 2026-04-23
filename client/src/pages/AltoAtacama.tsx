@@ -288,12 +288,7 @@ function CascadeTextBlock({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8">
-          <img
-            src="/manus-storage/badge-strip-atacama-v3_74bdec66.png"
-            alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
-            loading="lazy"
-          />
+          <video src="/manus-storage/badge-animation-compressed_68b98f1b.mp4" autoPlay loop muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
         </div>
       )}
       {link && (
@@ -309,12 +304,7 @@ function CascadeTextBlock({
       )}
       {badges && (
         <div className="mt-8">
-          <img
-            src="/manus-storage/badge-strip-atacama-v3_74bdec66.png"
-            alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
-            loading="lazy"
-          />
+          <video src="/manus-storage/badge-animation-compressed_68b98f1b.mp4" autoPlay loop muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
         </div>
       )}
     </div>
@@ -417,12 +407,7 @@ function CascadeSection({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8">
-          <img
-            src="/manus-storage/badge-strip-atacama-v3_74bdec66.png"
-            alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
-            loading="lazy"
-          />
+          <video src="/manus-storage/badge-animation-compressed_68b98f1b.mp4" autoPlay loop muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
         </div>
       )}
       {link && (
@@ -438,12 +423,7 @@ function CascadeSection({
       )}
       {badges && (
         <div className="mt-8">
-          <img
-            src="/manus-storage/badge-strip-atacama-v3_74bdec66.png"
-            alt="Michelin 2 Keys, Leading Hotels of the World, Distinción Turismo Sustentable"
-            className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
-            loading="lazy"
-          />
+          <video src="/manus-storage/badge-animation-compressed_68b98f1b.mp4" autoPlay loop muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
         </div>
       )}
     </div>
@@ -544,7 +524,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
     blogLinkLabel: "Read: Atacama Desert's True Oasis",
     badges: false,
-    badgeImage: "/manus-storage/badges-atacama-v3_35a2ae06.png",
+    badgeImage: "/manus-storage/badge-animation-compressed_68b98f1b.mp4",
   },
   {
     label: "Accommodations",
