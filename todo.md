@@ -2719,3 +2719,8 @@
 - [x] Gardens: Replicate brand homepage top row badge strip (same 3 badges, sizing, spacing) to replace current Gardens badges
 - [x] Gardens: Remove S2 horizontal photo (hanging bridge) below S1 section
 - [x] Atacama: Remove duplicate Mars vertical video on mobile (goes straight to next section after it)
+- [x] Homepage: Remove By Night horizontal video
+- [x] Homepage: Replace By Night blog text link with oval button (warm gold #C4A265, same on mobile and desktop)
+- [x] Tented Camp: Remove second blog link from "Discover the Magic of the Rainforest" section
+- [x] Tented Camp: Add "Begin Your Rainforest Adventure" reserve CTA at bottom (below Getting Here), matching Atacama pattern
+- [x] Bocas del Toro: Add "Begin Your Caribbean Adventure" reserve CTA at bottom, matching Atacama/Tented Camp pattern

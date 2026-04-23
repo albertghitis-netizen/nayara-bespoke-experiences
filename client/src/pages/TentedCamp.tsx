@@ -600,6 +600,36 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
   );
 }
 
+
+/* ═══════════════════════════════════════════════════════════════
+   RESERVE CTA — "Begin Your Rainforest Adventure"
+   ═══════════════════════════════════════════════════════════════ */
+function ReserveCTA() {
+  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
+      <div className="max-w-[800px] mx-auto text-center">
+        <AnimateOnScroll variants={fadeUp}>
+          <TextReveal as="h2" className="mb-6" delay={0.1}>
+            <span className="text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
+              Begin Your Rainforest Adventure
+            </span>
+          </TextReveal>
+          <p className="text-[15px] leading-[1.8] mb-8" style={{ ...body, color: PALETTE.textSecondary }}>
+            Luxury tented suites suspended in the canopy, private volcanic hot springs, and the raw beauty of the Arenal rainforest await.
+          </p>
+          <a
+            href="/reserve?property=tented-camp"
+            className="inline-block px-10 py-3.5 rounded-full text-[11px] tracking-[0.2em] transition-all hover:opacity-80"
+            style={{ ...body, fontWeight: 500, backgroundColor: PALETTE.primary, color: "#fff" }}
+          >
+            Reserve Your Stay
+          </a>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
 /* ═══════════════════════════════════════════════════════════════
    SECTION DATA — 8 cascade sections
    ═══════════════════════════════════════════════════════════════ */
@@ -652,9 +682,6 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[5],
     link: "/tented-camp/experiences",
     linkLabel: "Explore More",
-    blogUrl: "https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools",
-    blogTitle: "The History & Science of Private Hot Springs Plunge Pools",
-    blogIsRead: true,
   },
   {
     id: "sustainability",
@@ -1118,7 +1145,7 @@ export default function TentedCamp() {
 
       {/* ★ Getting Here below Reviews */}
       <GettingHereBreak bgColor={SECTION_COLORS[8]} />
-
+      <ReserveCTA />
       <Footer bgColor="#868B75" />
     </div>
   );

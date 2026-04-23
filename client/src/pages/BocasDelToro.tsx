@@ -12,6 +12,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
 import {
   AnimateOnScroll,
+  TextReveal,
   MultiLineReveal,
   MediaReveal,
   fadeUp,
@@ -655,6 +656,37 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   RESERVE CTA — "Begin Your Caribbean Adventure"
+   ═══════════════════════════════════════════════════════════════ */
+function ReserveCTA() {
+  const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+  const body = { fontFamily: "var(--font-body)" } as const;
+  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
+      <div className="max-w-[800px] mx-auto text-center">
+        <AnimateOnScroll variants={fadeUp}>
+          <TextReveal as="h2" className="mb-6" delay={0.1}>
+            <span className="text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
+              Begin Your Caribbean Adventure
+            </span>
+          </TextReveal>
+          <p className="text-[15px] leading-[1.8] mb-8" style={{ ...body, color: PALETTE.textSecondary }}>
+            All-inclusive luxury on a private Caribbean island — overwater villas, pristine reefs, and the untouched beauty of Bocas del Toro await.
+          </p>
+          <a
+            href="/reserve?property=bocas-del-toro"
+            className="inline-block px-10 py-3.5 rounded-full text-[11px] tracking-[0.2em] transition-all hover:opacity-80"
+            style={{ ...body, fontWeight: 500, backgroundColor: PALETTE.primary, color: "#fff" }}
+          >
+            Reserve Your Stay
+          </a>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+/* ═══════════════════════════════════════════════════════════════
    MAIN PAGE — Pure cascade, no functional content (Option B)
    ═══════════════════════════════════════════════════════════════ */
 export default function BocasDelToro() {
@@ -670,7 +702,7 @@ export default function BocasDelToro() {
       <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
 
       <GettingHereBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 2]} />
-
+      <ReserveCTA />
       <Footer bgColor="#008E97" />
     </div>
   );

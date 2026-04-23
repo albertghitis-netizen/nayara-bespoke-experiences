@@ -108,10 +108,10 @@ export default function ByNightCTA({
               href="https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars"
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-8 inline-flex items-center gap-2 text-white/60 hover:text-white/90 transition-colors"
+              className="group mt-8 md:mt-10 inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-[#C4A265] text-[#C4A265] hover:bg-[#C4A265] hover:text-black transition-all duration-300"
             >
               <span
-                className="text-[11px] tracking-[0.2em]"
+                className="text-[11px] tracking-[0.2em] uppercase"
                 style={{ ...body, fontWeight: 500 }}
               >
                 Of Moon and Stars
