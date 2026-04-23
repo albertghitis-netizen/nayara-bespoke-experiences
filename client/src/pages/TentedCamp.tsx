@@ -751,7 +751,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Darkness\nReveals Beauty",
     body: "At Nayara, nightfall is not an ending — it is a transformation. The jungle hums with nocturnal life, the sky deepens to reveal galaxies, and the resorts glow with intimate warmth. Every property is designed to celebrate the night as much as the day.",
-    verticalSrc: "/manus-storage/tented-night-frogs-vertical_f4faf46c.mov",
+    verticalSrc: "/manus-storage/tented-night-frogs-vertical-new_e1d4ae46.mp4",
     horizontalSrc: "/manus-storage/tented-by-night-horizontal_cde6442a.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
