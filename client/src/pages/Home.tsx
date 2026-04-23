@@ -605,6 +605,20 @@ const awardsData = [
     route: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
     blogLabel: "Read More",
   },
+  {
+    stat: "Top 15",
+    accolade: "Top 15 Resorts in South America",
+    property: "Nayara Alto Atacama \u2014 Cond\u00e9 Nast",
+    route: "https://www.cntraveler.com/gallery/top-resorts-in-south-america",
+    blogLabel: "Read More",
+  },
+  {
+    stat: "",
+    accolade: "",
+    property: "Nayara Gardens",
+    route: "/gardens",
+    blogLabel: "Read More",
+  },
 ];
 
 function AwardsHighlightSection() {
@@ -628,7 +642,7 @@ function AwardsHighlightSection() {
             Recognized by the Most Trusted Voices in Travel
           </span>
         </TextReveal>
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
           {awardsData.map((award) => (
             <motion.div key={award.property} variants={fadeUp}>
               {(() => {
