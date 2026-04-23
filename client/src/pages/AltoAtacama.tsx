@@ -28,28 +28,28 @@ const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
    More sections = more gradient steps
    ═══════════════════════════════════════════════════════════════ */
 const COLOR_A = "#F9EBE0"; // light — warm peach sand
-const COLOR_B = "#F9EBE0"; // light — warm peach sand
+const COLOR_D = "#6F463D"; // dark — deep earth terracotta
 const SECTION_COLORS = [
   COLOR_A, // 0 hero
-  COLOR_B, // 1 story
-  COLOR_A, // 2 rooms
-  COLOR_B, // 3 experiences
-  COLOR_A, // 4 sustainability
-  COLOR_B, // 5 wellness
-  COLOR_A, // 6 wellness healing (still image V)
-  COLOR_B, // 7 a taste of place
-  COLOR_A, // 8 desert ingredients
-  COLOR_B, // 9 the art of plating
-  COLOR_A, // 10 sweet finales
-  COLOR_B, // 11 dining & stars
-  COLOR_A, // 12 stargazing
-  COLOR_B, // 13 landscape
-  COLOR_A, // 14 wildlife
-  COLOR_B, // 15 adventure
-  COLOR_A, // 16 dusk
-  COLOR_B, // 17 architecture
-  COLOR_A, // 18 the pool
-  COLOR_B, // 19 flamingo lagoon
+  COLOR_A, // 1 story
+  COLOR_D, // 2 rooms — DARK
+  COLOR_A, // 3 experiences
+  COLOR_D, // 4 sustainability — DARK
+  COLOR_A, // 5 wellness
+  COLOR_D, // 6 wellness healing — DARK
+  COLOR_A, // 7 a taste of place
+  COLOR_D, // 8 desert ingredients — DARK
+  COLOR_A, // 9 the art of plating
+  COLOR_D, // 10 sweet finales — DARK
+  COLOR_A, // 11 dining & stars
+  COLOR_D, // 12 stargazing — DARK
+  COLOR_A, // 13 landscape
+  COLOR_D, // 14 wildlife — DARK
+  COLOR_A, // 15 adventure
+  COLOR_D, // 16 dusk — DARK
+  COLOR_A, // 17 architecture
+  COLOR_D, // 18 the pool — DARK
+  COLOR_A, // 19 flamingo lagoon
 ];
 
 /* 3-COLOR SYSTEM
@@ -235,6 +235,7 @@ function CascadeTextBlock({
   blogLinkLabel,
   badges,
   badgeImage,
+  isDark = false,
 }: {
   label: string;
   headline: string;
@@ -245,22 +246,28 @@ function CascadeTextBlock({
   blogLinkLabel?: string;
   badges?: boolean;
   badgeImage?: string;
+  isDark?: boolean;
 }) {
+  const headlineColor = isDark ? BONE : PALETTE.text;
+  const bodyColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
+  const labelColor = isDark ? MIDDLE : PALETTE.accent;
+  const linkColor = isDark ? MIDDLE : PALETTE.accent;
+
   return (
     <div className="flex flex-col justify-center">
       <AnimateOnScroll variants={fadeUp}>
-        <SectionLabel>{label}</SectionLabel>
+        <SectionLabel color={labelColor}>{label}</SectionLabel>
       </AnimateOnScroll>
       <TextReveal as="h2" className="mb-6" delay={0.1}>
         <span
           className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-          style={{ ...display, color: PALETTE.text }}
+          style={{ ...display, color: headlineColor }}
         >
           {headline}
         </span>
       </TextReveal>
       <AnimateOnScroll variants={fadeUp} delay={0.3}>
-        <p className="text-[15px] leading-[1.8] mb-6" style={{ ...body, color: PALETTE.textSecondary }}>
+        <p className="text-[15px] leading-[1.8] mb-6" style={{ ...body, color: bodyColor }}>
           {description}
         </p>
         {blogLink && (
@@ -293,7 +300,7 @@ function CascadeTextBlock({
           <a
             href={link}
             className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+            style={{ ...body, fontWeight: 500, color: linkColor }}
           >
             {linkLabel} →
           </a>
@@ -634,6 +641,8 @@ export default function AltoAtacama() {
         const isHidden = (section as any).hideH;
         const isHFirst = (section as any).hFirst;
 
+        const isDarkSection = bg === COLOR_D;
+
         const VTextRow = (
           <div className="hidden md:block relative z-[1]" style={{ marginTop: '-1px' }}>
             <div className="flex">
@@ -651,6 +660,7 @@ export default function AltoAtacama() {
                         blogLinkLabel={(section as any).blogLinkLabel}
                         badges={section.badges}
                         badgeImage={(section as any).badgeImage}
+                        isDark={isDarkSection}
                       />
                     </div>
                   </div>
@@ -691,6 +701,7 @@ export default function AltoAtacama() {
                         blogLinkLabel={(section as any).blogLinkLabel}
                         badges={section.badges}
                         badgeImage={(section as any).badgeImage}
+                        isDark={isDarkSection}
                       />
                     </div>
                   </div>
@@ -736,6 +747,7 @@ export default function AltoAtacama() {
                   blogLinkLabel={(section as any).blogLinkLabel}
                   badges={section.badges}
                   badgeImage={(section as any).badgeImage}
+                  isDark={isDarkSection}
                 />
               </div>
               {!(section as any).hideMobileV && (
@@ -754,7 +766,8 @@ export default function AltoAtacama() {
       })}
 
 
-      <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
+      <ReviewsBreak bgColor={DARK} />
+      <AwardsSection />
       <GettingHereSection />
       <ReserveCTA />
       <Footer bgColor={MIDDLE} />
@@ -767,6 +780,12 @@ export default function AltoAtacama() {
    Matches Tented Camp ReviewsBreak pattern exactly
    ═══════════════════════════════════════════════════════════════ */
 function ReviewsBreak({ bgColor }: { bgColor: string }) {
+  const isDark = bgColor === DARK;
+  const textColor = isDark ? BONE : PALETTE.text;
+  const subtleColor = isDark ? `${BONE}80` : PALETTE.textTertiary;
+  const accentColor = isDark ? MIDDLE : PALETTE.accent;
+  const starColor = isDark ? MIDDLE : DARK;
+
   return (
     <section
       className="py-20 md:py-28 px-8 md:px-16"
@@ -776,7 +795,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.2em] mb-6"
-            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+            style={{ ...body, fontWeight: 500, color: accentColor }}
           >
             Guest Voices
           </p>
@@ -785,7 +804,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <div className="flex justify-center gap-1 mb-6">
             {[...Array(5)].map((_, i) => (
-              <svg key={i} className="w-5 h-5" fill={DARK} viewBox="0 0 20 20">
+              <svg key={i} className="w-5 h-5" fill={starColor} viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}
@@ -795,7 +814,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp} delay={0.15}>
           <p
             className="text-[13px] tracking-[0.04em] mb-8"
-            style={{ ...body, color: PALETTE.textTertiary }}
+            style={{ ...body, color: subtleColor }}
           >
             Based on 800+ reviews on TripAdvisor
           </p>
@@ -805,13 +824,13 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
           <blockquote>
             <p
               className="text-[17px] md:text-[20px] leading-relaxed italic mb-4"
-              style={{ ...body, color: PALETTE.text }}
+              style={{ ...body, color: textColor }}
             >
               "A once-in-a-lifetime experience. The desert landscape is otherworldly, the stargazing is beyond anything we've ever seen, and the excursions are perfectly curated. The staff made us feel like family from the moment we arrived."
             </p>
             <cite
               className="text-[12px] tracking-[0.08em] not-italic"
-              style={{ ...body, color: PALETTE.textTertiary }}
+              style={{ ...body, color: subtleColor }}
             >
               — Carolina, TripAdvisor
             </cite>
@@ -824,7 +843,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+            style={{ ...body, fontWeight: 500, color: accentColor }}
           >
             Read All Reviews →
           </a>
@@ -884,7 +903,6 @@ function HeroSection() {
    These sections live below the cascade, styled to match the gradient
    ═══════════════════════════════════════════════════════════════ */
 function GettingHereSection() {
-  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
   const routes = [
     { title: "Fly to Calama (CJC)", description: "Daily flights from Santiago to Calama airport. International connections via Santiago (SCL).", icon: "✈" },
     { title: "Complimentary Transfer", description: "Round-trip airport transfers from Calama to the resort, approximately 1 hour through the desert.", icon: "🚐" },
@@ -892,18 +910,18 @@ function GettingHereSection() {
     { title: "Altitude Guidance", description: "At 2,400m elevation, we schedule excursions progressively. Coca tea available throughout the property.", icon: "⛰" },
   ];
   return (
-    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
+    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: DARK }}>
       <div className="max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Getting Here</SectionLabel>
+          <SectionLabel color={MIDDLE}>Getting Here</SectionLabel>
         </AnimateOnScroll>
         <TextReveal as="h2" className="mb-3" delay={0.1}>
-          <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
+          <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: BONE }}>
             Your Journey to the Desert
           </span>
         </TextReveal>
         <AnimateOnScroll variants={fadeUp} delay={0.2}>
-          <p className="text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={{ ...body, color: PALETTE.textSecondary }}>
+          <p className="text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={{ ...body, color: `${BONE}CC` }}>
             Nayara Alto Atacama operates on a full-board basis including all meals, open bar, daily guided excursions, and airport transfers.
           </p>
         </AnimateOnScroll>
@@ -913,24 +931,24 @@ function GettingHereSection() {
               <div className="flex gap-4">
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: `${DARK}15`, color: DARK }}
+                  style={{ backgroundColor: `${MIDDLE}30`, color: MIDDLE }}
                 >
                   {route.icon}
                 </div>
                 <div>
-                  <h3 className="text-[16px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{route.title}</h3>
-                  <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{route.description}</p>
+                  <h3 className="text-[16px] mb-2" style={{ ...display, fontWeight: 500, color: BONE }}>{route.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ ...body, color: `${BONE}CC` }}>{route.description}</p>
                 </div>
               </div>
             </AnimateOnScroll>
           ))}
         </div>
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
-          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${DARK}08` }}>
-            <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>
-              <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
-              <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.accent, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
-              or call <a href="tel:+18448652002" style={{ color: PALETTE.accent, textDecoration: "underline" }}>844-865-2002</a>.
+          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${BONE}10` }}>
+            <p className="text-[13px] leading-relaxed" style={{ ...body, color: `${BONE}CC` }}>
+              <span style={{ fontWeight: 500, color: BONE }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
+              <a href="mailto:reservations@nayararesorts.com" style={{ color: MIDDLE, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
+              or call <a href="tel:+18448652002" style={{ color: MIDDLE, textDecoration: "underline" }}>844-865-2002</a>.
             </p>
           </div>
         </AnimateOnScroll>
@@ -940,14 +958,13 @@ function GettingHereSection() {
 }
 
 function AwardsSection() {
-  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
   const awards = [
     { name: "2 Michelin Keys", description: "An exceptional stay — recognized by the MICHELIN Key guide", year: "2025" },
     { name: "Distinción Turismo Sustentable", description: "Chile's national sustainable tourism certification", year: "2024" },
     { name: "Virtuoso Best of the Best", description: "Recognized among the world's finest luxury properties", year: "2024" },
   ];
   return (
-    <section id="awards" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
+    <section id="awards" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: LIGHT }}>
       <div className="max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <SectionLabel>Recognition</SectionLabel>
@@ -960,10 +977,10 @@ function AwardsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {awards.map((award, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.15}>
-              <div className="p-6 rounded-xl" style={{ backgroundColor: `${DARK}06` }}>
-                <p className="text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500, color: DARK }}>{award.year}</p>
-                <h3 className="text-[18px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{award.name}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{award.description}</p>
+              <div className="p-6 rounded-xl" style={{ backgroundColor: DARK }}>
+                <p className="text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500, color: MIDDLE }}>{award.year}</p>
+                <h3 className="text-[18px] mb-2" style={{ ...display, fontWeight: 500, color: BONE }}>{award.name}</h3>
+                <p className="text-[13px] leading-relaxed" style={{ ...body, color: `${BONE}CC` }}>{award.description}</p>
               </div>
             </AnimateOnScroll>
           ))}
@@ -974,9 +991,8 @@ function AwardsSection() {
 }
 
 function ReserveCTA() {
-  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: LIGHT }}>
       <div className="max-w-[800px] mx-auto text-center">
         <AnimateOnScroll variants={fadeUp}>
           <TextReveal as="h2" className="mb-6" delay={0.1}>
