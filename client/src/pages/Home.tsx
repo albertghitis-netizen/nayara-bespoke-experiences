@@ -162,7 +162,6 @@ export default function Home() {
         bodyText="As darkness descends across six extraordinary landscapes, a different world reveals itself — starlit skies over the Atacama, bioluminescent waters in Bocas del Toro, Moai beneath the Milky Way. Discover the nocturnal experiences that define Nayara after sunset."
         textSide="left"
       />
-      <InstagramGrid />
       <Footer />
     </div>
   );

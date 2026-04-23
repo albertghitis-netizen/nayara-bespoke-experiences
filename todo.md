@@ -2724,3 +2724,4 @@
 - [x] Tented Camp: Remove second blog link from "Discover the Magic of the Rainforest" section
 - [x] Tented Camp: Add "Begin Your Rainforest Adventure" reserve CTA at bottom (below Getting Here), matching Atacama pattern
 - [x] Bocas del Toro: Add "Begin Your Caribbean Adventure" reserve CTA at bottom, matching Atacama/Tented Camp pattern
+- [x] Homepage: Remove Instagram grid section from bottom
