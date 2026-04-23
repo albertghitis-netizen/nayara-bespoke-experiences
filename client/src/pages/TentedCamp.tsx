@@ -349,12 +349,7 @@ function CascadeSection({
                 )}
                 Listen: Leo Ghitis on Sustainability with AFAR
               </a>
-              <img
-                src="/manus-storage/badge-strip-tented-camp_c759b53d.png"
-                alt="Travel + Leisure World's Best Awards, Leading Hotels of the World, Green Globe Certified"
-                className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
-                loading="lazy"
-              />
+              <video src="/manus-storage/badge-animation-v2-compressed_8b5ed079.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
             </div>
           )}
 
