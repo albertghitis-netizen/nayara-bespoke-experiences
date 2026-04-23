@@ -579,34 +579,26 @@ function TimelineSection() {
 const awardsData = [
   {
     stat: "#1",
-    property: "Nayara Bocas del Toro",
     accolade: "Best Resort in Central America",
-    source: "Condé Nast",
-    year: "2025",
+    property: "Nayara Bocas del Toro — Condé Nast",
     route: "/bocas-del-toro",
   },
   {
     stat: "#1",
-    property: "Nayara Tented Camp",
     accolade: "Best Resort in Central America",
-    source: "Travel + Leisure",
-    year: "5 of last 6 years",
+    property: "Nayara Tented Camp — Travel + Leisure",
     route: "/tented-camp",
   },
   {
     stat: "Top 15",
-    property: "Nayara Resorts",
     accolade: "Top 15 Resort Brands in the World",
-    source: "Travel + Leisure World's Best Awards",
-    year: "2 consecutive years",
+    property: "Nayara Resorts — Travel + Leisure",
     route: "/awards",
   },
   {
     stat: "3",
-    property: "Nayara Springs",
     accolade: "Only 3 Michelin Key Hotel in Costa Rica",
-    source: "MICHELIN Guide",
-    year: "2025",
+    property: "Nayara Springs — MICHELIN Guide",
     route: "/springs",
   },
 ];
@@ -673,21 +665,12 @@ function AwardsHighlightSection() {
                 >
                   {award.accolade}
                 </h3>
-                {/* Property name */}
+                {/* Property + Source */}
                 <p
-                  className="text-[12px] tracking-[0.06em] mb-4 transition-colors duration-500"
+                  className="text-[12px] tracking-[0.06em] transition-colors duration-500"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: cardTextSoft }}
                 >
                   {award.property}
-                </p>
-                {/* Source + year */}
-                <p
-                  className="text-[11px] leading-[1.6] transition-colors duration-500"
-                  style={{ fontFamily: "var(--font-body)", color: `${cardTextSoft}80` }}
-                >
-                  {award.source}
-                  <br />
-                  {award.year}
                 </p>
                 {/* Arrow indicator — appears on hover */}
                 <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
