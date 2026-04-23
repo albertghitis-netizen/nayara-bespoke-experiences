@@ -682,7 +682,7 @@ function GettingHereBreak({ bgColor, accentColor }: { bgColor: string; accentCol
 function ReserveCTA() {
   const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
   const body = { fontFamily: "var(--font-body)" } as const;
-  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
+  const tailBg = COLOR_A;
   return (
     <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
       <div className="max-w-[800px] mx-auto text-center">
@@ -720,7 +720,7 @@ export default function BocasDelToro() {
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
 
-      <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} accentColor={PALETTE.primary} />
+      <ReviewsBreak bgColor={COLOR_A} accentColor={PALETTE.primary} />
 
       <GettingHereBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 2]} accentColor={PALETTE.primary} />
       <ReserveCTA />
