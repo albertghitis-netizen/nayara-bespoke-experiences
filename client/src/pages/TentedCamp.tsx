@@ -323,6 +323,9 @@ function CascadeSection({
           )}
 
           {section.badges && (
+            <p className="text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500, color: accentColor, marginBottom: "0.5rem" }}>Listen:</p>
+          )}
+          {section.badges && (
             <div className="mt-8">
               <a
                 href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
