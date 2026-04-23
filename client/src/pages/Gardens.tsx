@@ -301,7 +301,7 @@ function StorySection() {
 
           <div className="mt-6">
             <img
-              src="/manus-storage/badge-strip-gardens-hof_eb43a461.png"
+              src="/manus-storage/badge-strip-gardens-hof_4e30512a.png"
               alt="Travel + Leisure World's Best Awards Hall of Fame, Leading Hotels of the World, Green Globe Certified"
               className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
               loading="lazy"
