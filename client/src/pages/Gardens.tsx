@@ -304,7 +304,7 @@ function StorySection() {
               autoPlay
               muted
               playsInline
-              className="h-24 md:h-32 lg:h-40 w-auto"
+              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
             />
           </div>
         </div>
