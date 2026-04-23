@@ -590,8 +590,8 @@ const awardsData = [
     route: "/tented-camp",
   },
   {
-    stat: "Top 15",
-    accolade: "Top 15 Resort Brands in the World",
+    stat: "Top 10",
+    accolade: "Top 10 Resort Brands in the World",
     property: "Nayara Resorts — Travel + Leisure",
     route: "/awards",
   },
