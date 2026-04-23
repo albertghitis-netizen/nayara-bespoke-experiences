@@ -53,15 +53,15 @@ const SECTION_COLORS = [
 ];
 
 const PALETTE = {
-  text: "#3B2B26",
-  textSecondary: "#67737C",
-  textTertiary: "#9A9086",
+  text: "#1A0F0A",
+  textSecondary: "#1A0F0A",
+  textTertiary: "#1A0F0A99",
   primary: "#868B75",
   secondary: "#525642",
   accent: "#9A9086",
   divider: "#E6DFD5",
 };
-const BONE = "#F9F6F3";
+const BONE = "#FFFFFF";
 const DARK_SECTION_IDS = ["nayara-by-night"];
 
 

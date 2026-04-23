@@ -36,21 +36,20 @@ const SECTION_COLORS = [
   COLOR_A, // 3 experiences
   COLOR_A, // 4 sustainability
   COLOR_A, // 5 wellness
-  COLOR_A, // 6 wellness healing
-  COLOR_A, // 7 a taste of place
-  COLOR_A, // 8 desert ingredients
-  COLOR_A, // 9 the art of plating
-  COLOR_A, // 10 sweet finales
-  COLOR_A, // 11 dining & stars
-  COLOR_A, // 12 stargazing
-  COLOR_A, // 13 landscape
-  COLOR_A, // 14 wildlife
-  COLOR_A, // 15 adventure
-  COLOR_A, // 16 dusk
-  COLOR_A, // 17 architecture
-  COLOR_A, // 18 the pool
-  COLOR_A, // 19 flamingo lagoon
-  "#6F463D", // 20 nayara by night
+  COLOR_A, // 6 a taste of place
+  COLOR_A, // 7 desert ingredients
+  COLOR_A, // 8 the art of plating
+  COLOR_A, // 9 sweet finales
+  COLOR_A, // 10 dining & stars
+  COLOR_A, // 11 stargazing
+  COLOR_A, // 12 landscape
+  COLOR_A, // 13 wildlife
+  COLOR_A, // 14 adventure
+  COLOR_A, // 15 dusk
+  COLOR_A, // 16 architecture
+  COLOR_A, // 17 the pool
+  COLOR_A, // 18 flamingo lagoon
+  "#6F463D", // 19 nayara by night
 ];
 
 /* 3-COLOR SYSTEM
@@ -63,8 +62,8 @@ const SECTION_COLORS = [
 const DARK = "#6F463D";
 const MIDDLE = "#B85C3C";
 const LIGHT = "#F9EBE0";
-const ESPRESSO = "#3B2B26";
-const BONE = "#F9F6F3";
+const ESPRESSO = "#1A0F0A";
+const BONE = "#FFFFFF";
 
 const PALETTE = {
   text: ESPRESSO,
@@ -576,20 +575,7 @@ const CASCADE_SECTIONS = [
     badges: false,
   },
   {
-    label: "Wellness",
-    headline: "Desert Healing",
-    description: "Ancient thermal waters and desert botanicals converge in treatments that restore body and spirit.",
-    vSrc: ASSETS.wellV2,
-    hSrc: ASSETS.wellH2,
-    vVideo: false, hVideo: true,
-    vRatio: "3/4", hRatio: "1920/812",
-    textSide: "left" as const,
-    badges: false,
-    hideH: true,
-    hFirst: true,
-  },
-  {
-    label: "Gastronomy",
+    label: "A Taste of Place",
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: ASSETS.gastroV,

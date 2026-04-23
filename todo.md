@@ -2774,3 +2774,6 @@
 - [x] Hide badges on mobile (hidden md:block) — Gardens
 - [x] Hide badges on mobile (hidden md:block) — BocasDelToro
 - [x] Hide badges on mobile (hidden md:block) — Springs
+- [ ] Change all text colors to darkest espresso brown across all property pages (titles, body, labels)
+- [ ] Text colors: very dark brown on light backgrounds, pure white (#FFFFFF) on dark backgrounds, labels keep nav color — all property pages
+- [x] Atacama: remove duplicate wellness section, replace second wellness with A Taste of Place

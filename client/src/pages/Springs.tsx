@@ -48,9 +48,9 @@ const PALETTE = {
   accent: "#86898C",
   gradientStart: "#E4EDEB",
   gradientEnd: "#E4EDEB",
-  text: "#3B2B26",
-  textSecondary: "#67737C",
-  textTertiary: "#9A9086",
+  text: "#1A0F0A",
+  textSecondary: "#1A0F0A",
+  textTertiary: "#1A0F0A99",
   divider: "#E6DFD5",
 };
 

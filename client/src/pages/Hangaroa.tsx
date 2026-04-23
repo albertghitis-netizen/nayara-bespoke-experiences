@@ -42,9 +42,9 @@ const PALETTE = {
   accent: "#9A9086",
   gradientStart: "#F7F5F0",
   gradientEnd: "#EAEBED",
-  text: "#3B2B26",
-  textSecondary: "#67737C",
-  textTertiary: "#9A9086",
+  text: "#1A0F0A",
+  textSecondary: "#1A0F0A",
+  textTertiary: "#1A0F0A99",
   divider: "#E6DFD5",
 };
 
@@ -207,7 +207,7 @@ export default function Hangaroa() {
    ═══════════════════════════════════════════════════════════════ */
 function NayaraByNightSection() {
   const DARK = "#000000";
-  const BONE = "#F9F6F3";
+  const BONE = "#FFFFFF";
   const MIDDLE = "#536878";
   return (
     <section style={{ backgroundColor: DARK }}>
@@ -232,7 +232,7 @@ function NayaraByNightSection() {
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
               className="text-[15px] leading-[1.8] max-w-[480px]"
-              style={{ fontFamily: "var(--font-body)", color: "#F9F6F3CC" }}
+              style={{ fontFamily: "var(--font-body)", color: "#FFFFFFCC" }}
             >
               On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.
             </p>
