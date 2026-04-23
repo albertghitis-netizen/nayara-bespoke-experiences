@@ -624,13 +624,13 @@ function AwardsHighlightSection() {
             Recognized by the World{"'"}s Most Trusted Voices in Travel
           </span>
         </TextReveal>
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-[1px] max-w-4xl mx-auto" style={{ backgroundColor: "#4a3a30" }}>
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {awardsData.map((award) => (
             <motion.div key={award.property} variants={fadeUp}>
               <Link
                 href={award.route}
                 className="group block h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
-                style={{ backgroundColor: cardBg }}
+                style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}25` }}
               >
                 {/* Subtle grain texture overlay */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
