@@ -624,7 +624,7 @@ function AwardsHighlightSection() {
             Recognized by the World{"'"}s Most Trusted Voices in Travel
           </span>
         </TextReveal>
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px]" style={{ backgroundColor: "#4a3a30" }}>
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-[1px] max-w-4xl mx-auto" style={{ backgroundColor: "#4a3a30" }}>
           {awardsData.map((award) => (
             <motion.div key={award.property} variants={fadeUp}>
               <Link
