@@ -649,7 +649,7 @@ function AwardsHighlightSection() {
                 return (
               <Wrapper
                 {...wrapperProps}
-                className="group block h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
+                className="group flex flex-col h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
                 style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}25` }}
               >
                 {/* Subtle grain texture overlay */}
@@ -662,7 +662,7 @@ function AwardsHighlightSection() {
                 </svg>
                 {/* Big stat number — gold, clearly visible */}
                 <span
-                  className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
+                  className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 h-[48px] md:h-[56px] lg:h-[64px] flex items-end ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
                   style={{
                     fontFamily: "var(--font-display)",
                     fontWeight: 300,
@@ -680,14 +680,14 @@ function AwardsHighlightSection() {
                 />
                 {/* Accolade */}
                 <h3
-                  className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-colors duration-500"
+                  className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-colors duration-500 min-h-[46px] flex items-start"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: cardText }}
                 >
                   {award.accolade}
                 </h3>
                 {/* Property + Source */}
                 <p
-                  className="text-[12px] tracking-[0.06em] transition-colors duration-500"
+                  className="text-[12px] tracking-[0.06em] transition-colors duration-500 mt-auto"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: cardTextSoft }}
                 >
                   {award.property}

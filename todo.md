@@ -2730,3 +2730,5 @@
 - [x] Homepage: Restore By Night horizontal video on desktop (hidden on mobile only)
 - [x] Homepage: Awards stat numbers should be bone (#F7F5F0) instead of gold
 - [x] Homepage: Update Tented Camp award to #1 Central America 2026, 5 of last 6 years
+- [x] Gardens: Add badge strip matching Tented Camp layout, swap T+L World's Best with Hall of Fame badge
+- [x] Homepage: Fix award card spacing — all three lines perfectly even at full width
