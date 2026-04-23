@@ -288,7 +288,7 @@ function CascadeTextBlock({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-v2-compressed_8b5ed079.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
+          <video src="/manus-storage/badge-animation-final-compressed_c0e5cf43.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
         </div>
       )}
       {link && (
@@ -304,7 +304,7 @@ function CascadeTextBlock({
       )}
       {badges && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-v2-compressed_8b5ed079.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
+          <video src="/manus-storage/badge-animation-final-compressed_c0e5cf43.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
         </div>
       )}
     </div>
@@ -407,7 +407,7 @@ function CascadeSection({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-v2-compressed_8b5ed079.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
+          <video src="/manus-storage/badge-animation-final-compressed_c0e5cf43.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
         </div>
       )}
       {link && (
@@ -423,7 +423,7 @@ function CascadeSection({
       )}
       {badges && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-v2-compressed_8b5ed079.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
+          <video src="/manus-storage/badge-animation-final-compressed_c0e5cf43.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
         </div>
       )}
     </div>
@@ -524,7 +524,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
     blogLinkLabel: "Read: Atacama Desert's True Oasis",
     badges: false,
-    badgeImage: "/manus-storage/badge-animation-v2-compressed_8b5ed079.mp4",
+    badgeImage: "/manus-storage/badge-animation-final-compressed_c0e5cf43.mp4",
   },
   {
     label: "Accommodations",
