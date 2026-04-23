@@ -427,7 +427,7 @@ function CascadeSection({
                 autoPlay
                 muted
                 playsInline
-                className="h-24 md:h-32 lg:h-40 w-auto -ml-2 md:-ml-3 lg:-ml-6"
+                className="h-24 md:h-32 lg:h-40 w-auto -ml-10 md:-ml-14 lg:-ml-20"
               />
             </div>
           )}
