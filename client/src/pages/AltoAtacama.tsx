@@ -17,8 +17,6 @@ import {
   TextReveal,
   MultiLineReveal,
   MediaReveal,
-  DrawLine,
-  GradientTransition,
   fadeUp,
   DURATION,
   EASE_CINEMATIC,
@@ -628,8 +626,8 @@ const CASCADE_SECTIONS = [
     headline: "The Clearest Skies on Earth",
     description: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
     vSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
-    hSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-rock-arch-milkyway_729bcc81.webp",
-    vVideo: false, hVideo: false,
+    hSrc: "/manus-storage/homepage-bynight-h_c20386f7.mp4",
+    vVideo: false, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     badges: false,
@@ -741,42 +739,9 @@ export default function AltoAtacama() {
           </div>
         ) : null;
 
-        // ── TRANSITION ELEMENTS injected BEFORE each section ──────────────────
-        // Transition 0 (Story → Accommodations): Full-width animated rule — a chapter break
-        const Transition0 = i === 1 ? (
-          <div className="px-10 md:px-20 py-6" style={{ backgroundColor: LIGHT }}>
-            <DrawLine color={`${DARK}40`} />
-          </div>
-        ) : null;
-
-        // Transition 1 (Accommodations → Experiences): SVG diagonal cut using Dark
-        const Transition1 = i === 2 ? (
-          <div className="relative overflow-hidden" style={{ height: 80, backgroundColor: LIGHT }}>
-            <svg
-              viewBox="0 0 1440 80"
-              preserveAspectRatio="none"
-              className="absolute inset-0 w-full h-full"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <polygon points="0,0 1440,0 1440,80 0,40" fill={`${DARK}18`} />
-              <polygon points="0,40 1440,80 1440,80 0,80" fill={`${DARK}08`} />
-            </svg>
-          </div>
-        ) : null;
-
-        // Transition 2 (Experiences → Sustainability): Gradient dip — Light fades to Dark tint and back
-        const Transition2 = i === 3 ? (
-          <>
-            <GradientTransition from={LIGHT} to={`${DARK}28`} height="80px" />
-            <GradientTransition from={`${DARK}28`} to={LIGHT} height="80px" />
-          </>
-        ) : null;
 
         return (
           <Fragment key={i}>
-            {Transition0}
-            {Transition1}
-            {Transition2}
             <section style={{ backgroundColor: bg }}>
               {/* Desktop: H-first or V-first ordering */}
               {isHFirst ? (

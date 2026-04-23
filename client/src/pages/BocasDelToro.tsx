@@ -266,9 +266,9 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: "/manus-storage/bocas-by-night-vertical-bio_a69fda9c.mp4",
-    horizontalSrc: "/manus-storage/Untitleddesign(2)_c5d50d3f.jpg",
-    verticalIsVideo: true,
+    verticalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum2_9f24efa2.jpeg",
+    horizontalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum_007f69ec.webp",
+    verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -290,7 +290,7 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
   return (
     <p
       className="text-[11px] tracking-[0.2em] mb-4"
-      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: color }}
+      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
     >
       {children}
     </p>
@@ -495,7 +495,7 @@ function HeroSection() {
    FUNCTIONAL BREAK — Guest Voices (Reviews)
    Matches Tented Camp ReviewsBreak pattern exactly
    ═══════════════════════════════════════════════════════════════ */
-function ReviewsBreak({ bgColor, accentColor }: { bgColor: string; accentColor: string }) {
+function ReviewsBreak({ bgColor }: { bgColor: string }) {
   return (
     <section
       className="py-20 md:py-28 px-8 md:px-16"
@@ -505,7 +505,7 @@ function ReviewsBreak({ bgColor, accentColor }: { bgColor: string; accentColor: 
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.2em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
           >
             Guest Voices
           </p>
@@ -553,7 +553,7 @@ function ReviewsBreak({ bgColor, accentColor }: { bgColor: string; accentColor: 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
           >
             Read All Reviews →
           </a>
@@ -566,7 +566,7 @@ function ReviewsBreak({ bgColor, accentColor }: { bgColor: string; accentColor: 
 /* ═══════════════════════════════════════════════════════════════
    FUNCTIONAL BREAK — Getting Here
    ═══════════════════════════════════════════════════════════════ */
-function GettingHereBreak({ bgColor, accentColor }: { bgColor: string; accentColor: string }) {
+function GettingHereBreak({ bgColor }: { bgColor: string }) {
   const routes = [
     {
       title: "International Flights",
@@ -682,7 +682,7 @@ function GettingHereBreak({ bgColor, accentColor }: { bgColor: string; accentCol
 function ReserveCTA() {
   const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
   const body = { fontFamily: "var(--font-body)" } as const;
-  const tailBg = COLOR_A;
+  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
   return (
     <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
       <div className="max-w-[800px] mx-auto text-center">
@@ -720,9 +720,9 @@ export default function BocasDelToro() {
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
 
-      <ReviewsBreak bgColor={COLOR_A} accentColor={PALETTE.primary} />
+      <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
 
-      <GettingHereBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 2]} accentColor={PALETTE.primary} />
+      <GettingHereBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 2]} />
       <ReserveCTA />
       <Footer bgColor="#008E97" />
     </div>
