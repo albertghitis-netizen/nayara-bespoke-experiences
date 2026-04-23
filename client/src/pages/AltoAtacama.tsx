@@ -17,8 +17,6 @@ import {
   TextReveal,
   MultiLineReveal,
   MediaReveal,
-  DrawLine,
-  GradientTransition,
   fadeUp,
   DURATION,
   EASE_CINEMATIC,
@@ -741,42 +739,9 @@ export default function AltoAtacama() {
           </div>
         ) : null;
 
-        // ── TRANSITION ELEMENTS injected BEFORE each section ──────────────────
-        // Transition 0 (Story → Accommodations): Full-width animated rule — a chapter break
-        const Transition0 = i === 1 ? (
-          <div className="px-10 md:px-20 py-6" style={{ backgroundColor: LIGHT }}>
-            <DrawLine color={`${DARK}40`} />
-          </div>
-        ) : null;
-
-        // Transition 1 (Accommodations → Experiences): SVG diagonal cut using Dark
-        const Transition1 = i === 2 ? (
-          <div className="relative overflow-hidden" style={{ height: 80, backgroundColor: LIGHT }}>
-            <svg
-              viewBox="0 0 1440 80"
-              preserveAspectRatio="none"
-              className="absolute inset-0 w-full h-full"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <polygon points="0,0 1440,0 1440,80 0,40" fill={`${DARK}18`} />
-              <polygon points="0,40 1440,80 1440,80 0,80" fill={`${DARK}08`} />
-            </svg>
-          </div>
-        ) : null;
-
-        // Transition 2 (Experiences → Sustainability): Gradient dip — Light fades to Dark tint and back
-        const Transition2 = i === 3 ? (
-          <>
-            <GradientTransition from={LIGHT} to={`${DARK}28`} height="80px" />
-            <GradientTransition from={`${DARK}28`} to={LIGHT} height="80px" />
-          </>
-        ) : null;
 
         return (
           <Fragment key={i}>
-            {Transition0}
-            {Transition1}
-            {Transition2}
             <section style={{ backgroundColor: bg }}>
               {/* Desktop: H-first or V-first ordering */}
               {isHFirst ? (
