@@ -109,6 +109,7 @@ const ASSETS = {
   // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
   wellV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
   wellH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
+  wellH2: "/manus-storage/atacama-wellness-h-new_af1faa40.mp4",
 
   // Section 6 — A Taste of Place: avocado mousse V + seared meat H
   gastroV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
@@ -193,11 +194,13 @@ function MediaBlock({
 }) {
   return (
     <div className="overflow-hidden w-full block leading-[0]" style={{ aspectRatio }}>
-      {isVideo ? (
-        <NativeVideo src={src} className="w-full h-full object-cover" />
-      ) : (
-        <img src={src} alt={alt} className="w-full h-full object-cover block" loading="lazy" />
-      )}
+      <div className="w-full h-full" style={{ transform: 'scale(1.005)' }}>
+        {isVideo ? (
+          <NativeVideo src={src} className="w-full h-full object-cover" />
+        ) : (
+          <img src={src} alt={alt} className="w-full h-full object-cover block" loading="lazy" />
+        )}
+      </div>
     </div>
   );
 }
@@ -561,12 +564,11 @@ const CASCADE_SECTIONS = [
     headline: "Desert Renewal",
     description: "Our spa draws on ancestral Atacameño healing traditions and the desert's mineral-rich waters. Surrender to treatments designed around the rhythms of this ancient landscape.",
     vSrc: ASSETS.clip8V,
-    hSrc: "",
-    vVideo: true, hVideo: false,
-    vRatio: "3/4", hRatio: "16/9",
+    hSrc: ASSETS.wellH2,
+    vVideo: true, hVideo: true,
+    vRatio: "3/4", hRatio: "1920/812",
     textSide: "right" as const,
     badges: false,
-    hideH: true,
   },
   {
     label: "Gastronomy",
@@ -668,7 +670,7 @@ export default function AltoAtacama() {
         );
 
         const HRow = !isHidden ? (
-          <div className="hidden md:block w-full -mt-px">
+          <div className="hidden md:block w-full relative z-[1]" style={{ marginTop: '-8px' }}>
             <MediaReveal delay={0.1}>
               <MediaBlock
                 src={section.hSrc}
@@ -721,7 +723,6 @@ export default function AltoAtacama() {
 
       <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
       <GettingHereSection />
-      <AwardsSection />
       <ReserveCTA />
       <Footer bgColor="#6F463D" />
     </div>

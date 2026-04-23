@@ -2698,3 +2698,5 @@
 - [x] Atacama: Remove black line between horizontal and vertical videos in sustainability cascade section
 - [x] Atacama: Trim last 4 seconds of vertical wellness video in sustainability cascade section
 - [x] Gardens: Fix hero video audio — re-compress from original with audio track preserved (was stripped during compression)
+- [x] Atacama: Add new horizontal video below wellness vertical in cascade (SequenceNayaraAltoAtacama-2m18sVideobyBriceFerreStudio.mov)
+- [x] Atacama: Remove Recognition/Awards section under Getting Here
