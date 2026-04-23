@@ -352,7 +352,7 @@ function CascadeSection({
                 )}
                 Listen: Leo Ghitis on Sustainability with AFAR
               </a>
-              <video src="/manus-storage/badge-animation-final_80c614a1.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
+              <video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
             </div>
           )}
 
