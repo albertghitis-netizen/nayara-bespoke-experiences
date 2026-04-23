@@ -2700,3 +2700,5 @@
 - [x] Gardens: Fix hero video audio — re-compress from original with audio track preserved (was stripped during compression)
 - [x] Atacama: Add new horizontal video below wellness vertical in cascade (SequenceNayaraAltoAtacama-2m18sVideobyBriceFerreStudio.mov)
 - [x] Atacama: Remove Recognition/Awards section under Getting Here
+- [x] Atacama: Fix black line at top of sustainability H and wellness H — replaced with new cropped videos from user
+- [x] Atacama: Replace rooms section horizontal video (Rainbow Valley) with Hotel_Drone_NAA00136.MOV

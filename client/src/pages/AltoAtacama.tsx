@@ -79,7 +79,7 @@ const ASSETS = {
   clip4V: "/manus-storage/atacama-s3-vertical_ba3fbf5a.mp4",
 
   // Clip 5 — horizontal 16:9
-  clip5H: "/manus-storage/atacama-s4-horizontal_4bf0d8e9.mp4",
+  clip5H: "/manus-storage/atacama-rooms-drone-h_3b92e93d.mp4",
 
   // Clip 6 — vertical 3:4
   clip6V: "/manus-storage/atacama-s1-vertical_b68ea605.mp4",
@@ -104,12 +104,12 @@ const ASSETS = {
 
   // Section 4 — Sustainability: cascade flamingos (cropped, no black bars)
   susV: "/manus-storage/atacama-sustainability-v_67bf2c3e.mp4",
-  susH: "/manus-storage/atacama-stewardship-h_a9c9cbef.mp4",
+  susH: "/manus-storage/atacama-sus-h-new_71c95f9c.mp4",
 
   // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
   wellV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
   wellH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
-  wellH2: "/manus-storage/atacama-wellness-h-new_af1faa40.mp4",
+  wellH2: "/manus-storage/atacama-wellness-h-v2_f00c123e.mp4",
 
   // Section 6 — A Taste of Place: avocado mousse V + seared meat H
   gastroV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
@@ -194,7 +194,7 @@ function MediaBlock({
 }) {
   return (
     <div className="overflow-hidden w-full block leading-[0]" style={{ aspectRatio }}>
-      <div className="w-full h-full" style={{ transform: 'scale(1.005)' }}>
+      <div className="w-full h-full" style={{ transform: 'scale(1.02)' }}>
         {isVideo ? (
           <NativeVideo src={src} className="w-full h-full object-cover" />
         ) : (
@@ -604,7 +604,7 @@ export default function AltoAtacama() {
         const isHFirst = (section as any).hFirst;
 
         const VTextRow = (
-          <div className="hidden md:block">
+          <div className="hidden md:block relative z-[1]" style={{ marginTop: '-1px' }}>
             <div className="flex">
               {section.textSide === "left" ? (
                 <>
@@ -670,7 +670,7 @@ export default function AltoAtacama() {
         );
 
         const HRow = !isHidden ? (
-          <div className="hidden md:block w-full relative z-[1]" style={{ marginTop: '-8px' }}>
+          <div className="hidden md:block w-full" style={{ marginTop: '-1px' }}>
             <MediaReveal delay={0.1}>
               <MediaBlock
                 src={section.hSrc}
