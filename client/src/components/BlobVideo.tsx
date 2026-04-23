@@ -166,7 +166,7 @@ export default function BlobVideo({
         <button
           onClick={toggleMute}
           aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="fixed z-50 hidden md:flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
+          className="fixed z-50 hidden md:flex lg:flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
           style={{
             top: "10px",      /* aligned with nav hamburger center */
             left: "56px",     /* px-3 (12px) + w-9 (36px) + 8px gap = 56px */
