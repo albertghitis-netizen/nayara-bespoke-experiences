@@ -662,7 +662,7 @@ function AwardsHighlightSection() {
                 </svg>
                 {/* Big stat number — gold, clearly visible */}
                 <span
-                  className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 ${award.stat.length > 6 ? 'text-[28px] md:text-[34px] lg:text-[40px]' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
+                  className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
                   style={{
                     fontFamily: "var(--font-display)",
                     fontWeight: 300,
