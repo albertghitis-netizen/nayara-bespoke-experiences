@@ -2702,3 +2702,5 @@
 - [x] Atacama: Remove Recognition/Awards section under Getting Here
 - [x] Atacama: Fix black line at top of sustainability H and wellness H — replaced with new cropped videos from user
 - [x] Atacama: Replace rooms section horizontal video (Rainbow Valley) with Hotel_Drone_NAA00136.MOV
+- [x] Atacama: Extract first frame from 64F69550 video as still image, use as vertical below wellness horizontal
+- [x] Atacama: Add NayaraAltoAtacama_1.jpg (plated dish) as horizontal below the spice bowl vertical — final cascade piece

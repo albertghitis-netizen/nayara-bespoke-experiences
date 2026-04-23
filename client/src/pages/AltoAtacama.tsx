@@ -36,19 +36,20 @@ const SECTION_COLORS = [
   COLOR_B, // 3 experiences
   COLOR_A, // 4 sustainability
   COLOR_B, // 5 wellness
-  COLOR_A, // 6 a taste of place
-  COLOR_B, // 7 desert ingredients
-  COLOR_A, // 8 the art of plating
-  COLOR_B, // 9 sweet finales
-  COLOR_A, // 10 dining & stars
-  COLOR_B, // 11 stargazing
-  COLOR_A, // 12 landscape
-  COLOR_B, // 13 wildlife
-  COLOR_A, // 14 adventure
-  COLOR_B, // 15 dusk
-  COLOR_A, // 16 architecture
-  COLOR_B, // 17 the pool
-  COLOR_A, // 18 flamingo lagoon
+  COLOR_A, // 6 wellness healing (still image V)
+  COLOR_B, // 7 a taste of place
+  COLOR_A, // 8 desert ingredients
+  COLOR_B, // 9 the art of plating
+  COLOR_A, // 10 sweet finales
+  COLOR_B, // 11 dining & stars
+  COLOR_A, // 12 stargazing
+  COLOR_B, // 13 landscape
+  COLOR_A, // 14 wildlife
+  COLOR_B, // 15 adventure
+  COLOR_A, // 16 dusk
+  COLOR_B, // 17 architecture
+  COLOR_A, // 18 the pool
+  COLOR_B, // 19 flamingo lagoon
 ];
 
 const PALETTE = {
@@ -110,10 +111,11 @@ const ASSETS = {
   wellV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
   wellH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
   wellH2: "/manus-storage/atacama-wellness-h-v2_f00c123e.mp4",
+  wellV2: "/manus-storage/atacama-wellness-v-still_4687073b.jpg",
 
-  // Section 6 — A Taste of Place: avocado mousse V + seared meat H
+  // Section 6 — A Taste of Place: plated dish H
   gastroV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
-  gastroH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
+  gastroH: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
 
   // Section 6b — Desert Ingredients: spice jars V + avocado mousse H
   gastro2V: "/manus-storage/atacama-cascade-4-accom-v_a9869d1c.mp4",
@@ -571,13 +573,26 @@ const CASCADE_SECTIONS = [
     badges: false,
   },
   {
+    label: "Wellness",
+    headline: "Desert Healing",
+    description: "Ancient thermal waters and desert botanicals converge in treatments that restore body and spirit.",
+    vSrc: ASSETS.wellV2,
+    hSrc: ASSETS.wellH2,
+    vVideo: false, hVideo: true,
+    vRatio: "3/4", hRatio: "1920/812",
+    textSide: "left" as const,
+    badges: false,
+    hideH: true,
+    hFirst: true,
+  },
+  {
     label: "Gastronomy",
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: ASSETS.gastroV,
     hSrc: ASSETS.gastroH,
     vVideo: false, hVideo: false,
-    vRatio: "3/4", hRatio: "16/9",
+    vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
     badges: false,
     hFirst: true,
