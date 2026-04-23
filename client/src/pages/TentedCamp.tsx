@@ -323,7 +323,7 @@ function CascadeSection({
           )}
 
           {section.badges && (
-            <p className="text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500, color: accentColor, marginBottom: "0.5rem" }}>Listen:</p>
+            <p className="text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500, color: accentColor, marginBottom: "0.5rem" }}>Leo Ghitis on AFAR Podcast</p>
           )}
           {section.badges && (
             <div className="mt-8">
