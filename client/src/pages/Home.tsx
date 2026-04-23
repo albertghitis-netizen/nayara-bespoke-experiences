@@ -586,7 +586,7 @@ const awardsData = [
     route: "/bocas-del-toro",
   },
   {
-    stat: "5×",
+    stat: "#1",
     property: "Nayara Tented Camp",
     accolade: "Best Resort in Central America",
     source: "Travel + Leisure World's Best Awards",
