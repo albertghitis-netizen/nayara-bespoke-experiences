@@ -582,26 +582,28 @@ const awardsData = [
     accolade: "Best Resort in Central America",
     property: "Nayara Bocas del Toro \u2014 Cond\u00e9 Nast",
     route: "/blog/conde-nast-bocas-del-toro",
-    blogLabel: "Read",
+    blogLabel: "Read More",
   },
   {
     stat: "#1",
     accolade: "Best Resort in Central America",
     property: "Nayara Tented Camp — Travel + Leisure",
     route: "/tented-camp",
+    blogLabel: "Read More",
   },
   {
     stat: "Top 10",
     accolade: "Top 10 Resort Brands in the World",
     property: "Nayara Resorts — Travel + Leisure",
     route: "/awards",
+    blogLabel: "Read More",
   },
   {
     stat: "3",
     accolade: "Only 3 Michelin Key Hotel in Costa Rica",
     property: "Nayara Springs \u2014 MICHELIN Guide",
     route: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
-    blogLabel: "Read",
+    blogLabel: "Read More",
   },
 ];
 
