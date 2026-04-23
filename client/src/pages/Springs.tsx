@@ -46,7 +46,7 @@ const PALETTE = {
   primary: "#3B6E7B",
   secondary: "#5A6F7B",
   accent: "#86898C",
-  gradientStart: "#F7F5F0",
+  gradientStart: "#E4EDEB",
   gradientEnd: "#E4EDEB",
   text: "#3B2B26",
   textSecondary: "#67737C",
@@ -282,7 +282,7 @@ function StorySection() {
               href="https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              className="inline-flex items-center gap-2.5 mt-4 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: PALETTE.primary }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -293,11 +293,12 @@ function StorySection() {
           </AnimateOnScroll>
 
           <div className="mt-8">
-            <img
-              src="/manus-storage/badge-strip-springs-v3_ac2294d1.png"
-              alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
-              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
-              loading="lazy"
+            <video
+              src="/manus-storage/badge-animation-final_80c614a1.mp4"
+              autoPlay
+              muted
+              playsInline
+              className="h-24 md:h-32 lg:h-40 w-auto ml-0 md:ml-2 lg:ml-4"
             />
           </div>
         </div>
