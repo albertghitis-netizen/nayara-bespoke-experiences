@@ -580,8 +580,8 @@ const awardsData = [
   {
     stat: "#1",
     accolade: "Best Resort in Central America",
-    property: "Nayara Bocas del Toro — Condé Nast",
-    route: "/bocas-del-toro",
+    property: "Nayara Bocas del Toro \u2014 Cond\u00e9 Nast",
+    route: "/blog/conde-nast-bocas-del-toro",
   },
   {
     stat: "#1",
@@ -598,8 +598,8 @@ const awardsData = [
   {
     stat: "3",
     accolade: "Only 3 Michelin Key Hotel in Costa Rica",
-    property: "Nayara Springs — MICHELIN Guide",
-    route: "/springs",
+    property: "Nayara Springs \u2014 MICHELIN Guide",
+    route: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
   },
 ];
 
@@ -621,14 +621,21 @@ function AwardsHighlightSection() {
             className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
           >
-            Recognized by the World{"'"}s Most Trusted Voices in Travel
+            Recognized by the Most Trusted Voices in Travel
           </span>
         </TextReveal>
         <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {awardsData.map((award) => (
             <motion.div key={award.property} variants={fadeUp}>
-              <Link
-                href={award.route}
+              {(() => {
+                const isExternal = award.route.startsWith("http");
+                const Wrapper = isExternal ? "a" : Link;
+                const wrapperProps = isExternal
+                  ? { href: award.route, target: "_blank", rel: "noopener noreferrer" }
+                  : { href: award.route };
+                return (
+              <Wrapper
+                {...wrapperProps}
                 className="group block h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
                 style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}25` }}
               >
@@ -678,7 +685,9 @@ function AwardsHighlightSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </div>
-              </Link>
+              </Wrapper>
+                );
+              })()}
             </motion.div>
           ))}
         </StaggerOnScroll>
