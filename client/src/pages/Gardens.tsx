@@ -47,7 +47,7 @@ const PALETTE = {
   primary: "#286241",
   secondary: "#1E4D33",
   accent: "#3A7A55",
-  gradientStart: "#F4FFEA",
+  gradientStart: "#F6FFEE",
   gradientEnd: "#EDEEE2",
   text: "#3B2B26",
   textSecondary: "#67737C",
@@ -295,26 +295,25 @@ function StorySection() {
               className="text-[15px] leading-[1.85] max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              The rainforest at the foot of Arenal Volcano is alive with possibility. Toucans, frogs, and howler monkeys share the canopy with your villa, and every trail leads somewhere worth discovering. Nayara Gardens welcomes families and couples alike, with experiences guided by naturalists who know this forest by name.
+                The rainforest at the foot of Arenal Volcano is alive with possibility. Toucans, frogs, and howler monkeys share the canopy with your villa, and every trail leads somewhere worth discovering. Nayara Gardens welcomes families and couples alike, with experiences guided by naturalists who know this forest by name.
             </p>
           </AnimateOnScroll>
-
           <div className="mt-6">
-            <img
-              src="/manus-storage/badge-strip-gardens-hof_4e30512a.png"
-              alt="Travel + Leisure World's Best Awards Hall of Fame, Leading Hotels of the World, Green Globe Certified"
-              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
-              loading="lazy"
+            <video
+              src="/manus-storage/badge-gardens-final_d47f3adb.mp4"
+              autoPlay
+              muted
+              playsInline
+              className="h-24 md:h-32 lg:h-40 w-auto"
             />
           </div>
-
         </div>
 
         {/* S1 — Vertical video right */}
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/gardens-s1-vertical_118ff65b.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/gardens-story-h1-video_f606b3a2.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
