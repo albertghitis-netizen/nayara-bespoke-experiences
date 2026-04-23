@@ -24,8 +24,8 @@ import {
    PALETTE — "Ocean" gradient: pale aqua → deep teal
    Subtle enough to let the photography dominate
    ═══════════════════════════════════════════════════════════════ */
-const COLOR_A = "#F2F6F5"; // light aqua tint
-const COLOR_B = "#E6EDEB"; // slightly deeper aqua tint
+const COLOR_A = "#EAF4FF"; // light blue tint
+const COLOR_B = "#EAF4FF"; // light blue tint
 const SECTION_COLORS = [
   COLOR_A, // 0 hero
   COLOR_B, // 1 story
