@@ -2716,3 +2716,6 @@
 - [x] Gardens: Fix hamburger and reserve pill colors to clover green (#286241)
 - [x] Hangaroa: Replace hero video with new user-provided video (0F543D4F)
 - [x] Hangaroa: Change H1 — user decided to keep existing text
+- [x] Gardens: Replicate brand homepage top row badge strip (same 3 badges, sizing, spacing) to replace current Gardens badges
+- [x] Gardens: Remove S2 horizontal photo (hanging bridge) below S1 section
+- [x] Atacama: Remove duplicate Mars vertical video on mobile (goes straight to next section after it)

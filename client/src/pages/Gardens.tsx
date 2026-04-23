@@ -299,11 +299,11 @@ function StorySection() {
             </p>
           </AnimateOnScroll>
 
-          <div className="mt-8">
+          <div className="mt-6">
             <img
-              src="/manus-storage/badge-strip-gardens-v8_32e10cf2.png"
-              alt="Virtuoso, Leading Hotels of the World, Distinción Turismo Sustentable"
-              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8"
+              src="/manus-storage/badge-strip-springs-v6_7de15d51.png"
+              alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
+              className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
               loading="lazy"
             />
           </div>
@@ -320,19 +320,7 @@ function StorySection() {
         </div>
       </div>
 
-      {/* S2 — Full-width horizontal photo below, touching S1 */}
-      <div style={{ backgroundColor: PALETTE.gradientEnd }}>
-        <MediaReveal delay={0.05}>
-          <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-s2-hanging-bridge_660745d7.jpeg"
-              alt="Woman on hanging bridge in rainforest canopy — Nayara Gardens"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </MediaReveal>
-      </div>
+
 
       {/* S3 — Video left + Accommodations text right (flipped from S1) */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>

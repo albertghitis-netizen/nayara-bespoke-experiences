@@ -596,6 +596,7 @@ const CASCADE_SECTIONS = [
     textSide: "left" as const,
     badges: false,
     hFirst: true,
+    hideMobileV: true,
   },
 ];
 
@@ -722,14 +723,16 @@ export default function AltoAtacama() {
                   badgeImage={(section as any).badgeImage}
                 />
               </div>
-              <MediaReveal delay={0.1}>
-                <MediaBlock
-                  src={section.vSrc}
-                  alt={section.headline}
-                  isVideo={section.vVideo}
-                  aspectRatio={section.vRatio}
-                />
-              </MediaReveal>
+              {!(section as any).hideMobileV && (
+                <MediaReveal delay={0.1}>
+                  <MediaBlock
+                    src={section.vSrc}
+                    alt={section.headline}
+                    isVideo={section.vVideo}
+                    aspectRatio={section.vRatio}
+                  />
+                </MediaReveal>
+              )}
             </div>
           </section>
         );
