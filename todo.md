@@ -2739,3 +2739,6 @@
 - [x] Atacama: All section labels, stars, links, blog pills, CTA buttons use MIDDLE (#B85C3C)
 - [x] Atacama: Getting Here icons, email/phone links, award year labels use MIDDLE accent
 - [x] Atacama: Hero text uses BONE, ReserveCTA button uses MIDDLE bg with BONE text
+- [x] Atacama: Test Middle #B85C3C for nav pills, footer bg, and concierge button (instead of Dark #6F463D)
+- [ ] Atacama: Incorporate Dark #6F463D for display headlines, card titles, quote text — Dark for hierarchy, Middle for interactive accents
+- [x] Atacama: Incorporate Dark #6F463D into decorative/structural non-text elements (icon circles, award card tints, review stars, help box bg) — text stays Espresso/Bone

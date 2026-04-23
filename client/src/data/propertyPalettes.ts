@@ -122,7 +122,7 @@ export const palettes: Record<string, PropertyPalette> = {
     buttonText: "#F7F5F0",
     footerBg: "#6F463D",        // Terracotta (matches nav)
     footerText: "#F7F5F0",      // Bone
-    navPillBg: "#6F463D",        // Terracotta
+    navPillBg: "#B85C3C",        // Middle terracotta
     navPillText: "#F7F5F0",
   },
 

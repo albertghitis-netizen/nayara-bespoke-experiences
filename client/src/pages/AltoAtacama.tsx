@@ -71,7 +71,7 @@ const PALETTE = {
   textTertiary: `${ESPRESSO}99`,
   primary: DARK,
   accent: MIDDLE,
-  divider: `${MIDDLE}25`,
+  divider: `${DARK}25`,
   lightText: BONE,
 };
 
@@ -757,7 +757,7 @@ export default function AltoAtacama() {
       <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
       <GettingHereSection />
       <ReserveCTA />
-      <Footer bgColor={DARK} />
+      <Footer bgColor={MIDDLE} />
     </div>
   );
 }
@@ -785,7 +785,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <div className="flex justify-center gap-1 mb-6">
             {[...Array(5)].map((_, i) => (
-              <svg key={i} className="w-5 h-5" fill={PALETTE.accent} viewBox="0 0 20 20">
+              <svg key={i} className="w-5 h-5" fill={DARK} viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}
@@ -848,7 +848,7 @@ function HeroSection() {
           src={heroVideo}
           className="w-full h-full object-cover"
           hasAudio={true}
-          pillBg={`${DARK}B3`}
+          pillBg={`${MIDDLE}B3`}
           pillColor={BONE}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
@@ -913,7 +913,7 @@ function GettingHereSection() {
               <div className="flex gap-4">
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: `${PALETTE.accent}15`, color: PALETTE.accent }}
+                  style={{ backgroundColor: `${DARK}15`, color: DARK }}
                 >
                   {route.icon}
                 </div>
@@ -926,7 +926,7 @@ function GettingHereSection() {
           ))}
         </div>
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
-          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.accent}08` }}>
+          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${DARK}08` }}>
             <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>
               <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
               <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.accent, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
@@ -960,8 +960,8 @@ function AwardsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {awards.map((award, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.15}>
-              <div className="p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.accent}06` }}>
-                <p className="text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500, color: PALETTE.accent }}>{award.year}</p>
+              <div className="p-6 rounded-xl" style={{ backgroundColor: `${DARK}06` }}>
+                <p className="text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500, color: DARK }}>{award.year}</p>
                 <h3 className="text-[18px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{award.name}</h3>
                 <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{award.description}</p>
               </div>
