@@ -27,8 +27,8 @@ const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
    PALETTE — Extended "Mars" gradient: warm sand → deep earth
    More sections = more gradient steps
    ═══════════════════════════════════════════════════════════════ */
-const COLOR_A = "#F0EBE2"; // warm sand — unified background
-const COLOR_B = "#F0EBE2"; // warm sand — unified background
+const COLOR_A = "#F9EBE0"; // light — warm peach sand
+const COLOR_B = "#F9EBE0"; // light — warm peach sand
 const SECTION_COLORS = [
   COLOR_A, // 0 hero
   COLOR_B, // 1 story
@@ -52,12 +52,27 @@ const SECTION_COLORS = [
   COLOR_B, // 19 flamingo lagoon
 ];
 
+/* 3-COLOR SYSTEM
+   Dark:    #6F463D — nav pills, mute btn (desktop), concierge, footer
+   Middle:  #B85C3C — blog pills, CTAs, accents, labels, links
+   Light:   #F9EBE0 — all page backgrounds
+   Text on light: Espresso #3B2B26 (brand)
+   Text on dark:  Bone #F9F6F3 (brand)
+*/
+const DARK = "#6F463D";
+const MIDDLE = "#B85C3C";
+const LIGHT = "#F9EBE0";
+const ESPRESSO = "#3B2B26";
+const BONE = "#F9F6F3";
+
 const PALETTE = {
-  text: "#3B2B26",
-  textSecondary: "#67737C",
-  textTertiary: "#9A9086",
-  primary: "#6F463D",
-  divider: "#E6DFD5",
+  text: ESPRESSO,
+  textSecondary: ESPRESSO,
+  textTertiary: `${ESPRESSO}99`,
+  primary: DARK,
+  accent: MIDDLE,
+  divider: `${MIDDLE}25`,
+  lightText: BONE,
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -173,7 +188,7 @@ function SectionLabel({ children, color }: { children: React.ReactNode; color?: 
   return (
     <p
       className="text-[11px] tracking-[0.2em] mb-4"
-      style={{ ...body, fontWeight: 500, color: color || PALETTE.primary }}
+      style={{ ...body, fontWeight: 500, color: color || PALETTE.accent }}
     >
       {children}
     </p>
@@ -254,7 +269,7 @@ function CascadeTextBlock({
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 mt-4 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: PALETTE.primary }}
+            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
           >
             <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -278,7 +293,7 @@ function CascadeTextBlock({
           <a
             href={link}
             className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-            style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
+            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
           >
             {linkLabel} →
           </a>
@@ -383,7 +398,7 @@ function CascadeSection({
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 mt-4 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: PALETTE.primary }}
+            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
           >
             <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -407,7 +422,7 @@ function CascadeSection({
           <a
             href={link}
             className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-            style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
+            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
           >
             {linkLabel} →
           </a>
@@ -742,7 +757,7 @@ export default function AltoAtacama() {
       <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
       <GettingHereSection />
       <ReserveCTA />
-      <Footer bgColor="#6F463D" />
+      <Footer bgColor={DARK} />
     </div>
   );
 }
@@ -761,7 +776,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.2em] mb-6"
-            style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
+            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
           >
             Guest Voices
           </p>
@@ -770,7 +785,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <div className="flex justify-center gap-1 mb-6">
             {[...Array(5)].map((_, i) => (
-              <svg key={i} className="w-5 h-5" fill={PALETTE.primary} viewBox="0 0 20 20">
+              <svg key={i} className="w-5 h-5" fill={PALETTE.accent} viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}
@@ -809,7 +824,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-            style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
+            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
           >
             Read All Reviews →
           </a>
@@ -833,8 +848,8 @@ function HeroSection() {
           src={heroVideo}
           className="w-full h-full object-cover"
           hasAudio={true}
-          pillBg="#6F463DB3"
-          pillColor="#F7F5F0"
+          pillBg={`${DARK}B3`}
+          pillColor={BONE}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
@@ -845,8 +860,8 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          className="text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BONE }}
         >
           Luxury Atacama Desert Lodge
         </motion.h1>
@@ -854,8 +869,8 @@ function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.0 }}
-          className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+          className="text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: `${BONE}99` }}
         >
           San Pedro de Atacama, Chile
         </motion.p>
@@ -898,7 +913,7 @@ function GettingHereSection() {
               <div className="flex gap-4">
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: `${PALETTE.primary}15`, color: PALETTE.primary }}
+                  style={{ backgroundColor: `${PALETTE.accent}15`, color: PALETTE.accent }}
                 >
                   {route.icon}
                 </div>
@@ -911,11 +926,11 @@ function GettingHereSection() {
           ))}
         </div>
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
-          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.primary}08` }}>
+          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.accent}08` }}>
             <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>
               <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
-              <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.primary, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
-              or call <a href="tel:+18448652002" style={{ color: PALETTE.primary, textDecoration: "underline" }}>844-865-2002</a>.
+              <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.accent, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
+              or call <a href="tel:+18448652002" style={{ color: PALETTE.accent, textDecoration: "underline" }}>844-865-2002</a>.
             </p>
           </div>
         </AnimateOnScroll>
@@ -945,8 +960,8 @@ function AwardsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {awards.map((award, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.15}>
-              <div className="p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.primary}06` }}>
-                <p className="text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500, color: PALETTE.primary }}>{award.year}</p>
+              <div className="p-6 rounded-xl" style={{ backgroundColor: `${PALETTE.accent}06` }}>
+                <p className="text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500, color: PALETTE.accent }}>{award.year}</p>
                 <h3 className="text-[18px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{award.name}</h3>
                 <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{award.description}</p>
               </div>
@@ -975,7 +990,7 @@ function ReserveCTA() {
           <a
             href="/reserve?property=alto-atacama"
             className="inline-block px-10 py-3.5 rounded-full text-[11px] tracking-[0.2em] transition-all hover:opacity-80"
-            style={{ ...body, fontWeight: 500, backgroundColor: PALETTE.primary, color: "#fff" }}
+            style={{ ...body, fontWeight: 500, backgroundColor: PALETTE.accent, color: BONE }}
           >
             Reserve Your Stay
           </a>

@@ -2732,3 +2732,10 @@
 - [x] Homepage: Update Tented Camp award to #1 Central America 2026, 5 of last 6 years
 - [x] Gardens: Add badge strip matching Tented Camp layout, swap T+L World's Best with Hall of Fame badge
 - [x] Homepage: Fix award card spacing — all three lines perfectly even at full width
+- [ ] Homepage: Fix mobile awards grid — show all 6 cards (second row missing on mobile)
+- [x] Atacama: Implement 3-color palette — Dark #6F463D (nav pills, mute btn, concierge btn, footer), Middle #B85C3C (blog pills, CTAs, accents), Light #F9EBE0 (all backgrounds)
+- [x] Atacama: Remove mute button on mobile (keep on desktop only)
+- [x] Atacama: Strict 2-text-color system — Espresso #3B2B26 on light backgrounds, Bone #F9F6F3 on dark backgrounds
+- [x] Atacama: All section labels, stars, links, blog pills, CTA buttons use MIDDLE (#B85C3C)
+- [x] Atacama: Getting Here icons, email/phone links, award year labels use MIDDLE accent
+- [x] Atacama: Hero text uses BONE, ReserveCTA button uses MIDDLE bg with BONE text
