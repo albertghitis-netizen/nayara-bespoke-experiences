@@ -130,9 +130,9 @@ export default function ByNightCTA({
         </div>
       </div>
 
-      {/* Horizontal media — full bleed */}
+      {/* Horizontal media — full bleed, desktop only */}
       {horizontalSrc && (
-        <div style={{ backgroundColor: bgColor }}>
+        <div className="hidden md:block" style={{ backgroundColor: bgColor }}>
           <MediaReveal delay={0.05}>
             <div className="overflow-hidden" style={{ aspectRatio: horizontalRatio }}>
               {horizontalIsVideo ? (

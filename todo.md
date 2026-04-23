@@ -2726,3 +2726,6 @@
 - [x] Bocas del Toro: Add "Begin Your Caribbean Adventure" reserve CTA at bottom, matching Atacama/Tented Camp pattern
 - [x] Homepage: Remove Instagram grid section from bottom
 - [x] Homepage: Change award cards background to gravel color for contrast against bone bg
+- [x] Homepage: Redesign awards section with high-contrast dark cards, visible stat numbers
+- [x] Homepage: Restore By Night horizontal video on desktop (hidden on mobile only)
+- [x] Homepage: Awards stat numbers should be bone (#F7F5F0) instead of gold
