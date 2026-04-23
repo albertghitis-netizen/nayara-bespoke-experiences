@@ -288,7 +288,7 @@ function CascadeTextBlock({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-corrected-compressed_63d27c6b.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
+          <video src="/manus-storage/badge-animation-corrected-compressed_63d27c6b.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -304,7 +304,7 @@ function CascadeTextBlock({
       )}
       {badges && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-corrected-compressed_63d27c6b.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
+          <video src="/manus-storage/badge-animation-corrected-compressed_63d27c6b.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -407,7 +407,7 @@ function CascadeSection({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-corrected-compressed_63d27c6b.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
+          <video src="/manus-storage/badge-animation-corrected-compressed_63d27c6b.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -423,7 +423,7 @@ function CascadeSection({
       )}
       {badges && (
         <div className="mt-8">
-          <video src="/manus-storage/badge-animation-corrected-compressed_63d27c6b.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-6 lg:-ml-8" />
+          <video src="/manus-storage/badge-animation-corrected-compressed_63d27c6b.mp4" autoPlay muted playsInline className="h-24 md:h-32 lg:h-40 w-auto -ml-6 md:-ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
