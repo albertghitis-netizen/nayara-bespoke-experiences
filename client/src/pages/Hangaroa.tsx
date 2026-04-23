@@ -241,11 +241,13 @@ function NayaraByNightSection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-moai-milkyway_0588cd10.webp"
-                alt="Moai beneath the Milky Way — Nayara Hangaroa"
+              <video
+                src="/manus-storage/homepage-bynight-v_a69c6648.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="w-full h-full object-cover"
-                loading="lazy"
               />
             </div>
           </MediaReveal>
