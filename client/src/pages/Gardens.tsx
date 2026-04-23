@@ -60,7 +60,7 @@ const PALETTE = {
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
   // Hero
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-hero-compressed_7b01313d.mp4",
+  heroDesktop: "/manus-storage/gardens-hero-with-audio_68878e2b.mp4",
 
   // Rooms — video replaces s3 photo
   roomsVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4",

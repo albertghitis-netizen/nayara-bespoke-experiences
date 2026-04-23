@@ -88,7 +88,7 @@ const ASSETS = {
   clip7H: "/manus-storage/atacama-geysers-h_39967146.mp4",
 
   // Clip 8 — vertical 3:4
-  clip8V: "/manus-storage/clip8-v_d07a3c21.mp4",
+  clip8V: "/manus-storage/clip8-v-trimmed_452e9341.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
   storyV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
@@ -456,14 +456,14 @@ function CascadeSection({
 
         {/* H row */}
         {!hideH && (
-          <div className="w-full">
+          <div className="w-full block leading-[0]">
             <MediaReveal delay={0.1}>{HorizontalMedia}</MediaReveal>
           </div>
         )}
 
         {/* V+Text after H when order is h-first */}
         {order === "h-first" && (
-          <div className="flex">
+          <div className="flex -mt-px">
           {textSide === "left" ? (
             <>
               <div className="w-1/2 flex items-center">

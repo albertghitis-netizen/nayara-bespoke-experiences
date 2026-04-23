@@ -2695,3 +2695,6 @@
 - [x] Build CostaRicaGastronomy.tsx — deep page: Hero, Stats, Shared Dining Philosophy, Restaurants (6), Bars (5), Gelato, Classes (5)
 - [x] Both shared across TC/Springs/Gardens with property-specific colors
 - [ ] Wire routes for /{property}/experiences and /{property}/gastronomy
+- [x] Atacama: Remove black line between horizontal and vertical videos in sustainability cascade section
+- [x] Atacama: Trim last 4 seconds of vertical wellness video in sustainability cascade section
+- [x] Gardens: Fix hero video audio — re-compress from original with audio track preserved (was stripped during compression)
