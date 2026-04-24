@@ -214,6 +214,7 @@ function CascadeTextBlock({
   badges,
   badgeImage,
   isDark = false,
+  stats,
 }: {
   label: string;
   headline: string;
@@ -225,6 +226,7 @@ function CascadeTextBlock({
   badges?: boolean;
   badgeImage?: string;
   isDark?: boolean;
+  stats?: { value: string; label: string }[];
 }) {
   const headlineColor = isDark ? BONE : PALETTE.text;
   const bodyColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
@@ -253,13 +255,13 @@ function CascadeTextBlock({
             href={blogLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 mt-4 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+            className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
             style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
           >
             <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
             </svg>
-            {blogLinkLabel || "Read More on the Journal"}
+            {blogLinkLabel || "Watch the Film"}
           </a>
         )}
       </AnimateOnScroll>
@@ -268,18 +270,7 @@ function CascadeTextBlock({
           <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
-      {link && (
-        <AnimateOnScroll variants={fadeUp} delay={0.4}>
-          <a
-            href={link}
-            className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-            style={{ ...body, fontWeight: 500, color: linkColor }}
-          >
-            {linkLabel} →
-          </a>
-        </AnimateOnScroll>
-      )}
-      {badges && (
+           {badges && (
         <div className="mt-8 hidden md:block">
           <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
@@ -287,9 +278,8 @@ function CascadeTextBlock({
     </div>
   );
 }
-
 /* ═══════════════════════════════════════════════════════════════
-   CASCADE SECTION — Zero-gap, gradient bg, varied ratios (LEGACY — kept for reference)
+   CASCADE SECTION — Zero-gap, gradient bg, varied ratios (LEGACY — kept for reference))
    ═══════════════════════════════════════════════════════════════ */
 function CascadeSection({
   label,
@@ -372,13 +362,13 @@ function CascadeSection({
             href={blogLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 mt-4 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+            className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
             style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
           >
             <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
             </svg>
-            {blogLinkLabel || "Read More on the Journal"}
+            {blogLinkLabel || "Watch the Film"}
           </a>
         )}
       </AnimateOnScroll>
@@ -524,6 +514,8 @@ const CASCADE_SECTIONS = [
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
+    link: "/alto-atacama/experiences",
+    linkLabel: "Explore Experiences",
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
@@ -539,6 +531,13 @@ const CASCADE_SECTIONS = [
     textSide: "right" as const,
     link: "/alto-atacama/sustainability",
     linkLabel: "Explore Sustainability",
+    blogLink: "https://www.youtube.com/watch?v=6cfkWsqWWc8",
+    blogLinkLabel: "Watch: Desert Stewardship",
+    stats: [
+      { value: "100%", label: "Solar Energy" },
+      { value: "S Seal", label: "Certified" },
+      { value: "0%", label: "Water Waste" },
+    ],
     badges: false,
   },
   {
@@ -550,6 +549,8 @@ const CASCADE_SECTIONS = [
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "1920/812",
     textSide: "right" as const,
+    link: "/alto-atacama/wellness",
+    linkLabel: "Explore Wellness",
     badges: false,
   },
   {
@@ -561,6 +562,8 @@ const CASCADE_SECTIONS = [
     vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
+    link: "/alto-atacama/gastronomy",
+    linkLabel: "Explore Gastronomy",
     badges: false,
     hFirst: false,
     hideMobileV: true,
@@ -619,6 +622,7 @@ export default function AltoAtacama() {
                         badges={section.badges}
                         badgeImage={(section as any).badgeImage}
                         isDark={isDarkSection}
+                        stats={(section as any).stats}
                       />
                     </div>
                   </div>
@@ -660,6 +664,7 @@ export default function AltoAtacama() {
                         badges={section.badges}
                         badgeImage={(section as any).badgeImage}
                         isDark={isDarkSection}
+                        stats={(section as any).stats}
                       />
                     </div>
                   </div>
@@ -670,16 +675,29 @@ export default function AltoAtacama() {
         );
 
         const HRow = !isHidden ? (
-          <div className="hidden md:block w-full" style={{ marginTop: '-1px' }}>
+          <div className="hidden md:block w-full relative" style={{ marginTop: '-1px' }}>
             <MediaReveal delay={0.1}>
               <MediaBlock
                 src={section.hSrc}
                 alt={section.headline}
                 isVideo={section.hVideo}
                 aspectRatio={section.hRatio}
-
               />
             </MediaReveal>
+            {section.link && (
+              <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
+                <a
+                  href={section.link}
+                  className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                  style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", color: BONE, backgroundColor: MIDDLE, textTransform: "uppercase" }}
+                >
+                  {section.linkLabel || "Explore More"}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
+              </div>
+            )}
           </div>
         ) : null;
 
@@ -708,6 +726,7 @@ export default function AltoAtacama() {
                     badges={section.badges}
                     badgeImage={(section as any).badgeImage}
                     isDark={isDarkSection}
+                    stats={(section as any).stats}
                   />
                 </div>
                 {!(section as any).hideMobileV && (
