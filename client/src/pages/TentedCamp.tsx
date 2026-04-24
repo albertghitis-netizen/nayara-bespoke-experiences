@@ -262,7 +262,7 @@ function CascadeSection({
                 <span
                   key={i}
                   className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
-                  style={{ ...display, color: textColor }}
+                  style={{ ...display, color: PALETTE.text }}
                 >
                   {line}
                 </span>
@@ -273,7 +273,7 @@ function CascadeSection({
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
               className="text-[15px] leading-[1.85] max-w-[480px]"
-              style={{ ...body, color: textSecondaryColor }}
+              style={{ ...body, color: PALETTE.textSecondary }}
             >
               {section.body}
             </p>
@@ -284,7 +284,7 @@ function CascadeSection({
               <a
                 href={section.link}
                 className="inline-block mt-6 text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-                style={{ ...body, fontWeight: 500, color: accentColor }}
+                style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
               >
                 {section.linkLabel || "Explore More"} →
               </a>
@@ -644,7 +644,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "The Camp",
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.",
-    verticalSrc: "/manus-storage/tented-s1-v2_8d66f67e.mp4",
+    verticalSrc: "/manus-storage/tc-new-s1_78348c14.mp4",
     horizontalSrc: "/manus-storage/tented-camp-mainpool-new_72169ddd.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
@@ -694,11 +694,11 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Rooted in\nResponsibility",
     body: "What began as a barren cattle ranch is now a thriving 1,400-acre rainforest reserve. Every decision at Tented Camp — from solar-heated pools to zero single-use plastics — is guided by a simple principle: leave the land better than we found it.",
     verticalSrc: "/manus-storage/tented-sustainability-vertical_51ad5d43.mp4",
-    horizontalSrc: "/manus-storage/tented-sustainability-h2_e4fd711d.mp4",
+    horizontalSrc: "/manus-storage/tented-sustainability-h_34a18e2d.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
-    horizontalRatio: "16/9",
+    horizontalRatio: "13/5",
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
     link: "/tented-camp/sustainability",
@@ -747,12 +747,12 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
   {
     id: "nayara-by-night",
     label: "Nayara by Night",
-    headline: "The Jungle\nAfter Dark",
-    body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets — a world that only comes alive after dark.",
+    headline: "Darkness\nReveals Beauty",
+    body: "At Nayara, nightfall is not an ending — it is a transformation. The jungle hums with nocturnal life, the sky deepens to reveal galaxies, and the resorts glow with intimate warmth. Every property is designed to celebrate the night as much as the day.",
     verticalSrc: "/manus-storage/tented-night-frogs-vertical_13b54b09.mp4",
-    horizontalSrc: "/manus-storage/tented-bynight-horizontal_25b5eec9.mp4",
+    horizontalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-dusk_7f5e4a2b.webp",
     verticalIsVideo: true,
-    horizontalIsVideo: true,
+    horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     verticalLoop: true,

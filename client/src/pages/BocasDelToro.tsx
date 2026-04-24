@@ -186,10 +186,10 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Accommodations",
     headline: "Overwater\nVillas",
     body: "Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.",
-    verticalSrc: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
-    horizontalSrc: "/manus-storage/bocas-accommodations-h_d33b2e24.mp4",
+    verticalSrc: ASSETS.roomsV,
+    horizontalSrc: ASSETS.roomsH,
     verticalIsVideo: true,
-    horizontalIsVideo: true,
+    horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[2],
@@ -202,10 +202,10 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Experiences",
     headline: "Caribbean\nAdventures",
     body: "From snorkeling vibrant coral reefs to kayaking through bioluminescent bays, every day brings a new discovery. Explore hidden beaches, dive alongside tropical fish, or simply drift in the warm Caribbean waters that surround your private island retreat.",
-    verticalSrc: "/manus-storage/bocas-caribbean-adventure-v_e1c6cfa3.mp4",
-    horizontalSrc: "/manus-storage/bocas-experiences-h_3f479361.mp4",
+    verticalSrc: ASSETS.expV,
+    horizontalSrc: ASSETS.expH,
     verticalIsVideo: true,
-    horizontalIsVideo: true,
+    horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[3],
@@ -234,10 +234,10 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Wellness",
     headline: "Caribbean\nSerenity",
     body: "Surrender to the rhythm of the ocean at our overwater spa. Treatments draw from Caribbean healing traditions, using locally sourced ingredients and the soothing sounds of the sea to restore body and mind. Each session unfolds above the gentle turquoise waters.",
-    verticalSrc: "/manus-storage/bocas-wellness-v2_42b49989.mp4",
-    horizontalSrc: "/manus-storage/bocas-wellness-h2_b08668ba.mp4",
+    verticalSrc: ASSETS.wellV,
+    horizontalSrc: ASSETS.wellH,
     verticalIsVideo: true,
-    horizontalIsVideo: true,
+    horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[5],
@@ -266,9 +266,9 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: "/manus-storage/bocas-bynight-v2_c7ef2c4d.mp4",
-    horizontalSrc: "/manus-storage/bocas-bynight-h-biolum_d8b2a6e8.jpg",
-    verticalIsVideo: true,
+    verticalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum2_9f24efa2.jpeg",
+    horizontalSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/biolum_007f69ec.webp",
+    verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -683,7 +683,7 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
 function ReserveCTA() {
   const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
   const body = { fontFamily: "var(--font-body)" } as const;
-  const tailBg = COLOR_A;
+  const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
   return (
     <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: tailBg }}>
       <div className="max-w-[800px] mx-auto text-center">
@@ -721,9 +721,9 @@ export default function BocasDelToro() {
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
 
-      <ReviewsBreak bgColor={COLOR_A} />
+      <ReviewsBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 1]} />
 
-      <GettingHereBreak bgColor={COLOR_B} />
+      <GettingHereBreak bgColor={SECTION_COLORS[SECTION_COLORS.length - 2]} />
       <ReserveCTA />
       <Footer bgColor="#008E97" />
     </div>

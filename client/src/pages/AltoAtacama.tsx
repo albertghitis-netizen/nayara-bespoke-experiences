@@ -557,20 +557,20 @@ const CASCADE_SECTIONS = [
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: "/manus-storage/atacama-taste-of-place-vertical_e5fa6f59.jpeg",
-    hSrc: "/manus-storage/atacama-restaurant-interior_b3e2536a.jpg",
+    hSrc: ASSETS.gastroH,
     vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
     badges: false,
-    hFirst: false,
+    hFirst: true,
     hideMobileV: true,
   },
   {
     label: "Nayara by Night",
     headline: "The Clearest Skies on Earth",
     description: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
-    vSrc: "/manus-storage/atacama-bynight-telescope_95ffaa70.jpg",
-    hSrc: "/manus-storage/atacama-bynight-horizontal_b529e449.mp4",
+    vSrc: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
+    hSrc: "/manus-storage/homepage-bynight-h_c20386f7.mp4",
     vVideo: false, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
@@ -871,7 +871,7 @@ function GettingHereSection() {
     { title: "Altitude Guidance", description: "At 2,400m elevation, we schedule excursions progressively. Coca tea available throughout the property.", icon: "⛰" },
   ];
   return (
-    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#E8D5C4" }}>
+    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: LIGHT }}>
       <div className="max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <SectionLabel>Getting Here</SectionLabel>

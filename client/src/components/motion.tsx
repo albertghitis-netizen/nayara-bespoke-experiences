@@ -26,11 +26,11 @@ export const EASE_SUBTLE = [0.4, 0, 0.2, 1] as const;
 
 /** Duration presets — calmer, quicker */
 export const DURATION = {
-  fast: 0.25,
-  normal: 0.425,
-  slow: 0.6,
-  dramatic: 0.68,
-  hero: 0.85,
+  fast: 0.3,
+  normal: 0.5,
+  slow: 0.7,
+  dramatic: 0.8,
+  hero: 1.0,
 } as const;
 
 /** Stagger presets — tighter */
