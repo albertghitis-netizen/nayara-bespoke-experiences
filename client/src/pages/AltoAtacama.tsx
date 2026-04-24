@@ -92,30 +92,30 @@ const ASSETS = {
   clip3H: "/manus-storage/atacama-s2-horizontal-v2_347c0422.mp4",
 
   // Clip 4 — vertical 3:4
-  clip4V: "/manus-storage/atacama-s3-vertical_ba3fbf5a.mp4",
+  clip4V: "/manus-storage/atacama-s3-vertical_bf21b975.mp4",
 
   // Clip 5 — horizontal 16:9
-  clip5H: "/manus-storage/atacama-rooms-drone-h_3b92e93d.mp4",
+  clip5H: "/manus-storage/atacama-rooms-drone-h_90dc5f36.mp4",
 
   // Clip 6 — vertical 3:4
-  clip6V: "/manus-storage/atacama-s1-vertical_b68ea605.mp4",
+  clip6V: "/manus-storage/atacama-s1-vertical_0ae9ef8a.mp4",
 
   // Clip 7 — horizontal 16:9
-  clip7H: "/manus-storage/atacama-geysers-h_39967146.mp4",
+  clip7H: "/manus-storage/atacama-geysers-h_d266e1ae.mp4",
 
   // Clip 8 — vertical 3:4
   clip8V: "/manus-storage/clip8-v-trimmed_452e9341.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
-  storyV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
+  storyV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   storyH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
 
   // Section 2 — Rooms: cascade hotel property aerial (cropped, no black bars)
-  roomsV: "/manus-storage/atacama-cascade-4-accom-v_a9869d1c.mp4",
+  roomsV: "/manus-storage/atacama-cascade-4-accom-v_cdc03eb9.mp4",
   roomsH: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
   // Section 3 — Experiences: cascade salt flat (cropped, no black bars)
-  expV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
+  expV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   expH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
 
   // Section 4 — Sustainability: cascade flamingos (cropped, no black bars)
@@ -123,17 +123,17 @@ const ASSETS = {
   susH: "/manus-storage/atacama-sus-h-new_71c95f9c.mp4",
 
   // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
-  wellV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
+  wellV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   wellH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
   wellH2: "/manus-storage/atacama-wellness-h-v2_f00c123e.mp4",
   wellV2: "/manus-storage/atacama-wellness-v-still_4687073b.jpg",
 
   // Section 6 — A Taste of Place: plated dish H
-  gastroV: "/manus-storage/atacama-cascade-2-vertical_fe184d4a.mp4",
+  gastroV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   gastroH: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
 
   // Section 6b — Desert Ingredients: spice jars V + avocado mousse H
-  gastro2V: "/manus-storage/atacama-cascade-4-accom-v_a9869d1c.mp4",
+  gastro2V: "/manus-storage/atacama-cascade-4-accom-v_cdc03eb9.mp4",
   gastro2H: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
   // Section 6c — The Art of Plating: tuna sashimi V + beetroot dessert H
@@ -148,35 +148,13 @@ const ASSETS = {
   gastro5V: "/manus-storage/atacama-milkyway-bus_88a347bc.jpg",
   gastro5H: "/manus-storage/5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_c678c03f.JPG",
 
-  // Section 7 — Stargazing: Milky Way pillar V + Valle de la Luna H video
-  starV: "/manus-storage/atacama-milkyway-pillar_d9301ecc.jpg",
-  starH: "/manus-storage/atacama-valle-luna-horizontal_1f6f7599.mp4",
 
-  // Section 8 — Landscape: Rainbow Valley aerial H video + Atacama00003 V video
-  landV: "/manus-storage/Video_Nayara_Atacama00003_aeb971e9.MP4",
-  landH: "/manus-storage/atacama-rainbow-valley-aerial_55c86ce4.mp4",
 
-  // Section 9 — Wildlife: flamingos golden photo H + Atacama00007 V video
-  wildV: "/manus-storage/Video_Nayara_Atacama00007_8576aa55.MP4",
-  wildH: "/manus-storage/atacama-flamingos-golden_7a564e58.jpg",
 
-  // Section 10 — Adventure: cfnetwork desert walk H + trim V (MOV)
-  advV: "/manus-storage/trim_cb137ccb.mp4",
-  advH: "/manus-storage/cfnetwork_b9ae0ca4.mp4",
 
-  // Section 11 — Dusk: nbn dusk resort H + nbn dusk V
-  duskV: "/manus-storage/nbn-atacama-dusk_9201508f.webp",
-  duskH: "/manus-storage/nbn-atacama-dusk-resort_b5829c95.webp",
 
-  // Section 12 — Architecture: courtyard cliff V + hero desktop photo H
-  archV: "/manus-storage/atacama-courtyard-cliff-vertical_28dfbf06.mp4",
-  archH: "/manus-storage/atacama-hero-new_42efa04c.mp4",
 
   // Gallery extras
-  flamingoLagoon: "/manus-storage/atacama-flamingo-lagoon-audio_8cc7cdf9.mp4",
-  poolSunset: "/manus-storage/atacama-pool-sunset_c4a2f7e1.jpg",
-  stargazingPhoto: "/manus-storage/atacama-stargazing_f5c3d8a4.jpg",
-  suiteInterior: "/manus-storage/atacama-suite-interior_d3b1e9f2.jpg",
   heroDesktopPhoto: "/manus-storage/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
   propCard: "/manus-storage/prop-atacama_704b4f26.jpg",
 };

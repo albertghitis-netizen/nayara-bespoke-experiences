@@ -77,7 +77,7 @@ const ASSETS = {
   heroDesktop: `${CDN}/tented-hero-new_c2f5b543.mp4`,
   heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
 
-  storyV: "/manus-storage/tented-s1-vertical-new_774e62da.mp4",
+  storyV: "/manus-storage/brand-s1-philosophy_510ddc6e.mp4",
   storyH: `${CDN}/Supersale-8_68853293.jpg`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,

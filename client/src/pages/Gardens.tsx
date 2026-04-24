@@ -1,5 +1,5 @@
 /*
- * NAYARA GARDENS — Arenal, Costa Rica
+ * NAYARA GARDENS - Arenal, Costa Rica
  * Visual Identity: "Canopy" palette · Cormorant Garamond · Cinematic motion · Video-first
  */
 import { useState } from "react";
@@ -40,9 +40,9 @@ import {
 const gardens = properties.find((p: Property) => p.id === "gardens")!;
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE — "Canopy"
+   PALETTE - "Canopy"
    ═══════════════════════════════════════════════════════════════ */
-/* Dark Olive palette — warm olive green */
+/* Dark Olive palette - warm olive green */
 const PALETTE = {
   primary: "#286241",
   secondary: "#1E4D33",
@@ -56,13 +56,13 @@ const PALETTE = {
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   CDN ASSETS — Video-first. Photos are fallback.
+   CDN ASSETS - Video-first. Photos are fallback.
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
   // Hero
   heroDesktop: "/manus-storage/gardens-hero-with-audio_68878e2b.mp4",
 
-  // Rooms — video replaces s3 photo
+  // Rooms - video replaces s3 photo
   roomsVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4",
   // Rooms landscape
   roomsLandscape: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-final-video_7a430890.mp4",
@@ -124,7 +124,7 @@ const roomCards = [
 const sustainabilityCards = [
   { title: "Rainforest Conservation", description: "Over 70 acres of protected primary and secondary rainforest surrounding the resort, providing habitat for hundreds of bird species and wildlife." },
   { title: "Organic Gardens", description: "On-site organic gardens supply our five restaurants with fresh herbs, vegetables, and fruits, reducing food miles to nearly zero." },
-  { title: "Carbon Neutral Operations", description: "Costa Rica's commitment to carbon neutrality is matched by our own — renewable energy, waste reduction, and reforestation programs." },
+  { title: "Carbon Neutral Operations", description: "Costa Rica's commitment to carbon neutrality is matched by our own - renewable energy, waste reduction, and reforestation programs." },
   { title: "Community Impact", description: "Employing over 500 local staff and supporting community education, healthcare, and cultural preservation programs in the Arenal region." },
 ];
 
@@ -149,7 +149,7 @@ export default function Gardens() {
       <StorySection />
       <OneRainforestGardens />
 
-      {/* ══ 1. ROOMS — Slider ══ */}
+      {/* ══ 1. ROOMS - Slider ══ */}
       <PropertySlider
         sectionLabel="Accommodations"
         headline="Arenal Casitas"
@@ -160,7 +160,7 @@ export default function Gardens() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ══ 2. EXPERIENCES — Sorter (after Rooms per user request) ══ */}
+      {/* ══ 2. EXPERIENCES - Sorter (after Rooms per user request) ══ */}
       <PropertySorter
         sectionLabel="Experiences"
         headline="Arenal Adventures"
@@ -172,7 +172,7 @@ export default function Gardens() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ══ 3. WELLNESS — Sorter ══ */}
+      {/* ══ 3. WELLNESS - Sorter ══ */}
       <PropertySorter
         sectionLabel="Wellness"
         headline={gardens.theme.spaHeadline.replace("\n", " ")}
@@ -184,7 +184,7 @@ export default function Gardens() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ══ 4. SUSTAINABILITY — Slider ══ */}
+      {/* ══ 4. SUSTAINABILITY - Slider ══ */}
       <PropertySlider
         sectionLabel="Sustainability"
         headline="Rooted in the Rainforest"
@@ -195,7 +195,7 @@ export default function Gardens() {
         palette={SLIDER_PALETTE}
       />
 
-      {/* ══ 5. GASTRONOMY — Slider ══ */}
+      {/* ══ 5. GASTRONOMY - Slider ══ */}
       <PropertySlider
         sectionLabel="A Taste of Place"
         headline="Farm to Table"
@@ -216,7 +216,7 @@ export default function Gardens() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-bleed video, cinematic text reveal
+   HERO - Full-bleed video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
@@ -256,7 +256,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   STORY — Cascade layout matching Tented Camp:
+   STORY - Cascade layout matching Tented Camp:
    Text left + S1 vertical video right, S2 horizontal video below
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
@@ -309,7 +309,7 @@ function StorySection() {
           </div>
         </div>
 
-        {/* S1 — Vertical video right */}
+        {/* S1 - Vertical video right */}
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
@@ -321,9 +321,9 @@ function StorySection() {
 
 
 
-      {/* S3 — Video left + Accommodations text right (flipped from S1) */}
+      {/* S3 - Video left + Accommodations text right (flipped from S1) */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
-        {/* S3 vertical video — left */}
+        {/* S3 vertical video - left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
@@ -332,7 +332,7 @@ function StorySection() {
           </MediaReveal>
         </div>
 
-        {/* Text column — right */}
+        {/* Text column - right */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
           style={{ backgroundColor: PALETTE.gradientEnd }}
@@ -367,7 +367,7 @@ function StorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ROOMS — Video left, text right, landscape video below
+   ROOMS - Video left, text right, landscape video below
    On tinted background (gradient end)
    ═══════════════════════════════════════════════════════════════ */
 function RoomsSection() {
@@ -375,7 +375,7 @@ function RoomsSection() {
     <TintedSection backgroundColor={PALETTE.gradientEnd} className={sectionPadding}>
       <div className={maxW}>
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          {/* Video left — vertical */}
+          {/* Video left - vertical */}
           <div className="md:flex-1 order-2 md:order-1">
             <MediaReveal delay={0.1}>
               <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
@@ -404,7 +404,7 @@ function RoomsSection() {
           </div>
         </div>
 
-        {/* Landscape video below — hidden on mobile */}
+        {/* Landscape video below - hidden on mobile */}
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
@@ -427,7 +427,7 @@ function RoomsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXPERIENCES — Full-width video header, then card grid
+   EXPERIENCES - Full-width video header, then card grid
    ═══════════════════════════════════════════════════════════════ */
 function ExperiencesSection() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -511,13 +511,13 @@ function ExperiencesSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SUSTAINABILITY — Video background with overlay cards
+   SUSTAINABILITY - Video background with overlay cards
    ═══════════════════════════════════════════════════════════════ */
 function SustainabilitySection() {
   const initiatives = [
     { title: "Rainforest Conservation", desc: "Over 70 acres of protected primary and secondary rainforest surrounding the resort, providing habitat for hundreds of bird species and wildlife." },
     { title: "Organic Gardens", desc: "On-site organic gardens supply our five restaurants with fresh herbs, vegetables, and fruits, reducing food miles to nearly zero." },
-    { title: "Carbon Neutral Operations", desc: "Costa Rica's commitment to carbon neutrality is matched by our own — renewable energy, waste reduction, and reforestation programs." },
+    { title: "Carbon Neutral Operations", desc: "Costa Rica's commitment to carbon neutrality is matched by our own - renewable energy, waste reduction, and reforestation programs." },
     { title: "Community Impact", desc: "Employing over 500 local staff and supporting community education, healthcare, and cultural preservation programs in the Arenal region." },
   ];
 
@@ -572,7 +572,7 @@ function SustainabilitySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   WELLNESS — Video header + treatment cards
+   WELLNESS - Video header + treatment cards
    ═══════════════════════════════════════════════════════════════ */
 function WellnessSection() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -581,7 +581,7 @@ function WellnessSection() {
 
   return (
     <section id="wellness">
-      {/* Wellness header — clean, no video */}
+      {/* Wellness header - clean, no video */}
       <div className={sectionPadding} style={{ backgroundColor: PALETTE.gradientEnd }}>
         <div className={maxW}>
           <AnimateOnScroll variants={fadeUp}>
@@ -657,7 +657,7 @@ function WellnessSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GASTRONOMY — Video + restaurant cards
+   GASTRONOMY - Video + restaurant cards
    ═══════════════════════════════════════════════════════════════ */
 function GastronomySection() {
   const restaurants = Array.isArray(costaRicaDining) ? costaRicaDining : [costaRicaDining];
@@ -704,7 +704,7 @@ function GastronomySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GALLERY — All video grid
+   GALLERY - All video grid
    ═══════════════════════════════════════════════════════════════ */
 function GalleryIntegratedSections() {
   const sections = [

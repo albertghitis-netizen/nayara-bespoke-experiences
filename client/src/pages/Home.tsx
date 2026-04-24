@@ -295,22 +295,26 @@ function BrandStorySection() {
         <div className="md:w-1/2">
           <MediaReveal delay={0.2} className="h-full">
             <div className="overflow-hidden w-full h-full">
-              <NativeVideo
-                src="/manus-storage/brand-s1-philosophy_510ddc6e.mp4"
+              <img
+                src="/manus-storage/brand-s1-tent-v_4a147fd7.jpg"
+                alt="Nayara Tented Camp surrounded by lush tropical greenery"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </MediaReveal>
         </div>
       </div>
 
-      {/* S2: Horizontal video — full bleed, connected below S1 (desktop only) */}
+      {/* S2: Horizontal image — full bleed, connected below S1 (desktop only) */}
       <div className="hidden md:block w-full">
         <MediaReveal>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <NativeVideo
-              src="/manus-storage/brand-s2-new_df7ed52a.mp4"
+            <img
+              src="/manus-storage/brand-s2-bocas-h_f7fd8653.jpg"
+              alt="Aerial view of Bocas del Toro tropical island with turquoise waters"
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           </div>
         </MediaReveal>

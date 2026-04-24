@@ -2777,3 +2777,10 @@
 - [ ] Change all text colors to darkest espresso brown across all property pages (titles, body, labels)
 - [ ] Text colors: very dark brown on light backgrounds, pure white (#FFFFFF) on dark backgrounds, labels keep nav color — all property pages
 - [x] Atacama: remove duplicate wellness section, replace second wellness with A Taste of Place
+- [ ] Atacama: keep hero video on mobile, replace all other videos with last-frame stills on mobile
+- [ ] Atacama: audit all video files for size, codec, bitrate, compression quality
+- [ ] Atacama: compress heavy videos without losing quality
+- [ ] Atacama: remove dead/broken 403 video references from ASSETS
+- [x] Brand homepage: replace S1 video with IMG_5354.jpg (tented camp vertical)
+- [x] Brand homepage: replace S2 video with IMG_6906.JPG (Bocas island horizontal)
+- [x] Tented Camp: use the old brand homepage S1 video as the new S1 vertical
