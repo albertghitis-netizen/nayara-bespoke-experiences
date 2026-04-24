@@ -275,7 +275,7 @@ function BrandStorySection() {
           {/* Badge animation video */}
           <div className="mt-6 overflow-hidden">
             <video
-              src="/manus-storage/badge-anim-v1_0e74247f.mp4"
+              src="/manus-storage/badge-anim-v2_3d7b8706.mp4"
               autoPlay
               muted
               playsInline
