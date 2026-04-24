@@ -63,7 +63,7 @@ const SECTION_COLORS = [
 const DARK = "#6F463D";
 const MIDDLE = "#B85C3C";
 const LIGHT = "#F9EBE0";
-const ESPRESSO = "#1A0F0A";
+const ESPRESSO = "#0D0604";
 const BONE = "#FFFFFF";
 
 const PALETTE = {
@@ -269,7 +269,7 @@ function CascadeTextBlock({
           </div>
         )}
         {blogLink && (
-          false ? (
+          isDark ? (
             /* Starfield pill — black, white outline, twinkling stars */
             <a
               href={blogLink}
