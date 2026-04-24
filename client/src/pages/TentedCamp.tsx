@@ -259,7 +259,7 @@ function CascadeSection({
       {section.horizontalFirst && horizontalBlock}
 
       {/* ── Row: Vertical media + Text column ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
+      <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media — on mobile: always after text (order-2), on desktop: alternates */}
         <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
@@ -275,7 +275,7 @@ function CascadeSection({
 
         {/* Text column */}
         <div
-          className={`w-full md:w-1/2 flex flex-col justify-start px-8 py-12 md:py-20 md:px-16 lg:px-24 order-1 ${
+          className={`w-full md:w-1/2 flex flex-col justify-center h-full px-10 py-16 lg:px-16 xl:px-20 order-1 ${
             textLeft ? "md:order-1" : "md:order-2"
           }`}
           style={{ backgroundColor: section.bgColor }}
@@ -363,9 +363,6 @@ function CascadeSection({
           )}
 
           {section.badges && (
-            <p className="hidden md:block text-[11px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500, color: accentColor, marginBottom: "0.5rem" }}>Leo Ghitis on AFAR Podcast</p>
-          )}
-          {section.badges && (
             <div className="mt-8 hidden md:block">
               <a
                 href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
@@ -390,7 +387,7 @@ function CascadeSection({
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
                   </svg>
                 )}
-                Listen: Leo Ghitis on Sustainability with AFAR
+                Listen: Nayara Co-Founder & CEO, Leo Ghitis on Sustainability with Afar
               </a>
               <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
             </div>
@@ -966,12 +963,11 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Plays once, then shows "Enter the Rainforest" CTA
+   HERO — Cinematic opening video
    ═══════════════════════════════════════════════════════════════ */
-function HeroSection({ onEnterRainforest }: { onEnterRainforest: () => void }) {
+function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
-  const [videoEnded, setVideoEnded] = useState(false);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -983,7 +979,7 @@ function HeroSection({ onEnterRainforest }: { onEnterRainforest: () => void }) {
           loop={false}
           pillBg="#868B75B3"
           pillColor="#F7F5F0"
-          onEnded={() => setVideoEnded(true)}
+
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
@@ -1007,34 +1003,7 @@ function HeroSection({ onEnterRainforest }: { onEnterRainforest: () => void }) {
           Arenal Volcano National Park, Costa Rica
         </motion.p>
 
-        {/* "Enter the Rainforest" CTA — appears when video ends */}
-        <AnimatePresence>
-          {videoEnded && (
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              onClick={onEnterRainforest}
-              className="mt-8 group relative flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/30 backdrop-blur-md hover:border-white/60 transition-all duration-500 cursor-pointer"
-              style={{ backgroundColor: "rgba(134,139,117,0.4)" }}
-            >
-              <span
-                className="text-white text-[11px] md:text-xs tracking-[0.25em] uppercase group-hover:tracking-[0.35em] transition-all duration-500"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-              >
-                Enter the Rainforest
-              </span>
-              {/* Downward arrow */}
-              <svg
-                className="w-3.5 h-3.5 text-white/70 group-hover:text-white group-hover:translate-y-0.5 transition-all duration-500"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-              </svg>
-            </motion.button>
-          )}
-        </AnimatePresence>
+
       </div>
     </section>
   );
@@ -1186,22 +1155,10 @@ function useAutoScroll() {
   return { start, stop, isScrolling: isScrollingRef };
 }
 export default function TentedCamp() {
-  const { start: startAutoScroll } = useAutoScroll();
-
-  const handleEnterRainforest = useCallback(() => {
-    // Scroll past the hero first, then start auto-scroll
-    const heroHeight = window.innerHeight;
-    window.scrollTo({ top: heroHeight, behavior: "smooth" });
-    // Start auto-scroll after the smooth scroll settles
-    setTimeout(() => {
-      startAutoScroll();
-    }, 800);
-  }, [startAutoScroll]);
-
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <BrandNavigation pageType="property" />
-      <HeroSection onEnterRainforest={handleEnterRainforest} />
+      <HeroSection />
 
       {/* Cascade: Story → Rooms → Experiences → Sustainability → Wellness → Gastronomy */}
       {SECTIONS_BEFORE_REVIEW.map((section, i) => (
