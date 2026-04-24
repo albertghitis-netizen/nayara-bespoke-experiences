@@ -90,7 +90,7 @@ function RoomsHero() {
   return (
     <section className="relative aspect-[2/1] w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
+        <img src="/manus-storage/ntc-aerial-connecting_6479275a.jpg" alt="Aerial view of Nayara Tented Camp suites" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-10">
