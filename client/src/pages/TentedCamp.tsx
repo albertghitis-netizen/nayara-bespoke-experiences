@@ -392,7 +392,7 @@ function CascadeSection({
                   on Sustainability with AFAR Podcast
                 </span>
               </a>
-              <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
+              <div className="hidden md:block"><video src="/manus-storage/badge-tented-2024-part1_1a388473.mp4" autoPlay muted playsInline className="h-48 lg:h-64 w-auto -ml-10 lg:-ml-12" /></div>
             </div>
           )}
 
