@@ -266,7 +266,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: "/manus-storage/bocas-by-night-v_8142e134.mp4",
+    verticalSrc: "/manus-storage/bocas-bynight-biolumin-zoom_951c7041.mp4",
     horizontalSrc: "/manus-storage/bocas-by-night-h_24968d0f.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
