@@ -93,7 +93,7 @@ const ASSETS = {
 
   // Section 6 — Gastronomy: copper mule V + tropical brunch H
   gastroV: `${CDN}/4F968B04-CC38-4AB0-98A7-C378A57F9E9A_0c985f05.jpeg`,
-  gastroH: `${CDN}/5D0116B4-053F-4BD4-A320-5549FAC09ECD_6d70c92a.jpeg`,
+  gastroH: "/manus-storage/bocas-resort-24_5778eea7.jpg",
 
   // Section 6b — Island Cocktails: citrus highball V + coconut bowl H
   gastro2V: `${CDN}/48250DE4-3015-4D89-AD19-54EC065D89EB_b238e17c.jpeg`,
@@ -266,7 +266,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: "/manus-storage/bocas-bynight-biolumin-zoom_951c7041.mp4",
+    verticalSrc: "/manus-storage/bocas-bynight-v2_ac8a1af2.mp4",
     horizontalSrc: "/manus-storage/bocas-by-night-h_24968d0f.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
