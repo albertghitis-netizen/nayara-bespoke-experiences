@@ -53,8 +53,8 @@ const SECTION_COLORS = [
 ];
 
 const PALETTE = {
-  text: "#1A0F0A",
-  textSecondary: "#1A0F0A",
+  text: "#0D0604",
+  textSecondary: "#0D0604",
   textTertiary: "#1A0F0A99",
   primary: "#868B75",
   secondary: "#525642",
@@ -307,7 +307,19 @@ function CascadeSection({
             </p>
           </AnimateOnScroll>
 
-          {section.link && (
+          {section.stats && section.stats.length > 0 && (
+            <AnimateOnScroll variants={fadeUp} delay={0.28}>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 mb-2">
+                {section.stats.map((stat, i) => (
+                  <div key={i} className="flex flex-col">
+                    <span className="text-[18px] font-light tracking-tight" style={{ fontFamily: "var(--font-display)", color: accentColor }}>{stat.value}</span>
+                    <span className="text-[10px] tracking-[0.14em] uppercase mt-0.5" style={{ ...body, fontWeight: 500, color: textSecondaryColor, opacity: 0.65 }}>{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </AnimateOnScroll>
+          )}
+          {section.link && !section.horizontalSrc && (
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
                 href={section.link}
