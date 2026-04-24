@@ -269,7 +269,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     verticalSrc: "/manus-storage/bocas-by-night-v_8142e134.mp4",
     horizontalSrc: "/manus-storage/bocas-by-night-h_24968d0f.mp4",
     verticalIsVideo: true,
-    horizontalIsVideo: false,
+    horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: "#000000",
