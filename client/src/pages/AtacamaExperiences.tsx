@@ -35,7 +35,7 @@ const PALETTE = {
 };
 
 const CDN = {
-  desertExploration: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/experiences-hero-geysers-audio_7e6b6a00.mp4",
+  desertExploration: "/manus-storage/atacama-experiences-h_924838a1.mp4",
 };
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";

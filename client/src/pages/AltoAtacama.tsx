@@ -877,8 +877,23 @@ function GettingHereSection() {
           <SectionLabel>Getting Here</SectionLabel>
         </AnimateOnScroll>
         <TextReveal as="h2" className="mb-3" delay={0.1}>
-          <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
-            Your Journey to the Desert
+          <span className="inline-flex items-center gap-3">
+            <svg
+              viewBox="0 0 44 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="shrink-0"
+              style={{ width: "clamp(1.6rem, 2.8vw, 2.2rem)", height: "clamp(1.6rem, 2.8vw, 2.2rem)", color: DARK, opacity: 0.7 }}
+              aria-hidden="true"
+            >
+              <path d="M7 12L16 8.5L28 15L37 11.5V35L28 38.5L16 32L7 35.5V12Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
+              <line x1="16" y1="8.5" x2="16" y2="32" stroke="currentColor" strokeWidth="1.2" strokeDasharray="2.5 2.5"/>
+              <line x1="28" y1="15" x2="28" y2="38.5" stroke="currentColor" strokeWidth="1.2" strokeDasharray="2.5 2.5"/>
+              <circle cx="22" cy="22" r="2.2" fill="currentColor" opacity="0.55"/>
+            </svg>
+            <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
+              Your Journey to the Desert
+            </span>
           </span>
         </TextReveal>
         <AnimateOnScroll variants={fadeUp} delay={0.2}>
