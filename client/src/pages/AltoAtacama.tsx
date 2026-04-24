@@ -702,7 +702,7 @@ export default function AltoAtacama() {
                       />
                     </div>
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-1/2 relative">
                     <MediaReveal delay={0.2}>
                       <MediaBlock
                         src={section.vSrc}
@@ -712,11 +712,24 @@ export default function AltoAtacama() {
 
                       />
                     </MediaReveal>
+                    {isDarkSection && (
+                      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                        {Array.from({ length: 72 }).map((_, idx) => {
+                          const top = `${(idx * 13.7 + 3) % 100}%`;
+                          const left = `${(idx * 17.3 + 7) % 100}%`;
+                          const size = idx % 5 === 0 ? "2.5px" : idx % 3 === 0 ? "2px" : "1.5px";
+                          const opacity = 0.55 + (idx % 5) * 0.1;
+                          const delay = `${(idx * 0.17) % 3}s`;
+                          const dur = `${1.5 + (idx % 4) * 0.5}s`;
+                          return <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity, animationDelay: delay, animationDuration: dur }} />;
+                        })}
+                      </div>
+                    )}
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="w-1/2">
+                  <div className="w-1/2 relative">
                     <MediaReveal delay={0.2}>
                       <MediaBlock
                         src={section.vSrc}
@@ -726,6 +739,19 @@ export default function AltoAtacama() {
 
                       />
                     </MediaReveal>
+                    {isDarkSection && (
+                      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                        {Array.from({ length: 72 }).map((_, idx) => {
+                          const top = `${(idx * 13.7 + 3) % 100}%`;
+                          const left = `${(idx * 17.3 + 7) % 100}%`;
+                          const size = idx % 5 === 0 ? "2.5px" : idx % 3 === 0 ? "2px" : "1.5px";
+                          const opacity = 0.55 + (idx % 5) * 0.1;
+                          const delay = `${(idx * 0.17) % 3}s`;
+                          const dur = `${1.5 + (idx % 4) * 0.5}s`;
+                          return <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity, animationDelay: delay, animationDuration: dur }} />;
+                        })}
+                      </div>
+                    )}
                   </div>
                   <div className="w-1/2 flex items-center">
                     <div className="px-10 lg:px-16 xl:px-20 py-16">
