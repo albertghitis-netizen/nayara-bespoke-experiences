@@ -416,7 +416,7 @@ function CascadeSection({
             {textSide === "left" ? (
               <>
                 <div className="w-1/2 flex items-center">
-                  <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px] ml-auto">
+                  <div className="px-10 lg:px-16 xl:px-20 py-16">
                     {TextBlock}
                   </div>
                 </div>
@@ -430,7 +430,7 @@ function CascadeSection({
                   <MediaReveal delay={0.2}>{VerticalMedia}</MediaReveal>
                 </div>
                 <div className="w-1/2 flex items-center">
-                  <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px]">
+                  <div className="px-10 lg:px-16 xl:px-20 py-16">
                     {TextBlock}
                   </div>
                 </div>
@@ -452,7 +452,7 @@ function CascadeSection({
           {textSide === "left" ? (
             <>
               <div className="w-1/2 flex items-center">
-                <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px] ml-auto">
+                <div className="px-10 lg:px-16 xl:px-20 py-16">
                   {TextBlock}
                 </div>
               </div>
@@ -466,7 +466,7 @@ function CascadeSection({
                 <MediaReveal delay={0.2}>{VerticalMedia}</MediaReveal>
               </div>
               <div className="w-1/2 flex items-center">
-                <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px]">
+                <div className="px-10 lg:px-16 xl:px-20 py-16">
                   {TextBlock}
                 </div>
               </div>
@@ -607,7 +607,7 @@ export default function AltoAtacama() {
               {section.textSide === "left" ? (
                 <>
                   <div className="w-1/2 flex items-center">
-                    <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px] ml-auto">
+                    <div className="px-10 lg:px-16 xl:px-20 py-16">
                       <CascadeTextBlock
                         label={section.label}
                         headline={section.headline}
@@ -648,7 +648,7 @@ export default function AltoAtacama() {
                     </MediaReveal>
                   </div>
                   <div className="w-1/2 flex items-center">
-                    <div className="px-10 lg:px-16 xl:px-20 py-16 max-w-[600px]">
+                    <div className="px-10 lg:px-16 xl:px-20 py-16">
                       <CascadeTextBlock
                         label={section.label}
                         headline={section.headline}
