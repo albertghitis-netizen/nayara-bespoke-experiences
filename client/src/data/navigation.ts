@@ -3,7 +3,7 @@
  *
  * Three page types with distinct hamburger menus:
  * 1. Property pages — focused on THIS property (Story, Rooms, Experiences, Wellness, Gastronomy, Sustainability, Getting Here)
- * 2. Brand pages — brand-level (Story, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Blog, Long-Form Video)
+ * 2. Brand pages — brand-level (Story, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Journal)
  * 3. Content pages — same as brand pages
  *
  * Universal rules:
@@ -55,7 +55,7 @@ export const FAMILY_PROPERTIES = [
 
 export const CONTENT_SECTIONS = [
   { label: "Blog", route: "/journal" },
-  { label: "Long-Form Video", route: "/podcast" },
+  
   { label: "Awards & Press", route: "/awards" },
 ] as const;
 
@@ -75,9 +75,9 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
 
 /* Nayara Journal column items */
 const JOURNAL_MENU_ITEMS: MenuItem[] = [
-  { label: "Blog & FAQ", route: "/journal" },
+  { label: "Journal", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
-  { label: "Long-Form Video", route: "/podcast" },
+  
 ];
 
 /* Brand page hamburger — standardized menu (no properties) */

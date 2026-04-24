@@ -14,11 +14,11 @@ export interface JournalEntry {
   image: string;
   /** Property filter tag — matches property slug or "brand" for cross-property content */
   property: JournalProperty;
-  /** "article" links out to blog.nayararesorts.com; "video" plays inline with YouTube embed */
-  type: "article" | "video";
+  /** "article" links out to blog.nayararesorts.com; "video" plays inline with YouTube embed; "audio" links to podcast player */
+  type: "article" | "video" | "audio";
   /** External URL for articles */
   url?: string;
-  /** YouTube video ID for video episodes */
+  /** YouTube video ID for video episodes (Watch CTA) */
   youtubeId?: string;
   /** Duration label for video episodes */
   duration?: string;
@@ -28,12 +28,26 @@ export interface JournalEntry {
   featured?: boolean;
   /** Sort date (ISO-ish or descriptive — used for ordering) */
   date?: string;
-  /** Alternate language YouTube video ID (for ES/EN toggle) */
-  altYoutubeId?: string;
-  /** Alternate language label (e.g. "ES" or "EN") */
-  altLanguage?: string;
-  /** Alternate language duration */
-  altDuration?: string;
+  /**
+   * EN/ES language variants — for sustainability videos that have both languages.
+   * When present, the card shows two pills: 🇺🇸 English and 🇪🇸 Spanish.
+   */
+  languageVariants?: {
+    en: string;  // YouTube ID for English version
+    es: string;  // YouTube ID for Spanish version
+    enDuration?: string;
+    esDuration?: string;
+  };
+  /** For audio entries: external podcast URL (Apple Podcasts, Spotify, etc.) */
+  podcastUrl?: string;
+  /**
+   * Listen URL — when present alongside youtubeId, the card shows dual CTAs:
+   * ▶ Watch (opens YouTube) and 🎧 Listen (opens this URL).
+   * For audio-only entries, use podcastUrl instead.
+   */
+  listenUrl?: string;
+  /** Sort priority — lower number = earlier in feed (0 = always first) */
+  sortPriority?: number;
 }
 
 export type JournalProperty =
@@ -216,7 +230,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "collapse-maya-rapanui",
     title: "A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us",
-    url: "https://blog.nayararesorts.com/a-collapse-that-wasnt-a-collapse",
+    url: "https://blog.nayararesorts.com/a-collapse-that-wasnt-what-the-maya-and-rapa-nui-teach-us",
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Photo%20Jan%2014%202026%2c%2007%2042%2012.j",
@@ -470,6 +484,24 @@ const blogArticles: JournalEntry[] = [
   },
 ];
 
+// ─── Audio Episodes (Podcasts) ───────────────────────────────
+const audioEpisodes: JournalEntry[] = [
+  {
+    id: "leo-afar-podcast",
+    title: "Leo Ghitis on Sustainability with AFAR",
+    type: "audio",
+    property: "brand",
+    podcastUrl: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
+    duration: "42 min",
+    guest: "Leo Ghitis, Co-Founder & CEO",
+    image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
+    excerpt: "Nayara Co-Founder & CEO Leo Ghitis speaks with AFAR Magazine about pioneering sustainable luxury across Latin America's most extraordinary landscapes — from Costa Rica's rainforests to Chile's Atacama Desert.",
+    featured: true,
+    sortPriority: 0,
+    date: "2025-11",
+  },
+];
+
 // ─── Video Episodes (Nayara Horizons + Sustainability Videos) ─
 const videoEpisodes: JournalEntry[] = [
   {
@@ -478,9 +510,11 @@ const videoEpisodes: JournalEntry[] = [
     type: "video",
     property: "hangaroa",
     youtubeId: "FRPVRcUTNmk",
+    // Placeholder listen URL — replace with actual podcast episode link when available
+    listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "45 min",
     guest: "Hitorangi Family",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-s2-moai-sunset_dcd66ecc.jpg",
+    image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
     excerpt: "An intimate conversation with the Hitorangi family about preserving Rapa Nui's cultural heritage, the future of Easter Island, and what it means to be guardians of one of the world's most remote civilizations.",
   },
   {
@@ -489,10 +523,36 @@ const videoEpisodes: JournalEntry[] = [
     type: "video",
     property: "hangaroa",
     youtubeId: "qFVLTTJa7hE",
+    // Placeholder listen URL — replace with actual podcast episode link when available
+    listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "38 min",
-    guest: "Archaeologist",
-    image: `https://img.youtube.com/vi/qFVLTTJa7hE/maxresdefault.jpg`,
+    guest: "Kenny Sims, Archaeologist",
+    image: "/manus-storage/podcast-cover-ancient-worlds_a64d1b7e.png",
     excerpt: "A deep dive into the archaeological mysteries of Easter Island — from moai construction techniques to new discoveries that challenge everything we thought we knew about Rapa Nui civilization.",
+  },
+  {
+    id: "coral-reef-restoration",
+    title: "Coral Reef Restoration in Bocas del Toro",
+    type: "video",
+    property: "bocas-del-toro",
+    youtubeId: "FRPVRcUTNmk",  // Placeholder — replace with actual YouTube ID
+    listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
+    duration: "32 min",
+    guest: "Marine Biologist",
+    image: "/manus-storage/journal-cover-coral-reef_2d7b3942.webp",
+    excerpt: "Beneath the turquoise waters of Bocas del Toro, a quiet revolution is underway. Discover how Nayara and local marine biologists are restoring coral reefs and protecting the Caribbean's most biodiverse archipelago.",
+  },
+  {
+    id: "stargazing-atacama-video",
+    title: "Stargazing in the Atacama: Where the Cosmos Begins",
+    type: "video",
+    property: "alto-atacama",
+    youtubeId: "6cfkWsqWWc8",  // Placeholder — replace with actual YouTube ID
+    listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
+    duration: "28 min",
+    guest: "Nayara Astronomer",
+    image: "/manus-storage/journal-cover-stargazing-atacama_f28faa78.jpg",
+    excerpt: "The Atacama Desert holds the clearest skies on Earth. Join Nayara's resident astronomer for a journey through the cosmos — from the Milky Way's core to ancient Atacameño star lore.",
   },
   {
     id: "leo-luxury-travel-innovators",
@@ -500,21 +560,22 @@ const videoEpisodes: JournalEntry[] = [
     type: "video",
     property: "brand",
     youtubeId: "7l072Yr__pE",
+    listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "8 min",
     guest: "Leo Ghitis, CEO & Co-Founder",
     image: `https://img.youtube.com/vi/7l072Yr__pE/maxresdefault.jpg`,
     excerpt: "Leo Ghitis explores the journey of building Nayara Resorts — a brand that seamlessly blends ultra-luxury with profound environmental stewardship across Costa Rica, Panama, and Chile.",
   },
-
   {
     id: "leo-suite-success",
     title: "Pioneering Eco-Luxury: The Nayara Story",
     type: "video",
     property: "brand",
     youtubeId: "X_lTp6Jh8ag",
+    listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "26 min",
     guest: "Leo Ghitis, Owner",
-    image: `https://img.youtube.com/vi/X_lTp6Jh8ag/maxresdefault.jpg`,
+    image: "/manus-storage/podcast-cover-suite-success_56bbedc7.jpg",
     excerpt: "Leo Ghitis traces his journey from real estate to hospitality and reveals how Nayara is setting the standard for regenerative travel.",
   },
   {
@@ -522,28 +583,32 @@ const videoEpisodes: JournalEntry[] = [
     title: "Nayara Hangaroa Sustainability",
     type: "video",
     property: "hangaroa",
-    youtubeId: "_M3ATv4I0B8",
+    languageVariants: {
+      en: "_M3ATv4I0B8",
+      enDuration: "3 min",
+      es: "EinNAkAoKE8",
+      esDuration: "3:30 min",
+    },
     duration: "3 min",
     guest: "Nayara Resorts",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-sunset_1238744f.jpg",
     excerpt: "Nayara Hangaroa's commitment to sustainability on Rapa Nui — renewable energy, water conservation, plastic elimination, cultural preservation, and community support.",
-    altYoutubeId: "EinNAkAoKE8",
-    altLanguage: "ES",
-    altDuration: "3:30 min",
   },
   {
     id: "atacama-sustainability",
     title: "Nayara Alto Atacama Sustainability",
     type: "video",
     property: "alto-atacama",
-    youtubeId: "6cfkWsqWWc8",
+    languageVariants: {
+      en: "6cfkWsqWWc8",
+      enDuration: "3 min",
+      es: "H9VxyDgv31U",
+      esDuration: "1 min",
+    },
     duration: "3 min",
     guest: "Nayara Resorts",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
     excerpt: "How Nayara Alto Atacama operates sustainably in the driest desert on Earth — solar energy, adobe architecture, and 100% water reuse.",
-    altYoutubeId: "H9VxyDgv31U",
-    altLanguage: "ES",
-    altDuration: "1 min",
   },
 ];
 
@@ -551,12 +616,13 @@ const videoEpisodes: JournalEntry[] = [
 /** All journal entries — articles first (featured at top), then videos */
 /** Interleave videos among articles so podcasts are spaced out, not clumped */
 function interleaveEntries(): JournalEntry[] {
+  // Audio episodes with sortPriority 0 always go first
+  const pinnedAudio = audioEpisodes.filter(e => (e.sortPriority ?? 99) === 0);
   const featured = blogArticles.filter(e => e.featured);
   const nonFeatured = blogArticles.filter(e => !e.featured);
   const videos = [...videoEpisodes];
-
-  // Start with featured articles
-  const result: JournalEntry[] = [...featured];
+  // Start with pinned audio, then featured articles
+  const result: JournalEntry[] = [...pinnedAudio, ...featured];
 
   // Interleave: insert one video every ~5 articles
   const spacing = Math.max(1, Math.floor(nonFeatured.length / (videos.length + 1)));
@@ -603,6 +669,10 @@ export interface PodcastEpisode {
   altLanguage?: string;
   /** Alternate language duration */
   altDuration?: string;
+  /** For audio entries: external podcast URL (Apple Podcasts, Spotify, etc.) */
+  podcastUrl?: string;
+  /** Sort priority — lower number = earlier in feed (0 = always first) */
+  sortPriority?: number;
 }
 
 /** Legacy blog posts array — maps from new unified entries */
@@ -623,11 +693,15 @@ export const podcastEpisodes: PodcastEpisode[] = videoEpisodes.map(e => ({
   title: e.title,
   guest: e.guest || "",
   description: e.excerpt,
-  youtubeId: e.youtubeId || "",
+  youtubeId: e.youtubeId || e.languageVariants?.en || "",
   duration: e.duration || "",
   date: e.date || "2026",
   coverImage: e.image,
-  ...(e.altYoutubeId ? { altYoutubeId: e.altYoutubeId, altLanguage: e.altLanguage, altDuration: e.altDuration } : {}),
+  ...(e.languageVariants ? {
+    altYoutubeId: e.languageVariants.es,
+    altLanguage: "ES",
+    altDuration: e.languageVariants.esDuration,
+  } : {}),
 }));
 
 // ─── Newsletters (The Naiad) — kept separate for Newsletter page ──

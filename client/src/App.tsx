@@ -28,7 +28,7 @@ const Gardens = lazy(() => import("./pages/Gardens"));
 const Springs = lazy(() => import("./pages/Springs"));
 const ConciergeChatWidget = lazy(() => import("./components/ConciergeChatWidget"));
 const Newsletter = lazy(() => import("./pages/Newsletter"));
-const Podcast = lazy(() => import("./pages/Podcast"));
+// Podcast page retired — /podcast now redirects to /journal
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
@@ -127,7 +127,7 @@ function Router() {
           <Route path="/bocas-del-toro/sustainability">{() => <CostaRicaSustainability propertySlug="bocas-del-toro" />}</Route>
           <Route path="/journal" component={Journal} />
           <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
-          <Route path="/podcast" component={Podcast} />
+          <Route path="/podcast">{() => { window.location.replace("/journal"); return null; }}</Route>
           <Route path="/awards" component={AwardsAndPress} />
           <Route path="/sustainability" component={Sustainability} />
           <Route path="/experiences" component={Experiences} />

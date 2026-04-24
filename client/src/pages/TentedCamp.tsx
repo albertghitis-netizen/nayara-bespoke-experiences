@@ -752,7 +752,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
       { value: "CST 5", label: "Certified" },
       { value: "Zero", label: "Single-Use Plastic" },
     ],
-    blogUrl: "/long-form-video",
+    blogUrl: "/journal",
     blogTitle: "Pioneering Sustainable Luxury",
   },
   {

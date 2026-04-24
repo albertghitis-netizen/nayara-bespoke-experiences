@@ -151,8 +151,8 @@ export default function Home() {
       <PropertiesSection />
 
       <TimelineSection />
-      <AwardsHighlightSection />
-
+       <AwardsHighlightSection />
+      <NayaraJournalSection />
       <Footer />
     </div>
   );
@@ -640,7 +640,7 @@ function AwardsHighlightSection() {
               <Wrapper
                 {...wrapperProps}
                 className="group flex flex-col h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
-                style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}25` }}
+                style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}35`, borderTop: `2px solid ${cardAccent}` }}
               >
                 {/* Subtle grain texture overlay */}
                 <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
@@ -656,12 +656,12 @@ function AwardsHighlightSection() {
                   style={{
                     fontFamily: "var(--font-display)",
                     fontWeight: 300,
-                    color: `${cardAccent}40`,
+                    color: cardAccent,
                     transitionProperty: "color, transform",
                   }}
                 >
                   <span className="group-hover:hidden">{award.stat}</span>
-                  <span className="hidden group-hover:inline" style={{ color: `${cardAccent}70` }}>{award.stat}</span>
+                  <span className="hidden group-hover:inline" style={{ color: cardAccent }}>{award.stat}</span>
                 </span>
                 {/* Accent line — gold, grows wider on hover */}
                 <div
@@ -720,12 +720,163 @@ function AwardsHighlightSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CONTENT HUB — Blog, Awards & Press, Long-Form Video, FAQs
+   NAYARA JOURNAL — Blog, Podcast & FAQ teaser section
+   ═══════════════════════════════════════════════════════════════ */
+const journalCards = [
+  {
+    type: "Blog",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+    headline: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
+    sub: "Nayara Resorts earns seven MICHELIN Keys across three countries — a testament to exceptional character, service, and sense of place.",
+    image: "https://blog.nayararesorts.com/hubfs/E056D1CD-5240-40E5-8567-21240563F763%203.jpg",
+    cta: "Read the Story",
+    url: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
+    external: true,
+  },
+  {
+    type: "Podcast",
+    icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z",
+    headline: "Leo Ghitis on Sustainability with AFAR",
+    sub: "Nayara Co-Founder & CEO Leo Ghitis speaks with AFAR about pioneering sustainable luxury in Latin America's most extraordinary landscapes.",
+    image: "https://img.youtube.com/vi/7l072Yr__pE/maxresdefault.jpg",
+    isVideo: true,
+    youtubeId: "7l072Yr__pE",
+    cta: "Watch Episode",
+    url: "/journal",
+    external: false,
+  },
+  {
+    type: "FAQ",
+    icon: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+    headline: "Your Questions, Answered",
+    sub: "From booking your first stay to understanding what makes each property unique — our FAQ covers everything you need to plan the perfect Nayara experience.",
+    image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
+    cta: "Browse FAQs",
+    url: "/journal",
+    external: false,
+  },
+];
+function NayaraJournalSection() {
+  return (
+    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#F0EDE6" }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Nayara Journal</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-14 md:mb-20" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            Stories, Conversations & Answers
+          </span>
+        </TextReveal>
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {journalCards.map((card) => {
+            const Wrapper = card.external ? "a" : Link;
+            const wrapperProps = card.external
+              ? { href: card.url, target: "_blank", rel: "noopener noreferrer" }
+              : { href: card.url };
+            return (
+              <motion.div key={card.type} variants={fadeUp}>
+                <Wrapper
+                  {...(wrapperProps as any)}
+                  className="group block overflow-hidden h-full transition-all duration-500 hover:translate-y-[-4px] hover:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.18)]"
+                  style={{ backgroundColor: PALETTE.bg }}
+                >
+                  {/* Image / Video thumbnail */}
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                    <img
+                      src={card.image}
+                      alt={card.headline}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {card.isVideo && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div
+                          className="w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-sm transition-transform duration-300 group-hover:scale-110"
+                          style={{ backgroundColor: "rgba(58,42,26,0.75)" }}
+                        >
+                          <svg className="w-5 h-5 translate-x-0.5" fill="white" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                    {/* Type badge */}
+                    <div
+                      className="absolute top-3 left-3 px-2.5 py-1 text-[10px] tracking-[0.15em] uppercase"
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        fontWeight: 600,
+                        backgroundColor: PALETTE.accent,
+                        color: PALETTE.bg,
+                      }}
+                    >
+                      {card.type}
+                    </div>
+                  </div>
+                  {/* Text */}
+                  <div className="p-7 md:p-8">
+                    <h3
+                      className="text-[17px] md:text-[18px] leading-[1.35] mb-3 group-hover:opacity-80 transition-opacity"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
+                    >
+                      {card.headline}
+                    </h3>
+                    <p
+                      className="text-[13px] leading-[1.75] mb-6"
+                      style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+                    >
+                      {card.sub}
+                    </p>
+                    <span
+                      className="inline-flex items-center gap-2 text-[11px] tracking-[0.12em] uppercase transition-all duration-300 group-hover:gap-3"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+                    >
+                      {card.cta}
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </Wrapper>
+              </motion.div>
+            );
+          })}
+        </StaggerOnScroll>
+        {/* CTA to full journal */}
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <div className="mt-12 text-center">
+            <Link
+              href="/journal"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 600,
+                backgroundColor: PALETTE.text,
+                color: PALETTE.bg,
+              }}
+            >
+              Enter the Journal
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENT HUB — Journal (Blog + Podcast + FAQ) & Press/Awards
    ═══════════════════════════════════════════════════════════════ */
 const contentLinks = [
   {
-    label: "Blog & FAQ",
-    desc: "Stories, dispatches, and answers from across the Nayara world.",
+    label: "Journal",
+    desc: "Stories, podcast conversations, and answers from across the Nayara world.",
     route: "/journal",
     icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
   },
@@ -734,12 +885,6 @@ const contentLinks = [
     desc: "Recognition from the world's leading travel publications and guides.",
     route: "/awards",
     icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
-  },
-  {
-    label: "Long-Form Video",
-    desc: "Conversations with the people and places that shape Nayara.",
-    route: "/podcast",
-    icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z",
   },
 ];
 

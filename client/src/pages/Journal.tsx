@@ -1,23 +1,27 @@
 /*
- * NAYARA JOURNAL — Unified feed of articles + video episodes
- * Single grid, property-only filter, play button overlay on videos
- * FAQ accordion at the bottom
+ * NAYARA JOURNAL — Full-bleed gallery grid
+ * Square cards, text overlay, deliberately mixed Read / Listen / Watch order
+ * No filters, no sorting — pure editorial gallery
+ *
+ * Card CTA types:
+ *   - Listen-only (AFAR):        single 🎧 Listen pill → podcastUrl
+ *   - Watch/Listen (7 entries):  dual pills ▶ Watch + 🎧 Listen
+ *   - EN/ES toggle (2 entries):  dual pills 🇺🇸 English + 🇪🇸 Spanish
+ *   - Read (articles):           single ↗ Read pill → external blog URL
+ *
+ * FAQ section — coming soon
  */
-
-import { useState, useMemo, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ExternalLink, ChevronDown, Play } from "lucide-react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Play, Headphones, ArrowUpRight } from "lucide-react";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
 import {
   journalEntries,
-  JOURNAL_PROPERTIES,
   type JournalEntry,
-  type JournalProperty,
 } from "@/data/journal";
-import { FAQ_DATA, PROPERTIES as FAQ_PROPERTIES, type FAQItem } from "@/data/faq";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -36,72 +40,116 @@ const JOURNAL_CDN = {
   heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ntc-v4-hero-web_cde65e6c.mp4",
 };
 
-/* ── Map property filter IDs to FAQ property IDs ── */
-const PROPERTY_TO_FAQ: Record<string, string[]> = {
-  "tented-camp": ["tented-camp"],
-  gardens: ["gardens"],
-  springs: ["springs"],
-  "alto-atacama": ["alto-atacama"],
-  hangaroa: ["hangaroa"],
-  "bocas-del-toro": ["bocas-del-toro"],
-  brand: [],
-};
+/*
+ * CURATED_IDS — deliberately mixed Read / Listen / Watch / EN-ES order
+ * Row 1: Read · Listen-only · Watch/Listen
+ * Row 2: Read · Read        · Watch/Listen
+ * Row 3: Read · Watch/Listen · Read
+ * Row 4: Read · Watch/Listen · Read
+ * Row 5: Read · Read         · Watch/Listen
+ * Row 6: Read · EN/ES        · Read
+ * Row 7: Read · Watch/Listen · Read
+ * Row 8: Read · Read         · EN/ES
+ * Row 9: Read · Read         · Read
+ */
+const CURATED_IDS: string[] = [
+  // Row 1
+  "conde-nast-bocas",
+  "leo-afar-podcast",
+  "hitorangi-rapanui",
+  // Row 2
+  "7-michelin-keys",
+  "arenal-timeless-wonder",
+  "archaeologist-rapanui",
+  // Row 3
+  "stargazing-atacama",
+  "coral-reef-restoration",
+  "treehouse-dreams",
+  // Row 4
+  "nature-based-wellness-colors",
+  "stargazing-atacama-video",
+  "floating-paradise",
+  // Row 5
+  "mars-atacama",
+  "toucans-arenal",
+  "leo-luxury-travel-innovators",
+  // Row 6
+  "pura-vida",
+  "atacama-sustainability",
+  "bocas-facts",
+  // Row 7
+  "seven-elements",
+  "leo-suite-success",
+  "wildlife-arenal-bocas",
+  // Row 8
+  "sunlit-sustainability",
+  "solo-travel-female",
+  "hangaroa-sustainability",
+  // Row 9
+  "holistic-wellness",
+  "nayara-by-night",
+  "green-globe",
+];
+
+function buildGallery(): JournalEntry[] {
+  const map = new Map(journalEntries.map((e) => [e.id, e]));
+  const seen = new Set<string>();
+  const result: JournalEntry[] = [];
+  for (const id of CURATED_IDS) {
+    if (seen.has(id)) continue;
+    const entry = map.get(id);
+    if (entry) { result.push(entry); seen.add(id); }
+  }
+  for (const entry of journalEntries) {
+    if (!seen.has(entry.id)) { result.push(entry); seen.add(entry.id); }
+  }
+  return result;
+}
+
+const ALL_ENTRIES = buildGallery();
+const INITIAL_COUNT = 9;
 
 export default function Journal() {
-  const [activeProperty, setActiveProperty] = useState<JournalProperty | "all">("all");
   const [showAll, setShowAll] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
-  /* ── Filter entries by property ── */
-  const filtered = useMemo(() => {
-    if (activeProperty === "all") return journalEntries;
-    return journalEntries.filter(
-      (e) => e.property === activeProperty || e.property === "brand"
-    );
-  }, [activeProperty]);
-
-  /* ── Split into featured + grid ── */
-  const featuredEntry = useMemo(() => filtered.find((e) => e.featured) || null, [filtered]);
-  const gridEntries = useMemo(() => {
-    const rest = filtered.filter((e) => e.id !== featuredEntry?.id);
-    return showAll ? rest : rest.slice(0, 12);
-  }, [filtered, featuredEntry, showAll]);
-  const hasMore = filtered.filter((e) => e.id !== featuredEntry?.id).length > 12;
-
-  /* ── FAQ filtering ── */
-  const filteredFaq = useMemo(() => {
-    if (activeProperty === "all" || activeProperty === "brand") return FAQ_DATA;
-    const faqIds = PROPERTY_TO_FAQ[activeProperty] || [];
-    return FAQ_DATA.filter(
-      (item) => item.properties.length === 0 || item.properties.some((pid) => faqIds.includes(pid))
-    );
-  }, [activeProperty]);
+  const visibleEntries = showAll ? ALL_ENTRIES : ALL_ENTRIES.slice(0, INITIAL_COUNT);
+  const hasMore = ALL_ENTRIES.length > INITIAL_COUNT;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#F7F5F0]">
       <BrandNavigation pageType="content" />
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[70vh] md:h-screen overflow-hidden">
+      <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden">
         <div className="absolute inset-0">
           <NativeVideo src={JOURNAL_CDN.heroVideoDesktop} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-white/40 text-[10px] tracking-[0.35em] uppercase mb-4"
+            style={body}
+          >
+            Nayara
+          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-xl md:text-3xl lg:text-4xl tracking-wide text-center"
+            transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide text-center"
             style={heading}
           >
-            Nayara Journal
+            The Journal
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="text-white/50 text-[12px] md:text-[14px] tracking-[0.1em] mt-3 text-center max-w-lg"
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="text-white/45 text-[12px] md:text-[13px] tracking-[0.08em] mt-4 text-center max-w-md"
             style={body}
           >
             Stories, conversations, and perspectives from across the world of Nayara
@@ -109,95 +157,51 @@ export default function Journal() {
         </div>
       </section>
 
-      {/* ── Property Filter Bar ── */}
-      <section className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-100">
-        <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-          <div className="flex items-center gap-1 overflow-x-auto py-4 scrollbar-hide">
-            {JOURNAL_PROPERTIES.map((prop) => (
-              <button
-                key={prop.id}
-                onClick={() => {
-                  setActiveProperty(prop.id);
-                  setShowAll(false);
-                }}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-[11px] tracking-[0.08em] transition-all duration-300 border ${
-                  activeProperty === prop.id
-                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
-                    : "bg-transparent text-[#3B2B26]/50 border-[#3B2B26]/12 hover:text-[#3B2B26] hover:border-[#3B2B26]/30"
-                }`}
-                style={{ ...body, fontWeight: 500 }}
-              >
-                {prop.label}
-              </button>
+      {/* ── Gallery Grid ── */}
+      <section className="px-4 md:px-8 lg:px-12 py-10 md:py-14">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            {visibleEntries.map((entry, i) => (
+              <GalleryCard
+                key={entry.id}
+                entry={entry}
+                index={i}
+                activeVideo={activeVideo}
+                setActiveVideo={setActiveVideo}
+              />
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── Featured Entry ── */}
-      {featuredEntry && (
-        <section className="px-4 md:px-10 pt-10 md:pt-14 pb-4">
-          <div className="max-w-[1200px] mx-auto">
-            <FeaturedCard entry={featuredEntry} activeVideo={activeVideo} setActiveVideo={setActiveVideo} />
-          </div>
-        </section>
-      )}
-
-      {/* ── Unified Grid ── */}
-      <section className="px-4 md:px-10 py-8 md:py-12">
-        <div className="max-w-[1200px] mx-auto">
-          {gridEntries.length === 0 && !featuredEntry ? (
-            <div className="text-center py-16">
-              <p className="text-[#3B2B26]/30 text-[14px]" style={body}>
-                No stories match the current filter.
-              </p>
+          {hasMore && !showAll && (
+            <div className="flex justify-center mt-10 md:mt-14">
+              <button
+                onClick={() => setShowAll(true)}
+                className="flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase text-[#3B2B26]/45 hover:text-[#3B2B26] transition-colors py-3 px-8 border border-[#3B2B26]/15 rounded-full hover:border-[#3B2B26]/35"
+                style={{ ...body, fontWeight: 500 }}
+              >
+                View All Stories
+              </button>
             </div>
-          ) : (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {gridEntries.map((entry, i) => (
-                  <JournalCard
-                    key={entry.id}
-                    entry={entry}
-                    index={i}
-                    activeVideo={activeVideo}
-                    setActiveVideo={setActiveVideo}
-                  />
-                ))}
-              </div>
-              {hasMore && !showAll && (
-                <div className="flex justify-center mt-10">
-                  <button
-                    onClick={() => setShowAll(true)}
-                    className="flex items-center gap-2 text-[11px] tracking-[0.15em] text-[#3B2B26]/40 hover:text-[#3B2B26] transition-colors py-3 px-6 border border-[#3B2B26]/15 rounded-full hover:border-[#3B2B26]/30"
-                    style={{ ...body, fontWeight: 500 }}
-                  >
-                    View All Stories
-                    <ChevronDown className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              )}
-            </>
           )}
         </div>
       </section>
 
-      {/* ── FAQ Section ── */}
-      {filteredFaq.length > 0 && (
-        <section className="px-4 md:px-10 py-12 md:py-16 bg-[#FAFAF8]">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h2
-                className="text-[#3B2B26] text-xl md:text-2xl text-center mb-10"
-                style={heading}
-              >
-                Frequently Asked Questions
-              </h2>
-            </FadeIn>
-            <FAQAccordion items={filteredFaq.slice(0, 15)} />
-          </div>
-        </section>
-      )}
+      {/* ── FAQ — Coming Soon ── */}
+      <section className="px-4 md:px-10 py-14 md:py-20 bg-white border-t border-stone-100">
+        <div className="max-w-2xl mx-auto text-center">
+          <FadeIn>
+            <p className="text-[#3B2B26]/25 text-[10px] tracking-[0.3em] uppercase mb-3" style={body}>
+              Nayara Journal
+            </p>
+            <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-4" style={heading}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-[#3B2B26]/35 text-[13px] leading-relaxed" style={body}>
+              Coming soon — answers to everything you want to know about staying at Nayara.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
 
       <ContentCrossLinks currentPage="journal" />
       <Footer />
@@ -206,135 +210,9 @@ export default function Journal() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FEATURED CARD — Large hero-style card for the top featured entry
+   GALLERY CARD — Full-bleed square card with text overlay
    ═══════════════════════════════════════════════════════════════ */
-function FeaturedCard({
-  entry,
-  activeVideo,
-  setActiveVideo,
-}: {
-  entry: JournalEntry;
-  activeVideo: string | null;
-  setActiveVideo: (id: string | null) => void;
-}) {
-  const isVideo = entry.type === "video";
-  const isPlaying = activeVideo === entry.id;
-
-  const propertyLabel = JOURNAL_PROPERTIES.find((p) => p.id === entry.property)?.label || "Nayara";
-
-  const content = (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-500">
-      <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-stone-100">
-        {isVideo && isPlaying ? (
-          <iframe
-            src={`https://www.youtube.com/embed/${entry.youtubeId}?autoplay=1&rel=0`}
-            className="absolute inset-0 w-full h-full"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            title={entry.title}
-          />
-        ) : (
-          <>
-            <img
-              src={entry.image}
-              alt={entry.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="eager"
-            />
-            {isVideo && (
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveVideo(entry.id);
-                }}
-                className="absolute inset-0 flex items-center justify-center cursor-pointer"
-              >
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center hover:bg-white/25 transition-colors">
-                  <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1" />
-                </div>
-              </button>
-            )}
-          </>
-        )}
-        <div className="absolute top-4 left-4 flex items-center gap-2">
-          <span
-            className="inline-block bg-[#3B2B26]/70 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] px-3 py-1.5 rounded-full"
-            style={{ ...body, fontWeight: 500 }}
-          >
-            Featured
-          </span>
-          {isVideo && (
-            <span
-              className="inline-block bg-white/20 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] px-3 py-1.5 rounded-full"
-              style={{ ...body, fontWeight: 500 }}
-            >
-              Video{entry.duration ? ` · ${entry.duration}` : ""}
-            </span>
-          )}
-        </div>
-      </div>
-      <div className="flex flex-col justify-center p-8 md:p-12 lg:p-14">
-        <div className="flex items-center gap-3 mb-4">
-          <span
-            className="text-[#3B2B26]/30 text-[10px] tracking-[0.2em] uppercase"
-            style={{ ...body, fontWeight: 500 }}
-          >
-            {propertyLabel}
-          </span>
-          {isVideo && entry.guest && (
-            <>
-              <span className="w-px h-3 bg-[#3B2B26]/10" />
-              <span
-                className="text-[#3B2B26]/25 text-[10px] tracking-[0.1em]"
-                style={body}
-              >
-                with {entry.guest}
-              </span>
-            </>
-          )}
-        </div>
-        <h2
-          className="text-[#3B2B26] text-2xl md:text-3xl leading-[1.1] group-hover:text-[#5a4a3a] transition-colors"
-          style={heading}
-        >
-          {entry.title}
-        </h2>
-        <p
-          className="text-[#4B4A4A]/55 text-[14px] leading-relaxed mt-4 line-clamp-3"
-          style={body}
-        >
-          {entry.excerpt}
-        </p>
-        <div className="mt-6 flex items-center gap-2">
-          <span
-            className="text-[#3B2B26]/40 text-[10px] tracking-[0.2em] group-hover:text-[#3B2B26] transition-colors"
-            style={{ ...body, fontWeight: 500 }}
-          >
-            {isVideo ? "Watch Episode" : "Read Story"}
-          </span>
-          {!isVideo && <ExternalLink className="w-3 h-3 text-[#3B2B26]/30 group-hover:text-[#3B2B26] transition-colors" />}
-          {isVideo && <Play className="w-3 h-3 text-[#3B2B26]/30 group-hover:text-[#3B2B26] transition-colors" />}
-        </div>
-      </div>
-    </div>
-  );
-
-  if (isVideo) {
-    return <div className="group">{content}</div>;
-  }
-
-  return (
-    <a href={entry.url} target="_blank" rel="noopener noreferrer" className="group block">
-      {content}
-    </a>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   JOURNAL CARD — Grid card for articles and video episodes
-   ═══════════════════════════════════════════════════════════════ */
-function JournalCard({
+function GalleryCard({
   entry,
   index,
   activeVideo,
@@ -345,192 +223,223 @@ function JournalCard({
   activeVideo: string | null;
   setActiveVideo: (id: string | null) => void;
 }) {
+  const isAudio = entry.type === "audio";
   const isVideo = entry.type === "video";
+
+  // Determine card variant
+  const hasDualCTA = isVideo && !!entry.listenUrl && !entry.languageVariants;
+  const hasLangToggle = isVideo && !!entry.languageVariants;
+  const isListenOnly = isAudio && !entry.youtubeId;
+
+  // Active playing state — for EN/ES we track which variant is playing
   const isPlaying = activeVideo === entry.id;
-  const propertyLabel = JOURNAL_PROPERTIES.find((p) => p.id === entry.property)?.label || "Nayara";
+  const isPlayingEN = activeVideo === `${entry.id}-en`;
+  const isPlayingES = activeVideo === `${entry.id}-es`;
+  const isAnyPlaying = isPlaying || isPlayingEN || isPlayingES;
 
-  const cardContent = (
-    <>
-      <div className="relative aspect-[4/3] overflow-hidden bg-stone-100 rounded-lg mb-4">
-        {isVideo && isPlaying ? (
-          <iframe
-            src={`https://www.youtube.com/embed/${entry.youtubeId}?autoplay=1&rel=0`}
-            className="absolute inset-0 w-full h-full rounded-lg"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            title={entry.title}
-          />
-        ) : (
-          <>
-            <img
-              src={entry.image}
-              alt={entry.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-            />
-            {/* Play button overlay for video entries */}
-            {isVideo && (
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setActiveVideo(entry.id);
-                }}
-                className="absolute inset-0 flex items-center justify-center cursor-pointer"
-              >
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center hover:bg-white/25 transition-colors">
-                  <Play className="w-5 h-5 md:w-6 md:h-6 text-white fill-white ml-0.5" />
-                </div>
-              </button>
-            )}
-            {/* Video badge */}
-            {isVideo && (
-              <div className="absolute top-3 left-3">
-                <span
-                  className="inline-block bg-black/50 backdrop-blur-sm text-white text-[9px] tracking-[0.12em] px-2.5 py-1 rounded-full"
-                  style={{ ...body, fontWeight: 500 }}
-                >
-                  Video{entry.duration ? ` · ${entry.duration}` : ""}
-                </span>
-              </div>
-            )}
-          </>
-        )}
-      </div>
-      <div className="flex items-center gap-2 mb-2">
-        <span
-          className="text-[#3B2B26]/25 text-[9px] tracking-[0.15em] uppercase"
-          style={{ ...body, fontWeight: 500 }}
-        >
-          {propertyLabel}
-        </span>
-        {isVideo && entry.guest && (
-          <>
-            <span className="w-px h-2.5 bg-[#3B2B26]/10" />
-            <span
-              className="text-[#3B2B26]/20 text-[9px] tracking-[0.1em]"
-              style={body}
-            >
-              {entry.guest}
-            </span>
-          </>
-        )}
-      </div>
-      <h3
-        className="text-[#3B2B26] text-lg leading-[1.2] group-hover:text-[#5a4a3a] transition-colors"
-        style={heading}
-      >
-        {entry.title}
-      </h3>
-      {entry.excerpt && (
-        <p
-          className="text-[#4B4A4A]/45 text-[13px] leading-relaxed mt-2 line-clamp-2"
-          style={body}
-        >
-          {entry.excerpt}
-        </p>
-      )}
-    </>
-  );
+  // Determine which YouTube ID to embed
+  let embedId: string | undefined;
+  if (isPlaying) embedId = entry.youtubeId;
+  if (isPlayingEN) embedId = entry.languageVariants?.en;
+  if (isPlayingES) embedId = entry.languageVariants?.es;
 
-  if (isVideo) {
+  const motionProps = {
+    initial: { opacity: 0, y: 8 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true as const },
+    transition: { duration: 0.5, delay: Math.min((index % 3) * 0.08, 0.2) },
+  };
+
+  // ── Listen-only card (AFAR podcast) ──
+  if (isListenOnly) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.2) }}
-        className="group"
-      >
-        {cardContent}
+      <motion.a href={entry.podcastUrl} target="_blank" rel="noopener noreferrer" {...motionProps}>
+        <CardShell entry={entry} index={index}>
+          <CardOverlay entry={entry}>
+            <SinglePill icon={<Headphones className="w-3 h-3" />} label="Listen" />
+          </CardOverlay>
+        </CardShell>
+      </motion.a>
+    );
+  }
+
+  // ── EN/ES language toggle card ──
+  if (hasLangToggle) {
+    return (
+      <motion.div {...motionProps}>
+        <CardShell entry={entry} index={index} isPlaying={isAnyPlaying} embedId={embedId} onClose={() => setActiveVideo(null)}>
+          {!isAnyPlaying && (
+            <CardOverlay entry={entry}>
+              <DualLangPills
+                onEN={() => setActiveVideo(`${entry.id}-en`)}
+                onES={() => setActiveVideo(`${entry.id}-es`)}
+              />
+            </CardOverlay>
+          )}
+        </CardShell>
       </motion.div>
     );
   }
 
+  // ── Watch/Listen dual-CTA card ──
+  if (hasDualCTA) {
+    return (
+      <motion.div {...motionProps}>
+        <CardShell entry={entry} index={index} isPlaying={isPlaying} embedId={embedId} onClose={() => setActiveVideo(null)}>
+          {!isPlaying && (
+            <CardOverlay entry={entry}>
+              <DualWatchListenPills
+                onWatch={() => setActiveVideo(entry.id)}
+                listenUrl={entry.listenUrl!}
+              />
+            </CardOverlay>
+          )}
+        </CardShell>
+      </motion.div>
+    );
+  }
+
+  // ── Read (article) card ──
   return (
-    <motion.a
-      href={entry.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.2) }}
-      className="group block"
-    >
-      {cardContent}
+    <motion.a href={entry.url} target="_blank" rel="noopener noreferrer" {...motionProps}>
+      <CardShell entry={entry} index={index}>
+        <CardOverlay entry={entry}>
+          <SinglePill icon={<ArrowUpRight className="w-3 h-3" />} label="Read" />
+        </CardOverlay>
+      </CardShell>
     </motion.a>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   FAQ ACCORDION
-   ═══════════════════════════════════════════════════════════════ */
-function FAQAccordion({ items }: { items: FAQItem[] }) {
-  const [openId, setOpenId] = useState<string | null>(null);
-  const toggle = (id: string) => setOpenId(openId === id ? null : id);
-
+/* ── Card Shell — image + optional YouTube embed ── */
+function CardShell({
+  entry,
+  index,
+  isPlaying = false,
+  embedId,
+  onClose,
+  children,
+}: {
+  entry: JournalEntry;
+  index: number;
+  isPlaying?: boolean;
+  embedId?: string;
+  onClose?: () => void;
+  children?: React.ReactNode;
+}) {
   return (
-    <div className="divide-y divide-[#3B2B26]/8">
-      {items.map((item) => (
-        <div key={item.id} className="py-1">
-          <button
-            onClick={() => toggle(item.id)}
-            className="w-full text-left py-5 flex items-start justify-between gap-4 group"
-          >
-            <span
-              className="text-[#3B2B26] text-[15px] md:text-[16px] leading-relaxed group-hover:text-[#3B2B26]/70 transition-colors"
-              style={{ ...body, fontWeight: 500 }}
+    <div className="relative w-full aspect-square overflow-hidden rounded-lg bg-stone-200 group cursor-pointer">
+      {isPlaying && embedId ? (
+        <>
+          <iframe
+            src={`https://www.youtube.com/embed/${embedId}?autoplay=1&rel=0`}
+            className="absolute inset-0 w-full h-full"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title={entry.title}
+          />
+          {/* Close button */}
+          {onClose && (
+            <button
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); onClose(); }}
+              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-black/70 transition-colors text-sm"
             >
-              {item.question}
-            </span>
-            <motion.svg
-              animate={{ rotate: openId === item.id ? 180 : 0 }}
-              transition={{ duration: 0.25 }}
-              className="w-5 h-5 text-[#3B2B26]/30 flex-shrink-0 mt-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </motion.svg>
-          </button>
-          <AnimatePresence>
-            {openId === item.id && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.25 }}
-                className="overflow-hidden"
-              >
-                <div className="pb-6 pr-10">
-                  <p className="text-[#3B2B26]/60 text-[14px] leading-relaxed" style={body}>
-                    {item.answer}
-                  </p>
-                  {item.properties.length > 0 && (
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {item.properties.map((pid) => {
-                        const prop = FAQ_PROPERTIES.find((p) => p.id === pid);
-                        return (
-                          <span
-                            key={pid}
-                            className="text-[10px] tracking-[0.1em] text-[#3B2B26]/30 border border-[#3B2B26]/10 px-2 py-0.5 rounded-sm"
-                            style={{ ...body, fontWeight: 500 }}
-                          >
-                            {prop?.label || pid}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ))}
+              ✕
+            </button>
+          )}
+        </>
+      ) : (
+        <>
+          <img
+            src={entry.image}
+            alt={entry.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading={index < 6 ? "eager" : "lazy"}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
+          {children}
+        </>
+      )}
     </div>
+  );
+}
+
+/* ── Card Overlay — title + property label + CTA pills ── */
+function CardOverlay({ entry, children }: { entry: JournalEntry; children: React.ReactNode }) {
+  return (
+    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+      {entry.property && entry.property !== "brand" && (
+        <p className="text-white/40 text-[9px] tracking-[0.2em] uppercase mb-1.5" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+          {entry.property.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+        </p>
+      )}
+      <h3 className="text-white text-[15px] md:text-[16px] leading-[1.25] line-clamp-2 group-hover:text-white/85 transition-colors" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+        {entry.title}
+      </h3>
+      <div className="flex items-center gap-2 mt-2.5 flex-wrap">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/* ── Single pill (Read or Listen-only) ── */
+function SinglePill({ icon, label }: { icon: React.ReactNode; label: string }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 text-white/55 text-[10px] tracking-[0.15em] uppercase group-hover:text-white/80 transition-colors" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+      {label}
+      {icon}
+    </span>
+  );
+}
+
+/* ── Dual Watch / Listen pills ── */
+function DualWatchListenPills({ onWatch, listenUrl }: { onWatch: () => void; listenUrl: string }) {
+  return (
+    <>
+      <button
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); onWatch(); }}
+        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+      >
+        <Play className="w-2.5 h-2.5 fill-white" />
+        Watch
+      </button>
+      <a
+        href={listenUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+      >
+        <Headphones className="w-2.5 h-2.5" />
+        Listen
+      </a>
+    </>
+  );
+}
+
+/* ── Dual EN / ES language pills ── */
+function DualLangPills({ onEN, onES }: { onEN: () => void; onES: () => void }) {
+  return (
+    <>
+      <button
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); onEN(); }}
+        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+      >
+        <span className="text-[11px]">🇺🇸</span>
+        English
+      </button>
+      <button
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); onES(); }}
+        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+      >
+        <span className="text-[11px]">🇪🇸</span>
+        Spanish
+      </button>
+    </>
   );
 }
