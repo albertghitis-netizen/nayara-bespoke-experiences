@@ -53,26 +53,59 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ─── Property data for the grid ─── */
-type FilterTag = "Family Adventure" | "Romantic Escape";
-
-const propertyGrid: {
-  name: string;
-  location: string;
-  route: string;
-  bookingId: string;
-  image: string;
-  tagline: string;
-  filter: FilterTag;
-}[] = [
+/* ─── Costa Rica properties (compact row) ─── */
+const costaRicaProps = [
+  {
+    name: "Nayara Gardens",
+    location: "Arenal Volcano",
+    route: "/gardens",
+    bookingId: "gardens",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
+    tagline: "Private Rainforest Villas & Casitas",
+  },
+  {
+    name: "Nayara Springs",
+    location: "Arenal Volcano",
+    route: "/springs",
+    bookingId: "springs",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-plunge-pool-straight_a5d505d1.webp",
+    tagline: "Private Hot Springs Villas",
+  },
   {
     name: "Nayara Tented Camp",
-    location: "Arenal Volcano, Costa Rica",
+    location: "Arenal Volcano",
     route: "/tented-camp",
     bookingId: "tented-camp",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG",
     tagline: "Clifftop Tents & Suites",
-    filter: "Family Adventure",
+  },
+];
+
+/* ─── Fly-further destinations (hero cards) ─── */
+const flyFurtherProps = [
+  {
+    name: "Nayara Alto Atacama",
+    location: "Atacama Desert, Chile",
+    route: "/alto-atacama",
+    bookingId: "alto-atacama",
+    image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
+    tagline: "Desert Lodge Villas",
+    flightFrom: "San José, Costa Rica",
+    flightTime: "~5 hrs",
+    flightNote: "Via Santiago",
+    accolade: "Top 15 Resorts in South America — Condé Nast",
+  },
+  {
+    name: "Nayara Hangaroa",
+    location: "Easter Island, Chile",
+    route: "/hangaroa",
+    bookingId: "hangaroa",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
+    tagline: "Oceanfront Villas on Rapa Nui",
+    flightFrom: "Santiago, Chile",
+    flightTime: "~5 hrs",
+    flightNote: "Across the Pacific",
+    accolade: "One of the World's Most Remote Luxury Resorts",
   },
   {
     name: "Nayara Bocas del Toro",
@@ -81,43 +114,10 @@ const propertyGrid: {
     bookingId: "bocas-del-toro",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
     tagline: "Overwater Villas & Rainforest Treehouses",
-    filter: "Romantic Escape",
-  },
-  {
-    name: "Nayara Gardens",
-    location: "Arenal Volcano, Costa Rica",
-    route: "/gardens",
-    bookingId: "gardens",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
-    tagline: "Private Rainforest Villas & Casitas",
-    filter: "Family Adventure",
-  },
-  {
-    name: "Nayara Hangaroa",
-    location: "Easter Island, Chile",
-    route: "/hangaroa",
-    bookingId: "hangaroa",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
-    tagline: "Oceanfront Villas",
-    filter: "Family Adventure",
-  },
-  {
-    name: "Nayara Springs",
-    location: "Arenal Volcano, Costa Rica",
-    route: "/springs",
-    bookingId: "springs",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-plunge-pool-straight_a5d505d1.webp",
-    tagline: "Private Hot Springs Villas",
-    filter: "Romantic Escape",
-  },
-  {
-    name: "Nayara Alto Atacama",
-    location: "Atacama Desert, Chile",
-    route: "/alto-atacama",
-    bookingId: "alto-atacama",
-    image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
-    tagline: "Desert Lodge Villas",
-    filter: "Family Adventure",
+    flightFrom: "Miami, USA",
+    flightTime: "~2.5 hrs",
+    flightNote: "Caribbean gateway",
+    accolade: "#1 Best Resort in Central America — Condé Nast",
   },
 ];
 
@@ -316,113 +316,241 @@ function BrandStorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTIES - 6-card grid with Reserve + Explore
+   PROPERTIES — Costa Rica compact strip → Flight bridge → Hero destinations
    ═══════════════════════════════════════════════════════════════ */
 function PropertiesSection() {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Our Properties</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-4" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Six Destinations, One Philosophy
-          </span>
-        </TextReveal>
-        <AnimateOnScroll variants={fadeUp} delay={0.2}>
-          <p className="text-[15px] leading-[1.8] mb-12 md:mb-16 max-w-2xl" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-            Discover our collection of luxury resorts across Latin America, each offering unique experiences rooted in nature and culture.
-          </p>
-        </AnimateOnScroll>
+    <>
+      {/* ── Part 1: Costa Rica compact row ── */}
+      <section className="py-14 md:py-20 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
+        <div className={maxW}>
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Our Properties</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-3" delay={0.1}>
+            <span
+              className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Six Destinations, One Philosophy
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.15}>
+            <p className="text-[13px] tracking-[0.06em] mb-10 md:mb-12" style={{ fontFamily: "var(--font-body)", color: `${PALETTE.text}50` }}>
+              Costa Rica · Arenal Volcano
+            </p>
+          </AnimateOnScroll>
 
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {propertyGrid.map((prop) => (
-            <motion.div key={prop.route} variants={fadeUp} className="group">
-              <Link href={prop.route} className="block">
-                <MediaReveal>
-                  <div className="relative overflow-hidden mb-5">
+          {/* 3-column compact cards */}
+          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            {costaRicaProps.map((prop) => (
+              <motion.div key={prop.route} variants={fadeUp} className="group">
+                <Link href={prop.route} className="block">
+                  <div className="relative overflow-hidden mb-3" style={{ aspectRatio: "4/3" }}>
                     <img
                       src={prop.image}
                       alt={prop.name}
-                      className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      style={{ aspectRatio: "3/2" }}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />
-                    {prop.filter === "Romantic Escape" && (
-                      <span
-                        className="absolute top-3 right-3 px-3 py-1 rounded-full text-[9px] tracking-[0.12em] backdrop-blur-sm"
-                        style={{
-                          fontFamily: "var(--font-body)",
-                          fontWeight: 500,
-                          backgroundColor: "rgba(247,245,240,0.9)",
-                          color: PALETTE.textTertiary,
-                        }}
-                      >
-                        Romantic Escape
-                      </span>
-                    )}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                   </div>
-                </MediaReveal>
-              </Link>
-
-              <DrawLine color={PALETTE.divider} className="mb-4" />
-
-              <h3
-                className="text-[18px] mb-1"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
-              >
-                {prop.name}
-              </h3>
-              <p
-                className="text-[11px] tracking-[0.1em] mb-1"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textTertiary }}
-              >
-                {prop.location}
-              </p>
-              <p
-                className="text-[13px] leading-relaxed mb-5"
-                style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary + "99" }}
-              >
-                {prop.tagline}
-              </p>
-
-              <div className="flex gap-4">
-                <a
-                  href={BOOKING_URLS[prop.bookingId]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-10 px-6 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500 hover:opacity-80"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontWeight: 500,
-                    backgroundColor: PALETTE.accent,
-                    color: "#fff",
-                  }}
-                >
-                  Reserve
-                </a>
-                <Link
-                  href={prop.route}
-                  className="inline-flex items-center justify-center h-10 px-6 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontWeight: 500,
-                    border: `1px solid ${PALETTE.divider}`,
-                    color: PALETTE.textSecondary,
-                  }}
-                >
-                  Explore
                 </Link>
-              </div>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
-      </div>
-    </section>
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <h3
+                      className="text-[15px] mb-0.5"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                    >
+                      {prop.name}
+                    </h3>
+                    <p
+                      className="text-[11px] tracking-[0.06em]"
+                      style={{ fontFamily: "var(--font-body)", color: `${PALETTE.text}50` }}
+                    >
+                      {prop.tagline}
+                    </p>
+                  </div>
+                  <div className="flex gap-2 flex-shrink-0 mt-0.5">
+                    <a
+                      href={BOOKING_URLS[prop.bookingId]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center h-8 px-4 rounded-full text-[10px] tracking-[0.1em] transition-all duration-300 hover:opacity-80"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: PALETTE.accent, color: "#fff" }}
+                    >
+                      Reserve
+                    </a>
+                    <Link
+                      href={prop.route}
+                      className="inline-flex items-center justify-center h-8 px-4 rounded-full text-[10px] tracking-[0.1em] transition-all duration-300"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: `1px solid ${PALETTE.divider}`, color: PALETTE.textSecondary }}
+                    >
+                      Explore
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </StaggerOnScroll>
+        </div>
+      </section>
+
+      {/* ── Part 2: Flight bridge — dark panel with map + "Then, we fly" ── */}
+      <section
+        className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden"
+        style={{ backgroundColor: "#1C1410" }}
+      >
+        {/* Grain overlay */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+          <filter id="grain-bridge">
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#grain-bridge)" />
+        </svg>
+
+        <div className="relative z-10 max-w-[1200px] mx-auto">
+          {/* Headline */}
+          <AnimateOnScroll variants={fadeUp}>
+            <p className="text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", color: "#C4A26540" }}>
+              Then, We Fly
+            </p>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-3" delay={0.1}>
+            <span
+              className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
+            >
+              The World's Most Extraordinary
+              <br className="hidden md:block" /> Destinations Await
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p className="text-[14px] leading-[1.8] mb-12 md:mb-16 max-w-xl" style={{ fontFamily: "var(--font-body)", color: "#F7F5F060" }}>
+              From the driest desert on Earth to the most remote island in the Pacific — these are journeys that require a flight, and reward you with a world unlike any other.
+            </p>
+          </AnimateOnScroll>
+
+          {/* Flight stats row */}
+          <AnimateOnScroll variants={fadeUp} delay={0.25}>
+            <div className="flex flex-col md:flex-row gap-6 md:gap-0 mb-14 md:mb-20 border-t border-b py-8" style={{ borderColor: "#C4A26520" }}>
+              {[
+                { dest: "Atacama Desert", country: "Chile", time: "~5 hrs", note: "Via Santiago", icon: "🏜️" },
+                { dest: "Easter Island", country: "Chile", time: "~5 hrs", note: "Across the Pacific", icon: "🗿" },
+                { dest: "Bocas del Toro", country: "Panama", time: "~2.5 hrs", note: "Caribbean gateway", icon: "🌊" },
+              ].map((f, i) => (
+                <div key={f.dest} className="flex-1 flex items-center gap-5 md:px-8" style={{ borderLeft: i > 0 ? "1px solid #C4A26520" : "none" }}>
+                  <span className="text-2xl">{f.icon}</span>
+                  <div>
+                    <p className="text-[11px] tracking-[0.15em] uppercase mb-0.5" style={{ fontFamily: "var(--font-body)", color: "#C4A265" }}>
+                      {f.dest} · {f.country}
+                    </p>
+                    <p className="text-[22px] leading-none mb-1" style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#F7F5F0" }}>
+                      {f.time}
+                    </p>
+                    <p className="text-[11px]" style={{ fontFamily: "var(--font-body)", color: "#F7F5F040" }}>
+                      {f.note}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AnimateOnScroll>
+
+          {/* Map — show all flight paths active */}
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <div className="w-full max-w-3xl mx-auto" style={{ filter: "brightness(0.9) contrast(1.05)" }}>
+              <NayaraJourneyMap activeMilestoneIndex={5} />
+            </div>
+            <p className="text-center text-[10px] tracking-[0.2em] uppercase mt-6" style={{ fontFamily: "var(--font-body)", color: "#C4A26540" }}>
+              Flight paths from San José · Santiago · Miami
+            </p>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ── Part 3: Fly-further destination hero cards ── */}
+      <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#F4F1EB" }}>
+        <div className={maxW}>
+          <AnimateOnScroll variants={fadeUp}>
+            <p className="text-[10px] tracking-[0.3em] uppercase mb-10 md:mb-14" style={{ fontFamily: "var(--font-body)", color: `${PALETTE.text}35`, fontWeight: 600 }}>
+              Fly Further
+            </p>
+          </AnimateOnScroll>
+          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {flyFurtherProps.map((prop) => (
+              <motion.div key={prop.route} variants={fadeUp} className="group">
+                {/* Tall cinematic card */}
+                <Link href={prop.route} className="block relative overflow-hidden mb-5" style={{ aspectRatio: "2/3" }}>
+                  <img
+                    src={prop.image}
+                    alt={prop.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  {/* Flight badge — bottom left */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3" style={{ backgroundColor: "rgba(28,20,16,0.75)", backdropFilter: "blur(8px)" }}>
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="#C4A265" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                      </svg>
+                      <span className="text-[10px] tracking-[0.12em]" style={{ fontFamily: "var(--font-body)", color: "#C4A265", fontWeight: 500 }}>
+                        {prop.flightTime} · {prop.flightNote}
+                      </span>
+                    </div>
+                    <p className="text-white/40 text-[9px] tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>
+                      {prop.accolade}
+                    </p>
+                  </div>
+                </Link>
+
+                <DrawLine color={PALETTE.divider} className="mb-4" />
+
+                <h3
+                  className="text-[19px] mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                >
+                  {prop.name}
+                </h3>
+                <p
+                  className="text-[11px] tracking-[0.08em] mb-1"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: `${PALETTE.text}50` }}
+                >
+                  {prop.location}
+                </p>
+                <p
+                  className="text-[13px] leading-relaxed mb-5"
+                  style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary + "80" }}
+                >
+                  {prop.tagline}
+                </p>
+
+                <div className="flex gap-3">
+                  <a
+                    href={BOOKING_URLS[prop.bookingId]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center h-10 px-6 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500 hover:opacity-80"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: PALETTE.accent, color: "#fff" }}
+                  >
+                    Reserve
+                  </a>
+                  <Link
+                    href={prop.route}
+                    className="inline-flex items-center justify-center h-10 px-6 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: `1px solid ${PALETTE.divider}`, color: PALETTE.textSecondary }}
+                  >
+                    Explore
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </StaggerOnScroll>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -720,153 +848,233 @@ function AwardsHighlightSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NAYARA JOURNAL — Blog, Podcast & FAQ teaser section
+   NAYARA JOURNAL — Dark editorial strip with 3 real cards + glass pills
    ═══════════════════════════════════════════════════════════════ */
-const journalCards = [
-  {
-    type: "Blog",
-    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
-    headline: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
-    sub: "Nayara Resorts earns seven MICHELIN Keys across three countries — a testament to exceptional character, service, and sense of place.",
-    image: "https://blog.nayararesorts.com/hubfs/E056D1CD-5240-40E5-8567-21240563F763%203.jpg",
-    cta: "Read the Story",
-    url: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
-    external: true,
-  },
-  {
-    type: "Podcast",
-    icon: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z",
-    headline: "Leo Ghitis on Sustainability with AFAR",
-    sub: "Nayara Co-Founder & CEO Leo Ghitis speaks with AFAR about pioneering sustainable luxury in Latin America's most extraordinary landscapes.",
-    image: "https://img.youtube.com/vi/7l072Yr__pE/maxresdefault.jpg",
-    isVideo: true,
-    youtubeId: "7l072Yr__pE",
-    cta: "Watch Episode",
-    url: "/journal",
-    external: false,
-  },
-  {
-    type: "FAQ",
-    icon: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-    headline: "Your Questions, Answered",
-    sub: "From booking your first stay to understanding what makes each property unique — our FAQ covers everything you need to plan the perfect Nayara experience.",
-    image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
-    cta: "Browse FAQs",
-    url: "/journal",
-    external: false,
-  },
-];
 function NayaraJournalSection() {
+  const [playingId, setPlayingId] = useState<string | null>(null);
+
+  // 3 curated cards: Read · Listen · Watch
+  const teaserCards = [
+    {
+      id: "michelin",
+      label: "Read",
+      title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
+      image: "https://blog.nayararesorts.com/hubfs/E056D1CD-5240-40E5-8567-21240563F763%203.jpg",
+      href: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
+      external: true,
+      cta: "read" as const,
+    },
+    {
+      id: "afar",
+      label: "Listen",
+      title: "Leo Ghitis on Sustainability with AFAR",
+      image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
+      href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
+      external: true,
+      cta: "listen" as const,
+    },
+    {
+      id: "lti",
+      label: "Watch",
+      title: "Pioneering Sustainable Luxury with Nayara Resorts",
+      image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
+      href: null as string | null,
+      youtubeId: "7l072Yr__pE",
+      listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
+      external: false,
+      cta: "watch-listen" as const,
+    },
+  ];
+
   return (
-    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#F0EDE6" }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Nayara Journal</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-14 md:mb-20" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Stories, Conversations & Answers
-          </span>
-        </TextReveal>
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {journalCards.map((card) => {
-            const Wrapper = card.external ? "a" : Link;
-            const wrapperProps = card.external
-              ? { href: card.url, target: "_blank", rel: "noopener noreferrer" }
-              : { href: card.url };
-            return (
-              <motion.div key={card.type} variants={fadeUp}>
-                <Wrapper
-                  {...(wrapperProps as any)}
-                  className="group block overflow-hidden h-full transition-all duration-500 hover:translate-y-[-4px] hover:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.18)]"
-                  style={{ backgroundColor: PALETTE.bg }}
-                >
-                  {/* Image / Video thumbnail */}
-                  <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                    <img
-                      src={card.image}
-                      alt={card.headline}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    {card.isVideo && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div
-                          className="w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-sm transition-transform duration-300 group-hover:scale-110"
-                          style={{ backgroundColor: "rgba(58,42,26,0.75)" }}
-                        >
-                          <svg className="w-5 h-5 translate-x-0.5" fill="white" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
-                    )}
-                    {/* Type badge */}
-                    <div
-                      className="absolute top-3 left-3 px-2.5 py-1 text-[10px] tracking-[0.15em] uppercase"
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontWeight: 600,
-                        backgroundColor: PALETTE.accent,
-                        color: PALETTE.bg,
-                      }}
-                    >
-                      {card.type}
-                    </div>
-                  </div>
-                  {/* Text */}
-                  <div className="p-7 md:p-8">
-                    <h3
-                      className="text-[17px] md:text-[18px] leading-[1.35] mb-3 group-hover:opacity-80 transition-opacity"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
-                    >
-                      {card.headline}
-                    </h3>
-                    <p
-                      className="text-[13px] leading-[1.75] mb-6"
-                      style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
-                    >
-                      {card.sub}
-                    </p>
-                    <span
-                      className="inline-flex items-center gap-2 text-[11px] tracking-[0.12em] uppercase transition-all duration-300 group-hover:gap-3"
-                      style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
-                    >
-                      {card.cta}
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
-                    </span>
-                  </div>
-                </Wrapper>
-              </motion.div>
-            );
-          })}
-        </StaggerOnScroll>
-        {/* CTA to full journal */}
-        <AnimateOnScroll variants={fadeUp} delay={0.3}>
-          <div className="mt-12 text-center">
+    <section
+      className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden"
+      style={{ backgroundColor: "#1C1410" }}
+    >
+      {/* Grain overlay */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.035]" xmlns="http://www.w3.org/2000/svg">
+        <filter id="grain-journal">
+          <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain-journal)" />
+      </svg>
+
+      <div className="relative z-10 max-w-[1200px] mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div>
+            <AnimateOnScroll variants={fadeUp}>
+              <p className="text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", color: "#C4A26540" }}>
+                Nayara Journal
+              </p>
+            </AnimateOnScroll>
+            <TextReveal as="h2" delay={0.1}>
+              <span
+                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
+              >
+                Stories, Conversations
+                <br className="hidden md:block" /> & Perspectives
+              </span>
+            </TextReveal>
+          </div>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <Link
               href="/journal"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80"
-              style={{
-                fontFamily: "var(--font-body)",
-                fontWeight: 600,
-                backgroundColor: PALETTE.text,
-                color: PALETTE.bg,
-              }}
+              className="inline-flex items-center gap-2.5 h-11 px-7 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80 flex-shrink-0"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: "1px solid #C4A26540", color: "#F7F5F080" }}
             >
               Enter the Journal
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
-          </div>
-        </AnimateOnScroll>
+          </AnimateOnScroll>
+        </div>
+
+        {/* 3-card grid */}
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+          {teaserCards.map((card) => (
+            <motion.div key={card.id} variants={fadeUp}>
+              <JournalTeaserCard
+                card={card}
+                isPlaying={playingId === card.id}
+                onPlay={() => setPlayingId(card.id)}
+                onClose={() => setPlayingId(null)}
+              />
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
       </div>
     </section>
+  );
+}
+
+function JournalTeaserCard({
+  card,
+  isPlaying,
+  onPlay,
+  onClose,
+}: {
+  card: {
+    id: string;
+    label: string;
+    title: string;
+    image: string;
+    href: string | null;
+    youtubeId?: string;
+    listenUrl?: string;
+    external: boolean;
+    cta: "read" | "listen" | "watch-listen";
+  };
+  isPlaying: boolean;
+  onPlay: () => void;
+  onClose: () => void;
+}) {
+  const pillBase = "inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all cursor-pointer";
+  const bodyFont = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
+  const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+
+  return (
+    <div className="group relative w-full overflow-hidden rounded-lg bg-stone-900" style={{ aspectRatio: "1/1" }}>
+      {isPlaying && card.youtubeId ? (
+        <>
+          <iframe
+            src={`https://www.youtube.com/embed/${card.youtubeId}?autoplay=1&rel=0`}
+            className="absolute inset-0 w-full h-full"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title={card.title}
+          />
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-black/70 transition-colors text-sm"
+          >
+            ✕
+          </button>
+        </>
+      ) : (
+        <>
+          <img
+            src={card.image}
+            alt={card.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          {/* Type label */}
+          <div className="absolute top-4 left-4">
+            <span className="text-[9px] tracking-[0.25em] uppercase" style={{ ...bodyFont, color: "#C4A265" }}>
+              {card.label}
+            </span>
+          </div>
+          {/* Bottom content */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+            <h3 className="text-white text-[15px] md:text-[16px] leading-[1.25] line-clamp-2 mb-3" style={displayFont}>
+              {card.title}
+            </h3>
+            <div className="flex items-center gap-2 flex-wrap">
+              {card.cta === "read" && card.href && (
+                <a
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={pillBase}
+                  style={bodyFont}
+                >
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                  Read
+                </a>
+              )}
+              {card.cta === "listen" && card.href && (
+                <a
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={pillBase}
+                  style={bodyFont}
+                >
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                  Listen
+                </a>
+              )}
+              {card.cta === "watch-listen" && (
+                <>
+                  <button
+                    onClick={(e) => { e.preventDefault(); onPlay(); }}
+                    className={pillBase}
+                    style={bodyFont}
+                  >
+                    <svg className="w-2.5 h-2.5 fill-white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    Watch
+                  </button>
+                  {card.listenUrl && (
+                    <a
+                      href={card.listenUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className={pillBase}
+                      style={bodyFont}
+                    >
+                      <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                      </svg>
+                      Listen
+                    </a>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 
