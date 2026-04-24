@@ -123,7 +123,7 @@ export const palettes: Record<string, PropertyPalette> = {
     footerBg: "#6F463D",        // Terracotta (matches nav)
     footerText: "#F7F5F0",      // Bone
     navPillBg: "#B85C3C",        // Middle terracotta
-    navPillText: "#F7F5F0",
+    navPillText: "#FFFFFF",
   },
 
   /* ─── HANGAROA — Steel Blue (swatch #24: #536878) ─── */
