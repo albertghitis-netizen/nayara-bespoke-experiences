@@ -250,6 +250,16 @@ function CascadeTextBlock({
         <p className="text-[15px] leading-[1.8] mb-6" style={{ ...body, color: bodyColor }}>
           {description}
         </p>
+        {stats && stats.length > 0 && (
+          <div className="flex flex-wrap gap-x-8 gap-y-4 mt-2 mb-8 pt-4 border-t" style={{ borderColor: `${PALETTE.accent}30` }}>
+            {stats.map((stat, idx) => (
+              <div key={idx} className="flex flex-col">
+                <span className="text-[26px] leading-none tracking-tight" style={{ ...display, color: isDark ? BONE : PALETTE.text }}>{stat.value}</span>
+                <span className="text-[10px] tracking-[0.14em] uppercase mt-1.5" style={{ ...body, fontWeight: 500, color: isDark ? `${BONE}80` : PALETTE.accent }}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
         {blogLink && (
           <a
             href={blogLink}
