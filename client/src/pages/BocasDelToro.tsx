@@ -723,7 +723,7 @@ export default function BocasDelToro() {
 
       <ReviewsBreak bgColor={COLOR_A} />
 
-      <GettingHereBreak bgColor={COLOR_B} />
+      <GettingHereBreak bgColor="#C8DFF0" />
       <ReserveCTA />
       <Footer bgColor="#008E97" />
     </div>

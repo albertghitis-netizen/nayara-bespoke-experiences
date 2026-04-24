@@ -1164,7 +1164,7 @@ export default function TentedCamp() {
       <ReviewsBreak bgColor={SECTION_COLORS[7]} />
 
       {/* ★ Getting Here below Reviews */}
-      <GettingHereBreak bgColor={SECTION_COLORS[8]} />
+      <GettingHereBreak bgColor="#D5D9C4" />
       <ReserveCTA />
       <Footer bgColor="#868B75" />
     </div>
