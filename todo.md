@@ -2784,3 +2784,7 @@
 - [x] Brand homepage: replace S1 video with IMG_5354.jpg (tented camp vertical)
 - [x] Brand homepage: replace S2 video with IMG_6906.JPG (Bocas island horizontal)
 - [x] Tented Camp: use the old brand homepage S1 video as the new S1 vertical
+
+## Tented Camp S1/S3 Video Swap
+- [x] Move current S1 video to replace S3 (Experiences section)
+- [x] Replace S1 with new user-provided .mov video (DEBF006E)

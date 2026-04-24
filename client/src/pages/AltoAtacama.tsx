@@ -556,7 +556,7 @@ const CASCADE_SECTIONS = [
     label: "A Taste of Place",
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
-    vSrc: ASSETS.gastroV,
+    vSrc: "/manus-storage/atacama-taste-of-place-vertical_e5fa6f59.jpeg",
     hSrc: ASSETS.gastroH,
     vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "3/2",
