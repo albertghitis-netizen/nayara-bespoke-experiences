@@ -2790,3 +2790,14 @@
 - [x] Replace S1 with new user-provided .mov video (DEBF006E)
 - [x] Fix brand homepage S2 horizontal broken asset
 - [x] Add Gardens rooms scrolling header: "PRIVATE VILLAS & CASITAS" + hero image
+- [ ] Springs homepage: replace "One Rainforest Three Resorts" with S2 horizontal image
+- [ ] Springs homepage: add S3 (vertical image LEFT, text RIGHT) for Rooms/Springs Villa
+- [ ] Springs homepage: add S4 horizontal + text LEFT image RIGHT for Experiences
+- [ ] Springs homepage: add S5 vertical RIGHT text LEFT + horizontal for Sustainability
+- [ ] Springs homepage: add S6 vertical LEFT text RIGHT for Wellness
+- [ ] Springs homepage: keep everything above OneRainforest untouched
+- [ ] Fix Tented Camp "Nayara by Night" section: restore text left structure + horizontal image below
+- [ ] Build "Nayara by Night" section for Atacama (fix structure)
+- [ ] Build "Nayara by Night" section for Bocas (fix structure)
+- [x] Compress Costa Rica portion of interactive map timeline on brand homepage (desktop) so plane flies to Chile sooner
+- [x] Animate badge strips on brand homepage: top row slides from left, bottom row from right, triggered when fully in viewport
