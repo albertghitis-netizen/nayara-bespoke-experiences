@@ -195,6 +195,7 @@ type CascadeSectionData = {
   blogIsRead?: boolean;
   horizontalLoop?: boolean;
   verticalLoop?: boolean;
+  stats?: { label: string; value: string }[];
 };
 
 function CascadeSection({
@@ -210,17 +211,44 @@ function CascadeSection({
   const accentColor = isDark ? BONE : PALETTE.primary;
   const textLeft = index % 2 === 0;
 
+  const PILL_BG = isDark ? "rgba(0,0,0,0.45)" : "rgba(134,139,117,0.82)";
+  const PILL_BORDER = isDark ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.25)";
   const horizontalBlock = section.horizontalSrc ? (
     <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
       <MediaReveal delay={0.05}>
-        <MediaBlock
-          src={section.horizontalSrc}
-          isVideo={section.horizontalIsVideo}
-          ratio={section.horizontalRatio}
-          alt={`${section.label} landscape — Nayara Tented Camp`}
-          className="w-full"
-          loop={section.horizontalLoop}
-        />
+        <div className="relative">
+          <MediaBlock
+            src={section.horizontalSrc}
+            isVideo={section.horizontalIsVideo}
+            ratio={section.horizontalRatio}
+            alt={`${section.label} landscape — Nayara Tented Camp`}
+            className="w-full"
+            loop={section.horizontalLoop}
+          />
+          {/* Overlay pill CTA — lower third, centered */}
+          {section.link && (
+            <div className="absolute inset-0 flex items-end justify-center" style={{ paddingBottom: "8%" }}>
+              <a
+                href={section.link}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 500,
+                  fontSize: "11px",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase" as const,
+                  color: "#FFFFFF",
+                  backgroundColor: PILL_BG,
+                  borderColor: PILL_BORDER,
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
+                }}
+              >
+                {section.linkLabel || "Explore More"}
+              </a>
+            </div>
+          )}
+        </div>
       </MediaReveal>
     </div>
   ) : null;
@@ -671,6 +699,11 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[3],
     link: "/tented-camp/rooms",
     linkLabel: "Explore Rooms",
+    stats: [
+      { value: "32", label: "Luxury Tents" },
+      { value: "5★", label: "Forbes Rated" },
+      { value: "Private", label: "Plunge Pools" },
+    ],
   },
   {
     id: "experiences",
@@ -686,7 +719,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
     link: "/tented-camp/experiences",
-    linkLabel: "Explore More",
+    linkLabel: "Explore Bespoke Experiences",
   },
   {
     id: "sustainability",
@@ -702,7 +735,12 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
     link: "/tented-camp/sustainability",
-    linkLabel: "Our Commitment",
+    linkLabel: "Explore Beyond Sustainability",
+    stats: [
+      { value: "100%", label: "Renewable Energy" },
+      { value: "CST 5", label: "Certified" },
+      { value: "Zero", label: "Single-Use Plastic" },
+    ],
     blogUrl: "/long-form-video",
     blogTitle: "Pioneering Sustainable Luxury",
   },
@@ -721,7 +759,12 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
     link: "/tented-camp/wellness",
-    linkLabel: "Explore More",
+    linkLabel: "Explore Nature-Based Wellness",
+    stats: [
+      { value: "7", label: "Thermal Springs" },
+      { value: "Open Air", label: "Spa Treatments" },
+      { value: "Volcanic", label: "Healing Waters" },
+    ],
   },
 ];
 
@@ -742,7 +785,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
     link: "/tented-camp/gastronomy",
-    linkLabel: "Explore More",
+    linkLabel: "Explore Taste of Place",
   },
   {
     id: "nayara-by-night",

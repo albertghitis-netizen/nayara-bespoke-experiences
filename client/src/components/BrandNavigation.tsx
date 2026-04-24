@@ -260,7 +260,7 @@ export default function BrandNavigation({
             if (!showCenter) return null;
             return (
               <span
-                className="mx-4 ml-6 text-[#F2EBE3] drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
+                className="mx-4 ml-6 text-white drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
                 style={{ opacity: scrolled ? 0 : 1 }}
               >
                 <span
