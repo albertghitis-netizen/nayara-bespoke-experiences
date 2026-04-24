@@ -534,7 +534,7 @@ const CASCADE_SECTIONS = [
     headline: "Rainbow Valley",
     description: "A geological marvel painted in ochre, violet, and gold — the Valle del Arcoiris is one of the Atacama's most surreal landscapes. Walk among mineral-stained hillsides at golden hour and witness colours that seem to belong to another world.",
     vSrc: ASSETS.clip6V,
-    hSrc: "/manus-storage/atacama-rainbow-valley-horizontal_abae1e56.mov",
+    hSrc: "/manus-storage/atacama-rainbow-valley-horizontal_17c177d5.mov",
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
