@@ -300,7 +300,7 @@ function CascadeSection({
 
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
-              className="text-[15px] leading-[1.85] max-w-[480px]"
+              className="text-[15px] leading-[1.85] max-w-[480px] whitespace-pre-line"
               style={{ ...body, color: textSecondaryColor }}
             >
               {section.body}
@@ -387,9 +387,8 @@ function CascadeSection({
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
                   </svg>
                 )}
-                <span style={{ display: "inline-block", textAlign: "center", maxWidth: "260px", lineHeight: "1.5" }}>
-                  Listen: Nayara Co-Founder & CEO, Leo Ghitis,{" "}
-                  on Sustainability with AFAR Podcast
+                <span style={{ display: "inline-block", textAlign: "center", maxWidth: "300px", lineHeight: "1.6", fontSize: "10px", letterSpacing: "0.06em" }}>
+                  Listen: Nayara Co-Founder & CEO, Leo Ghitis,<br />on Sustainability with AFAR Podcast
                 </span>
               </a>
               <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
@@ -737,7 +736,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     id: "sustainability",
     label: "Sustainability",
     headline: "Rooted in\nResponsibility",
-    body: "What began as a barren cattle ranch is now a thriving 1,400-acre rainforest reserve. Every decision at Tented Camp — from solar-heated pools to zero single-use plastics — is guided by a simple principle: leave the land better than we found it.",
+    body: "What began as a barren cattle ranch is now a thriving 1,400-acre rainforest reserve. Every decision at Tented Camp — from solar-heated pools to zero single-use plastics — is guided by a simple principle: leave the land better than we found it.\n\nOver the past two decades, Nayara has reforested more than 600 acres of degraded pastureland, creating wildlife corridors that allow jaguars, tapirs, and scarlet macaws to move freely between protected areas. The property holds Costa Rica's highest CST 5 sustainability certification and generates 100% of its energy from renewable sources. Guests don't just witness this transformation — they become part of it.",
     verticalSrc: "/manus-storage/tented-sustainability-vertical_51ad5d43.mp4",
     horizontalSrc: "/manus-storage/tented-sustainability-h2_e4fd711d.mp4",
     verticalIsVideo: true,
