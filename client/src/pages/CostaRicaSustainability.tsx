@@ -94,7 +94,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
-      <SustainabilityHero palette={palette} propertyName={propertyName} headline={data.headline} heroVideo={heroVideo} heroHeight={HERO_HEIGHTS[propertySlug]} />
+      <SustainabilityHero propertySlug={propertySlug} />
       <ScrollingPillarHeader word="BEYOND SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
 
       {/* ESG Report — only renders if data has esgReport */}
@@ -165,48 +165,18 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 /* ═══════════════════════════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════════════════════════ */
-function SustainabilityHero({
-  palette,
-  propertyName,
-  headline,
-  heroVideo,
-  heroHeight,
-}: {
-  palette: PropertyPalette;
-  propertyName: string;
-  headline: string;
-  heroVideo: string;
-  heroHeight?: string;
-}) {
+function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
+  const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
+    "tented-camp": { src: "/manus-storage/tc-sustainability-toucans-v2_9caf2880.jpg", alt: "Toucans in the Costa Rican rainforest" },
+    gardens: { src: "/manus-storage/gardens-sustainability-hero_f42bf915.jpg", alt: "Sloth drinking water from mangrove roots" },
+    springs: { src: "/manus-storage/springs-sustainability-hero_eb05bf8d.jpg", alt: "Red-eyed tree frog on a branch" },
+    "alto-atacama": { src: "/manus-storage/atacama-sustainability-flamingos_a41cb997.jpg", alt: "Flamingos walking across the salt flats at sunset" },
+  };
+  const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
   return (
-    <div className="relative overflow-hidden" style={{ height: heroHeight || "70vh", minHeight: 420 }}>
-      <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: `${palette.primary}BF` }}
-        />
-      </div>
-      <div className="relative z-10 h-full flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-10">
-        <TextReveal as="h1" delay={0.2}>
-          <span
-            className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            {headline}
-          </span>
-        </TextReveal>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-white/50 text-[11px] tracking-[0.2em] mt-3"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-        >
-          {propertyName}
-        </motion.p>
-      </div>
-    </div>
+    <section className="relative aspect-[16/9] w-full overflow-hidden">
+      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
+    </section>
   );
 }
 
@@ -1115,7 +1085,6 @@ function SustainabilityVoices({
     </section>
   );
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    ENVIRONMENTAL PILLARS — Deep-dive into Reforestation, Energy, Water, Waste

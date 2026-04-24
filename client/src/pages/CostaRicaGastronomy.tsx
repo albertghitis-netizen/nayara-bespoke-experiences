@@ -220,8 +220,8 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientEnd }}>
       <BrandNavigation pageType="property" hideCenterLabel />
-      <GastronomyHero palette={palette} propertyName={propertyName} location={location} heroVideo={heroVideo} headline={headline} />
-      <ScrollingPillarHeader word="GASTRONOMY" color={palette.primary} bgColor={palette.gradientEnd} />
+      <GastronomyHero propertySlug={propertySlug} />
+      <ScrollingPillarHeader word="A TASTE OF PLACE" color={palette.primary} bgColor={palette.gradientEnd} />
 
       {isCR ? (
         <>
@@ -269,56 +269,20 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
 /* ═══════════════════════════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════════════════════════ */
-function GastronomyHero({
-  palette,
-  propertyName,
-  location,
-  heroVideo,
-  headline,
-}: {
-  palette: PropertyPalette;
-  propertyName: string;
-  location: string;
-  heroVideo: string;
-  headline: string;
-}) {
+function GastronomyHero({ propertySlug }: { propertySlug: string }) {
+  const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
+    "tented-camp": { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
+    gardens: { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
+    springs: { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
+    "alto-atacama": { src: "/manus-storage/atacama-gastronomy-hero_c7d93f23.jpg", alt: "Avocado dessert bowls" },
+    "bocas-del-toro": { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
+    hangaroa: { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
+  };
+  const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
   return (
-    <Parallax offset={50} className="w-full" style={{ aspectRatio: "2/1" }}>
-      <div className="relative w-full aspect-[2/1]">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
-        <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-          <TextReveal as="h1" delay={0.2}>
-            <span
-              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-            >
-              {headline}
-            </span>
-          </TextReveal>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-white/50 text-[11px] tracking-[0.2em] mt-3"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            {propertyName}
-          </motion.p>
-          {location && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-white/40 text-[10px] tracking-[0.15em] mt-1"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              {location}
-            </motion.p>
-          )}
-        </div>
-      </div>
-    </Parallax>
+    <section className="relative aspect-[16/9] w-full overflow-hidden">
+      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
+    </section>
   );
 }
 

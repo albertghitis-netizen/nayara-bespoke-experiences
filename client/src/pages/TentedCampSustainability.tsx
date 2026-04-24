@@ -53,7 +53,7 @@ function SustainabilityHero() {
   return (
     <div className="relative overflow-hidden" style={{ aspectRatio: "2/1" }}>
       <div className="absolute inset-0">
-        <img src="/manus-storage/tc-sustainability-toucans_0e70342f.jpg" alt="Toucans in the Costa Rican rainforest" className="w-full h-full object-cover" />
+        <img src="/manus-storage/tc-sustainability-toucans-v2_9caf2880.jpg" alt="Toucans in the Costa Rican rainforest" className="w-full h-full object-cover" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(45, 106, 79, 0.80)" }} />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end pb-8 md:pb-12 px-6 md:px-10">

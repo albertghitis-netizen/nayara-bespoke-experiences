@@ -58,7 +58,7 @@ function WellnessHero() {
   return (
     <Parallax offset={50} className="w-full" style={{ aspectRatio: "2/1" }}>
       <div className="relative w-full aspect-[2/1]">
-        <img src="/manus-storage/tc-wellness-aerial-pools_6c0367e3.jpg" alt="Aerial view of Nayara Tented Camp wellness pools" className="w-full h-full object-cover" />
+        <img src="/manus-storage/tc-wellness-aerial-pools-v2_d4e90dbd.jpg" alt="Aerial view of Nayara Tented Camp wellness pools" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>

@@ -2788,3 +2788,5 @@
 ## Tented Camp S1/S3 Video Swap
 - [x] Move current S1 video to replace S3 (Experiences section)
 - [x] Replace S1 with new user-provided .mov video (DEBF006E)
+- [x] Fix brand homepage S2 horizontal broken asset
+- [x] Add Gardens rooms scrolling header: "PRIVATE VILLAS & CASITAS" + hero image

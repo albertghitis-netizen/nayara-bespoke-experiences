@@ -58,7 +58,7 @@ function ExperiencesHero() {
   return (
     <Parallax offset={60} className="w-full" style={{ aspectRatio: "2/1" }}>
       <div className="relative w-full aspect-[2/1]">
-        <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
+        <img src="/manus-storage/tc-experiences-bridge-v2_40206a9a.jpg" alt="Hanging bridge through the rainforest canopy" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>

@@ -311,7 +311,7 @@ function BrandStorySection() {
         <MediaReveal>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
             <img
-              src="/manus-storage/brand-s2-bocas-h_f7fd8653.jpg"
+              src="/manus-storage/brand-s2-bocas-new_d18b38a1.jpg"
               alt="Aerial view of Bocas del Toro tropical island with turquoise waters"
               className="w-full h-full object-cover"
               loading="lazy"

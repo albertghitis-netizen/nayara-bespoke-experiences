@@ -97,8 +97,8 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
-      <ExperiencesHero palette={palette} propertyName={propertyName} location={location} heroVideo={heroVideo} headline={headline} />
-      <ScrollingPillarHeader word="EXPERIENCES" color={palette.primary} bgColor={palette.gradientStart} />
+      <ExperiencesHero propertySlug={propertySlug} />
+      <ScrollingPillarHeader word="BESPOKE EXPERIENCES" color={palette.primary} bgColor={palette.gradientStart} />
       {isCR ? (
         <CRExperiencesDeep property={property} palette={palette} />
       ) : (
@@ -113,56 +113,17 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
    HERO — Shared across all properties
    ═══════════════════════════════════════════════════════════════ */
 
-function ExperiencesHero({
-  palette,
-  propertyName,
-  location,
-  heroVideo,
-  headline,
-}: {
-  palette: PropertyPalette;
-  propertyName: string;
-  location: string;
-  heroVideo: string;
-  headline: string;
-}) {
+function ExperiencesHero({ propertySlug }: { propertySlug: string }) {
+  const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
+    "tented-camp": { src: "/manus-storage/tc-experiences-bridge-v2_40206a9a.jpg", alt: "Hanging bridge through the rainforest canopy" },
+    "alto-atacama": { src: "/manus-storage/atacama-experiences-lagoon_b2758734.jpg", alt: "Salt flat lagoon in the Atacama Desert" },
+    "bocas-del-toro": { src: "/manus-storage/bocas-experiences-hero_83418211.jpg", alt: "Swimming in crystal clear Caribbean waters" },
+  };
+  const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
   return (
-    <Parallax offset={60} className="w-full" style={{ aspectRatio: "2/1" }}>
-      <div className="relative w-full aspect-[2/1]">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
-        <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-          <TextReveal as="h1" delay={0.2}>
-            <span
-              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
-              style={{ ...display }}
-            >
-              {headline}
-            </span>
-          </TextReveal>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-white/50 text-[11px] tracking-[0.2em] mt-3"
-            style={{ ...body }}
-          >
-            {propertyName}
-          </motion.p>
-          {location && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-white/40 text-[10px] tracking-[0.15em] mt-1"
-              style={{ ...body }}
-            >
-              {location}
-            </motion.p>
-          )}
-        </div>
-      </div>
-    </Parallax>
+    <section className="relative aspect-[16/9] w-full overflow-hidden">
+      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
+    </section>
   );
 }
 

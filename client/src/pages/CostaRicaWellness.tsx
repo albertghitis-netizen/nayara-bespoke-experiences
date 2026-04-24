@@ -71,14 +71,8 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
-      <WellnessHero
-        palette={palette}
-        propertyName={propertyName}
-        location={location}
-        spaHeadline={property.theme.spaHeadline}
-        heroVideo={HERO_VIDEOS[propertySlug] || HERO_VIDEOS["tented-camp"]}
-      />
-      <ScrollingPillarHeader word="WELLNESS" color={palette.primary} bgColor={palette.gradientStart} />
+      <WellnessHero propertySlug={propertySlug} />
+      <ScrollingPillarHeader word="NATURE-BASED WELLNESS" color={palette.primary} bgColor={palette.gradientStart} />
       <WellnessIntro palette={palette} spaSubheadline={property.theme.spaSubheadline} />
       <WellnessContent property={property} palette={palette} />
       <Footer pageType="property" bgColor={palette.footerBg} />
@@ -86,56 +80,16 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
   );
 }
 
-function WellnessHero({
-  palette,
-  propertyName,
-  location,
-  spaHeadline,
-  heroVideo,
-}: {
-  palette: PropertyPalette;
-  propertyName: string;
-  location: string;
-  spaHeadline: string;
-  heroVideo: string;
-}) {
+function WellnessHero({ propertySlug }: { propertySlug: string }) {
+  const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
+    "tented-camp": { src: "/manus-storage/tc-wellness-aerial-pools-v2_d4e90dbd.jpg", alt: "Aerial view of wellness pools in the rainforest" },
+    "springs": { src: "/manus-storage/springs-wellness-hero_3ada77df.jpg", alt: "Jungle pool surrounded by tropical foliage" },
+  };
+  const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
   return (
-    <Parallax offset={50} className="w-full" style={{ aspectRatio: "2/1" }}>
-      <div className="relative w-full aspect-[2/1]">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
-        <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-          <TextReveal as="h1" delay={0.2}>
-            <span
-              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-            >
-              {spaHeadline.replace("\n", " ")}
-            </span>
-          </TextReveal>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-white/50 text-[11px] tracking-[0.2em] mt-3"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            {propertyName}
-          </motion.p>
-          {location && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-white/40 text-[10px] tracking-[0.15em] mt-1"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-            >
-              {location}
-            </motion.p>
-          )}
-        </div>
-      </div>
-    </Parallax>
+    <section className="relative aspect-[16/9] w-full overflow-hidden">
+      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
+    </section>
   );
 }
 
