@@ -563,7 +563,7 @@ const videoEpisodes: JournalEntry[] = [
     listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "8 min",
     guest: "Leo Ghitis, CEO & Co-Founder",
-    image: `https://img.youtube.com/vi/7l072Yr__pE/maxresdefault.jpg`,
+    image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
     excerpt: "Leo Ghitis explores the journey of building Nayara Resorts — a brand that seamlessly blends ultra-luxury with profound environmental stewardship across Costa Rica, Panama, and Chile.",
   },
   {
