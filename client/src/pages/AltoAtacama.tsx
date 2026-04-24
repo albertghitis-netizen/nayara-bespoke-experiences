@@ -554,7 +554,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/sustainability",
-    linkLabel: "Explore Sustainability",
+    linkLabel: "Explore Beyond Sustainability",
     blogLink: "https://www.youtube.com/watch?v=6cfkWsqWWc8",
     blogLinkLabel: "Watch: Desert Stewardship",
     stats: [
@@ -574,7 +574,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "1920/812",
     textSide: "right" as const,
     link: "/alto-atacama/wellness",
-    linkLabel: "Explore Wellness",
+    linkLabel: "Explore Nature-Based Wellness",
     badges: false,
   },
   {
@@ -587,7 +587,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
     link: "/alto-atacama/gastronomy",
-    linkLabel: "Explore Gastronomy",
+    linkLabel: "Explore Taste of Place",
     badges: false,
     hFirst: false,
     hideMobileV: true,
