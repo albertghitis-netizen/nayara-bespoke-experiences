@@ -4,7 +4,6 @@
  */
 
 import { motion } from "framer-motion";
-import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { bocasDiningCollection } from "@/data/dining";
@@ -34,7 +33,7 @@ const PALETTE = {
 const CDN_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const CDN = {
-  heroVideo: `${CDN_BASE}/bocas_gallery_video_0a7e31ab.mp4`,
+  heroImg: "/manus-storage/bocas-fb-elephant-house-1-169_3e59be99.jpg",
 };
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
@@ -55,7 +54,7 @@ function GastronomyHero() {
   return (
     <Parallax offset={50} className="w-full" style={{ aspectRatio: "2/1" }}>
       <div className="relative w-full aspect-[2/1]">
-        <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
+        <img src={CDN.heroImg} className="w-full h-full object-cover" alt="Caribbean Dining" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
         <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
           <TextReveal as="h1" delay={0.2}>
