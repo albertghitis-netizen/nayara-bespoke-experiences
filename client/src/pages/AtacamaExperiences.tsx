@@ -35,7 +35,7 @@ const PALETTE = {
 };
 
 const CDN = {
-  desertExploration: "/manus-storage/atacama-experiences-h_924838a1.mp4",
+  desertExploration: "/manus-storage/atacama-exp-header-v2_56cdbb81.mp4",
 };
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
