@@ -268,18 +268,38 @@ function CascadeTextBlock({
           </div>
         )}
         {blogLink && (
-          <a
-            href={blogLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? "#0a0a14" : BONE, backgroundColor: isDark ? "#C8D8E8" : PALETTE.accent }}
-          >
-            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-            </svg>
-            {blogLinkLabel || "Watch the Film"}
-          </a>
+          isDark ? (
+            /* Starfield pill for dark/night sections */
+            <a
+              href={blogLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(180,160,255,0.3)]"
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#e8e0ff", background: "linear-gradient(135deg, #0a0520 0%, #1a0a3a 30%, #0d1a3a 60%, #050d1f 100%)", border: "1px solid rgba(180,160,255,0.25)" }}
+            >
+              <span className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 40% at 60% 50%, rgba(180,160,255,0.18) 0%, transparent 70%)" }} />
+              {[["15%","25%","1.5px"], ["30%","70%","1px"], ["55%","20%","2px"], ["70%","65%","1px"], ["85%","35%","1.5px"], ["45%","80%","1px"], ["20%","55%","1px"], ["80%","15%","1px"]].map(([top, left, size], idx) => (
+                <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity: 0.6 + (idx % 3) * 0.15, animationDelay: `${idx * 0.4}s`, animationDuration: `${2 + (idx % 3)}s` }} />
+              ))}
+              <svg className="relative w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+              </svg>
+              <span className="relative">{blogLinkLabel || "Watch the Film"}</span>
+            </a>
+          ) : (
+            <a
+              href={blogLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+              </svg>
+              {blogLinkLabel || "Watch the Film"}
+            </a>
+          )
         )}
       </AnimateOnScroll>
       {badgeImage && (
@@ -375,18 +395,38 @@ function CascadeSection({
           {description}
         </p>
         {blogLink && (
-          <a
-            href={blogLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? "#0a0a14" : BONE, backgroundColor: isDark ? "#C8D8E8" : PALETTE.accent }}
-          >
-            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-            </svg>
-            {blogLinkLabel || "Watch the Film"}
-          </a>
+          isDark ? (
+            /* Starfield pill for dark/night sections */
+            <a
+              href={blogLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(180,160,255,0.3)]"
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#e8e0ff", background: "linear-gradient(135deg, #0a0520 0%, #1a0a3a 30%, #0d1a3a 60%, #050d1f 100%)", border: "1px solid rgba(180,160,255,0.25)" }}
+            >
+              <span className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 40% at 60% 50%, rgba(180,160,255,0.18) 0%, transparent 70%)" }} />
+              {[["15%","25%","1.5px"], ["30%","70%","1px"], ["55%","20%","2px"], ["70%","65%","1px"], ["85%","35%","1.5px"], ["45%","80%","1px"], ["20%","55%","1px"], ["80%","15%","1px"]].map(([top, left, size], idx) => (
+                <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity: 0.6 + (idx % 3) * 0.15, animationDelay: `${idx * 0.4}s`, animationDuration: `${2 + (idx % 3)}s` }} />
+              ))}
+              <svg className="relative w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+              </svg>
+              <span className="relative">{blogLinkLabel || "Watch the Film"}</span>
+            </a>
+          ) : (
+            <a
+              href={blogLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+              </svg>
+              {blogLinkLabel || "Watch the Film"}
+            </a>
+          )
         )}
       </AnimateOnScroll>
       {badgeImage && (
