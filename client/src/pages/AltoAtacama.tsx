@@ -684,8 +684,21 @@ export default function AltoAtacama() {
             <div className="flex">
               {section.textSide === "left" ? (
                 <>
-                  <div className="w-1/2 flex items-center">
-                    <div className="px-10 lg:px-16 xl:px-20 py-16">
+                  <div className="w-1/2 flex items-center relative overflow-hidden">
+                    {isDarkSection && (
+                      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                        {Array.from({ length: 120 }).map((_, idx) => {
+                          const top = `${(idx * 13.7 + 3) % 100}%`;
+                          const left = `${(idx * 17.3 + 7) % 100}%`;
+                          const size = idx % 5 === 0 ? "2.5px" : idx % 3 === 0 ? "2px" : "1.5px";
+                          const opacity = 0.6 + (idx % 5) * 0.08;
+                          const delay = `${(idx * 0.17) % 3}s`;
+                          const dur = `${1.5 + (idx % 4) * 0.5}s`;
+                          return <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity, animationDelay: delay, animationDuration: dur }} />;
+                        })}
+                      </div>
+                    )}
+                    <div className="relative z-10 px-10 lg:px-16 xl:px-20 py-16">
                       <CascadeTextBlock
                         label={section.label}
                         headline={section.headline}
@@ -702,7 +715,7 @@ export default function AltoAtacama() {
                       />
                     </div>
                   </div>
-                  <div className="w-1/2 relative">
+                  <div className="w-1/2">
                     <MediaReveal delay={0.2}>
                       <MediaBlock
                         src={section.vSrc}
@@ -712,24 +725,11 @@ export default function AltoAtacama() {
 
                       />
                     </MediaReveal>
-                    {isDarkSection && (
-                      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                        {Array.from({ length: 72 }).map((_, idx) => {
-                          const top = `${(idx * 13.7 + 3) % 100}%`;
-                          const left = `${(idx * 17.3 + 7) % 100}%`;
-                          const size = idx % 5 === 0 ? "2.5px" : idx % 3 === 0 ? "2px" : "1.5px";
-                          const opacity = 0.55 + (idx % 5) * 0.1;
-                          const delay = `${(idx * 0.17) % 3}s`;
-                          const dur = `${1.5 + (idx % 4) * 0.5}s`;
-                          return <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity, animationDelay: delay, animationDuration: dur }} />;
-                        })}
-                      </div>
-                    )}
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="w-1/2 relative">
+                  <div className="w-1/2">
                     <MediaReveal delay={0.2}>
                       <MediaBlock
                         src={section.vSrc}
@@ -739,22 +739,22 @@ export default function AltoAtacama() {
 
                       />
                     </MediaReveal>
+                  </div>
+                  <div className="w-1/2 flex items-center relative overflow-hidden">
                     {isDarkSection && (
                       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                        {Array.from({ length: 72 }).map((_, idx) => {
+                        {Array.from({ length: 120 }).map((_, idx) => {
                           const top = `${(idx * 13.7 + 3) % 100}%`;
                           const left = `${(idx * 17.3 + 7) % 100}%`;
                           const size = idx % 5 === 0 ? "2.5px" : idx % 3 === 0 ? "2px" : "1.5px";
-                          const opacity = 0.55 + (idx % 5) * 0.1;
+                          const opacity = 0.6 + (idx % 5) * 0.08;
                           const delay = `${(idx * 0.17) % 3}s`;
                           const dur = `${1.5 + (idx % 4) * 0.5}s`;
                           return <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity, animationDelay: delay, animationDuration: dur }} />;
                         })}
                       </div>
                     )}
-                  </div>
-                  <div className="w-1/2 flex items-center">
-                    <div className="px-10 lg:px-16 xl:px-20 py-16">
+                    <div className="relative z-10 px-10 lg:px-16 xl:px-20 py-16">
                       <CascadeTextBlock
                         label={section.label}
                         headline={section.headline}
