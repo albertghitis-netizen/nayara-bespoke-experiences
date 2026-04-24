@@ -116,7 +116,7 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
 function ExperiencesHero({ propertySlug }: { propertySlug: string }) {
   const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
     "tented-camp": { src: "/manus-storage/tc-experiences-bridge-v2_40206a9a.jpg", alt: "Hanging bridge through the rainforest canopy" },
-    "alto-atacama": { src: "/manus-storage/atacama-experiences-lagoon_b2758734.jpg", alt: "Salt flat lagoon in the Atacama Desert" },
+    "alto-atacama": { src: "/manus-storage/atacama-exp-stargazing_c8a71e15.jpg", alt: "Stargazing under the Milky Way in the Atacama Desert" },
     "bocas-del-toro": { src: "/manus-storage/bocas-experiences-hero_83418211.jpg", alt: "Swimming in crystal clear Caribbean waters" },
   };
   const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
