@@ -156,12 +156,18 @@ type CascadeSectionData = {
   horizontalIsVideo: boolean;
   verticalRatio: string;
   horizontalRatio: string;
+  horizontalFirst?: boolean;
   bgColor: string;
   nextBgColor: string;
   link?: string;
   linkLabel?: string;
-  blogLink?: string;
-  blogLinkLabel?: string;
+  badges?: boolean;
+  blogUrl?: string;
+  blogTitle?: string;
+  blogIsRead?: boolean;
+  horizontalLoop?: boolean;
+  verticalLoop?: boolean;
+  stats?: { label: string; value: string }[];
 };
 
 const CASCADE_SECTIONS: CascadeSectionData[] = [
@@ -178,8 +184,12 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
-    blogLink: "https://blog.nayararesorts.com/bocas-wins-cond%C3%A9-nast-traveler-award-2025",
-    blogLinkLabel: "Read: Condé Nast names Bocas #1 in Central America",
+    link: "/bocas-del-toro",
+    linkLabel: "Explore the Island",
+    badges: true,
+    blogUrl: "https://blog.nayararesorts.com/bocas-wins-cond%C3%A9-nast-traveler-award-2025",
+    blogTitle: "Condé Nast names Bocas #1 in Central America",
+    blogIsRead: true,
   },
   {
     id: "rooms",
@@ -196,6 +206,11 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[3],
     link: "/bocas-del-toro/rooms",
     linkLabel: "Explore Rooms",
+    stats: [
+      { value: "30", label: "Overwater Villas" },
+      { value: "5★", label: "Forbes Rated" },
+      { value: "Private", label: "Plunge Pools" },
+    ],
   },
   {
     id: "experiences",
@@ -217,7 +232,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     id: "sustainability",
     label: "Sustainability",
     headline: "Protecting\nParadise",
-    body: "Our commitment to marine conservation and island stewardship ensures that the pristine beauty of Bocas del Toro endures for generations. Through partnerships with local conservation organizations, renewable energy systems, and community programs, we protect the delicate ecosystems that make this place extraordinary.",
+    body: "Our commitment to marine conservation and island stewardship ensures that the pristine beauty of Bocas del Toro endures for generations. Through partnerships with local conservation organizations, renewable energy systems, and community programs, we protect the delicate ecosystems that make this place extraordinary.\n\nNayara Bocas del Toro operates on 100% renewable energy and has partnered with the Smithsonian Tropical Research Institute to monitor and protect the coral reefs surrounding Isla Pastores. Our zero single-use plastic policy, coral restoration nurseries, and dolphin-safe boating protocols ensure that every guest visit actively contributes to the health of this irreplaceable Caribbean ecosystem.",
     verticalSrc: "/manus-storage/bocas-delfines_dc5e78fc.mp4",
     horizontalSrc: ASSETS.susH,
     verticalIsVideo: true,
@@ -227,7 +242,15 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
     link: "/bocas-del-toro/sustainability",
-    linkLabel: "Explore More",
+    linkLabel: "Explore Beyond Sustainability",
+    stats: [
+      { value: "100%", label: "Renewable Energy" },
+      { value: "CST 5", label: "Certified" },
+      { value: "Zero", label: "Single-Use Plastic" },
+    ],
+    blogUrl: "https://www.youtube.com/watch?v=FPxFzOkKhbw",
+    blogTitle: "Pioneering Sustainable Luxury",
+    blogIsRead: false,
   },
   {
     id: "wellness",
@@ -243,7 +266,12 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
     link: "/bocas-del-toro/wellness",
-    linkLabel: "Explore Wellness",
+    linkLabel: "Explore Nature-Based Wellness",
+    stats: [
+      { value: "Overwater", label: "Spa Pavilion" },
+      { value: "Caribbean", label: "Healing Traditions" },
+      { value: "Ocean", label: "Sound Therapy" },
+    ],
   },
   {
     id: "gastronomy",
@@ -286,7 +314,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
 /* ═══════════════════════════════════════════════════════════════
    HELPER — Section label
    ═══════════════════════════════════════════════════════════════ */
-function SectionLabel({ children, color }: { children: React.ReactNode; color?: string }) {
+function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
       className="text-[11px] tracking-[0.2em] mb-4"
@@ -335,21 +363,63 @@ function CascadeSection({
   section: CascadeSectionData;
   index: number;
 }) {
-  const textLeft = index % 2 === 0;
   const isDark = DARK_SECTION_IDS.includes(section.id);
   const textColor = isDark ? BONE : PALETTE.text;
   const textSecondaryColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
   const accentColor = isDark ? BONE : PALETTE.primary;
+  const textLeft = index % 2 === 0;
+  const PILL_BG = isDark ? "rgba(0,0,0,0.45)" : "rgba(0,142,151,0.72)";
+  const PILL_BORDER = isDark ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.25)";
+  const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+  const body = { fontFamily: "var(--font-body)" } as const;
+
+  const horizontalBlock = section.horizontalSrc ? (
+    <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
+      <MediaReveal delay={0.05}>
+        <div className="relative">
+          <MediaBlock
+            src={section.horizontalSrc}
+            isVideo={section.horizontalIsVideo}
+            ratio={section.horizontalRatio}
+            alt={`${section.label} landscape — Nayara Bocas del Toro`}
+            className="w-full"
+          />
+          {/* Overlay pill CTA — lower third, centered */}
+          {section.link && (
+            <div className="absolute inset-0 flex items-end justify-center" style={{ paddingBottom: "8%" }}>
+              <a
+                href={section.link}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 500,
+                  fontSize: "11px",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase" as const,
+                  color: "#FFFFFF",
+                  backgroundColor: PILL_BG,
+                  borderColor: PILL_BORDER,
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
+                }}
+              >
+                {section.linkLabel || "Explore More"}
+              </a>
+            </div>
+          )}
+        </div>
+      </MediaReveal>
+    </div>
+  ) : null;
 
   return (
     <section id={section.id}>
+      {/* ── Horizontal FIRST if flagged ── */}
+      {section.horizontalFirst && horizontalBlock}
       {/* ── Row: Vertical media + Text column ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: section.bgColor }}>
-        {/* Vertical media — full-bleed to its edge */}
-        {/* On mobile: story section shows text first (order-2), all others show image first (order-1) */}
-        <div
-          className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"} ${section.id === "story" ? "order-2 md:order-2" : "order-1"}`}
-        >
+      <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
+        {/* Vertical media — on mobile: always after text (order-2), on desktop: alternates */}
+        <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
               src={section.verticalSrc}
@@ -359,97 +429,105 @@ function CascadeSection({
             />
           </MediaReveal>
         </div>
-
         {/* Text column */}
         <div
-          className={`w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 ${
+          className={`w-full md:w-1/2 flex flex-col justify-center h-full px-10 py-16 lg:px-16 xl:px-20 order-1 ${
             textLeft ? "md:order-1" : "md:order-2"
           }`}
           style={{ backgroundColor: section.bgColor }}
         >
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel color={isDark ? BONE : undefined}>{section.label}</SectionLabel>
+            <SectionLabel>{section.label}</SectionLabel>
           </AnimateOnScroll>
-
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2 className="mb-6 md:mb-8">
               {section.headline.split("\n").map((line, i) => (
                 <span
                   key={i}
-                  className="block text-2xl md:text-4xl lg:text-[48px] leading-[1.05] tracking-wide"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: textColor }}
+                  className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+                  style={{ ...display, color: textColor }}
                 >
                   {line}
                 </span>
               ))}
             </h2>
           </AnimateOnScroll>
-
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
-              className="text-[15px] leading-[1.85] max-w-[480px] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: textSecondaryColor }}
+              className="text-[15px] leading-[1.85] max-w-[480px] whitespace-pre-line"
+              style={{ ...body, color: textSecondaryColor }}
             >
               {section.body}
             </p>
-            {section.blogLink && (
-              <a
-                href={section.blogLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: PALETTE.primary }}
-              >
-                <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                </svg>
-                {section.blogLinkLabel || "Read More"}
-              </a>
-            )}
           </AnimateOnScroll>
-
-          {section.link && (
+          {section.stats && section.stats.length > 0 && (
+            <AnimateOnScroll variants={fadeUp} delay={0.28}>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 mb-2">
+                {section.stats.map((stat, i) => (
+                  <div key={i} className="flex flex-col">
+                    <span className="text-[18px] font-light tracking-tight" style={{ fontFamily: "var(--font-display)", color: accentColor }}>{stat.value}</span>
+                    <span className="text-[10px] tracking-[0.14em] uppercase mt-0.5" style={{ ...body, fontWeight: 500, color: textSecondaryColor, opacity: 0.65 }}>{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </AnimateOnScroll>
+          )}
+          {section.link && !section.horizontalSrc && (
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
                 href={section.link}
                 className="inline-block mt-6 text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: accentColor }}
+                style={{ ...body, fontWeight: 500, color: accentColor }}
               >
                 {section.linkLabel || "Explore More"} →
               </a>
             </AnimateOnScroll>
           )}
-
-          {section.id === "story" && (
+          {section.blogUrl && section.blogTitle && (
+            <AnimateOnScroll variants={fadeUp} delay={0.35}>
+              <a
+                href={section.blogUrl}
+                target={section.blogUrl.startsWith("http") ? "_blank" : undefined}
+                rel={section.blogUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="inline-flex items-center gap-2.5 mt-8 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                style={{
+                  ...body,
+                  fontWeight: 500,
+                  fontSize: "12px",
+                  letterSpacing: "0.08em",
+                  color: "#fff",
+                  borderColor: "#008E97",
+                  backgroundColor: "rgba(0,142,151,0.7)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                {section.blogIsRead ? (
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
+                  </svg>
+                )}
+                {section.blogIsRead ? "Read" : "Watch"}: {section.blogTitle}
+              </a>
+            </AnimateOnScroll>
+          )}
+          {section.badges && (
             <div className="mt-8 hidden md:block">
-              <video
-                src="/manus-storage/badge-bocas-final_15068a56.mp4"
-                autoPlay
-                muted
-                playsInline
-                className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10"
-              />
+              <div className="hidden md:block">
+                <video src="/manus-storage/badge-bocas-final_15068a56.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+              </div>
             </div>
           )}
         </div>
       </div>
-
-      {/* \u2500\u2500 Full-width horizontal media \u2500\u2500 */}
-      <div style={{ backgroundColor: section.nextBgColor }} className="hidden md:block">
-        <MediaReveal delay={0.05}>
-          <MediaBlock
-            src={section.horizontalSrc}
-            isVideo={section.horizontalIsVideo}
-            ratio={section.horizontalRatio}
-            alt={`${section.label} landscape — Nayara Bocas del Toro`}
-            className="w-full"
-          />
-        </MediaReveal>
-      </div>
+      {/* ── Full-width horizontal media AFTER (default) — hidden on mobile ── */}
+      {!section.horizontalFirst && horizontalBlock}
     </section>
   );
 }
-
 /* ═══════════════════════════════════════════════════════════════
    HERO — Full-screen video
    ═══════════════════════════════════════════════════════════════ */
