@@ -524,11 +524,25 @@ const CASCADE_SECTIONS = [
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
-    link: "/alto-atacama/experiences",
-    linkLabel: "Explore Experiences",
     blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
+    hideH: true,
+  },
+  {
+    label: "Experiences",
+    headline: "Rainbow Valley",
+    description: "A geological marvel painted in ochre, violet, and gold — the Valle del Arcoiris is one of the Atacama's most surreal landscapes. Walk among mineral-stained hillsides at golden hour and witness colours that seem to belong to another world.",
+    vSrc: ASSETS.clip6V,
+    hSrc: "/manus-storage/atacama-rainbow-valley-horizontal_abae1e56.mov",
+    vVideo: true, hVideo: true,
+    vRatio: "3/4", hRatio: "16/9",
+    textSide: "right" as const,
+    link: "/alto-atacama/experiences",
+    linkLabel: "Follow the Rainbow",
+    badges: false,
+    hFirst: true,
+    hideV: true,
   },
   {
     label: "Sustainability",
@@ -611,10 +625,11 @@ export default function AltoAtacama() {
         const bg = (section as any).bgOverride || SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1];
         const isHidden = (section as any).hideH;
         const isHFirst = (section as any).hFirst;
+        const isHideV = (section as any).hideV;
 
         const isDarkSection = !!(section as any).isDarkSection;
 
-        const VTextRow = (
+        const VTextRow = isHideV ? null : (
           <div className="hidden md:block relative z-[1]" style={{ marginTop: '-1px' }}>
             <div className="flex">
               {section.textSide === "left" ? (
@@ -739,13 +754,23 @@ export default function AltoAtacama() {
                     stats={(section as any).stats}
                   />
                 </div>
-                {!(section as any).hideMobileV && (
+                {!(section as any).hideMobileV && !isHideV && (
                   <MediaReveal delay={0.1}>
                     <MediaBlock
                       src={section.vSrc}
                       alt={section.headline}
                       isVideo={section.vVideo}
                       aspectRatio={section.vRatio}
+                    />
+                  </MediaReveal>
+                )}
+                {isHideV && !isHidden && (
+                  <MediaReveal delay={0.1}>
+                    <MediaBlock
+                      src={section.hSrc}
+                      alt={section.headline}
+                      isVideo={section.hVideo}
+                      aspectRatio="16/9"
                     />
                   </MediaReveal>
                 )}
