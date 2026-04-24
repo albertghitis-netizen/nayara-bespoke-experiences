@@ -184,7 +184,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   {
     id: "rooms",
     label: "Accommodations",
-    headline: "Overwater\nVillas",
+    headline: "Overwater Villas\n& Rainforest Treehouses",
     body: "Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.",
     verticalSrc: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
     horizontalSrc: "/manus-storage/bocas-accommodations-h_d33b2e24.mp4",
