@@ -203,7 +203,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     headline: "Caribbean\nAdventures",
     body: "From snorkeling vibrant coral reefs to kayaking through bioluminescent bays, every day brings a new discovery. Explore hidden beaches, dive alongside tropical fish, or simply drift in the warm Caribbean waters that surround your private island retreat.",
     verticalSrc: "/manus-storage/bocas-caribbean-adventure-v_e1c6cfa3.mp4",
-    horizontalSrc: "/manus-storage/bocas-experiences-h_3f479361.mp4",
+    horizontalSrc: "/manus-storage/bocas-exp-horizontal_1b318bff.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
