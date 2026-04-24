@@ -53,8 +53,8 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-/* ─── Costa Rica properties (compact row) ─── */
-const costaRicaProps = [
+/* ─── All six properties ─── */
+const allProps = [
   {
     name: "Nayara Gardens",
     location: "Arenal Volcano",
@@ -79,10 +79,6 @@ const costaRicaProps = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG",
     tagline: "Clifftop Tents & Suites",
   },
-];
-
-/* ─── Fly-further destinations (hero cards) ─── */
-const flyFurtherProps = [
   {
     name: "Nayara Alto Atacama",
     location: "Atacama Desert, Chile",
@@ -90,10 +86,6 @@ const flyFurtherProps = [
     bookingId: "alto-atacama",
     image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
     tagline: "Desert Lodge Villas",
-    flightFrom: "San José, Costa Rica",
-    flightTime: "~5 hrs",
-    flightNote: "Via Santiago",
-    accolade: "Top 15 Resorts in South America — Condé Nast",
   },
   {
     name: "Nayara Hangaroa",
@@ -102,10 +94,6 @@ const flyFurtherProps = [
     bookingId: "hangaroa",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
     tagline: "Oceanfront Villas on Rapa Nui",
-    flightFrom: "Santiago, Chile",
-    flightTime: "~5 hrs",
-    flightNote: "Across the Pacific",
-    accolade: "One of the World's Most Remote Luxury Resorts",
   },
   {
     name: "Nayara Bocas del Toro",
@@ -114,10 +102,6 @@ const flyFurtherProps = [
     bookingId: "bocas-del-toro",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
     tagline: "Overwater Villas & Rainforest Treehouses",
-    flightFrom: "Miami, USA",
-    flightTime: "~2.5 hrs",
-    flightNote: "Caribbean gateway",
-    accolade: "#1 Best Resort in Central America — Condé Nast",
   },
 ];
 
@@ -904,18 +888,12 @@ function NayaraJournalSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <AnimateOnScroll variants={fadeUp}>
-              <p className="text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", color: "#C4A26540" }}>
-                Nayara Journal
-              </p>
-            </AnimateOnScroll>
             <TextReveal as="h2" delay={0.1}>
               <span
                 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
               >
-                Stories, Conversations
-                <br className="hidden md:block" /> & Perspectives
+                The Journal
               </span>
             </TextReveal>
           </div>
