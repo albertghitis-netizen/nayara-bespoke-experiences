@@ -387,7 +387,7 @@ function CascadeSection({
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
                   </svg>
                 )}
-                Listen: Nayara Co-Founder & CEO, Leo Ghitis on Sustainability with Afar
+                Listen: Nayara Founder & CEO, Leo Ghitis, on Sustainability with AFAR Podcast
               </a>
               <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
             </div>
