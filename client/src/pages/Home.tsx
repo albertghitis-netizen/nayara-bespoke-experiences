@@ -232,43 +232,6 @@ function HeroSection() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   OUR PHILOSOPHY - Two-column intro with images
-   ═══════════════════════════════════════════════════════════════ */
-function BadgeStripAnimated() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  return (
-    <div ref={ref} className="overflow-hidden">
-      <motion.div
-        className="mt-6"
-        initial={{ opacity: 0, x: -80 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <img
-          src="/manus-storage/badge-strip-springs-v6_1dae1be6.png"
-          alt="Michelin 3 Keys, Relais & Châteaux, Green Globe Certified"
-          className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
-          loading="lazy"
-        />
-      </motion.div>
-      <motion.div
-        className="-mt-2"
-        initial={{ opacity: 0, x: 80 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 80 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
-      >
-        <img
-          src="/manus-storage/badge-strip-gardens-v8_2e1183d5.png"
-          alt="Virtuoso, Leading Hotels of the World, Distinción Turismo Sustentable"
-          className="h-24 md:h-32 lg:h-40 w-auto -ml-4 md:-ml-5 lg:-ml-6"
-          loading="lazy"
-        />
-      </motion.div>
-    </div>
-  );
-}
 
 function BrandStorySection() {
   return (
@@ -309,8 +272,17 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge strips — animated slide-in */}
-          <BadgeStripAnimated />
+          {/* Badge animation video */}
+          <div className="mt-6 overflow-hidden">
+            <video
+              src="/manus-storage/badge-anim-v1_0e74247f.mp4"
+              autoPlay
+              muted
+              playsInline
+              className="w-full h-auto"
+              style={{ maxWidth: "600px" }}
+            />
+          </div>
         </div>
         <div className="md:w-1/2">
           <MediaReveal delay={0.2} className="h-full">
