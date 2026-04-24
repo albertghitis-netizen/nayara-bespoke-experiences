@@ -215,10 +215,12 @@ function CascadeTextBlock({
   badgeImage,
   isDark = false,
   stats,
+  secondDescription,
 }: {
   label: string;
   headline: string;
   description: string;
+  secondDescription?: string;
   link?: string;
   linkLabel?: string;
   blogLink?: string;
@@ -250,6 +252,11 @@ function CascadeTextBlock({
         <p className="text-[15px] leading-[1.8] mb-6" style={{ ...body, color: bodyColor }}>
           {description}
         </p>
+        {secondDescription && (
+          <p className="text-[15px] leading-[1.8] mb-6" style={{ ...body, color: bodyColor }}>
+            {secondDescription}
+          </p>
+        )}
         {stats && stats.length > 0 && (
           <div className="flex flex-wrap gap-x-8 gap-y-4 mt-2 mb-8 pt-4 border-t" style={{ borderColor: `${PALETTE.accent}30` }}>
             {stats.map((stat, idx) => (
@@ -266,7 +273,7 @@ function CascadeTextBlock({
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
+            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? "#0a0a14" : BONE, backgroundColor: isDark ? "#C8D8E8" : PALETTE.accent }}
           >
             <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
@@ -373,7 +380,7 @@ function CascadeSection({
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
+            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? "#0a0a14" : BONE, backgroundColor: isDark ? "#C8D8E8" : PALETTE.accent }}
           >
             <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
@@ -518,7 +525,8 @@ const CASCADE_SECTIONS = [
   {
     label: "Experiences",
     headline: "Mars on Earth",
-    description: "From salt flat expeditions to stargazing under the clearest skies on Earth, every excursion is guided by local experts who reveal the Atacama's hidden wonders.",
+    description: "NASA scientists have trained here. Geologists call it the closest thing on Earth to the surface of Mars. The Atacama Desert — hyper-arid, mineral-rich, and ancient beyond reckoning — is not a backdrop. It is the experience itself. At Nayara Alto Atacama, every excursion is guided by local experts who have spent lifetimes reading this landscape: its salt crusts, its volcanic craters, its silence.",
+    secondDescription: "Just beyond the salt flats, the Valle del Arcoiris — Rainbow Valley — reveals another dimension of the desert. Hillsides painted in ochre, copper, violet, and gold by millions of years of mineral oxidation. Walk among them at golden hour and the colours seem to shift with the light, as if the earth itself is still deciding what it wants to be.",
     vSrc: ASSETS.clip6V,
     hSrc: ASSETS.clip7H,
     vVideo: true, hVideo: true,
@@ -604,6 +612,8 @@ const CASCADE_SECTIONS = [
     badges: false,
     isDarkSection: true,
     bgOverride: "#000000",
+    blogLink: "https://blog.nayararesorts.com/best-stargazing-resort-atacama-desert",
+    blogLinkLabel: "Read: Best Stargazing Resort in the Atacama",
   },
 ];
 
@@ -640,6 +650,7 @@ export default function AltoAtacama() {
                         label={section.label}
                         headline={section.headline}
                         description={section.description}
+                        secondDescription={(section as any).secondDescription}
                         link={section.link}
                         linkLabel={section.linkLabel}
                         blogLink={(section as any).blogLink}
@@ -682,6 +693,7 @@ export default function AltoAtacama() {
                         label={section.label}
                         headline={section.headline}
                         description={section.description}
+                        secondDescription={(section as any).secondDescription}
                         link={section.link}
                         linkLabel={section.linkLabel}
                         blogLink={(section as any).blogLink}
@@ -744,6 +756,7 @@ export default function AltoAtacama() {
                     label={section.label}
                     headline={section.headline}
                     description={section.description}
+                    secondDescription={(section as any).secondDescription}
                     link={section.link}
                     linkLabel={section.linkLabel}
                     blogLink={(section as any).blogLink}
