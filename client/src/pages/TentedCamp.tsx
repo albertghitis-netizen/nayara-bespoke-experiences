@@ -227,10 +227,10 @@ function CascadeSection({
           />
           {/* Overlay pill CTA — lower third, centered */}
           {section.link && (
-            <div className="absolute inset-0 flex items-end justify-center" style={{ paddingBottom: "15%" }}>
+            <div className="absolute inset-0 flex items-end justify-center" style={{ paddingBottom: "20%" }}>
               <a
                 href={section.link}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
                 style={{
                   fontFamily: "var(--font-body)",
                   fontWeight: 500,
