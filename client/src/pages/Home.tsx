@@ -688,7 +688,7 @@ function NayaraJournalSection() {
     {
       id: "afar",
       label: "Listen",
-      title: "Leo Ghitis on Going Beyond Sustainability with the AFAR Podcast",
+      title: "Nayara Co-Founder & CEO Leo Ghitis on Going Beyond Sustainability with the AFAR Podcast",
       image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
       href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
       external: true,
