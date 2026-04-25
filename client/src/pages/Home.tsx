@@ -246,8 +246,8 @@ function BrandStorySection() {
               href="https://blog.nayararesorts.com/rom-deadly-sin-to-rainforest-royalty-the-soul-of-nayara"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 mt-6 mb-6 px-6 py-2.5 rounded-full transition-all duration-300 hover:opacity-80 border"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", color: "#3B2B26", borderColor: "#3B2B26", textTransform: "uppercase" }}
+              className="inline-flex items-center gap-2.5 mt-6 mb-6 px-6 py-2.5 rounded-full transition-all duration-300 hover:opacity-80"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", color: "#F7F5F0", backgroundColor: "#3B2B26", textTransform: "uppercase" }}
             >
               <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -648,12 +648,12 @@ function AwardsHighlightSection() {
           <div className="mt-12 text-center">
             <Link
               href="/awards"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80 border"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
               style={{
                 fontFamily: "var(--font-body)",
                 fontWeight: 500,
-                borderColor: "#3B2B26",
-                color: "#3B2B26",
+                backgroundColor: "#3B2B26",
+                color: "#F7F5F0",
               }}
             >
               View All Awards & Press
@@ -738,7 +738,7 @@ function NayaraJournalSection() {
             <Link
               href="/journal"
               className="inline-flex items-center gap-2.5 h-11 px-7 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80 flex-shrink-0"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: "1px solid #3B2B26", color: "#3B2B26" }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
             >
               Enter the Journal
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -787,7 +787,8 @@ function JournalTeaserCard({
   onPlay: () => void;
   onClose: () => void;
 }) {
-  const pillBase = "inline-flex items-center gap-2 h-9 px-6 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-[#3B2B26] text-[11px] tracking-[0.12em] uppercase hover:bg-white/25 transition-all cursor-pointer font-medium";
+  const pillBase = "inline-flex items-center gap-2 h-9 px-6 rounded-full text-[11px] tracking-[0.12em] uppercase hover:opacity-80 transition-all cursor-pointer font-medium";
+  const pillStyle = { backgroundColor: "#3B2B26", color: "#F7F5F0" } as const;
   const bodyFont = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
   const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 
@@ -842,7 +843,7 @@ function JournalTeaserCard({
             target="_blank"
             rel="noopener noreferrer"
             className={pillBase}
-            style={bodyFont}
+            style={{ ...bodyFont, ...pillStyle }}
           >
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -856,7 +857,7 @@ function JournalTeaserCard({
             target="_blank"
             rel="noopener noreferrer"
             className={pillBase}
-            style={bodyFont}
+            style={{ ...bodyFont, ...pillStyle }}
           >
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
@@ -869,7 +870,7 @@ function JournalTeaserCard({
             <button
               onClick={(e) => { e.preventDefault(); onPlay(); }}
               className={pillBase}
-              style={bodyFont}
+              style={{ ...bodyFont, ...pillStyle }}
             >
               <svg className="w-3 h-3 fill-white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
               Watch
