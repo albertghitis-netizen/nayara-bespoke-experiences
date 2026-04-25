@@ -2832,3 +2832,6 @@
 - [x] Awards slider arrows: replace with Style A (thin line + chevron, architectural, no background)
 - [x] Journal slider arrows: replace with Style B (small bordered rectangle + chevron, gallery-style)
 - [x] Awards + Journal arrows: Style B filled espresso (#3B2B26) with white chevrons, apply to both sections
+- [ ] Tented Camp Accommodations V1: restore drone video on desktop, keep static image on mobile only
+- [ ] Tented Camp Accommodations vertical: add overlay pill buttons — top third "Explore Nayara Tent" + "Reserve", bottom third "Explore Family Tent" + "Reserve"
+- [ ] Tented Camp Rooms deeper page: 4 vertical cards (Nayara Tent, Family Tent, Grand Tent, Residence) each with 4-image slider, tented camp colors, espresso circle arrows

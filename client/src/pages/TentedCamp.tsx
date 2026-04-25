@@ -195,6 +195,9 @@ type CascadeSectionData = {
   blogIsRead?: boolean;
   horizontalLoop?: boolean;
   verticalLoop?: boolean;
+  mobileVerticalSrc?: string;
+  mobileVerticalIsVideo?: boolean;
+  verticalOverlayButtons?: { top: { explore: string; reserve: string }; bottom: { explore: string; reserve: string } };
   stats?: { label: string; value: string }[];
 };
 
@@ -265,15 +268,85 @@ function CascadeSection({
       <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media — on mobile: always after text (order-2), on desktop: alternates */}
         <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
-          <MediaReveal delay={0.1}>
-            <MediaBlock
-              src={section.verticalSrc}
-              isVideo={section.verticalIsVideo}
-              ratio={section.verticalRatio}
-              alt={`${section.label} — Nayara Tented Camp`}
-              loop={section.verticalLoop}
-            />
-          </MediaReveal>
+          {/* Overlay buttons on vertical media */}
+          {section.verticalOverlayButtons && (
+            <div className="absolute inset-0 z-10 flex flex-col justify-between pointer-events-none" style={{ padding: "15% 6% 18% 6%" }}>
+              <div className="flex items-center justify-center gap-8 pointer-events-auto">
+                <button
+                  onClick={() => import("sonner").then(({ toast }) => toast(section.verticalOverlayButtons!.top.explore + " — Coming Soon"))}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                >
+                  {section.verticalOverlayButtons.top.explore}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </button>
+                <button
+                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                >
+                  {section.verticalOverlayButtons.top.reserve}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </button>
+              </div>
+              <div className="flex items-center justify-center gap-8 pointer-events-auto">
+                <button
+                  onClick={() => import("sonner").then(({ toast }) => toast(section.verticalOverlayButtons!.bottom.explore + " — Coming Soon"))}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                >
+                  {section.verticalOverlayButtons.bottom.explore}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </button>
+                <button
+                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                >
+                  {section.verticalOverlayButtons.bottom.reserve}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </button>
+              </div>
+            </div>
+          )}
+          {section.mobileVerticalSrc ? (
+            <>
+              {/* Mobile: use mobile-specific vertical */}
+              <div className="block md:hidden">
+                <MediaReveal delay={0.1}>
+                  <MediaBlock
+                    src={section.mobileVerticalSrc}
+                    isVideo={section.mobileVerticalIsVideo ?? false}
+                    ratio={section.verticalRatio}
+                    alt={`${section.label} — Nayara Tented Camp`}
+                    loop={section.verticalLoop}
+                  />
+                </MediaReveal>
+              </div>
+              {/* Desktop: use original vertical */}
+              <div className="hidden md:block">
+                <MediaReveal delay={0.1}>
+                  <MediaBlock
+                    src={section.verticalSrc}
+                    isVideo={section.verticalIsVideo}
+                    ratio={section.verticalRatio}
+                    alt={`${section.label} — Nayara Tented Camp`}
+                    loop={section.verticalLoop}
+                  />
+                </MediaReveal>
+              </div>
+            </>
+          ) : (
+            <MediaReveal delay={0.1}>
+              <MediaBlock
+                src={section.verticalSrc}
+                isVideo={section.verticalIsVideo}
+                ratio={section.verticalRatio}
+                alt={`${section.label} — Nayara Tented Camp`}
+                loop={section.verticalLoop}
+              />
+            </MediaReveal>
+          )}
         </div>
 
         {/* Text column */}
@@ -706,9 +779,11 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Accommodations",
     headline: "Life Under\nCanvas",
     body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.",
-    verticalSrc: "/manus-storage/tc-mobile-hero_d503fc59.jpg",
+    verticalSrc: "/manus-storage/brand-s1-philosophy_510ddc6e.mp4",
+    mobileVerticalSrc: "/manus-storage/tc-mobile-hero_d503fc59.jpg",
+    mobileVerticalIsVideo: false,
     horizontalSrc: "/manus-storage/tc-accom-horizontal_5eaaff21.mp4",
-    verticalIsVideo: false,
+    verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -716,6 +791,10 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[3],
     link: "/tented-camp/rooms",
     linkLabel: "Explore Rooms",
+    verticalOverlayButtons: {
+      top: { explore: "Explore Nayara Tent", reserve: "Reserve" },
+      bottom: { explore: "Explore Family Tent", reserve: "Reserve" },
+    },
     stats: [
       { value: "32", label: "Luxury Tents" },
       { value: "5★", label: "Forbes Rated" },
