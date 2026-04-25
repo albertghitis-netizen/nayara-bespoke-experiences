@@ -46,7 +46,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
       className="text-[10px] tracking-[0.3em] mb-4"
-      style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: `${PALETTE.text}35` }}
+      style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#0D0604" }}
     >
       {children}
     </p>
@@ -345,7 +345,7 @@ function PropertiesSection() {
                     </h3>
                     <p
                       className="text-[11px] tracking-[0.06em]"
-                      style={{ fontFamily: "var(--font-body)", color: `${PALETTE.text}50` }}
+                      style={{ fontFamily: "var(--font-body)", color: "#0D0604" }}
                     >
                       {prop.tagline}
                     </p>
@@ -448,7 +448,7 @@ function TimelineSection() {
               >
                 <span
                   className="text-[10px] tracking-[0.25em] uppercase"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: `${PALETTE.text}40` }}
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#0D0604" }}
                 >
                   {milestones[activeMilestone]?.year} — {milestones[activeMilestone]?.title}
                 </span>
@@ -479,7 +479,7 @@ function TimelineSection() {
                         style={{
                           fontFamily: "var(--font-display)",
                           fontWeight: 300,
-                          color: activeMilestone === i ? PALETTE.text : `${PALETTE.text}30`,
+                          color: activeMilestone === i ? PALETTE.text : "#0D0604",
                           transition: "color 0.7s ease",
                         }}
                       >
