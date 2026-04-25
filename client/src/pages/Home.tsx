@@ -677,11 +677,11 @@ function NayaraJournalSection() {
   // 3 curated cards: Read · Listen · Watch
   const teaserCards = [
     {
-      id: "michelin",
+      id: "gastronomy",
       label: "Read",
-      title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
-      image: "https://blog.nayararesorts.com/hubfs/E056D1CD-5240-40E5-8567-21240563F763%203.jpg",
-      href: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
+      title: "A Taste of Place: Gastronomy Across the Nayara World",
+      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
+      href: "https://blog.nayararesorts.com/gastronomy",
       external: true,
       cta: "read" as const,
     },
