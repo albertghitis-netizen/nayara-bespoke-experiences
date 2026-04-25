@@ -679,7 +679,7 @@ function NayaraJournalSection() {
     {
       id: "gastronomy",
       label: "Read",
-      title: "A Taste of Place: Gastronomy Across the Nayara World",
+      title: "Gastronomy Across the World of Nayara",
       image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
       href: "https://blog.nayararesorts.com/gastronomy",
       external: true,
@@ -695,13 +695,13 @@ function NayaraJournalSection() {
       cta: "listen" as const,
     },
     {
-      id: "lti",
+      id: "hitorangi-rapanui",
       label: "Watch",
-      title: "Pioneering Sustainable Luxury with Nayara Resorts",
-      image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
+      title: "The Guardians of Rapa Nui: A Conversation with the Hitorangi Family",
+      image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
       href: null as string | null,
-      youtubeId: "7l072Yr__pE",
-      listenUrl: null as string | null,
+      youtubeId: "FRPVRcUTNmk",
+      listenUrl: undefined,
       external: false,
       cta: "watch" as const,
     },
@@ -792,6 +792,7 @@ function JournalTeaserCard({
   const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 
   return (
+    <div className="flex flex-col">
     <div className="group relative w-full overflow-hidden rounded-lg bg-stone-900" style={{ aspectRatio: "1/1" }}>
       {isPlaying && card.youtubeId ? (
         <>
@@ -824,71 +825,74 @@ function JournalTeaserCard({
               {card.label}
             </span>
           </div>
-          {/* Bottom content */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-            <h3 className="text-white text-[15px] md:text-[16px] leading-[1.25] line-clamp-2 mb-3" style={displayFont}>
-              {card.title}
-            </h3>
-            <div className="flex items-center gap-2 flex-wrap">
-              {card.cta === "read" && card.href && (
-                <a
-                  href={card.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={pillBase}
-                  style={bodyFont}
-                >
-                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                  </svg>
-                  Read
-                </a>
-              )}
-              {card.cta === "listen" && card.href && (
-                <a
-                  href={card.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={pillBase}
-                  style={bodyFont}
-                >
-                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                  </svg>
-                  Listen
-                </a>
-              )}
-              {(card.cta === "watch-listen" || card.cta === "watch") && (
-                <>
-                  <button
-                    onClick={(e) => { e.preventDefault(); onPlay(); }}
-                    className={pillBase}
-                    style={bodyFont}
-                  >
-                    <svg className="w-3 h-3 fill-white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                    Watch
-                  </button>
-                  {card.cta === "watch-listen" && card.listenUrl && (
-                    <a
-                      href={card.listenUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className={pillBase}
-                      style={bodyFont}
-                    >
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                      </svg>
-                      Listen
-                    </a>
-                  )}
-                </>
-              )}
-            </div>
-          </div>
+          {/* Bottom gradient only — no text */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
         </>
       )}
+    </div>
+    {/* Title and CTAs below the card image */}
+    <div className="pt-4 pb-2">
+      <h3 className="text-white/90 text-[14px] md:text-[15px] leading-[1.3] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+        {card.title}
+      </h3>
+      <div className="flex items-center gap-2 flex-wrap">
+        {card.cta === "read" && card.href && (
+          <a
+            href={card.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={pillBase}
+            style={bodyFont}
+          >
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+            Read
+          </a>
+        )}
+        {card.cta === "listen" && card.href && (
+          <a
+            href={card.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={pillBase}
+            style={bodyFont}
+          >
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+            Listen
+          </a>
+        )}
+        {(card.cta === "watch-listen" || card.cta === "watch") && (
+          <>
+            <button
+              onClick={(e) => { e.preventDefault(); onPlay(); }}
+              className={pillBase}
+              style={bodyFont}
+            >
+              <svg className="w-3 h-3 fill-white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+              Watch
+            </button>
+            {card.cta === "watch-listen" && card.listenUrl && (
+              <a
+                href={card.listenUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className={pillBase}
+                style={bodyFont}
+              >
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                </svg>
+                Listen
+              </a>
+            )}
+          </>
+        )}
+      </div>
+    </div>
     </div>
   );
 }
