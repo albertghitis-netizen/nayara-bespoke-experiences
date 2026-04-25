@@ -278,6 +278,7 @@ function CascadeSection({
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
                 >
                   {section.verticalOverlayButtons.top.explore}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </button>
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
@@ -285,6 +286,7 @@ function CascadeSection({
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
                 >
                   {section.verticalOverlayButtons.top.reserve}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </button>
               </div>
               <div className="flex items-center justify-center gap-16 pointer-events-auto">
@@ -294,6 +296,7 @@ function CascadeSection({
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
                 >
                   {section.verticalOverlayButtons.bottom.explore}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </button>
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
@@ -301,6 +304,7 @@ function CascadeSection({
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
                 >
                   {section.verticalOverlayButtons.bottom.reserve}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </button>
               </div>
             </div>
