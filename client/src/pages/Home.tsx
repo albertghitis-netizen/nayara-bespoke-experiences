@@ -738,7 +738,7 @@ function NayaraJournalSection() {
             <Link
               href="/journal"
               className="inline-flex items-center gap-2.5 h-11 px-7 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80 flex-shrink-0"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: "1px solid #C4A26540", color: "#F7F5F080" }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: "1px solid #3B2B26", color: "#3B2B26" }}
             >
               Enter the Journal
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -787,7 +787,7 @@ function JournalTeaserCard({
   onPlay: () => void;
   onClose: () => void;
 }) {
-  const pillBase = "inline-flex items-center gap-2 h-9 px-5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white text-[11px] tracking-[0.12em] uppercase hover:bg-white/25 transition-all cursor-pointer font-medium";
+  const pillBase = "inline-flex items-center gap-2 h-9 px-5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-[#3B2B26] text-[11px] tracking-[0.12em] uppercase hover:bg-white/25 transition-all cursor-pointer font-medium";
   const bodyFont = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
   const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 
@@ -821,7 +821,7 @@ function JournalTeaserCard({
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           {/* Type label */}
           <div className="absolute top-4 left-4">
-            <span className="text-[9px] tracking-[0.25em] uppercase" style={{ ...bodyFont, color: "#C4A265" }}>
+            <span className="text-[9px] tracking-[0.25em] uppercase" style={{ ...bodyFont, color: "#3B2B26" }}>
               {card.label}
             </span>
           </div>
@@ -832,7 +832,7 @@ function JournalTeaserCard({
     </div>
     {/* Title and CTAs below the card image */}
     <div className="pt-4 pb-2">
-      <h3 className="text-white/90 text-[14px] md:text-[15px] leading-[1.3] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+      <h3 className="text-[#3B2B26] text-[14px] md:text-[15px] leading-[1.3] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
         {card.title}
       </h3>
       <div className="flex items-center gap-2 flex-wrap">
