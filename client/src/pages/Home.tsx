@@ -591,29 +591,46 @@ function AwardsHighlightSection() {
   const cardTextSoft = "#D4C8B8";
   const cardAccent = "#E1D1BA";
   const isMobile = useIsMobile();
-  const awardsScrollRef = useRef<HTMLDivElement>(null);
+    const awardsScrollRef = useRef<HTMLDivElement>(null);
+  const awardsDesktopRef = useRef<HTMLDivElement>(null);
   const [awardsPage, setAwardsPage] = useState(0);
+  const [awardsDesktopPage, setAwardsDesktopPage] = useState(0);
   const totalAwards = awardsData.length; // 6
-
+  const awardsDesktopPages = Math.ceil(totalAwards / 3); // 2 pages of 3
   const scrollToAward = (idx: number) => {
     const el = awardsScrollRef.current;
     if (!el) return;
     el.scrollTo({ left: idx * el.clientWidth, behavior: "smooth" });
     setAwardsPage(idx);
   };
-
+  const scrollToAwardsDesktopPage = (page: number) => {
+    const el = awardsDesktopRef.current;
+    if (!el) return;
+    el.scrollTo({ left: page * el.clientWidth, behavior: "smooth" });
+    setAwardsDesktopPage(page);
+  };
   const handleAwardsScroll = useCallback(() => {
     const el = awardsScrollRef.current;
     if (!el) return;
     const newPage = Math.round(el.scrollLeft / el.clientWidth);
     setAwardsPage(newPage);
   }, []);
-
+  const handleAwardsDesktopScroll = useCallback(() => {
+    const el = awardsDesktopRef.current;
+    if (!el) return;
+    const newPage = Math.round(el.scrollLeft / el.clientWidth);
+    setAwardsDesktopPage(newPage);
+  }, []);
   useEffect(() => {
     const el = awardsScrollRef.current;
     if (el) el.addEventListener("scroll", handleAwardsScroll, { passive: true });
     return () => el?.removeEventListener("scroll", handleAwardsScroll);
   }, [handleAwardsScroll]);
+  useEffect(() => {
+    const el = awardsDesktopRef.current;
+    if (el) el.addEventListener("scroll", handleAwardsDesktopScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleAwardsDesktopScroll);
+  }, [handleAwardsDesktopScroll]);
 
   const renderAwardCard = (award: typeof awardsData[0]) => {
     const isExternal = award.route.startsWith("http");
@@ -677,15 +694,66 @@ function AwardsHighlightSection() {
           </span>
         </TextReveal>
 
-        {/* Desktop: 3-col grid */}
-        <div className="hidden md:block">
-          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {awardsData.map((award) => (
-              <motion.div key={award.property} variants={fadeUp}>
-                {renderAwardCard(award)}
-              </motion.div>
+        {/* Desktop: Horizontal slider — 3 cards visible at a time (matches Journal) */}
+        <div className="hidden md:block relative">
+          {/* Left arrow */}
+          <button
+            onClick={() => scrollToAwardsDesktopPage(awardsDesktopPage - 1)}
+            disabled={awardsDesktopPage === 0}
+            className="absolute left-1/2 top-[calc(50%-2rem)] -translate-x-[calc(50%+1rem)] z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+            style={{ backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+            aria-label="Previous"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          {/* Right arrow */}
+          <button
+            onClick={() => scrollToAwardsDesktopPage(awardsDesktopPage + 1)}
+            disabled={awardsDesktopPage >= awardsDesktopPages - 1}
+            className="absolute left-1/2 top-[calc(50%-2rem)] translate-x-[calc(50%-1rem)] z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+            style={{ backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+            aria-label="Next"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+          <div
+            ref={awardsDesktopRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {Array.from({ length: awardsDesktopPages }).map((_, pageIdx) => (
+              <div
+                key={pageIdx}
+                className="flex-shrink-0 w-full grid grid-cols-3 gap-5"
+                style={{ scrollSnapAlign: "start" }}
+              >
+                {awardsData.slice(pageIdx * 3, pageIdx * 3 + 3).map((award) => (
+                  <div key={award.property}>
+                    {renderAwardCard(award)}
+                  </div>
+                ))}
+              </div>
             ))}
-          </StaggerOnScroll>
+          </div>
+          {/* Desktop page dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: awardsDesktopPages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToAwardsDesktopPage(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{
+                  backgroundColor: "#3B2B26",
+                  opacity: awardsDesktopPage === i ? 1 : 0.2,
+                }}
+                aria-label={`Page ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Mobile: 1 card at a time, swipeable */}
