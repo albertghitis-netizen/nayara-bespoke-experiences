@@ -700,7 +700,7 @@ function AwardsHighlightSection() {
           <button
             onClick={() => scrollToAwardsDesktopPage(awardsDesktopPage - 1)}
             disabled={awardsDesktopPage === 0}
-            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
             style={{ backgroundColor: "#3B2B26" }}
             aria-label="Previous"
           >
@@ -711,7 +711,7 @@ function AwardsHighlightSection() {
           <button
             onClick={() => scrollToAwardsDesktopPage(awardsDesktopPage + 1)}
             disabled={awardsDesktopPage >= awardsDesktopPages - 1}
-            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
             style={{ backgroundColor: "#3B2B26" }}
             aria-label="Next"
           >
@@ -946,7 +946,7 @@ function NayaraJournalSection() {
           <button
             onClick={() => scrollToPage(currentPage - 1)}
             disabled={currentPage === 0}
-            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
             style={{ backgroundColor: "#3B2B26" }}
             aria-label="Previous"
           >
@@ -957,7 +957,7 @@ function NayaraJournalSection() {
           <button
             onClick={() => scrollToPage(currentPage + 1)}
             disabled={currentPage >= totalPages - 1}
-            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
             style={{ backgroundColor: "#3B2B26" }}
             aria-label="Next"
           >
