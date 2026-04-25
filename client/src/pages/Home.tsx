@@ -559,9 +559,9 @@ function AwardsHighlightSection() {
   /* Dark espresso cards with warm gold accents */
   const cardBg = "#3B2B26";
   const cardText = "#F7F5F0";
-  const cardTextMuted = "#C4A265";
+  const cardTextMuted = "#E1D1BA";
   const cardTextSoft = "#D4C8B8";
-  const cardAccent = "#C4A265";
+  const cardAccent = "#E1D1BA";
   return (
     <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
       <div className={maxW}>
@@ -710,7 +710,7 @@ function NayaraJournalSection() {
   return (
     <section
       className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden"
-      style={{ backgroundColor: "#2E2218" }}
+      style={{ backgroundColor: "#F7F5F0" }}
     >
       {/* Grain overlay */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.035]" xmlns="http://www.w3.org/2000/svg">
