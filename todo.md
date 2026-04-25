@@ -2823,3 +2823,4 @@
 - [x] Brand homepage mobile: remove badge strips (hidden on mobile, visible on desktop)
 - [x] Brand homepage mobile: remove S1 vertical section — go straight from hero to Our Properties
 - [x] Brand homepage mobile: Journal section swipe 1 card at a time (same as Awards), no arrows, dots only, all 9 cards
+- [ ] Brand Wellness page: replace mobile hero with provided image (woman in rainforest hot spring pool)
