@@ -708,20 +708,24 @@ function NayaraJournalSection() {
   ];
 
   return (
-    <section
-      className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden"
-      style={{ backgroundColor: "#2E2218" }}
-    >
-      {/* Grain overlay */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.035]" xmlns="http://www.w3.org/2000/svg">
-        <filter id="grain-journal">
-          <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain-journal)" />
-      </svg>
-
-      <div className="relative z-10 max-w-[1200px] mx-auto">
+    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
+      <div className="max-w-[1200px] mx-auto">
+      <div
+        className="relative rounded-2xl overflow-hidden p-10 md:p-14"
+        style={{
+          background: "radial-gradient(ellipse at 20% 50%, #9e9e9e22 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #7a7a7a18 0%, transparent 50%), linear-gradient(135deg, #6b6b6b 0%, #5a5a5a 25%, #686868 50%, #5c5c5c 75%, #646464 100%)",
+          backgroundSize: "100% 100%, 100% 100%, 200px 200px",
+        }}
+      >
+        {/* Gravel noise overlay */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.18]" xmlns="http://www.w3.org/2000/svg">
+          <filter id="grain-journal">
+            <feTurbulence type="turbulence" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#grain-journal)" />
+        </svg>
+        <div className="relative z-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
@@ -761,7 +765,9 @@ function NayaraJournalSection() {
             </motion.div>
           ))}
         </StaggerOnScroll>
-      </div>
+        </div>{/* /relative z-10 */}
+      </div>{/* /gravel box */}
+      </div>{/* /max-w container */}
     </section>
   );
 }
