@@ -452,48 +452,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 />
               )}
 
-              {/* Label card */}
-              <motion.g
-                initial={{ opacity: 0, x: loc.labelSide === "left" ? 12 : -12 }}
-                animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0, x: loc.labelSide === "left" ? 12 : -12 }}
-                transition={{ duration: 0.8, ease: EASE, delay: 0.5 }}
-              >
-                {/* Label background with rounded corners */}
-                <rect
-                  x={labelX - 8} y={labelY - 6}
-                  width={labelWidth} height="40" rx="4"
-                  fill={LABEL_BG} fillOpacity="0.95"
-                  stroke={ACCENT_GOLD}
-                  strokeWidth={isCurrent ? "0.8" : "0.4"}
-                  strokeOpacity={isCurrent ? 0.4 : 0.15}
-                  filter="url(#labelShadow)"
-                />
-                {/* Gold accent bar on left edge */}
-                <rect
-                  x={labelX - 8} y={labelY - 6}
-                  width="3" height="40" rx="1.5"
-                  fill={ACCENT_GOLD} fillOpacity={isCurrent ? 0.7 : 0.3}
-                />
-                {/* Location name */}
-                <text
-                  x={labelX + 4} y={labelY + 12}
-                  fill={TEXT_DARK} fontSize="9.5"
-                  fontFamily="var(--font-display)" fontWeight="500"
-                  letterSpacing="0.03em"
-                >
-                  {loc.label}
-                </text>
-                {/* Sub-label (property names) */}
-                <text
-                  x={labelX + 4} y={labelY + 26}
-                  fill={TEXT_MUTED}
-                  fontSize="7.5" fontFamily="var(--font-body)"
-                  fontWeight="400" letterSpacing="0.02em"
-                  fontStyle="italic"
-                >
-                  {loc.subLabel}
-                </text>
-              </motion.g>
+
             </g>
           );
         })}
