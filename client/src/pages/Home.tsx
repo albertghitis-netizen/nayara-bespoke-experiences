@@ -641,8 +641,8 @@ function AwardsHighlightSection() {
     return (
       <Wrapper
         {...wrapperProps}
-        className="group flex flex-col h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
-        style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}35`, borderTop: `2px solid ${cardAccent}` }}
+        className="group flex flex-col p-6 md:p-8 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
+        style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}35`, borderTop: `2px solid ${cardAccent}`, aspectRatio: "1/1" }}
       >
         <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
           <filter id={`grain-${award.property.replace(/\s+/g, '-')}`}>
