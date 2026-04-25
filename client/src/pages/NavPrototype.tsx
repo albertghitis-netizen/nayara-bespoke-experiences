@@ -1,50 +1,25 @@
 /**
- * NAV PROTOTYPE — Standalone page for testing the new SidebarNavigation
- * This page is completely isolated from the rest of the site.
- * No other page imports or uses SidebarNavigation.
+ * Nav Prototype — Placeholder
+ * Original content preserved in git history.
  */
+import BrandNavigation from "@/components/BrandNavigation";
+import Footer from "@/components/Footer";
 
-import { useState } from "react";
-import SidebarNavigation from "@/components/SidebarNavigation";
+const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 export default function NavPrototype() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
-    <div className="min-h-screen bg-[#f7f5f0] flex flex-col items-center justify-center px-6">
-      {/* Simple trigger button */}
-      <div className="text-center max-w-md">
-        <h1
-          className="text-3xl md:text-4xl tracking-wide text-[#3B2B26] mb-4"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          Navigation Prototype
-        </h1>
-        <p
-          className="text-[#5a4a3a] text-sm leading-relaxed mb-8"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          This is an isolated test page for the new sidebar navigation.
-          It does not affect any other page on the site.
+    <div className="min-h-screen" style={{ backgroundColor: "#f7f5f0" }}>
+      <BrandNavigation pageType="brand" />
+      <section className="pt-32 pb-24 px-6 md:px-12 max-w-4xl mx-auto text-center">
+        <span className="text-[10px] tracking-[0.3em] uppercase text-[#5a4a3a]/50 block mb-4" style={body}>Nav Prototype</span>
+        <h1 className="text-3xl md:text-5xl text-[#3B2B26] leading-tight mb-6" style={display}>Coming Soon</h1>
+        <p className="text-[#5a4a3a]/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto" style={body}>
+          This page is being prepared. Check back soon.
         </p>
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[#ece8e1] border border-[#3B2B26]/20 hover:bg-[#d4c9b8]/50 transition-all duration-300"
-        >
-          <span
-            className="text-[#3B2B26] text-sm tracking-[0.08em]"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            Open Sidebar Nav
-          </span>
-        </button>
-      </div>
-
-      {/* The isolated sidebar */}
-      <SidebarNavigation
-        isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-      />
+      </section>
+      <Footer />
     </div>
   );
 }

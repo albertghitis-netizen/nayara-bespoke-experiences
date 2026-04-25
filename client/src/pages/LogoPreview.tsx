@@ -1,151 +1,25 @@
 /**
- * Logo Preview — temporary page to test the stacked lockup
- * Leaf on top, NAYARA wordmark below in Cormorant Garamond
+ * Logo Preview — Placeholder
+ * Original content preserved in git history.
  */
+import BrandNavigation from "@/components/BrandNavigation";
+import Footer from "@/components/Footer";
 
-const LEAF_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png";
+const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 export default function LogoPreview() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-16" style={{ backgroundColor: "#1a1510" }}>
-      
-      {/* Version 1: Small / Nav size */}
-      <div className="flex flex-col items-center">
-        <p className="text-white/30 text-xs tracking-widest mb-8" style={{ fontFamily: "var(--font-body)" }}>Nav Size</p>
-        <div className="flex flex-col items-center gap-1">
-          <img src={LEAF_URL} alt="Nayara leaf" className="w-6 h-auto opacity-90" />
-          <span
-            className="text-[#F7F5F0] tracking-[0.35em]"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontWeight: 300,
-              fontSize: "14px",
-              lineHeight: 1,
-            }}
-          >
-            Nayara
-          </span>
-        </div>
-      </div>
-
-      {/* Version 2: Medium / Hero size */}
-      <div className="flex flex-col items-center">
-        <p className="text-white/30 text-xs tracking-widest mb-8" style={{ fontFamily: "var(--font-body)" }}>Hero Size</p>
-        <div className="flex flex-col items-center gap-2">
-          <img src={LEAF_URL} alt="Nayara leaf" className="w-10 h-auto opacity-90" />
-          <span
-            className="text-[#F7F5F0] tracking-[0.4em]"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontWeight: 300,
-              fontSize: "24px",
-              lineHeight: 1,
-            }}
-          >
-            Nayara
-          </span>
-        </div>
-      </div>
-
-      {/* Version 3: Large / Splash size */}
-      <div className="flex flex-col items-center">
-        <p className="text-white/30 text-xs tracking-widest mb-8" style={{ fontFamily: "var(--font-body)" }}>Splash Size</p>
-        <div className="flex flex-col items-center gap-3">
-          <img src={LEAF_URL} alt="Nayara leaf" className="w-14 h-auto opacity-90" />
-          <span
-            className="text-[#F7F5F0] tracking-[0.45em]"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontWeight: 300,
-              fontSize: "40px",
-              lineHeight: 1,
-            }}
-          >
-            Nayara
-          </span>
-        </div>
-      </div>
-
-      {/* Version 4: With property name */}
-      <div className="flex flex-col items-center">
-        <p className="text-white/30 text-xs tracking-widest mb-8" style={{ fontFamily: "var(--font-body)" }}>Property Lockup</p>
-        <div className="flex flex-col items-center gap-2">
-          <img src={LEAF_URL} alt="Nayara leaf" className="w-10 h-auto opacity-90" />
-          <span
-            className="text-[#F7F5F0] tracking-[0.4em]"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontWeight: 300,
-              fontSize: "24px",
-              lineHeight: 1,
-            }}
-          >
-            Nayara
-          </span>
-          <span
-            className="text-[#F7F5F0]/50 tracking-[0.3em]"
-            style={{
-              fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-              fontWeight: 300,
-              fontSize: "13px",
-              lineHeight: 1,
-            }}
-          >
-            Gardens
-          </span>
-        </div>
-      </div>
-
-      {/* On light background */}
-      <div className="w-full py-20 flex flex-col items-center gap-12" style={{ backgroundColor: "#F7F5F0" }}>
-        <p className="text-[#3B2B26]/30 text-xs tracking-widest mb-4" style={{ fontFamily: "var(--font-body)" }}>On Light Background</p>
-        
-        <div className="flex gap-20 items-start">
-          {/* Brand only */}
-          <div className="flex flex-col items-center gap-2">
-            <img src={LEAF_URL} alt="Nayara leaf" className="w-10 h-auto brightness-[0.2]" />
-            <span
-              className="text-[#3B2B26] tracking-[0.4em]"
-              style={{
-                fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-                fontWeight: 300,
-                fontSize: "24px",
-                lineHeight: 1,
-              }}
-            >
-              Nayara
-            </span>
-          </div>
-
-          {/* With property */}
-          <div className="flex flex-col items-center gap-2">
-            <img src={LEAF_URL} alt="Nayara leaf" className="w-10 h-auto brightness-[0.2]" />
-            <span
-              className="text-[#3B2B26] tracking-[0.4em]"
-              style={{
-                fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-                fontWeight: 300,
-                fontSize: "24px",
-                lineHeight: 1,
-              }}
-            >
-              Nayara
-            </span>
-            <span
-              className="text-[#3B2B26]/40 tracking-[0.3em]"
-              style={{
-                fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-                fontWeight: 300,
-                fontSize: "13px",
-                lineHeight: 1,
-              }}
-            >
-              Alto Atacama
-            </span>
-          </div>
-        </div>
-      </div>
-
+    <div className="min-h-screen" style={{ backgroundColor: "#f7f5f0" }}>
+      <BrandNavigation pageType="brand" />
+      <section className="pt-32 pb-24 px-6 md:px-12 max-w-4xl mx-auto text-center">
+        <span className="text-[10px] tracking-[0.3em] uppercase text-[#5a4a3a]/50 block mb-4" style={body}>Logo Preview</span>
+        <h1 className="text-3xl md:text-5xl text-[#3B2B26] leading-tight mb-6" style={display}>Coming Soon</h1>
+        <p className="text-[#5a4a3a]/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto" style={body}>
+          This page is being prepared. Check back soon.
+        </p>
+      </section>
+      <Footer />
     </div>
   );
 }
