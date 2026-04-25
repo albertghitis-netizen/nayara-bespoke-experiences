@@ -271,7 +271,7 @@ function CascadeSection({
           {/* Overlay buttons on vertical media */}
           {section.verticalOverlayButtons && (
             <div className="absolute inset-0 z-10 flex flex-col justify-between pointer-events-none" style={{ padding: "15% 6% 18% 6%" }}>
-              <div className="flex items-center justify-center gap-12 pointer-events-auto">
+              <div className="flex items-center justify-center gap-16 pointer-events-auto">
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast(section.verticalOverlayButtons!.top.explore + " — Coming Soon"))}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
@@ -287,7 +287,7 @@ function CascadeSection({
                   {section.verticalOverlayButtons.top.reserve}
                 </button>
               </div>
-              <div className="flex items-center justify-center gap-12 pointer-events-auto">
+              <div className="flex items-center justify-center gap-16 pointer-events-auto">
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast(section.verticalOverlayButtons!.bottom.explore + " — Coming Soon"))}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
@@ -788,8 +788,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     link: "/tented-camp/rooms",
     linkLabel: "Explore Rooms",
     verticalOverlayButtons: {
-      top: { explore: "Explore Nayara Tent", reserve: "Reserve" },
-      bottom: { explore: "Explore Family Tent", reserve: "Reserve" },
+      top: { explore: "Nayara Tent", reserve: "Reserve" },
+      bottom: { explore: "Family Tent", reserve: "Reserve" },
     },
     stats: [
       { value: "32", label: "Luxury Tents" },
