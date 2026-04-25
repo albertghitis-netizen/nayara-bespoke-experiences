@@ -713,7 +713,7 @@ function NayaraJournalSection() {
       <div
         className="relative rounded-2xl overflow-hidden p-10 md:p-14"
         style={{
-          backgroundColor: "#e0dbd4",
+          backgroundColor: "#e1d1ba",
         }}
       >
         {/* Gravel noise overlay */}
@@ -741,7 +741,7 @@ function NayaraJournalSection() {
             <Link
               href="/journal"
               className="inline-flex items-center gap-2.5 h-11 px-7 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80 flex-shrink-0"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: "1px solid #3B2B2640", color: "#3B2B2680" }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: "1px solid #3B2B26", color: "#3B2B26" }}
             >
               Enter the Journal
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -792,7 +792,7 @@ function JournalTeaserCard({
   onPlay: () => void;
   onClose: () => void;
 }) {
-  const pillBase = "inline-flex items-center gap-2 h-9 px-5 rounded-full bg-[#3B2B26]/10 backdrop-blur-md border border-[#3B2B26]/25 text-[#3B2B26] text-[11px] tracking-[0.12em] uppercase hover:bg-[#3B2B26]/20 transition-all cursor-pointer font-medium";
+  const pillBase = "inline-flex items-center gap-2 h-9 px-5 rounded-full bg-[#3B2B26] text-[#F7F5F0] text-[11px] tracking-[0.12em] uppercase hover:bg-[#5a4a3a] transition-all cursor-pointer font-medium";
   const bodyFont = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
   const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 
