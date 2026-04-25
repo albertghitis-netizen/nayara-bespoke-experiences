@@ -54,7 +54,16 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 /* ─── All six properties ─── */
-const allProps = [
+interface PropertyCard {
+  name: string;
+  location: string;
+  route: string;
+  bookingId: string;
+  image: string;
+  tagline: string;
+}
+
+const allProps: PropertyCard[] = [
   {
     name: "Nayara Gardens",
     location: "Arenal Volcano",
@@ -322,7 +331,7 @@ function PropertiesSection() {
 
           {/* 3-column grid — all 6 properties */}
           <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {allProps.map((prop) => (
+            {allProps.map((prop: PropertyCard) => (
               <motion.div key={prop.route} variants={fadeUp} className="group">
                 <Link href={prop.route} className="block">
                   <div className="relative overflow-hidden mb-3" style={{ aspectRatio: "4/3" }}>
@@ -458,7 +467,7 @@ function TimelineSection() {
 
           {/* Milestones — scrollable on the right */}
           <div className="flex-1 pb-[18vh]">
-            {milestones.map((m, i) => {
+            {milestones.map((m: any, i: number) => {
               /* Costa Rica milestones (0,1,2) get compressed spacing so the plane flies sooner */
               const isCostaRica = i < 3;
               const spacing = i === 0 ? "" : isCostaRica ? "mt-6 lg:mt-8" : "mt-16 lg:mt-20";
