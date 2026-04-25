@@ -860,31 +860,18 @@ function NayaraJournalSection() {
       </svg>
 
       <div className="relative z-10 max-w-[1200px] mx-auto">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-          <div>
-            <TextReveal as="h2" delay={0.1}>
-              <span
-                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}
-              >
-                Nayara Journal
-              </span>
-            </TextReveal>
-          </div>
-          <AnimateOnScroll variants={fadeUp} delay={0.2}>
-              <Link
-                href="/journal"
-                className="inline-flex items-center gap-2.5 h-11 px-7 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80 flex-shrink-0"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
-              >
-                Enter the Journal
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </Link>
-          </AnimateOnScroll>
-        </div>
+        {/* Header — matches Awards pattern: label → heading */}
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Stories</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-14 md:mb-20" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}
+          >
+            Nayara Journal
+          </span>
+        </TextReveal>
 
         {/* Desktop: Horizontal slider — 3 cards visible at a time */}
         <div className="hidden md:block relative">
@@ -982,12 +969,26 @@ function NayaraJournalSection() {
               />
             ))}
           </div>
-        </div>
+         </div>
+        {/* CTA below cards — matches Awards pattern */}
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <div className="mt-12 text-center">
+            <Link
+              href="/journal"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+            >
+              Enter the Journal
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
 }
-
 function JournalTeaserCard({
   card,
   isPlaying,
@@ -1045,9 +1046,12 @@ function JournalTeaserCard({
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          {/* Type label */}
+          {/* Type label — pill badge matching dummy cards */}
           <div className="absolute top-4 left-4">
-            <span className="text-[9px] tracking-[0.25em] uppercase" style={{ ...bodyFont, color: "#3B2B26" }}>
+            <span
+              className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
+              style={{ ...bodyFont, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+            >
               {card.label}
             </span>
           </div>
