@@ -2829,3 +2829,5 @@
 - [x] Journal cards 1-3: move Read/Listen/Watch label to top-left of card (match cards 4-9 style), remove from below
 - [x] Awards section desktop: convert from grid to horizontal slider (3 cards at a time, arrows, dots) matching Journal layout exactly
 - [x] Awards cards: change to square 1:1 aspect ratio matching Journal cards
+- [x] Awards slider arrows: replace with Style A (thin line + chevron, architectural, no background)
+- [x] Journal slider arrows: replace with Style B (small bordered rectangle + chevron, gallery-style)
