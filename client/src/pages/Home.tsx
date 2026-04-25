@@ -679,7 +679,7 @@ function NayaraJournalSection() {
     {
       id: "gastronomy",
       label: "Read",
-      title: "Gastronomy Across the World of Nayara",
+      title: "A Taste of Place: Gastronomy Across the World of Nayara",
       image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
       href: "https://blog.nayararesorts.com/gastronomy",
       external: true,
@@ -688,7 +688,7 @@ function NayaraJournalSection() {
     {
       id: "afar",
       label: "Listen",
-      title: "Nayara Co-Founder & CEO Leo Ghitis on Going Beyond Sustainability with the AFAR Podcast",
+      title: "Leo Ghitis on Going Beyond Sustainability",
       image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
       href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
       external: true,
@@ -697,7 +697,7 @@ function NayaraJournalSection() {
     {
       id: "hitorangi-rapanui",
       label: "Watch",
-      title: "The Guardians of Rapa Nui: A Conversation with the Hitorangi Family",
+      title: "The Guardians of Rapa Nui: The Hitorangi Family",
       image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
       href: null as string | null,
       youtubeId: "FRPVRcUTNmk",
