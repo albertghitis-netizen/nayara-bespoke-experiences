@@ -674,17 +674,8 @@ function AwardsHighlightSection() {
 function NayaraJournalSection() {
   const [playingId, setPlayingId] = useState<string | null>(null);
 
-  // 3 curated cards: Read · Listen · Watch
+  // 3 curated cards: Listen · Read · Watch
   const teaserCards = [
-    {
-      id: "gastronomy",
-      label: "Read",
-      title: "A Taste of Place: Gastronomy Across the World of Nayara",
-      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
-      href: "https://blog.nayararesorts.com/gastronomy",
-      external: true,
-      cta: "read" as const,
-    },
     {
       id: "afar",
       label: "Listen",
@@ -693,6 +684,15 @@ function NayaraJournalSection() {
       href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
       external: true,
       cta: "listen" as const,
+    },
+    {
+      id: "gastronomy",
+      label: "Read",
+      title: "A Taste of Place: Gastronomy Across the World of Nayara",
+      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
+      href: "https://blog.nayararesorts.com/gastronomy",
+      external: true,
+      cta: "read" as const,
     },
     {
       id: "hitorangi-rapanui",
