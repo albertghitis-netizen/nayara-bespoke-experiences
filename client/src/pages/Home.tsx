@@ -499,12 +499,7 @@ function TimelineSection() {
                     >
                       {m.title}
                     </h3>
-                    <p
-                      className="text-[14px] lg:text-[15px] leading-[1.8] max-w-[420px]"
-                      style={{ fontFamily: "var(--font-body)", color: "#4B4A4A", opacity: 0.65 }}
-                    >
-                      {m.desc}
-                    </p>
+
                   </div>
                 </AnimateOnScroll>
               </div>
@@ -706,16 +701,16 @@ function NayaraJournalSection() {
       image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
       href: null as string | null,
       youtubeId: "7l072Yr__pE",
-      listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
+      listenUrl: null as string | null,
       external: false,
-      cta: "watch-listen" as const,
+      cta: "watch" as const,
     },
   ];
 
   return (
     <section
       className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden"
-      style={{ backgroundColor: "#1C1410" }}
+      style={{ backgroundColor: "#2E2218" }}
     >
       {/* Grain overlay */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.035]" xmlns="http://www.w3.org/2000/svg">
@@ -786,13 +781,13 @@ function JournalTeaserCard({
     youtubeId?: string;
     listenUrl?: string;
     external: boolean;
-    cta: "read" | "listen" | "watch-listen";
+    cta: "read" | "listen" | "watch-listen" | "watch";
   };
   isPlaying: boolean;
   onPlay: () => void;
   onClose: () => void;
 }) {
-  const pillBase = "inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all cursor-pointer";
+  const pillBase = "inline-flex items-center gap-2 h-9 px-5 rounded-full bg-white/15 backdrop-blur-md border border-white/30 text-white text-[11px] tracking-[0.12em] uppercase hover:bg-white/25 transition-all cursor-pointer font-medium";
   const bodyFont = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
   const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 
@@ -863,17 +858,17 @@ function JournalTeaserCard({
                   Listen
                 </a>
               )}
-              {card.cta === "watch-listen" && (
+              {(card.cta === "watch-listen" || card.cta === "watch") && (
                 <>
                   <button
                     onClick={(e) => { e.preventDefault(); onPlay(); }}
                     className={pillBase}
                     style={bodyFont}
                   >
-                    <svg className="w-2.5 h-2.5 fill-white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    <svg className="w-3 h-3 fill-white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                     Watch
                   </button>
-                  {card.listenUrl && (
+                  {card.cta === "watch-listen" && card.listenUrl && (
                     <a
                       href={card.listenUrl}
                       target="_blank"
@@ -882,7 +877,7 @@ function JournalTeaserCard({
                       className={pillBase}
                       style={bodyFont}
                     >
-                      <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                       </svg>
                       Listen
