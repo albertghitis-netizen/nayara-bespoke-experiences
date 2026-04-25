@@ -150,7 +150,9 @@ export default function Home() {
       <BrandStorySection />
       <PropertiesSection />
 
-      <TimelineSection />
+      <div className="hidden md:block">
+        <TimelineSection />
+      </div>
        <AwardsHighlightSection />
       <NayaraJournalSection />
       <Footer />
@@ -164,6 +166,7 @@ export default function Home() {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = "/manus-storage/brand-hero-final_a81c08c3.mp4";
+  const mobileHeroImage = "/manus-storage/brand-mobile-hero-v2_fdfa9657.jpg";
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -179,15 +182,19 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0" data-hero-video>
-        <video
-          ref={videoRef}
-          src={heroVideo}
-          className="w-full h-full object-cover"
-          autoPlay
-          loop
-          playsInline
-          muted
-        />
+        {isMobile ? (
+          <img src="/manus-storage/brand-mobile-hero-v2_fdfa9657.jpg" alt="Nayara Resorts" className="w-full h-full object-cover" />
+        ) : (
+          <video
+            ref={videoRef}
+            src={heroVideo}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            playsInline
+            muted
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       
@@ -575,9 +582,80 @@ function AwardsHighlightSection() {
   /* Dark espresso cards with warm gold accents */
   const cardBg = "#3B2B26";
   const cardText = "#F7F5F0";
-  const cardTextMuted = "#E1D1BA";
   const cardTextSoft = "#D4C8B8";
   const cardAccent = "#E1D1BA";
+  const isMobile = useIsMobile();
+  const awardsScrollRef = useRef<HTMLDivElement>(null);
+  const [awardsPage, setAwardsPage] = useState(0);
+  const totalAwards = awardsData.length; // 6
+
+  const scrollToAward = (idx: number) => {
+    const el = awardsScrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: idx * el.clientWidth, behavior: "smooth" });
+    setAwardsPage(idx);
+  };
+
+  const handleAwardsScroll = useCallback(() => {
+    const el = awardsScrollRef.current;
+    if (!el) return;
+    const newPage = Math.round(el.scrollLeft / el.clientWidth);
+    setAwardsPage(newPage);
+  }, []);
+
+  useEffect(() => {
+    const el = awardsScrollRef.current;
+    if (el) el.addEventListener("scroll", handleAwardsScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleAwardsScroll);
+  }, [handleAwardsScroll]);
+
+  const renderAwardCard = (award: typeof awardsData[0]) => {
+    const isExternal = award.route.startsWith("http");
+    const Wrapper = isExternal ? "a" : Link;
+    const wrapperProps = isExternal
+      ? { href: award.route, target: "_blank", rel: "noopener noreferrer" }
+      : { href: award.route };
+    return (
+      <Wrapper
+        {...wrapperProps}
+        className="group flex flex-col h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
+        style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}35`, borderTop: `2px solid ${cardAccent}` }}
+      >
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
+          <filter id={`grain-${award.property.replace(/\s+/g, '-')}`}>
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" seed={42} />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter={`url(#grain-${award.property.replace(/\s+/g, '-')})`} />
+        </svg>
+        <span
+          className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 h-[48px] md:h-[56px] lg:h-[64px] flex items-end ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
+          style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: cardAccent }}
+        >
+          {award.stat}
+        </span>
+        <div className="w-8 h-px mb-5 group-hover:w-16 group-hover:h-[2px] transition-all duration-500 ease-out" style={{ backgroundColor: cardAccent }} />
+        <h3
+          className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-colors duration-500 min-h-[46px] flex items-start"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: cardText }}
+        >
+          {award.accolade}
+        </h3>
+        <p
+          className="text-[12px] tracking-[0.06em] transition-colors duration-500 mt-auto"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: cardTextSoft }}
+        >
+          {award.property}
+        </p>
+        <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
+          <svg className="w-4 h-4 translate-x-[-8px] group-hover:translate-x-0 opacity-0 group-hover:opacity-60 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke={cardAccent} strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </div>
+      </Wrapper>
+    );
+  };
+
   return (
     <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
       <div className={maxW}>
@@ -592,85 +670,52 @@ function AwardsHighlightSection() {
             Recognized by the Most Trusted Voices in Travel
           </span>
         </TextReveal>
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-          {awardsData.map((award) => (
-            <motion.div key={award.property} variants={fadeUp}>
-              {(() => {
-                const isExternal = award.route.startsWith("http");
-                const Wrapper = isExternal ? "a" : Link;
-                const wrapperProps = isExternal
-                  ? { href: award.route, target: "_blank", rel: "noopener noreferrer" }
-                  : { href: award.route };
-                return (
-              <Wrapper
-                {...wrapperProps}
-                className="group flex flex-col h-full p-8 md:p-10 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
-                style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}35`, borderTop: `2px solid ${cardAccent}` }}
-              >
-                {/* Subtle grain texture overlay */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
-                  <filter id={`grain-${award.property.replace(/\s+/g, '-')}`}>
-                    <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" seed={42} />
-                    <feColorMatrix type="saturate" values="0" />
-                  </filter>
-                  <rect width="100%" height="100%" filter={`url(#grain-${award.property.replace(/\s+/g, '-')})`} />
-                </svg>
-                {/* Big stat number — gold, clearly visible */}
-                <span
-                  className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 h-[48px] md:h-[56px] lg:h-[64px] flex items-end ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 300,
-                    color: cardAccent,
-                    transitionProperty: "color, transform",
-                  }}
-                >
-                  <span className="group-hover:hidden">{award.stat}</span>
-                  <span className="hidden group-hover:inline" style={{ color: cardAccent }}>{award.stat}</span>
-                </span>
-                {/* Accent line — gold, grows wider on hover */}
-                <div
-                  className="w-8 h-px mb-5 group-hover:w-16 group-hover:h-[2px] transition-all duration-500 ease-out"
-                  style={{ backgroundColor: cardAccent }}
-                />
-                {/* Accolade */}
-                <h3
-                  className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-colors duration-500 min-h-[46px] flex items-start"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: cardText }}
-                >
-                  {award.accolade}
-                </h3>
-                {/* Property + Source */}
-                <p
-                  className="text-[12px] tracking-[0.06em] transition-colors duration-500 mt-auto"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: cardTextSoft }}
-                >
-                  {award.property}
-                </p>
-                {/* Arrow indicator — appears on hover */}
-                <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
-                  <svg className="w-4 h-4 translate-x-[-8px] group-hover:translate-x-0 opacity-0 group-hover:opacity-60 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke={cardAccent} strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-              </Wrapper>
-                );
-              })()}
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
+
+        {/* Desktop: 3-col grid */}
+        <div className="hidden md:block">
+          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+            {awardsData.map((award) => (
+              <motion.div key={award.property} variants={fadeUp}>
+                {renderAwardCard(award)}
+              </motion.div>
+            ))}
+          </StaggerOnScroll>
+        </div>
+
+        {/* Mobile: 1 card at a time, swipeable */}
+        <div className="md:hidden relative">
+          <div
+            ref={awardsScrollRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {awardsData.map((award) => (
+              <div key={award.property} className="flex-shrink-0 w-full px-1" style={{ scrollSnapAlign: "start" }}>
+                {renderAwardCard(award)}
+              </div>
+            ))}
+          </div>
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {awardsData.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToAward(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{ backgroundColor: "#3B2B26", opacity: awardsPage === i ? 1 : 0.2 }}
+                aria-label={`Award ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* CTA to full awards page */}
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
           <div className="mt-12 text-center">
             <Link
               href="/awards"
               className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
-              style={{
-                fontFamily: "var(--font-body)",
-                fontWeight: 500,
-                backgroundColor: "#3B2B26",
-                color: "#F7F5F0",
-              }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
             >
               View All Awards & Press
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

@@ -199,15 +199,21 @@ export default function Springs() {
    HERO — Full-bleed video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
+  const mobileHeroImage = "/manus-storage/springs-mobile-hero_572a69ce.png";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo
+        {isMobile ? (
+          <img src={mobileHeroImage} alt="Nayara Springs" className="w-full h-full object-cover" />
+        ) : (
+          <BlobVideo
           src={CDN.heroDesktop}
           className="w-full h-full object-cover"
           hasAudio={true}
           pillBg="#3B6E7BB3"
           pillColor="#F7F5F0"/>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">

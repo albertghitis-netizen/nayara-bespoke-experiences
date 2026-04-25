@@ -5,6 +5,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 // CinematicScroll removed — no auto-scroll on Hangaroa
@@ -273,6 +274,8 @@ function NayaraByNightSection() {
    HERO - Full-screen video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
+  const mobileHeroImage = "/manus-storage/hangaroa-mobile-hero_dc503ce8.png";
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -290,7 +293,10 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <video
+        {isMobile ? (
+          <img src={mobileHeroImage} alt="Nayara Hangaroa" className="w-full h-full object-cover" />
+        ) : (
+          <video
           ref={videoRef}
           className="w-full h-full object-cover"
           playsInline
@@ -300,8 +306,9 @@ function HeroSection() {
         >
           <source src={CDN.heroVideo} type="video/mp4" />
         </video>
+        )}
         {/* Sound pill */}
-        <button
+        {!isMobile && <button
           onClick={() => setIsMuted(!isMuted)}
           aria-label={isMuted ? "Unmute" : "Mute"}
           className="fixed z-50 flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
@@ -324,7 +331,7 @@ function HeroSection() {
           <span className="text-xs tracking-[0.08em]" style={{ color: "#F7F5F0", fontFamily: "var(--font-body)", fontWeight: 500 }}>
             {isMuted ? "Sound" : "Mute"}
           </span>
-        </button>
+        </button>}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
       {/* H1 overlaid — bottom center */}

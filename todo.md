@@ -2803,3 +2803,15 @@
 - [x] Animate badge strips on brand homepage: top row slides from left, bottom row from right, triggered when fully in viewport
 - [x] Journal section on brand homepage: convert to horizontal slider showing 3 cards at a time, 9 total (3 existing + 6 dummy), with left/right arrow navigation. New 6 cards format: Read, Listen, Read, View, Read, Listen with empty gray squares.
 - [x] Center slider arrows over the middle card (overlay position instead of header)
+- [x] Mobile brand homepage: hide timeline section (keep on desktop only)
+- [x] Mobile brand homepage: Awards section shows 1 card at a time, swipe through all 6
+- [ ] Mobile brand homepage: Journal section shows 1 card at a time, swipe through all 9
+- [x] Tented Camp: replace mobile hero with provided image (IMG_5354.jpg) — no video on mobile
+- [x] No video on mobile for all property pages — use static hero images instead
+- [x] Bocas del Toro: replace mobile hero with provided image (bocas-mobile-hero) — no video on mobile
+- [x] Gardens: replace mobile hero with provided image (gardens-mobile-hero) — no video on mobile
+- [x] Springs: replace mobile hero with provided image (springs-mobile-hero) — no video on mobile
+- [x] Hangaroa: replace mobile hero with provided image (hangaroa-mobile-hero) — no video on mobile
+- [x] Alto Atacama: replace mobile hero with provided image (atacama-mobile-hero) — no video on mobile
+- [ ] Costa Rica shared experiences page: mobile hero with volcano/crater image
+- [ ] Costa Rica shared wellness page: mobile hero with hot springs pool image

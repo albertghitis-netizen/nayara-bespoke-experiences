@@ -537,17 +537,22 @@ function CascadeSection({
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
+  const heroVideo = ASSETS.heroDesktop;
+  const mobileHeroImage = "/manus-storage/bocas-mobile-hero_580b7cd5.jpg";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo
+        {isMobile ? (
+          <img src={mobileHeroImage} alt="Nayara Bocas del Toro" className="w-full h-full object-cover" />
+        ) : (
+          <BlobVideo
           src={heroVideo}
           className="w-full h-full object-cover"
           hasAudio={true}
           pillBg="#008E97B3"
           pillColor="#FFFFFF"/>
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">

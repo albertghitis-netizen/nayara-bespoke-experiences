@@ -928,18 +928,23 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = isMobile ? ASSETS.heroMobile : ASSETS.heroDesktop;
+  const heroVideo = ASSETS.heroDesktop;
+  const mobileHeroImage = "/manus-storage/atacama-mobile-hero_58169dd4.jpg";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <BlobVideo
+        {isMobile ? (
+          <img src={mobileHeroImage} alt="Nayara Alto Atacama" className="w-full h-full object-cover" />
+        ) : (
+          <BlobVideo
           src={heroVideo}
           className="w-full h-full object-cover"
           hasAudio={true}
           pillBg={`${MIDDLE}B3`}
           pillColor={BONE}
         />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
 
