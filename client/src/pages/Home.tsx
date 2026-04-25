@@ -677,15 +677,6 @@ function NayaraJournalSection() {
   // 3 curated cards: Read · Listen · Watch
   const teaserCards = [
     {
-      id: "gastronomy",
-      label: "Read",
-      title: "A Taste of Place: Gastronomy Across the World of Nayara",
-      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
-      href: "https://blog.nayararesorts.com/gastronomy",
-      external: true,
-      cta: "read" as const,
-    },
-    {
       id: "afar",
       label: "Listen",
       title: "Leo Ghitis on Going Beyond Sustainability",
@@ -693,6 +684,15 @@ function NayaraJournalSection() {
       href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
       external: true,
       cta: "listen" as const,
+    },
+    {
+      id: "gastronomy",
+      label: "Read",
+      title: "A Taste of Place: Gastronomy Across the World of Nayara",
+      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
+      href: "https://blog.nayararesorts.com/gastronomy",
+      external: true,
+      cta: "read" as const,
     },
     {
       id: "hitorangi-rapanui",
@@ -713,8 +713,7 @@ function NayaraJournalSection() {
       <div
         className="relative rounded-2xl overflow-hidden p-10 md:p-14"
         style={{
-          background: "radial-gradient(ellipse at 20% 50%, #9e9e9e22 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #7a7a7a18 0%, transparent 50%), linear-gradient(135deg, #6b6b6b 0%, #5a5a5a 25%, #686868 50%, #5c5c5c 75%, #646464 100%)",
-          backgroundSize: "100% 100%, 100% 100%, 200px 200px",
+          backgroundColor: "#e0dbd4",
         }}
       >
         {/* Gravel noise overlay */}
