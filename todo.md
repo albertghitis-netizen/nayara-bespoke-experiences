@@ -2801,3 +2801,5 @@
 - [ ] Build "Nayara by Night" section for Bocas (fix structure)
 - [x] Compress Costa Rica portion of interactive map timeline on brand homepage (desktop) so plane flies to Chile sooner
 - [x] Animate badge strips on brand homepage: top row slides from left, bottom row from right, triggered when fully in viewport
+- [x] Journal section on brand homepage: convert to horizontal slider showing 3 cards at a time, 9 total (3 existing + 6 dummy), with left/right arrow navigation. New 6 cards format: Read, Listen, Read, View, Read, Listen with empty gray squares.
+- [x] Center slider arrows over the middle card (overlay position instead of header)

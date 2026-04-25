@@ -684,14 +684,31 @@ function AwardsHighlightSection() {
   );
 }
 
+/* ─── Journal card type ─── */
+interface JournalCardData {
+  id: string;
+  label: string;
+  title: string;
+  image: string;
+  href: string | null;
+  youtubeId?: string;
+  listenUrl?: string;
+  external: boolean;
+  cta: "read" | "listen" | "watch-listen" | "watch";
+}
+
 /* ═══════════════════════════════════════════════════════════════
-   NAYARA JOURNAL — Dark editorial strip with 3 real cards + glass pills
+   NAYARA JOURNAL — Horizontal slider: 9 cards, 3 visible at a time
+   First 3 are real content, next 6 are dummy placeholders
    ═══════════════════════════════════════════════════════════════ */
 function NayaraJournalSection() {
   const [playingId, setPlayingId] = useState<string | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const totalPages = 3; // 9 cards / 3 per page
 
   // 3 curated cards: Listen · Read · Watch
-  const teaserCards = [
+  const teaserCards: JournalCardData[] = [
     {
       id: "afar",
       label: "Listen",
@@ -699,7 +716,7 @@ function NayaraJournalSection() {
       image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
       href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
       external: true,
-      cta: "listen" as const,
+      cta: "listen",
     },
     {
       id: "gastronomy",
@@ -708,20 +725,54 @@ function NayaraJournalSection() {
       image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
       href: "https://blog.nayararesorts.com/gastronomy",
       external: true,
-      cta: "read" as const,
+      cta: "read",
     },
     {
       id: "hitorangi-rapanui",
       label: "Watch",
       title: "The Guardians of Rapa Nui: The Hitorangi Family",
       image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
-      href: null as string | null,
+      href: null,
       youtubeId: "FRPVRcUTNmk",
       listenUrl: undefined,
       external: false,
-      cta: "watch" as const,
+      cta: "watch",
     },
   ];
+
+  // 6 dummy placeholder cards: Read, Listen, Read, View, Read, Listen
+  const dummyCards: JournalCardData[] = [
+    { id: "dummy-1", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
+    { id: "dummy-2", label: "Listen", title: "Coming Soon", image: "", href: null, external: false, cta: "listen" },
+    { id: "dummy-3", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
+    { id: "dummy-4", label: "View", title: "Coming Soon", image: "", href: null, external: false, cta: "watch" },
+    { id: "dummy-5", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
+    { id: "dummy-6", label: "Listen", title: "Coming Soon", image: "", href: null, external: false, cta: "listen" },
+  ];
+
+  const allCards = [...teaserCards, ...dummyCards];
+
+  const scrollToPage = (page: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const pageWidth = el.clientWidth;
+    el.scrollTo({ left: page * pageWidth, behavior: "smooth" });
+    setCurrentPage(page);
+  };
+
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const pageWidth = el.clientWidth;
+    const newPage = Math.round(el.scrollLeft / pageWidth);
+    setCurrentPage(newPage);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section
@@ -751,32 +802,87 @@ function NayaraJournalSection() {
             </TextReveal>
           </div>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <Link
-              href="/journal"
-              className="inline-flex items-center gap-2.5 h-11 px-7 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80 flex-shrink-0"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
-            >
-              Enter the Journal
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
+              <Link
+                href="/journal"
+                className="inline-flex items-center gap-2.5 h-11 px-7 rounded-full text-[11px] tracking-[0.14em] uppercase transition-all duration-500 hover:opacity-80 flex-shrink-0"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+              >
+                Enter the Journal
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
           </AnimateOnScroll>
         </div>
 
-        {/* 3-card grid */}
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-          {teaserCards.map((card) => (
-            <motion.div key={card.id} variants={fadeUp}>
-              <JournalTeaserCard
-                card={card}
-                isPlaying={playingId === card.id}
-                onPlay={() => setPlayingId(card.id)}
-                onClose={() => setPlayingId(null)}
-              />
-            </motion.div>
+        {/* Horizontal slider — 3 cards visible at a time */}
+        <div className="relative">
+          {/* Left arrow — centered over middle card */}
+          <button
+            onClick={() => scrollToPage(currentPage - 1)}
+            disabled={currentPage === 0}
+            className="absolute left-1/2 top-[calc(50%-2rem)] -translate-x-[calc(50%+1rem)] z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+            style={{ backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+            aria-label="Previous"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          {/* Right arrow — centered over middle card */}
+          <button
+            onClick={() => scrollToPage(currentPage + 1)}
+            disabled={currentPage >= totalPages - 1}
+            className="absolute left-1/2 top-[calc(50%-2rem)] translate-x-[calc(50%-1rem)] z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+            style={{ backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+            aria-label="Next"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {/* Render cards in groups of 3 for proper snap alignment */}
+            {[0, 1, 2].map((pageIdx) => (
+              <div
+                key={pageIdx}
+                className="flex-shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5"
+                style={{ scrollSnapAlign: "start" }}
+              >
+                {allCards.slice(pageIdx * 3, pageIdx * 3 + 3).map((card) => (
+                  <div key={card.id}>
+                    <JournalTeaserCard
+                      card={card}
+                      isPlaying={playingId === card.id}
+                      onPlay={() => setPlayingId(card.id)}
+                      onClose={() => setPlayingId(null)}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Page dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {[0, 1, 2].map((i) => (
+            <button
+              key={i}
+              onClick={() => scrollToPage(i)}
+              className="w-2 h-2 rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: currentPage === i ? "#3B2B26" : "#3B2B26",
+                opacity: currentPage === i ? 1 : 0.2,
+              }}
+              aria-label={`Page ${i + 1}`}
+            />
           ))}
-        </StaggerOnScroll>
+        </div>
       </div>
     </section>
   );
@@ -788,17 +894,7 @@ function JournalTeaserCard({
   onPlay,
   onClose,
 }: {
-  card: {
-    id: string;
-    label: string;
-    title: string;
-    image: string;
-    href: string | null;
-    youtubeId?: string;
-    listenUrl?: string;
-    external: boolean;
-    cta: "read" | "listen" | "watch-listen" | "watch";
-  };
+  card: JournalCardData;
   isPlaying: boolean;
   onPlay: () => void;
   onClose: () => void;
@@ -807,10 +903,11 @@ function JournalTeaserCard({
   const pillStyle = { backgroundColor: "#3B2B26", color: "#F7F5F0" } as const;
   const bodyFont = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
   const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+  const isDummy = !card.image;
 
   return (
     <div className="flex flex-col">
-    <div className="group relative w-full overflow-hidden rounded-lg bg-stone-900" style={{ aspectRatio: "1/1" }}>
+    <div className="group relative w-full overflow-hidden rounded-lg" style={{ aspectRatio: "1/1", backgroundColor: isDummy ? "#d6d0c7" : "#1c1917" }}>
       {isPlaying && card.youtubeId ? (
         <>
           <iframe
@@ -826,6 +923,18 @@ function JournalTeaserCard({
           >
             ✕
           </button>
+        </>
+      ) : isDummy ? (
+        <>
+          {/* Dummy placeholder — warm gray square with type badge */}
+          <div className="absolute top-4 left-4">
+            <span
+              className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
+              style={{ ...bodyFont, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+            >
+              {card.label}
+            </span>
+          </div>
         </>
       ) : (
         <>
