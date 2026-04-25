@@ -696,26 +696,26 @@ function AwardsHighlightSection() {
 
         {/* Desktop: Horizontal slider — 3 cards visible at a time (matches Journal) */}
         <div className="hidden md:block relative">
-          {/* Style A: Architectural line + chevron arrows */}
+          {/* Filled espresso square + white chevron arrows */}
           <button
             onClick={() => scrollToAwardsDesktopPage(awardsDesktopPage - 1)}
             disabled={awardsDesktopPage === 0}
-            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 flex items-center gap-2 transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none group/arrow"
+            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: "#3B2B26" }}
             aria-label="Previous"
           >
-            <svg className="w-5 h-5 transition-transform duration-300 group-hover/arrow:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="#3B2B26" strokeWidth={1}>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
-            <div className="w-8 h-px" style={{ backgroundColor: "#3B2B26" }} />
           </button>
           <button
             onClick={() => scrollToAwardsDesktopPage(awardsDesktopPage + 1)}
             disabled={awardsDesktopPage >= awardsDesktopPages - 1}
-            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 flex items-center gap-2 transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none group/arrow"
+            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: "#3B2B26" }}
             aria-label="Next"
           >
-            <div className="w-8 h-px" style={{ backgroundColor: "#3B2B26" }} />
-            <svg className="w-5 h-5 transition-transform duration-300 group-hover/arrow:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="#3B2B26" strokeWidth={1}>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </button>
@@ -942,26 +942,26 @@ function NayaraJournalSection() {
 
         {/* Desktop: Horizontal slider — 3 cards visible at a time */}
         <div className="hidden md:block relative">
-          {/* Style B: Bordered rectangle + chevron, gallery-style */}
+          {/* Filled espresso square + white chevron arrows */}
           <button
             onClick={() => scrollToPage(currentPage - 1)}
             disabled={currentPage === 0}
-            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none group/arrow hover:bg-[#3B2B26] hover:border-[#3B2B26]"
-            style={{ border: "1px solid #3B2B2640" }}
+            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: "#3B2B26" }}
             aria-label="Previous"
           >
-            <svg className="w-4 h-4 transition-colors duration-300 group-hover/arrow:stroke-[#F7F5F0]" fill="none" viewBox="0 0 24 24" stroke="#3B2B26" strokeWidth={1.2}>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
           <button
             onClick={() => scrollToPage(currentPage + 1)}
             disabled={currentPage >= totalPages - 1}
-            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none group/arrow hover:bg-[#3B2B26] hover:border-[#3B2B26]"
-            style={{ border: "1px solid #3B2B2640" }}
+            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: "#3B2B26" }}
             aria-label="Next"
           >
-            <svg className="w-4 h-4 transition-colors duration-300 group-hover/arrow:stroke-[#F7F5F0]" fill="none" viewBox="0 0 24 24" stroke="#3B2B26" strokeWidth={1.2}>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </button>

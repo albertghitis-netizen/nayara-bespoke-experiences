@@ -2831,3 +2831,4 @@
 - [x] Awards cards: change to square 1:1 aspect ratio matching Journal cards
 - [x] Awards slider arrows: replace with Style A (thin line + chevron, architectural, no background)
 - [x] Journal slider arrows: replace with Style B (small bordered rectangle + chevron, gallery-style)
+- [x] Awards + Journal arrows: Style B filled espresso (#3B2B26) with white chevrons, apply to both sections
