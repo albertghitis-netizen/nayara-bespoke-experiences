@@ -1060,68 +1060,11 @@ function JournalTeaserCard({
         </>
       )}
     </div>
-    {/* Title and CTAs below the card image */}
+    {/* Title below the card image */}
     <div className="pt-4 pb-2">
-      <h3 className="text-[#3B2B26] text-[14px] md:text-[15px] leading-[1.3] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+      <h3 className="text-[#3B2B26] text-[14px] md:text-[15px] leading-[1.3]" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
         {card.title}
       </h3>
-      <div className="flex items-center gap-2 flex-wrap">
-        {card.cta === "read" && card.href && (
-          <a
-            href={card.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={pillBase}
-            style={{ ...bodyFont, ...pillStyle }}
-          >
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-            </svg>
-            Read
-          </a>
-        )}
-        {card.cta === "listen" && card.href && (
-          <a
-            href={card.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={pillBase}
-            style={{ ...bodyFont, ...pillStyle }}
-          >
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-            </svg>
-            Listen
-          </a>
-        )}
-        {(card.cta === "watch-listen" || card.cta === "watch") && (
-          <>
-            <button
-              onClick={(e) => { e.preventDefault(); onPlay(); }}
-              className={pillBase}
-              style={{ ...bodyFont, ...pillStyle }}
-            >
-              <svg className="w-3 h-3 fill-white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-              Watch
-            </button>
-            {card.cta === "watch-listen" && card.listenUrl && (
-              <a
-                href={card.listenUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className={pillBase}
-                style={bodyFont}
-              >
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                </svg>
-                Listen
-              </a>
-            )}
-          </>
-        )}
-      </div>
     </div>
     </div>
   );
