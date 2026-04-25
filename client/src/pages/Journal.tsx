@@ -127,15 +127,6 @@ export default function Journal() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-white/40 text-[10px] tracking-[0.35em] uppercase mb-4"
-            style={body}
-          >
-            Nayara
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -143,17 +134,8 @@ export default function Journal() {
             className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide text-center"
             style={heading}
           >
-            The Journal
+            Nayara Journal
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            className="text-white/45 text-[12px] md:text-[13px] tracking-[0.08em] mt-4 text-center max-w-md"
-            style={body}
-          >
-            Stories, conversations, and perspectives from across the world of Nayara
-          </motion.p>
         </div>
       </section>
 
@@ -249,6 +231,24 @@ function GalleryCard({
     viewport: { once: true as const },
     transition: { duration: 0.5, delay: Math.min((index % 3) * 0.08, 0.2) },
   };
+
+  // ── Coming Soon card ──
+  if (entry.comingSoon) {
+    return (
+      <motion.div {...motionProps}>
+        <CardShell entry={entry} index={index}>
+          <CardOverlay entry={entry}>
+            <span
+              className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full text-white/60 text-[10px] tracking-[0.18em] uppercase"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}
+            >
+              Coming Soon
+            </span>
+          </CardOverlay>
+        </CardShell>
+      </motion.div>
+    );
+  }
 
   // ── Listen-only card (AFAR podcast) ──
   if (isListenOnly) {

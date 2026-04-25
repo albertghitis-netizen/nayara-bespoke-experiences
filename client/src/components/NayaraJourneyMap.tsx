@@ -116,20 +116,20 @@ function generateCurvedPath(from: MapLocation, to: MapLocation): string {
 const EASE = [0.25, 0.8, 0.25, 1] as [number, number, number, number];
 const EASE_CSS = "cubic-bezier(0.25, 0.8, 0.25, 1)";
 
-/* ─── Refined Color Palette — warm editorial tones ─── */
-const OCEAN_LIGHT = "#e8e2d8";
-const OCEAN_DEEP = "#ddd6c8";
-const LAND_FILL = "#d4c9b6";
-const LAND_STROKE = "#b8a88e";
-const HIGHLIGHT_FILL = "#c4a060";
-const PIN_GOLD = "#8B6914";
-const PIN_ACTIVE = "#6B5020";
-const LABEL_BG = "#f8f5ef";
-const TEXT_DARK = "#3a2a1a";
-const TEXT_MUTED = "#8a7a6a";
-const FLIGHT_COLOR = "#9B7B3B";
-const GRID_COLOR = "#3B2B26";
-const ACCENT_GOLD = "#C4A265";
+/* ─── Vivid Editorial Cartography Palette ─── */
+const OCEAN_LIGHT = "#2a7ab5";   // Atlantic blue
+const OCEAN_DEEP = "#1a5a8a";    // Deep Pacific
+const LAND_FILL = "#5a8a3a";     // Amazon jungle green
+const LAND_STROKE = "#3a6020";
+const HIGHLIGHT_FILL = "#e8a030"; // Active country warm gold
+const PIN_GOLD = "#f0c040";
+const PIN_ACTIVE = "#ff8c00";
+const LABEL_BG = "rgba(255,255,255,0.92)";
+const TEXT_DARK = "#1a1a1a";
+const TEXT_MUTED = "#4a4a4a";
+const FLIGHT_COLOR = "#f0c040";
+const GRID_COLOR = "#ffffff";
+const ACCENT_GOLD = "#f0c040";
 
 /* ─── Component ─── */
 interface NayaraJourneyMapProps {
@@ -174,7 +174,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
   }, [activeMilestoneIndex]);
 
   return (
-    <div className="relative w-full" style={{ aspectRatio: "800/680" }}>
+    <div className="relative w-full h-full">
       <style>{`
         @keyframes travelDot {
           from { offset-distance: 0%; }
@@ -187,7 +187,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
         style={{ overflow: "visible" }}
       >
         <defs>
-          {/* Ocean gradient — warm parchment feel */}
+          {/* Ocean gradient — deep blue Atlantic/Pacific */}
           <radialGradient id="oceanGrad" cx="40%" cy="45%" r="65%">
             <stop offset="0%" stopColor={OCEAN_LIGHT} />
             <stop offset="100%" stopColor={OCEAN_DEEP} />
@@ -254,12 +254,12 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
 
         {/* ─── Continent fills — warm sand tones ─── */}
         <g>
-          <path d={centralAmericaPath} fill={LAND_FILL} fillOpacity="0.6"
-            stroke={LAND_STROKE} strokeWidth="0.6" strokeOpacity="0.25" strokeLinejoin="round" />
-          <path d={southAmericaPath} fill={LAND_FILL} fillOpacity="0.6"
-            stroke={LAND_STROKE} strokeWidth="0.6" strokeOpacity="0.25" strokeLinejoin="round" />
-          <path d={caribbeanPath} fill={LAND_FILL} fillOpacity="0.4"
-            stroke={LAND_STROKE} strokeWidth="0.4" strokeOpacity="0.15" strokeLinejoin="round" />
+          <path d={centralAmericaPath} fill={LAND_FILL} fillOpacity="0.9"
+            stroke={LAND_STROKE} strokeWidth="1.2" strokeOpacity="0.8" strokeLinejoin="round" />
+          <path d={southAmericaPath} fill={LAND_FILL} fillOpacity="0.9"
+            stroke={LAND_STROKE} strokeWidth="1.2" strokeOpacity="0.8" strokeLinejoin="round" />
+          <path d={caribbeanPath} fill={LAND_FILL} fillOpacity="0.7"
+            stroke={LAND_STROKE} strokeWidth="0.8" strokeOpacity="0.5" strokeLinejoin="round" />
         </g>
 
         {/* ─── Country highlights for active locations ─── */}

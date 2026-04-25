@@ -25,9 +25,8 @@ const GLOBAL_MENU = [
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Journal", route: "/journal" },
+  { label: "Nayara Journal", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
-  { label: "Nayara By Night", route: "/by-night" },
   { label: "Gallery", route: "/gallery" },
 ];
 

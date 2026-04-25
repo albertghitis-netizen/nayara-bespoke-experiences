@@ -300,18 +300,18 @@ function BrandStorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTIES — Costa Rica compact strip → Flight bridge → Hero destinations
+   PROPERTIES — Six destinations, one unified grid
    ═══════════════════════════════════════════════════════════════ */
 function PropertiesSection() {
   return (
     <>
-      {/* ── Part 1: Costa Rica compact row ── */}
+      {/* ── All six properties ── */}
       <section className="py-14 md:py-20 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
         <div className={maxW}>
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Our Properties</SectionLabel>
           </AnimateOnScroll>
-          <TextReveal as="h2" className="mb-3" delay={0.1}>
+          <TextReveal as="h2" className="mb-10 md:mb-12" delay={0.1}>
             <span
               className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
@@ -319,15 +319,10 @@ function PropertiesSection() {
               Six Destinations, One Philosophy
             </span>
           </TextReveal>
-          <AnimateOnScroll variants={fadeUp} delay={0.15}>
-            <p className="text-[13px] tracking-[0.06em] mb-10 md:mb-12" style={{ fontFamily: "var(--font-body)", color: `${PALETTE.text}50` }}>
-              Costa Rica · Arenal Volcano
-            </p>
-          </AnimateOnScroll>
 
-          {/* 3-column compact cards */}
+          {/* 3-column grid — all 6 properties */}
           <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {costaRicaProps.map((prop) => (
+            {allProps.map((prop) => (
               <motion.div key={prop.route} variants={fadeUp} className="group">
                 <Link href={prop.route} className="block">
                   <div className="relative overflow-hidden mb-3" style={{ aspectRatio: "4/3" }}>
@@ -380,160 +375,6 @@ function PropertiesSection() {
         </div>
       </section>
 
-      {/* ── Part 2: Flight bridge — dark panel with map + "Then, we fly" ── */}
-      <section
-        className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden"
-        style={{ backgroundColor: "#1C1410" }}
-      >
-        {/* Grain overlay */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
-          <filter id="grain-bridge">
-            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#grain-bridge)" />
-        </svg>
-
-        <div className="relative z-10 max-w-[1200px] mx-auto">
-          {/* Headline */}
-          <AnimateOnScroll variants={fadeUp}>
-            <p className="text-[10px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", color: "#C4A26540" }}>
-              Then, We Fly
-            </p>
-          </AnimateOnScroll>
-          <TextReveal as="h2" className="mb-3" delay={0.1}>
-            <span
-              className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
-            >
-              The World's Most Extraordinary
-              <br className="hidden md:block" /> Destinations Await
-            </span>
-          </TextReveal>
-          <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <p className="text-[14px] leading-[1.8] mb-12 md:mb-16 max-w-xl" style={{ fontFamily: "var(--font-body)", color: "#F7F5F060" }}>
-              From the driest desert on Earth to the most remote island in the Pacific — these are journeys that require a flight, and reward you with a world unlike any other.
-            </p>
-          </AnimateOnScroll>
-
-          {/* Flight stats row */}
-          <AnimateOnScroll variants={fadeUp} delay={0.25}>
-            <div className="flex flex-col md:flex-row gap-6 md:gap-0 mb-14 md:mb-20 border-t border-b py-8" style={{ borderColor: "#C4A26520" }}>
-              {[
-                { dest: "Atacama Desert", country: "Chile", time: "~5 hrs", note: "Via Santiago", icon: "🏜️" },
-                { dest: "Easter Island", country: "Chile", time: "~5 hrs", note: "Across the Pacific", icon: "🗿" },
-                { dest: "Bocas del Toro", country: "Panama", time: "~2.5 hrs", note: "Caribbean gateway", icon: "🌊" },
-              ].map((f, i) => (
-                <div key={f.dest} className="flex-1 flex items-center gap-5 md:px-8" style={{ borderLeft: i > 0 ? "1px solid #C4A26520" : "none" }}>
-                  <span className="text-2xl">{f.icon}</span>
-                  <div>
-                    <p className="text-[11px] tracking-[0.15em] uppercase mb-0.5" style={{ fontFamily: "var(--font-body)", color: "#C4A265" }}>
-                      {f.dest} · {f.country}
-                    </p>
-                    <p className="text-[22px] leading-none mb-1" style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#F7F5F0" }}>
-                      {f.time}
-                    </p>
-                    <p className="text-[11px]" style={{ fontFamily: "var(--font-body)", color: "#F7F5F040" }}>
-                      {f.note}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </AnimateOnScroll>
-
-          {/* Map — show all flight paths active */}
-          <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <div className="w-full max-w-3xl mx-auto" style={{ filter: "brightness(0.9) contrast(1.05)" }}>
-              <NayaraJourneyMap activeMilestoneIndex={5} />
-            </div>
-            <p className="text-center text-[10px] tracking-[0.2em] uppercase mt-6" style={{ fontFamily: "var(--font-body)", color: "#C4A26540" }}>
-              Flight paths from San José · Santiago · Miami
-            </p>
-          </AnimateOnScroll>
-        </div>
-      </section>
-
-      {/* ── Part 3: Fly-further destination hero cards ── */}
-      <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#F4F1EB" }}>
-        <div className={maxW}>
-          <AnimateOnScroll variants={fadeUp}>
-            <p className="text-[10px] tracking-[0.3em] uppercase mb-10 md:mb-14" style={{ fontFamily: "var(--font-body)", color: `${PALETTE.text}35`, fontWeight: 600 }}>
-              Fly Further
-            </p>
-          </AnimateOnScroll>
-          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {flyFurtherProps.map((prop) => (
-              <motion.div key={prop.route} variants={fadeUp} className="group">
-                {/* Tall cinematic card */}
-                <Link href={prop.route} className="block relative overflow-hidden mb-5" style={{ aspectRatio: "2/3" }}>
-                  <img
-                    src={prop.image}
-                    alt={prop.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                  {/* Flight badge — bottom left */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3" style={{ backgroundColor: "rgba(28,20,16,0.75)", backdropFilter: "blur(8px)" }}>
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="#C4A265" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                      </svg>
-                      <span className="text-[10px] tracking-[0.12em]" style={{ fontFamily: "var(--font-body)", color: "#C4A265", fontWeight: 500 }}>
-                        {prop.flightTime} · {prop.flightNote}
-                      </span>
-                    </div>
-                    <p className="text-white/40 text-[9px] tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>
-                      {prop.accolade}
-                    </p>
-                  </div>
-                </Link>
-
-                <DrawLine color={PALETTE.divider} className="mb-4" />
-
-                <h3
-                  className="text-[19px] mb-1"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-                >
-                  {prop.name}
-                </h3>
-                <p
-                  className="text-[11px] tracking-[0.08em] mb-1"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: `${PALETTE.text}50` }}
-                >
-                  {prop.location}
-                </p>
-                <p
-                  className="text-[13px] leading-relaxed mb-5"
-                  style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary + "80" }}
-                >
-                  {prop.tagline}
-                </p>
-
-                <div className="flex gap-3">
-                  <a
-                    href={BOOKING_URLS[prop.bookingId]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center h-10 px-6 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500 hover:opacity-80"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: PALETTE.accent, color: "#fff" }}
-                  >
-                    Reserve
-                  </a>
-                  <Link
-                    href={prop.route}
-                    className="inline-flex items-center justify-center h-10 px-6 rounded-full text-[11px] tracking-[0.12em] transition-all duration-500"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: `1px solid ${PALETTE.divider}`, color: PALETTE.textSecondary }}
-                  >
-                    Explore
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </StaggerOnScroll>
-        </div>
-      </section>
     </>
   );
 }
@@ -589,16 +430,17 @@ function TimelineSection() {
         </TextReveal>
 
         {/* Desktop: Map left + Timeline right */}
-        <div className="flex gap-16 lg:gap-20">
-          {/* Map — sticky on the left */}
+        <div className="flex gap-16 lg:gap-20 items-stretch">
+          {/* Map — sticky on the left, stretches full height of section */}
           <div className="hidden lg:block w-[55%] flex-shrink-0">
-            <div className="sticky top-24">
-              <AnimateOnScroll variants={fadeUp}>
+            <div className="sticky top-24" style={{ height: 'calc(100vh - 6rem)' }}>
+              {/* Map fills the full sticky height */}
+              <div style={{ height: 'calc(100% - 3rem)' }}>
                 <NayaraJourneyMap activeMilestoneIndex={activeMilestone} />
-              </AnimateOnScroll>
+              </div>
               {/* Current location indicator */}
               <motion.div
-                className="mt-6 text-center"
+                className="mt-3 text-center"
                 key={activeMilestone}
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -893,7 +735,7 @@ function NayaraJournalSection() {
                 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
               >
-                The Journal
+                Nayara Journal
               </span>
             </TextReveal>
           </div>

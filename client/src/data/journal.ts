@@ -48,6 +48,8 @@ export interface JournalEntry {
   listenUrl?: string;
   /** Sort priority — lower number = earlier in feed (0 = always first) */
   sortPriority?: number;
+  /** When true, card shows a "Coming Soon" overlay instead of active CTAs */
+  comingSoon?: boolean;
 }
 
 export type JournalProperty =
@@ -541,6 +543,7 @@ const videoEpisodes: JournalEntry[] = [
     guest: "Marine Biologist",
     image: "/manus-storage/journal-cover-coral-reef_2d7b3942.webp",
     excerpt: "Beneath the turquoise waters of Bocas del Toro, a quiet revolution is underway. Discover how Nayara and local marine biologists are restoring coral reefs and protecting the Caribbean's most biodiverse archipelago.",
+    comingSoon: true,
   },
   {
     id: "stargazing-atacama-video",
@@ -553,6 +556,7 @@ const videoEpisodes: JournalEntry[] = [
     guest: "Nayara Astronomer",
     image: "/manus-storage/journal-cover-stargazing-atacama_f28faa78.jpg",
     excerpt: "The Atacama Desert holds the clearest skies on Earth. Join Nayara's resident astronomer for a journey through the cosmos — from the Milky Way's core to ancient Atacameño star lore.",
+    comingSoon: true,
   },
   {
     id: "leo-luxury-travel-innovators",

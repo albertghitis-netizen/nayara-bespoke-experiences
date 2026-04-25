@@ -28,14 +28,12 @@ const Gardens = lazy(() => import("./pages/Gardens"));
 const Springs = lazy(() => import("./pages/Springs"));
 const ConciergeChatWidget = lazy(() => import("./components/ConciergeChatWidget"));
 const Newsletter = lazy(() => import("./pages/Newsletter"));
-// Podcast page retired — /podcast now redirects to /journal
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const BrandBook = lazy(() => import("./pages/BrandBook"));
 const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
-const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const Sharalynn = lazy(() => import("./pages/Sharalynn"));
@@ -127,7 +125,6 @@ function Router() {
           <Route path="/bocas-del-toro/sustainability">{() => <CostaRicaSustainability propertySlug="bocas-del-toro" />}</Route>
           <Route path="/journal" component={Journal} />
           <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
-          <Route path="/podcast">{() => { window.location.replace("/journal"); return null; }}</Route>
           <Route path="/awards" component={AwardsAndPress} />
           <Route path="/sustainability" component={Sustainability} />
           <Route path="/experiences" component={Experiences} />
@@ -140,7 +137,6 @@ function Router() {
           <Route path="/journal/:slug" component={DynamicBlogPost} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
-          <Route path="/by-night" component={NayaraByNight} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
 
           {/* ── Internal / Private pages ── */}
@@ -154,7 +150,7 @@ function Router() {
         </Switch>
         {!hideWidget && (
           <Suspense fallback={null}>
-            <ConciergeChatWidget palette={location === "/by-night" ? { dark: "#000000", pillBg: "rgba(0,0,0,0.7)" } : undefined} />
+            <ConciergeChatWidget />
           </Suspense>
         )}
       </Suspense>

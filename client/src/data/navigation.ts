@@ -63,19 +63,18 @@ export const CONTENT_SECTIONS = [
 export const PROPERTY_MENU: MenuItem[] = [];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
-/* Explore column items (six pillars + By Night) */
+/* Explore column items (six pillars) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Nayara By Night", route: "/by-night" },
   { label: "Gallery", route: "/gallery" },
 ];
 
 /* Nayara Journal column items */
 const JOURNAL_MENU_ITEMS: MenuItem[] = [
-  { label: "Journal", route: "/journal" },
+  { label: "Nayara Journal", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
   
 ];
