@@ -706,9 +706,9 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Accommodations",
     headline: "Life Under\nCanvas",
     body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.",
-    verticalSrc: "/manus-storage/brand-s1-philosophy_510ddc6e.mp4",
+    verticalSrc: "/manus-storage/tc-mobile-hero_d503fc59.jpg",
     horizontalSrc: "/manus-storage/tc-accom-horizontal_5eaaff21.mp4",
-    verticalIsVideo: true,
+    verticalIsVideo: false,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -974,13 +974,14 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/tc-mobile-hero_d503fc59.jpg";
+  const mobileHeroImage = "/manus-storage/brand-s1-philosophy_510ddc6e.mp4";
+  const mobileHeroIsVideo = true;
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Tented Camp" className="w-full h-full object-cover" />
+          <NativeVideo src={mobileHeroImage} className="w-full h-full object-cover" loop={true} />
         ) : (
           <BlobVideo
             src={heroVideo}

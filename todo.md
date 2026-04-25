@@ -2815,3 +2815,8 @@
 - [x] Alto Atacama: replace mobile hero with provided image (atacama-mobile-hero) — no video on mobile
 - [ ] Costa Rica shared experiences page: mobile hero with volcano/crater image
 - [ ] Costa Rica shared wellness page: mobile hero with hot springs pool image
+
+## Mobile Video Rules
+- [ ] Rule: No video on mobile anywhere except selective heroes (user decides which heroes keep video)
+- [ ] Rule: All cascading/section videos on mobile will be replaced with stills (user will provide)
+- [x] Tented Camp: swap mobile hero image with Accommodations V1 vertical, and vice versa
