@@ -2827,3 +2827,5 @@
 - [x] Journal section: add "Stories" section label above "Nayara Journal" heading (match Awards pattern)
 - [x] Journal section: move "Enter the Journal" CTA below the cards (like "View All Awards & Press")
 - [x] Journal cards 1-3: move Read/Listen/Watch label to top-left of card (match cards 4-9 style), remove from below
+- [x] Awards slider: add subtle left/right fade-out gradient overlays to indicate more content
+- [x] Journal/Stories slider: add subtle left/right fade-out gradient overlays to indicate more content

@@ -690,6 +690,9 @@ function AwardsHighlightSection() {
 
         {/* Mobile: 1 card at a time, swipeable */}
         <div className="md:hidden relative">
+          {/* Fade overlays */}
+          <div className="absolute left-0 top-0 bottom-12 w-8 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #f7f5f0, transparent)" }} />
+          <div className="absolute right-0 top-0 bottom-12 w-8 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #f7f5f0, transparent)" }} />
           <div
             ref={awardsScrollRef}
             className="flex overflow-x-auto scrollbar-hide"
@@ -875,6 +878,9 @@ function NayaraJournalSection() {
 
         {/* Desktop: Horizontal slider — 3 cards visible at a time */}
         <div className="hidden md:block relative">
+          {/* Fade overlays */}
+          <div className="absolute left-0 top-0 bottom-12 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #F7F5F0, transparent)" }} />
+          <div className="absolute right-0 top-0 bottom-12 w-12 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #F7F5F0, transparent)" }} />
           {/* Left arrow */}
           <button
             onClick={() => scrollToPage(currentPage - 1)}
@@ -941,6 +947,9 @@ function NayaraJournalSection() {
         </div>
         {/* Mobile: 1 card at a time, swipeable (same as Awards) */}
         <div className="md:hidden relative">
+          {/* Fade overlays */}
+          <div className="absolute left-0 top-0 bottom-12 w-8 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #F7F5F0, transparent)" }} />
+          <div className="absolute right-0 top-0 bottom-12 w-8 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #F7F5F0, transparent)" }} />
           <div
             ref={mobileScrollRef}
             className="flex overflow-x-auto scrollbar-hide"
