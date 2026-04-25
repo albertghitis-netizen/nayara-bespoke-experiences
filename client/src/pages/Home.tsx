@@ -728,7 +728,7 @@ function NayaraJournalSection() {
             <TextReveal as="h2" delay={0.1}>
               <span
                 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}
               >
                 Nayara Journal
               </span>
