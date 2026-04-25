@@ -2820,3 +2820,6 @@
 - [ ] Rule: No video on mobile anywhere except selective heroes (user decides which heroes keep video)
 - [ ] Rule: All cascading/section videos on mobile will be replaced with stills (user will provide)
 - [x] Tented Camp: swap mobile hero image with Accommodations V1 vertical, and vice versa
+- [x] Brand homepage mobile: remove badge strips (hidden on mobile, visible on desktop)
+- [x] Brand homepage mobile: remove S1 vertical section — go straight from hero to Our Properties
+- [x] Brand homepage mobile: Journal section swipe 1 card at a time (same as Awards), no arrows, dots only, all 9 cards

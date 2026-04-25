@@ -241,11 +241,12 @@ function HeroSection() {
 
 
 function BrandStorySection() {
+  const isMobile = useIsMobile();
   return (
     <section id="philosophy" style={{ backgroundColor: "#f4f1eb" }}>
       {/* S1: Text left + Portrait image right — full bleed */}
       <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/2 px-6 md:px-10 lg:px-16 py-16 md:py-28 flex flex-col justify-center">
+        <div className={`${isMobile ? 'w-full' : 'md:w-1/2'} px-6 md:px-10 lg:px-16 py-16 md:py-28 flex flex-col justify-center`}>
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Our Philosophy</SectionLabel>
           </AnimateOnScroll>
@@ -279,30 +280,35 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge animation video */}
-          <div className="mt-6 overflow-hidden">
-            <video
-              src="/manus-storage/badge-anim-v2_3d7b8706.mp4"
-              autoPlay
-              muted
-              playsInline
-              className="w-full h-auto"
-              style={{ maxWidth: "600px" }}
-            />
-          </div>
-        </div>
-        <div className="md:w-1/2">
-          <MediaReveal delay={0.2} className="h-full">
-            <div className="overflow-hidden w-full h-full">
-              <img
-                src="/manus-storage/brand-s1-tent-v_4a147fd7.jpg"
-                alt="Nayara Tented Camp surrounded by lush tropical greenery"
-                className="w-full h-full object-cover"
-                loading="lazy"
+          {/* Badge animation video — desktop only */}
+          {!isMobile && (
+            <div className="mt-6 overflow-hidden">
+              <video
+                src="/manus-storage/badge-anim-v2_3d7b8706.mp4"
+                autoPlay
+                muted
+                playsInline
+                className="w-full h-auto"
+                style={{ maxWidth: "600px" }}
               />
             </div>
-          </MediaReveal>
+          )}
         </div>
+        {/* Vertical image — desktop only */}
+        {!isMobile && (
+          <div className="md:w-1/2">
+            <MediaReveal delay={0.2} className="h-full">
+              <div className="overflow-hidden w-full h-full">
+                <img
+                  src="/manus-storage/brand-s1-tent-v_4a147fd7.jpg"
+                  alt="Nayara Tented Camp surrounded by lush tropical greenery"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </MediaReveal>
+          </div>
+        )}
       </div>
 
       {/* S2: Horizontal image — full bleed, connected below S1 (desktop only) */}
@@ -750,6 +756,8 @@ function NayaraJournalSection() {
   const [playingId, setPlayingId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const [mobileCard, setMobileCard] = useState(0);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
   const totalPages = 3; // 9 cards / 3 per page
 
   // 3 curated cards: Listen · Read · Watch
@@ -818,6 +826,24 @@ function NayaraJournalSection() {
     if (el) el.addEventListener("scroll", handleScroll, { passive: true });
     return () => el?.removeEventListener("scroll", handleScroll);
   }, []);
+  // Mobile swipe handlers (same pattern as Awards)
+  const scrollToMobileCard = (idx: number) => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: idx * el.clientWidth, behavior: "smooth" });
+    setMobileCard(idx);
+  };
+  const handleMobileScroll = useCallback(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    const newIdx = Math.round(el.scrollLeft / el.clientWidth);
+    setMobileCard(newIdx);
+  }, []);
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (el) el.addEventListener("scroll", handleMobileScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleMobileScroll);
+  }, [handleMobileScroll]);
 
   return (
     <section
@@ -860,9 +886,9 @@ function NayaraJournalSection() {
           </AnimateOnScroll>
         </div>
 
-        {/* Horizontal slider — 3 cards visible at a time */}
-        <div className="relative">
-          {/* Left arrow — centered over middle card */}
+        {/* Desktop: Horizontal slider — 3 cards visible at a time */}
+        <div className="hidden md:block relative">
+          {/* Left arrow */}
           <button
             onClick={() => scrollToPage(currentPage - 1)}
             disabled={currentPage === 0}
@@ -874,7 +900,7 @@ function NayaraJournalSection() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
-          {/* Right arrow — centered over middle card */}
+          {/* Right arrow */}
           <button
             onClick={() => scrollToPage(currentPage + 1)}
             disabled={currentPage >= totalPages - 1}
@@ -891,11 +917,10 @@ function NayaraJournalSection() {
             className="flex overflow-x-auto scrollbar-hide"
             style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
           >
-            {/* Render cards in groups of 3 for proper snap alignment */}
             {[0, 1, 2].map((pageIdx) => (
               <div
                 key={pageIdx}
-                className="flex-shrink-0 w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5"
+                className="flex-shrink-0 w-full grid grid-cols-3 gap-5"
                 style={{ scrollSnapAlign: "start" }}
               >
                 {allCards.slice(pageIdx * 3, pageIdx * 3 + 3).map((card) => (
@@ -911,22 +936,52 @@ function NayaraJournalSection() {
               </div>
             ))}
           </div>
+          {/* Desktop page dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {[0, 1, 2].map((i) => (
+              <button
+                key={i}
+                onClick={() => scrollToPage(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{
+                  backgroundColor: "#3B2B26",
+                  opacity: currentPage === i ? 1 : 0.2,
+                }}
+                aria-label={`Page ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
-
-        {/* Page dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {[0, 1, 2].map((i) => (
-            <button
-              key={i}
-              onClick={() => scrollToPage(i)}
-              className="w-2 h-2 rounded-full transition-all duration-300"
-              style={{
-                backgroundColor: currentPage === i ? "#3B2B26" : "#3B2B26",
-                opacity: currentPage === i ? 1 : 0.2,
-              }}
-              aria-label={`Page ${i + 1}`}
-            />
-          ))}
+        {/* Mobile: 1 card at a time, swipeable (same as Awards) */}
+        <div className="md:hidden relative">
+          <div
+            ref={mobileScrollRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {allCards.map((card) => (
+              <div key={card.id} className="flex-shrink-0 w-full px-1" style={{ scrollSnapAlign: "start" }}>
+                <JournalTeaserCard
+                  card={card}
+                  isPlaying={playingId === card.id}
+                  onPlay={() => setPlayingId(card.id)}
+                  onClose={() => setPlayingId(null)}
+                />
+              </div>
+            ))}
+          </div>
+          {/* Mobile dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {allCards.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToMobileCard(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{ backgroundColor: "#3B2B26", opacity: mobileCard === i ? 1 : 0.2 }}
+                aria-label={`Card ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
