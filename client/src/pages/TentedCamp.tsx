@@ -274,16 +274,20 @@ function CascadeSection({
               <div className="flex items-center justify-center gap-16 pointer-events-auto">
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast(section.verticalOverlayButtons!.top.explore + " — Coming Soon"))}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(134,139,117,0.82)"; }}
                 >
                   {section.verticalOverlayButtons.top.explore}
                   <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </button>
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(134,139,117,0.82)"; }}
                 >
                   {section.verticalOverlayButtons.top.reserve}
                   <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -292,16 +296,20 @@ function CascadeSection({
               <div className="flex items-center justify-center gap-16 pointer-events-auto">
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast(section.verticalOverlayButtons!.bottom.explore + " — Coming Soon"))}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(134,139,117,0.82)"; }}
                 >
                   {section.verticalOverlayButtons.bottom.explore}
                   <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </button>
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(134,139,117,0.82)"; }}
                 >
                   {section.verticalOverlayButtons.bottom.reserve}
                   <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
