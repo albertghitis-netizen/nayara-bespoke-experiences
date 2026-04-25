@@ -28,6 +28,13 @@ import {
 } from "@/components/motion";
 import { motion, useInView } from "framer-motion";
 
+/* ─── Type definitions ─── */
+interface Milestone {
+  year: string;
+  title: string;
+  desc: string;
+}
+
 /* ─── Shared styles ─── */
 const PALETTE = {
   bg: "#f7f5f0",
@@ -115,9 +122,9 @@ const allProps: PropertyCard[] = [
 ];
 
 /* ─── Timeline milestones ─── */
-const milestones = [
-  { year: "2005", title: "Nayara Gardens Opens", desc: "The first Nayara property opens at the foot of Arenal Volcano in Costa Rica, introducing a new model of luxury hospitality rooted in the rainforest." },
-  { year: "2015", title: "Nayara Springs Debuts", desc: "An adults-only sanctuary of hot spring villas opens next door, earning immediate recognition from Condé Nast Traveler and Travel + Leisure." },
+const milestones: Milestone[] = [
+  { year: "2016", title: "Nayara Gardens Established", desc: "The first Nayara property opens in the Arenal region, setting the standard for luxury rainforest retreats." },
+  { year: "2017", title: "Nayara Springs Debuts", desc: "A second Arenal property launches, featuring private thermal hot springs and volcanic spa experiences." },
   { year: "2019", title: "Nayara Tented Camp Launches", desc: "Safari-style luxury tents elevated above the canopy bring a new dimension to the Arenal experience, designed for families and adventurers." },
   { year: "2020", title: "Nayara Alto Atacama Joins", desc: "The portfolio expands to Chile's Atacama Desert, where ancient landscapes and Atacameño heritage define a new kind of desert retreat." },
   { year: "2022", title: "Nayara Hangaroa Opens", desc: "On Easter Island, Nayara Hangaroa becomes the gateway to Rapa Nui culture, connecting guests with one of the world's most remote and sacred places." },
@@ -331,7 +338,7 @@ function PropertiesSection() {
 
           {/* 3-column grid — all 6 properties */}
           <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {allProps.map((prop: PropertyCard) => (
+            {allProps.map((prop) => (
               <motion.div key={prop.route} variants={fadeUp} className="group">
                 <Link href={prop.route} className="block">
                   <div className="relative overflow-hidden mb-3" style={{ aspectRatio: "4/3" }}>
@@ -467,7 +474,7 @@ function TimelineSection() {
 
           {/* Milestones — scrollable on the right */}
           <div className="flex-1 pb-[18vh]">
-            {milestones.map((m: any, i: number) => {
+            {milestones.map((m, i) => {
               /* Costa Rica milestones (0,1,2) get compressed spacing so the plane flies sooner */
               const isCostaRica = i < 3;
               const spacing = i === 0 ? "" : isCostaRica ? "mt-6 lg:mt-8" : "mt-16 lg:mt-20";
