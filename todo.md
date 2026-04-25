@@ -2823,4 +2823,7 @@
 - [x] Brand homepage mobile: remove badge strips (hidden on mobile, visible on desktop)
 - [x] Brand homepage mobile: remove S1 vertical section — go straight from hero to Our Properties
 - [x] Brand homepage mobile: Journal section swipe 1 card at a time (same as Awards), no arrows, dots only, all 9 cards
-- [ ] Brand Wellness page: replace mobile hero with provided image (woman in rainforest hot spring pool)
+- [x] Brand Wellness page: replace mobile hero with provided image (woman in rainforest hot spring pool)
+- [x] Journal section: add "Stories" section label above "Nayara Journal" heading (match Awards pattern)
+- [x] Journal section: move "Enter the Journal" CTA below the cards (like "View All Awards & Press")
+- [x] Journal cards 1-3: move Read/Listen/Watch label to top-left of card (match cards 4-9 style), remove from below
