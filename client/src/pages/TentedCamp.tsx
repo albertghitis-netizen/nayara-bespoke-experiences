@@ -198,7 +198,7 @@ type CascadeSectionData = {
   mobileVerticalSrc?: string;
   mobileVerticalIsVideo?: boolean;
   verticalOverlayButtons?: { top: { explore: string; reserve: string; exploreLink?: string }; bottom: { explore: string; reserve: string; exploreLink?: string } };
-  horizontalOverlayButtons?: { label: string; link: string; reserveLabel: string };
+  horizontalOverlayButtons?: { labels: { label: string; link: string; switchAt: number }[]; reserveLabel: string };
   stats?: { label: string; value: string }[];
   hideH?: boolean;
 };
@@ -218,32 +218,69 @@ function CascadeSection({
 
   const PILL_BG = isDark ? "rgba(0,0,0,0.45)" : "rgba(134,139,117,0.82)";
   const PILL_BORDER = isDark ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.25)";
+  /* Track which label index is active for horizontal overlay crossfade */
+  const [hLabelIdx, setHLabelIdx] = useState(0);
+  const handleHTimeUpdate = useCallback((currentTime: number, _duration: number) => {
+    if (!section.horizontalOverlayButtons) return;
+    const labels = section.horizontalOverlayButtons.labels;
+    // Find the last label whose switchAt <= currentTime
+    let idx = 0;
+    for (let i = labels.length - 1; i >= 0; i--) {
+      if (currentTime >= labels[i].switchAt) { idx = i; break; }
+    }
+    setHLabelIdx(idx);
+  }, [section.horizontalOverlayButtons]);
   const horizontalBlock = section.horizontalSrc ? (
     <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
       <MediaReveal delay={0.05}>
         <div className="relative">
-          <MediaBlock
-            src={section.horizontalSrc}
-            isVideo={section.horizontalIsVideo}
-            ratio={section.horizontalRatio}
-            alt={`${section.label} landscape — Nayara Tented Camp`}
-            className="w-full"
-            loop={section.horizontalLoop}
-          />
-          {/* Overlay pill CTAs — lower third, centered */}
+          {section.horizontalIsVideo && section.horizontalOverlayButtons ? (
+            <div className="overflow-hidden w-full" style={{ aspectRatio: section.horizontalRatio }}>
+              <NativeVideo
+                src={section.horizontalSrc}
+                className="w-full h-full object-cover"
+                loop={section.horizontalLoop}
+                onTimeUpdate={handleHTimeUpdate}
+              />
+            </div>
+          ) : (
+            <MediaBlock
+              src={section.horizontalSrc}
+              isVideo={section.horizontalIsVideo}
+              ratio={section.horizontalRatio}
+              alt={`${section.label} landscape — Nayara Tented Camp`}
+              className="w-full"
+              loop={section.horizontalLoop}
+            />
+          )}
+          {/* Overlay pill CTAs — timed crossfade */}
           {section.horizontalOverlayButtons ? (
             <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
               <div className="flex items-center gap-6 pointer-events-auto">
-                <a
-                  href={section.horizontalOverlayButtons.link}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PILL_BG, borderColor: PILL_BORDER, backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PILL_BG; }}
-                >
-                  {section.horizontalOverlayButtons.label}
-                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </a>
+                {/* Room name pill — crossfades between labels */}
+                <div className="relative" style={{ minWidth: "160px", height: "44px" }}>
+                  {section.horizontalOverlayButtons.labels.map((item, i) => (
+                    <a
+                      key={item.label}
+                      href={item.link}
+                      className="group absolute inset-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border hover:scale-[1.03] hover:shadow-lg"
+                      style={{
+                        fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const,
+                        color: "#FFFFFF", backgroundColor: PILL_BG, borderColor: PILL_BORDER,
+                        backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)",
+                        opacity: hLabelIdx === i ? 1 : 0,
+                        transition: "opacity 0.6s ease",
+                        pointerEvents: hLabelIdx === i ? "auto" : "none",
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PILL_BG; }}
+                    >
+                      {item.label}
+                      <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                    </a>
+                  ))}
+                </div>
+                {/* Reserve pill — always visible */}
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast("Reservation \u2014 Coming Soon"))}
                   className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
@@ -830,7 +867,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
       top: { explore: "Nayara Tent", reserve: "Reserve", exploreLink: "/tented-camp/rooms/nayara-tent" },
       bottom: { explore: "Family Tent", reserve: "Reserve", exploreLink: "/tented-camp/rooms/family-tent" },
     },
-    horizontalOverlayButtons: { label: "Tented Residence", link: "/tented-camp/rooms/residence", reserveLabel: "Reserve" },
+    horizontalOverlayButtons: { labels: [{ label: "Grand Tent", link: "/tented-camp/rooms/grand-tent", switchAt: 0 }, { label: "Residence", link: "/tented-camp/rooms/residence", switchAt: 4 }], reserveLabel: "Reserve" },
     stats: [
       { value: "32", label: "Luxury Tents" },
       { value: "5★", label: "Forbes Rated" },

@@ -2905,3 +2905,8 @@
 - [x] 4 permanent room buttons in text column (Nayara Tent, Family Tent, Grand Tent, Residence)
 - [x] Swap horizontal video to corrected version (tented-camp-horizontal-v2)
 - [x] Polish overlay button positioning — centered pill pairs with crossfade, hover effects, chevron arrows
+
+## Tented Camp Horizontal Video — Timed Overlay Experiment
+- [x] Add timed overlay pills to S2 horizontal video on Tented Camp homepage accommodations section
+- [x] 0-4s: "Grand Tent" + "Reserve" pills visible
+- [x] At 4s: "Grand Tent" crossfades to "Residence", "Reserve" stays
