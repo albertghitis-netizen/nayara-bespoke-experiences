@@ -2,7 +2,7 @@
  * NAYARA GARDENS - Arenal, Costa Rica
  * Visual Identity: "Canopy" palette · Cormorant Garamond · Cinematic motion · Video-first
  */
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import OneRainforestGardens from "@/components/OneRainforestGardens";
 import NativeVideo, { type NativeVideoHandle } from "@/components/NativeVideo";
@@ -348,20 +348,7 @@ function StorySection() {
 function AccommodationsExperiment() {
   const verticalRef = useRef<NativeVideoHandle>(null);
   const horizontalRef = useRef<NativeVideoHandle>(null);
-  const [verticalPhase, setVerticalPhase] = useState<"casita" | "villa">("casita");
-  const [horizontalPhase, setHorizontalPhase] = useState<"casita" | "villa">("casita");
 
-  /* Track vertical video time: 0-half = Arenal Pool Casita, half+ = Rainforest Pool Villa */
-  const handleVerticalTime = useCallback((currentTime: number, duration: number) => {
-    const midpoint = duration / 2;
-    setVerticalPhase(currentTime < midpoint ? "casita" : "villa");
-  }, []);
-
-  /* Track horizontal video time: 0-half = Arenal Pool Casita, half+ = Rainforest Pool Villa */
-  const handleHorizontalTime = useCallback((currentTime: number, duration: number) => {
-    const midpoint = duration / 2;
-    setHorizontalPhase(currentTime < midpoint ? "casita" : "villa");
-  }, []);
 
   const roomLinks = [
     { label: "Arenal Pool Casita", route: "/gardens/rooms/arenal-pool-casita", sqm: "93", guests: "2" },
@@ -377,62 +364,24 @@ function AccommodationsExperiment() {
           <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
             <NativeVideo
               ref={verticalRef}
-              src="/manus-storage/gardens-accom-vertical_758a5123.mp4"
+              src="/manus-storage/gardens-accom-vertical-trimmed_212a6993.mp4"
               className="w-full h-full object-cover"
-              onTimeUpdate={handleVerticalTime}
               loop
             />
           </div>
 
-          {/* Timed overlay buttons — centered pill pair */}
-          <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-16 z-10">
-            {/* Room name pill — crossfades between Arenal Pool Casita and Rainforest Pool Villa */}
-            <div className="relative" style={{ minWidth: 160, height: 40 }}>
-              <motion.a
-                href="/gardens/rooms/arenal-pool-casita"
-                initial={false}
-                animate={{ opacity: verticalPhase === "casita" ? 1 : 0 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
-                style={{
-                  backgroundColor: "rgba(40,98,65,0.75)",
-                  pointerEvents: verticalPhase === "casita" ? "auto" : "none",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
-                  Arenal Pool Casita
-                </span>
-              </motion.a>
-              <motion.a
-                href="/gardens/rooms/rainforest-pool-villa"
-                initial={false}
-                animate={{ opacity: verticalPhase === "villa" ? 1 : 0 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
-                style={{
-                  backgroundColor: "rgba(40,98,65,0.75)",
-                  pointerEvents: verticalPhase === "villa" ? "auto" : "none",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
-                  Rainforest Pool Villa
-                </span>
-              </motion.a>
-            </div>
-
-            {/* Reserve button — always visible, no arrow */}
+          {/* Explore pill — centered bottom third */}
+          <div className="absolute bottom-[33%] left-0 right-0 flex items-center justify-center z-10">
             <a
-              href="/gardens"
-              className="flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
+              href="/gardens/rooms/arenal-pool-casita"
+              className="flex items-center justify-center px-10 py-3.5 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
               style={{
                 backgroundColor: "rgba(40,98,65,0.75)",
                 fontFamily: "var(--font-body)",
               }}
             >
-              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
-                Reserve
+              <span className="text-white text-[12px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+                Explore Arenal Pool Casita
               </span>
             </a>
           </div>
@@ -501,6 +450,22 @@ function AccommodationsExperiment() {
               ))}
             </div>
           </AnimateOnScroll>
+
+          {/* Reserve button */}
+          <AnimateOnScroll variants={fadeUp} delay={0.4}>
+            <a
+              href="/gardens"
+              className="inline-flex items-center justify-center px-10 py-3.5 rounded-full mt-6 transition-colors hover:scale-[1.03] transition-transform"
+              style={{
+                backgroundColor: "rgba(40,98,65,0.85)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              <span className="text-white text-[12px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+                Reserve
+              </span>
+            </a>
+          </AnimateOnScroll>
         </div>
       </div>
 
@@ -509,62 +474,24 @@ function AccommodationsExperiment() {
         <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <NativeVideo
             ref={horizontalRef}
-            src="/manus-storage/gardens-accom-horizontal_4f06b701.mp4"
+              src="/manus-storage/gardens-accom-horizontal-trimmed_bb383425.mp4"
             className="w-full h-full object-cover"
-            onTimeUpdate={handleHorizontalTime}
-            loop
+              loop
           />
         </div>
 
-        {/* Timed overlay buttons — centered pill pair */}
-        <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-16 z-10">
-          {/* Room name pill — crossfades between Arenal Pool Casita and Rainforest Pool Villa */}
-          <div className="relative" style={{ minWidth: 160, height: 40 }}>
-            <motion.a
-              href="/gardens/rooms/arenal-pool-casita"
-              initial={false}
-              animate={{ opacity: horizontalPhase === "casita" ? 1 : 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
-              style={{
-                backgroundColor: "rgba(40,98,65,0.75)",
-                pointerEvents: horizontalPhase === "casita" ? "auto" : "none",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
-                Arenal Pool Casita
-              </span>
-            </motion.a>
-            <motion.a
-              href="/gardens/rooms/rainforest-pool-villa"
-              initial={false}
-              animate={{ opacity: horizontalPhase === "villa" ? 1 : 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
-              style={{
-                backgroundColor: "rgba(40,98,65,0.75)",
-                pointerEvents: horizontalPhase === "villa" ? "auto" : "none",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
-                Rainforest Pool Villa
-              </span>
-            </motion.a>
-          </div>
-
-          {/* Reserve button — always visible, no arrow */}
+        {/* Explore pill — centered bottom third */}
+        <div className="absolute bottom-[33%] left-0 right-0 flex items-center justify-center z-10">
           <a
-            href="/gardens"
-            className="flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
+            href="/gardens/rooms/rainforest-pool-villa"
+            className="flex items-center justify-center px-10 py-3.5 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
             style={{
               backgroundColor: "rgba(40,98,65,0.75)",
               fontFamily: "var(--font-body)",
             }}
           >
-            <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
-              Reserve
+            <span className="text-white text-[12px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+              Explore Rainforest Pool Villa
             </span>
           </a>
         </div>
