@@ -190,6 +190,8 @@ function HeroSection() {
             loop
             playsInline
             muted
+            preload="auto"
+            {...{ 'webkit-playsinline': '' } as any}
           />
         ) : (
           <video
