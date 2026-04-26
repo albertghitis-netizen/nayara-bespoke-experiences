@@ -48,6 +48,10 @@ const TentedResidencePage = lazy(() => import("./pages/Residence"));
 const SpringsVilla = lazy(() => import("./pages/SpringsVilla"));
 const ArenalPoolCasita = lazy(() => import("./pages/ArenalPoolCasita"));
 const RainforestPoolVilla = lazy(() => import("./pages/RainforestPoolVilla"));
+const GrandTent = lazy(() => import("./pages/GrandTent"));
+const OverwaterVilla = lazy(() => import("./pages/OverwaterVilla"));
+const DeluxeOverwaterVilla = lazy(() => import("./pages/DeluxeOverwaterVilla"));
+const Treehouse = lazy(() => import("./pages/Treehouse"));
 
 /* ── Shared Costa Rica deep pages (palette-swapped per property) ── */
 const CostaRicaExperiences = lazy(() => import("./pages/CostaRicaExperiences"));
@@ -103,6 +107,7 @@ function Router() {
           <Route path="/tented-camp/rooms/nayara-tent" component={NayaraTent} />
           <Route path="/tented-camp/rooms/family-tent" component={FamilyTent} />
           <Route path="/tented-camp/rooms/residence" component={TentedResidencePage} />
+          <Route path="/tented-camp/rooms/grand-tent" component={GrandTent} />
           <Route path="/tented-camp/experiences">{() => <CostaRicaExperiences propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/wellness">{() => <CostaRicaWellness propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/gastronomy">{() => <CostaRicaGastronomy propertySlug="tented-camp" />}</Route>
@@ -131,6 +136,9 @@ function Router() {
           <Route path="/hangaroa/sustainability">{() => <CostaRicaSustainability propertySlug="hangaroa" />}</Route>
           <Route path="/bocas-del-toro" component={BocasDelToro} />
           <Route path="/bocas-del-toro/rooms" component={BocasRooms} />
+          <Route path="/bocas-del-toro/rooms/overwater-villa" component={OverwaterVilla} />
+          <Route path="/bocas-del-toro/rooms/deluxe-overwater-villa" component={DeluxeOverwaterVilla} />
+          <Route path="/bocas-del-toro/rooms/treehouse" component={Treehouse} />
           <Route path="/bocas-del-toro/experiences">{() => <CostaRicaExperiences propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy">{() => <CostaRicaGastronomy propertySlug="bocas-del-toro" />}</Route>

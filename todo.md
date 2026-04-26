@@ -2864,3 +2864,10 @@
 - [ ] Update Tented Residence shell with hero video (already uploaded)
 - [ ] Wire all 6 room routes in App.tsx
 - [ ] Fix TypeScript errors (AltoAtacama, BocasDelToro, TentedCamp, FamilyTent, Home.tsx)
+
+## Room Pages — Full Master List (10 pages)
+- [x] Grand Tent — create shell page + route (Tented Camp, olive palette)
+- [x] Overwater Villa — create shell page + route (Bocas del Toro, Caribbean palette)
+- [x] Deluxe Overwater Villa — create shell page + route (Bocas del Toro, Caribbean palette)
+- [x] Treehouse — create shell page + route (Bocas del Toro, Caribbean palette)
+- [ ] Add floor plan diagrams to Nayara Tent and Family Tent pages (after sketches received)
