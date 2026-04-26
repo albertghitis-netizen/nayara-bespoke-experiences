@@ -63,7 +63,7 @@ const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability")
 
 const BocasRooms = lazy(() => import("./pages/BocasRooms"));
 const GardensRooms = lazy(() => import("./pages/GardensRooms"));
-const SpringsRooms = lazy(() => import("./pages/SpringsRooms"));
+// SpringsRooms deleted — Springs only has one room type (Springs Villa)
 const HangaroaRooms = lazy(() => import("./pages/HangaroaRooms"));
 
 /* ── Minimal loading fallback ── */
@@ -123,7 +123,7 @@ function Router() {
           <Route path="/gardens/gastronomy">{() => <CostaRicaGastronomy propertySlug="gardens" />}</Route>
           <Route path="/gardens/sustainability">{() => <CostaRicaSustainability propertySlug="gardens" />}</Route>
           <Route path="/springs" component={Springs} />
-          <Route path="/springs/rooms" component={SpringsRooms} />
+          <Route path="/springs/rooms" component={SpringsVilla} />
           <Route path="/springs/rooms/springs-villa" component={SpringsVilla} />
           <Route path="/springs/experiences">{() => <CostaRicaExperiences propertySlug="springs" />}</Route>
           <Route path="/springs/wellness">{() => <CostaRicaWellness propertySlug="springs" />}</Route>

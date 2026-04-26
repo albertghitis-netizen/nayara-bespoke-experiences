@@ -1955,7 +1955,7 @@
 - [ ] Build reusable Room Deeper page template (hero, photo gallery, specs, amenities, booking CTA)
 - [ ] Gardens: Arenal Pool Casita deeper page
 - [ ] Gardens: Rainforest Pool Villa deeper page
-- [ ] Springs: Springs Villa deeper page
+- [x] Springs: Springs Villa deeper page
 - [ ] Tented Camp: Tent deeper page
 - [ ] Tented Camp: Family Tent deeper page
 - [x] Tented Camp: Grand Tent deeper page
@@ -2856,9 +2856,9 @@
 - [ ] Move familyDaybed image from NayaraTent to FamilyTent
 
 ## Expanded Room Detail Pages (6 total — 2 fully built, 4 hero+shell)
-- [ ] Upload Springs Villa hero video to CDN
+- [x] Upload Springs Villa hero image to CDN (pool+volcano)
 - [ ] Upload Arenal Pool Casita hero video to CDN
-- [ ] Create Springs Villa hero+shell page (Springs colors)
+- [x] Create Springs Villa full page (teal palette, lookbook design)
 - [ ] Create Arenal Pool Casita hero+shell page (Gardens colors)
 - [ ] Create Rainforest Pool Villa hero+shell page (waiting for hero video)
 - [ ] Update Tented Residence shell with hero video (already uploaded)
@@ -2913,3 +2913,19 @@
 
 ## Gardens S1 Vertical Video Swap
 - [x] Replace Gardens S1 vertical video with uploaded sloth video
+
+## Springs Villa Hero Fixes
+- [x] Fix Springs Villa hero — replaced video with static pool+volcano image
+- [x] Move "Nayara Springs" button to top center, same line as hamburger and Reserve
+
+## Springs Villa Page Fixes
+- [x] Move "Nayara Springs" back button to top center, same line as hamburger/Reserve
+- [x] Replace hero video with static pool+volcano image
+- [x] Delete SpringsRooms.tsx — Springs Villa IS the rooms page (only one room type)
+- [x] Update all /springs/rooms links to point to /springs/rooms/springs-villa
+- [x] Build full Springs Villa page with real content — fresh design distinct from Tented Camp rooms
+- [x] Hero: static image (pool+volcano), "Nayara Springs" back button top center same line as nav
+- [x] Carousel/gallery section with descriptive captions for villa features
+- [x] "Timeless Luxury" content section with villa description
+- [x] Villa Features list (bed, sqm, plunge pool, amenities)
+- [x] Book Now CTA
