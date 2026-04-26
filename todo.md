@@ -2835,3 +2835,32 @@
 - [x] Tented Camp Accommodations V1: restore drone video on desktop, keep static image on mobile only
 - [x] Tented Camp Accommodations vertical: add overlay pill buttons — top third "Explore Nayara Tent" + "Reserve", bottom third "Explore Family Tent" + "Reserve"
 - [x] Tented Camp Rooms deeper page: 4 vertical cards (Nayara Tent, Family Tent, Grand Tent, Residence) each with 4-image slider, tented camp colors, espresso circle arrows
+- [ ] Nayara Tent detail page: cascade layout with hero, intro, amenities, luxury experience, nature sections — real copy, placeholder images, tented camp colors
+
+## Deeper Room Detail Pages (Tented Camp)
+- [ ] Build NayaraTent.tsx — full luxury room detail page with all provided images + official content
+- [ ] Build FamilyTent.tsx — different layout style (waiting for user content/hero)
+- [ ] Create GrandTent.tsx placeholder shell with route
+- [ ] Create Residence.tsx placeholder shell with route
+- [ ] Wire all 4 routes in App.tsx (/tented-camp/rooms/nayara-tent, family-tent, grand-tent, residence)
+- [ ] Link all 4 room cards in TentedRooms.tsx to their deeper detail pages
+- [ ] Three-tone olive palette (#868B75, #525642, #9A9086) on bone #EDEEE2
+- [ ] Frosted glass pill CTAs, circular slider arrows
+- [ ] Fix AltoAtacama.tsx TypeScript errors (optional fields used as required in MediaBlock)
+
+## TentedCamp Homepage → Direct Room Links
+- [ ] Remove TentedRooms overview page — go directly from TentedCamp homepage to individual rooms
+- [ ] Update TentedCamp homepage horizontal accommodations — add "Tented Residence" + "Reserve" pill links at bottom third
+- [ ] Update navigation references to remove /tented-camp/rooms route
+- [ ] Add hero video (Tentreel4.mov) to NayaraTent page
+- [ ] Move familyDaybed image from NayaraTent to FamilyTent
+
+## Expanded Room Detail Pages (6 total — 2 fully built, 4 hero+shell)
+- [ ] Upload Springs Villa hero video to CDN
+- [ ] Upload Arenal Pool Casita hero video to CDN
+- [ ] Create Springs Villa hero+shell page (Springs colors)
+- [ ] Create Arenal Pool Casita hero+shell page (Gardens colors)
+- [ ] Create Rainforest Pool Villa hero+shell page (waiting for hero video)
+- [ ] Update Tented Residence shell with hero video (already uploaded)
+- [ ] Wire all 6 room routes in App.tsx
+- [ ] Fix TypeScript errors (AltoAtacama, BocasDelToro, TentedCamp, FamilyTent, Home.tsx)

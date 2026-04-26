@@ -168,6 +168,7 @@ type CascadeSectionData = {
   horizontalLoop?: boolean;
   verticalLoop?: boolean;
   stats?: { label: string; value: string }[];
+  hideH?: boolean;
 };
 
 const CASCADE_SECTIONS: CascadeSectionData[] = [
@@ -297,6 +298,9 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     verticalSrc: "/manus-storage/bocas-bynight-v2_ac8a1af2.mp4",
     verticalIsVideo: true,
     verticalRatio: "3/4",
+    horizontalSrc: "",
+    horizontalIsVideo: false,
+    horizontalRatio: "16/9",
     hideH: true,
     bgColor: "#000000",
     nextBgColor: "#000000",

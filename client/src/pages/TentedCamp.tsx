@@ -197,8 +197,10 @@ type CascadeSectionData = {
   verticalLoop?: boolean;
   mobileVerticalSrc?: string;
   mobileVerticalIsVideo?: boolean;
-  verticalOverlayButtons?: { top: { explore: string; reserve: string }; bottom: { explore: string; reserve: string } };
+  verticalOverlayButtons?: { top: { explore: string; reserve: string; exploreLink?: string }; bottom: { explore: string; reserve: string; exploreLink?: string } };
+  horizontalOverlayButtons?: { label: string; link: string; reserveLabel: string };
   stats?: { label: string; value: string }[];
+  hideH?: boolean;
 };
 
 function CascadeSection({
@@ -228,8 +230,33 @@ function CascadeSection({
             className="w-full"
             loop={section.horizontalLoop}
           />
-          {/* Overlay pill CTA — lower third, centered */}
-          {section.link && (
+          {/* Overlay pill CTAs — lower third, centered */}
+          {section.horizontalOverlayButtons ? (
+            <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
+              <div className="flex items-center gap-6 pointer-events-auto">
+                <a
+                  href={section.horizontalOverlayButtons.link}
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PILL_BG, borderColor: PILL_BORDER, backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PILL_BG; }}
+                >
+                  {section.horizontalOverlayButtons.label}
+                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </a>
+                <button
+                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation \u2014 Coming Soon"))}
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PILL_BG, borderColor: PILL_BORDER, backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PILL_BG; }}
+                >
+                  {section.horizontalOverlayButtons.reserveLabel}
+                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </button>
+              </div>
+            </div>
+          ) : section.link && (
             <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
               <a
                 href={section.link}
@@ -273,7 +300,7 @@ function CascadeSection({
             <div className="absolute inset-0 z-10 flex flex-col justify-between pointer-events-none" style={{ padding: "22% 6% 18% 6%" }}>
               <div className="flex items-center justify-center gap-16 pointer-events-auto">
                 <button
-                  onClick={() => import("sonner").then(({ toast }) => toast(section.verticalOverlayButtons!.top.explore + " — Coming Soon"))}
+                  onClick={() => { if (section.verticalOverlayButtons!.top.exploreLink) window.location.href = section.verticalOverlayButtons!.top.exploreLink; }}
                   className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
@@ -295,7 +322,7 @@ function CascadeSection({
               </div>
               <div className="flex items-center justify-center gap-16 pointer-events-auto">
                 <button
-                  onClick={() => import("sonner").then(({ toast }) => toast(section.verticalOverlayButtons!.bottom.explore + " — Coming Soon"))}
+                  onClick={() => { if (section.verticalOverlayButtons!.bottom.exploreLink) window.location.href = section.verticalOverlayButtons!.bottom.exploreLink; }}
                   className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
                   onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
@@ -800,9 +827,10 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     link: "/tented-camp/rooms",
     linkLabel: "Explore Rooms",
     verticalOverlayButtons: {
-      top: { explore: "Nayara Tent", reserve: "Reserve" },
-      bottom: { explore: "Family Tent", reserve: "Reserve" },
+      top: { explore: "Nayara Tent", reserve: "Reserve", exploreLink: "/tented-camp/rooms/nayara-tent" },
+      bottom: { explore: "Family Tent", reserve: "Reserve", exploreLink: "/tented-camp/rooms/family-tent" },
     },
+    horizontalOverlayButtons: { label: "Tented Residence", link: "/tented-camp/rooms/residence", reserveLabel: "Reserve" },
     stats: [
       { value: "32", label: "Luxury Tents" },
       { value: "5★", label: "Forbes Rated" },
@@ -900,6 +928,9 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     verticalIsVideo: true,
     verticalRatio: "3/4",
     verticalLoop: true,
+    horizontalSrc: "",
+    horizontalIsVideo: false,
+    horizontalRatio: "16/9",
     hideH: true,
     bgColor: "#000000",
     nextBgColor: "#000000",
@@ -970,10 +1001,10 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[13],
   },
   {
-    id: "grand-tents",
-    label: "Grand Tents",
+    id: "tented-residence",
+    label: "Tented Residence",
     headline: "Canvas &\nVolcano Views",
-    body: "The Grand Tented Suites are our signature accommodation — soaring canvas ceilings, handcrafted wood details, and floor-to-ceiling openings that frame the Arenal Volcano. Each suite includes a private deck with plunge pool and outdoor shower.",
+    body: "The Tented Residence is our most exclusive accommodation — soaring canvas ceilings, handcrafted wood details, and floor-to-ceiling openings that frame the Arenal Volcano. A private estate with multiple bedrooms, dedicated staff, and unparalleled privacy.",
     verticalSrc: ASSETS.galleryImg5,
     horizontalSrc: ASSETS.galleryImg6,
     verticalIsVideo: false,

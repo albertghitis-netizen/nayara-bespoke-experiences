@@ -646,6 +646,8 @@ const CASCADE_SECTIONS = [
     headline: "The Clearest Skies on Earth",
     description: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
     vSrc: "/manus-storage/atacama-bynight-telescope_95ffaa70.jpg",
+    hSrc: "",
+    vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     badges: false,

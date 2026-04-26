@@ -73,26 +73,8 @@ const ROOM_TYPES: RoomType[] = [
     ],
   },
   {
-    id: "grand-tent",
-    name: "Grand Tent",
-    tagline: "The Grandest Canvas",
-    description:
-      "Our most spacious tented accommodations, offering a generous living area, king bed, and an expansive private terrace with heated plunge pool. The Grand Tent is designed for those who want the safari experience with the space of a luxury villa.",
-    stats: [
-      { value: "1,500", label: "Sq Ft" },
-      { value: "Heated", label: "Plunge Pool" },
-      { value: "King", label: "Bed" },
-    ],
-    images: [
-      "/manus-storage/ntc-aerial-connecting_6479275a.jpg",
-      "/manus-storage/tc-mobile-hero_d503fc59.jpg",
-      "/manus-storage/ntc-aerial-connecting_6479275a.jpg",
-      "/manus-storage/tc-mobile-hero_d503fc59.jpg",
-    ],
-  },
-  {
     id: "residence",
-    name: "Residence",
+    name: "Tented Residence",
     tagline: "The Ultimate Rainforest Retreat",
     description:
       "The ultimate Tented Camp experience — a multi-room residence with private pool, dedicated butler service, and panoramic views of the Arenal Volcano. Perfect for families or those seeking the most exclusive rainforest retreat.",
@@ -341,28 +323,46 @@ function RoomCard({ room, index }: { room: RoomType; index: number }) {
               ))}
             </div>
 
-            {/* Reserve CTA */}
-            <button
-              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
-              style={{
-                ...body,
-                fontWeight: 500,
-                fontSize: "11px",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase" as const,
-                color: "#FFFFFF",
-                backgroundColor: PILL_BG,
-                borderColor: PILL_BORDER,
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
-              }}
-            >
-              Reserve
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </button>
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`/tented-camp/rooms/${room.id}`}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
+                style={{
+                  ...body,
+                  fontWeight: 500,
+                  fontSize: "11px",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase" as const,
+                  color: "#FFFFFF",
+                  backgroundColor: PILL_BG,
+                  borderColor: PILL_BORDER,
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
+                }}
+              >
+                Explore
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+              <button
+                onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                style={{
+                  ...body,
+                  fontWeight: 500,
+                  fontSize: "11px",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase" as const,
+                  color: PALETTE.primary,
+                  backgroundColor: "transparent",
+                  borderColor: PALETTE.primary,
+                }}
+              >
+                Reserve
+              </button>
+            </div>
           </motion.div>
         </div>
       </div>
