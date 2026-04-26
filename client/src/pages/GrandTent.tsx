@@ -10,9 +10,7 @@ import React, { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import BlobVideo from "@/components/BlobVideo";
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
-import { useIsMobile } from "@/hooks/useMobile";
 
 /* ── Palette (same tented camp olive) ── */
 const P = {
@@ -37,7 +35,6 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 
 /* ── CDN Images (reusing Tented Camp images until Grand Tent specific ones arrive) ── */
 const IMG = {
-  heroVideo: "/manus-storage/Tentreel4-converted_afd33d7d.mp4",
   heroFallback: "/manus-storage/ntc-aerial-connecting_6479275a.jpg",
   exterior: "/manus-storage/Resort-6-LR_29e9a13e.jpg",
   drone: "/manus-storage/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_dca70410.JPEG",
@@ -76,7 +73,8 @@ export default function GrandTent() {
       <IntroSection />
       <FullBleedBreak />
       <FeaturesGrid />
-      <FloorPlanExplorer initialTier="grand" availableTiers={["tent", "family", "grand"]} />
+      <FloorPlanExplorer initialTier="grand" availableTiers={["grand"]} />
+      <HorizontalGallery />
       <GrandExperience />
       <AmenitiesSection />
       <CTASection />
@@ -89,18 +87,77 @@ export default function GrandTent() {
    S1 — HERO: Full-bleed video with room name overlay
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
-  const isMobile = useIsMobile();
+  const [hovered, setHovered] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      <div className="absolute inset-0">
-        <BlobVideo
-          src={IMG.heroVideo}
+    <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
+      <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
+        <img
+          src={IMG.heroFallback}
+          alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+      </motion.div>
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60"
+        style={{ opacity: heroOpacity }}
+      />
+      {/* Centered editorial title */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.3 }}
+        >
+          <p
+            className="text-white/50 text-[10px] md:text-[11px] tracking-[0.4em] uppercase mb-4"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            Nayara Tented Camp
+          </p>
+          <h1
+            className="text-white text-5xl md:text-7xl lg:text-8xl mb-4"
+            style={display}
+          >
+            Grand Tent
+          </h1>
+          <div className="w-16 h-px mx-auto mb-5" style={{ backgroundColor: "rgba(255,255,255,0.4)" }} />
+          <p
+            className="text-white/70 text-sm md:text-base max-w-md mx-auto mb-8"
+            style={body}
+          >
+            Embrace unforgettable escape in the heart of Costa Rica
+          </p>
+          <button
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+            style={{
+              ...body,
+              fontWeight: 500,
+              fontSize: "11px",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase" as const,
+              color: P.white,
+              backgroundColor: hovered ? "rgba(134,139,117,0.85)" : "rgba(134,139,117,0.6)",
+              borderColor: PILL_BORDER,
+            }}
+          >
+            Check Availability
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </motion.div>
       </div>
-
-      {/* Back to Tented Camp */}
+      {/* Back pill — top right */}
       <div className="absolute top-24 md:top-28 right-6 md:right-16 z-20">
         <a
           href="/tented-camp"
@@ -121,53 +178,6 @@ function HeroSection() {
           </svg>
           Tented Camp
         </a>
-      </div>
-
-      {/* Content — anchored to bottom */}
-      <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-16 pb-12 md:pb-20">
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white/60 text-[11px] md:text-xs tracking-[0.3em] uppercase mb-3"
-          style={{ ...body, fontWeight: 500 }}
-        >
-          Nayara Tented Camp
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="text-white text-4xl md:text-6xl lg:text-7xl mb-4"
-          style={display}
-        >
-          Grand Tent
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-white/80 text-base md:text-lg max-w-xl"
-          style={body}
-        >
-          Embrace unforgettable escape in the heart of Costa Rica
-        </motion.p>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="mt-8 flex items-center gap-3"
-        >
-          <div className="w-px h-8 bg-white/30" />
-          <span
-            className="text-white/40 text-[9px] tracking-[0.3em] uppercase"
-            style={{ ...body, fontWeight: 500 }}
-          >
-            Scroll
-          </span>
-        </motion.div>
       </div>
     </section>
   );
@@ -545,59 +555,190 @@ function AmenitiesSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CTA SECTION
+   HORIZONTAL GALLERY: Drag-to-scroll image strip
    ═══════════════════════════════════════════════════════════════ */
-function CTASection() {
+const GALLERY = [
+  { src: IMG.exterior, alt: "Grand Tent exterior surrounded by rainforest" },
+  { src: IMG.bedroom, alt: "Grand Tent master bedroom with king-size 4-poster bed" },
+  { src: IMG.kidsRoom, alt: "Grand Tent kids room with two queen beds" },
+  { src: IMG.tentPool, alt: "Grand Tent oversized plunge pool with hot springs" },
+  { src: IMG.bathroom, alt: "Grand Tent bathroom with soaking tub" },
+  { src: IMG.bridge, alt: "Hanging bridge through the rainforest canopy" },
+];
+
+function HorizontalGallery() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeftPos, setScrollLeftPos] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX - (scrollRef.current?.offsetLeft || 0));
+    setScrollLeftPos(scrollRef.current?.scrollLeft || 0);
+  };
+  const handleMouseUp = () => setIsDragging(false);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollRef.current.offsetLeft || 0);
+    scrollRef.current.scrollLeft = scrollLeftPos - (x - startX) * 1.5;
+  };
+
   return (
-    <section
-      className="py-20 md:py-28 px-6 md:px-10"
-      style={{ backgroundColor: P.secondary }}
-    >
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-16 mb-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          className="flex items-end justify-between"
+        >
+          <div>
+            <p
+              className="text-[11px] tracking-[0.25em] uppercase mb-3"
+              style={{ ...body, fontWeight: 500, color: P.primary }}
+            >
+              Gallery
+            </p>
+            <h2
+              className="text-3xl md:text-4xl"
+              style={{ ...display, color: P.text }}
+            >
+              Every Detail, Considered
+            </h2>
+          </div>
+          <p
+            className="hidden md:block text-[10px] tracking-[0.15em] uppercase"
+            style={{ ...body, fontWeight: 500, color: P.textMuted }}
+          >
+            Drag to explore →
+          </p>
+        </motion.div>
+      </div>
+
+      <div
+        ref={scrollRef}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        className="flex gap-4 md:gap-6 overflow-x-auto pl-6 md:pl-16 pr-6 md:pr-16 pb-4 cursor-grab active:cursor-grabbing select-none"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" as any }}
+      >
+        {GALLERY.map((img, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.08 }}
+            className="shrink-0 w-[80vw] md:w-[45vw] lg:w-[35vw]"
+          >
+            <div className="relative overflow-hidden rounded-sm aspect-[3/2]">
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                draggable={false}
+              />
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA SECTION — Photo background with centered reserve
+   ═══════════════════════════════════════════════════════════════ */
+function CTASection() {
+  const [hovered, setHovered] = useState(false);
+  const [hovered2, setHovered2] = useState(false);
+
+  return (
+    <section className="relative py-24 md:py-36 px-6 md:px-16 overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src={IMG.drone}
+          alt=""
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[#525642]/80 backdrop-blur-[2px]" />
+      </div>
+
+      <div className="relative z-10 max-w-3xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
         >
           <p
-            className="text-[10px] tracking-[0.35em] uppercase mb-4"
-            style={{ ...body, fontWeight: 500, color: `${P.white}80` }}
+            className="text-[11px] tracking-[0.3em] uppercase mb-4"
+            style={{ ...body, fontWeight: 500, color: `${P.bone}80` }}
           >
-            Begin Your Journey
+            Nayara Tented Camp
           </p>
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl mb-6"
-            style={{ ...display, color: P.white }}
+            className="text-3xl md:text-5xl mb-6"
+            style={{ ...display, color: P.bone }}
           >
             Your Private Compound Awaits
           </h2>
           <p
-            className="text-sm md:text-base leading-[1.9] mb-10 max-w-xl mx-auto"
-            style={{ ...body, color: `${P.white}CC` }}
+            className="text-sm md:text-base leading-[1.8] mb-10 max-w-lg mx-auto"
+            style={{ ...body, color: `${P.bone}BB` }}
           >
             The Grand Tents offer complete privacy and generous entertainment areas — ideal for sharing unforgettable moments with family and friends.
           </p>
-          <a
-            href="https://www.nayaratentedcamp.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.03]"
-            style={{
-              ...body,
-              fontWeight: 500,
-              fontSize: "11px",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase" as const,
-              color: P.secondary,
-              backgroundColor: P.bone,
-            }}
-          >
-            Check Availability
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </a>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
+              style={{
+                ...body,
+                fontWeight: 500,
+                fontSize: "11px",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase" as const,
+                color: hovered ? P.secondary : P.bone,
+                backgroundColor: hovered ? P.bone : "transparent",
+                borderColor: `${P.bone}60`,
+              }}
+            >
+              Book Now
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </button>
+
+            <a
+              href="/tented-camp"
+              onMouseEnter={() => setHovered2(true)}
+              onMouseLeave={() => setHovered2(false)}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
+              style={{
+                ...body,
+                fontWeight: 500,
+                fontSize: "11px",
+                letterSpacing: "0.18em",
+                textTransform: "uppercase" as const,
+                color: hovered2 ? P.secondary : P.bone,
+                backgroundColor: hovered2 ? P.bone : "transparent",
+                borderColor: `${P.bone}40`,
+              }}
+            >
+              Explore All Rooms
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

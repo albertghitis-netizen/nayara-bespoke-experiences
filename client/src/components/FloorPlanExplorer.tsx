@@ -154,11 +154,12 @@ function rr(x: number, y: number, w: number, h: number, r = 6): string {
   return `M${x + r},${y} L${x + w - r},${y} Q${x + w},${y} ${x + w},${y + r} L${x + w},${y + h - r} Q${x + w},${y + h} ${x + w - r},${y + h} L${x + r},${y + h} Q${x},${y + h} ${x},${y + h - r} L${x},${y + r} Q${x},${y} ${x + r},${y} Z`;
 }
 
-/** Organic pool shape */
-function poolShape(cx: number, cy: number, w: number, h: number): string {
-  const r = Math.min(w, h) * 0.35;
-  const x = cx - w / 2, y = cy - h / 2;
-  return `M${x + r},${y} Q${x + w * 0.3},${y - 3} ${x + w * 0.6},${y} Q${x + w},${y} ${x + w},${y + r} Q${x + w + 2},${y + h * 0.5} ${x + w},${y + h - r} Q${x + w},${y + h} ${x + w - r},${y + h} Q${x + w * 0.5},${y + h + 2} ${x + r},${y + h} Q${x},${y + h} ${x},${y + h - r} Q${x - 2},${y + h * 0.4} ${x},${y + r} Q${x},${y} ${x + r},${y} Z`;
+/** Square pool shape */
+function poolShape(cx: number, cy: number, w: number, _h: number): string {
+  // All pools are square — use w for both dimensions
+  const s = w; // square side = width
+  const x = cx - s / 2, y = cy - s / 2;
+  return `M${x},${y} L${x + s},${y} L${x + s},${y + s} L${x},${y + s} Z`;
 }
 
 /** Animated room outline that draws itself */
@@ -620,7 +621,7 @@ function TentBP() {
       <DoorArc cx={tx} cy={ty + th / 2} r={14} startAngle={-90} delay={0.3} />
       <DoorArc cx={tx + tw - 65} cy={ty + th - 55} r={10} startAngle={180} delay={0.5} />
       {/* Pool */}
-      <Pool cx={tx + tw / 2} cy={ty - 42} w={95} h={52} delay={0.6} />
+      <Pool cx={tx + tw / 2} cy={ty - 42} w={65} h={65} delay={0.6} />
       {/* Labels */}
       <Label x={tx + tw / 2} y={ty + th + 22} text="Nayara Tent" sub="157.9 sqm · 1,700 sq ft" delay={0.2} />
       {/* Dimension lines */}
@@ -653,7 +654,7 @@ function FamilyBP() {
       <BathRoom x={tx + tw - 60} y={ty + th - 50} w={50} h={40} delay={0.35} compact />
       <DoorArc cx={tx} cy={ty + th / 2} r={12} startAngle={-90} delay={0.25} />
       {/* Pool — shared */}
-      <Pool cx={tx + tw / 2 + 20} cy={ty - 40} w={100} h={50} delay={0.55}
+      <Pool cx={tx + tw / 2 + 20} cy={ty - 40} w={65} h={65} delay={0.55}
         label="Shared Plunge Pool" />
       {/* Connector walkway */}
       <Connector x={tx + tw} y={ty + 55} w={22} h={28} delay={0.65} />
@@ -696,7 +697,7 @@ function GrandBP() {
       <BathRoom x={tx + tw - 55} y={ty + th - 48} w={48} h={38} delay={0.3} compact />
       <DoorArc cx={tx} cy={ty + th / 2} r={12} startAngle={-90} delay={0.2} />
       {/* Oversized pool */}
-      <Pool cx={tx + tw / 2 + 45} cy={ty - 45} w={130} h={55} delay={0.5}
+      <Pool cx={tx + tw / 2 + 45} cy={ty - 45} w={100} h={100} delay={0.5}
         label="Oversized Hot Springs Pool" />
       {/* Connector tent → living */}
       <Connector x={tx + tw} y={ty + 45} w={18} h={24} delay={0.55} />
@@ -756,7 +757,7 @@ function ResidenceBP() {
       <Daybed x={lt.x + 80} y={lt.y + 8} w={38} h={30} delay={0.35} />
       <DoorArc cx={lt.x + lt.w} cy={lt.y + lt.h / 2 - 5} r={9} startAngle={0} delay={0.2} />
       {/* Left pool */}
-      <Pool cx={lt.x + lt.w / 2} cy={lt.y - 28} w={72} h={34} delay={0.4} label="Plunge Pool" />
+      <Pool cx={lt.x + lt.w / 2} cy={lt.y - 28} w={65} h={65} delay={0.4} label="Plunge Pool" />
       {/* Connector left tent → left suite */}
       <Connector x={lt.x + lt.w} y={lt.y + 38} w={12} h={18} delay={0.45} />
       {/* Left suite */}
@@ -785,9 +786,9 @@ function ResidenceBP() {
       <Daybed x={rt.x + 80} y={rt.y + 8} w={38} h={30} delay={1.0} />
       <DoorArc cx={rt.x} cy={rt.y + rt.h / 2 - 5} r={9} startAngle={90} delay={0.85} />
       {/* Right pool */}
-      <Pool cx={rt.x + rt.w / 2} cy={rt.y - 28} w={72} h={34} delay={1.0} label="Plunge Pool" />
+      <Pool cx={rt.x + rt.w / 2} cy={rt.y - 28} w={65} h={65} delay={1.0} label="Plunge Pool" />
       {/* Infinity pool — below living */}
-      <Pool cx={cv.x + cv.w / 2} cy={cv.y + cv.h + 35} w={105} h={38} delay={1.2}
+      <Pool cx={cv.x + cv.w / 2} cy={cv.y + cv.h + 35} w={100} h={100} delay={1.2}
         label="Infinity Pool" />
       {/* Fire pit */}
       <FirePit cx={cv.x + cv.w / 2 + 68} cy={cv.y + cv.h + 35} delay={1.4} />

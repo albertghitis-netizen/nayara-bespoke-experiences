@@ -468,7 +468,7 @@ function AccommodationsExperiment() {
         <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <NativeVideo
             ref={horizontalRef}
-              src="/manus-storage/gardens-s2-horizontal-new_77247387.mp4"
+              src="/manus-storage/gardens-accom-h_3741079f.mp4"
             className="w-full h-full object-cover"
           />
         </div>

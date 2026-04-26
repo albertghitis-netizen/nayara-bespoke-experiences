@@ -221,7 +221,14 @@ function CascadeSection({
   const PILL_BORDER = isDark ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.25)";
   /* Track which label index is active for horizontal overlay crossfade */
   const [hLabelIdx, setHLabelIdx] = useState(0);
-  const handleHTimeUpdate = useCallback((currentTime: number, _duration: number) => {
+  const [hVideoEnded, setHVideoEnded] = useState(false);
+  const [showBottomPill, setShowBottomPill] = useState(false);
+  useEffect(() => {
+    if (!section.verticalOverlayButtons) return;
+    const timer = setTimeout(() => setShowBottomPill(true), 3000);
+    return () => clearTimeout(timer);
+  }, [section.verticalOverlayButtons]);
+  const handleHTimeUpdate = useCallback((currentTime: number, duration: number) => {
     if (!section.horizontalOverlayButtons) return;
     const labels = section.horizontalOverlayButtons.labels;
     // Find the last label whose switchAt <= currentTime
@@ -230,6 +237,10 @@ function CascadeSection({
       if (currentTime >= labels[i].switchAt) { idx = i; break; }
     }
     setHLabelIdx(idx);
+    // Detect video ended (within 0.3s of end or currentTime stopped advancing)
+    if (duration > 0 && currentTime >= duration - 0.3) {
+      setHVideoEnded(true);
+    }
   }, [section.horizontalOverlayButtons]);
   const horizontalBlock = section.horizontalSrc ? (
     <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
@@ -254,27 +265,56 @@ function CascadeSection({
               loop={section.horizontalLoop}
             />
           )}
-          {/* Explore pills overlay */}
+          {/* Explore pills overlay — crossfade centered during video, split when ended */}
           {section.horizontalOverlayButtons ? (
-            <div className="absolute bottom-[6%] left-0 right-0 z-10 flex items-end justify-between px-8 pointer-events-none">
-              <a
-                href={section.horizontalOverlayButtons.labels[0]?.link || "#"}
-                className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-                style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
-              >
-                <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
-                  Explore {section.horizontalOverlayButtons.labels[0]?.label}
-                </span>
-              </a>
-              <a
-                href={section.horizontalOverlayButtons.labels[1]?.link || "#"}
-                className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-                style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
-              >
-                <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
-                  Explore {section.horizontalOverlayButtons.labels[1]?.label}
-                </span>
-              </a>
+            <div className="absolute bottom-[6%] left-0 right-0 z-10 pointer-events-none">
+              {hVideoEnded ? (
+                /* Video ended: two pills side by side */
+                <div className="flex items-center justify-between px-16">
+                  <a
+                    href={section.horizontalOverlayButtons.labels[0]?.link || "#"}
+                    className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                    style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+                  >
+                    <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                      Explore {section.horizontalOverlayButtons.labels[0]?.label}
+                    </span>
+                  </a>
+                  <a
+                    href={section.horizontalOverlayButtons.labels[1]?.link || "#"}
+                    className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                    style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+                  >
+                    <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                      Explore {section.horizontalOverlayButtons.labels[1]?.label}
+                    </span>
+                  </a>
+                </div>
+              ) : (
+                /* Video playing: single centered pill, crossfading between labels */
+                <div className="flex items-center justify-center">
+                  <div className="relative" style={{ minWidth: "200px", height: "36px" }}>
+                    {section.horizontalOverlayButtons.labels.map((item, i) => (
+                      <a
+                        key={item.label}
+                        href={item.link}
+                        className="pointer-events-auto absolute inset-0 flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                        style={{
+                          backgroundColor: "rgba(134,139,117,0.9)",
+                          fontFamily: "var(--font-body)",
+                          opacity: hLabelIdx === i ? 1 : 0,
+                          transition: "opacity 0.6s ease",
+                          pointerEvents: hLabelIdx === i ? "auto" : "none",
+                        }}
+                      >
+                        <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                          Explore {item.label}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ) : section.link && (
             <div className="absolute bottom-[6%] left-0 right-0 flex items-end justify-center pointer-events-none">
@@ -329,11 +369,14 @@ function CascadeSection({
                   </span>
                 </a>
               </div>
-              <div className="absolute bottom-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none">
+              <div
+                className="absolute bottom-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none transition-opacity duration-700"
+                style={{ opacity: showBottomPill ? 1 : 0 }}
+              >
                 <a
                   href={section.verticalOverlayButtons.bottom.exploreLink || "#"}
                   className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: showBottomPill ? "auto" : "none" }}
                 >
                   <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
                     Explore {section.verticalOverlayButtons.bottom.explore}
@@ -872,7 +915,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
       top: { explore: "Nayara Tent", reserve: "Reserve", exploreLink: "/tented-camp/rooms/nayara-tent" },
       bottom: { explore: "Family Tent", reserve: "Reserve", exploreLink: "/tented-camp/rooms/family-tent" },
     },
-    horizontalOverlayButtons: { labels: [{ label: "Grand Tent", link: "/tented-camp/rooms/grand-tent", switchAt: 0 }, { label: "Residence", link: "/tented-camp/rooms/residence", switchAt: 4 }], reserveLabel: "Reserve" },
+    horizontalOverlayButtons: { labels: [{ label: "Grand Tent", link: "/tented-camp/rooms/grand-tent", switchAt: 0 }, { label: "Residence", link: "/tented-camp/rooms/residence", switchAt: 3 }], reserveLabel: "Reserve" },
     roomCards: [
       { label: "Nayara Tent", route: "/tented-camp/rooms/nayara-tent", sqm: "65", guests: "2" },
       { label: "Family Tent", route: "/tented-camp/rooms/family-tent", sqm: "93", guests: "4" },

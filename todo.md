@@ -3035,3 +3035,13 @@
 - [x] Rename room cards: Nayara Tent → Arenal Pool Casita, Family Tent → Rainforest Pool Villa
 - [x] Reserve button: remove arrow
 - [x] Use Gardens nav color palette for the section
+
+## Room Deep Pages — Remove Hero Videos, Replace with Hero Images
+- [x] Remove BlobVideo hero from FamilyTent.tsx, replace with hero image + parallax
+- [x] Remove BlobVideo hero from NayaraTent.tsx, replace with hero image + parallax
+- [x] Remove BlobVideo hero from GrandTent.tsx, replace with hero image + parallax
+- [x] Remove BlobVideo hero from Residence.tsx, replace with hero image + parallax
+- [x] Remove BlobVideo hero from ArenalPoolCasita.tsx, replace with hero image + parallax
+- [x] Remove BlobVideo hero from SpringsVilla.tsx, replace with hero image + parallax
+- [x] Enrich GrandTent.tsx with horizontal gallery and photo-bg CTA
+- [x] Enrich Residence.tsx with full editorial structure

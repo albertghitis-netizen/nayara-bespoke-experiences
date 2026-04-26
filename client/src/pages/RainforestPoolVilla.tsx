@@ -9,6 +9,7 @@ import { useState, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import BlobVideo from "@/components/BlobVideo";
 
 /* ── Palette ── */
 const P = {
@@ -30,6 +31,7 @@ const body = { fontFamily: "var(--font-body)" } as const;
 /* ── Images ── */
 const IMG = {
   hero: "/manus-storage/rv-1_0529a96c.jpg",           // canopy bed bedroom — HERO
+  heroVideo: "/manus-storage/rfv-hero_027949f5.mp4",   // horizontal hero video
   daybed: "/manus-storage/rv-daybed_20e202ed.jpg",     // outdoor daybed
   detail: "/manus-storage/rv-detail_f052dbcf.jpg",     // interior detail
   vanity: "/manus-storage/rv-vanity_68f4f4d7.jpg",     // bathroom vanity
@@ -85,34 +87,90 @@ export default function RainforestPoolVilla() {
    S1 — HERO: Canopy bed bedroom shot
    ════════════════════════════════════════════════════════════════ */
 function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-
+  const [hovered, setHovered] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
   return (
-    <section ref={ref} className="relative w-full h-screen overflow-hidden">
-      <motion.img
-        src={IMG.hero}
-        alt="Rainforest Pool Villa bedroom with canopy bed"
-        className="absolute inset-0 w-full h-[115%] object-cover"
-        style={{ y: imgY }}
+    <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
+      <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
+        <BlobVideo
+          src={IMG.heroVideo}
+          className="w-full h-full object-cover"
+          loop={false}
+        />
+      </motion.div>
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60"
+        style={{ opacity: heroOpacity }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-
-      {/* Back to Gardens */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 z-50">
+      {/* Centered editorial title */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.3 }}
+        >
+          <p
+            className="text-white/50 text-[10px] md:text-[11px] tracking-[0.4em] uppercase mb-4"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            Nayara Gardens
+          </p>
+          <h1
+            className="text-white text-5xl md:text-7xl lg:text-8xl mb-4"
+            style={display}
+          >
+            Rainforest Pool Villa
+          </h1>
+          <div className="w-16 h-px mx-auto mb-5" style={{ backgroundColor: "rgba(255,255,255,0.4)" }} />
+          <p
+            className="text-white/70 text-sm md:text-base max-w-md mx-auto mb-8"
+            style={body}
+          >
+            Romantic seclusion above the canopy
+          </p>
+          <button
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+            style={{
+              ...body,
+              fontWeight: 500,
+              fontSize: "11px",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase" as const,
+              color: P.white,
+              backgroundColor: hovered ? "rgba(30,61,43,0.85)" : "rgba(30,61,43,0.6)",
+              borderColor: "rgba(255,255,255,0.25)",
+            }}
+          >
+            Check Availability
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </motion.div>
+      </div>
+      {/* Back pill — top right */}
+      <div className="absolute top-24 md:top-28 right-6 md:right-16">
         <a
           href="/gardens"
-          className="inline-flex items-center gap-2 h-10 px-5 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-[1.03]"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
           style={{
             ...body,
             fontWeight: 500,
             fontSize: "10px",
-            letterSpacing: "0.18em",
+            letterSpacing: "0.15em",
             textTransform: "uppercase" as const,
             color: P.white,
             backgroundColor: "rgba(30,61,43,0.5)",
-            border: "1px solid rgba(255,255,255,0.15)",
+            borderColor: "rgba(255,255,255,0.25)",
           }}
         >
           <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -121,51 +179,6 @@ function HeroSection() {
           Nayara Gardens
         </a>
       </div>
-
-      {/* Bottom content */}
-      <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-16 pb-12 md:pb-20">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.3 }}
-          className="text-[10px] md:text-[11px] tracking-[0.45em] uppercase mb-3"
-          style={{ ...body, fontWeight: 500, color: "rgba(255,255,255,0.45)" }}
-        >
-          Romantic &middot; Secluded &middot; Elevated
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-4xl md:text-6xl lg:text-7xl leading-[0.95]"
-          style={display}
-        >
-          Rainforest Pool Villa
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="text-white/50 text-[11px] md:text-xs tracking-[0.3em] uppercase mt-4"
-          style={{ ...body, fontWeight: 400 }}
-        >
-          Nayara Gardens &middot; Leading Hotels of the World
-        </motion.p>
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="w-px h-8 bg-white/25"
-        />
-      </motion.div>
     </section>
   );
 }

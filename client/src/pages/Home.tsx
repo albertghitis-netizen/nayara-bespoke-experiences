@@ -284,14 +284,14 @@ function BrandStorySection() {
 
           {/* Badge animation video — desktop only */}
           {!isMobile && (
-            <div className="mt-8 flex justify-center">
+            <div className="mt-6 overflow-hidden">
               <video
-                src="/manus-storage/badge-video-v2_42523110.mp4"
+                src="/manus-storage/badge-anim-v2_3d7b8706.mp4"
                 autoPlay
                 muted
-                loop
                 playsInline
                 className="w-full h-auto"
+                style={{ maxWidth: "600px" }}
               />
             </div>
           )}
@@ -552,37 +552,42 @@ const awardsData = [
     accolade: "Best Resort in Central America",
     property: "Nayara Bocas del Toro \u2014 Cond\u00e9 Nast",
     route: "/blog/conde-nast-bocas-del-toro",
+    videoSrc: "/manus-storage/award-bocas_5eedc0d2.mp4",
   },
   {
     stat: "#1",
     accolade: "Best Resort in Central America",
     property: "Nayara Tented Camp \u2014 Travel + Leisure",
     route: "/tented-camp",
+    videoSrc: "/manus-storage/award-tented_e44f4b7d.mp4",
   },
   {
     stat: "Top 15",
     accolade: "Top 15 Resort Brands in the World",
     property: "Nayara Resorts \u2014 Travel + Leisure",
     route: "/awards",
+    videoSrc: "/manus-storage/award-resorts_e26bf391.mp4",
   },
   {
     stat: "3",
     accolade: "Only 3 Michelin Key Hotel in Costa Rica",
     property: "Nayara Springs \u2014 MICHELIN Guide",
     route: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
+    videoSrc: "/manus-storage/award-springs_33c98f30.mp4",
   },
   {
     stat: "Top 15",
     accolade: "Top 15 Resorts in South America",
     property: "Nayara Alto Atacama \u2014 Cond\u00e9 Nast",
     route: "https://www.cntraveler.com/gallery/top-resorts-in-south-america",
+    videoSrc: "/manus-storage/award-atacama_d55d15fa.mp4",
   },
   {
     stat: "Hall of Fame",
     accolade: "World's Best Awards Hall of Fame",
     property: "Nayara Gardens \u2014 Travel + Leisure",
-    route: "/gardens",
-
+     route: "/gardens",
+    videoSrc: "/manus-storage/award-gardens_5eb1e82c.mp4",
   },
 ];
 
@@ -643,39 +648,46 @@ function AwardsHighlightSection() {
     return (
       <Wrapper
         {...wrapperProps}
-        className="group flex flex-col p-6 md:p-8 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.4)] hover:z-10 relative overflow-hidden"
-        style={{ backgroundColor: cardBg, border: `1px solid ${cardAccent}35`, borderTop: `2px solid ${cardAccent}`, aspectRatio: "1/1" }}
+        className="group relative flex flex-col p-6 md:p-8 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] hover:z-10 overflow-hidden"
+        style={{ aspectRatio: "1/1" }}
       >
-        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.06] group-hover:opacity-[0.10] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
-          <filter id={`grain-${award.property.replace(/\s+/g, '-')}`}>
-            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" seed={42} />
-            <feColorMatrix type="saturate" values="0" />
-          </filter>
-          <rect width="100%" height="100%" filter={`url(#grain-${award.property.replace(/\s+/g, '-')})`} />
-        </svg>
-        <span
-          className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 h-[48px] md:h-[56px] lg:h-[64px] flex items-end ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
-          style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: cardAccent }}
-        >
-          {award.stat}
-        </span>
-        <div className="w-8 h-px mb-5 group-hover:w-16 group-hover:h-[2px] transition-all duration-500 ease-out" style={{ backgroundColor: cardAccent }} />
-        <h3
-          className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-colors duration-500 min-h-[46px] flex items-start"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: cardText }}
-        >
-          {award.accolade}
-        </h3>
-        <p
-          className="text-[12px] tracking-[0.06em] transition-colors duration-500 mt-auto"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: cardTextSoft }}
-        >
-          {award.property}
-        </p>
-        <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
-          <svg className="w-4 h-4 translate-x-[-8px] group-hover:translate-x-0 opacity-0 group-hover:opacity-60 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke={cardAccent} strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
+        {/* Video background */}
+        <video
+          src={award.videoSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark overlay — lightens on hover */}
+        <div className="absolute inset-0 bg-black/55 group-hover:bg-black/40 transition-all duration-700" />
+        {/* Content */}
+        <div className="relative z-10 flex flex-col h-full">
+          <span
+            className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 h-[48px] md:h-[56px] lg:h-[64px] flex items-end ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#E1D1BA" }}
+          >
+            {award.stat}
+          </span>
+          <div className="w-8 h-px mb-5 group-hover:w-16 group-hover:h-[2px] transition-all duration-500 ease-out" style={{ backgroundColor: "#E1D1BA" }} />
+          <h3
+            className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-colors duration-500 min-h-[46px] flex items-start"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#FFFFFF" }}
+          >
+            {award.accolade}
+          </h3>
+          <p
+            className="text-[12px] tracking-[0.06em] transition-colors duration-500 mt-auto"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+          >
+            {award.property}
+          </p>
+          <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
+            <svg className="w-4 h-4 translate-x-[-8px] group-hover:translate-x-0 opacity-0 group-hover:opacity-60 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="#E1D1BA" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </div>
         </div>
       </Wrapper>
     );

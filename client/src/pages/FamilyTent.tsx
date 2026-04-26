@@ -10,9 +10,7 @@ import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import BlobVideo from "@/components/BlobVideo";
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
-import { useIsMobile } from "@/hooks/useMobile";
 
 /* ── Palette (same tented camp olive) ── */
 const P = {
@@ -38,7 +36,6 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 /* ── CDN Images ── */
 const IMG = {
   hero: "/manus-storage/68.FamilyTentandVolcanojpg_c3734d05.jpeg",
-  heroVideo: "/manus-storage/family-tent-hero-new_00a85ac0.mp4",
   tentExterior: "/manus-storage/65_9a53e6a2.jpg",
   droneAngle: "/manus-storage/1.Familytentviewoftheroofs-DJI_0123_44ada3fa.jpeg",
   droneTopDown: "/manus-storage/3.Familytentfromabovehorizontal.DJI_0092_f30281b4.jpeg",
@@ -87,7 +84,7 @@ export default function FamilyTent() {
       <FullBleedBreak />
       <FeaturesGrid />
       <HorizontalGallery />
-      <FloorPlanExplorer initialTier="family" availableTiers={["tent", "family"]} />
+      <FloorPlanExplorer initialTier="family" availableTiers={["family"]} />
       <FamilyExperience />
       <CTASection />
       <Footer pageType="property" bgColor={P.primary} />
@@ -111,10 +108,10 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <BlobVideo
-          src={IMG.heroVideo}
+        <img
+          src={IMG.hero}
+          alt=""
           className="w-full h-full object-cover"
-          loop={false}
         />
       </motion.div>
       <motion.div
