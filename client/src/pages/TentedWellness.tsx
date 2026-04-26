@@ -36,6 +36,9 @@ const WELLNESS_CDN = {
 
 const IMG = {
   termasPool: "/manus-storage/termas-pool_027028a5.jpg",
+  termasCascading: "/manus-storage/termas-cascading-pools_44b4e5a5.jpg",
+  gardenPath: "/manus-storage/wellness-garden-path_c2c89643.jpg",
+  infinityPool: "/manus-storage/wellness-infinity-pool_7b006d30.jpg",
   tentedExterior: `${CDN}/tented-camp-exterior_c9d0e1f2.jpg`,
   springsPool: `${CDN}/springs-plunge-pool_e5f6a7b8.jpg`,
 };
@@ -223,6 +226,12 @@ function YogaSection() {
           </h2>
         </FadeIn>
 
+        <FadeIn delay={0.05}>
+          <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm mb-12">
+            <img src={IMG.infinityPool} alt="Infinity pool overlooking the Arenal rainforest" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </FadeIn>
+
         <div className="space-y-10">
           <FadeIn delay={0.1}>
             <div>
@@ -287,10 +296,15 @@ function LasThermasSection() {
             </div>
           </FadeIn>
 
-          {/* Image */}
+          {/* Images — stacked */}
           <FadeIn delay={0.15}>
-            <div className="aspect-[4/5] overflow-hidden">
-              <img src={IMG.termasPool} alt="Las Thermas hot springs" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+            <div className="space-y-4">
+              <div className="aspect-[4/5] overflow-hidden">
+                <img src={IMG.termasPool} alt="Las Thermas hot springs" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+              </div>
+              <div className="aspect-[4/3] overflow-hidden">
+                <img src={IMG.termasCascading} alt="Las Thermas cascading pools" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+              </div>
             </div>
           </FadeIn>
         </div>
@@ -305,6 +319,14 @@ function LasThermasSection() {
 function NayaraDifferenceSection() {
   return (
     <section className="py-16 md:py-24 px-6 md:px-10">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Full-bleed garden path image */}
+        <FadeIn>
+          <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm mb-14">
+            <img src={IMG.gardenPath} alt="Walking through Nayara's tropical gardens" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </FadeIn>
+      </div>
       <div className="max-w-[900px] mx-auto">
         <FadeIn>
           <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Difference</p>
