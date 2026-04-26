@@ -11,6 +11,7 @@ import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import BlobVideo from "@/components/BlobVideo";
 
 /* ── Palette ── */
 const P = {
@@ -35,8 +36,7 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 
 /* ── CDN Images ── */
 const IMG = {
-  /* Placeholder for horizontal hero — user will provide */
-  heroPlaceholder: "/manus-storage/7A86D30B-1C6C-43DE-8070-D23D804D3EAC_1cc07e49.jpeg",
+  heroVideo: "/manus-storage/treehouse-hero_5341a0bb.mov",
   barDay: "/manus-storage/F07EC752-9B27-44B1-8B5D-8151950514D0_54fcbd96.jpeg",
   walkway: "/manus-storage/57155D8E-93A0-400C-92B4-AB0BBDDA32F8_99095f94.jpeg",
   barEvening: "/manus-storage/19353ABC-004C-4767-83C3-BED3084C4898_efb60a1c.jpeg",
@@ -94,8 +94,7 @@ export default function Treehouse() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 — HERO: Full-bleed image with centered editorial title
-   Hero uses a vertical image for now — placeholder for horizontal video
+   S1 — HERO: Full-bleed video with centered editorial title
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -110,10 +109,8 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        {/* TODO: Replace with horizontal hero video when provided */}
-        <img
-          src={IMG.treehousePointed}
-          alt="Treehouse rising above the jungle canopy at sunset"
+        <BlobVideo
+          src={IMG.heroVideo}
           className="w-full h-full object-cover"
         />
       </motion.div>
