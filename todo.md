@@ -2946,3 +2946,26 @@
 ### Shared
 - [x] Register all 9 restaurant routes in App.tsx
 - [x] Wire navigation links to individual restaurant pages
+
+## Gastronomy Hub Pages — A Taste of Place
+- [ ] Add "A Taste of Place / Farm to Table" intro to Tented Camp gastronomy page
+- [ ] Add "A Taste of Place / Farm to Table" intro to Springs gastronomy page
+- [ ] Add "A Taste of Place / Farm to Table" intro to Gardens gastronomy page
+- [ ] Each page lists its property-specific restaurants with links to individual pages
+
+## Costa Rica-Wide Gastronomy Page (/arenal/gastronomy)
+- [x] Build Arenal gastronomy page with "A Taste of Place" intro + photo collage
+- [x] Pinterest-style masonry collage using all 100+ culinary images across 9 restaurants
+- [x] Links to all 9 individual restaurant pages
+- [x] Upload all culinary images to CDN (103 images)
+
+## Individual Restaurant Pages — Real Images
+- [x] Ayla: add real hero image from CDN
+- [x] Henry's Bar: add real hero image from CDN
+- [x] Amor Loco: add real hero image from CDN
+- [x] Mi Cafecito: add real hero image from CDN
+- [x] Mis Amores: add real hero image from CDN
+- [x] Asia Luna: add real hero image from CDN
+- [x] La Terraza: add real hero image from CDN
+- [x] Layla's: add real hero image from CDN
+- [x] Nostalgia: add real hero image from CDN

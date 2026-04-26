@@ -13,6 +13,7 @@ export default function Ayla() {
         property: "Nayara Tented Camp",
         cuisine: "Modern Mediterranean",
         atmosphere: "Open-air canopy dining with volcano views",
+        heroImage: "/manus-storage/ayla-extra-07_fdfeafe0.jpg",
         backLink: "/tented-camp",
         backLabel: "Nayara Tented Camp",
       }}

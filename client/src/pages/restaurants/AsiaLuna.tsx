@@ -13,6 +13,7 @@ export default function AsiaLuna() {
         property: "Nayara Gardens",
         cuisine: "Pan-Asian Fusion",
         atmosphere: "Open-air tropical garden setting",
+        heroImage: "/manus-storage/asia-luna-3_2b44c4d5.jpg",
         backLink: "/gardens",
         backLabel: "Nayara Gardens",
       }}

@@ -13,6 +13,7 @@ export default function MisAmores() {
         property: "Nayara Springs",
         cuisine: "Contemporary Fine Dining",
         atmosphere: "Intimate candlelit terrace with hot springs views",
+        heroImage: "/manus-storage/mis-amores-3_58c06b2d.jpg",
         backLink: "/springs",
         backLabel: "Nayara Springs",
       }}

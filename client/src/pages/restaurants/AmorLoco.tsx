@@ -13,6 +13,7 @@ export default function AmorLoco() {
         property: "Nayara Springs",
         cuisine: "Latin American",
         atmosphere: "Volcano-view terrace dining",
+        heroImage: "/manus-storage/amor-loco-1_21e055a5.jpg",
         backLink: "/springs",
         backLabel: "Nayara Springs",
       }}

@@ -13,6 +13,7 @@ export default function Nostalgia() {
         property: "Nayara Gardens",
         cuisine: "Wine Bar & Tapas",
         atmosphere: "Intimate candlelit setting",
+        heroImage: "/manus-storage/nostalgia-1_2e268294.jpg",
         backLink: "/gardens",
         backLabel: "Nayara Gardens",
       }}

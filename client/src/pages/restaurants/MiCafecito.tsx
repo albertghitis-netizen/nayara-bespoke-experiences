@@ -13,6 +13,7 @@ export default function MiCafecito() {
         property: "Nayara Springs",
         cuisine: "Coffee House & Breakfast",
         atmosphere: "Tranquil morning gathering with garden views",
+        heroImage: "/manus-storage/mi-cafecito-1_bf532654.jpg",
         backLink: "/springs",
         backLabel: "Nayara Springs",
       }}

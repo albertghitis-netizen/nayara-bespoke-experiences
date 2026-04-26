@@ -69,6 +69,7 @@ const Nostalgia = lazy(() => import("./pages/restaurants/Nostalgia"));
 const CostaRicaExperiences = lazy(() => import("./pages/CostaRicaExperiences"));
 const CostaRicaWellness = lazy(() => import("./pages/CostaRicaWellness"));
 const CostaRicaGastronomy = lazy(() => import("./pages/CostaRicaGastronomy"));
+const ArenalGastronomy = lazy(() => import("./pages/ArenalGastronomy"));
 const CostaRicaSustainability = lazy(() => import("./pages/CostaRicaSustainability"));
 const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability"));
 
@@ -114,6 +115,7 @@ function Router() {
           <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/sustainability">{() => <CostaRicaSustainability propertySlug="alto-atacama" />}</Route>
           <Route path="/arenal" component={CostaRica} />
+          <Route path="/arenal/gastronomy" component={ArenalGastronomy} />
           <Route path="/tented-camp" component={TentedCamp} />
           <Route path="/tented-camp/rooms" component={TentedRooms} />
           <Route path="/tented-camp/rooms/nayara-tent" component={NayaraTent} />

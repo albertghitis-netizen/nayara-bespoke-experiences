@@ -13,6 +13,7 @@ export default function LaTerraza() {
         property: "Nayara Gardens",
         cuisine: "Cocktail Bar & Terrace",
         atmosphere: "Elevated terrace with panoramic volcano views",
+        heroImage: "/manus-storage/la-terraza-bar-front_ccd17a7a.jpg",
         backLink: "/gardens",
         backLabel: "Nayara Gardens",
       }}

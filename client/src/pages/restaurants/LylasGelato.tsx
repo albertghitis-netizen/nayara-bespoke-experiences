@@ -13,6 +13,7 @@ export default function LylasGelato() {
         property: "Nayara Gardens",
         cuisine: "Artisanal Gelato & Desserts",
         atmosphere: "Charming garden-side gelato counter",
+        heroImage: "/manus-storage/laylas-1_88c3c926.jpg",
         backLink: "/gardens",
         backLabel: "Nayara Gardens",
       }}

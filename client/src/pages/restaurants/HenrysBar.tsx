@@ -13,6 +13,7 @@ export default function HenrysBar() {
         property: "Nayara Tented Camp",
         cuisine: "Craft Cocktail Bar",
         atmosphere: "Explorer's club ambiance in the jungle canopy",
+        heroImage: "/manus-storage/henrys-bar-R5_22268_c23e47dc.jpg",
         backLink: "/tented-camp",
         backLabel: "Nayara Tented Camp",
       }}
