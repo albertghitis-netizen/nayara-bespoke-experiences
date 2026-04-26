@@ -3074,3 +3074,19 @@
 - [x] Keep Gardens, Springs, Tented Camp wellness pillars
 - [x] Add spa treatments from TentedCampWellness (tented-camp property data)
 - [x] Update route/navigation references
+
+## Experiential Wellness — New Images & Sound Healing
+- [x] Upload and place termas-87, springs-3, sound healing, sound therapy vertical, yoga deck, meditate yoga, yoga vertical photos
+- [x] Add Sound Healing section (dark bg, two photos, singing bowls/crystal bath copy)
+- [x] Replace yoga section images with new yoga deck + yoga vertical grid
+- [x] Replace Las Thermas secondary image with termas-87
+- [x] Add springs-3 and garden path side-by-side in Nayara Difference section
+- [x] Add meditation panorama below yoga grid
+
+## Experiential Wellness — New Images & Sound Healing
+- [x] Upload and place termas-87, springs-3, sound healing, sound therapy vertical, yoga deck, meditate yoga, yoga vertical photos
+- [x] Add Sound Healing section (dark bg, two photos, singing bowls/crystal bath copy)
+- [x] Replace yoga section images with new yoga deck + yoga vertical grid
+- [x] Replace Las Thermas secondary image with termas-87
+- [x] Add springs-3 and garden path side-by-side in Nayara Difference section
+- [x] Add meditation panorama below yoga grid

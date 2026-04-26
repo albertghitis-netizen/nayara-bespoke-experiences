@@ -41,6 +41,14 @@ const IMG = {
   infinityPool: "/manus-storage/wellness-infinity-pool_7b006d30.jpg",
   tentedExterior: `${CDN}/tented-camp-exterior_c9d0e1f2.jpg`,
   springsPool: `${CDN}/springs-plunge-pool_e5f6a7b8.jpg`,
+  /* New wellness images */
+  termas87: "/manus-storage/termas-87-web_4184b097.jpg",
+  springs3: "/manus-storage/springs-3-web_7a814df0.jpg",
+  soundHealing: "/manus-storage/sound-healing-web_f473a193.jpg",
+  soundTherapyVertical: "/manus-storage/sound-therapy-vertical-web_85b2ac2f.jpg",
+  yogaDeck: "/manus-storage/yoga-deck-web_2ea101e0.jpg",
+  meditateYoga: "/manus-storage/meditate-yoga-web_963fc0dd.jpg",
+  yogaVertical: "/manus-storage/yoga-vertical-2-web_e72f15e5.jpg",
 };
 
 /* ─── Wellness Pillars (Costa Rica only) ─── */
@@ -59,7 +67,7 @@ const wellnessPillars: WellnessPillar[] = [
     title: "Volcanic Hot Springs",
     subtitle: "Nayara Springs \u00b7 Costa Rica",
     description: "Every villa at Nayara Springs features a private hot springs plunge pool, fed by natural volcanic aquifers heated deep within the Earth. The mineral-rich waters \u2014 naturally heated to 38\u201342\u00b0C \u2014 have been used for centuries by indigenous communities for their therapeutic properties.",
-    image: IMG.springsPool,
+    image: IMG.infinityPool,
     details: ["Private plunge pool in every villa", "Natural volcanic mineral water", "38\u201342\u00b0C therapeutic temperature", "Adults-only sanctuary"],
   },
   {
@@ -67,7 +75,7 @@ const wellnessPillars: WellnessPillar[] = [
     title: "Rainforest Yoga Pavilion",
     subtitle: "Nayara Tented Camp \u00b7 Costa Rica",
     description: "A dedicated open-air yoga pavilion suspended in the rainforest canopy, where the soundtrack is howler monkeys and tropical birdsong. Morning vinyasa flows face Arenal Volcano; evening restorative sessions are accompanied by the chorus of tree frogs.",
-    image: IMG.tentedExterior,
+    image: IMG.termasCascading,
     details: ["Dedicated yoga pavilion", "Daily morning and evening classes", "Private instruction available", "Volcano-facing practice space"],
   },
 ];
@@ -102,6 +110,7 @@ export default function TentedWellness() {
       <YogaSection />
       <LasThermasSection />
       <NayaraDifferenceSection />
+      <SoundHealingSection />
       <SpaSection />
       <SpringsFeature />
       <PropertyLinksSection />
@@ -227,8 +236,19 @@ function YogaSection() {
         </FadeIn>
 
         <FadeIn delay={0.05}>
+          <div className="grid md:grid-cols-[2fr_1fr] gap-4 mb-12">
+            <div className="aspect-[16/10] overflow-hidden rounded-sm">
+              <img src={IMG.yogaDeck} alt="Yoga on the rainforest deck" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+            <div className="aspect-[3/4] md:aspect-auto overflow-hidden rounded-sm">
+              <img src={IMG.yogaVertical} alt="Yoga practice in nature" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.08}>
           <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm mb-12">
-            <img src={IMG.infinityPool} alt="Infinity pool overlooking the Arenal rainforest" className="w-full h-full object-cover" loading="lazy" />
+            <img src={IMG.meditateYoga} alt="Meditation in the Arenal rainforest" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </FadeIn>
 
@@ -303,7 +323,7 @@ function LasThermasSection() {
                 <img src={IMG.termasPool} alt="Las Thermas hot springs" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
               </div>
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={IMG.termasCascading} alt="Las Thermas cascading pools" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+                <img src={IMG.termas87} alt="Las Thermas volcanic pools" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
               </div>
             </div>
           </FadeIn>
@@ -320,10 +340,15 @@ function NayaraDifferenceSection() {
   return (
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto">
-        {/* Full-bleed garden path image */}
+        {/* Full-bleed images */}
         <FadeIn>
-          <div className="aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-sm mb-14">
-            <img src={IMG.gardenPath} alt="Walking through Nayara's tropical gardens" className="w-full h-full object-cover" loading="lazy" />
+          <div className="grid md:grid-cols-2 gap-4 mb-14">
+            <div className="aspect-[4/5] overflow-hidden rounded-sm">
+              <img src={IMG.gardenPath} alt="Walking through Nayara's tropical gardens" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+            <div className="aspect-[4/5] overflow-hidden rounded-sm">
+              <img src={IMG.springs3} alt="Nayara Springs natural pools" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
           </div>
         </FadeIn>
       </div>
@@ -350,6 +375,57 @@ function NayaraDifferenceSection() {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SOUND HEALING — Rainforest Sound Therapy
+   ═══════════════════════════════════════════════════════════════ */
+function SoundHealingSection() {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#2a1f18]">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          {/* Images — side by side on desktop, stacked on mobile */}
+          <FadeIn>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="aspect-[3/4] overflow-hidden rounded-sm">
+                <img src={IMG.soundHealing} alt="Sound healing in the rainforest" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+              </div>
+              <div className="aspect-[3/4] overflow-hidden rounded-sm">
+                <img src={IMG.soundTherapyVertical} alt="Sound therapy session" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Content */}
+          <FadeIn delay={0.15}>
+            <div>
+              <p className="text-white/25 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Rainforest Sound Therapy</p>
+              <h2 className="text-white/85 mb-6" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
+                Sound Healing
+              </h2>
+              <div className="space-y-5">
+                <p className="text-white/50 text-[15px] leading-[1.8]" style={body}>
+                  In the heart of the Arenal rainforest, where the canopy filters light into a cathedral of green, our sound healing sessions use the forest itself as an instrument. Tibetan singing bowls, crystal sound baths, and tuning forks resonate against a backdrop of birdsong, flowing water, and the deep hum of the living forest.
+                </p>
+                <p className="text-white/50 text-[15px] leading-[1.8]" style={body}>
+                  These sessions are designed to recalibrate the nervous system &mdash; lowering cortisol, deepening breath, and creating a state of profound rest that most guests describe as unlike anything they have experienced before. The vibrations move through you; the forest holds you.
+                </p>
+              </div>
+              <ul className="mt-8 space-y-3">
+                {["Tibetan singing bowl sessions", "Crystal sound bath ceremonies", "Private & group sessions available", "Open-air rainforest pavilion"].map((d) => (
+                  <li key={d} className="text-white/35 text-sm flex items-center gap-3" style={body}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/20 flex-shrink-0" />
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );
