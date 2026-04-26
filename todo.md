@@ -3024,3 +3024,7 @@
 - [x] Use placeholders for horizontal hero video/image (user will provide later)
 - [x] Register route in App.tsx (already registered)
 - [x] Verify TypeScript compilation (0 errors)
+
+## Family Tent Hero Video Replacement
+- [x] Replace Family Tent hero video with new video
+- [x] Implement freeze-on-last-frame behavior for the video (loop=false)

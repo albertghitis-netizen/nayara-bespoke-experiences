@@ -38,7 +38,7 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 /* ── CDN Images ── */
 const IMG = {
   hero: "/manus-storage/68.FamilyTentandVolcanojpg_c3734d05.jpeg",
-  heroVideo: "/manus-storage/family-tent-hero_2c3171ef.mp4",
+  heroVideo: "/manus-storage/family-tent-hero-new_3fba2a75.mov",
   tentExterior: "/manus-storage/65_9a53e6a2.jpg",
   droneAngle: "/manus-storage/1.Familytentviewoftheroofs-DJI_0123_44ada3fa.jpeg",
   droneTopDown: "/manus-storage/3.Familytentfromabovehorizontal.DJI_0092_f30281b4.jpeg",
@@ -114,6 +114,7 @@ function HeroSection() {
         <BlobVideo
           src={IMG.heroVideo}
           className="w-full h-full object-cover"
+          loop={false}
         />
       </motion.div>
       <motion.div
