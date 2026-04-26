@@ -7,6 +7,7 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
+import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import { restaurants, getAllCulinaryImages, type CulinaryImage } from "@/data/culinaryImages";
@@ -50,15 +51,15 @@ export default function ArenalGastronomy() {
 /* ═══════════════════════════════════════════════════════════════
    HERO — Full-bleed image with "A Taste of Place"
    ═══════════════════════════════════════════════════════════════ */
+const GASTRO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4";
+
 function HeroSection() {
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
-      {/* Hero image — use the best food shot */}
-      <img
-        src="/manus-storage/amor-loco-1_21e055a5.jpg"
-        alt="Fine dining at Nayara"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+      {/* Hero video — Taste of Place */}
+      <div className="absolute inset-0">
+        <NativeVideo src={GASTRO_VIDEO} className="w-full h-full object-cover" />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
 
       {/* Back button */}

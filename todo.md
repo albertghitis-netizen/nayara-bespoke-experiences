@@ -2980,3 +2980,8 @@
 - [x] Upload Gardens room images to CDN
 - [x] Build Arenal Pool Casita room page with full content (like Tented Camp rooms)
 - [x] Build Rainforest Pool Villa room page with full content (like Tented Camp rooms)
+
+## Navigation Update
+- [x] Add "Three Resorts, One Rainforest" link to main navigation menu pointing to /arenal
+- [x] Move Taste of Place video from brand Gastronomy to Arenal Gastronomy hero (brand gastronomy hero left blank)
+- [x] Footer: Add Nayara Journal and Press & Awards to Explore column, reduce to 3 columns

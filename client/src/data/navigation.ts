@@ -63,13 +63,16 @@ export const CONTENT_SECTIONS = [
 export const PROPERTY_MENU: MenuItem[] = [];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
-/* Explore column items (six pillars) */
+/* Explore column items (pillars + journal + awards) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
+  { label: "Three Resorts, One Rainforest", route: "/arenal" },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Gallery", route: "/gallery" },
+  { label: "Nayara Journal", route: "/journal" },
+  { label: "Press & Awards", route: "/awards" },
 ];
 
 /* Nayara Journal column items */
@@ -119,7 +122,6 @@ export function getFooterColumns(pageType: PageType): FooterColumn[] {
       title: "Explore",
       links: EXPLORE_MENU_ITEMS,
     },
-    JOURNAL_COLUMN,
     RESORTS_COLUMN,
   ];
 }
