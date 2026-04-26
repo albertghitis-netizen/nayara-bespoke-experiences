@@ -160,10 +160,10 @@ const lapasBar: Restaurant = {
 
 // ─── Costa Rica — Terraza ────────────────────────────────────
 const terraza: Restaurant = {
-  id: "terraza",
-  name: "Terraza",
-  property: "Nayara Costa Rica",
-  propertySlug: "arenal",
+  id: "la-terraza",
+  name: "La Terraza",
+  property: "Nayara Gardens",
+  propertySlug: "gardens",
   tagline: "Where Costa Rican Terroir Meets the Art of the Cocktail",
   description:
     "Terraza celebrates the spirit of Costa Rica through cocktails that tell the story of the land. Every signature drink is rooted in local ingredients, traditions, and the Tico way of life — from Cacique Guaro to Dota Valley apples to market-stall caramels.",
@@ -260,12 +260,66 @@ const terraza: Restaurant = {
   ],
 };
 
-// ─── Costa Rica — Dining Venues (from property pages) ────────
+// ─── Nayara Tented Camp — Restaurants ────────────────────────
+const ayla: Restaurant = {
+  id: "ayla",
+  name: "Ayla",
+  property: "Nayara Tented Camp",
+  propertySlug: "tented-camp",
+  tagline: "Modern Mediterranean Cuisine in the Rainforest Canopy",
+  description:
+    "Ayla brings the warmth of Mediterranean cooking to the heart of the Arenal rainforest. Inspired by the coastal kitchens of the Levant, Turkey, and Greece, every dish celebrates fresh ingredients, open-fire cooking, and the art of sharing. Dine under the canopy with views of the volcano as the sun sets over the jungle.",
+  cuisine: "Modern Mediterranean",
+  atmosphere: "Open-air canopy dining with volcano views",
+  sections: [],
+};
+
+const henrysBar: Restaurant = {
+  id: "henrys-bar",
+  name: "Henry's Bar",
+  property: "Nayara Tented Camp",
+  propertySlug: "tented-camp",
+  tagline: "Craft Cocktails & Stories from the Jungle",
+  description:
+    "Named after the legendary explorer who first mapped the trails around Arenal, Henry's Bar is where adventure meets mixology. Handcrafted cocktails made with Costa Rican spirits, tropical fruits, and herbs from our garden — served in a setting that feels like a well-appointed explorer's club deep in the rainforest.",
+  cuisine: "Craft Cocktail Bar",
+  atmosphere: "Explorer's club ambiance in the jungle canopy",
+  sections: [],
+};
+
+// ─── Nayara Springs — Restaurants ────────────────────────────
+const misAmores: Restaurant = {
+  id: "mis-amores",
+  name: "Mis Amores",
+  property: "Nayara Springs",
+  propertySlug: "springs",
+  tagline: "Romantic Fine Dining for Two",
+  description:
+    "Mis Amores is the culinary jewel of Nayara Springs — an adults-only fine dining experience where every detail is designed for romance. The menu weaves Costa Rican ingredients with international technique, served in an intimate candlelit setting overlooking the volcanic hot springs. A Relais & Châteaux dining experience.",
+  cuisine: "Contemporary Fine Dining",
+  atmosphere: "Intimate candlelit terrace with hot springs views",
+  sections: [],
+};
+
+const miCafecito: Restaurant = {
+  id: "mi-cafecito",
+  name: "Mi Cafecito",
+  property: "Nayara Springs",
+  propertySlug: "springs",
+  tagline: "Artisanal Coffee & Morning Rituals",
+  description:
+    "Mi Cafecito is where mornings begin at Nayara Springs — with single-origin Costa Rican coffee, fresh pastries, and the quiet sounds of the rainforest. Beans are sourced from the Tarrazú and Dota Valley highlands and roasted with care. Pair your cup with a tropical fruit plate or a traditional gallo pinto.",
+  cuisine: "Coffee House & Breakfast",
+  atmosphere: "Tranquil morning gathering with garden views",
+  sections: [],
+};
+
+// ─── Nayara Gardens — Restaurants ────────────────────────────
 const asiaLuna: Restaurant = {
   id: "asia-luna",
   name: "Asia Luna",
-  property: "Nayara Costa Rica",
-  propertySlug: "arenal",
+  property: "Nayara Gardens",
+  propertySlug: "gardens",
   tagline: "Pan-Asian Flavors in the Heart of the Rainforest",
   description:
     "Asia Luna brings the bold flavors of Thailand, Japan, and Vietnam to the Arenal rainforest. Dishes are crafted with locally sourced ingredients and presented in an open-air setting surrounded by tropical gardens. A Michelin-recognized dining experience.",
@@ -277,8 +331,8 @@ const asiaLuna: Restaurant = {
 const amorLoco: Restaurant = {
   id: "amor-loco",
   name: "Amor Loco",
-  property: "Nayara Costa Rica",
-  propertySlug: "arenal",
+  property: "Nayara Springs",
+  propertySlug: "springs",
   tagline: "Latin American Soul Food with Volcanic Views",
   description:
     "Amor Loco celebrates the passion of Latin American cuisine — from Peruvian ceviche to Argentine grills — all prepared with Costa Rican ingredients from our organic gardens. The restaurant overlooks the Arenal Volcano and is one of the most celebrated dining experiences in Central America.",
@@ -287,24 +341,24 @@ const amorLoco: Restaurant = {
   sections: [],
 };
 
-const cafeCampesino: Restaurant = {
-  id: "cafe-campesino",
-  name: "Café Campesino",
-  property: "Nayara Costa Rica",
-  propertySlug: "arenal",
-  tagline: "Farm-to-Cup Costa Rican Coffee Experience",
+const lylasGelato: Restaurant = {
+  id: "lylas-gelato",
+  name: "Lyla's Gelato",
+  property: "Nayara Gardens",
+  propertySlug: "gardens",
+  tagline: "Artisanal Gelato Crafted in the Tropics",
   description:
-    "Start your morning with single-origin Costa Rican coffee roasted on-site, paired with fresh pastries and traditional Tico breakfast. Café Campesino sources beans from the Dota Valley and Tarrazú highlands.",
-  cuisine: "Coffee House & Breakfast",
-  atmosphere: "Casual morning gathering spot",
+    "Lyla's Gelato brings the Italian tradition of handcrafted gelato to the Arenal rainforest. Made fresh daily with tropical fruits from local farms — guanábana, passion fruit, mango, and Costa Rican chocolate — each scoop is a celebration of the land. The perfect pause between adventures.",
+  cuisine: "Artisanal Gelato & Desserts",
+  atmosphere: "Charming garden-side gelato counter",
   sections: [],
 };
 
 const nostalgia: Restaurant = {
   id: "nostalgia",
   name: "Nostalgia",
-  property: "Nayara Costa Rica",
-  propertySlug: "arenal",
+  property: "Nayara Gardens",
+  propertySlug: "gardens",
   tagline: "Wine & Tapas Under the Stars",
   description:
     "An intimate wine bar offering a curated selection of Latin American and Old World wines paired with artisanal tapas. The perfect setting for a quiet evening after a day of adventure.",
@@ -665,7 +719,7 @@ export const costaRicaDining: PropertyDining = {
   headline: "Five Restaurants, One Volcanic Landscape",
   description:
     "Across Nayara Gardens, Nayara Springs, and Nayara Tented Camp, guests enjoy access to five distinct dining venues — from Pan-Asian fusion at Asia Luna to Latin American soul food at Amor Loco, craft cocktails at Lapas Bar and Terraza, and artisanal coffee at Café Campesino. All restaurants source from our organic gardens and local farms.",
-  restaurants: [lapasBar, terraza, asiaLuna, amorLoco, cafeCampesino, nostalgia],
+  restaurants: [ayla, henrysBar, misAmores, miCafecito, amorLoco, asiaLuna, lylasGelato, terraza, nostalgia],
 };
 
 export const hangaroaDining: PropertyDining = {
@@ -704,11 +758,15 @@ export const allDining: PropertyDining[] = [
 ];
 
 export const allRestaurants: Restaurant[] = [
+  ayla,
+  henrysBar,
+  misAmores,
+  miCafecito,
+  amorLoco,
+  asiaLuna,
+  lylasGelato,
   lapasBar,
   terraza,
-  asiaLuna,
-  amorLoco,
-  cafeCampesino,
   nostalgia,
   poerava,
   atacamaDining,

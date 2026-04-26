@@ -2929,3 +2929,20 @@
 - [x] "Timeless Luxury" content section with villa description
 - [x] Villa Features list (bed, sqm, plunge pool, amenities)
 - [x] Book Now CTA
+
+## Costa Rica Gastronomy — Individual Restaurant Pages
+### Nayara Tented Camp
+- [x] Ayla restaurant Coming Soon page
+- [x] Henry's Bar Coming Soon page
+### Nayara Springs
+- [x] Mis Amores Coming Soon page
+- [x] Mi Cafecito Coming Soon page
+- [x] Amor Loco Coming Soon page
+### Nayara Gardens
+- [x] Lyla's Gelato Coming Soon page
+- [x] Asia Luna Coming Soon page
+- [x] La Terraza Coming Soon page
+- [x] Nostalgia Coming Soon page
+### Shared
+- [x] Register all 9 restaurant routes in App.tsx
+- [x] Wire navigation links to individual restaurant pages
