@@ -2898,3 +2898,10 @@
 - [x] Features grid: Four Bedrooms, Grand Living & Kitchen, Private Concierge
 - [x] Floor plan explorer with Nayara Residence as default tab
 - [x] Experience section, full amenities list, adventure section, CTA, Footer
+
+## Tented Camp Accommodations Section — Video Button Sync
+- [x] Timed overlay buttons on vertical video: Nayara Tent (0-4s) → Family Tent (4-9s)
+- [x] Timed overlay buttons on horizontal video: Grand Tent (0-3s) → Residence (3-6s)
+- [x] 4 permanent room buttons in text column (Nayara Tent, Family Tent, Grand Tent, Residence)
+- [x] Swap horizontal video to corrected version (tented-camp-horizontal-v2)
+- [x] Polish overlay button positioning — centered pill pairs with crossfade, hover effects, chevron arrows

@@ -3,6 +3,8 @@
  * Internal testing only — not linked from navigation
  */
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
+import FloorPlanBuilder from "@/components/FloorPlanBuilder";
+import FloorPlanScroll from "@/components/FloorPlanScroll";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 
@@ -29,42 +31,55 @@ export default function FloorPlanTest() {
           className="text-sm mt-4 max-w-lg mx-auto"
           style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}
         >
-          Interactive architectural blueprints for all Tented Camp room types.
-          Click tabs to see each tier build itself.
+          Three creative prototypes for interactive architectural blueprints.
         </p>
       </section>
 
-      {/* Prototype A: Light mode — All tiers */}
-      <div className="mb-4 px-6 text-center">
-        <p className="text-[10px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#868B75" }}>
-          Light Mode — All Tiers
+      {/* ═══════════════════════════════════════════════════════ */}
+      {/* PROTOTYPE A: Tab-based Blueprint Explorer */}
+      {/* ═══════════════════════════════════════════════════════ */}
+      <section className="pt-8 pb-4 px-6 text-center">
+        <div className="inline-block px-4 py-1.5 rounded-full border mb-4" style={{ borderColor: "#3B2B2620" }}>
+          <span className="text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#525642" }}>
+            Prototype A — Tab Explorer
+          </span>
+        </div>
+        <p className="text-xs mb-6" style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}>
+          Click tabs to switch between room tiers. Best for individual room pages.
         </p>
-      </div>
+      </section>
       <FloorPlanExplorer initialTier="tent" />
 
-      {/* Prototype B: Dark mode — All tiers */}
-      <div className="mb-4 px-6 text-center">
-        <p className="text-[10px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#868B75" }}>
-          Dark Mode — All Tiers
+      {/* ═══════════════════════════════════════════════════════ */}
+      {/* PROTOTYPE B: Progressive Builder — "Watch It Build" */}
+      {/* ═══════════════════════════════════════════════════════ */}
+      <section className="pt-16 pb-4 px-6 text-center" style={{ backgroundColor: "#EDEEE2" }}>
+        <div className="inline-block px-4 py-1.5 rounded-full border mb-4" style={{ borderColor: "#3B2B2620" }}>
+          <span className="text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#525642" }}>
+            Prototype B — Progressive Builder
+          </span>
+        </div>
+        <p className="text-xs mb-6" style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}>
+          Step through each tier with timeline navigation. Elements add progressively.
         </p>
-      </div>
-      <FloorPlanExplorer initialTier="family" darkMode />
+      </section>
+      <FloorPlanBuilder maxStep={3} />
 
-      {/* Prototype C: Single tier — how it would look on NayaraTent page */}
-      <div className="mb-4 px-6 text-center">
-        <p className="text-[10px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#868B75" }}>
-          Single Tier Mode (Nayara Tent page)
+      {/* ═══════════════════════════════════════════════════════ */}
+      {/* PROTOTYPE C: Scroll-Driven — "Scroll to Build" */}
+      {/* ═══════════════════════════════════════════════════════ */}
+      <section className="pt-16 pb-4 px-6 text-center" style={{ backgroundColor: "#EDEEE2" }}>
+        <div className="inline-block px-4 py-1.5 rounded-full border mb-4" style={{ borderColor: "#3B2B2620" }}>
+          <span className="text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#525642" }}>
+            Prototype C — Scroll to Build
+          </span>
+        </div>
+        <p className="text-xs mb-6" style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}>
+          Scroll down to watch the blueprint construct itself. Sticky canvas + narrative panels.
+          Hover rooms for details.
         </p>
-      </div>
-      <FloorPlanExplorer initialTier="tent" availableTiers={["tent"]} />
-
-      {/* Prototype D: Two tiers — how it would look on FamilyTent page */}
-      <div className="mb-4 px-6 text-center">
-        <p className="text-[10px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#868B75" }}>
-          Two Tier Mode (Family Tent page — show tent + family)
-        </p>
-      </div>
-      <FloorPlanExplorer initialTier="family" availableTiers={["tent", "family"]} darkMode />
+      </section>
+      <FloorPlanScroll maxStep={3} />
 
       <Footer pageType="property" bgColor="#868B75" />
     </div>

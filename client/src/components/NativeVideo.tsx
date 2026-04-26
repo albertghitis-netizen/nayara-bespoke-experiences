@@ -11,7 +11,7 @@
  * Audio: All cascade videos are ALWAYS muted. Audio comes from cascadeAudio's single
  * HTMLAudioElement playing the merged MP3 track. The hasAudio prop has been removed.
  */
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
 
 interface NativeVideoProps {
   src: string;
@@ -22,20 +22,33 @@ interface NativeVideoProps {
   playsInline?: boolean;
   poster?: string;
   controls?: boolean;
+  onTimeUpdate?: (currentTime: number, duration: number) => void;
 }
 
-export default function NativeVideo({
-  src,
-  className = "",
-  loop = false,
-  playsInline = true,
-  poster,
-  controls = false,
-}: NativeVideoProps) {
+export interface NativeVideoHandle {
+  getVideoElement: () => HTMLVideoElement | null;
+}
+
+const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function NativeVideo(
+  {
+    src,
+    className = "",
+    loop = false,
+    playsInline = true,
+    poster,
+    controls = false,
+    onTimeUpdate,
+  },
+  ref
+) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+
+  useImperativeHandle(ref, () => ({
+    getVideoElement: () => videoRef.current,
+  }));
 
   /**
    * MOUNT EFFECT: Start buffering
@@ -63,6 +76,21 @@ export default function NativeVideo({
       video.removeEventListener("loadeddata", onLoaded);
     };
   }, [src]);
+
+  /* ── TIME UPDATE CALLBACK ── */
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !onTimeUpdate) return;
+
+    const handleTimeUpdate = () => {
+      onTimeUpdate(video.currentTime, video.duration || 0);
+    };
+
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    return () => {
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  }, [src, onTimeUpdate]);
 
   /* ── SCROLL-BASED PLAY/PAUSE ──
      START: when this video's top edge is within 80px above the viewport top.
@@ -169,4 +197,6 @@ export default function NativeVideo({
       )}
     </div>
   );
-}
+});
+
+export default NativeVideo;
