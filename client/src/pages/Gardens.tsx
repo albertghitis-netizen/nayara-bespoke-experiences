@@ -315,11 +315,11 @@ function StorySection() {
           </div>
         </div>
 
-        {/* S1 - Vertical video right */}
+        {/* S1 - Toucan still image right */}
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/gardens-s1-sloth_25b9fc49.mp4" className="w-full h-full object-cover" />
+              <img src="/manus-storage/gardens-s1-toucan_99589341.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
@@ -329,7 +329,7 @@ function StorySection() {
       <div style={{ backgroundColor: PALETTE.gradientStart }}>
         <MediaReveal delay={0.1}>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <NativeVideo src="/manus-storage/gardens-s2-horizontal_210196e1.mp4" className="w-full h-full object-cover" />
+            <NativeVideo src="/manus-storage/gardens-s2-horizontal-new_77247387.mp4" className="w-full h-full object-cover" />
           </div>
         </MediaReveal>
       </div>
@@ -366,12 +366,11 @@ function AccommodationsExperiment() {
               ref={verticalRef}
               src="/manus-storage/gardens-accom-vertical-trimmed_212a6993.mp4"
               className="w-full h-full object-cover"
-              loop
             />
           </div>
 
-          {/* Explore pill — centered bottom third */}
-          <div className="absolute bottom-[33%] left-0 right-0 flex items-center justify-center z-10">
+          {/* Explore pill — centered lower */}
+          <div className="absolute bottom-[8%] left-0 right-0 flex items-center justify-center z-10">
             <a
               href="/gardens/rooms/arenal-pool-casita"
               className="flex items-center justify-center px-10 py-3.5 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
@@ -474,14 +473,13 @@ function AccommodationsExperiment() {
         <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <NativeVideo
             ref={horizontalRef}
-              src="/manus-storage/gardens-accom-horizontal-trimmed_bb383425.mp4"
+              src="/manus-storage/gardens-s4-horizontal-new_d5ae610b.mp4"
             className="w-full h-full object-cover"
-              loop
           />
         </div>
 
-        {/* Explore pill — centered bottom third */}
-        <div className="absolute bottom-[33%] left-0 right-0 flex items-center justify-center z-10">
+        {/* Explore pill — centered lower */}
+        <div className="absolute bottom-[8%] left-0 right-0 flex items-center justify-center z-10">
           <a
             href="/gardens/rooms/rainforest-pool-villa"
             className="flex items-center justify-center px-10 py-3.5 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
