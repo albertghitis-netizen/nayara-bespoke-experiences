@@ -3028,3 +3028,10 @@
 ## Family Tent Hero Video Replacement
 - [x] Replace Family Tent hero video with new video
 - [x] Implement freeze-on-last-frame behavior for the video (loop=false)
+
+## Gardens Accommodations Section Update
+- [x] Convert vertical video to MP4 and upload to CDN
+- [x] Replace tent imagery with new vertical video in Gardens accommodations
+- [x] Rename room cards: Nayara Tent → Arenal Pool Casita, Family Tent → Rainforest Pool Villa
+- [x] Reserve button: remove arrow
+- [x] Use Gardens nav color palette for the section

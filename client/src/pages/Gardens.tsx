@@ -348,26 +348,24 @@ function StorySection() {
 function AccommodationsExperiment() {
   const verticalRef = useRef<NativeVideoHandle>(null);
   const horizontalRef = useRef<NativeVideoHandle>(null);
-  const [verticalPhase, setVerticalPhase] = useState<"nayara" | "family">("nayara");
-  const [horizontalPhase, setHorizontalPhase] = useState<"grand" | "residence">("grand");
+  const [verticalPhase, setVerticalPhase] = useState<"casita" | "villa">("casita");
+  const [horizontalPhase, setHorizontalPhase] = useState<"casita" | "villa">("casita");
 
-  /* Track vertical video time: 0-4.5s = Nayara Tent, 4.5s+ = Family Tent */
+  /* Track vertical video time: 0-half = Arenal Pool Casita, half+ = Rainforest Pool Villa */
   const handleVerticalTime = useCallback((currentTime: number, duration: number) => {
     const midpoint = duration / 2;
-    setVerticalPhase(currentTime < midpoint ? "nayara" : "family");
+    setVerticalPhase(currentTime < midpoint ? "casita" : "villa");
   }, []);
 
-  /* Track horizontal video time: 0-3s = Grand Tent, 3s+ = Residence */
+  /* Track horizontal video time: 0-half = Arenal Pool Casita, half+ = Rainforest Pool Villa */
   const handleHorizontalTime = useCallback((currentTime: number, duration: number) => {
     const midpoint = duration / 2;
-    setHorizontalPhase(currentTime < midpoint ? "grand" : "residence");
+    setHorizontalPhase(currentTime < midpoint ? "casita" : "villa");
   }, []);
 
   const roomLinks = [
-    { label: "Nayara Tent", route: "/tented-camp/rooms/nayara-tent", sqm: "157.9", guests: "2" },
-    { label: "Family Tent", route: "/tented-camp/rooms/family-tent", sqm: "315", guests: "4" },
-    { label: "Grand Tent", route: "/tented-camp/rooms/grand-tent", sqm: "446", guests: "6" },
-    { label: "Residence", route: "/tented-camp/rooms/residence", sqm: "712", guests: "12" },
+    { label: "Arenal Pool Casita", route: "/gardens/rooms/arenal-pool-casita", sqm: "93", guests: "2" },
+    { label: "Rainforest Pool Villa", route: "/gardens/rooms/rainforest-pool-villa", sqm: "186", guests: "4" },
   ];
 
   return (
@@ -379,7 +377,7 @@ function AccommodationsExperiment() {
           <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
             <NativeVideo
               ref={verticalRef}
-              src="/manus-storage/tented-camp-vertical_90bb91f2.mp4"
+              src="/manus-storage/gardens-accom-vertical_758a5123.mp4"
               className="w-full h-full object-cover"
               onTimeUpdate={handleVerticalTime}
               loop
@@ -388,56 +386,53 @@ function AccommodationsExperiment() {
 
           {/* Timed overlay buttons — centered pill pair */}
           <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-16 z-10">
-            {/* Room name pill — crossfades between Nayara Tent and Family Tent */}
-            <div className="relative" style={{ minWidth: 120, height: 40 }}>
+            {/* Room name pill — crossfades between Arenal Pool Casita and Rainforest Pool Villa */}
+            <div className="relative" style={{ minWidth: 160, height: 40 }}>
               <motion.a
-                href="/tented-camp/rooms/nayara-tent"
+                href="/gardens/rooms/arenal-pool-casita"
                 initial={false}
-                animate={{ opacity: verticalPhase === "nayara" ? 1 : 0 }}
+                animate={{ opacity: verticalPhase === "casita" ? 1 : 0 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-colors"
+                className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
                 style={{
-                  backgroundColor: "rgba(58,42,26,0.7)",
-                  pointerEvents: verticalPhase === "nayara" ? "auto" : "none",
+                  backgroundColor: "rgba(40,98,65,0.75)",
+                  pointerEvents: verticalPhase === "casita" ? "auto" : "none",
                   fontFamily: "var(--font-body)",
                 }}
               >
-                <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap flex items-center gap-2">
-                  Nayara Tent
-                  <svg className="w-3 h-3 translate-x-0 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+                  Arenal Pool Casita
                 </span>
               </motion.a>
               <motion.a
-                href="/tented-camp/rooms/family-tent"
+                href="/gardens/rooms/rainforest-pool-villa"
                 initial={false}
-                animate={{ opacity: verticalPhase === "family" ? 1 : 0 }}
+                animate={{ opacity: verticalPhase === "villa" ? 1 : 0 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-colors"
+                className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
                 style={{
-                  backgroundColor: "rgba(58,42,26,0.7)",
-                  pointerEvents: verticalPhase === "family" ? "auto" : "none",
+                  backgroundColor: "rgba(40,98,65,0.75)",
+                  pointerEvents: verticalPhase === "villa" ? "auto" : "none",
                   fontFamily: "var(--font-body)",
                 }}
               >
-                <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap flex items-center gap-2">
-                  Family Tent
-                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+                  Rainforest Pool Villa
                 </span>
               </motion.a>
             </div>
 
-            {/* Reserve button — always visible */}
+            {/* Reserve button — always visible, no arrow */}
             <a
-              href="/tented-camp"
-              className="flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-colors"
+              href="/gardens"
+              className="flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
               style={{
-                backgroundColor: "rgba(58,42,26,0.7)",
+                backgroundColor: "rgba(40,98,65,0.75)",
                 fontFamily: "var(--font-body)",
               }}
             >
-              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap flex items-center gap-2">
+              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
                 Reserve
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
               </span>
             </a>
           </div>
@@ -458,7 +453,7 @@ function AccommodationsExperiment() {
                 className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
               >
-                Life Under Canvas
+                Private Pool Villas
               </span>
             </h2>
           </AnimateOnScroll>
@@ -468,9 +463,9 @@ function AccommodationsExperiment() {
               className="text-[15px] leading-[1.85] max-w-[480px] mb-8"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              From intimate tents for two to grand family estates, each accommodation
-              is a private sanctuary with hot-springs plunge pools, open-air showers,
-              and volcano views framed by rainforest canopy.
+              Each villa is a private retreat with its own heated plunge pool,
+              open-air garden shower, and panoramic views of Arenal Volcano
+              framed by lush tropical gardens.
             </p>
           </AnimateOnScroll>
 
@@ -514,7 +509,7 @@ function AccommodationsExperiment() {
         <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <NativeVideo
             ref={horizontalRef}
-            src="/manus-storage/tented-camp-horizontal-v2_973b7121.mp4"
+            src="/manus-storage/gardens-accom-horizontal_4f06b701.mp4"
             className="w-full h-full object-cover"
             onTimeUpdate={handleHorizontalTime}
             loop
@@ -523,56 +518,53 @@ function AccommodationsExperiment() {
 
         {/* Timed overlay buttons — centered pill pair */}
         <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-16 z-10">
-          {/* Room name pill — crossfades between Grand Tent and Residence */}
-          <div className="relative" style={{ minWidth: 130, height: 40 }}>
+          {/* Room name pill — crossfades between Arenal Pool Casita and Rainforest Pool Villa */}
+          <div className="relative" style={{ minWidth: 160, height: 40 }}>
             <motion.a
-              href="/tented-camp/rooms/grand-tent"
+              href="/gardens/rooms/arenal-pool-casita"
               initial={false}
-              animate={{ opacity: horizontalPhase === "grand" ? 1 : 0 }}
+              animate={{ opacity: horizontalPhase === "casita" ? 1 : 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-colors"
+              className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
               style={{
-                backgroundColor: "rgba(58,42,26,0.7)",
-                pointerEvents: horizontalPhase === "grand" ? "auto" : "none",
+                backgroundColor: "rgba(40,98,65,0.75)",
+                pointerEvents: horizontalPhase === "casita" ? "auto" : "none",
                 fontFamily: "var(--font-body)",
               }}
             >
-              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap flex items-center gap-2">
-                Grand Tent
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+                Arenal Pool Casita
               </span>
             </motion.a>
             <motion.a
-              href="/tented-camp/rooms/residence"
+              href="/gardens/rooms/rainforest-pool-villa"
               initial={false}
-              animate={{ opacity: horizontalPhase === "residence" ? 1 : 0 }}
+              animate={{ opacity: horizontalPhase === "villa" ? 1 : 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-colors"
+              className="absolute inset-0 flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
               style={{
-                backgroundColor: "rgba(58,42,26,0.7)",
-                pointerEvents: horizontalPhase === "residence" ? "auto" : "none",
+                backgroundColor: "rgba(40,98,65,0.75)",
+                pointerEvents: horizontalPhase === "villa" ? "auto" : "none",
                 fontFamily: "var(--font-body)",
               }}
             >
-              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap flex items-center gap-2">
-                Residence
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+                Rainforest Pool Villa
               </span>
             </motion.a>
           </div>
 
-          {/* Reserve button — always visible */}
+          {/* Reserve button — always visible, no arrow */}
           <a
-            href="/tented-camp"
-            className="flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-colors"
+            href="/gardens"
+            className="flex items-center justify-center px-6 py-2.5 rounded-full backdrop-blur-md shadow-lg transition-colors"
             style={{
-              backgroundColor: "rgba(58,42,26,0.7)",
+              backgroundColor: "rgba(40,98,65,0.75)",
               fontFamily: "var(--font-body)",
             }}
           >
-            <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap flex items-center gap-2">
+            <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
               Reserve
-              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
             </span>
           </a>
         </div>
