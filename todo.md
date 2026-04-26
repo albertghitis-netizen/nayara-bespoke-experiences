@@ -2985,3 +2985,10 @@
 - [x] Add "Three Resorts, One Rainforest" link to main navigation menu pointing to /arenal
 - [x] Move Taste of Place video from brand Gastronomy to Arenal Gastronomy hero (brand gastronomy hero left blank)
 - [x] Footer: Add Nayara Journal and Press & Awards to Explore column, reduce to 3 columns
+
+## Homepage Badge Replacement
+- [x] Replace award badges section on brand homepage with user-provided video (desktop only)
+- [x] Remove badges entirely on mobile brand homepage (already desktop-only, confirmed)
+
+## Mobile Hero Video Update
+- [x] Replace mobile brand hero with new 9:16 vertical video (Hero 4)

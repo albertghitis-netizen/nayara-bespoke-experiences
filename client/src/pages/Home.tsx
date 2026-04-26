@@ -166,7 +166,7 @@ export default function Home() {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = "/manus-storage/brand-hero-final_a81c08c3.mp4";
-  const mobileHeroImage = "/manus-storage/brand-mobile-hero-v2_fdfa9657.jpg";
+  const mobileHeroVideo = "/manus-storage/brand-mobile-hero-v4_81afc933.mp4";
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -183,7 +183,14 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0" data-hero-video>
         {isMobile ? (
-          <img src="/manus-storage/brand-mobile-hero-v2_fdfa9657.jpg" alt="Nayara Resorts" className="w-full h-full object-cover" />
+          <video
+            src={mobileHeroVideo}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            playsInline
+            muted
+          />
         ) : (
           <video
             ref={videoRef}
@@ -282,14 +289,14 @@ function BrandStorySection() {
 
           {/* Badge animation video — desktop only */}
           {!isMobile && (
-            <div className="mt-6 overflow-hidden">
+            <div className="mt-8 flex justify-center">
               <video
-                src="/manus-storage/badge-anim-v2_3d7b8706.mp4"
+                src="/manus-storage/badge-video-v2_42523110.mp4"
                 autoPlay
                 muted
+                loop
                 playsInline
                 className="w-full h-auto"
-                style={{ maxWidth: "600px" }}
               />
             </div>
           )}
