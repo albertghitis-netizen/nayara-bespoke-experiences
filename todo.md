@@ -2910,3 +2910,6 @@
 - [x] Add timed overlay pills to S2 horizontal video on Tented Camp homepage accommodations section
 - [x] 0-4s: "Grand Tent" + "Reserve" pills visible
 - [x] At 4s: "Grand Tent" crossfades to "Residence", "Reserve" stays
+
+## Gardens S1 Vertical Video Swap
+- [x] Replace Gardens S1 vertical video with uploaded sloth video

@@ -319,7 +319,7 @@ function StorySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/gardens-s1-vertical-v2_19393cd5.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/gardens-s1-sloth_25b9fc49.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
