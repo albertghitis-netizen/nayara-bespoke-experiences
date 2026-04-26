@@ -3017,3 +3017,10 @@
 - [ ] Create Springs Spa page (rename from wellness to spa, unique colors)
 - [ ] Create Gardens Spa page (rename from wellness to spa, unique colors)
 - [ ] Register all new routes in App.tsx
+
+## Bocas Treehouse Room Page
+- [x] Upload 10 vertical treehouse images to CDN
+- [x] Build Bocas Treehouse page in Family Tent editorial magazine format
+- [x] Use placeholders for horizontal hero video/image (user will provide later)
+- [x] Register route in App.tsx (already registered)
+- [x] Verify TypeScript compilation (0 errors)
