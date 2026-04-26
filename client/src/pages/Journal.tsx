@@ -369,11 +369,11 @@ function CardOverlay({ entry, children }: { entry: JournalEntry; children: React
   return (
     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
       {entry.property && entry.property !== "brand" && (
-        <p className="text-white/40 text-[9px] tracking-[0.2em] uppercase mb-1.5" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+        <p className="text-white/40 text-[9px] tracking-[0.2em] uppercase mb-1.5 group-hover:text-white/70 transition-all duration-500" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
           {entry.property.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
         </p>
       )}
-      <h3 className="text-white text-[15px] md:text-[16px] leading-[1.25] line-clamp-2 group-hover:text-white/85 transition-colors" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+      <h3 className="text-white text-[15px] md:text-[16px] leading-[1.25] line-clamp-2 group-hover:text-[#E1D1BA] transition-all duration-500" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
         {entry.title}
       </h3>
       <div className="flex items-center gap-2 mt-2.5 flex-wrap">
@@ -386,7 +386,7 @@ function CardOverlay({ entry, children }: { entry: JournalEntry; children: React
 /* ── Single pill (Read or Listen-only) ── */
 function SinglePill({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 text-white/55 text-[10px] tracking-[0.15em] uppercase group-hover:text-white/80 transition-colors" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+    <span className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase group-hover:bg-[#E1D1BA]/25 group-hover:border-[#E1D1BA]/40 group-hover:text-[#E1D1BA] transition-all duration-500" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
       {label}
       {icon}
     </span>
@@ -399,10 +399,10 @@ function DualWatchListenPills({ onWatch, listenUrl }: { onWatch: () => void; lis
     <>
       <button
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); onWatch(); }}
-        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase group-hover:bg-[#E1D1BA]/25 group-hover:border-[#E1D1BA]/40 group-hover:text-[#E1D1BA] transition-all duration-500"
         style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
       >
-        <Play className="w-2.5 h-2.5 fill-white" />
+        <Play className="w-2.5 h-2.5 fill-current" />
         Watch
       </button>
       <a
@@ -410,7 +410,7 @@ function DualWatchListenPills({ onWatch, listenUrl }: { onWatch: () => void; lis
         target="_blank"
         rel="noopener noreferrer"
         onClick={(e) => e.stopPropagation()}
-        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase group-hover:bg-[#E1D1BA]/25 group-hover:border-[#E1D1BA]/40 group-hover:text-[#E1D1BA] transition-all duration-500"
         style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
       >
         <Headphones className="w-2.5 h-2.5" />

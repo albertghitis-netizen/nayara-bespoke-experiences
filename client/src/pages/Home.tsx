@@ -674,14 +674,14 @@ function AwardsHighlightSection() {
           </span>
           <div className="w-8 h-px mb-5 group-hover:w-16 group-hover:h-[2px] transition-all duration-500 ease-out" style={{ backgroundColor: "#E1D1BA" }} />
           <h3
-            className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-colors duration-500 min-h-[46px] flex items-start"
+            className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-all duration-500 min-h-[46px] flex items-start group-hover:text-[#E1D1BA] group-hover:scale-[1.02] origin-left"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#FFFFFF" }}
           >
             {award.accolade}
           </h3>
           <p
-            className="text-[12px] tracking-[0.06em] transition-colors duration-500 mt-auto"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+            className="text-[14px] md:text-[15px] tracking-[0.04em] transition-all duration-500 mt-auto group-hover:text-white group-hover:tracking-[0.06em]"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.5)" }}
           >
             {award.property}
           </p>

@@ -3062,3 +3062,15 @@
 ## Mobile: No videos except hero
 - [x] Brand homepage: award card videos hidden on mobile (dark espresso bg fallback)
 - [ ] All other pages: replace all non-hero videos with still images on mobile
+
+## Tented Camp Wellness Page Cleanup
+- [ ] Remove Volcanic Hot Springs from tented wellness page
+- [ ] Remove Desert Sound Healing from tented wellness page
+- [ ] Remove Pacific Ocean Front Wellness from tented wellness page
+
+## Experiential Wellness Page (replaces TentedWellness)
+- [x] Rewrite TentedWellness.tsx as "Experiential Wellness" — Costa Rica only
+- [x] Remove Atacama, Hangaroa, Bocas content
+- [x] Keep Gardens, Springs, Tented Camp wellness pillars
+- [x] Add spa treatments from TentedCampWellness (tented-camp property data)
+- [x] Update route/navigation references
