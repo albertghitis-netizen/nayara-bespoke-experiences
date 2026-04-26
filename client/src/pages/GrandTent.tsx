@@ -11,6 +11,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
+import BlobVideo from "@/components/BlobVideo";
 
 /* ── Palette (same tented camp olive) ── */
 const P = {
@@ -35,6 +36,7 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 
 /* ── CDN Images (reusing Tented Camp images until Grand Tent specific ones arrive) ── */
 const IMG = {
+  heroVideo: "/manus-storage/Tentreel4-converted_afd33d7d.mp4",
   heroFallback: "/manus-storage/ntc-aerial-connecting_6479275a.jpg",
   exterior: "/manus-storage/Resort-6-LR_29e9a13e.jpg",
   drone: "/manus-storage/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_dca70410.JPEG",
@@ -98,9 +100,8 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <img
-          src={IMG.heroFallback}
-          alt=""
+        <BlobVideo
+          src={IMG.heroVideo}
           className="w-full h-full object-cover"
         />
       </motion.div>

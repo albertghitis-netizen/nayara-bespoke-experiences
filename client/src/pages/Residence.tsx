@@ -11,6 +11,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
+import BlobVideo from "@/components/BlobVideo";
 
 /* ── Palette (same tented camp olive) ── */
 const P = {
@@ -34,6 +35,7 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 
 /* ── CDN Images ── */
 const IMG = {
+  heroVideo: "/manus-storage/tented-residence-hero_e6990cf1.mp4",
   exterior: "/manus-storage/Resort-6-LR_29e9a13e.jpg",
   drone: "/manus-storage/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_dca70410.JPEG",
   bedroom: "/manus-storage/RoomsNayaraTent1_c303c949.jpeg",
@@ -102,9 +104,8 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <img
-          src={IMG.drone}
-          alt=""
+        <BlobVideo
+          src={IMG.heroVideo}
           className="w-full h-full object-cover"
         />
       </motion.div>

@@ -10,6 +10,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
+import BlobVideo from "@/components/BlobVideo";
+
+const heroVideo = "/manus-storage/arenal-pool-casita-hero_21ee350d.mp4";
 
 /* ── Palette ── */
 const P = {
@@ -116,9 +119,8 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <img
-          src={IMG.aerial}
-          alt=""
+        <BlobVideo
+          src={heroVideo}
           className="w-full h-full object-cover"
         />
       </motion.div>

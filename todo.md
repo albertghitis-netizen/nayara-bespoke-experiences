@@ -3045,3 +3045,11 @@
 - [x] Remove BlobVideo hero from SpringsVilla.tsx, replace with hero image + parallax
 - [x] Enrich GrandTent.tsx with horizontal gallery and photo-bg CTA
 - [x] Enrich Residence.tsx with full editorial structure
+
+## Room Deep Pages — Restore Hero Videos (keep other changes intact)
+- [x] Restore BlobVideo hero on FamilyTent.tsx (add import + heroVideo URL + BlobVideo in hero section)
+- [x] Restore BlobVideo hero on NayaraTent.tsx
+- [x] Restore BlobVideo hero on GrandTent.tsx
+- [x] Restore BlobVideo hero on Residence.tsx
+- [x] Restore BlobVideo hero on ArenalPoolCasita.tsx
+- [x] Restore BlobVideo hero on SpringsVilla.tsx
