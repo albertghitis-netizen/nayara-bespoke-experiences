@@ -200,6 +200,7 @@ type CascadeSectionData = {
   verticalOverlayButtons?: { top: { explore: string; reserve: string; exploreLink?: string }; bottom: { explore: string; reserve: string; exploreLink?: string } };
   horizontalOverlayButtons?: { labels: { label: string; link: string; switchAt: number }[]; reserveLabel: string };
   stats?: { label: string; value: string }[];
+  roomCards?: { label: string; route: string; sqm: string; guests: string }[];
   hideH?: boolean;
 };
 
@@ -253,48 +254,30 @@ function CascadeSection({
               loop={section.horizontalLoop}
             />
           )}
-          {/* Overlay pill CTAs — timed crossfade */}
+          {/* Explore pills overlay */}
           {section.horizontalOverlayButtons ? (
-            <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
-              <div className="flex items-center gap-6 pointer-events-auto">
-                {/* Room name pill — crossfades between labels */}
-                <div className="relative" style={{ minWidth: "160px", height: "44px" }}>
-                  {section.horizontalOverlayButtons.labels.map((item, i) => (
-                    <a
-                      key={item.label}
-                      href={item.link}
-                      className="group absolute inset-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border hover:scale-[1.03] hover:shadow-lg"
-                      style={{
-                        fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const,
-                        color: "#FFFFFF", backgroundColor: PILL_BG, borderColor: PILL_BORDER,
-                        backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)",
-                        opacity: hLabelIdx === i ? 1 : 0,
-                        transition: "opacity 0.6s ease",
-                        pointerEvents: hLabelIdx === i ? "auto" : "none",
-                      }}
-                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PILL_BG; }}
-                    >
-                      {item.label}
-                      <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                    </a>
-                  ))}
-                </div>
-                {/* Reserve pill — always visible */}
-                <button
-                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation \u2014 Coming Soon"))}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PILL_BG, borderColor: PILL_BORDER, backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = PILL_BG; }}
-                >
-                  {section.horizontalOverlayButtons.reserveLabel}
-                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </button>
-              </div>
+            <div className="absolute bottom-[6%] left-0 right-0 z-10 flex items-end justify-between px-8 pointer-events-none">
+              <a
+                href={section.horizontalOverlayButtons.labels[0]?.link || "#"}
+                className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+              >
+                <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                  Explore {section.horizontalOverlayButtons.labels[0]?.label}
+                </span>
+              </a>
+              <a
+                href={section.horizontalOverlayButtons.labels[1]?.link || "#"}
+                className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+              >
+                <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                  Explore {section.horizontalOverlayButtons.labels[1]?.label}
+                </span>
+              </a>
             </div>
           ) : section.link && (
-            <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
+            <div className="absolute bottom-[6%] left-0 right-0 flex items-end justify-center pointer-events-none">
               <a
                 href={section.link}
                 className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
@@ -332,54 +315,32 @@ function CascadeSection({
       <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media — on mobile: always after text (order-2), on desktop: alternates */}
         <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
-          {/* Overlay buttons on vertical media */}
+          {/* Explore pills on vertical media */}
           {section.verticalOverlayButtons && (
-            <div className="absolute inset-0 z-10 flex flex-col justify-between pointer-events-none" style={{ padding: "22% 6% 18% 6%" }}>
-              <div className="flex items-center justify-center gap-16 pointer-events-auto">
-                <button
-                  onClick={() => { if (section.verticalOverlayButtons!.top.exploreLink) window.location.href = section.verticalOverlayButtons!.top.exploreLink; }}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(134,139,117,0.82)"; }}
+            <>
+              <div className="absolute top-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none">
+                <a
+                  href={section.verticalOverlayButtons.top.exploreLink || "#"}
+                  className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
                 >
-                  {section.verticalOverlayButtons.top.explore}
-                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </button>
-                <button
-                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(134,139,117,0.82)"; }}
-                >
-                  {section.verticalOverlayButtons.top.reserve}
-                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </button>
+                  <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                    Explore {section.verticalOverlayButtons.top.explore}
+                  </span>
+                </a>
               </div>
-              <div className="flex items-center justify-center gap-16 pointer-events-auto">
-                <button
-                  onClick={() => { if (section.verticalOverlayButtons!.bottom.exploreLink) window.location.href = section.verticalOverlayButtons!.bottom.exploreLink; }}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(134,139,117,0.82)"; }}
+              <div className="absolute bottom-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none">
+                <a
+                  href={section.verticalOverlayButtons.bottom.exploreLink || "#"}
+                  className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
                 >
-                  {section.verticalOverlayButtons.bottom.explore}
-                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </button>
-                <button
-                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(134,139,117,0.82)", borderColor: "rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "rgba(58,42,26,0.9)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "rgba(134,139,117,0.82)"; }}
-                >
-                  {section.verticalOverlayButtons.bottom.reserve}
-                  <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </button>
+                  <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                    Explore {section.verticalOverlayButtons.bottom.explore}
+                  </span>
+                </a>
               </div>
-            </div>
+            </>
           )}
           {section.mobileVerticalSrc ? (
             <>
@@ -462,6 +423,50 @@ function CascadeSection({
                   <div key={i} className="flex flex-col">
                     <span className="text-[18px] font-light tracking-tight" style={{ fontFamily: "var(--font-display)", color: accentColor }}>{stat.value}</span>
                     <span className="text-[10px] tracking-[0.14em] uppercase mt-0.5" style={{ ...body, fontWeight: 500, color: textSecondaryColor, opacity: 0.65 }}>{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            </AnimateOnScroll>
+          )}
+          {section.roomCards && section.roomCards.length > 0 && (
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <div className="grid grid-cols-2 gap-3 max-w-[480px] mt-6">
+                {section.roomCards.map((room) => (
+                  <div key={room.label} className="flex flex-col gap-3">
+                    <a
+                      href={room.route}
+                      className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]"
+                      style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+                    >
+                      <span
+                        className="block text-[13px] tracking-[0.12em] uppercase mb-1"
+                        style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: textColor }}
+                      >
+                        {room.label}
+                      </span>
+                      <span
+                        className="block text-[11px] tracking-[0.04em]"
+                        style={{ fontFamily: "var(--font-body)", color: textSecondaryColor }}
+                      >
+                        {room.sqm} sqm · {room.guests} guests
+                      </span>
+                      <span
+                        className="absolute bottom-3 right-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"
+                        style={{ color: textSecondaryColor }}
+                      >
+                        Explore →
+                      </span>
+                    </a>
+                    <a
+                      href="/tented-camp"
+                      className="pl-[18px] text-[11px] tracking-[0.15em] uppercase font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        color: accentColor,
+                      }}
+                    >
+                      Reserve {room.label}
+                    </a>
                   </div>
                 ))}
               </div>
@@ -868,10 +873,11 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
       bottom: { explore: "Family Tent", reserve: "Reserve", exploreLink: "/tented-camp/rooms/family-tent" },
     },
     horizontalOverlayButtons: { labels: [{ label: "Grand Tent", link: "/tented-camp/rooms/grand-tent", switchAt: 0 }, { label: "Residence", link: "/tented-camp/rooms/residence", switchAt: 4 }], reserveLabel: "Reserve" },
-    stats: [
-      { value: "32", label: "Luxury Tents" },
-      { value: "5★", label: "Forbes Rated" },
-      { value: "Private", label: "Plunge Pools" },
+    roomCards: [
+      { label: "Nayara Tent", route: "/tented-camp/rooms/nayara-tent", sqm: "65", guests: "2" },
+      { label: "Family Tent", route: "/tented-camp/rooms/family-tent", sqm: "93", guests: "4" },
+      { label: "Grand Tent", route: "/tented-camp/rooms/grand-tent", sqm: "130", guests: "2" },
+      { label: "Residence", route: "/tented-camp/rooms/residence", sqm: "186", guests: "6" },
     ],
   },
   {
