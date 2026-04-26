@@ -37,7 +37,7 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 
 /* ── CDN Images (reusing Tented Camp images until Grand Tent specific ones arrive) ── */
 const IMG = {
-  heroVideo: "/manus-storage/Tentreel4_88ffd3fb.mov",
+  heroVideo: "/manus-storage/Tentreel4-converted_afd33d7d.mp4",
   heroFallback: "/manus-storage/ntc-aerial-connecting_6479275a.jpg",
   exterior: "/manus-storage/Resort-6-LR_29e9a13e.jpg",
   drone: "/manus-storage/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_dca70410.JPEG",

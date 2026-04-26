@@ -36,7 +36,7 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 
 /* ── CDN Images ── */
 const IMG = {
-  heroVideo: "/manus-storage/treehouse-hero_5341a0bb.mov",
+  heroVideo: "/manus-storage/treehouse-hero_d342d105.mp4",
   barDay: "/manus-storage/F07EC752-9B27-44B1-8B5D-8151950514D0_54fcbd96.jpeg",
   walkway: "/manus-storage/57155D8E-93A0-400C-92B4-AB0BBDDA32F8_99095f94.jpeg",
   barEvening: "/manus-storage/19353ABC-004C-4767-83C3-BED3084C4898_efb60a1c.jpeg",
