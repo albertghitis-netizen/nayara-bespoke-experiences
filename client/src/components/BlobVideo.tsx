@@ -74,12 +74,19 @@ export default function BlobVideo({
       }
     };
 
+    // Try play on multiple events for maximum compatibility
     video.addEventListener("loadeddata", tryPlay);
     video.addEventListener("canplay", tryPlay);
+    video.addEventListener("playing", tryPlay);
+
+    // Also try after a short delay
+    const timer = setTimeout(tryPlay, 100);
 
     return () => {
       video.removeEventListener("loadeddata", tryPlay);
       video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("playing", tryPlay);
+      clearTimeout(timer);
     };
   }, [src, autoPlay]);
 
@@ -133,7 +140,7 @@ export default function BlobVideo({
         playsInline={playsInline}
         poster={poster}
         preload="metadata"
-        controls={controls}
+        controls={false}
         onLoadedData={() => setIsLoaded(true)}
         onError={() => {
           console.error("Video load error:", src);

@@ -56,9 +56,9 @@ const GASTRO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/a
 function HeroSection() {
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
-      {/* Hero video — Taste of Place */}
-      <div className="absolute inset-0">
-        <NativeVideo src={GASTRO_VIDEO} className="w-full h-full object-cover" />
+      {/* Hero placeholder */}
+      <div className="absolute inset-0 bg-gradient-to-br from-stone-300 to-stone-400 flex items-center justify-center">
+        <span className="text-stone-600 text-sm tracking-widest uppercase" style={{ fontFamily: "var(--font-body)" }}>Hero Video Placeholder</span>
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
 
