@@ -6,6 +6,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import NayaraJourneyMap from "@/components/NayaraJourneyMap";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
+import CanvasVideo from "@/components/CanvasVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
 
@@ -166,7 +167,7 @@ export default function Home() {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = "/manus-storage/brand-hero-final_a81c08c3.mp4";
-  const mobileHeroVideo = "/manus-storage/mobile-hero-reencoded_66d9027b.mp4";
+  const mobileHeroVideo = "/manus-storage/mobile-hero-web_9f66d743.mp4";
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
@@ -178,22 +179,10 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0" data-hero-video>
         {isMobile ? (
-          <video
+          <CanvasVideo
             src={mobileHeroVideo}
-            className="w-full h-full object-cover"
-            autoPlay
+            className="w-full h-full"
             loop
-            playsInline
-            muted
-            preload="auto"
-            controls={false}
-            disablePictureInPicture
-            controlsList="nofullscreen nodownload"
-            style={{
-              WebkitUserSelect: 'none',
-              WebkitTouchCallout: 'none',
-            } as any}
-            {...{ 'webkit-playsinline': '' } as any}
           />
         ) : (
           <video
@@ -208,24 +197,6 @@ function HeroSection() {
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
-        {/* Invisible overlay to block play button clicks on mobile */}
-        {isMobile && (
-          <div
-            className="absolute inset-0 pointer-events-auto"
-            style={{
-              background: 'transparent',
-              zIndex: 5,
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-            onTouchStart={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-          />
-        )}
       </div>
       
       {/* Sound pill — FIXED, aligned with BrandNavigation hamburger (same row) */}
