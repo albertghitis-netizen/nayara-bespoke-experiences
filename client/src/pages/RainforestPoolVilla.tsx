@@ -35,7 +35,6 @@ const IMG = {
   vanity: "/manus-storage/rv-vanity_68f4f4d7.jpg",     // bathroom vanity
   /* Shared Gardens images that work for Rainforest Villa context */
   aerial: "/manus-storage/ng-23_5590429c.jpg",         // aerial of villa in forest
-  deck: "/manus-storage/ng-11_2adf9087.jpg",           // deck with pool
   garden: "/manus-storage/ng-70_2e15d38a.jpg",         // garden path
   pool: "/manus-storage/ng-73_4a320fd4.jpg",           // pool detail
   nature: "/manus-storage/ng-85_1f3c90d1.jpg",         // nature/wildlife
@@ -405,7 +404,7 @@ function PhotoGrid() {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   const gridImages = [
-    IMG.vanity, IMG.detail, IMG.deck, IMG.lobby,
+    IMG.vanity, IMG.detail, IMG.lobby,
     IMG.garden, IMG.pool, IMG.nature, IMG.sunset,
     IMG.night,
   ];

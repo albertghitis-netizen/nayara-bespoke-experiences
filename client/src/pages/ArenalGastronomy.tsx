@@ -56,16 +56,23 @@ const GASTRO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/a
 function HeroSection() {
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
-      {/* Hero placeholder */}
-      <div className="absolute inset-0 bg-gradient-to-br from-stone-300 to-stone-400 flex items-center justify-center">
-        <span className="text-stone-600 text-sm tracking-widest uppercase" style={{ fontFamily: "var(--font-body)" }}>Hero Video Placeholder</span>
+      {/* Hero Video */}
+      <div className="absolute inset-0">
+        <NativeVideo
+          src={GASTRO_VIDEO}
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
 
       {/* Back button */}
       <div className="absolute top-6 left-0 right-0 z-20 flex justify-center">
         <a
-          href="/arenal"
+          href="/experiential-arenal"
           className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
         >
           <svg className="w-3.5 h-3.5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

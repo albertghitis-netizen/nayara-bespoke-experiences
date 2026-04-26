@@ -114,8 +114,8 @@ function Router() {
           <Route path="/alto-atacama/wellness">{() => <CostaRicaWellness propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/sustainability">{() => <CostaRicaSustainability propertySlug="alto-atacama" />}</Route>
-          <Route path="/arenal" component={CostaRica} />
-          <Route path="/arenal/gastronomy" component={ArenalGastronomy} />
+          <Route path="/experiential-arenal" component={CostaRica} />
+          <Route path="/gastronomy-arenal" component={ArenalGastronomy} />
           <Route path="/tented-camp" component={TentedCamp} />
           <Route path="/tented-camp/rooms" component={TentedRooms} />
           <Route path="/tented-camp/rooms/nayara-tent" component={NayaraTent} />

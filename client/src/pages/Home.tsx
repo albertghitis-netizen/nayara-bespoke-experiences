@@ -181,6 +181,7 @@ function HeroSection() {
         {isMobile ? (
           <CanvasVideo
             src={mobileHeroVideo}
+            poster="/manus-storage/mobile-hero-poster_8227be2e.jpg"
             className="w-full h-full"
             loop
           />

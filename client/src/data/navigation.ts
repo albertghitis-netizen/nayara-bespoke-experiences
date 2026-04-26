@@ -65,7 +65,7 @@ export const PROPERTY_MENU: MenuItem[] = [];
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
 /* Explore column items (pillars + journal + awards) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
-  { label: "Three Resorts, One Rainforest", route: "/arenal" },
+  { label: "Experiential Arenal", route: "/experiential-arenal" },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },

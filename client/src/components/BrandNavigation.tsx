@@ -21,7 +21,7 @@ import {
 
 /* ── Global menu items (matches footer) ── */
 const GLOBAL_MENU = [
-  { label: "Three Resorts, One Rainforest", route: "/arenal" },
+  { label: "Experiential Arenal", route: "/experiential-arenal" },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },

@@ -2992,3 +2992,28 @@
 
 ## Mobile Hero Video Update
 - [x] Replace mobile brand hero with new 9:16 vertical video (Hero 4)
+
+## Mobile Hero Video Loading Delay
+- [x] Add poster/first-frame image to CanvasVideo so no blank flash while video loads
+- [x] Preload video for faster start
+
+## Mixed Images — Rainforest Pool Villa & Arenal Pool Casita
+- [x] Remove blue side table deck image (ng-11) from Rainforest Villa grid
+- [ ] Remove botanical mural bedside image from Rainforest Villa (if present)
+- [ ] Ensure hammock/pool deck image is on Rainforest Villa page and NOT on Casita
+- [ ] Verify no Casita images appear on Rainforest Villa and vice versa
+
+## Arenal Hub Restructure
+- [x] Fix TS errors in Home.tsx blocking dev server (stale LSP cache, tsc clean)
+- [x] Rename /arenal route to /experiential-arenal and update all references
+- [x] Rename nav label "Three Resorts One Rainforest" to "Experiential Arenal"
+- [ ] Rename gastronomy route to /gastronomy-arenal and change H1 to "Rainforest to Table"
+- [x] Restore gastronomy hero video
+- [ ] Create Rainforest Romance page under /experiential-arenal/rainforest-romance
+- [ ] Create Family Adventure page under /experiential-arenal/family-adventure
+- [ ] Update hub page to link to Rainforest Romance, Family Adventure, and Gastronomy
+- [x] Create Nurtured by Nature page under /experiential-arenal/nurtured-by-nature
+- [ ] Create Tented Camp Spa page (rename from wellness to spa, unique colors)
+- [ ] Create Springs Spa page (rename from wellness to spa, unique colors)
+- [ ] Create Gardens Spa page (rename from wellness to spa, unique colors)
+- [ ] Register all new routes in App.tsx
