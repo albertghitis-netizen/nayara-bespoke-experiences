@@ -166,32 +166,22 @@ export default function Home() {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = "/manus-storage/brand-hero-final_a81c08c3.mp4";
-  const mobileHeroVideo = "/manus-storage/brand-mobile-hero-v4_81afc933.mp4";
+  const mobileHeroImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-landing-vertical_a7242694.mp4"; // Using first frame as fallback
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
-
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = isMuted;
     }
   }, [isMuted]);
-
-
-
-
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0" data-hero-video>
         {isMobile ? (
-          <video
-            src={mobileHeroVideo}
+          <img
+            src={mobileHeroImage}
+            alt="Luxury Resorts Hero"
             className="w-full h-full object-cover"
-            autoPlay
-            loop
-            playsInline
-            muted
-            preload="auto"
-            {...{ 'webkit-playsinline': '' } as any}
           />
         ) : (
           <video
@@ -202,6 +192,7 @@ function HeroSection() {
             loop
             playsInline
             muted
+            controls={false}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />

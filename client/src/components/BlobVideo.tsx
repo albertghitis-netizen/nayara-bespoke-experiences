@@ -7,7 +7,7 @@
  * - Optional mute/unmute pill button for videos with audio
  *   (videos autoplay muted; user taps once to hear sound)
  * - Sound pill is FIXED positioned to align with BrandNavigation
- *   (same row as hamburger + reserve: fixed top-2, next to hamburger)
+ * - Transparent overlay to block native play button clicks on mobile
  */
 import { useRef, useState, useEffect, useCallback } from "react";
 
@@ -53,6 +53,7 @@ export default function BlobVideo({
   // Enable audio on all devices (mobile + desktop)
   const effectiveHasAudio = hasAudio;
 
+  // Main autoplay logic with mobile-specific handling
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -120,20 +121,14 @@ export default function BlobVideo({
   const bgStyle = pillBg || "rgba(59,43,38,0.8)";
   const fgStyle = pillColor || "#F7F5F0";
 
-  /*
-   * Nav alignment reference (from BrandNavigation):
-   * nav: fixed top-2 left-0 right-0 z-50 px-3
-   * hamburger: w-9 h-9 (36px)
-   * So Sound pill sits at: fixed top-2, left = px-3 + w-9 + gap
-   * = 12px + 36px + 8px = 56px from left
-   * On mobile: same calculation applies
-   */
-
   return (
-    <div className="relative w-full h-full">
+    <div 
+      className="relative w-full h-full" 
+      style={{ WebkitTouchCallout: 'none' } as any}
+    >
       <video
         ref={videoRef}
-        className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700`}
+        className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700 block`}
         autoPlay={autoPlay}
         muted={muted}
         loop={loop}
@@ -141,12 +136,18 @@ export default function BlobVideo({
         poster={poster}
         preload="metadata"
         controls={false}
+        disablePictureInPicture
+        controlsList="nofullscreen nodownload"
         onLoadedData={() => setIsLoaded(true)}
         onError={() => {
           console.error("Video load error:", src);
           setHasError(true);
         }}
         onEnded={onEnded}
+        style={{
+          WebkitUserSelect: 'none',
+          WebkitTouchCallout: 'none',
+        } as any}
       >
         <source src={src} type={getVideoType(src)} />
         {getVideoType(src) !== "video/mp4" && (
@@ -168,6 +169,27 @@ export default function BlobVideo({
         />
       )}
 
+      {/* Invisible overlay to block native play button on mobile */}
+      {isLoaded && (
+        <div
+          className="absolute inset-0 pointer-events-auto"
+          style={{
+            background: 'transparent',
+            zIndex: 5,
+            WebkitUserSelect: 'none',
+            WebkitTouchCallout: 'none',
+          }}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
+        />
+      )}
+
       {/* Mute / Unmute pill — FIXED, aligned with BrandNavigation hamburger */}
       {effectiveHasAudio && (
         <button
@@ -175,8 +197,8 @@ export default function BlobVideo({
           aria-label={isMuted ? "Unmute video" : "Mute video"}
           className="fixed z-50 hidden md:flex lg:flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
           style={{
-            top: "10px",      /* aligned with nav hamburger center */
-            left: "56px",     /* px-3 (12px) + w-9 (36px) + 8px gap = 56px */
+            top: "10px",
+            left: "56px",
             backgroundColor: bgStyle,
             borderColor: "rgba(255,255,255,0.1)",
           }}
