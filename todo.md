@@ -2969,3 +2969,14 @@
 - [x] La Terraza: add real hero image from CDN
 - [x] Layla's: add real hero image from CDN
 - [x] Nostalgia: add real hero image from CDN
+
+## Amor Loco 300dpi Upgrade
+- [x] Download all 31+ Amor Loco 300dpi images from Dropbox
+- [x] Upload to CDN and replace existing Amor Loco image set
+- [x] Update culinaryImages.ts data file with new URLs
+
+## Gardens Room Pages — Full Build
+- [x] Download all Gardens room images from Dropbox folder
+- [x] Upload Gardens room images to CDN
+- [x] Build Arenal Pool Casita room page with full content (like Tented Camp rooms)
+- [x] Build Rainforest Pool Villa room page with full content (like Tented Camp rooms)
