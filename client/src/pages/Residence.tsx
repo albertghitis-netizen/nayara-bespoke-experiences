@@ -1,117 +1,683 @@
 /*
- * TENTED RESIDENCE — Deeper Room Detail Page (placeholder)
- * Will be built out when content arrives
- * Hero video: tented-residence-hero.mp4
+ * NAYARA RESIDENCE — Deeper Room Detail Page
+ * Layout: Editorial Magazine (matching FamilyTent/GrandTent style)
+ * 712 sqm / 7,664 sq ft — 2 Nayara Tents (each: king + 2 daybeds) +
+ * 2 connecting rooms (each: 2 queens) + living area hub + infinity pool +
+ * fire pit + full kitchen + private concierge
+ * Palette: Olive 3-tone (#868B75, #525642, #9A9086) on bone #EDEEE2
  */
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
+import FloorPlanExplorer from "@/components/FloorPlanExplorer";
+import { useIsMobile } from "@/hooks/useMobile";
 
+/* ── Palette (same tented camp olive) ── */
 const P = {
   bg: "#EDEEE2",
+  bgDark: "#525642",
   text: "#0D0604",
+  textSoft: "#0D0604CC",
+  textMuted: "#1A0F0A80",
   primary: "#868B75",
   secondary: "#525642",
+  accent: "#9A9086",
   bone: "#F7F5F0",
   white: "#FFFFFF",
 };
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)" } as const;
 
-const heroVideo = "/manus-storage/tented-residence-hero_e6990cf1.mp4";
+/* ── Frosted glass pill style ── */
+const PILL_BG = "rgba(134,139,117,0.82)";
+const PILL_BORDER = "rgba(255,255,255,0.25)";
 
+/* ── CDN Images ── */
+const IMG = {
+  heroVideo: "/manus-storage/tented-residence-hero_e6990cf1.mp4",
+  exterior: "/manus-storage/Resort-6-LR_29e9a13e.jpg",
+  drone: "/manus-storage/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_dca70410.JPEG",
+  bedroom: "/manus-storage/RoomsNayaraTent1_c303c949.jpeg",
+  bathroom: "/manus-storage/RoomsFamilyTent4_728d949f.jpeg",
+  familyDaybed: "/manus-storage/NayaraTentedCampTheGlobalWizards-78_a1f0ab1b.jpeg",
+  tentPool: "/manus-storage/IMG_5354_30daf7c5.jpg",
+  bridge: "/manus-storage/Resort9_c29b5d0f.jpeg",
+  kidsRoom: "/manus-storage/8.Familytentkidsroom.4O1A0231_f12fc400.jpeg",
+  tentsFromAbove: "/manus-storage/69.FamilyTentsfromabovejpg_5f2905ac.jpeg",
+};
+
+/* ── Amenities ── */
+const AMENITIES = [
+  "4 bedrooms: 2 master king-size beds, 2 rooms with 2 queen beds each",
+  "Each master bedroom has its own private plunge pool from hot springs",
+  "Large outdoor living space with daybeds & private fire pit",
+  "Private infinity pool from hot springs",
+  "Fully equipped kitchen and dining room",
+  "Private concierge service",
+  "Welcome cocktails, daily fresh fruit, coffee, tea & soft drinks",
+  "Maid service twice a day",
+  "Bathrooms with large bathtub, twin vanities, dressing areas",
+  "Indoor & outdoor double showers",
+  "Complimentary Wi-Fi throughout the resort",
+  "Complimentary laundry service",
+  "Complimentary daily yoga sessions",
+  "Complimentary weekly bird watching tour",
+  "Complimentary frog tour twice a week",
+  "Private chef experience available",
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   MAIN PAGE
+   ═══════════════════════════════════════════════════════════════ */
 export default function Residence() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: P.bg }}>
       <BrandNavigation pageType="property" hideCenterLabel />
+      <HeroSection />
+      <IntroSection />
+      <FullBleedBreak />
+      <FeaturesGrid />
+      <FloorPlanExplorer initialTier="residence" availableTiers={["tent", "family", "grand", "residence"]} />
+      <ConciergeSection />
+      <AmenitiesSection />
+      <NatureSection />
+      <CTASection />
+      <Footer pageType="property" bgColor={P.primary} />
+    </div>
+  );
+}
 
-      {/* Hero with video */}
-      <section className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
-        <div className="absolute inset-0">
-          <BlobVideo
-            src={heroVideo}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        </div>
-        <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-16 pb-12 md:pb-20">
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white/60 text-[11px] md:text-xs tracking-[0.3em] uppercase mb-3"
+/* ═══════════════════════════════════════════════════════════════
+   S1 — HERO: Full-bleed video with room name overlay
+   ═══════════════════════════════════════════════════════════════ */
+function HeroSection() {
+  return (
+    <section className="relative w-full h-screen overflow-hidden">
+      <div className="absolute inset-0">
+        <BlobVideo
+          src={IMG.heroVideo}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+      </div>
+
+      {/* Back to Tented Camp */}
+      <div className="absolute top-24 md:top-28 right-6 md:right-16 z-20">
+        <a
+          href="/tented-camp"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+          style={{
+            ...body,
+            fontWeight: 500,
+            fontSize: "10px",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase" as const,
+            color: P.white,
+            backgroundColor: "rgba(134,139,117,0.5)",
+            borderColor: PILL_BORDER,
+          }}
+        >
+          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+          </svg>
+          Tented Camp
+        </a>
+      </div>
+
+      {/* Content — anchored to bottom */}
+      <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-16 pb-12 md:pb-20">
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-white/60 text-[11px] md:text-xs tracking-[0.3em] uppercase mb-3"
+          style={{ ...body, fontWeight: 500 }}
+        >
+          Nayara Tented Camp
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="text-white text-4xl md:text-6xl lg:text-7xl mb-4"
+          style={display}
+        >
+          Nayara Residences
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-white/80 text-base md:text-lg max-w-xl"
+          style={body}
+        >
+          Where timeless family memories unfold in the heart of the rainforest
+        </motion.p>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="mt-8 flex items-center gap-3"
+        >
+          <div className="w-px h-8 bg-white/30" />
+          <span
+            className="text-white/40 text-[9px] tracking-[0.3em] uppercase"
             style={{ ...body, fontWeight: 500 }}
           >
-            Nayara Tented Camp
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="text-white text-4xl md:text-6xl lg:text-7xl mb-4"
-            style={display}
-          >
-            Tented Residence
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-white/80 text-base md:text-lg max-w-xl"
-            style={body}
-          >
-            A private estate in the heart of the rainforest — content coming soon
-          </motion.p>
-        </div>
+            Scroll
+          </span>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Back to Tented Camp */}
-        <div className="absolute top-24 md:top-28 right-6 md:right-16 z-20">
+/* ═══════════════════════════════════════════════════════════════
+   S2 — INTRO: Image left, text right
+   ═══════════════════════════════════════════════════════════════ */
+function IntroSection() {
+  return (
+    <section className="py-16 md:py-28 px-6 md:px-10 lg:px-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        {/* Image left */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9 }}
+          className="relative"
+        >
+          <div className="aspect-[3/4] overflow-hidden rounded-sm">
+            <img
+              src={IMG.exterior}
+              alt="Nayara Residence surrounded by lush rainforest canopy"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          {/* Floating stat badge */}
+          <div
+            className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 px-5 py-3 backdrop-blur-md rounded-sm"
+            style={{ backgroundColor: PILL_BG, border: `1px solid ${PILL_BORDER}` }}
+          >
+            <p className="text-white text-2xl md:text-3xl" style={display}>712</p>
+            <p className="text-white/60 text-[9px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 500 }}>
+              Sq. Metres
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Text right */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, delay: 0.15 }}
+        >
+          <p
+            className="text-[10px] tracking-[0.35em] uppercase mb-4"
+            style={{ ...body, fontWeight: 500, color: P.primary }}
+          >
+            Sustainable Luxury Retreats
+          </p>
+          <h2
+            className="text-3xl md:text-4xl lg:text-[2.8rem] leading-[1.1] mb-6"
+            style={{ ...display, color: P.text }}
+          >
+            Amidst Costa Rica's Rainforest Paradise
+          </h2>
+          <p
+            className="text-sm md:text-base leading-[1.9] mb-6"
+            style={{ ...body, color: P.textSoft }}
+          >
+            Meticulously designed Residences for extraordinary family or group travel. The connected Family Tents, a spacious villa, and fully-equipped kitchen are perfect for indulging in unforgettable moments. Each tent features a lavish king-size 4-poster bed, accompanied by additional tents or bedrooms with queen-size beds.
+          </p>
+          <p
+            className="text-sm md:text-base leading-[1.9] mb-8"
+            style={{ ...body, color: P.textSoft }}
+          >
+            Relax on your private terrace, where an oversized plunge pool awaits, fed by natural mineral hot springs. Unwind as the crackling fire pit sets the stage for magical evenings. Enjoy abundant indoor and outdoor entertainment spaces, ensuring complete privacy for your family, friends, or multi-generational journey.
+          </p>
+
+          {/* Key stats row */}
+          <div className="flex gap-8 mb-8">
+            {[
+              { value: "7,664", unit: "Sq. Ft." },
+              { value: "4", unit: "Bedrooms" },
+              { value: "12", unit: "Max Adults" },
+            ].map((s) => (
+              <div key={s.unit}>
+                <p className="text-2xl md:text-3xl" style={{ ...display, color: P.text }}>{s.value}</p>
+                <p className="text-[9px] tracking-[0.2em] uppercase mt-1" style={{ ...body, fontWeight: 500, color: P.textMuted }}>
+                  {s.unit}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
           <a
-            href="/tented-camp"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+            href="https://www.nayaratentedcamp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
               fontWeight: 500,
-              fontSize: "10px",
-              letterSpacing: "0.15em",
+              fontSize: "11px",
+              letterSpacing: "0.2em",
               textTransform: "uppercase" as const,
               color: P.white,
-              backgroundColor: "rgba(134,139,117,0.5)",
-              borderColor: "rgba(255,255,255,0.25)",
+              backgroundColor: PILL_BG,
+              border: `1px solid ${PILL_BORDER}`,
             }}
           >
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            Check Availability
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
-            Tented Camp
           </a>
-        </div>
-      </section>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
-      {/* Placeholder content */}
-      <section className="py-20 md:py-32 px-6 md:px-16 max-w-4xl mx-auto text-center">
-        <p
-          className="text-[11px] tracking-[0.25em] uppercase mb-4"
-          style={{ ...body, fontWeight: 500, color: P.primary }}
-        >
-          Coming Soon
-        </p>
-        <h2
-          className="text-3xl md:text-4xl mb-6"
-          style={{ ...display, color: P.text }}
-        >
-          This page is being crafted
-        </h2>
-        <p
-          className="text-sm md:text-base leading-[1.8]"
-          style={{ ...body, color: `${P.text}CC` }}
-        >
-          The Tented Residence detail page will feature the most exclusive accommodation at Nayara Tented Camp — a private estate with multiple bedrooms, dedicated staff, and unparalleled privacy. Check back soon.
-        </p>
-      </section>
+/* ═══════════════════════════════════════════════════════════════
+   FULL-BLEED IMAGE BREAK
+   ═══════════════════════════════════════════════════════════════ */
+function FullBleedBreak() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
-      <Footer pageType="property" bgColor={P.primary} />
+  return (
+    <div ref={ref} className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
+      <motion.img
+        src={IMG.tentsFromAbove}
+        alt="Nayara Residence compound from above showing all tents and living areas"
+        className="absolute inset-0 w-full h-[120%] object-cover"
+        style={{ y }}
+        loading="lazy"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#EDEEE2]/40" />
     </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURES GRID — Alternating text/image
+   ═══════════════════════════════════════════════════════════════ */
+function FeaturesGrid() {
+  const features = [
+    {
+      title: "Four Private Bedrooms",
+      desc: "Two master guest rooms each with a king-size 4-poster bed and their own private plunge pool fed by natural hot springs. Two additional rooms each with two queen-size beds — perfect for multi-generational families or groups of friends.",
+      img: IMG.bedroom,
+      alt: "Residence master bedroom with king-size 4-poster bed",
+    },
+    {
+      title: "Grand Living & Kitchen",
+      desc: "A fully equipped kitchen and dining room connected to expansive indoor and outdoor living spaces. Large outdoor dining area with daybeds, a private fire pit, and a private infinity pool from hot springs — the ultimate gathering place.",
+      img: IMG.kidsRoom,
+      alt: "Residence living area and kitchen",
+    },
+    {
+      title: "Private Concierge Service",
+      desc: "Your dedicated Personal Concierge is devoted to attending to your every need, ensuring an exceptional and unparalleled experience. Wake up to awe-inspiring views of the majestic Arenal Volcano from every corner of your magnificent Residence.",
+      img: IMG.tentPool,
+      alt: "Residence private infinity pool with volcano views",
+    },
+  ];
+
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10 lg:px-16">
+      <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
+        {features.map((f, i) => {
+          const isEven = i % 2 === 0;
+          return (
+            <div
+              key={f.title}
+              className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${
+                isEven ? "" : "md:[direction:rtl]"
+              }`}
+            >
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8 }}
+                className="md:[direction:ltr]"
+              >
+                <h3
+                  className="text-2xl md:text-3xl mb-4"
+                  style={{ ...display, color: P.text }}
+                >
+                  {f.title}
+                </h3>
+                <p
+                  className="text-sm md:text-base leading-[1.9]"
+                  style={{ ...body, color: P.textSoft }}
+                >
+                  {f.desc}
+                </p>
+              </motion.div>
+
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="md:[direction:ltr]"
+              >
+                <div className="aspect-[4/3] overflow-hidden rounded-sm">
+                  <img
+                    src={f.img}
+                    alt={f.alt}
+                    className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONCIERGE SECTION — Dark section with parallax
+   ═══════════════════════════════════════════════════════════════ */
+function ConciergeSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
+  return (
+    <section
+      ref={ref}
+      className="relative py-20 md:py-32 overflow-hidden"
+      style={{ backgroundColor: P.secondary }}
+    >
+      <motion.div className="absolute inset-0 opacity-20" style={{ y }}>
+        <img
+          src={IMG.bridge}
+          alt=""
+          className="w-full h-[120%] object-cover"
+          loading="lazy"
+        />
+      </motion.div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+        >
+          <p
+            className="text-[10px] tracking-[0.35em] uppercase mb-4"
+            style={{ ...body, fontWeight: 500, color: `${P.white}80` }}
+          >
+            Exquisite Experiences
+          </p>
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl mb-6"
+            style={{ ...display, color: P.white }}
+          >
+            With a Private Concierge
+          </h2>
+          <p
+            className="text-sm md:text-base leading-[1.9] max-w-2xl mx-auto mb-10"
+            style={{ ...body, color: `${P.white}CC` }}
+          >
+            Your dedicated Personal Concierge is devoted to attending to your every need, ensuring an exceptional and unparalleled experience. Wake up to awe-inspiring views of the majestic Arenal Volcano, and immerse yourself in the breath-taking rainforest scenery from every corner of your magnificent Residence. Prepare to embark on the journey of a lifetime as you revel in the luxurious comforts of glamping.
+          </p>
+          <a
+            href="https://www.nayaratentedcamp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-[1.03]"
+            style={{
+              ...body,
+              fontWeight: 500,
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase" as const,
+              color: P.white,
+              backgroundColor: "rgba(255,255,255,0.15)",
+              border: `1px solid rgba(255,255,255,0.25)`,
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            Check Availability
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AMENITIES SECTION — Elegant list
+   ═══════════════════════════════════════════════════════════════ */
+function AmenitiesSection() {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10 lg:px-16">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <p
+            className="text-[10px] tracking-[0.35em] uppercase mb-3"
+            style={{ ...body, fontWeight: 500, color: P.primary }}
+          >
+            Perfect for Groups & Multi-Generational Families
+          </p>
+          <h2
+            className="text-3xl md:text-4xl mb-2"
+            style={{ ...display, color: P.text }}
+          >
+            Tent Amenities
+          </h2>
+          <p
+            className="text-xs tracking-[0.15em] uppercase mt-2"
+            style={{ ...body, fontWeight: 500, color: P.textMuted }}
+          >
+            Max. 12 adults or families with children and 2 babies — cribs available
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+          {AMENITIES.map((a, i) => (
+            <motion.div
+              key={a}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.03 }}
+              className="flex items-start gap-3 py-3 border-b"
+              style={{ borderColor: `${P.text}10` }}
+            >
+              <svg
+                className="w-4 h-4 mt-0.5 shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke={P.primary}
+                strokeWidth={1.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ ...body, color: P.textSoft }}
+              >
+                {a}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NATURE SECTION — Luxury adventures
+   ═══════════════════════════════════════════════════════════════ */
+function NatureSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+
+  return (
+    <section ref={ref} className="relative py-20 md:py-28 overflow-hidden">
+      <motion.div className="absolute inset-0 opacity-10" style={{ y }}>
+        <img
+          src={IMG.drone}
+          alt=""
+          className="w-full h-[120%] object-cover"
+          loading="lazy"
+        />
+      </motion.div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <p
+            className="text-[10px] tracking-[0.35em] uppercase mb-4"
+            style={{ ...body, fontWeight: 500, color: P.primary }}
+          >
+            Costa Rica's Natural Splendor
+          </p>
+          <h2
+            className="text-3xl md:text-4xl mb-6"
+            style={{ ...display, color: P.text }}
+          >
+            Exquisite Luxury Adventures
+          </h2>
+          <p
+            className="text-sm md:text-base leading-[1.9] mb-8"
+            style={{ ...body, color: P.textSoft }}
+          >
+            Immerse yourself in the breathtaking beauty of Costa Rica's jungle and extraordinary experiences led by Nayara's expert tour guides. Delve into the enchanting fauna and flora, gaining insights into the diverse ecosystem and discovering its hidden marvels.
+          </p>
+          <a
+            href="/tented-camp"
+            className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full transition-all duration-300 hover:scale-[1.03]"
+            style={{
+              ...body,
+              fontWeight: 500,
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase" as const,
+              color: P.white,
+              backgroundColor: PILL_BG,
+              border: `1px solid ${PILL_BORDER}`,
+            }}
+          >
+            Find Out More
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          <div className="aspect-[4/3] overflow-hidden rounded-sm">
+            <img
+              src={IMG.familyDaybed}
+              alt="Family enjoying outdoor daybed in the rainforest"
+              className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════════════════════════════ */
+function CTASection() {
+  return (
+    <section
+      className="py-20 md:py-28 px-6 md:px-10"
+      style={{ backgroundColor: P.secondary }}
+    >
+      <div className="max-w-3xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <p
+            className="text-[10px] tracking-[0.35em] uppercase mb-4"
+            style={{ ...body, fontWeight: 500, color: `${P.white}80` }}
+          >
+            Begin Your Journey
+          </p>
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl mb-6"
+            style={{ ...display, color: P.white }}
+          >
+            Your Private Estate Awaits
+          </h2>
+          <p
+            className="text-sm md:text-base leading-[1.9] mb-10 max-w-xl mx-auto"
+            style={{ ...body, color: `${P.white}CC` }}
+          >
+            The ultimate private estate for multi-generational journeys. Four bedrooms, dedicated concierge, infinity pool, and complete privacy in the heart of the rainforest.
+          </p>
+          <a
+            href="https://www.nayaratentedcamp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.03]"
+            style={{
+              ...body,
+              fontWeight: 500,
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase" as const,
+              color: P.secondary,
+              backgroundColor: P.bone,
+            }}
+          >
+            Check Availability
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </motion.div>
+      </div>
+    </section>
   );
 }

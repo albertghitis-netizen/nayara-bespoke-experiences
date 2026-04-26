@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
+import FloorPlanExplorer from "@/components/FloorPlanExplorer";
 import { useIsMobile } from "@/hooks/useMobile";
 
 /* ── Palette ── */
@@ -88,6 +89,7 @@ export default function NayaraTent() {
       <HeroSection />
       <IntroSection />
       <GallerySection />
+      <FloorPlanExplorer initialTier="tent" availableTiers={["tent", "family"]} />
       <AmenitiesSection />
       <ExperienceSection />
       <CTASection />

@@ -1958,8 +1958,8 @@
 - [ ] Springs: Springs Villa deeper page
 - [ ] Tented Camp: Tent deeper page
 - [ ] Tented Camp: Family Tent deeper page
-- [ ] Tented Camp: Grand Tent deeper page
-- [ ] Tented Camp: Residences (Casa Paloma & Casa Dana) deeper page
+- [x] Tented Camp: Grand Tent deeper page
+- [x] Tented Camp: Residences deeper page
 - [ ] Wire all room deeper page routes in App.tsx
 
 ## Deeper Pages — Restaurant/Venue (Individual Landing Pages)
@@ -2841,7 +2841,7 @@
 - [ ] Build NayaraTent.tsx — full luxury room detail page with all provided images + official content
 - [ ] Build FamilyTent.tsx — different layout style (waiting for user content/hero)
 - [ ] Create GrandTent.tsx placeholder shell with route
-- [ ] Create Residence.tsx placeholder shell with route
+- [x] Create Residence.tsx placeholder shell with route
 - [ ] Wire all 4 routes in App.tsx (/tented-camp/rooms/nayara-tent, family-tent, grand-tent, residence)
 - [ ] Link all 4 room cards in TentedRooms.tsx to their deeper detail pages
 - [ ] Three-tone olive palette (#868B75, #525642, #9A9086) on bone #EDEEE2
@@ -2870,4 +2870,31 @@
 - [x] Overwater Villa — create shell page + route (Bocas del Toro, Caribbean palette)
 - [x] Deluxe Overwater Villa — create shell page + route (Bocas del Toro, Caribbean palette)
 - [x] Treehouse — create shell page + route (Bocas del Toro, Caribbean palette)
-- [ ] Add floor plan diagrams to Nayara Tent and Family Tent pages (after sketches received)
+- [x] Add floor plan diagrams to Nayara Tent and Family Tent pages (after sketches received)
+
+## Floor Plan Explorer Component
+- [x] Build FloorPlanExplorer.tsx — interactive SVG architectural blueprint component
+- [x] 4 tier tabs: Nayara Tent, Family Tent, Grand Tent, Nayara Residence
+- [x] Architectural details: door arcs, bathroom fixtures, vegetation markers, compass rose, grid bg
+- [x] Color-coded legend: Room Outline, Plunge Pool, Bed, Living Space, Fire Pit, Vegetation
+- [x] Info panel with sq ft/sqm, capacity, key features for each tier
+- [x] Integrate floor plan into NayaraTent.tsx (between gallery and amenities)
+- [x] Integrate floor plan into FamilyTent.tsx (between gallery and experience)
+- [x] Integrate floor plan into GrandTent.tsx (between features and experience)
+- [x] Integrate floor plan into Residence.tsx (between features and experience)
+
+## Grand Tent — Full Content Page
+- [x] Hero section with video background, "Grand Tent" title, back link
+- [x] Intro section with stats (446 sqm / 4,804 sq ft, 2 bedrooms, 4+2 adults+kids)
+- [x] Full-bleed parallax break with aerial drone shot
+- [x] Features grid: Two Private Bedrooms, Kitchen Villa, Hot Springs Pool
+- [x] Floor plan explorer with Grand Tent as default tab
+- [x] Experience section, Amenities grid, CTA section, Footer
+
+## Residence — Full Content Page
+- [x] Hero section with video background, "Nayara Residences" title
+- [x] Intro section with stats (712 sqm / 7,664 sq ft, 4 bedrooms, 12 max adults)
+- [x] Full-bleed parallax break with aerial overhead shot
+- [x] Features grid: Four Bedrooms, Grand Living & Kitchen, Private Concierge
+- [x] Floor plan explorer with Nayara Residence as default tab
+- [x] Experience section, full amenities list, adventure section, CTA, Footer

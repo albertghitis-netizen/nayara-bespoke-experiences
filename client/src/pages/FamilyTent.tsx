@@ -11,6 +11,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
+import FloorPlanExplorer from "@/components/FloorPlanExplorer";
 import { useIsMobile } from "@/hooks/useMobile";
 
 /* ── Palette (same tented camp olive) ── */
@@ -86,6 +87,7 @@ export default function FamilyTent() {
       <FullBleedBreak />
       <FeaturesGrid />
       <HorizontalGallery />
+      <FloorPlanExplorer initialTier="family" availableTiers={["tent", "family"]} />
       <FamilyExperience />
       <CTASection />
       <Footer pageType="property" bgColor={P.primary} />
