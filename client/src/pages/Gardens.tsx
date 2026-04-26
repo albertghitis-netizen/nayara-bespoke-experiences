@@ -319,7 +319,7 @@ function StorySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/gardens-s1-toucan_99589341.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover" />
+              <img src="/manus-storage/gardens-s1-toucan-v2_75cc661b.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
@@ -329,7 +329,7 @@ function StorySection() {
       <div style={{ backgroundColor: PALETTE.gradientStart }}>
         <MediaReveal delay={0.1}>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <NativeVideo src="/manus-storage/gardens-s2-horizontal-new_77247387.mp4" className="w-full h-full object-cover" />
+            <NativeVideo src="/manus-storage/gardens-s2-proper_efb35101.mp4" className="w-full h-full object-cover" />
           </div>
         </MediaReveal>
       </div>
@@ -370,16 +370,16 @@ function AccommodationsExperiment() {
           </div>
 
           {/* Explore pill — centered lower */}
-          <div className="absolute bottom-[8%] left-0 right-0 flex items-center justify-center z-10">
+          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
               href="/gardens/rooms/arenal-pool-casita"
-              className="flex items-center justify-center px-10 py-3.5 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
+              className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
               style={{
                 backgroundColor: "rgba(40,98,65,0.75)",
                 fontFamily: "var(--font-body)",
               }}
             >
-              <span className="text-white text-[12px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
                 Explore Arenal Pool Casita
               </span>
             </a>
@@ -417,53 +417,48 @@ function AccommodationsExperiment() {
             </p>
           </AnimateOnScroll>
 
-          {/* Permanent room cards */}
+          {/* Room cards with Reserve links underneath each */}
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <div className="grid grid-cols-2 gap-3 max-w-[480px]">
               {roomLinks.map((room) => (
-                <a
-                  key={room.label}
-                  href={room.route}
-                  className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]"
-                  style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
-                >
-                  <span
-                    className="block text-[13px] tracking-[0.12em] uppercase mb-1"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                <div key={room.label} className="flex flex-col gap-3">
+                  <a
+                    href={room.route}
+                    className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]"
+                    style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
                   >
-                    {room.label}
-                  </span>
-                  <span
-                    className="block text-[11px] tracking-[0.04em]"
-                    style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+                    <span
+                      className="block text-[13px] tracking-[0.12em] uppercase mb-1"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                    >
+                      {room.label}
+                    </span>
+                    <span
+                      className="block text-[11px] tracking-[0.04em]"
+                      style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+                    >
+                      {room.sqm} sqm · {room.guests} guests
+                    </span>
+                    <span
+                      className="absolute bottom-3 right-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"
+                      style={{ color: PALETTE.textSecondary }}
+                    >
+                      Explore →
+                    </span>
+                  </a>
+                  <a
+                    href="/gardens"
+                    className="pl-[18px] text-[11px] tracking-[0.15em] uppercase font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      color: PALETTE.primary,
+                    }}
                   >
-                    {room.sqm} sqm · {room.guests} guests
-                  </span>
-                  <span
-                    className="absolute bottom-3 right-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ color: PALETTE.textSecondary }}
-                  >
-                    Explore →
-                  </span>
-                </a>
+                    Reserve {room.label.split(" ").pop()}
+                  </a>
+                </div>
               ))}
             </div>
-          </AnimateOnScroll>
-
-          {/* Reserve button */}
-          <AnimateOnScroll variants={fadeUp} delay={0.4}>
-            <a
-              href="/gardens"
-              className="inline-flex items-center justify-center px-10 py-3.5 rounded-full mt-6 transition-colors hover:scale-[1.03] transition-transform"
-              style={{
-                backgroundColor: "rgba(40,98,65,0.85)",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              <span className="text-white text-[12px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
-                Reserve
-              </span>
-            </a>
           </AnimateOnScroll>
         </div>
       </div>
@@ -473,22 +468,22 @@ function AccommodationsExperiment() {
         <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <NativeVideo
             ref={horizontalRef}
-              src="/manus-storage/gardens-s4-horizontal-new_d5ae610b.mp4"
+              src="/manus-storage/gardens-s2-horizontal-new_77247387.mp4"
             className="w-full h-full object-cover"
           />
         </div>
 
         {/* Explore pill — centered lower */}
-        <div className="absolute bottom-[8%] left-0 right-0 flex items-center justify-center z-10">
+        <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
             href="/gardens/rooms/rainforest-pool-villa"
-            className="flex items-center justify-center px-10 py-3.5 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
+            className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
             style={{
               backgroundColor: "rgba(40,98,65,0.75)",
               fontFamily: "var(--font-body)",
             }}
           >
-            <span className="text-white text-[12px] tracking-[0.2em] uppercase font-medium whitespace-nowrap">
+            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
               Explore Rainforest Pool Villa
             </span>
           </a>
