@@ -3053,3 +3053,12 @@
 - [x] Restore BlobVideo hero on Residence.tsx
 - [x] Restore BlobVideo hero on ArenalPoolCasita.tsx
 - [x] Restore BlobVideo hero on SpringsVilla.tsx
+
+## Room Deep Pages — Mobile: Show still image instead of video in hero
+- [ ] On mobile, room deep page heroes should show poster/still image instead of playing video
+- [ ] Applies to all 7 room pages: FamilyTent, NayaraTent, GrandTent, Residence, ArenalPoolCasita, SpringsVilla, RainforestPoolVilla
+- [ ] Brand homepage hero and property landing page heroes keep video on mobile
+
+## Mobile: No videos except hero
+- [x] Brand homepage: award card videos hidden on mobile (dark espresso bg fallback)
+- [ ] All other pages: replace all non-hero videos with still images on mobile

@@ -649,17 +649,19 @@ function AwardsHighlightSection() {
       <Wrapper
         {...wrapperProps}
         className="group relative flex flex-col p-6 md:p-8 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] hover:z-10 overflow-hidden"
-        style={{ aspectRatio: "1/1" }}
+        style={{ aspectRatio: "1/1", backgroundColor: cardBg }}
       >
-        {/* Video background */}
-        <video
-          src={award.videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {/* Video background — desktop only */}
+        {!isMobile && (
+          <video
+            src={award.videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         {/* Dark overlay — lightens on hover */}
         <div className="absolute inset-0 bg-black/55 group-hover:bg-black/40 transition-all duration-700" />
         {/* Content */}
