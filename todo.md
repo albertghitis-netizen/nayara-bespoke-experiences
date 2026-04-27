@@ -3090,3 +3090,44 @@
 - [x] Replace Las Thermas secondary image with termas-87
 - [x] Add springs-3 and garden path side-by-side in Nayara Difference section
 - [x] Add meditation panorama below yoga grid
+
+## Experiential Arenal (replaces Arenal hub)
+- [ ] Rewrite Arenal hub as "Experiential Arenal" — nature/adventure experiences
+- [ ] Switch from green property colors to bone/espresso brand colors
+- [ ] Merge tented camp nature experiences (hikes, wildlife, hanging bridges)
+- [ ] Include Explore Arenal activities (volcano, waterfalls, etc.)
+- [ ] Match editorial style of Experiential Wellness and Experiential Gastronomy
+
+## Site Architecture Restructure — Costa Rica Hub + Experiential Pages
+- [ ] Add on-property nature experiences to exploreNayaraExperiences data (bird hike, nature hike, Tony's botanical/sloth tour)
+- [ ] Restore "Within Our Grounds" section on Experiential Arenal with on-property nature/culinary/wellness data
+- [x] Build Costa Rica hub page (/costa-rica) — Central America → Costa Rica → Arenal → Five Pillars
+- [x] Costa Rica hub: Hero section with placeholder video
+- [x] Costa Rica hub: Central America geographic context
+- [x] Costa Rica hub: Costa Rica as destination (biodiversity, Pura Vida)
+- [x] Costa Rica hub: Arenal Volcano National Park section
+- [x] Costa Rica hub: Six Experiential Pillar cards (Nature & Adventure, Wellness, Gastronomy, Family Adventure, Romance Naturally, Rainforest & Reef Restoration)
+- [ ] Create Rainforest Romance placeholder page (/rainforest-romance)
+- [ ] Create Family Adventure placeholder page (/family-adventure)
+- [x] Add routes for /costa-rica, /experiential-arenal in App.tsx
+- [x] Update App.tsx: /costa-rica → CostaRica component, /experiential-arenal → ExperientialArenal component
+- [ ] Rewire navigation: property experience/wellness/gastronomy links → brand experiential pages
+- [ ] Property pages keep: homepage, room pages (property colors), restaurant/bar pages (property colors), sustainability
+- [ ] Property pages lose: experiences/wellness/gastronomy sub-pages → redirect to experiential pages
+
+## Blog Posts for Costa Rica Hub
+- [ ] Write blog: Reforestation of Tented Camp + Family (wildlife corridors, sloths returning, rainforest as living classroom — not kids planting trees)
+- [ ] Adapt existing gastronomy content into a journal blog post
+- [x] Integrate blog posts into Costa Rica hub page journal section
+
+## Central America Hub Architecture (Updated)
+- [ ] Rename Costa Rica hub to Central America hub (/costa-rica route kept)
+- [ ] Include Bocas del Toro woven into the hub (Costa Rica is the star)
+- [ ] Rainforest Romance pillar: feature Bocas (adults only) + Springs (adults only)
+- [ ] Family Adventure pillar: reforestation as living classroom, wildlife corridors, sloths
+- [ ] Sustainability thread: reforestation (CR) + coral reef restoration (Bocas) — canopy to reef
+- [x] Blog cards: 6 journal entries with links to existing blog posts
+- [x] Deep Forest nav color #3D5040 for the hub
+- [x] Six-color palette: warm linen, sage mist, bone, olive, clover, espresso
+- [x] Text rules: espresso on light, pure white on dark
+- [ ] Wildlife Conservation blog bridges both Arenal and Bocas

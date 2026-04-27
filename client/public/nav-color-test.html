@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costa Rica Hub — Nav Color Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: #f7f5f0; }
+
+.option-row {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.option {
+  width: 360px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.option-label {
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: #3B2B26;
+  background: #f7f5f0;
+}
+
+.hero-bg {
+  height: 280px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+    url('https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-exterior_c9d0e1f2.jpg') center/cover;
+  position: relative;
+}
+
+.nav-pills {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.hamburger-pill {
+  width: 44px;
+  height: 44px;
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.hamburger-lines span {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: white;
+}
+
+.reserve-pill {
+  height: 44px;
+  padding: 0 22px;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.hero-title {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Option 1: Dark Olive (Tented Camp dark) */
+.option-1 .pill { background: rgba(82, 86, 66, 0.75); }
+
+/* Option 2: Deep Forest Blend */
+.option-2 .pill { background: rgba(61, 80, 64, 0.75); }
+
+/* Option 3: Espresso (Brand) */
+.option-3 .pill { background: rgba(59, 43, 38, 0.75); }
+
+h1 {
+  text-align: center;
+  padding: 40px 20px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #3B2B26;
+}
+
+.subtitle {
+  text-align: center;
+  padding: 8px 20px 20px;
+  font-size: 13px;
+  color: #3B2B26;
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}
+
+/* Also show the existing property navs for comparison */
+.comparison-title {
+  text-align: center;
+  padding: 40px 20px 10px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3B2B26;
+  opacity: 0.4;
+  font-weight: 500;
+}
+
+.swatch-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px 40px 40px;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  text-align: center;
+}
+
+.swatch-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.swatch-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #3B2B26;
+  opacity: 0.6;
+}
+
+.swatch-hex {
+  font-size: 9px;
+  color: #3B2B26;
+  opacity: 0.35;
+  margin-top: 2px;
+}
+</style>
+</head>
+<body>
+
+<h1>Costa Rica Hub — Navigation Color Options</h1>
+<p class="subtitle">Which nav pill color for the destination hub?</p>
+
+<div class="option-row">
+  <!-- Option 1 -->
+  <div class="option option-1">
+    <div class="hero-bg">
+      <div class="nav-pills">
+        <div class="pill hamburger-pill">
+          <div class="hamburger-lines"><span></span><span></span></div>
+        </div>
+        <div class="pill reserve-pill">Reserve</div>
+      </div>
+      <div class="hero-title">Costa Rica</div>
+    </div>
+    <div class="option-label">Option 1: Dark Olive #525642<br><span style="opacity:0.5;font-size:11px">Tented Camp dark tone</span></div>
+  </div>
+
+  <!-- Option 2 -->
+  <div class="option option-2">
+    <div class="hero-bg">
+      <div class="nav-pills">
+        <div class="pill hamburger-pill">
+          <div class="hamburger-lines"><span></span><span></span></div>
+        </div>
+        <div class="pill reserve-pill">Reserve</div>
+      </div>
+      <div class="hero-title">Costa Rica</div>
+    </div>
+    <div class="option-label">Option 2: Deep Forest #3D5040<br><span style="opacity:0.5;font-size:11px">Unique blend — Gardens + Tented</span></div>
+  </div>
+
+  <!-- Option 3 -->
+  <div class="option option-3">
+    <div class="hero-bg">
+      <div class="nav-pills">
+        <div class="pill hamburger-pill">
+          <div class="hamburger-lines"><span></span><span></span></div>
+        </div>
+        <div class="pill reserve-pill">Reserve</div>
+      </div>
+      <div class="hero-title">Costa Rica</div>
+    </div>
+    <div class="option-label">Option 3: Espresso #3B2B26<br><span style="opacity:0.5;font-size:11px">Brand-level (same as homepage)</span></div>
+  </div>
+</div>
+
+<div class="comparison-title">Existing Property Nav Colors for Reference</div>
+<div class="swatch-row">
+  <div class="swatch">
+    <div class="swatch-circle" style="background:rgba(59,43,38,0.75)"></div>
+    <div class="swatch-label">Brand / Home</div>
+    <div class="swatch-hex">#3B2B26</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:rgba(134,139,117,0.75)"></div>
+    <div class="swatch-label">Tented Camp</div>
+    <div class="swatch-hex">#868B75</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:rgba(40,98,65,0.75)"></div>
+    <div class="swatch-label">Gardens</div>
+    <div class="swatch-hex">#286241</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:rgba(59,110,123,0.75)"></div>
+    <div class="swatch-label">Springs</div>
+    <div class="swatch-hex">#3B6E7B</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-circle" style="background:rgba(0,142,151,0.75)"></div>
+    <div class="swatch-label">Bocas</div>
+    <div class="swatch-hex">#008E97</div>
+  </div>
+</div>
+
+</body>
+</html>

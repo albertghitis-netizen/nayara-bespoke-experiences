@@ -234,6 +234,48 @@ const altoAtacamaTreatments: Treatment[] = [
 
 const exploreNayaraExperiences: Excursion[] = [
   // ── Nature & Exploration (on-property) ──
+  {
+    id: "bird-watching-hike",
+    name: "Bird Watching Hike",
+    subtitle: "Dawn chorus through the canopy",
+    duration: "2–3 hours",
+    difficulty: "Easy",
+    suggestedTime: "5:30 AM",
+    description: "Join our resident naturalist before sunrise and walk the trails that thread through 380 acres of primary and secondary rainforest. Arenal is home to over 500 bird species — toucans, motmots, trogons, tanagers, and hummingbirds. The early light and quiet trails make this the best time to see and hear them.",
+    highlights: ["Over 500 bird species in the Arenal region", "Expert naturalist guide", "Binoculars and field guide provided"],
+    featured: true,
+    placeholder: true,
+    category: "nature",
+    section: "explore-nayara",
+  },
+  {
+    id: "nature-hike",
+    name: "Guided Nature Hike",
+    subtitle: "Into the living rainforest",
+    duration: "2 hours",
+    difficulty: "Easy to Moderate",
+    suggestedTime: "8:00 AM & 2:00 PM",
+    description: "A guided walk through the private reserve trails surrounding the three Nayara properties. Your naturalist identifies medicinal plants, points out camouflaged insects and frogs, and explains the layered architecture of a tropical rainforest — from forest floor to emergent canopy.",
+    highlights: ["Private reserve trails", "Medicinal plants and hidden wildlife", "Rainforest ecology explained layer by layer"],
+    featured: true,
+    placeholder: true,
+    category: "nature",
+    section: "explore-nayara",
+  },
+  {
+    id: "botanical-sloth-tour",
+    name: "Tony\u2019s Botanical & Sloth Tour",
+    subtitle: "The gardens and their slowest residents",
+    duration: "1.5–2 hours",
+    difficulty: "Easy (all ages)",
+    suggestedTime: "9:00 AM",
+    description: "Tony, our head gardener and resident sloth-spotter, leads you through the curated botanical gardens that connect the three properties. He\u2019ll show you the orchid collection, the heliconia corridor, and the cecropia trees where two- and three-toed sloths are almost always found. A gentle, unhurried experience.",
+    highlights: ["Resident sloth-spotting expert", "Orchid and heliconia gardens", "Family-friendly, all ages welcome"],
+    featured: true,
+    placeholder: true,
+    category: "nature",
+    section: "explore-nayara",
+  },
 
   // ── Culinary (on-property) ──
   {
