@@ -104,7 +104,7 @@ const JOURNAL_MENU_ITEMS: MenuItem[] = [
 export function getBrandMenu(): MenuSection[] {
   return [
     {
-      header: "Pura Vida",
+      header: "Costa Rica",
       items: COSTA_RICA_MENU_ITEMS,
     },
     {
