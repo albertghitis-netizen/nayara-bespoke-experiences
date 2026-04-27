@@ -3151,7 +3151,7 @@
 - [x] Add "Our Resorts" accordion in hamburger nav showing 6 resort properties + Nayara Resorts brand link
 
 ## Pura Vida Sub-Pages Build-Out
-- [ ] Curated Excursions sub-page: Full images and detail for all on-property activities (bird watching, nature hike, botanical/sloth tour) + off-property Arenal excursions — match Tented Camp experience pattern
+- [x] Curated Excursions sub-page: Restructured on-property to Birdwatching, Botanical Hike, Finding Tony the Sloth with real vertical videos + Night Frog Tour added to Explore Arenal with video
 - [x] Nurtured by Nature sub-page: Already built (existing Wellness page)
 - [x] Forest to Table sub-page: Already built (existing Gastronomy page)
 - [x] Ensure all sub-pages have proper routing and nav links from Pura Vida dropdown
@@ -3161,7 +3161,7 @@
 - [x] Build Coming Soon placeholder page for Rainforest Romance (/rainforest-romance)
 - [x] Update Pura Vida dropdown routes to point to new placeholder pages
 - [x] Update App.tsx with routes for /family-expeditions and /rainforest-romance
-- [ ] Curated Excursions: Source and add full images for all on-property activities (bird watching, nature hike, botanical/sloth tour)
-- [ ] Curated Excursions: Source and add full images for all off-property Arenal excursions
+- [x] Curated Excursions: Added real vertical videos for Birdwatching, Botanical Hike, Finding Tony the Sloth (on-property)
+- [x] Curated Excursions: Added Night Frog Tour video to Explore Arenal; remaining off-property excursions have placeholders awaiting user videos
 - [x] Verify all Pura Vida dropdown links work correctly
 - [x] Remove all references to "Experiential" / "Experiential Arenal" across the entire codebase — replace with proper Pura Vida pillar names

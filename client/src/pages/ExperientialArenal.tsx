@@ -290,9 +290,18 @@ function WithinOurGroundsSection() {
                   )
                 }
               >
-                {/* Image */}
-                <div className="relative overflow-hidden h-56 md:h-64">
-                  {excursion.image ? (
+                {/* Media — vertical video or image */}
+                <div className="relative overflow-hidden h-72 md:h-80">
+                  {excursion.verticalVideo ? (
+                    <video
+                      src={excursion.verticalVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : excursion.image ? (
                     <img
                       src={excursion.image}
                       alt={excursion.name}
@@ -504,9 +513,18 @@ function FeaturedExcursionCard({
           }`}
           onClick={onToggle}
         >
-          {/* Photo thumbnail */}
+          {/* Photo / Video thumbnail */}
           <div className="relative overflow-hidden h-64 md:h-80">
-            {cardImageSrc ? (
+            {excursion.verticalVideo ? (
+              <video
+                src={excursion.verticalVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            ) : cardImageSrc ? (
               <img
                 src={cardImageSrc}
                 alt={excursion.name}
