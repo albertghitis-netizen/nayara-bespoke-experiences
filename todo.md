@@ -3099,8 +3099,8 @@
 - [ ] Match editorial style of Experiential Wellness and Experiential Gastronomy
 
 ## Site Architecture Restructure — Costa Rica Hub + Experiential Pages
-- [ ] Add on-property nature experiences to exploreNayaraExperiences data (bird hike, nature hike, Tony's botanical/sloth tour)
-- [ ] Restore "Within Our Grounds" section on Experiential Arenal with on-property nature/culinary/wellness data
+- [x] Add on-property nature experiences to exploreNayaraExperiences data (bird hike, nature hike, Tony's botanical/sloth tour)
+- [x] Restore "Within Our Grounds" section on Experiential Arenal with on-property nature/culinary/wellness data
 - [x] Build Costa Rica hub page (/costa-rica) — Central America → Costa Rica → Arenal → Five Pillars
 - [x] Costa Rica hub: Hero section with placeholder video
 - [x] Costa Rica hub: Central America geographic context

@@ -25,6 +25,7 @@ import {
 import { toast } from "sonner";
 import {
   exploreArenalExperiences,
+  exploreNayaraExperiences,
   type Excursion,
 } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -85,6 +86,7 @@ export default function ExperientialArenal() {
       <BrandNavigation pageType="content" />
       <ArenalHero />
       <PropertyIntro />
+      <WithinOurGroundsSection />
       <ExploreArenalSection />
       <Footer />
     </div>
@@ -161,6 +163,146 @@ function PropertyIntro() {
             encounters.
           </p>
         </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   WITHIN OUR GROUNDS — On-property nature experiences
+   Dark espresso background for contrast
+   ═══════════════════════════════════════════════════════════════ */
+function WithinOurGroundsSection() {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  // Filter only nature-category on-property experiences
+  const onPropertyNature = exploreNayaraExperiences.filter(
+    (e) => e.category === "nature"
+  );
+
+  return (
+    <section
+      id="within-our-grounds"
+      className="relative py-24 md:py-32"
+      style={{ backgroundColor: "#2a1f14" }}
+    >
+      {/* Section Header */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
+        <FadeIn>
+          <h2
+            className="text-[#f7f5f0] text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
+            style={heading}
+          >
+            Within Our Grounds
+          </h2>
+          <p
+            className="text-[#f7f5f0]/40 text-lg md:text-xl tracking-wide"
+            style={bodyLight}
+          >
+            On-Property Nature Experiences
+          </p>
+          <p
+            className="text-[#f7f5f0]/50 text-sm md:text-base leading-relaxed mt-6 max-w-2xl"
+            style={body}
+          >
+            Before venturing beyond the gates, discover the living rainforest
+            that surrounds the three Nayara properties. Over 380 acres of
+            primary and secondary forest, home to sloths, toucans, and over 500
+            bird species — all accessible from your villa.
+          </p>
+        </FadeIn>
+      </div>
+
+      {/* Experience Cards */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {onPropertyNature.map((excursion, i) => (
+            <FadeIn key={excursion.id} delay={i * 0.1}>
+              <div
+                className="group cursor-pointer border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/20 transition-all duration-500"
+                onClick={() =>
+                  setExpandedId(
+                    expandedId === excursion.id ? null : excursion.id
+                  )
+                }
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden h-56 md:h-64">
+                  {excursion.image ? (
+                    <img
+                      src={excursion.image}
+                      alt={excursion.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#3a2a1a]/40 to-[#2a1f14]/60">
+                      <MapPin className="w-8 h-8 text-[#f7f5f0]/15" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3
+                    className="text-[#f7f5f0] text-xl md:text-2xl mb-2"
+                    style={heading}
+                  >
+                    {excursion.name}
+                  </h3>
+                  <p
+                    className="text-[#f7f5f0]/40 text-sm italic mb-3"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {excursion.subtitle}
+                  </p>
+
+                  {/* Expand/collapse detail */}
+                  <AnimatePresence>
+                    {expandedId === excursion.id && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="overflow-hidden"
+                      >
+                        <p
+                          className="text-[#f7f5f0]/50 text-sm leading-relaxed mb-4"
+                          style={bodyLight}
+                        >
+                          {excursion.description}
+                        </p>
+                        <div className="flex flex-wrap gap-4 text-xs text-[#f7f5f0]/30" style={body}>
+                          <span>{excursion.duration}</span>
+                          <span>{excursion.difficulty}</span>
+                          {excursion.suggestedTime && (
+                            <span>{excursion.suggestedTime}</span>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Toggle hint */}
+                  <div className="mt-4 flex items-center gap-2">
+                    <span
+                      className="text-[#f7f5f0]/50 text-xs tracking-[0.2em]"
+                      style={bodyMedium}
+                    >
+                      {expandedId === excursion.id ? "Less" : "Learn More"}
+                    </span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 text-[#f7f5f0]/40 transition-transform duration-300 ${
+                        expandedId === excursion.id ? "rotate-180" : ""
+                      }`}
+                    />
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );
