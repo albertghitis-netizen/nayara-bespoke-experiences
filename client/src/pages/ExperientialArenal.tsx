@@ -29,7 +29,7 @@ import {
   type Excursion,
 } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
-import NativeVideo from "@/components/NativeVideo";
+import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
 
 /* ── Shared style tokens ─────────────────────────────────────── */
@@ -41,9 +41,9 @@ const bodyMedium = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
 
 const CDN = {
   heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4",
+    "/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4",
   heroMobile:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/volcano-arenal-vertical_8f4b62b0.mp4",
+    "/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4",
 };
 
 /* ── Category configs ────────────────────────────────────────── */
@@ -104,7 +104,13 @@ function ArenalHero() {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0">
-        <NativeVideo src={heroVideo} className="w-full h-full object-cover" />
+        <BlobVideo
+          src={heroVideo}
+          className="w-full h-full object-cover"
+          hasAudio={true}
+          pillBg="rgba(58,42,26,0.7)"
+          pillColor="#f7f5f0"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>

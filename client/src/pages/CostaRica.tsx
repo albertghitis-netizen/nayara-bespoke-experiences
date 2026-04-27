@@ -15,16 +15,16 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Link } from "wouter";
 import BrandNavigation from "@/components/BrandNavigation";
-import NativeVideo from "@/components/NativeVideo";
+import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
 import { useIsMobile } from "@/hooks/useMobile";
 
 /* ── CDN Assets ──────────────────────────────────────────────── */
 const CDN = {
   heroDesktop:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/compressed-arenal-desktop_05c5168c.mp4",
+    "/manus-storage/costa-rica-hero-arenal-sunset-audio_571086c8.mp4",
   heroMobile:
-    "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/volcano-arenal-vertical_8f4b62b0.mp4",
+    "/manus-storage/costa-rica-hero-arenal-sunset-audio_571086c8.mp4",
   tentedAerial:
     "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hero2-arenal-tent_860ab6b2.webp",
   hangingBridges:
@@ -208,8 +208,14 @@ function HeroSection({ videoSrc }: { videoSrc: string }) {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={videoSrc} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/60" />
+        <BlobVideo
+          src={videoSrc}
+          className="w-full h-full object-cover"
+          hasAudio={true}
+          pillBg="rgba(61,80,64,0.7)"
+          pillColor="#f7f5f0"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/60 pointer-events-none" />
       </div>
 
       {/* Subtle top label */}

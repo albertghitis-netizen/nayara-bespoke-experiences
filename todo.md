@@ -3131,3 +3131,7 @@
 - [x] Six-color palette: warm linen, sage mist, bone, olive, clover, espresso
 - [x] Text rules: espresso on light, pure white on dark
 - [ ] Wildlife Conservation blog bridges both Arenal and Bocas
+
+## Hero Video Updates
+- [x] Replace Costa Rica hub hero with Arenal sunset video (5s, /manus-storage/costa-rica-hero-arenal-sunset-audio_571086c8.mp4)
+- [x] Replace Experiential Arenal hero with volcano clouds video (/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4)
