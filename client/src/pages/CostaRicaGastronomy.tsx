@@ -199,7 +199,7 @@ const CLASSES: ClassDeep[] = [
 const GASTRO_STATS = [
   { value: "6", label: "Restaurants" },
   { value: "5", label: "Bars & Lounges" },
-  { value: "5", label: "Experiential Classes" },
+  { value: "5", label: "Culinary Classes" },
   { value: "3", label: "Properties, One Ecosystem" },
 ];
 

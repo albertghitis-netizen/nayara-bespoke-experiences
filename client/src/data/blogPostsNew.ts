@@ -23,7 +23,7 @@ export const gastronomyBlogPost: BlogPostData = {
   keyFindings: [
     "Guests at any of the three Nayara properties enjoy seamless access to all restaurants and bars across the shared ecosystem.",
     "Six distinct restaurants span Italian, Asian fusion, Mediterranean, and fine dining — each rooted in Costa Rican ingredients.",
-    "Five experiential classes — wine tasting, cooking, coffee, mixology, and rum — transform meals into lasting memories.",
+    "Five culinary classes — wine tasting, cooking, coffee, mixology, and rum — transform meals into lasting memories.",
     "From Amor Loco's culinary artistry to Lila's handcrafted gelato, every moment at the table is designed to surprise.",
   ],
   sections: [
@@ -107,7 +107,7 @@ export const gastronomyBlogPost: BlogPostData = {
   ],
   seo: {
     metaTitle: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara | Nayara Journal",
-    metaDescription: "Discover six restaurants, five experiential classes, and a shared culinary ecosystem across Nayara Gardens, Nayara Springs, and Nayara Tented Camp in Costa Rica.",
+    metaDescription: "Discover six restaurants, five culinary classes, and a shared culinary ecosystem across Nayara Gardens, Nayara Springs, and Nayara Tented Camp in Costa Rica.",
   },
 };
 

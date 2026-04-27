@@ -1,5 +1,5 @@
 /**
- * EXPERIENTIAL WELLNESS — Costa Rica Wellness Page
+ * NURTURED BY NATURE WELLNESS — Costa Rica Wellness Page
  * Based on brand Wellness page, stripped to Costa Rica only
  * Hero → Intro → Wellness Pillars → Yoga → Las Thermas → Nayara Difference → Spa Treatments → Springs Feature → Property Links → Footer
  */

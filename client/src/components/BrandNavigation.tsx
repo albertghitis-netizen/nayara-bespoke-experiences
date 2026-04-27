@@ -17,14 +17,13 @@ import {
   type PageType,
   PROPERTY_MENU,
   PROPERTIES,
+  PURA_VIDA_PILLARS,
 } from "@/data/navigation";
 
 /* ── Global menu items (matches footer) ── */
 const GLOBAL_MENU = [
-  { label: "Experiential Arenal", route: "/experiential-arenal" },
+  { label: "Pura Vida", route: "/costa-rica", hasSubmenu: true },
   { label: "Bespoke Experiences", route: "/experiences" },
-  { label: "Nature-Based Wellness", route: "/wellness" },
-  { label: "A Taste of Place", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Nayara Journal", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
@@ -84,6 +83,8 @@ export default function BrandNavigation({
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
+  const [puraVidaOpen, setPuraVidaOpen] = useState(false);
+  const [resortsOpen, setResortsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
 
@@ -117,6 +118,8 @@ export default function BrandNavigation({
     setMenuOpen(false);
     setReserveOpen(false);
     setExploreOpen(false);
+    setPuraVidaOpen(false);
+    setResortsOpen(false);
   };
 
   const handleNavigate = (route: string) => {
@@ -218,29 +221,80 @@ export default function BrandNavigation({
                       </div>
                     )}
                     {GLOBAL_MENU.map((item) => (
-                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
+                      'hasSubmenu' in item && item.hasSubmenu ? (
+                        <div key={item.label}>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); setPuraVidaOpen(!puraVidaOpen); setResortsOpen(false); }}
+                            className={`${menuItem} flex items-center justify-between`}
+                          >
+                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
+                            <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${puraVidaOpen ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </button>
+                          <AnimatePresence>
+                            {puraVidaOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pl-4 pb-1">
+                                  {PURA_VIDA_PILLARS.map((pillar) => (
+                                    <button key={pillar.label} onClick={() => handleNavigate(pillar.route)} className={menuItem}>
+                                      <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{pillar.label}</span>
+                                    </button>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : (
+                        <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                          <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
+                        </button>
+                      )
                     ))}
 
-                    {/* Resorts sub-section */}
+                    {/* Our Resorts accordion */}
                     <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
-                    <div className="px-5 pt-1 pb-1">
-                      <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
-                        Our Resorts
-                      </span>
+                    <div>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); setResortsOpen(!resortsOpen); setPuraVidaOpen(false); }}
+                        className={`${menuItem} flex items-center justify-between`}
+                      >
+                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Our Resorts</span>
+                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${resortsOpen ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      <AnimatePresence>
+                        {resortsOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pb-1">
+                              {EXPLORE_ITEMS.map((item) => (
+                                <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                                  <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
+                                </button>
+                              ))}
+                              <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
+                              <button onClick={() => handleNavigate("/")} className={menuItem}>
+                                <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>Nayara Resorts</span>
+                              </button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                    {EXPLORE_ITEMS.map((item) => (
-                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
-                    ))}
-
-                    {/* Back to brand home */}
-                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
-                    <button onClick={() => handleNavigate("/")} className={menuItem}>
-                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
-                    </button>
 
 
 
@@ -350,29 +404,80 @@ export default function BrandNavigation({
                       </>
                     )}
                     {GLOBAL_MENU.map((item) => (
-                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
+                      'hasSubmenu' in item && item.hasSubmenu ? (
+                        <div key={item.label}>
+                          <button
+                            onClick={() => setPuraVidaOpen(!puraVidaOpen)}
+                            className={`${menuItem} flex items-center justify-between`}
+                          >
+                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
+                            <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-200 ${puraVidaOpen ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </button>
+                          <AnimatePresence>
+                            {puraVidaOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.2 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pl-4">
+                                  {PURA_VIDA_PILLARS.map((pillar) => (
+                                    <button key={pillar.label} onClick={() => handleNavigate(pillar.route)} className={menuItem}>
+                                      <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{pillar.label}</span>
+                                    </button>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : (
+                        <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                          <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
+                        </button>
+                      )
                     ))}
 
-                    {/* Our Resorts */}
+                    {/* Our Resorts accordion */}
                     <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
-                    <div className="px-4 pt-1 pb-1">
-                      <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.18em]" style={menuText}>
-                        Our Resorts
-                      </span>
+                    <div>
+                      <button
+                        onClick={() => setResortsOpen(!resortsOpen)}
+                        className={`${menuItem} flex items-center justify-between`}
+                      >
+                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Our Resorts</span>
+                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-200 ${resortsOpen ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      <AnimatePresence>
+                        {resortsOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4">
+                              {EXPLORE_ITEMS.map((item) => (
+                                <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                                  <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
+                                </button>
+                              ))}
+                              <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
+                              <button onClick={() => handleNavigate("/")} className={menuItem}>
+                                <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>Nayara Resorts</span>
+                              </button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                    {EXPLORE_ITEMS.map((item) => (
-                      <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
-                    ))}
-
-                    {/* Back to brand home */}
-                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
-                    <button onClick={() => handleNavigate("/")} className={menuItem}>
-                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Nayara Resorts</span>
-                    </button>
 
 
 

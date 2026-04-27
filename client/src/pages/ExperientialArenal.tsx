@@ -1,5 +1,5 @@
 /**
- * EXPERIENTIAL ARENAL — Nature & Adventure
+ * CURATED EXCURSIONS — Pura Vida Sub-page
  * Design: Editorial magazine — bone/espresso brand palette
  * Typography: Playfair Display (display) + DM Sans (body)
  *
@@ -10,7 +10,7 @@
  *   4. Explore Arenal — Off-property excursions (bone bg)
  *   5. Footer
  *
- * Wellness & Culinary removed — those have their own experiential pages.
+ * Wellness & Culinary removed — those have their own Pura Vida sub-pages.
  */
 
 import { useState, useRef } from "react";

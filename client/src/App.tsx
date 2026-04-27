@@ -13,7 +13,9 @@ import Home from "./pages/Home";
 /* ── Lazy-loaded pages ── */
 const AltoAtacama = lazy(() => import("./pages/AltoAtacama"));
 const CostaRica = lazy(() => import("./pages/CostaRica"));
-const ExperientialArenal = lazy(() => import("./pages/ExperientialArenal"));
+const CuratedExcursions = lazy(() => import("./pages/ExperientialArenal"));
+const FamilyExpeditions = lazy(() => import("./pages/FamilyExpeditions"));
+const RainforestRomance = lazy(() => import("./pages/RainforestRomance"));
 const Hangaroa = lazy(() => import("./pages/Hangaroa"));
 const BocasDelToro = lazy(() => import("./pages/BocasDelToro"));
 const Journal = lazy(() => import("./pages/Journal"));
@@ -116,7 +118,11 @@ function Router() {
           <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/sustainability">{() => <CostaRicaSustainability propertySlug="alto-atacama" />}</Route>
           <Route path="/costa-rica" component={CostaRica} />
-          <Route path="/experiential-arenal" component={ExperientialArenal} />
+          <Route path="/curated-excursions" component={CuratedExcursions} />
+          <Route path="/experiential-arenal">{() => { window.location.replace("/curated-excursions"); return null; }}</Route>
+          <Route path="/pura-vida">{() => { window.location.replace("/costa-rica"); return null; }}</Route>
+          <Route path="/family-expeditions" component={FamilyExpeditions} />
+          <Route path="/rainforest-romance" component={RainforestRomance} />
           <Route path="/gastronomy-arenal" component={ArenalGastronomy} />
           <Route path="/tented-camp" component={TentedCamp} />
           <Route path="/tented-camp/rooms" component={TentedRooms} />

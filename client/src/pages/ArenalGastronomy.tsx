@@ -72,7 +72,7 @@ function HeroSection() {
       {/* Back button */}
       <div className="absolute top-6 left-0 right-0 z-20 flex justify-center">
         <a
-          href="/experiential-arenal"
+          href="/curated-excursions"
           className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
         >
           <svg className="w-3.5 h-3.5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

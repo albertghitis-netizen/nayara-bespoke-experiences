@@ -65,7 +65,7 @@ export const PROPERTY_MENU: MenuItem[] = [];
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
 /* Explore column items (pillars + journal + awards) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
-  { label: "Pura Vida", route: "/experiential-arenal" },
+  { label: "Pura Vida", route: "/costa-rica" },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
@@ -77,11 +77,11 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
 
 /* Pura Vida pillar items for footer + dropdown */
 export const PURA_VIDA_PILLARS: MenuItem[] = [
-  { label: "Curated Excursions", route: "/experiential-arenal" },
+  { label: "Curated Excursions", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/wellness" },
   { label: "Forest to Table", route: "/gastronomy" },
-  { label: "Family Expeditions", route: "/experiential-arenal" },
-  { label: "Rainforest Romance", route: "/experiential-arenal" },
+  { label: "Family Expeditions", route: "/family-expeditions" },
+  { label: "Rainforest Romance", route: "/rainforest-romance" },
 ];
 
 /* Nayara Journal column items */

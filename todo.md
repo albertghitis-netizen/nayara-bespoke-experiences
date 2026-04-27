@@ -3144,3 +3144,24 @@
 - [x] Rename Experiential Arenal page to "Pura Vida" (hero title, route stays /experiential-arenal)
 - [x] Add category dropdown on Pura Vida page with five pillars: Curated Excursions, Nurtured by Nature, Forest to Table, Family Expeditions, Rainforest Romance
 - [x] Add "Pura Vida" column in the footer with the five pillar categories
+
+## Main Navigation Pura Vida Flyout
+- [x] Replace "Experiential" in hamburger nav with "Pura Vida" (inline accordion)
+- [x] Add inline accordion with 5 pillar categories when Pura Vida is clicked
+- [x] Add "Our Resorts" accordion in hamburger nav showing 6 resort properties + Nayara Resorts brand link
+
+## Pura Vida Sub-Pages Build-Out
+- [ ] Curated Excursions sub-page: Full images and detail for all on-property activities (bird watching, nature hike, botanical/sloth tour) + off-property Arenal excursions — match Tented Camp experience pattern
+- [x] Nurtured by Nature sub-page: Already built (existing Wellness page)
+- [x] Forest to Table sub-page: Already built (existing Gastronomy page)
+- [x] Ensure all sub-pages have proper routing and nav links from Pura Vida dropdown
+
+## Pura Vida Sub-Pages Build-Out
+- [x] Build Coming Soon placeholder page for Family Expeditions (/family-expeditions)
+- [x] Build Coming Soon placeholder page for Rainforest Romance (/rainforest-romance)
+- [x] Update Pura Vida dropdown routes to point to new placeholder pages
+- [x] Update App.tsx with routes for /family-expeditions and /rainforest-romance
+- [ ] Curated Excursions: Source and add full images for all on-property activities (bird watching, nature hike, botanical/sloth tour)
+- [ ] Curated Excursions: Source and add full images for all off-property Arenal excursions
+- [x] Verify all Pura Vida dropdown links work correctly
+- [x] Remove all references to "Experiential" / "Experiential Arenal" across the entire codebase — replace with proper Pura Vida pillar names

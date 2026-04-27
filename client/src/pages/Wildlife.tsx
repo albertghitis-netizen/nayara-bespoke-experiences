@@ -1,5 +1,5 @@
 /**
- * WILDLIFE — Experiential Arenal Sub-page
+ * WILDLIFE — Curated Excursions Sub-page
  * Wildlife encounters & biodiversity experiences
  * Placeholder page — content to be added later
  */
@@ -37,7 +37,7 @@ function HeroSection() {
       {/* Back button */}
       <div className="absolute top-6 left-0 right-0 z-20 flex justify-center">
         <a
-          href="/experiential-arenal"
+          href="/curated-excursions"
           className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
         >
           <ArrowLeft className="w-4 h-4 text-white/80" />
@@ -45,7 +45,7 @@ function HeroSection() {
             className="text-white/80 text-[11px] tracking-[0.2em] uppercase"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Experiential Arenal
+            Curated Excursions
           </span>
         </a>
       </div>

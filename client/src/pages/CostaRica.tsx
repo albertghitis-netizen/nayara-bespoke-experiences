@@ -1,7 +1,7 @@
 /*
  * COSTA RICA HUB — Destination-level editorial page
  *
- * Flow: Hero → Why Costa Rica → Arenal Volcano → Five Experiential Pillars
+ * Flow: Hero → Why Costa Rica → Arenal Volcano → Five Pura Vida Pillars
  *       → Three Properties → Journal → Footer
  *
  * Palette: Tented + Gardens blend
@@ -71,7 +71,7 @@ const PILLARS = [
     title: "Curated Excursions",
     subtitle:
       "Volcano, canopy, canyon, river — the living landscape of Arenal.",
-    route: "/experiential-arenal",
+    route: "/curated-excursions",
     image: CDN.hangingBridges,
     ready: true,
   },
@@ -79,7 +79,7 @@ const PILLARS = [
     title: "Nurtured by Nature",
     subtitle:
       "Hot springs, rainforest spa, and the science of green exposure.",
-    route: "/experiential-wellness",
+    route: "/wellness",
     image: CDN.hotSprings,
     ready: true,
   },
@@ -87,17 +87,17 @@ const PILLARS = [
     title: "Forest to Table",
     subtitle:
       "Farm to rainforest table — cacao, coffee, and Michelin-recognized dining.",
-    route: "/experiential-gastronomy",
+    route: "/gastronomy",
     image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
     ready: true,
   },
   {
     title: "Family Expeditions",
     subtitle:
-      "The rainforest as living classroom — sloths, wildlife corridors, and wonder.",
+      "The rainforest as living classroom — sloths, wildlife corridors, and wonder at every age.",
     route: "/family-expeditions",
-    image: CDN.frogTour,
-    ready: false,
+    image: CDN.hangingBridges,
+    ready: true,
   },
   {
     title: "Rainforest Romance",
@@ -105,7 +105,7 @@ const PILLARS = [
       "Adults-only escapes where volcanic warmth meets rainforest serenity.",
     route: "/rainforest-romance",
     image: CDN.springsPool,
-    ready: false,
+    ready: true,
   },
 ];
 
@@ -485,7 +485,7 @@ function ArenalSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SIX EXPERIENTIAL PILLARS
+   FIVE PURA VIDA PILLARS
    ═══════════════════════════════════════════════════════════════ */
 function PillarsSection() {
   return (
@@ -496,7 +496,7 @@ function PillarsSection() {
             className="text-[11px] tracking-[0.3em] uppercase block mb-6"
             style={{ fontFamily: "var(--font-body)", color: C.olive }}
           >
-            Experiential Pillars
+            Pura Vida Pillars
           </span>
         </Reveal>
 
