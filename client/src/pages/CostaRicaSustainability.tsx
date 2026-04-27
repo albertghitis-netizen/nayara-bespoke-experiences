@@ -5,7 +5,7 @@
  * environmental pillars, reforestation timeline, and editorial narrative.
  */
 
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
@@ -1081,6 +1081,319 @@ function SustainabilityVoices({
             </motion.div>
           ))}
         </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STORIES OF STEWARDSHIP — 3 Featured + Scrollable Carousel
+   ═══════════════════════════════════════════════════════════════ */
+function StoriesOfStewardshipSection({
+  palette,
+}: {
+  palette: PropertyPalette;
+}) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = useCallback(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      setCanScrollLeft(container.scrollLeft > 0);
+      setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth - 10);
+    }
+  }, []);
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
+  }, [checkScroll]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const scrollAmount = 400;
+      container.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+      setTimeout(checkScroll, 300);
+    }
+  };
+
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
+
+        {/* Header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <div className="flex items-center justify-between mb-8 md:mb-12">
+            <div>
+              <p
+                className="text-[11px] tracking-[0.2em] mb-3"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+              >
+                From Nayara Journal
+              </p>
+              <h2
+                className="text-2xl md:text-3xl lg:text-4xl tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+              >
+                Stories of Stewardship
+              </h2>
+            </div>
+            <div className="flex gap-3">
+              <Link
+                href="/journal"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 hover:translate-y-[-1px] text-[12px] tracking-[0.06em]"
+                style={{
+                  borderColor: `${palette.primary}40`,
+                  color: palette.primary,
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 500,
+                }}
+              >
+                Journal
+              </Link>
+              <Link
+                href="/awards"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 hover:translate-y-[-1px] text-[12px] tracking-[0.06em]"
+                style={{
+                  borderColor: `${palette.primary}40`,
+                  color: palette.primary,
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 500,
+                }}
+              >
+                Awards
+              </Link>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        {/* 3 Featured items */}
+        <StaggerOnScroll
+          variants={staggerContainer}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12"
+        >
+          {/* Afar Podcast - Listen */}
+          <motion.div
+            variants={fadeUp}
+            className="p-6 md:p-8 rounded-lg transition-all duration-300 hover:translate-y-[-2px]"
+            style={{
+              backgroundColor: palette.primary,
+              color: "white",
+            }}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <span
+                className="text-[11px] tracking-[0.2em] uppercase px-3 py-1 rounded-full"
+                style={{ backgroundColor: "rgba(255,255,255,0.15)", fontFamily: "var(--font-body)", fontWeight: 600 }}
+              >
+                Listen
+              </span>
+            </div>
+            <h3
+              className="text-[18px] md:text-[20px] mb-2"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "white" }}
+            >
+              The Afar Podcast
+            </h3>
+            <p
+              className="text-[13px] leading-[1.7]"
+              style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.8)" }}
+            >
+              Stories and conversations from the world of sustainable travel.
+            </p>
+          </motion.div>
+
+          {/* Green Globe - Read */}
+          <motion.div
+            variants={fadeUp}
+            className="p-6 md:p-8 rounded-lg transition-all duration-300 hover:translate-y-[-2px]"
+            style={{
+              backgroundColor: palette.primary,
+              color: "white",
+            }}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <span
+                className="text-[11px] tracking-[0.2em] uppercase px-3 py-1 rounded-full"
+                style={{ backgroundColor: "rgba(255,255,255,0.15)", fontFamily: "var(--font-body)", fontWeight: 600 }}
+              >
+                Read
+              </span>
+            </div>
+            <h3
+              className="text-[18px] md:text-[20px] mb-2"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "white" }}
+            >
+              Green Globe Certified
+            </h3>
+            <p
+              className="text-[13px] leading-[1.7]"
+              style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.8)" }}
+            >
+              Setting the standard for sustainable tourism across Costa Rica.
+            </p>
+          </motion.div>
+
+          {/* Leo Pioneering - Watch */}
+          <motion.div
+            variants={fadeUp}
+            className="p-6 md:p-8 rounded-lg transition-all duration-300 hover:translate-y-[-2px]"
+            style={{
+              backgroundColor: palette.primary,
+              color: "white",
+            }}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <span
+                className="text-[11px] tracking-[0.2em] uppercase px-3 py-1 rounded-full"
+                style={{ backgroundColor: "rgba(255,255,255,0.15)", fontFamily: "var(--font-body)", fontWeight: 600 }}
+              >
+                Watch
+              </span>
+            </div>
+            <h3
+              className="text-[18px] md:text-[20px] mb-2"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "white" }}
+            >
+              Leo Ghitis: Pioneering Sustainable Luxury
+            </h3>
+            <p
+              className="text-[13px] leading-[1.7]"
+              style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.8)" }}
+            >
+              How Nayara is pioneering sustainable luxury travel globally.
+            </p>
+          </motion.div>
+        </StaggerOnScroll>
+
+        {/* Scrollable carousel - 3 more items */}
+        <div className="relative">
+          {/* Scroll buttons */}
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll('left')}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-black/10"
+              style={{ color: palette.primary }}
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
+          {canScrollRight && (
+            <button
+              onClick={() => scroll('right')}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-black/10"
+              style={{ color: palette.primary }}
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
+
+          {/* Carousel */}
+          <div
+            ref={scrollContainerRef}
+            onScroll={checkScroll}
+            className="flex gap-6 md:gap-8 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory"
+          >
+            {/* Wildlife Conservation - Read */}
+            <div
+              className="flex-shrink-0 w-full md:w-1/3 p-6 md:p-8 rounded-lg transition-all duration-300 hover:translate-y-[-2px] snap-start"
+              style={{
+                backgroundColor: palette.primary,
+                color: "white",
+              }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span
+                  className="text-[11px] tracking-[0.2em] uppercase px-3 py-1 rounded-full"
+                  style={{ backgroundColor: "rgba(255,255,255,0.15)", fontFamily: "var(--font-body)", fontWeight: 600 }}
+                >
+                  Read
+                </span>
+              </div>
+              <h3
+                className="text-[18px] md:text-[20px] mb-2"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "white" }}
+              >
+                Wildlife Conservation in Arenal
+              </h3>
+              <p
+                className="text-[13px] leading-[1.7]"
+                style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.8)" }}
+              >
+                Protecting rainforest ecosystems and wildlife corridors.
+              </p>
+            </div>
+
+            {/* Suite Success - Watch */}
+            <div
+              className="flex-shrink-0 w-full md:w-1/3 p-6 md:p-8 rounded-lg transition-all duration-300 hover:translate-y-[-2px] snap-start"
+              style={{
+                backgroundColor: palette.primary,
+                color: "white",
+              }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span
+                  className="text-[11px] tracking-[0.2em] uppercase px-3 py-1 rounded-full"
+                  style={{ backgroundColor: "rgba(255,255,255,0.15)", fontFamily: "var(--font-body)", fontWeight: 600 }}
+                >
+                  Watch
+                </span>
+              </div>
+              <h3
+                className="text-[18px] md:text-[20px] mb-2"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "white" }}
+              >
+                Suite Success: Leo Ghitis on Nayara Resorts
+              </h3>
+              <p
+                className="text-[13px] leading-[1.7]"
+                style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.8)" }}
+              >
+                Building luxury from a single property to six destinations.
+              </p>
+            </div>
+
+            {/* Women's Empowerment - Read */}
+            <div
+              className="flex-shrink-0 w-full md:w-1/3 p-6 md:p-8 rounded-lg transition-all duration-300 hover:translate-y-[-2px] snap-start"
+              style={{
+                backgroundColor: palette.primary,
+                color: "white",
+              }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span
+                  className="text-[11px] tracking-[0.2em] uppercase px-3 py-1 rounded-full"
+                  style={{ backgroundColor: "rgba(255,255,255,0.15)", fontFamily: "var(--font-body)", fontWeight: 600 }}
+                >
+                  Read
+                </span>
+              </div>
+              <h3
+                className="text-[18px] md:text-[20px] mb-2"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "white" }}
+              >
+                Women's Empowerment Through Housing
+              </h3>
+              <p
+                className="text-[13px] leading-[1.7]"
+                style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.8)" }}
+              >
+                Building homes and empowering women in La Fortuna.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -432,18 +432,13 @@ export const sustainabilityData: Record<string, {
     ],
     blogs: [
       {
-        title: "Wildlife Conservation in Arenal and Bocas del Toro",
+        title: "Wildlife Conservation in Arenal",
         excerpt: "From sloths to sea turtles - how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean coast.",
         image: "/manus-storage/tented-sloth-drinking_18446c6a.jpg",
         url: "https://blog.nayararesorts.com/wildlife-conservation-in-arenal-and-bocas-del-toro",
       },
 
-      {
-        title: "Birdwatching in Costa Rica",
-        excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans - a birdwatcher's paradise.",
-        image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Scarlet-macaw-NA_CR_15-2048x1638.jpeg",
-        url: "https://blog.nayararesorts.com/birdwatching-in-costa-rica",
-      },
+
       {
         title: "Women's Empowerment Through Housing in La Fortuna",
         excerpt: "How Nayara Resorts is building homes and empowering women in La Fortuna through community-driven housing initiatives.",
@@ -742,7 +737,7 @@ export const sustainabilityData: Record<string, {
         url: "https://blog.nayararesorts.com/biodensity-underwater-mountains-and-more-a-different-perspective-on-our-ecosystems",
       },
       {
-        title: "Wildlife Conservation in Arenal and Bocas del Toro",
+        title: "Wildlife Conservation in Arenal",
         excerpt: "From sloths to sea turtles - how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
         image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-sunset_2eeaa785.jpg",
         url: "https://blog.nayararesorts.com/wildlife-conservation-in-arenal-and-bocas-del-toro",

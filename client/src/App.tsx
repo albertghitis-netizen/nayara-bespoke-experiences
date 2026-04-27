@@ -36,6 +36,9 @@ const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const PuraVida = lazy(() => import("./pages/PuraVida"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
+const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
+const ReforestationWildlifeBlog = lazy(() => import("./pages/ReforestationWildlifeBlog"));
+const BirdwatchingBlog = lazy(() => import("./pages/BirdwatchingBlog"));
 const BrandBook = lazy(() => import("./pages/BrandBook"));
 const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -188,7 +191,10 @@ function Router() {
           <Route path="/newsletter" component={Newsletter} />
           <Route path="/journal/:slug" component={DynamicBlogPost} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
-          <Route path="/blog/green-globe-s-certification" component={GreenGlobeBlog} />
+          <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
+          <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
+          <Route path="/blog/reforestation-wildlife" component={ReforestationWildlifeBlog} />
+          <Route path="/blog/birdwatching" component={BirdwatchingBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
 
           {/* ── Internal / Private pages ── */}
