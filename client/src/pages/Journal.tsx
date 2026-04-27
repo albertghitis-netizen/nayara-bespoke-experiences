@@ -37,7 +37,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ntc-v4-hero-web_cde65e6c.mp4",
+  heroVideoDesktop: "/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4",
 };
 
 /*
@@ -123,9 +123,16 @@ export default function Journal() {
       {/* ── Hero ── */}
       <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden">
         <div className="absolute inset-0">
-          <NativeVideo src={JOURNAL_CDN.heroVideoDesktop} className="w-full h-full object-cover" />
+          <video
+            src={JOURNAL_CDN.heroVideoDesktop}
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />
         </div>
+
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
           <motion.h1
             initial={{ opacity: 0, y: 12 }}

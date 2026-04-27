@@ -63,9 +63,18 @@ export const CONTENT_SECTIONS = [
 export const PROPERTY_MENU: MenuItem[] = [];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
+/* Costa Rica section with Pura Vida hub as first item */
+const COSTA_RICA_MENU_ITEMS: MenuItem[] = [
+  { label: "Pura Vida", route: "/pura-vida" },
+  { label: "Curated Excursions", route: "/curated-excursions" },
+  { label: "Nurtured by Nature", route: "/wellness" },
+  { label: "Forest to Table", route: "/gastronomy" },
+  { label: "Family Adventure", route: "/family-expeditions" },
+  { label: "Rainforest Romance", route: "/rainforest-romance" },
+];
+
 /* Explore column items (pillars + journal + awards) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
-  { label: "Pura Vida", route: "/costa-rica" },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
@@ -94,6 +103,10 @@ const JOURNAL_MENU_ITEMS: MenuItem[] = [
 /* Brand page hamburger — standardized menu (no properties) */
 export function getBrandMenu(): MenuSection[] {
   return [
+    {
+      header: "Pura Vida",
+      items: COSTA_RICA_MENU_ITEMS,
+    },
     {
       items: [...EXPLORE_MENU_ITEMS, ...JOURNAL_MENU_ITEMS],
     },

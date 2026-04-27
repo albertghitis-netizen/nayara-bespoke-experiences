@@ -43,9 +43,9 @@ const bodyMedium = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
 
 const CDN = {
   heroDesktop:
-    "/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4",
+    "/manus-storage/541D91ED-B1A1-4C62-864D-146A15D699EE(1)_8c5af108.mp4",
   heroMobile:
-    "/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4",
+    "/manus-storage/541D91ED-B1A1-4C62-864D-146A15D699EE(1)_8c5af108.mp4",
 };
 
 /* ── Category configs ────────────────────────────────────────── */
@@ -109,7 +109,7 @@ function ArenalHero() {
         <BlobVideo
           src={heroVideo}
           className="w-full h-full object-cover"
-          hasAudio={true}
+          hasAudio={false}
           pillBg="rgba(58,42,26,0.7)"
           pillColor="#f7f5f0"
         />
@@ -126,7 +126,7 @@ function ArenalHero() {
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={headingLight}
         >
-          Pura Vida
+          Three Resorts. One Rainforest.
         </motion.h1>
         <PillarDropdown />
       </div>

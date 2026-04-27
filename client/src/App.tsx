@@ -33,6 +33,7 @@ const ConciergeChatWidget = lazy(() => import("./components/ConciergeChatWidget"
 const Newsletter = lazy(() => import("./pages/Newsletter"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
+const PuraVida = lazy(() => import("./pages/PuraVida"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const BrandBook = lazy(() => import("./pages/BrandBook"));
@@ -120,7 +121,7 @@ function Router() {
           <Route path="/costa-rica" component={CostaRica} />
           <Route path="/curated-excursions" component={CuratedExcursions} />
           <Route path="/experiential-arenal">{() => { window.location.replace("/curated-excursions"); return null; }}</Route>
-          <Route path="/pura-vida">{() => { window.location.replace("/costa-rica"); return null; }}</Route>
+          <Route path="/pura-vida" component={PuraVida} />
           <Route path="/family-expeditions" component={FamilyExpeditions} />
           <Route path="/rainforest-romance" component={RainforestRomance} />
           <Route path="/gastronomy-arenal" component={ArenalGastronomy} />
