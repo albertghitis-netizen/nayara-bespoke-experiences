@@ -15,6 +15,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
 import BrandNavigation from "@/components/BrandNavigation";
 import {
   ChevronDown,
@@ -28,6 +29,7 @@ import {
   exploreNayaraExperiences,
   type Excursion,
 } from "@/data/properties";
+import { PURA_VIDA_PILLARS } from "@/data/navigation";
 import { useIsMobile } from "@/hooks/useMobile";
 import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
@@ -115,7 +117,7 @@ function ArenalHero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Title anchored to bottom */}
+      {/* Title + Dropdown anchored to bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -124,10 +126,66 @@ function ArenalHero() {
           className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide text-center"
           style={headingLight}
         >
-          Nature &amp; Adventure
+          Pura Vida
         </motion.h1>
+        <PillarDropdown />
       </div>
     </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PILLAR DROPDOWN — Category selector below hero
+   ═══════════════════════════════════════════════════════════════ */
+function PillarDropdown() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 1.0 }}
+      className="relative mt-6"
+    >
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 hover:bg-white/25 transition-all duration-300"
+      >
+        <span
+          className="text-white text-[11px] tracking-[0.2em] uppercase"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+        >
+          Explore Pillars
+        </span>
+        <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.3 }}>
+          <ChevronDown className="w-3.5 h-3.5 text-white/70" />
+        </motion.div>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -6, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -6, scale: 0.95 }}
+            transition={{ duration: 0.25 }}
+            className="absolute top-full mt-2 left-1/2 -translate-x-1/2 min-w-[200px] bg-[#3a2a1a]/90 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden shadow-2xl z-50"
+          >
+            {PURA_VIDA_PILLARS.map((pillar, i) => (
+              <Link
+                key={pillar.label}
+                href={pillar.route}
+                onClick={() => setOpen(false)}
+                className="block px-5 py-3 text-white/80 hover:text-white hover:bg-white/10 transition-colors text-[12px] tracking-[0.1em]"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                {pillar.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 

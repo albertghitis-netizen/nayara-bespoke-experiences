@@ -3139,3 +3139,8 @@
 ## Naming Update
 - [x] Rename Costa Rica hub hero title from "Costa Rica" to "Pura Vida"
 - [x] Open the Pura Vida hub with the Pura Vida blog content as lead editorial
+
+## Pura Vida Page Restructure
+- [x] Rename Experiential Arenal page to "Pura Vida" (hero title, route stays /experiential-arenal)
+- [x] Add category dropdown on Pura Vida page with five pillars: Curated Excursions, Nurtured by Nature, Forest to Table, Family Expeditions, Rainforest Romance
+- [x] Add "Pura Vida" column in the footer with the five pillar categories

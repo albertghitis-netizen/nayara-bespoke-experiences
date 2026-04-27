@@ -65,7 +65,7 @@ export const PROPERTY_MENU: MenuItem[] = [];
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
 /* Explore column items (pillars + journal + awards) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
-  { label: "Experiential Arenal", route: "/experiential-arenal" },
+  { label: "Pura Vida", route: "/experiential-arenal" },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
@@ -73,6 +73,15 @@ const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Gallery", route: "/gallery" },
   { label: "Nayara Journal", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
+];
+
+/* Pura Vida pillar items for footer + dropdown */
+export const PURA_VIDA_PILLARS: MenuItem[] = [
+  { label: "Curated Excursions", route: "/experiential-arenal" },
+  { label: "Nurtured by Nature", route: "/wellness" },
+  { label: "Forest to Table", route: "/gastronomy" },
+  { label: "Family Expeditions", route: "/experiential-arenal" },
+  { label: "Rainforest Romance", route: "/experiential-arenal" },
 ];
 
 /* Nayara Journal column items */
@@ -116,12 +125,19 @@ const JOURNAL_COLUMN: FooterColumn = {
   links: JOURNAL_MENU_ITEMS,
 };
 
+/* Pura Vida column for footer */
+const PURA_VIDA_COLUMN: FooterColumn = {
+  title: "Pura Vida",
+  links: PURA_VIDA_PILLARS,
+};
+
 export function getFooterColumns(pageType: PageType): FooterColumn[] {
   return [
     {
       title: "Explore",
       links: EXPLORE_MENU_ITEMS,
     },
+    PURA_VIDA_COLUMN,
     RESORTS_COLUMN,
   ];
 }

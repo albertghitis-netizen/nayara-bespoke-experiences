@@ -1,7 +1,7 @@
 /*
  * COSTA RICA HUB — Destination-level editorial page
  *
- * Flow: Hero → Why Costa Rica → Arenal Volcano → Six Experiential Pillars
+ * Flow: Hero → Why Costa Rica → Arenal Volcano → Five Experiential Pillars
  *       → Three Properties → Journal → Footer
  *
  * Palette: Tented + Gardens blend
@@ -68,7 +68,7 @@ const hubNavPalette = {
 /* ── Six Pillars ─────────────────────────────────────────────── */
 const PILLARS = [
   {
-    title: "Nature & Adventure",
+    title: "Curated Excursions",
     subtitle:
       "Volcano, canopy, canyon, river — the living landscape of Arenal.",
     route: "/experiential-arenal",
@@ -76,7 +76,7 @@ const PILLARS = [
     ready: true,
   },
   {
-    title: "Nature-Based Wellness",
+    title: "Nurtured by Nature",
     subtitle:
       "Hot springs, rainforest spa, and the science of green exposure.",
     route: "/experiential-wellness",
@@ -84,7 +84,7 @@ const PILLARS = [
     ready: true,
   },
   {
-    title: "A Taste of Place",
+    title: "Forest to Table",
     subtitle:
       "Farm to rainforest table — cacao, coffee, and Michelin-recognized dining.",
     route: "/experiential-gastronomy",
@@ -92,27 +92,19 @@ const PILLARS = [
     ready: true,
   },
   {
-    title: "Family Adventure",
+    title: "Family Expeditions",
     subtitle:
       "The rainforest as living classroom — sloths, wildlife corridors, and wonder.",
-    route: "/family-adventure",
+    route: "/family-expeditions",
     image: CDN.frogTour,
     ready: false,
   },
   {
-    title: "Romance, Naturally",
+    title: "Rainforest Romance",
     subtitle:
       "Adults-only escapes where volcanic warmth meets rainforest serenity.",
-    route: "/romance-naturally",
+    route: "/rainforest-romance",
     image: CDN.springsPool,
-    ready: false,
-  },
-  {
-    title: "Rainforest & Reef Restoration",
-    subtitle:
-      "From cattle pasture to canopy — active regeneration across two ecosystems.",
-    route: "/rainforest-reef-restoration",
-    image: CDN.tentedAerial,
     ready: false,
   },
 ];
@@ -517,7 +509,7 @@ function PillarsSection() {
               color: C.espresso,
             }}
           >
-            Six Ways to Experience{" "}
+            Five Ways to Experience{" "}
             <span style={{ color: C.clover }}>Costa Rica</span>
           </h2>
         </Reveal>
