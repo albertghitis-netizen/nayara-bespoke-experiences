@@ -284,7 +284,7 @@ function BrandStorySection() {
 
           {/* Badge animation video — desktop only */}
           {!isMobile && (
-            <div className="mt-6 overflow-hidden ml-8">
+            <div className="mt-6 overflow-hidden -ml-8">
               <video
                 src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)_4d3ba5bc.mp4"
                 autoPlay
