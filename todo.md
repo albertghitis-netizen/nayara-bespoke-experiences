@@ -3167,13 +3167,14 @@
 - [x] Remove all references to "Experiential" / "Experiential Arenal" across the entire codebase — replace with proper Pura Vida pillar names
 
 ## Tented Camp Sustainability Hero — Mobile/Desktop Video Swap
-- [ ] Upload vertical hero video for mobile (788AFD19-1D02-4B78-A9E6-6E0E34F9F03B.mov) — DONE: /manus-storage/788AFD19-1D02-4B78-A9E6-6E0E34F9F03B_f2f979a7.mov
-- [ ] Receive horizontal hero video for desktop from user
-- [ ] Upload horizontal hero video to CDN
-- [ ] Update CostaRicaSustainability.tsx: add CDN.heroMobile and CDN.heroDesktop URLs
-- [ ] Implement useIsMobile() hook to swap videos (mobile: vertical, desktop: horizontal)
-- [ ] Update SustainabilityHero component to use responsive video logic
-- [ ] Test on mobile and desktop viewports
+- [x] Upload vertical hero video for mobile (788AFD19-1D02-4B78-A9E6-6E0E34F9F03B.mov) — /manus-storage/788AFD19-1D02-4B78-A9E6-6E0E34F9F03B_f2f979a7.mov
+- [x] Receive horizontal hero video for desktop from user (SlothsNayara.mov)
+- [x] Upload horizontal hero video to CDN — /manus-storage/SlothsNayara_f8921da5.mov
+- [x] Update CostaRicaSustainability.tsx: add HERO_VIDEOS with mobile and desktop URLs
+- [x] Implement useIsMobile() hook to swap videos (mobile: vertical, desktop: horizontal)
+- [x] Update SustainabilityHero component to use responsive video logic
+- [x] Test on desktop viewport — hero video displays perfectly with no black space
+- [ ] Test on mobile viewport to verify vertical video swap
 - [ ] Save checkpoint
 
 ## Featured Green Globe Section — Integration Complete
