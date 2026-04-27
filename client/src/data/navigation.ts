@@ -76,12 +76,12 @@ const COSTA_RICA_MENU_ITEMS: MenuItem[] = [
 /* Explore column items (pillars + journal + awards) */
 const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Bespoke Experiences", route: "/experiences" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Nature-Based Wellness", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy" },
-  { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Gallery", route: "/gallery" },
   { label: "Nayara Journal", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
+  { label: "Gallery", route: "/gallery" },
 ];
 
 /* Pura Vida pillar items for footer + dropdown */
@@ -89,7 +89,7 @@ export const PURA_VIDA_PILLARS: MenuItem[] = [
   { label: "Curated Excursions", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/wellness" },
   { label: "Forest to Table", route: "/gastronomy" },
-  { label: "Family Expeditions", route: "/family-expeditions" },
+  { label: "Family Adventure", route: "/family-expeditions" },
   { label: "Rainforest Romance", route: "/rainforest-romance" },
 ];
 

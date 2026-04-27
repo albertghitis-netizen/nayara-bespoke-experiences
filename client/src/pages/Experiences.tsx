@@ -12,6 +12,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import HotelFilterBar1 from "@/components/HotelFilterBar1";
 import { properties, type Excursion } from "@/data/properties";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -33,14 +34,8 @@ const CDN = {
   heroHorizontal: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/anakena-timelapse-hero_60211087.mp4",
 };
 
-/* ─── Property filter options ─── */
-const filterOptions = [
-  { id: "all", label: "All Destinations" },
-  ...properties.map((p) => ({ id: p.id, label: p.shortName })),
-];
-
 export default function Experiences() {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeHotel, setActiveHotel] = useState("alto-atacama");
 
   /* Aggregate all excursions with property metadata */
   const allExcursions = useMemo(() => {
@@ -56,14 +51,14 @@ export default function Experiences() {
     return result;
   }, []);
 
-  const filtered = activeFilter === "all" ? allExcursions : allExcursions.filter((e) => e.propertyId === activeFilter);
+  const filtered = activeHotel ? allExcursions.filter((e) => e.propertyId === activeHotel) : allExcursions;
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+      <HotelFilterBar1 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <ExcursionGrid excursions={filtered} />
       <CTASection />
       <Footer />
@@ -107,35 +102,6 @@ function IntroSection() {
             From stargazing in the world's driest desert to snorkeling Caribbean reefs, from hiking volcanic craters on Easter Island to zip-lining through Costa Rica's cloud forest — every Nayara experience is designed by the land it inhabits. Our excursions are led by local guides, grounded in cultural heritage, and calibrated to the rhythms of each ecosystem.
           </p>
         </FadeIn>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   FILTER BAR — One-axis property filter
-   ═══════════════════════════════════════════════════════════════ */
-function FilterBar({ activeFilter, onFilterChange }: { activeFilter: string; onFilterChange: (id: string) => void }) {
-  return (
-    <section className="px-6 md:px-10 pb-8">
-      <div className="max-w-[1200px] mx-auto">
-        <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
-        <div className="flex flex-wrap gap-2">
-          {filterOptions.map((opt) => (
-            <button
-              key={opt.id}
-              onClick={() => onFilterChange(opt.id)}
-              className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
-                activeFilter === opt.id
-                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
-                  : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
-              }`}
-              style={{ ...body, fontWeight: 500 }}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
       </div>
     </section>
   );

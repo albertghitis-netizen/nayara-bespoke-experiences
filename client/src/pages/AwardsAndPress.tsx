@@ -8,6 +8,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ShieldCheck, ChevronDown, Key, ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import HotelFilterBar6 from "@/components/HotelFilterBar6";
 import NativeVideo from "@/components/NativeVideo";
 
 /* ── CDN assets ── */
@@ -158,6 +159,7 @@ function getYear(date: string): string {
 
 /* ── Main Component ── */
 export default function AwardsAndPress() {
+  const [activeHotel, setActiveHotel] = useState("alto-atacama");
   const [expandedProperty, setExpandedProperty] = useState<string | null>("Nayara Springs");
   const [activeFilter, setActiveFilter] = useState("All");
   const [activeTab, setActiveTab] = useState<"awards" | "press">("awards");
@@ -191,7 +193,7 @@ export default function AwardsAndPress() {
 
   return (
     <div className="min-h-screen bg-white">
-      <BrandNavigation pageType="content" />
+      <BrandNavigation pageType="brand" hideCenterLabel />
 
       {/* ── Hero Video ── */}
       <section className="relative w-full h-screen overflow-hidden">
@@ -268,6 +270,9 @@ export default function AwardsAndPress() {
           </FadeIn>
         </div>
       </section>
+
+      {/* ── Hotel Filter ── */}
+      <HotelFilterBar6 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
 
       {/* ── Tab Switcher + Property Filter ── */}
       <section className="py-10 md:py-14 px-6 md:px-10">
