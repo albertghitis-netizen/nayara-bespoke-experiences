@@ -103,6 +103,11 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
           <ESGStatsSection palette={palette} stats={data.esgReport.stats} />
           <ESGNarrativeSection palette={palette} narrative={data.esgReport.narrative} />
 
+          {/* Featured Green Globe Certification */}
+          {data.esgReport.certifications && data.esgReport.certifications.length > 0 && (
+            <FeaturedGreenGlobeSection palette={palette} certifications={data.esgReport.certifications} />
+          )}
+
           {/* Deep Environmental Pillars — Reforestation, Energy, Water, Waste */}
           {data.esgReport.environmentalPillars && data.esgReport.environmentalPillars.length > 0 && (
             <EnvironmentalPillarsSection palette={palette} pillars={data.esgReport.environmentalPillars} />
@@ -1537,6 +1542,24 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
                 {para}
               </p>
             ))}
+
+            {/* Blog link for Reforestation pillar */}
+            {current.id === "reforestation" && (
+              <a
+                href="/blog/reforestation-wildlife"
+                className="inline-flex items-center gap-2 text-[14px] tracking-[0.08em] uppercase transition-all duration-300 hover:gap-3 mt-4"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  color: palette.primary,
+                }}
+              >
+                Explore Reforestation & Wildlife Corridors
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            )}
           </div>
         </motion.div>
       </div>
@@ -1626,6 +1649,23 @@ function SocialImpactSection({ palette, impact }: { palette: PropertyPalette; im
                   {para}
                 </motion.p>
               ))}
+
+              {/* Blog link for Women's Empowerment */}
+              <motion.a
+                href="/blog/womens-empowerment"
+                variants={fadeUp}
+                className="inline-flex items-center gap-2 text-[14px] tracking-[0.08em] uppercase transition-all duration-300 hover:gap-3 mt-4"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  color: palette.primary,
+                }}
+              >
+                Discover Our Women's Empowerment Initiative
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </motion.a>
             </StaggerOnScroll>
           </div>
         </div>
@@ -1710,12 +1750,29 @@ function HousingProjectSection({
                     color: BRAND.primaryText,
                     textAlign: "justify",
                     hyphens: "auto" as const,
-                    ...(para.startsWith("\u201C") ? { fontStyle: "italic" as const } : {}),
+                    ...(para.startsWith("“") ? { fontStyle: "italic" as const } : {}),
                   }}
                 >
                   {para}
                 </motion.p>
               ))}
+
+              {/* Blog link for Women's Empowerment */}
+              <motion.a
+                href="/blog/womens-empowerment"
+                variants={fadeUp}
+                className="inline-flex items-center gap-2 text-[14px] tracking-[0.08em] uppercase transition-all duration-300 hover:gap-3 mt-4"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  color: palette.primary,
+                }}
+              >
+                Read: Women’s Empowerment Through Housing
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </motion.a>
             </StaggerOnScroll>
           </div>
         </div>
@@ -1841,6 +1898,36 @@ const COMMUNITY_ICONS: Record<string, React.ReactNode> = {
 };
 
 function CommunityProgramsSection({ palette, programs }: { palette: PropertyPalette; programs: CommunityProgram[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = useCallback(() => {
+    if (scrollRef.current) {
+      setCanScrollLeft(scrollRef.current.scrollLeft > 0);
+      setCanScrollRight(
+        scrollRef.current.scrollLeft < scrollRef.current.scrollWidth - scrollRef.current.clientWidth - 10
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, [checkScroll]);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 400;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+      setTimeout(checkScroll, 500);
+    }
+  };
+
   return (
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
@@ -1867,39 +1954,71 @@ function CommunityProgramsSection({ palette, programs }: { palette: PropertyPale
           </p>
         </AnimateOnScroll>
 
-        <StaggerOnScroll
-          variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {programs.map((prog, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="p-6 md:p-8"
-              style={{
-                backgroundColor: BRAND.bone,
-                borderRadius: "10px",
-                border: `1px solid ${BRAND.divider}`,
-              }}
+        {/* Scrollable carousel container */}
+        <div className="relative">
+          {/* Scroll buttons */}
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+              style={{ backgroundColor: palette.primary }}
+              aria-label="Scroll left"
             >
-              <div className="mb-4" style={{ color: palette.primary }}>
-                {COMMUNITY_ICONS[prog.icon] || COMMUNITY_ICONS.community}
-              </div>
-              <h4
-                className="text-[15px] mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          )}
+          {canScrollRight && (
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all"
+              style={{ backgroundColor: palette.primary }}
+              aria-label="Scroll right"
+            >
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          )}
+
+          {/* Carousel */}
+          <div
+            ref={scrollRef}
+            onScroll={checkScroll}
+            className="flex gap-6 overflow-x-auto scroll-smooth px-12"
+            style={{ scrollBehavior: "smooth" }}
+          >
+            {programs.map((prog, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="p-6 md:p-8 shrink-0 w-full sm:w-96"
+                style={{
+                  backgroundColor: BRAND.bone,
+                  borderRadius: "10px",
+                  border: `1px solid ${BRAND.divider}`,
+                }}
               >
-                {prog.title}
-              </h4>
-              <p
-                className="text-[13px] leading-[1.7]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
-              >
-                {prog.desc}
-              </p>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
+                <div className="mb-4" style={{ color: palette.primary }}>
+                  {COMMUNITY_ICONS[prog.icon] || COMMUNITY_ICONS.community}
+                </div>
+                <h4
+                  className="text-[15px] mb-3"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                >
+                  {prog.title}
+                </h4>
+                <p
+                  className="text-[13px] leading-[1.7]"
+                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                >
+                  {prog.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -2222,6 +2341,139 @@ function AwarenessSection({
             </motion.div>
           ))}
         </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURED GREEN GLOBE — Prominent certification showcase
+   ═══════════════════════════════════════════════════════════════ */
+function FeaturedGreenGlobeSection({
+  palette,
+  certifications,
+}: {
+  palette: PropertyPalette;
+  certifications: ESGCertification[];
+}) {
+  const greenGlobe = certifications.find((c) => c.name.toLowerCase().includes("green globe"));
+
+  if (!greenGlobe) return null;
+
+  return (
+    <section
+      className={sectionPadding}
+      style={{
+        backgroundColor: palette.gradientEnd || palette.gradientStart,
+        borderTop: `1px solid ${BRAND.divider}`,
+      }}
+    >
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            {/* Left — Green Globe badge and headline */}
+            <div className="lg:col-span-5">
+              <div
+                className="inline-block px-4 py-3 rounded-lg mb-6"
+                style={{
+                  backgroundColor: `${palette.primary}15`,
+                  borderLeft: `4px solid ${palette.primary}`,
+                }}
+              >
+                <p
+                  className="text-[11px] tracking-[0.25em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: palette.primary }}
+                >
+                  {greenGlobe.name}
+                </p>
+              </div>
+
+              <h2
+                className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+              >
+                Global Sustainability Standard
+              </h2>
+
+              <p
+                className="text-[15px] leading-[1.8] mb-6"
+                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              >
+                {greenGlobe.desc || "Our commitment to environmental and social responsibility is validated by the world's leading certification for sustainable tourism."}
+              </p>
+
+              {/* Link to Green Globe Blog */}
+              <a
+                href="/blog/green-globe-certification"
+                className="inline-flex items-center gap-2 text-[14px] tracking-[0.08em] uppercase transition-all duration-300 hover:gap-3"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  color: palette.primary,
+                }}
+              >
+                Read the Full Story
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
+
+            {/* Right — Key achievements or certification details */}
+            <div className="lg:col-span-7">
+              <div
+                className="p-8 md:p-10 rounded-lg"
+                style={{
+                  backgroundColor: BRAND.bone,
+                  border: `1px solid ${BRAND.divider}`,
+                  borderLeft: `4px solid ${palette.primary}`,
+                }}
+              >
+                <p
+                  className="text-[11px] tracking-[0.25em] uppercase mb-4"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.primary }}
+                >
+                  What It Means
+                </p>
+                <h3
+                  className="text-xl md:text-2xl mb-6"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+                >
+                  Certified Excellence in Sustainable Tourism
+                </h3>
+                <p
+                  className="text-[15px] leading-[1.8] mb-6"
+                  style={{ fontFamily: "var(--font-body)", color: BRAND.primaryText }}
+                >
+                  Green Globe certification validates our environmental management, social responsibility, and economic viability. It's a rigorous assessment that ensures we're meeting the highest international standards for sustainable hospitality.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Environmental conservation and energy efficiency",
+                    "Community engagement and local employment",
+                    "Cultural heritage preservation",
+                    "Continuous improvement and transparency",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span
+                        className="text-[18px] mt-0.5 shrink-0"
+                        style={{ color: palette.primary }}
+                      >
+                        ✓
+                      </span>
+                      <span
+                        className="text-[14px] leading-[1.6]"
+                        style={{ fontFamily: "var(--font-body)", color: BRAND.primaryText }}
+                      >
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

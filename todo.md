@@ -3165,3 +3165,25 @@
 - [x] Curated Excursions: Added Night Frog Tour video to Explore Arenal; remaining off-property excursions have placeholders awaiting user videos
 - [x] Verify all Pura Vida dropdown links work correctly
 - [x] Remove all references to "Experiential" / "Experiential Arenal" across the entire codebase — replace with proper Pura Vida pillar names
+
+## Tented Camp Sustainability Hero — Mobile/Desktop Video Swap
+- [ ] Upload vertical hero video for mobile (788AFD19-1D02-4B78-A9E6-6E0E34F9F03B.mov) — DONE: /manus-storage/788AFD19-1D02-4B78-A9E6-6E0E34F9F03B_f2f979a7.mov
+- [ ] Receive horizontal hero video for desktop from user
+- [ ] Upload horizontal hero video to CDN
+- [ ] Update CostaRicaSustainability.tsx: add CDN.heroMobile and CDN.heroDesktop URLs
+- [ ] Implement useIsMobile() hook to swap videos (mobile: vertical, desktop: horizontal)
+- [ ] Update SustainabilityHero component to use responsive video logic
+- [ ] Test on mobile and desktop viewports
+- [ ] Save checkpoint
+
+## Featured Green Globe Section — Integration Complete
+- [x] Create FeaturedGreenGlobeSection component in CostaRicaSustainability.tsx
+- [x] Place Green Globe section prominently after ESG Narrative
+- [x] Add "Read the Full Story" link to Green Globe blog (/blog/green-globe-certification)
+- [x] Add blog links throughout page body:
+  - [x] Reforestation pillar → "Explore Reforestation & Wildlife Corridors" link
+  - [x] Social Impact section → "Discover Our Women's Empowerment Initiative" link
+  - [x] Housing Project section → "Read: Women's Empowerment Through Housing" link
+- [x] Verify all blog links use correct /blog/ routes
+- [x] Test TypeScript compilation (0 errors)
+- [x] Verify page renders correctly in browser
