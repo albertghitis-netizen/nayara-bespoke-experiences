@@ -270,7 +270,7 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
 
         <StaggerOnScroll
           variants={staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-8"
         >
           {stats.map((stat, i) => (
             <motion.div

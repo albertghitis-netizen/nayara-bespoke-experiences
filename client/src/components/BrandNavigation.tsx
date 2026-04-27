@@ -22,7 +22,7 @@ import {
 
 /* ── Global menu items (matches footer) ── */
 const GLOBAL_MENU = [
-  { label: "Pura Vida", route: "/costa-rica", hasSubmenu: true },
+  { label: "Costa Rica", route: "/costa-rica", hasSubmenu: true },
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Nayara Journal", route: "/journal" },
