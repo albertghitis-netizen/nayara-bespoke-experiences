@@ -249,13 +249,13 @@ function HeroSection({ videoSrc }: { videoSrc: string }) {
               lineHeight: 1,
             }}
           >
-            Costa Rica
+            Pura Vida
           </h1>
           <p
             className="mt-4 text-white/70 text-sm md:text-base tracking-[0.15em] uppercase"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Arenal Volcano &middot; Three Resorts &middot; One Rainforest
+            Costa Rica &middot; Arenal Volcano &middot; Three Resorts
           </p>
         </motion.div>
       </div>
@@ -264,7 +264,7 @@ function HeroSection({ videoSrc }: { videoSrc: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   WHY COSTA RICA — Pura Vida, biodiversity, the green effect
+   PURA VIDA EDITORIAL — Blog-driven opening section
    ═══════════════════════════════════════════════════════════════ */
 function WhyCostaRicaSection() {
   return (
@@ -275,7 +275,7 @@ function WhyCostaRicaSection() {
             className="text-[11px] tracking-[0.3em] uppercase block mb-6"
             style={{ fontFamily: "var(--font-body)", color: C.olive }}
           >
-            Why Costa Rica
+            Pura Vida
           </span>
         </Reveal>
 
@@ -288,18 +288,53 @@ function WhyCostaRicaSection() {
               color: C.espresso,
             }}
           >
-            Pura Vida Is Not a Saying.{" "}
+            Why Costa Rica Feels{" "}
             <span style={{ color: C.clover }}>
-              It Is a Measurable Phenomenon.
+              the Way It Does
             </span>
           </h2>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 mt-10">
-          <Reveal delay={0.15}>
+        {/* Lead editorial — adapted from the Pura Vida blog */}
+        <Reveal delay={0.12}>
+          <div className="max-w-3xl mt-6">
+            <p
+              className="text-[15px] md:text-base leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: C.espresso }}
+            >
+              There are countries that feel efficient, countries that feel rich,
+              countries that feel beautiful, and countries that feel alive.
+              Costa Rica belongs to the last category.
+            </p>
+            <p
+              className="text-[15px] md:text-base leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: C.espresso }}
+            >
+              You notice it before you understand it. The air feels softer. Meals
+              take longer. Forest is never very far away. People do not move as if
+              every hour is under attack. Even the light seems less aggressive.
+              What strikes visitors first is not luxury, not even nature, but a
+              strange reduction in friction. Life feels less clenched.
+            </p>
+            <p
+              className="text-[15px] md:text-base leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: C.espresso }}
+            >
+              That feeling has a name, and like most things tourists repeat too
+              easily, it is usually flattened by repetition. Pura Vida appears on
+              mugs, airport shirts, surf shops, bumper stickers, and hotel walls.
+              It is in danger of becoming decorative. But clich&eacute;s only form
+              around ideas that once had force. Pura Vida survived because it
+              still does.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 mt-12">
+          <Reveal delay={0.2}>
             <div>
               <p
-                className="text-[15px] md:text-base leading-[1.8] mb-6"
+                className="text-[15px] md:text-base leading-[1.9] mb-6"
                 style={{ fontFamily: "var(--font-body)", color: C.espresso }}
               >
                 Costa Rica covers 0.03% of the Earth's surface and holds nearly
@@ -309,20 +344,19 @@ function WhyCostaRicaSection() {
                 not because of GDP, but because of something harder to quantify.
               </p>
               <p
-                className="text-[15px] md:text-base leading-[1.8]"
+                className="text-[15px] md:text-base leading-[1.9]"
                 style={{ fontFamily: "var(--font-body)", color: C.espresso }}
               >
-                Walk out of your villa in Arenal and you are in the color green.
-                Not a single shade, but layers: broad leaves at eye level, moss
-                on trunks, epiphytes in the branches, a canopy that filters
-                light into shifting bands. Air feels thicker here. You hear
-                water before you see it. Bird calls overlap with insect pulses
-                and the low rush of a nearby spring.
+                In 1949, Costa Rica constitutionally abolished its army. Over
+                time, that choice compounded into a broader civic atmosphere —
+                high literacy, public health investment, and over 26% of national
+                territory under protection. The result is a country where health
+                feels embedded in the landscape and tempo of life.
               </p>
             </div>
           </Reveal>
 
-          <Reveal delay={0.25}>
+          <Reveal delay={0.3}>
             <div className="relative">
               <img
                 src={CDN.rainforestMan}
@@ -340,7 +374,7 @@ function WhyCostaRicaSection() {
         </div>
 
         {/* Pull quote */}
-        <Reveal delay={0.3}>
+        <Reveal delay={0.35}>
           <blockquote
             className="mt-14 md:mt-20 border-l-2 pl-6 md:pl-8 max-w-3xl"
             style={{ borderColor: C.clover }}
@@ -357,6 +391,19 @@ function WhyCostaRicaSection() {
               setting for luxury and becomes the discipline that defines it."
             </p>
           </blockquote>
+        </Reveal>
+
+        {/* Read full article link */}
+        <Reveal delay={0.4}>
+          <div className="mt-10">
+            <Link
+              href="/journal/pura-vida"
+              className="inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase hover:opacity-70 transition-opacity"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: C.clover }}
+            >
+              Read the Full Article &rarr;
+            </Link>
+          </div>
         </Reveal>
       </div>
     </section>

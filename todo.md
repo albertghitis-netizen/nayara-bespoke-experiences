@@ -3135,3 +3135,7 @@
 ## Hero Video Updates
 - [x] Replace Costa Rica hub hero with Arenal sunset video (5s, /manus-storage/costa-rica-hero-arenal-sunset-audio_571086c8.mp4)
 - [x] Replace Experiential Arenal hero with volcano clouds video (/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4)
+
+## Naming Update
+- [x] Rename Costa Rica hub hero title from "Costa Rica" to "Pura Vida"
+- [x] Open the Pura Vida hub with the Pura Vida blog content as lead editorial
