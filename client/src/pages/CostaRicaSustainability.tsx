@@ -268,11 +268,13 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
           </p>
         </AnimateOnScroll>
 
-        <StaggerOnScroll
-          variants={staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-8"
-        >
-          {stats.map((stat, i) => (
+        <div className="max-w-[600px]">
+          <StaggerOnScroll
+            variants={staggerContainer}
+            className="gap-6 md:gap-8"
+            style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}
+          >
+            {stats.map((stat, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
@@ -316,13 +318,14 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
             </motion.div>
           ))}
         </StaggerOnScroll>
+        </div>
       </div>
     </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ESG NARRATIVE — Editorial storytelling section
+   ESG PILLARSIVE — Editorial storytelling section
    ═══════════════════════════════════════════════════════════════ */
 function ESGNarrativeSection({ palette, narrative }: { palette: PropertyPalette; narrative: ESGReport["narrative"] }) {
   return (
