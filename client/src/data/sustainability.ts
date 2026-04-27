@@ -146,7 +146,7 @@ export const sustainabilityData: Record<string, {
       stats: [
         { value: 68, suffix: "+", label: "Acres Protected", detail: "Primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of species" },
         { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Verified by EcoQualis using GHG Protocol - net-zero carbon footprint via certified carbon credits through FONAFIFO" },
-        { value: 50000, suffix: "+", label: "Plants Restored", detail: "Over 50,000 small plants and 30,000 ornamental plants and native tree species planted in carefully planned reforestation sequence" },
+        { value: 50000, suffix: "+", label: "Trees and Plants Reforested", detail: "Over 50,000 small plants and 30,000 ornamental plants and native tree species planted in carefully planned reforestation sequence" },
         { value: 85, suffix: "%", label: "Local Workforce", detail: "85% of employees from La Fortuna and surrounding communities - largest employer in town" },
       ],
       pillars: [
