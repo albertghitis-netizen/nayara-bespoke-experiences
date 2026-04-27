@@ -147,7 +147,7 @@ export const sustainabilityData: Record<string, {
         { value: 68, suffix: "+", label: "Acres Protected", detail: "Primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of species" },
         { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Verified by EcoQualis using GHG Protocol - net-zero carbon footprint via certified carbon credits through FONAFIFO" },
         { value: 50000, suffix: "+", label: "Trees and Plants Reforested", detail: "Over 50,000 small plants and 30,000 ornamental plants and native tree species planted in carefully planned reforestation sequence" },
-        { value: 85, suffix: "%", label: "Local Workforce", detail: "85% of employees from La Fortuna and surrounding communities - largest employer in town" },
+        { value: 90, suffix: "%", label: "Local Workforce", detail: "90% of employees from La Fortuna and surrounding communities - largest employer in town" },
       ],
       pillars: [
         {
@@ -303,7 +303,7 @@ export const sustainabilityData: Record<string, {
           "Living wages exceed the national minimum, and the resort\u2019s impact extends far beyond its gates \u2014 an estimated 15% of La Fortuna\u2019s population is positively impacted by Nayara\u2019s operations, employment, and community programs.",
         ],
         stats: [
-          { value: 85, suffix: "%", label: "Local Workforce" },
+          { value: 90, suffix: "%", label: "Local Workforce" },
           { value: 95, suffix: "%", label: "Leaders Trained Internally" },
           { value: 15, suffix: "%", label: "Town Population Impacted" },
           { value: 0, suffix: "", label: "Wage Inequality" },
