@@ -147,9 +147,7 @@ export const sustainabilityData: Record<string, {
         { value: 68, suffix: "+", label: "Acres Protected", detail: "Primary and secondary rainforest surrounding the resort, providing critical habitat for hundreds of species" },
         { value: 100, suffix: "%", label: "Carbon Neutral", detail: "Verified by EcoQualis using GHG Protocol - net-zero carbon footprint via certified carbon credits through FONAFIFO" },
         { value: 50000, suffix: "+", label: "Plants Restored", detail: "Over 50,000 small plants and 30,000 ornamental plants and native tree species planted in carefully planned reforestation sequence" },
-        { value: 100, suffix: "%", label: "Renewable Energy", detail: "All electricity sourced from Coopelesca - hydroelectric, geothermal, wind, and solar power" },
         { value: 85, suffix: "%", label: "Local Workforce", detail: "85% of employees from La Fortuna and surrounding communities - largest employer in town" },
-        { value: 95, suffix: "%", label: "LED Lighting", detail: "95% LED lighting across all three properties - 75% less energy than incandescent, with motion sensors in outdoor areas" },
       ],
       pillars: [
         {
@@ -256,8 +254,7 @@ export const sustainabilityData: Record<string, {
             "Monthly energy consumption is carefully monitored, with the Green Committee reviewing data and setting reduction targets at regular meetings. Every operational decision is evaluated through the lens of energy efficiency.",
           ],
           highlights: [
-            { label: "Renewable Energy", value: "100%" },
-            { label: "LED Lighting", value: "95%" },
+
             { label: "Outdoor Energy Savings", value: "20%" },
             { label: "Transport", value: "Electric Golf Cars" },
           ],
