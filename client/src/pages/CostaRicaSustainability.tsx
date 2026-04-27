@@ -174,15 +174,14 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   const isMobile = useIsMobile();
   
-  const HERO_VIDEOS: Record<string, { mobile: string; desktop: string }> = {
+  const HERO_VIDEOS: Record<string, { desktop: string }> = {
     "tented-camp": {
-      mobile: "/manus-storage/788AFD19-1D02-4B78-A9E6-6E0E34F9F03B_f2f979a7.mov",
       desktop: "/manus-storage/SlothsNayara_f8921da5.mov",
     },
   };
 
   const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
-    "tented-camp": { src: "/manus-storage/tc-sustainability-toucans-v2_9caf2880.jpg", alt: "Toucans in the Costa Rican rainforest" },
+    "tented-camp": { src: "/manus-storage/10C41816-617E-4BF1-ACF0-E9E46F9A6821_ff2cf34f.jpeg", alt: "Sloths in the Costa Rican rainforest" },
     gardens: { src: "/manus-storage/gardens-sustainability-hero_f42bf915.jpg", alt: "Sloth drinking water from mangrove roots" },
     springs: { src: "/manus-storage/springs-sustainability-hero_eb05bf8d.jpg", alt: "Red-eyed tree frog on a branch" },
     "alto-atacama": { src: "/manus-storage/atacama-sustainability-flamingos_a41cb997.jpg", alt: "Flamingos walking across the salt flats at sunset" },
@@ -191,12 +190,12 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   const videos = HERO_VIDEOS[propertySlug];
   const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
 
-  if (videos) {
-    const videoSrc = isMobile ? videos.mobile : videos.desktop;
+  // Tented Camp: desktop video, mobile still image
+  if (videos && !isMobile) {
     return (
       <section className="relative w-full overflow-hidden" style={{ minHeight: "100vh" }}>
         <video
-          src={videoSrc}
+          src={videos.desktop}
           autoPlay
           muted
           loop
@@ -208,8 +207,10 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
     );
   }
 
+  // All properties + Tented Camp mobile: static image
+  const aspectRatio = propertySlug === "tented-camp" && isMobile ? "3/4" : "16/9";
   return (
-    <section className="relative aspect-[16/9] w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden" style={{ aspectRatio }}>
       <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
     </section>
   );
