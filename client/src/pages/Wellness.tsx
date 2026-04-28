@@ -12,7 +12,6 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar from "@/components/HotelFilterBar";
 import { properties, type Treatment } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
 
@@ -79,6 +78,12 @@ const wellnessPillars: WellnessPillar[] = [
   },
 ];
 
+/* ─── Property filter options ─── */
+const filterOptions = [
+  { id: "all", label: "All Properties" },
+  ...properties.map((p) => ({ id: p.id, label: p.shortName })),
+];
+
 /* ─── Property wellness links ─── */
 const propertyWellnessLinks = [
   { name: "Alto Atacama", focus: "Desert healing and starlight yoga", route: "/alto-atacama" },
@@ -90,7 +95,7 @@ const propertyWellnessLinks = [
 ];
 
 export default function Wellness() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
+  const [activeFilter, setActiveFilter] = useState("all");
 
   /* Aggregate treatments with property metadata */
   const allTreatments = properties.flatMap((p) => {
@@ -98,16 +103,15 @@ export default function Wellness() {
     return p.treatments.map((t) => ({ ...t, propertyId: p.id, propertyName: p.shortName, propertyRoute: route }));
   });
 
-  const filtered = activeHotel ? allTreatments.filter((t) => t.propertyId === activeHotel) : allTreatments;
+  const filtered = activeFilter === "all" ? allTreatments : allTreatments.filter((t) => t.propertyId === activeFilter);
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <WellnessPillarsSection />
-      <TreatmentsSection treatments={filtered} />
+      <TreatmentsSection activeFilter={activeFilter} onFilterChange={setActiveFilter} treatments={filtered} />
       <SpringsFeature />
       <PropertyLinksSection />
       <Footer />
@@ -220,7 +224,7 @@ function WellnessPillarRow({ pillar, reversed, index }: { pillar: WellnessPillar
 /* ═══════════════════════════════════════════════════════════════
    TREATMENTS — Filtered by property
    ═══════════════════════════════════════════════════════════════ */
-function TreatmentsSection({ treatments }: { treatments: Array<Treatment & { propertyId: string; propertyName: string; propertyRoute: string }> }) {
+function TreatmentsSection({ activeFilter, onFilterChange, treatments }: { activeFilter: string; onFilterChange: (id: string) => void; treatments: Array<Treatment & { propertyId: string; propertyName: string; propertyRoute: string }> }) {
   return (
     <section className="py-16 md:py-24 px-6 md:px-10 bg-white/30">
       <div className="max-w-[1200px] mx-auto">
@@ -230,6 +234,24 @@ function TreatmentsSection({ treatments }: { treatments: Array<Treatment & { pro
             Treatments Shaped by Place
           </h2>
         </FadeIn>
+
+        {/* Filter */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {filterOptions.map((opt) => (
+            <button
+              key={opt.id}
+              onClick={() => onFilterChange(opt.id)}
+              className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
+                activeFilter === opt.id
+                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                  : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
+              }`}
+              style={{ ...body, fontWeight: 500 }}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
 
         {/* Treatment cards */}
         {treatments.length === 0 ? (

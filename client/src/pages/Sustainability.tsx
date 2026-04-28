@@ -11,7 +11,6 @@ import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar from "@/components/HotelFilterBar";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -132,29 +131,28 @@ const allInitiatives: Initiative[] = [
 ];
 
 export default function Sustainability() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
   const [activeCategory, setActiveCategory] = useState<SubCategory>("flora-fauna");
+  const [activeProperty, setActiveProperty] = useState("alto-atacama");
 
   const filtered = allInitiatives.filter(
-    (i) => i.category === activeCategory && i.property === activeHotel
+    (i) => i.category === activeCategory && i.property === activeProperty
   );
 
   /* Get property info for the header of the card */
-  const currentProp = PROPERTIES.find((p) => p.id === activeHotel);
-  const currentInitiative = allInitiatives.find((i) => i.property === activeHotel);
+  const currentProp = PROPERTIES.find((p) => p.id === activeProperty);
+  const currentInitiative = allInitiatives.find((i) => i.property === activeProperty);
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <BrandPillarsSection />
       <PropertyInitiativesSection
         activeCategory={activeCategory}
-        activeProperty={activeHotel}
+        activeProperty={activeProperty}
         onCategoryChange={setActiveCategory}
-        onPropertyChange={setActiveHotel}
+        onPropertyChange={setActiveProperty}
         filtered={filtered}
         propertyName={currentInitiative?.propertyName || ""}
         propertyLocation={currentInitiative?.location || ""}

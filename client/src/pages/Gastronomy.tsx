@@ -10,7 +10,6 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar from "@/components/HotelFilterBar";
 import Footer from "@/components/Footer";
 import { allDining, type Restaurant, type PropertyDining } from "@/data/dining";
 
@@ -33,6 +32,7 @@ const GASTRO_CDN = {
 
 /* ── Property filter tabs ── */
 const FILTERS = [
+  { label: "All Properties", slug: "all" },
   { label: "Alto Atacama", slug: "alto-atacama" },
   { label: "Bocas del Toro", slug: "bocas-del-toro" },
   { label: "Costa Rica", slug: "arenal" },
@@ -62,19 +62,20 @@ const propertyRoutes: Record<string, string> = {
 };
 
 export default function Gastronomy() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
+  const [activeFilter, setActiveFilter] = useState("all");
   const [, navigate] = useLocation();
 
-  const filtered: PropertyDining[] = activeHotel
-    ? allDining.filter((d) => d.propertySlug === activeHotel)
-    : allDining;
+  const filtered: PropertyDining[] =
+    activeFilter === "all"
+      ? allDining
+      : allDining.filter((d) => d.propertySlug === activeFilter);
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
       <PropertySections filtered={filtered} navigate={navigate} />
       <CTASection />
       <Footer />
@@ -113,6 +114,35 @@ function IntroSection() {
             From Michelin-recognized kitchens in the Costa Rican rainforest to Pacific Island cuisine on Easter Island, from desert-adapted Chilean fare in the Atacama to Caribbean-Panamanian fusion over the water in Bocas del Toro — every Nayara restaurant sources locally, cooks seasonally, and honors the culinary traditions of its place. Seventy percent of our ingredients come from within 100 kilometers of each property.
           </p>
         </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FILTER BAR
+   ═══════════════════════════════════════════════════════════════ */
+function FilterBar({ activeFilter, onFilterChange }: { activeFilter: string; onFilterChange: (slug: string) => void }) {
+  return (
+    <section className="px-6 md:px-10 pb-8">
+      <div className="max-w-[1200px] mx-auto">
+        <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600 }}>Filter by Destination</p>
+        <div className="flex flex-wrap gap-2">
+          {FILTERS.map((f) => (
+            <button
+              key={f.slug}
+              onClick={() => onFilterChange(f.slug)}
+              className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
+                activeFilter === f.slug
+                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                  : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
+              }`}
+              style={{ ...body, fontWeight: 500 }}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );

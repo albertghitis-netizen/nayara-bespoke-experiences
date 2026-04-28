@@ -73,50 +73,42 @@ const COSTA_RICA_MENU_ITEMS: MenuItem[] = [
   { label: "Rainforest Romance", route: "/rainforest-romance" },
 ];
 
-/* Explore column items (7 brand pages) */
-export const EXPLORE_MENU_ITEMS: MenuItem[] = [
-  { label: "Experiences", route: "/experiences" },
-  { label: "Sustainability", route: "/sustainability" },
-  { label: "Wellness", route: "/wellness" },
-  { label: "Gastronomy", route: "/gastronomy" },
-  { label: "Journal", route: "/journal" },
-  { label: "Press & Awards", route: "/awards" },
+/* Explore column items (pillars + journal + awards) */
+const EXPLORE_MENU_ITEMS: MenuItem[] = [
+  { label: "Bespoke Experiences", route: "/experiences" },
+  { label: "Nature-Based Wellness", route: "/wellness" },
+  { label: "A Taste of Place", route: "/gastronomy" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
   { label: "Gallery", route: "/gallery" },
+  { label: "Nayara Journal", route: "/journal" },
+  { label: "Press & Awards", route: "/awards" },
 ];
 
-/* Costa Rica dropdown items */
-export const COSTA_RICA_ITEMS: MenuItem[] = [
-  { label: "Pura Vida", route: "/pura-vida" },
+/* Pura Vida pillar items for footer + dropdown */
+export const PURA_VIDA_PILLARS: MenuItem[] = [
   { label: "Curated Excursions", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/wellness" },
   { label: "Forest to Table", route: "/gastronomy" },
-  { label: "Family Adventure", route: "/family-expeditions" },
+  { label: "Family Expeditions", route: "/family-expeditions" },
   { label: "Rainforest Romance", route: "/rainforest-romance" },
 ];
 
-/* Pura Vida pillar items for footer */
-export const PURA_VIDA_PILLARS: MenuItem[] = COSTA_RICA_ITEMS.slice(1);
-
-/* Our Resorts dropdown items */
-export const RESORTS_ITEMS: MenuItem[] = [
-  ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
-  { label: "Nayara Resorts", route: "/" },
+/* Nayara Journal column items */
+const JOURNAL_MENU_ITEMS: MenuItem[] = [
+  { label: "Nayara Journal", route: "/journal" },
+  { label: "Press & Awards", route: "/awards" },
+  
 ];
 
-/* Brand page hamburger — standardized menu */
+/* Brand page hamburger — standardized menu (no properties) */
 export function getBrandMenu(): MenuSection[] {
   return [
     {
-      header: "Costa Rica",
-      items: COSTA_RICA_ITEMS,
+      header: "Pura Vida",
+      items: COSTA_RICA_MENU_ITEMS,
     },
     {
-      header: "Explore",
-      items: EXPLORE_MENU_ITEMS,
-    },
-    {
-      header: "Our Resorts",
-      items: RESORTS_ITEMS,
+      items: [...EXPLORE_MENU_ITEMS, ...JOURNAL_MENU_ITEMS],
     },
   ];
 }
@@ -134,25 +126,22 @@ export interface FooterColumn {
 /* Resorts column for footer */
 const RESORTS_COLUMN: FooterColumn = {
   title: "Our Resorts",
-  links: RESORTS_ITEMS.map((item, idx) => ({
-    ...item,
-    separatorBefore: idx === RESORTS_ITEMS.length - 1,
-  })),
+  links: [
+    ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
+    { label: "Nayara Resorts", route: "/", separatorBefore: true },
+  ],
 };
 
 /* Nayara Journal column for footer */
 const JOURNAL_COLUMN: FooterColumn = {
   title: "Nayara Journal",
-  links: [
-    { label: "Journal", route: "/journal" },
-    { label: "Press & Awards", route: "/awards" },
-  ],
+  links: JOURNAL_MENU_ITEMS,
 };
 
 /* Pura Vida column for footer */
 const PURA_VIDA_COLUMN: FooterColumn = {
   title: "Pura Vida",
-  links: COSTA_RICA_ITEMS.slice(1), // Exclude "Pura Vida" itself
+  links: PURA_VIDA_PILLARS,
 };
 
 export function getFooterColumns(pageType: PageType): FooterColumn[] {

@@ -200,15 +200,16 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       
-      {/* Sound pill — FIXED, perfectly aligned with hamburger and Reserve pills */}
+      {/* Sound pill — FIXED, aligned with BrandNavigation hamburger (same row) */}
       <button
         onClick={() => setIsMuted(!isMuted)}
         aria-label={isMuted ? "Unmute" : "Mute"}
-        className="fixed z-50 hidden md:flex items-center justify-center rounded-full backdrop-blur-md shadow-lg cursor-pointer hover:opacity-90 transition-all duration-300 h-12 px-5"
+        className="fixed z-50 hidden md:flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
         style={{
-          top: "24px",
-          left: "80px",
-          backgroundColor: "rgba(58,42,26,0.7)",
+          top: "10px",
+          left: "56px",
+          backgroundColor: "rgba(59,43,38,0.8)",
+          borderColor: "rgba(255,255,255,0.1)",
         }}
       >
         {isMuted ? (
@@ -285,7 +286,7 @@ function BrandStorySection() {
           {!isMobile && (
             <div className="mt-6 overflow-hidden -ml-8">
               <video
-                src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)-3_88f872a7.mp4"
+                src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)_4d3ba5bc.mp4"
                 autoPlay
                 muted
                 playsInline

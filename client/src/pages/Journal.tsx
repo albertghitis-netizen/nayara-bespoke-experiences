@@ -16,7 +16,6 @@ import { motion, useInView } from "framer-motion";
 import { Play, Headphones, ArrowUpRight } from "lucide-react";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar from "@/components/HotelFilterBar";
 import Footer from "@/components/Footer";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
 import {
@@ -111,7 +110,6 @@ const ALL_ENTRIES = buildGallery();
 const INITIAL_COUNT = 9;
 
 export default function Journal() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
   const [showAll, setShowAll] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
@@ -120,7 +118,7 @@ export default function Journal() {
 
   return (
     <div className="min-h-screen bg-[#F7F5F0]">
-      <BrandNavigation pageType="brand" hideCenterLabel />
+      <BrandNavigation pageType="content" />
 
       {/* ── Hero ── */}
       <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden">
@@ -147,9 +145,6 @@ export default function Journal() {
           </motion.h1>
         </div>
       </section>
-
-      {/* ── Hotel Filter ── */}
-      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
 
       {/* ── Gallery Grid ── */}
       <section className="px-4 md:px-8 lg:px-12 py-10 md:py-14">
