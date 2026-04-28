@@ -3207,12 +3207,28 @@
 - [x] Style footer with ocean color scheme
 - [x] Fix hotelBookingLinks type conflict (changed to Record<string, string>)
 - [x] Update SidebarNavigation to use hotelBookingLinksArray
-- [ ] Test blog post route rendering (currently showing 404)
-- [ ] Verify all links are working properly
+- [x] Test blog post route rendering (currently showing 404)
+- [x] Verify all links are working properly
 - [ ] Add actual coral/ocean hero images (currently using placeholder)
 - [ ] Consider adding Caribbean Coral to main navigation menu
 - [ ] Add Caribbean Coral to Bocas del Toro sustainability page
 - [ ] Create integration with Bocas del Toro property page
 - [ ] Test responsive design on mobile/tablet
 - [ ] Verify SEO metadata
+
+## From Rainforest to Reef — Unified Sustainability Landing Page
+- [x] Create "From Rainforest to Reef" landing page (`/rainforest-to-reef`)
+- [x] Create hero section connecting land and ocean themes
+- [x] Build rainforest section highlighting Costa Rica reforestation work
+- [x] Build coral reef section highlighting Caribbean Coral restoration
+- [x] Create narrative bridge explaining the connection
+- [x] Add impact statistics for both initiatives
+- [x] Include property-specific sustainability efforts
+- [x] Link to individual property sustainability pages
+- [x] Add call-to-action for guest participation
+- [x] Style with cohesive design (rainforest greens to ocean teals)
+- [x] Add to routes in App.tsx
+- [ ] Add to main navigation menu
+- [ ] Test responsive design on mobile/tablet
 - [ ] Create checkpoint after all features are complete
+
