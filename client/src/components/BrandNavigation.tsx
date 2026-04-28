@@ -17,26 +17,12 @@ import {
   type PageType,
   PROPERTY_MENU,
   PROPERTIES,
-  PURA_VIDA_PILLARS,
   COSTA_RICA_ITEMS,
-  EXPLORE_MENU_ITEMS,
   RESORTS_ITEMS,
-  getBrandMenu,
 } from "@/data/navigation";
 
 /* ── Menu state keys ── */
-type MenuKey = "costaRica" | "explore" | "resorts";
-
-/* ── Internal pages (visible only in menu with "Internal" label) ── */
-const INTERNAL_MENU = [
-  { label: "Coming Soon", route: "/internal/new-projects" },
-];
-
-/* ── Explore dropdown items (quick links to properties) ── */
-const EXPLORE_ITEMS = PROPERTIES.map((p) => ({
-  label: p.name,
-  route: p.route,
-}));
+type MenuKey = "costaRica" | "resorts";
 
 /* ── Map routes to property IDs for highlighting ── */
 const ROUTE_TO_PROPERTY: Record<string, string> = {};
@@ -81,7 +67,6 @@ export default function BrandNavigation({
   const [reserveOpen, setReserveOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<Record<MenuKey, boolean>>({
     costaRica: false,
-    explore: false,
     resorts: false,
   });
   const [scrolled, setScrolled] = useState(false);
@@ -89,12 +74,10 @@ export default function BrandNavigation({
   const toggleMenu = (key: MenuKey) => {
     setExpandedMenus((prev) => ({
       costaRica: false,
-      explore: false,
       resorts: false,
       [key]: !prev[key],
     }));
   };
-
 
   const menuRef = useRef<HTMLDivElement>(null);
   const reserveRef = useRef<HTMLDivElement>(null);
@@ -123,7 +106,7 @@ export default function BrandNavigation({
   const closeAll = () => {
     setMenuOpen(false);
     setReserveOpen(false);
-    setExpandedMenus({ costaRica: false, explore: false, resorts: false });
+    setExpandedMenus({ costaRica: false, resorts: false });
   };
 
   const handleNavigate = (route: string) => {
@@ -150,7 +133,6 @@ export default function BrandNavigation({
     backgroundColor: pillBg,
     borderColor: "rgba(255,255,255,0.1)",
   };
-  const pillHoverBg = `${pillHv}99`;
 
   const pill =
     "flex items-center justify-center rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border";
@@ -224,11 +206,13 @@ export default function BrandNavigation({
                         </span>
                       </div>
                     )}
+
                     {/* Costa Rica Dropdown */}
                     <div>
                       <button
-                        onClick={(e) => { e.stopPropagation(); toggleMenu('costaRica'); }}
-                        className={`${menuItem} flex items-center justify-between`}
+                        type="button"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu('costaRica'); }}
+                        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
                       >
                         <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Costa Rica</span>
                         <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.costaRica ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -246,7 +230,7 @@ export default function BrandNavigation({
                           >
                             <div className="pl-4 pb-1">
                               {COSTA_RICA_ITEMS.map((item) => (
-                                <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+                                <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
                                   <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
                                 </button>
                               ))}
@@ -256,43 +240,35 @@ export default function BrandNavigation({
                       </AnimatePresence>
                     </div>
 
-                    {/* Explore Dropdown */}
-                    <div>
-                      <button
-                        onClick={(e) => { e.stopPropagation(); toggleMenu('explore'); }}
-                        className={`${menuItem} flex items-center justify-between`}
-                      >
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Explore</span>
-                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.explore ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      <AnimatePresence>
-                        {expandedMenus.explore && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4 pb-1">
-                              {EXPLORE_MENU_ITEMS.map((item) => (
-                                <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                                  <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
-                                </button>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
+                    {/* 7 Brand Page Links */}
+                    <button type="button" onClick={() => handleNavigate('/experiences')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Experiences</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/sustainability')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Sustainability</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/wellness')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Wellness</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/gastronomy')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Gastronomy</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/journal')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Journal</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/awards')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Press & Awards</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/gallery')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Gallery</span>
+                    </button>
 
                     {/* Our Resorts Dropdown */}
                     <div>
                       <button
-                        onClick={(e) => { e.stopPropagation(); toggleMenu('resorts'); }}
-                        className={`${menuItem} flex items-center justify-between`}
+                        type="button"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu('resorts'); }}
+                        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
                       >
                         <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Our Resorts</span>
                         <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.resorts ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -312,7 +288,7 @@ export default function BrandNavigation({
                               {RESORTS_ITEMS.map((item, idx) => (
                                 <div key={item.label}>
                                   {idx === RESORTS_ITEMS.length - 1 && <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />}
-                                  <button onClick={() => handleNavigate(item.route)} className={menuItem}>
+                                  <button type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
                                     <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
                                   </button>
                                 </div>
@@ -322,9 +298,6 @@ export default function BrandNavigation({
                         )}
                       </AnimatePresence>
                     </div>
-
-
-
                   </div>
                 </motion.div>
               )}
@@ -406,41 +379,113 @@ export default function BrandNavigation({
               aria-label="Menu"
             >
               <div className="flex flex-col gap-1">
-                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
               </div>
             </button>
 
             <AnimatePresence>
               {menuOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-52`}>
-                  <div className="py-2 max-h-[70vh] overflow-y-auto">
-                    {propertyItems.length > 0 && (
-                      <>
-                        <div className="px-4 pt-2 pb-1">
-                          <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.18em]" style={menuText}>
-                            This Property
-                          </span>
-                        </div>
-                        {propertyItems.map((item) => (
-                          <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                          </button>
-                        ))}
-                        <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
-                      </>
-                    )}
+                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-56`}>
+                  <div className="py-2 max-h-[75vh] overflow-y-auto">
+                    {/* Costa Rica Dropdown */}
+                    <div>
+                      <button
+                        type="button"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu('costaRica'); }}
+                        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
+                      >
+                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Costa Rica</span>
+                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.costaRica ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      <AnimatePresence>
+                        {expandedMenus.costaRica && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pb-1">
+                              {COSTA_RICA_ITEMS.map((item) => (
+                                <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
+                                  <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
+                                </button>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
 
+                    {/* 7 Brand Page Links */}
+                    <button type="button" onClick={() => handleNavigate('/experiences')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Experiences</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/sustainability')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Sustainability</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/wellness')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Wellness</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/gastronomy')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Gastronomy</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/journal')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Journal</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/awards')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Press & Awards</span>
+                    </button>
+                    <button type="button" onClick={() => handleNavigate('/gallery')} className={menuItem}>
+                      <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Gallery</span>
+                    </button>
 
-
-
+                    {/* Our Resorts Dropdown */}
+                    <div>
+                      <button
+                        type="button"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu('resorts'); }}
+                        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
+                      >
+                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Our Resorts</span>
+                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.resorts ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      <AnimatePresence>
+                        {expandedMenus.resorts && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pb-1">
+                              {RESORTS_ITEMS.map((item, idx) => (
+                                <div key={item.label}>
+                                  {idx === RESORTS_ITEMS.length - 1 && <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />}
+                                  <button type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
+                                    <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          {/* Reserve */}
+          {/* Right: Reserve */}
           <div ref={reserveRef} className="relative">
             <button
               onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
@@ -452,7 +497,7 @@ export default function BrandNavigation({
 
             <AnimatePresence>
               {reserveOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} right-0 top-full w-52`}>
+                <motion.div {...dropdownAnim} className={`${dropdown} right-0 top-full w-56`}>
                   <div className="py-2">
                     {hotelBookingLinks.map((hotel) => (
                       <button
@@ -466,6 +511,11 @@ export default function BrandNavigation({
                         >
                           {hotel.label}
                         </span>
+                        {!hotel.available && (
+                          <span className="text-[8px] tracking-[0.1em] text-[#3B2B26]/20 border border-[#3B2B26]/12 px-1.5 py-0.5 rounded-full">
+                            Soon
+                          </span>
+                        )}
                       </button>
                     ))}
                   </div>
