@@ -12,7 +12,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar1 from "@/components/HotelFilterBar1";
+import HotelFilterBar from "@/components/HotelFilterBar";
 import { properties, type Excursion } from "@/data/properties";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -58,7 +58,7 @@ export default function Experiences() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar1 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <ExcursionGrid excursions={filtered} />
       <CTASection />
       <Footer />

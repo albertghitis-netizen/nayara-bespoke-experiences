@@ -11,7 +11,7 @@ import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar2 from "@/components/HotelFilterBar2";
+import HotelFilterBar from "@/components/HotelFilterBar";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -148,7 +148,7 @@ export default function Sustainability() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar2 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <BrandPillarsSection />
       <PropertyInitiativesSection
         activeCategory={activeCategory}

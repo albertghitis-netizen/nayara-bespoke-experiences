@@ -6,7 +6,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar7 from "@/components/HotelFilterBar7";
+import HotelFilterBar from "@/components/HotelFilterBar";
 import Footer from "@/components/Footer";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -48,7 +48,7 @@ export default function Gallery() {
       </section>
 
       {/* Hotel Filter */}
-      <HotelFilterBar7 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
 
       {/* Placeholder */}
       <section className="py-24 px-6 md:px-10">

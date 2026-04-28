@@ -8,7 +8,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ShieldCheck, ChevronDown, Key, ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar6 from "@/components/HotelFilterBar6";
+import HotelFilterBar from "@/components/HotelFilterBar";
 import NativeVideo from "@/components/NativeVideo";
 
 /* ── CDN assets ── */
@@ -272,7 +272,7 @@ export default function AwardsAndPress() {
       </section>
 
       {/* ── Hotel Filter ── */}
-      <HotelFilterBar6 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
 
       {/* ── Tab Switcher + Property Filter ── */}
       <section className="py-10 md:py-14 px-6 md:px-10">

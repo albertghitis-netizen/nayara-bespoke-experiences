@@ -16,7 +16,7 @@ import { motion, useInView } from "framer-motion";
 import { Play, Headphones, ArrowUpRight } from "lucide-react";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar5 from "@/components/HotelFilterBar5";
+import HotelFilterBar from "@/components/HotelFilterBar";
 import Footer from "@/components/Footer";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
 import {
@@ -149,7 +149,7 @@ export default function Journal() {
       </section>
 
       {/* ── Hotel Filter ── */}
-      <HotelFilterBar5 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
 
       {/* ── Gallery Grid ── */}
       <section className="px-4 md:px-8 lg:px-12 py-10 md:py-14">

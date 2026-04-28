@@ -12,7 +12,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar3 from "@/components/HotelFilterBar3";
+import HotelFilterBar from "@/components/HotelFilterBar";
 import { properties, type Treatment } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
 
@@ -105,7 +105,7 @@ export default function Wellness() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <WellnessPillarsSection />
       <TreatmentsSection treatments={filtered} />
       <SpringsFeature />

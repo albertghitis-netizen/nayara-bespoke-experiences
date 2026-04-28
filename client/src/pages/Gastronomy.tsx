@@ -10,7 +10,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar4 from "@/components/HotelFilterBar4";
+import HotelFilterBar from "@/components/HotelFilterBar";
 import Footer from "@/components/Footer";
 import { allDining, type Restaurant, type PropertyDining } from "@/data/dining";
 
@@ -74,7 +74,7 @@ export default function Gastronomy() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar4 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <PropertySections filtered={filtered} navigate={navigate} />
       <CTASection />
       <Footer />

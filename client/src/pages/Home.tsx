@@ -200,16 +200,15 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       
-      {/* Sound pill — FIXED, aligned with BrandNavigation hamburger (same row) */}
+      {/* Sound pill — FIXED, perfectly aligned with hamburger and Reserve pills */}
       <button
         onClick={() => setIsMuted(!isMuted)}
         aria-label={isMuted ? "Unmute" : "Mute"}
-        className="fixed z-50 hidden md:flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
+        className="fixed z-50 hidden md:flex items-center justify-center rounded-full backdrop-blur-md shadow-lg cursor-pointer hover:opacity-90 transition-all duration-300 h-12 px-5"
         style={{
-          top: "10px",
-          left: "56px",
-          backgroundColor: "rgba(59,43,38,0.8)",
-          borderColor: "rgba(255,255,255,0.1)",
+          top: "24px",
+          left: "80px",
+          backgroundColor: "rgba(58,42,26,0.7)",
         }}
       >
         {isMuted ? (
