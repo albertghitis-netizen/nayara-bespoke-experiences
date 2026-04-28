@@ -40,7 +40,17 @@ export const BOOKING_URLS: Record<string, string> = {
 export const DEFAULT_BOOKING_URL = BOOKING_URLS["costa-rica"];
 
 /* ── Hotel booking links for Reserve dropdown (used in Home.tsx) ── */
-export const hotelBookingLinks: PropertyBooking[] = [
+export const hotelBookingLinks: Record<string, string> = {
+  "Nayara Gardens": BOOKING_URLS.gardens,
+  "Nayara Springs": BOOKING_URLS.springs,
+  "Nayara Tented Camp": BOOKING_URLS["tented-camp"],
+  "Nayara Alto Atacama": BOOKING_URLS["alto-atacama"],
+  "Nayara Hangaroa": BOOKING_URLS.hangaroa,
+  "Nayara Bocas del Toro": BOOKING_URLS["bocas-del-toro"],
+};
+
+/* ── Hotel booking links array for legacy compatibility ── */
+export const hotelBookingLinksArray: PropertyBooking[] = [
   { id: "gardens", label: "Nayara Gardens", url: BOOKING_URLS.gardens, available: true },
   { id: "springs", label: "Nayara Springs", url: BOOKING_URLS.springs, available: true },
   { id: "tented-camp", label: "Nayara Tented Camp", url: BOOKING_URLS["tented-camp"], available: true },

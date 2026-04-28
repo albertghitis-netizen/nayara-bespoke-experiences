@@ -1,4 +1,4 @@
-/**
+/*
  * UNIFIED NAVIGATION - One consistent nav for the entire site
  *
  * Desktop:  [Hamburger]  ···  Property Name Strip (center)  ···  [Reserve]
@@ -17,35 +17,9 @@ import {
   type PageType,
   PROPERTY_MENU,
   PROPERTIES,
-  PURA_VIDA_PILLARS,
+  COSTA_RICA_ITEMS,
+  RESORTS_ITEMS,
 } from "@/data/navigation";
-
-/* ── Global menu items (matches footer) ── */
-const GLOBAL_MENU = [
-  { label: "Costa Rica", route: "/costa-rica", hasSubmenu: true },
-  { label: "Bespoke Experiences", route: "/experiences" },
-  { label: "Beyond Sustainability", route: "/sustainability" },
-  { label: "Nayara Journal", route: "/journal" },
-  { label: "Press & Awards", route: "/awards" },
-  { label: "Gallery", route: "/gallery" },
-];
-
-/* ── Internal pages (visible only in menu with "Internal" label) ── */
-const INTERNAL_MENU = [
-  { label: "Coming Soon", route: "/internal/new-projects" },
-];
-
-/* ── Explore dropdown items (quick links to properties) ── */
-const EXPLORE_ITEMS = PROPERTIES.map((p) => ({
-  label: p.name,
-  route: p.route,
-}));
-
-/* ── Map routes to property IDs for highlighting ── */
-const ROUTE_TO_PROPERTY: Record<string, string> = {};
-PROPERTIES.forEach((p) => {
-  ROUTE_TO_PROPERTY[p.route] = p.id;
-});
 
 export interface NavPalette {
   /** Dark text/icon color — replaces #3B2B26 */
@@ -80,20 +54,15 @@ export default function BrandNavigation({
   const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#fff");
   const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(59,43,38,0.8)");
   const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(59,43,38,0.95)");
+  
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
-  const [exploreOpen, setExploreOpen] = useState(false);
-  const [puraVidaOpen, setPuraVidaOpen] = useState(false);
-  const [resortsOpen, setResortsOpen] = useState(false);
+  const [costaRicaExpanded, setCostaRicaExpanded] = useState(false);
+  const [resortsExpanded, setResortsExpanded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
 
   const menuRef = useRef<HTMLDivElement>(null);
   const reserveRef = useRef<HTMLDivElement>(null);
-  const exploreRef = useRef<HTMLDivElement>(null);
-
-  /* Determine current property from route */
-  const currentPropertyId = ROUTE_TO_PROPERTY[location] || null;
 
   /* Track scroll to fade out center label */
   useEffect(() => {
@@ -108,420 +77,248 @@ export default function BrandNavigation({
       const target = e.target as Node;
       if (menuRef.current && !menuRef.current.contains(target)) setMenuOpen(false);
       if (reserveRef.current && !reserveRef.current.contains(target)) setReserveOpen(false);
-      if (exploreRef.current && !exploreRef.current.contains(target)) setExploreOpen(false);
     };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("click", handler);
+    return () => document.removeEventListener("click", handler);
   }, []);
 
-  const closeAll = () => {
-    setMenuOpen(false);
-    setReserveOpen(false);
-    setExploreOpen(false);
-    setPuraVidaOpen(false);
-    setResortsOpen(false);
-  };
-
   const handleNavigate = (route: string) => {
-    closeAll();
-    if (route.startsWith("#")) {
-      const el = document.querySelector(route);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate(route);
-    }
+    navigate(route);
+    setMenuOpen(false);
+    setCostaRicaExpanded(false);
+    setResortsExpanded(false);
   };
 
-  const handleBooking = (hotel: (typeof hotelBookingLinks)[0]) => {
-    closeAll();
-    if (hotel.available) {
-      window.open(hotel.url, "_blank");
-    } else {
-      import("sonner").then(({ toast }) => toast(hotel.label + " — Booking Coming Soon"));
-    }
-  };
-
-  /* ── Shared styles ── */
-  const pillStyle: React.CSSProperties = {
-    backgroundColor: pillBg,
-    borderColor: "rgba(255,255,255,0.1)",
-  };
-  const pillHoverBg = `${pillHv}99`;
-
-  const pill =
-    "flex items-center justify-center rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border";
-
-  const dropdown =
-    "absolute mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border border-[#3B2B26]/10";
-
-  const menuItem =
-    "w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/40 transition-colors";
-
-  const menuText = {
-    fontFamily: "var(--font-body)",
-    fontWeight: 500 as const,
-  };
-
-  const dropdownAnim = {
-    initial: { opacity: 0, y: -6 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -6 },
-    transition: { duration: 0.15 },
-  };
-
-  /* ── Build hamburger menu items ── */
-  const propertyItems = pageType === "property" ? PROPERTY_MENU : [];
+  const menuItem = "w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/40 transition-colors";
+  const menuText = { fontFamily: "var(--font-body)", fontWeight: 400 };
 
   return (
     <>
-      <nav className="fixed top-2 left-0 right-0 z-50 px-3 pointer-events-none">
-        {/* ── DESKTOP NAV ── */}
-        <div className="hidden md:flex items-center justify-between pointer-events-auto">
-          {/* Left: Hamburger */}
-          <div ref={menuRef} className="relative shrink-0">
-            <button
-              onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-              className={`${pill} w-9 h-9`}
-              style={pillStyle}
-              aria-label="Menu"
-            >
-              <div className="flex flex-col gap-1">
-                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-              </div>
-            </button>
-
-            <AnimatePresence>
-              {menuOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-56`}>
-                  <div className="py-2 max-h-[75vh] overflow-y-auto">
-                    {/* Property section anchors (only on property pages) */}
-                    {propertyItems.length > 0 && (
-                      <>
-                        <div className="px-5 pt-2 pb-1">
-                          <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
-                            This Property
-                          </span>
-                        </div>
-                        {propertyItems.map((item) => (
-                          <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                          </button>
-                        ))}
-                        <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
-                      </>
-                    )}
-
-                    {/* Global links */}
-                    {propertyItems.length > 0 && (
-                      <div className="px-5 pt-1 pb-1">
-                        <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
-                          Explore Nayara
-                        </span>
-                      </div>
-                    )}
-                    {GLOBAL_MENU.map((item) => (
-                      'hasSubmenu' in item && item.hasSubmenu ? (
-                        <div key={item.label}>
-                          <button
-                            onClick={(e) => { e.stopPropagation(); setPuraVidaOpen(!puraVidaOpen); setResortsOpen(false); }}
-                            className={`${menuItem} flex items-center justify-between`}
-                          >
-                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                            <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${puraVidaOpen ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                          </button>
-                          <AnimatePresence>
-                            {puraVidaOpen && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="overflow-hidden"
-                              >
-                                <div className="pl-4 pb-1">
-                                  {PURA_VIDA_PILLARS.map((pillar) => (
-                                    <button key={pillar.label} onClick={() => handleNavigate(pillar.route)} className={menuItem}>
-                                      <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{pillar.label}</span>
-                                    </button>
-                                  ))}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      ) : (
-                        <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                          <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                        </button>
-                      )
-                    ))}
-
-                    {/* Our Resorts accordion */}
-                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
-                    <div>
-                      <button
-                        onClick={(e) => { e.stopPropagation(); setResortsOpen(!resortsOpen); setPuraVidaOpen(false); }}
-                        className={`${menuItem} flex items-center justify-between`}
-                      >
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Our Resorts</span>
-                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${resortsOpen ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      <AnimatePresence>
-                        {resortsOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4 pb-1">
-                              {EXPLORE_ITEMS.map((item) => (
-                                <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                                  <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
-                                </button>
-                              ))}
-                              <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
-                              <button onClick={() => handleNavigate("/")} className={menuItem}>
-                                <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>Nayara Resorts</span>
-                              </button>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-
-
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+      {/* Fixed pills — always visible */}
+      <div className="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
+        {/* Hamburger pill */}
+        <button
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+            setCostaRicaExpanded(false);
+            setResortsExpanded(false);
+          }}
+          className="pointer-events-auto flex items-center justify-center w-12 h-12 rounded-full bg-[#3a2a1a]/70 backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-all duration-300"
+        >
+          <div className="flex flex-col gap-1.5">
+            <span
+              className={`block w-5 h-px bg-white transition-all duration-300 ${
+                menuOpen ? "rotate-45 translate-y-[3.5px]" : ""
+              }`}
+            />
+            <span
+              className={`block w-5 h-px bg-white transition-all duration-300 ${
+                menuOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
+              }`}
+            />
           </div>
+        </button>
 
-          {/* Center: Brand or Property Name — hidden on non-home brand/content pages unless centerLabel is set */}
-          {(() => {
-            const isHome = location === "/";
-            const isPropertyPage = pageType === "property";
-            const hasCenterLabel = !!centerLabel;
-            const showCenter = !hideCenterLabel && (isHome || isPropertyPage || hasCenterLabel);
-            if (!showCenter) return null;
-            return (
-              <span
-                className="mx-4 ml-6 text-white drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
-                style={{ opacity: scrolled ? 0 : 1 }}
-              >
-                <span
-                  className="tracking-[0.18em] text-[16px] md:text-[28px]"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        {/* Reserve pill */}
+        <button
+          onClick={() => setReserveOpen(!reserveOpen)}
+          className="pointer-events-auto flex items-center justify-center h-12 px-6 rounded-full bg-[#3a2a1a]/70 backdrop-blur-md shadow-lg hover:bg-[#3a2a1a]/90 transition-all duration-300"
+        >
+          <span
+            className="text-white text-[11px] tracking-[0.25em] uppercase"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            Reserve
+          </span>
+        </button>
+      </div>
+
+      {/* Full-screen menu overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 bg-[#f7f5f0]/98 backdrop-blur-md overflow-y-auto"
+            ref={menuRef}
+          >
+            <div className="max-w-lg mx-auto px-8 pt-28 pb-16">
+              {/* Costa Rica Dropdown */}
+              <div className="border-b border-stone-200">
+                <button
+                  type="button"
+                  onClick={() => setCostaRicaExpanded(!costaRicaExpanded)}
+                  className="flex items-center justify-between w-full text-left py-4"
                 >
-                  {centerLabel || (currentPropertyId
-                    ? PROPERTIES.find(p => p.id === currentPropertyId)?.name || "Nayara Resorts"
-                    : "Nayara Resorts")}
-                </span>
-              </span>
-            );
-          })()}
+                  <span
+                    className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  >
+                    Costa Rica
+                  </span>
+                  <motion.svg
+                    animate={{ rotate: costaRicaExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-4 h-4 text-[#3a2a1a]/40"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </motion.svg>
+                </button>
 
-          {/* Right: Reserve */}
-          <div ref={reserveRef} className="relative shrink-0">
-            <button
-              onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
-              className={`${pill} h-9 px-4`}
-              style={pillStyle}
-            >
-              <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
-            </button>
-
-            <AnimatePresence>
-              {reserveOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} right-0 top-full w-56`}>
-                  <div className="py-2">
-                    {hotelBookingLinks.map((hotel) => (
-                      <button
-                        key={hotel.label}
-                        onClick={() => handleBooking(hotel)}
-                        className={`${menuItem} flex items-center justify-between`}
-                      >
-                        <span
-                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3B2B26]/80" : "text-[#3B2B26]/30"}`}
-                          style={menuText}
-                        >
-                          {hotel.label}
-                        </span>
-                        {!hotel.available && (
-                          <span className="text-[8px] tracking-[0.1em] text-[#3B2B26]/20 border border-[#3B2B26]/12 px-1.5 py-0.5 rounded-full">
-                            Soon
-                          </span>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-
-        {/* ── MOBILE NAV — Hamburger (left) + Reserve (right) ── */}
-        <div className="flex md:hidden items-center justify-between pointer-events-auto">
-          {/* Hamburger */}
-          <div ref={menuRef} className="relative">
-            <button
-              onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-              className={`${pill} w-9 h-9`}
-              style={pillStyle}
-              aria-label="Menu"
-            >
-              <div className="flex flex-col gap-1">
-                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                <span className={`block w-3.5 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-              </div>
-            </button>
-
-            <AnimatePresence>
-              {menuOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-52`}>
-                  <div className="py-2 max-h-[70vh] overflow-y-auto">
-                    {propertyItems.length > 0 && (
-                      <>
-                        <div className="px-4 pt-2 pb-1">
-                          <span className="text-[#3B2B26]/30 text-[9px] tracking-[0.18em]" style={menuText}>
-                            This Property
-                          </span>
-                        </div>
-                        {propertyItems.map((item) => (
-                          <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
+                <AnimatePresence>
+                  {costaRicaExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pl-6 pb-4 flex flex-col gap-3">
+                        {COSTA_RICA_ITEMS.map((item) => (
+                          <button
+                            key={item.label}
+                            type="button"
+                            onClick={() => handleNavigate(item.route)}
+                            className="text-left flex items-center gap-3"
+                          >
+                            <span
+                              className="text-sm tracking-[0.04em] text-[#5a4a3a] hover:text-[#3a2a1a] transition-colors"
+                              style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                            >
+                              {item.label}
+                            </span>
                           </button>
                         ))}
-                        <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
-                      </>
-                    )}
-                    {GLOBAL_MENU.map((item) => (
-                      'hasSubmenu' in item && item.hasSubmenu ? (
-                        <div key={item.label}>
-                          <button
-                            onClick={() => setPuraVidaOpen(!puraVidaOpen)}
-                            className={`${menuItem} flex items-center justify-between`}
-                          >
-                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                            <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-200 ${puraVidaOpen ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                          </button>
-                          <AnimatePresence>
-                            {puraVidaOpen && (
-                              <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.2 }}
-                                className="overflow-hidden"
-                              >
-                                <div className="pl-4">
-                                  {PURA_VIDA_PILLARS.map((pillar) => (
-                                    <button key={pillar.label} onClick={() => handleNavigate(pillar.route)} className={menuItem}>
-                                      <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{pillar.label}</span>
-                                    </button>
-                                  ))}
-                                </div>
-                              </motion.div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* 7 Brand Page Links */}
+              {[
+                { label: "Experiences", route: "/experiences" },
+                { label: "Sustainability", route: "/sustainability" },
+                { label: "Wellness", route: "/wellness" },
+                { label: "Gastronomy", route: "/gastronomy" },
+                { label: "Journal", route: "/journal" },
+                { label: "Press & Awards", route: "/awards" },
+                { label: "Gallery", route: "/gallery" },
+              ].map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => handleNavigate(item.route)}
+                  className="block w-full text-left py-4 border-b border-stone-200"
+                >
+                  <span
+                    className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  >
+                    {item.label}
+                  </span>
+                </button>
+              ))}
+
+              {/* Our Resorts Dropdown */}
+              <div className="border-b border-stone-200">
+                <button
+                  type="button"
+                  onClick={() => setResortsExpanded(!resortsExpanded)}
+                  className="flex items-center justify-between w-full text-left py-4"
+                >
+                  <span
+                    className="text-[#3a2a1a] text-lg tracking-[0.08em] uppercase"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  >
+                    Our Resorts
+                  </span>
+                  <motion.svg
+                    animate={{ rotate: resortsExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-4 h-4 text-[#3a2a1a]/40"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </motion.svg>
+                </button>
+
+                <AnimatePresence>
+                  {resortsExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pl-6 pb-4 flex flex-col gap-3">
+                        {RESORTS_ITEMS.map((item, idx) => (
+                          <div key={item.label}>
+                            {idx === RESORTS_ITEMS.length - 1 && (
+                              <div className="h-px bg-[#3a2a1a]/10 my-2" />
                             )}
-                          </AnimatePresence>
-                        </div>
-                      ) : (
-                        <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                          <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                        </button>
-                      )
-                    ))}
+                            <button
+                              type="button"
+                              onClick={() => handleNavigate(item.route)}
+                              className="text-left flex items-center gap-3"
+                            >
+                              <span
+                                className="text-sm tracking-[0.04em] text-[#5a4a3a] hover:text-[#3a2a1a] transition-colors"
+                                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                              >
+                                {item.label}
+                              </span>
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-                    {/* Our Resorts accordion */}
-                    <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
-                    <div>
-                      <button
-                        onClick={() => setResortsOpen(!resortsOpen)}
-                        className={`${menuItem} flex items-center justify-between`}
-                      >
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Our Resorts</span>
-                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-200 ${resortsOpen ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      <AnimatePresence>
-                        {resortsOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4">
-                              {EXPLORE_ITEMS.map((item) => (
-                                <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                                  <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
-                                </button>
-                              ))}
-                              <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />
-                              <button onClick={() => handleNavigate("/")} className={menuItem}>
-                                <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>Nayara Resorts</span>
-                              </button>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-
-
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* Reserve */}
-          <div ref={reserveRef} className="relative">
-            <button
-              onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
-              className={`${pill} h-9 px-4`}
-              style={pillStyle}
-            >
-              <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
-            </button>
-
-            <AnimatePresence>
-              {reserveOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} right-0 top-full w-52`}>
-                  <div className="py-2">
-                    {hotelBookingLinks.map((hotel) => (
-                      <button
-                        key={hotel.label}
-                        onClick={() => handleBooking(hotel)}
-                        className={`${menuItem} flex items-center justify-between`}
-                      >
-                        <span
-                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3B2B26]/80" : "text-[#3B2B26]/30"}`}
-                          style={menuText}
-                        >
-                          {hotel.label}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-      </nav>
+      {/* Reserve dropdown */}
+      <AnimatePresence>
+        {reserveOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-20 right-6 z-40 bg-white rounded-lg shadow-xl overflow-hidden"
+            ref={reserveRef}
+          >
+            <div className="py-2">
+              {Object.entries(hotelBookingLinks).map(([key, url]) => (
+                <a
+                  key={key}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-2 text-sm text-[#3a2a1a] hover:bg-[#f7f5f0] transition-colors"
+                >
+                  {key.replace(/-/g, " ").toUpperCase()}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

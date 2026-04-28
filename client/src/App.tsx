@@ -39,6 +39,8 @@ const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
 const ReforestationWildlifeBlog = lazy(() => import("./pages/ReforestationWildlifeBlog"));
 const BirdwatchingBlog = lazy(() => import("./pages/BirdwatchingBlog"));
+const CaribbeanCoralLanding = lazy(() => import("./pages/CaribbeanCoralLanding"));
+const CaribbeanCoralBlog = lazy(() => import("./pages/CaribbeanCoralBlog"));
 const BrandBook = lazy(() => import("./pages/BrandBook"));
 const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -195,6 +197,8 @@ function Router() {
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
           <Route path="/blog/reforestation-wildlife" component={ReforestationWildlifeBlog} />
           <Route path="/blog/birdwatching" component={BirdwatchingBlog} />
+          <Route path="/caribbean-coral" component={CaribbeanCoralLanding} />
+          <Route path="/journal/caribbean-coral-restoration" component={CaribbeanCoralBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
 
           {/* ── Internal / Private pages ── */}

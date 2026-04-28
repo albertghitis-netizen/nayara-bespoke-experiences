@@ -8,7 +8,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
-import { hotelBookingLinks } from "@/data/booking";
+import { hotelBookingLinksArray } from "@/data/booking";
 
 interface Destination {
   name: string;
@@ -77,7 +77,7 @@ export default function SidebarNavigation({
     onClose();
   };
 
-  const handleBooking = (hotel: (typeof hotelBookingLinks)[0]) => {
+  const handleBooking = (hotel: (typeof hotelBookingLinksArray)[0]) => {
     if (hotel.url) {
       window.open(hotel.url, "_blank");
     } else {

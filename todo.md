@@ -3189,3 +3189,30 @@
 - [x] Verify all blog links use correct /blog/ routes
 - [x] Test TypeScript compilation (0 errors)
 - [x] Verify page renders correctly in browser
+
+
+## Caribbean Coral Restoration Partnership
+- [x] Create Caribbean Coral landing page (`/caribbean-coral`)
+- [x] Create Caribbean Coral blog post (`/journal/caribbean-coral-restoration`)
+- [x] Add routes to App.tsx
+- [x] Style with ocean teal palette (matching Tented Camp Sustainability)
+- [x] Include hero section with partnership messaging
+- [x] Add global crisis context with statistics (84% reefs impacted, 50% lost, 1.5°C threshold)
+- [x] Include climate-adaptive restoration approach
+- [x] Add impact stats section with 5 pillars
+- [x] Create partnership section linking Nayara Bocas del Toro
+- [x] Add restoration techniques section (4-step process)
+- [x] Include community impact section with economic empowerment
+- [x] Add journal/blog links
+- [x] Style footer with ocean color scheme
+- [x] Fix hotelBookingLinks type conflict (changed to Record<string, string>)
+- [x] Update SidebarNavigation to use hotelBookingLinksArray
+- [ ] Test blog post route rendering (currently showing 404)
+- [ ] Verify all links are working properly
+- [ ] Add actual coral/ocean hero images (currently using placeholder)
+- [ ] Consider adding Caribbean Coral to main navigation menu
+- [ ] Add Caribbean Coral to Bocas del Toro sustainability page
+- [ ] Create integration with Bocas del Toro property page
+- [ ] Test responsive design on mobile/tablet
+- [ ] Verify SEO metadata
+- [ ] Create checkpoint after all features are complete
