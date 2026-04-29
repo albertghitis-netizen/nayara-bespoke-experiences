@@ -39,14 +39,11 @@ const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
 const ReforestationWildlifeBlog = lazy(() => import("./pages/ReforestationWildlifeBlog"));
 const BirdwatchingBlog = lazy(() => import("./pages/BirdwatchingBlog"));
-const CaribbeanCoralLanding = lazy(() => import("./pages/CaribbeanCoralLanding"));
-const CaribbeanCoralBlog = lazy(() => import("./pages/CaribbeanCoralBlog"));
-const RainforestToReef = lazy(() => import("./pages/RainforestToReef"));
-const BrandBook = lazy(() => import("./pages/BrandBook"));
-const HenryStandalone = lazy(() => import("./pages/HenryStandalone"));
+// const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
+// const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const Gallery = lazy(() => import("./pages/Gallery"));
-const Sharalynn = lazy(() => import("./pages/Sharalynn"));
+// const Gallery = lazy(() => import("./pages/Gallery")); // ARCHIVED: Can be restored if needed
+// const Sharalynn = lazy(() => import("./pages/Sharalynn")); // ARCHIVED: Can be restored if needed
 const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
 
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
@@ -106,7 +103,8 @@ function ScrollToTop() {
 }
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
-const HIDE_WIDGET_PATHS: string[] = ["/sharalynn", "/sharalynn/blog"];
+// ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
+const HIDE_WIDGET_PATHS: string[] = [];
 
 function Router() {
   const [location] = useLocation();
@@ -145,7 +143,7 @@ function Router() {
           <Route path="/tented-camp/sustainability">{() => <CostaRicaSustainability propertySlug="tented-camp" />}</Route>
           <Route path="/tented-experiences" component={TentedExperiences} />
           <Route path="/gardens" component={Gardens} />
-          <Route path="/gardens/rooms" component={GardensRooms} />
+          {/* ARCHIVED ROUTE: /gardens/rooms - Component file still exists */}
           <Route path="/gardens/rooms/arenal-pool-casita" component={ArenalPoolCasita} />
           <Route path="/gardens/rooms/rainforest-pool-villa" component={RainforestPoolVilla} />
           <Route path="/gardens/experiences">{() => <CostaRicaExperiences propertySlug="gardens" />}</Route>
@@ -157,7 +155,7 @@ function Router() {
           <Route path="/gardens/gastronomy">{() => <CostaRicaGastronomy propertySlug="gardens" />}</Route>
           <Route path="/gardens/sustainability">{() => <CostaRicaSustainability propertySlug="gardens" />}</Route>
           <Route path="/springs" component={Springs} />
-          <Route path="/springs/rooms" component={SpringsVilla} />
+          {/* ARCHIVED ROUTE: /springs/rooms - Component file still exists */}
           <Route path="/springs/rooms/springs-villa" component={SpringsVilla} />
           <Route path="/springs/experiences">{() => <CostaRicaExperiences propertySlug="springs" />}</Route>
           <Route path="/springs/wellness">{() => <CostaRicaWellness propertySlug="springs" />}</Route>
@@ -182,33 +180,29 @@ function Router() {
           <Route path="/bocas-del-toro/gastronomy">{() => <CostaRicaGastronomy propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/sustainability">{() => <CostaRicaSustainability propertySlug="bocas-del-toro" />}</Route>
           <Route path="/journal" component={Journal} />
-          <Route path="/blog">{() => { window.location.replace("/journal"); return null; }}</Route>
+           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/awards" component={AwardsAndPress} />
           <Route path="/sustainability" component={Sustainability} />
           <Route path="/experiences" component={Experiences} />
           <Route path="/wellness" component={Wellness} />
           
-          <Route path="/press">{() => { window.location.replace("/awards"); return null; }}</Route>
+          {/* ARCHIVED REDIRECT: /press - Previously redirected to /awards */}
           <Route path="/gastronomy" component={Gastronomy} />
-          <Route path="/faq">{() => { window.location.replace("/journal"); return null; }}</Route>
+          {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
-          <Route path="/journal/:slug" component={DynamicBlogPost} />
+          {/* ARCHIVED ROUTE: /journal/:slug - Component file still exists at ./pages/DynamicBlogPost.tsx */}
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
           <Route path="/blog/reforestation-wildlife" component={ReforestationWildlifeBlog} />
           <Route path="/blog/birdwatching" component={BirdwatchingBlog} />
-          <Route path="/caribbean-coral" component={CaribbeanCoralLanding} />
-          <Route path="/journal/caribbean-coral-restoration" component={CaribbeanCoralBlog} />
-          <Route path="/rainforest-to-reef" component={RainforestToReef} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
 
           {/* ── Internal / Private pages ── */}
-          <Route path="/internal-brandbook" component={BrandBook} />
-          <Route path="/internal-henry" component={HenryStandalone} />
-          <Route path="/gallery" component={Gallery} />
+          {/* ARCHIVED ROUTES: /internal-brandbook and /internal-henry - Component files still exist */}
+          {/* ARCHIVED ROUTE: /gallery - Component file still exists */}
           <Route path="/test-floorplan" component={FloorPlanTest} />
-          <Route path="/sharalynn" component={Sharalynn} />
+          {/* ARCHIVED ROUTE: /sharalynn - Component file still exists at ./pages/Sharalynn.tsx */}
 
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />

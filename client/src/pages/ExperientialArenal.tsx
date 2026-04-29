@@ -45,7 +45,7 @@ const CDN = {
   heroDesktop:
     "/manus-storage/541D91ED-B1A1-4C62-864D-146A15D699EE(1)_8c5af108.mp4",
   heroMobile:
-    "/manus-storage/541D91ED-B1A1-4C62-864D-146A15D699EE(1)_8c5af108.mp4",
+    "/manus-storage/804372E4-DC9B-4E2E-9F9C-6C019007E7FC(1)_212571fb.mov",
 };
 
 /* ── Category configs ────────────────────────────────────────── */
