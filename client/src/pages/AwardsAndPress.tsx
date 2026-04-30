@@ -14,7 +14,7 @@ import NativeVideo from "@/components/NativeVideo";
 /* ── CDN assets ── */
 const CDN = {
   heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/spa-springs-compressed_4f2eb97d.mp4",
-  heroVideoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-vertical-compressed_903eb616.mp4",
+  heroVideoMobile: "/manus-storage/ReelNayara🩵_46b01ecf.mov",
 };
 
 function useIsMobile() {
