@@ -38,7 +38,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideoDesktop: "/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4",
+  heroVideoDesktop: "/manus-storage/journal-desktop-hero_6c6166c1.mp4",
+  heroVideoMobile: "/manus-storage/journal-mobile-hero-cropped_b20d2a0a.mp4",
 };
 
 /*
@@ -123,15 +124,27 @@ export default function Journal() {
       <BrandNavigation pageType="brand" hideCenterLabel />
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden">
+      <section className="relative w-full h-screen md:h-[75vh] overflow-hidden bg-[#3a2a1a] -mt-1">
         <div className="absolute inset-0">
-          <video
-            src={JOURNAL_CDN.heroVideoDesktop}
-            autoPlay
-            loop
-            muted
-            className="w-full h-full object-cover"
-          />
+          {JOURNAL_CDN.heroVideoDesktop && (
+            <>
+              <video
+                src={JOURNAL_CDN.heroVideoDesktop}
+                autoPlay
+                loop
+                muted
+                className="hidden md:block w-full h-full object-cover"
+              />
+            </>
+          )}
+          {JOURNAL_CDN.heroVideoMobile && (
+            <video
+              src={JOURNAL_CDN.heroVideoMobile}
+              autoPlay
+              muted
+              className="md:hidden w-full h-full object-contain"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />
         </div>
 

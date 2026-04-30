@@ -84,7 +84,7 @@ const PALETTE = {
 const ASSETS = {
   // Hero (clip 1 — horizontal 16:9)
   heroDesktop: "/manus-storage/atacama-hero-audio_e50ab49a.mp4",
-  heroMobile: "/manus-storage/atacama-hero-audio_e50ab49a.mp4",
+  heroMobile: "/manus-storage/atacama-mobile-hero_4942d911.mp4",
 
   // Clip 2 — vertical 3:4
   clip2V: "/manus-storage/atacama-s1-vertical-v3_b6fd3496.mp4",
@@ -931,13 +931,13 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/atacama-mobile-hero_58169dd4.jpg";
+  const mobileHeroImage = "/manus-storage/atacama-mobile-hero_4942d911.mp4";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Alto Atacama" className="w-full h-full object-cover" />
+          <video src={mobileHeroImage} autoPlay muted className="w-full h-full object-contain" />
         ) : (
           <BlobVideo
           src={heroVideo}

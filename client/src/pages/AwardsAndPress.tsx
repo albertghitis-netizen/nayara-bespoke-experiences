@@ -13,8 +13,8 @@ import NativeVideo from "@/components/NativeVideo";
 
 /* ── CDN assets ── */
 const CDN = {
-  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/spa-springs-compressed_4f2eb97d.mp4",
-  heroVideoMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-vertical-compressed_903eb616.mp4",
+  heroVideoDesktop: "/manus-storage/press-awards-desktop-hero_c0e12e48.mp4",
+  heroVideoMobile: "/manus-storage/press-awards-mobile-hero_f0779957.mp4",
 };
 
 function useIsMobile() {
@@ -196,9 +196,13 @@ export default function AwardsAndPress() {
       <BrandNavigation pageType="brand" hideCenterLabel />
 
       {/* ── Hero Video ── */}
-      <section className="relative w-full h-screen overflow-hidden">
+      <section className="relative w-full h-screen overflow-hidden bg-[#3a2a1a]">
         <div className="absolute inset-0">
-          <NativeVideo src={useIsMobile() ? CDN.heroVideoMobile : CDN.heroVideoDesktop} className="w-full h-full object-cover" />
+          {typeof window !== 'undefined' && window.innerWidth < 768 ? (
+            <NativeVideo src={CDN.heroVideoMobile} autoPlay muted className="w-full h-full object-cover" />
+          ) : (
+            <NativeVideo src={CDN.heroVideoDesktop} autoPlay loop muted className="w-full h-full object-cover" />
+          )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
         </div>
         <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
