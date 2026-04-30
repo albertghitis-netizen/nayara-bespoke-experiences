@@ -38,8 +38,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideoDesktop: "/manus-storage/journal-desktop-hero-v2_5f23acbd.mp4",
-  heroVideoMobile: "/manus-storage/journal-mobile-hero-v2_23b13bb1.mp4",
+  heroVideoDesktop: "/manus-storage/journal-desktop-hero-v2-hq_cb6fd136.mp4",
+  heroVideoMobile: "/manus-storage/journal-mobile-hero-v2-hq_3c7654fa.mp4",
 };
 
 /*
