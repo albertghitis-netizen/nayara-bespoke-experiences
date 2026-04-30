@@ -75,7 +75,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const ASSETS = {
   heroDesktop: "/manus-storage/tented-hero-desktop-new_95c1a076.mp4",
-  heroMobile: `${CDN}/tented_hero_vertical_0834f0e2.mp4`,
+  heroMobile: "/manus-storage/tented-camp-mobile-hero-hq_d5b0c9f4.mp4",
 
   storyV: "/manus-storage/brand-s1-philosophy_510ddc6e.mp4",
   storyH: `${CDN}/Supersale-8_68853293.jpg`,
