@@ -61,6 +61,7 @@ const PALETTE = {
 const CDN = {
   // Hero
   heroDesktop: "/manus-storage/gardens-hero-with-audio_68878e2b.mp4",
+  heroMobile: "/manus-storage/REEL9.Gardens_3f09fecd.mov",
 
   // Rooms - video replaces s3 photo
   roomsVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4",
@@ -220,21 +221,16 @@ export default function Gardens() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/gardens-mobile-hero-v2_ff0c36d3.jpg";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Gardens" className="w-full h-full object-cover" />
-        ) : (
-          <BlobVideo
-          src={CDN.heroDesktop}
+        <BlobVideo
+          src={isMobile ? CDN.heroMobile : CDN.heroDesktop}
           className="w-full h-full object-cover"
-          hasAudio={true}
+          hasAudio={!isMobile}
           pillBg="#286241B3"
           pillColor="#F7F5F0"
         />
-        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
