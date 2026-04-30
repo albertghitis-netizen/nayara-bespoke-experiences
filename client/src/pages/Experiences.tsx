@@ -30,8 +30,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 /* ─── CDN Assets ─── */
 const CDN = {
-  heroVertical: "/manus-storage/F1892DC2-0D23-4EF9-93E3-03C380627DE8_fe21e7e2.MOV",
-  heroHorizontal: "/manus-storage/F1892DC2-0D23-4EF9-93E3-03C380627DE8_fe21e7e2.MOV",
+  heroVertical: "/manus-storage/CA14247B-F1BF-43C0-B5FD-C9339260A495(2)_1d399358.MOV",
+  heroHorizontal: "/manus-storage/CA14247B-F1BF-43C0-B5FD-C9339260A495(2)_1d399358.MOV",
 };
 
 export default function Experiences() {
@@ -74,7 +74,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={isMobile ? CDN.heroVertical : CDN.heroHorizontal} className="w-full h-full object-cover" />
+        <NativeVideo src={isMobile ? CDN.heroVertical : CDN.heroHorizontal} className="w-full h-full object-cover" loop={false} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
