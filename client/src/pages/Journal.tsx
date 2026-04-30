@@ -19,7 +19,6 @@ import BrandNavigation from "@/components/BrandNavigation";
 import HotelFilterBar5 from "@/components/HotelFilterBar5";
 import Footer from "@/components/Footer";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
-import { useIsMobile } from "@/hooks/useMobile";
 import {
   journalEntries,
   type JournalEntry,
@@ -40,7 +39,6 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 const JOURNAL_CDN = {
   heroVideoDesktop: "/manus-storage/costa-rica-hero-volcano-clouds-audio_a8dfc318.mp4",
-  heroVideoMobile: "/manus-storage/804372E4-DC9B-4E2E-9F9C-6C019007E7FC(1)_212571fb.mov",
 };
 
 /*
@@ -113,7 +111,6 @@ const ALL_ENTRIES = buildGallery();
 const INITIAL_COUNT = 9;
 
 export default function Journal() {
-  const isMobile = useIsMobile();
   const [activeHotel, setActiveHotel] = useState("alto-atacama");
   const [showAll, setShowAll] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
@@ -129,7 +126,7 @@ export default function Journal() {
       <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden">
         <div className="absolute inset-0">
           <video
-            src={isMobile ? JOURNAL_CDN.heroVideoMobile : JOURNAL_CDN.heroVideoDesktop}
+            src={JOURNAL_CDN.heroVideoDesktop}
             autoPlay
             loop
             muted
