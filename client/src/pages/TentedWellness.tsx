@@ -11,6 +11,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
+import HotelFilterBar3 from "@/components/HotelFilterBar3";
 import { properties, type Treatment } from "@/data/properties";
 import { useIsMobile } from "@/hooks/useMobile";
 
@@ -101,6 +102,7 @@ const propertyWellnessLinks = [
 ];
 
 export default function TentedWellness() {
+  const [activeHotel, setActiveHotel] = useState("tented-camp");
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
       <BrandNavigation pageType="brand" hideCenterLabel />
@@ -111,6 +113,7 @@ export default function TentedWellness() {
       <LasThermasSection />
       <NayaraDifferenceSection />
       <SoundHealingSection />
+      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <SpaSection />
       <SpringsFeature />
       <PropertyLinksSection />
@@ -435,8 +438,7 @@ function SoundHealingSection() {
    SPA TREATMENTS — Category tabs, no property filter
    ═══════════════════════════════════════════════════════════════ */
 function SpaSection() {
-  const [activeCategory, setActiveCategory] = useState("massage");
-  const filtered = crTreatments.filter((t: Treatment) => t.category === activeCategory);
+  const filtered = crTreatments;
 
   return (
     <section className="py-16 md:py-24 px-6 md:px-10 bg-white/30">
@@ -450,24 +452,6 @@ function SpaSection() {
             Our treatments draw from Costa Rica's rich natural pharmacy &mdash; volcanic mud, organic coffee, tropical cacao, and rainforest botanicals. Available across all three properties.
           </p>
         </FadeIn>
-
-        {/* Category tabs */}
-        <div className="flex flex-wrap gap-2 mb-10">
-          {spaCategories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
-                activeCategory === cat.id
-                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
-                  : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
-              }`}
-              style={{ ...body, fontWeight: 500 }}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
 
         {/* Treatment cards */}
         {filtered.length === 0 ? (
