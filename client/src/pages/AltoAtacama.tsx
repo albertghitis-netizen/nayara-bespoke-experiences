@@ -83,8 +83,8 @@ const PALETTE = {
 
 const ASSETS = {
   // Hero (clip 1 — horizontal 16:9)
-  heroDesktop: "/manus-storage/atacama-hero-audio_e50ab49a.mp4",
-  heroMobile: "/manus-storage/atacama-hero-audio_e50ab49a.mp4",
+  heroDesktop: "/manus-storage/Edits_Atacama_final_v1-clean_581a2b9a.mp4",
+  heroMobile: "/manus-storage/Edits_Atacama_final_v1-clean_581a2b9a.mp4",
 
   // Clip 2 — vertical 3:4
   clip2V: "/manus-storage/atacama-s1-vertical-v3_b6fd3496.mp4",
