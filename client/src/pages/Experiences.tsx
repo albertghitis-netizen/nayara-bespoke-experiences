@@ -12,7 +12,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar3 from "@/components/HotelFilterBar3";
+import HotelFilterBar1 from "@/components/HotelFilterBar1";
 import { properties, type Excursion } from "@/data/properties";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -30,8 +30,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 /* ─── CDN Assets ─── */
 const CDN = {
-  heroVertical: "/manus-storage/CA14247B-F1BF-43C0-B5FD-C9339260A495(2)_1d399358.MOV",
-  heroHorizontal: "/manus-storage/CA14247B-F1BF-43C0-B5FD-C9339260A495(2)_1d399358.MOV",
+  heroVertical: "/manus-storage/804372E4-DC9B-4E2E-9F9C-6C019007E7FC_161b022e.mov",
+  heroHorizontal: "/manus-storage/804372E4-DC9B-4E2E-9F9C-6C019007E7FC_161b022e.mov",
 };
 
 export default function Experiences() {
@@ -58,7 +58,7 @@ export default function Experiences() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} label="Explore by Hotel" />
+      <HotelFilterBar1 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <ExcursionGrid excursions={filtered} />
       <CTASection />
       <Footer />
@@ -74,7 +74,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={isMobile ? CDN.heroVertical : CDN.heroHorizontal} className="w-full h-full object-cover" loop={false} />
+        <NativeVideo src={isMobile ? CDN.heroVertical : CDN.heroHorizontal} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">

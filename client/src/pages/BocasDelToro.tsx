@@ -69,7 +69,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 const ASSETS = {
   // Hero
   heroDesktop: `${CDN}/nbt-horizontal-desktop_0c584342.mp4`,
-  heroMobile: `${CDN}/welovebocasdeltororeels3_1e6ccb06.MOV`,
+  heroMobile: `${CDN}/bocas-vertical2_03bbe8e5.mp4`,
 
   // Section 1 — Story: wellness gallery video2 V (moved from wellness) + lagoon photo H
   storyV: `${CDN}/bocas-gallery-video2_1dd3d81d.mp4`,
