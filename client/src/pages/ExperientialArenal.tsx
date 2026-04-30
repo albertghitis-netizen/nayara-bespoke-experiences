@@ -42,10 +42,8 @@ const bodyLight = { fontFamily: "var(--font-body)", fontWeight: 300 } as const;
 const bodyMedium = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
 
 const CDN = {
-  heroDesktop:
-    "/manus-storage/541D91ED-B1A1-4C62-864D-146A15D699EE(1)_8c5af108.mp4",
-  heroMobile:
-    "/manus-storage/541D91ED-B1A1-4C62-864D-146A15D699EE(1)_8c5af108.mp4",
+  heroDesktop: "/manus-storage/journal-desktop-hero_6c6166c1.mp4",
+  heroMobile: "/manus-storage/journal-mobile-hero-cropped_b20d2a0a.mp4",
 };
 
 /* ── Category configs ────────────────────────────────────────── */
