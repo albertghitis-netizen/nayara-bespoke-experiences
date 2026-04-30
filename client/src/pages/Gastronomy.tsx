@@ -6,6 +6,7 @@
  */
 
 import { useState, useRef } from "react";
+import { useIsMobile } from "@/hooks/useMobile";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
@@ -29,6 +30,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 const GASTRO_CDN = {
   heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4",
+  heroMobile: "/manus-storage/00-HeroVideoVertical-NayaraSpringsOnly_ed4647f3.mov",
 };
 
 /* ── Property filter tabs ── */
@@ -86,8 +88,18 @@ export default function Gastronomy() {
    HERO
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
   return (
     <section className="relative w-full h-screen overflow-hidden bg-[#1a1410]">
+      <div className="absolute inset-0">
+        {isMobile && (
+          <NativeVideo src={GASTRO_CDN.heroMobile} className="w-full h-full object-cover" loop={false} />
+        )}
+        {!isMobile && (
+          <NativeVideo src={GASTRO_CDN.heroVideo} className="w-full h-full object-cover" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
+      </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} className="text-white text-xl md:text-3xl lg:text-4xl tracking-wide text-center" style={heading}>
           A Taste of Place
