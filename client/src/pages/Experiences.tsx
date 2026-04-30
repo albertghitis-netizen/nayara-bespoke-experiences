@@ -12,7 +12,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar1 from "@/components/HotelFilterBar1";
+import HotelFilterBar3 from "@/components/HotelFilterBar3";
 import { properties, type Excursion } from "@/data/properties";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -30,8 +30,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 /* ─── CDN Assets ─── */
 const CDN = {
-  heroVertical: "/manus-storage/F1892DC2-0D23-4EF9-93E3-03C380627DE8-v5_d47c0399.mp4",
-  heroHorizontal: "/manus-storage/F1892DC2-0D23-4EF9-93E3-03C380627DE8-v5_d47c0399.mp4",
+  heroVertical: "/manus-storage/804372E4-DC9B-4E2E-9F9C-6C019007E7FC_161b022e.mov",
+  heroHorizontal: "/manus-storage/804372E4-DC9B-4E2E-9F9C-6C019007E7FC_161b022e.mov",
 };
 
 export default function Experiences() {
@@ -58,7 +58,7 @@ export default function Experiences() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar1 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} label="Explore by Hotel" />
       <ExcursionGrid excursions={filtered} />
       <CTASection />
       <Footer />

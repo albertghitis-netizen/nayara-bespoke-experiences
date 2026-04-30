@@ -1,19 +1,19 @@
 /**
- * HotelFilterBar Variant 5 — Visual cards with property photos
- * For: Journal page
+ * HotelFilterBar Variant 5 — Dropdown/select menu
+ * For: Journal and Gallery pages
  */
 
-import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 const HOTEL_OPTIONS = [
-  { id: "alto-atacama", label: "Alto Atacama", color: "from-orange-400 to-red-600" },
-  { id: "bocas-del-toro", label: "Bocas del Toro", color: "from-cyan-400 to-blue-600" },
-  { id: "gardens", label: "Gardens", color: "from-green-400 to-emerald-600" },
-  { id: "hangaroa", label: "Hangaroa", color: "from-purple-400 to-indigo-600" },
-  { id: "springs", label: "Springs", color: "from-pink-400 to-rose-600" },
-  { id: "tented-camp", label: "Tented Camp", color: "from-yellow-400 to-orange-600" },
+  { id: "alto-atacama", label: "Alto Atacama" },
+  { id: "bocas-del-toro", label: "Bocas del Toro" },
+  { id: "gardens", label: "Gardens" },
+  { id: "hangaroa", label: "Hangaroa" },
+  { id: "springs", label: "Springs" },
+  { id: "tented-camp", label: "Tented Camp" },
 ];
 
 interface HotelFilterBarProps {
@@ -22,32 +22,28 @@ interface HotelFilterBarProps {
 }
 
 export default function HotelFilterBar5({ activeHotel, onHotelChange }: HotelFilterBarProps) {
+  const activeLabel = HOTEL_OPTIONS.find((opt) => opt.id === activeHotel)?.label || "Select Hotel";
+
   return (
     <section className="px-6 md:px-10 pb-8">
       <div className="max-w-[1200px] mx-auto">
         <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>
           Filter by Hotel
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          {HOTEL_OPTIONS.map((opt) => (
-            <motion.button
-              key={opt.id}
-              onClick={() => onHotelChange(opt.id)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`relative h-24 rounded-lg overflow-hidden transition-all duration-300 ${
-                activeHotel === opt.id ? "ring-2 ring-[#3B2B26] shadow-lg" : "opacity-70 hover:opacity-100"
-              }`}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${opt.color}`} />
-              <div className="absolute inset-0 bg-black/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white text-xs text-center px-2 font-semibold tracking-tight" style={body}>
-                  {opt.label}
-                </span>
-              </div>
-            </motion.button>
-          ))}
+        <div className="relative inline-block w-full md:w-64">
+          <select
+            value={activeHotel}
+            onChange={(e) => onHotelChange(e.target.value)}
+            className="w-full px-5 py-3 pr-10 bg-white border-2 border-[#3B2B26]/20 rounded-lg text-[#3B2B26] text-sm tracking-[0.05em] appearance-none cursor-pointer hover:border-[#3B2B26]/40 focus:outline-none focus:border-[#3B2B26] transition-colors"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            {HOTEL_OPTIONS.map((opt) => (
+              <option key={opt.id} value={opt.id}>
+                {opt.label}
+              </option>
+            ))}
+          </select>
+          <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#3B2B26]/40 pointer-events-none" />
         </div>
       </div>
     </section>

@@ -6,13 +6,12 @@
  */
 
 import { useState, useRef } from "react";
-import { useIsMobile } from "@/hooks/useMobile";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar2 from "@/components/HotelFilterBar2";
+import HotelFilterBar3 from "@/components/HotelFilterBar3";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -29,8 +28,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 /* ─── CDN Assets ─── */
 const CDN = {
-  heroVideoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-new-audio_57d017a3.mp4",
-  heroVideoMobile: "/manus-storage/F1892DC2-0D23-4EF9-93E3-03C380627DE8-v4_639c9bce.mp4",
+  heroVideoOld: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-2_500e97e2.mp4",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-new-audio_57d017a3.mp4",
 };
 
 /* ─── Brand-level sustainability pillars ─── */
@@ -149,7 +148,7 @@ export default function Sustainability() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar2 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <BrandPillarsSection />
       <PropertyInitiativesSection
         activeCategory={activeCategory}
@@ -171,11 +170,10 @@ export default function Sustainability() {
    HERO
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
-  const isMobile = useIsMobile();
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={isMobile ? CDN.heroVideoMobile : CDN.heroVideoDesktop} className="w-full h-full object-cover" />
+        <NativeVideo src={CDN.heroVideo} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
@@ -290,26 +288,7 @@ function PropertyInitiativesSection({
           </div>
         </div>
 
-        {/* Property filter */}
-        <div className="mb-10">
-          <p className="text-[#3B2B26]/25 text-[9px] tracking-[0.2em] mb-2" style={{ ...body, fontWeight: 600 }}>Property</p>
-          <div className="flex flex-wrap gap-2">
-            {PROPERTIES.map((prop) => (
-              <button
-                key={prop.id}
-                onClick={() => onPropertyChange(prop.id)}
-                className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
-                  activeProperty === prop.id
-                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
-                    : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
-                }`}
-                style={{ ...body, fontWeight: 500 }}
-              >
-                {prop.label}
-              </button>
-            ))}
-          </div>
-        </div>
+
 
         {/* Results */}
         <AnimatePresence mode="popLayout">

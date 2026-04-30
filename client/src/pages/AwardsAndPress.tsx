@@ -8,7 +8,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ShieldCheck, ChevronDown, Key, ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar6 from "@/components/HotelFilterBar6";
+import HotelFilterBar3 from "@/components/HotelFilterBar3";
 import NativeVideo from "@/components/NativeVideo";
 
 /* ── CDN assets ── */
@@ -150,7 +150,7 @@ const pressClips: PressClip[] = [
   { title: "Sukha Spa Named Among World's 12 Best Spas", publication: "Galerie Magazine", date: "2024", url: "https://galeriemagazine.com/best-spas-in-the-world/", property: "Nayara Springs", topic: "Wellness" },
 ];
 
-const PROPERTY_FILTERS = ["All", "Nayara Resorts", "Nayara Alto Atacama", "Nayara Bocas del Toro", "Nayara Gardens", "Nayara Hangaroa", "Nayara Springs", "Nayara Tented Camp"];
+const PROPERTY_FILTERS = ["Nayara Resorts", "Nayara Alto Atacama", "Nayara Bocas del Toro", "Nayara Gardens", "Nayara Hangaroa", "Nayara Springs", "Nayara Tented Camp"];
 
 function getYear(date: string): string {
   const match = date.match(/\d{4}/);
@@ -161,14 +161,14 @@ function getYear(date: string): string {
 export default function AwardsAndPress() {
   const [activeHotel, setActiveHotel] = useState("alto-atacama");
   const [expandedProperty, setExpandedProperty] = useState<string | null>("Nayara Springs");
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("Nayara Resorts");
   const [activeTab, setActiveTab] = useState<"awards" | "press">("awards");
 
-  const filteredAwards = activeFilter === "All" ? allAwards : allAwards.filter(a => a.property === activeFilter);
+  const filteredAwards = allAwards.filter(a => a.property === activeFilter);
 
   const filteredPress = useMemo(() => {
     return pressClips.filter((c) => {
-      return activeFilter === "All" || c.property === activeFilter || c.property === "Multiple Properties";
+      return c.property === activeFilter || c.property === "Multiple Properties";
     });
   }, [activeFilter]);
 
@@ -272,7 +272,7 @@ export default function AwardsAndPress() {
       </section>
 
       {/* ── Hotel Filter ── */}
-      <HotelFilterBar6 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
 
       {/* ── Tab Switcher + Property Filter ── */}
       <section className="py-10 md:py-14 px-6 md:px-10">
@@ -295,23 +295,7 @@ export default function AwardsAndPress() {
             ))}
           </div>
 
-          {/* Property Filter */}
-          <div className="flex flex-wrap gap-2 justify-center">
-            {PROPERTY_FILTERS.map((p) => (
-              <button
-                key={p}
-                onClick={() => { setActiveFilter(p); setExpandedProperty(null); }}
-                className={`px-3 py-1.5 text-[11px] tracking-[0.08em] rounded-full border transition-all duration-300 ${
-                  activeFilter === p
-                    ? "bg-[#3B2B26] text-white border-[#3B2B26]"
-                    : "bg-transparent text-[#5a4a3a]/40 border-[#3B2B26]/10 hover:border-[#3B2B26]/25 hover:text-[#3B2B26]"
-                }`}
-                style={{ ...body, fontWeight: 500 }}
-              >
-                {p}
-              </button>
-            ))}
-          </div>
+
         </div>
       </section>
 

@@ -167,7 +167,7 @@ export default function Home() {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = "/manus-storage/brand-hero-final_a81c08c3.mp4";
-  const mobileHeroVideo = "/manus-storage/Edits_Atacama_final_v1-clean_581a2b9a.mp4";
+  const mobileHeroVideo = "/manus-storage/mobile-hero-web_9f66d743.mp4";
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
