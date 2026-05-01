@@ -127,7 +127,7 @@ export default function TentedWellness() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/wellness-hero-v1.jpg";
+  const mobileHeroImage = "/manus-storage/brand-wellness-mobile-hero_064bd82b.jpg";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">

@@ -200,7 +200,7 @@ export default function Springs() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/springs-hero-v1.png";
+  const mobileHeroImage = "/manus-storage/springs-mobile-hero_572a69ce.png";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
@@ -300,7 +300,7 @@ function StorySection() {
 
           <div className="mt-8 hidden md:block">
             <video
-              src="/manus-storage/springs-badge-s1.mp4"
+              src="/manus-storage/badge-animation-final_80c614a1.mp4"
               autoPlay
               muted
               playsInline

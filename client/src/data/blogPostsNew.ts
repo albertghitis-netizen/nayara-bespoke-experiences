@@ -16,7 +16,7 @@ export const gastronomyBlogPost: BlogPostData = {
   pillar: "Gastronomy",
   tags: ["Gastronomy", "Dining", "Costa Rica", "Fine Dining", "Wine", "Cocktails"],
   readingTime: 8,
-  heroImage: "/manus-storage/tented-property-still-h1.webp",
+  heroImage: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
   heroVideo: {
     desktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4",
   },
@@ -47,7 +47,7 @@ export const gastronomyBlogPost: BlogPostData = {
       heading: "Nayara Tented Camp: Mediterranean Meets the Jungle",
       content: `<p>At Nayara Tented Camp, <strong>Ayla</strong> presents Mediterranean cuisine infused with local touches, offering a different flavor profile while maintaining the same commitment to quality that defines every Nayara kitchen. The open-air setting places you at the edge of the rainforest, where the boundary between restaurant and wilderness dissolves entirely.</p>`,
       image: {
-        src: "/manus-storage/tented-property-still-h1.webp",
+        src: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
         alt: "Ayla restaurant at Nayara Tented Camp — Mediterranean cuisine in the rainforest",
         caption: "Ayla at Nayara Tented Camp: where Mediterranean flavors meet the Costa Rican jungle",
       },
@@ -187,7 +187,7 @@ export const inHouseActivitiesBlogPost: BlogPostData = {
       slug: "/journal/three-kitchens-one-rainforest",
       title: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara",
       pillar: "Gastronomy",
-      image: "/manus-storage/tented-property-still-h1.webp",
+      image: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
       date: "2026-04-22",
     },
     {

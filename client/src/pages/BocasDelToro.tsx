@@ -80,7 +80,7 @@ const ASSETS = {
   roomsH: `${CDN}/80_57ce5c18.jpg`,
 
   // Section 3 — Experiences: gallery video1 V + resort aerial sunset H
-  expV: "/manus-storage/bocas-zapatilla-v1.mp4",
+  expV: "/manus-storage/bocas-zapatilla-vertical_30319668.mp4",
   expH: `${CDN}/bocas-resort-aerial-sunset_d536b07d.jpg`,
 
   // Section 4 — Sustainability: couple villa V + aerial mangroves H
@@ -93,7 +93,7 @@ const ASSETS = {
 
   // Section 6 — Gastronomy: copper mule V + tropical brunch H
   gastroV: `${CDN}/4F968B04-CC38-4AB0-98A7-C378A57F9E9A_0c985f05.jpeg`,
-  gastroH: "/manus-storage/bocas-resort-still-h1.webp",
+  gastroH: "/manus-storage/bocas-resort-24_5778eea7.jpg",
 
   // Section 6b — Island Cocktails: citrus highball V + coconut bowl H
   gastro2V: `${CDN}/48250DE4-3015-4D89-AD19-54EC065D89EB_b238e17c.jpeg`,
@@ -178,7 +178,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     headline: "Island Paradise\nReimagined",
     body: "Nayara Bocas del Toro is an adults-only sanctuary on a private Caribbean island, where overwater villas float above crystal-clear turquoise waters. Each villa features direct ocean access, private plunge pools, and unobstructed views of pristine beaches and jungle-covered islands.",
     verticalSrc: ASSETS.storyV,
-    horizontalSrc: "/manus-storage/bocas-s2-h1.mp4",
+    horizontalSrc: "/manus-storage/bocas-horizontal-s2_5f83e958.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -197,8 +197,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Accommodations",
     headline: "Overwater Villas\n& Rainforest Treehouses",
     body: "Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.",
-    verticalSrc: "/manus-storage/bocas-accom-v1.mp4",
-    horizontalSrc: "/manus-storage/bocas-accom-h1.mp4",
+    verticalSrc: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
+    horizontalSrc: "/manus-storage/bocas-accommodations-h_d33b2e24.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -218,8 +218,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Experiences",
     headline: "Caribbean\nAdventures",
     body: "From snorkeling vibrant coral reefs to kayaking through bioluminescent bays, every day brings a new discovery. Explore hidden beaches, dive alongside tropical fish, or simply drift in the warm Caribbean waters that surround your private island retreat.",
-    verticalSrc: "/manus-storage/bocas-adventure-v1.mp4",
-    horizontalSrc: "/manus-storage/bocas-exp-h1.mp4",
+    verticalSrc: "/manus-storage/bocas-caribbean-adventure-v_e1c6cfa3.mp4",
+    horizontalSrc: "/manus-storage/bocas-exp-horizontal_1b318bff.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -234,7 +234,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Sustainability",
     headline: "Protecting\nParadise",
     body: "Our commitment to marine conservation and island stewardship ensures that the pristine beauty of Bocas del Toro endures for generations. Through partnerships with local conservation organizations, renewable energy systems, and community programs, we protect the delicate ecosystems that make this place extraordinary.\n\nNayara Bocas del Toro operates on 100% renewable energy and has partnered with the Smithsonian Tropical Research Institute to monitor and protect the coral reefs surrounding Isla Pastores. Our zero single-use plastic policy, coral restoration nurseries, and dolphin-safe boating protocols ensure that every guest visit actively contributes to the health of this irreplaceable Caribbean ecosystem.",
-    verticalSrc: "/manus-storage/bocas-delfines-h1.mp4",
+    verticalSrc: "/manus-storage/bocas-delfines_dc5e78fc.mp4",
     horizontalSrc: ASSETS.susH,
     verticalIsVideo: true,
     horizontalIsVideo: false,
@@ -258,8 +258,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Wellness",
     headline: "Caribbean\nSerenity",
     body: "Surrender to the rhythm of the ocean at our overwater spa. Treatments draw from Caribbean healing traditions, using locally sourced ingredients and the soothing sounds of the sea to restore body and mind. Each session unfolds above the gentle turquoise waters.",
-    verticalSrc: "/manus-storage/bocas-wellness-v1.mp4",
-    horizontalSrc: "/manus-storage/bocas-wellness-h1.mp4",
+    verticalSrc: "/manus-storage/bocas-wellness-v2_42b49989.mp4",
+    horizontalSrc: "/manus-storage/bocas-wellness-h2_b08668ba.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -295,7 +295,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: "/manus-storage/bocas-bynight-v1.mp4",
+    verticalSrc: "/manus-storage/bocas-bynight-v2_ac8a1af2.mp4",
     verticalIsVideo: true,
     verticalRatio: "3/4",
     horizontalSrc: "",
@@ -525,7 +525,7 @@ function CascadeSection({
           {section.badges && (
             <div className="mt-8 hidden md:block">
               <div className="hidden md:block">
-                <video src="/manus-storage/bocas-badge-s1.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+                <video src="/manus-storage/badge-bocas-final_15068a56.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
               </div>
             </div>
           )}
@@ -542,7 +542,7 @@ function CascadeSection({
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/bocas-hero-v1.jpg";
+  const mobileHeroImage = "/manus-storage/bocas-mobile-hero_580b7cd5.jpg";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">

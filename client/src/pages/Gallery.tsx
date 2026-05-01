@@ -1,60 +1,89 @@
+import { useEffect, useRef } from 'react';
+
 export default function Gallery() {
-  // 50 images using the correct manus-storage URL pattern
-  // Format: https://[site-domain]/manus-storage/[filename]
-  const siteBase = typeof window !== 'undefined' ? window.location.origin : 'https://nayaraexpt-apu7tbha.manus.space';
-  
-  const images = [
-    { filename: 'bocas-aerial-island_768aa7ca.jpg', layout: 'h' },
-    { filename: 'gardens-mobile-hero_0e9258d0.jpg', layout: 'v' },
-    { filename: 'atacama-experiences-mobile-hero_01cf35ae.jpg', layout: 'v' },
-    { filename: 'springs-villa-1-pg_a69e8888.jpg', layout: 'v' },
-    { filename: 'meditate-yoga_6f8b3404.jpg', layout: 'h' },
-    { filename: 'springs-3_fc01da99.jpg', layout: 'v' },
-    { filename: 'bocas-fb-elephant-house-1_17306d92.jpg', layout: 'h' },
-    { filename: 'ig-atacama_545fe613.jpg', layout: 'v' },
-    { filename: 'atacama-sustainability-flamingos_b40f4169.jpg', layout: 'h' },
-    { filename: '65_60138582.jpg', layout: 'h' },
-    { filename: 'tc-accom-horizontal-lastframe_ecf63512.jpg', layout: 'h' },
-    { filename: 'springs-villa-view_7e54c290.jpg', layout: 'v' },
-    { filename: 'ns-1_583de976.jpg', layout: 'h' },
-    { filename: 'Resort-6-LR_4e6cd791.jpg', layout: 'h' },
-    { filename: 'atacama-experiences-lagoon_b1954681.jpg', layout: 'h' },
-    { filename: 'springs-villa-shower-2_7465f523.jpg', layout: 'v' },
-    { filename: 'brand-s2-bocas-h_e675f7a1.jpg', layout: 'h' },
-    { filename: 'yoga-vertical-2_ac72e200.jpg', layout: 'v' },
-    { filename: 'ig-tented-camp_5a06dc9d.jpg', layout: 'v' },
-    { filename: 'sound-healing-web_4f548c79.jpg', layout: 'h' },
-    { filename: 'bocas-rooms-hero_7ec54aec.jpg', layout: 'h' },
-    { filename: 'tc-mobile-hero_e1eb26b5.jpg', layout: 'v' },
-    { filename: 'podcast-cover-suite-success_0f9029de.jpg', layout: 'v' },
-    { filename: 'sharalynn-hero_c31a27ea.jpg', layout: 'h' },
-    { filename: 'bocas-resort-24_715feef2.jpg', layout: 'h' },
-    { filename: 'springs-villa-entrance_5fa19f66.jpg', layout: 'v' },
-    { filename: 'springs-rooms-hero_d1f48928.jpg', layout: 'h' },
-    { filename: 'atacama-rooms-hero_576386ab.jpg', layout: 'h' },
-    { filename: 'ns-pool-brice-ferre_fc0ad6b9.jpg', layout: 'h' },
-    { filename: 'ntc-aerial-connecting_73570c95.jpg', layout: 'h' },
-    { filename: 'ig-gardens_23d88dd7.jpg', layout: 'v' },
-    { filename: 'meditate-yoga-web_d92ef2e8.jpg', layout: 'h' },
-    { filename: 'gardens-mobile-hero-v2_7eca380c.jpg', layout: 'v' },
-    { filename: 'brand-wellness-mobile-hero_02191874.jpg', layout: 'v' },
-    { filename: 'brand-s2-bocas-new_7f1a0110.jpg', layout: 'h' },
-    { filename: 'tented-sloth-drinking_57626b44.jpg', layout: 'v' },
-    { filename: 'mobile-hero-poster_43c0d679.jpg', layout: 'v' },
-    { filename: 'cr-experiences-mobile-hero_602c8d51.jpg', layout: 'v' },
-    { filename: 'gardens-s1-toucan_c5e8f219.jpg', layout: 'h' },
-    { filename: 'IMG_5354_b9971db8.jpg', layout: 'h' },
-    { filename: 'tc-gastronomy-hero_ab44ba74.jpg', layout: 'h' },
-    { filename: 'nayara-tent-35_a07c3e50.jpg', layout: 'h' },
-    { filename: 'tc-experiences-bridge-v2_b0ceaade.jpg', layout: 'v' },
-    { filename: 'atacama-stargazing-new_92e7b1a0.jpg', layout: 'h' },
-    { filename: 'gardens-s1-toucan-v2_bf314877.jpg', layout: 'h' },
-    { filename: 'ig-bocas_3638dc26.jpg', layout: 'v' },
-    { filename: 'atacama-restaurant-interior_dd4056ba.jpg', layout: 'h' },
-    { filename: 'brand-gastronomy-mobile-hero_c67d930b.jpg', layout: 'v' },
-    { filename: 'springs-wellness-hero_ea0e43b0.jpg', layout: 'h' },
-    { filename: 'bocas-bynight-vertical_255db169.jpg', layout: 'v' },
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // 50 curated items: 40 images (20 vertical + 20 horizontal) + 10 videos (5 vertical + 5 horizontal)
+  // Totally mixed by hotel and type
+  const galleryItems = [
+    // Videos (horizontal)
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-hero-desktop-new.mp4', alt: 'Tented Camp Hero', layout: 'h' },
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-rainbow-valley-h.mp4', alt: 'Atacama Rainbow Valley', layout: 'h' },
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-pool-h-new.mp4', alt: 'Tented Pool', layout: 'h' },
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-accom-horizontal-new.mp4', alt: 'Atacama Accommodations', layout: 'h' },
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-experiences-horizontal-new.mp4', alt: 'Tented Experiences', layout: 'h' },
+    
+    // Images (horizontal)
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset-new.jpg', alt: 'Atacama Sunset', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-experiences-hero.jpg', alt: 'Bocas Experiences', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-rooms-hero.jpg', alt: 'Gardens Rooms', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-rooms-hero.jpg', alt: 'Springs Rooms', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-gastronomy-hero.jpg', alt: 'Tented Gastronomy', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-bynight-telescope.jpg', alt: 'Atacama Night Sky', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-bynight-bioluminescence.jpg', alt: 'Bocas Bioluminescence', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/termas-cascading-pools.jpg', alt: 'Termas Cascading Pools', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-sustainability-toucans-v2.jpg', alt: 'Tented Toucans', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-sustainability-hero.jpg', alt: 'Springs Sustainability', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-mobile-hero.jpg', alt: 'Atacama Mobile Hero', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-tent-35.jpg', alt: 'Nayara Tent', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/termas-pool.jpg', alt: 'Termas Pool', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-sloth-drinking.jpg', alt: 'Tented Sloth', layout: 'h' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/in-the-tub-brice-ferre.jpg', alt: 'In the Tub', layout: 'h' },
+
+    // Videos (vertical)
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-night-frogs-vertical.mp4', alt: 'Tented Night Frogs', layout: 'v' },
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-experience-vertical.mp4', alt: 'Springs Experience', layout: 'v' },
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-sustainability-vertical.mp4', alt: 'Tented Sustainability', layout: 'v' },
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-wellness-vertical-new.mp4', alt: 'Tented Wellness', layout: 'v' },
+    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s7-vertical.mp4', alt: 'Atacama Vertical', layout: 'v' },
+
+    // Images (vertical)
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sound-therapy-vertical.jpg', alt: 'Sound Therapy', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/yoga-vertical-2.jpg', alt: 'Yoga Vertical', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/yoga-deck.jpg', alt: 'Yoga Deck', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness-garden-path.jpg', alt: 'Wellness Garden', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness-infinity-pool.jpg', alt: 'Wellness Pool', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sound-healing.jpg', alt: 'Sound Healing', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-view.jpg', alt: 'Springs Villa View', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-shower-2.jpg', alt: 'Springs Villa Shower', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-outdoor-shower.jpg', alt: 'Springs Outdoor Shower', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-entrance.jpg', alt: 'Springs Villa Entrance', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-experiences-bridge.jpg', alt: 'Tented Bridge', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ig-tented-camp.jpg', alt: 'Tented Camp IG', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ig-gardens.jpg', alt: 'Gardens IG', layout: 'v' },
+    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/journal-cover-stargazing-atacama.jpg', alt: 'Stargazing Atacama', layout: 'v' },
   ];
+
+  useEffect(() => {
+    // Lazy load images and videos
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLImageElement | HTMLVideoElement;
+            if (element.dataset.src) {
+              if (element.tagName === 'IMG') {
+                (element as HTMLImageElement).src = element.dataset.src;
+              } else if (element.tagName === 'VIDEO') {
+                const source = element.querySelector('source');
+                if (source) {
+                  source.src = element.dataset.src;
+                  (element as HTMLVideoElement).load();
+                }
+              }
+            }
+          observer.unobserve(element);
+        }
+      });
+    });
+
+    if (containerRef.current) {
+      containerRef.current.querySelectorAll('img, video').forEach((el) => {
+        observer.observe(el);
+      });
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -67,19 +96,18 @@ export default function Gallery() {
       </div>
 
       {/* Masonry Gallery */}
-      <div className="px-4 py-12 max-w-7xl mx-auto">
+      <div ref={containerRef} className="px-4 py-12 max-w-7xl mx-auto">
         <div
           className="grid gap-3"
           style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gridAutoRows: '220px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gridAutoRows: '250px',
           }}
         >
-          {images.map((item, index) => {
+          {galleryItems.map((item, index) => {
             const isWide = item.layout === 'h';
             const isTall = item.layout === 'v';
-            const imageUrl = `${siteBase}/manus-storage/${item.filename}`;
-
+            
             return (
               <div
                 key={index}
@@ -89,11 +117,25 @@ export default function Gallery() {
                   gridRow: isTall ? 'span 2' : 'span 1',
                 }}
               >
-                <img
-                  src={imageUrl}
-                  alt={`Gallery item ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+                {item.type === 'image' ? (
+                  <img
+                    data-src={item.src}
+                    alt={item.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <video
+                    data-src={item.src}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    muted
+                    loop
+                    playsInline
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => e.currentTarget.pause()}
+                  >
+                    <source type="video/mp4" />
+                  </video>
+                )}
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
               </div>

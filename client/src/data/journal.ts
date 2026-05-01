@@ -496,7 +496,7 @@ const audioEpisodes: JournalEntry[] = [
     podcastUrl: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
     duration: "42 min",
     guest: "Leo Ghitis, Co-Founder & CEO",
-    image: "/manus-storage/home-podcast-afar-still-s1.webp",
+    image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
     excerpt: "Nayara Co-Founder & CEO Leo Ghitis speaks with AFAR Magazine about pioneering sustainable luxury across Latin America's most extraordinary landscapes — from Costa Rica's rainforests to Chile's Atacama Desert.",
     featured: true,
     sortPriority: 0,
@@ -516,7 +516,7 @@ const videoEpisodes: JournalEntry[] = [
     listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "45 min",
     guest: "Hitorangi Family",
-    image: "/manus-storage/home-podcast-rapanui-still-s1.webp",
+    image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
     excerpt: "An intimate conversation with the Hitorangi family about preserving Rapa Nui's cultural heritage, the future of Easter Island, and what it means to be guardians of one of the world's most remote civilizations.",
   },
   {
