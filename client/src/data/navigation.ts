@@ -81,19 +81,18 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Gastronomy", route: "/gastronomy" },
   { label: "Journal", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
-  { label: "Rainforest Romance", route: "/rainforest-romance" },
-  { label: "Family Adventure", route: "/family-expeditions" },
+  { label: "Romance", route: "/rainforest-romance" },
+  { label: "Family", route: "/family-expeditions" },
   { label: "Gallery", route: "/gallery" },
 ];
 
 /* Costa Rica dropdown items */
 export const COSTA_RICA_ITEMS: MenuItem[] = [
   { label: "Pura Vida", route: "/pura-vida" },
-  { label: "Curated Excursions", route: "/curated-excursions" },
+  { label: "Rainforest Adventure", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/wellness" },
-  { label: "Forest to Table", route: "/gastronomy" },
-  { label: "Family Adventure", route: "/family-expeditions" },
-  { label: "Rainforest Romance", route: "/rainforest-romance" },
+  { label: "Taste of Place", route: "/gastronomy" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
 ];
 
 /* Pura Vida pillar items for footer */
