@@ -147,10 +147,10 @@ const JOURNAL_COLUMN: FooterColumn = {
   ],
 };
 
-/* Pura Vida column for footer */
-const PURA_VIDA_COLUMN: FooterColumn = {
-  title: "Pura Vida",
-  links: COSTA_RICA_ITEMS.slice(1), // Exclude "Pura Vida" itself
+/* Costa Rica column for footer */
+const COSTA_RICA_COLUMN: FooterColumn = {
+  title: "Costa Rica",
+  links: COSTA_RICA_ITEMS, // All 4 Costa Rica categories
 };
 
 export function getFooterColumns(pageType: PageType): FooterColumn[] {
@@ -159,7 +159,7 @@ export function getFooterColumns(pageType: PageType): FooterColumn[] {
       title: "Explore",
       links: EXPLORE_MENU_ITEMS,
     },
-    PURA_VIDA_COLUMN,
+    COSTA_RICA_COLUMN,
     RESORTS_COLUMN,
   ];
 }

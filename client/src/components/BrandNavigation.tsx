@@ -64,6 +64,13 @@ export default function BrandNavigation({
   const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#fff");
   const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(59,43,38,0.8)");
   const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(59,43,38,0.95)");
+  
+  // For Costa Rica pages, use olive green for text and borders instead of espresso
+  const isCR = ["tented-camp", "gardens", "springs"].includes(propertySlug);
+  const textColor = isCR ? "#868B75" : "#3B2B26";
+  const textColorMuted = isCR ? "#868B75" : "#3B2B26";
+  const hoverBg = isCR ? "#868B75/10" : "#d4c9b8/40";
+  const borderColor = isCR ? "#868B75/10" : "#3B2B26/10";
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<Record<MenuKey, boolean>>({
@@ -140,14 +147,21 @@ export default function BrandNavigation({
     "flex items-center justify-center rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border";
 
   const dropdown =
-    "absolute mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border border-[#3B2B26]/10";
+    "absolute mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border";
+  const dropdownStyle: React.CSSProperties = {
+    borderColor: borderColor,
+  };
 
   const menuItem =
-    "w-full text-left px-5 py-2.5 hover:bg-[#d4c9b8]/40 transition-colors";
+    "w-full text-left px-5 py-2.5 transition-colors";
+  const menuItemStyle: React.CSSProperties = {
+    color: textColor,
+  };
 
   const menuText = {
     fontFamily: "var(--font-body)",
     fontWeight: 500 as const,
+    color: textColor,
   };
 
   const dropdownAnim = {
