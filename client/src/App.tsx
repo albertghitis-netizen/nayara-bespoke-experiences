@@ -60,6 +60,12 @@ const GrandTent = lazy(() => import("./pages/GrandTent"));
 const OverwaterVilla = lazy(() => import("./pages/OverwaterVilla"));
 const DeluxeOverwaterVilla = lazy(() => import("./pages/DeluxeOverwaterVilla"));
 const Treehouse = lazy(() => import("./pages/Treehouse"));
+const PremiumVilla = lazy(() => import("./pages/PremiumVilla"));
+const Catarpe = lazy(() => import("./pages/Catarpe"));
+const Quitor = lazy(() => import("./pages/Quitor"));
+const SuiteTilo = lazy(() => import("./pages/SuiteTilo"));
+const Kainga = lazy(() => import("./pages/Kainga"));
+const Maunga = lazy(() => import("./pages/Maunga"));
 
 /* ── Individual restaurant pages ── */
 const Ayla = lazy(() => import("./pages/restaurants/Ayla"));
@@ -71,6 +77,14 @@ const LylasGelato = lazy(() => import("./pages/restaurants/LylasGelato"));
 const AsiaLuna = lazy(() => import("./pages/restaurants/AsiaLuna"));
 const LaTerraza = lazy(() => import("./pages/restaurants/LaTerraza"));
 const Nostalgia = lazy(() => import("./pages/restaurants/Nostalgia"));
+const CkelarRestaurant = lazy(() => import("./pages/CkelarRestaurant"));
+const QuinchoRestaurant = lazy(() => import("./pages/QuinchoRestaurant"));
+const BarPuriRestaurant = lazy(() => import("./pages/BarPuriRestaurant"));
+const ElephantHouseRestaurant = lazy(() => import("./pages/ElephantHouseRestaurant"));
+const CoralCafeRestaurant = lazy(() => import("./pages/CoralCafeRestaurant"));
+const PoeavaRestaurant = lazy(() => import("./pages/PoeavaRestaurant"));
+const KaloaLoungeRestaurant = lazy(() => import("./pages/KaloaLoungeRestaurant"));
+const VaikoaBarRestaurant = lazy(() => import("./pages/VaikoaBarRestaurant"));
 
 /* ── Shared Costa Rica deep pages (palette-swapped per property) ── */
 const CostaRicaExperiences = lazy(() => import("./pages/CostaRicaExperiences"));
@@ -118,6 +132,12 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/alto-atacama" component={AltoAtacama} />
           <Route path="/alto-atacama/rooms" component={AtacamaRooms} />
+          <Route path="/alto-atacama/rooms/catarpe" component={Catarpe} />
+          <Route path="/alto-atacama/rooms/quitor" component={Quitor} />
+          <Route path="/alto-atacama/rooms/suite-tilo" component={SuiteTilo} />
+          <Route path="/alto-atacama/gastronomy/ckelar" component={CkelarRestaurant} />
+          <Route path="/alto-atacama/gastronomy/quincho" component={QuinchoRestaurant} />
+          <Route path="/alto-atacama/gastronomy/bar-puri" component={BarPuriRestaurant} />
           <Route path="/alto-atacama/experiences">{() => <CostaRicaExperiences propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/wellness">{() => <CostaRicaWellness propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>
@@ -166,6 +186,11 @@ function Router() {
           <Route path="/springs/sustainability">{() => <CostaRicaSustainability propertySlug="springs" />}</Route>
           <Route path="/hangaroa" component={Hangaroa} />
           <Route path="/hangaroa/rooms" component={HangaroaRooms} />
+          <Route path="/hangaroa/rooms/kainga" component={Kainga} />
+          <Route path="/hangaroa/rooms/maunga" component={Maunga} />
+          <Route path="/hangaroa/gastronomy/poerava" component={PoeavaRestaurant} />
+          <Route path="/hangaroa/gastronomy/kaloa-lounge" component={KaloaLoungeRestaurant} />
+          <Route path="/hangaroa/gastronomy/vaikoa-bar" component={VaikoaBarRestaurant} />
           <Route path="/hangaroa/experiences">{() => <CostaRicaExperiences propertySlug="hangaroa" />}</Route>
           <Route path="/hangaroa/wellness">{() => <CostaRicaWellness propertySlug="hangaroa" />}</Route>
           <Route path="/hangaroa/gastronomy">{() => <CostaRicaGastronomy propertySlug="hangaroa" />}</Route>
@@ -175,6 +200,9 @@ function Router() {
           <Route path="/bocas-del-toro/rooms/overwater-villa" component={OverwaterVilla} />
           <Route path="/bocas-del-toro/rooms/deluxe-overwater-villa" component={DeluxeOverwaterVilla} />
           <Route path="/bocas-del-toro/rooms/treehouse" component={Treehouse} />
+          <Route path="/bocas-del-toro/rooms/premium-villa" component={PremiumVilla} />
+          <Route path="/bocas-del-toro/gastronomy/elephant-house" component={ElephantHouseRestaurant} />
+          <Route path="/bocas-del-toro/gastronomy/coral-cafe" component={CoralCafeRestaurant} />
           <Route path="/bocas-del-toro/experiences">{() => <CostaRicaExperiences propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy">{() => <CostaRicaGastronomy propertySlug="bocas-del-toro" />}</Route>
