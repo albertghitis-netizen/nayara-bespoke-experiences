@@ -29,7 +29,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const GASTRO_CDN = {
-  heroVideoMobile: "/manus-storage/gastronomy-mobile-hero-v2_f219aa4a.mp4",
+  heroVideoMobile: "/manus-storage/gastronomy-hero-v1.mp4",
   heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4",
 };
 

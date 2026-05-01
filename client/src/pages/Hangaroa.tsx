@@ -53,8 +53,8 @@ const PALETTE = {
    CDN ASSETS
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
-  heroVideo: "/manus-storage/hangaroa-hero-new_00c65985.mp4",
-  s1Vertical: "/manus-storage/hangaroa-s1-vertical_db0be629.mp4",
+  heroVideo: "/manus-storage/hangaroa-hero-h1.mp4",
+  s1Vertical: "/manus-storage/hangaroa-s1-v1.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-20_b052852b.jpg",
   s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/NH_45_42b93d04.JPG",
@@ -243,7 +243,7 @@ function NayaraByNightSection() {
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
               <video
-                src="/manus-storage/homepage-bynight-v_a69c6648.mp4"
+                src="/manus-storage/hangaroa-bynight-v1.mp4"
                 autoPlay
                 muted
                 loop
@@ -275,7 +275,7 @@ function NayaraByNightSection() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/hangaroa-mobile-hero_dc503ce8.png";
+  const mobileHeroImage = "/manus-storage/hangaroa-hero-v1.png";
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 

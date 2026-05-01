@@ -83,71 +83,71 @@ const PALETTE = {
 
 const ASSETS = {
   // Hero (clip 1 — horizontal 16:9)
-  heroDesktop: "/manus-storage/atacama-hero-audio_e50ab49a.mp4",
-  heroMobile: "/manus-storage/atacama-mobile-hero_4942d911.mp4",
+  heroDesktop: "/manus-storage/atacama-hero-h1.mp4",
+  heroMobile: "/manus-storage/atacama-hero-v1.mp4",
 
   // Clip 2 — vertical 3:4
-  clip2V: "/manus-storage/atacama-s1-vertical-v3_b6fd3496.mp4",
+  clip2V: "/manus-storage/atacama-s1-v1.mp4",
 
   // Clip 3 — horizontal 16:9
-  clip3H: "/manus-storage/atacama-s2-horizontal-v2_347c0422.mp4",
+  clip3H: "/manus-storage/atacama-s2-h1.mp4",
 
   // Clip 4 — vertical 3:4
-  clip4V: "/manus-storage/atacama-s3-vertical_bf21b975.mp4",
+  clip4V: "/manus-storage/atacama-s3-v1.mp4",
 
   // Clip 5 — horizontal 16:9
-  clip5H: "/manus-storage/atacama-accom-h-final_b8107b28.mp4",
+  clip5H: "/manus-storage/atacama-accom-h1.mp4",
 
   // Clip 6 — vertical 3:4
-  clip6V: "/manus-storage/atacama-s1-vertical_0ae9ef8a.mp4",
+  clip6V: "/manus-storage/atacama-s1-v2.mp4",
 
   // Clip 7 — horizontal 16:9
-  clip7H: "/manus-storage/atacama-geysers-h_d266e1ae.mp4",
+  clip7H: "/manus-storage/atacama-geysers-h1.mp4",
 
   // Clip 8 — vertical 3:4
-  clip8V: "/manus-storage/clip8-v-trimmed_452e9341.mp4",
+  clip8V: "/manus-storage/atacama-clip-v1.mp4",
 
   // Section 1 — Story: cascade desert aerial (cropped, no black bars)
-  storyV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
-  storyH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
+  storyV: "/manus-storage/atacama-cascade-v1.mp4",
+  storyH: "/manus-storage/atacama-cascade-h1.mp4",
 
   // Section 2 — Rooms: cascade hotel property aerial (cropped, no black bars)
-  roomsV: "/manus-storage/atacama-cascade-4-accom-v_cdc03eb9.mp4",
-  roomsH: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
+  roomsV: "/manus-storage/atacama-cascade-v2.mp4",
+  roomsH: "/manus-storage/atacama-accom-h2.mp4",
 
   // Section 3 — Experiences: cascade salt flat (cropped, no black bars)
-  expV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
-  expH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
+  expV: "/manus-storage/atacama-cascade-v1.mp4",
+  expH: "/manus-storage/atacama-cascade-h2.mp4",
 
   // Section 4 — Sustainability: cascade flamingos (cropped, no black bars)
-  susV: "/manus-storage/atacama-sustainability-v_67bf2c3e.mp4",
-  susH: "/manus-storage/atacama-sus-h-new_71c95f9c.mp4",
+  susV: "/manus-storage/atacama-sustainability-v1.mp4",
+  susH: "/manus-storage/atacama-sustainability-h1.mp4",
 
   // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
-  wellV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
-  wellH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
-  wellH2: "/manus-storage/atacama-wellness-h-v2_f00c123e.mp4",
-  wellV2: "/manus-storage/atacama-wellness-v-still_4687073b.jpg",
+  wellV: "/manus-storage/atacama-cascade-v1.mp4",
+  wellH: "/manus-storage/atacama-cascade-h1.mp4",
+  wellH2: "/manus-storage/atacama-wellness-h1.mp4",
+  wellV2: "/manus-storage/atacama-wellness-still-v1.webp",
 
   // Section 6 — A Taste of Place: plated dish H
-  gastroV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
-  gastroH: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
+  gastroV: "/manus-storage/atacama-cascade-v1.mp4",
+  gastroH: "/manus-storage/atacama-property-still-h1.webp",
 
   // Section 6b — Desert Ingredients: spice jars V + avocado mousse H
-  gastro2V: "/manus-storage/atacama-cascade-4-accom-v_cdc03eb9.mp4",
-  gastro2H: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
+  gastro2V: "/manus-storage/atacama-cascade-v2.mp4",
+  gastro2H: "/manus-storage/atacama-accom-h2.mp4",
 
   // Section 6c — The Art of Plating: tuna sashimi V + beetroot dessert H
-  gastro3V: "/manus-storage/5E8F3F4E-BF87-4A5F-BBB2-2737E82CE424_ad01d722.jpeg",
-  gastro3H: "/manus-storage/96454375-D840-4B02-AEF7-98893DAD18AA_516b1771.jpeg",
+  gastro3V: "/manus-storage/atacama-img-h1.webp",
+  gastro3H: "/manus-storage/atacama-img-h3.webp",
 
   // Section 6d — Sweet Finales: crostini wine V + honeycomb consommé H
-  gastro4V: "/manus-storage/AA6682ED-A08D-4F1E-A869-56222938841C_38b364f9.jpeg",
-  gastro4H: "/manus-storage/ACDF665C-3B75-4A15-9806-4E325514B1A9_b1da71b1.JPG",
+  gastro4V: "/manus-storage/atacama-img-h4.webp",
+  gastro4H: "/manus-storage/atacama-img-h5.webp",
 
   // Section 6e — Meringue star dessert (H) + Milky Way bus (V, moved here)
-  gastro5V: "/manus-storage/atacama-milkyway-bus_88a347bc.jpg",
-  gastro5H: "/manus-storage/5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_c678c03f.JPG",
+  gastro5V: "/manus-storage/atacama-milkyway-bus-still-h1.webp",
+  gastro5H: "/manus-storage/atacama-img-h2.webp",
 
 
 
@@ -156,8 +156,8 @@ const ASSETS = {
 
 
   // Gallery extras
-  heroDesktopPhoto: "/manus-storage/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
-  propCard: "/manus-storage/prop-atacama_704b4f26.jpg",
+  heroDesktopPhoto: "/manus-storage/atacama-rainbow-valley-still-h1.webp",
+  propCard: "/manus-storage/atacama-property-still-h2.webp",
 };
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -305,12 +305,12 @@ function CascadeTextBlock({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          <video src="/manus-storage/atacama-badge-s1.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
            {badges && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          <video src="/manus-storage/atacama-badge-s1.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -432,7 +432,7 @@ function CascadeSection({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          <video src="/manus-storage/atacama-badge-s1.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -448,7 +448,7 @@ function CascadeSection({
       )}
       {badges && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          <video src="/manus-storage/atacama-badge-s1.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -549,7 +549,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
     blogLinkLabel: "Read: Atacama Desert's True Oasis",
     badges: false,
-    badgeImage: "/manus-storage/badge-atacama-correct_054a7823.mp4",
+    badgeImage: "/manus-storage/atacama-badge-s1.mp4",
   },
   {
     label: "Accommodations",
@@ -583,7 +583,7 @@ const CASCADE_SECTIONS = [
     headline: "Rainbow Valley",
     description: "A geological marvel painted in ochre, violet, and gold — the Valle del Arcoiris is one of the Atacama's most surreal landscapes. Walk among mineral-stained hillsides at golden hour and witness colours that seem to belong to another world.",
     vSrc: ASSETS.clip6V,
-    hSrc: "/manus-storage/atacama-rainbow-valley-h_5c5c5ff9.mp4",
+    hSrc: "/manus-storage/atacama-rainbow-h1.mp4",
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
@@ -630,8 +630,8 @@ const CASCADE_SECTIONS = [
     label: "A Taste of Place",
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
-    vSrc: "/manus-storage/atacama-taste-of-place-vertical_e5fa6f59.jpeg",
-    hSrc: "/manus-storage/atacama-restaurant-interior_b3e2536a.jpg",
+    vSrc: "/manus-storage/atacama-taste-place-still-v1.webp",
+    hSrc: "/manus-storage/atacama-restaurant-still-h1.webp",
     vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
@@ -645,7 +645,7 @@ const CASCADE_SECTIONS = [
     label: "Nayara by Night",
     headline: "The Clearest Skies on Earth",
     description: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
-    vSrc: "/manus-storage/atacama-bynight-telescope_95ffaa70.jpg",
+    vSrc: "/manus-storage/atacama-bynight-telescope-still-h1.webp",
     hSrc: "",
     vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
@@ -931,7 +931,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/atacama-mobile-hero_4942d911.mp4";
+  const mobileHeroImage = "/manus-storage/atacama-hero-v1.mp4";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">

@@ -120,7 +120,7 @@ export default function Wellness() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/brand-wellness-mobile-hero_064bd82b.jpg";
+  const mobileHeroImage = "/manus-storage/wellness-hero-v1.jpg";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">

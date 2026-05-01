@@ -129,8 +129,8 @@ export const MEDIA_CATALOG: MediaAsset[] = [
     format: "MP4",
   },
   {
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
-    filename: "4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
+    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-rainbow-valley-still-h1.webp",
+    filename: "atacama-rainbow-valley-still-h1.webp",
     displayName: "4O1A1949 Nayaraaltoatacama Rainbowvalley Bybriceferrestudio(1)",
     property: "atacama",
     mediaType: "image",
@@ -201,8 +201,8 @@ export const MEDIA_CATALOG: MediaAsset[] = [
     format: "JPG",
   },
   {
-    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-atacama_704b4f26.jpg",
-    filename: "prop-atacama_704b4f26.jpg",
+    url: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-property-still-h2.webp",
+    filename: "atacama-property-still-h2.webp",
     displayName: "Prop Atacama",
     property: "atacama",
     mediaType: "image",

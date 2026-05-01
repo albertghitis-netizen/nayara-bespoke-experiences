@@ -30,7 +30,7 @@ const PALETTE = {
 
 const CDN = {
   s3: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/trim_cb137ccb.mp4",
-  s4: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
+  s4: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-rainbow-valley-still-h1.webp",
 };
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";

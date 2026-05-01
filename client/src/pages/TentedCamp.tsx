@@ -74,10 +74,10 @@ const body = { fontFamily: "var(--font-body)" } as const;
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const ASSETS = {
-  heroDesktop: "/manus-storage/tented-hero-desktop-new_95c1a076.mp4",
-  heroMobile: "/manus-storage/tented-camp-mobile-hero-hq_d5b0c9f4.mp4",
+  heroDesktop: "/manus-storage/tented-hero-h1.mp4",
+  heroMobile: "/manus-storage/tented-hero-v2.mp4",
 
-  storyV: "/manus-storage/brand-s1-philosophy_510ddc6e.mp4",
+  storyV: "/manus-storage/tented-philosophy-h1.mp4",
   storyH: `${CDN}/Supersale-8_68853293.jpg`,
 
   roomsV: `${CDN}/grandtent3_dd3f6902.jpg`,
@@ -92,11 +92,11 @@ const ASSETS = {
   gastroV: `${CDN}/atasteofplace_f64f6f71.jpg`,
   gastroH: `${CDN}/Supersale-4_7834ffc2.jpg`,
 
-  wildV: "/manus-storage/tentreel4-v2_c5138302.mp4",
+  wildV: "/manus-storage/tented-reel-v1.mp4",
   wildH: `${CDN}/tc-mainpool-vertical_81b6bb28.mp4`,
 
   // Tent reel videos
-  tentReel1: "/manus-storage/tentreel4-v2_c5138302.mp4",
+  tentReel1: "/manus-storage/tented-reel-v1.mp4",
   tentReel2: `${CDN}/nayara-tent-2_791909a6.mp4`,
   tentReel3: `${CDN}/nayara-tent-3_c92dfadc.mp4`,
 
@@ -590,7 +590,7 @@ function CascadeSection({
                   Listen: Nayara Co-Founder & CEO, Leo Ghitis,<br />on Sustainability with AFAR Podcast
                 </span>
               </a>
-              <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
+              <div className="hidden md:block"><video src="/manus-storage/tented-badge-s1.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
             </div>
           )}
 
@@ -882,8 +882,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "The Camp",
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.",
-    verticalSrc: "/manus-storage/tented-s1-v2_8d66f67e.mp4",
-    horizontalSrc: "/manus-storage/tented-camp-mainpool-new_72169ddd.mp4",
+    verticalSrc: "/manus-storage/tented-s1-v1.mp4",
+    horizontalSrc: "/manus-storage/tented-pool-h1.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -899,10 +899,10 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Accommodations",
     headline: "Life Under\nCanvas",
     body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.",
-    verticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
-    mobileVerticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
+    verticalSrc: "/manus-storage/tented-v1.mp4",
+    mobileVerticalSrc: "/manus-storage/tented-v1.mp4",
     mobileVerticalIsVideo: true,
-    horizontalSrc: "/manus-storage/tented-camp-horizontal-v2_973b7121.mp4",
+    horizontalSrc: "/manus-storage/tented-h1.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -928,8 +928,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Experiences",
     headline: "Discover the Magic\nof the Rainforest",
     body: "Cross hanging bridges through the canopy, rappel down waterfalls, or trek to hidden volcanic hot springs. Every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
-    verticalSrc: "/manus-storage/tented-experiences-vertical_581ed2b2.mp4",
-    horizontalSrc: "/manus-storage/tented-experiences-horizontal-new_312e978e.mp4",
+    verticalSrc: "/manus-storage/tented-experiences-v1.mp4",
+    horizontalSrc: "/manus-storage/tented-experiences-h1.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -944,8 +944,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Sustainability",
     headline: "Rooted in\nResponsibility",
     body: "What began as a barren cattle ranch is now a thriving 1,400-acre rainforest reserve. Every decision at Tented Camp — from solar-heated pools to zero single-use plastics — is guided by a simple principle: leave the land better than we found it.\n\nOver the past two decades, Nayara has reforested more than 600 acres of degraded pastureland, creating wildlife corridors that allow jaguars, tapirs, and scarlet macaws to move freely between protected areas. The property holds Costa Rica's highest CST 5 sustainability certification and generates 100% of its energy from renewable sources. Guests don't just witness this transformation — they become part of it.",
-    verticalSrc: "/manus-storage/tented-sustainability-vertical_51ad5d43.mp4",
-    horizontalSrc: "/manus-storage/tented-sustainability-h2_e4fd711d.mp4",
+    verticalSrc: "/manus-storage/tented-sustainability-v1.mp4",
+    horizontalSrc: "/manus-storage/tented-sustainability-h1.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -967,8 +967,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Wellness",
     headline: "Volcanic\nHealing",
     body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.",
-    verticalSrc: "/manus-storage/tented-wellness-vertical-new_e0367ea8.mp4",
-    horizontalSrc: "/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4",
+    verticalSrc: "/manus-storage/tented-wellness-v1.mp4",
+    horizontalSrc: "/manus-storage/tented-wellness-h1.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "720/960",
@@ -994,8 +994,8 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     label: "A Taste of Place",
     headline: "Farm to\nCanopy",
     body: "Our chefs source ingredients from local farms and our own gardens to create cuisine that celebrates Costa Rica's biodiversity. Dine under the stars at Henry's Bar or enjoy a private dinner on your suite deck.",
-    verticalSrc: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
-    horizontalSrc: "/manus-storage/HenrysBar(1)_189a43b4.jpg",
+    verticalSrc: "/manus-storage/tented-property-still-h1.webp",
+    horizontalSrc: "/manus-storage/tented-bar-still-h1.webp",
     verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
@@ -1010,7 +1010,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "The Jungle\nAfter Dark",
     body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets — a world that only comes alive after dark.",
-    verticalSrc: "/manus-storage/tented-night-frogs-vertical_13b54b09.mp4",
+    verticalSrc: "/manus-storage/tented-frogs-v1.mp4",
     verticalIsVideo: true,
     verticalRatio: "3/4",
     verticalLoop: true,
@@ -1178,7 +1178,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/tented-camp-mobile-hero-v2-hq_26d05de5.mp4";
+  const mobileHeroImage = "/manus-storage/tented-hero-v1.mp4";
   const mobileHeroIsVideo = true;
 
   return (

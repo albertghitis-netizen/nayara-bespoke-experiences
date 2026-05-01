@@ -101,7 +101,7 @@ const allProps: PropertyCard[] = [
     location: "Atacama Desert, Chile",
     route: "/alto-atacama",
     bookingId: "alto-atacama",
-    image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
+    image: "/manus-storage/home-property-atacama-still-h1.webp",
     tagline: "Desert Lodge Villas",
   },
   {
@@ -166,8 +166,8 @@ export default function Home() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = "/manus-storage/brand-hero-final_a81c08c3.mp4";
-  const mobileHeroVideo = "/manus-storage/mobile-hero-web_9f66d743.mp4";
+  const heroVideo = "/manus-storage/home-hero-h1.mp4";
+  const mobileHeroVideo = "/manus-storage/home-hero-v1.mp4";
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
@@ -181,7 +181,7 @@ function HeroSection() {
         {isMobile ? (
           <CanvasVideo
             src={mobileHeroVideo}
-            poster="/manus-storage/mobile-hero-poster_8227be2e.jpg"
+            poster="/manus-storage/home-hero-poster-v1.webp"
             className="w-full h-full"
             loop
           />
@@ -286,7 +286,7 @@ function BrandStorySection() {
           {!isMobile && (
             <div className="mt-6 overflow-hidden -ml-8">
               <video
-                src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)-3_88f872a7.mp4"
+                src="/manus-storage/home-social-reel-h1.mp4"
                 autoPlay
                 muted
                 playsInline
@@ -302,7 +302,7 @@ function BrandStorySection() {
             <MediaReveal delay={0.2} className="h-full">
               <div className="overflow-hidden w-full h-full">
                 <img
-                  src="/manus-storage/brand-s1-tent-v_4a147fd7.jpg"
+                  src="/manus-storage/home-property-tent-still-v1.webp"
                   alt="Nayara Tented Camp surrounded by lush tropical greenery"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -318,7 +318,7 @@ function BrandStorySection() {
         <MediaReveal>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
             <img
-              src="/manus-storage/brand-s2-bocas-new_d18b38a1.jpg"
+              src="/manus-storage/home-property-bocas-still-h1.webp"
               alt="Aerial view of Bocas del Toro tropical island with turquoise waters"
               className="w-full h-full object-cover"
               loading="lazy"
@@ -552,42 +552,42 @@ const awardsData = [
     accolade: "Best Resort in Central America",
     property: "Nayara Bocas del Toro \u2014 Cond\u00e9 Nast",
     route: "/blog/conde-nast-bocas-del-toro",
-    videoSrc: "/manus-storage/award-bocas_5eedc0d2.mp4",
+    videoSrc: "/manus-storage/home-award-bocas-still-s1.webp",
   },
   {
     stat: "#1",
     accolade: "Best Resort in Central America",
     property: "Nayara Tented Camp \u2014 Travel + Leisure",
     route: "/tented-camp",
-    videoSrc: "/manus-storage/award-tented_e44f4b7d.mp4",
+    videoSrc: "/manus-storage/home-award-tented-still-s1.webp",
   },
   {
     stat: "Top 15",
     accolade: "Top 15 Resort Brands in the World",
     property: "Nayara Resorts \u2014 Travel + Leisure",
     route: "/awards",
-    videoSrc: "/manus-storage/award-resorts_e26bf391.mp4",
+    videoSrc: "/manus-storage/home-award-resorts-still-s1.webp",
   },
   {
     stat: "3",
     accolade: "Only 3 Michelin Key Hotel in Costa Rica",
     property: "Nayara Springs \u2014 MICHELIN Guide",
     route: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
-    videoSrc: "/manus-storage/award-springs_33c98f30.mp4",
+    videoSrc: "/manus-storage/home-award-springs-still-s1.webp",
   },
   {
     stat: "Top 15",
     accolade: "Top 15 Resorts in South America",
     property: "Nayara Alto Atacama \u2014 Cond\u00e9 Nast",
     route: "https://www.cntraveler.com/gallery/top-resorts-in-south-america",
-    videoSrc: "/manus-storage/award-atacama_d55d15fa.mp4",
+    videoSrc: "/manus-storage/home-award-atacama-still-s1.webp",
   },
   {
     stat: "Hall of Fame",
     accolade: "World's Best Awards Hall of Fame",
     property: "Nayara Gardens \u2014 Travel + Leisure",
      route: "/gardens",
-    videoSrc: "/manus-storage/award-gardens_5eb1e82c.mp4",
+    videoSrc: "/manus-storage/home-award-gardens-still-s1.webp",
   },
 ];
 
@@ -849,7 +849,7 @@ function NayaraJournalSection() {
       id: "afar",
       label: "Listen",
       title: "Leo Ghitis on Going Beyond Sustainability",
-      image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
+      image: "/manus-storage/home-podcast-afar-still-s1.webp",
       href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
       external: true,
       cta: "listen",
@@ -858,7 +858,7 @@ function NayaraJournalSection() {
       id: "gastronomy",
       label: "Read",
       title: "A Taste of Place: Gastronomy Across the World of Nayara",
-      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
+      image: "/manus-storage/home-journal-gastronomy-still-s1.webp",
       href: "https://blog.nayararesorts.com/gastronomy",
       external: true,
       cta: "read",
@@ -867,7 +867,7 @@ function NayaraJournalSection() {
       id: "hitorangi-rapanui",
       label: "Watch",
       title: "The Guardians of Rapa Nui: The Hitorangi Family",
-      image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
+      image: "/manus-storage/home-podcast-rapanui-still-s1.webp",
       href: null,
       youtubeId: "FRPVRcUTNmk",
       listenUrl: undefined,
@@ -1286,10 +1286,10 @@ function PillarsSection() {
    Warm transition from dark By Night back to footer
    ═══════════════════════════════════════════════════════════════ */
 const instagramPosts: { src: string; alt: string; isVideo?: boolean }[] = [
-  { src: "/manus-storage/ig-1-flamingo_0ed37fec.mp4", alt: "Flamingo wading in Atacama salt flats", isVideo: true },
-  { src: "/manus-storage/ig-2-pool_e3e8376f.jpg", alt: "Guest enjoying private plunge pool at Nayara Tented Camp" },
-  { src: "/manus-storage/ig-3-drone_551a1d3f.mp4", alt: "Aerial view of Nayara resort", isVideo: true },
-  { src: "/manus-storage/ig-4-extra_db83b788.mp4", alt: "Nayara resort experience", isVideo: true },
+  { src: "/manus-storage/home-social-flamingo-v1.mp4", alt: "Flamingo wading in Atacama salt flats", isVideo: true },
+  { src: "/manus-storage/home-social-pool-still-s1.webp", alt: "Guest enjoying private plunge pool at Nayara Tented Camp" },
+  { src: "/manus-storage/home-social-drone-v1.mp4", alt: "Aerial view of Nayara resort", isVideo: true },
+  { src: "/manus-storage/home-social-extra-v1.mp4", alt: "Nayara resort experience", isVideo: true },
 ];
 
 function InstagramGrid() {

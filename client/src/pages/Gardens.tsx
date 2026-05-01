@@ -60,7 +60,7 @@ const PALETTE = {
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
   // Hero
-  heroDesktop: "/manus-storage/gardens-hero-with-audio_68878e2b.mp4",
+  heroDesktop: "/manus-storage/gardens-hero-h1.mp4",
 
   // Rooms - video replaces s3 photo
   roomsVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4",
@@ -220,7 +220,7 @@ export default function Gardens() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/gardens-mobile-hero-v2_ff0c36d3.jpg";
+  const mobileHeroImage = "/manus-storage/gardens-hero-v1.jpg";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
@@ -306,7 +306,7 @@ function StorySection() {
           </AnimateOnScroll>
           <div className="mt-6 hidden md:block">
             <video
-              src="/manus-storage/badge-gardens-final_d47f3adb.mp4"
+              src="/manus-storage/gardens-badge-s1.mp4"
               autoPlay
               muted
               playsInline
@@ -319,7 +319,7 @@ function StorySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/gardens-s1-toucan-v2_75cc661b.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover" />
+              <img src="/manus-storage/gardens-toucan-still-v1.webp" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
@@ -329,7 +329,7 @@ function StorySection() {
       <div style={{ backgroundColor: PALETTE.gradientStart }}>
         <MediaReveal delay={0.1}>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <NativeVideo src="/manus-storage/gardens-s2-proper_efb35101.mp4" className="w-full h-full object-cover" />
+            <NativeVideo src="/manus-storage/gardens-s2-h1.mp4" className="w-full h-full object-cover" />
           </div>
         </MediaReveal>
       </div>
@@ -364,7 +364,7 @@ function AccommodationsExperiment() {
           <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
             <NativeVideo
               ref={verticalRef}
-              src="/manus-storage/gardens-accom-vertical-trimmed_212a6993.mp4"
+              src="/manus-storage/gardens-accom-v1.mp4"
               className="w-full h-full object-cover"
             />
           </div>
@@ -468,7 +468,7 @@ function AccommodationsExperiment() {
         <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <NativeVideo
             ref={horizontalRef}
-              src="/manus-storage/gardens-accom-h_3741079f.mp4"
+              src="/manus-storage/gardens-accom-h1.mp4"
             className="w-full h-full object-cover"
           />
         </div>

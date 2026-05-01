@@ -71,7 +71,7 @@ export const atacamaGallery: GalleryItem[] = [
   { id: "ata-s1", src: `${CDN}/Untitleddesign-17_d0de17d2.JPG`, alt: "Atacama desert landscape", type: "image", orientation: "portrait", tags: ["story", "s1"] },
   { id: "ata-s2", src: `${CDN}/11_576297a8.jpg`, alt: "Atacama salt flats", type: "image", orientation: "landscape", tags: ["story", "s2"] },
   { id: "ata-s3", src: `${CDN}/trim_cb137ccb.mp4`, alt: "Atacama rooms walkthrough", type: "video", orientation: "landscape", tags: ["rooms", "s3"] },
-  { id: "ata-s4", src: `${CDN}/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg`, alt: "Rainbow Valley", type: "image", orientation: "landscape", tags: ["rooms", "s4"] },
+  { id: "ata-s4", src: `${CDN}/atacama-rainbow-valley-still-h1.webp`, alt: "Rainbow Valley", type: "image", orientation: "landscape", tags: ["rooms", "s4"] },
   { id: "ata-vid3", src: `${CDN}/Video_Nayara_Atacama00003_aeb971e9.MP4`, alt: "Atacama experience", type: "video", orientation: "landscape", tags: ["experiences"] },
   { id: "ata-vid7", src: `${CDN}/Video_Nayara_Atacama00007_8576aa55.MP4`, alt: "Atacama stargazing", type: "video", orientation: "landscape", tags: ["experiences"] },
   { id: "ata-cfnet", src: `${CDN}/cfnetwork_b9ae0ca4.mp4`, alt: "Atacama ambiance", type: "video", orientation: "landscape", tags: ["ambiance"] },

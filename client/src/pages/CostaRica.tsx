@@ -71,7 +71,7 @@ const PILLARS = [
     title: "Forest to Table",
     subtitle: "Farm to rainforest table — cacao, coffee, and Michelin-recognized dining.",
     route: "/gastronomy",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/journal-cover-gastronomy-fire_a510d2d4.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/home-journal-gastronomy-still-s1.webp",
   },
   {
     title: "Family Adventure",
