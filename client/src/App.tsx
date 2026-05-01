@@ -182,7 +182,7 @@ function Router() {
           <Route path="/tented-camp/gastronomy/ayla" component={Ayla} />
           <Route path="/tented-camp/gastronomy/henrys-bar" component={HenrysBar} />
           <Route path="/tented-camp/gastronomy">{() => <CostaRicaGastronomy propertySlug="tented-camp" />}</Route>
-          <Route path="/tented-camp-sustainability">{() => <CostaRicaSustainability key="tented-camp" propertySlug="tented-camp" />}</Route>
+          <Route path="/tented-camp-sustainability">{() => <CostaRicaSustainability key="tented-camp-sloth-v2" propertySlug="tented-camp" />}</Route>
           <Route path="/tented-experiences" component={TentedExperiences} />
           <Route path="/gardens" component={Gardens} />
           {/* ARCHIVED ROUTE: /gardens/rooms - Component file still exists */}
