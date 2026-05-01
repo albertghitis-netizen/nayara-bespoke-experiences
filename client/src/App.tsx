@@ -143,6 +143,10 @@ function Router() {
           <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/sustainability">{() => <CostaRicaSustainability propertySlug="alto-atacama" />}</Route>
           <Route path="/costa-rica" component={CostaRica} />
+          <Route path="/costa-rica/curated-excursions" component={CuratedExcursions} />
+          <Route path="/costa-rica/wellness">{() => <CostaRicaWellness propertySlug="costa-rica" />}</Route>
+          <Route path="/costa-rica/gastronomy">{() => <CostaRicaGastronomy propertySlug="costa-rica" />}</Route>
+          <Route path="/costa-rica/sustainability">{() => <CostaRicaSustainability propertySlug="costa-rica" />}</Route>
           <Route path="/curated-excursions" component={CuratedExcursions} />
           <Route path="/experiential-arenal">{() => { window.location.replace("/curated-excursions"); return null; }}</Route>
           <Route path="/pura-vida" component={PuraVida} />
@@ -156,34 +160,28 @@ function Router() {
           <Route path="/tented-camp/rooms/residence" component={TentedResidencePage} />
           <Route path="/tented-camp/rooms/grand-tent" component={GrandTent} />
           <Route path="/tented-camp/experiences">{() => <CostaRicaExperiences propertySlug="tented-camp" />}</Route>
-          <Route path="/tented-camp/wellness">{() => <CostaRicaWellness propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/gastronomy/ayla" component={Ayla} />
           <Route path="/tented-camp/gastronomy/henrys-bar" component={HenrysBar} />
           <Route path="/tented-camp/gastronomy">{() => <CostaRicaGastronomy propertySlug="tented-camp" />}</Route>
-          <Route path="/tented-camp/sustainability">{() => <CostaRicaSustainability propertySlug="tented-camp" />}</Route>
           <Route path="/tented-experiences" component={TentedExperiences} />
           <Route path="/gardens" component={Gardens} />
           {/* ARCHIVED ROUTE: /gardens/rooms - Component file still exists */}
           <Route path="/gardens/rooms/arenal-pool-casita" component={ArenalPoolCasita} />
           <Route path="/gardens/rooms/rainforest-pool-villa" component={RainforestPoolVilla} />
           <Route path="/gardens/experiences">{() => <CostaRicaExperiences propertySlug="gardens" />}</Route>
-          <Route path="/gardens/wellness">{() => <CostaRicaWellness propertySlug="gardens" />}</Route>
           <Route path="/gardens/gastronomy/lylas-gelato" component={LylasGelato} />
           <Route path="/gardens/gastronomy/asia-luna" component={AsiaLuna} />
           <Route path="/gardens/gastronomy/la-terraza" component={LaTerraza} />
           <Route path="/gardens/gastronomy/nostalgia" component={Nostalgia} />
           <Route path="/gardens/gastronomy">{() => <CostaRicaGastronomy propertySlug="gardens" />}</Route>
-          <Route path="/gardens/sustainability">{() => <CostaRicaSustainability propertySlug="gardens" />}</Route>
           <Route path="/springs" component={Springs} />
           {/* ARCHIVED ROUTE: /springs/rooms - Component file still exists */}
           <Route path="/springs/rooms/springs-villa" component={SpringsVilla} />
           <Route path="/springs/experiences">{() => <CostaRicaExperiences propertySlug="springs" />}</Route>
-          <Route path="/springs/wellness">{() => <CostaRicaWellness propertySlug="springs" />}</Route>
           <Route path="/springs/gastronomy/mis-amores" component={MisAmores} />
           <Route path="/springs/gastronomy/mi-cafecito" component={MiCafecito} />
           <Route path="/springs/gastronomy/amor-loco" component={AmorLoco} />
           <Route path="/springs/gastronomy">{() => <CostaRicaGastronomy propertySlug="springs" />}</Route>
-          <Route path="/springs/sustainability">{() => <CostaRicaSustainability propertySlug="springs" />}</Route>
           <Route path="/hangaroa" component={Hangaroa} />
           <Route path="/hangaroa/rooms" component={HangaroaRooms} />
           <Route path="/hangaroa/rooms/kainga" component={Kainga} />
