@@ -175,8 +175,8 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   
   const HERO_VIDEOS: Record<string, { desktop: string; mobile?: string }> = {
     "tented-camp": {
-      desktop: "/manus-storage/sloth-horizontal-desktop_a7469537.mp4",
-      mobile: "/manus-storage/sloth-vertical-mobile_7e11cfc1.mp4",
+      desktop: "/manus-storage/sloth-horizontal-desktop-v2_3d35d812.mp4",
+      mobile: "/manus-storage/sloth-vertical-mobile-v2_ac6d2b99.mp4",
     },
   };
 
