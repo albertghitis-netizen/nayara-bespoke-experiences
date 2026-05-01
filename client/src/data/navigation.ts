@@ -86,8 +86,8 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
 
 /* Costa Rica dropdown items */
 export const COSTA_RICA_ITEMS: MenuItem[] = [
-  { label: "Rainforest Adventure", route: "/rainforest-adventure" },
-  { label: "Nurtured by Nature", route: "/wellness-arenal" },
+  { label: "Rainforest Adventure", route: "/curated-excursions" },
+  { label: "Nurtured by Nature", route: "/wellness" },
   { label: "A Taste of Place", route: "/gastronomy-arenal" },
   { label: "Beyond Sustainability", route: "/tented-camp-sustainability" },
 ];

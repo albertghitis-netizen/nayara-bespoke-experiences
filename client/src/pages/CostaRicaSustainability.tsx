@@ -96,7 +96,6 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero propertySlug={propertySlug} />
-      <ScrollingPillarHeader word="BEYOND SUSTAINABILITY" color={palette.primary} bgColor={palette.gradientStart} />
 
       {/* ESG Report — only renders if data has esgReport */}
       {data.esgReport && (
@@ -190,10 +189,10 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   const videos = HERO_VIDEOS[propertySlug];
   const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
 
-  // Tented Camp: desktop video, mobile still image
-  if (videos && !isMobile) {
+    // Full 16:9 hero video for all properties
+  if (videos) {
     return (
-      <section className="relative w-full overflow-hidden" style={{ minHeight: "100vh" }}>
+      <section className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
         <video
           src={videos.desktop}
           autoPlay
@@ -207,10 +206,9 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
     );
   }
 
-  // All properties + Tented Camp mobile: static image
-  const aspectRatio = propertySlug === "tented-camp" && isMobile ? "3/4" : "16/9";
+  // Fallback: static image with 16:9 aspect ratio
   return (
-    <section className="relative w-full overflow-hidden" style={{ aspectRatio }}>
+    <section className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
       <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
     </section>
   );
