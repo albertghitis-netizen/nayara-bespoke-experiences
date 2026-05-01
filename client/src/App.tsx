@@ -42,7 +42,7 @@ const BirdwatchingBlog = lazy(() => import("./pages/BirdwatchingBlog"));
 // const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-// const Gallery = lazy(() => import("./pages/Gallery")); // ARCHIVED: Can be restored if needed
+const Gallery = lazy(() => import("./pages/Gallery"));
 // const Sharalynn = lazy(() => import("./pages/Sharalynn")); // ARCHIVED: Can be restored if needed
 const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
 
@@ -197,10 +197,10 @@ function Router() {
           <Route path="/blog/reforestation-wildlife" component={ReforestationWildlifeBlog} />
           <Route path="/blog/birdwatching" component={BirdwatchingBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/gallery" component={Gallery} />
 
           {/* ── Internal / Private pages ── */}
           {/* ARCHIVED ROUTES: /internal-brandbook and /internal-henry - Component files still exist */}
-          {/* ARCHIVED ROUTE: /gallery - Component file still exists */}
           <Route path="/test-floorplan" component={FloorPlanTest} />
           {/* ARCHIVED ROUTE: /sharalynn - Component file still exists at ./pages/Sharalynn.tsx */}
 
