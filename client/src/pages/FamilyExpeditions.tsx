@@ -27,7 +27,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
-/* CDN URLs for all 12 family photos */
+/* CDN URLs for all 18 family photos (12 original + 6 new lifestyle) */
 const FAMILY_CDN = {
   family01: "/manus-storage/family-01_e9948091.jpeg", // Mom & toddler in infinity pool
   family02: "/manus-storage/family-02_3a69b830.jpeg", // Family on boardwalk
@@ -41,6 +41,23 @@ const FAMILY_CDN = {
   family10: "/manus-storage/family-10_1f8a4a08.jpeg", // Dad throwing daughter in pool
   family11: "/manus-storage/family-11_4cb70bfe.jpeg", // Family in infinity pool
   family12: "/manus-storage/family-12_583766fc.jpeg", // Girl eating watermelon
+  // New lifestyle images (batch 1)
+  lifestyle01: "/manus-storage/C7EB2DFF-6668-48E6-899D-3067BC8714D3_4532f8cb.jpeg", // Family bonding moment
+  lifestyle02: "/manus-storage/1A05A53A-8844-4BE1-BEFF-68EB927D17EE_cd4d895b.jpeg", // Rainforest exploration
+  lifestyle03: "/manus-storage/0942721F-9688-4D31-BC00-088986813147_f28eaea7.jpeg", // Nature connection
+  lifestyle04: "/manus-storage/FB7E9511-08F3-408E-A526-4F8502B2BFEF_37862b6d.JPG", // Adventure moment
+  lifestyle05: "/manus-storage/9E3CE1EB-2513-4CFC-9A30-8BDF108560F2_f00b13a1.jpeg", // Family together
+  lifestyle06: "/manus-storage/19D87A5E-26A9-411A-808D-D5F063AEABAB_503a9e04.jpeg", // Sunset experience
+  // New lifestyle images (batch 2)
+  lifestyle07: "/manus-storage/2A490607-CB1C-40D1-9B00-545785B6DF46_bff954ff.jpeg", // Family at salt flats
+  lifestyle08: "/manus-storage/F150C1D3-7F2A-436E-A063-A16BAD15B4EC_570d5284.jpeg", // Family in desert landscape
+  lifestyle09: "/manus-storage/8E541EBC-C963-4A2E-B4D0-F17329128862_db843ae2.jpeg", // Family at rock formation
+  lifestyle10: "/manus-storage/AEE3A43C-D335-4894-B155-7FFC674164A5_c13d5544.jpeg", // Family at Rapa Nui moai
+  lifestyle11: "/manus-storage/DCEC7B37-9C64-4606-AFD1-4E72E53B5A79_2fe5beba.jpeg", // Family hiking in desert
+  // Family adventure videos
+  video01: "/manus-storage/FFA71E3F-2FC4-4F44-911C-B5F89132C534_609aded7.MP4", // Family adventure video 1
+  video02: "/manus-storage/F9D35949-EA6E-4F8A-9546-BC33C8E74D55_aa913437.MP4", // Family adventure video 2
+  video03: "/manus-storage/17B4FC71-6562-475F-A780-48284A75B8D6_7c241ab1.MP4", // Family adventure video 3
 };
 
 const C = {
@@ -359,13 +376,59 @@ function YourPrivateRetreatSection() {
             <img src={FAMILY_CDN.family11} alt="Family Pool" className="w-full h-64 object-cover rounded-lg" />
           </FadeIn>
 
-          {/* Volcano View */}
+          {/* Lifestyle - Family Bonding */}
           <FadeIn delay={0.6}>
-            <div className="w-full h-64 rounded-lg flex items-center justify-center" style={{ backgroundColor: C.olive + "20" }}>
-              <p className="text-center text-sm" style={{ ...body, color: C.muted }}>
-                Every villa offers views of Arenal Volcano and the rainforest canopy
-              </p>
-            </div>
+            <img src={FAMILY_CDN.lifestyle01} alt="Family Bonding" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Rainforest Exploration */}
+          <FadeIn delay={0.7}>
+            <img src={FAMILY_CDN.lifestyle02} alt="Rainforest Exploration" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Nature Connection */}
+          <FadeIn delay={0.8}>
+            <img src={FAMILY_CDN.lifestyle03} alt="Nature Connection" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Adventure Moment */}
+          <FadeIn delay={0.9}>
+            <img src={FAMILY_CDN.lifestyle04} alt="Adventure Moment" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Family Together */}
+          <FadeIn delay={1.0}>
+            <img src={FAMILY_CDN.lifestyle05} alt="Family Together" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Sunset Experience */}
+          <FadeIn delay={1.1}>
+            <img src={FAMILY_CDN.lifestyle06} alt="Sunset Experience" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Family at Salt Flats */}
+          <FadeIn delay={1.2}>
+            <img src={FAMILY_CDN.lifestyle07} alt="Family at Salt Flats" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Family in Desert Landscape */}
+          <FadeIn delay={1.3}>
+            <img src={FAMILY_CDN.lifestyle08} alt="Family in Desert Landscape" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Family at Rock Formation */}
+          <FadeIn delay={1.4}>
+            <img src={FAMILY_CDN.lifestyle09} alt="Family at Rock Formation" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Family at Rapa Nui Moai */}
+          <FadeIn delay={1.5}>
+            <img src={FAMILY_CDN.lifestyle10} alt="Family at Rapa Nui Moai" className="w-full h-64 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Lifestyle - Family Hiking in Desert */}
+          <FadeIn delay={1.6}>
+            <img src={FAMILY_CDN.lifestyle11} alt="Family Hiking in Desert" className="w-full h-64 object-cover rounded-lg" />
           </FadeIn>
         </div>
 

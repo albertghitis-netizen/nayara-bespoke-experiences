@@ -39,6 +39,28 @@ const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
 const ReforestationWildlifeBlog = lazy(() => import("./pages/ReforestationWildlifeBlog"));
 const BirdwatchingBlog = lazy(() => import("./pages/BirdwatchingBlog"));
+const Stargazing = lazy(() => import("./pages/Stargazing"));
+const MichelinKeysBlog = lazy(() => import("./pages/MichelinKeysBlog"));
+const AtacamaWildlifeBlog = lazy(() => import("./pages/AtacamaWildlifeBlog"));
+const ArenalBocasWildlifeBlog = lazy(() => import("./pages/ArenalBocasWildlifeBlog"));
+const MayaRapaNuiBlog = lazy(() => import("./pages/MayaRapaNuiBlog"));
+const AtacamaRomanceBlog = lazy(() => import("./pages/AtacamaRomanceBlog"));
+const AtacamaWinterBlog = lazy(() => import("./pages/AtacamaWinterBlog"));
+const AtacamaOasisBlog = lazy(() => import("./pages/AtacamaOasisBlog"));
+const TravelTrendsBlog = lazy(() => import("./pages/TravelTrendsBlog"));
+const CoralReefBlog = lazy(() => import("./pages/CoralReefBlog"));
+const WellnessByColorsBlog = lazy(() => import("./pages/WellnessByColorsBlog"));
+const HotSpringsBlog = lazy(() => import("./pages/HotSpringsBlog"));
+const HangaroaRegenerationBlog = lazy(() => import("./pages/HangaroaRegenerationBlog"));
+const BocasCondéNastBlog = lazy(() => import("./pages/BocasCondéNastBlog"));
+const AtacamaMarsEarthBlog = lazy(() => import("./pages/AtacamaMarsEarthBlog"));
+const NayaraStoryBlog = lazy(() => import("./pages/NayaraStoryBlog"));
+const WellnessHospitalityBlog = lazy(() => import("./pages/WellnessHospitalityBlog"));
+const NayaraByNightBlog = lazy(() => import("./pages/NayaraByNightBlog"));
+const CommunityHospitalityBlog = lazy(() => import("./pages/CommunityHospitalityBlog"));
+const SustainabilityBlog = lazy(() => import("./pages/SustainabilityBlog"));
+const CaribbeanCoralReefBlog = lazy(() => import("./pages/CaribbeanCoralReefBlog"));
+const MayaRapaNuiClimateBlog = lazy(() => import("./pages/MayaRapaNuiClimateBlog"));
 // const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -142,6 +164,7 @@ function Router() {
           <Route path="/alto-atacama/wellness">{() => <CostaRicaWellness propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/sustainability">{() => <CostaRicaSustainability propertySlug="alto-atacama" />}</Route>
+          <Route path="/alto-atacama/stargazing" component={Stargazing} />
           <Route path="/costa-rica" component={CostaRica} />
           <Route path="/costa-rica/curated-excursions" component={CuratedExcursions} />
           <Route path="/costa-rica/wellness">{() => <CostaRicaWellness propertySlug="costa-rica" />}</Route>
@@ -222,6 +245,27 @@ function Router() {
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
           <Route path="/blog/reforestation-wildlife" component={ReforestationWildlifeBlog} />
           <Route path="/blog/birdwatching" component={BirdwatchingBlog} />
+          <Route path="/blog/michelin-keys" component={MichelinKeysBlog} />
+          <Route path="/blog/atacama-wildlife" component={AtacamaWildlifeBlog} />
+          <Route path="/blog/arenal-bocas-wildlife" component={ArenalBocasWildlifeBlog} />
+          <Route path="/blog/maya-rapa-nui" component={MayaRapaNuiBlog} />
+          <Route path="/blog/atacama-romance" component={AtacamaRomanceBlog} />
+          <Route path="/blog/atacama-winter" component={AtacamaWinterBlog} />
+          <Route path="/blog/atacama-oasis" component={AtacamaOasisBlog} />
+          <Route path="/blog/travel-trends" component={TravelTrendsBlog} />
+          <Route path="/blog/coral-reef" component={CoralReefBlog} />
+          <Route path="/blog/wellness-by-colors" component={WellnessByColorsBlog} />
+          <Route path="/blog/hot-springs" component={HotSpringsBlog} />
+          <Route path="/blog/hangaroa-regeneration" component={HangaroaRegenerationBlog} />
+          <Route path="/blog/bocas-conde-nast" component={BocasCondéNastBlog} />
+          <Route path="/blog/atacama-mars" component={AtacamaMarsEarthBlog} />
+          <Route path="/blog/nayara-story" component={NayaraStoryBlog} />
+          <Route path="/blog/wellness-hospitality" component={WellnessHospitalityBlog} />
+          <Route path="/blog/nayara-by-night" component={NayaraByNightBlog} />
+          <Route path="/blog/community-hospitality" component={CommunityHospitalityBlog} />
+          <Route path="/blog/sustainability" component={SustainabilityBlog} />
+          <Route path="/blog/caribbean-coral-reef" component={CaribbeanCoralReefBlog} />
+          <Route path="/blog/maya-rapa-nui-climate" component={MayaRapaNuiClimateBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/gallery" component={Gallery} />
 
