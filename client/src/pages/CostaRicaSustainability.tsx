@@ -173,9 +173,10 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   const isMobile = useIsMobile();
   
-  const HERO_VIDEOS: Record<string, { desktop: string }> = {
+  const HERO_VIDEOS: Record<string, { desktop: string; mobile?: string }> = {
     "tented-camp": {
-      desktop: "/manus-storage/SlothsNayara_2a20ce54.mp4",
+      desktop: "/manus-storage/sloth-horizontal-desktop_a7469537.mp4",
+      mobile: "/manus-storage/sloth-vertical-mobile_7e11cfc1.mp4",
     },
   };
 
@@ -189,12 +190,15 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   const videos = HERO_VIDEOS[propertySlug];
   const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
 
-    // Full 16:9 hero video for all properties
+  // Use mobile video on mobile, desktop video on desktop
   if (videos) {
+    const videoSrc = isMobile && videos.mobile ? videos.mobile : videos.desktop;
+    const aspectRatio = isMobile ? "9/16" : "16/9";
+    
     return (
-      <section className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+      <section className="relative w-full overflow-hidden" style={{ aspectRatio }}>
         <video
-          src={videos.desktop}
+          src={videoSrc}
           autoPlay
           muted
           loop
@@ -206,12 +210,14 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
     );
   }
 
-  // Fallback: static image with 16:9 aspect ratio
+  // Fallback: static image
+  const aspectRatio = isMobile ? "9/16" : "16/9";
   return (
-    <section className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+    <section className="relative w-full overflow-hidden" style={{ aspectRatio }}>
       <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
     </section>
   );
+
 }
 
 /* ═══════════════════════════════════════════════════════════════
