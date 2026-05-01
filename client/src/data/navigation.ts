@@ -81,6 +81,8 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Gastronomy", route: "/gastronomy" },
   { label: "Journal", route: "/journal" },
   { label: "Press & Awards", route: "/awards" },
+  { label: "Rainforest Romance", route: "/rainforest-romance" },
+  { label: "Family Adventure", route: "/family-expeditions" },
   { label: "Gallery", route: "/gallery" },
 ];
 
