@@ -33,8 +33,7 @@ const ConciergeChatWidget = lazy(() => import("./components/ConciergeChatWidget"
 const Newsletter = lazy(() => import("./pages/Newsletter"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
-const PuraVida = lazy(() => import("./pages/PuraVida"));
-const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
+
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
 const ReforestationWildlifeBlog = lazy(() => import("./pages/ReforestationWildlifeBlog"));
@@ -172,7 +171,7 @@ function Router() {
           <Route path="/costa-rica/sustainability">{() => <CostaRicaSustainability propertySlug="costa-rica" />}</Route>
           <Route path="/curated-excursions" component={CuratedExcursions} />
           <Route path="/experiential-arenal">{() => { window.location.replace("/curated-excursions"); return null; }}</Route>
-          <Route path="/pura-vida" component={PuraVida} />
+
           <Route path="/family-expeditions" component={FamilyExpeditions} />
           <Route path="/rainforest-romance" component={RainforestRomance} />
           <Route path="/gastronomy-arenal" component={ArenalGastronomy} />
@@ -240,7 +239,7 @@ function Router() {
           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
           {/* ARCHIVED ROUTE: /journal/:slug - Component file still exists at ./pages/DynamicBlogPost.tsx */}
-          <Route path="/blog/pura-vida" component={PuraVidaBlog} />
+
           <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
           <Route path="/blog/reforestation-wildlife" component={ReforestationWildlifeBlog} />
