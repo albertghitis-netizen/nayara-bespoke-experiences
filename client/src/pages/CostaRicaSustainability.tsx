@@ -175,7 +175,7 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   
   const HERO_VIDEOS: Record<string, { desktop: string }> = {
     "tented-camp": {
-      desktop: "/manus-storage/SlothsNayara_f8921da5.mov",
+      desktop: "/manus-storage/SlothsNayara_2a20ce54.mp4",
     },
   };
 
