@@ -97,8 +97,9 @@ export default function BrandNavigation({
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const target = e.target as Node;
-      if (menuRef.current && !menuRef.current.contains(target)) setMenuOpen(false);
-      if (reserveRef.current && !reserveRef.current.contains(target)) setReserveOpen(false);
+      const isDropdownToggle = (target as Element)?.closest('[data-dropdown-toggle]');
+      if (menuRef.current && !menuRef.current.contains(target) && !isDropdownToggle) setMenuOpen(false);
+      if (reserveRef.current && !reserveRef.current.contains(target) && !isDropdownToggle) setReserveOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -212,7 +213,8 @@ export default function BrandNavigation({
                     <div>
                       <button
                         type="button"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu('costaRica'); }}
+                        data-dropdown-toggle="true"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpandedMenus((prev) => ({ ...prev, costaRica: !prev.costaRica })); }}
                         className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
                       >
                         <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Costa Rica</span>
@@ -252,7 +254,8 @@ export default function BrandNavigation({
                     <div>
                       <button
                         type="button"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu('resorts'); }}
+                        data-dropdown-toggle="true"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpandedMenus((prev) => ({ ...prev, resorts: !prev.resorts })); }}
                         className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
                       >
                         <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Destinations</span>
@@ -377,7 +380,8 @@ export default function BrandNavigation({
                     <div>
                       <button
                         type="button"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu('costaRica'); }}
+                        data-dropdown-toggle="true"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpandedMenus((prev) => ({ ...prev, costaRica: !prev.costaRica })); }}
                         className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
                       >
                         <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Costa Rica</span>
@@ -417,7 +421,8 @@ export default function BrandNavigation({
                     <div>
                       <button
                         type="button"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleMenu('resorts'); }}
+                        data-dropdown-toggle="true"
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpandedMenus((prev) => ({ ...prev, resorts: !prev.resorts })); }}
                         className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
                       >
                         <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Destinations</span>

@@ -63,14 +63,12 @@ export const CONTENT_SECTIONS = [
 export const PROPERTY_MENU: MenuItem[] = [];
 
 /* Standardized menu items for brand & content pages (hamburger + footer match) */
-/* Costa Rica section with Pura Vida hub as first item */
+/* Costa Rica section */
 const COSTA_RICA_MENU_ITEMS: MenuItem[] = [
-  { label: "Pura Vida", route: "/pura-vida" },
-  { label: "Curated Excursions", route: "/curated-excursions" },
+  { label: "Rainforest Adventure", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/wellness" },
-  { label: "Forest to Table", route: "/gastronomy" },
-  { label: "Family Adventure", route: "/family-expeditions" },
-  { label: "Rainforest Romance", route: "/rainforest-romance" },
+  { label: "A Taste of Place", route: "/gastronomy" },
+  { label: "Beyond Sustainability", route: "/sustainability" },
 ];
 
 /* Explore column items (7 brand pages) */
@@ -88,10 +86,10 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
 
 /* Costa Rica dropdown items */
 export const COSTA_RICA_ITEMS: MenuItem[] = [
-  { label: "Rainforest Adventure", route: "/curated-excursions" },
-  { label: "Nurtured by Nature", route: "/wellness" },
-  { label: "A Taste of Place", route: "/gastronomy" },
-  { label: "Beyond Sustainability", route: "/sustainability" },
+  { label: "Rainforest Adventure", route: "/rainforest-adventure" },
+  { label: "Nurtured by Nature", route: "/wellness-arenal" },
+  { label: "A Taste of Place", route: "/gastronomy-arenal" },
+  { label: "Beyond Sustainability", route: "/tented-camp-sustainability" },
 ];
 
 /* Pura Vida pillar items for footer */

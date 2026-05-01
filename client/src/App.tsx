@@ -114,6 +114,7 @@ const CostaRicaGastronomy = lazy(() => import("./pages/CostaRicaGastronomy"));
 const ArenalGastronomy = lazy(() => import("./pages/ArenalGastronomy"));
 const CostaRicaSustainability = lazy(() => import("./pages/CostaRicaSustainability"));
 const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability"));
+const TentedCampSustainability = lazy(() => import("./pages/TentedCampSustainability"));
 
 const BocasRooms = lazy(() => import("./pages/BocasRooms"));
 const GardensRooms = lazy(() => import("./pages/GardensRooms"));
@@ -164,11 +165,7 @@ function Router() {
           <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/sustainability">{() => <CostaRicaSustainability propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/stargazing" component={Stargazing} />
-          <Route path="/costa-rica" component={CostaRica} />
-          <Route path="/costa-rica/curated-excursions" component={CuratedExcursions} />
-          <Route path="/costa-rica/wellness">{() => <CostaRicaWellness propertySlug="costa-rica" />}</Route>
-          <Route path="/costa-rica/gastronomy">{() => <CostaRicaGastronomy propertySlug="costa-rica" />}</Route>
-          <Route path="/costa-rica/sustainability">{() => <CostaRicaSustainability propertySlug="costa-rica" />}</Route>
+          {/* Costa Rica is now a dropdown menu only, not a page */}
           <Route path="/curated-excursions" component={CuratedExcursions} />
           <Route path="/experiential-arenal">{() => { window.location.replace("/curated-excursions"); return null; }}</Route>
 
@@ -185,6 +182,7 @@ function Router() {
           <Route path="/tented-camp/gastronomy/ayla" component={Ayla} />
           <Route path="/tented-camp/gastronomy/henrys-bar" component={HenrysBar} />
           <Route path="/tented-camp/gastronomy">{() => <CostaRicaGastronomy propertySlug="tented-camp" />}</Route>
+          <Route path="/tented-camp-sustainability">{() => <CostaRicaSustainability propertySlug="tented-camp" />}</Route>
           <Route path="/tented-experiences" component={TentedExperiences} />
           <Route path="/gardens" component={Gardens} />
           {/* ARCHIVED ROUTE: /gardens/rooms - Component file still exists */}
