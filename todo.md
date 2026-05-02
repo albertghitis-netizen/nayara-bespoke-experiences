@@ -3197,3 +3197,4 @@
 - [x] Swap Gardens to first position (where Atacama is) on the experiences page
 - [x] Process and upload La Fortuna Waterfall video to CDN
 - [x] Add La Fortuna Waterfall video to the experiences page
+- [x] Upload new botanical purple leaf image and use it for Botanical Hike everywhere on the site
