@@ -3213,3 +3213,5 @@
 - [x] Process and upload new hanging bridges video and swap it in everywhere
 - [x] Add Bioluminescence excursion under Bocas del Toro on brand /experiences with video
 - [x] Add video to Atacama Salt Flats & Lagoons excursion on brand /experiences
+- [x] Add Rainbow Valley video to Atacama excursion card on brand /experiences
+- [x] Revert Ayla restaurant page hero image back to original (keep new image only as card cover on Forest to Table)

@@ -168,7 +168,8 @@ const altoAtacamaExcursions: Excursion[] = [
     acclimatization: "None",
     description: "Named for the multicolored layers of its hills and ravines, each formed by millions of years of mineral deposits. A full-day hike through one of the Atacama\u2019s most visually striking landscapes, with lunch included in the field.",
     highlights: ["Mineral-painted hillsides in red, green, yellow, and white", "Local agriculture and herding traditions", "Pukar\u00e1 archaeological viewpoint"],
-    placeholder: true,
+    verticalVideo: "/manus-storage/rainbow-valley-atacama_470962a2.mp4",
+    placeholder: false,
     category: "adventure",
   },
   {

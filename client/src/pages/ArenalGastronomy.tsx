@@ -215,11 +215,11 @@ function RestaurantGrid() {
                     onClick={() => navigate(restaurant.route)}
                   >
                     <div className="relative overflow-hidden rounded-sm aspect-[4/3]">
-                      {!restaurant.hero ? (
+                      {!(restaurant.cardCover || restaurant.hero) ? (
                         <div className="w-full h-full" style={{ backgroundColor: `${BRAND_COLORS.primary}15` }} />
-                      ) : restaurant.hero.endsWith('.mp4') ? (
+                      ) : (restaurant.cardCover || restaurant.hero).endsWith('.mp4') ? (
                         <video
-                          src={restaurant.hero}
+                          src={restaurant.cardCover || restaurant.hero}
                           autoPlay
                           loop
                           muted
@@ -228,7 +228,7 @@ function RestaurantGrid() {
                         />
                       ) : (
                         <img
-                          src={restaurant.hero}
+                          src={restaurant.cardCover || restaurant.hero}
                           alt={restaurant.name}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           loading="lazy"
