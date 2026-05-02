@@ -66,7 +66,7 @@ export const PROPERTY_MENU: MenuItem[] = [];
 /* Costa Rica section */
 const COSTA_RICA_MENU_ITEMS: MenuItem[] = [
   { label: "Rainforest Adventure", route: "/curated-excursions" },
-  { label: "Nurtured by Nature", route: "/wellness" },
+  { label: "Nurtured by Nature", route: "/costa-rica-wellness" },
   { label: "Forest to Table", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
 ];
@@ -87,7 +87,7 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
 /* Costa Rica dropdown items */
 export const COSTA_RICA_ITEMS: MenuItem[] = [
   { label: "Rainforest Adventure", route: "/curated-excursions" },
-  { label: "Nurtured by Nature", route: "/wellness" },
+  { label: "Nurtured by Nature", route: "/costa-rica-wellness" },
   { label: "Forest to Table", route: "/gastronomy-arenal" },
   { label: "Beyond Sustainability", route: "/tented-camp-sustainability" },
 ];
