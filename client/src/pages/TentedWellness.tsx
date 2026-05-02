@@ -114,7 +114,7 @@ export default function TentedWellness() {
       <SpaSection palette={palette} />
       <SpringsFeature palette={palette} />
       <PropertyLinksSection palette={palette} />
-      <Footer />
+      <Footer bgColor={palette.footerBg} textColor={palette.footerText} />
     </div>
   );
 }

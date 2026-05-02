@@ -50,9 +50,11 @@ interface FooterProps {
   pageType?: PageType;
   /** Override footer background color (default: #3B2B26 espresso) */
   bgColor?: string;
+  /** Override footer text color (default: white) */
+  textColor?: string;
 }
 
-export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
+export default function Footer({ pageType = "brand", bgColor, textColor = "#F7F5F0" }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
   const leafRef = useRef<HTMLImageElement>(null);
@@ -70,8 +72,8 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           {columns.map((col) => (
             <div key={col.title}>
               <span
-                className="text-white/70 text-[10px] tracking-[0.25em] block mb-4"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                className="text-[10px] tracking-[0.25em] block mb-4"
+                style={{ color: `${textColor}99`, fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {col.title}
               </span>
@@ -87,8 +89,8 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
                     }}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className={`text-white hover:text-white transition-colors${link.separatorBefore ? ' mt-3 pt-3 border-t border-white/20' : ''}`}
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                    className={`transition-colors${link.separatorBefore ? ' mt-3 pt-3' : ''}`}
+                    style={{ color: textColor, borderTopColor: `${textColor}33`, fontFamily: "var(--font-body)", fontWeight: 400 }}
                   >
                     {link.label}
                   </a>
@@ -100,38 +102,38 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           {/* Contact — always present as the last column */}
           <div>
             <span
-              className="text-white/70 text-[10px] tracking-[0.25em] block mb-4"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              className="text-[10px] tracking-[0.25em] block mb-4"
+              style={{ color: `${textColor}99`, fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Contact
             </span>
             <div className="flex flex-col gap-[6px]">
               <a
                 href="mailto:reservations@nayararesorts.com"
-                className="text-white hover:text-white transition-colors"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 reservations@nayararesorts.com
               </a>
               <a
                 href="tel:+18448652002"
-                className="text-white hover:text-white transition-colors"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 844-865-2002 (US)
               </a>
               <a
                 href="tel:+50624791600"
-                className="text-white hover:text-white transition-colors"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 +506 2479-1600 (Costa Rica)
               </a>
               <a
                 href="/privacy-policy"
                 onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
-                className="text-white hover:text-white transition-colors"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
                 Privacy Policy
               </a>
@@ -146,11 +148,12 @@ export default function Footer({ pageType = "brand", bgColor }: FooterProps) {
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
-            className="inline-flex items-center justify-center h-12 px-12 rounded-full border border-[#ece8e1]/20 hover:border-[#ece8e1]/40 hover:bg-[#ece8e1]/5 transition-all duration-300"
+            className="inline-flex items-center justify-center h-12 px-12 rounded-full border transition-all duration-300"
+            style={{ borderColor: `${textColor}33` }}
           >
             <span
-              className="text-white/80 text-[11px] tracking-[0.25em]"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+              className="text-[11px] tracking-[0.25em]"
+              style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Stay Inspired with the Nayara Newsletter
             </span>
