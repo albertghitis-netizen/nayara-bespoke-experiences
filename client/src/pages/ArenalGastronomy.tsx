@@ -283,53 +283,8 @@ function RestaurantGrid() {
 /* ═══════════════════════════════════════════════════════════════
    PHOTO COLLAGE — Pinterest-style masonry with filter
    ═══════════════════════════════════════════════════════════════ */
-function PhotoCollage({
-  filter,
-  setFilter,
-}: {
-  filter: string;
-  setFilter: (f: string) => void;
-}) {
-  const allImages = useMemo(() => getAllCulinaryImages(), []);
-  const [visibleCount, setVisibleCount] = useState(30);
-  const loaderRef = useRef<HTMLDivElement>(null);
-
-  const filteredImages = useMemo(() => {
-    if (filter === "all") return allImages;
-    return allImages.filter((img) => img.restaurant === filter);
-  }, [allImages, filter]);
-
-  const visibleImages = useMemo(
-    () => filteredImages.slice(0, visibleCount),
-    [filteredImages, visibleCount]
-  );
-
-  // Infinite scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && visibleCount < filteredImages.length) {
-          setVisibleCount((prev) => Math.min(prev + 15, filteredImages.length));
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (loaderRef.current) observer.observe(loaderRef.current);
-  }, [visibleCount, filteredImages.length]);
-
-  // Reset count when filter changes
-  useEffect(() => {
+function PhotoCollage({ filter, setFilter }: { filter: string; setFilter: (f: string) => void }) {
   return null;
-    setVisibleCount(30);
-  return null;
-}
-  }, [filter]);
-
-  const filterOptions = useMemo(() => {
-    const opts = [{ slug: "all", label: "All" }];
-    restaurants.forEach((r) => opts.push({ slug: r.slug, label: r.name }));
-    return opts;
-  }, []);
 }
 
 /* ═══════════════════════════════════════════════════════════════
