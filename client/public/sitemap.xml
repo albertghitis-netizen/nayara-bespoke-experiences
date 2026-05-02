@@ -1,27 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Brand Pages -->
-  <url><loc>/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>/story</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>/gallery</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Property Pages -->
-  <url><loc>/alto-atacama</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>/bocas-del-toro</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <!-- BRAND HOME -->
+  <url><loc>/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- BRAND PILLAR PAGES -->
+  <url><loc>/experiences</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/wellness</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/gastronomy</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/sustainability</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/journal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/awards</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>/rainforest-romance</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/family-expeditions</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/gallery</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/faq</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/costa-rica-wellness</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- PROPERTY PAGES -->
   <url><loc>/gardens</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>/hangaroa</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>/springs</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>/tented-camp</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/alto-atacama</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/hangaroa</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/bocas-del-toro</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
-  <!-- Pillar Pages -->
-  <url><loc>/experiences</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>/sustainability</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>/wellness</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>/gastronomy</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <!-- PROPERTY PILLAR PAGES -->
+  <url><loc>/gardens/experiences</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/gardens/wellness</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/gardens/gastronomy</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/springs/experiences</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/springs/wellness</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/springs/gastronomy</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/tented-camp/experiences</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/tented-camp/wellness</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/tented-camp/gastronomy</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/alto-atacama/experiences</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/alto-atacama/wellness</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/alto-atacama/gastronomy</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/hangaroa/experiences</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/hangaroa/wellness</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/hangaroa/gastronomy</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/bocas-del-toro/experiences</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/bocas-del-toro/wellness</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/bocas-del-toro/gastronomy</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
-  <!-- Content Sections -->
-  <url><loc>/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>/podcast</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>/press</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>/awards</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- BLOG POSTS -->
+  <url><loc>/blog/nature-based-wellness-colors</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>/blog/bocas-history-culture-nature</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>/blog/nayara-bocas-resort-experience</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>/blog/bocas-conde-nast-award</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>/blog/nayara-by-night</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>/blog/caribbean-coral-reef</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/blog/michelin-keys</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>/blog/travel-trends-2026</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/blog/atacama-winter-romance</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
 </urlset>

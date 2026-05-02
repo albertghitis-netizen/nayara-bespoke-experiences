@@ -63,6 +63,7 @@ const CommunityHospitalityBlog = lazy(() => import("./pages/CommunityHospitality
 const SustainabilityBlog = lazy(() => import("./pages/SustainabilityBlog"));
 const CaribbeanCoralReefBlog = lazy(() => import("./pages/CaribbeanCoralReefBlog"));
 const MayaRapaNuiClimateBlog = lazy(() => import("./pages/MayaRapaNuiClimateBlog"));
+const AtacamaWinterRomanceBlog = lazy(() => import("./pages/AtacamaWinterRomanceBlog"));
 // const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -273,7 +274,7 @@ function Router() {
           <Route path="/blog/wellness-by-colors" component={WellnessByColorsBlog} />
           <Route path="/blog/hot-springs" component={HotSpringsBlog} />
           <Route path="/blog/hangaroa-regeneration" component={HangaroaRegenerationBlog} />
-          <Route path="/blog/bocas-conde-nast" component={BocasCondéNastBlog} />
+          <Route path="/blog/bocas-conde-nast" component={BocasCondeNastAwardBlog} />
           <Route path="/blog/atacama-mars" component={AtacamaMarsEarthBlog} />
           <Route path="/blog/nayara-story" component={NayaraStoryBlog} />
           <Route path="/blog/wellness-hospitality" component={WellnessHospitalityBlog} />
@@ -285,6 +286,7 @@ function Router() {
           <Route path="/blog/sustainability" component={SustainabilityBlog} />
           <Route path="/blog/caribbean-coral-reef" component={CaribbeanCoralReefBlog} />
           <Route path="/blog/maya-rapa-nui-climate" component={MayaRapaNuiClimateBlog} />
+          <Route path="/blog/atacama-winter-romance" component={AtacamaWinterRomanceBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/gallery" component={Gallery} />
 

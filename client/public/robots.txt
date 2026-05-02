@@ -1,3 +1,28 @@
+# Nayara Resorts robots.txt
+# Directives for search engine crawlers
+
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /test-floorplan
+
+# Allow crawling of static assets
+Allow: *.css$
+Allow: *.js$
+Allow: *.png$
+Allow: *.jpg$
+Allow: *.jpeg$
+Allow: *.gif$
+Allow: *.svg$
+Allow: *.webp$
+
+# Specific crawl delay for bots
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://nayararesorts.manus.space/sitemap.xml
+Sitemap: https://nayaraexpt-apu7tbha.manus.space/sitemap.xml
