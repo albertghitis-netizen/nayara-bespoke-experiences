@@ -3200,3 +3200,4 @@
 - [x] Upload new botanical purple leaf image and use it for Botanical Hike everywhere on the site
 - [x] Add new Arenal Volcano Tour excursion to Gardens with video
 - [x] Replace Botanical Hike video with purple leaf image (remove verticalVideo, keep image only)
+- [x] Set new cover image for Bésame Mucho on A Taste of Place (brand gastronomy page)

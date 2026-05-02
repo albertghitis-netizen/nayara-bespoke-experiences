@@ -267,7 +267,7 @@ export const restaurants: RestaurantGallery[] = [
     cuisine: "Latin American",
     tagline: "Passionate Flavors of Latin America",
     route: "/springs/gastronomy/besame-mucho",
-    hero: "",
+    hero: "/manus-storage/besame-mucho-cover_6fcf6b29.jpg",
     images: [],
   },
   {
