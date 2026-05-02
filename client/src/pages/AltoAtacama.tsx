@@ -129,7 +129,7 @@ const ASSETS = {
   wellH2: "/manus-storage/atacama-wellness-h-v2_f00c123e.mp4",
   wellV2: "/manus-storage/atacama-wellness-v-still_4687073b.jpg",
 
-  // Section 6 — A Taste of Place: plated dish H
+  // Section 6 — Forest to Table: plated dish H
   gastroV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   gastroH: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
 
@@ -627,7 +627,7 @@ const CASCADE_SECTIONS = [
     badges: false,
   },
   {
-    label: "A Taste of Place",
+    label: "Forest to Table",
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: "/manus-storage/atacama-taste-of-place-vertical_e5fa6f59.jpeg",
@@ -636,7 +636,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
     link: "/alto-atacama/gastronomy",
-    linkLabel: "Explore Taste of Place",
+    linkLabel: "Explore Forest to Table",
     badges: false,
     hFirst: false,
     hideMobileV: true,

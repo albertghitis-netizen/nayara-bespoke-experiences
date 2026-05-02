@@ -197,7 +197,7 @@ export default function Gardens() {
 
       {/* ══ 5. GASTRONOMY - Slider ══ */}
       <PropertySlider
-        sectionLabel="A Taste of Place"
+        sectionLabel="Forest to Table"
         headline="Farm to Table"
         description="Our chefs source ingredients from local farms and our own organic gardens to create cuisine that celebrates Costa Rica's biodiversity."
         cards={gastronomyCards}
@@ -799,7 +799,7 @@ function GastronomySection() {
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
               <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                A Taste of Place
+                Forest to Table
               </span>
             </TextReveal>
           </div>

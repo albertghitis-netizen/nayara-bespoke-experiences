@@ -3201,3 +3201,11 @@
 - [x] Add new Arenal Volcano Tour excursion to Gardens with video
 - [x] Replace Botanical Hike video with purple leaf image (remove verticalVideo, keep image only)
 - [x] Set new cover image for Bésame Mucho on A Taste of Place (brand gastronomy page)
+- [x] Rename "A Taste of Place" to "Forest to Table" everywhere on the site
+- [ ] Gastronomy hero: just "Forest to Table" title, no text above or below
+- [ ] Remove "back to Costa Rica" breadcrumb/link on gastronomy page
+- [x] Replace Birdwatching video with new clip
+- [x] Replace Rio Celeste card video with new clip
+- [ ] Ensure Rainforest Adventure uses same videos as brand /experiences
+- [x] Process and upload new yoga video (CostaRica-Springs)
+- [x] Fix empty src="" error on /gastronomy-arenal page

@@ -276,7 +276,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   },
   {
     id: "gastronomy",
-    label: "A Taste of Place",
+    label: "Forest to Table",
     headline: "Caribbean\nFlavors",
     body: "Our culinary program celebrates the extraordinary bounty of the Caribbean Sea and the rich agricultural traditions of Panama. Fresh-caught seafood, tropical fruits, and locally grown ingredients are transformed into dishes that honor both the land and the ocean.",
     verticalSrc: ASSETS.gastroV,

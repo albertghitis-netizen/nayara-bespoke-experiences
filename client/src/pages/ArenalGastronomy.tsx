@@ -1,6 +1,6 @@
 /**
  * ARENAL GASTRONOMY — Costa Rica-wide culinary page
- * "A Taste of Place" — Photo collage + all 9 restaurant links
+ * "Forest to Table" — Photo collage + all 9 restaurant links
  * Pinterest-style masonry layout with real Brice Ferre photography
  */
 
@@ -49,7 +49,7 @@ export default function ArenalGastronomy() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-bleed image with "A Taste of Place"
+   HERO — Full-bleed image with "Forest to Table"
    ═══════════════════════════════════════════════════════════════ */
 const GASTRO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4";
 
@@ -105,7 +105,7 @@ function HeroSection() {
             className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide mb-5"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            A Taste of Place
+            Forest to Table
           </h1>
           <p
             className="text-white/60 text-sm md:text-base tracking-wide max-w-xl mx-auto"
@@ -247,7 +247,9 @@ function RestaurantGrid() {
                     onClick={() => navigate(restaurant.route)}
                   >
                     <div className="relative overflow-hidden rounded-sm aspect-[4/3]">
-                      {restaurant.hero.endsWith('.mp4') ? (
+                      {!restaurant.hero ? (
+                        <div className="w-full h-full" style={{ backgroundColor: `${BRAND_COLORS.primary}15` }} />
+                      ) : restaurant.hero.endsWith('.mp4') ? (
                         <video
                           src={restaurant.hero}
                           autoPlay

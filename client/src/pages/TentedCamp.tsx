@@ -991,7 +991,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
 const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
   {
     id: "gastronomy",
-    label: "A Taste of Place",
+    label: "Forest to Table",
     headline: "Farm to\nCanopy",
     body: "Our chefs source ingredients from local farms and our own gardens to create cuisine that celebrates Costa Rica's biodiversity. Dine under the stars at Henry's Bar or enjoy a private dinner on your suite deck.",
     verticalSrc: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
@@ -1003,7 +1003,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
     link: "/tented-camp/gastronomy",
-    linkLabel: "Explore Taste of Place",
+    linkLabel: "Explore Forest to Table",
   },
   {
     id: "nayara-by-night",

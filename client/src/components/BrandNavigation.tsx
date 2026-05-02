@@ -70,7 +70,7 @@ export default function BrandNavigation({
   const costaRicaRoutes = [
     "curated-excursions",      // Rainforest Adventure
     "wellness",               // Nurtured by Nature
-    "gastronomy-arenal",      // A Taste of Place
+    "gastronomy-arenal",      // Forest to Table
     "tented-camp-sustainability", // Beyond Sustainability
   ];
   const isCR = costaRicaRoutes.includes(propertySlug);

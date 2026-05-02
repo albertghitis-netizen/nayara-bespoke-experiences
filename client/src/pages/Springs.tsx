@@ -180,7 +180,7 @@ export default function Springs() {
 
       {/* ★ 5. GASTRONOMY — Slider */}
       <PropertySlider
-        sectionLabel="A Taste of Place"
+        sectionLabel="Forest to Table"
         headline="Farm to Table"
         description="Our chefs transform the Arenal region's extraordinary biodiversity into cuisine that celebrates Costa Rica's culinary heritage, sourcing from local farms and our own organic gardens."
         cards={gastronomyCards}
@@ -632,7 +632,7 @@ function GastronomySection() {
             className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
           >
-            A Taste of Place
+            Forest to Table
           </span>
         </TextReveal>
 

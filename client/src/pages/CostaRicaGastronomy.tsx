@@ -214,7 +214,7 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
   const propertyDisplay = properties.find((p: Property) => p.id === propertySlug);
   const propertyName = propertyDisplay?.name || "Nayara";
   const heroVideo = HERO_VIDEOS[propertySlug] || HERO_VIDEOS["tented-camp"];
-  const headline = HEADLINES[propertySlug] || "A Taste of Place";
+  const headline = HEADLINES[propertySlug] || "Forest to Table";
   const dining = DINING_MAP[propertySlug] || costaRicaDining;
   const location = LOCATIONS[propertySlug] || "";
   const isCR = CR_SLUGS.includes(propertySlug);

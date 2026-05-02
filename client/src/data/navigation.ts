@@ -36,7 +36,7 @@ export const PROPERTIES = [
 export const PILLARS = [
   { label: "Bespoke Experiences", route: "/experiences" },
   { label: "Nature-Based Wellness", route: "/wellness" },
-  { label: "A Taste of Place", route: "/gastronomy" },
+  { label: "Forest to Table", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
 ] as const;
 
@@ -67,7 +67,7 @@ export const PROPERTY_MENU: MenuItem[] = [];
 const COSTA_RICA_MENU_ITEMS: MenuItem[] = [
   { label: "Rainforest Adventure", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/wellness" },
-  { label: "A Taste of Place", route: "/gastronomy" },
+  { label: "Forest to Table", route: "/gastronomy" },
   { label: "Beyond Sustainability", route: "/sustainability" },
 ];
 
@@ -88,7 +88,7 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
 export const COSTA_RICA_ITEMS: MenuItem[] = [
   { label: "Rainforest Adventure", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/wellness" },
-  { label: "A Taste of Place", route: "/gastronomy-arenal" },
+  { label: "Forest to Table", route: "/gastronomy-arenal" },
   { label: "Beyond Sustainability", route: "/tented-camp-sustainability" },
 ];
 

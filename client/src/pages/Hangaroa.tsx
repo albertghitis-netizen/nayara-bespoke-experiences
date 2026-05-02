@@ -184,7 +184,7 @@ export default function Hangaroa() {
 
       {/* ★ 5. GASTRONOMY — Slider */}
       <PropertySlider
-        sectionLabel="A Taste of Place"
+        sectionLabel="Forest to Table"
         headline="Pacific Island Cuisine"
         description="Our chefs honor Rapa Nui's Polynesian culinary heritage, sourcing from local fishermen and island gardens to create cuisine that celebrates the bounty of the Pacific."
         cards={gastronomyCards}
