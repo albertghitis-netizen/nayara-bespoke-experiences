@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 
 export default function BlogPost() {
   return (

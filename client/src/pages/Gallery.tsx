@@ -1,83 +1,42 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { springsGallery, atacamaGallery, bocasGallery, hangaroaGallery, gardensGallery, tentedCampGallery } from '@/data/gallery';
+import type { GalleryItem } from '@/data/gallery';
+
+const PROPERTIES = [
+  { id: 'all', label: 'All Properties', color: 'bg-stone-200' },
+  { id: 'springs', label: 'Nayara Springs', color: 'bg-emerald-100' },
+  { id: 'atacama', label: 'Alto Atacama', color: 'bg-amber-100' },
+  { id: 'bocas', label: 'Bocas del Toro', color: 'bg-blue-100' },
+  { id: 'hangaroa', label: 'Hangaroa', color: 'bg-purple-100' },
+  { id: 'gardens', label: 'Nayara Gardens', color: 'bg-green-100' },
+  { id: 'tented', label: 'Tented Camp', color: 'bg-orange-100' },
+];
 
 export default function Gallery() {
+  const [selectedProperty, setSelectedProperty] = useState('all');
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Gallery organized by hotel and topic, spread evenly with night time images
-  const galleryItems = [
-    // TENTED CAMP - Rooms & Accommodations
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-hero-desktop-new.mp4', alt: 'Tented Camp Hero', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-tent-35.jpg', alt: 'Nayara Tent', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ig-tented-camp.jpg', alt: 'Tented Camp IG', layout: 'v' },
-    
-    // TENTED CAMP - Wellness & Experiences
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-wellness-vertical-new.mp4', alt: 'Tented Wellness', layout: 'v' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/yoga-deck.jpg', alt: 'Yoga Deck', layout: 'v' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sound-healing.jpg', alt: 'Sound Healing', layout: 'v' },
-    
-    // TENTED CAMP - Gastronomy
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-gastronomy-hero.jpg', alt: 'Tented Gastronomy', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/in-the-tub-brice-ferre.jpg', alt: 'In the Tub', layout: 'h' },
-    
-    // TENTED CAMP - Sustainability & Nature
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-sustainability-vertical.mp4', alt: 'Tented Sustainability', layout: 'v' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-sustainability-toucans-v2.jpg', alt: 'Tented Toucans', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-sloth-drinking.jpg', alt: 'Tented Sloth', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tc-experiences-bridge.jpg', alt: 'Tented Bridge', layout: 'v' },
-    
-    // TENTED CAMP - Night Time
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-night-frogs-vertical.mp4', alt: 'Tented Night Frogs', layout: 'v' },
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-pool-h-new.mp4', alt: 'Tented Pool', layout: 'h' },
-    
-    // SPRINGS - Rooms & Accommodations
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-rooms-hero.jpg', alt: 'Springs Rooms', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-view.jpg', alt: 'Springs Villa View', layout: 'v' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-entrance.jpg', alt: 'Springs Villa Entrance', layout: 'v' },
-    
-    // SPRINGS - Wellness & Experiences
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-experience-vertical.mp4', alt: 'Springs Experience', layout: 'v' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/termas-pool.jpg', alt: 'Termas Pool', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/termas-cascading-pools.jpg', alt: 'Termas Cascading Pools', layout: 'h' },
-    
-    // SPRINGS - Sustainability
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-sustainability-hero.jpg', alt: 'Springs Sustainability', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-shower-2.jpg', alt: 'Springs Villa Shower', layout: 'v' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-outdoor-shower.jpg', alt: 'Springs Outdoor Shower', layout: 'v' },
-    
-    // GARDENS - Rooms & Accommodations
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-rooms-hero.jpg', alt: 'Gardens Rooms', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ig-gardens.jpg', alt: 'Gardens IG', layout: 'v' },
-    
-    // GARDENS - Wellness
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness-garden-path.jpg', alt: 'Wellness Garden', layout: 'v' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/wellness-infinity-pool.jpg', alt: 'Wellness Pool', layout: 'v' },
-    
-    // GARDENS - Experiences
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sound-therapy-vertical.jpg', alt: 'Sound Therapy', layout: 'v' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/yoga-vertical-2.jpg', alt: 'Yoga Vertical', layout: 'v' },
-    
-    // ATACAMA - Rooms & Accommodations
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-accom-horizontal-new.mp4', alt: 'Atacama Accommodations', layout: 'h' },
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-s7-vertical.mp4', alt: 'Atacama Vertical', layout: 'v' },
-    
-    // ATACAMA - Experiences & Nature
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-rainbow-valley-h.mp4', alt: 'Atacama Rainbow Valley', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-pool-sunset-new.jpg', alt: 'Atacama Sunset', layout: 'h' },
-    
-    // ATACAMA - Night Time (Stargazing)
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-bynight-telescope.jpg', alt: 'Atacama Night Sky', layout: 'h' },
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/journal-cover-stargazing-atacama.jpg', alt: 'Stargazing Atacama', layout: 'v' },
-    
-    // BOCAS - Experiences & Nature
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-experiences-hero.jpg', alt: 'Bocas Experiences', layout: 'h' },
-    
-    // BOCAS - Night Time (Bioluminescence)
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-bynight-bioluminescence.jpg', alt: 'Bocas Bioluminescence', layout: 'h' },
-    
-    // GENERAL - Mobile & Misc
-    { type: 'image', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-mobile-hero.jpg', alt: 'Atacama Mobile Hero', layout: 'h' },
-    { type: 'video', src: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-experiences-horizontal-new.mp4', alt: 'Tented Experiences', layout: 'h' },
+  // Combine all gallery items with property tags
+  const allItems: (GalleryItem & { property: string })[] = [
+    ...springsGallery.map(item => ({ ...item, property: 'springs' })),
+    ...atacamaGallery.map(item => ({ ...item, property: 'atacama' })),
+    ...bocasGallery.map(item => ({ ...item, property: 'bocas' })),
+    ...hangaroaGallery.map(item => ({ ...item, property: 'hangaroa' })),
+    ...gardensGallery.map(item => ({ ...item, property: 'gardens' })),
+    ...tentedCampGallery.map(item => ({ ...item, property: 'tented' })),
   ];
+
+  // Filter items based on selected property
+  const filteredItems = selectedProperty === 'all' 
+    ? allItems 
+    : allItems.filter(item => item.property === selectedProperty);
+
+  // Map orientation to grid sizing
+  const getGridSpan = (item: GalleryItem & { property: string }) => {
+    if (item.orientation === 'landscape') return 'col-span-2 row-span-1';
+    if (item.orientation === 'portrait') return 'col-span-1 row-span-2';
+    return 'col-span-1 row-span-1'; // square
+  };
 
   useEffect(() => {
     // Lazy load images and videos
@@ -85,17 +44,17 @@ export default function Gallery() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const element = entry.target as HTMLImageElement | HTMLVideoElement;
-            if (element.dataset.src) {
-              if (element.tagName === 'IMG') {
-                (element as HTMLImageElement).src = element.dataset.src;
-              } else if (element.tagName === 'VIDEO') {
-                const source = element.querySelector('source');
-                if (source) {
-                  source.src = element.dataset.src;
-                  (element as HTMLVideoElement).load();
-                }
+          if (element.dataset.src) {
+            if (element.tagName === 'IMG') {
+              (element as HTMLImageElement).src = element.dataset.src;
+            } else if (element.tagName === 'VIDEO') {
+              const source = element.querySelector('source');
+              if (source) {
+                source.src = element.dataset.src;
+                (element as HTMLVideoElement).load();
               }
             }
+          }
           observer.unobserve(element);
         }
       });
@@ -108,57 +67,99 @@ export default function Gallery() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [filteredItems]);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Masonry Gallery - goes straight to grid */}
-      <div ref={containerRef} className="px-4 py-12 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-b from-stone-900 to-stone-800 text-white py-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-light mb-4" style={{ fontFamily: 'var(--font-display)' }}>
+            Nayara Gallery
+          </h1>
+          <p className="text-lg text-stone-300 max-w-2xl">
+            Explore the beauty and luxury across all six Nayara properties
+          </p>
+        </div>
+      </div>
+
+      {/* Property Filter Tabs */}
+      <div className="bg-stone-50 sticky top-0 z-40 border-b border-stone-200">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex flex-wrap gap-3">
+            {PROPERTIES.map((prop) => (
+              <button
+                key={prop.id}
+                onClick={() => setSelectedProperty(prop.id)}
+                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+                  selectedProperty === prop.id
+                    ? 'bg-stone-900 text-white shadow-lg'
+                    : 'bg-stone-200 text-stone-900 hover:bg-stone-300'
+                }`}
+              >
+                {prop.label}
+              </button>
+            ))}
+          </div>
+          <p className="text-sm text-stone-600 mt-4">
+            Showing {filteredItems.length} {filteredItems.length === 1 ? 'item' : 'items'}
+          </p>
+        </div>
+      </div>
+
+      {/* Mason Grid Gallery */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
         <div
-          className="grid gap-3"
+          ref={containerRef}
+          className="grid gap-4 auto-rows-[250px]"
           style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gridAutoRows: '250px',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
           }}
         >
-          {galleryItems.map((item, index) => {
-            const isWide = item.layout === 'h';
-            const isTall = item.layout === 'v';
-            
-            return (
-              <div
-                key={index}
-                className="relative overflow-hidden rounded-lg group cursor-pointer bg-gray-900"
-                style={{
-                  gridColumn: isWide ? 'span 2' : 'span 1',
-                  gridRow: isTall ? 'span 2' : 'span 1',
-                }}
-              >
-                {item.type === 'image' ? (
-                  <img
-                    data-src={item.src}
-                    alt={item.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                ) : (
-                  <video
-                    data-src={item.src}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    muted
-                    loop
-                    playsInline
-                    onMouseEnter={(e) => e.currentTarget.play()}
-                    onMouseLeave={(e) => e.currentTarget.pause()}
-                  >
-                    <source type="video/mp4" />
-                  </video>
-                )}
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+          {filteredItems.map((item, index) => (
+            <div
+              key={`${item.property}-${item.id}-${index}`}
+              className={`relative overflow-hidden rounded-lg group cursor-pointer bg-stone-200 ${getGridSpan(item)}`}
+            >
+              {item.type === 'image' ? (
+                <img
+                  data-src={item.src}
+                  alt={item.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+              ) : (
+                <video
+                  data-src={item.src}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => e.currentTarget.pause()}
+                >
+                  <source type="video/mp4" />
+                </video>
+              )}
+              {/* Overlay on hover */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              
+              {/* Property tag */}
+              <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-xs font-semibold text-white bg-black/60 px-3 py-1 rounded-full">
+                  {PROPERTIES.find(p => p.id === item.property)?.label}
+                </span>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
+
+        {filteredItems.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-stone-600 text-lg">No items found for this property</p>
+          </div>
+        )}
       </div>
 
       {/* Footer spacing */}
