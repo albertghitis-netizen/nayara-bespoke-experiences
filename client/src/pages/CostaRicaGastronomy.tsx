@@ -315,7 +315,7 @@ function ByTheNumbers({ palette }: { palette: PropertyPalette }) {
               </p>
               <p
                 className="text-[12px] tracking-[0.05em]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "#E6DFD5" }}
               >
                 {stat.label}
               </p>
@@ -338,20 +338,20 @@ function PhilosophySection({ palette }: { palette: PropertyPalette }) {
           <DrawLine color={palette.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             The Philosophy of Shared Luxury
           </h2>
           <div className="max-w-[780px] space-y-5">
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
               Imagine a vacation where you get the intimacy and privacy of your own secluded hotel, but with access to the culinary world of three world-class properties. That is exactly what awaits at Nayara Gardens, Nayara Springs, and Nayara Tented Camp in Costa Rica's Arenal region.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
               While each property maintains its own distinct character and peaceful sanctuary, guests enjoy seamless access to a shared ecosystem of dining that transforms a stay into an unforgettable gastronomic journey through one magical rainforest. You are not choosing between three separate hotels — you are choosing one interconnected destination where culinary excellence exists at every turn.
             </p>
@@ -393,7 +393,7 @@ function PropertyDiningSection({
           </p>
           <h2
             className="text-2xl md:text-3xl mb-10"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             {subtitle}
           </h2>
@@ -407,7 +407,7 @@ function PropertyDiningSection({
                 <div className="flex-1">
                   <h3
                     className="text-[20px] md:text-[22px] mb-1"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
                   >
                     {r.name}
                   </h3>
@@ -419,7 +419,7 @@ function PropertyDiningSection({
                   </p>
                   <p
                     className="text-[14px] md:text-[15px] leading-[1.85]"
-                    style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                    style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                   >
                     {r.description}
                   </p>
@@ -444,14 +444,14 @@ function SweetMomentsSection({ palette }: { palette: PropertyPalette }) {
           <DrawLine color={palette.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             Beyond the Plate: The Simple Moments
           </h2>
           <div className="max-w-[780px]">
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
               Sometimes the best moments are the simple ones. <strong>Lila's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica and beyond — tropical fruits, local chocolate, and seasonal inspirations churned fresh daily. Throughout the properties, coffee experiences connect you to local culture — whether it is a morning ritual or an afternoon pick-me-up, the beans are always Costa Rican, always fresh, always worth savoring.
             </p>
@@ -478,7 +478,7 @@ function BarSceneSection({ palette }: { palette: PropertyPalette }) {
           </p>
           <h2
             className="text-2xl md:text-3xl mb-10"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             The Bar Scene
           </h2>
@@ -494,7 +494,7 @@ function BarSceneSection({ palette }: { palette: PropertyPalette }) {
             >
               <h3
                 className="text-[18px] mb-1"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
               >
                 {bar.name}
               </h3>
@@ -506,7 +506,7 @@ function BarSceneSection({ palette }: { palette: PropertyPalette }) {
               </p>
               <p
                 className="text-[14px] leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
               >
                 {bar.description}
               </p>
@@ -531,13 +531,13 @@ function ClassesSection({ palette }: { palette: PropertyPalette }) {
           <DrawLine color={palette.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-3"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             Five Classes That Go Deeper
           </h2>
           <p
             className="text-[15px] leading-[1.9] max-w-[720px] mb-10"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             Why simply eat when you can learn, create, and experience? Five signature classes allow you to dive deeper into Costa Rican culinary culture. These are not tourist add-ons — they are invitations to understand a culture through its flavors.
           </p>
@@ -554,7 +554,7 @@ function ClassesSection({ palette }: { palette: PropertyPalette }) {
                 fontFamily: "var(--font-body)",
                 fontWeight: 500,
                 backgroundColor: activeClass === i ? palette.primary : `${palette.primary}12`,
-                color: activeClass === i ? "#fff" : BRAND.secondaryText,
+                color: activeClass === i ? "#fff" : #E6DFD5,
               }}
             >
               <span className="mr-1.5">{cls.icon}</span>
@@ -576,14 +576,14 @@ function ClassesSection({ palette }: { palette: PropertyPalette }) {
           >
             <h3
               className="text-[22px] mb-2"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
             >
               <span className="mr-2">{CLASSES[activeClass].icon}</span>
               {CLASSES[activeClass].name}
             </h3>
             <p
               className="text-[15px] leading-[1.9] max-w-[680px]"
-              style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
               {CLASSES[activeClass].description}
             </p>
@@ -605,20 +605,20 @@ function NayaraDifferenceSection({ palette }: { palette: PropertyPalette }) {
           <DrawLine color={palette.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             The Nayara Difference
           </h2>
           <div className="max-w-[780px] space-y-5">
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
               You are not staying at three different hotels that happen to share some restaurants. You are entering a curated world where every meal, every glass, every class reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
               Whether you are celebrating a special occasion, seeking a culinary education, or simply craving an escape into nature without sacrificing the pleasures of the table, the three Nayara properties offer something increasingly rare — the chance to experience Costa Rica as it should be experienced, one extraordinary meal at a time.
             </p>
@@ -676,7 +676,7 @@ function GastronomyIntro({ palette, description }: { palette: PropertyPalette; d
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] max-w-[720px]"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             {description}
           </p>
@@ -699,7 +699,7 @@ function GastronomyContent({ palette, restaurants }: { palette: PropertyPalette;
               <DrawLine color={palette.primary} className="mb-6" />
               <h3
                 className="text-[20px] mb-2"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
               >
                 {restaurant.name}
               </h3>
@@ -711,7 +711,7 @@ function GastronomyContent({ palette, restaurants }: { palette: PropertyPalette;
               </p>
               <p
                 className="text-[14px] leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
               >
                 {restaurant.description}
               </p>

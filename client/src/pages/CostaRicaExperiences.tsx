@@ -174,13 +174,13 @@ function CRExperiencesDeep({ property, palette }: { property: Property; palette:
             </p>
             <h2
               className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-              style={{ ...display, color: BRAND.primaryText }}
+              style={{ ...display, color: "#E6DFD5" }}
             >
               Beyond the Resort
             </h2>
             <p
               className="text-[15px] leading-[1.8] max-w-[700px] mb-10"
-              style={{ ...body, color: BRAND.secondaryText }}
+              style={{ ...body, color: "#E6DFD5" }}
             >
               Hanging bridges, turquoise rivers, volcanic lava fields, and white-water rapids — the Arenal
               region is one of the most biodiverse corners of Costa Rica. Every excursion is guided by
@@ -226,7 +226,7 @@ function PhilosophySection({ palette }: { palette: PropertyPalette }) {
             </p>
             <h2
               className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
-              style={{ ...display, color: BRAND.primaryText }}
+              style={{ ...display, color: "#E6DFD5" }}
             >
               One Interconnected Destination
             </h2>
@@ -236,13 +236,13 @@ function PhilosophySection({ palette }: { palette: PropertyPalette }) {
           <AnimateOnScroll variants={slideFromRight}>
             <p
               className="text-[15px] leading-[1.9] mb-6"
-              style={{ ...body, color: BRAND.secondaryText }}
+              style={{ ...body, color: "#E6DFD5" }}
             >
               Imagine a vacation where you get the intimacy and privacy of your own secluded hotel, but with access to the amenities and experiences of three world-class properties. That is exactly what awaits at Nayara Gardens, Nayara Springs, and Nayara Tented Camp in Costa Rica's Arenal region.
             </p>
             <p
               className="text-[15px] leading-[1.9]"
-              style={{ ...body, color: BRAND.secondaryText }}
+              style={{ ...body, color: "#E6DFD5" }}
             >
               While each property maintains its own distinct character and peaceful sanctuary, guests enjoy seamless access to a shared ecosystem of wellness and adventure that transforms a stay into an unforgettable journey through one magical rainforest. Whether you are seeking wellness rejuvenation or nature immersion, everything you need exists within reach.
             </p>
@@ -276,7 +276,7 @@ function PhilosophySection({ palette }: { palette: PropertyPalette }) {
               </p>
               <p
                 className="text-[11px] tracking-[0.1em]"
-                style={{ ...body, fontWeight: 500, color: BRAND.secondaryText }}
+                style={{ ...body, fontWeight: 500, color: "#E6DFD5" }}
               >
                 {stat.label}
               </p>
@@ -307,7 +307,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
-            style={{ ...display, color: BRAND.primaryText }}
+            style={{ ...display, color: "#E6DFD5" }}
           >
             Wellness Through Movement
           </h2>
@@ -334,13 +334,13 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
               <div>
                 <h3
                   className="text-[18px] mb-3"
-                  style={{ ...display, fontWeight: 500, color: BRAND.primaryText }}
+                  style={{ ...display, fontWeight: 500, color: "#E6DFD5" }}
                 >
                   Vinyasa Yoga
                 </h3>
                 <p
                   className="text-[14px] leading-[1.8]"
-                  style={{ ...body, color: BRAND.secondaryText }}
+                  style={{ ...body, color: "#E6DFD5" }}
                 >
                   Keeps your body flowing and energized, linking breath to movement in classes that feel alive and present. The practice takes on a different dimension when your mat is surrounded by the sounds of howler monkeys and tropical birds — the forest becomes part of the flow.
                 </p>
@@ -350,13 +350,13 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
               <div>
                 <h3
                   className="text-[18px] mb-3"
-                  style={{ ...display, fontWeight: 500, color: BRAND.primaryText }}
+                  style={{ ...display, fontWeight: 500, color: "#E6DFD5" }}
                 >
                   Mindfulness Yoga
                 </h3>
                 <p
                   className="text-[14px] leading-[1.8]"
-                  style={{ ...body, color: BRAND.secondaryText }}
+                  style={{ ...body, color: "#E6DFD5" }}
                 >
                   Invites you to slow down, reconnect, and find stillness amid the symphony of the rainforest. It is less about physical exertion and more about presence — a practice designed for people who have forgotten what it feels like to simply be.
                 </p>
@@ -369,7 +369,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
               >
                 <p
                   className="text-[13px] leading-[1.7]"
-                  style={{ ...body, color: BRAND.secondaryText }}
+                  style={{ ...body, color: "#E6DFD5" }}
                 >
                   Both are offered across the properties, so you can practice wherever you feel called — at the edge of a volcanic valley, beside a hot spring, or on a platform overlooking the forest canopy.
                 </p>
@@ -422,13 +422,13 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ ...display, color: BRAND.primaryText }}
+            style={{ ...display, color: "#E6DFD5" }}
           >
             Three Ways to Explore
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
-            style={{ ...body, color: BRAND.secondaryText }}
+            style={{ ...body, color: "#E6DFD5" }}
           >
             The rainforest is the greatest teacher. Three guided experiences bring its lessons to life — each one a different lens on the same extraordinary ecosystem.
           </p>
@@ -471,13 +471,13 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
             >
               <h3
                 className="text-[18px] mb-4"
-                style={{ ...display, fontWeight: 500, color: BRAND.primaryText }}
+                style={{ ...display, fontWeight: 500, color: "#E6DFD5" }}
               >
                 {exp.title}
               </h3>
               <p
                 className="text-[13px] leading-[1.8] mb-6"
-                style={{ ...body, color: BRAND.secondaryText }}
+                style={{ ...body, color: "#E6DFD5" }}
               >
                 {exp.description}
               </p>
@@ -490,7 +490,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
                     />
                     <span
                       className="text-[12px] leading-[1.6]"
-                      style={{ ...body, color: BRAND.secondaryText }}
+                      style={{ ...body, color: "#E6DFD5" }}
                     >
                       {h}
                     </span>
@@ -535,20 +535,20 @@ function ThermasSection({ palette }: { palette: PropertyPalette }) {
             </p>
             <h2
               className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
-              style={{ ...display, color: BRAND.primaryText }}
+              style={{ ...display, color: "#E6DFD5" }}
             >
               Where Earth Meets Wellness
             </h2>
             <DrawLine color={palette.primary} className="mb-6" />
             <p
               className="text-[15px] leading-[1.9] mb-6"
-              style={{ ...body, color: BRAND.secondaryText }}
+              style={{ ...body, color: "#E6DFD5" }}
             >
               Las Thermas at Nayara Tented Camp offers something rare: natural hot springs heated by geothermal energy deep beneath the rainforest floor. More than a spa amenity, it is a place to soak in warmth, contemplate the night sky above, and feel the ancient power of the earth beneath you.
             </p>
             <p
               className="text-[15px] leading-[1.9] mb-6"
-              style={{ ...body, color: BRAND.secondaryText }}
+              style={{ ...body, color: "#E6DFD5" }}
             >
               The springs are fed by the same volcanic system that powers Arenal — water that has traveled through layers of rock, absorbing minerals along the way. The result is a bathing experience that is not manufactured or chlorinated, but genuinely geological.
             </p>
@@ -598,19 +598,19 @@ function SharedAccessSection({ palette }: { palette: PropertyPalette }) {
             </p>
             <h2
               className="text-2xl md:text-3xl tracking-wide mb-6"
-              style={{ ...display, color: BRAND.primaryText }}
+              style={{ ...display, color: "#E6DFD5" }}
             >
               Three Properties, One Seamless Experience
             </h2>
             <p
               className="text-[15px] leading-[1.9] mb-8"
-              style={{ ...body, color: BRAND.secondaryText }}
+              style={{ ...body, color: "#E6DFD5" }}
             >
               A morning might begin with Vinyasa yoga at Nayara Springs, followed by a botanical hike through the Tented Camp reserve, an afternoon soak at Las Thermas, and a sunset Mindfulness session overlooking the volcano. No transfers, no logistics, no friction — just a day that flows as naturally as the forest around you.
             </p>
             <p
               className="text-[15px] leading-[1.9]"
-              style={{ ...body, color: BRAND.secondaryText }}
+              style={{ ...body, color: "#E6DFD5" }}
             >
               Every hike, every yoga class, every soak reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul. Whether you are celebrating a special occasion, seeking rejuvenation, or simply craving an escape into nature without sacrificing comfort, the three Nayara properties offer something increasingly rare — the chance to experience Costa Rica as it should be experienced.
             </p>
@@ -668,7 +668,7 @@ function ExperiencesContent({ property, palette }: { property: Property; palette
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
                     backgroundColor: activeCategory === cat.id ? palette.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F7F5F0" : BRAND.secondaryText,
+                    color: activeCategory === cat.id ? "#F7F5F0" : #E6DFD5,
                     border: `1px solid ${activeCategory === cat.id ? palette.primary : BRAND.divider}`,
                   }}
                 >
@@ -726,7 +726,7 @@ function FilteredCardGrid({
                 fontFamily: "var(--font-body)",
                 fontWeight: 500,
                 backgroundColor: activeCategory === null ? palette.primary : "transparent",
-                color: activeCategory === null ? "#F7F5F0" : BRAND.secondaryText,
+                color: activeCategory === null ? "#F7F5F0" : #E6DFD5,
                 border: `1px solid ${activeCategory === null ? palette.primary : BRAND.divider}`,
               }}
             >
@@ -741,7 +741,7 @@ function FilteredCardGrid({
                   fontFamily: "var(--font-body)",
                   fontWeight: 500,
                   backgroundColor: activeCategory === cat.id ? palette.primary : "transparent",
-                  color: activeCategory === cat.id ? "#F7F5F0" : BRAND.secondaryText,
+                  color: activeCategory === cat.id ? "#F7F5F0" : #E6DFD5,
                   border: `1px solid ${activeCategory === cat.id ? palette.primary : BRAND.divider}`,
                 }}
               >
@@ -801,7 +801,7 @@ function ExcursionCard({ excursion, palette }: { excursion: Excursion; palette: 
       <div className="p-6 md:p-8">
         <h3
           className="text-[17px] mb-2"
-          style={{ ...display, fontWeight: 500, color: BRAND.primaryText }}
+          style={{ ...display, fontWeight: 500, color: "#E6DFD5" }}
         >
           {excursion.name}
         </h3>
@@ -816,7 +816,7 @@ function ExcursionCard({ excursion, palette }: { excursion: Excursion; palette: 
         )}
         <p
           className="text-[13px] leading-[1.7]"
-          style={{ ...body, color: BRAND.secondaryText }}
+          style={{ ...body, color: "#E6DFD5" }}
         >
           {excursion.description}
         </p>

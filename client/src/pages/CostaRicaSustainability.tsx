@@ -260,13 +260,13 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             By the Numbers
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-14"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             Measurable impact across environmental stewardship, community development, and operational excellence.
           </p>
@@ -349,13 +349,13 @@ function ESGNarrativeSection({ palette, narrative }: { palette: PropertyPalette;
             </p>
             <h2
               className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
             >
               {narrative.title}
             </h2>
             <p
               className="text-[15px] leading-[1.8]"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: palette.accent || BRAND.secondaryText }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: palette.accent || "#E6DFD5" }}
             >
               {narrative.subtitle}
             </p>
@@ -384,7 +384,7 @@ function ESGNarrativeSection({ palette, narrative }: { palette: PropertyPalette;
                   className="text-[15px] md:text-[16px] leading-[1.85]"
                   style={{
                     fontFamily: "var(--font-body)",
-                    color: BRAND.primaryText,
+                    color: "#E6DFD5",
                     textAlign: "justify",
                     hyphens: "auto",
                   }}
@@ -450,13 +450,13 @@ function ESGPillarsSection({ palette, pillars }: { palette: PropertyPalette; pil
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             Six Pillars of Stewardship
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-14"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             Our sustainability framework is built on six interconnected pillars — each with measurable commitments and transparent reporting.
           </p>
@@ -483,7 +483,7 @@ function ESGPillarsSection({ palette, pillars }: { palette: PropertyPalette; pil
               </div>
               <h3
                 className="text-[16px] md:text-[17px] mb-4"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
               >
                 {pillar.title}
               </h3>
@@ -496,7 +496,7 @@ function ESGPillarsSection({ palette, pillars }: { palette: PropertyPalette; pil
                     />
                     <span
                       className="text-[13px] leading-[1.6]"
-                      style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                      style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                     >
                       {metric}
                     </span>
@@ -530,13 +530,13 @@ function ESGTimelineSection({ palette, timeline }: { palette: PropertyPalette; t
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             A Decade of Regeneration
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-14"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             From the first eco-lodge in Arenal to a globally recognized model of regenerative tourism — key milestones in our sustainability journey.
           </p>
@@ -610,13 +610,13 @@ function TimelineItem({
         </span>
         <h3
           className="text-[17px] md:text-[18px] mb-2"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+          style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
         >
           {item.title}
         </h3>
         <p
           className="text-[14px] leading-[1.7]"
-          style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
         >
           {item.desc}
         </p>
@@ -642,7 +642,7 @@ function ESGCertificationsSection({ palette, certifications }: { palette: Proper
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-14"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             Certifications & Standards
           </h2>
@@ -673,13 +673,13 @@ function ESGCertificationsSection({ palette, certifications }: { palette: Proper
                 <div>
                   <h3
                     className="text-[17px]"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
                   >
                     {cert.name}
                   </h3>
                   <p
                     className="text-[12px] tracking-[0.08em]"
-                    style={{ fontFamily: "var(--font-body)", color: palette.accent || BRAND.secondaryText }}
+                    style={{ fontFamily: "var(--font-body)", color: palette.accent || "#E6DFD5" }}
                   >
                     {cert.body} &middot; {cert.year}
                   </p>
@@ -687,7 +687,7 @@ function ESGCertificationsSection({ palette, certifications }: { palette: Proper
               </div>
               <p
                 className="text-[14px] leading-[1.7]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
               >
                 {cert.desc}
               </p>
@@ -772,13 +772,13 @@ function SustainabilityContent({
           </p>
           <h2
             className="text-2xl md:text-3xl mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             {certName} Certification
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px]"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             {certDesc}
           </p>
@@ -865,7 +865,7 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
         <div className="flex items-start justify-between gap-4">
           <h3
             className="text-[17px] mb-1"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
           >
             {video.title}
           </h3>
@@ -879,7 +879,7 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
                   fontWeight: 600,
                   borderRadius: "4px",
                   backgroundColor: !isAlt ? palette.primary : "transparent",
-                  color: !isAlt ? "#fff" : BRAND.secondaryText,
+                  color: !isAlt ? "#fff" : "#E6DFD5",
                   border: `1px solid ${!isAlt ? palette.primary : BRAND.divider}`,
                 }}
               >
@@ -893,7 +893,7 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
                   fontWeight: 600,
                   borderRadius: "4px",
                   backgroundColor: isAlt ? palette.primary : "transparent",
-                  color: isAlt ? "#fff" : BRAND.secondaryText,
+                  color: isAlt ? "#fff" : "#E6DFD5",
                   border: `1px solid ${isAlt ? palette.primary : BRAND.divider}`,
                 }}
               >
@@ -910,7 +910,7 @@ function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: Pr
         </p>
         <p
           className="text-[13px] leading-[1.7]"
-          style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
         >
           {video.description}
         </p>
@@ -997,7 +997,7 @@ function BlogCard({ blog, palette }: { blog: SustainabilityBlog; palette: Proper
       <div className="p-6 md:p-8">
         <h3
           className="text-[17px] mb-3"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+          style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
         >
           {blog.comingSoon ? (
             blog.title
@@ -1013,7 +1013,7 @@ function BlogCard({ blog, palette }: { blog: SustainabilityBlog; palette: Proper
         </h3>
         <p
           className="text-[13px] leading-[1.7]"
-          style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+          style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
         >
           {blog.excerpt}
         </p>
@@ -1054,13 +1054,13 @@ function SustainabilityVoices({
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             {sectionMeta.heading}
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             {sectionMeta.description}
           </p>
@@ -1110,13 +1110,13 @@ function SustainabilityVoices({
               <div className="p-6 md:p-8">
                 <h3
                   className="text-[17px] mb-1"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
                 >
                   {video.title}
                 </h3>
                 <p
                   className="text-[13px] leading-[1.7] mt-3"
-                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                  style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                 >
                   {video.description}
                 </p>
@@ -1181,7 +1181,7 @@ function StoriesOfStewardshipSection({
               </p>
               <h2
                 className="text-2xl md:text-3xl lg:text-4xl tracking-wide"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
               >
                 Stories of Stewardship
               </h2>
@@ -1498,13 +1498,13 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             Four Pillars of Action
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-10"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             From reforestation to zero-waste operations — the environmental commitments that define how Nayara operates.
           </p>
@@ -1524,7 +1524,7 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
                 letterSpacing: "0.04em",
                 borderRadius: "8px",
                 backgroundColor: activePillar === i ? palette.primary : BRAND.bone,
-                color: activePillar === i ? "#fff" : BRAND.secondaryText,
+                color: activePillar === i ? "#fff" : "#E6DFD5",
                 border: `1px solid ${activePillar === i ? palette.primary : BRAND.divider}`,
               }}
             >
@@ -1548,13 +1548,13 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
           <div className="lg:col-span-4">
             <h3
               className="text-xl md:text-2xl tracking-wide mb-3"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
             >
               {current.title}
             </h3>
             <p
               className="text-[14px] leading-[1.7] mb-8"
-              style={{ fontFamily: "var(--font-body)", color: palette.accent || BRAND.secondaryText }}
+              style={{ fontFamily: "var(--font-body)", color: palette.accent || "#E6DFD5" }}
             >
               {current.subtitle}
             </p>
@@ -1579,7 +1579,7 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
                   </span>
                   <span
                     className="text-[11px] tracking-[0.04em]"
-                    style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                    style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                   >
                     {h.label}
                   </span>
@@ -1596,7 +1596,7 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
                 className="text-[15px] md:text-[16px] leading-[1.85]"
                 style={{
                   fontFamily: "var(--font-body)",
-                  color: BRAND.primaryText,
+                  color: "#E6DFD5",
                   textAlign: "justify",
                   hyphens: "auto" as const,
                 }}
@@ -1653,13 +1653,13 @@ function SocialImpactSection({ palette, impact }: { palette: PropertyPalette; im
               </p>
               <h2
                 className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
               >
                 {impact.headline}
               </h2>
               <p
                 className="text-[15px] leading-[1.8] mb-10"
-                style={{ fontFamily: "var(--font-body)", color: palette.accent || BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: palette.accent || "#E6DFD5" }}
               >
                 {impact.subtitle}
               </p>
@@ -1703,7 +1703,7 @@ function SocialImpactSection({ palette, impact }: { palette: PropertyPalette; im
                   className="text-[15px] md:text-[16px] leading-[1.85]"
                   style={{
                     fontFamily: "var(--font-body)",
-                    color: BRAND.primaryText,
+                    color: "#E6DFD5",
                     textAlign: "justify",
                     hyphens: "auto" as const,
                   }}
@@ -1760,7 +1760,7 @@ function HousingProjectSection({
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             {housing.headline}
           </h2>
@@ -1790,7 +1790,7 @@ function HousingProjectSection({
                   </span>
                   <span
                     className="text-[13px]"
-                    style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                    style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                   >
                     {stat.label}
                   </span>
@@ -1809,7 +1809,7 @@ function HousingProjectSection({
                   className="text-[15px] md:text-[16px] leading-[1.85]"
                   style={{
                     fontFamily: "var(--font-body)",
-                    color: BRAND.primaryText,
+                    color: "#E6DFD5",
                     textAlign: "justify",
                     hyphens: "auto" as const,
                     ...(para.startsWith("“") ? { fontStyle: "italic" as const } : {}),
@@ -1870,7 +1870,7 @@ function EmployeeDevelopmentSection({
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             {dev.headline}
           </h2>
@@ -1885,7 +1885,7 @@ function EmployeeDevelopmentSection({
               className="text-[15px] md:text-[16px] leading-[1.85] mb-4"
               style={{
                 fontFamily: "var(--font-body)",
-                color: BRAND.primaryText,
+                color: "#E6DFD5",
                 ...(para.startsWith("\u201C") ? { fontStyle: "italic" as const } : {}),
               }}
             >
@@ -1913,13 +1913,13 @@ function EmployeeDevelopmentSection({
             >
               <h4
                 className="text-[14px] mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
               >
                 {prog.title}
               </h4>
               <p
                 className="text-[13px] leading-[1.6]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
               >
                 {prog.desc}
               </p>
@@ -2004,13 +2004,13 @@ function CommunityProgramsSection({ palette, programs }: { palette: PropertyPale
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             Beyond Our Gates
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             Active partnerships and programs that strengthen the social fabric of La Fortuna and the broader Arenal community.
           </p>
@@ -2067,13 +2067,13 @@ function CommunityProgramsSection({ palette, programs }: { palette: PropertyPale
                 </div>
                 <h4
                   className="text-[15px] mb-3"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
                 >
                   {prog.title}
                 </h4>
                 <p
                   className="text-[13px] leading-[1.7]"
-                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                  style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                 >
                   {prog.desc}
                 </p>
@@ -2109,7 +2109,7 @@ function CarbonOffsetSection({ palette, offset }: { palette: PropertyPalette; of
               </p>
               <h2
                 className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
               >
                 {offset.headline}
               </h2>
@@ -2125,13 +2125,13 @@ function CarbonOffsetSection({ palette, offset }: { palette: PropertyPalette; of
               >
                 <h4
                   className="text-[15px] mb-2"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
                 >
                   {offset.partnerName}
                 </h4>
                 <p
                   className="text-[13px] leading-[1.7]"
-                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                  style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                 >
                   {offset.partnerDesc}
                 </p>
@@ -2154,7 +2154,7 @@ function CarbonOffsetSection({ palette, offset }: { palette: PropertyPalette; of
                 </p>
                 <p
                   className="text-[13px] leading-[1.7]"
-                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                  style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                 >
                   {offset.guestProgram}
                 </p>
@@ -2171,7 +2171,7 @@ function CarbonOffsetSection({ palette, offset }: { palette: PropertyPalette; of
                   className="text-[15px] md:text-[16px] leading-[1.85]"
                   style={{
                     fontFamily: "var(--font-body)",
-                    color: BRAND.primaryText,
+                    color: "#E6DFD5",
                     textAlign: "justify",
                     hyphens: "auto" as const,
                   }}
@@ -2205,13 +2205,13 @@ function GovernanceSection({ palette, items }: { palette: PropertyPalette; items
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             Structure & Accountability
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             Transparent governance structures ensure every sustainability commitment is measured, verified, and continuously improved.
           </p>
@@ -2232,13 +2232,13 @@ function GovernanceSection({ palette, items }: { palette: PropertyPalette; items
             >
               <h4
                 className="text-[17px] mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
               >
                 {item.title}
               </h4>
               <p
                 className="text-[14px] leading-[1.75]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
               >
                 {item.desc}
               </p>
@@ -2280,13 +2280,13 @@ function SDGSection({ palette, sdgs }: { palette: PropertyPalette; sdgs: SDGAlig
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             UN Sustainable Development Goals
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             Our sustainability practices align with six of the United Nations Sustainable Development Goals — connecting local action to global impact.
           </p>
@@ -2319,14 +2319,14 @@ function SDGSection({ palette, sdgs }: { palette: PropertyPalette; sdgs: SDGAlig
                   </span>
                   <h4
                     className="text-[15px]"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
                   >
                     {sdg.title}
                   </h4>
                 </div>
                 <p
                   className="text-[13px] leading-[1.7]"
-                  style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                  style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                 >
                   {sdg.desc}
                 </p>
@@ -2363,13 +2363,13 @@ function AwarenessSection({
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
           >
             {awareness.headline}
           </h2>
           <p
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
             Sustainability is a shared responsibility — these programs invite guests and staff to participate directly.
           </p>
@@ -2390,13 +2390,13 @@ function AwarenessSection({
             >
               <h4
                 className="text-[15px] mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
               >
                 {event.title}
               </h4>
               <p
                 className="text-[13px] leading-[1.7]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
               >
                 {event.desc}
               </p>
@@ -2452,14 +2452,14 @@ function FeaturedGreenGlobeSection({
 
               <h2
                 className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
               >
                 Global Sustainability Standard
               </h2>
 
               <p
                 className="text-[15px] leading-[1.8] mb-6"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
               >
                 {greenGlobe.desc || "Our commitment to environmental and social responsibility is validated by the world's leading certification for sustainable tourism."}
               </p>
@@ -2499,13 +2499,13 @@ function FeaturedGreenGlobeSection({
                 </p>
                 <h3
                   className="text-xl md:text-2xl mb-6"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
                 >
                   Certified Excellence in Sustainable Tourism
                 </h3>
                 <p
                   className="text-[15px] leading-[1.8] mb-6"
-                  style={{ fontFamily: "var(--font-body)", color: BRAND.primaryText }}
+                  style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                 >
                   Green Globe certification validates our environmental management, social responsibility, and economic viability. It's a rigorous assessment that ensures we're meeting the highest international standards for sustainable hospitality.
                 </p>
@@ -2525,7 +2525,7 @@ function FeaturedGreenGlobeSection({
                       </span>
                       <span
                         className="text-[14px] leading-[1.6]"
-                        style={{ fontFamily: "var(--font-body)", color: BRAND.primaryText }}
+                        style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
                       >
                         {item}
                       </span>
