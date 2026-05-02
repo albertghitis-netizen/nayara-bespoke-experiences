@@ -61,7 +61,7 @@ export default function BrandNavigation({
   const propertyPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(propertySlug)
     ? getPalette(propertySlug)
     : null;
-  const dk = navPalette?.dark ?? (propertyPalette ? "#3B2B26" : "#3B2B26");  // Dark brown for hamburger icon
+  const dk = navPalette?.dark ?? (propertyPalette?.navPillBg ? "#fff" : "#fff");
   const pillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : "rgba(59,43,38,0.8)");
   const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(59,43,38,0.95)");
   
