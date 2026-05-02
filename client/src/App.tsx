@@ -68,6 +68,7 @@ const AtacamaWinterRomanceBlog = lazy(() => import("./pages/AtacamaWinterRomance
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+const Staff = lazy(() => import("./pages/Staff"));
 // const Sharalynn = lazy(() => import("./pages/Sharalynn")); // ARCHIVED: Can be restored if needed
 const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
 
@@ -288,6 +289,7 @@ function Router() {
           <Route path="/blog/atacama-winter-romance" component={AtacamaWinterRomanceBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/gallery" component={Gallery} />
+          <Route path="/staff" component={Staff} />
 
           {/* ── Internal / Private pages ── */}
           {/* ARCHIVED ROUTES: /internal-brandbook and /internal-henry - Component files still exist */}

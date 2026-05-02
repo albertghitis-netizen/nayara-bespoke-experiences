@@ -3307,3 +3307,10 @@
 - [ ] Create FAQ page/pages with extracted content
 - [ ] Test gallery with night images
 - [ ] Verify blog content completeness
+
+
+## Staff Page
+- [x] Upload all 56 staff photos to CDN
+- [x] Create Staff page component with responsive grid layout (1/2/3/4 columns by breakpoint)
+- [x] Add Staff route to App.tsx
+- [x] Test Staff page rendering and verify all photos display

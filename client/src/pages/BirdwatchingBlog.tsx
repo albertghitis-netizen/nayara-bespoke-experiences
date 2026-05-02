@@ -397,6 +397,29 @@ export default function BirdwatchingBlog() {
         </div>
       </section>
 
+      {/* Sources & Further Reading */}
+      <section className="py-20 px-6 md:px-10 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-light mb-8" style={{ fontFamily: "var(--font-display)" }}>
+            Sources & Further Reading
+          </h2>
+          <div className="space-y-4">
+            <p className="text-gray-700 leading-relaxed">
+              For more information about the topics covered in this article, we recommend exploring the following resources:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <li>Nayara Resorts official sustainability report</li>
+              <li>Local conservation organizations in Costa Rica, Chile, Panama, and Easter Island</li>
+              <li>UNESCO World Heritage Site documentation</li>
+              <li>Academic research on tropical ecosystems and cultural preservation</li>
+              <li>Industry publications on luxury sustainable tourism</li>
+            </ul>
+            <p className="text-gray-600 text-sm mt-6 italic">
+              Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+          </div>
+        </div>
+      </section>
       <Footer />
     </div>
   );
