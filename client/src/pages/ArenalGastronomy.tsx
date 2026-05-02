@@ -8,6 +8,7 @@ import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import { restaurants, getAllCulinaryImages, type CulinaryImage } from "@/data/culinaryImages";
@@ -51,23 +52,24 @@ export default function ArenalGastronomy() {
 /* ═══════════════════════════════════════════════════════════════
    HERO — Full-bleed image with "Forest to Table"
    ═══════════════════════════════════════════════════════════════ */
-const GASTRO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4";
+const GASTRO_CDN_ARENAL = {
+  heroVideoMobile: "/manus-storage/gastronomy-mobile-hero-v2_f219aa4a.mp4",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4",
+};
 
 function HeroSection() {
+  const isMobile = useIsMobile();
   return (
-    <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden bg-[#1a1410]">
       {/* Hero Video */}
       <div className="absolute inset-0">
         <NativeVideo
-          src={GASTRO_VIDEO}
+          src={isMobile ? GASTRO_CDN_ARENAL.heroVideoMobile : GASTRO_CDN_ARENAL.heroVideo}
           className="w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
+          loop={!isMobile}
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
 
       {/* Content — just the title, positioned lower */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
