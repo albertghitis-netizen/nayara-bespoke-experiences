@@ -26,13 +26,13 @@ import {
 import { useCountUp } from "@/hooks/useCountUp";
 import { useIsMobile } from "@/hooks/useMobile";
 
-/* ── Palette (Springs Mineral) ── */
+/* ── Palette (Springs Eucalyptus & Mint) ── */
 const P = {
-  primary: "#3B6E7B",
-  secondary: "#5A6F7B",
-  accent: "#86898C",
+  primary: "#5F7367",          // Standard Eucalyptus
+  secondary: "#4B6358",        // Dark Eucalyptus
+  accent: "#3EB489",           // Standard Mint
   bg: "#F7F5F0",
-  bgTint: "#E4EDEB",
+  bgTint: "#E8F3EF",           // Light Eucalyptus tint
   text: "#3B2B26",
   textSecondary: "#67737C",
   textTertiary: "#9A9086",
@@ -73,7 +73,7 @@ const MOMENTS = [
     propertyRoute: "/gardens/experiences",
     description: "Cross suspended bridges through the rainforest canopy, spotting toucans and howler monkeys. A shared excursion available to all guests.",
     image: `${CDN}/hanging-bridges-photo_a49dba00.jpeg`,
-    accent: "#868B75",
+    accent: "#3EB489",
   },
   {
     time: "1:00 PM",
@@ -103,7 +103,7 @@ const MOMENTS = [
     propertyRoute: "/tented-camp",
     description: "End the day at Tented Camp's volcanic ridge, where safari-style luxury meets the golden hour. Cocktails at Lapas Bar as the sun sets behind Arenal.",
     image: `${CDN}/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG`,
-    accent: "#868B75",
+    accent: "#3EB489",
   },
 ];
 

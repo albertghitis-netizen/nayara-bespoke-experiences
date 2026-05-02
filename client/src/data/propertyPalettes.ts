@@ -81,19 +81,19 @@ export const palettes: Record<string, PropertyPalette> = {
     navPillText: "#F7F5F0",
   },
 
-  /* --- SPRINGS --- Sage/Eucalyptus (#96A78D) --- */
+  /* --- SPRINGS — Eucalyptus & Mint --- */
   springs: {
-    primary: "#96A78D",          // Sage/Eucalyptus (primary)
-    secondary: "#7A8B7C",        // Dark Sage
-    accent: "#B0BFA8",           // Light Sage
+    primary: "#5F7367",          // Standard Eucalyptus (middle — accents, buttons)
+    secondary: "#4B6358",        // Dark Eucalyptus (nav, footer)
+    accent: "#3EB489",           // Standard Mint (bright highlights)
     gradientStart: "#F7F5F0",
-    gradientEnd: "#EEF1EB",     // sage tint
-    buttonBg: "#96A78D",        // Sage/Eucalyptus
-    buttonText: "#F7F5F0",
-    footerBg: "#96A78D",        // Sage/Eucalyptus (primary)
-    footerText: "#F7F5F0",      // Bone
-    navPillBg: "#96A78D",       // Sage/Eucalyptus
-    navPillText: "#F7F5F0",
+    gradientEnd: "#E8F3EF",     // Light Eucalyptus tint
+    buttonBg: "#5F7367",        // Standard Eucalyptus
+    buttonText: "#FFFFFF",       // White for contrast
+    footerBg: "#4B6358",        // Dark Eucalyptus (darker for footer)
+    footerText: "#FFFFFF",      // White
+    navPillBg: "#4B6358",       // Dark Eucalyptus (darker for nav)
+    navPillText: "#FFFFFF",
   },
 
   /* ─── BOCAS DEL TORO — Aqua (#008E97) ─── */

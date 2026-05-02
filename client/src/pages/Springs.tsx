@@ -40,15 +40,15 @@ import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchem
 const springs = properties.find((p: Property) => p.id === "springs")!;
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE — "Sage Mineral Springs"
+   PALETTE — Eucalyptus & Mint
    ═══════════════════════════════════════════════════════════════ */
-/* Sage/Eucalyptus palette — warm, mineral-inspired greens */
+/* Eucalyptus (cool, silvery green) + Mint (bright, refreshing) */
 const PALETTE = {
-  primary: "#96A78D",           // Eucalyptus (primary)
-  secondary: "#7C8471",         // Thyme (secondary)
-  accent: "#728076",            // Smoke green (accent)
+  primary: "#5F7367",           // Standard Eucalyptus (middle — buttons, accents)
+  secondary: "#4B6358",         // Dark Eucalyptus (nav, footer)
+  accent: "#3EB489",            // Standard Mint (bright highlights)
   gradientStart: "#F7F5F0",     // Bone (background)
-  gradientEnd: "#EDEEE2",       // Warm olive tint
+  gradientEnd: "#E8F3EF",       // Light Eucalyptus tint
   text: "#1A0F0A",
   textSecondary: "#1A0F0A",
   textTertiary: "#1A0F0A99",
@@ -215,7 +215,7 @@ export default function Springs() {
       />
 
 
-      <Footer bgColor="#3B6E7B" />
+      <Footer bgColor={PALETTE.secondary} />
     </div>
   );
 }
@@ -236,7 +236,7 @@ function HeroSection() {
           src={CDN.heroDesktop}
           className="w-full h-full object-cover"
           hasAudio={true}
-          pillBg="#3B6E7BB3"
+          pillBg={`${PALETTE.secondary}B3`}
           pillColor="#F7F5F0"/>
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
