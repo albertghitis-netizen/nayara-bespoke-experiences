@@ -35,7 +35,7 @@ const CDN = {
 };
 
 export default function Experiences() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
+  const [activeHotel, setActiveHotel] = useState("gardens");
 
   /* Aggregate all excursions with property metadata */
   const allExcursions = useMemo(() => {

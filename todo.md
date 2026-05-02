@@ -3189,3 +3189,11 @@
 - [x] Verify all blog links use correct /blog/ routes
 - [x] Test TypeScript compilation (0 errors)
 - [x] Verify page renders correctly in browser
+
+## On-Property Nature Clips + Rio Celeste Video
+- [ ] Add 3 on-property nature clips (Birdwatching, Botanical Hike, Finding Tony) to Gardens brand experi- [x] Add 3 on-property nature clips (Birdwatching, Botanical Hike, Finding Tony) to Gardens, Tented Camp, and Springs brand experience pageson-property nature clips (Birdwatching, Botanical Hike, Finding Tony) to Springs brand experience page
+- [ ] Process and upload Rio Celeste video to CDN
+- [x] Add Rio Celeste video to the experiences page
+- [x] Swap Gardens to first position (where Atacama is) on the experiences page
+- [x] Process and upload La Fortuna Waterfall video to CDN
+- [x] Add La Fortuna Waterfall video to the experiences page

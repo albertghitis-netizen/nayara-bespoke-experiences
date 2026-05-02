@@ -6,11 +6,11 @@
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 const HOTEL_OPTIONS = [
-  { id: "alto-atacama", label: "Alto Atacama" },
-  { id: "bocas-del-toro", label: "Bocas del Toro" },
   { id: "gardens", label: "Gardens" },
-  { id: "hangaroa", label: "Hangaroa" },
+  { id: "bocas-del-toro", label: "Bocas del Toro" },
   { id: "springs", label: "Springs" },
+  { id: "hangaroa", label: "Hangaroa" },
+  { id: "alto-atacama", label: "Alto Atacama" },
   { id: "tented-camp", label: "Tented Camp" },
 ];
 
