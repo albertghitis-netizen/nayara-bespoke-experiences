@@ -32,7 +32,6 @@ export const springsGallery: GalleryItem[] = [
   { id: "spr-s2", src: `${CDN}/123_739860cc.jpg`, alt: "Rainforest boardwalk", type: "image", orientation: "landscape", tags: ["story", "s2"] },
   { id: "spr-s3", src: `${CDN}/springs-s3-robe-canopy_c9c365ff.jpg`, alt: "Canopy villa", type: "image", orientation: "portrait", tags: ["rooms", "s3"] },
   { id: "spr-s4", src: `${CDN}/61_0020df3e.jpg`, alt: "Aerial villa view", type: "image", orientation: "landscape", tags: ["rooms", "s4"] },
-  { id: "spr-michelin", src: `${CDN}/michelin-3-keys_10864925.png`, alt: "Michelin 3 Keys", type: "image", orientation: "square", tags: ["awards"] },
   { id: "spr-ex1", src: `${CDN}/Untitleddesign-3_e394353d.jpg`, alt: "Wildlife monkey", type: "image", orientation: "square", tags: ["wildlife"] },
   { id: "spr-ex2", src: `${CDN}/Untitleddesign-5_f4b0874c.jpg`, alt: "Jungle pathway", type: "image", orientation: "square", tags: ["nature"] },
   { id: "spr-ex3", src: `${CDN}/Untitleddesign-14_6b456af8.jpg`, alt: "Tropical bird", type: "image", orientation: "square", tags: ["wildlife"] },

@@ -3294,3 +3294,16 @@
 - [ ] Verify OrganizationSchema rendering in Search Console
 - [ ] Verify BreadcrumbListSchema rendering in Search Console
 - [ ] Verify ArticleSchema rendering in Search Console
+
+
+## Gallery & Blog Refinement (In Progress)
+- [ ] Receive Nayara by Night images from user
+- [ ] Integrate all Nayara by Night images into gallery data
+- [ ] Remove all duplicate assets from gallery
+- [ ] Spread night images evenly throughout gallery
+- [x] Remove Michelin 3 Keys image
+- [ ] Add back Sources & Further Reading sections to all 30 blogs
+- [ ] Extract FAQ data from blog content
+- [ ] Create FAQ page/pages with extracted content
+- [ ] Test gallery with night images
+- [ ] Verify blog content completeness
