@@ -49,7 +49,7 @@ export default function BocasExperiences() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero />
       <ExperiencesContent />
-      <Footer pageType="property" bgColor="#008E97" />
+      <Footer pageType="property" bgColor="#008E97" />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

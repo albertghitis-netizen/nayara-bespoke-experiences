@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

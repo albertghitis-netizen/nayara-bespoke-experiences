@@ -44,7 +44,7 @@ export default function TentedCampSustainability() {
       <GreenGlobeSection />
       <VideoSection />
       <JournalSection />
-      <Footer pageType="property" bgColor="#868B75" />
+      <Footer pageType="property" bgColor="#868B75" />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

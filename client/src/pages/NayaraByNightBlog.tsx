@@ -287,7 +287,7 @@ export default function NayaraByNightBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

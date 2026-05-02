@@ -263,7 +263,7 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
         </>
       )}
 
-      <Footer pageType="property" bgColor={palette.footerBg} />
+      <Footer pageType="property" bgColor={palette.footerBg} />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function Wildlife() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <HeroSection />
       <ContentPlaceholder />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

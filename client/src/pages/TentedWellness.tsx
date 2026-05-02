@@ -127,7 +127,7 @@ export default function BrandWellness() {
       <BlogLinkSection palette={palette} />
       <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} label="Explore by Hotel" />
       <TreatmentsSection treatments={filtered} palette={palette} />
-      <Footer bgColor={palette.footerBg} textColor={palette.footerText} />
+      <Footer bgColor={palette.footerBg} textColor={palette.footerText} />textColor="#FFFFFF" />
     </div>
   );
 }

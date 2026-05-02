@@ -322,7 +322,7 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
       </section>
 
       {/* ── 10. FOOTER ── */}
-      <Footer pageType="brand" />
+      <Footer pageType="brand" />textColor="#FFFFFF" />
     </div>
   );
 }

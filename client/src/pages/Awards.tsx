@@ -452,7 +452,7 @@ export default function Awards() {
 
       {/* ── Footer ── */}
       <ContentCrossLinks currentPage="awards" />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

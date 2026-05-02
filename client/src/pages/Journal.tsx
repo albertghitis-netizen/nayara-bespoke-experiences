@@ -211,7 +211,7 @@ export default function Journal() {
       </section>
 
       <ContentCrossLinks currentPage="journal" />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

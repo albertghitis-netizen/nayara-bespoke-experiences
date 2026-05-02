@@ -867,7 +867,7 @@ export default function AltoAtacama() {
       <ReviewsBreak bgColor={LIGHT} />
       <GettingHereSection />
       <ReserveCTA />
-      <Footer bgColor={MIDDLE} />
+      <Footer bgColor={MIDDLE} />textColor="#FFFFFF" />
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function AllDestinations() {
           Our complete destination guide is being curated. Check back soon.
         </p>
       </section>
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

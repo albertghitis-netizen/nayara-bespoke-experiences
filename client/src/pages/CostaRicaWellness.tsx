@@ -78,7 +78,7 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
       <ScrollingPillarHeader word="NATURE-BASED WELLNESS" color={palette.primary} bgColor={palette.gradientStart} />
       <WellnessIntro palette={palette} spaSubheadline={property.theme.spaSubheadline} />
       <WellnessContent property={property} palette={palette} />
-      <Footer pageType="property" bgColor={palette.footerBg} />
+      <Footer pageType="property" bgColor={palette.footerBg} />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

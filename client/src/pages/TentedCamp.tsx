@@ -1394,7 +1394,7 @@ export default function TentedCamp() {
       {/* ★ Getting Here below Reviews */}
       <GettingHereBreak bgColor="#D5D9C4" />
       <ReserveCTA />
-      <Footer bgColor="#868B75" />
+      <Footer bgColor="#868B75" />textColor="#FFFFFF" />
     </div>
   );
 }

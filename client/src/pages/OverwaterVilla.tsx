@@ -81,7 +81,7 @@ export default function OverwaterVilla() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

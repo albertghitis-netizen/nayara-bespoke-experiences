@@ -373,7 +373,7 @@ export default function GreenGlobeBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

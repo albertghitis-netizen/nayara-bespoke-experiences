@@ -79,7 +79,7 @@ export default function Gastronomy() {
       <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} label="Explore Dining" />
       <PropertySections filtered={filtered} navigate={navigate} />
       <CTASection />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

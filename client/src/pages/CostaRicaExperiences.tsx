@@ -106,7 +106,7 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
       ) : (
         <ExperiencesContent property={property} palette={palette} />
       )}
-      <Footer pageType="property" bgColor={palette.footerBg} />
+      <Footer pageType="property" bgColor={palette.footerBg} />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

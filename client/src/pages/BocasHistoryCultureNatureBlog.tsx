@@ -239,7 +239,7 @@ export default function BocasHistoryCultureNatureBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

@@ -37,6 +37,10 @@ export interface PropertyPalette {
   navPillBg: string;
   /** Nav pill text */
   navPillText: string;
+  /** Body text on light backgrounds — super dark brown */
+  bodyText: string;
+  /** Body text on dark backgrounds — super bright white */
+  bodyTextLight: string;
 }
 
 export const BRAND = {
@@ -61,9 +65,11 @@ export const palettes: Record<string, PropertyPalette> = {
     buttonBg: "#868B75",         // Olive Tree
     buttonText: "#F7F5F0",
     footerBg: "#868B75",        // Olive Tree (primary)
-    footerText: "#F7F5F0",      // Bone
+    footerText: "#FFFFFF",      // Super bright white
     navPillBg: "#868B75",        // Olive Tree
-    navPillText: "#F7F5F0",
+    navPillText: "#FFFFFF",      // Super bright white
+    bodyText: "#0D0704",         // Super dark brown on light
+    bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
   /* ─── GARDENS — Clover Green (swatch #12: #286241) ─── */
@@ -76,9 +82,11 @@ export const palettes: Record<string, PropertyPalette> = {
     buttonBg: "#286241",         // Clover Green
     buttonText: "#F7F5F0",
     footerBg: "#286241",        // Clover Green
-    footerText: "#F7F5F0",      // Bone
+    footerText: "#FFFFFF",      // Super bright white
     navPillBg: "#286241",        // Clover Green
-    navPillText: "#F7F5F0",
+    navPillText: "#FFFFFF",      // Super bright white
+    bodyText: "#0D0704",         // Super dark brown on light
+    bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
   /* --- SPRINGS — Eucalyptus & Mint --- */
@@ -91,9 +99,11 @@ export const palettes: Record<string, PropertyPalette> = {
     buttonBg: "#5F7367",        // Standard Eucalyptus
     buttonText: "#FFFFFF",       // White for contrast
     footerBg: "#4B6358",        // Dark Eucalyptus (darker for footer)
-    footerText: "#FFFFFF",      // White
+    footerText: "#FFFFFF",      // Super bright white
     navPillBg: "#4B6358",       // Dark Eucalyptus (darker for nav)
-    navPillText: "#FFFFFF",
+    navPillText: "#FFFFFF",      // Super bright white
+    bodyText: "#0D0704",         // Super dark brown on light
+    bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
   /* ─── BOCAS DEL TORO — Aqua (#008E97) ─── */
@@ -106,9 +116,11 @@ export const palettes: Record<string, PropertyPalette> = {
     buttonBg: "#008E97",         // Aqua
     buttonText: "#FFFFFF",
     footerBg: "#008E97",        // Aqua (matches nav)
-    footerText: "#FFFFFF",      // White
+    footerText: "#FFFFFF",      // Super bright white
     navPillBg: "#008E97",        // Aqua
-    navPillText: "#FFFFFF",
+    navPillText: "#FFFFFF",      // Super bright white
+    bodyText: "#0D0704",         // Super dark brown on light
+    bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
   /* ─── ALTO ATACAMA — Terracotta (swatch #7: #6F463D) ─── */
@@ -121,9 +133,11 @@ export const palettes: Record<string, PropertyPalette> = {
     buttonBg: "#6F463D",        // Terracotta
     buttonText: "#F7F5F0",
     footerBg: "#6F463D",        // Terracotta (matches nav)
-    footerText: "#F7F5F0",      // Bone
+    footerText: "#FFFFFF",      // Super bright white
     navPillBg: "#B85C3C",        // Middle terracotta
-    navPillText: "#FFFFFF",
+    navPillText: "#FFFFFF",      // Super bright white
+    bodyText: "#0D0704",         // Super dark brown on light
+    bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
   /* ─── HANGAROA — Steel Blue (swatch #24: #536878) ─── */
@@ -136,9 +150,11 @@ export const palettes: Record<string, PropertyPalette> = {
     buttonBg: "#536878",         // Steel Blue
     buttonText: "#F7F5F0",
     footerBg: "#536878",        // Steel Blue (matches nav)
-    footerText: "#F7F5F0",      // Bone
+    footerText: "#FFFFFF",      // Super bright white
     navPillBg: "#536878",        // Steel Blue
-    navPillText: "#F7F5F0",
+    navPillText: "#FFFFFF",      // Super bright white
+    bodyText: "#0D0704",         // Super dark brown on light
+    bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 };
 

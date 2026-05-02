@@ -74,7 +74,7 @@ export default function AtacamaSustainability() {
       <ByTheNumbersSection />
       <BlogCardsSection />
       <JournalSection />
-      <Footer pageType="property" bgColor="#6F463D" />
+      <Footer pageType="property" bgColor="#6F463D" />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

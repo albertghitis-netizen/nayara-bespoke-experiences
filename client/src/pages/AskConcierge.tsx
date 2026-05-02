@@ -239,7 +239,7 @@ export default function AskConcierge() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
 
       {/* The floating chat widget is already on all pages via App.tsx */}
     </div>

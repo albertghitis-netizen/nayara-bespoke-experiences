@@ -300,7 +300,7 @@ export default function NayaraBocasResortExperienceBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

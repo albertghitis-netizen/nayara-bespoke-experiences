@@ -451,7 +451,7 @@ export default function ReforestationWildlifeBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

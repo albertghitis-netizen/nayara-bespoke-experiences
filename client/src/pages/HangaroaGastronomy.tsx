@@ -43,7 +43,7 @@ export default function HangaroaGastronomy() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero />
       <GastronomyContent />
-      <Footer pageType="property" bgColor="#536878" />
+      <Footer pageType="property" bgColor="#536878" />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

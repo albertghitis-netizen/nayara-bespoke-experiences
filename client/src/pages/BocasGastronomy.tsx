@@ -45,7 +45,7 @@ export default function BocasGastronomy() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero />
       <GastronomyContent />
-      <Footer pageType="property" bgColor="#008E97" />
+      <Footer pageType="property" bgColor="#008E97" />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

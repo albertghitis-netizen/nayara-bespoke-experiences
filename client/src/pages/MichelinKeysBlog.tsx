@@ -310,7 +310,7 @@ export default function MichelinKeysBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

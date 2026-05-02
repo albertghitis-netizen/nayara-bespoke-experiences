@@ -105,6 +105,13 @@
 
 :root {
   --radius: 0.25rem;
+  
+  /* ═══════════════════════════════════════════════════
+     GLOBAL TEXT COLORS — Dark/Light Contrast System
+     ═══════════════════════════════════════════════════ */
+  --text-dark: #0D0704;                         /* Super dark brown on light backgrounds */
+  --text-light: #FFFFFF;                        /* Super bright white on dark backgrounds */
+  
   /* Brand foundation — Official 36-Color Swatch Palette */
   --background: oklch(0.970 0.007 88.7);       /* Warm White #F7F5F0 */
   --foreground: oklch(0.306 0.026 38.0);       /* Espresso #3B2B26 */

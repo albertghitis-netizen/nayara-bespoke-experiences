@@ -225,7 +225,7 @@ export default function BocasCondeNastAwardBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

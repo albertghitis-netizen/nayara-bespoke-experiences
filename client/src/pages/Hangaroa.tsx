@@ -222,7 +222,7 @@ export default function Hangaroa() {
       {/* <GalleryIntegratedSections /> */}
       {/* ★ 6. NAYARA BY NIGHT */}
       <NayaraByNightSection />
-      <Footer bgColor="#536878" />
+      <Footer bgColor="#536878" />textColor="#FFFFFF" />
     </div>
   );
 }

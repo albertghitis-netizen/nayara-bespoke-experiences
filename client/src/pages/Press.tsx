@@ -204,7 +204,7 @@ export default function Press() {
       </div>
 
       <ContentCrossLinks currentPage="press" />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

@@ -30,7 +30,7 @@ export default function AylaRestaurant() {
       <IntroSection restaurant={restaurant} />
       <GallerySection restaurant={restaurant} />
       <CTASection />
-      <Footer pageType="property" bgColor={palette.primary} />
+      <Footer pageType="property" bgColor={palette.primary} />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

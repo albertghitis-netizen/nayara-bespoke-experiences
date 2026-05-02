@@ -54,7 +54,7 @@ interface FooterProps {
   textColor?: string;
 }
 
-export default function Footer({ pageType = "brand", bgColor, textColor = "#F7F5F0" }: FooterProps) {
+export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFFFF" }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
   const leafRef = useRef<HTMLImageElement>(null);
@@ -161,27 +161,27 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#F7F5
         </div>
 
         {/* Social icons — centered, larger */}
-        <div className="flex items-center justify-center gap-8 mt-6 mb-8">
-          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/80 transition-colors"><InstagramIcon /></a>
-          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/80 transition-colors"><YouTubeIcon /></a>
-          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/80 transition-colors"><FacebookIcon /></a>
-          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/80 transition-colors"><TikTokIcon /></a>
+        <div className="flex items-center justify-center gap-8 mt-6 mb-8" style={{ color: textColor }}>
+          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><InstagramIcon /></a>
+          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><YouTubeIcon /></a>
+          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><FacebookIcon /></a>
+          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><TikTokIcon /></a>
         </div>
 
         {/* Copyright + Privacy */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
           <p
-            className="text-white/60 text-[10px]"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            className="text-[10px]"
+            style={{ color: textColor, opacity: 0.6, fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
           </p>
-          <span className="hidden sm:inline text-white/30">|</span>
+          <span className="hidden sm:inline" style={{ color: textColor, opacity: 0.3 }}>|</span>
           <a
             href="/privacy-policy"
             onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
-            className="text-white/60 text-[10px] hover:text-white transition-colors"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            className="text-[10px] hover:opacity-100 transition-opacity"
+            style={{ color: textColor, opacity: 0.6, fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             Privacy Policy
           </a>

@@ -295,7 +295,7 @@ export default function MayaRapaNuiClimateBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

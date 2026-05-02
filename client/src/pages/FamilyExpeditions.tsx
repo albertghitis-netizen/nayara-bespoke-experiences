@@ -80,7 +80,7 @@ export default function FamilyExpeditions() {
       <FamilyDiningSection />
       <YourPrivateRetreatSection />
       <PropertyLinksSection />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

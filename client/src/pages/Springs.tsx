@@ -49,9 +49,10 @@ const PALETTE = {
   accent: "#3EB489",            // Standard Mint (bright highlights)
   gradientStart: "#F7F5F0",     // Bone (background)
   gradientEnd: "#E8F3EF",       // Light Eucalyptus tint
-  text: "#1A0F0A",
-  textSecondary: "#1A0F0A",
-  textTertiary: "#1A0F0A99",
+  text: "#0D0704",           // Super dark brown on light backgrounds
+  textSecondary: "#0D0704",
+  textTertiary: "#0D070499",
+  textLight: "#FFFFFF",        // Super bright white on dark backgrounds
   divider: "#E6DFD5",
 };
 
@@ -96,7 +97,7 @@ const SLIDER_PALETTE = {
   cardBorder: `${PALETTE.primary}15`,
   pillBg: `${PALETTE.primary}08`,
   pillActiveBg: PALETTE.primary,
-  pillActiveText: "#F7F5F0",
+  pillActiveText: "#FFFFFF",    // Super bright white on dark nav
 };
 
 const roomCards = [
@@ -215,7 +216,7 @@ export default function Springs() {
       />
 
 
-      <Footer bgColor={PALETTE.secondary} />
+      <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

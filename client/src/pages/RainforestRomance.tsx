@@ -76,7 +76,7 @@ export default function RainforestRomance() {
       <HeroSection />
       <TeaserSection />
       <GallerySection />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

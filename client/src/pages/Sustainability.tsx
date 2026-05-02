@@ -163,7 +163,7 @@ export default function Sustainability() {
         propertyRoute={currentInitiative?.route || "/"}
       />
       <CTASection />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

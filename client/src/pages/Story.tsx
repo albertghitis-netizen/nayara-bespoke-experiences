@@ -19,7 +19,7 @@ export default function Story() {
           This page is being prepared. Check back soon.
         </p>
       </section>
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

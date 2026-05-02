@@ -420,7 +420,7 @@ export default function BirdwatchingBlog() {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

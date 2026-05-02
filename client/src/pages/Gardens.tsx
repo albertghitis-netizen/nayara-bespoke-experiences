@@ -235,7 +235,7 @@ export default function Gardens() {
       {/* <GalleryIntegratedSections /> */}
 
 
-      <Footer bgColor="#286241" />
+      <Footer bgColor="#286241" />textColor="#FFFFFF" />
     </div>
   );
 }

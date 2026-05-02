@@ -74,8 +74,8 @@ export default function BrandNavigation({
     "tented-camp-sustainability", // Beyond Sustainability
   ];
   const isCR = costaRicaRoutes.includes(propertySlug);
-  const textColor = isCR ? "#868B75" : "#3B2B26";
-  const textColorMuted = isCR ? "#868B75" : "#3B2B26";
+  const textColor = "#FFFFFF";  // Super bright white for nav
+  const textColorMuted = "#FFFFFF";  // Super bright white for nav
   const hoverBg = isCR ? "#868B75/10" : "#d4c9b8/40";
   const borderColor = isCR ? "#868B75/10" : "#3B2B26/10";
   const pillBgCR = isCR ? "#868B7599" : "rgba(59,43,38,0.8)";
@@ -172,7 +172,7 @@ export default function BrandNavigation({
   const menuText = {
     fontFamily: "var(--font-body)",
     fontWeight: 500 as const,
-    color: textColor,
+    color: "#FFFFFF",  // Super bright white
   };
 
   const dropdownAnim = {

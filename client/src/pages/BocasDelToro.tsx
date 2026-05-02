@@ -841,7 +841,7 @@ export default function BocasDelToro() {
 
       <GettingHereBreak bgColor="#C8DFF0" />
       <ReserveCTA />
-      <Footer bgColor="#008E97" />
+      <Footer bgColor="#008E97" />textColor="#FFFFFF" />
     </div>
   );
 }

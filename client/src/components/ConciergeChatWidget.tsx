@@ -42,8 +42,8 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
   const slug = loc.split("/")[1] || "";
   const autoPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
     ? getPalette(slug) : null;
-  const dk = palette?.dark ?? (autoPalette ? "#fff" : "#fff");
-  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : "rgba(59,43,38,0.8)");
+  const dk = palette?.dark ?? (autoPalette ? autoPalette.navPillText : "#FFFFFF");  // Match nav pill text color
+  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : "rgba(59,43,38,0.8)");  // Match nav pill background
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");

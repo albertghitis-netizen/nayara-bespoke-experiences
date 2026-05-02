@@ -47,7 +47,7 @@ export default function AtacamaWellness() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <WellnessHero />
       <WellnessContent />
-      <Footer pageType="property" bgColor="#6F463D" />
+      <Footer pageType="property" bgColor="#6F463D" />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

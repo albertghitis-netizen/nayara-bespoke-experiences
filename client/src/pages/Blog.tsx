@@ -72,7 +72,7 @@ export default function Blog() {
       {featuredPost && <FeaturedArticle post={featuredPost} />}
       <ArticleGrid posts={gridPosts} hasMore={hasMore} showAll={showAll} onShowAll={() => setShowAll(true)} totalFiltered={filteredPosts.length} />
       <ContentCrossLinks currentPage="blog" />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

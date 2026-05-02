@@ -397,7 +397,7 @@ export default function WomensEmpowermentBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

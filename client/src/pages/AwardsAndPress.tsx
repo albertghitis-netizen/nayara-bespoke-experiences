@@ -453,7 +453,7 @@ export default function AwardsAndPress() {
         </section>
       )}
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

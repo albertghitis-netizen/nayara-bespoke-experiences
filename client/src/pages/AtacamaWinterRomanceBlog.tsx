@@ -268,7 +268,7 @@ export default function AtacamaWinterRomanceBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

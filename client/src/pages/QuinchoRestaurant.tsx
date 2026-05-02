@@ -36,7 +36,7 @@ export default function QuinchoRestaurant() {
       <IntroSection />
       <OfferingsSection />
       <CTASection />
-      <Footer pageType="property" bgColor={P.primary} />
+      <Footer pageType="property" bgColor={P.primary} />textColor="#FFFFFF" />textColor="#FFFFFF" />
     </div>
   );
 }

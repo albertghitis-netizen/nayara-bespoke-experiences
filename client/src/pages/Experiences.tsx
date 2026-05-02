@@ -61,7 +61,7 @@ export default function Experiences() {
       <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} label="Explore by Hotel" />
       <ExcursionGrid excursions={filtered} />
       <CTASection />
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

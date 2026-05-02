@@ -301,7 +301,7 @@ export default function CaribbeanCoralReefBlog() {
         </div>
       </section>
 
-      <Footer />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }
