@@ -30,6 +30,7 @@ import {
   DURATION,
   EASE_CINEMATIC,
 } from "@/components/motion";
+import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
 
 const hangaroa = properties.find((p: Property) => p.id === "hangaroa")!;
 
@@ -131,6 +132,30 @@ const wellnessCards = hangaroa.treatments.map((t: Treatment) => ({ title: t.name
 export default function Hangaroa() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <LocalBusinessSchema
+        name="Nayara Hangaroa"
+        description="Luxury resort on Easter Island with oceanfront villas, Rapa Nui culture, and archaeological experiences."
+        url="https://nayarahangaroa.com"
+        image="https://nayararesorts.manus.space"
+        address={{
+          streetAddress: "Anakena",
+          addressLocality: "Hanga Roa",
+          addressRegion: "Easter Island",
+          addressCountry: "CL",
+          postalCode: "2770000",
+        }}
+        geo={{
+          latitude: -27.1127,
+          longitude: -109.3497,
+        }}
+        telephone="+56 32 255 3700"
+        email="reservations@hangaroa.cl"
+        awards={["Michelin Guide 2 Keys"]}
+      />
+      <BreadcrumbListSchema items={[
+        { name: "Home", url: "https://nayararesorts.manus.space" },
+        { name: "Nayara Hangaroa", url: "https://nayarahangaroa.com" },
+      ]} />
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />

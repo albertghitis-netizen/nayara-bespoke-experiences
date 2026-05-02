@@ -8,6 +8,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 import BrandNavigation from "@/components/BrandNavigation";
 
 const BOCAS_PALETTE = {
@@ -29,6 +30,13 @@ export default function NayaraBocasResortExperienceBlog() {
 
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: BOCAS_PALETTE.background }}>
+      <EnhancedArticleSchema
+        headline="NayaraBocasResortExperience | Nayara Resorts"
+        description="Discover insights about nayarabocasresortexperience at Nayara Resorts."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-01-01"
+        url="https://nayararesorts.manus.space/blog/nayarabocasresortexperience"
+      />
       <BrandNavigation pageType="brand" hideCenterLabel />
       
       {/* Hero Section */}

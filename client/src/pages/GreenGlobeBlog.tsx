@@ -7,6 +7,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 
 const TENTED_PALETTE = {
   primary: "#8B6F47",
@@ -27,6 +28,13 @@ export default function GreenGlobeBlog() {
 
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: TENTED_PALETTE.background }}>
+      <EnhancedArticleSchema
+        headline="Green Globe Certification: Our Sustainable Hospitality Achievement"
+        description="Discover how Nayara Resorts achieved Green Globe certification through sustainable practices."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-04-05"
+        url="https://nayararesorts.manus.space/blog/greenglobe"
+      />
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div

@@ -7,6 +7,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Footer from "@/components/Footer";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 import BrandNavigation from "@/components/BrandNavigation";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -35,6 +36,13 @@ const atacamaColors = {
 export default function AtacamaWinterRomanceBlog() {
   return (
     <div className="min-h-screen bg-white">
+      <EnhancedArticleSchema
+        headline="AtacamaWinterRomance | Nayara Resorts"
+        description="Discover insights about atacamawinterromance at Nayara Resorts."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-01-01"
+        url="https://nayararesorts.manus.space/blog/atacamawinterromance"
+      />
       <BrandNavigation />
 
       {/* Hero Section - Placeholder for video */}

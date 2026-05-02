@@ -1,4 +1,5 @@
 /*
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
  * WOMEN'S EMPOWERMENT THROUGH HOUSING
  * Editorial blog post about Nayara Tented Camp's housing initiative in La Fortuna
  * Focuses on structural empowerment, community stability, and women's economic security
@@ -7,6 +8,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 
 const TENTED_PALETTE = {
   primary: "#8B6F47",
@@ -27,6 +29,13 @@ export default function WomensEmpowermentBlog() {
 
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: TENTED_PALETTE.background }}>
+      <EnhancedArticleSchema
+        headline="WomensEmpowerment | Nayara Resorts"
+        description="Discover insights about womensempowerment at Nayara Resorts."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-01-01"
+        url="https://nayararesorts.manus.space/blog/womensempowerment"
+      />
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div

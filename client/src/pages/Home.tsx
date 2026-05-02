@@ -11,7 +11,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import BrandNavigation from "@/components/BrandNavigation";
 
 import Footer from "@/components/Footer";
-import { OrganizationSchema } from "@/components/SEOSchema";
+import { EnhancedOrganizationSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
 import { BOOKING_URLS } from "@/data/booking";
 import {
   AnimateOnScroll,
@@ -145,7 +145,10 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
 
-      <OrganizationSchema />
+      <EnhancedOrganizationSchema />
+      <BreadcrumbListSchema items={[
+        { name: "Home", url: "https://nayararesorts.manus.space" },
+      ]} />
       <BrandNavigation pageType="brand" />
       <HeroSection />
       <BrandStorySection />

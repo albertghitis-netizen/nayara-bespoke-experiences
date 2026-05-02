@@ -8,6 +8,7 @@ import { useState, useMemo, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ExternalLink, ChevronDown } from "lucide-react";
 import NativeVideo from "@/components/NativeVideo";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import ContentCrossLinks from "@/components/ContentCrossLinks";
@@ -52,6 +53,13 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white">
+      <EnhancedArticleSchema
+        headline=" | Nayara Resorts"
+        description="Discover insights about  at Nayara Resorts."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-01-01"
+        url="https://nayararesorts.manus.space/blog/"
+      />
       <BrandNavigation pageType="content" />
       <HeroSection />
       <FiltersSection

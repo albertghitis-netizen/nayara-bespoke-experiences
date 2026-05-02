@@ -1,8 +1,16 @@
 import { motion } from "framer-motion";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 
 export default function BlogPost() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100">
+      <EnhancedArticleSchema
+        headline="Wellness by Colors: Chromotherapy at Nayara Resorts"
+        description="Experience the healing power of colors through our unique chromotherapy wellness programs."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-04-20"
+        url="https://nayararesorts.manus.space/blog/wellnessbycolors"
+      />
       {/* Hero Section */}
       <section className="relative h-96 w-full overflow-hidden bg-gradient-to-br from-emerald-600 to-emerald-800">
         <div className="absolute inset-0 bg-black/20" />

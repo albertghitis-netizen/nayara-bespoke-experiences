@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 export default function BlogPost() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100">
+      <EnhancedArticleSchema
+        headline="The Nayara Story: Luxury Rooted in Nature"
+        description="Discover the philosophy and vision behind Nayara Resorts, where luxury meets regenerative tourism."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-01-15"
+        url="https://nayararesorts.manus.space/blog/nayarastory"
+      />
       {/* Hero Section */}
       <section className="relative h-96 w-full overflow-hidden bg-gradient-to-br from-emerald-600 to-emerald-800">
         <div className="absolute inset-0 bg-black/20" />

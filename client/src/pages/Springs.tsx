@@ -35,6 +35,7 @@ import {
   EASE_CINEMATIC,
   EASE_EDITORIAL,
 } from "@/components/motion";
+import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
 
 const springs = properties.find((p: Property) => p.id === "springs")!;
 
@@ -127,6 +128,30 @@ const wellnessCards = springs.treatments.map((t: Treatment) => ({ title: t.name,
 export default function Springs() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <LocalBusinessSchema
+        name="Nayara Springs"
+        description="Adults-only luxury resort with private hot springs villas and volcanic spa experiences in the Arenal region."
+        url="https://nayarasprings.com"
+        image="https://nayararesorts.manus.space"
+        address={{
+          streetAddress: "La Fortuna de San Carlos",
+          addressLocality: "La Fortuna",
+          addressRegion: "Alajuela",
+          addressCountry: "CR",
+          postalCode: "4417",
+        }}
+        geo={{
+          latitude: 10.4645,
+          longitude: -84.6425,
+        }}
+        telephone="+1 888 332 2961"
+        email="reservations@nayararesorts.com"
+        awards={["Michelin Guide 3 Keys", "Condé Nast Traveler Readers' Choice"]}
+      />
+      <BreadcrumbListSchema items={[
+        { name: "Home", url: "https://nayararesorts.manus.space" },
+        { name: "Nayara Springs", url: "https://nayarasprings.com" },
+      ]} />
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />

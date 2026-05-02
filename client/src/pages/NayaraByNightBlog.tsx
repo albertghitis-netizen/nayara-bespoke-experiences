@@ -7,6 +7,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 import BrandNavigation from "@/components/BrandNavigation";
 
 const NIGHT_PALETTE = {
@@ -28,6 +29,13 @@ export default function NayaraByNightBlog() {
 
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: NIGHT_PALETTE.background }}>
+      <EnhancedArticleSchema
+        headline="NayaraByNight | Nayara Resorts"
+        description="Discover insights about nayarabynight at Nayara Resorts."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-01-01"
+        url="https://nayararesorts.manus.space/blog/nayarabynight"
+      />
       <BrandNavigation pageType="brand" hideCenterLabel />
       
       {/* Hero Section */}

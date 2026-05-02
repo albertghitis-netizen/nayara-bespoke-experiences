@@ -23,6 +23,7 @@ import {
   DURATION,
   EASE_CINEMATIC,
 } from "@/components/motion";
+import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
 
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Canopy" gradient: misty green → deep forest

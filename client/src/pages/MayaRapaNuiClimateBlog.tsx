@@ -7,6 +7,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 
 const HANGAROA_PALETTE = {
   primary: "#6B4423",
@@ -27,6 +28,13 @@ export default function MayaRapaNuiClimateBlog() {
 
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: HANGAROA_PALETTE.background }}>
+      <EnhancedArticleSchema
+        headline="MayaRapaNuiClimate | Nayara Resorts"
+        description="Discover insights about mayarapanuiclimate at Nayara Resorts."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-01-01"
+        url="https://nayararesorts.manus.space/blog/mayarapanuiclimate"
+      />
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div

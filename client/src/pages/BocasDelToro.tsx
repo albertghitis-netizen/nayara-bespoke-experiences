@@ -19,6 +19,7 @@ import {
   DURATION,
   EASE_CINEMATIC,
 } from "@/components/motion";
+import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
 
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Ocean" gradient: pale aqua → deep teal
@@ -805,6 +806,30 @@ function ReserveCTA() {
 export default function BocasDelToro() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
+      <LocalBusinessSchema
+        name="Nayara Bocas del Toro"
+        description="Adults-only overwater villas on a private Caribbean island in Panama with bioluminescent bays and coral reefs."
+        url="https://nayarabocasdeltoro.com"
+        image="https://nayararesorts.manus.space"
+        address={{
+          streetAddress: "Isla Colon",
+          addressLocality: "Bocas del Toro",
+          addressRegion: "Bocas del Toro",
+          addressCountry: "PA",
+          postalCode: "0701",
+        }}
+        geo={{
+          latitude: 9.3522,
+          longitude: -82.2384,
+        }}
+        telephone="+507 6500 8888"
+        email="guestexperience@nayarabocasdeltoro.com"
+        awards={["Condé Nast Traveler Readers' Choice Awards 2025"]}
+      />
+      <BreadcrumbListSchema items={[
+        { name: "Home", url: "https://nayararesorts.manus.space" },
+        { name: "Nayara Bocas del Toro", url: "https://nayarabocasdeltoro.com" },
+      ]} />
       <BrandNavigation pageType="property" />
       <HeroSection />
 

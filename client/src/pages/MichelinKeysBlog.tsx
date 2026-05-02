@@ -7,6 +7,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Footer from "@/components/Footer";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 import BrandNavigation from "@/components/BrandNavigation";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -86,6 +87,13 @@ const michelin5Questions = [
 export default function MichelinKeysBlog() {
   return (
     <div className="min-h-screen bg-white">
+      <EnhancedArticleSchema
+        headline="Michelin Keys: Culinary Excellence at Nayara Resorts"
+        description="Explore the award-winning restaurants and farm-to-table dining experiences across our six properties."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-03-10"
+        url="https://nayararesorts.manus.space/blog/michelinkeys"
+      />
       <BrandNavigation />
 
       {/* Hero Section - Placeholder for video */}

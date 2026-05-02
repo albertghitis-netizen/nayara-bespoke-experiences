@@ -36,6 +36,7 @@ import {
   EASE_CINEMATIC,
   EASE_EDITORIAL,
 } from "@/components/motion";
+import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
 
 const gardens = properties.find((p: Property) => p.id === "gardens")!;
 
@@ -144,6 +145,30 @@ const wellnessCards = gardens.treatments.map((t: Treatment) => ({ title: t.name,
 export default function Gardens() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <LocalBusinessSchema
+        name="Nayara Gardens"
+        description="Family-friendly luxury rainforest resort at the foot of Arenal Volcano with lush gardens and nature experiences."
+        url="https://nayaragardens.com"
+        image="https://nayararesorts.manus.space"
+        address={{
+          streetAddress: "La Fortuna de San Carlos",
+          addressLocality: "La Fortuna",
+          addressRegion: "Alajuela",
+          addressCountry: "CR",
+          postalCode: "4417",
+        }}
+        geo={{
+          latitude: 10.465,
+          longitude: -84.643,
+        }}
+        telephone="+1 888 332 2961"
+        email="reservations@nayararesorts.com"
+        awards={["Michelin Guide 2 Keys"]}
+      />
+      <BreadcrumbListSchema items={[
+        { name: "Home", url: "https://nayararesorts.manus.space" },
+        { name: "Nayara Gardens", url: "https://nayaragardens.com" },
+      ]} />
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />

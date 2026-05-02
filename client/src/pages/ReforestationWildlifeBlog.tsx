@@ -8,6 +8,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
+import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 
 const TENTED_PALETTE = {
   primary: "#8B6F47",
@@ -28,6 +29,13 @@ export default function ReforestationWildlifeBlog() {
 
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: TENTED_PALETTE.background }}>
+      <EnhancedArticleSchema
+        headline="ReforestationWildlife | Nayara Resorts"
+        description="Discover insights about reforestationwildlife at Nayara Resorts."
+        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        datePublished="2024-01-01"
+        url="https://nayararesorts.manus.space/blog/reforestationwildlife"
+      />
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <div

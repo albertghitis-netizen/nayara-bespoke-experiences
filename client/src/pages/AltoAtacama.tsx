@@ -22,6 +22,7 @@ import {
   DURATION,
   EASE_CINEMATIC,
 } from "@/components/motion";
+import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
 
 const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
 
@@ -665,6 +666,30 @@ const CASCADE_SECTIONS = [
 export default function AltoAtacama() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
+      <LocalBusinessSchema
+        name="Nayara Alto Atacama"
+        description="Luxury desert resort in the Atacama Desert with stargazing, thermal springs, and adventure experiences."
+        url="https://nayaraaltoatacama.com"
+        image="https://nayararesorts.manus.space"
+        address={{
+          streetAddress: "Camino a Socaire s/n",
+          addressLocality: "San Pedro de Atacama",
+          addressRegion: "Antofagasta",
+          addressCountry: "CL",
+          postalCode: "1410000",
+        }}
+        geo={{
+          latitude: -22.9127,
+          longitude: -68.1988,
+        }}
+        telephone="+56 55 257 8570"
+        email="reservations@nayaraaltoatacama.com"
+        awards={["Michelin Guide 2 Keys", "Travel & Leisure World's Best Awards"]}
+      />
+      <BreadcrumbListSchema items={[
+        { name: "Home", url: "https://nayararesorts.manus.space" },
+        { name: "Nayara Alto Atacama", url: "https://nayaraaltoatacama.com" },
+      ]} />
       <BrandNavigation pageType="property" />
       <HeroSection />
 
