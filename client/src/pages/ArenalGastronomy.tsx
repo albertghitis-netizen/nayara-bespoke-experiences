@@ -247,12 +247,23 @@ function RestaurantGrid() {
                     onClick={() => navigate(restaurant.route)}
                   >
                     <div className="relative overflow-hidden rounded-sm aspect-[4/3]">
-                      <img
-                        src={restaurant.hero}
-                        alt={restaurant.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        loading="lazy"
-                      />
+                      {restaurant.hero.endsWith('.mp4') ? (
+                        <video
+                          src={restaurant.hero}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <img
+                          src={restaurant.hero}
+                          alt={restaurant.name}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-5">
                         <h3

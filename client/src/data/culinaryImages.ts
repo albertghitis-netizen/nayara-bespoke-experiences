@@ -256,7 +256,7 @@ export const restaurants: RestaurantGallery[] = [
     cuisine: "Poolside Bites & Cocktails",
     tagline: "Tropical Refreshments by the Infinity Pool",
     route: "/tented-camp/gastronomy/lapas-pool-bar",
-    hero: "",
+    hero: "/manus-storage/lapas-pool-bar-card_75d3e6ae.mp4",
     images: [],
   },
   {
