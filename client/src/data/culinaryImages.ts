@@ -31,7 +31,7 @@ export const restaurants: RestaurantGallery[] = [
     cuisine: "Modern Mediterranean",
     tagline: "Mediterranean Cuisine in the Rainforest Canopy",
     route: "/tented-camp/gastronomy/ayla",
-    hero: "/manus-storage/ayla-extra-07_fdfeafe0.jpg",
+    hero: "/manus-storage/ayla-cover-new_9e220bdb.jpg",
     images: [
       "/manus-storage/ayla-extra-07_fdfeafe0.jpg",
       "/manus-storage/ayla-10_891a09ab.jpg",
