@@ -16,6 +16,9 @@ export default function MisAmores() {
         heroImage: "/manus-storage/mis-amores-3_58c06b2d.jpg",
         backLink: "/springs",
         backLabel: "Nayara Springs",
+        primaryColor: "#96A78D",
+        secondaryColor: "#7C8471",
+        accentColor: "#728076",
       }}
     />
   );

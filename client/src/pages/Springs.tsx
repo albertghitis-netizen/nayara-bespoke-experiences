@@ -39,15 +39,15 @@ import {
 const springs = properties.find((p: Property) => p.id === "springs")!;
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE — "Mineral"
+   PALETTE — "Sage Mineral Springs"
    ═══════════════════════════════════════════════════════════════ */
-/* Blue-Green palette — between Bocas blue and Tented Camp green */
+/* Sage/Eucalyptus palette — warm, mineral-inspired greens */
 const PALETTE = {
-  primary: "#3B6E7B",
-  secondary: "#5A6F7B",
-  accent: "#86898C",
-  gradientStart: "#E4EDEB",
-  gradientEnd: "#E4EDEB",
+  primary: "#96A78D",           // Eucalyptus (primary)
+  secondary: "#7C8471",         // Thyme (secondary)
+  accent: "#728076",            // Smoke green (accent)
+  gradientStart: "#F7F5F0",     // Bone (background)
+  gradientEnd: "#EDEEE2",       // Warm olive tint
   text: "#1A0F0A",
   textSecondary: "#1A0F0A",
   textTertiary: "#1A0F0A99",

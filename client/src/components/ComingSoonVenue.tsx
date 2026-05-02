@@ -21,13 +21,22 @@ export interface VenueInfo {
   heroImage?: string;         // CDN URL — optional, falls back to gradient
   backLink: string;           // e.g. "/tented-camp"
   backLabel: string;          // e.g. "Nayara Tented Camp"
+  primaryColor?: string;      // e.g. "#868B75" for Tented Camp
+  secondaryColor?: string;    // e.g. "#525642"
+  accentColor?: string;       // e.g. "#9A9086"
 }
 
 export default function ComingSoonVenue({ venue }: { venue: VenueInfo }) {
   const [, navigate] = useLocation();
 
+  // Default to bone background
+  const bgColor = venue.primaryColor ? "#F7F5F0" : "#f7f5f0";
+  const primary = venue.primaryColor || "#3a2a1a";
+  const secondary = venue.secondaryColor || "#5a4a3a";
+  const accent = venue.accentColor || "#8a7a6a";
+
   return (
-    <div className="min-h-screen bg-[#f7f5f0]">
+    <div style={{ minHeight: "100vh", backgroundColor: bgColor }}>
       <BrandNavigation />
 
       {/* Hero */}
@@ -101,20 +110,20 @@ export default function ComingSoonVenue({ venue }: { venue: VenueInfo }) {
             transition={{ duration: 0.8 }}
           >
             {/* Decorative line */}
-            <div className="w-12 h-px bg-[#3a2a1a]/20 mx-auto mb-8" />
+            <div className="w-12 h-px mx-auto mb-8" style={{ backgroundColor: `${primary}20` }} />
 
             {venue.property && (
               <span
-                className="text-[#5a4a3a]/50 text-[10px] tracking-[0.3em] uppercase block mb-6"
-                style={{ fontFamily: "var(--font-body)" }}
+                className="text-[10px] tracking-[0.3em] uppercase block mb-6"
+                style={{ fontFamily: "var(--font-body)", color: `${secondary}80` }}
               >
                 {venue.property}
               </span>
             )}
 
             <p
-              className="text-[#3a2a1a]/70 text-base md:text-lg leading-relaxed mb-10"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+              className="text-base md:text-lg leading-relaxed mb-10"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: `${primary}b3` }}
             >
               {venue.description}
             </p>
@@ -125,14 +134,14 @@ export default function ComingSoonVenue({ venue }: { venue: VenueInfo }) {
                 {venue.cuisine && (
                   <div className="text-center">
                     <span
-                      className="text-[#5a4a3a]/30 text-[9px] tracking-[0.25em] uppercase block mb-1"
-                      style={{ fontFamily: "var(--font-body)" }}
+                      className="text-[9px] tracking-[0.25em] uppercase block mb-1"
+                      style={{ fontFamily: "var(--font-body)", color: `${secondary}4d` }}
                     >
                       Cuisine
                     </span>
                     <span
-                      className="text-[#3a2a1a]/60 text-sm"
-                      style={{ fontFamily: "var(--font-body)" }}
+                      className="text-sm"
+                      style={{ fontFamily: "var(--font-body)", color: `${primary}99` }}
                     >
                       {venue.cuisine}
                     </span>
@@ -141,14 +150,14 @@ export default function ComingSoonVenue({ venue }: { venue: VenueInfo }) {
                 {venue.atmosphere && (
                   <div className="text-center">
                     <span
-                      className="text-[#5a4a3a]/30 text-[9px] tracking-[0.25em] uppercase block mb-1"
-                      style={{ fontFamily: "var(--font-body)" }}
+                      className="text-[9px] tracking-[0.25em] uppercase block mb-1"
+                      style={{ fontFamily: "var(--font-body)", color: `${secondary}4d` }}
                     >
                       Setting
                     </span>
                     <span
-                      className="text-[#3a2a1a]/60 text-sm"
-                      style={{ fontFamily: "var(--font-body)" }}
+                      className="text-sm"
+                      style={{ fontFamily: "var(--font-body)", color: `${primary}99` }}
                     >
                       {venue.atmosphere}
                     </span>
@@ -157,14 +166,14 @@ export default function ComingSoonVenue({ venue }: { venue: VenueInfo }) {
                 {venue.hours && (
                   <div className="text-center">
                     <span
-                      className="text-[#5a4a3a]/30 text-[9px] tracking-[0.25em] uppercase block mb-1"
-                      style={{ fontFamily: "var(--font-body)" }}
+                      className="text-[9px] tracking-[0.25em] uppercase block mb-1"
+                      style={{ fontFamily: "var(--font-body)", color: `${secondary}4d` }}
                     >
                       Hours
                     </span>
                     <span
-                      className="text-[#3a2a1a]/60 text-sm"
-                      style={{ fontFamily: "var(--font-body)" }}
+                      className="text-sm"
+                      style={{ fontFamily: "var(--font-body)", color: `${primary}99` }}
                     >
                       {venue.hours}
                     </span>

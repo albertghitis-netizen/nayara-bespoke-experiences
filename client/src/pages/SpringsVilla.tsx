@@ -1,8 +1,8 @@
 /**
  * SPRINGS VILLA — Deeper Room Detail Page
  * Layout: "Editorial Magazine" — matching FamilyTent structure exactly
- * Palette: Deep teal #3B6E7B primary, #1E3A3D dark, #A8C5B8 accent
- * Background: warm parchment #F4F1EC
+ * Palette: Sage/Eucalyptus #96A78D primary, #7C8471 secondary, #728076 accent
+ * Background: bone #F7F5F0
  * Room: 1 king bed, 139 m², adults only, private hot springs plunge pool
  */
 import { useState, useRef } from "react";
@@ -16,23 +16,23 @@ const heroVideo = "/manus-storage/springs-villa-hero_d2119010.mp4";
 
 /* ── Palette ── */
 const P = {
-  bg: "#F4F1EC",
-  bgDark: "#1E3A3D",
-  text: "#1A2A2E",
-  textSoft: "#1A2A2Ecc",
-  textMuted: "#1A2A2E60",
-  primary: "#3B6E7B",
-  secondary: "#1E3A3D",
-  accent: "#A8C5B8",
-  cream: "#FAF8F5",
-  bone: "#EDE9E3",
+  bg: "#F7F5F0",           // Bone
+  bgDark: "#7C8471",       // Thyme (dark)
+  text: "#1A0F0A",
+  textSoft: "#1A0F0Acc",
+  textMuted: "#1A0F0A60",
+  primary: "#96A78D",       // Eucalyptus
+  secondary: "#7C8471",     // Thyme
+  accent: "#728076",        // Smoke green
+  cream: "#EDEEE2",         // Warm olive tint
+  bone: "#F7F5F0",          // Bone
   white: "#FFFFFF",
 };
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)" } as const;
 
 /* ── Frosted glass pill style ── */
-const PILL_BG = "rgba(59,110,123,0.82)";
+const PILL_BG = "rgba(150,167,141,0.82)";  // Eucalyptus with opacity
 const PILL_BG_HOVER = "rgba(30,58,61,0.92)";
 const PILL_BORDER = "rgba(255,255,255,0.25)";
 

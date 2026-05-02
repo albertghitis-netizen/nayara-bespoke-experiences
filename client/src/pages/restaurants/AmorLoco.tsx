@@ -16,6 +16,9 @@ export default function AmorLoco() {
         heroImage: "/manus-storage/al300-07_456492ee.jpg",
         backLink: "/springs",
         backLabel: "Nayara Springs",
+        primaryColor: "#96A78D",
+        secondaryColor: "#7C8471",
+        accentColor: "#728076",
       }}
     />
   );
