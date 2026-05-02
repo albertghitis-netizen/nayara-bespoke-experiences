@@ -111,7 +111,7 @@ function HeroSection() {
             className="text-white/60 text-sm md:text-base tracking-wide max-w-xl mx-auto"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            Nine restaurants, three properties, one philosophy — where every meal is a celebration of Costa Rica's extraordinary terroir
+            Twelve restaurants & bars, three properties, one philosophy — where every meal is a celebration of Costa Rica's extraordinary terroir
           </p>
         </motion.div>
       </div>
@@ -164,7 +164,7 @@ function PhilosophySection() {
         <AnimateOnScroll variants={fadeUp} delay={0.2}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-12 border-t" style={{ borderColor: `${BRAND_COLORS.primary}10` }}>
             {[
-              { value: "9", label: "Restaurants & Bars" },
+              { value: "12", label: "Restaurants & Bars" },
               { value: "3", label: "Properties" },
               { value: "5", label: "Culinary Classes" },
               { value: "1", label: "Philosophy" },
