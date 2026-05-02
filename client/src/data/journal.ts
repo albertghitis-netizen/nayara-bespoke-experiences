@@ -484,6 +484,43 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
     excerpt: "A private island sanctuary in Panama's Caribbean archipelago — overwater villas, bioluminescent bays, and pristine coral reefs.",
   },
+  {
+    id: "bocas-history-culture-nature",
+    title: "Bocas del Toro: History, Culture & Nature",
+    url: "/blog/bocas-history-culture-nature",
+    property: "bocas-del-toro",
+    type: "article",
+    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/5%20Interesting%20Fac",
+    excerpt: "Discover the rich history, vibrant culture, and pristine natural beauty of Bocas del Toro — from its colonial heritage to bioluminescent bays.",
+  },
+  {
+    id: "nayara-bocas-resort-experience",
+    title: "Nayara Bocas del Toro: The Resort Experience",
+    url: "/blog/nayara-bocas-resort-experience",
+    property: "bocas-del-toro",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg",
+    excerpt: "Experience the architectural innovation and natural beauty of Nayara Bocas — from overwater villas to treehouses to the world's first aerial beach.",
+  },
+  {
+    id: "bocas-conde-nast-award",
+    title: "Why Condé Nast Traveler Named Nayara Bocas del Toro #1",
+    url: "/blog/bocas-conde-nast-award",
+    property: "bocas-del-toro",
+    type: "article",
+    image: "https://blog.nayararesorts.com/hubfs/8-Oct-07-2025-04-49-30-6724-AM.png",
+    excerpt: "Celebrating our 2025 award as the top luxury resort in Central America — a testament to innovation, sustainability, and unparalleled hospitality.",
+    featured: true,
+  },
+  {
+    id: "nayara-by-night",
+    title: "Nayara by Night: Of Moon and Stars",
+    url: "/blog/nayara-by-night",
+    property: "brand",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/night-sky_hero.jpg",
+    excerpt: "Discover the magic of darkness and celestial wonders — stargazing, bioluminescence, and the transformative power of the night sky at Nayara.",
+  },
 ];
 
 // ─── Audio Episodes (Podcasts) ───────────────────────────────
