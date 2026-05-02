@@ -69,12 +69,9 @@ export default function BrandNavigation({
   // Detect Costa Rica routes: property pages (tented-camp, gardens, springs) + Costa Rica sub-pages
   const costaRicaRoutes = [
     "curated-excursions",      // Rainforest Adventure
-    "wellness",               // Nurtured by Nature (when accessed from Costa Rica context)
+    "wellness",               // Nurtured by Nature
     "gastronomy-arenal",      // A Taste of Place
     "tented-camp-sustainability", // Beyond Sustainability
-    "tented-camp",            // Tented Camp property
-    "gardens",                // Gardens property
-    "springs",                // Springs property
   ];
   const isCR = costaRicaRoutes.includes(propertySlug);
   const textColor = isCR ? "#868B75" : "#3B2B26";

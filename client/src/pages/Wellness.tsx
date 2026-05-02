@@ -102,7 +102,7 @@ export default function Wellness() {
 
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="brand" hideCenterLabel />
+      <BrandNavigation pageType="content" hideCenterLabel />
       <HeroSection />
       <IntroSection />
       <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
@@ -110,7 +110,7 @@ export default function Wellness() {
       <TreatmentsSection treatments={filtered} />
       <SpringsFeature />
       <PropertyLinksSection />
-      <Footer />
+      <Footer bgColor="#868B75" />
     </div>
   );
 }

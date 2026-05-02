@@ -88,7 +88,7 @@ export default function ExperientialArenal() {
       <PropertyIntro />
       <WithinOurGroundsSection />
       <ExploreArenalSection />
-      <Footer />
+      <Footer bgColor="#868B75" />
     </div>
   );
 }

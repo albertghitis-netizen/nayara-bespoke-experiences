@@ -37,13 +37,13 @@ export default function ArenalGastronomy() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: BRAND_COLORS.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="content" hideCenterLabel />
       <HeroSection />
       <PhilosophySection />
       <RestaurantGrid />
       <PhotoCollage filter={activeFilter} setFilter={setActiveFilter} />
       <ClassesSection />
-      <Footer />
+      <Footer bgColor="#868B75" />
     </div>
   );
 }
