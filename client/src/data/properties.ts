@@ -379,7 +379,7 @@ const exploreArenalExperiences: Excursion[] = [
     description: "Discover Tenorio National Park and Rio Celeste. Drive 1.5 hours through dense primary rainforest, past bubbling mud pots and centuries-old guardian trees, to \u201cLos Te\u00f1ideros\u201d \u2014 where two crystal streams merge and turn the river a vivid, electric blue. Visit the stunning azure waterfall pool.",
     highlights: ["Vivid turquoise river caused by mineral convergence", "Bubbling volcanic mud pots", "Primary rainforest with ancient trees"],
     videoDesktop: "/manus-storage/rio-celeste-new-card_0abd2313.mp4",
-    verticalVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/video-00d0-vertical_5ef512b3.mp4",
+    verticalVideo: "/manus-storage/rio-celeste-new-card_0abd2313.mp4",
     featured: true,
     placeholder: false,
     category: "nature",
