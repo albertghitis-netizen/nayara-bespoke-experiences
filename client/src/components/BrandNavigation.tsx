@@ -201,23 +201,23 @@ export default function BrandNavigation({
                     {propertyItems.length > 0 && (
                       <>
                         <div className="px-5 pt-2 pb-1">
-                          <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
+                          <span className="text-[10px] tracking-[0.18em]" style={{...menuText, opacity: 0.3}}>
                             This Property
                           </span>
                         </div>
                         {propertyItems.map((item) => (
                           <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                            <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
+                            <span className="text-[13px]" style={menuText}>{item.label}</span>
                           </button>
                         ))}
-                        <div className="h-px bg-[#3B2B26]/8 mx-4 my-1.5" />
+                        <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
                       </>
                     )}
 
                     {/* Global links */}
                     {propertyItems.length > 0 && (
                       <div className="px-5 pt-1 pb-1">
-                        <span className="text-[#3B2B26]/30 text-[10px] tracking-[0.18em]" style={menuText}>
+                        <span className="text-[10px] tracking-[0.18em]" style={{...menuText, opacity: 0.3}}>
                           Explore Nayara
                         </span>
                       </div>

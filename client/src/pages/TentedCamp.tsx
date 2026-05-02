@@ -27,9 +27,9 @@ import {
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Canopy" gradient: misty green → deep forest
    ═══════════════════════════════════════════════════════════════ */
-/* Olive Tree gradient — warm olive-khaki cascade */
-const COLOR_A = "#EDEEE2"; // unified olive tint (was bone #F7F5F0)
-const COLOR_B = "#EDEEE2"; // soft olive tint
+/* Beyond Sustainability palette — bone + olive green + gravel */
+const COLOR_A = "#F7F5F0"; // Bone (primary background)
+const COLOR_B = "#EDEEE2"; // Warm olive tint (subtle variation)
 const SECTION_COLORS = [
   COLOR_A, // 0 hero
   COLOR_B, // 1 story

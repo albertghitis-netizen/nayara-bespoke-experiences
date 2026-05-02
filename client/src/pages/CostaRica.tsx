@@ -38,13 +38,14 @@ const CDN = {
 };
 
 const C = {
-  bone: "#E2D7C8",
-  warmLinen: "#F5F0E8",
-  sageMist: "#EDF2E8",
-  olive: "#525642",
-  clover: "#286241",
-  espresso: "#3B2B26",
-  deepForest: "#3D5040",
+  bone: "#F7F5F0",           // Bone (primary background)
+  warmLinen: "#EDEEE2",       // Warm olive tint
+  sageMist: "#EDF2E8",        // Subtle green
+  olive: "#868B75",           // Olive Tree (primary)
+  secondary: "#525642",       // Dark Olive
+  accent: "#9A9086",          // Taupe/Gravel
+  clover: "#286241",          // Legacy
+  deepForest: "#3D5040",      // Legacy
   white: "#FFFFFF",
 };
 
@@ -154,7 +155,7 @@ function PillarsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-3xl md:text-4xl lg:text-5xl tracking-wide text-center mb-16"
-          style={{ ...heading, color: C.espresso }}
+          style={{ ...heading, color: C.olive }}
         >
           Six Ways to Experience Costa Rica
         </motion.h2>
@@ -184,7 +185,7 @@ function PillarsSection() {
                   <div>
                     <h3
                       className="text-xl md:text-2xl tracking-wide mb-3 group-hover:text-[#286241] transition-colors"
-                      style={{ ...heading, color: C.espresso }}
+                      style={{ ...heading, color: C.olive }}
                     >
                       {pillar.title}
                     </h3>
