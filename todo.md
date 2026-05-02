@@ -3209,3 +3209,5 @@
 - [ ] Ensure Rainforest Adventure uses same videos as brand /experiences
 - [x] Process and upload new yoga video (CostaRica-Springs)
 - [x] Fix empty src="" error on /gastronomy-arenal page
+- [x] Process and upload new zip lining video and swap it in everywhere
+- [x] Process and upload new hanging bridges video and swap it in everywhere

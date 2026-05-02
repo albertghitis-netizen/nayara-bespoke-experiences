@@ -357,7 +357,7 @@ const exploreArenalExperiences: Excursion[] = [
     highlights: ["16 bridges through primary rainforest", "60 ft hidden waterfall", "Arenal Volcano views from canopy level"],
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridges-photo_a49dba00.jpeg",
     videoDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridges-horizontal_0bf48537.mp4",
-    verticalVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridges-vertical_e6838fa9.mp4",
+    verticalVideo: "/manus-storage/hanging-bridges-new_72e90f2f.mp4",
     gallery: [
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridge-waterfall_7e252516.jpeg",
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridge-canopy-walk_d193a7eb.jpeg",
@@ -471,6 +471,7 @@ const exploreArenalExperiences: Excursion[] = [
     description: "Ascend by gondola through the rainforest canopy with incredible views of Arenal Volcano and Lake Arenal. Then zip across cables ranging from 650 to 2,500 feet, flying through the treetops with the volcano on one side and the lake on the other.",
     highlights: ["Gondola ascent through rainforest", "Zip lines up to 2,500 feet long", "Dual volcano and lake panoramas"],
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/zipline-photo_a5470805.jpeg",
+    verticalVideo: "/manus-storage/zip-lining-new_8fe28d01.mp4",
     featured: true,
     placeholder: false,
     category: "adventure",
