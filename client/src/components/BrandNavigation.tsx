@@ -66,11 +66,25 @@ export default function BrandNavigation({
   const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(59,43,38,0.95)");
   
   // For Costa Rica pages, use olive green for text and borders instead of espresso
-  const isCR = ["tented-camp", "gardens", "springs"].includes(propertySlug);
+  // Detect Costa Rica routes: property pages (tented-camp, gardens, springs) + Costa Rica sub-pages
+  const costaRicaRoutes = [
+    "curated-excursions",      // Rainforest Adventure
+    "wellness",               // Nurtured by Nature (when accessed from Costa Rica context)
+    "gastronomy-arenal",      // A Taste of Place
+    "tented-camp-sustainability", // Beyond Sustainability
+    "tented-camp",            // Tented Camp property
+    "gardens",                // Gardens property
+    "springs",                // Springs property
+  ];
+  const isCR = costaRicaRoutes.includes(propertySlug);
   const textColor = isCR ? "#868B75" : "#3B2B26";
   const textColorMuted = isCR ? "#868B75" : "#3B2B26";
   const hoverBg = isCR ? "#868B75/10" : "#d4c9b8/40";
   const borderColor = isCR ? "#868B75/10" : "#3B2B26/10";
+  const pillBgCR = isCR ? "#868B7599" : "rgba(59,43,38,0.8)";
+  const pillHvCR = isCR ? "#868B75E6" : "rgba(59,43,38,0.95)";
+  const finalPillBg = navPalette?.pillBg ?? (propertyPalette ? `${propertyPalette.navPillBg}B3` : pillBgCR);
+  const finalPillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : pillHvCR);
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<Record<MenuKey, boolean>>({
@@ -139,7 +153,7 @@ export default function BrandNavigation({
 
   /* ── Shared styles ── */
   const pillStyle: React.CSSProperties = {
-    backgroundColor: pillBg,
+    backgroundColor: finalPillBg,
     borderColor: "rgba(255,255,255,0.1)",
   };
 

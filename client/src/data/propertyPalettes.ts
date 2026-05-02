@@ -81,18 +81,18 @@ export const palettes: Record<string, PropertyPalette> = {
     navPillText: "#F7F5F0",
   },
 
-  /* ─── SPRINGS — Teal (swatch #21: #3B6E7B) ─── */
+  /* --- SPRINGS --- Sage/Eucalyptus (#96A78D) --- */
   springs: {
-    primary: "#3B6E7B",          // Teal (swatch #21)
-    secondary: "#5A6F7B",        // Slate Blue (swatch #10)
-    accent: "#86898C",           // Cool Gray (swatch #15)
+    primary: "#96A78D",          // Sage/Eucalyptus (primary)
+    secondary: "#7A8B7C",        // Dark Sage
+    accent: "#B0BFA8",           // Light Sage
     gradientStart: "#F7F5F0",
-    gradientEnd: "#E4EDEB",     // blue-green tint
-    buttonBg: "#3B6E7B",        // Teal
+    gradientEnd: "#EEF1EB",     // sage tint
+    buttonBg: "#96A78D",        // Sage/Eucalyptus
     buttonText: "#F7F5F0",
-    footerBg: "#3B6E7B",        // Teal (primary)
+    footerBg: "#96A78D",        // Sage/Eucalyptus (primary)
     footerText: "#F7F5F0",      // Bone
-    navPillBg: "#3B6E7B",       // Teal
+    navPillBg: "#96A78D",       // Sage/Eucalyptus
     navPillText: "#F7F5F0",
   },
 

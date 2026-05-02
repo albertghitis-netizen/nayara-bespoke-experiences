@@ -12,7 +12,6 @@ import Home from "./pages/Home";
 
 /* ── Lazy-loaded pages ── */
 const AltoAtacama = lazy(() => import("./pages/AltoAtacama"));
-const CostaRica = lazy(() => import("./pages/CostaRica"));
 const CuratedExcursions = lazy(() => import("./pages/ExperientialArenal"));
 const FamilyExpeditions = lazy(() => import("./pages/FamilyExpeditions"));
 const RainforestRomance = lazy(() => import("./pages/RainforestRomance"));
