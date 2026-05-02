@@ -362,52 +362,5 @@ function TreatmentsSection({ treatments, palette }: { treatments: Array<Treatmen
         </FadeIn>
       </div>
     </section>
-
-    {/* Sources & Further Reading */}
-    <section className="py-20 px-6 md:px-10 bg-gray-50">
-      <div className="max-w-4xl mx-auto">
-        <FadeIn>
-          <h2 style={heading} className="text-3xl md:text-4xl mb-12 text-center text-gray-900">
-            Sources & Further Reading
-          </h2>
-
-          <div className="space-y-12">
-            <div>
-              <h3 style={heading} className="text-xl mb-6 text-gray-800">Scientific Research</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-blue-600 font-bold">•</span>
-                  <span><strong>Attention Restoration Theory</strong> - Kaplan & Kaplan (1989)</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-blue-600 font-bold">•</span>
-                  <span><strong>Forest Bathing & Phytoncides</strong> - Park et al. (2010)</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-blue-600 font-bold">•</span>
-                  <span><strong>Blue Space & Wellbeing</strong> - White et al. (2019)</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 style={heading} className="text-xl mb-6 text-gray-800">Related Nayara Content</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-green-600 font-bold">→</span>
-                  <a href="/blog/nayara-by-night" className="text-blue-600 hover:underline">Nayara by Night: Of Moon and Stars</a>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-green-600 font-bold">→</span>
-                  <a href="/costa-rica-wellness" className="text-blue-600 hover:underline">Costa Rica Wellness: Nurtured by Nature</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-
-    <Footer />
   );
 }

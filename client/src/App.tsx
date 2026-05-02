@@ -51,7 +51,7 @@ const CoralReefBlog = lazy(() => import("./pages/CoralReefBlog"));
 const WellnessByColorsBlog = lazy(() => import("./pages/WellnessByColorsBlog"));
 const HotSpringsBlog = lazy(() => import("./pages/HotSpringsBlog"));
 const HangaroaRegenerationBlog = lazy(() => import("./pages/HangaroaRegenerationBlog"));
-const BocasCondéNastBlog = lazy(() => import("./pages/BocasCondéNastBlog"));
+
 const AtacamaMarsEarthBlog = lazy(() => import("./pages/AtacamaMarsEarthBlog"));
 const NayaraStoryBlog = lazy(() => import("./pages/NayaraStoryBlog"));
 const WellnessHospitalityBlog = lazy(() => import("./pages/WellnessHospitalityBlog"));
@@ -281,7 +281,6 @@ function Router() {
           <Route path="/blog/nayara-by-night" component={NayaraByNightBlog} />
           <Route path="/blog/bocas-history-culture-nature" component={BocasHistoryCultureNatureBlog} />
           <Route path="/blog/nayara-bocas-resort-experience" component={NayaraBocasResortExperienceBlog} />
-          <Route path="/blog/bocas-conde-nast-award" component={BocasCondeNastAwardBlog} />
           <Route path="/blog/community-hospitality" component={CommunityHospitalityBlog} />
           <Route path="/blog/sustainability" component={SustainabilityBlog} />
           <Route path="/blog/caribbean-coral-reef" component={CaribbeanCoralReefBlog} />

@@ -3215,3 +3215,47 @@
 - [x] Add video to Atacama Salt Flats & Lagoons excursion on brand /experiences
 - [x] Add Rainbow Valley video to Atacama excursion card on brand /experiences
 - [x] Revert Ayla restaurant page hero image back to original (keep new image only as card cover on Forest to Table)
+
+
+## SEO Roadmap — Phase 1: Completed ✓
+- [x] Sitemap.xml generation with all pages (brand pillars, properties, property pillars, blogs)
+- [x] Enhanced robots.txt with crawl directives and asset allowances
+- [x] Collected all property location data (addresses, phone, email, geo-coordinates)
+- [x] Established foundation for E-E-A-T and Geo-based schema markup
+
+## SEO Roadmap — Phase 2: Schema Markup for E-E-A-T and Geo signals
+- [x] Extended properties.ts with address and geo-coordinate fields for all 6 properties
+- [x] Added address data: street address, locality, region, country, postal code
+- [x] Added geo data: latitude/longitude for all properties (Atacama, Tented Camp, Gardens, Springs, Hangaroa, Bocas)
+- [x] Created SEOSchemaEnhanced.tsx with advanced schema implementations:
+  - [x] LocalBusinessSchema (Resort type) with geo signals and E-E-A-T
+  - [x] EnhancedOrganizationSchema with expertise, awards, certifications, authority signals
+  - [x] BreadcrumbListSchema for navigation hierarchy
+  - [x] EnhancedArticleSchema with author expertise and publication authority
+  - [x] FAQPageSchema for FAQ content
+  - [x] AggregateRatingSchema for review aggregation
+- [ ] Integrate LocalBusinessSchema on all 6 property pages
+- [ ] Integrate EnhancedOrganizationSchema on Home page
+- [ ] Integrate BreadcrumbListSchema on all pages for navigation SEO
+- [ ] Integrate EnhancedArticleSchema on all blog pages
+- [ ] Integrate FAQPageSchema on FAQ/Journal pages
+- [ ] Test schema markup with Google Rich Results Test
+- [ ] Verify geo-targeting signals in Search Console
+
+## SEO Roadmap — Phase 3: Content Optimization (Pending)
+- [ ] Optimize title tags (50-60 characters) for all pages
+- [ ] Optimize meta descriptions (150-160 characters) for all pages
+- [ ] Implement canonical tags on all pages
+- [ ] Add hreflang tags for multi-language support (if applicable)
+- [ ] Optimize heading hierarchy (H1, H2, H3) on all pages
+- [ ] Add internal linking strategy (pillar pages → cluster content)
+- [ ] Implement schema markup for key content types (events, products, etc.)
+
+## SEO Roadmap — Phase 4: Technical SEO (Pending)
+- [ ] Core Web Vitals optimization (LCP, FID, CLS)
+- [ ] Mobile-first indexing verification
+- [ ] XML sitemap submission to Search Console
+- [ ] robots.txt validation in Search Console
+- [ ] Crawl statistics monitoring
+- [ ] Mobile usability testing
+- [ ] Page speed optimization

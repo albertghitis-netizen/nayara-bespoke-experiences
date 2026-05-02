@@ -86,6 +86,18 @@ export interface Property {
   website: string;
   email: string;
   phone: string;
+  // SEO & Geo signals
+  address?: {
+    streetAddress?: string;
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+    postalCode?: string;
+  };
+  geo?: {
+    latitude: number;
+    longitude: number;
+  };
   excursions: Excursion[];
   treatments: Treatment[];
   blogLinks: BlogLink[];
@@ -943,6 +955,17 @@ export const properties: Property[] = [
     website: "https://nayaraaltoatacama.com",
     email: "reservations@nayaraaltoatacama.com",
     phone: "+56 55 257 8570",
+    address: {
+      streetAddress: "Camino a Socaire s/n",
+      addressLocality: "San Pedro de Atacama",
+      addressRegion: "Antofagasta",
+      addressCountry: "CL",
+      postalCode: "1410000",
+    },
+    geo: {
+      latitude: -22.9127,
+      longitude: -68.1988,
+    },
     excursions: altoAtacamaExcursions,
     treatments: altoAtacamaTreatments,
     excursionCategories: [
@@ -991,6 +1014,17 @@ export const properties: Property[] = [
     website: "https://nayaratentedcamp.com",
     email: "reservations@nayararesorts.com",
     phone: "+1 888 332 2961",
+    address: {
+      streetAddress: "La Fortuna de San Carlos",
+      addressLocality: "La Fortuna",
+      addressRegion: "Alajuela",
+      addressCountry: "CR",
+      postalCode: "4417",
+    },
+    geo: {
+      latitude: 10.4655,
+      longitude: -84.6436,
+    },
     excursions: costaRicaExcursions,
     treatments: costaRicaTreatments,
     excursionCategories: [
@@ -1040,6 +1074,17 @@ export const properties: Property[] = [
     website: "https://nayaragardens.com",
     email: "reservations@nayararesorts.com",
     phone: "+1 888 332 2961",
+    address: {
+      streetAddress: "La Fortuna de San Carlos",
+      addressLocality: "La Fortuna",
+      addressRegion: "Alajuela",
+      addressCountry: "CR",
+      postalCode: "4417",
+    },
+    geo: {
+      latitude: 10.4650,
+      longitude: -84.6430,
+    },
     excursions: costaRicaExcursions,
     treatments: costaRicaTreatments,
     excursionCategories: [
@@ -1089,6 +1134,17 @@ export const properties: Property[] = [
     website: "https://nayarasprings.com",
     email: "reservations@nayararesorts.com",
     phone: "+1 888 332 2961",
+    address: {
+      streetAddress: "La Fortuna de San Carlos",
+      addressLocality: "La Fortuna",
+      addressRegion: "Alajuela",
+      addressCountry: "CR",
+      postalCode: "4417",
+    },
+    geo: {
+      latitude: 10.4645,
+      longitude: -84.6425,
+    },
     excursions: costaRicaExcursions,
     treatments: costaRicaTreatments,
     excursionCategories: [
@@ -1137,6 +1193,17 @@ export const properties: Property[] = [
     website: "https://nayarahangaroa.com",
     email: "reservations@hangaroa.cl",
     phone: "+56 32 255 3700",
+    address: {
+      streetAddress: "Anakena",
+      addressLocality: "Hanga Roa",
+      addressRegion: "Easter Island",
+      addressCountry: "CL",
+      postalCode: "2770000",
+    },
+    geo: {
+      latitude: -27.1127,
+      longitude: -109.3497,
+    },
     excursions: hangaroaExcursions,
     treatments: hangaroaTreatments,
     excursionCategories: [
@@ -1180,7 +1247,18 @@ export const properties: Property[] = [
     heroSubtitle: "A private island sanctuary in Panama\u2019s Caribbean archipelago. Overwater villas, bioluminescent bays, pristine coral reefs, and the rhythm of island life \u2014 where the jungle meets the sea.",
     website: "https://nayarabocasdeltoro.com",
     email: "guestexperience@nayarabocasdeltoro.com",
-    phone: "+507 838 8362",
+    phone: "+507 6500 8888",
+    address: {
+      streetAddress: "Isla Colon",
+      addressLocality: "Bocas del Toro",
+      addressRegion: "Bocas del Toro",
+      addressCountry: "PA",
+      postalCode: "0701",
+    },
+    geo: {
+      latitude: 9.3522,
+      longitude: -82.2384,
+    },
     excursions: bocasExcursions,
     treatments: bocasTreatments,
     excursionCategories: [
