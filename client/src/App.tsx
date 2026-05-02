@@ -22,7 +22,7 @@ const AwardsAndPress = lazy(() => import("./pages/AwardsAndPress"));
 const Sustainability = lazy(() => import("./pages/Sustainability"));
 const Experiences = lazy(() => import("./pages/Experiences"));
 const Wellness = lazy(() => import("./pages/TentedWellness"));
-const NurturedByNature = lazy(() => import("./pages/NurturedByNature"));
+const CostaRicaWellnessBrand = lazy(() => import("./pages/NurturedByNature"));
 
 const Gastronomy = lazy(() => import("./pages/Gastronomy"));
 const TentedCamp = lazy(() => import("./pages/TentedCamp"));
@@ -246,6 +246,7 @@ function Router() {
           <Route path="/sustainability" component={Sustainability} />
           <Route path="/experiences" component={Experiences} />
           <Route path="/wellness" component={Wellness} />
+          <Route path="/costa-rica-wellness" component={CostaRicaWellnessBrand} />
           
           {/* ARCHIVED REDIRECT: /press - Previously redirected to /awards */}
           <Route path="/gastronomy" component={Gastronomy} />
