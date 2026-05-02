@@ -131,12 +131,23 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
                   transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
                   className="group bg-white/50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
                 >
-                  {/* Image */}
-                  {ex.image && (
+                  {/* Media — video clip if available, otherwise image */}
+                  {(ex.verticalVideo || ex.videoDesktop) ? (
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <video
+                        src={ex.verticalVideo || ex.videoDesktop}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : ex.image ? (
                     <div className="aspect-[4/3] overflow-hidden">
                       <img src={ex.image} alt={ex.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
                     </div>
-                  )}
+                  ) : null}
                   {/* Content */}
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">

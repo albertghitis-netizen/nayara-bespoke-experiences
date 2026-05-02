@@ -3191,7 +3191,7 @@
 - [x] Verify page renders correctly in browser
 
 ## On-Property Nature Clips + Rio Celeste Video
-- [ ] Add 3 on-property nature clips (Birdwatching, Botanical Hike, Finding Tony) to Gardens brand experi- [x] Add 3 on-property nature clips (Birdwatching, Botanical Hike, Finding Tony) to Gardens, Tented Camp, and Springs brand experience pageson-property nature clips (Birdwatching, Botanical Hike, Finding Tony) to Springs brand experience page
+- [x] Add 3 on-property nature clips (Birdwatching, Botanical Hike, Finding Tony) to brand /experiences page with video playback on cards
 - [ ] Process and upload Rio Celeste video to CDN
 - [x] Add Rio Celeste video to the experiences page
 - [x] Swap Gardens to first position (where Atacama is) on the experiences page
