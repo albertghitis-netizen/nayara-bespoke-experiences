@@ -229,7 +229,7 @@ function Router() {
           <Route path="/awards" component={AwardsAndPress} />
           <Route path="/sustainability" component={Sustainability} />
           <Route path="/experiences" component={Experiences} />
-          <Route path="/wellness" component={Wellness} />
+          <Route path="/wellness">{() => <CostaRicaWellness propertySlug="tented-camp" />}</Route>
           
           {/* ARCHIVED REDIRECT: /press - Previously redirected to /awards */}
           <Route path="/gastronomy" component={Gastronomy} />

@@ -98,12 +98,12 @@ function WellnessHero({ propertySlug }: { propertySlug: string }) {
 
 function WellnessIntro({ palette, spaSubheadline }: { palette: PropertyPalette; spaSubheadline: string }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#E6DFD5" }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] max-w-[720px]"
-            style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
             {spaSubheadline}
           </p>
@@ -133,8 +133,8 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
                     backgroundColor: activeCategory === cat.id ? palette.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F7F5F0" : BRAND.secondaryText,
-                    border: `1px solid ${activeCategory === cat.id ? palette.primary : BRAND.divider}`,
+                    color: activeCategory === cat.id ? "#F7F5F0" : palette.secondary,
+                    border: `1px solid ${activeCategory === cat.id ? palette.primary : "#E6DFD5"}`,
                   }}
                 >
                   {cat.label}
@@ -154,13 +154,13 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
                 backgroundColor: "rgba(255,255,255,0.4)",
                 backdropFilter: "blur(8px)",
                 borderRadius: "12px",
-                borderBottom: `2px solid ${BRAND.divider}`,
+                borderBottom: `2px solid ${palette.primary}`,
               }}
               whileHover={{ borderBottomColor: palette.primary }}
             >
               <h3
                 className="text-[17px] mb-2"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND.primaryText }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: palette.secondary }}
               >
                 {treatment.name}
               </h3>
@@ -173,7 +173,7 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
               </p>
               <p
                 className="text-[13px] leading-[1.7]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
               >
                 {treatment.description}
               </p>
