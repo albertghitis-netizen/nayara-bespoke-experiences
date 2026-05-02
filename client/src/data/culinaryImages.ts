@@ -59,7 +59,7 @@ export const restaurants: RestaurantGallery[] = [
     cuisine: "Cocktail Bar & Lounge",
     tagline: "Intimate Cocktails in the Heart of the Jungle",
     route: "/tented-camp/gastronomy/henrys-bar",
-    hero: "/manus-storage/henrys-bar-R5_22268_c23e47dc.jpg",
+    hero: "/manus-storage/henrys-bar-cover_981148ec.jpeg",
     images: [
       "/manus-storage/henrys-bar-R5_22268_c23e47dc.jpg",
       "/manus-storage/henrys-bar-1_1984ab9a.jpg",
