@@ -39,9 +39,12 @@ function HeroSection({ restaurant }: { restaurant: any }) {
   return (
     <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden" style={{ backgroundColor: palette.primary }}>
       <div className="absolute inset-0">
-        <img
-          src={restaurant.hero}
-          alt={restaurant.name}
+        <video
+          src="/manus-storage/lapas-pool-bar_b4546e35.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60" />

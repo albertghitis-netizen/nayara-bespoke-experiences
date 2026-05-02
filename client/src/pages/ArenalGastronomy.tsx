@@ -125,7 +125,7 @@ function HeroSection() {
 function PhilosophySection() {
   return (
     <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: BRAND_COLORS.bg }}>
-      <div className="max-w-[1000px] mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <DrawLine color={BRAND_COLORS.accent} className="mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
@@ -384,55 +384,77 @@ function Lightbox({
    ═══════════════════════════════════════════════════════════════ */
 function ClassesSection() {
   const classes = [
-    { name: "Wine Tasting", description: "Sommelier-led education at Nostalgia Wine Bar" },
-    { name: "Cooking Class", description: "Recreate the dishes you've fallen in love with" },
-    { name: "Coffee Class", description: "From volcanic soil to your morning ritual" },
-    { name: "Mixology Class", description: "Craft cocktails with tropical flavors and local spirits" },
-    { name: "Rum Tasting", description: "Explore Central America's most storied beverage" },
+    { name: "Mixology Class", description: "Craft cocktails with tropical flavors and local spirits", media: "/manus-storage/mixology-class-v2_f3dc1d6d.mp4", type: "video" as const },
+    { name: "Coffee Class", description: "From volcanic soil to your morning ritual", media: "/manus-storage/coffee-roasting_a59dcb29.webp", type: "image" as const },
+    { name: "Wine Tasting", description: "Sommelier-led education at Nostalgia Wine Bar", media: "/manus-storage/nostalgia-1_2e268294.jpg", type: "image" as const },
+    { name: "Cooking Class", description: "Recreate the dishes you've fallen in love with", media: "/manus-storage/cooking-class-clip_a2af26bb.mp4", type: "video" as const },
   ];
-
   return (
     <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: `${BRAND_COLORS.primary}06` }}>
-      <div className="max-w-[1000px] mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <DrawLine color={BRAND_COLORS.accent} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-3"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND_COLORS.primary }}
           >
-            Five Classes That Go Deeper
+            Classes That Go Deeper
           </h2>
           <p
-            className="text-[15px] leading-[1.9] max-w-[600px] mb-10"
+            className="text-[15px] leading-[1.9] max-w-[600px] mb-12"
             style={{ fontFamily: "var(--font-body)", color: BRAND_COLORS.secondary }}
           >
-            Why simply eat when you can learn, create, and experience? Five signature classes allow you to dive deeper into Costa Rican culinary culture.
+            Why simply eat when you can learn, create, and experience? Signature classes allow you to dive deeper into Costa Rican culinary culture.
           </p>
         </AnimateOnScroll>
-
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-          {classes.map((cls, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="p-6 rounded-sm border"
-              style={{ borderColor: `${BRAND_COLORS.primary}10`, backgroundColor: `${BRAND_COLORS.primary}03` }}
-            >
-              <h3
-                className="text-[16px] mb-2"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: BRAND_COLORS.primary }}
+        {/* Masonry grid: video | image/image | video */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[200px]">
+          {classes.map((cls, i) => {
+            const isVideo = cls.type === "video";
+            return (
+              <AnimateOnScroll
+                key={i}
+                variants={fadeUp}
+                className={`group cursor-pointer relative overflow-hidden rounded-sm ${isVideo ? "row-span-2" : ""}`}
               >
-                {cls.name}
-              </h3>
-              <p
-                className="text-[13px] leading-[1.7]"
-                style={{ fontFamily: "var(--font-body)", color: BRAND_COLORS.muted }}
-              >
-                {cls.description}
-              </p>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
+                {isVideo && cls.media ? (
+                  <video
+                    src={cls.media}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : cls.media ? (
+                  <img
+                    src={cls.media}
+                    alt={cls.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full" style={{ backgroundColor: `${BRAND_COLORS.primary}15` }} />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3
+                    className="text-white text-lg mb-1"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  >
+                    {cls.name}
+                  </h3>
+                  <span
+                    className="text-white/50 text-[11px] tracking-[0.06em]"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    {cls.description}
+                  </span>
+                </div>
+              </AnimateOnScroll>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
