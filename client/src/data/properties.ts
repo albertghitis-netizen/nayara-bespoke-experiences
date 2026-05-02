@@ -152,6 +152,7 @@ const altoAtacamaExcursions: Excursion[] = [
     description: "Explore the vast Salar de Atacama \u2014 3,000 km\u00b2 of crystallized salt \u2014 and the jewel-toned lagoons where three species of flamingos feed in the mineral-rich waters. Chaxa Lagoon offers reflections so perfect the sky and earth merge.",
     highlights: ["Chaxa Lagoon flamingo observation", "Salar de Atacama salt formations", "Toconao village and bell tower"],
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-salt-flats-flamingos_0ee14564.jpg",
+    verticalVideo: "/manus-storage/salt-flats-atacama_c87b0255.mp4",
     blogUrl: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
     blogTitle: "Wildlife Conservation in the Atacama Desert",
     category: "landscape",
@@ -820,7 +821,9 @@ const bocasExcursions: Excursion[] = [
     price: "$90 per person + boat transfer",
     description: "After dark, boat to a secluded lagoon where bioluminescent plankton light up the water with every movement. Swim in the glowing water or trail your hand from the boat to create streaks of blue-green light. A truly magical experience.",
     highlights: ["Swim in bioluminescent water", "Blue-green glowing plankton", "Secluded nighttime lagoon"],
-    placeholder: true,
+    verticalVideo: "/manus-storage/bioluminescence-bocas_aef6a827.mp4",
+    featured: true,
+    placeholder: false,
     category: "adventure",
   },
   {
