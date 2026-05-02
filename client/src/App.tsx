@@ -112,6 +112,15 @@ const CostaRicaExperiences = lazy(() => import("./pages/CostaRicaExperiences"));
 const CostaRicaWellness = lazy(() => import("./pages/CostaRicaWellness"));
 const CostaRicaGastronomy = lazy(() => import("./pages/CostaRicaGastronomy"));
 const ArenalGastronomy = lazy(() => import("./pages/ArenalGastronomy"));
+const AylaRestaurant = lazy(() => import("./pages/AylaRestaurant"));
+const AmorLocoRestaurant = lazy(() => import("./pages/AmorLocoRestaurant"));
+const AsiaLunaRestaurant = lazy(() => import("./pages/AsiaLunaRestaurant"));
+const HenrysBarRestaurant = lazy(() => import("./pages/HenrysBarRestaurant"));
+const LaTerrazaRestaurant = lazy(() => import("./pages/LaTerrazaRestaurant"));
+const LaylasRestaurant = lazy(() => import("./pages/LaylasRestaurant"));
+const MiCafecitoRestaurant = lazy(() => import("./pages/MiCafecitoRestaurant"));
+const MisAmoresRestaurant = lazy(() => import("./pages/MisAmoresRestaurant"));
+const NostalgiaRestaurant = lazy(() => import("./pages/NostalgiaRestaurant"));
 const CostaRicaSustainability = lazy(() => import("./pages/CostaRicaSustainability"));
 const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability"));
 const TentedCampSustainability = lazy(() => import("./pages/TentedCampSustainability"));
@@ -179,8 +188,8 @@ function Router() {
           <Route path="/tented-camp/rooms/residence" component={TentedResidencePage} />
           <Route path="/tented-camp/rooms/grand-tent" component={GrandTent} />
           <Route path="/tented-camp/experiences">{() => <CostaRicaExperiences propertySlug="tented-camp" />}</Route>
-          <Route path="/tented-camp/gastronomy/ayla" component={Ayla} />
-          <Route path="/tented-camp/gastronomy/henrys-bar" component={HenrysBar} />
+          <Route path="/tented-camp/gastronomy/ayla" component={AylaRestaurant} />
+          <Route path="/tented-camp/gastronomy/henrys-bar" component={HenrysBarRestaurant} />
           <Route path="/tented-camp/gastronomy">{() => <CostaRicaGastronomy propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp-sustainability">{() => <CostaRicaSustainability key="tented-camp-sloth-v2" propertySlug="tented-camp" />}</Route>
           <Route path="/tented-experiences" component={TentedExperiences} />
@@ -189,18 +198,18 @@ function Router() {
           <Route path="/gardens/rooms/arenal-pool-casita" component={ArenalPoolCasita} />
           <Route path="/gardens/rooms/rainforest-pool-villa" component={RainforestPoolVilla} />
           <Route path="/gardens/experiences">{() => <CostaRicaExperiences propertySlug="gardens" />}</Route>
-          <Route path="/gardens/gastronomy/lylas-gelato" component={LylasGelato} />
-          <Route path="/gardens/gastronomy/asia-luna" component={AsiaLuna} />
-          <Route path="/gardens/gastronomy/la-terraza" component={LaTerraza} />
-          <Route path="/gardens/gastronomy/nostalgia" component={Nostalgia} />
+          <Route path="/gardens/gastronomy/lylas-gelato" component={LaylasRestaurant} />
+          <Route path="/gardens/gastronomy/asia-luna" component={AsiaLunaRestaurant} />
+          <Route path="/gardens/gastronomy/la-terraza" component={LaTerrazaRestaurant} />
+          <Route path="/gardens/gastronomy/nostalgia" component={NostalgiaRestaurant} />
           <Route path="/gardens/gastronomy">{() => <CostaRicaGastronomy propertySlug="gardens" />}</Route>
           <Route path="/springs" component={Springs} />
           {/* ARCHIVED ROUTE: /springs/rooms - Component file still exists */}
           <Route path="/springs/rooms/springs-villa" component={SpringsVilla} />
           <Route path="/springs/experiences">{() => <CostaRicaExperiences propertySlug="springs" />}</Route>
-          <Route path="/springs/gastronomy/mis-amores" component={MisAmores} />
-          <Route path="/springs/gastronomy/mi-cafecito" component={MiCafecito} />
-          <Route path="/springs/gastronomy/amor-loco" component={AmorLoco} />
+          <Route path="/springs/gastronomy/mis-amores" component={MisAmoresRestaurant} />
+          <Route path="/springs/gastronomy/mi-cafecito" component={MiCafecitoRestaurant} />
+          <Route path="/springs/gastronomy/amor-loco" component={AmorLocoRestaurant} />
           <Route path="/springs/gastronomy">{() => <CostaRicaGastronomy propertySlug="springs" />}</Route>
           <Route path="/hangaroa" component={Hangaroa} />
           <Route path="/hangaroa/rooms" component={HangaroaRooms} />

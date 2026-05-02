@@ -315,12 +315,14 @@ function PhotoCollage({
       { threshold: 0.1 }
     );
     if (loaderRef.current) observer.observe(loaderRef.current);
-    return () => observer.disconnect();
   }, [visibleCount, filteredImages.length]);
 
   // Reset count when filter changes
   useEffect(() => {
+  return null;
     setVisibleCount(30);
+  return null;
+}
   }, [filter]);
 
   const filterOptions = useMemo(() => {
@@ -328,117 +330,6 @@ function PhotoCollage({
     restaurants.forEach((r) => opts.push({ slug: r.slug, label: r.name }));
     return opts;
   }, []);
-
-  // Lightbox
-  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
-
-  return (
-    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: BRAND_COLORS.bg }}>
-      <div className="max-w-[1400px] mx-auto">
-        <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={BRAND_COLORS.accent} className="mb-8" />
-          <h2
-            className="text-2xl md:text-3xl mb-3"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND_COLORS.primary }}
-          >
-            The Gallery
-          </h2>
-          <p
-            className="text-[15px] leading-[1.9] max-w-[600px] mb-8"
-            style={{ fontFamily: "var(--font-body)", color: BRAND_COLORS.secondary }}
-          >
-            A visual journey through the kitchens, bars, and dining rooms of Arenal's culinary world.
-          </p>
-        </AnimateOnScroll>
-
-        {/* Filter pills */}
-        <div className="flex flex-wrap gap-2 mb-10">
-          {filterOptions.map((opt) => (
-            <button
-              key={opt.slug}
-              onClick={() => setFilter(opt.slug)}
-              className="px-4 py-2 rounded-full text-[11px] tracking-[0.06em] transition-all duration-300"
-              style={{
-                fontFamily: "var(--font-body)",
-                fontWeight: 500,
-                backgroundColor: filter === opt.slug ? BRAND_COLORS.primary : `${BRAND_COLORS.primary}08`,
-                color: filter === opt.slug ? "#fff" : BRAND_COLORS.secondary,
-              }}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Masonry grid */}
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
-          <AnimatePresence mode="popLayout">
-            {visibleImages.map((img, i) => (
-              <motion.div
-                key={`${img.src}-${i}`}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3, delay: Math.min(i * 0.02, 0.3) }}
-                className="break-inside-avoid cursor-pointer group"
-                onClick={() => setLightboxIdx(i)}
-              >
-                <div className="relative overflow-hidden rounded-sm">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-end">
-                    <div className="p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span
-                        className="text-white text-[11px] tracking-[0.04em]"
-                        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-                      >
-                        {restaurants.find((r) => r.slug === img.restaurant)?.name}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Load more trigger */}
-        {visibleCount < filteredImages.length && (
-          <div ref={loaderRef} className="flex justify-center py-10">
-            <div className="w-6 h-6 border-2 rounded-full animate-spin" style={{ borderColor: `${BRAND_COLORS.primary}20`, borderTopColor: BRAND_COLORS.accent }} />
-          </div>
-        )}
-
-        {/* Image count */}
-        <div className="text-center mt-8">
-          <span
-            className="text-[12px] tracking-[0.08em]"
-            style={{ fontFamily: "var(--font-body)", color: BRAND_COLORS.muted }}
-          >
-            {visibleImages.length} of {filteredImages.length} images
-          </span>
-        </div>
-      </div>
-
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxIdx !== null && (
-          <Lightbox
-            images={visibleImages}
-            index={lightboxIdx}
-            onClose={() => setLightboxIdx(null)}
-            onPrev={() => setLightboxIdx((prev) => (prev !== null && prev > 0 ? prev - 1 : visibleImages.length - 1))}
-            onNext={() => setLightboxIdx((prev) => (prev !== null && prev < visibleImages.length - 1 ? prev + 1 : 0))}
-          />
-        )}
-      </AnimatePresence>
-    </section>
-  );
 }
 
 /* ═══════════════════════════════════════════════════════════════

@@ -554,7 +554,7 @@ function ClassesSection({ palette }: { palette: PropertyPalette }) {
                 fontFamily: "var(--font-body)",
                 fontWeight: 500,
                 backgroundColor: activeClass === i ? palette.primary : `${palette.primary}12`,
-                color: activeClass === i ? "#fff" : #E6DFD5,
+                color: activeClass === i ? "#fff" : "#E6DFD5",
               }}
             >
               <span className="mr-1.5">{cls.icon}</span>
