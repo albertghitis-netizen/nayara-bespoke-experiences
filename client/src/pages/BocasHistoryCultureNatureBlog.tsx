@@ -30,6 +30,7 @@ export default function BocasHistoryCultureNatureBlog() {
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: BOCAS_PALETTE.background }}>
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="BocasHistoryCultureNature | Nayara Resorts"
         description="Discover insights about bocashistoryculturenature at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

@@ -8,6 +8,7 @@ export default function BlogPost() {
         headline="Wellness by Colors: Chromotherapy at Nayara Resorts"
         description="Experience the healing power of colors through our unique chromotherapy wellness programs."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        image="https://nayararesorts.manus.space"
         datePublished="2024-04-20"
         url="https://nayararesorts.manus.space/blog/wellnessbycolors"
       />

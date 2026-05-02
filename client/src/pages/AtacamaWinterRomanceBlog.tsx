@@ -37,6 +37,7 @@ export default function AtacamaWinterRomanceBlog() {
   return (
     <div className="min-h-screen bg-white">
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="AtacamaWinterRomance | Nayara Resorts"
         description="Discover insights about atacamawinterromance at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

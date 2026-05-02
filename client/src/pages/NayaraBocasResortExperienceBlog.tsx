@@ -31,6 +31,7 @@ export default function NayaraBocasResortExperienceBlog() {
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: BOCAS_PALETTE.background }}>
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="NayaraBocasResortExperience | Nayara Resorts"
         description="Discover insights about nayarabocasresortexperience at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

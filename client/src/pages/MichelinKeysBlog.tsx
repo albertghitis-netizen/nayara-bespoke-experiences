@@ -88,6 +88,7 @@ export default function MichelinKeysBlog() {
   return (
     <div className="min-h-screen bg-white">
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="Michelin Keys: Culinary Excellence at Nayara Resorts"
         description="Explore the award-winning restaurants and farm-to-table dining experiences across our six properties."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

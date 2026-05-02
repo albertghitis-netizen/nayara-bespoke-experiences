@@ -54,6 +54,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-white">
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline=" | Nayara Resorts"
         description="Discover insights about  at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

@@ -29,6 +29,7 @@ export default function BirdwatchingBlog() {
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: TENTED_PALETTE.background }}>
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="Birdwatching | Nayara Resorts"
         description="Discover insights about birdwatching at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

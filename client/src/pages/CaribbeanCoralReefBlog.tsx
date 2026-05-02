@@ -29,6 +29,7 @@ export default function CaribbeanCoralReefBlog() {
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: BOCAS_PALETTE.background }}>
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="CaribbeanCoralReef | Nayara Resorts"
         description="Discover insights about caribbeancoralreef at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

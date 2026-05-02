@@ -30,6 +30,7 @@ export default function NayaraByNightBlog() {
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: NIGHT_PALETTE.background }}>
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="NayaraByNight | Nayara Resorts"
         description="Discover insights about nayarabynight at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

@@ -4,6 +4,7 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100">
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="Thermal Hot Springs: Nature's Healing Waters in Costa Rica"
         description="Explore the therapeutic benefits of volcanic hot springs at Nayara Springs and Nayara Tented Camp."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}

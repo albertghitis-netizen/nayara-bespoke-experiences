@@ -8,6 +8,7 @@ export default function BlogPost() {
         headline="TravelTrends | Nayara Resorts"
         description="Discover insights about traveltrends at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
+        image="https://nayararesorts.manus.space"
         datePublished="2024-01-01"
         url="https://nayararesorts.manus.space/blog/traveltrends"
       />

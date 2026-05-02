@@ -29,6 +29,7 @@ export default function MayaRapaNuiClimateBlog() {
   return (
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: HANGAROA_PALETTE.background }}>
       <EnhancedArticleSchema
+        image="https://nayararesorts.manus.space"
         headline="MayaRapaNuiClimate | Nayara Resorts"
         description="Discover insights about mayarapanuiclimate at Nayara Resorts."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
