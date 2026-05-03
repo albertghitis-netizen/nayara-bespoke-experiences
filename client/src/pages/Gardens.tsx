@@ -202,7 +202,7 @@ export default function Gardens() {
       {/* ══ CTA ══ */}
       <ReserveCTA />
 
-      <Footer bgColor="#0a0a12" textColor="#FFFFFF" nightSkyBg />
+      <Footer bgColor="#286241" textColor="#FFFFFF" />
     </div>
   );
 }

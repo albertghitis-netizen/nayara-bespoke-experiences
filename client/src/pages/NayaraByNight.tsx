@@ -270,10 +270,7 @@ export default function NayaraByNight() {
       {/* Explore Our Destinations CTA */}
       <ExploreDestinationsCTA />
 
-      {/* Milky Way divider */}
-      <MilkyWayDivider />
-
-      <Footer pageType="brand" bgColor="#000000" />
+      <Footer pageType="brand" bgColor="#000000" nightSkyBg />
     </div>
   );
 }
