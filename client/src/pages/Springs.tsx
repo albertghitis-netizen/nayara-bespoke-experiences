@@ -158,6 +158,7 @@ export default function Springs() {
       <StorySection />
       <SpringsVillaSection />
       <ExperiencesSection />
+      <SustainabilitySection />
 
       <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
     </div>
@@ -406,63 +407,51 @@ function ExperiencesSection() {
    SUSTAINABILITY — Dark overlay with palette accents
    ═══════════════════════════════════════════════════════════════ */
 function SustainabilitySection() {
-  const initiatives = [
-    { title: "Geothermal Energy", desc: "Our natural hot springs are powered by geothermal energy, reducing our carbon footprint while providing authentic thermal experiences." },
-    { title: "Rainforest Stewardship", desc: "We actively protect and restore the surrounding rainforest, working with local conservation organizations to preserve biodiversity." },
-    { title: "Water Conservation", desc: "Closed-loop water systems and rainwater harvesting minimize our impact on local water resources." },
-    { title: "Community Partnership", desc: "We employ local artisans and support regional initiatives that benefit the Arenal community." },
-  ];
-
   return (
-    <TintedSection backgroundColor={PALETTE.gradientEnd}>
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(61, 94, 74, 0.88)" }} />
+    <section id="sustainability">
+      {/* ── Row: S7 vertical video left + Text right ── */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+        {/* S7 — Vertical video left */}
+        <div className="w-full md:w-1/2 md:order-1">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <NativeVideo src="/manus-storage/springs-s7-sustainability-vertical_e4e0d280.mp4" className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
+        </div>
 
-        <div className={`relative z-10 ${sectionPadding}`}>
-          <div className={maxW}>
-            <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel color="rgba(255,255,255,0.5)">Sustainability</SectionLabel>
-            </AnimateOnScroll>
-            <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                Beyond Sustainability
-              </span>
-            </TextReveal>
-
-            <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
-              {initiatives.map((item, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  className="pl-6"
-                  style={{ borderLeft: "2px solid rgba(255,255,255,0.2)" }}
-                >
-                  <h3 className="text-white text-[17px] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}>
-                    {item.title}
-                  </h3>
-                  <p className="text-white/60 text-[14px] leading-[1.7]" style={{ fontFamily: "var(--font-body)" }}>
-                    {item.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </StaggerOnScroll>
-
-            {/* Gallery photo: Jungle pathway */}
-            <MediaReveal delay={0.2}>
-              <div className="mt-12 overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                <img src={CDN.gallery6} alt="Jungle pathway through the rainforest" className="w-full h-full object-cover rounded-lg" loading="lazy" />
-              </div>
-            </MediaReveal>
-
-            <AnimateOnScroll variants={fadeUp} delay={0.4}>
-              <div className="mt-12">
-                <PillarCrossLink pillar="experiences" />
-              </div>
-            </AnimateOnScroll>
-          </div>
+        {/* Text column right */}
+        <div
+          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
+          style={{ backgroundColor: PALETTE.gradientStart }}
+        >
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Sustainability</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-8" delay={0.1}>
+            <span
+              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Beyond Sustainability
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              From geothermal energy to rainforest stewardship, every decision at Nayara Springs is guided by our commitment to protect the extraordinary ecosystem that makes this place possible. We work with local communities and conservation organizations to ensure our presence strengthens the land rather than diminishes it.
+            </p>
+          </AnimateOnScroll>
         </div>
       </div>
-    </TintedSection>
+
+      {/* ── S8 — Full-width horizontal video ── */}
+      <div className="w-full">
+        <NativeVideo src="/manus-storage/springs-s8-sustainability-horizontal_7a9ba7b8.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+      </div>
+    </section>
   );
 }
 
