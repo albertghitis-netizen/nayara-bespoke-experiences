@@ -102,8 +102,8 @@ const STARGAZING_SECTIONS: StargazingSectionData[] = [
   {
     id: "hand-and-bus",
     label: "Desert Landmarks",
-    headline: "Hand of the Desert\n& the Magic School Bus",
-    body: "Rising from the sand like a signal to the cosmos, the Mano del Desierto stands eleven meters tall in the emptiness between Antofagasta and the Atacama. Nearby, a graffiti-covered school bus sits abandoned beneath the Milky Way — a relic turned landmark, now one of the most photographed night-sky foregrounds in South America. Together they mark the surreal edge where human presence meets infinite sky.",
+    headline: "Hand of the Desert\n& Magic School Bus",
+    body: "Rising from the sand like a signal to the cosmos, the Mano del Desierto stands eleven meters tall in the emptiness between Antofagasta and the Atacama. Sculpted by Mario Irrarrázabal in 1992, the hand emerges from the desert floor as a monument to human vulnerability and endurance — a gesture reaching toward the same sky that has drawn travelers here for millennia.\n\nNearby, a graffiti-covered school bus sits abandoned beneath the Milky Way — a relic turned landmark, now one of the most photographed night-sky foregrounds in South America. Together they mark the surreal edge where human presence meets infinite sky.",
     verticalSrc: CDN.manoDesiertoVertical,
     horizontalSrc: CDN.busMilkywayHorizontal,
     verticalIsVideo: false,
@@ -184,9 +184,13 @@ function StargazingCascadeSection({ section, index }: { section: StargazingSecti
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="text-white text-[15px] leading-relaxed max-w-md" style={body}>
-              {section.body}
-            </p>
+            <div className="max-w-md">
+              {section.body.split("\n\n").map((para, i) => (
+                <p key={i} className={`text-white text-[15px] leading-relaxed ${i > 0 ? "mt-6" : ""}`} style={body}>
+                  {para}
+                </p>
+              ))}
+            </div>
           </FadeIn>
         </div>
       </div>
@@ -222,6 +226,24 @@ export default function Stargazing() {
       {STARGAZING_SECTIONS.map((section, i) => (
         <StargazingCascadeSection key={section.id} section={section} index={i} />
       ))}
+
+      {/* CTA before footer */}
+      <section className="bg-black py-20 md:py-28">
+        <FadeIn>
+          <div className="flex flex-col items-center text-center px-6">
+            <a
+              href="/alto-atacama"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-md"
+              style={{ ...body, fontWeight: 500, fontSize: "13px", letterSpacing: "0.12em", color: "#ffffff", backgroundColor: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.25)" }}
+            >
+              Explore All the Atacama Experiences
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </FadeIn>
+      </section>
 
       <Footer pageType="brand" bgColor="#000000" nightSkyBg />
     </div>
@@ -268,8 +290,9 @@ function StorySection() {
         <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24">
           <FadeIn>
             <SectionLabel>Nayara Alto Atacama</SectionLabel>
-            <h2 className="text-white mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
-              The Night Sky Is Not<br />an Amenity
+            <h2 className="mb-6 md:mb-8">
+              <span className="block text-2xl md:text-4xl lg:text-[48px] leading-[1.05] tracking-wide text-white" style={heading}>The Night Sky Is Not</span>
+              <span className="block text-2xl md:text-4xl lg:text-[48px] leading-[1.05] tracking-wide text-white" style={heading}>an Amenity</span>
             </h2>
             <p className="text-white text-[15px] leading-relaxed" style={body}>
               Set beyond the lights of San Pedro de Atacama in the Catarpe Valley, the resort lies beneath one of the clearest night skies on Earth. This clarity is not poetic exaggeration. It is the result of altitude, extreme aridity, and geographic isolation that have drawn the world's leading astronomers to northern Chile for decades.
