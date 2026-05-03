@@ -855,7 +855,7 @@ function GettingHereSection() {
    ═══════════════════════════════════════════════════════════════ */
 function ReserveCTA() {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: PALETTE.gradientEnd }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: PALETTE.gradientStart }}>
       <div className="max-w-[800px] mx-auto text-center">
         <AnimateOnScroll variants={fadeUp}>
           <TextReveal as="h2" className="mb-6" delay={0.1}>
