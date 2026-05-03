@@ -163,6 +163,7 @@ export default function Springs() {
       <GastronomySection />
       <ReviewsSection />
       <GettingHereSection />
+      <ReserveCTA />
 
       <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
     </div>
@@ -405,6 +406,15 @@ function ExperiencesSection() {
               From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
             </p>
           </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.4}>
+            <a
+              href="/springs/experiences"
+              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            >
+              Explore Experiences →
+            </a>
+          </AnimateOnScroll>
         </div>
 
         {/* S5 — Vertical video right */}
@@ -466,6 +476,15 @@ function SustainabilitySection() {
               From geothermal energy to rainforest stewardship, every decision at Nayara Springs is guided by our commitment to protect the extraordinary ecosystem that makes this place possible. We work with local communities and conservation organizations to ensure our presence strengthens the land rather than diminishes it.
             </p>
           </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.4}>
+            <a
+              href="/springs/sustainability"
+              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            >
+              Explore Sustainability →
+            </a>
+          </AnimateOnScroll>
         </div>
       </div>
 
@@ -508,6 +527,15 @@ function WellnessSection() {
             >
               The spa at Nayara Springs draws its rituals from the geothermal earth and forest botanicals that surround it. Volcanic mineral waters, indigenous healing traditions, and the stillness of the rainforest converge to create an experience that restores from the inside out.
             </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.4}>
+            <a
+              href="/springs/wellness"
+              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            >
+              Explore Wellness →
+            </a>
           </AnimateOnScroll>
         </div>
 
@@ -574,6 +602,15 @@ function GastronomySection() {
             >
               As a proud Relais & Châteaux property, Nayara Springs upholds the highest standards of culinary excellence. From the volcanic terroir of Arenal to your table, our culinary team transforms locally sourced ingredients into extraordinary dining experiences — each plate a celebration of Costa Rica's biodiversity, crafted with the artistry and precision that define the Relais & Châteaux tradition.
             </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.4}>
+            <a
+              href="/springs/gastronomy"
+              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            >
+              Explore Gastronomy →
+            </a>
           </AnimateOnScroll>
         </div>
       </div>
@@ -770,6 +807,41 @@ function GettingHereSection() {
               </a>.
             </p>
           </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESERVE CTA — "Begin Your Rainforest Adventure"
+   ═══════════════════════════════════════════════════════════════ */
+function ReserveCTA() {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: PALETTE.gradientEnd }}>
+      <div className="max-w-[800px] mx-auto text-center">
+        <AnimateOnScroll variants={fadeUp}>
+          <TextReveal as="h2" className="mb-6" delay={0.1}>
+            <span
+              className="text-2xl md:text-4xl lg:text-5xl tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Begin Your Rainforest Adventure
+            </span>
+          </TextReveal>
+          <p
+            className="text-[15px] leading-[1.8] mb-8"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Private villas with natural hot spring pools, world-class dining, and the raw beauty of the Arenal rainforest await at Nayara Springs.
+          </p>
+          <a
+            href="/reserve?property=springs"
+            className="inline-block px-10 py-3.5 rounded-full text-[11px] tracking-[0.2em] transition-all hover:opacity-80"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: PALETTE.primary, color: "#fff" }}
+          >
+            Reserve Your Stay
+          </a>
         </AnimateOnScroll>
       </div>
     </section>

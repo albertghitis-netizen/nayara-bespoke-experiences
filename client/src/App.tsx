@@ -196,6 +196,8 @@ function Router() {
           <Route path="/tented-camp/rooms/residence" component={TentedResidencePage} />
           <Route path="/tented-camp/rooms/grand-tent" component={GrandTent} />
           <Route path="/tented-camp/experiences">{() => <CostaRicaExperiences propertySlug="tented-camp" />}</Route>
+          <Route path="/tented-camp/wellness">{() => <CostaRicaWellness propertySlug="tented-camp" />}</Route>
+          <Route path="/tented-camp/sustainability">{() => <CostaRicaSustainability propertySlug="tented-camp" />}</Route>
           <Route path="/tented-camp/gastronomy/ayla" component={AylaRestaurant} />
           <Route path="/tented-camp/gastronomy/henrys-bar" component={HenrysBarRestaurant} />
           <Route path="/tented-camp/gastronomy/lapas-pool-bar" component={LapasPoolBarRestaurant} />
@@ -207,6 +209,8 @@ function Router() {
           <Route path="/gardens/rooms/arenal-pool-casita" component={ArenalPoolCasita} />
           <Route path="/gardens/rooms/rainforest-pool-villa" component={RainforestPoolVilla} />
           <Route path="/gardens/experiences">{() => <CostaRicaExperiences propertySlug="gardens" />}</Route>
+          <Route path="/gardens/wellness">{() => <CostaRicaWellness propertySlug="gardens" />}</Route>
+          <Route path="/gardens/sustainability">{() => <CostaRicaSustainability propertySlug="gardens" />}</Route>
           <Route path="/gardens/gastronomy/lylas-gelato" component={LaylasRestaurant} />
           <Route path="/gardens/gastronomy/asia-luna" component={AsiaLunaRestaurant} />
           <Route path="/gardens/gastronomy/la-terraza" component={LaTerrazaRestaurant} />
@@ -216,6 +220,8 @@ function Router() {
           {/* ARCHIVED ROUTE: /springs/rooms - Component file still exists */}
           <Route path="/springs/rooms/springs-villa" component={SpringsVilla} />
           <Route path="/springs/experiences">{() => <CostaRicaExperiences propertySlug="springs" />}</Route>
+          <Route path="/springs/wellness">{() => <CostaRicaWellness propertySlug="springs" />}</Route>
+          <Route path="/springs/sustainability">{() => <CostaRicaSustainability propertySlug="springs" />}</Route>
           <Route path="/springs/gastronomy/mis-amores" component={MisAmoresRestaurant} />
           <Route path="/springs/gastronomy/mi-cafecito" component={MiCafecitoRestaurant} />
           <Route path="/springs/gastronomy/amor-loco" component={AmorLocoRestaurant} />
