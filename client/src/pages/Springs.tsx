@@ -156,7 +156,7 @@ export default function Springs() {
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
-
+      <SpringsVillaSection />
 
       <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
     </div>
@@ -334,11 +334,11 @@ function SpringsVillaSection() {
           </div>
         </div>
 
-        {/* Landscape image below — hidden on mobile */}
-        <div className="hidden md:block">
+        {/* S4 — Horizontal video below */}
+        <div className="w-full">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <img src={CDN.s4} alt="Aerial view of Springs Villa nestled in rainforest" className="w-full h-full object-cover" loading="lazy" />
+              <NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
