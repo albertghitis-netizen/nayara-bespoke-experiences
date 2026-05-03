@@ -79,21 +79,28 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
               </span>
               <div className="flex flex-col gap-[6px]">
                 {col.links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.route}
-                    onClick={(e) => {
-                      if (link.external) return;
-                      e.preventDefault();
-                      navigate(link.route);
-                    }}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                    className={`transition-colors${link.separatorBefore ? ' mt-3 pt-3 border-t' : ''}`}
-                    style={{ color: textColor, borderTopColor: `${textColor}33`, fontFamily: "var(--font-body)", fontWeight: 400 }}
-                  >
-                    {link.label}
-                  </a>
+                  <span key={link.label} className="flex flex-col">
+                    {link.separatorBefore && (
+                      <div
+                        className="mt-2 mb-2"
+                        style={{ width: "10em", height: "1px", backgroundColor: `${textColor}33` }}
+                      />
+                    )}
+                    <a
+                      href={link.route}
+                      onClick={(e) => {
+                        if (link.external) return;
+                        e.preventDefault();
+                        navigate(link.route);
+                      }}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="transition-colors"
+                      style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+                    >
+                      {link.label}
+                    </a>
+                  </span>
                 ))}
               </div>
             </div>
