@@ -157,6 +157,7 @@ export default function Springs() {
       <HeroSection />
       <StorySection />
       <SpringsVillaSection />
+      <ExperiencesSection />
 
       <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
     </div>
@@ -351,89 +352,39 @@ function SpringsVillaSection() {
    EXPERIENCES — Card grid with category filters
    ═══════════════════════════════════════════════════════════════ */
 function ExperiencesSection() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const categories = springs.excursionCategories || [];
-  const filtered = activeCategory === "all" ? springs.excursions : springs.excursions.filter((e: Excursion) => e.category === activeCategory);
-
   return (
     <section id="experiences" className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
       <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Experiences</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-10 md:mb-14" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Arenal Adventures
-          </span>
-        </TextReveal>
-
-        {categories.length > 0 && (
-          <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <div className="flex flex-wrap gap-2 mb-10 md:mb-14">
-              {categories.map((cat: { id: string; label: string }) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] transition-all duration-500"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontWeight: 500,
-                    backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
-                    border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
-                  }}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-          </AnimateOnScroll>
-        )}
-
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((excursion: Excursion) => (
-            <motion.div
-              key={excursion.id}
-              variants={fadeUp}
-              className="p-6 md:p-8 transition-all duration-500 hover:translate-y-[-2px]"
-              style={{
-                backgroundColor: "rgba(255,255,255,0.4)",
-                backdropFilter: "blur(8px)",
-                borderRadius: "12px",
-                borderBottom: `2px solid ${PALETTE.divider}`,
-              }}
-              whileHover={{ borderBottomColor: PALETTE.primary }}
-            >
-              <h3 className="text-[17px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
-                {excursion.name}
-              </h3>
-              {excursion.duration && (
-                <p className="text-[11px] tracking-[0.1em] mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
-                  {excursion.duration}{excursion.price ? ` · ${excursion.price}` : ""}
-                </p>
-              )}
-              <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                {excursion.description}
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
+          {/* Text left */}
+          <div className="md:flex-1 order-1">
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>Experiences</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" className="mb-8" delay={0.1}>
+              <span
+                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Arenal Adventures
+              </span>
+            </TextReveal>
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
               </p>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
-
-        {/* Gallery photo: Wildlife */}
-        <MediaReveal delay={0.2}>
-          <div className="mt-12 overflow-hidden" style={{ aspectRatio: "16/9" }}>
-            <img src={CDN.gallery5} alt="Wildlife in the Arenal rainforest" className="w-full h-full object-cover rounded-lg" loading="lazy" />
+            </AnimateOnScroll>
           </div>
-        </MediaReveal>
 
-        <AnimateOnScroll variants={fadeUp} delay={0.4}>
-          <div className="mt-12">
-            <PillarCrossLink pillar="experiences" />
+          {/* S5 — Vertical video right */}
+          <div className="w-full md:w-1/2 order-2">
+            <MediaReveal delay={0.1}>
+              <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+                <NativeVideo src="/manus-storage/springs-s5-experiences_16b5c78e.mp4" className="w-full h-full object-cover" />
+              </div>
+            </MediaReveal>
           </div>
-        </AnimateOnScroll>
+        </div>
       </div>
     </section>
   );
