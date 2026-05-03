@@ -15,7 +15,7 @@ const AltoAtacama = lazy(() => import("./pages/AltoAtacama"));
 const CuratedExcursions = lazy(() => import("./pages/ExperientialArenal"));
 const FamilyExpeditions = lazy(() => import("./pages/FamilyExpeditions"));
 const RainforestRomance = lazy(() => import("./pages/RainforestRomance"));
-const Hangaroa = lazy(() => import("./pages/Hangaroa"));
+const Hangaroa = lazy(() => import("./pages/ComingSoon"));
 const BocasDelToro = lazy(() => import("./pages/BocasDelToro"));
 const Journal = lazy(() => import("./pages/Journal"));
 const AwardsAndPress = lazy(() => import("./pages/AwardsAndPress"));
@@ -230,16 +230,16 @@ function Router() {
           <Route path="/springs/gastronomy/cielito-lindo" component={CielitoLindoRestaurant} />
           <Route path="/springs/gastronomy">{() => <CostaRicaGastronomy propertySlug="springs" />}</Route>
           <Route path="/hangaroa" component={Hangaroa} />
-          <Route path="/hangaroa/rooms" component={HangaroaRooms} />
-          <Route path="/hangaroa/rooms/kainga" component={Kainga} />
-          <Route path="/hangaroa/rooms/maunga" component={Maunga} />
-          <Route path="/hangaroa/gastronomy/poerava" component={PoeavaRestaurant} />
-          <Route path="/hangaroa/gastronomy/kaloa-lounge" component={KaloaLoungeRestaurant} />
-          <Route path="/hangaroa/gastronomy/vaikoa-bar" component={VaikoaBarRestaurant} />
-          <Route path="/hangaroa/experiences">{() => <CostaRicaExperiences propertySlug="hangaroa" />}</Route>
-          <Route path="/hangaroa/wellness">{() => <CostaRicaWellness propertySlug="hangaroa" />}</Route>
-          <Route path="/hangaroa/gastronomy">{() => <CostaRicaGastronomy propertySlug="hangaroa" />}</Route>
-          <Route path="/hangaroa/sustainability">{() => <CostaRicaSustainability propertySlug="hangaroa" />}</Route>
+          <Route path="/hangaroa/rooms" component={Hangaroa} />
+          <Route path="/hangaroa/rooms/kainga" component={Hangaroa} />
+          <Route path="/hangaroa/rooms/maunga" component={Hangaroa} />
+          <Route path="/hangaroa/gastronomy/poerava" component={Hangaroa} />
+          <Route path="/hangaroa/gastronomy/kaloa-lounge" component={Hangaroa} />
+          <Route path="/hangaroa/gastronomy/vaikoa-bar" component={Hangaroa} />
+          <Route path="/hangaroa/experiences" component={Hangaroa} />
+          <Route path="/hangaroa/wellness" component={Hangaroa} />
+          <Route path="/hangaroa/gastronomy" component={Hangaroa} />
+          <Route path="/hangaroa/sustainability" component={Hangaroa} />
           <Route path="/bocas-del-toro" component={BocasDelToro} />
           <Route path="/bocas-del-toro/rooms" component={BocasRooms} />
           <Route path="/bocas-del-toro/rooms/overwater-villa" component={OverwaterVilla} />

@@ -259,19 +259,6 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: DARK_COLORS[3],
   },
-  {
-    id: "night-immersion",
-    label: "Immersion",
-    headline: "Step Into\nthe Night",
-    body: "Whether you are watching bioluminescent plankton light up the Caribbean, tracing constellations from a private terrace in the Atacama, or listening to the rainforest chorus from your tented suite — Nayara by Night is an invitation to experience the world after dark.",
-    verticalSrc: CDN.cascadeBg,
-    horizontalSrc: CDN.biolumWaves,
-    verticalIsVideo: true,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: DARK_COLORS[4],
-  },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -327,10 +314,11 @@ function HeroSection() {
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
-    <section id="story" className="py-16 md:py-24 px-6 md:px-10">
-      <div className="max-w-[1200px] mx-auto">
-        {/* Full-width text */}
-        <div className="max-w-3xl mb-12 md:mb-16">
+    <section id="story">
+      {/* Row: Text left + Moai vertical right — full bleed */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: "#0a0a12" }}>
+        {/* Text column */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24">
           <FadeIn>
             <SectionLabel>The Experience</SectionLabel>
             <h2 className="text-white/90 mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
@@ -358,12 +346,25 @@ function StorySection() {
           </FadeIn>
         </div>
 
-        {/* s2 landscape — desktop only */}
-        <div className="hidden md:block">
-          <FadeIn delay={0.3}>
-            <img src={CDN.s2} alt="Rano Kau crater beneath the Milky Way" className="w-full object-cover rounded-lg" loading="lazy" style={{ aspectRatio: "16/9" }} />
+        {/* Moai vertical — right half, full bleed */}
+        <div className="w-full md:w-1/2">
+          <FadeIn delay={0.1}>
+            <img
+              src={CDN.moaiMilkyway}
+              alt="Moai beneath the Milky Way"
+              className="w-full h-full object-cover"
+              loading="lazy"
+              style={{ aspectRatio: "3/4" }}
+            />
           </FadeIn>
         </div>
+      </div>
+
+      {/* s2 landscape — full width, no gap, hidden on mobile */}
+      <div className="hidden md:block">
+        <FadeIn delay={0.2}>
+          <img src={CDN.s2} alt="Rano Kau crater beneath the Milky Way" className="w-full object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
+        </FadeIn>
       </div>
     </section>
   );
