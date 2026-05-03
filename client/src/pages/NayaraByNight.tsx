@@ -46,11 +46,11 @@ const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 /* ─── Dark palette for cascade sections ─────────────────────── */
 const DARK_COLORS = [
-  "#0a0a12", // hero / story
-  "#0c0c16", // atacama skies
-  "#0e0e1a", // rapa nui moai
-  "#10101e", // bocas bioluminescence
-  "#0e0e1a", // stargazing video
+  "#000000", // hero / story
+  "#000000", // atacama skies
+  "#000000", // rapa nui moai
+  "#000000", // bocas bioluminescence
+  "#000000", // stargazing video
 ];
 
 /* ─── Shared Animation Components ────────────────────────────── */
@@ -65,7 +65,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="text-white/30 text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500 }}>{children}</p>;
+  return <p className="text-white text-[11px] tracking-[0.15em] mb-3" style={{ ...body, fontWeight: 500 }}>{children}</p>;
 }
 
 function MediaBlock({
@@ -107,6 +107,8 @@ type NightSectionData = {
   verticalRatio: string;
   horizontalRatio: string;
   bgColor: string;
+  linkText?: string;
+  linkHref?: string;
 };
 
 function NightCascadeSection({ section, index }: { section: NightSectionData; index: number }) {
@@ -144,7 +146,7 @@ function NightCascadeSection({ section, index }: { section: NightSectionData; in
               {section.headline.split("\n").map((line, i) => (
                 <span
                   key={i}
-                  className="block text-2xl md:text-4xl lg:text-[48px] leading-[1.05] tracking-wide text-white/90"
+                  className="block text-2xl md:text-4xl lg:text-[48px] leading-[1.05] tracking-wide text-white"
                   style={heading}
                 >
                   {line}
@@ -154,10 +156,22 @@ function NightCascadeSection({ section, index }: { section: NightSectionData; in
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="text-white/50 text-[15px] leading-relaxed max-w-md" style={body}>
+            <p className="text-white text-[15px] leading-relaxed max-w-md" style={body}>
               {section.body}
             </p>
           </FadeIn>
+
+          {section.linkText && section.linkHref && (
+            <FadeIn delay={0.3}>
+              <a
+                href={section.linkHref}
+                className="inline-block mt-8 text-white text-[12px] tracking-[0.15em] uppercase border-b border-white/40 pb-1 hover:border-white transition-colors"
+                style={{ ...body, fontWeight: 500 }}
+              >
+                {section.linkText}
+              </a>
+            </FadeIn>
+          )}
         </div>
       </div>
 
@@ -192,6 +206,8 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: DARK_COLORS[1],
+    linkText: "Explore Alto Atacama",
+    linkHref: "/alto-atacama",
   },
   {
     id: "atacama-dusk",
@@ -204,17 +220,19 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    bgColor: DARK_COLORS[1],
+     bgColor: DARK_COLORS[1],
+    linkText: "Explore Alto Atacama",
+    linkHref: "/alto-atacama",
   },
   {
-    id: "rapa-nui-moai",
+    id: "atacama-dusk",
     label: "Rapa Nui",
     headline: "Moai Beneath\nthe Milky Way",
     body: "On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.",
-    verticalSrc: CDN.moaiMilkyway,
-    horizontalSrc: "",
+    verticalSrc: "/manus-storage/C4E3064D-C340-4EA4-BBC8-507E51A9B517_d666d0a5.jpeg",
+    horizontalSrc: "/manus-storage/nbn-moai-horizontal_040475cb.mp4",
     verticalIsVideo: false,
-    horizontalIsVideo: false,
+    horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: DARK_COLORS[2],
@@ -266,7 +284,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
    ═══════════════════════════════════════════════════════════════ */
 export default function NayaraByNight() {
   return (
-    <div className="min-h-screen bg-[#0a0a12]">
+    <div className="min-h-screen bg-black">
       <BrandNavigation pageType="brand" navPalette={{ dark: "#000000", pillBg: "rgba(0,0,0,0.7)", pillHover: "rgba(0,0,0,0.9)" }} />
       <HeroSection />
       <StorySection />
@@ -316,18 +334,18 @@ function StorySection() {
   return (
     <section id="story">
       {/* Row: Text left + Moai vertical right — full bleed */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: "#0a0a12" }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: "#000000" }}>
         {/* Text column */}
         <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24">
           <FadeIn>
             <SectionLabel>The Experience</SectionLabel>
-            <h2 className="text-white/90 mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
+            <h2 className="text-white mb-6" style={{ ...heading, fontSize: "clamp(20px, 2.8vw, 32px)", lineHeight: 1.15 }}>
               Where Darkness Reveals<br />the Universe
             </h2>
-            <p className="text-white/50 text-[15px] leading-relaxed" style={body}>
+            <p className="text-white text-[15px] leading-relaxed" style={body}>
               From the clearest night skies on Earth in the Atacama Desert to the ancient Moai standing sentinel beneath the Milky Way on Rapa Nui, and the ethereal glow of bioluminescent plankton in the Caribbean waters of Bocas del Toro — Nayara's properties offer some of the most extraordinary nocturnal experiences on the planet.
             </p>
-            <p className="text-white/50 text-[15px] leading-relaxed mt-6" style={body}>
+            <p className="text-white text-[15px] leading-relaxed mt-6" style={body}>
               These are not staged moments. They are the natural gifts of the remote, pristine landscapes where Nayara has chosen to build — places where light pollution is a foreign concept and the cosmos reveals itself in full splendor.
             </p>
             {/* Blog Link — Of Moon and Stars */}
