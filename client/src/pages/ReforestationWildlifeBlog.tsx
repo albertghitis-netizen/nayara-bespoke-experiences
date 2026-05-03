@@ -436,7 +436,7 @@ export default function ReforestationWildlifeBlog() {
               Discover how our commitment to reforestation, wildlife protection, and sustainable luxury is shaping the future of Costa Rica's rainforests. And learn why the presence of sloths is the best indicator of our success.
             </p>
             <a
-              href="/tented-camp/sustainability"
+              href="/tented-camp-sustainability"
               className="inline-block px-8 py-3 rounded-full transition-all duration-300 hover:translate-y-[-2px] text-[13px] tracking-[0.06em] uppercase"
               style={{
                 backgroundColor: TENTED_PALETTE.primary,

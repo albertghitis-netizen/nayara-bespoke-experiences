@@ -358,7 +358,7 @@ export default function GreenGlobeBlog() {
               Discover the full scope of our environmental stewardship, community partnerships, and conservation initiatives that earned us Green Globe Certification.
             </p>
             <a
-              href="/tented-camp/sustainability"
+              href="/tented-camp-sustainability"
               className="inline-block px-8 py-3 rounded-full transition-all duration-300 hover:translate-y-[-2px] text-[13px] tracking-[0.06em] uppercase"
               style={{
                 backgroundColor: TENTED_PALETTE.primary,

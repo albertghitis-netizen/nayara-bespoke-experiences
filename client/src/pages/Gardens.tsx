@@ -1331,7 +1331,7 @@ function GardensExperiencesSection() {
 
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
-              href="/gardens/experiences"
+              href="/curated-excursions"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >
@@ -1403,7 +1403,7 @@ function GardensGastronomyCascade() {
 
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
-              href="/gardens/dining"
+              href="/gastronomy-arenal"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#3a2a1a" }}
             >
@@ -1479,7 +1479,7 @@ function GardensSustainabilityCascade() {
 
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
-              href="/gardens/sustainability"
+              href="/tented-camp-sustainability"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >

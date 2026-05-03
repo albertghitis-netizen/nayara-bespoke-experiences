@@ -445,7 +445,7 @@ function ExperiencesSection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/springs/experiences"
+              href="/curated-excursions"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >
@@ -515,7 +515,7 @@ function SustainabilitySection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/springs/sustainability"
+              href="/tented-camp-sustainability"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >
@@ -567,7 +567,7 @@ function WellnessSection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/springs/wellness"
+              href="/costa-rica-wellness"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >
@@ -642,7 +642,7 @@ function GastronomySection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/springs/gastronomy"
+              href="/gastronomy-arenal"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >

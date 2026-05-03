@@ -3350,3 +3350,9 @@
 - [x] Update shared pages (CostaRicaExperiences, CostaRicaGastronomy, CostaRicaWellness) to use springs palette when propertySlug is "springs"
 - [x] Update all restaurant pages (AmorLoco, MisAmores, MiCafecito, BesameMucho, CielitoLindo) to use springs palette
 - [x] Make "Start your rainforest adventure" CTA section same background color as Guest Voices/Reviews section
+- [ ] Remove/hide badge animation from mobile view on Springs page
+- [x] Incorporate Costa Rica sustainability article content into Beyond Reforestation section (shared by all 3 CR properties)
+- [x] Audit all routes/navigation for CR property-specific Experiences, Gastronomy, Wellness, Sustainability pages
+- [x] Update all links from Gardens/Springs/Tented to point to shared Costa Rica pages
+- [x] Delete any property-specific Experiences, Wellness, Gastronomy, Sustainability page files for Springs/Gardens/Tented
+- [x] Verify all links work correctly after cleanup

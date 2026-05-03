@@ -132,7 +132,6 @@ const BesameMuchoRestaurant = lazy(() => import("./pages/BesameMuchoRestaurant")
 const CielitoLindoRestaurant = lazy(() => import("./pages/CielitoLindoRestaurant"));
 const CostaRicaSustainability = lazy(() => import("./pages/CostaRicaSustainability"));
 const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability"));
-const TentedCampSustainability = lazy(() => import("./pages/TentedCampSustainability"));
 
 const BocasRooms = lazy(() => import("./pages/BocasRooms"));
 const GardensRooms = lazy(() => import("./pages/GardensRooms"));

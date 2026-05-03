@@ -938,7 +938,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
-    link: "/tented-camp/experiences",
+    link: "/curated-excursions",
     linkLabel: "Explore Bespoke Experiences",
   },
   {
@@ -954,7 +954,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
-    link: "/tented-camp/sustainability",
+    link: "/tented-camp-sustainability",
     linkLabel: "Explore Beyond Reforestation",
     stats: [
       { value: "100%", label: "Renewable Energy" },
@@ -978,7 +978,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     verticalLoop: true,
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
-    link: "/tented-camp/wellness",
+    link: "/costa-rica-wellness",
     linkLabel: "Explore Nature-Based Wellness",
     stats: [
       { value: "7", label: "Thermal Springs" },
@@ -1004,7 +1004,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
-    link: "/tented-camp/gastronomy",
+    link: "/gastronomy-arenal",
     linkLabel: "Explore Forest to Table",
   },
   {

@@ -382,7 +382,7 @@ export default function BirdwatchingBlog() {
               Our expert guides lead early morning birdwatching tours through the rainforest canopy. Whether you are a seasoned birder or a curious beginner, our guides will help you discover the incredible avian diversity of the Arenal region.
             </p>
             <a
-              href="/tented-camp/experiences"
+              href="/curated-excursions"
               className="inline-block px-8 py-3 rounded-full transition-all duration-300 hover:translate-y-[-2px] text-[13px] tracking-[0.06em] uppercase"
               style={{
                 backgroundColor: TENTED_PALETTE.primary,

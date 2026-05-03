@@ -382,7 +382,7 @@ export default function WomensEmpowermentBlog() {
               Discover how our commitment to community empowerment, sustainable development, and social responsibility shapes the future of La Fortuna.
             </p>
             <a
-              href="/tented-camp/sustainability"
+              href="/tented-camp-sustainability"
               className="inline-block px-8 py-3 rounded-full transition-all duration-300 hover:translate-y-[-2px] text-[13px] tracking-[0.06em] uppercase"
               style={{
                 backgroundColor: TENTED_PALETTE.primary,
