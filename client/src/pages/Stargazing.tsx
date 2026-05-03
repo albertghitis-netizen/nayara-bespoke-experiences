@@ -19,6 +19,8 @@ const CDN = {
   telescopeVertical: "/manus-storage/3a94f88f-2a69-457a-bc18-fae9946d8f0c(1)_463d1a87.jpg",
   /* Petroglyph under Milky Way — Ancient Cultures */
   petroglyphVertical: "/manus-storage/stargazing-petroglyph-milkyway_2c62bd09.jpg",
+  /* Observatory telescope under Milky Way arch */
+  observatoryVertical: "/manus-storage/stargazing-observatory-milkyway_12f50076.jpg",
   /* New stargazing images */
   handVertical: "/manus-storage/stargazing-hand-vertical_c5fe139a.jpg",
   milkywayArchHorizontal: "/manus-storage/stargazing-milkyway-arch-horizontal_add8c151.jpg",
@@ -87,18 +89,6 @@ type StargazingSectionData = {
 };
 
 const STARGAZING_SECTIONS: StargazingSectionData[] = [
-  {
-    id: "geography-and-science",
-    label: "Geography & Science",
-    headline: "Where Astronomers\nCame First",
-    body: "The Atacama's astronomical clarity is the result of altitude above 2,400 meters, extreme aridity, and geographic isolation. The same conditions that drew ALMA's 66 antennas to the Chajnantor Plateau at 5,000 meters and the European Southern Observatory's Very Large Telescope to Paranal allow guests to encounter the universe directly — without mediation or interference.",
-    verticalSrc: CDN.rockarchVertical,
-    horizontalSrc: CDN.pillarAuroraHorizontal,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "21/9",
-  },
   {
     id: "andean-sky-knowledge",
     label: "Andean Cosmovision",
@@ -271,8 +261,8 @@ function StorySection() {
         <div className="w-full md:w-1/2">
           <FadeIn delay={0.1}>
             <img
-              src={CDN.handVertical}
-              alt="Mano del Desierto beneath the Milky Way"
+              src={CDN.observatoryVertical}
+              alt="Observatory telescope beneath the Milky Way arch"
               className="w-full h-full object-cover"
               style={{ aspectRatio: "3/4" }}
             />
