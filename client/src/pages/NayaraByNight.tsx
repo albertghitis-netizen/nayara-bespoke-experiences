@@ -360,10 +360,12 @@ function StorySection() {
         </div>
       </div>
 
-      {/* s2 landscape — full width, no gap, hidden on mobile */}
+      {/* s2 landscape video — full width, no gap, hidden on mobile */}
       <div className="hidden md:block">
         <FadeIn delay={0.2}>
-          <img src={CDN.s2} alt="Rano Kau crater beneath the Milky Way" className="w-full object-cover" loading="lazy" style={{ aspectRatio: "16/9" }} />
+          <div style={{ aspectRatio: "16/9" }} className="overflow-hidden">
+            <NativeVideo src="/manus-storage/nbn-s2-horizontal_3e4fa16c.mp4" className="w-full h-full object-cover" />
+          </div>
         </FadeIn>
       </div>
     </section>
