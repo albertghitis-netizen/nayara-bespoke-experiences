@@ -11,6 +11,7 @@ import BlobVideo from "@/components/BlobVideo";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
+import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
 import {
@@ -867,7 +868,32 @@ export default function AltoAtacama() {
       <ReviewsBreak bgColor={LIGHT} />
       <GettingHereSection />
       <ReserveCTA />
-      <Footer bgColor={MIDDLE}  textColor="#FFFFFF" />
+      <CrossPropertyCTA
+        suggestions={[
+          {
+            name: "Nayara Gardens",
+            chapter: "The Rainforest Adventure",
+            tagline: "From desert silence to rainforest symphony — volcano-view villas, hanging bridges, and wildlife encounters in Costa Rica's Arenal.",
+            route: "/gardens",
+            image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-casita-aerial_e2fb1f8e.jpeg",
+            audienceTag: "Families Welcome",
+          },
+          {
+            name: "Nayara Bocas del Toro",
+            chapter: "The Adults-Only Archipelago",
+            tagline: "Desert to archipelago — trade salt flats for Caribbean overwater villas on a solar-powered private island.",
+            route: "/bocas-del-toro",
+            image: "/manus-storage/bocas-resort-24_5778eea7.jpg",
+            audienceTag: "Adults Only",
+          },
+        ]}
+        bgColor={LIGHT}
+        textColor={PALETTE.text}
+        textSecondaryColor={PALETTE.textTertiary}
+        accentColor={PALETTE.primary}
+        dividerColor={PALETTE.divider}
+      />
+      <Footer bgColor={MIDDLE} textColor="#FFFFFF" />
     </div>
   );
 }

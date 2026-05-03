@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
+import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 // CinematicScroll removed — no auto-scroll on Hangaroa
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
@@ -222,6 +223,31 @@ export default function Hangaroa() {
       {/* <GalleryIntegratedSections /> */}
       {/* ★ 6. NAYARA BY NIGHT */}
       <NayaraByNightSection />
+      <CrossPropertyCTA
+        suggestions={[
+          {
+            name: "Nayara Alto Atacama",
+            chapter: "Where Desert Meets Sky",
+            tagline: "Stay in Chile, change the world — from Easter Island's stone giants to the Atacama's salt flats, geysers, and star-filled skies.",
+            route: "/alto-atacama",
+            image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
+            audienceTag: "All Travelers",
+          },
+          {
+            name: "Nayara Springs",
+            chapter: "The Hot Springs Sanctuary",
+            tagline: "From stone giants to hot springs — an adults-only volcanic sanctuary hidden in Costa Rica's rainforest canopy.",
+            route: "/springs",
+            image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/5_ac0cb283.jpg",
+            audienceTag: "Adults Only",
+          },
+        ]}
+        bgColor={PALETTE.gradientEnd}
+        textColor={PALETTE.text}
+        textSecondaryColor={PALETTE.textTertiary}
+        accentColor={PALETTE.primary}
+        dividerColor={PALETTE.divider}
+      />
       <Footer bgColor="#536878"  textColor="#FFFFFF" />
     </div>
   );

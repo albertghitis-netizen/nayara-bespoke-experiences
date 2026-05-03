@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
+import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 
 import {
   AnimateOnScroll,
@@ -1394,6 +1395,31 @@ export default function TentedCamp() {
       {/* ★ Getting Here below Reviews */}
       <GettingHereBreak bgColor="#D5D9C4" />
       <ReserveCTA />
+      <CrossPropertyCTA
+        suggestions={[
+          {
+            name: "Nayara Alto Atacama",
+            chapter: "Where Desert Meets Sky",
+            tagline: "From canopy to cosmos — trade rainforest glamping for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
+            route: "/alto-atacama",
+            image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
+            audienceTag: "All Travelers",
+          },
+          {
+            name: "Nayara Hangaroa",
+            chapter: "The Land of Giants",
+            tagline: "Two edges of the world — from the rainforest canopy to Easter Island's monumental Moai and Polynesian culture.",
+            route: "/hangaroa",
+            image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
+            audienceTag: "All Travelers",
+          },
+        ]}
+        bgColor="#D5D9C4"
+        textColor={PALETTE.text}
+        textSecondaryColor={PALETTE.textTertiary}
+        accentColor={PALETTE.primary}
+        dividerColor={PALETTE.divider}
+      />
       <Footer bgColor="#868B75" textColor="#FFFFFF" />
     </div>
   );

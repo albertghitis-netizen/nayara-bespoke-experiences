@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
+import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
 import {
@@ -841,6 +842,31 @@ export default function BocasDelToro() {
 
       <GettingHereBreak bgColor="#C8DFF0" />
       <ReserveCTA />
+      <CrossPropertyCTA
+        suggestions={[
+          {
+            name: "Nayara Alto Atacama",
+            chapter: "Where Desert Meets Sky",
+            tagline: "Caribbean to cosmos — trade turquoise waters for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
+            route: "/alto-atacama",
+            image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
+            audienceTag: "All Travelers",
+          },
+          {
+            name: "Nayara Tented Camp",
+            chapter: "The Luxury Tented Camp",
+            tagline: "Island to canopy — from overwater villas to elevated safari tents perched above Costa Rica's rainforest.",
+            route: "/tented-camp",
+            image: "/manus-storage/gal-new-aerial-tents_308da834.PNG",
+            audienceTag: "Families Welcome",
+          },
+        ]}
+        bgColor="#C8DFF0"
+        textColor={PALETTE.text}
+        textSecondaryColor={PALETTE.textTertiary}
+        accentColor={PALETTE.primary}
+        dividerColor={PALETTE.divider}
+      />
       <Footer bgColor="#008E97"  textColor="#FFFFFF" />
     </div>
   );

@@ -103,7 +103,19 @@ export default function Gallery() {
     <div className="min-h-screen" style={{ backgroundColor: "#0a0a0a" }}>
       <BrandNavigation pageType="brand" hideCenterLabel />
 
-      <div className="pt-20 pb-4 px-1 sm:px-2">
+      {/* Gallery label centered on same line as nav */}
+      <div className="fixed top-2 left-0 right-0 z-40 h-9 flex items-center justify-center pointer-events-none">
+        <p
+          className="text-[22px] md:text-[26px] tracking-[0.3em] uppercase text-white"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Gallery
+        </p>
+      </div>
+
+      <div className="pt-14"></div>
+
+      <div className="pb-4 px-1 sm:px-2">
         <div className="flex" style={{ gap: `${GAP}px` }}>
           {columnItems.map((col, colIdx) => (
             <div

@@ -3327,3 +3327,13 @@
 - [x] Add "Two Worlds, One Journey" twin-center itinerary section to homepage
 - [x] Add "Who Each Nayara Is For" audience segmentation section to homepage
 - [ ] Update property taglines across site to use new chapter names (Rainforest Adventure, Hot Springs Sanctuary, Luxury Tented Camp, Where Desert Meets Sky, Adults-Only Archipelago, Land of Giants)
+- [x] Combine "Curated Journeys" and "Find Your Nayara" into one unified section
+- [ ] Simplify audience segmentation to two categories: Romance & Wellness (adults-only) and Family Adventure, Exploration & Discovery (all)
+- [ ] Keep twin-center journey pairings within the combined section
+- [x] Add cross-property CTAs to Gardens bottom (suggest Atacama + Bocas)
+- [x] Add cross-property CTAs to Springs bottom (suggest Bocas + Hangaroa)
+- [x] Add cross-property CTAs to Tented Camp bottom (suggest Atacama + Hangaroa)
+- [x] Add cross-property CTAs to Alto Atacama bottom (suggest Gardens + Bocas)
+- [x] Add cross-property CTAs to Bocas del Toro bottom (suggest Atacama + Tented Camp)
+- [x] Add cross-property CTAs to Hangaroa bottom (suggest Atacama + Springs)
+- [x] Add "Gallery" text in the black sliver at the top of the gallery page

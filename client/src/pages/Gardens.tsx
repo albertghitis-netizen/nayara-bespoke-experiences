@@ -16,6 +16,7 @@ import BlobVideo from "@/components/BlobVideo";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import PropertySlider from "@/components/PropertySlider";
 import PropertySorter from "@/components/PropertySorter";
@@ -204,7 +205,31 @@ export default function Gardens() {
 
       {/* ══ CTA ══ */}
       <ReserveCTA />
-
+      <CrossPropertyCTA
+        suggestions={[
+          {
+            name: "Nayara Alto Atacama",
+            chapter: "Where Desert Meets Sky",
+            tagline: "Trade rainforest symphony for desert silence — salt flats, geysers, and the clearest night skies on Earth.",
+            route: "/alto-atacama",
+            image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
+            audienceTag: "All Travelers",
+          },
+          {
+            name: "Nayara Bocas del Toro",
+            chapter: "The Adults-Only Archipelago",
+            tagline: "From volcanic rainforest to Caribbean overwater villas — solar-powered island privacy on a pristine reef.",
+            route: "/bocas-del-toro",
+            image: "/manus-storage/bocas-resort-24_5778eea7.jpg",
+            audienceTag: "Adults Only",
+          },
+        ]}
+        bgColor={PALETTE.gradientEnd}
+        textColor={PALETTE.text}
+        textSecondaryColor={PALETTE.textTertiary}
+        accentColor={PALETTE.primary}
+        dividerColor={PALETTE.divider}
+      />
       <Footer bgColor="#286241" textColor="#FFFFFF" />
     </div>
   );

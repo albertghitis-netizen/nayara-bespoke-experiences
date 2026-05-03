@@ -18,8 +18,8 @@ export interface GalleryItem {
 export const galleryImages: GalleryItem[] = [
   // 1. Aerial tents in green forest (HORIZ, green, bright) — strong opener
   { src: "/manus-storage/gal-new-aerial-tents_308da834.PNG", w: 1600, h: 900, type: "image" },
-  // 2. Woman in white dress by pool (VERT, blue/green)
-  { src: "/manus-storage/newgal-001-90BD7E91-B497-4CF2-B9B4-4F7929DFB687_1__747bee1e.jpeg", w: 1536, h: 1920, type: "image" },
+  // 2. VIDEO — Nayara reel (VERT, 3.7s) [swapped from G21]
+  { src: "/manus-storage/gal-vid-16-reel_66fc2aff.mp4", w: 1080, h: 1920, type: "video" },
   // 3. Couple at volcano (SQUARE, blue/green) — first square
   { src: "/manus-storage/gal-new-couple-volcano_2392d516.jpeg", w: 1920, h: 1920, type: "image" },
   // 4. Tent pool deck with woman (HORIZ, green/blue sky)
@@ -56,8 +56,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/gal-new-treehouse-walkway_6d7687be.jpeg", w: 1442, h: 1920, type: "image" },
   // 20. Landscape with green hills (HORIZ, bright green)
   { src: "/manus-storage/newgal-011-3ebfa54d-69b4-4274-bc93-fc60642536c9_1__067f8b01.JPG", w: 1280, h: 853, type: "image" },
-  // 21. VIDEO — Nayara reel (VERT, 3.7s)
-  { src: "/manus-storage/gal-vid-16-reel_66fc2aff.mp4", w: 1080, h: 1920, type: "video" },
+  // 21. Woman in white dress by pool (VERT, blue/green) [swapped from G2]
+  { src: "/manus-storage/newgal-001-90BD7E91-B497-4CF2-B9B4-4F7929DFB687_1__747bee1e.jpeg", w: 1536, h: 1920, type: "image" },
   // 22. Couple by pool (VERT, blue water)
   { src: "/manus-storage/newgal-014-4O1A4907-byBriceFerreStudiocopy_6a4a23c7.jpeg", w: 1281, h: 1921, type: "image" },
   // 23. Arenal aerial with volcano (SQUARE, green/grey) — third square

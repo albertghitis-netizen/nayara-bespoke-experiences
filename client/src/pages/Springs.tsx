@@ -14,6 +14,7 @@ import ByNightCTA from "@/components/ByNightCTA";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import PropertySlider from "@/components/PropertySlider";
 import PropertySorter from "@/components/PropertySorter";
@@ -175,7 +176,31 @@ export default function Springs() {
       <ReviewsSection />
       <GettingHereSection />
       <ReserveCTA />
-
+      <CrossPropertyCTA
+        suggestions={[
+          {
+            name: "Nayara Bocas del Toro",
+            chapter: "The Adults-Only Archipelago",
+            tagline: "Another adults-only sanctuary — trade volcanic hot springs for Caribbean overwater villas on a solar-powered private island.",
+            route: "/bocas-del-toro",
+            image: "/manus-storage/bocas-resort-24_5778eea7.jpg",
+            audienceTag: "Adults Only",
+          },
+          {
+            name: "Nayara Hangaroa",
+            chapter: "The Land of Giants",
+            tagline: "From thermal sanctuary to ancient mystery — Moai guardians, Polynesian culture, the most remote island on Earth.",
+            route: "/hangaroa",
+            image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
+            audienceTag: "All Travelers",
+          },
+        ]}
+        bgColor={PALETTE.gradientEnd}
+        textColor={PALETTE.text}
+        textSecondaryColor={PALETTE.textTertiary}
+        accentColor={PALETTE.primary}
+        dividerColor={PALETTE.divider}
+      />
       <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
     </div>
   );
