@@ -2,10 +2,9 @@
  * UNIFIED NAVIGATION - One consistent nav for the entire site
  *
  * Desktop:  [Hamburger]  ···  Property Name Strip (center)  ···  [Reserve]
- * Mobile:   [Hamburger]  [Explore]  [Reserve]  [Concierge]
+ * Mobile:   [Hamburger]  [Reserve]
  *
- * Center strip: horizontal list of all property names, clickable,
- * with the current property highlighted. Shows on ALL pages.
+ * Hamburger menu dropdowns: Pillars, Explore, Costa Rica, Destinations
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -19,11 +18,12 @@ import {
   PROPERTIES,
   COSTA_RICA_ITEMS,
   RESORTS_ITEMS,
-  EXPLORE_MENU_ITEMS,
+  PILLARS_COLUMN,
+  EXPLORE_COLUMN,
 } from "@/data/navigation";
 
 /* ── Menu state keys ── */
-type MenuKey = "costaRica" | "resorts";
+type MenuKey = "pillars" | "explore" | "costaRica" | "resorts";
 
 /* ── Map routes to property IDs for highlighting ── */
 const ROUTE_TO_PROPERTY: Record<string, string> = {};
@@ -66,16 +66,15 @@ export default function BrandNavigation({
   const pillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : "rgba(59,43,38,0.95)");
   
   // For Costa Rica pages, use olive green for text and borders instead of espresso
-  // Detect Costa Rica routes: property pages (tented-camp, gardens, springs) + Costa Rica sub-pages
   const costaRicaRoutes = [
-    "curated-excursions",      // Rainforest Adventure
-    "wellness",               // Nurtured by Nature
-    "gastronomy-arenal",      // Forest to Table
-    "tented-camp-sustainability", // Beyond Sustainability
+    "curated-excursions",
+    "wellness",
+    "gastronomy-arenal",
+    "tented-camp-sustainability",
   ];
   const isCR = costaRicaRoutes.includes(propertySlug);
-  const textColor = "#3B2B26";  // Dark brown for menu text on white dropdown
-  const textColorMuted = "#3B2B26";  // Dark brown for menu text on white dropdown
+  const textColor = "#3B2B26";
+  const textColorMuted = "#3B2B26";
   const hoverBg = isCR ? "#868B75/10" : "#d4c9b8/40";
   const borderColor = isCR ? "#868B75/10" : "#3B2B26/10";
   const pillBgCR = isCR ? "#868B7599" : "rgba(59,43,38,0.8)";
@@ -85,18 +84,12 @@ export default function BrandNavigation({
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<Record<MenuKey, boolean>>({
+    pillars: false,
+    explore: false,
     costaRica: false,
     resorts: false,
   });
   const [scrolled, setScrolled] = useState(false);
-
-  const toggleMenu = (key: MenuKey) => {
-    setExpandedMenus((prev) => ({
-      costaRica: false,
-      resorts: false,
-      [key]: !prev[key],
-    }));
-  };
 
   const menuRef = useRef<HTMLDivElement>(null);
   const reserveRef = useRef<HTMLDivElement>(null);
@@ -126,7 +119,7 @@ export default function BrandNavigation({
   const closeAll = () => {
     setMenuOpen(false);
     setReserveOpen(false);
-    setExpandedMenus({ costaRica: false, resorts: false });
+    setExpandedMenus({ pillars: false, explore: false, costaRica: false, resorts: false });
   };
 
   const handleNavigate = (route: string) => {
@@ -148,6 +141,13 @@ export default function BrandNavigation({
     }
   };
 
+  const toggleDropdown = (key: MenuKey) => {
+    setExpandedMenus((prev) => {
+      const allClosed: Record<MenuKey, boolean> = { pillars: false, explore: false, costaRica: false, resorts: false };
+      return { ...allClosed, [key]: !prev[key] };
+    });
+  };
+
   /* ── Shared styles ── */
   const pillStyle: React.CSSProperties = {
     backgroundColor: finalPillBg,
@@ -157,7 +157,7 @@ export default function BrandNavigation({
   const pill =
     "flex items-center justify-center rounded-full backdrop-blur-md shadow-sm transition-colors cursor-pointer border";
 
-  const dropdown =
+  const dropdownCls =
     "absolute mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden border";
   const dropdownStyle: React.CSSProperties = {
     borderColor: borderColor,
@@ -165,14 +165,11 @@ export default function BrandNavigation({
 
   const menuItem =
     "w-full text-left px-5 py-2.5 transition-colors";
-  const menuItemStyle: React.CSSProperties = {
-    color: textColor,
-  };
 
   const menuText = {
     fontFamily: "var(--font-body)",
     fontWeight: 500 as const,
-    color: "#3B2B26",  // Dark brown on white dropdown
+    color: "#3B2B26",
   };
 
   const dropdownAnim = {
@@ -184,6 +181,94 @@ export default function BrandNavigation({
 
   /* ── Build hamburger menu items ── */
   const propertyItems = pageType === "property" ? PROPERTY_MENU : [];
+
+  /* ── Reusable dropdown section renderer ── */
+  const renderDropdownSection = (key: MenuKey, label: string, items: { label: string; route: string; separatorBefore?: boolean }[]) => (
+    <div>
+      <button
+        type="button"
+        data-dropdown-toggle="true"
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleDropdown(key); }}
+        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
+      >
+        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{label}</span>
+        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus[key] ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      <AnimatePresence>
+        {expandedMenus[key] && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="pl-4 pb-1">
+              {items.map((item) => (
+                <div key={item.label}>
+                  {item.separatorBefore && <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />}
+                  <button type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
+                    <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
+                  </button>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+
+  /* ── Resorts items with separator before last item ── */
+  const resortsWithSeparator = RESORTS_ITEMS.map((item, idx) => ({
+    ...item,
+    separatorBefore: idx === RESORTS_ITEMS.length - 1,
+  }));
+
+  /* ── Hamburger menu content (shared between desktop & mobile) ── */
+  const renderMenuContent = () => (
+    <div className="py-2 max-h-[75vh] overflow-y-auto">
+      {/* Property section anchors (only on property pages) */}
+      {propertyItems.length > 0 && (
+        <>
+          <div className="px-5 pt-2 pb-1">
+            <span className="text-[10px] tracking-[0.18em]" style={{...menuText, opacity: 0.3}}>
+              This Property
+            </span>
+          </div>
+          {propertyItems.map((item) => (
+            <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
+              <span className="text-[13px]" style={menuText}>{item.label}</span>
+            </button>
+          ))}
+          <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
+        </>
+      )}
+
+      {/* Global links header (only on property pages) */}
+      {propertyItems.length > 0 && (
+        <div className="px-5 pt-1 pb-1">
+          <span className="text-[10px] tracking-[0.18em]" style={{...menuText, opacity: 0.3}}>
+            Explore Nayara
+          </span>
+        </div>
+      )}
+
+      {/* Pillars Dropdown */}
+      {renderDropdownSection("pillars", "Pillars", PILLARS_COLUMN.links as { label: string; route: string; separatorBefore?: boolean }[])}
+
+      {/* Explore Dropdown */}
+      {renderDropdownSection("explore", "Explore", EXPLORE_COLUMN.links as { label: string; route: string; separatorBefore?: boolean }[])}
+
+      {/* Costa Rica Dropdown */}
+      {renderDropdownSection("costaRica", "Costa Rica", COSTA_RICA_ITEMS as unknown as { label: string; route: string; separatorBefore?: boolean }[])}
+
+      {/* Destinations Dropdown */}
+      {renderDropdownSection("resorts", "Destinations", resortsWithSeparator)}
+    </div>
+  );
 
   return (
     <>
@@ -206,118 +291,14 @@ export default function BrandNavigation({
 
             <AnimatePresence>
               {menuOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-56`}>
-                  <div className="py-2 max-h-[75vh] overflow-y-auto">
-                    {/* Property section anchors (only on property pages) */}
-                    {propertyItems.length > 0 && (
-                      <>
-                        <div className="px-5 pt-2 pb-1">
-                          <span className="text-[10px] tracking-[0.18em]" style={{...menuText, opacity: 0.3}}>
-                            This Property
-                          </span>
-                        </div>
-                        {propertyItems.map((item) => (
-                          <button key={item.label} onClick={() => handleNavigate(item.route)} className={menuItem}>
-                            <span className="text-[13px]" style={menuText}>{item.label}</span>
-                          </button>
-                        ))}
-                        <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
-                      </>
-                    )}
-
-                    {/* Global links */}
-                    {propertyItems.length > 0 && (
-                      <div className="px-5 pt-1 pb-1">
-                        <span className="text-[10px] tracking-[0.18em]" style={{...menuText, opacity: 0.3}}>
-                          Explore Nayara
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Costa Rica Dropdown */}
-                    <div>
-                      <button
-                        type="button"
-                        data-dropdown-toggle="true"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpandedMenus((prev) => ({ ...prev, costaRica: !prev.costaRica })); }}
-                        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
-                      >
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Costa Rica</span>
-                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.costaRica ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      <AnimatePresence>
-                        {expandedMenus.costaRica && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4 pb-1">
-                              {COSTA_RICA_ITEMS.map((item) => (
-                                <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
-                                  <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
-                                </button>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Brand Page Links from EXPLORE_MENU_ITEMS */}
-                    {EXPLORE_MENU_ITEMS.map((item) => (
-                      <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
-                    ))}
-
-                    {/* Destinations Dropdown */}
-                    <div>
-                      <button
-                        type="button"
-                        data-dropdown-toggle="true"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpandedMenus((prev) => ({ ...prev, resorts: !prev.resorts })); }}
-                        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
-                      >
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Destinations</span>
-                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.resorts ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      <AnimatePresence>
-                        {expandedMenus.resorts && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4 pb-1">
-                              {RESORTS_ITEMS.map((item, idx) => (
-                                <div key={item.label}>
-                                  {idx === RESORTS_ITEMS.length - 1 && <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />}
-                                  <button type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
-                                    <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
-                                  </button>
-                                </div>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </div>
+                <motion.div {...dropdownAnim} className={`${dropdownCls} left-0 top-full w-56`}>
+                  {renderMenuContent()}
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
 
-          {/* Center: Brand or Property Name — hidden on non-home brand/content pages unless centerLabel is set */}
+          {/* Center: Brand or Property Name */}
           {(() => {
             const isHome = location === "/";
             const isPropertyPage = pageType === "property";
@@ -353,7 +334,7 @@ export default function BrandNavigation({
 
             <AnimatePresence>
               {reserveOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} right-0 top-full w-56`}>
+                <motion.div {...dropdownAnim} className={`${dropdownCls} right-0 top-full w-56`}>
                   <div className="py-2">
                     {hotelBookingLinks.map((hotel) => (
                       <button
@@ -399,86 +380,8 @@ export default function BrandNavigation({
 
             <AnimatePresence>
               {menuOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} left-0 top-full w-56`}>
-                  <div className="py-2 max-h-[75vh] overflow-y-auto">
-                    {/* Costa Rica Dropdown */}
-                    <div>
-                      <button
-                        type="button"
-                        data-dropdown-toggle="true"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpandedMenus((prev) => ({ ...prev, costaRica: !prev.costaRica })); }}
-                        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
-                      >
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Costa Rica</span>
-                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.costaRica ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      <AnimatePresence>
-                        {expandedMenus.costaRica && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4 pb-1">
-                              {COSTA_RICA_ITEMS.map((item) => (
-                                <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
-                                  <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
-                                </button>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Brand Page Links from EXPLORE_MENU_ITEMS */}
-                    {EXPLORE_MENU_ITEMS.map((item) => (
-                      <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>{item.label}</span>
-                      </button>
-                    ))}
-
-                    {/* Destinations Dropdown */}
-                    <div>
-                      <button
-                        type="button"
-                        data-dropdown-toggle="true"
-                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); setExpandedMenus((prev) => ({ ...prev, resorts: !prev.resorts })); }}
-                        className={`${menuItem} flex items-center justify-between hover:bg-[#d4c9b8]/60`}
-                      >
-                        <span className="text-[#3B2B26]/80 text-[13px]" style={menuText}>Destinations</span>
-                        <svg className={`w-3 h-3 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.resorts ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                      <AnimatePresence>
-                        {expandedMenus.resorts && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pl-4 pb-1">
-                              {RESORTS_ITEMS.map((item, idx) => (
-                                <div key={item.label}>
-                                  {idx === RESORTS_ITEMS.length - 1 && <div className="h-px bg-[#3B2B26]/8 mx-4 my-1" />}
-                                  <button type="button" onClick={() => handleNavigate(item.route)} className={menuItem}>
-                                    <span className="text-[#3B2B26]/60 text-[12px]" style={menuText}>{item.label}</span>
-                                  </button>
-                                </div>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </div>
+                <motion.div {...dropdownAnim} className={`${dropdownCls} left-0 top-full w-56`}>
+                  {renderMenuContent()}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -496,7 +399,7 @@ export default function BrandNavigation({
 
             <AnimatePresence>
               {reserveOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdown} right-0 top-full w-56`}>
+                <motion.div {...dropdownAnim} className={`${dropdownCls} right-0 top-full w-56`}>
                   <div className="py-2">
                     {hotelBookingLinks.map((hotel) => (
                       <button

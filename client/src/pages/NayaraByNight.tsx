@@ -223,7 +223,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
      bgColor: DARK_COLORS[1],
   },
   {
-    id: "atacama-dusk",
+    id: "hangaroa-moai",
     label: "Rapa Nui",
     headline: "Moai Beneath\nthe Milky Way",
     body: "On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.",
@@ -241,9 +241,9 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     label: "Bocas del Toro",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: CDN.biolumBeach,
+    verticalSrc: "/manus-storage/nbn-bioluminescence-vertical_b2d390df.mov",
     horizontalSrc: CDN.biolumWaves,
-    verticalIsVideo: false,
+    verticalIsVideo: true,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -291,6 +291,9 @@ export default function NayaraByNight() {
       {NIGHT_SECTIONS.map((section, i) => (
         <NightCascadeSection key={section.id} section={section} index={i} />
       ))}
+
+      {/* Explore Our Destinations CTA */}
+      <ExploreDestinationsCTA />
 
       <Footer pageType="brand" bgColor="#000000" />
     </div>
@@ -380,6 +383,74 @@ function StorySection() {
             <NativeVideo src="/manus-storage/nbn-s2-horizontal_3e4fa16c.mp4" className="w-full h-full object-cover" />
           </div>
         </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EXPLORE DESTINATIONS CTA — Links to all hotels
+   ═══════════════════════════════════════════════════════════════ */
+const DESTINATIONS = [
+  { name: "Nayara Alto Atacama", route: "/alto-atacama", location: "Atacama Desert, Chile" },
+  { name: "Nayara Bocas del Toro", route: "/bocas-del-toro", location: "Bocas del Toro, Panamá" },
+  { name: "Nayara Gardens", route: "/gardens", location: "Arenal, Costa Rica" },
+  { name: "Nayara Hangaroa", route: "/hangaroa", location: "Rapa Nui, Chile" },
+  { name: "Nayara Springs", route: "/springs", location: "Arenal, Costa Rica" },
+  { name: "Nayara Tented Camp", route: "/tented-camp", location: "Arenal, Costa Rica" },
+];
+
+function ExploreDestinationsCTA() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  return (
+    <section className="py-24 md:py-32 px-6 md:px-10 bg-black border-t border-white/10">
+      <div className="max-w-[1200px] mx-auto" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p
+            className="text-[11px] tracking-[0.25em] uppercase mb-4 text-white/40"
+            style={{ ...body, fontWeight: 500 }}
+          >
+            Our Destinations
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl text-white tracking-wide mb-14"
+            style={heading}
+          >
+            Experience the Night<br />at Every Destination
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {DESTINATIONS.map((dest, i) => (
+            <motion.a
+              key={dest.route}
+              href={dest.route}
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 * i, ease: [0.22, 1, 0.36, 1] }}
+              className="group px-6 py-5 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+            >
+              <h3
+                className="text-white text-[15px] tracking-wide mb-1 group-hover:text-white/90 transition-colors"
+                style={{ ...heading }}
+              >
+                {dest.name}
+              </h3>
+              <p
+                className="text-white/40 text-[12px] tracking-[0.04em]"
+                style={body}
+              >
+                {dest.location}
+              </p>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -227,31 +227,6 @@ export default function AwardsAndPress() {
         </div>
       </section>
 
-      {/* ── Brand Stats Bar ── */}
-      <section className="bg-[#3B2B26] py-10 md:py-14">
-        <div className="max-w-6xl mx-auto px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {brandStats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="text-center"
-              >
-                <AnimatedStat
-                  value={stat.number}
-                  className="text-white text-3xl md:text-4xl lg:text-5xl mb-1"
-                  style={heading}
-                />
-                <p className="text-white/70 text-xs md:text-sm tracking-[0.1em]" style={{ ...body, fontWeight: 500 }}>{stat.label}</p>
-                <p className="text-white/40 text-[10px] md:text-xs mt-0.5" style={{ ...body, fontWeight: 300 }}>{stat.sublabel}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── Brand Story Intro ── */}
       <section className="py-16 md:py-24 px-6 md:px-10 bg-[#f4f1eb]">

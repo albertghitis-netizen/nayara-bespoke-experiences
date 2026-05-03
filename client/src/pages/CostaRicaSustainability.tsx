@@ -97,6 +97,21 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero propertySlug={propertySlug} />
 
+      {/* H1 — Beyond Reforestation */}
+      <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+        <div className="max-w-[1200px] mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-3xl md:text-4xl lg:text-5xl tracking-wide text-center"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
+          >
+            Beyond Reforestation
+          </motion.h1>
+        </div>
+      </section>
+
       {/* ESG Report — only renders if data has esgReport */}
       {data.esgReport && (
         <>
@@ -272,17 +287,17 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
           </p>
         </AnimateOnScroll>
 
-        <div className="max-w-[600px]">
+        <div className="w-full">
           <StaggerOnScroll
             variants={staggerContainer}
-            className="gap-6 md:gap-8"
-            style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}
+            className="gap-4 md:gap-6"
+            style={{ display: "grid", gridTemplateColumns: "repeat(1, 1fr)" }}
           >
             {stats.map((stat, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
-              className="p-6 md:p-8 group"
+              className="px-8 py-6 md:px-10 md:py-8 group flex items-center gap-6 md:gap-10"
               style={{
                 backgroundColor: palette.primary,
                 borderRadius: "12px",
@@ -290,35 +305,38 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
               }}
             >
               <div
-                className="text-3xl md:text-4xl lg:text-5xl mb-3"
+                className="text-3xl md:text-4xl lg:text-5xl shrink-0"
                 style={{
                   fontFamily: "var(--font-display)",
                   fontWeight: 400,
                   color: "#fff",
                   lineHeight: 1,
+                  minWidth: "120px",
                 }}
               >
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
-              <h3
-                className="text-[14px] md:text-[15px] mb-2"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 500,
-                  color: "rgba(255,255,255,0.9)",
-                }}
-              >
-                {stat.label}
-              </h3>
-              <p
-                className="text-[12px] leading-[1.6]"
-                style={{
-                  fontFamily: "var(--font-body)",
-                  color: "rgba(255,255,255,0.65)",
-                }}
-              >
-                {stat.detail}
-              </p>
+              <div className="flex-1">
+                <h3
+                  className="text-[14px] md:text-[16px] mb-1"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 500,
+                    color: "rgba(255,255,255,0.9)",
+                  }}
+                >
+                  {stat.label}
+                </h3>
+                <p
+                  className="text-[12px] md:text-[13px] leading-[1.6]"
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    color: "rgba(255,255,255,0.65)",
+                  }}
+                >
+                  {stat.detail}
+                </p>
+              </div>
             </motion.div>
           ))}
         </StaggerOnScroll>

@@ -476,7 +476,7 @@ function SustainabilitySection() {
               className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
             >
-              Beyond Sustainability
+              Beyond Reforestation
             </span>
           </TextReveal>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>

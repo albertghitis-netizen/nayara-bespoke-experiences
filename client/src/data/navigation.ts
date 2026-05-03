@@ -68,7 +68,7 @@ const COSTA_RICA_MENU_ITEMS: MenuItem[] = [
   { label: "Rainforest Adventure", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/costa-rica-wellness" },
   { label: "Forest to Table", route: "/gastronomy" },
-  { label: "Beyond Sustainability", route: "/sustainability" },
+  { label: "Beyond Reforestation", route: "/sustainability" },
 ];
 
 /* Explore column items (7 brand pages) */
@@ -89,7 +89,7 @@ export const COSTA_RICA_ITEMS: MenuItem[] = [
   { label: "Rainforest Adventure", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/costa-rica-wellness" },
   { label: "Forest to Table", route: "/gastronomy-arenal" },
-  { label: "Beyond Sustainability", route: "/tented-camp-sustainability" },
+  { label: "Beyond Reforestation", route: "/tented-camp-sustainability" },
 ];
 
 /* Pura Vida pillar items for footer */
@@ -154,7 +154,7 @@ const COSTA_RICA_COLUMN: FooterColumn = {
 };
 
 /* Pillars column (was Explore) — the four core pillars */
-const PILLARS_COLUMN: FooterColumn = {
+export const PILLARS_COLUMN: FooterColumn = {
   title: "Pillars",
   links: [
     { label: "Experiences", route: "/experiences" },
@@ -167,7 +167,7 @@ const PILLARS_COLUMN: FooterColumn = {
 };
 
 /* New Explore column — Journal, Press, Awards, FAQ, Romance, Family, Nayara by Night, Gallery */
-const EXPLORE_COLUMN: FooterColumn = {
+export const EXPLORE_COLUMN: FooterColumn = {
   title: "Explore",
   links: [
     { label: "Journal", route: "/journal" },

@@ -28,7 +28,7 @@ import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchem
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Canopy" gradient: misty green → deep forest
    ═══════════════════════════════════════════════════════════════ */
-/* Beyond Sustainability palette — bone + olive green + gravel */
+/* Beyond Reforestation palette — bone + olive green + gravel */
 const COLOR_A = "#F7F5F0"; // Bone (primary background)
 const COLOR_B = "#EDEEE2"; // Warm olive tint (subtle variation)
 const SECTION_COLORS = [
@@ -954,7 +954,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
     link: "/tented-camp/sustainability",
-    linkLabel: "Explore Beyond Sustainability",
+    linkLabel: "Explore Beyond Reforestation",
     stats: [
       { value: "100%", label: "Renewable Energy" },
       { value: "CST 5", label: "Certified" },
