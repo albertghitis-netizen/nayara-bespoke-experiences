@@ -134,8 +134,9 @@ const altoAtacamaExcursions: Excursion[] = [
     distance: "3 km + 95 km drive",
     acclimatization: "2 days",
     description: "Rise before dawn to witness the third-largest geyser field on Earth. At over 4,300 meters, columns of steam erupt against the pre-dawn sky as the sun breaks over the Andes. The thermal pools offer a surreal morning swim at altitude.",
-    highlights: ["80+ active geysers at sunrise", "Natural thermal pool bathing", "Andean wildlife: viscachas and vicu\u00f1as"],
-    placeholder: true,
+    highlights: ["80+ active geysers at sunrise", "Natural thermal pool bathing", "Andean wildlife: viscachas and vicuñas"],
+    verticalVideo: "/manus-storage/atacama-tatio-geysers_b8781a70.mp4",
+    placeholder: false,
     category: "adventure",
   },
   {
