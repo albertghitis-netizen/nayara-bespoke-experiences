@@ -130,7 +130,7 @@ const wellnessCards = springs.treatments.map((t: Treatment) => ({ title: t.name,
 
 export default function Springs() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
+    <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
       <LocalBusinessSchema
         name="Nayara Springs"
         description="Adults-only luxury resort with private hot springs villas and volcanic spa experiences in the Arenal region."
@@ -169,8 +169,8 @@ export default function Springs() {
         verticalRatio="3/4"
         horizontalSrc=""
         bgColor="#0D0704"
-        headline={"Hot Springs\nUnder Starlight"}
-        bodyText="As darkness descends on the Arenal rainforest, the volcanic hot springs take on an ethereal glow. Slip into your private plunge pool beneath a canopy of stars, where the warmth of the earth meets the cool night air. Join our naturalists for a nocturnal frog safari, or simply surrender to the symphony of the jungle after dark."
+        headline={"Dine at\nAmor Loco"}
+        bodyText="Our fine dining restaurant Amor Loco offers a Michelin-caliber tasting menu that transforms Costa Rica's finest ingredients into an unforgettable culinary journey. Each evening, our chefs craft a multi-course experience that celebrates volcanic terroir and tropical abundance — an intimate, candlelit affair where every plate tells a story of the land beneath your feet."
         textSide="left"
       />
       <ReviewsSection />
@@ -183,8 +183,7 @@ export default function Springs() {
             chapter: "The Adults-Only Archipelago",
             tagline: "Another adults-only sanctuary — trade volcanic hot springs for Caribbean overwater villas on a solar-powered private island.",
             route: "/bocas-del-toro",
-            image: "/manus-storage/bocas-resort-24_5778eea7.jpg",
-            video: "/manus-storage/cta-bocas-ultrawide_4b5a9425.mp4",
+            image: "/manus-storage/439F9FCA-A2F3-4915-9A84-F09142364988_0a08ae7a.jpg",
             audienceTag: "Adults Only",
           },
           {
@@ -260,11 +259,11 @@ function StorySection() {
   return (
     <section id="story">
       {/* ── Row: Text left + S1 vertical video right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
         {/* Text column */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
-          style={{ backgroundColor: PALETTE.gradientStart }}
+          style={{ backgroundColor: PALETTE.gradientEnd }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>The Property</SectionLabel>
@@ -313,7 +312,7 @@ function StorySection() {
 
           <div className="mt-8 hidden md:block">
             <video
-              src="/manus-storage/badge-animation-final_80c614a1.mp4"
+              src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)(5130x1616px)_ed1b1b42.mp4"
               autoPlay
               muted
               playsInline
@@ -349,7 +348,7 @@ function SpringsVillaSection() {
   return (
     <section id="accommodations">
       {/* ── Row: S3 vertical video left + Text right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
         {/* S3 — Vertical video left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
@@ -362,7 +361,7 @@ function SpringsVillaSection() {
         {/* Text column right */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
-          style={{ backgroundColor: PALETTE.gradientStart }}
+          style={{ backgroundColor: PALETTE.gradientEnd }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Accommodations</SectionLabel>
@@ -419,11 +418,11 @@ function ExperiencesSection() {
   return (
     <section id="experiences">
       {/* ── Row: Text left + S5 vertical video right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
         {/* Text column */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
-          style={{ backgroundColor: PALETTE.gradientStart }}
+          style={{ backgroundColor: PALETTE.gradientEnd }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Experiences</SectionLabel>
@@ -480,7 +479,7 @@ function SustainabilitySection() {
   return (
     <section id="sustainability">
       {/* ── Row: S7 vertical video left + Text right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
         {/* S7 — Vertical video left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
@@ -493,7 +492,7 @@ function SustainabilitySection() {
         {/* Text column right */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
-          style={{ backgroundColor: PALETTE.gradientStart }}
+          style={{ backgroundColor: PALETTE.gradientEnd }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Sustainability</SectionLabel>
@@ -541,11 +540,11 @@ function WellnessSection() {
   return (
     <section id="wellness">
       {/* ── Row: Text left + S9 vertical video right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
         {/* Text column */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
-          style={{ backgroundColor: PALETTE.gradientStart }}
+          style={{ backgroundColor: PALETTE.gradientEnd }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Wellness</SectionLabel>
@@ -602,14 +601,14 @@ function GastronomySection() {
   return (
     <section id="gastronomy">
       {/* ── Row: Vertical image (bar) left + Text right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
         {/* Vertical image left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img
-                src="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio(1)_9a4dccd8.jpeg"
-                alt="Amor Loco bar at Nayara Springs"
+                src="/manus-storage/IMG_8080(1)_bb3bc942.jpg"
+                alt="Relais & Châteaux embroidered logo on chef jacket"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -620,7 +619,7 @@ function GastronomySection() {
         {/* Text column right */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
-          style={{ backgroundColor: PALETTE.gradientStart }}
+          style={{ backgroundColor: PALETTE.gradientEnd }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>The Table</SectionLabel>
@@ -630,7 +629,7 @@ function GastronomySection() {
               className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
             >
-              Forest to Table
+              Relais & Châteaux Dining
             </span>
           </TextReveal>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>

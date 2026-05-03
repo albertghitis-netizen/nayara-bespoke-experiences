@@ -94,7 +94,7 @@ export const palettes: Record<string, PropertyPalette> = {
     primary: "#5F7367",          // Standard Eucalyptus (middle — accents, buttons)
     secondary: "#4B6358",        // Dark Eucalyptus (nav, footer)
     accent: "#3EB489",           // Standard Mint (bright highlights)
-    gradientStart: "#F7F5F0",
+    gradientStart: "#E8F3EF",   // Light Eucalyptus (unified bg)
     gradientEnd: "#E8F3EF",     // Light Eucalyptus tint
     buttonBg: "#5F7367",        // Standard Eucalyptus
     buttonText: "#FFFFFF",       // White for contrast

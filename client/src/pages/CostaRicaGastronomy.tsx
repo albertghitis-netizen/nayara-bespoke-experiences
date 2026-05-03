@@ -208,8 +208,8 @@ interface Props {
 }
 
 export default function CostaRicaGastronomy({ propertySlug }: Props) {
-  // Use tented-camp palette (olive green + bone) for all Costa Rica properties
-  const paletteSlug = CR_SLUGS.includes(propertySlug) ? "tented-camp" : propertySlug;
+  // Use tented-camp palette for tented-camp and gardens; springs uses its own palette
+  const paletteSlug = (propertySlug === "springs") ? "springs" : (CR_SLUGS.includes(propertySlug) ? "tented-camp" : propertySlug);
   const palette = getPalette(paletteSlug);
   const propertyDisplay = properties.find((p: Property) => p.id === propertySlug);
   const propertyName = propertyDisplay?.name || "Nayara";

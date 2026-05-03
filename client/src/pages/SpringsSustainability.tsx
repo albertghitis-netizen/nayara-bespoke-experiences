@@ -19,7 +19,7 @@ const PALETTE = {
   secondary: "#5A5650",
   accent: "#7A9484",
   gradientStart: "#F7F5F0",
-  gradientEnd: "#E8EEEA",
+  gradientEnd: "#E8F3EF",
   text: "#3B2B26",
   textSecondary: "#67737C",
   textTertiary: "#9A9086",
@@ -140,7 +140,7 @@ function JournalSection() {
   return (
     <section
       className="py-16 md:py-24 px-6 md:px-10"
-      style={{ backgroundColor: PALETTE.gradientStart }}
+      style={{ backgroundColor: PALETTE.gradientEnd }}
     >
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>

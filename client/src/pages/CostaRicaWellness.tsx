@@ -61,9 +61,9 @@ interface Props {
 }
 
 export default function CostaRicaWellness({ propertySlug }: Props) {
-  // Use tented-camp palette (olive green + bone) for all Costa Rica properties
+  // Use tented-camp palette for tented-camp and gardens; springs uses its own palette
   const CR_SLUGS = new Set(["tented-camp", "gardens", "springs"]);
-  const paletteSlug = CR_SLUGS.has(propertySlug) ? "tented-camp" : propertySlug;
+  const paletteSlug = (propertySlug === "springs") ? "springs" : (CR_SLUGS.has(propertySlug) ? "tented-camp" : propertySlug);
   const palette = getPalette(paletteSlug);
   const dataSlug = DATA_PROPERTY_MAP[propertySlug] || propertySlug;
   const property = properties.find((p: Property) => p.id === dataSlug)!;

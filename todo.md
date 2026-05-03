@@ -3337,3 +3337,15 @@
 - [x] Add cross-property CTAs to Bocas del Toro bottom (suggest Atacama + Tented Camp)
 - [x] Add cross-property CTAs to Hangaroa bottom (suggest Atacama + Springs)
 - [x] Add "Gallery" text in the black sliver at the top of the gallery page
+
+## Springs Page Updates (May 2026)
+- [x] Upload Bocas paddleboard image and use it for Bocas CTA card at bottom of Springs ("Explore Another Chapter")
+- [x] Upload Relais & Châteaux chef jacket image and place it to the LEFT of "Relais & Châteaux Dining" text section
+- [x] Change By Night blog link from "Moons and Stars" to Amor Loco restaurant page
+- [x] Upload new badge animation video (eucalyptus background) and replace old badge video
+- [x] Apply #E8F3EF (light eucalyptus) background everywhere on Springs pages (except By Night stays black, Guest Voices keeps #F7F5F0)
+- [x] Update Springs palette in propertyPalettes.ts: gradientStart and gradientEnd both set to #E8F3EF
+- [x] Update SpringsSustainability.tsx backgrounds to #E8F3EF
+- [x] Update SpringsVilla.tsx backgrounds to #E8F3EF
+- [x] Update shared pages (CostaRicaExperiences, CostaRicaGastronomy, CostaRicaWellness) to use springs palette when propertySlug is "springs"
+- [x] Update all restaurant pages (AmorLoco, MisAmores, MiCafecito, BesameMucho, CielitoLindo) to use springs palette

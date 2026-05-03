@@ -16,7 +16,7 @@ const heroVideo = "/manus-storage/springs-villa-hero_d2119010.mp4";
 
 /* ── Palette ── */
 const P = {
-  bg: "#F7F5F0",           // Bone
+  bg: "#E8F3EF",           // Light Eucalyptus
   bgDark: "#7C8471",       // Thyme (dark)
   text: "#1A0F0A",
   textSoft: "#1A0F0Acc",
@@ -25,7 +25,7 @@ const P = {
   secondary: "#7C8471",     // Thyme
   accent: "#728076",        // Smoke green
   cream: "#EDEEE2",         // Warm olive tint
-  bone: "#F7F5F0",          // Bone
+  bone: "#E8F3EF",          // Light Eucalyptus
   white: "#FFFFFF",
 };
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;

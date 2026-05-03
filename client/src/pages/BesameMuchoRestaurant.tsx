@@ -14,7 +14,7 @@ import { restaurants } from "@/data/culinaryImages";
 import { getPalette, BRAND } from "@/data/propertyPalettes";
 import { AnimateOnScroll, fadeUp } from "@/components/motion";
 
-const palette = getPalette("tented-camp");
+const palette = getPalette("springs");
 
 export default function BesameMuchoRestaurant() {
   const restaurant = restaurants.find((r) => r.slug === "besame-mucho");
