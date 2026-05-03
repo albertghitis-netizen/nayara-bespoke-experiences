@@ -163,8 +163,8 @@ export default function Springs() {
       <WellnessSection />
       <GastronomySection />
       <ByNightCTA
-        verticalSrc="/manus-storage/nbn-video-short_174183ae.mp4"
-        verticalIsVideo={true}
+        verticalSrc="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio(1)_9a4dccd8.jpeg"
+        verticalIsVideo={false}
         verticalRatio="3/4"
         horizontalSrc=""
         bgColor="#0D0704"

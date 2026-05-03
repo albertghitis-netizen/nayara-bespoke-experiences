@@ -153,13 +153,35 @@ const COSTA_RICA_COLUMN: FooterColumn = {
   links: COSTA_RICA_ITEMS, // All 4 Costa Rica categories
 };
 
+/* Pillars column (was Explore) — the four core pillars */
+const PILLARS_COLUMN: FooterColumn = {
+  title: "Pillars",
+  links: [
+    { label: "Experiences", route: "/experiences" },
+    { label: "Sustainability", route: "/sustainability" },
+    { label: "Wellness", route: "/wellness" },
+    { label: "Gastronomy", route: "/gastronomy" },
+  ],
+};
+
+/* New Explore column — Journal, Press, Awards, FAQ, Romance, Family, Nayara by Night, Gallery */
+const EXPLORE_COLUMN: FooterColumn = {
+  title: "Explore",
+  links: [
+    { label: "Journal", route: "/journal" },
+    { label: "Press & Awards", route: "/awards" },
+    { label: "FAQ", route: "/faq" },
+    { label: "Romance", route: "/rainforest-romance" },
+    { label: "Family", route: "/family-expeditions" },
+    { label: "Nayara by Night", route: "/by-night" },
+    { label: "Gallery", route: "/gallery" },
+  ],
+};
+
 export function getFooterColumns(pageType: PageType): FooterColumn[] {
   return [
-    {
-      title: "Explore",
-      links: EXPLORE_MENU_ITEMS,
-    },
-    COSTA_RICA_COLUMN,
+    PILLARS_COLUMN,
+    EXPLORE_COLUMN,
     RESORTS_COLUMN,
   ];
 }
