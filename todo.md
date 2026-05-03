@@ -3315,3 +3315,15 @@
 - [x] Add Staff route to App.tsx
 - [x] Test Staff page rendering and verify all photos display
 - [x] Stargazing page: remove S1 ("Why It Matters") cascade and replace with telescope vertical for "Ancient Cultures Read the Sky"
+
+## Gallery Rebuild — Clean Slate
+- [ ] Catalog all image files in /home/ubuntu/upload/ with checksums
+- [ ] De-duplicate images (by file size + md5 checksum)
+- [ ] Upload unique gallery images to CDN
+- [ ] Build fresh Gallery.tsx using ONLY new user-provided images (no old gallery images)
+- [ ] Pinterest-style masonry, no borders, no filters, starts at top of page
+
+- [x] Create "Nayara Collection" narrative section on homepage with biome journey and property positioning
+- [x] Add "Two Worlds, One Journey" twin-center itinerary section to homepage
+- [x] Add "Who Each Nayara Is For" audience segmentation section to homepage
+- [ ] Update property taglines across site to use new chapter names (Rainforest Adventure, Hot Springs Sanctuary, Luxury Tented Camp, Where Desert Meets Sky, Adults-Only Archipelago, Land of Giants)

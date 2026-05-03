@@ -157,8 +157,11 @@ export default function Home() {
       <div className="hidden md:block">
         <TimelineSection />
       </div>
-       <AwardsHighlightSection />
+      <CollectionNarrativeSection />
+      <AwardsHighlightSection />
+      <TwinJourneysSection />
       <NayaraJournalSection />
+      <AudienceSegmentSection />
       <Footer textColor="#FFFFFF" />
     </div>
   );
@@ -1172,6 +1175,368 @@ const contentLinks = [
     icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
   },
 ];
+
+/* ═══════════════════════════════════════════════════════════════
+   THE NAYARA COLLECTION — AI-optimized structured narrative
+   Placed between Timeline and Awards
+   ═══════════════════════════════════════════════════════════════ */
+const collectionData = [
+  {
+    name: "Nayara Gardens",
+    chapter: "The Rainforest Adventure",
+    location: "Arenal Volcano, Costa Rica",
+    positioning: "The original Nayara — a village of private villas and casitas woven into the rainforest canopy at the foot of Arenal Volcano. Family-friendly, with bespoke excursions from hanging bridges to chocolate tours.",
+    audience: "Families & Couples",
+    route: "/gardens",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
+  },
+  {
+    name: "Nayara Springs",
+    chapter: "The Hot Springs Sanctuary",
+    location: "Arenal Volcano, Costa Rica",
+    positioning: "An adults-only retreat where every villa has its own private thermal plunge pool fed by volcanic hot springs. Three Michelin Keys. The first hotel in Costa Rica to earn that distinction.",
+    audience: "Adults Only",
+    route: "/springs",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-plunge-pool-straight_a5d505d1.webp",
+  },
+  {
+    name: "Nayara Tented Camp",
+    chapter: "The Luxury Tented Camp",
+    location: "Arenal Volcano, Costa Rica",
+    positioning: "Clifftop tents and suites perched above the rainforest canopy with unobstructed volcano views. Best Resort in Central America, four of the last five years — Travel + Leisure.",
+    audience: "Families & Couples",
+    route: "/tented-camp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG",
+  },
+  {
+    name: "Nayara Alto Atacama",
+    chapter: "Where Desert Meets Sky",
+    location: "San Pedro de Atacama, Chile",
+    positioning: "A desert lodge in the driest desert on Earth, where salt flats, geysers, and the clearest night skies in the Southern Hemisphere converge. Two Michelin Keys.",
+    audience: "All Travelers",
+    route: "/alto-atacama",
+    image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
+  },
+  {
+    name: "Nayara Bocas del Toro",
+    chapter: "The Adults-Only Archipelago",
+    location: "Bocas del Toro, Panama",
+    positioning: "Overwater villas and rainforest treehouses on a private island in Panama's Caribbean archipelago. Adults-only, solar-powered, and surrounded by coral reef. Two Michelin Keys. Number one in Central America — Condé Nast Traveler.",
+    audience: "Adults Only",
+    route: "/bocas-del-toro",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
+  },
+  {
+    name: "Nayara Hangaroa",
+    chapter: "The Land of Giants",
+    location: "Rapa Nui (Easter Island), Chile",
+    positioning: "On the most remote inhabited island on Earth, a lodge that honors the Rapa Nui culture and its monumental stone guardians. The only luxury property on Easter Island.",
+    audience: "All Travelers",
+    route: "/hangaroa",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
+  },
+];
+
+function CollectionNarrativeSection() {
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: "#f4f1eb" }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>The Nayara Collection</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-6" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            One Philosophy, Six Landscapes
+          </span>
+        </TextReveal>
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[680px] mb-14"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Each Nayara property exists because a landscape demanded it. From volcanic rainforest to the driest desert on Earth, from a Caribbean archipelago to the most remote island in the Pacific — the collection is a single story told across six chapters.
+          </p>
+        </AnimateOnScroll>
+
+        {/* Collection grid — 2 columns on desktop, 1 on mobile */}
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          {collectionData.map((item) => (
+            <motion.div key={item.route} variants={fadeUp}>
+              <Link href={item.route} className="group block">
+                <div className="flex gap-5 items-start">
+                  {/* Thumbnail */}
+                  <div className="w-[120px] h-[90px] flex-shrink-0 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                  </div>
+                  {/* Text */}
+                  <div className="flex-1">
+                    <p
+                      className="text-[10px] tracking-[0.2em] uppercase mb-1"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: item.audience === "Adults Only" ? "#8B5E3C" : PALETTE.textSecondary }}
+                    >
+                      {item.chapter} · {item.audience}
+                    </p>
+                    <h3
+                      className="text-[16px] md:text-[18px] mb-1.5"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                    >
+                      {item.name}
+                    </h3>
+                    <p
+                      className="text-[13px] leading-[1.7]"
+                      style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+                    >
+                      {item.positioning}
+                    </p>
+                    <p
+                      className="text-[10px] tracking-[0.1em] mt-2 uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}
+                    >
+                      Explore {item.name.replace("Nayara ", "")} →
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TWO WORLDS, ONE JOURNEY — Twin-center itineraries
+   Placed between Awards and Journal
+   ═══════════════════════════════════════════════════════════════ */
+const journeyPairings = [
+  {
+    title: "Volcano & Archipelago",
+    subtitle: "Rainforest canopy to overwater villa",
+    from: { name: "Arenal, Costa Rica", properties: ["Gardens", "Springs", "Tented Camp"] },
+    to: { name: "Bocas del Toro, Panama", properties: ["Bocas del Toro"] },
+    desc: "Begin in Costa Rica's volcanic rainforest — hot springs, hanging bridges, wildlife at dawn. Then fly south to Panama's Caribbean archipelago for overwater seclusion, reef snorkeling, and island-hopped sunsets.",
+  },
+  {
+    title: "Rainforest & Desert",
+    subtitle: "From the greenest jungle to the driest desert",
+    from: { name: "Arenal, Costa Rica", properties: ["Gardens", "Springs", "Tented Camp"] },
+    to: { name: "Atacama, Chile", properties: ["Alto Atacama"] },
+    desc: "Two extremes of the Americas in one journey. Trade toucans and thermal pools for salt flats, geysers, and the clearest stargazing on Earth. The contrast is the point.",
+  },
+  {
+    title: "Desert & Stone Giants",
+    subtitle: "Atacama silence to Rapa Nui mystery",
+    from: { name: "Atacama, Chile", properties: ["Alto Atacama"] },
+    to: { name: "Easter Island, Chile", properties: ["Hangaroa"] },
+    desc: "Both Chilean, both ancient, both humbling. From the Atacama's lunar valleys and flamingo lagoons to Easter Island's monumental Moai and Polynesian culture — a journey through deep time.",
+  },
+];
+
+function TwinJourneysSection() {
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Curated Journeys</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-6" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            Two Worlds, One Journey
+          </span>
+        </TextReveal>
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[680px] mb-14"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            The Nayara Collection spans four countries and six biomes. Combine two landscapes into a single trip — each pairing designed to amplify the other through contrast.
+          </p>
+        </AnimateOnScroll>
+
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {journeyPairings.map((pair, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="p-6 md:p-8 border transition-all duration-500 hover:shadow-lg"
+              style={{ borderColor: PALETTE.divider, backgroundColor: "rgba(255,255,255,0.5)" }}
+            >
+              <p
+                className="text-[10px] tracking-[0.2em] uppercase mb-3"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary }}
+              >
+                {pair.subtitle}
+              </p>
+              <h3
+                className="text-[20px] md:text-[22px] mb-4"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                {pair.title}
+              </h3>
+              {/* Route indicator */}
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className="text-[11px] tracking-[0.05em]"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.text }}
+                >
+                  {pair.from.name}
+                </span>
+                <svg className="w-4 h-4 flex-shrink-0" style={{ color: PALETTE.textSecondary }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+                <span
+                  className="text-[11px] tracking-[0.05em]"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.text }}
+                >
+                  {pair.to.name}
+                </span>
+              </div>
+              <p
+                className="text-[13px] leading-[1.7]"
+                style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+              >
+                {pair.desc}
+              </p>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   WHO EACH NAYARA IS FOR — Audience segmentation
+   Placed between Journal and Footer
+   ═══════════════════════════════════════════════════════════════ */
+const audienceSegments = [
+  {
+    category: "Romance & Wellness",
+    tag: "Adults Only",
+    tagColor: "#8B5E3C",
+    description: "For couples seeking seclusion, thermal wellness, and uninterrupted intimacy. No children, no distractions — just two people and extraordinary nature.",
+    properties: [
+      { name: "Nayara Springs", chapter: "The Hot Springs Sanctuary", detail: "Private volcanic plunge pools, three Michelin Keys, rainforest seclusion", route: "/springs" },
+      { name: "Nayara Bocas del Toro", chapter: "The Adults-Only Archipelago", detail: "Overwater villas, Caribbean reef, solar-powered island privacy", route: "/bocas-del-toro" },
+    ],
+  },
+  {
+    category: "Family Adventure",
+    tag: "Families Welcome",
+    tagColor: "#525642",
+    description: "For families who believe adventure is the best education. Rainforest wildlife, volcano hikes, chocolate-making, and stargazing — experiences that bond generations.",
+    properties: [
+      { name: "Nayara Gardens", chapter: "The Rainforest Adventure", detail: "Volcano-view villas, wildlife tours, hanging bridges, family suites", route: "/gardens" },
+      { name: "Nayara Tented Camp", chapter: "The Luxury Tented Camp", detail: "Clifftop glamping, canopy walks, wildlife encounters at dawn", route: "/tented-camp" },
+    ],
+  },
+  {
+    category: "Exploration & Discovery",
+    tag: "All Travelers",
+    tagColor: "#4B4A4A",
+    description: "For travelers drawn to the edges of the map — places where landscape overwhelms, culture runs deep, and the journey itself transforms.",
+    properties: [
+      { name: "Nayara Alto Atacama", chapter: "Where Desert Meets Sky", detail: "Salt flats, geysers, flamingo lagoons, the clearest night skies on Earth", route: "/alto-atacama" },
+      { name: "Nayara Hangaroa", chapter: "The Land of Giants", detail: "Moai guardians, Polynesian culture, the most remote island on Earth", route: "/hangaroa" },
+    ],
+  },
+];
+
+function AudienceSegmentSection() {
+  return (
+    <section className={sectionPadding} style={{ backgroundColor: "#f4f1eb" }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Find Your Nayara</SectionLabel>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-6" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+          >
+            Who Each Nayara Is For
+          </span>
+        </TextReveal>
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <p
+            className="text-[15px] leading-[1.8] max-w-[680px] mb-14"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Not every Nayara is for every traveler — and that's by design. Two are exclusively for adults. Two welcome families with open arms. Two are for anyone drawn to the extraordinary.
+          </p>
+        </AnimateOnScroll>
+
+        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {audienceSegments.map((segment, i) => (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              className="p-6 md:p-8"
+              style={{ backgroundColor: "rgba(255,255,255,0.5)", border: `1px solid ${PALETTE.divider}` }}
+            >
+              {/* Category tag */}
+              <span
+                className="inline-block text-[9px] tracking-[0.2em] uppercase px-3 py-1 mb-4"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: segment.tagColor, border: `1px solid ${segment.tagColor}` }}
+              >
+                {segment.tag}
+              </span>
+              <h3
+                className="text-[20px] md:text-[22px] mb-3"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                {segment.category}
+              </h3>
+              <p
+                className="text-[13px] leading-[1.7] mb-6"
+                style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+              >
+                {segment.description}
+              </p>
+              {/* Properties in this segment */}
+              <div className="flex flex-col gap-4">
+                {segment.properties.map((prop) => (
+                  <Link key={prop.route} href={prop.route} className="group block">
+                    <p
+                      className="text-[10px] tracking-[0.15em] uppercase mb-0.5"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary }}
+                    >
+                      {prop.chapter}
+                    </p>
+                    <p
+                      className="text-[15px] group-hover:underline transition-all"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                    >
+                      {prop.name}
+                    </p>
+                    <p
+                      className="text-[12px] leading-[1.6] mt-0.5"
+                      style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+                    >
+                      {prop.detail}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
 
 function ContentHubSection() {
   return (
