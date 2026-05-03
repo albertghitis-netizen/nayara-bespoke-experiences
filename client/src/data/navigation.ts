@@ -161,6 +161,8 @@ const PILLARS_COLUMN: FooterColumn = {
     { label: "Sustainability", route: "/sustainability" },
     { label: "Wellness", route: "/wellness" },
     { label: "Gastronomy", route: "/gastronomy" },
+    { label: "Romance", route: "/rainforest-romance" },
+    { label: "Family", route: "/family-expeditions" },
   ],
 };
 
@@ -171,8 +173,6 @@ const EXPLORE_COLUMN: FooterColumn = {
     { label: "Journal", route: "/journal" },
     { label: "Press & Awards", route: "/awards" },
     { label: "FAQ", route: "/faq" },
-    { label: "Romance", route: "/rainforest-romance" },
-    { label: "Family", route: "/family-expeditions" },
     { label: "Nayara by Night", route: "/by-night" },
     { label: "Gallery", route: "/gallery" },
   ],
