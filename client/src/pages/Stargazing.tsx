@@ -29,6 +29,10 @@ const CDN = {
   rockarchVertical: "/manus-storage/stargazing-rockarch-vertical_2c10b104.jpg",
   /* Cactus silhouette under Milky Way — Desert at Night */
   cactusVertical: "/manus-storage/stargazing-cactus-milkyway_4c3ca29c.jpg",
+  /* Mano del Desierto under Milky Way */
+  manoDesiertoVertical: "/manus-storage/stargazing-mano-desierto-v2_2b3dc604.jpg",
+  /* Abandoned bus under Milky Way — Magic School Bus */
+  busMilkywayHorizontal: "/manus-storage/stargazing-bus-milkyway-horizontal_c3a196b2.jpg",
 };
 
 /* ─── Typography ─────────────────────────────────────────────── */
@@ -92,12 +96,12 @@ type StargazingSectionData = {
 
 const STARGAZING_SECTIONS: StargazingSectionData[] = [
   {
-    id: "andean-sky-knowledge",
-    label: "Andean Cosmovision",
-    headline: "How Ancient Cultures\nRead the Sky",
-    body: "For Indigenous Andean societies, the night sky was a living system connecting land, water, animals, and time. Unlike Western astronomy, Andean sky knowledge focused on the dark spaces within the Milky Way — 'dark constellations' formed by dust lanes visible only under extremely dark skies. The celestial llama, fox, and snake guided herding cycles and ecological awareness for millennia.",
-    verticalSrc: CDN.petroglyphVertical,
-    horizontalSrc: "",
+    id: "hand-and-bus",
+    label: "Desert Landmarks",
+    headline: "The Hand of the Desert\n& the Magic School Bus",
+    body: "Rising from the sand like a signal to the cosmos, the Mano del Desierto stands eleven meters tall in the emptiness between Antofagasta and the Atacama. Nearby, a graffiti-covered school bus sits abandoned beneath the Milky Way — a relic turned landmark, now one of the most photographed night-sky foregrounds in South America. Together they mark the surreal edge where human presence meets infinite sky.",
+    verticalSrc: CDN.manoDesiertoVertical,
+    horizontalSrc: CDN.busMilkywayHorizontal,
     verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
