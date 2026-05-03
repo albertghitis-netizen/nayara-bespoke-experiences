@@ -89,7 +89,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
                     }}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className={`transition-colors${link.separatorBefore ? ' mt-3 pt-3' : ''}`}
+                    className={`transition-colors${link.separatorBefore ? ' mt-3 pt-3 border-t' : ''}`}
                     style={{ color: textColor, borderTopColor: `${textColor}33`, fontFamily: "var(--font-body)", fontWeight: 400 }}
                   >
                     {link.label}
