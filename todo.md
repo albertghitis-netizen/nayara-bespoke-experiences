@@ -3314,3 +3314,4 @@
 - [x] Create Staff page component with responsive grid layout (1/2/3/4 columns by breakpoint)
 - [x] Add Staff route to App.tsx
 - [x] Test Staff page rendering and verify all photos display
+- [x] Stargazing page: remove S1 ("Why It Matters") cascade and replace with telescope vertical for "Ancient Cultures Read the Sky"

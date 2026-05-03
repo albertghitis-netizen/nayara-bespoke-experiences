@@ -86,18 +86,6 @@ type StargazingSectionData = {
 
 const STARGAZING_SECTIONS: StargazingSectionData[] = [
   {
-    id: "why-stargazing-matters",
-    label: "Why It Matters",
-    headline: "The Sky\nIs the Landscape",
-    body: "At Nayara Alto Atacama, the night sky is not an amenity. It is the landscape itself. Set beyond the lights of San Pedro de Atacama in the Catarpe Valley, the resort lies beneath one of the clearest night skies on Earth. More than 80 percent of people globally now live under light-polluted skies. Against this backdrop, the Atacama is no longer merely exceptional — it is increasingly irreplaceable.",
-    verticalSrc: CDN.handVertical,
-    horizontalSrc: CDN.milkywayArchHorizontal,
-    verticalIsVideo: false,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-  },
-  {
     id: "geography-and-science",
     label: "Geography & Science",
     headline: "Where Astronomers\nCame First",
