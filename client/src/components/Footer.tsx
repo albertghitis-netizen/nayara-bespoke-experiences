@@ -73,7 +73,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
             <div key={col.title}>
               <span
                 className="text-[10px] tracking-[0.25em] block mb-4"
-                style={{ color: `${textColor}99`, fontFamily: "var(--font-body)", fontWeight: 500 }}
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {col.title}
               </span>
@@ -103,7 +103,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           <div>
             <span
               className="text-[10px] tracking-[0.25em] block mb-4"
-              style={{ color: `${textColor}99`, fontFamily: "var(--font-body)", fontWeight: 500 }}
+              style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Contact
             </span>
@@ -172,16 +172,16 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
           <p
             className="text-[10px]"
-            style={{ color: textColor, opacity: 0.6, fontFamily: "var(--font-body)", fontWeight: 300 }}
+            style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
           </p>
-          <span className="hidden sm:inline" style={{ color: textColor, opacity: 0.3 }}>|</span>
+          <span className="hidden sm:inline" style={{ color: textColor }}>|</span>
           <a
             href="/privacy-policy"
             onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
             className="text-[10px] hover:opacity-100 transition-opacity"
-            style={{ color: textColor, opacity: 0.6, fontFamily: "var(--font-body)", fontWeight: 300 }}
+            style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             Privacy Policy
           </a>

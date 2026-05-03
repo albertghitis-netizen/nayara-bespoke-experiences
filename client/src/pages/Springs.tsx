@@ -156,64 +156,6 @@ export default function Springs() {
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
-      <OneRainforestSprings />
-
-      {/* ★ 1. ROOMS — Slider */}
-      <PropertySlider
-        sectionLabel="Accommodations"
-        headline="Springs Villas"
-        description="Each freestanding villa is a private sanctuary with its own natural hot spring-fed plunge pool, surrounded by the lush rainforest canopy with views of the Arenal Volcano."
-        cards={roomCards}
-        learnMoreLink="/springs/rooms"
-        learnMoreLabel="Explore Rooms"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 2. WELLNESS — Sorter (after Rooms per user request) */}
-      <PropertySorter
-        sectionLabel="Wellness"
-        headline={springs.theme.spaHeadline.replace("\n", " ")}
-        description="Volcanic mineral springs, open-air spa treatments, and ancient healing traditions merge in a sanctuary designed to restore body and spirit."
-        categories={wellnessCategories}
-        cards={wellnessCards}
-        learnMoreLink="/springs/wellness"
-        learnMoreLabel="Explore Wellness"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 3. EXPERIENCES — Sorter */}
-      <PropertySorter
-        sectionLabel="Experiences"
-        headline="Arenal Adventures"
-        description="From volcanic hot springs to canopy walks and wildlife encounters, every experience at Nayara Springs connects you to the extraordinary biodiversity of the Arenal region."
-        categories={experienceCategories}
-        cards={experienceCards}
-        learnMoreLink="/springs/experiences"
-        learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 4. SUSTAINABILITY — Slider */}
-      <PropertySlider
-        sectionLabel="Sustainability"
-        headline="Protecting the Rainforest"
-        description="As the first hotel in Costa Rica to earn three Michelin Keys, Nayara Springs leads by example — preserving the Arenal ecosystem through geothermal energy, water stewardship, and community partnership."
-        cards={sustainabilityCards}
-        learnMoreLink="/springs/sustainability"
-        learnMoreLabel="Explore More"
-        palette={SLIDER_PALETTE}
-      />
-
-      {/* ★ 5. GASTRONOMY — Slider */}
-      <PropertySlider
-        sectionLabel="Forest to Table"
-        headline="Farm to Table"
-        description="Our chefs transform the Arenal region's extraordinary biodiversity into cuisine that celebrates Costa Rica's culinary heritage, sourcing from local farms and our own organic gardens."
-        cards={gastronomyCards}
-        learnMoreLink="/springs/gastronomy"
-        learnMoreLabel="Explore Dining"
-        palette={SLIDER_PALETTE}
-      />
 
 
       <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
@@ -339,12 +281,16 @@ function StorySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-vertical-compressed_903eb616.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/Reel2Luxuryfilmscr-Nayara_9be06e30.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
       </div>
 
+      {/* ── S2 — Full-width horizontal video ── */}
+      <div className="w-full">
+        <NativeVideo src="/manus-storage/NayaraResorts-HeroVideo_302b2cc2.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+      </div>
 
     </section>
   );
@@ -359,11 +305,11 @@ function SpringsVillaSection() {
     <TintedSection backgroundColor={PALETTE.gradientEnd} className={sectionPadding}>
       <div className={maxW}>
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          {/* Image left — vertical */}
+          {/* S3 — Vertical video left */}
           <div className="md:flex-1 order-2 md:order-1">
             <MediaReveal delay={0.1}>
               <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <img src={CDN.s3} alt="Luxury canopy villa at Nayara Springs" className="w-full h-full object-cover" loading="lazy" />
+                <NativeVideo src="/manus-storage/springs-s3-accommodation_9a2a14f0.mp4" className="w-full h-full object-cover" />
               </div>
             </MediaReveal>
           </div>
