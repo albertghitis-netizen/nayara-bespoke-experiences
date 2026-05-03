@@ -3,6 +3,8 @@
  * Visual Identity: "Canopy" palette · Cormorant Garamond · Cinematic motion · Video-first
  */
 import { useState, useRef, useEffect } from "react";
+import { useCountUp } from "@/hooks/useCountUp";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 import OneRainforestGardens from "@/components/OneRainforestGardens";
 import NativeVideo, { type NativeVideoHandle } from "@/components/NativeVideo";
@@ -173,7 +175,6 @@ export default function Gardens() {
       <BrandNavigation pageType="property" />
       <HeroSection />
       <StorySection />
-      <OneRainforestGardens />
 
       {/* ══ NAYARA BY NIGHT ══ */}
       <ByNightCTA
@@ -310,18 +311,164 @@ function StorySection() {
         </div>
       </div>
 
-      {/* S2 - Full-width horizontal video */}
-      <div style={{ backgroundColor: PALETTE.gradientStart }}>
-        <MediaReveal delay={0.1}>
-          <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <NativeVideo src="/manus-storage/gardens-s2-proper_efb35101.mp4" className="w-full h-full object-cover" />
-          </div>
-        </MediaReveal>
-      </div>
+      {/* S2 — One Rainforest, Three Resorts (compact) */}
+      <OneRainforestCompact />
 
       {/* S3 + S4 — Timed Overlay Experiment (pretending this is Tented Camp Accommodations) */}
       <AccommodationsExperiment />
     </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ONE RAINFOREST COMPACT — Replaces S2 video
+   Three Keys, One Door — compact version without images or dining
+   ═══════════════════════════════════════════════════════════════ */
+const OR_PROPERTIES = [
+  { name: "Tented Camp", tagline: "Clifftop Tents & Suites", route: "/tented-camp", accent: "#868B75" },
+  { name: "Gardens", tagline: "Rainforest Casitas & Villas", route: "/gardens", accent: "#286241", current: true },
+  { name: "Springs", tagline: "Private Hot Springs Villas", route: "/springs", accent: "#3B6E7B", adultsOnly: true },
+];
+
+const OR_STATS = [
+  { value: 12, label: "Shared Restaurants", suffix: "" },
+  { value: 28, label: "Spa Treatments", suffix: "+" },
+  { value: 16, label: "Curated Excursions", suffix: "" },
+  { value: 1400, label: "Acres of Rainforest", suffix: "" },
+];
+
+function CompactStatCounter({ value, label, suffix, delay }: { value: number; label: string; suffix: string; delay: number }) {
+  const [display, ref] = useCountUp({ end: value, duration: 2200, delay, suffix });
+  return (
+    <div className="text-center">
+      <span
+        ref={ref as React.RefObject<HTMLSpanElement>}
+        className="block text-2xl md:text-3xl tracking-tight"
+        style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#fff" }}
+      >
+        {display}
+      </span>
+      <span
+        className="block mt-1 text-[10px] tracking-[0.15em] uppercase"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+      >
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function OneRainforestCompact() {
+  return (
+    <div className="relative overflow-hidden px-6 md:px-10 py-12 md:py-16" style={{ backgroundColor: "#1a2e1a" }}>
+      {/* Bright image background with light overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/manus-storage/gardens-3keys-bg_baa1b8eb.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.35)" }} />
+      </div>
+      <div className="relative z-10 max-w-[1000px] mx-auto">
+        {/* Header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] mb-3 uppercase text-center"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.8)" }}
+          >
+            One Rainforest, Three Resorts
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <h2 className="text-center mb-4">
+            <span
+              className="text-xl md:text-2xl lg:text-3xl leading-[1.05] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+            >
+              Three Keys, One Door
+            </span>
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <p
+            className="text-[14px] leading-[1.8] max-w-[560px] mx-auto text-center mb-8"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}
+          >
+            Stay at Gardens and the restaurants, spa, hot springs, and experiences of Tented Camp and Springs are all yours.
+          </p>
+        </AnimateOnScroll>
+
+        {/* Stats row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+          {OR_STATS.map((stat, i) => (
+            <CompactStatCounter key={stat.label} {...stat} delay={i * 150} />
+          ))}
+        </div>
+
+        {/* Three property cards — text only */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {OR_PROPERTIES.map((prop) => (
+            prop.current ? (
+              <div
+                key={prop.name}
+                className="relative px-5 py-4 rounded-sm text-center"
+                style={{ backgroundColor: "rgba(40,98,65,0.92)", border: "1px solid #286241" }}
+              >
+                <span
+                  className="absolute top-1 right-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
+                >
+                  You Are Here
+                </span>
+                <h4
+                  className="text-base tracking-wide mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+                >
+                  Nayara {prop.name}
+                </h4>
+                <p
+                  className="text-[11px] tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+                >
+                  {prop.tagline}
+                </p>
+              </div>
+            ) : (
+              <Link
+                key={prop.name}
+                href={prop.route}
+                className="relative block px-5 py-4 rounded-sm text-center transition-colors duration-300 hover:brightness-110"
+                style={{ backgroundColor: "rgba(40,98,65,0.85)", border: "1px solid #286241" }}
+              >
+                {prop.adultsOnly && (
+                  <span
+                    className="absolute top-1 right-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
+                  >
+                    Adults Only
+                  </span>
+                )}
+                <h4
+                  className="text-base tracking-wide mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+                >
+                  Nayara {prop.name}
+                </h4>
+                <p
+                  className="text-[11px] tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+                >
+                  {prop.tagline}
+                </p>
+              </Link>
+            )
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -343,7 +490,7 @@ function AccommodationsExperiment() {
   return (
     <>
       {/* ── S3: Vertical video (left) + Text & Room Cards (right) ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
         {/* S3 vertical video with timed overlay */}
         <div className="w-full md:w-1/2 md:order-1 relative">
           <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
@@ -374,7 +521,7 @@ function AccommodationsExperiment() {
         {/* Text column + permanent room cards (right) */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
-          style={{ backgroundColor: PALETTE.gradientEnd }}
+          style={{ backgroundColor: PALETTE.gradientStart }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Accommodations</SectionLabel>
@@ -410,7 +557,7 @@ function AccommodationsExperiment() {
                   <a
                     href={room.route}
                     className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]"
-                    style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+                    sstyle={{ backgroundColor: "rgba(58,42,26,0.92)", border: "1px solid rgba(58,42,26,1)" }}
                   >
                     <span
                       className="block text-[13px] tracking-[0.12em] uppercase mb-1"
@@ -449,7 +596,7 @@ function AccommodationsExperiment() {
       </div>
 
       {/* ── S4: Horizontal video with timed overlay ── */}
-      <div className="relative" style={{ backgroundColor: PALETTE.gradientEnd }}>
+      <div className="relative" style={{ backgroundColor: PALETTE.gradientStart }}>
         <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <NativeVideo
             ref={horizontalRef}
