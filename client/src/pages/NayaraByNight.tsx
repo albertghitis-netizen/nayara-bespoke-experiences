@@ -415,16 +415,16 @@ function ExploreDestinationsCTA() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * i, ease: [0.22, 1, 0.36, 1] }}
-              className="group px-6 py-5 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+              className="group px-6 py-5 rounded-lg border border-[#FFD700]/30 bg-[#FFD700]/15 hover:bg-[#FFD700]/25 hover:border-[#FFD700]/50 transition-all duration-300"
             >
               <h3
-                className="text-white text-[15px] tracking-wide mb-1 group-hover:text-white/90 transition-colors"
+                className="text-[#FFD700] text-[15px] tracking-wide mb-1 group-hover:text-[#FFD700]/90 transition-colors"
                 style={{ ...heading }}
               >
                 {dest.name}
               </h3>
               <p
-                className="text-white/40 text-[12px] tracking-[0.04em]"
+                className="text-[#FFD700]/60 text-[12px] tracking-[0.04em]"
                 style={body}
               >
                 {dest.location}

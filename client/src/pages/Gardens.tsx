@@ -69,7 +69,7 @@ const CDN = {
   // Rooms - video replaces s3 photo
   roomsVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4",
   // Rooms landscape
-  roomsLandscape: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-final-video_7a430890.mp4",
+  roomsLandscape: "/manus-storage/gardens-accommodations-horizontal-v4_9c757895.mp4",
   roomsAerial: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-casita-aerial_e2fb1f8e.jpeg",
   // Experiences section background
   experiencesVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hanging-bridges-horizontal_0bf48537.mp4",
@@ -182,10 +182,13 @@ export default function Gardens() {
       {/* ══ SUSTAINABILITY ══ */}
       <GardensSustainabilityCascade />
 
+      {/* ══ GASTRONOMY ══ */}
+      <GardensGastronomyCascade />
+
       {/* ══ NAYARA BY NIGHT ══ */}
       <ByNightCTA
-        verticalSrc="/manus-storage/gardens-bynight-vertical_8cc651b5.mp4"
-        verticalIsVideo={true}
+        verticalSrc="/manus-storage/gardens-bynight-frog_51f8e4f1.jpg"
+        verticalIsVideo={false}
         verticalRatio="3/4"
         bgColor="#0D1A12"
         headline={"Fireflies &\nFrog Song"}
@@ -1314,7 +1317,7 @@ function GardensExperiencesSection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/gardens-experience-vertical-2_4633bfc5.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/gardens-experience-vertical-v2_bf58516a.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
@@ -1322,7 +1325,74 @@ function GardensExperiencesSection() {
 
       {/* ── Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
-        <NativeVideo src="/manus-storage/gardens-experience-horizontal_455ad479.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        <NativeVideo src="/manus-storage/gardens-experience-horizontal-v2_9c5d3533.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GASTRONOMY — Text left + vertical image right, horizontal below
+   Alternates from Sustainability (image left → now text left)
+   ═══════════════════════════════════════════════════════════════ */
+function GardensGastronomyCascade() {
+  return (
+    <section id="gastronomy">
+      {/* ── Row: Text left + Vertical image right ── */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+        {/* Text column left */}
+        <div
+          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
+          style={{ backgroundColor: PALETTE.gradientStart }}
+        >
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Gastronomy</SectionLabel>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-6 md:mb-8">
+              <span
+                className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Forest to Table
+              </span>
+            </h2>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Five restaurants, one philosophy: every ingredient tells the story of this land. From volcanic-soil coffee to cacao harvested in the shadow of Arenal, our chefs transform Costa Rica's extraordinary biodiversity into dishes that honor tradition while embracing innovation. Nostalgia Wine Bar and Layla's Ice Cream complete the journey from earth to palate.
+            </p>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <a
+              href="/gardens/dining"
+              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            >
+              Explore Dining →
+            </a>
+          </AnimateOnScroll>
+        </div>
+
+        {/* Vertical image right */}
+        <div className="w-full md:w-1/2 md:order-2">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <img src="/manus-storage/gardens-gastronomy-vertical_e3c5f76c.jpg" alt="Layla's Ice Cream" className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
+        </div>
+      </div>
+
+      {/* ── Full-width horizontal image (desktop only) ── */}
+      <div className="hidden md:block w-full">
+        <img src="/manus-storage/gardens-gastronomy-horizontal_184cc30e.jpeg" alt="Nostalgia Wine Bar" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
       </div>
     </section>
   );
@@ -1341,7 +1411,7 @@ function GardensSustainabilityCascade() {
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/gardens-sustainability-vertical_5d7a4ccd.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/gardens-sustainability-vertical-v2_a1236efc.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
