@@ -159,6 +159,7 @@ export default function Springs() {
       <SpringsVillaSection />
       <ExperiencesSection />
       <SustainabilitySection />
+      <WellnessSection />
 
       <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
     </div>
@@ -459,81 +460,49 @@ function SustainabilitySection() {
    WELLNESS — Treatment cards with category filters
    ═══════════════════════════════════════════════════════════════ */
 function WellnessSection() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const categories = springs.spaCategories || [];
-  const filtered = activeCategory === "all" ? springs.treatments : springs.treatments.filter((t: Treatment) => t.category === activeCategory);
-
   return (
-    <section id="wellness" className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Wellness</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-10 md:mb-14" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Nurtured by Nature
-          </span>
-        </TextReveal>
-
-        {categories.length > 0 && (
-          <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <div className="flex flex-wrap gap-2 mb-10 md:mb-14">
-              {categories.map((cat: { id: string; label: string }) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] transition-all duration-500"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontWeight: 500,
-                    backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                    color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
-                    border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
-                  }}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
+    <section id="wellness">
+      {/* ── Row: Text left + S9 vertical video right ── */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+        {/* Text column */}
+        <div
+          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
+          style={{ backgroundColor: PALETTE.gradientStart }}
+        >
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Wellness</SectionLabel>
           </AnimateOnScroll>
-        )}
-
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((treatment: Treatment) => (
-            <motion.div
-              key={treatment.id}
-              variants={fadeUp}
-              className="p-6 md:p-8 transition-all duration-500 hover:translate-y-[-2px]"
-              style={{
-                backgroundColor: "rgba(255,255,255,0.4)",
-                backdropFilter: "blur(8px)",
-                borderRadius: "12px",
-                borderBottom: `2px solid ${PALETTE.divider}`,
-              }}
-              whileHover={{ borderBottomColor: PALETTE.primary }}
+          <TextReveal as="h2" className="mb-8" delay={0.1}>
+            <span
+              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
             >
-              <h3 className="text-[17px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
-                {treatment.name}
-              </h3>
-              <p className="text-[11px] tracking-[0.1em] mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
-                {treatment.duration}{treatment.price ? ` · ${treatment.price}` : ""}
-              </p>
-              <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                {treatment.description}
-              </p>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
+              Nurtured by Nature
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              The spa at Nayara Springs draws its rituals from the geothermal earth and forest botanicals that surround it. Volcanic mineral waters, indigenous healing traditions, and the stillness of the rainforest converge to create an experience that restores from the inside out.
+            </p>
+          </AnimateOnScroll>
+        </div>
 
-        {/* Gallery photo: Tropical bird */}
-        <MediaReveal delay={0.2}>
-          <div className="mt-12 overflow-hidden" style={{ aspectRatio: "16/9" }}>
-            <img src={CDN.gallery7} alt="Tropical bird in the Arenal canopy" className="w-full h-full object-cover rounded-lg" loading="lazy" />
-          </div>
-        </MediaReveal>
+        {/* S9 — Vertical video right */}
+        <div className="w-full md:w-1/2 md:order-2">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <NativeVideo src="/manus-storage/springs-s9-wellness-vertical_af7fc01e.mp4" className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
+        </div>
+      </div>
+
+      {/* ── S10 — Full-width horizontal video ── */}
+      <div className="w-full">
+        <NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
       </div>
     </section>
   );
