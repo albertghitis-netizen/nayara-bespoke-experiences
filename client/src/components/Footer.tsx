@@ -137,6 +137,13 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
                 +44 020 7078 4060 (UK)
               </a>
               <a
+                href="tel:+50624791600"
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                +506 2479 1600 (Costa Rica)
+              </a>
+              <a
                 href="/privacy-policy"
                 onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
                 className="transition-colors"
