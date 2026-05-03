@@ -385,6 +385,15 @@ function ExperiencesSection() {
             </MediaReveal>
           </div>
         </div>
+
+        {/* S6 — Horizontal video below */}
+        <div className="w-full">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_eb6760c5.mp4" className="w-full h-full object-cover" />
+            </div>
+          </MediaReveal>
+        </div>
       </div>
     </section>
   );
