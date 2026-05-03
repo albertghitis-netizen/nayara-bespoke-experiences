@@ -102,7 +102,7 @@ const STARGAZING_SECTIONS: StargazingSectionData[] = [
   {
     id: "hand-and-bus",
     label: "Desert Landmarks",
-    headline: "The Hand of the Desert\n& the Magic School Bus",
+    headline: "Hand of the Desert\n& the Magic School Bus",
     body: "Rising from the sand like a signal to the cosmos, the Mano del Desierto stands eleven meters tall in the emptiness between Antofagasta and the Atacama. Nearby, a graffiti-covered school bus sits abandoned beneath the Milky Way — a relic turned landmark, now one of the most photographed night-sky foregrounds in South America. Together they mark the surreal edge where human presence meets infinite sky.",
     verticalSrc: CDN.manoDesiertoVertical,
     horizontalSrc: CDN.busMilkywayHorizontal,
