@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 /* ─── CDN Assets ─────────────────────────────────────────────── */
 const CDN = {
   /* Hero */
-  heroDesktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-hero-night_104e129b.mp4",
+  heroDesktop: "/manus-storage/nbn-hero-new_3e6aefe3.mp4",
   heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-hero-vertical-new_efde71a9.mp4",
   /* Story images */
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
