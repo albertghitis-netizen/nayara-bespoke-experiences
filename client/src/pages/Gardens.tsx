@@ -1339,23 +1339,28 @@ function GardensGastronomyCascade() {
   return (
     <section id="gastronomy">
       {/* ── Row: Text left + Vertical image right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: "#FAE0E0" }}>
         {/* Text column left */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
-          style={{ backgroundColor: PALETTE.gradientStart }}
+          style={{ backgroundColor: "#FAE0E0" }}
         >
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Gastronomy</SectionLabel>
+            <span
+              className="text-[11px] tracking-[0.2em] uppercase mb-6 block"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#6b4a3a" }}
+            >
+              Gastronomy
+            </span>
           </AnimateOnScroll>
 
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2 className="mb-6 md:mb-8">
               <span
                 className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3a2a1a" }}
               >
-                Forest to Table
+                Who Wants Gelato?
               </span>
             </h2>
           </AnimateOnScroll>
@@ -1363,7 +1368,7 @@ function GardensGastronomyCascade() {
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
               className="text-[15px] leading-[1.85] max-w-[480px]"
-              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+              style={{ fontFamily: "var(--font-body)", color: "#4a3a2a" }}
             >
               Five restaurants, one philosophy: every ingredient tells the story of this land. From volcanic-soil coffee to cacao harvested in the shadow of Arenal, our chefs transform Costa Rica's extraordinary biodiversity into dishes that honor tradition while embracing innovation. Nostalgia Wine Bar and Layla's Ice Cream complete the journey from earth to palate.
             </p>
@@ -1373,7 +1378,7 @@ function GardensGastronomyCascade() {
             <a
               href="/gardens/dining"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#3a2a1a" }}
             >
               Explore Dining →
             </a>
