@@ -38,8 +38,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/gal-new-infinity-pool_fc7be1aa.jpeg", w: 1920, h: 1920, type: "image" },
   // 11. Milky way stargazing (VERT, dark blue/purple) — NIGHT
   { src: "/manus-storage/newgal-007-D7AC6CFD-2329-4619-B8C9-447268366C3F_a35005f7.jpeg", w: 1440, h: 1920, type: "image" },
-  // 12. Spa hut in jungle (HORIZ, deep green)
-  { src: "/manus-storage/gal-new-spa-hut_d08bc77f.jpg", w: 3087, h: 2315, type: "image" },
+  // 12. VIDEO — Atacama square (SQUARE, 8.2s) [new]
+  { src: "/manus-storage/gal-vid-atacama-square_2914758a.mp4", w: 1080, h: 1080, type: "video" },
   // 13. Spices close-up (VERT, warm reds/oranges)
   { src: "/manus-storage/newgal-008-A50DCA72-3FCB-46E5-A703-DFFB62080A51_ba9d9d7f.jpeg", w: 1536, h: 1920, type: "image" },
   // 14. VIDEO — Luxury reel (VERT, 3.5s)
@@ -60,8 +60,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/newgal-001-90BD7E91-B497-4CF2-B9B4-4F7929DFB687_1__747bee1e.jpeg", w: 1536, h: 1920, type: "image" },
   // 22. Couple by pool (VERT, blue water)
   { src: "/manus-storage/newgal-014-4O1A4907-byBriceFerreStudiocopy_6a4a23c7.jpeg", w: 1281, h: 1921, type: "image" },
-  // 23. Arenal aerial with volcano (SQUARE, green/grey) — third square
-  { src: "/manus-storage/gal-new-arenal-aerial_1ae7797a.jpeg", w: 1920, h: 1920, type: "image" },
+  // 23. Spa hut in jungle (HORIZ, deep green) [moved from G12]
+  { src: "/manus-storage/gal-new-spa-hut_d08bc77f.jpg", w: 3087, h: 2315, type: "image" },
   // 24. Wide resort aerial (HORIZ, green canopy)
   { src: "/manus-storage/newgal-015-5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_05973859.JPG", w: 4320, h: 2880, type: "image" },
   // 25. Cocktail/bar scene (VERT, warm amber)
