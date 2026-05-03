@@ -10,6 +10,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
+import ByNightCTA from "@/components/ByNightCTA";
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { costaRicaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
@@ -161,6 +162,16 @@ export default function Springs() {
       <SustainabilitySection />
       <WellnessSection />
       <GastronomySection />
+      <ByNightCTA
+        verticalSrc="/manus-storage/nbn-video-short_174183ae.mp4"
+        verticalIsVideo={true}
+        verticalRatio="3/4"
+        horizontalSrc=""
+        bgColor="#0D0704"
+        headline={"Hot Springs\nUnder Starlight"}
+        bodyText="As darkness descends on the Arenal rainforest, the volcanic hot springs take on an ethereal glow. Slip into your private plunge pool beneath a canopy of stars, where the warmth of the earth meets the cool night air. Join our naturalists for a nocturnal frog safari, or simply surrender to the symphony of the jungle after dark."
+        textSide="left"
+      />
       <ReviewsSection />
       <GettingHereSection />
       <ReserveCTA />
@@ -294,8 +305,8 @@ function StorySection() {
         </div>
       </div>
 
-      {/* ── S2 — Full-width horizontal video ── */}
-      <div className="w-full">
+      {/* ── S2 — Full-width horizontal video (desktop only) ── */}
+      <div className="hidden md:block w-full">
         <NativeVideo src="/manus-storage/NayaraResorts-HeroVideo_302b2cc2.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
       </div>
 
@@ -357,8 +368,8 @@ function SpringsVillaSection() {
         </div>
       </div>
 
-      {/* ── S4 — Full-width horizontal video ── */}
-      <div className="w-full relative">
+      {/* ── S4 — Full-width horizontal video (desktop only) ── */}
+      <div className="hidden md:block w-full relative">
         <NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
         <div className="absolute bottom-8 left-8 md:left-16">
           <a
@@ -427,8 +438,8 @@ function ExperiencesSection() {
         </div>
       </div>
 
-      {/* ── S6 — Full-width horizontal video ── */}
-      <div className="w-full">
+      {/* ── S6 — Full-width horizontal video (desktop only) ── */}
+      <div className="hidden md:block w-full">
         <NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_eb6760c5.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
       </div>
     </section>
@@ -488,8 +499,8 @@ function SustainabilitySection() {
         </div>
       </div>
 
-      {/* ── S8 — Full-width horizontal video ── */}
-      <div className="w-full">
+      {/* ── S8 — Full-width horizontal video (desktop only) ── */}
+      <div className="hidden md:block w-full">
         <NativeVideo src="/manus-storage/springs-s8-sustainability-horizontal_7a9ba7b8.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
       </div>
     </section>
@@ -549,8 +560,8 @@ function WellnessSection() {
         </div>
       </div>
 
-      {/* ── S10 — Full-width horizontal video ── */}
-      <div className="w-full">
+      {/* ── S10 — Full-width horizontal video (desktop only) ── */}
+      <div className="hidden md:block w-full">
         <NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
       </div>
     </section>
@@ -615,8 +626,8 @@ function GastronomySection() {
         </div>
       </div>
 
-      {/* ── Full-width horizontal image (food) ── */}
-      <div className="w-full">
+      {/* ── Full-width horizontal image (food, desktop only) ── */}
+      <div className="hidden md:block w-full">
         <img
           src="/manus-storage/NayaraAltoAtacama_1_32854bbb.jpg"
           alt="Artisanal cuisine at Nayara"
