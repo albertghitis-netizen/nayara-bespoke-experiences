@@ -36,8 +36,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/newgal-005-DBBC01CA-795B-472C-8172-EE2AD876687E_1__5b089e23.jpeg", w: 1538, h: 1920, type: "image" },
   // 10. Infinity pool sunset (SQUARE, pink/blue sky) — second square
   { src: "/manus-storage/gal-new-infinity-pool_fc7be1aa.jpeg", w: 1920, h: 1920, type: "image" },
-  // 11. Milky way stargazing (VERT, dark blue/purple) — NIGHT
-  { src: "/manus-storage/newgal-007-D7AC6CFD-2329-4619-B8C9-447268366C3F_a35005f7.jpeg", w: 1440, h: 1920, type: "image" },
+  // 11. Food/drink (VERT, warm) [swapped from G50]
+  { src: "/manus-storage/newgal-033-Untitleddesign-18_af394d5d.JPG", w: 1440, h: 1920, type: "image" },
   // 12. VIDEO — Atacama square (SQUARE, 8.2s) [new]
   { src: "/manus-storage/gal-vid-atacama-square_2914758a.mp4", w: 1080, h: 1080, type: "video" },
   // 13. Spices close-up (VERT, warm reds/oranges)
@@ -114,8 +114,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/newgal-032-02472240-7796-42F8-B9F3-B955D66EAD89_062baa07.jpeg", w: 1538, h: 1920, type: "image" },
   // 49. VIDEO — vid-02 (HORIZ, 1.6s)
   { src: "/manus-storage/gal-vid-02_ec251b26.mov", w: 1096, h: 616, type: "video" },
-  // 50. Food/drink (VERT, warm)
-  { src: "/manus-storage/newgal-033-Untitleddesign-18_af394d5d.JPG", w: 1440, h: 1920, type: "image" },
+  // 50. Milky way stargazing (VERT, dark blue/purple) — NIGHT [swapped from G11]
+  { src: "/manus-storage/newgal-007-D7AC6CFD-2329-4619-B8C9-447268366C3F_a35005f7.jpeg", w: 1440, h: 1920, type: "image" },
   // 51. Toucan (VERT, green/colorful) — ANIMAL
   { src: "/manus-storage/newgal-036-517C4F4F-0F4F-4AE7-8108-EBC846F90CA8_5aa503f5.jpeg", w: 1536, h: 1920, type: "image" },
   // 52. Landscape sunset (HORIZ, warm)
@@ -140,8 +140,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/newgal-047-AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio_2__d519bb58.jpeg", w: 1441, h: 1920, type: "image" },
   // 62. VIDEO — vid-04 (VERT, 2.5s) — separated from vid-03
   { src: "/manus-storage/gal-vid-04_72b2e1e7.MOV", w: 720, h: 1280, type: "video" },
-  // 63. Sunset wide (HORIZ, golden)
-  { src: "/manus-storage/newgal-049-IMG_6906_d3bd3949.JPG", w: 1920, h: 1080, type: "image" },
+  // 63. Sunset wide (HORIZ, golden) — LARGE
+  { src: "/manus-storage/newgal-049-IMG_6906_d3bd3949.JPG", w: 3840, h: 2160, type: "image" },
   // 64. Butterfly/nature (VERT, green)
   { src: "/manus-storage/newgal-045-6559EF6E-115C-4594-89D1-09E7D0A35B05_ece22549.jpeg", w: 1457, h: 1920, type: "image" },
   // 65. Lobby/lounge (VERT, warm)
