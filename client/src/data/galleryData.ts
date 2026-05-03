@@ -16,8 +16,8 @@ export interface GalleryItem {
  * - Mix of horizontal, vertical, square throughout
  */
 export const galleryImages: GalleryItem[] = [
-  // 1. Aerial tents in green forest (HORIZ, green, bright) — strong opener
-  { src: "/manus-storage/gal-new-aerial-tents_308da834.PNG", w: 1600, h: 900, type: "image" },
+  // 1. Sunset wide (HORIZ, golden) [swapped from G63]
+  { src: "/manus-storage/newgal-049-IMG_6906_d3bd3949.JPG", w: 1920, h: 1080, type: "image" },
   // 2. VIDEO — Nayara reel (VERT, 3.7s) [swapped from G21]
   { src: "/manus-storage/gal-vid-16-reel_66fc2aff.mp4", w: 1080, h: 1920, type: "video" },
   // 3. Couple at volcano (SQUARE, blue/green) — first square
@@ -140,8 +140,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/newgal-047-AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio_2__d519bb58.jpeg", w: 1441, h: 1920, type: "image" },
   // 62. VIDEO — vid-04 (VERT, 2.5s) — separated from vid-03
   { src: "/manus-storage/gal-vid-04_72b2e1e7.MOV", w: 720, h: 1280, type: "video" },
-  // 63. Sunset wide (HORIZ, golden) — LARGE
-  { src: "/manus-storage/newgal-049-IMG_6906_d3bd3949.JPG", w: 3840, h: 2160, type: "image" },
+  // 63. Aerial tents in green forest (HORIZ, green, bright) [swapped from G1]
+  { src: "/manus-storage/gal-new-aerial-tents_308da834.PNG", w: 1600, h: 900, type: "image" },
   // 64. Butterfly/nature (VERT, green)
   { src: "/manus-storage/newgal-045-6559EF6E-115C-4594-89D1-09E7D0A35B05_ece22549.jpeg", w: 1457, h: 1920, type: "image" },
   // 65. Lobby/lounge (VERT, warm)
