@@ -238,9 +238,9 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     label: "After Dark",
     headline: "When the\nStars Emerge",
     body: "From the Atacama's observatory to the bioluminescent bays of Panama, Nayara's night experiences are among the most extraordinary in luxury travel. These are moments that exist only in darkness — and they change the way you see the world.",
-    verticalSrc: CDN.videoShort,
+    verticalSrc: CDN.moaiMilkyway,
     horizontalSrc: CDN.ranoKauMilkyway,
-    verticalIsVideo: true,
+    verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -349,12 +349,9 @@ function StorySection() {
         {/* Moai vertical — right half, full bleed */}
         <div className="w-full md:w-1/2">
           <FadeIn delay={0.1}>
-            <img
-              src={CDN.moaiMilkyway}
-              alt="Moai beneath the Milky Way"
+            <NativeVideo
+              src={CDN.videoShort}
               className="w-full h-full object-cover"
-              loading="lazy"
-              style={{ aspectRatio: "3/4" }}
             />
           </FadeIn>
         </div>
