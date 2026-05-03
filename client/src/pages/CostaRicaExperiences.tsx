@@ -387,7 +387,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
    ═══════════════════════════════════════════════════════════════ */
 
 function NatureSection({ palette }: { palette: PropertyPalette }) {
-  const birdImage = `${CDN_BASE}/bird-watching-hero_ddf4b8c3.jpg`;
+  const birdVideo = "/manus-storage/gardens-birdwatching-new_c9a2c125.mp4";
 
   const experiences = [
     {
@@ -434,14 +434,16 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
           </p>
         </AnimateOnScroll>
 
-        {/* Bird watching image */}
+        {/* Bird watching video */}
         <AnimateOnScroll variants={fadeUp}>
           <div className="relative overflow-hidden rounded-xl mb-16" style={{ aspectRatio: "21/9" }}>
-            <img
-              src={birdImage}
-              alt="Birdwatching in the Arenal rainforest"
+            <video
+              src={birdVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
               className="w-full h-full object-cover"
-              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
             <div className="absolute bottom-4 left-6">

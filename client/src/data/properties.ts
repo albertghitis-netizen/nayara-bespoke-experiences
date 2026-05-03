@@ -258,7 +258,7 @@ const exploreNayaraExperiences: Excursion[] = [
     suggestedTime: "5:30 AM",
     description: "Join our resident naturalist before sunrise and walk the trails that thread through 380 acres of primary and secondary rainforest. Arenal is home to over 500 bird species — toucans, motmots, trogons, tanagers, and hummingbirds. The early light and quiet trails make this the best time to see and hear them.",
     highlights: ["Over 500 bird species in the Arenal region", "Expert naturalist guide", "Binoculars and field guide provided"],
-    verticalVideo: "/manus-storage/birdwatching-new-clip_fe1aef26.mp4",
+    verticalVideo: "/manus-storage/gardens-birdwatching-new_c9a2c125.mp4",
     featured: true,
     placeholder: false,
     category: "nature",

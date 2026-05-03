@@ -3,7 +3,7 @@
  * Structure: Hero Video → Story → Cascade sections (Atacama / Rapa Nui / Bocas) → Footer
  * Dark theme throughout — gallery images integrated into cascade sections
  */
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 /* ─── CDN Assets ─────────────────────────────────────────────── */
 const CDN = {
   /* Hero */
-  heroDesktop: "/manus-storage/nbn-hero-new_3e6aefe3.mp4",
+  heroDesktop: "/manus-storage/nbn-hero-atacama_16638f41.mp4",
   heroMobile: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-hero-vertical-new_efde71a9.mp4",
   /* Story images */
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-cactus-milkyway_a7dc0b5c.webp",
@@ -215,7 +215,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     headline: "Moai Beneath\nthe Milky Way",
     body: "On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.",
     verticalSrc: "/manus-storage/C4E3064D-C340-4EA4-BBC8-507E51A9B517_d666d0a5.jpeg",
-    horizontalSrc: "/manus-storage/nbn-moai-horizontal_040475cb.mp4",
+    horizontalSrc: "/manus-storage/nbn-hero-v3_65e7fed1.mp4",
     verticalIsVideo: false,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -229,9 +229,9 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
     verticalSrc: "/manus-storage/nbn-bioluminescence-vertical_541cd256.mp4",
-    horizontalSrc: CDN.biolumWaves,
+    horizontalSrc: "/manus-storage/nbn-s2-horizontal_3e4fa16c.mp4",
     verticalIsVideo: true,
-    horizontalIsVideo: false,
+    horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: DARK_COLORS[3],
@@ -242,26 +242,14 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     headline: "The Jungle\nAfter Dark",
     body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets — a world that only comes alive after dark.",
     verticalSrc: "/manus-storage/tented-night-frogs-vertical_13b54b09.mp4",
-    horizontalSrc: CDN.heroDesktop,
+    horizontalSrc: "/manus-storage/nbn-jungle-dark-horizontal_d2bee113.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: DARK_COLORS[4],
   },
-  {
-    id: "night-atmosphere",
-    label: "The Atmosphere",
-    headline: "Darkness\nReveals Beauty",
-    body: "At Nayara, nightfall is not an ending — it is a transformation. The jungle hums with nocturnal life, the sky deepens to reveal galaxies, and the resorts glow with intimate warmth. Every property is designed to celebrate the night as much as the day.",
-    verticalSrc: CDN.cascadeShared,
-    horizontalSrc: CDN.atacamaDusk,
-    verticalIsVideo: true,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: DARK_COLORS[3],
-  },
+
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -281,6 +269,9 @@ export default function NayaraByNight() {
 
       {/* Explore Our Destinations CTA */}
       <ExploreDestinationsCTA />
+
+      {/* Milky Way divider */}
+      <MilkyWayDivider />
 
       <Footer pageType="brand" bgColor="#000000" />
     </div>
@@ -367,7 +358,7 @@ function StorySection() {
       <div className="hidden md:block">
         <FadeIn delay={0.2}>
           <div style={{ aspectRatio: "16/9" }} className="overflow-hidden">
-            <NativeVideo src="/manus-storage/nbn-s2-horizontal_3e4fa16c.mp4" className="w-full h-full object-cover" />
+            <NativeVideo src="/manus-storage/nbn-s2-new_373c43a1.mp4" className="w-full h-full object-cover" />
           </div>
         </FadeIn>
       </div>
@@ -406,11 +397,17 @@ function ExploreDestinationsCTA() {
             Our Destinations
           </p>
           <h2
-            className="text-2xl md:text-3xl lg:text-4xl text-white tracking-wide mb-14"
+            className="text-2xl md:text-3xl lg:text-4xl text-white tracking-wide mb-4"
             style={heading}
           >
-            Experience the Night<br />at Every Destination
+            Darkness<br />Reveals Beauty
           </h2>
+          <p
+            className="text-white/70 text-[15px] leading-relaxed max-w-[700px] mb-14"
+            style={body}
+          >
+            At Nayara, nightfall is not an ending — it is a transformation. The jungle hums with nocturnal life, the sky deepens to reveal galaxies, and the resorts glow with intimate warmth. Every property is designed to celebrate the night as much as the day.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -440,5 +437,21 @@ function ExploreDestinationsCTA() {
         </div>
       </div>
     </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SATURN DIVIDER — Cosmic separator between sections
+   ═══════════════════════════════════════════════════════════════ */
+function MilkyWayDivider() {
+  return (
+    <div className="relative w-full bg-black">
+      <img
+        src="/manus-storage/milkyway-strip-narrow_9fb704a0.jpg"
+        alt=""
+        className="w-full object-cover"
+        loading="lazy"
+      />
+    </div>
   );
 }
