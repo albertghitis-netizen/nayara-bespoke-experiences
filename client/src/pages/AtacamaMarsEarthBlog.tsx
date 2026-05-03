@@ -85,7 +85,8 @@ export default function BlogPost() {
             ))}
           </div>
         </div>
-      
+      </section>
+
       {/* Sources & Further Reading */}
       <section className="py-20 px-6 md:px-10 bg-gray-50">
         <div className="max-w-4xl mx-auto">
