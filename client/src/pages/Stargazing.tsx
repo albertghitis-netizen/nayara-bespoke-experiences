@@ -17,6 +17,8 @@ const CDN = {
   heroMobile: "/manus-storage/stargazing-hero-mobile_77790887.mp4",
   /* Telescope vertical (from By Night) */
   telescopeVertical: "/manus-storage/3a94f88f-2a69-457a-bc18-fae9946d8f0c(1)_463d1a87.jpg",
+  /* Petroglyph under Milky Way — Ancient Cultures */
+  petroglyphVertical: "/manus-storage/stargazing-petroglyph-milkyway_2c62bd09.jpg",
   /* New stargazing images */
   handVertical: "/manus-storage/stargazing-hand-vertical_c5fe139a.jpg",
   milkywayArchHorizontal: "/manus-storage/stargazing-milkyway-arch-horizontal_add8c151.jpg",
@@ -102,7 +104,7 @@ const STARGAZING_SECTIONS: StargazingSectionData[] = [
     label: "Andean Cosmovision",
     headline: "How Ancient Cultures\nRead the Sky",
     body: "For Indigenous Andean societies, the night sky was a living system connecting land, water, animals, and time. Unlike Western astronomy, Andean sky knowledge focused on the dark spaces within the Milky Way — 'dark constellations' formed by dust lanes visible only under extremely dark skies. The celestial llama, fox, and snake guided herding cycles and ecological awareness for millennia.",
-    verticalSrc: CDN.telescopeVertical,
+    verticalSrc: CDN.petroglyphVertical,
     horizontalSrc: CDN.rockarchHorizontal,
     verticalIsVideo: false,
     horizontalIsVideo: false,
