@@ -2,6 +2,7 @@
  * CrossPropertyCTA — "Continue Your Journey"
  * Shows two contrasting property suggestions at the bottom of each property page.
  * Each card links to a different biome/destination to reinforce the collection narrative.
+ * Supports both static images and auto-playing video backgrounds.
  */
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -13,7 +14,8 @@ export interface CrossPropertySuggestion {
   tagline: string;
   route: string;
   image: string;
-  audienceTag?: string; // "Adults Only" | "Families Welcome" | "All Travelers"
+  video?: string; // Optional: auto-playing video (takes priority over image)
+  audienceTag?: string; // "Adults Only" | "Families Welcome"
 }
 
 interface CrossPropertyCTAProps {
@@ -61,14 +63,24 @@ export default function CrossPropertyCTA({
                 className="group block overflow-hidden"
                 style={{ border: `1px solid ${dividerColor}` }}
               >
-                {/* Image */}
+                {/* Media — video or image */}
                 <div className="relative h-[200px] md:h-[240px] overflow-hidden">
-                  <img
-                    src={prop.image}
-                    alt={prop.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  {prop.video ? (
+                    <video
+                      src={prop.video}
+                      autoPlay
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <img
+                      src={prop.image}
+                      alt={prop.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  )}
                   {/* Audience tag overlay */}
                   {prop.audienceTag && (
                     <span

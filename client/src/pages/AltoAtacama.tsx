@@ -871,11 +871,12 @@ export default function AltoAtacama() {
       <CrossPropertyCTA
         suggestions={[
           {
-            name: "Nayara Gardens",
-            chapter: "The Rainforest Adventure",
-            tagline: "From desert silence to rainforest symphony — volcano-view villas, hanging bridges, and wildlife encounters in Costa Rica's Arenal.",
-            route: "/gardens",
-            image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gardens-casita-aerial_e2fb1f8e.jpeg",
+            name: "Nayara Tented Camp",
+            chapter: "The Luxury Tented Camp",
+            tagline: "From desert silence to canopy safari — elevated tents perched on a cliff above Costa Rica's rainforest, with wildlife at dawn.",
+            route: "/tented-camp",
+            image: "/manus-storage/gal-new-aerial-tents_308da834.PNG",
+            video: "/manus-storage/cta-tented-ultrawide_99ae6c78.mp4",
             audienceTag: "Families Welcome",
           },
           {
@@ -884,6 +885,7 @@ export default function AltoAtacama() {
             tagline: "Desert to archipelago — trade salt flats for Caribbean overwater villas on a solar-powered private island.",
             route: "/bocas-del-toro",
             image: "/manus-storage/bocas-resort-24_5778eea7.jpg",
+            video: "/manus-storage/cta-bocas-ultrawide_4b5a9425.mp4",
             audienceTag: "Adults Only",
           },
         ]}

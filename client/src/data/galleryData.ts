@@ -66,8 +66,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/newgal-015-5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_05973859.JPG", w: 4320, h: 2880, type: "image" },
   // 25. Cocktail/bar scene (VERT, warm amber)
   { src: "/manus-storage/newgal-016-5E8F3F4E-BF87-4A5F-BBB2-2737E82CE424_1__36567fca.jpeg", w: 1440, h: 1920, type: "image" },
-  // 26. Bocas tower treehouse (VERT, green/sunset)
-  { src: "/manus-storage/gal-new-bocas-tower_dc19d605.jpeg", w: 1442, h: 1920, type: "image" },
+  // 26. VIDEO — Bocas drone aerial (SQUARE, 5.5s)
+  { src: "/manus-storage/gal-bocas-drone-square_5a29cc19.mp4", w: 1080, h: 1080, type: "video" },
   // 27. Tented camp interior (VERT, warm wood)
   { src: "/manus-storage/newgal-017-3df15446-15eb-4056-8ddb-437113d81e19_1__c8d836fc.JPG", w: 853, h: 1280, type: "image" },
   // 28. VIDEO — Sloths (HORIZ, 2.9s) — ANIMAL

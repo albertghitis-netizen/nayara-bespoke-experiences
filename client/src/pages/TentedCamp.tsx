@@ -1403,7 +1403,8 @@ export default function TentedCamp() {
             tagline: "From canopy to cosmos — trade rainforest glamping for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
             route: "/alto-atacama",
             image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
-            audienceTag: "All Travelers",
+            video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",
+            audienceTag: "Families Welcome",
           },
           {
             name: "Nayara Hangaroa",
@@ -1411,7 +1412,8 @@ export default function TentedCamp() {
             tagline: "Two edges of the world — from the rainforest canopy to Easter Island's monumental Moai and Polynesian culture.",
             route: "/hangaroa",
             image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
-            audienceTag: "All Travelers",
+            video: "/manus-storage/cta-hangaroa-ultrawide_ed5ffb72.mp4",
+            audienceTag: "Families Welcome",
           },
         ]}
         bgColor="#D5D9C4"

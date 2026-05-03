@@ -231,7 +231,8 @@ export default function Hangaroa() {
             tagline: "Stay in Chile, change the world — from Easter Island's stone giants to the Atacama's salt flats, geysers, and star-filled skies.",
             route: "/alto-atacama",
             image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
-            audienceTag: "All Travelers",
+            video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",
+            audienceTag: "Families Welcome",
           },
           {
             name: "Nayara Springs",

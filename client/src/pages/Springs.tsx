@@ -184,6 +184,7 @@ export default function Springs() {
             tagline: "Another adults-only sanctuary — trade volcanic hot springs for Caribbean overwater villas on a solar-powered private island.",
             route: "/bocas-del-toro",
             image: "/manus-storage/bocas-resort-24_5778eea7.jpg",
+            video: "/manus-storage/cta-bocas-ultrawide_4b5a9425.mp4",
             audienceTag: "Adults Only",
           },
           {
@@ -192,7 +193,8 @@ export default function Springs() {
             tagline: "From thermal sanctuary to ancient mystery — Moai guardians, Polynesian culture, the most remote island on Earth.",
             route: "/hangaroa",
             image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
-            audienceTag: "All Travelers",
+            video: "/manus-storage/cta-hangaroa-ultrawide_ed5ffb72.mp4",
+            audienceTag: "Families Welcome",
           },
         ]}
         bgColor={PALETTE.gradientEnd}

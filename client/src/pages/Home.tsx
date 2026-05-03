@@ -1212,7 +1212,7 @@ const collectionData = [
     chapter: "Where Desert Meets Sky",
     location: "San Pedro de Atacama, Chile",
     positioning: "A desert lodge in the driest desert on Earth, where salt flats, geysers, and the clearest night skies in the Southern Hemisphere converge. Two Michelin Keys.",
-    audience: "All Travelers",
+    audience: "Families Welcome",
     route: "/alto-atacama",
     image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
   },
@@ -1230,7 +1230,7 @@ const collectionData = [
     chapter: "The Land of Giants",
     location: "Rapa Nui (Easter Island), Chile",
     positioning: "On the most remote inhabited island on Earth, a lodge that honors the Rapa Nui culture and its monumental stone guardians. The only luxury property on Easter Island.",
-    audience: "All Travelers",
+    audience: "Families Welcome",
     route: "/hangaroa",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
   },
@@ -1336,7 +1336,7 @@ const findYourNayaraData = [
   },
   {
     category: "Adventure, Exploration & Discovery",
-    tag: "All Travelers",
+    tag: "Families Welcome",
     tagColor: "#525642",
     description: "For families, explorers, and anyone who believes the best experiences happen where landscape overwhelms and culture runs deep — from rainforest canopy to desert stargazing to ancient stone giants.",
     properties: [

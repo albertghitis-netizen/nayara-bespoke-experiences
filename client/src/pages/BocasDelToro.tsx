@@ -845,19 +845,21 @@ export default function BocasDelToro() {
       <CrossPropertyCTA
         suggestions={[
           {
+            name: "Nayara Springs",
+            chapter: "The Hot Springs Sanctuary",
+            tagline: "Two adults-only sanctuaries — trade Caribbean overwater for volcanic hot springs hidden in Costa Rica's rainforest.",
+            route: "/springs",
+            image: "/manus-storage/springs-hero_2b3d0f5a.jpg",
+            video: "/manus-storage/cta-springs-ultrawide_c03a39d0.mp4",
+            audienceTag: "Adults Only",
+          },
+          {
             name: "Nayara Alto Atacama",
             chapter: "Where Desert Meets Sky",
             tagline: "Caribbean to cosmos — trade turquoise waters for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
             route: "/alto-atacama",
             image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
-            audienceTag: "All Travelers",
-          },
-          {
-            name: "Nayara Tented Camp",
-            chapter: "The Luxury Tented Camp",
-            tagline: "Island to canopy — from overwater villas to elevated safari tents perched above Costa Rica's rainforest.",
-            route: "/tented-camp",
-            image: "/manus-storage/gal-new-aerial-tents_308da834.PNG",
+            video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",
             audienceTag: "Families Welcome",
           },
         ]}
