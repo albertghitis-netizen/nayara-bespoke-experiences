@@ -27,6 +27,8 @@ const CDN = {
   pillarAuroraHorizontal: "/manus-storage/stargazing-pillar-aurora-horizontal_4d45b233.jpg",
   rockarchHorizontal: "/manus-storage/stargazing-rockarch-horizontal_7936b44b.jpg",
   rockarchVertical: "/manus-storage/stargazing-rockarch-vertical_2c10b104.jpg",
+  /* Cactus silhouette under Milky Way — Desert at Night */
+  cactusVertical: "/manus-storage/stargazing-cactus-milkyway_4c3ca29c.jpg",
 };
 
 /* ─── Typography ─────────────────────────────────────────────── */
@@ -95,11 +97,23 @@ const STARGAZING_SECTIONS: StargazingSectionData[] = [
     headline: "How Ancient Cultures\nRead the Sky",
     body: "For Indigenous Andean societies, the night sky was a living system connecting land, water, animals, and time. Unlike Western astronomy, Andean sky knowledge focused on the dark spaces within the Milky Way — 'dark constellations' formed by dust lanes visible only under extremely dark skies. The celestial llama, fox, and snake guided herding cycles and ecological awareness for millennia.",
     verticalSrc: CDN.petroglyphVertical,
-    horizontalSrc: CDN.rockarchHorizontal,
+    horizontalSrc: "",
     verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
+  },
+  {
+    id: "desert-at-night",
+    label: "The Desert at Night",
+    headline: "When Darkness\nReveals Everything",
+    body: "As daylight fades, the Atacama transforms. Ancient cacti stand as silent witnesses beneath a sky so clear it feels close enough to touch. Without artificial light, the desert reveals its second landscape — one written in starlight. The Milky Way arcs overhead, and the silence is so complete you can hear the earth cooling.",
+    verticalSrc: CDN.cactusVertical,
+    horizontalSrc: CDN.pillarAuroraHorizontal,
+    verticalIsVideo: false,
+    horizontalIsVideo: false,
+    verticalRatio: "3/4",
+    horizontalRatio: "21/9",
   },
 ];
 
@@ -268,6 +282,19 @@ function StorySection() {
             />
           </FadeIn>
         </div>
+      </div>
+
+      {/* Horizontal media — full bleed, splits Story vertical from cascade vertical */}
+      <div className="bg-black">
+        <FadeIn delay={0.2}>
+          <img
+            src={CDN.rockarchHorizontal}
+            alt="Rock arch beneath the stars"
+            className="w-full object-cover"
+            style={{ aspectRatio: "16/9" }}
+            loading="lazy"
+          />
+        </FadeIn>
       </div>
     </section>
   );
