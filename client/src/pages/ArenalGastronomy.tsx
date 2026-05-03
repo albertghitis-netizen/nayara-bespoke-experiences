@@ -44,7 +44,7 @@ export default function ArenalGastronomy() {
       <RestaurantGrid />
       <PhotoCollage filter={activeFilter} setFilter={setActiveFilter} />
       <ClassesSection />
-      <Footer bgColor="#868B75" />textColor="#FFFFFF" />
+      <Footer bgColor="#868B75"  textColor="#FFFFFF" />
     </div>
   );
 }

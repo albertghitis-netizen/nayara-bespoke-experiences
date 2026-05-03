@@ -42,7 +42,7 @@ export default function GardensSustainability() {
       <SustainabilityHero />
       <GreenGlobeSection />
       <JournalSection />
-      <Footer pageType="property" bgColor="#525642" />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#525642"  textColor="#FFFFFF" />
     </div>
   );
 }

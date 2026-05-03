@@ -42,7 +42,7 @@ export default function SpringsSustainability() {
       <SustainabilityHero />
       <GreenGlobeSection />
       <JournalSection />
-      <Footer pageType="property" bgColor="#3B6E7B" />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#3B6E7B"  textColor="#FFFFFF" />
     </div>
   );
 }

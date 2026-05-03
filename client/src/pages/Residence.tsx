@@ -84,7 +84,7 @@ export default function Residence() {
       <AmenitiesSection />
       <NatureSection />
       <CTASection />
-      <Footer pageType="property" bgColor={P.primary} />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={P.primary}  textColor="#FFFFFF" />
     </div>
   );
 }

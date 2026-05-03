@@ -146,7 +146,7 @@ export default function HangaroaWellness() {
           </AnimateOnScroll>
         </div>
       </section>
-      <Footer pageType="property" bgColor="#536878" />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#536878"  textColor="#FFFFFF" />
     </div>
   );
 }

@@ -216,7 +216,7 @@ export default function Springs() {
       />
 
 
-      <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
     </div>
   );
 }

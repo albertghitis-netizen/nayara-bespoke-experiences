@@ -44,7 +44,7 @@ export default function BocasSustainability() {
       <GreenGlobeSection />
       <VideoSection />
       <JournalSection />
-      <Footer pageType="property" bgColor="#008E97" />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#008E97"  textColor="#FFFFFF" />
     </div>
   );
 }

@@ -65,7 +65,7 @@ export default function BocasRooms() {
       <RoomsHero />
       <ScrollingPillarHeader word="OVERWATER VILLAS & TREEHOUSES" color={PALETTE.primary} bgColor={PALETTE.gradientEnd} />
       <RoomsContent />
-      <Footer pageType="property" bgColor="#008E97" />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#008E97"  textColor="#FFFFFF" />
     </div>
   );
 }

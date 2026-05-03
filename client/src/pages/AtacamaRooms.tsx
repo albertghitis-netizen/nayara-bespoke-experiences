@@ -64,7 +64,7 @@ export default function AtacamaRooms() {
       <RoomsHero />
       <ScrollingPillarHeader word="PRIVATE VILLAS & SUITES" color={PALETTE.primary} bgColor={PALETTE.gradientEnd} />
       <RoomsContent />
-      <Footer pageType="property" bgColor="#6F463D" />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#6F463D"  textColor="#FFFFFF" />
     </div>
   );
 }

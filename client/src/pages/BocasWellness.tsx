@@ -48,7 +48,7 @@ export default function BocasWellness() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <WellnessHero />
       <WellnessContent />
-      <Footer pageType="property" bgColor="#008E97" />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#008E97"  textColor="#FFFFFF" />
     </div>
   );
 }

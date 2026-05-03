@@ -30,7 +30,7 @@ export default function MisAmoresRestaurant() {
       <IntroSection restaurant={restaurant} />
       <GallerySection restaurant={restaurant} />
       <CTASection />
-      <Footer pageType="property" bgColor={palette.primary} />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={palette.primary}  textColor="#FFFFFF" />
     </div>
   );
 }

@@ -43,7 +43,7 @@ export default function HangaroaSustainability() {
       <SustainabilityHero />
       <SCertificationSection />
       <JournalSection />
-      <Footer pageType="property" bgColor="#536878" />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#536878"  textColor="#FFFFFF" />
     </div>
   );
 }

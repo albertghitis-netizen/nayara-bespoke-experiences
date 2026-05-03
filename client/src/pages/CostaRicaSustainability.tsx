@@ -162,7 +162,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
         <SustainabilityVoices palette={palette} videos={data.videos || []} blogs={data.blogs || []} propertySlug={propertySlug} />
       )}
       <ExploreSustainabilityCTA palette={palette} />
-      <Footer pageType="property" bgColor={palette.footerBg} />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={palette.footerBg}  textColor="#FFFFFF" />
     </div>
   );
 }

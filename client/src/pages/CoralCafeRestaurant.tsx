@@ -36,7 +36,7 @@ export default function CoralCafeRestaurant() {
       <IntroSection />
       <OfferingsSection />
       <CTASection />
-      <Footer pageType="property" bgColor={P.primary} />textColor="#FFFFFF" />textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={P.primary}  textColor="#FFFFFF" />
     </div>
   );
 }
