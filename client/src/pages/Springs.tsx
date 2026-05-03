@@ -303,48 +303,50 @@ function StorySection() {
    ═══════════════════════════════════════════════════════════════ */
 function SpringsVillaSection() {
   return (
-    <TintedSection backgroundColor={PALETTE.gradientEnd} className={sectionPadding}>
-      <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          {/* S3 — Vertical video left */}
-          <div className="md:flex-1 order-2 md:order-1">
-            <MediaReveal delay={0.1}>
-              <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <NativeVideo src="/manus-storage/springs-s3-accommodation_9a2a14f0.mp4" className="w-full h-full object-cover" />
-              </div>
-            </MediaReveal>
-          </div>
-          {/* Text right */}
-          <div className="md:flex-1 order-1 md:order-2">
-            <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel>Accommodations</SectionLabel>
-            </AnimateOnScroll>
-            <TextReveal as="h2" className="mb-8" delay={0.1}>
-              <span
-                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-              >
-                Springs Villa
-              </span>
-            </TextReveal>
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation, these intimate sanctuaries offer an unparalleled experience of thermal wellness surrounded by rainforest canopy.
-              </p>
-            </AnimateOnScroll>
-          </div>
-        </div>
-
-        {/* S4 — Horizontal video below */}
-        <div className="w-full">
+    <section id="accommodations">
+      {/* ── Row: S3 vertical video left + Text right ── */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+        {/* S3 — Vertical video left */}
+        <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
-            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" />
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <NativeVideo src="/manus-storage/springs-s3-accommodation_9a2a14f0.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
+
+        {/* Text column right */}
+        <div
+          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
+          style={{ backgroundColor: PALETTE.gradientStart }}
+        >
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Accommodations</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-8" delay={0.1}>
+            <span
+              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Springs Villa
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation, these intimate sanctuaries offer an unparalleled experience of thermal wellness surrounded by rainforest canopy.
+            </p>
+          </AnimateOnScroll>
+        </div>
       </div>
-    </TintedSection>
+
+      {/* ── S4 — Full-width horizontal video ── */}
+      <div className="w-full">
+        <NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+      </div>
+    </section>
   );
 }
 
@@ -353,47 +355,48 @@ function SpringsVillaSection() {
    ═══════════════════════════════════════════════════════════════ */
 function ExperiencesSection() {
   return (
-    <section id="experiences" className={sectionPadding} style={{ backgroundColor: PALETTE.gradientStart }}>
-      <div className={maxW}>
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start mb-16">
-          {/* Text left */}
-          <div className="md:flex-1 order-1">
-            <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel>Experiences</SectionLabel>
-            </AnimateOnScroll>
-            <TextReveal as="h2" className="mb-8" delay={0.1}>
-              <span
-                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-              >
-                Arenal Adventures
-              </span>
-            </TextReveal>
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
-              </p>
-            </AnimateOnScroll>
-          </div>
-
-          {/* S5 — Vertical video right */}
-          <div className="w-full md:w-1/2 order-2">
-            <MediaReveal delay={0.1}>
-              <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-                <NativeVideo src="/manus-storage/springs-s5-experiences_16b5c78e.mp4" className="w-full h-full object-cover" />
-              </div>
-            </MediaReveal>
-          </div>
+    <section id="experiences">
+      {/* ── Row: Text left + S5 vertical video right ── */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+        {/* Text column */}
+        <div
+          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
+          style={{ backgroundColor: PALETTE.gradientStart }}
+        >
+          <AnimateOnScroll variants={fadeUp}>
+            <SectionLabel>Experiences</SectionLabel>
+          </AnimateOnScroll>
+          <TextReveal as="h2" className="mb-8" delay={0.1}>
+            <span
+              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Arenal Adventures
+            </span>
+          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
+            </p>
+          </AnimateOnScroll>
         </div>
 
-        {/* S6 — Horizontal video below */}
-        <div className="w-full">
+        {/* S5 — Vertical video right */}
+        <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
-            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_eb6760c5.mp4" className="w-full h-full object-cover" />
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <NativeVideo src="/manus-storage/springs-s5-experiences_16b5c78e.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
+      </div>
+
+      {/* ── S6 — Full-width horizontal video ── */}
+      <div className="w-full">
+        <NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_eb6760c5.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
       </div>
     </section>
   );
