@@ -127,14 +127,14 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
                 className="transition-colors"
                 style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
-                844-865-2002 (US)
+                +1 844 865 2002 (US)
               </a>
               <a
-                href="tel:+50624791600"
+                href="tel:+442070784060"
                 className="transition-colors"
                 style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
               >
-                +506 2479-1600 (Costa Rica)
+                +44 020 7078 4060 (UK)
               </a>
               <a
                 href="/privacy-policy"
