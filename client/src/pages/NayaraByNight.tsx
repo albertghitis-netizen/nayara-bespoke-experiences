@@ -185,7 +185,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     label: "Atacama Desert",
     headline: "The Clearest\nSkies on Earth",
     body: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
-    verticalSrc: CDN.cactusMilkyway,
+    verticalSrc: "/manus-storage/3a94f88f-2a69-457a-bc18-fae9946d8f0c(1)_463d1a87.jpg",
     horizontalSrc: "/manus-storage/nbn-clearest-skies-horizontal_dedbd675.mp4",
     verticalIsVideo: false,
     horizontalIsVideo: true,
