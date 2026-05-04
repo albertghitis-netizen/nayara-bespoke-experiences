@@ -168,9 +168,16 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           </div>
         </div>
 
-        {/* Newsletter CTA — centered, with flourish left + leaf right */}
-        <div className="relative flex justify-center mt-10 mb-6">
+        {/* Newsletter CTA — centered, with leaf above */}
+        <div className="relative flex flex-col items-center mt-10 mb-6">
 
+          {/* Nayara leaf — centered above newsletter */}
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
+            alt="Nayara leaf"
+            ref={leafRef}
+            className="w-16 h-16 md:w-20 md:h-20 mb-4 pointer-events-none opacity-70"
+          />
 
           <a
             href="#"

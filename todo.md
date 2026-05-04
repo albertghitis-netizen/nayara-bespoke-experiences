@@ -3381,3 +3381,4 @@
 - [ ] Brand Experiences (/experiences) hero: ensure looping and add sound pill (video has audio)
 - [ ] Brand Sustainability (/sustainability) hero: replace video with new upload (heavily compressed MP4)
 - [ ] Brand Sustainability (/sustainability) hero: ensure looping and add sound pill (video has audio)
+- [ ] Footer: add Nayara leaf logo centered above "Stay Inspired with the Nayara Newsletter"
