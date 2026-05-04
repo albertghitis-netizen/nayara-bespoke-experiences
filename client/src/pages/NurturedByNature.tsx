@@ -2,6 +2,7 @@
  * NURTURED BY NATURE WELLNESS — Costa Rica Wellness Page
  * Philosophy: Nature IS the Wellness
  * Flow: Private Plunge Pools → Las Termas → Yoga → Sukha Spa → Spa Menu
+ * Aesthetic: Tented Camp palette (Olive, Gravel, Bone, Light Green)
  */
 
 import { useState, useRef } from "react";
@@ -29,20 +30,16 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
-const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
-
-const WELLNESS_CDN = {
-  heroVideo: `${CDN}/AC144F9B-1C57-4187-8ABE-9F160B2F40AD_1ba76c61.mp4`,
-};
-
 const IMG = {
-  privatePlungePools: "/manus-storage/pasted_file_537KZK_image_a229a163.png",
-  briceFerreVideo: `${CDN}/NayaraResorts-HeroVideobyBriceFerreStudio_a229a163.mov`,
-  termasVertical: `${CDN}/537195DB-9898-40EA-9014-7AF3FFF321D7_2__a229a163.mov`,
-  termasImage: "/manus-storage/pasted_file_537KZK_image_a229a163.png",
-  yogaVertical: "/manus-storage/yoga-vertical-2-web_e72f15e5.jpg",
-  sukhaSpaBanner: "/manus-storage/pasted_file_537KZK_image_a229a163.png",
-  sukhaSpaVideo: `${CDN}/62AE1541-E12D-4033-AFB5-E763C09F93D5_6ab78486.mp4`,
+  privatePlungePools: "/manus-storage/springs-3_25b5c741.jpg",
+  briceFerreVideo: "/manus-storage/tented-wellness-horizontal-new_b58a7ffd.mp4",
+  termasVertical: "/manus-storage/tented-wellness-vertical-new_6c3d5dd4.mp4",
+  termasImage: "/manus-storage/termas-87_9d60dc3f.jpg",
+  yogaVertical: "/manus-storage/yoga-vertical-2_8f722a36.jpg",
+  sukhaSpaBanner: "/manus-storage/gal-new-spa-hut_5f9827dc.jpg",
+  sukhaSpaVideo: "/manus-storage/yoga-springs-new_7a20145a.mp4",
+  mobileHeroImage: "/manus-storage/brand-wellness-mobile-hero_6c270aaf.jpg",
+  heroVideo: "/manus-storage/tented-wellness-horizontal-new_ea63828f.mp4",
 };
 
 const spaCategories = [
@@ -86,14 +83,13 @@ export default function NurturedByNature() {
 
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/brand-wellness-mobile-hero_064bd82b.jpg";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Wellness" className="w-full h-full object-cover" />
+          <img src={IMG.mobileHeroImage} alt="Nayara Wellness" className="w-full h-full object-cover" />
         ) : (
-          <video src={WELLNESS_CDN.heroVideo} autoPlay muted loop className="w-full h-full object-cover" />
+          <video src={IMG.heroVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
@@ -142,7 +138,7 @@ function PrivatePlungPoolsSection({ palette }: { palette: PropertyPalette }) {
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn>
             <div className="aspect-[4/5] overflow-hidden rounded-lg">
-              <img src={IMG.privatePlungePools} alt="Private plunge pool" className="w-full h-full object-cover" loading="lazy" />
+              <img src={IMG.privatePlungePools} alt="Private plunge pool at Nayara Springs" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -175,7 +171,7 @@ function PrivatePlungPoolsSection({ palette }: { palette: PropertyPalette }) {
         <div className="mt-16 md:mt-24">
           <FadeIn>
             <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "16/9" }}>
-              <video src={IMG.briceFerreVideo} autoPlay muted loop className="w-full h-full object-cover" />
+              <video src={IMG.briceFerreVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
             </div>
           </FadeIn>
         </div>
@@ -204,10 +200,10 @@ function LasThermasSection({ palette }: { palette: PropertyPalette }) {
           <FadeIn delay={0.2}>
             <div className="space-y-6">
               <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "9/16" }}>
-                <video src={IMG.termasVertical} autoPlay muted loop className="w-full h-full object-cover" />
+                <video src={IMG.termasVertical} autoPlay muted loop playsInline className="w-full h-full object-cover" />
               </div>
               <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
-                <img src={IMG.termasImage} alt="Las Thermas" className="w-full h-full object-cover" loading="lazy" />
+                <img src={IMG.termasImage} alt="Las Thermas geothermal pools" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
           </FadeIn>
@@ -230,7 +226,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-8">
           <FadeIn>
             <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "9/16" }}>
-              <img src={IMG.yogaVertical} alt="Yoga in the rainforest" className="w-full h-full object-cover" loading="lazy" />
+              <img src={IMG.yogaVertical} alt="Yoga in the rainforest pavilion" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -271,7 +267,7 @@ function SukhaSpaSection({ palette }: { palette: PropertyPalette }) {
         {/* Sukha Spa Banner */}
         <FadeIn>
           <div className="relative overflow-hidden rounded-lg mb-12" style={{ aspectRatio: "16/9" }}>
-            <img src={IMG.sukhaSpaBanner} alt="Sukha Spa" className="w-full h-full object-cover" loading="lazy" />
+            <img src={IMG.sukhaSpaBanner} alt="Sukha Spa treatment hut" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </FadeIn>
 
@@ -291,7 +287,7 @@ function SukhaSpaSection({ palette }: { palette: PropertyPalette }) {
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "9/16" }}>
-              <video src={IMG.sukhaSpaVideo} autoPlay muted loop className="w-full h-full object-cover" />
+              <video src={IMG.sukhaSpaVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
             </div>
           </FadeIn>
         </div>
