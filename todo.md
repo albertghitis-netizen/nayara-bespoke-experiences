@@ -3360,5 +3360,5 @@
 - [ ] Rework Science of Wellness section — integrate @copadearbol content as editorial narrative, not literal image cards
 - [x] Integrate @copadearbol healing content into Brand Wellness page green sections
 - [x] Integrate @copadearbol healing content into Brand Wellness page green sections
-- [ ] Read Turneo experiential hospitality article and integrate concepts into brand experiences page
-- [ ] Read EHL regenerative hospitality article and integrate concepts into brand sustainability page
+- [x] Read Turneo experiential hospitality article and integrate concepts into brand experiences page
+- [x] Read EHL regenerative hospitality article and integrate concepts into brand sustainability page
