@@ -7,6 +7,8 @@
  */
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
+import { useCountUp } from "@/hooks/useCountUp";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -885,12 +887,12 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.",
     verticalSrc: "/manus-storage/tented-s1-v2_8d66f67e.mp4",
-    horizontalSrc: "/manus-storage/tented-camp-mainpool-new_72169ddd.mp4",
+    horizontalSrc: "",
     verticalIsVideo: true,
-    horizontalIsVideo: true,
+    horizontalIsVideo: false,
     verticalRatio: "3/4",
-    horizontalRatio: "1920/1000",
-    horizontalLoop: true,
+    horizontalRatio: "16/9",
+    hideH: true,
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[1],
     badges: true,
@@ -1381,6 +1383,9 @@ export default function TentedCamp() {
       {SECTIONS_BEFORE_REVIEW.map((section, i) => (
         <CascadeSection key={section.id} section={section} index={i} />
       ))}
+
+      {/* ── One Rainforest, Three Resorts — Three Keys, One Door ── */}
+      <OneRainforestCompactTC />
       {SECTIONS_AFTER_REVIEW.map((section, i) => (
         <CascadeSection
           key={section.id}
@@ -1423,6 +1428,159 @@ export default function TentedCamp() {
         dividerColor={PALETTE.divider}
       />
       <Footer bgColor="#868B75" textColor="#FFFFFF" />
+    </div>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ONE RAINFOREST COMPACT (TENTED CAMP) — Three Keys, One Door
+   Tented Camp in the middle ("You Are Here"), Springs on right (Adults Only)
+   ═══════════════════════════════════════════════════════════════ */
+const OR_PROPERTIES_TC = [
+  { name: "Gardens", tagline: "Rainforest Casitas & Villas", route: "/gardens", accent: "#286241" },
+  { name: "Tented Camp", tagline: "Clifftop Tents & Suites", route: "/tented-camp", accent: "#868B75", current: true },
+  { name: "Springs", tagline: "Private Hot Springs Villas", route: "/springs", accent: "#4B6358", adultsOnly: true },
+];
+
+const OR_STATS_TC = [
+  { value: 12, label: "Shared Restaurants", suffix: "" },
+  { value: 28, label: "Spa Treatments", suffix: "+" },
+  { value: 16, label: "Curated Excursions", suffix: "" },
+  { value: 1400, label: "Acres of Rainforest", suffix: "" },
+];
+
+function CompactStatCounterTC({ value, label, suffix, delay }: { value: number; label: string; suffix: string; delay: number }) {
+  const [display, ref] = useCountUp({ end: value, duration: 2200, delay, suffix });
+  return (
+    <div className="text-center">
+      <span
+        ref={ref as React.RefObject<HTMLSpanElement>}
+        className="block text-2xl md:text-3xl tracking-tight"
+        style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#fff" }}
+      >
+        {display}
+      </span>
+      <span
+        className="block mt-1 text-[10px] tracking-[0.15em] uppercase"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+      >
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function OneRainforestCompactTC() {
+  return (
+    <div className="relative overflow-hidden px-6 md:px-10 py-20 md:py-28" style={{ backgroundColor: "#1a2e1a" }}>
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/manus-storage/ntc-3keys-bg_241c4b73.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.5)" }} />
+      </div>
+      <div className="relative z-10 max-w-[1000px] mx-auto">
+        {/* Header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] mb-3 uppercase text-center"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.8)" }}
+          >
+            One Rainforest, Three Resorts
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <h2 className="text-center mb-4">
+            <span
+              className="text-xl md:text-2xl lg:text-3xl leading-[1.05] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+            >
+              Three Keys, One Door
+            </span>
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <p
+            className="text-[14px] leading-[1.8] max-w-[560px] mx-auto text-center mb-8"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}
+          >
+            Stay at Tented Camp and the restaurants, spa, hot springs, and experiences of Gardens and Springs are all yours.
+          </p>
+        </AnimateOnScroll>
+
+        {/* Stats row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+          {OR_STATS_TC.map((stat, i) => (
+            <CompactStatCounterTC key={stat.label} {...stat} delay={i * 150} />
+          ))}
+        </div>
+
+        {/* Three property cards — text only */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {OR_PROPERTIES_TC.map((prop) => (
+            prop.current ? (
+              <div
+                key={prop.name}
+                className="relative px-5 py-4 rounded-sm text-center"
+                style={{ backgroundColor: "rgba(134,139,117,0.92)", border: "1px solid #868B75" }}
+              >
+                <span
+                  className="absolute top-1 right-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
+                >
+                  You Are Here
+                </span>
+                <h4
+                  className="text-base tracking-wide mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+                >
+                  Nayara {prop.name}
+                </h4>
+                <p
+                  className="text-[11px] tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+                >
+                  {prop.tagline}
+                </p>
+              </div>
+            ) : (
+              <Link
+                key={prop.name}
+                href={prop.route}
+                className="relative block px-5 py-4 rounded-sm text-center transition-colors duration-300 hover:brightness-110"
+                style={{ backgroundColor: "rgba(134,139,117,0.85)", border: "1px solid #868B75" }}
+              >
+                {prop.adultsOnly && (
+                  <span
+                    className="absolute top-1 right-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
+                  >
+                    Adults Only
+                  </span>
+                )}
+                <h4
+                  className="text-base tracking-wide mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+                >
+                  Nayara {prop.name}
+                </h4>
+                <p
+                  className="text-[11px] tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+                >
+                  {prop.tagline}
+                </p>
+              </Link>
+            )
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

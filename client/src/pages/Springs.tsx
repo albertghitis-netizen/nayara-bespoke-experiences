@@ -912,8 +912,8 @@ function ReserveCTA() {
    ═══════════════════════════════════════════════════════════════ */
 const OR_PROPERTIES_SPRINGS = [
   { name: "Tented Camp", tagline: "Clifftop Tents & Suites", route: "/tented-camp", accent: "#868B75" },
+  { name: "Springs", tagline: "Private Hot Springs Villas", route: "/springs", accent: "#4B6358", current: true },
   { name: "Gardens", tagline: "Rainforest Casitas & Villas", route: "/gardens", accent: "#286241" },
-  { name: "Springs", tagline: "Private Hot Springs Villas", route: "/springs", accent: "#4B6358", current: true, adultsOnly: true },
 ];
 
 const OR_STATS_SPRINGS = [
@@ -954,7 +954,7 @@ function OneRainforestCompactSprings() {
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.35)" }} />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.5)" }} />
       </div>
       <div className="relative z-10 max-w-[1000px] mx-auto">
         {/* Header */}
@@ -1009,14 +1009,7 @@ function OneRainforestCompactSprings() {
                 >
                   You Are Here
                 </span>
-                {prop.adultsOnly && (
-                  <span
-                    className="absolute top-1 left-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
-                  >
-                    Adults Only
-                  </span>
-                )}
+
                 <h4
                   className="text-base tracking-wide mb-1"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
