@@ -89,14 +89,12 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
 }
 
 function WellnessHero({ propertySlug }: { propertySlug: string }) {
-  const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
-    "tented-camp": { src: "/manus-storage/nayara-gardens-hero-brice_cf6493ab.jpg", alt: "Nayara Gardens wellness sanctuary" },
-    "springs": { src: "/manus-storage/nayara-gardens-hero-brice_cf6493ab.jpg", alt: "Nayara Springs wellness sanctuary" },
-  };
-  const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
   return (
     <section className="relative aspect-[16/9] w-full overflow-hidden">
-      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
+      <NativeVideo
+        src="/manus-storage/AC144F9B-1C57-4187-8ABE-9F160B2F40AD_2b771883.mov"
+        className="w-full h-full"
+      />
     </section>
   );
 }
