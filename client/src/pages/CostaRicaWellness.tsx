@@ -336,6 +336,20 @@ function SukhaSpaBanner({ palette }: { palette: PropertyPalette }) {
         className="w-full h-auto object-cover"
         style={{ display: "block" }}
       />
+      <div className="w-full py-12 md:py-16 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+        <div className={maxW}>
+          <div className="flex justify-center">
+            <div className="w-full md:w-96" style={{ aspectRatio: "9/16" }}>
+              <div className="w-full h-full rounded-lg overflow-hidden">
+                <NativeVideo
+                  src="/manus-storage/62AE1541-E12D-4033-AFB5-E763C09F93D5_75b0518e.MP4"
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
