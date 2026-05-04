@@ -4,7 +4,8 @@
  */
 import { useState } from "react";
 import { motion } from "framer-motion";
-import OneRainforestSprings from "@/components/OneRainforestSprings";
+import { Link } from "wouter";
+import { useCountUp } from "@/hooks/useCountUp";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -325,16 +326,14 @@ function StorySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/Reel2Luxuryfilmscr-Nayara_9be06e30.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/springs-s1-new_c5f05977.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
       </div>
 
-      {/* ── S2 — Full-width horizontal video (desktop only) ── */}
-      <div className="hidden md:block w-full">
-        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/NayaraResorts-HeroVideo_302b2cc2.mp4" className="w-full h-full object-cover" /></div>
-      </div>
+      {/* ── S2 — One Rainforest, Three Resorts (compact) ── */}
+      <OneRainforestCompactSprings />
 
     </section>
   );
@@ -350,12 +349,27 @@ function SpringsVillaSection() {
       {/* ── Row: S3 vertical video left + Text right ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
         {/* S3 — Vertical video left */}
-        <div className="w-full md:w-1/2 md:order-1">
+        <div className="w-full md:w-1/2 md:order-1 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <NativeVideo src="/manus-storage/springs-s3-accommodation_9a2a14f0.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
+          {/* Explore pill — centered lower */}
+          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+            <a
+              href="/springs/rooms/springs-villa"
+              className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+              style={{
+                backgroundColor: "rgba(75,99,88,0.8)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                Explore Springs Villa
+              </span>
+            </a>
+          </div>
         </div>
 
         {/* Text column right */}
@@ -397,13 +411,19 @@ function SpringsVillaSection() {
       {/* ── S4 — Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full relative">
         <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" /></div>
-        <div className="absolute bottom-8 left-8 md:left-16">
+        {/* Explore pill — centered lower */}
+        <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
             href="/springs/rooms/springs-villa"
-            className="inline-block text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF" }}
+            className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+            style={{
+              backgroundColor: "rgba(75,99,88,0.8)",
+              fontFamily: "var(--font-body)",
+            }}
           >
-            Explore Springs Villa →
+            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+              Explore Springs Villa
+            </span>
           </a>
         </div>
       </div>
@@ -882,5 +902,158 @@ function ReserveCTA() {
         </AnimateOnScroll>
       </div>
     </section>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ONE RAINFOREST COMPACT (SPRINGS) — Three Keys, One Door
+   Identical layout to Gardens version, Springs nav color
+   ═══════════════════════════════════════════════════════════════ */
+const OR_PROPERTIES_SPRINGS = [
+  { name: "Tented Camp", tagline: "Clifftop Tents & Suites", route: "/tented-camp", accent: "#868B75" },
+  { name: "Gardens", tagline: "Rainforest Casitas & Villas", route: "/gardens", accent: "#286241" },
+  { name: "Springs", tagline: "Private Hot Springs Villas", route: "/springs", accent: "#4B6358", current: true, adultsOnly: true },
+];
+
+const OR_STATS_SPRINGS = [
+  { value: 12, label: "Shared Restaurants", suffix: "" },
+  { value: 28, label: "Spa Treatments", suffix: "+" },
+  { value: 16, label: "Curated Excursions", suffix: "" },
+  { value: 1400, label: "Acres of Rainforest", suffix: "" },
+];
+
+function CompactStatCounterSprings({ value, label, suffix, delay }: { value: number; label: string; suffix: string; delay: number }) {
+  const [display, ref] = useCountUp({ end: value, duration: 2200, delay, suffix });
+  return (
+    <div className="text-center">
+      <span
+        ref={ref as React.RefObject<HTMLSpanElement>}
+        className="block text-2xl md:text-3xl tracking-tight"
+        style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#fff" }}
+      >
+        {display}
+      </span>
+      <span
+        className="block mt-1 text-[10px] tracking-[0.15em] uppercase"
+        style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+      >
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function OneRainforestCompactSprings() {
+  return (
+    <div className="relative overflow-hidden px-6 md:px-10 py-20 md:py-28" style={{ backgroundColor: "#1a2e1a" }}>
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/manus-storage/springs-3keys-bg_b18debb9.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.35)" }} />
+      </div>
+      <div className="relative z-10 max-w-[1000px] mx-auto">
+        {/* Header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] mb-3 uppercase text-center"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.8)" }}
+          >
+            One Rainforest, Three Resorts
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <h2 className="text-center mb-4">
+            <span
+              className="text-xl md:text-2xl lg:text-3xl leading-[1.05] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+            >
+              Three Keys, One Door
+            </span>
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <p
+            className="text-[14px] leading-[1.8] max-w-[560px] mx-auto text-center mb-8"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}
+          >
+            Stay at Springs and the restaurants, spa, hot springs, and experiences of Tented Camp and Gardens are all yours.
+          </p>
+        </AnimateOnScroll>
+
+        {/* Stats row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+          {OR_STATS_SPRINGS.map((stat, i) => (
+            <CompactStatCounterSprings key={stat.label} {...stat} delay={i * 150} />
+          ))}
+        </div>
+
+        {/* Three property cards — text only */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {OR_PROPERTIES_SPRINGS.map((prop) => (
+            prop.current ? (
+              <div
+                key={prop.name}
+                className="relative px-5 py-4 rounded-sm text-center"
+                style={{ backgroundColor: "rgba(75,99,88,0.92)", border: "1px solid #4B6358" }}
+              >
+                <span
+                  className="absolute top-1 right-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
+                >
+                  You Are Here
+                </span>
+                {prop.adultsOnly && (
+                  <span
+                    className="absolute top-1 left-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
+                  >
+                    Adults Only
+                  </span>
+                )}
+                <h4
+                  className="text-base tracking-wide mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+                >
+                  Nayara {prop.name}
+                </h4>
+                <p
+                  className="text-[11px] tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+                >
+                  {prop.tagline}
+                </p>
+              </div>
+            ) : (
+              <Link
+                key={prop.name}
+                href={prop.route}
+                className="relative block px-5 py-4 rounded-sm text-center transition-colors duration-300 hover:brightness-110"
+                style={{ backgroundColor: "rgba(75,99,88,0.85)", border: "1px solid #4B6358" }}
+              >
+                <h4
+                  className="text-base tracking-wide mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+                >
+                  Nayara {prop.name}
+                </h4>
+                <p
+                  className="text-[11px] tracking-[0.08em] uppercase"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
+                >
+                  {prop.tagline}
+                </p>
+              </Link>
+            )
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

@@ -3382,3 +3382,4 @@
 - [ ] Brand Sustainability (/sustainability) hero: replace video with new upload (heavily compressed MP4)
 - [ ] Brand Sustainability (/sustainability) hero: ensure looping and add sound pill (video has audio)
 - [ ] Footer: add Nayara leaf logo centered above "Stay Inspired with the Nayara Newsletter"
+- [ ] Replace Springs S2 horizontal video with Three Michelin Keys showcase (same as Gardens S2) using Springs nav color #4B6358 — badges section untouched
