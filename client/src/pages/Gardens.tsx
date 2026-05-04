@@ -593,7 +593,7 @@ function AccommodationsExperiment() {
                   <a
                     href={room.route}
                     className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]"
-                    style={{ backgroundColor: "rgba(58,42,26,0.92)", border: "1px solid rgba(58,42,26,1)" }}
+                    style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
                   >
                     <span
                       className="block text-[13px] tracking-[0.12em] uppercase mb-1"
@@ -1325,7 +1325,9 @@ function GardensExperiencesSection() {
               className="text-[15px] leading-[1.85] max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              From hanging bridges suspended above the canopy to volcanic trails carved by ancient lava flows, every experience at Nayara Gardens connects your family to the extraordinary natural forces that shape this land. Guided by naturalists who know every species by name, each excursion reveals a deeper layer of the Arenal rainforest.
+              Arenal Volcano stands as the beating heart of every adventure at Nayara Gardens. Hike the ancient lava trails that wind through primary rainforest to the volcano's base, where steaming fumaroles and mineral-rich hot springs reveal the raw geological power that shaped this landscape over millennia.
+
+              From hanging bridges suspended above the canopy to guided naturalist walks through the volcano's shadow, each excursion connects your family to the extraordinary forces that define this land.
             </p>
           </AnimateOnScroll>
 
@@ -1341,18 +1343,40 @@ function GardensExperiencesSection() {
         </div>
 
         {/* Vertical video right */}
-        <div className="w-full md:w-1/2 md:order-2">
+        <div className="w-full md:w-1/2 md:order-2 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <NativeVideo src="/manus-storage/gardens-experience-vertical-v2_bf58516a.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
+          {/* Explore pill */}
+          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+            <a
+              href="#"
+              className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+              style={{ backgroundColor: "rgba(40,98,65,0.75)", fontFamily: "var(--font-body)" }}
+            >
+              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Arenal Volcano Tour</span>
+              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
         </div>
       </div>
 
       {/* ── Full-width horizontal video (desktop only) ── */}
-      <div className="hidden md:block w-full">
+      <div className="hidden md:block w-full relative">
         <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/gardens-experience-horizontal-v2_9c5d3533.mp4" className="w-full h-full object-cover" /></div>
+        {/* Explore pill */}
+        <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+          <a
+            href="#"
+            className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+            style={{ backgroundColor: "rgba(40,98,65,0.75)", fontFamily: "var(--font-body)" }}
+          >
+            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore La Fortuna Waterfall</span>
+            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -1413,18 +1437,40 @@ function GardensGastronomyCascade() {
         </div>
 
         {/* Vertical image right */}
-        <div className="w-full md:w-1/2 md:order-2">
+        <div className="w-full md:w-1/2 md:order-2 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/gardens-gastronomy-vertical_e3c5f76c.jpg" alt="Layla's Ice Cream" className="w-full h-full object-cover" />
+              <img src="/manus-storage/gardens-gastronomy-vertical_e3c5f76c.jpg" alt="Lyla's Gelato" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
+          {/* Explore pill */}
+          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+            <a
+              href="#"
+              className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+              style={{ backgroundColor: "rgba(107,74,58,0.75)", fontFamily: "var(--font-body)" }}
+            >
+              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Lyla's Gelato</span>
+              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
         </div>
       </div>
 
       {/* ── Full-width horizontal image (desktop only) ── */}
-      <div className="hidden md:block w-full">
+      <div className="hidden md:block w-full relative">
         <img src="/manus-storage/gardens-gastronomy-horizontal_184cc30e.jpeg" alt="Nostalgia Wine Bar" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        {/* Explore pill */}
+        <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+          <a
+            href="#"
+            className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+            style={{ backgroundColor: "rgba(107,74,58,0.75)", fontFamily: "var(--font-body)" }}
+          >
+            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Nostalgia</span>
+            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
       </div>
     </section>
   );

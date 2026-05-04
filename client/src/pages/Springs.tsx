@@ -394,6 +394,8 @@ function SpringsVillaSection() {
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
               Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation, these intimate sanctuaries offer an unparalleled experience of thermal wellness surrounded by rainforest canopy.
+
+              The perfect setting for a honeymoon or romantic escape, every detail is crafted for two — from candlelit dinners on your private terrace to couples' spa rituals using volcanic minerals and rainforest botanicals. Wake to birdsong, soak beneath the stars, and let the rhythm of the rainforest become the backdrop to your love story.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
