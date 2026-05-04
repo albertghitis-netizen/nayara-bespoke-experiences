@@ -32,7 +32,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const WELLNESS_CDN = {
   heroImage: `${CDN}/Termaleschildren_5bfef28b.webp`,
-  heroVideo: `${CDN}/wellness-nature-color_fae0ea2e.mp4`,
+  heroVideo: `/manus-storage/wellness-hero-trimmed_a4aeb1be.mp4`,
 };
 
 const IMG = {
@@ -128,7 +128,7 @@ function HeroSection() {
         {isMobile ? (
           <img src={mobileHeroImage} alt="Nayara Wellness" className="w-full h-full object-cover" />
         ) : (
-          <NativeVideo src={WELLNESS_CDN.heroVideo} className="w-full h-full object-cover" />
+          <NativeVideo src={WELLNESS_CDN.heroVideo} className="w-full h-full object-cover" loop />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
