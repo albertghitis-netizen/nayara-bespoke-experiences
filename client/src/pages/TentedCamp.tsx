@@ -206,6 +206,8 @@ type CascadeSectionData = {
   stats?: { label: string; value: string }[];
   roomCards?: { label: string; route: string; sqm: string; guests: string }[];
   hideH?: boolean;
+  textLink?: string;
+  textLinkLabel?: string;
 };
 
 function CascadeSection({
@@ -362,29 +364,37 @@ function CascadeSection({
           {/* Explore pills on vertical media */}
           {section.verticalOverlayButtons && (
             <>
+              {section.verticalOverlayButtons.top.explore && section.verticalOverlayButtons.top.explore !== section.verticalOverlayButtons.bottom.explore && (
               <div className="absolute top-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none">
                 <a
                   href={section.verticalOverlayButtons.top.exploreLink || "#"}
-                  className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                  className="pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
                   style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
                 >
                   <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
                     Explore {section.verticalOverlayButtons.top.explore}
                   </span>
+                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
                 </a>
               </div>
+              )}
               <div
                 className="absolute bottom-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none transition-opacity duration-700"
-                style={{ opacity: showBottomPill ? 1 : 0 }}
+                style={{ opacity: section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore ? 1 : (showBottomPill ? 1 : 0) }}
               >
                 <a
                   href={section.verticalOverlayButtons.bottom.exploreLink || "#"}
-                  className="pointer-events-auto flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: showBottomPill ? "auto" : "none" }}
+                  className="pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: (section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore || showBottomPill) ? "auto" : "none" }}
                 >
                   <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
                     Explore {section.verticalOverlayButtons.bottom.explore}
                   </span>
+                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
                 </a>
               </div>
             </>
@@ -462,6 +472,19 @@ function CascadeSection({
               {section.body}
             </p>
           </AnimateOnScroll>
+
+          {section.textLink && (
+            <AnimateOnScroll variants={fadeUp} delay={0.24}>
+              <a
+                href={section.textLink}
+                className="inline-flex items-center gap-1.5 mt-8 text-[12px] tracking-[0.08em] transition-colors hover:opacity-70"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: accentColor }}
+              >
+                {section.textLinkLabel || "Explore More"}
+                <span className="text-[10px]">→</span>
+              </a>
+            </AnimateOnScroll>
+          )}
 
           {section.stats && section.stats.length > 0 && (
             <AnimateOnScroll variants={fadeUp} delay={0.28}>
@@ -902,7 +925,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     id: "rooms",
     label: "Accommodations",
     headline: "Life Under\nCanvas",
-    body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.",
+    body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.\n\nFrom the intimate Nayara Tent for couples to the expansive Residence accommodating up to twelve guests, every option is designed with multigenerational travel in mind. The Family Tent and Grand Tent offer generous living spaces for families, while the Residence brings everyone together under one roof — private pools, shared terraces, and room for three generations to create memories side by side.",
     verticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
     mobileVerticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
     mobileVerticalIsVideo: true,
@@ -921,19 +944,19 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     },
     horizontalOverlayButtons: { labels: [{ label: "Grand Tent", link: "/tented-camp/rooms/grand-tent", switchAt: 0 }, { label: "Residence", link: "/tented-camp/rooms/residence", switchAt: 3 }], reserveLabel: "Reserve" },
     roomCards: [
-      { label: "Nayara Tent", route: "/tented-camp/rooms/nayara-tent", sqm: "65", guests: "2" },
-      { label: "Family Tent", route: "/tented-camp/rooms/family-tent", sqm: "93", guests: "4" },
-      { label: "Grand Tent", route: "/tented-camp/rooms/grand-tent", sqm: "130", guests: "2" },
-      { label: "Residence", route: "/tented-camp/rooms/residence", sqm: "186", guests: "6" },
+      { label: "Nayara Tent", route: "/tented-camp/rooms/nayara-tent", sqm: "65", guests: "4" },
+      { label: "Family Tent", route: "/tented-camp/rooms/family-tent", sqm: "93", guests: "6" },
+      { label: "Grand Tent", route: "/tented-camp/rooms/grand-tent", sqm: "130", guests: "6" },
+      { label: "Residence", route: "/tented-camp/rooms/residence", sqm: "186", guests: "12" },
     ],
   },
   {
     id: "experiences",
     label: "Experiences",
     headline: "Discover the Magic\nof the Rainforest",
-    body: "Cross hanging bridges through the canopy, rappel down waterfalls, or trek to hidden volcanic hot springs. Every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
+    body: "Hike through pristine rainforest to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the indigenous Maleku people.\n\nRappel down cascading waterfalls surrounded by ancient ferns and orchids, feeling the mist on your skin as you descend into hidden volcanic gorges.\n\nFrom hanging bridges above the canopy to night walks through bioluminescent trails, every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
     verticalSrc: "/manus-storage/tc-experiences-vertical-waterfall_99c30f0e.mp4",
-    horizontalSrc: "/manus-storage/tc-experiences-horizontal-volcano3_97d7ee3a.mp4",
+    horizontalSrc: "/manus-storage/tc-experiences-horizontal-final_f0b35603.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
@@ -941,7 +964,13 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
     link: "/curated-excursions",
-    linkLabel: "Explore Bespoke Experiences",
+    linkLabel: "Explore Rappelling",
+    textLink: "/curated-excursions",
+    textLinkLabel: "Explore Bespoke Experiences",
+    verticalOverlayButtons: {
+      top: { explore: "Rio Celeste", reserve: "", exploreLink: "#" },
+      bottom: { explore: "Rio Celeste", reserve: "", exploreLink: "#" },
+    },
   },
   {
     id: "sustainability",
@@ -970,7 +999,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     id: "wellness",
     label: "Wellness",
     headline: "Volcanic\nHealing",
-    body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.",
+    body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.\n\nSurrender to the rhythm of the rainforest — from mineral-rich thermal soaks at dawn to guided breathwork sessions as the howler monkeys call through the canopy. Here, healing is not a treatment but a way of being.",
     verticalSrc: "/manus-storage/tented-wellness-vertical-new_e0367ea8.mp4",
     horizontalSrc: "/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4",
     verticalIsVideo: true,
@@ -996,8 +1025,8 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
   {
     id: "gastronomy",
     label: "Forest to Table",
-    headline: "Farm to\nCanopy",
-    body: "Our chefs source ingredients from local farms and our own gardens to create cuisine that celebrates Costa Rica's biodiversity. Dine under the stars at Henry's Bar or enjoy a private dinner on your suite deck.",
+    headline: "Forest\nto Table",
+    body: "From Mediterranean-inspired cuisine to the freshest local ingredients, Ayla brings a refined yet relaxed dining experience to the heart of the rainforest. Each dish celebrates Costa Rica's biodiversity with seasonal menus that change with the harvest.\n\nAt Henry's Bar, craft cocktails made with local spirits and tropical botanicals set the tone for unforgettable evenings. Small plates from the garden, a terrace floating above the treetops, and the warm glow of the volcano at sunset — this is where stories are shared and memories are made.",
     verticalSrc: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
     horizontalSrc: "/manus-storage/HenrysBar(1)_189a43b4.jpg",
     verticalIsVideo: false,
@@ -1007,7 +1036,13 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
     link: "/gastronomy-arenal",
-    linkLabel: "Explore Forest to Table",
+    linkLabel: "Explore Henry's Bar",
+    textLink: "/gastronomy-arenal",
+    textLinkLabel: "Explore Forest to Table",
+    verticalOverlayButtons: {
+      top: { explore: "Ayla", reserve: "", exploreLink: "#" },
+      bottom: { explore: "Ayla", reserve: "", exploreLink: "#" },
+    },
   },
   {
     id: "nayara-by-night",
@@ -1024,6 +1059,8 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     hideH: true,
     bgColor: "#000000",
     nextBgColor: "#000000",
+    textLink: "/curated-excursions",
+    textLinkLabel: "Explore Night Frog Tour",
   },
 ];
 
