@@ -180,6 +180,7 @@ export const EXPLORE_COLUMN: FooterColumn = {
 
 export function getFooterColumns(pageType: PageType): FooterColumn[] {
   return [
+    COSTA_RICA_COLUMN,
     PILLARS_COLUMN,
     EXPLORE_COLUMN,
     RESORTS_COLUMN,

@@ -40,10 +40,12 @@ interface ConciergeChatWidgetProps {
 export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProps = {}) {
   const [loc] = useLocation();
   const slug = loc.split("/")[1] || "";
+  const costaRicaRoutes = ["curated-excursions", "costa-rica-wellness", "gastronomy-arenal", "tented-camp-sustainability"];
   const autoPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
     ? getPalette(slug) : null;
+  const isCostaRica = costaRicaRoutes.includes(slug);
   const dk = "#FFFFFF";  // Bright white text for concierge button
-  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : "rgba(59,43,38,0.8)");  // Match nav pill background
+  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : isCostaRica ? "rgba(134,139,117,0.8)" : "rgba(59,43,38,0.8)");  // Match nav pill background
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");

@@ -12,7 +12,6 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import NativeVideo from "@/components/NativeVideo";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar3 from "@/components/HotelFilterBar3";
 import { properties, type Treatment } from "@/data/properties";
 import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -60,7 +59,6 @@ const propertyWellnessLinks = [
 ];
 
 export default function NurturedByNature() {
-  const [activeHotel, setActiveHotel] = useState("tented-camp");
   const palette = getPalette("tented-camp");
 
   return (
@@ -72,11 +70,11 @@ export default function NurturedByNature() {
       <LasThermasSection palette={palette} />
       <YogaSection palette={palette} />
       <SukhaSpaSection palette={palette} />
-      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+
       <SpaSection palette={palette} />
       <SpringsFeature palette={palette} />
       <PropertyLinksSection palette={palette} />
-      <Footer textColor="#FFFFFF" />
+      <Footer bgColor="#868B75" textColor="#FFFFFF" />
     </div>
   );
 }
@@ -167,14 +165,7 @@ function PrivatePlungPoolsSection({ palette }: { palette: PropertyPalette }) {
           </FadeIn>
         </div>
 
-        {/* Brice Ferre Video */}
-        <div className="mt-16 md:mt-24">
-          <FadeIn>
-            <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "16/9" }}>
-              <video src={IMG.briceFerreVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
-            </div>
-          </FadeIn>
-        </div>
+
       </div>
     </section>
   );

@@ -68,7 +68,7 @@ export default function BrandNavigation({
   // For Costa Rica pages, use olive green for text and borders instead of espresso
   const costaRicaRoutes = [
     "curated-excursions",
-    "wellness",
+    "costa-rica-wellness",
     "gastronomy-arenal",
     "tented-camp-sustainability",
   ];

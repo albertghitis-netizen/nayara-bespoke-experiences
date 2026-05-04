@@ -3364,3 +3364,16 @@
 - [x] Read EHL regenerative hospitality article and integrate concepts into brand sustainability page
 - [x] Read Moeve Global zero-kilometer food article and integrate "taste of place" concept into brand gastronomy page
 - [x] Consolidate Costa Rica wellness page: restructured with Private Hot Springs → Las Termas → Yoga → Sukha Spa → Treatments, Tented Camp color scheme, new hero image
+
+## Color Fixes — Brand vs Tented Camp Pages
+- [x] /wellness page — espresso nav pill + bone background + remove spa menu
+- [x] /costa-rica-wellness — olive green footer
+- [x] /costa-rica-wellness — remove hotel filter bar
+- [x] /curated-excursions — all tented camp olive green colors (text, backgrounds, buttons)
+- [x] /curated-excursions — concierge button olive green
+- [x] /curated-excursions — footer bright white text + olive green background
+- [x] /curated-excursions — remove Explore Pillars dropdown
+- [x] /curated-excursions — unique experiential intro about Arenal volcano and Costa Rica rainforest
+- [x] /curated-excursions — Within Our Grounds section dark olive background
+- [x] /curated-excursions — Explore Arenal filter pills olive green
+- [x] /curated-excursions — Speak to Concierge button olive green

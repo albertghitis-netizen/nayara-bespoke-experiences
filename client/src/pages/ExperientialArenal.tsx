@@ -13,7 +13,7 @@
  * Wellness & Culinary removed — those have their own Pura Vida sub-pages.
  */
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import BrandNavigation from "@/components/BrandNavigation";
@@ -48,11 +48,7 @@ const CDN = {
 
 /* ── Category configs ────────────────────────────────────────── */
 // Off-property: adventure, nature, community
-const arenalCategories = [
-  { id: "adventure", label: "Adventure" },
-  { id: "nature", label: "Nature & Exploration" },
-  { id: "community", label: "Community" },
-];
+
 
 /* ── Reusable fade-in wrapper ────────────────────────────────── */
 function FadeIn({
@@ -115,7 +111,7 @@ function ArenalHero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Title + Dropdown anchored to bottom */}
+      {/* Title anchored to bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -126,7 +122,6 @@ function ArenalHero() {
         >
           Three Resorts. One Rainforest.
         </motion.h1>
-        <PillarDropdown />
       </div>
     </section>
   );
@@ -196,7 +191,7 @@ function PropertyIntro() {
   return (
     <section
       className="relative py-16 md:py-28 overflow-hidden"
-      style={{ backgroundColor: "#f0ebe0" }}
+      style={{ backgroundColor: "#EDEEE2" }}
     >
       {/* Subtle botanical texture */}
       <div
@@ -212,13 +207,13 @@ function PropertyIntro() {
         {/* Main heading */}
         <FadeIn className="max-w-xl">
           <h2
-            className="text-[#3a2a1a] text-4xl md:text-5xl lg:text-6xl mb-5"
+            className="text-[#525642] text-3xl md:text-4xl lg:text-[42px] mb-5"
             style={headingLight}
           >
             Three Resorts. One Rainforest.
           </h2>
           <p
-            className="text-[#5a4a3a]/70 text-base md:text-[17px] leading-relaxed"
+            className="text-[#525642]/70 text-base md:text-[17px] leading-relaxed"
             style={body}
           >
             Across Nayara Gardens, Nayara Springs, and Nayara Tented Camp, the
@@ -232,38 +227,40 @@ function PropertyIntro() {
         {/* Experiential hospitality editorial narrative */}
         <FadeIn className="mt-14 md:mt-20 max-w-3xl" delay={0.2}>
           <p
-            className="text-[#3a2a1a]/40 text-[10px] md:text-[11px] tracking-[0.35em] uppercase mb-4"
+            className="text-[#868B75] text-[10px] md:text-[11px] tracking-[0.35em] uppercase mb-4"
             style={bodyMedium}
           >
-            The Experience Is the Destination
+            The Volcano at the Center
           </p>
           <p
-            className="text-[#3a2a1a] text-xl md:text-2xl lg:text-[28px] leading-snug mb-6"
+            className="text-[#525642] text-xl md:text-2xl lg:text-[26px] leading-snug mb-6"
             style={headingLight}
           >
-            The world has shifted. Travelers no longer plan a trip and then look
-            for things to do — they find the experience first, and build the
-            journey around it.
+            Arenal is not a backdrop. It is the reason everything here exists —
+            the hot springs, the biodiversity, the fertile soil, the weather
+            patterns that sustain 500 bird species within walking distance of
+            your villa.
           </p>
           <p
-            className="text-[#5a4a3a]/65 text-base md:text-[17px] leading-relaxed mb-5"
+            className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed mb-5"
             style={body}
           >
-            At Nayara, we understood this long before it became an industry
-            conversation. Our 380 acres of primary and secondary rainforest,
-            home to over 500 bird species, are not a backdrop — they are the
-            reason guests arrive. The volcano hikes, the dawn birdwatching, the
-            hot springs at dusk, the hanging bridges through the canopy: these
-            are not amenities added to a room rate. They are the story itself.
+            A 7,500-year-old stratovolcano rising 5,437 feet from the rainforest
+            floor, Arenal shapes everything around it. Its geothermal energy
+            feeds the mineral springs. Its eruption history created the lava
+            fields you walk through today. Its mass generates the microclimate
+            that keeps this pocket of Costa Rica impossibly green, impossibly
+            alive. The volcano hikes, the dawn birdwatching, the hanging bridges
+            through the canopy — these are not amenities added to a room rate.
+            They are the story itself.
           </p>
           <p
-            className="text-[#5a4a3a]/65 text-base md:text-[17px] leading-relaxed"
+            className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed"
             style={body}
           >
-            Globally, spending is shifting from things to experiences — and the
-            most discerning travelers now choose where to stay based on what
-            they will feel, not what they will see from a window. Every
-            excursion below exists because someone asked a deeper question:
+            Travelers no longer plan a trip and then look for things to do —
+            they find the experience first, and build the journey around it.
+            Every excursion below exists because someone asked a deeper question:
             not "what is there to do?" but "what will I become by doing it?"
           </p>
         </FadeIn>
@@ -279,16 +276,16 @@ function PropertyIntro() {
 function WithinOurGroundsSection() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  // Filter only nature-category on-property experiences
+  // Filter nature and wellness on-property experiences
   const onPropertyNature = exploreNayaraExperiences.filter(
-    (e) => e.category === "nature"
+    (e) => e.category === "nature" || e.category === "wellness"
   );
 
   return (
     <section
       id="within-our-grounds"
       className="relative py-24 md:py-32"
-      style={{ backgroundColor: "#2a1f14" }}
+      style={{ backgroundColor: "#3a3d2e" }}
     >
       {/* Section Header */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
@@ -426,77 +423,90 @@ function WithinOurGroundsSection() {
    Bone/cream background
    ═══════════════════════════════════════════════════════════════ */
 function ExploreArenalSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [activeCategory, setActiveCategory] = useState("adventure");
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-
-  const filtered = exploreArenalExperiences.filter((e) =>
-    activeCategory === "community"
-      ? ["culture", "culinary", "wellness", "community"].includes(e.category)
-      : e.category === activeCategory
-  );
-
   return (
-    <section ref={ref} id="explore-arenal" className="relative py-24 md:py-32">
+    <section id="explore-arenal" className="relative py-24 md:py-32">
       {/* Section Header */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-16">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 mb-16">
         <FadeIn>
           <h2
-            className="text-[#3a2a1a] text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
+            className="text-[#525642] text-3xl md:text-4xl lg:text-5xl leading-[1.05] mb-3"
             style={heading}
           >
             Explore Arenal
           </h2>
           <p
-            className="text-[#5a4a3a]/50 text-lg md:text-xl tracking-wide"
+            className="text-[#868B75] text-lg md:text-xl tracking-wide"
             style={bodyLight}
           >
             Beyond Our Grounds
           </p>
         </FadeIn>
-
-        {/* Category Filter */}
-        <FadeIn delay={0.2} className="mt-10 flex flex-wrap gap-3">
-          {arenalCategories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => {
-                setActiveCategory(cat.id);
-                setExpandedId(null);
-              }}
-              className={`px-5 py-2.5 rounded-full text-xs tracking-[0.2em] transition-all duration-300 border ${
-                activeCategory === cat.id
-                  ? "bg-[#3a2a1a] text-white border-[#3a2a1a]"
-                  : "bg-transparent text-[#3a2a1a]/40 border-[#3a2a1a]/15 hover:border-[#3a2a1a]/30 hover:text-[#3a2a1a]/70"
-              }`}
-              style={bodyMedium}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </FadeIn>
       </div>
 
-      {/* Excursion Cards */}
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((excursion, i) => (
-              <FeaturedExcursionCard
-                key={excursion.id}
-                excursion={excursion}
-                index={i}
-                isExpanded={expandedId === excursion.id}
-                onToggle={() =>
-                  setExpandedId(
-                    expandedId === excursion.id ? null : excursion.id
-                  )
-                }
-                variant="light"
-              />
+      {/* Excursion Cards — exact brand experiences format */}
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10">
+        <AnimatePresence mode="popLayout">
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {exploreArenalExperiences.map((ex, i) => (
+              <motion.div
+                key={ex.id}
+                layout
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
+                className="group bg-white/50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              >
+                {/* Media — horizontal video (videoDesktop) preferred, then image */}
+                {ex.videoDesktop ? (
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <video
+                      src={ex.videoDesktop}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : ex.image ? (
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img src={ex.image} alt={ex.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+                  </div>
+                ) : (
+                  <div className="aspect-[4/3] overflow-hidden bg-[#EDEEE2] flex items-center justify-center">
+                    <span className="text-[#868B75]/40 text-xs tracking-[0.2em]" style={bodyMedium}>Photo coming soon</span>
+                  </div>
+                )}
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-[#525642]/30 text-[9px] tracking-[0.2em] uppercase" style={{ ...body, fontWeight: 600 }}>
+                      {ex.category}
+                    </span>
+                  </div>
+                  <h3 className="text-[#525642] text-[17px] mb-2" style={{ ...heading, fontWeight: 500 }}>
+                    {ex.name}
+                  </h3>
+                  <p className="text-[#525642]/55 text-[13px] leading-relaxed mb-4 line-clamp-3" style={body}>
+                    {ex.description}
+                  </p>
+                  <div className="flex items-center gap-4 text-[11px] text-[#525642]/35" style={{ ...body, fontWeight: 500 }}>
+                    <span>{ex.duration}</span>
+                    <span className="text-[#525642]/15">·</span>
+                    <span className="capitalize">{ex.difficulty}</span>
+                    {ex.price && (
+                      <>
+                        <span className="text-[#525642]/15">·</span>
+                        <span>{ex.price}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          </AnimatePresence>
-        </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
@@ -547,9 +557,9 @@ function FeaturedExcursionCard({
       {!isExpanded && (
         <div
           className={`group cursor-pointer overflow-hidden ${
-            isDark
+              isDark
               ? "border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/15"
-              : "border border-[#3a2a1a]/8 hover:border-[#3a2a1a]/15"
+              : "border border-[#525642]/8 hover:border-[#525642]/15"
           }`}
           onClick={onToggle}
         >
@@ -773,7 +783,7 @@ function FeaturedExcursionCard({
                             className={`text-xs tracking-[0.2em] ${
                               isDark
                                 ? "text-[#f7f5f0]/15"
-                                : "text-[#3a2a1a]/15"
+                                : "text-[#525642]/25"
                             }`}
                             style={body}
                           >
@@ -801,7 +811,7 @@ function FeaturedExcursionCard({
                     </p>
                     <h3
                       className={`text-2xl md:text-3xl mb-4 ${
-                        isDark ? "text-[#f7f5f0]" : "text-[#3a2a1a]"
+                        isDark ? "text-[#f7f5f0]" : "text-[#525642]"
                       }`}
                       style={heading}
                     >
@@ -901,7 +911,7 @@ function FeaturedExcursionCard({
                     </p>
                     <p
                       className={`text-sm font-medium ${
-                        isDark ? "text-[#f7f5f0]" : "text-[#3a2a1a]"
+                        isDark ? "text-[#f7f5f0]" : "text-[#525642]"
                       }`}
                       style={body}
                     >
@@ -919,7 +929,7 @@ function FeaturedExcursionCard({
                     </p>
                     <p
                       className={`text-sm font-medium ${
-                        isDark ? "text-[#f7f5f0]" : "text-[#3a2a1a]"
+                        isDark ? "text-[#f7f5f0]" : "text-[#525642]"
                       }`}
                       style={body}
                     >
@@ -947,7 +957,7 @@ function FeaturedExcursionCard({
                     </p>
                     <p
                       className={`text-sm font-medium ${
-                        isDark ? "text-[#f7f5f0]" : "text-[#3a2a1a]"
+                        isDark ? "text-[#f7f5f0]" : "text-[#525642]"
                       }`}
                       style={body}
                     >
@@ -988,7 +998,7 @@ function FeaturedExcursionCard({
                     className={`w-full md:w-auto flex items-center justify-center gap-2.5 py-3.5 px-8 transition-all duration-300 ${
                       isDark
                         ? "bg-[#f7f5f0] hover:bg-white text-[#3a2a1a]"
-                        : "bg-[#3a2a1a] hover:bg-[#5a4a3a] text-white"
+                        : "bg-[#868B75] hover:bg-[#525642] text-white"
                     }`}
                   >
                     <MessageCircle className="w-4 h-4" />
