@@ -1379,13 +1379,16 @@ export default function TentedCamp() {
       <BrandNavigation pageType="property" />
       <HeroSection />
 
-      {/* Cascade: Story → Rooms → Experiences → Sustainability → Wellness → Gastronomy */}
-      {SECTIONS_BEFORE_REVIEW.map((section, i) => (
-        <CascadeSection key={section.id} section={section} index={i} />
-      ))}
+      {/* S1: Story (The Camp) */}
+      <CascadeSection key={SECTIONS_BEFORE_REVIEW[0].id} section={SECTIONS_BEFORE_REVIEW[0]} index={0} />
 
       {/* ── One Rainforest, Three Resorts — Three Keys, One Door ── */}
       <OneRainforestCompactTC />
+
+      {/* Remaining cascade sections: Rooms → Experiences → Sustainability → Wellness */}
+      {SECTIONS_BEFORE_REVIEW.slice(1).map((section, i) => (
+        <CascadeSection key={section.id} section={section} index={i + 1} />
+      ))}
       {SECTIONS_AFTER_REVIEW.map((section, i) => (
         <CascadeSection
           key={section.id}
