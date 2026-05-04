@@ -31,6 +31,9 @@ type ByNightCTAProps = {
   bodyText?: string;
   /** Whether text is on left (even index) or right (odd index) */
   textSide?: "left" | "right";
+  /** Optional text link below body text */
+  textLink?: string;
+  textLinkLabel?: string;
 };
 
 export default function ByNightCTA({
@@ -44,6 +47,8 @@ export default function ByNightCTA({
   headline = "When Night\nFalls",
   bodyText = "As darkness descends, a different world reveals itself — one of starlit skies, nocturnal sounds, and intimate warmth. Discover the extraordinary experiences that await after sunset across all Nayara properties.",
   textSide = "left",
+  textLink,
+  textLinkLabel,
 }: ByNightCTAProps) {
   const isTextLeft = textSide === "left";
 
@@ -102,6 +107,18 @@ export default function ByNightCTA({
               {bodyText}
             </p>
           </AnimateOnScroll>
+
+          {textLink && textLinkLabel && (
+            <AnimateOnScroll variants={fadeUp} delay={0.25}>
+              <a
+                href={textLink}
+                className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+                style={{ ...body, fontWeight: 500, color: "rgba(255,255,255,0.5)" }}
+              >
+                {textLinkLabel} →
+              </a>
+            </AnimateOnScroll>
+          )}
 
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a

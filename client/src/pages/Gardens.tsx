@@ -195,6 +195,8 @@ export default function Gardens() {
         headline={"Fireflies &\nFrog Song"}
         bodyText="As twilight settles over the Arenal rainforest, the gardens come alive with bioluminescent fireflies and the chorus of red-eyed tree frogs. Join our naturalists for a nocturnal safari through the canopy, or simply listen from your private terrace as the jungle reveals its most intimate secrets."
         textSide="left"
+        textLink="#"
+        textLinkLabel="Explore Nayara by Night"
       />
 
       {/* ══ REVIEWS ══ */}
@@ -519,8 +521,8 @@ function AccommodationsExperiment() {
 
 
   const roomLinks = [
-    { label: "Arenal Pool Casita", route: "/gardens/rooms/arenal-pool-casita", sqm: "93", guests: "2" },
-    { label: "Rainforest Pool Villa", route: "/gardens/rooms/rainforest-pool-villa", sqm: "186", guests: "4" },
+    { label: "Arenal Pool Casita", route: "/gardens/rooms/arenal-pool-casita", sqm: "93", guests: "2 Adults + 1 Child" },
+    { label: "Rainforest Pool Villa", route: "/gardens/rooms/rainforest-pool-villa", sqm: "186", guests: "2 Adults + 2 Children" },
   ];
 
   return (
@@ -605,7 +607,7 @@ function AccommodationsExperiment() {
                       className="block text-[11px] tracking-[0.04em]"
                       style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
                     >
-                      {room.sqm} sqm · {room.guests} guests
+                      {room.sqm} sqm · {room.guests}
                     </span>
                     <span
                       className="absolute bottom-3 right-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"
@@ -1261,7 +1263,7 @@ function GettingHereSection() {
    ═══════════════════════════════════════════════════════════════ */
 function ReserveCTA() {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: PALETTE.gradientEnd }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#E8F0DD" }}>
       <div className="max-w-[800px] mx-auto text-center">
         <AnimateOnScroll variants={fadeUp}>
           <TextReveal as="h2" className="mb-6" delay={0.1}>
@@ -1325,9 +1327,16 @@ function GardensExperiencesSection() {
               className="text-[15px] leading-[1.85] max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              Arenal Volcano stands as the beating heart of every adventure at Nayara Gardens. Hike the ancient lava trails that wind through primary rainforest to the volcano's base, where steaming fumaroles and mineral-rich hot springs reveal the raw geological power that shaped this landscape over millennia.
+              Arenal Volcano — a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor — shapes everything around it. Its geothermal energy feeds the mineral springs, its eruption history created the lava fields you walk through today, and its mass generates the microclimate that keeps this pocket of Costa Rica impossibly green.
+            </p>
+          </AnimateOnScroll>
 
-              From hanging bridges suspended above the canopy to guided naturalist walks through the volcano's shadow, each excursion connects your family to the extraordinary forces that define this land.
+          <AnimateOnScroll variants={fadeUp} delay={0.25}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              From hanging bridges suspended above the canopy to guided naturalist walks through the volcano's shadow, each excursion connects your family to the extraordinary forces that define this land. The dawn birdwatching, the waterfall hikes, the night frog tours — these are not amenities added to a room rate. They are the story itself.
             </p>
           </AnimateOnScroll>
 
@@ -1365,7 +1374,7 @@ function GardensExperiencesSection() {
 
       {/* ── Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full relative">
-        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/gardens-experience-horizontal-v2_9c5d3533.mp4" className="w-full h-full object-cover" /></div>
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/gardens-experience-horizontal-v3_3ad62308.mp4" className="w-full h-full object-cover" /></div>
         {/* Explore pill */}
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
@@ -1448,7 +1457,7 @@ function GardensGastronomyCascade() {
             <a
               href="#"
               className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-              style={{ backgroundColor: "rgba(107,74,58,0.75)", fontFamily: "var(--font-body)" }}
+              style={{ backgroundColor: "rgba(40,98,65,0.75)", fontFamily: "var(--font-body)" }}
             >
               <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Lyla's Gelato</span>
               <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -1465,7 +1474,7 @@ function GardensGastronomyCascade() {
           <a
             href="#"
             className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-            style={{ backgroundColor: "rgba(107,74,58,0.75)", fontFamily: "var(--font-body)" }}
+            style={{ backgroundColor: "rgba(40,98,65,0.75)", fontFamily: "var(--font-body)" }}
           >
             <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Nostalgia</span>
             <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -1520,6 +1529,15 @@ function GardensSustainabilityCascade() {
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
               From geothermal energy to rainforest stewardship, every decision at Nayara Gardens is guided by our commitment to protect the extraordinary ecosystem that makes this place possible. We work with local communities and conservation organizations to ensure our presence strengthens the land rather than diminishes it.
+            </p>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.25}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Our wildlife corridors connect fragmented habitats across the Arenal region, allowing two- and three-toed sloths, kinkajous, and howler monkeys to move safely between forest patches. These living bridges — planted and maintained by our conservation team — have restored critical migration routes and helped sloth populations thrive in an area where they were once in decline.
             </p>
           </AnimateOnScroll>
 
