@@ -115,43 +115,10 @@ function WellnessIntro({ palette, spaSubheadline }: { palette: PropertyPalette; 
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SCIENCE OF WELLNESS — What happens to your brain & body
-   Content inspired by @copadearbol research on Costa Rica's
-   healing environment. Only shown for CR properties.
+   SCIENCE OF WELLNESS — Editorial narrative on Costa Rica's
+   healing environment. Content inspired by @copadearbol research.
+   Only shown for CR properties.
    ═══════════════════════════════════════════════════════════════ */
-const HEALING_CARDS = [
-  {
-    image: "/manus-storage/46118279-827D-4CF1-A480-AA96C6080526_69d6b2b7.jpeg",
-    headline: "What happens to your brain and body when you stay in Costa Rica?",
-    body: "It\u2019s not just a vacation. Your nervous system knows the difference.",
-  },
-  {
-    image: "/manus-storage/6DDE7245-4AB5-4621-A85D-67820283E10C_e40ef899.jpeg",
-    headline: "The rainforest directly calms your nervous system.",
-    body: "Dense rainforest environments stimulate the parasympathetic nervous system\u2014the \u201Crest and repair\u201D state. Research shows that natural soundscapes, humidity, and layered greenery reduce cortisol, slow breathing, and bring the body out of chronic fight-or-flight. Your system doesn\u2019t just relax. It relearns safety.",
-  },
-  {
-    image: "/manus-storage/41E0D463-DA44-4CE8-B591-12B5DDB9A47B_e9bf5d8a.jpeg",
-    headline: "Rainforest air feeds your brain differently.",
-    body: "Rainforests produce exceptionally oxygen-rich, moisture-dense air filled with natural plant compounds (phytoncides). These compounds are linked to improved mood, reduced inflammation, enhanced immune response, and better cognitive clarity.",
-  },
-  {
-    image: "/manus-storage/0ECDB67E-8675-434D-8847-BA8A5162469A_b53ecc0a.JPG",
-    headline: "Your body starts changing before you realize it.",
-    body: "Heart rate shifts. Stress hormones drop. Your brain moves into a different state.",
-  },
-  {
-    image: "/manus-storage/97620226-7115-461A-B459-420B4EDFE808_b8c434e4.jpeg",
-    headline: "The ocean shifts your chemistry.",
-    body: "Swimming in salt water increases circulation and stimulates the release of endorphins (natural pain relief), dopamine (motivation and pleasure), and serotonin (mood stability). Cold-to-warm ocean exposure also improves vagus nerve tone\u2014key for emotional regulation and resilience.",
-  },
-  {
-    image: "/manus-storage/F27947EA-839D-4733-9394-996DF83B20F7_4e11e6a9.jpeg",
-    headline: "Your system remembers what it feels like to be human.",
-    body: "With no roads, no traffic noise, and minimal artificial stimulation, the environment allows the brain to exit constant alert mode. People experience slower internal pacing, emotional regulation, nervous system coherence, and a sense of presence that lingers long after leaving. This isn\u2019t escape. It\u2019s recalibration.",
-  },
-];
-
 function ScienceOfWellness({ palette }: { palette: PropertyPalette }) {
   return (
     <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
@@ -170,53 +137,77 @@ function ScienceOfWellness({ palette }: { palette: PropertyPalette }) {
           >
             What Costa Rica Does to Your Body
           </h2>
-          <div className="w-16 h-px mb-10" style={{ backgroundColor: palette.accent }} />
+          <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
         </AnimateOnScroll>
 
-        {/* Cards grid — alternating layout */}
-        <div className="space-y-16 md:space-y-24">
-          {HEALING_CARDS.map((card, i) => (
-            <AnimateOnScroll key={i} variants={fadeUp} delay={0.1}>
-              <div className={`flex flex-col ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-8 md:gap-12 items-center`}>
-                {/* Image */}
-                <div className="w-full md:w-1/2 overflow-hidden" style={{ borderRadius: "6px" }}>
-                  <motion.img
-                    src={card.image}
-                    alt={card.headline}
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.6 }}
-                  />
-                </div>
-                {/* Text */}
-                <div className="w-full md:w-1/2">
-                  <h3
-                    className="text-xl md:text-2xl tracking-wide mb-4"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
-                  >
-                    {card.headline}
-                  </h3>
-                  <p
-                    className="text-[14px] md:text-[15px] leading-[1.85]"
-                    style={{ fontFamily: "var(--font-body)", color: palette.secondary + "CC" }}
-                  >
-                    {card.body}
-                  </p>
-                </div>
-              </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
-
-        {/* Closing line */}
-        <AnimateOnScroll variants={fadeUp} delay={0.2}>
-          <div className="mt-20 text-center">
+        {/* Opening narrative */}
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-14 mb-20">
             <p
-              className="text-[13px] tracking-[0.04em] italic"
-              style={{ fontFamily: "var(--font-body)", color: palette.secondary + "99" }}
+              className="text-[15px] md:text-[16px] leading-[1.9]"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
             >
-              Inspired by the research of @copadearbol
+              Something changes in the body before you notice it consciously. Heart rate shifts. Stress hormones drop. Your brain moves into a different state. This is not metaphor\u2014it is measurable physiology. Costa Rica\u2019s rainforest environment triggers the parasympathetic nervous system, the body\u2019s \u201Crest and repair\u201D mode, through a combination of natural soundscapes, humidity, layered greenery, and the near-total absence of urban noise.
+            </p>
+            <p
+              className="text-[15px] md:text-[16px] leading-[1.9]"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+            >
+              Research shows that cortisol levels fall, breathing slows, and the body begins to exit the chronic fight-or-flight state that defines modern life. Your system doesn\u2019t just relax. It relearns safety. For guests arriving from high-stimulation environments, the shift is often felt within the first twenty-four hours.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        {/* The Air */}
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="mb-20">
+            <h3
+              className="text-xl md:text-2xl tracking-wide mb-5"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+            >
+              The Air You Breathe
+            </h3>
+            <p
+              className="text-[15px] leading-[1.9] max-w-[780px]"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary + "DD" }}
+            >
+              Rainforests produce exceptionally oxygen-rich, moisture-dense air filled with natural plant compounds called phytoncides\u2014volatile organic molecules released by trees. These compounds are linked to improved mood, reduced inflammation, enhanced immune response, and better cognitive clarity. Every breath taken under the canopy carries a chemistry that urban air simply cannot replicate.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        {/* The Water */}
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="mb-20">
+            <h3
+              className="text-xl md:text-2xl tracking-wide mb-5"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+            >
+              The Water That Shifts Your Chemistry
+            </h3>
+            <p
+              className="text-[15px] leading-[1.9] max-w-[780px]"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary + "DD" }}
+            >
+              Swimming in natural water\u2014whether the thermal springs of Arenal or the Caribbean coast\u2014increases circulation and stimulates the release of endorphins, dopamine, and serotonin. Cold-to-warm water exposure improves vagus nerve tone, a key mechanism for emotional regulation and resilience. The ocean adds rhythm, horizon, and immersion\u2014a sensory environment that research consistently links to lower psychological distress and higher life satisfaction.
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        {/* The Recalibration */}
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="mb-8">
+            <h3
+              className="text-xl md:text-2xl tracking-wide mb-5"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+            >
+              Recalibration, Not Escape
+            </h3>
+            <p
+              className="text-[15px] leading-[1.9] max-w-[780px]"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary + "DD" }}
+            >
+              With no roads, no traffic noise, and minimal artificial stimulation, the Arenal rainforest allows the brain to exit constant alert mode. Guests report slower internal pacing, emotional regulation, nervous system coherence, and a sense of presence that lingers long after leaving. This is not a vacation that fades on the flight home. It is a physiological recalibration\u2014your system remembering what it feels like to be fully human.
             </p>
           </div>
         </AnimateOnScroll>

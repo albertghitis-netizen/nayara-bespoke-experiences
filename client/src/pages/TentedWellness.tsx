@@ -78,12 +78,13 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     color: "Green",
     title: "Rainforest Wellness",
     subtitle: "Costa Rica: Gardens, Springs, Tented Camp",
-    description: "Walk out of your villa in Arenal and you are in the color green — layers of leaves, moss, epiphytes, and a canopy that filters light. Air feels thicker. You hear water before you see it. Life follows rainforest timing: morning yoga overlooks the canopy, sound healing carries a double soundtrack of singing bowls and forest beyond.",
+    description: "Walk out of your villa in Arenal and you are in the color green — layers of leaves, moss, epiphytes, and a canopy that filters light. Air feels thicker. You hear water before you see it. The rainforest directly calms the nervous system, triggering the parasympathetic \u201Crest and repair\u201D state through natural soundscapes, humidity, and layered greenery. The air itself is different: oxygen-rich and filled with phytoncides, natural plant compounds linked to improved mood, reduced inflammation, and enhanced immune response. Your body starts changing before you realize it.",
     image: `${CDN}/costa-rica-spa-springs_89d85927.mp4`,
     science: [
-      "Forest bathing reduces anxiety and depression, improving overall mental wellbeing",
-      "Trees emit volatile organic compounds (terpenes) with antioxidant and immune-modulating effects",
+      "Dense rainforest environments stimulate the parasympathetic nervous system, reducing cortisol and slowing breathing",
+      "Phytoncides (airborne plant compounds) enhance immune function, reduce inflammation, and improve cognitive clarity",
       "Forest walks show lower cortisol, heart rate, and blood pressure compared with urban walks",
+      "Natural soundscapes and absence of urban noise allow the brain to exit chronic fight-or-flight",
     ],
   },
   {
@@ -91,12 +92,13 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     color: "Blue",
     title: "Blue-Green Wellness",
     subtitle: "Nayara Bocas del Toro",
-    description: "Rainforest meets reef and green meets blue. Water below your overwater villa shifts from pale turquoise over the reef to deep navy where the sea falls away. Guests experience both the calming effect of horizon and waves and the multi-sensory richness of vegetation and wildlife in the same setting.",
+    description: "Rainforest meets reef and green meets blue. Water below your overwater villa shifts from pale turquoise over the reef to deep navy where the sea falls away. The ocean shifts your chemistry: swimming in salt water increases circulation and stimulates the release of endorphins, dopamine, and serotonin. Cold-to-warm ocean exposure improves vagus nerve tone\u2014key for emotional regulation and resilience. With no roads, no traffic noise, and minimal artificial stimulation, the brain exits constant alert mode. This isn\u2019t escape. It\u2019s recalibration.",
     image: `${CDN}/bocas-aerial-villas-boardwalk_94eb4b4f.jpg`,
     science: [
       "Blue-space exposure links with higher life satisfaction and lower psychological distress",
-      "Aquatic environments support wellbeing through stress reduction and physical activity",
-      "Water immersion adds tactile and vestibular components for anxiety reduction and body awareness",
+      "Salt water immersion stimulates endorphins, dopamine, and serotonin release",
+      "Cold-to-warm water exposure improves vagus nerve tone for emotional regulation",
+      "Absence of urban stimulation allows the brain to exit chronic fight-or-flight",
     ],
   },
 ];

@@ -3357,3 +3357,8 @@
 - [x] Delete any property-specific Experiences, Wellness, Gastronomy, Sustainability page files for Springs/Gardens/Tented
 - [x] Verify all links work correctly after cleanup
 - [x] Add rainforest/ocean healing benefits content and @copadearbol images to Costa Rica Wellness page
+- [ ] Rework Science of Wellness section — integrate @copadearbol content as editorial narrative, not literal image cards
+- [x] Integrate @copadearbol healing content into Brand Wellness page green sections
+- [x] Integrate @copadearbol healing content into Brand Wellness page green sections
+- [ ] Read Turneo experiential hospitality article and integrate concepts into brand experiences page
+- [ ] Read EHL regenerative hospitality article and integrate concepts into brand sustainability page
