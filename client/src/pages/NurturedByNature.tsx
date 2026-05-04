@@ -1,6 +1,7 @@
-/**
+/*
  * NURTURED BY NATURE WELLNESS — Costa Rica Wellness Page
- * Yoga + Las Thermas + Spa Treatments with Olive Green Palette
+ * Philosophy: Nature IS the Wellness
+ * Flow: Private Plunge Pools → Las Termas → Yoga → Sukha Spa → Spa Menu
  */
 
 import { useState, useRef } from "react";
@@ -31,53 +32,18 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const WELLNESS_CDN = {
-  heroImage: `${CDN}/Termaleschildren_5bfef28b.webp`,
-  heroVideo: `${CDN}/wellness-nature-color_fae0ea2e.mp4`,
+  heroVideo: `${CDN}/AC144F9B-1C57-4187-8ABE-9F160B2F40AD_1ba76c61.mp4`,
 };
 
 const IMG = {
-  termasPool: "/manus-storage/termas-pool_027028a5.jpg",
-  termasCascading: "/manus-storage/termas-cascading-pools_44b4e5a5.jpg",
-  gardenPath: "/manus-storage/wellness-garden-path_c2c89643.jpg",
-  infinityPool: "/manus-storage/wellness-infinity-pool_7b006d30.jpg",
-  tentedExterior: `${CDN}/tented-camp-exterior_c9d0e1f2.jpg`,
-  springsPool: `${CDN}/springs-plunge-pool_e5f6a7b8.jpg`,
-  termas87: "/manus-storage/termas-87-web_4184b097.jpg",
-  springs3: "/manus-storage/springs-3-web_7a814df0.jpg",
-  soundHealing: "/manus-storage/sound-healing-web_f473a193.jpg",
-  soundTherapyVertical: "/manus-storage/sound-therapy-vertical-web_85b2ac2f.jpg",
-  yogaDeck: "/manus-storage/yoga-deck-web_2ea101e0.jpg",
-  meditateYoga: "/manus-storage/meditate-yoga-web_963fc0dd.jpg",
+  privatePlungePools: "/manus-storage/pasted_file_537KZK_image_a229a163.png",
+  briceFerreVideo: `${CDN}/NayaraResorts-HeroVideobyBriceFerreStudio_a229a163.mov`,
+  termasVertical: `${CDN}/537195DB-9898-40EA-9014-7AF3FFF321D7_2__a229a163.mov`,
+  termasImage: "/manus-storage/pasted_file_537KZK_image_a229a163.png",
   yogaVertical: "/manus-storage/yoga-vertical-2-web_e72f15e5.jpg",
+  sukhaSpaBanner: "/manus-storage/pasted_file_537KZK_image_a229a163.png",
+  sukhaSpaVideo: `${CDN}/62AE1541-E12D-4033-AFB5-E763C09F93D5_6ab78486.mp4`,
 };
-
-interface WellnessPillar {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  details: string[];
-}
-
-const wellnessPillars: WellnessPillar[] = [
-  {
-    id: "hot-springs",
-    title: "Volcanic Hot Springs",
-    subtitle: "Nayara Springs · Costa Rica",
-    description: "Every villa at Nayara Springs features a private hot springs plunge pool, fed by natural volcanic aquifers heated deep within the Earth. The mineral-rich waters — naturally heated to 38–42°C — have been used for centuries by indigenous communities for their therapeutic properties.",
-    image: IMG.infinityPool,
-    details: ["Private plunge pool in every villa", "Natural volcanic mineral water", "38–42°C therapeutic temperature", "Adults-only sanctuary"],
-  },
-  {
-    id: "yoga-pavilion",
-    title: "Rainforest Yoga Pavilion",
-    subtitle: "Nayara Tented Camp · Costa Rica",
-    description: "A dedicated open-air yoga pavilion suspended in the rainforest canopy, where the soundtrack is howler monkeys and tropical birdsong. Morning vinyasa flows face Arenal Volcano; evening restorative sessions are accompanied by the chorus of tree frogs.",
-    image: IMG.termasCascading,
-    details: ["Dedicated yoga pavilion", "Daily morning and evening classes", "Private instruction available", "Volcano-facing practice space"],
-  },
-];
 
 const spaCategories = [
   { id: "massage", label: "Massage" },
@@ -96,7 +62,7 @@ const propertyWellnessLinks = [
   { name: "Nayara Tented Camp", focus: "Rainforest yoga pavilion and nature immersion", route: "/tented-camp" },
 ];
 
-export default function TentedWellness() {
+export default function NurturedByNature() {
   const [activeHotel, setActiveHotel] = useState("tented-camp");
   const palette = getPalette("tented-camp");
 
@@ -105,11 +71,10 @@ export default function TentedWellness() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection palette={palette} />
-      <WellnessPillarsSection palette={palette} />
-      <YogaSection palette={palette} />
+      <PrivatePlungPoolsSection palette={palette} />
       <LasThermasSection palette={palette} />
-      <NayaraDifferenceSection palette={palette} />
-      <SoundHealingSection palette={palette} />
+      <YogaSection palette={palette} />
+      <SukhaSpaSection palette={palette} />
       <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <SpaSection palette={palette} />
       <SpringsFeature palette={palette} />
@@ -128,7 +93,7 @@ function HeroSection() {
         {isMobile ? (
           <img src={mobileHeroImage} alt="Nayara Wellness" className="w-full h-full object-cover" />
         ) : (
-          <NativeVideo src={WELLNESS_CDN.heroVideo} className="w-full h-full object-cover" />
+          <video src={WELLNESS_CDN.heroVideo} autoPlay muted loop className="w-full h-full object-cover" />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
@@ -154,14 +119,14 @@ function IntroSection({ palette }: { palette: PropertyPalette }) {
         <FadeIn>
           <p className="text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600, color: palette.primary }}>The Nayara Philosophy</p>
           <h2 className="mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15, color: palette.secondary }}>
-            Nature as Healer
+            Nature Is the Wellness
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <p className="text-[15px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
-              Nayara wellness is not a spa menu — it is a philosophy. Each of our three Costa Rica properties sits within a landscape that has been healing people for centuries: volcanic hot springs that indigenous communities have used for millennia, and rainforest canopies that naturally regulate the nervous system.
+              Nayara wellness is not a spa menu — it is a philosophy rooted in place. The volcanic hot springs, the rainforest canopy, the geothermal energy beneath the earth — these are not amenities. They are the treatment itself.
             </p>
             <p className="text-[15px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
-              We do not import wellness trends. We listen to the land. Our treatments, practices, and spaces are designed around the unique healing properties of the Arenal rainforest — volcanic minerals, tropical botanicals, geothermal springs, and the living rhythm of the forest. The landscape does the work; we simply create the conditions.
+              We do not import wellness trends. We listen to the land. Our three Costa Rica properties sit within landscapes that have been healing people for centuries. The nature does the work. We simply create the conditions for you to experience it.
             </p>
           </div>
         </FadeIn>
@@ -170,45 +135,85 @@ function IntroSection({ palette }: { palette: PropertyPalette }) {
   );
 }
 
-function WellnessPillarsSection({ palette }: { palette: PropertyPalette }) {
+function PrivatePlungPoolsSection({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className="pb-16 md:pb-24" style={{ backgroundColor: palette.gradientStart }}>
-      {wellnessPillars.map((pillar, idx) => (
-        <WellnessPillarRow key={pillar.id} pillar={pillar} reversed={idx % 2 !== 0} index={idx} palette={palette} />
-      ))}
-    </section>
-  );
-}
-
-function WellnessPillarRow({ pillar, reversed, index, palette }: { pillar: WellnessPillar; reversed: boolean; index: number; palette: PropertyPalette }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-
-  return (
-    <div ref={ref} className={`px-6 md:px-10 ${index === 0 ? "" : "mt-16 md:mt-24"}`}>
+    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
       <div className="max-w-[1400px] mx-auto">
-        <motion.div initial={{ opacity: 0, y: 14 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div className={reversed ? "md:order-2" : "md:order-1"}>
-            <div className="aspect-[4/5] overflow-hidden">
-              <img src={pillar.image} alt={pillar.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <FadeIn>
+            <div className="aspect-[4/5] overflow-hidden rounded-lg">
+              <img src={IMG.privatePlungePools} alt="Private plunge pool" className="w-full h-full object-cover" loading="lazy" />
             </div>
-          </div>
-          <div className={reversed ? "md:order-1" : "md:order-2"}>
-            <p className="text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600, color: palette.primary }}>{pillar.subtitle}</p>
-            <h3 className="text-2xl md:text-3xl leading-[1.15] mb-6" style={{ ...heading, color: palette.secondary }}>{pillar.title}</h3>
-            <p className="text-[15px] leading-relaxed mb-8" style={{ ...body, color: palette.secondary }}>{pillar.description}</p>
-            <ul className="space-y-3">
-              {pillar.details.map((d) => (
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600, color: palette.primary }}>Private Hot Springs</p>
+            <h2 className="text-2xl md:text-3xl leading-[1.15] mb-6" style={{ ...heading, color: palette.secondary }}>
+              Volcanic Waters as Healer
+            </h2>
+            <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
+              Every villa at Nayara Springs features a private hot springs plunge pool, fed by natural volcanic aquifers heated deep within the Earth. The mineral-rich waters — naturally heated to 38–42°C — have been used for centuries by indigenous communities for their therapeutic properties.
+            </p>
+            <p className="text-[15px] leading-relaxed mb-8" style={{ ...body, color: palette.secondary }}>
+              The water itself is the medicine. Minerals naturally occurring in volcanic aquifers — silica, magnesium, potassium — work on your nervous system without any human intervention. You are not receiving a treatment in nature. You are bathing in nature's own healing system.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {["Private plunge pool in every villa", "Natural volcanic mineral water", "38–42°C therapeutic temperature", "Adults-only sanctuary"].map((d) => (
                 <li key={d} className="text-sm flex items-center gap-3" style={{ ...body, color: palette.secondary }}>
                   <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: palette.primary }} />
                   {d}
                 </li>
               ))}
             </ul>
-          </div>
-        </motion.div>
+            <a href="/blog/private-hot-springs" className="inline-flex items-center gap-2 text-sm tracking-[0.1em] hover:gap-3 transition-all duration-300" style={{ ...body, fontWeight: 500, color: palette.primary }}>
+              Learn the History & Science
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </FadeIn>
+        </div>
+
+        {/* Brice Ferre Video */}
+        <div className="mt-16 md:mt-24">
+          <FadeIn>
+            <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "16/9" }}>
+              <video src={IMG.briceFerreVideo} autoPlay muted loop className="w-full h-full object-cover" />
+            </div>
+          </FadeIn>
+        </div>
       </div>
-    </div>
+    </section>
+  );
+}
+
+function LasThermasSection({ palette }: { palette: PropertyPalette }) {
+  return (
+    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <FadeIn>
+            <p className="text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600, color: palette.primary }}>Las Thermas</p>
+            <h2 className="text-2xl md:text-3xl leading-[1.15] mb-6" style={{ ...heading, color: palette.secondary }}>
+              Where Earth Meets Wellness
+            </h2>
+            <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
+              Las Thermas at Nayara Tented Camp offers something rare: natural hot springs heated by geothermal energy deep beneath the rainforest floor. More than a spa amenity, it is a place to soak in warmth, contemplate the night sky above, and feel the ancient power of the earth beneath you.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ ...body, color: palette.secondary }}>
+              The springs are fed by the same volcanic system that powers Arenal — water that has traveled through layers of rock, absorbing minerals along the way. The result is a bathing experience that is not manufactured or chlorinated, but genuinely geological. You are not in a spa. You are in the earth's own healing system.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="space-y-6">
+              <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "9/16" }}>
+                <video src={IMG.termasVertical} autoPlay muted loop className="w-full h-full object-cover" />
+              </div>
+              <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
+                <img src={IMG.termasImage} alt="Las Thermas" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -219,14 +224,13 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
         <FadeIn>
           <p className="text-[11px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 600, color: palette.primary }}>Wellness Through Movement</p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6" style={{ ...heading, color: palette.secondary }}>
-            Yoga in the Rainforest
+            Yoga in the Rainforest Pavilion
           </h2>
         </FadeIn>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-8">
           <FadeIn>
-            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
-              <img src={IMG.yogaDeck} alt="Yoga in the rainforest" className="w-full h-full object-cover" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "9/16" }}>
+              <img src={IMG.yogaVertical} alt="Yoga in the rainforest" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -236,15 +240,15 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
                   Vinyasa Yoga
                 </h3>
                 <p className="text-[14px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
-                  Keeps your body flowing and energized, linking breath to movement in classes that feel alive and present. The practice takes on a different dimension when your mat is surrounded by the sounds of howler monkeys and tropical birds — the forest becomes part of the flow.
+                  Keeps your body flowing and energized, linking breath to movement in classes that feel alive and present. Morning vinyasa flows face Arenal Volcano. The practice takes on a different dimension when your mat is suspended in the rainforest canopy, surrounded by the sounds of howler monkeys and tropical birds — the forest becomes part of the flow.
                 </p>
               </div>
               <div>
                 <h3 className="text-[18px] mb-3" style={{ ...heading, fontWeight: 500, color: palette.secondary }}>
-                  Mindfulness Yoga
+                  Relaxation Yoga
                 </h3>
                 <p className="text-[14px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
-                  Invites you to slow down, reconnect, and find stillness amid the symphony of the rainforest. It is less about physical exertion and more about presence — a practice designed for people who have forgotten what it feels like to simply be.
+                  Invites you to slow down, reconnect, and find stillness amid the symphony of the rainforest. Evening restorative sessions are accompanied by the chorus of tree frogs and the living breath of the forest. It is less about physical exertion and more about presence — a practice designed for people who have forgotten what it feels like to simply be.
                 </p>
               </div>
               <div className="p-5 rounded-lg" style={{ backgroundColor: `${palette.primary}10`, borderLeft: `3px solid ${palette.primary}` }}>
@@ -260,81 +264,35 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
   );
 }
 
-function LasThermasSection({ palette }: { palette: PropertyPalette }) {
+function SukhaSpaSection({ palette }: { palette: PropertyPalette }) {
   return (
     <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
-      <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <FadeIn>
-            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
-              <NativeVideo src={`${CDN}/hot-springs-horizontal_2508b725.mp4`} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="text-[11px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 600, color: palette.primary }}>
-              Las Thermas
-            </p>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6" style={{ ...heading, color: palette.secondary }}>
-              Where Earth Meets Wellness
-            </h2>
-            <p className="text-[15px] leading-[1.9] mb-6" style={{ ...body, color: palette.secondary }}>
-              Las Thermas at Nayara Tented Camp offers something rare: natural hot springs heated by geothermal energy deep beneath the rainforest floor. More than a spa amenity, it is a place to soak in warmth, contemplate the night sky above, and feel the ancient power of the earth beneath you.
-            </p>
-            <p className="text-[15px] leading-[1.9]" style={{ ...body, color: palette.secondary }}>
-              The springs are fed by the same volcanic system that powers Arenal — water that has traveled through layers of rock, absorbing minerals along the way. The result is a bathing experience that is not manufactured or chlorinated, but genuinely geological.
-            </p>
-          </FadeIn>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function NayaraDifferenceSection({ palette }: { palette: PropertyPalette }) {
-  return (
-    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
-      <div className="max-w-[800px] mx-auto text-center">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Sukha Spa Banner */}
         <FadeIn>
-          <p className="text-[11px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 600, color: palette.primary }}>
-            The Nayara Difference
-          </p>
-          <h2 className="text-2xl md:text-3xl tracking-wide mb-6" style={{ ...heading, color: palette.secondary }}>
-            Three Properties, One Seamless Experience
-          </h2>
-          <p className="text-[15px] leading-[1.9] mb-8" style={{ ...body, color: palette.secondary }}>
-            A morning might begin with Vinyasa yoga at Nayara Springs, followed by a botanical hike through the Tented Camp reserve, an afternoon soak at Las Thermas, and a sunset Mindfulness session overlooking the volcano. No transfers, no logistics, no friction — just a day that flows as naturally as the forest around you.
-          </p>
-          <p className="text-[15px] leading-[1.9]" style={{ ...body, color: palette.secondary }}>
-            Every hike, every yoga class, every soak reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul.
-          </p>
+          <div className="relative overflow-hidden rounded-lg mb-12" style={{ aspectRatio: "16/9" }}>
+            <img src={IMG.sukhaSpaBanner} alt="Sukha Spa" className="w-full h-full object-cover" loading="lazy" />
+          </div>
         </FadeIn>
-      </div>
-    </section>
-  );
-}
 
-function SoundHealingSection({ palette }: { palette: PropertyPalette }) {
-  return (
-    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
-      <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Sukha Spa Content */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn>
-            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
-              <img src={IMG.soundHealing} alt="Sound healing" className="w-full h-full object-cover" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-            </div>
+            <p className="text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600, color: palette.primary }}>Sukha Spa</p>
+            <h2 className="text-2xl md:text-3xl leading-[1.15] mb-6" style={{ ...heading, color: palette.secondary }}>
+              Treatments Rooted in Place
+            </h2>
+            <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
+              Sukha Spa integrates the healing properties of the Arenal landscape into every treatment. Volcanic minerals, rainforest botanicals, geothermal energy — these are not ingredients added to treatments. They are the foundation of what we do.
+            </p>
+            <p className="text-[15px] leading-relaxed" style={{ ...body, color: palette.secondary }}>
+              Every massage, every ritual, every therapy is designed to work with your nervous system using what the earth has already provided. You are not receiving a spa treatment in nature. You are experiencing nature's own healing modalities.
+            </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-[11px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 600, color: palette.primary }}>
-              Healing Modalities
-            </p>
-            <h2 className="text-2xl md:text-3xl tracking-wide mb-6" style={{ ...heading, color: palette.secondary }}>
-              Sound Therapy & Botanical Rituals
-            </h2>
-            <p className="text-[15px] leading-[1.9]" style={{ ...body, color: palette.secondary }}>
-              Beyond traditional massage and yoga, Nayara offers sound baths using Himalayan bowls, gong therapy, and botanical rituals featuring rainforest plants and volcanic minerals. Each treatment is designed to work with your nervous system, not against it.
-            </p>
+            <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "9/16" }}>
+              <video src={IMG.sukhaSpaVideo} autoPlay muted loop className="w-full h-full object-cover" />
+            </div>
           </FadeIn>
         </div>
       </div>
@@ -415,9 +373,6 @@ function SpaSection({ palette }: { palette: PropertyPalette }) {
 function SpringsFeature({ palette }: { palette: PropertyPalette }) {
   return (
     <section className="relative py-20 md:py-32 px-6 md:px-10 overflow-hidden" style={{ backgroundColor: palette.gradientEnd }}>
-      <div className="absolute inset-0 opacity-10">
-        <img src={IMG.springs3} alt="Springs" className="w-full h-full object-cover" />
-      </div>
       <div className="relative z-10 max-w-[800px] mx-auto">
         <FadeIn>
           <h2 className="text-white/90 mb-6" style={{ ...heading, fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: 1.15 }}>
