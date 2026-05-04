@@ -39,7 +39,7 @@ const IMG = {
   sukhaSpaBanner: "/manus-storage/gal-new-spa-hut_5f9827dc.jpg",
   sukhaSpaVideo: "/manus-storage/yoga-springs-new_7a20145a.mp4",
   mobileHeroImage: "/manus-storage/brand-wellness-mobile-hero_6c270aaf.jpg",
-  heroVideo: "/manus-storage/tented-wellness-horizontal-new_ea63828f.mp4",
+  heroVideo: "/manus-storage/wellness-hero-new_889fff27.mp4",
 };
 
 const spaCategories = [
