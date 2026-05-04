@@ -3356,3 +3356,4 @@
 - [x] Update all links from Gardens/Springs/Tented to point to shared Costa Rica pages
 - [x] Delete any property-specific Experiences, Wellness, Gastronomy, Sustainability page files for Springs/Gardens/Tented
 - [x] Verify all links work correctly after cleanup
+- [x] Add rainforest/ocean healing benefits content and @copadearbol images to Costa Rica Wellness page
