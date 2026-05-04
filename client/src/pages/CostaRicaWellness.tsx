@@ -1,6 +1,7 @@
 /*
  * UNIVERSAL WELLNESS — Shared deep page for ALL properties
  * Renders in the color palette of whichever property the user came from.
+ * RESTRUCTURED: Private Hot Springs → Las Termas → Yoga → Sukha Spa → Treatments
  */
 
 import { useState } from "react";
@@ -42,7 +43,7 @@ const LOCATIONS: Record<string, string> = {
   gardens: "Arenal Volcano National Park, Costa Rica",
   springs: "Arenal Volcano National Park, Costa Rica",
   "alto-atacama": "San Pedro de Atacama, Chile",
-  "bocas-del-toro": "Bocas del Toro, Panam\u00e1",
+  "bocas-del-toro": "Bocas del Toro, Panamá",
   hangaroa: "Rapa Nui, Easter Island, Chile",
 };
 
@@ -77,7 +78,10 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
       <WellnessHero propertySlug={propertySlug} />
       <ScrollingPillarHeader word="NATURE-BASED WELLNESS" color={palette.primary} bgColor={palette.gradientStart} />
       <WellnessIntro palette={palette} spaSubheadline={property.theme.spaSubheadline} />
-      {CR_SLUGS.has(propertySlug) && <ScienceOfWellness palette={palette} />}
+      {CR_SLUGS.has(propertySlug) && <PrivateHotSprings palette={palette} />}
+      {CR_SLUGS.has(propertySlug) && <LasTermas palette={palette} />}
+      {CR_SLUGS.has(propertySlug) && <YogaSection palette={palette} />}
+      {CR_SLUGS.has(propertySlug) && <SukhaSpaBanner palette={palette} />}
       <WellnessContent property={property} palette={palette} />
       <Footer pageType="property" bgColor={palette.footerBg}  textColor="#FFFFFF" />
     </div>
@@ -86,8 +90,8 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
 
 function WellnessHero({ propertySlug }: { propertySlug: string }) {
   const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
-    "tented-camp": { src: "/manus-storage/tc-wellness-aerial-pools-v2_d4e90dbd.jpg", alt: "Aerial view of wellness pools in the rainforest" },
-    "springs": { src: "/manus-storage/springs-wellness-hero_3ada77df.jpg", alt: "Jungle pool surrounded by tropical foliage" },
+    "tented-camp": { src: "/manus-storage/nayara-gardens-hero-brice_cf6493ab.jpg", alt: "Nayara Gardens wellness sanctuary" },
+    "springs": { src: "/manus-storage/nayara-gardens-hero-brice_cf6493ab.jpg", alt: "Nayara Springs wellness sanctuary" },
   };
   const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
   return (
@@ -115,11 +119,10 @@ function WellnessIntro({ palette, spaSubheadline }: { palette: PropertyPalette; 
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SCIENCE OF WELLNESS — Editorial narrative on Costa Rica's
-   healing environment. Content inspired by @copadearbol research.
-   Only shown for CR properties.
+   PRIVATE HOT SPRINGS PLUNGE POOLS
+   Editorial narrative with blog content about volcanic springs
    ═══════════════════════════════════════════════════════════════ */
-function ScienceOfWellness({ palette }: { palette: PropertyPalette }) {
+function PrivateHotSprings({ palette }: { palette: PropertyPalette }) {
   return (
     <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
@@ -129,89 +132,210 @@ function ScienceOfWellness({ palette }: { palette: PropertyPalette }) {
             className="text-[11px] tracking-[0.2em] uppercase mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
           >
-            The Science
+            Private Sanctuary
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
           >
-            What Costa Rica Does to Your Body
+            Private Hot Springs Plunge Pools
           </h2>
           <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
         </AnimateOnScroll>
 
-        {/* Opening narrative */}
+        {/* Main narrative */}
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <div className="grid md:grid-cols-2 gap-8 md:gap-14 mb-20">
+            <div>
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9] mb-6"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                Private hot spring plunge pools sit at the crossroads of geology, history, and modern wellness science, combining volcanic heat, environmental seclusion, and behavioral privacy. When guests enter a private plunge pool in the rainforest, they experience a reversal of an ancient pattern: landscape and water no longer force communal gathering; instead, they restore the autonomy early humans once had.
+              </p>
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9]"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                The water that feeds every private plunge pool at Nayara Springs and Nayara Tented Camp is heated by the magmatic systems beneath Arenal Volcano, carrying a mineral profile of calcium, magnesium, bicarbonate, and silica that has been restoring human beings in this region long before anyone built a hotel above it.
+              </p>
+            </div>
+            <div>
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9] mb-6"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                Privacy at Nayara is engineered. Villas and tents are oriented using controlled sightlines so no terrace overlooks another. Dense rainforest vegetation acts as living screening, while elevation changes and setbacks eliminate cross-visibility. When a guest steps into warm water, no one else can see. This combination of topography, landscaping, and spatial orientation is considered one of the strongest architectural mechanisms for behavioral privacy.
+              </p>
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9]"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                The result is not simply a nicer pool. It is a different category of stay—where warmth, silence, nature, solitude, and geology converge into a direct encounter with the place itself.
+              </p>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Video section */}
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="mb-12">
+            <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <NativeVideo
+                src="/manus-storage/NayaraResorts-HeroVideobyBriceFerreStudio_42eb4d15.mov"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LAS TERMAS
+   Thermal springs experience with video and imagery
+   ═══════════════════════════════════════════════════════════════ */
+function LasTermas({ palette }: { palette: PropertyPalette }) {
+  return (
+    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: "#F5F3F0" }}>
+      <div className={maxW}>
+        {/* Section header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+          >
+            Thermal Experience
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+          >
+            Las Termas
+          </h2>
+          <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
+        </AnimateOnScroll>
+
+        {/* Grid layout: Video left, Image right on desktop; stacked on mobile */}
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16">
+            {/* Horizontal video */}
+            <div>
+              <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                <NativeVideo
+                  src="/manus-storage/NayaraResorts-HeroVideobyBriceFerreStudio_42eb4d15.mov"
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+            {/* Vertical video */}
+            <div>
+              <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "9/16" }}>
+                <NativeVideo
+                  src="/manus-storage/537195DB-9898-40EA-9014-7AF3FFF321D7(2)_bd2835d1.mov"
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Image below videos */}
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="mb-12">
+            <img
+              src="/manus-storage/pasted_file_537KZK_image_f092b2e7.png"
+              alt="Las Termas hot springs pool in rainforest"
+              className="w-full rounded-lg overflow-hidden object-cover"
+              style={{ aspectRatio: "16/9" }}
+            />
+          </div>
+        </AnimateOnScroll>
+
+        {/* Description text */}
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <div className="max-w-[780px]">
             <p
               className="text-[15px] md:text-[16px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
             >
-              Something changes in the body before you notice it consciously. Heart rate shifts. Stress hormones drop. Your brain moves into a different state. This is not metaphor\u2014it is measurable physiology. Costa Rica\u2019s rainforest environment triggers the parasympathetic nervous system, the body\u2019s \u201Crest and repair\u201D mode, through a combination of natural soundscapes, humidity, layered greenery, and the near-total absence of urban noise.
-            </p>
-            <p
-              className="text-[15px] md:text-[16px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
-            >
-              Research shows that cortisol levels fall, breathing slows, and the body begins to exit the chronic fight-or-flight state that defines modern life. Your system doesn\u2019t just relax. It relearns safety. For guests arriving from high-stimulation environments, the shift is often felt within the first twenty-four hours.
-            </p>
-          </div>
-        </AnimateOnScroll>
-
-        {/* The Air */}
-        <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <div className="mb-20">
-            <h3
-              className="text-xl md:text-2xl tracking-wide mb-5"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
-            >
-              The Air You Breathe
-            </h3>
-            <p
-              className="text-[15px] leading-[1.9] max-w-[780px]"
-              style={{ fontFamily: "var(--font-body)", color: palette.secondary + "DD" }}
-            >
-              Rainforests produce exceptionally oxygen-rich, moisture-dense air filled with natural plant compounds called phytoncides\u2014volatile organic molecules released by trees. These compounds are linked to improved mood, reduced inflammation, enhanced immune response, and better cognitive clarity. Every breath taken under the canopy carries a chemistry that urban air simply cannot replicate.
-            </p>
-          </div>
-        </AnimateOnScroll>
-
-        {/* The Water */}
-        <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <div className="mb-20">
-            <h3
-              className="text-xl md:text-2xl tracking-wide mb-5"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
-            >
-              The Water That Shifts Your Chemistry
-            </h3>
-            <p
-              className="text-[15px] leading-[1.9] max-w-[780px]"
-              style={{ fontFamily: "var(--font-body)", color: palette.secondary + "DD" }}
-            >
-              Swimming in natural water\u2014whether the thermal springs of Arenal or the Caribbean coast\u2014increases circulation and stimulates the release of endorphins, dopamine, and serotonin. Cold-to-warm water exposure improves vagus nerve tone, a key mechanism for emotional regulation and resilience. The ocean adds rhythm, horizon, and immersion\u2014a sensory environment that research consistently links to lower psychological distress and higher life satisfaction.
-            </p>
-          </div>
-        </AnimateOnScroll>
-
-        {/* The Recalibration */}
-        <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <div className="mb-8">
-            <h3
-              className="text-xl md:text-2xl tracking-wide mb-5"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
-            >
-              Recalibration, Not Escape
-            </h3>
-            <p
-              className="text-[15px] leading-[1.9] max-w-[780px]"
-              style={{ fontFamily: "var(--font-body)", color: palette.secondary + "DD" }}
-            >
-              With no roads, no traffic noise, and minimal artificial stimulation, the Arenal rainforest allows the brain to exit constant alert mode. Guests report slower internal pacing, emotional regulation, nervous system coherence, and a sense of presence that lingers long after leaving. This is not a vacation that fades on the flight home. It is a physiological recalibration\u2014your system remembering what it feels like to be fully human.
+              Las Termas represent the heart of thermal wellness at Nayara. Fed by geothermal springs heated by Arenal Volcano's magmatic systems, these pools offer a gentle, mineral-rich immersion that has been recognized for centuries as a source of restoration and healing. The combination of warm water, rainforest seclusion, and natural beauty creates a sanctuary where the body and mind can truly recalibrate.
             </p>
           </div>
         </AnimateOnScroll>
       </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   YOGA
+   Rainforest yoga and movement practices
+   ═══════════════════════════════════════════════════════════════ */
+function YogaSection({ palette }: { palette: PropertyPalette }) {
+  return (
+    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+      <div className={maxW}>
+        {/* Section header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+          >
+            Movement & Mindfulness
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+          >
+            Yoga in the Rainforest
+          </h2>
+          <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
+        </AnimateOnScroll>
+
+        {/* Yoga image */}
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <div className="mb-12">
+            <img
+              src="/manus-storage/yoga-vertical_2984cb95.jpg"
+              alt="Yoga practice in the rainforest"
+              className="w-full rounded-lg overflow-hidden object-cover"
+              style={{ maxHeight: "600px" }}
+            />
+          </div>
+        </AnimateOnScroll>
+
+        {/* Description */}
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="max-w-[780px]">
+            <p
+              className="text-[15px] md:text-[16px] leading-[1.9]"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+            >
+              Yoga in the rainforest is not a performance or a class checklist. It is a practice that unfolds within the living presence of the forest itself. The canopy becomes your ceiling, the earth beneath you becomes your foundation, and the sounds of the jungle become your soundtrack. Movement slows, breath deepens, and the boundary between your body and the landscape begins to dissolve. This is where yoga becomes what it was always meant to be: a direct conversation between your nervous system and the intelligence of nature.
+            </p>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SUKHA SPA BANNER
+   Header image before spa menu
+   ═══════════════════════════════════════════════════════════════ */
+function SukhaSpaBanner({ palette }: { palette: PropertyPalette }) {
+  return (
+    <section className="py-0 px-0 w-full">
+      <img
+        src="/manus-storage/sukha-spa-header_f45f904f.jpg"
+        alt="Sukha Spa"
+        className="w-full h-auto object-cover"
+        style={{ display: "block" }}
+      />
     </section>
   );
 }
@@ -224,6 +348,24 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
   return (
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
+        {/* Section header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+          >
+            Spa Menu
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+          >
+            Sukha Spa Treatments
+          </h2>
+          <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
+        </AnimateOnScroll>
+
+        {/* Category buttons */}
         {categories.length > 0 && (
           <AnimateOnScroll variants={fadeUp}>
             <div className="flex flex-wrap gap-2 mb-10 md:mb-14">
@@ -247,6 +389,7 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
           </AnimateOnScroll>
         )}
 
+        {/* Treatment cards grid */}
         <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((treatment: Treatment) => (
             <motion.div
@@ -284,6 +427,7 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
           ))}
         </StaggerOnScroll>
 
+        {/* Cross link */}
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
           <div className="mt-16">
             <PillarCrossLink pillar="wellness" />
