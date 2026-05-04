@@ -5,7 +5,7 @@
  * Hero → Intro → Brand Pillars → Property Initiatives (filtered) → CTA → Footer
  */
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useIsMobile } from "@/hooks/useMobile";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
@@ -31,7 +31,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 const CDN = {
   heroVideoMobile: "/manus-storage/sustainability-mobile-hero_ae832d23.mp4",
   heroVideoOld: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-2_500e97e2.mp4",
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sustainability-hero-new-audio_57d017a3.mp4",
+  heroVideo: "/manus-storage/brand-sustainability-hero_efe6e64e.mp4",
 };
 
 /* ─── Brand-level sustainability pillars ─── */
@@ -173,12 +173,61 @@ export default function Sustainability() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted]);
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
-        <NativeVideo src={isMobile ? CDN.heroVideoMobile : CDN.heroVideo} className="w-full h-full object-cover" loop={!isMobile} />
+        {isMobile ? (
+          <NativeVideo src={CDN.heroVideoMobile} className="w-full h-full object-cover" />
+        ) : (
+          <video
+            ref={videoRef}
+            src={CDN.heroVideo}
+            className="w-full h-full object-cover"
+            autoPlay
+            loop
+            playsInline
+            muted
+            controls={false}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
+
+      {/* Sound pill — espresso, identical to brand homepage */}
+      <button
+        onClick={() => setIsMuted(!isMuted)}
+        aria-label={isMuted ? "Unmute" : "Mute"}
+        className="fixed z-50 hidden md:flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
+        style={{
+          top: "10px",
+          left: "56px",
+          backgroundColor: "rgba(59,43,38,0.8)",
+          borderColor: "rgba(255,255,255,0.1)",
+        }}
+      >
+        {isMuted ? (
+          <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: "#F7F5F0" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
+          </svg>
+        ) : (
+          <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: "#F7F5F0" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
+          </svg>
+        )}
+        <span className="text-xs tracking-[0.08em]" style={{ color: "#F7F5F0", fontFamily: "var(--font-body)", fontWeight: 500 }}>
+          {isMuted ? "Sound" : "Mute"}
+        </span>
+      </button>
+
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} className="text-white text-xl md:text-3xl lg:text-4xl tracking-wide text-center" style={heading}>
           Beyond Sustainability

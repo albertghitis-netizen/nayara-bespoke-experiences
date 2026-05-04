@@ -33,7 +33,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 
 const WELLNESS_CDN = {
   heroImage: `${CDN}/Termaleschildren_5bfef28b.webp`,
-  heroVideo: "/manus-storage/brand-wellness-hero-audio_152b2c3c.mp4",
+  heroVideo: "/manus-storage/brand-wellness-hero-v2_c65c4943.mp4",
 };
 
 interface WellnessEcosystem {

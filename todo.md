@@ -3377,3 +3377,7 @@
 - [x] /curated-excursions — Within Our Grounds section dark olive background
 - [x] /curated-excursions — Explore Arenal filter pills olive green
 - [x] /curated-excursions — Speak to Concierge button olive green
+- [ ] Brand Experiences (/experiences) hero: replace video with new upload (heavily compressed MP4)
+- [ ] Brand Experiences (/experiences) hero: ensure looping and add sound pill (video has audio)
+- [ ] Brand Sustainability (/sustainability) hero: replace video with new upload (heavily compressed MP4)
+- [ ] Brand Sustainability (/sustainability) hero: ensure looping and add sound pill (video has audio)
