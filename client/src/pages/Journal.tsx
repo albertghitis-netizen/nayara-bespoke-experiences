@@ -38,7 +38,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideoDesktop: "/manus-storage/journal-desktop-hero-v2-hq_cb6fd136.mp4",
+  heroVideoDesktop: "/manus-storage/journal-hero-16x9_19d99e5e.mp4",
   heroVideoMobile: "/manus-storage/journal-mobile-hero-v2-hq_3c7654fa.mp4",
 };
 
@@ -375,12 +375,23 @@ function CardShell({
         </>
       ) : (
         <>
-          <img
-            src={entry.image}
-            alt={entry.title}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading={index < 6 ? "eager" : "lazy"}
-          />
+          {entry.video ? (
+            <video
+              src={entry.image}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <img
+              src={entry.image}
+              alt={entry.title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading={index < 6 ? "eager" : "lazy"}
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
           {children}
         </>

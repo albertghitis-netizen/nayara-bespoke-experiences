@@ -71,13 +71,7 @@ export default function OverwaterVilla() {
           >
             Perched above the crystalline waters of Bocas del Toro, the Overwater Villa offers a seamless connection between luxury and the Caribbean Sea. Glass floors, private decks, and direct ocean access define this extraordinary retreat. Full details arriving soon.
           </p>
-          <Link
-            href="/bocas-del-toro"
-            className="inline-block px-8 py-3 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all duration-300 hover:opacity-80"
-            style={{ ...body, fontWeight: 500, backgroundColor: P.primary, color: P.white }}
-          >
-            Back to Bocas del Toro
-          </Link>
+
         </div>
       </section>
 

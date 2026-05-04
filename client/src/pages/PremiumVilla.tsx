@@ -71,13 +71,7 @@ export default function PremiumVilla() {
           >
             Experience the pinnacle of Bocas del Toro luxury with the Premium Villa. Designed for discerning travelers seeking the ultimate in privacy, comfort, and Caribbean sophistication. Full details arriving soon.
           </p>
-          <Link
-            href="/bocas-del-toro"
-            className="inline-block px-8 py-3 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all duration-300 hover:opacity-80"
-            style={{ ...body, fontWeight: 500, backgroundColor: P.primary, color: P.white }}
-          >
-            Back to Bocas del Toro
-          </Link>
+
         </div>
       </section>
 

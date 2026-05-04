@@ -382,12 +382,12 @@ function CascadeSection({
               )}
               <div
                 className="absolute bottom-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none transition-opacity duration-700"
-                style={{ opacity: section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore ? 1 : (showBottomPill ? 1 : 0) }}
+                style={{ opacity: !section.verticalOverlayButtons.top.explore || section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore ? 1 : (showBottomPill ? 1 : 0) }}
               >
                 <a
                   href={section.verticalOverlayButtons.bottom.exploreLink || "#"}
                   className="pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: (section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore || showBottomPill) ? "auto" : "none" }}
+                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: (!section.verticalOverlayButtons.top.explore || section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore || showBottomPill) ? "auto" : "none" }}
                 >
                   <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
                     Explore {section.verticalOverlayButtons.bottom.explore}
@@ -994,6 +994,10 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     ],
     blogUrl: "/journal",
     blogTitle: "Pioneering Sustainable Luxury",
+    verticalOverlayButtons: {
+      top: { explore: "", reserve: "", exploreLink: "" },
+      bottom: { explore: "Our Sloth Sanctuary", reserve: "", exploreLink: "/tented-camp-sustainability" },
+    },
   },
   {
     id: "wellness",
@@ -1010,7 +1014,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
     link: "/costa-rica-wellness",
-    linkLabel: "Explore Nature-Based Wellness",
+    linkLabel: "Nurtured by Nature",
     stats: [
       { value: "7", label: "Thermal Springs" },
       { value: "Open Air", label: "Spa Treatments" },

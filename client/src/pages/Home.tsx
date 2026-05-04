@@ -27,7 +27,7 @@ import {
   DURATION,
   EASE_CINEMATIC,
 } from "@/components/motion";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 
 /* ─── Type definitions ─── */
 interface Milestone {
@@ -157,10 +157,9 @@ export default function Home() {
       <div className="hidden md:block">
         <TimelineSection />
       </div>
-      <CollectionNarrativeSection />
       <AwardsHighlightSection />
       <NayaraJournalSection />
-      <FindYourNayaraSection />
+      <BrandCTA />
       <Footer textColor="#FFFFFF" />
     </div>
   );
@@ -1688,6 +1687,143 @@ function InstagramGrid() {
             </motion.a>
           ))}
         </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BRAND CTA — Rotating pillar slider before footer
+   ═══════════════════════════════════════════════════════════════ */
+const CTA_PILLARS = [
+  { label: "Experiences", route: "/experiences" },
+  { label: "Wellness & Spa", route: "/wellness" },
+  { label: "Gastronomy", route: "/gastronomy" },
+  { label: "Sustainability", route: "/sustainability" },
+];
+
+function BrandCTA() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % CTA_PILLARS.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const goNext = () => setActiveIndex((prev) => (prev + 1) % CTA_PILLARS.length);
+  const goPrev = () => setActiveIndex((prev) => (prev - 1 + CTA_PILLARS.length) % CTA_PILLARS.length);
+
+  return (
+    <section
+      className="relative py-28 md:py-40 px-6 overflow-hidden"
+      style={{ backgroundColor: "#1a0f0a" }}
+    >
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1a0f0a] via-[#2a1a10] to-[#1a0f0a]" />
+
+      <div className="relative z-10 max-w-[900px] mx-auto text-center">
+        {/* Decorative line */}
+        <div className="w-16 h-px mx-auto mb-8" style={{ backgroundColor: "rgba(176,141,87,0.4)" }} />
+
+        <p
+          className="text-[10px] tracking-[0.4em] uppercase mb-6"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(176,141,87,0.7)" }}
+        >
+          Begin Your Journey
+        </p>
+
+        <h2
+          className="text-3xl md:text-5xl lg:text-[56px] leading-[1.1] tracking-wide mb-8"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
+        >
+          Six Landscapes.<br />One Invitation.
+        </h2>
+
+        <p
+          className="text-base md:text-lg leading-relaxed max-w-[600px] mx-auto mb-14"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "rgba(247,245,240,0.6)" }}
+        >
+          From volcanic rainforest to the driest desert on Earth, from a Caribbean archipelago to the most remote island in the Pacific — discover which Nayara calls to you.
+        </p>
+
+        {/* Rotating CTA slider */}
+        <div className="flex items-center justify-center gap-6">
+          {/* Left arrow */}
+          <button
+            onClick={goPrev}
+            className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110"
+            style={{ borderColor: "rgba(176,141,87,0.4)", color: "rgba(176,141,87,0.8)" }}
+            aria-label="Previous"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </button>
+
+          {/* Sliding pill */}
+          <a
+            href={CTA_PILLARS[activeIndex].route}
+            className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-full border transition-all duration-500 hover:scale-[1.03] min-w-[280px] justify-center"
+            style={{
+              fontFamily: "var(--font-body)",
+              fontWeight: 500,
+              fontSize: "12px",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase" as const,
+              color: "#F7F5F0",
+              backgroundColor: "rgba(176,141,87,0.15)",
+              borderColor: "rgba(176,141,87,0.5)",
+            }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={activeIndex}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.35 }}
+              >
+                Explore {CTA_PILLARS[activeIndex].label}
+              </motion.span>
+            </AnimatePresence>
+            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+
+          {/* Right arrow */}
+          <button
+            onClick={goNext}
+            className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110"
+            style={{ borderColor: "rgba(176,141,87,0.4)", color: "rgba(176,141,87,0.8)" }}
+            aria-label="Next"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {CTA_PILLARS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className="w-1.5 h-1.5 rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: i === activeIndex ? "rgba(176,141,87,0.9)" : "rgba(176,141,87,0.25)",
+                transform: i === activeIndex ? "scale(1.4)" : "scale(1)",
+              }}
+              aria-label={`Go to ${CTA_PILLARS[i].label}`}
+            />
+          ))}
+        </div>
+
+        {/* Decorative line */}
+        <div className="w-16 h-px mx-auto mt-16" style={{ backgroundColor: "rgba(176,141,87,0.2)" }} />
       </div>
     </section>
   );

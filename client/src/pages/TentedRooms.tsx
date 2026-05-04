@@ -135,30 +135,7 @@ export default function TentedRooms() {
         ))}
       </div>
 
-      {/* Back to Tented Camp CTA */}
-      <div className="flex justify-center pb-16">
-        <a
-          href="/tented-camp"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:brightness-110"
-          style={{
-            ...body,
-            fontWeight: 500,
-            fontSize: "11px",
-            letterSpacing: "0.18em",
-            textTransform: "uppercase" as const,
-            color: "#FFFFFF",
-            backgroundColor: PILL_BG,
-            borderColor: PILL_BORDER,
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-          }}
-        >
-          Back to Tented Camp
-          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
-      </div>
+
 
       <Footer pageType="property" bgColor="#868B75"  textColor="#FFFFFF" />
     </div>

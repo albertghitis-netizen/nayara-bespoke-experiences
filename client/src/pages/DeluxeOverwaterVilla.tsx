@@ -71,13 +71,7 @@ export default function DeluxeOverwaterVilla() {
           >
             An expanded vision of Caribbean luxury, the Deluxe Overwater Villa features generous living spaces, a private infinity plunge pool suspended above the sea, and unobstructed views of the Bocas del Toro archipelago. Full details arriving soon.
           </p>
-          <Link
-            href="/bocas-del-toro"
-            className="inline-block px-8 py-3 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all duration-300 hover:opacity-80"
-            style={{ ...body, fontWeight: 500, backgroundColor: P.primary, color: P.white }}
-          >
-            Back to Bocas del Toro
-          </Link>
+
         </div>
       </section>
 

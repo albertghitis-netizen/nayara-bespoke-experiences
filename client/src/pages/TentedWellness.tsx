@@ -66,7 +66,7 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     title: "Dark-Sky Wellness",
     subtitle: "Nayara Alto Atacama",
     description: "When the sun drops behind the ridge, the desert trades brown for black. Artificial light stays intentionally low. Once your eyes adapt, the sky takes over as the main feature. These black skies form a full 24-hour environment for clarity, sleep support, and emotional reset, built from light, dark, and the absence of urban noise.",
-    image: "/manus-storage/wellness-darksky-milkyway_63235068.jpg",
+    image: "/manus-storage/wellness-darksky-milkyway_4b9b988a.jpg",
     science: [
       "Melatonin rises when light fades, supporting metabolic regulation and tissue repair",
       "Strong contrast between bright days and genuinely dark nights supports circadian timing",
@@ -79,7 +79,7 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     title: "Rainforest Wellness",
     subtitle: "Costa Rica: Gardens, Springs, Tented Camp",
     description: "Walk out of your villa in Arenal and you are in the color green — layers of leaves, moss, epiphytes, and a canopy that filters light. Air feels thicker. You hear water before you see it. The rainforest directly calms the nervous system, triggering the parasympathetic \u201Crest and repair\u201D state through natural soundscapes, humidity, and layered greenery. The air itself is different: oxygen-rich and filled with phytoncides, natural plant compounds linked to improved mood, reduced inflammation, and enhanced immune response. Your body starts changing before you realize it.",
-    image: "/manus-storage/wellness-rainforest-bride_053d2c47.png",
+    image: "/manus-storage/wellness-rainforest-bride_57ec030d.png",
     science: [
       "Dense rainforest environments stimulate the parasympathetic nervous system, reducing cortisol and slowing breathing",
       "Phytoncides (airborne plant compounds) enhance immune function, reduce inflammation, and improve cognitive clarity",
@@ -93,7 +93,7 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     title: "Blue-Green Wellness",
     subtitle: "Nayara Bocas del Toro",
     description: "Rainforest meets reef and green meets blue. Water below your overwater villa shifts from pale turquoise over the reef to deep navy where the sea falls away. The ocean shifts your chemistry: swimming in salt water increases circulation and stimulates the release of endorphins, dopamine, and serotonin. Cold-to-warm ocean exposure improves vagus nerve tone\u2014key for emotional regulation and resilience. With no roads, no traffic noise, and minimal artificial stimulation, the brain exits constant alert mode. This isn\u2019t escape. It\u2019s recalibration.",
-    image: "/manus-storage/wellness-bluegreen-bocas_cdd10d08.jpg",
+    image: "/manus-storage/wellness-bluegreen-bocas_c3bd5fc3.jpg",
     science: [
       "Blue-space exposure links with higher life satisfaction and lower psychological distress",
       "Salt water immersion stimulates endorphins, dopamine, and serotonin release",

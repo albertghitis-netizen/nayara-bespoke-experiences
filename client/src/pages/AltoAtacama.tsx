@@ -275,8 +275,7 @@ function CascadeTextBlock({
             /* Starfield pill — black, white outline, twinkling stars */
             <a
               href={blogLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="relative inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.02]"
               style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#ffffff", background: "rgba(0,0,0,0.15)", backdropFilter: "blur(6px)", border: "1px solid rgba(255,255,255,0.45)" }}
             >
@@ -292,8 +291,7 @@ function CascadeTextBlock({
           ) : (
             <a
               href={blogLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
               style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
             >
@@ -419,8 +417,7 @@ function CascadeSection({
           ) : (
             <a
               href={blogLink}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
               style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
             >
@@ -542,6 +539,7 @@ const CASCADE_SECTIONS = [
     label: "The Property",
     headline: "Life in an Oasis",
     description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
+    secondDescription: "A desert lodge in the driest desert on Earth, where salt flats, geysers, and the clearest night skies in the Southern Hemisphere converge. Two Michelin Keys.",
     vSrc: ASSETS.clip2V,
     hSrc: ASSETS.clip3H,
     vVideo: true, hVideo: true,
@@ -656,8 +654,9 @@ const CASCADE_SECTIONS = [
     isDarkSection: true,
     hideH: true,
     bgOverride: "#000000",
-    blogLink: "https://blog.nayararesorts.com/best-stargazing-resort-atacama-desert",
-    blogLinkLabel: "Read: Best Stargazing Resort in the Atacama",
+    blogLink: "/alto-atacama/stargazing",
+    blogLinkLabel: "Explore the Stargazing Page",
+    blogLinkInternal: true,
   },
 ];
 

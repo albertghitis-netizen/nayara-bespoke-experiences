@@ -195,7 +195,7 @@ export default function Gardens() {
         headline={"Fireflies &\nFrog Song"}
         bodyText="As twilight settles over the Arenal rainforest, the gardens come alive with bioluminescent fireflies and the chorus of red-eyed tree frogs. Join our naturalists for a nocturnal safari through the canopy, or simply listen from your private terrace as the jungle reveals its most intimate secrets."
         textSide="left"
-        textLink="#"
+        textLink="/by-night"
         textLinkLabel="Explore Nayara by Night"
       />
 

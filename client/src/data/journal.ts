@@ -50,6 +50,8 @@ export interface JournalEntry {
   sortPriority?: number;
   /** When true, card shows a "Coming Soon" overlay instead of active CTAs */
   comingSoon?: boolean;
+  /** When true, the image field contains a video URL to be played inline */
+  video?: boolean;
 }
 
 export type JournalProperty =
@@ -308,7 +310,7 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/meeting-the-toucans-of-arenal-rainforest-who-they-are-and-how-to-see-them",
     property: "gardens",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Meeting%20The%20Touca",
+    image: "/manus-storage/Untitleddesign-14_e259375b.jpg",
     excerpt: "Six species of toucans call the Arenal rainforest home. Learn who they are, where to find them, and why they matter.",
   },
   {
@@ -317,7 +319,8 @@ const blogArticles: JournalEntry[] = [
     url: "https://blog.nayararesorts.com/why-conde-nast-traveler-named-nayara-bocas-del-toro-1-in-central-and-south-america",
     property: "bocas-del-toro",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/8-Oct-07-2025-04-49-30-6724-AM.png",
+    image: "/manus-storage/journal-bocas-square_07eed662.mp4",
+    video: true,
     excerpt: "Condé Nast Traveler readers voted Nayara Bocas del Toro the #1 resort in Central and South America. Here's why.",
     featured: true,
   },
