@@ -189,11 +189,13 @@ function PillarDropdown() {
 
 /* ═══════════════════════════════════════════════════════════════
    PROPERTY INTRO — "Three Resorts. One Rainforest."
+   Experiential hospitality narrative: experiences are the reason
+   to visit, not an add-on.
    ═══════════════════════════════════════════════════════════════ */
 function PropertyIntro() {
   return (
     <section
-      className="relative py-16 md:py-24 overflow-hidden"
+      className="relative py-16 md:py-28 overflow-hidden"
       style={{ backgroundColor: "#f0ebe0" }}
     >
       {/* Subtle botanical texture */}
@@ -207,6 +209,7 @@ function PropertyIntro() {
         }}
       />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
+        {/* Main heading */}
         <FadeIn className="max-w-xl">
           <h2
             className="text-[#3a2a1a] text-4xl md:text-5xl lg:text-6xl mb-5"
@@ -223,6 +226,45 @@ function PropertyIntro() {
             freely between the three, opening access to a broader range of
             guided nature tours, curated adventure, and immersive wildlife
             encounters.
+          </p>
+        </FadeIn>
+
+        {/* Experiential hospitality editorial narrative */}
+        <FadeIn className="mt-14 md:mt-20 max-w-3xl" delay={0.2}>
+          <p
+            className="text-[#3a2a1a]/40 text-[10px] md:text-[11px] tracking-[0.35em] uppercase mb-4"
+            style={bodyMedium}
+          >
+            The Experience Is the Destination
+          </p>
+          <p
+            className="text-[#3a2a1a] text-xl md:text-2xl lg:text-[28px] leading-snug mb-6"
+            style={headingLight}
+          >
+            The world has shifted. Travelers no longer plan a trip and then look
+            for things to do — they find the experience first, and build the
+            journey around it.
+          </p>
+          <p
+            className="text-[#5a4a3a]/65 text-base md:text-[17px] leading-relaxed mb-5"
+            style={body}
+          >
+            At Nayara, we understood this long before it became an industry
+            conversation. Our 380 acres of primary and secondary rainforest,
+            home to over 500 bird species, are not a backdrop — they are the
+            reason guests arrive. The volcano hikes, the dawn birdwatching, the
+            hot springs at dusk, the hanging bridges through the canopy: these
+            are not amenities added to a room rate. They are the story itself.
+          </p>
+          <p
+            className="text-[#5a4a3a]/65 text-base md:text-[17px] leading-relaxed"
+            style={body}
+          >
+            Globally, spending is shifting from things to experiences — and the
+            most discerning travelers now choose where to stay based on what
+            they will feel, not what they will see from a window. Every
+            excursion below exists because someone asked a deeper question:
+            not "what is there to do?" but "what will I become by doing it?"
           </p>
         </FadeIn>
       </div>
