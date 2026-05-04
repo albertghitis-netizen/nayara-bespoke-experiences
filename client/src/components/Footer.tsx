@@ -7,7 +7,7 @@
  * Accepts optional pageType prop to customize link groupings.
  */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DEFAULT_BOOKING_URL } from "@/data/booking";
 import { type PageType, getFooterColumns } from "@/data/navigation";
@@ -46,6 +46,47 @@ function TikTokIcon() {
   );
 }
 
+/* ── Animated Leaf — very slow fade in when scrolled into view ── */
+function AnimatedLeaf() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="pointer-events-none"
+      style={{
+        opacity: visible ? 1 : 0,
+        transition: "opacity 3s ease-in",
+        width: "278px",
+        height: "303px",
+      }}
+    >
+      <img
+        src="/manus-storage/nayara-leaf-logo_382a5427.svg"
+        alt="Nayara"
+        className="w-full h-full object-contain"
+      />
+    </div>
+  );
+}
+
+
 interface FooterProps {
   pageType?: PageType;
   /** Override footer background color (default: #3B2B26 espresso) */
@@ -59,7 +100,6 @@ interface FooterProps {
 export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFFFF", nightSkyBg }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
-  const leafRef = useRef<HTMLImageElement>(null);
 
   const handlePlaceholder = (label: string) => (e: React.MouseEvent) => {
     e.preventDefault();
@@ -68,6 +108,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
 
   return (
     <footer className="relative overflow-x-clip" style={{ backgroundColor: bgColor ?? "#3B2B26" }}>
+
       {/* Optional Milky Way night sky background */}
       {nightSkyBg && (
         <>
@@ -79,9 +120,9 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.65)" }} />
         </>
       )}
-      <div className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-10">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
         {/* Dynamic columns from navigation config + Contact column */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed" style={{ paddingLeft: "160px" }}>
           {columns.map((col) => (
             <div key={col.title}>
               <span
@@ -168,17 +209,12 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           </div>
         </div>
 
-        {/* Newsletter CTA — centered, with leaf above */}
+        {/* Newsletter CTA — with leaf centered above */}
         <div className="relative flex flex-col items-center mt-10 mb-6">
-
-          {/* Nayara leaf — centered above newsletter */}
-          <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-leaf-beige_abbaf178.png"
-            alt="Nayara leaf"
-            ref={leafRef}
-            className="w-16 h-16 md:w-20 md:h-20 mb-4 pointer-events-none opacity-70"
-          />
-
+          {/* Animated Nayara leaf — absolutely positioned, doesn't affect footer height */}
+          <div className="absolute left-1/2 -translate-x-1/2" style={{ bottom: "100%", marginBottom: "-8px" }}>
+            <AnimatedLeaf />
+          </div>
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}

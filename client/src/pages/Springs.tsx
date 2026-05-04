@@ -312,7 +312,7 @@ function StorySection() {
 
           <div className="mt-8 hidden md:block">
             <video
-              src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)(5130x1616px)_ed1b1b42.mp4"
+              src="/manus-storage/springs-badges-v2_0c3ef9e3.webm"
               autoPlay
               muted
               playsInline
@@ -333,7 +333,7 @@ function StorySection() {
 
       {/* ── S2 — Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
-        <NativeVideo src="/manus-storage/NayaraResorts-HeroVideo_302b2cc2.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/NayaraResorts-HeroVideo_302b2cc2.mp4" className="w-full h-full object-cover" /></div>
       </div>
 
     </section>
@@ -396,7 +396,7 @@ function SpringsVillaSection() {
 
       {/* ── S4 — Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full relative">
-        <NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" /></div>
         <div className="absolute bottom-8 left-8 md:left-16">
           <a
             href="/springs/rooms/springs-villa"
@@ -466,7 +466,7 @@ function ExperiencesSection() {
 
       {/* ── S6 — Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
-        <NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_eb6760c5.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_220c4487.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );
@@ -527,7 +527,7 @@ function SustainabilitySection() {
 
       {/* ── S8 — Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
-        <NativeVideo src="/manus-storage/springs-s8-sustainability-horizontal_7a9ba7b8.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s8-sustainability-horizontal_7a9ba7b8.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );
@@ -588,7 +588,7 @@ function WellnessSection() {
 
       {/* ── S10 — Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
-        <NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );

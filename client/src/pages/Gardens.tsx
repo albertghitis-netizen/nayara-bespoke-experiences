@@ -593,7 +593,7 @@ function AccommodationsExperiment() {
                   <a
                     href={room.route}
                     className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]"
-                    sstyle={{ backgroundColor: "rgba(58,42,26,0.92)", border: "1px solid rgba(58,42,26,1)" }}
+                    style={{ backgroundColor: "rgba(58,42,26,0.92)", border: "1px solid rgba(58,42,26,1)" }}
                   >
                     <span
                       className="block text-[13px] tracking-[0.12em] uppercase mb-1"
@@ -1352,7 +1352,7 @@ function GardensExperiencesSection() {
 
       {/* ── Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
-        <NativeVideo src="/manus-storage/gardens-experience-horizontal-v2_9c5d3533.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/gardens-experience-horizontal-v2_9c5d3533.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );
@@ -1491,7 +1491,7 @@ function GardensSustainabilityCascade() {
 
       {/* ── Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
-        <NativeVideo src="/manus-storage/gardens-sustainability-horizontal_16aa396f.mp4" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/gardens-sustainability-horizontal_16aa396f.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );
