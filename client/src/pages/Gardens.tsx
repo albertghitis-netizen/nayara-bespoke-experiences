@@ -328,6 +328,15 @@ function StorySection() {
                 The rainforest at the foot of Arenal Volcano is alive with possibility. Toucans, frogs, and howler monkeys share the canopy with your villa, and every trail leads somewhere worth discovering. Nayara Gardens welcomes families and couples alike, with experiences guided by naturalists who know this forest by name.
             </p>
           </AnimateOnScroll>
+
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              The original Nayara — a village of private villas and casitas woven into the rainforest canopy at the foot of Arenal Volcano. Family-friendly, with bespoke excursions from hanging bridges to chocolate tours.
+            </p>
+          </AnimateOnScroll>
           <div className="mt-6 hidden md:block">
             <video
               src="/manus-storage/badge-gardens-final_d47f3adb.mp4"

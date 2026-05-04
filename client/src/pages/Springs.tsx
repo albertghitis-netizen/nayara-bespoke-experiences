@@ -296,6 +296,15 @@ function StorySection() {
             </p>
           </AnimateOnScroll>
 
+          <AnimateOnScroll variants={fadeUp} delay={0.25}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              An adults-only retreat where every villa has its own private thermal plunge pool fed by volcanic hot springs. Three Michelin Keys. The first hotel in Costa Rica to earn that distinction.
+            </p>
+          </AnimateOnScroll>
+
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment"

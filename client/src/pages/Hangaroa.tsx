@@ -486,6 +486,9 @@ function StorySection() {
               <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
                 Nayara Hangaroa is perched on one of the world's most remote islands, where ancient Rapa Nui culture thrives alongside contemporary luxury. Surrounded by iconic Moai statues and pristine Pacific vistas, this sanctuary offers cultural immersion, spiritual exploration, and world-class hospitality in a place where time feels suspended.
               </p>
+              <p className="text-[15px] leading-[1.8] mt-4" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                On the most remote inhabited island on Earth, a lodge that honors the Rapa Nui culture and its monumental stone guardians. The only luxury property on Easter Island.
+              </p>
             </AnimateOnScroll>
             <div className="hidden md:block">
               <AnimateOnScroll variants={fadeUp} delay={0.5}>

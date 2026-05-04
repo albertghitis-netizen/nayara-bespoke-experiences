@@ -3383,3 +3383,5 @@
 - [ ] Brand Sustainability (/sustainability) hero: ensure looping and add sound pill (video has audio)
 - [ ] Footer: add Nayara leaf logo centered above "Stay Inspired with the Nayara Newsletter"
 - [ ] Replace Springs S2 horizontal video with Three Michelin Keys showcase (same as Gardens S2) using Springs nav color #4B6358 — badges section untouched
+- [ ] Move hotel descriptions from 'One Philosophy Six Landscapes' on home page into each hotel's story section as second paragraph
+- [ ] Remove 'One Philosophy Six Landscapes' section from home page after moving descriptions

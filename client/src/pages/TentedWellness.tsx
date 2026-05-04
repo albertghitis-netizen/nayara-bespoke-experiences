@@ -66,7 +66,7 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     title: "Dark-Sky Wellness",
     subtitle: "Nayara Alto Atacama",
     description: "When the sun drops behind the ridge, the desert trades brown for black. Artificial light stays intentionally low. Once your eyes adapt, the sky takes over as the main feature. These black skies form a full 24-hour environment for clarity, sleep support, and emotional reset, built from light, dark, and the absence of urban noise.",
-    image: `${CDN}/atacama-stargazing_placeholder.jpg`,
+    image: "/manus-storage/wellness-darksky-milkyway_63235068.jpg",
     science: [
       "Melatonin rises when light fades, supporting metabolic regulation and tissue repair",
       "Strong contrast between bright days and genuinely dark nights supports circadian timing",
@@ -79,7 +79,7 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     title: "Rainforest Wellness",
     subtitle: "Costa Rica: Gardens, Springs, Tented Camp",
     description: "Walk out of your villa in Arenal and you are in the color green — layers of leaves, moss, epiphytes, and a canopy that filters light. Air feels thicker. You hear water before you see it. The rainforest directly calms the nervous system, triggering the parasympathetic \u201Crest and repair\u201D state through natural soundscapes, humidity, and layered greenery. The air itself is different: oxygen-rich and filled with phytoncides, natural plant compounds linked to improved mood, reduced inflammation, and enhanced immune response. Your body starts changing before you realize it.",
-    image: `${CDN}/costa-rica-spa-springs_89d85927.mp4`,
+    image: "/manus-storage/wellness-rainforest-bride_053d2c47.png",
     science: [
       "Dense rainforest environments stimulate the parasympathetic nervous system, reducing cortisol and slowing breathing",
       "Phytoncides (airborne plant compounds) enhance immune function, reduce inflammation, and improve cognitive clarity",
@@ -93,7 +93,7 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     title: "Blue-Green Wellness",
     subtitle: "Nayara Bocas del Toro",
     description: "Rainforest meets reef and green meets blue. Water below your overwater villa shifts from pale turquoise over the reef to deep navy where the sea falls away. The ocean shifts your chemistry: swimming in salt water increases circulation and stimulates the release of endorphins, dopamine, and serotonin. Cold-to-warm ocean exposure improves vagus nerve tone\u2014key for emotional regulation and resilience. With no roads, no traffic noise, and minimal artificial stimulation, the brain exits constant alert mode. This isn\u2019t escape. It\u2019s recalibration.",
-    image: `${CDN}/bocas-aerial-villas-boardwalk_94eb4b4f.jpg`,
+    image: "/manus-storage/wellness-bluegreen-bocas_cdd10d08.jpg",
     science: [
       "Blue-space exposure links with higher life satisfaction and lower psychological distress",
       "Salt water immersion stimulates endorphins, dopamine, and serotonin release",
@@ -264,11 +264,7 @@ function EcosystemRow({ ecosystem, reversed, index, palette }: { ecosystem: Well
         <motion.div initial={{ opacity: 0, y: 14 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className={reversed ? "md:order-2" : "md:order-1"}>
             <div className="aspect-[4/5] overflow-hidden">
-              {ecosystem.id === "green" ? (
-                <video src={ecosystem.image} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-              ) : (
-                <img src={ecosystem.image} alt={ecosystem.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
-              )}
+              <img src={ecosystem.image} alt={ecosystem.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
             </div>
           </div>
           <div className={reversed ? "md:order-1" : "md:order-2"}>
@@ -300,7 +296,7 @@ function BlogLinkSection({ palette }: { palette: PropertyPalette }) {
         <FadeIn>
           <div className="text-center">
             <p className="text-[15px] leading-relaxed mb-8" style={{ ...body, color: palette.secondary }}>
-              Explore the full research, science, and philosophy behind nature-based wellness at Nayara Resorts in our comprehensive blog article.
+              Four colors, four workloads for the nervous system — explore the full research, science, and philosophy behind nature-based wellness at Nayara Resorts.
             </p>
             <a
               href="https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health"
@@ -309,7 +305,7 @@ function BlogLinkSection({ palette }: { palette: PropertyPalette }) {
               className="inline-flex items-center gap-3 px-8 py-3 rounded-full border transition-all duration-300 hover:shadow-lg"
               style={{ borderColor: palette.primary, color: palette.secondary }}
             >
-              <span style={{ ...body, fontWeight: 500 }}>Read the Full Article</span>
+              <span style={{ ...body, fontWeight: 500 }}>Read the Nature-Based Wellness Blog</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
