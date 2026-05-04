@@ -3362,3 +3362,4 @@
 - [x] Integrate @copadearbol healing content into Brand Wellness page green sections
 - [x] Read Turneo experiential hospitality article and integrate concepts into brand experiences page
 - [x] Read EHL regenerative hospitality article and integrate concepts into brand sustainability page
+- [x] Read Moeve Global zero-kilometer food article and integrate "taste of place" concept into brand gastronomy page
