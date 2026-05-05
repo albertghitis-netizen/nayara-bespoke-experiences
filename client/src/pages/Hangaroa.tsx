@@ -163,6 +163,7 @@ export default function Hangaroa() {
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
         { id: "gastronomy", label: "Gastronomy" },
+        { id: "by-night", label: "By Night" },
       ]} />
       <HeroSection />
       <StorySection />
@@ -245,7 +246,9 @@ export default function Hangaroa() {
       <HangaroaGettingHere />
 
       {/* ★ 8. NAYARA BY NIGHT */}
+      <div id="by-night">
       <NayaraByNightSection />
+      </div>
 
       {/* ★ 9. RESERVE CTA */}
       <HangaroaReserveCTA />

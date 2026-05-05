@@ -3458,3 +3458,16 @@
 ## Nav Update — Journal + Nayara Resorts
 - [ ] Add "Journal" link above "Gallery" in hamburger nav (links to /journal)
 - [ ] Add "Nayara Resorts" at the very bottom of hamburger nav (links to /)
+
+## Room Slider — 3:4 Vertical Video + Alternating Layout
+- [ ] Update RoomSlider component to work with 3:4 vertical videos (fills half perfectly)
+- [ ] Set up room slider structure on all property pages ready for 3:4 videos
+- [ ] Finish Hangaroa home page with room slider and all sections
+
+## Atacama Rooms & Experiences Pages
+- [x] Build AtacamaRooms.tsx — Tilo suite with 26-image gallery, Catarpe placeholder, Quitor placeholder
+- [x] Add Three Programs section (Dream, Full Experience, Private Guided Experience)
+- [x] Upload all 26 Tilo room photos to CDN
+- [x] Update altoAtacamaExcursions with full 17 excursions from tour book (stargazing leads)
+- [x] AtacamaExperiences page renders all excursions in FilteredCardGrid format
+- [x] Verify TypeScript compiles with 0 errors

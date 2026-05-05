@@ -122,7 +122,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
       )}
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
         {/* Leaf — absolutely positioned on the left, same vertical position as before */}
-        <div className="hidden md:block absolute" style={{ left: "-100px", top: "40px", zIndex: 20, pointerEvents: "none", width: "278px", height: "303px" }}>
+        <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none", width: "278px", height: "303px" }}>
           <AnimatedLeaf />
         </div>
 
