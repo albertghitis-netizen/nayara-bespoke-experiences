@@ -337,12 +337,12 @@ function CascadeTextBlock({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)(5130x1616px)(120x120px)(120x120px)-2_dd9e5382.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" style={{filter: "brightness(1.08)"}} />
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
            {badges && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)(5130x1616px)(120x120px)(120x120px)-2_dd9e5382.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" style={{filter: "brightness(1.08)"}} />
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -463,7 +463,7 @@ function CascadeSection({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)(5130x1616px)(120x120px)(120x120px)-2_dd9e5382.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" style={{filter: "brightness(1.08)"}} />
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -479,7 +479,7 @@ function CascadeSection({
       )}
       {badges && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)(5130x1616px)(120x120px)(120x120px)-2_dd9e5382.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" style={{filter: "brightness(1.08)"}} />
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -581,7 +581,7 @@ const CASCADE_SECTIONS = [
     blogLink: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
     blogLinkLabel: "Read: Atacama Desert's True Oasis",
     badges: false,
-    badgeImage: "/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)(5130x1616px)(120x120px)(120x120px)-2_dd9e5382.mp4",
+    badgeImage: "/manus-storage/badge-atacama-correct_054a7823.mp4",
   },
   {
     label: "Accommodations",
@@ -659,7 +659,7 @@ const CASCADE_SECTIONS = [
     badges: false,
   },
   {
-    label: "Desert to Table",
+    label: "Forest to Table",
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: "/manus-storage/atacama-taste-of-place-vertical_e5fa6f59.jpeg",
@@ -668,7 +668,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
     link: "/alto-atacama/gastronomy",
-    linkLabel: "Explore Desert to Table",
+    linkLabel: "Explore Forest to Table",
     badges: false,
     hFirst: false,
     hideMobileV: true,
@@ -728,7 +728,6 @@ export default function AltoAtacama() {
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
         { id: "forest-to-table", label: "Gastronomy" },
-        { id: "night", label: "Night" },
       ]} />
       <HeroSection />
 
@@ -963,7 +962,7 @@ export default function AltoAtacama() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor={MIDDLE} textColor="#FFFFFF" propertyName="ALTO ATACAMA" />
+      <Footer bgColor={MIDDLE} textColor="#FFFFFF" />
     </div>
   );
 }

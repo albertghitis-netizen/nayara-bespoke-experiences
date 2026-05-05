@@ -257,16 +257,6 @@ html {
   animation-play-state: running;
 }
 
-/* Staggered fade-in for footer text */
-@keyframes fadeInDelay {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 /* Leaf — static, no animation */
 .leaf-slide {
   transform: translateX(0%) translateY(-48%);

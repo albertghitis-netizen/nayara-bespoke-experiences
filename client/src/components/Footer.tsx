@@ -72,7 +72,7 @@ function AnimatedLeaf() {
       className="pointer-events-none"
       style={{
         opacity: visible ? 1 : 0,
-        transition: "opacity 1.5s ease-in 0s",
+        transition: "opacity 3s ease-in",
         width: "278px",
         height: "303px",
       }}
@@ -95,11 +95,9 @@ interface FooterProps {
   textColor?: string;
   /** Use Milky Way night sky as footer background */
   nightSkyBg?: boolean;
-  /** Property name to display under the leaf (e.g., "ALTO ATACAMA") */
-  propertyName?: string;
 }
 
-export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFFFF", nightSkyBg, propertyName }: FooterProps) {
+export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFFFF", nightSkyBg }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
 
@@ -124,28 +122,8 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
       )}
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
         {/* Leaf — absolutely positioned on the left, same vertical position as before */}
-        <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none", width: "278px" }}>
-          <div style={{ width: "278px", height: "303px" }}>
-            <AnimatedLeaf />
-          </div>
-          {/* Property name below leaf, with staggered fade-in */}
-          {propertyName && (
-            <div
-              style={{
-                fontFamily: "var(--font-body)",
-                fontSize: "14px",
-                fontWeight: 500,
-                letterSpacing: "0.08em",
-                color: textColor,
-                textAlign: "center",
-                marginTop: "-60px",
-                opacity: 0,
-                animation: "fadeInDelay 1.5s ease-in 3s forwards",
-              }}
-            >
-              {propertyName}
-            </div>
-          )}
+        <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none", width: "278px", height: "303px" }}>
+          <AnimatedLeaf />
         </div>
 
         {/* Dynamic columns from navigation config + Contact column */}
