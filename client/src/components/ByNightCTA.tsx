@@ -34,6 +34,8 @@ type ByNightCTAProps = {
   /** Optional text link below body text */
   textLink?: string;
   textLinkLabel?: string;
+  /** Hide the "Nayara by Night" button */
+  hideButton?: boolean;
 };
 
 export default function ByNightCTA({
@@ -49,6 +51,7 @@ export default function ByNightCTA({
   textSide = "left",
   textLink,
   textLinkLabel,
+  hideButton = false,
 }: ByNightCTAProps) {
   const isTextLeft = textSide === "left";
 
@@ -120,28 +123,30 @@ export default function ByNightCTA({
             </AnimateOnScroll>
           )}
 
-          <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <a
-              href="/by-night"
-              className="group mt-8 md:mt-10 inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-[#C4A265] text-[#C4A265] hover:bg-[#C4A265] hover:text-black transition-all duration-300"
-            >
-              <span
-                className="text-[11px] tracking-[0.2em] uppercase"
-                style={{ ...body, fontWeight: 500 }}
+          {!hideButton && (
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <a
+                href="/by-night"
+                className="group mt-8 md:mt-10 inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-[#C4A265] text-[#C4A265] hover:bg-[#C4A265] hover:text-black transition-all duration-300"
               >
-                Nayara by Night
-              </span>
-              <svg
-                className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
-          </AnimateOnScroll>
+                <span
+                  className="text-[11px] tracking-[0.2em] uppercase"
+                  style={{ ...body, fontWeight: 500 }}
+                >
+                  Nayara by Night
+                </span>
+                <svg
+                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </AnimateOnScroll>
+          )}
         </div>
       </div>
 

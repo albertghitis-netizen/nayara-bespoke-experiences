@@ -388,7 +388,7 @@ export default function RoomSlider({
         onClick={handlePrev}
         className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group"
         style={{
-          backgroundColor: "#1E3A8A",
+          backgroundColor: palette.primary,
           color: "white",
         }}
       >
@@ -398,7 +398,7 @@ export default function RoomSlider({
         onClick={handleNext}
         className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group"
         style={{
-          backgroundColor: "#1E3A8A",
+          backgroundColor: palette.primary,
           color: "white",
         }}
       >

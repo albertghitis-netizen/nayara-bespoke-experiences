@@ -146,7 +146,7 @@ const GARDENS_ROOMS: RoomSliderCard[] = [
     tagline: "Private plunge pool villas in the rainforest canopy",
     sqm: "93",
     guests: "2 Adults + 1 Child",
-    video: "/manus-storage/gardens-casita-vertical_51e043e2.mp4",
+    video: "/manus-storage/DJI_0220-NayaraGardens-CasitabyBriceFerreStudio_a4f06c62.jpg",
     photo: "/manus-storage/gardens-casita-square_c0e6674c.jpg",
     exploreLink: "/gardens/rooms/arenal-pool-casita",
     bookingUrl: BOOKING_URLS.gardens,
@@ -201,11 +201,13 @@ export default function Gardens() {
         { name: "Nayara Gardens", url: "https://nayaragardens.com" },
       ]} />
       <BrandNavigation pageType="property" sectionNav={[
-        { id: "rooms", label: "Rooms" },
+        { id: "rooms", label: "Private Villas" },
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
         { id: "gastronomy", label: "Gastronomy" },
+        { id: "by-night", label: "By Night" },
+        { id: "getting-here", label: "Getting Here" },
       ]} />
       <HeroSection />
       <StorySection />
@@ -224,12 +226,13 @@ export default function Gardens() {
         verticalSrc="/manus-storage/gardens-bynight-frog_51f8e4f1.jpg"
         verticalIsVideo={false}
         verticalRatio="3/4"
-        bgColor="#0D1A12"
+        bgColor="#000000"
         headline={"Fireflies &\nFrog Song"}
         bodyText="As twilight settles over the Arenal rainforest, the gardens come alive with bioluminescent fireflies and the chorus of red-eyed tree frogs. Join our naturalists for a nocturnal safari through the canopy, or simply listen from your private terrace as the jungle reveals its most intimate secrets."
         textSide="left"
         textLink="/by-night"
         textLinkLabel="Explore Nayara by Night"
+        hideButton={true}
       />
 
       {/* ══ REVIEWS ══ */}
@@ -299,7 +302,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          className="text-[#3a2a1a] text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
           Family-Friendly Rainforest Adventure
@@ -308,7 +311,7 @@ function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          className="text-[#3a2a1a]/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
           Arenal Volcano National Park, Costa Rica
@@ -604,11 +607,11 @@ function AccommodationsExperiment() {
               href="/gardens/rooms/arenal-pool-casita"
               className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
               style={{
-                backgroundColor: "rgba(40,98,65,0.75)",
+                backgroundColor: "#F5E4ED",
                 fontFamily: "var(--font-body)",
               }}
             >
-              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+              <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
                 Explore Arenal Pool Casita
               </span>
             </a>
@@ -708,11 +711,11 @@ function AccommodationsExperiment() {
             href="/gardens/rooms/rainforest-pool-villa"
             className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
             style={{
-              backgroundColor: "rgba(40,98,65,0.75)",
+              backgroundColor: "#F5E4ED",
               fontFamily: "var(--font-body)",
             }}
           >
-            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+            <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
               Explore Rainforest Pool Villa
             </span>
           </a>
@@ -799,7 +802,7 @@ function ExperiencesSection() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+              <span className="text-[#3a2a1a] text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
                 Arenal Adventures
               </span>
             </TextReveal>
@@ -892,7 +895,7 @@ function SustainabilitySection() {
               <SectionLabel color="rgba(255,255,255,0.5)">Sustainability</SectionLabel>
             </AnimateOnScroll>
             <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+              <span className="text-[#3a2a1a] text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
                 Rooted in the Rainforest
               </span>
             </TextReveal>
@@ -905,10 +908,10 @@ function SustainabilitySection() {
                   className="pl-6"
                   style={{ borderLeft: "2px solid rgba(255,255,255,0.2)" }}
                 >
-                  <h3 className="text-white text-[17px] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}>
+                  <h3 className="text-[#3a2a1a] text-[17px] mb-3" style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}>
                     {item.title}
                   </h3>
-                  <p className="text-white/60 text-[14px] leading-[1.7]" style={{ fontFamily: "var(--font-body)" }}>
+                  <p className="text-[#3a2a1a]/60 text-[14px] leading-[1.7]" style={{ fontFamily: "var(--font-body)" }}>
                     {item.desc}
                   </p>
                 </motion.div>
@@ -1027,7 +1030,7 @@ function GastronomySection() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
-              <span className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+              <span className="text-[#3a2a1a] text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
                 Forest to Table
               </span>
             </TextReveal>
@@ -1420,12 +1423,12 @@ function GardensExperiencesSection() {
           {/* Explore pill */}
           <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
-              href="#"
+              href="#night-frog-tour"
               className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-              style={{ backgroundColor: "rgba(40,98,65,0.75)", fontFamily: "var(--font-body)" }}
+              style={{ backgroundColor: "#F5E4ED", fontFamily: "var(--font-body)" }}
             >
-              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Arenal Volcano Tour</span>
-              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Arenal Volcano Tour</span>
+              <svg className="w-3.5 h-3.5 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </div>
         </div>
@@ -1437,12 +1440,12 @@ function GardensExperiencesSection() {
         {/* Explore pill */}
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
-            href="#"
+            href="#night-frog-tour"
             className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-            style={{ backgroundColor: "rgba(40,98,65,0.75)", fontFamily: "var(--font-body)" }}
+            style={{ backgroundColor: "#F5E4ED", fontFamily: "var(--font-body)" }}
           >
-            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore La Fortuna Waterfall</span>
-            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore La Fortuna Waterfall</span>
+            <svg className="w-3.5 h-3.5 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
       </div>
@@ -1514,12 +1517,12 @@ function GardensGastronomyCascade() {
           {/* Explore pill */}
           <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
-              href="#"
+              href="#night-frog-tour"
               className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-              style={{ backgroundColor: "rgba(40,98,65,0.75)", fontFamily: "var(--font-body)" }}
+              style={{ backgroundColor: "#F5E4ED", fontFamily: "var(--font-body)" }}
             >
-              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Lyla's Gelato</span>
-              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Lyla's Gelato</span>
+              <svg className="w-3.5 h-3.5 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </div>
         </div>
@@ -1531,12 +1534,12 @@ function GardensGastronomyCascade() {
         {/* Explore pill */}
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
-            href="#"
+            href="#night-frog-tour"
             className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-            style={{ backgroundColor: "rgba(40,98,65,0.75)", fontFamily: "var(--font-body)" }}
+            style={{ backgroundColor: "#F5E4ED", fontFamily: "var(--font-body)" }}
           >
-            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Nostalgia</span>
-            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Nostalgia</span>
+            <svg className="w-3.5 h-3.5 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
       </div>

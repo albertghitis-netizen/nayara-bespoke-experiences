@@ -47,7 +47,7 @@ function TikTokIcon() {
 }
 
 /* ── Animated Leaf — very slow fade in when scrolled into view ── */
-function AnimatedLeaf() {
+function AnimatedLeaf({ propertyName, textColor = "#FFFFFF" }: { propertyName?: string; textColor?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -69,19 +69,44 @@ function AnimatedLeaf() {
   return (
     <div
       ref={ref}
-      className="pointer-events-none"
-      style={{
-        opacity: visible ? 1 : 0,
-        transition: "opacity 3s ease-in",
-        width: "278px",
-        height: "303px",
-      }}
+      className="pointer-events-none flex flex-col items-center"
+      style={{ width: "278px" }}
     >
-      <img
-        src="/manus-storage/nayara-leaf-logo_382a5427.svg"
-        alt="Nayara"
-        className="w-full h-full object-contain"
-      />
+      {/* Leaf — fades in at 0s (1s duration) */}
+      <div
+        style={{
+          opacity: visible ? 1 : 0,
+          transition: "opacity 1s ease-in",
+          transitionDelay: "0s",
+          width: "278px",
+          height: "303px",
+        }}
+      >
+        <img
+          src="/manus-storage/nayara-leaf-logo_382a5427.svg"
+          alt="Nayara"
+          className="w-full h-full object-contain"
+        />
+      </div>
+      {/* Property name (e.g. "Alto Atacama") — fades in 1s after leaf */}
+      {propertyName && (
+        <span
+          style={{
+            opacity: visible ? 1 : 0,
+            transition: "opacity 1s ease-in",
+            transitionDelay: "1s",
+            fontSize: "20px",
+            color: textColor,
+            fontFamily: "var(--font-display)",
+            fontWeight: 400,
+            letterSpacing: "0.15em",
+            textAlign: "center",
+            marginTop: "-62px",
+          }}
+        >
+          {propertyName}
+        </span>
+      )}
     </div>
   );
 }
@@ -124,8 +149,8 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
       )}
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
         {/* Leaf — absolutely positioned on the left, same vertical position as before */}
-        <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none", width: "278px", height: "303px" }}>
-          <AnimatedLeaf />
+        <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none" }}>
+          <AnimatedLeaf propertyName={propertyName} textColor={textColor} />
         </div>
 
         {/* Dynamic columns from navigation config + Contact column */}

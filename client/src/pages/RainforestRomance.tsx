@@ -76,7 +76,7 @@ export default function RainforestRomance() {
       <HeroSection />
       <TeaserSection />
       <GallerySection />
-      <Footer textColor="#FFFFFF" />
+      <Footer textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }
@@ -84,24 +84,8 @@ export default function RainforestRomance() {
 function HeroSection() {
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-rose-900 via-amber-900 to-stone-900" />
+      <img src="https://dl.dropboxusercontent.com/scl/fi/8dpwq5bjqlfty4anpr4pj/Laguna_Lejia_NAA00013.jpg?rlkey=4f7n50ads9slrvnn5xoq3s5sg&st=mzs521te&dl=1" alt="Laguna Lejia" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10" />
-
-      {/* Back to Pura Vida */}
-      <div className="absolute top-24 left-0 right-0 z-20 flex justify-center">
-        <Link
-          href="/costa-rica"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
-        >
-          <ArrowLeft className="w-4 h-4 text-white/80" />
-          <span
-            className="text-white/80 text-[11px] tracking-[0.2em] uppercase"
-            style={body}
-          >
-            Pura Vida
-          </span>
-        </Link>
-      </div>
 
       {/* Title */}
       <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-12 md:pb-16 px-6">
@@ -112,17 +96,8 @@ function HeroSection() {
           className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center leading-[1.1]"
           style={heading}
         >
-          Rainforest Romance
+          Where Nature Writes the Love Story
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-4 text-white/60 text-sm md:text-base tracking-[0.1em] uppercase text-center"
-          style={body}
-        >
-          Where nature writes the love story
-        </motion.p>
       </div>
     </section>
   );

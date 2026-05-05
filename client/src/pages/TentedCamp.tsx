@@ -824,7 +824,7 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
               <div className="flex gap-5">
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: `${PALETTE.primary}10`, color: PALETTE.primary }}
+                  style={{ backgroundColor: "#EDEEE2", color: PALETTE.primary }}
                 >
                   {route.icon}
                 </div>
@@ -1110,10 +1110,11 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     verticalIsVideo: true,
     verticalRatio: "3/4",
     verticalLoop: true,
-    horizontalSrc: "",
-    horizontalIsVideo: false,
+    horizontalSrc: "/manus-storage/by-night-horizontal_1b49ceb7.mp4",
+    horizontalIsVideo: true,
     horizontalRatio: "16/9",
-    hideH: true,
+    horizontalLoop: true,
+    hideH: false,
     bgColor: "#000000",
     nextBgColor: "#000000",
     textLink: "/curated-excursions",
@@ -1471,11 +1472,13 @@ export default function TentedCamp() {
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
       <BrandNavigation pageType="property" sectionNav={[
-        { id: "rooms", label: "Rooms" },
+        { id: "rooms", label: "Private Villas" },
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
         { id: "gastronomy", label: "Gastronomy" },
+        { id: "nayara-by-night", label: "By Night" },
+        { id: "getting-here", label: "Getting Here" },
       ]} />
       <HeroSection />
 

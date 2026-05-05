@@ -241,7 +241,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     label: "Nayara by Night",
     headline: "The Jungle\nAfter Dark",
     body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets — a world that only comes alive after dark.",
-    verticalSrc: "/manus-storage/tented-night-frogs-vertical_13b54b09.mp4",
+    verticalSrc: "/manus-storage/tented-night-frogs_3e765061.mp4",
     horizontalSrc: "/manus-storage/nbn-jungle-dark-horizontal_d2bee113.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,

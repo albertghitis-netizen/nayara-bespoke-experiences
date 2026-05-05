@@ -45,7 +45,7 @@ export default function AtacamaGastronomy() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <GastronomyHero />
       <GastronomyContent />
-      <Footer pageType="property" bgColor="#6F463D"  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#6F463D" textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }

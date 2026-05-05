@@ -218,7 +218,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   {
     id: "story",
     label: "The Property",
-    headline: "Island Paradise\nReimagined",
+    headline: "Rainforest to Reef",
     body: "Nayara Bocas del Toro is an adults-only sanctuary on a private Caribbean island, where overwater villas float above crystal-clear turquoise waters. Each villa features direct ocean access, private plunge pools, and unobstructed views of pristine beaches and jungle-covered islands.\n\nOverwater villas and rainforest treehouses on a private island in Panama\u2019s Caribbean archipelago. Adults-only, solar-powered, and surrounded by coral reef. Two Michelin Keys. Number one in Central America \u2014 Cond\u00e9 Nast Traveler.",
     verticalSrc: ASSETS.storyV,
     horizontalSrc: "/manus-storage/bocas-horizontal-s2_5f83e958.mp4",
@@ -258,7 +258,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   {
     id: "experiences",
     label: "Experiences",
-    headline: "Caribbean\nAdventures",
+    headline: "Your Private Boat\n& Captain Await",
     body: "From snorkeling vibrant coral reefs to kayaking through bioluminescent bays, every day brings a new discovery. Explore hidden beaches, dive alongside tropical fish, or simply drift in the warm Caribbean waters that surround your private island retreat.",
     verticalSrc: "/manus-storage/bocas-caribbean-adventure-v_e1c6cfa3.mp4",
     horizontalSrc: "/manus-storage/bocas-exp-horizontal_1b318bff.mp4",
@@ -298,7 +298,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   {
     id: "wellness",
     label: "Wellness",
-    headline: "Caribbean\nSerenity",
+    headline: "Serenity,\nElevated",
     body: "Surrender to the rhythm of the ocean at our overwater spa. Treatments draw from Caribbean healing traditions, using locally sourced ingredients and the soothing sounds of the sea to restore body and mind. Each session unfolds above the gentle turquoise waters.",
     verticalSrc: "/manus-storage/bocas-wellness-v2_42b49989.mp4",
     horizontalSrc: "/manus-storage/bocas-wellness-h2_b08668ba.mp4",
@@ -761,7 +761,7 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
               <div className="flex gap-5">
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: `${PALETTE.primary}10`, color: PALETTE.primary }}
+                  style={{ backgroundColor: "#EAF4FF", color: PALETTE.primary }}
                 >
                   {route.icon}
                 </div>

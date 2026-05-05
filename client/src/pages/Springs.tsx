@@ -111,7 +111,7 @@ const SPRINGS_ROOMS: RoomSliderCard[] = [
     label: "Springs Villa",
     tagline: "Private hot spring pool villas in the rainforest canopy",
     guests: "2 Adults",
-    video: "/manus-storage/springs-s3-accommodation_9a2a14f0.mp4",
+    video: "/manus-storage/NayaraSprings-DJI_0968-byBriceFerreStudio_bd1143c6.jpg",
     exploreLink: "/springs/rooms/springs-villa",
     bookingUrl: BOOKING_URLS.springs,
   },

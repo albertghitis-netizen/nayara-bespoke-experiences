@@ -218,7 +218,7 @@ function StargazingCascadeSection({ section, index }: { section: StargazingSecti
 export default function Stargazing() {
   return (
     <div className="min-h-screen bg-black">
-      <BrandNavigation pageType="brand" navPalette={{ dark: "#000000", pillBg: "rgba(0,0,0,0.7)", pillHover: "rgba(0,0,0,0.9)" }} />
+      <BrandNavigation pageType="brand" navPalette={{ dark: "#ffffff", pillBg: "#000000", pillHover: "#1a1a1a" }} />
       <HeroSection />
       <StorySection />
 
@@ -245,7 +245,7 @@ export default function Stargazing() {
         </FadeIn>
       </section>
 
-      <Footer pageType="brand" bgColor="#000000" nightSkyBg />
+      <Footer pageType="brand" bgColor="#000000" nightSkyBg propertyName="Alto Atacama" />
     </div>
   );
 }

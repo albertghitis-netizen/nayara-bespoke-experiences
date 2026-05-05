@@ -23,7 +23,7 @@ const P = {
   bgAlt: "#F7F5F0",
   text: "#1A0F0A",
   textSoft: "#1A0F0ACC",
-  primary: "#6F463D",
+  primary: "#B85C3C",
   secondary: "#9A9086",
   accent: "#C29B70",
   divider: "#E6DFD5",
@@ -209,7 +209,7 @@ export default function AtacamaRooms() {
       {/* Three Programs */}
       <ProgramsSection />
 
-      <Footer pageType="property" bgColor={P.primary} textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={P.primary} textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }
@@ -364,7 +364,7 @@ function RoomCard({ room, index }: { room: RoomType; index: number }) {
                 }}
               >
                 Explore
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke={P.white} strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
               </a>

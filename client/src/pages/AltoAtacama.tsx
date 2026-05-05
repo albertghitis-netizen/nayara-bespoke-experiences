@@ -166,8 +166,8 @@ const ASSETS = {
 
 const ATACAMA_ROOMS: RoomSliderCard[] = [
   {
-    id: "quitor-suite",
-    label: "Quitor Suite",
+    id: "catarpe",
+    label: "Catarpe",
     tagline: "Panoramic desert views with private heated infinity pool",
     guests: "2 Adults",
     video: ASSETS.roomsV,
@@ -175,20 +175,11 @@ const ATACAMA_ROOMS: RoomSliderCard[] = [
     bookingUrl: BOOKING_URLS["alto-atacama"],
   },
   {
-    id: "ckuri-suite",
-    label: "Ckuri Suite",
+    id: "tilo-suite",
+    label: "Tilo Suite",
     tagline: "Premium suites with expansive terraces and desert panoramas",
     guests: "2 Adults + 1 Child",
     video: ASSETS.roomsH,
-    exploreLink: "/alto-atacama/rooms",
-    bookingUrl: BOOKING_URLS["alto-atacama"],
-  },
-  {
-    id: "puri-suite",
-    label: "Puri Suite",
-    tagline: "Intimate suites surrounded by native gardens",
-    guests: "2 Adults",
-    video: ASSETS.clip5H,
     exploreLink: "/alto-atacama/rooms",
     bookingUrl: BOOKING_URLS["alto-atacama"],
   },
@@ -637,7 +628,11 @@ const CASCADE_SECTIONS = [
     link: "/alto-atacama/sustainability",
     linkLabel: "Explore Beyond Sustainability",
     blogLink: "https://www.youtube.com/watch?v=6cfkWsqWWc8",
-    blogLinkLabel: "Watch: Desert Stewardship",
+    blogLinkLabel: "Watch Atacama Sustainability",
+    blogLinkVariants: [
+      { label: "🇺🇸 English", url: "https://www.youtube.com/watch?v=6cfkWsqWWc8" },
+      { label: "🇪🇸 Español", url: "https://www.youtube.com/watch?v=H9VxyDgv31U" },
+    ],
     stats: [
       { value: "100%", label: "Solar Energy" },
       { value: "S Seal", label: "Certified" },
@@ -659,7 +654,7 @@ const CASCADE_SECTIONS = [
     badges: false,
   },
   {
-    label: "Forest to Table",
+    label: "Gastronomy",
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: "/manus-storage/atacama-taste-of-place-vertical_e5fa6f59.jpeg",
@@ -668,23 +663,23 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
     link: "/alto-atacama/gastronomy",
-    linkLabel: "Explore Forest to Table",
+    linkLabel: "Explore Gastronomy",
     badges: false,
     hFirst: false,
     hideMobileV: true,
   },
   {
-    label: "Nayara by Night",
+    label: "By Night",
     headline: "The Clearest Skies on Earth",
     description: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
     vSrc: "/manus-storage/atacama-bynight-telescope_95ffaa70.jpg",
-    hSrc: "",
-    vVideo: false, hVideo: false,
+    hSrc: "/manus-storage/atacama-by-night-horizontal_ae34aea4.mp4",
+    vVideo: false, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     badges: false,
     isDarkSection: true,
-    hideH: true,
+    hideH: false,
     bgOverride: "#000000",
     blogLink: "/alto-atacama/stargazing",
     blogLinkLabel: "Explore the Stargazing Page",
@@ -723,11 +718,13 @@ export default function AltoAtacama() {
         { name: "Nayara Alto Atacama", url: "https://nayaraaltoatacama.com" },
       ]} />
       <BrandNavigation pageType="property" sectionNav={[
-        { id: "accommodations", label: "Rooms" },
+        { id: "accommodations", label: "Private Villas" },
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "forest-to-table", label: "Gastronomy" },
+        { id: "gastronomy", label: "Gastronomy" },
+        { id: "by-night", label: "By Night" },
+        { id: "getting-here", label: "Getting Here" },
       ]} />
       <HeroSection />
 
@@ -956,13 +953,13 @@ export default function AltoAtacama() {
             audienceTag: "Adults Only",
           },
         ]}
-        bgColor={LIGHT}
+        bgColor="#E8D5C4"
         textColor={PALETTE.text}
         textSecondaryColor={PALETTE.textTertiary}
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor={MIDDLE} textColor="#FFFFFF" />
+      <Footer bgColor={MIDDLE} textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }
@@ -1143,7 +1140,7 @@ function GettingHereSection() {
               <div className="flex gap-4">
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: `${DARK}15`, color: DARK }}
+                  style={{ backgroundColor: "#F9EBE0", color: DARK }}
                 >
                   {route.icon}
                 </div>
@@ -1156,7 +1153,7 @@ function GettingHereSection() {
           ))}
         </div>
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
-          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${DARK}08` }}>
+          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: "#F9EBE0" }}>
             <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>
               <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
               <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.accent, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}

@@ -187,7 +187,7 @@ function Router() {
           <Route path="/experiential-arenal">{() => { window.location.replace("/curated-excursions"); return null; }}</Route>
 
           <Route path="/family-expeditions" component={FamilyExpeditions} />
-          <Route path="/rainforest-romance" component={RainforestRomance} />
+          <Route path="/romance" component={RainforestRomance} />
           <Route path="/gastronomy-arenal" component={ArenalGastronomy} />
           <Route path="/tented-camp" component={TentedCamp} />
           <Route path="/tented-camp/rooms" component={TentedRooms} />

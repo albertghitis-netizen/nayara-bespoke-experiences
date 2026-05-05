@@ -74,7 +74,7 @@ export default function AtacamaSustainability() {
       <ByTheNumbersSection />
       <BlogCardsSection />
       <JournalSection />
-      <Footer pageType="property" bgColor="#6F463D"  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#6F463D" textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }
@@ -95,7 +95,7 @@ function SustainabilityHero() {
             className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Protecting the Desert
+            Desert Stewardship
           </span>
         </TextReveal>
         <motion.p
