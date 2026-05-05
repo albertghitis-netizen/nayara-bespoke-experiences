@@ -95,9 +95,11 @@ interface FooterProps {
   textColor?: string;
   /** Use Milky Way night sky as footer background */
   nightSkyBg?: boolean;
+  propertyName?: string;
+  /** Property name to display under the leaf */
 }
 
-export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFFFF", nightSkyBg }: FooterProps) {
+export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFFFF", nightSkyBg, propertyName }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
 

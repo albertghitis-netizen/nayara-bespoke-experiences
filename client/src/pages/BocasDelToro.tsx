@@ -395,7 +395,7 @@ function CascadeSection({
   const textSecondaryColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
   const accentColor = isDark ? BONE : PALETTE.primary;
   const textLeft = index % 2 === 0;
-  const PILL_BG = isDark ? "rgba(0,0,0,0.45)" : "rgba(0,142,151,0.72)";
+  const PILL_BG = isDark ? "rgba(0,0,0,0.45)" : "rgba(30,58,138,0.72)";
   const PILL_BORDER = isDark ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.25)";
   const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
   const body = { fontFamily: "var(--font-body)" } as const;
@@ -530,7 +530,7 @@ function CascadeSection({
                   letterSpacing: "0.08em",
                   color: "#fff",
                   borderColor: "#1E3A8A",
-                  backgroundColor: "rgba(0,142,151,0.7)",
+                  backgroundColor: "rgba(30,58,138,0.7)",
                   backdropFilter: "blur(8px)",
                 }}
               >
@@ -924,7 +924,7 @@ export default function BocasDelToro() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor="#1E3A8A"  textColor="#FFFFFF" />
+      <Footer bgColor="#1E3A8A" textColor="#FFFFFF" propertyName="BOCAS DEL TORO" />
     </div>
   );
 }
