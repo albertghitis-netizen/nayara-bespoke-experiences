@@ -3408,11 +3408,11 @@
 - [x] Implement RoomSlider on Alto Atacama page with room types
 
 ## Navigation Fix
-- [ ] Remove "Costa Rica" from hamburger nav menu
+- [x] Remove "Costa Rica" from hamburger nav menu
 
 ## Navigation Fix
-- [ ] Remove "Costa Rica" link from hamburger nav menu (keep the page, just remove nav access)
-- [ ] Remove "Costa Rica" link from footer (keep the page, just remove footer access)
+- [x] Remove "Costa Rica" link from hamburger nav menu (keep the page, just remove nav access)
+- [x] Remove "Costa Rica" link from footer (keep the page, just remove footer access)
 
 ## Room Slider — All Properties (Regular Horizontal Slider, Video-Only)
 - [x] Build reusable RoomSlider component (horizontal card slider like PropertySlider on homepage)
@@ -3425,12 +3425,12 @@
 - [x] Implement RoomSlider on Alto Atacama page with room types
 
 ## Costa Rica Page — Property-Themed Access
-- [ ] Costa Rica page nav/footer color matches referring property (Gardens/Springs/Tented Camp)
-- [ ] Access only from property home pages (Experiences, Sustainability, Gastronomy, Wellness sections)
+- [x] Costa Rica page nav/footer color matches referring property (Gardens/Springs/Tented Camp) — already implemented via getPalette + URL detection
+- [x] Access only from property home pages (Experiences, Sustainability, Gastronomy, Wellness sections) — routes already structured as /property/section
 
 ## Navigation Fix
-- [ ] Remove "Costa Rica" link from hamburger nav menu (keep the page, just remove nav access)
-- [ ] Remove "Costa Rica" link from footer (keep the page, just remove footer access)
+- [x] Remove "Costa Rica" link from hamburger nav menu (keep the page, just remove nav access)
+- [x] Remove "Costa Rica" link from footer (keep the page, just remove footer access)
 
 ## Nav Restructure
 - [x] Hamburger nav: flat list (Experiences, Sustainability, Wellness, Gastronomy, Romance, Family, Gallery, all hotels, Journal)
@@ -3454,3 +3454,7 @@
 - [x] Explore Hotels (Continue Your Journey) section
 - [x] CTA (Reserve Your Stay) section
 - [x] Hangaroa route now loads full page (not ComingSoon)
+
+## Nav Update — Journal + Nayara Resorts
+- [ ] Add "Journal" link above "Gallery" in hamburger nav (links to /journal)
+- [ ] Add "Nayara Resorts" at the very bottom of hamburger nav (links to /)

@@ -76,6 +76,7 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Gastronomy", route: "/gastronomy" },
   { label: "Romance", route: "/rainforest-romance" },
   { label: "Family", route: "/family-expeditions" },
+  { label: "Journal", route: "/journal" },
   { label: "Gallery", route: "/gallery" },
 ];
 
@@ -84,8 +85,10 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
    ═══════════════════════════════════════════════════════════════ */
 export const RESORTS_ITEMS: MenuItem[] = [
   ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
-  { label: "Nayara Resorts", route: "/" },
 ];
+
+/* Nayara Resorts brand home — shown at the very bottom of nav */
+export const BRAND_HOME_ITEM: MenuItem = { label: "Nayara Resorts", route: "/" };
 
 /* ═══════════════════════════════════════════════════════════════
    SECTION 3: JOURNAL — single link in nav
@@ -95,9 +98,9 @@ export const JOURNAL_NAV_ITEM: MenuItem = { label: "Journal", route: "/journal" 
 /* Journal sub-links for footer (each with own URL for SEO) */
 export const JOURNAL_FOOTER_ITEMS: MenuItem[] = [
   { label: "Blog", route: "/journal/blog" },
+  { label: "Long-Form Video", route: "/journal/long-form-video" },
   { label: "Press", route: "/journal/press" },
   { label: "Awards", route: "/awards" },
-  { label: "Podcast", route: "/journal/podcast" },
   { label: "FAQ", route: "/faq" },
 ];
 
@@ -153,6 +156,7 @@ export const EXPLORE_COLUMN: FooterColumn = {
     { label: "Gastronomy", route: "/gastronomy" },
     { label: "Romance", route: "/rainforest-romance" },
     { label: "Family", route: "/family-expeditions" },
+    { label: "Journal", route: "/journal" },
     { label: "Gallery", route: "/gallery" },
   ],
 };
@@ -160,10 +164,10 @@ export const EXPLORE_COLUMN: FooterColumn = {
 /* Resorts column for footer */
 const RESORTS_COLUMN: FooterColumn = {
   title: "Our Resorts",
-  links: RESORTS_ITEMS.map((item, idx) => ({
-    ...item,
-    separatorBefore: idx === RESORTS_ITEMS.length - 1,
-  })),
+  links: [
+    ...RESORTS_ITEMS.map((item) => ({ ...item })),
+    { label: "Nayara Resorts", route: "/", separatorBefore: true },
+  ],
 };
 
 /* Journal column for footer — "Journal" is header (not clickable), sub-items are links */

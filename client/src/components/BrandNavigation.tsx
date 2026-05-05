@@ -19,6 +19,7 @@ import {
   RESORTS_ITEMS,
   EXPLORE_MENU_ITEMS,
   JOURNAL_NAV_ITEM,
+  BRAND_HOME_ITEM,
 } from "@/data/navigation";
 
 /* ── Menu state keys ── */
@@ -256,7 +257,7 @@ export default function BrandNavigation({
         </>
       )}
 
-      {/* Flat list — categories */}
+      {/* Flat list — categories (includes Journal above Gallery) */}
       {EXPLORE_MENU_ITEMS.map((item) => (
         <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
           <span className="text-[13px]" style={menuText}>{item.label}</span>
@@ -274,9 +275,9 @@ export default function BrandNavigation({
 
       <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
 
-      {/* Journal — single link */}
-      <button type="button" onClick={() => handleNavigate(JOURNAL_NAV_ITEM.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
-        <span className="text-[13px]" style={menuText}>{JOURNAL_NAV_ITEM.label}</span>
+      {/* Nayara Resorts — brand home at the very bottom */}
+      <button type="button" onClick={() => handleNavigate(BRAND_HOME_ITEM.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
+        <span className="text-[13px]" style={menuText}>{BRAND_HOME_ITEM.label}</span>
       </button>
     </div>
   );

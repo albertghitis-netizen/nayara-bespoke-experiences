@@ -121,8 +121,13 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </>
       )}
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
+        {/* Leaf — absolutely positioned on the left, same vertical position as before */}
+        <div className="hidden md:block absolute" style={{ left: "-100px", top: "40px", zIndex: 20, pointerEvents: "none", width: "278px", height: "303px" }}>
+          <AnimatedLeaf />
+        </div>
+
         {/* Dynamic columns from navigation config + Contact column */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed" style={{ paddingLeft: "160px" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed" style={{ paddingLeft: "240px" }}>
           {columns.map((col) => (
             <div key={col.title}>
               <span
@@ -209,10 +214,10 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           </div>
         </div>
 
-        {/* Newsletter CTA — with leaf centered above */}
+        {/* Newsletter CTA */}
         <div className="relative flex flex-col items-center mt-10 mb-6">
-          {/* Animated Nayara leaf — absolutely positioned, doesn't affect footer height */}
-          <div className="absolute left-1/2 -translate-x-1/2" style={{ bottom: "100%", marginBottom: "-8px" }}>
+          {/* Mobile leaf — only shows on mobile since desktop has it in the column */}
+          <div className="md:hidden absolute left-1/2 -translate-x-1/2" style={{ bottom: "100%", marginBottom: "-8px" }}>
             <AnimatedLeaf />
           </div>
           <a
