@@ -88,7 +88,7 @@ export default function Treehouse() {
       <HorizontalGallery />
       <TreehouseExperience />
       <CTASection />
-      <Footer pageType="property" bgColor={P.primary}  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={P.primary} textColor="#FFFFFF" propertyName="Bocas del Toro" />
     </div>
   );
 }

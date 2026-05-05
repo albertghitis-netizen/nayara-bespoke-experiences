@@ -25,12 +25,12 @@ export default function LaylasRestaurant() {
 
   return (
     <div className="min-h-screen" style={ { backgroundColor: BRAND.pageBackground }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" hideCenterLabel navPalette={{ dark: "#3a2a1a", pillBg: "#F5E4EDB3", pillHover: "#F5E4EDE6" }} />
       <HeroSection restaurant={restaurant} />
       <IntroSection restaurant={restaurant} />
       <GallerySection restaurant={restaurant} />
       <CTASection />
-      <Footer pageType="property" bgColor={palette.primary}  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#F5E4ED" textColor="#3a2a1a" propertyName="Gardens" />
     </div>
   );
 }

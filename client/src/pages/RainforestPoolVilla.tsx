@@ -78,7 +78,7 @@ export default function RainforestPoolVilla() {
       <FeaturesBand />
       <PhotoGrid />
       <CTASection />
-      <Footer pageType="property" bgColor={P.bgDeep}  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={P.bgDeep} textColor="#FFFFFF" propertyName="Gardens" />
     </div>
   );
 }

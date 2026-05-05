@@ -137,7 +137,7 @@ export default function TentedRooms() {
 
 
 
-      <Footer pageType="property" bgColor="#868B75"  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#868B75" textColor="#FFFFFF" propertyName="Tented Camp" />
     </div>
   );
 }

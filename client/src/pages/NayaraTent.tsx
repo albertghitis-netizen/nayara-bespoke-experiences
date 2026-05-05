@@ -88,7 +88,7 @@ export default function NayaraTent() {
       <FloorPlanExplorer initialTier="tent" availableTiers={["tent"]} />
       <TentExperience />
       <CTASection />
-      <Footer pageType="property" bgColor={P.primary}  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={P.primary} textColor="#FFFFFF" propertyName="Tented Camp" />
     </div>
   );
 }

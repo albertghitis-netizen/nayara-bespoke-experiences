@@ -270,7 +270,7 @@ export default function Gardens() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor="#286241" textColor="#FFFFFF" />
+      <Footer bgColor="#286241" textColor="#FFFFFF" propertyName="Gardens" />
     </div>
   );
 }

@@ -75,7 +75,7 @@ export default function OverwaterVilla() {
         </div>
       </section>
 
-      <Footer textColor="#FFFFFF" />
+      <Footer textColor="#FFFFFF" propertyName="Bocas del Toro" />
     </div>
   );
 }

@@ -134,7 +134,7 @@ export default function BrandWellness() {
       <EcosystemsSection palette={palette} />
       <BlogLinkSection palette={palette} />
 
-      <Footer bgColor="#3B2B26" textColor="#FFFFFF" />
+      <Footer bgColor="#3B2B26" textColor="#FFFFFF" propertyName="Tented Camp" />
     </div>
   );
 }

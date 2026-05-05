@@ -941,7 +941,7 @@ export default function BocasDelToro() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor="#1E3A8A" textColor="#FFFFFF" propertyName="BOCAS DEL TORO" />
+      <Footer bgColor="#1E3A8A" textColor="#FFFFFF" propertyName="Bocas del Toro" />
     </div>
   );
 }

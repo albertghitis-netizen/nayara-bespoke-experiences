@@ -65,7 +65,7 @@ export default function GardensRooms() {
       <RoomsHero />
       <ScrollingPillarHeader word="PRIVATE VILLAS & CASITAS" color={PALETTE.primary} bgColor={PALETTE.gradientEnd} />
       <RoomsContent />
-      <Footer pageType="property" bgColor="#525642"  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor="#525642" textColor="#FFFFFF" propertyName="Gardens" />
     </div>
   );
 }

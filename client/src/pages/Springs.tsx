@@ -241,7 +241,7 @@ export default function Springs() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" />
+      <Footer bgColor={PALETTE.secondary} textColor="#FFFFFF" propertyName="Springs" />
     </div>
   );
 }

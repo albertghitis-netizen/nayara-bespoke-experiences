@@ -92,7 +92,7 @@ export default function SpringsVilla() {
       <FloorPlanExplorer initialTier="tent" availableTiers={["tent"]} />
       <VillaExperience />
       <CTASection />
-      <Footer pageType="property" bgColor={P.primary}  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={P.primary} textColor="#FFFFFF" propertyName="Springs" />
     </div>
   );
 }

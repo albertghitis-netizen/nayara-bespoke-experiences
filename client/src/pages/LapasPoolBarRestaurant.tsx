@@ -30,7 +30,7 @@ export default function LapasPoolBarRestaurant() {
       <IntroSection restaurant={restaurant} />
       <GallerySection restaurant={restaurant} />
       <CTASection />
-      <Footer pageType="property" bgColor={palette.primary}  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={palette.primary} textColor="#FFFFFF" propertyName="Tented Camp" />
     </div>
   );
 }

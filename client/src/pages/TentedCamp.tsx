@@ -1551,7 +1551,7 @@ export default function TentedCamp() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor="#868B75" textColor="#FFFFFF" />
+      <Footer bgColor="#868B75" textColor="#FFFFFF" propertyName="Tented Camp" />
     </div>
   );
 }

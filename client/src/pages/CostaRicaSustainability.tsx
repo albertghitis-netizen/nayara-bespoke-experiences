@@ -177,7 +177,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
         <SustainabilityVoices palette={palette} videos={data.videos || []} blogs={data.blogs || []} propertySlug={propertySlug} />
       )}
       <ExploreSustainabilityCTA palette={palette} />
-      <Footer pageType="property" bgColor={palette.footerBg}  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={palette.footerBg} textColor="#FFFFFF" propertyName={propertySlug === "gardens" ? "Gardens" : propertySlug === "tented-camp" ? "Tented Camp" : propertySlug === "springs" ? "Springs" : propertySlug === "bocas-del-toro" ? "Bocas del Toro" : undefined} />
     </div>
   );
 }

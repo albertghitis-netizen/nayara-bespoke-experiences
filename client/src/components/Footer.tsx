@@ -101,6 +101,7 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF" }: { propertyName?: 
             fontWeight: 400,
             letterSpacing: "0.15em",
             textAlign: "center",
+            textTransform: "uppercase",
             marginTop: "-62px",
           }}
         >
