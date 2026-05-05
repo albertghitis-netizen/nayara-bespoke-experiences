@@ -40,12 +40,19 @@ export interface NavPalette {
   pillHover: string;
 }
 
+export interface SectionNavItem {
+  id: string;
+  label: string;
+}
+
 interface BrandNavigationProps {
   pageType?: PageType;
   centerLabel?: string;
   centerLinkHome?: boolean;
   hideCenterLabel?: boolean;
   navPalette?: NavPalette;
+  /** Property-level section navigation items */
+  sectionNav?: SectionNavItem[];
 }
 
 export default function BrandNavigation({
@@ -53,6 +60,7 @@ export default function BrandNavigation({
   centerLabel,
   hideCenterLabel = false,
   navPalette,
+  sectionNav,
 }: BrandNavigationProps) {
   /* Resolve palette — auto-detect from URL or use brand brown */
   const [location] = useLocation();
@@ -83,6 +91,8 @@ export default function BrandNavigation({
   const finalPillHv = navPalette?.pillHover ?? (propertyPalette ? `${propertyPalette.navPillBg}E6` : pillHvCR);
   const [menuOpen, setMenuOpen] = useState(false);
   const [reserveOpen, setReserveOpen] = useState(false);
+  const [sectionNavOpen, setSectionNavOpen] = useState(false);
+  const sectionNavRef = useRef<HTMLDivElement>(null);
   const [expandedMenus, setExpandedMenus] = useState<Record<MenuKey, boolean>>({
     pillars: false,
     explore: false,
@@ -111,6 +121,7 @@ export default function BrandNavigation({
       const isDropdownToggle = (target as Element)?.closest('[data-dropdown-toggle]');
       if (menuRef.current && !menuRef.current.contains(target) && !isDropdownToggle) setMenuOpen(false);
       if (reserveRef.current && !reserveRef.current.contains(target) && !isDropdownToggle) setReserveOpen(false);
+      if (sectionNavRef.current && !sectionNavRef.current.contains(target) && !isDropdownToggle) setSectionNavOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -119,6 +130,7 @@ export default function BrandNavigation({
   const closeAll = () => {
     setMenuOpen(false);
     setReserveOpen(false);
+    setSectionNavOpen(false);
     setExpandedMenus({ pillars: false, explore: false, costaRica: false, resorts: false });
   };
 
@@ -274,7 +286,7 @@ export default function BrandNavigation({
     <>
       <nav className="fixed top-2 left-0 right-0 z-50 px-3 pointer-events-none">
         {/* ── DESKTOP NAV ── */}
-        <div className="hidden md:flex items-center justify-between pointer-events-auto">
+        <div className="hidden md:flex items-center justify-between pointer-events-auto relative">
           {/* Left: Hamburger */}
           <div ref={menuRef} className="relative shrink-0">
             <button
@@ -296,31 +308,77 @@ export default function BrandNavigation({
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+           </div>
 
-          {/* Center: Brand or Property Name */}
-          {(() => {
-            const isHome = location === "/";
-            const isPropertyPage = pageType === "property";
-            const hasCenterLabel = !!centerLabel;
-            const showCenter = !hideCenterLabel && (isHome || isPropertyPage || hasCenterLabel);
-            if (!showCenter) return null;
-            return (
-              <span
-                className="mx-4 ml-6 text-white drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
-                style={{ opacity: scrolled ? 0 : 1 }}
+
+          {/* Center: Property Section Nav or Brand Name */}
+          {sectionNav && sectionNav.length > 0 ? (
+            <div ref={sectionNavRef} className="absolute left-1/2 -translate-x-1/2">
+              <button
+                onClick={() => { closeAll(); setSectionNavOpen(!sectionNavOpen); }}
+                className={`${pill} h-9 px-4 gap-2`}
+                style={pillStyle}
               >
-                <span
-                  className="tracking-[0.18em] text-[16px] md:text-[28px]"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                >
+                <span className="text-[11px] tracking-[0.12em] uppercase" style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: dk }}>
                   {centerLabel || (currentPropertyId
-                    ? PROPERTIES.find(p => p.id === currentPropertyId)?.name || "Nayara Resorts"
-                    : "Nayara Resorts")}
+                    ? PROPERTIES.find(p => p.id === currentPropertyId)?.name || "Explore"
+                    : "Explore")}
                 </span>
-              </span>
-            );
-          })()}
+                <svg className="w-3 h-3 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ color: dk, transform: sectionNavOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+              <AnimatePresence>
+                {sectionNavOpen && (
+                  <motion.div {...dropdownAnim} className={`${dropdownCls} left-1/2 -translate-x-1/2 top-full w-52`}>
+                    <div className="py-2">
+                      {sectionNav.map((item) => (
+                        <button
+                          key={item.id}
+                          onClick={() => {
+                            closeAll();
+                            const el = document.getElementById(item.id);
+                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
+                          className={`${menuItem} flex items-center`}
+                        >
+                          <span
+                            className="text-[13px] text-[#3B2B26]/80"
+                            style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+                          >
+                            {item.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ) : (
+            (() => {
+              const isHome = location === "/";
+              const isPropertyPage = pageType === "property";
+              const hasCenterLabel = !!centerLabel;
+              const showCenter = !hideCenterLabel && (isHome || isPropertyPage || hasCenterLabel);
+              if (!showCenter) return null;
+              return (
+                <span
+                  className="absolute left-1/2 -translate-x-1/2 text-white drop-shadow-sm pointer-events-none select-none transition-opacity duration-500"
+                  style={{ opacity: scrolled ? 0 : 1 }}
+                >
+                  <span
+                    className="tracking-[0.18em] text-[16px] md:text-[28px]"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  >
+                    {centerLabel || (currentPropertyId
+                      ? PROPERTIES.find(p => p.id === currentPropertyId)?.name || "Nayara Resorts"
+                      : "Nayara Resorts")}
+                  </span>
+                </span>
+              );
+            })()
+          )}
 
           {/* Right: Reserve */}
           <div ref={reserveRef} className="relative shrink-0">
@@ -362,9 +420,9 @@ export default function BrandNavigation({
           </div>
         </div>
 
-        {/* ── MOBILE NAV — Hamburger (left) + Reserve (right) ── */}
+        {/* ── MOBILE NAV — Hamburger (left) + Center Property Nav + Reserve (right) ── */}
         <div className="flex md:hidden items-center justify-between pointer-events-auto">
-          {/* Hamburger */}
+          {/* Left: Hamburger */}
           <div ref={menuRef} className="relative">
             <button
               onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
@@ -386,6 +444,50 @@ export default function BrandNavigation({
               )}
             </AnimatePresence>
           </div>
+          {/* Center: Property Section Nav (mobile) */}
+          {sectionNav && sectionNav.length > 0 && (
+            <div className="relative">
+              <button
+                onClick={() => { closeAll(); setSectionNavOpen(!sectionNavOpen); }}
+                className={`${pill} h-9 px-3 gap-1.5`}
+                style={pillStyle}
+                aria-label="Property sections"
+              >
+                <span className="text-[10px] tracking-[0.08em] uppercase" style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: dk }}>
+                  {centerLabel || "Explore"}
+                </span>
+                <svg className="w-3 h-3 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ color: dk, transform: sectionNavOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+              <AnimatePresence>
+                {sectionNavOpen && (
+                  <motion.div {...dropdownAnim} className={`${dropdownCls} left-1/2 -translate-x-1/2 top-full w-48`}>
+                    <div className="py-2">
+                      {sectionNav.map((item) => (
+                        <button
+                          key={item.id}
+                          onClick={() => {
+                            closeAll();
+                            const el = document.getElementById(item.id);
+                            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
+                          className={`${menuItem} flex items-center`}
+                        >
+                          <span
+                            className="text-[13px] text-[#3B2B26]/80"
+                            style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}
+                          >
+                            {item.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          )}
 
           {/* Right: Reserve */}
           <div ref={reserveRef} className="relative">
@@ -396,7 +498,6 @@ export default function BrandNavigation({
             >
               <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
             </button>
-
             <AnimatePresence>
               {reserveOpen && (
                 <motion.div {...dropdownAnim} className={`${dropdownCls} right-0 top-full w-56`}>

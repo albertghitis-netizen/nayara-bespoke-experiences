@@ -831,7 +831,13 @@ export default function BocasDelToro() {
         { name: "Home", url: "https://nayararesorts.manus.space" },
         { name: "Nayara Bocas del Toro", url: "https://nayarabocasdeltoro.com" },
       ]} />
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" sectionNav={[
+        { id: "rooms", label: "Rooms" },
+        { id: "experiences", label: "Experiences" },
+        { id: "sustainability", label: "Sustainability" },
+        { id: "wellness", label: "Wellness" },
+        { id: "gastronomy", label: "Gastronomy" },
+      ]} />
       <HeroSection />
 
       {CASCADE_SECTIONS.map((section, i) => (

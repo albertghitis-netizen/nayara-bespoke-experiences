@@ -3385,3 +3385,14 @@
 - [ ] Replace Springs S2 horizontal video with Three Michelin Keys showcase (same as Gardens S2) using Springs nav color #4B6358 — badges section untouched
 - [ ] Move hotel descriptions from 'One Philosophy Six Landscapes' on home page into each hotel's story section as second paragraph
 - [ ] Remove 'One Philosophy Six Landscapes' section from home page after moving descriptions
+
+## Tented Camp — Horizontal Scroll-Jacking Rooms Section
+- [x] Create RoomScrollSection component with pinned scroll-jacking behavior
+- [x] Full-screen video background per room card (looping, muted)
+- [x] Floating interior photo card overlay on each room
+- [x] Room name, sqft/sqm stats, guest count on each card
+- [x] "Explore" button linking to individual room page
+- [x] "Reserve" button linking to SynXis booking
+- [x] 4 cards: Nayara Tent → Family Tent → Grand Tent → Residence
+- [x] Integrate into TentedCamp.tsx replacing current rooms cascade section
+- [x] Smooth transitions between room cards on scroll

@@ -690,7 +690,13 @@ export default function AltoAtacama() {
         { name: "Home", url: "https://nayararesorts.manus.space" },
         { name: "Nayara Alto Atacama", url: "https://nayaraaltoatacama.com" },
       ]} />
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" sectionNav={[
+        { id: "accommodations", label: "Rooms" },
+        { id: "experiences", label: "Experiences" },
+        { id: "sustainability", label: "Sustainability" },
+        { id: "wellness", label: "Wellness" },
+        { id: "forest-to-table", label: "Gastronomy" },
+      ]} />
       <HeroSection />
 
       {/* === FLAT INTERLEAVED CASCADE ===
@@ -808,9 +814,10 @@ export default function AltoAtacama() {
         ) : null;
 
 
+        const sectionId = section.label.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
         return (
           <Fragment key={i}>
-            <section style={{ backgroundColor: bg }}>
+            <section id={sectionId} style={{ backgroundColor: bg }}>
               {/* Desktop: H-first or V-first ordering */}
               {isHFirst ? (
                 <>{HRow}{VTextRow}</>

@@ -27,6 +27,8 @@ import {
   EASE_CINEMATIC,
 } from "@/components/motion";
 import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
+import RoomScrollSection from "@/components/RoomScrollSection";
+
 
 /* ═══════════════════════════════════════════════════════════════
    PALETTE — "Canopy" gradient: misty green → deep forest
@@ -1417,7 +1419,13 @@ function useAutoScroll() {
 export default function TentedCamp() {
   return (
     <div className="relative min-h-screen" style={{ backgroundColor: SECTION_COLORS[0] }}>
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" sectionNav={[
+        { id: "rooms", label: "Rooms" },
+        { id: "experiences", label: "Experiences" },
+        { id: "sustainability", label: "Sustainability" },
+        { id: "wellness", label: "Wellness" },
+        { id: "gastronomy", label: "Gastronomy" },
+      ]} />
       <HeroSection />
 
       {/* S1: Story (The Camp) */}
@@ -1426,9 +1434,12 @@ export default function TentedCamp() {
       {/* ── One Rainforest, Three Resorts — Three Keys, One Door ── */}
       <OneRainforestCompactTC />
 
-      {/* Remaining cascade sections: Rooms → Experiences → Sustainability → Wellness */}
-      {SECTIONS_BEFORE_REVIEW.slice(1).map((section, i) => (
-        <CascadeSection key={section.id} section={section} index={i + 1} />
+      {/* ── Rooms: Horizontal Scroll-Jacking Section ── */}
+      <RoomScrollSection />
+
+      {/* Remaining cascade sections: Experiences → Sustainability → Wellness (skip rooms at index 1) */}
+      {SECTIONS_BEFORE_REVIEW.slice(2).map((section, i) => (
+        <CascadeSection key={section.id} section={section} index={i + 2} />
       ))}
       {SECTIONS_AFTER_REVIEW.map((section, i) => (
         <CascadeSection

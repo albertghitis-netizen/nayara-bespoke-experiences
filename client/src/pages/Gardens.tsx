@@ -173,7 +173,13 @@ export default function Gardens() {
         { name: "Home", url: "https://nayararesorts.manus.space" },
         { name: "Nayara Gardens", url: "https://nayaragardens.com" },
       ]} />
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" sectionNav={[
+        { id: "rooms", label: "Rooms" },
+        { id: "experiences", label: "Experiences" },
+        { id: "sustainability", label: "Sustainability" },
+        { id: "wellness", label: "Wellness" },
+        { id: "gastronomy", label: "Gastronomy" },
+      ]} />
       <HeroSection />
       <StorySection />
 
@@ -362,7 +368,9 @@ function StorySection() {
       <OneRainforestCompact />
 
       {/* S3 + S4 — Timed Overlay Experiment (pretending this is Tented Camp Accommodations) */}
+      <div id="rooms">
       <AccommodationsExperiment />
+      </div>
     </section>
   );
 }

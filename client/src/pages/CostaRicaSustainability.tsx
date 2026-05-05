@@ -221,6 +221,15 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
           poster={hero.src}
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+        <div className="absolute inset-0 flex items-end justify-center pb-12 md:pb-16 pointer-events-none">
+          <h1
+            className="text-white text-3xl md:text-4xl lg:text-5xl tracking-wide text-center"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            Beyond Reforestation
+          </h1>
+        </div>
       </section>
     );
   }

@@ -156,7 +156,13 @@ export default function Springs() {
         { name: "Home", url: "https://nayararesorts.manus.space" },
         { name: "Nayara Springs", url: "https://nayarasprings.com" },
       ]} />
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" sectionNav={[
+        { id: "accommodations", label: "Rooms" },
+        { id: "experiences", label: "Experiences" },
+        { id: "sustainability", label: "Sustainability" },
+        { id: "wellness", label: "Wellness" },
+        { id: "gastronomy", label: "Gastronomy" },
+      ]} />
       <HeroSection />
       <StorySection />
       <SpringsVillaSection />
@@ -497,7 +503,7 @@ function ExperiencesSection() {
 
       {/* ── S6 — Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
-        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_220c4487.mp4" className="w-full h-full object-cover" /></div>
+        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_4ae41545.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );

@@ -157,11 +157,18 @@ export default function Hangaroa() {
         { name: "Home", url: "https://nayararesorts.manus.space" },
         { name: "Nayara Hangaroa", url: "https://nayarahangaroa.com" },
       ]} />
-      <BrandNavigation pageType="property" />
+      <BrandNavigation pageType="property" sectionNav={[
+        { id: "rooms", label: "Rooms" },
+        { id: "experiences", label: "Experiences" },
+        { id: "sustainability", label: "Sustainability" },
+        { id: "wellness", label: "Wellness" },
+        { id: "gastronomy", label: "Gastronomy" },
+      ]} />
       <HeroSection />
       <StorySection />
       <S1CascadeSection />
 
+      <div id="rooms">
       {/* ★ 1. ROOMS — Slider */}
       <PropertySlider
         sectionLabel="Accommodations"
@@ -173,6 +180,8 @@ export default function Hangaroa() {
         palette={SLIDER_PALETTE}
       />
 
+      </div>
+      <div id="experiences">
       {/* ★ 2. EXPERIENCES — Sorter */}
       <PropertySorter
         sectionLabel="Experiences"
@@ -185,6 +194,8 @@ export default function Hangaroa() {
         palette={SLIDER_PALETTE}
       />
 
+      </div>
+      <div id="sustainability">
       {/* ★ 3. SUSTAINABILITY — Slider */}
       <PropertySlider
         sectionLabel="Sustainability"
@@ -196,6 +207,8 @@ export default function Hangaroa() {
         palette={SLIDER_PALETTE}
       />
 
+      </div>
+      <div id="wellness">
       {/* ★ 4. WELLNESS — Sorter */}
       <PropertySorter
         sectionLabel="Wellness"
@@ -208,6 +221,8 @@ export default function Hangaroa() {
         palette={SLIDER_PALETTE}
       />
 
+      </div>
+      <div id="gastronomy">
       {/* ★ 5. GASTRONOMY — Slider */}
       <PropertySlider
         sectionLabel="Forest to Table"
@@ -221,6 +236,7 @@ export default function Hangaroa() {
 
       {/* ── TRIMMED: GalleryIntegratedSections hidden for performance ── */}
       {/* <GalleryIntegratedSections /> */}
+      </div>
       {/* ★ 6. NAYARA BY NIGHT */}
       <NayaraByNightSection />
       <CrossPropertyCTA
