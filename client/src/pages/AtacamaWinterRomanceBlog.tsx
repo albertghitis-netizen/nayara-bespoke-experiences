@@ -268,7 +268,7 @@ export default function AtacamaWinterRomanceBlog() {
         </div>
       </section>
 
-      <Footer textColor="#FFFFFF" />
+      <Footer bgColor="#B85C3C" textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }

@@ -15,7 +15,7 @@ const P = {
   bg: "#F5EFE7",
   text: "#1A0F0A",
   textSoft: "#1A0F0ACC",
-  primary: "#C4844B",
+  primary: "#B85C3C",
   secondary: "#8B6F47",
   accent: "#D4A574",
   bone: "#F7F5F0",
@@ -37,7 +37,7 @@ export default function Quitor() {
       <IntroSection />
       <AmenitiesSection />
       <CTASection />
-      <Footer pageType="property" bgColor={P.primary}  textColor="#FFFFFF" />
+      <Footer pageType="property" bgColor={P.primary} textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }

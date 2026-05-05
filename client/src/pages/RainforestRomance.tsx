@@ -76,7 +76,7 @@ export default function RainforestRomance() {
       <HeroSection />
       <TeaserSection />
       <GallerySection />
-      <Footer textColor="#FFFFFF" propertyName="Alto Atacama" />
+      <Footer textColor="#FFFFFF" />
     </div>
   );
 }

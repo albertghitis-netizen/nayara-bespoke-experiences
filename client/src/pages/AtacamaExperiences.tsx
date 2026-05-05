@@ -24,7 +24,7 @@ import {
 const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
 
 const PALETTE = {
-  primary: "#6F463D",
+  primary: "#B85C3C",
   secondary: "#9A9086",
   accent: "#C29B70",
   gradientStart: "#F7F5F0",
@@ -48,7 +48,7 @@ export default function AtacamaExperiences() {
       <BrandNavigation pageType="property" hideCenterLabel />
       <ExperiencesHero />
       <ExperiencesContent />
-      <Footer pageType="property" bgColor="#6F463D" textColor="#FFFFFF" propertyName="Alto Atacama" />
+      <Footer pageType="property" bgColor="#B85C3C" textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }

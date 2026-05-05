@@ -26,7 +26,7 @@ import {
 } from "@/data/sustainability";
 
 const PALETTE = {
-  primary: "#6F463D",
+  primary: "#B85C3C",
   secondary: "#9A9086",
   accent: "#C29B70",
   gradientStart: "#F7F5F0",
@@ -74,7 +74,7 @@ export default function AtacamaSustainability() {
       <ByTheNumbersSection />
       <BlogCardsSection />
       <JournalSection />
-      <Footer pageType="property" bgColor="#6F463D" textColor="#FFFFFF" propertyName="Alto Atacama" />
+      <Footer pageType="property" bgColor="#B85C3C" textColor="#FFFFFF" propertyName="Alto Atacama" />
     </div>
   );
 }
