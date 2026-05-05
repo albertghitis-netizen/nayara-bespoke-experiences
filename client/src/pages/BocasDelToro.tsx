@@ -59,7 +59,7 @@ const PALETTE = {
   text: "#1A0F0A",
   textSecondary: "#1A0F0A",
   textTertiary: "#1A0F0A99",
-  primary: "#008E97",
+  primary: "#1E3A8A",
   divider: "#E6DFD5",
 };
 const BONE = "#FFFFFF";
@@ -529,7 +529,7 @@ function CascadeSection({
                   fontSize: "12px",
                   letterSpacing: "0.08em",
                   color: "#fff",
-                  borderColor: "#008E97",
+                  borderColor: "#1E3A8A",
                   backgroundColor: "rgba(0,142,151,0.7)",
                   backdropFilter: "blur(8px)",
                 }}
@@ -579,7 +579,7 @@ function HeroSection() {
           src={heroVideo}
           className="w-full h-full object-cover"
           hasAudio={true}
-          pillBg="#008E97B3"
+          pillBg="#1E3A8AB3"
           pillColor="#FFFFFF"/>
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
@@ -860,6 +860,8 @@ export default function BocasDelToro() {
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
         { id: "gastronomy", label: "Gastronomy" },
+        { id: "night", label: "Night" },
+        { id: "getting-here", label: "Getting Here" },
       ]} />
       <HeroSection />
 
@@ -922,7 +924,7 @@ export default function BocasDelToro() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor="#008E97"  textColor="#FFFFFF" />
+      <Footer bgColor="#1E3A8A"  textColor="#FFFFFF" />
     </div>
   );
 }
