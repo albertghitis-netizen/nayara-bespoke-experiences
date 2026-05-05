@@ -15,7 +15,7 @@ const AltoAtacama = lazy(() => import("./pages/AltoAtacama"));
 const CuratedExcursions = lazy(() => import("./pages/ExperientialArenal"));
 const FamilyExpeditions = lazy(() => import("./pages/FamilyExpeditions"));
 const RainforestRomance = lazy(() => import("./pages/RainforestRomance"));
-const Hangaroa = lazy(() => import("./pages/ComingSoon"));
+const Hangaroa = lazy(() => import("./pages/Hangaroa"));
 const BocasDelToro = lazy(() => import("./pages/BocasDelToro"));
 const Journal = lazy(() => import("./pages/Journal"));
 const AwardsAndPress = lazy(() => import("./pages/AwardsAndPress"));

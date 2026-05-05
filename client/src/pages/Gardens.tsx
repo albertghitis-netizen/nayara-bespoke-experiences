@@ -19,6 +19,8 @@ import PillarCrossLink from "@/components/PillarCrossLink";
 import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import PropertySlider from "@/components/PropertySlider";
+import RoomSlider, { RoomSliderCard } from "@/components/RoomSlider";
+import { BOOKING_URLS } from "@/data/booking";
 import PropertySorter from "@/components/PropertySorter";
 import {
   AnimateOnScroll,
@@ -124,6 +126,29 @@ const roomCards = [
   { title: "Arenal Casita", description: "Freestanding casitas surrounded by tropical gardens with private plunge pools, outdoor showers, and panoramic Arenal Volcano views. Wake to howler monkeys and fall asleep under a canopy of stars.", tags: ["Private plunge pool", "Volcano views", "Outdoor shower"] },
   { title: "Arenal Suite", description: "Elevated suites offering expansive living spaces with handcrafted furnishings, deep soaking tubs, and wraparound terraces overlooking the rainforest canopy.", tags: ["Wraparound terrace", "Soaking tub", "Rainforest views"] },
   { title: "Family Casita", description: "Spacious two-bedroom casitas designed for families, with interconnected rooms, a shared garden, and easy access to the resort's nature trails and pools.", tags: ["Two bedrooms", "Family-friendly", "Garden access"] },
+];
+
+const GARDENS_ROOMS: RoomSliderCard[] = [
+  {
+    id: "arenal-pool-casita",
+    label: "Arenal Pool Casita",
+    tagline: "Private plunge pool villas in the rainforest canopy",
+    sqm: "93",
+    guests: "2 Adults + 1 Child",
+    video: "/manus-storage/gardens-accom-vertical-trimmed_212a6993.mp4",
+    exploreLink: "/gardens/rooms/arenal-pool-casita",
+    bookingUrl: BOOKING_URLS.gardens,
+  },
+  {
+    id: "rainforest-pool-villa",
+    label: "Rainforest Pool Villa",
+    tagline: "Expansive villas with panoramic volcano views",
+    sqm: "186",
+    guests: "2 Adults + 2 Children",
+    video: "/manus-storage/gardens-accom-h_3741079f.mp4",
+    exploreLink: "/gardens/rooms/rainforest-pool-villa",
+    bookingUrl: BOOKING_URLS.gardens,
+  },
 ];
 
 const sustainabilityCards = [
@@ -367,9 +392,24 @@ function StorySection() {
       {/* S2 — One Rainforest, Three Resorts (compact) */}
       <OneRainforestCompact />
 
-      {/* S3 + S4 — Timed Overlay Experiment (pretending this is Tented Camp Accommodations) */}
+      {/* ── Rooms: Horizontal Slider ── */}
       <div id="rooms">
-      <AccommodationsExperiment />
+        <RoomSlider
+          sectionLabel="Accommodations"
+          headline="Private Pool Villas"
+          description="Each villa is a private retreat with its own heated plunge pool, open-air garden shower, and panoramic views of Arenal Volcano."
+          rooms={GARDENS_ROOMS}
+          palette={{
+            bg: PALETTE.gradientStart,
+            text: PALETTE.text,
+            textSecondary: PALETTE.textSecondary,
+            primary: PALETTE.primary,
+            cardBg: PALETTE.gradientEnd,
+            cardBorder: `${PALETTE.primary}20`,
+            pillBg: PALETTE.primary,
+            pillText: "#FFFFFF",
+          }}
+        />
       </div>
     </section>
   );

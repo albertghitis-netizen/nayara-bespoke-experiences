@@ -4,7 +4,7 @@
  * Desktop:  [Hamburger]  ···  Property Name Strip (center)  ···  [Reserve]
  * Mobile:   [Hamburger]  [Reserve]
  *
- * Hamburger menu dropdowns: Pillars, Explore, Costa Rica, Destinations
+ * Hamburger menu: Explore, Our Resorts, Journal (single link)
  */
 
 import { useState, useEffect, useRef } from "react";
@@ -16,14 +16,13 @@ import {
   type PageType,
   PROPERTY_MENU,
   PROPERTIES,
-  COSTA_RICA_ITEMS,
   RESORTS_ITEMS,
-  PILLARS_COLUMN,
-  EXPLORE_COLUMN,
+  EXPLORE_MENU_ITEMS,
+  JOURNAL_NAV_ITEM,
 } from "@/data/navigation";
 
 /* ── Menu state keys ── */
-type MenuKey = "pillars" | "explore" | "costaRica" | "resorts";
+type MenuKey = "explore" | "resorts";
 
 /* ── Map routes to property IDs for highlighting ── */
 const ROUTE_TO_PROPERTY: Record<string, string> = {};
@@ -94,9 +93,7 @@ export default function BrandNavigation({
   const [sectionNavOpen, setSectionNavOpen] = useState(false);
   const sectionNavRef = useRef<HTMLDivElement>(null);
   const [expandedMenus, setExpandedMenus] = useState<Record<MenuKey, boolean>>({
-    pillars: false,
     explore: false,
-    costaRica: false,
     resorts: false,
   });
   const [scrolled, setScrolled] = useState(false);
@@ -131,7 +128,7 @@ export default function BrandNavigation({
     setMenuOpen(false);
     setReserveOpen(false);
     setSectionNavOpen(false);
-    setExpandedMenus({ pillars: false, explore: false, costaRica: false, resorts: false });
+    setExpandedMenus({ explore: false, resorts: false });
   };
 
   const handleNavigate = (route: string) => {
@@ -155,7 +152,7 @@ export default function BrandNavigation({
 
   const toggleDropdown = (key: MenuKey) => {
     setExpandedMenus((prev) => {
-      const allClosed: Record<MenuKey, boolean> = { pillars: false, explore: false, costaRica: false, resorts: false };
+      const allClosed: Record<MenuKey, boolean> = { explore: false, resorts: false };
       return { ...allClosed, [key]: !prev[key] };
     });
   };
@@ -259,26 +256,28 @@ export default function BrandNavigation({
         </>
       )}
 
-      {/* Global links header (only on property pages) */}
-      {propertyItems.length > 0 && (
-        <div className="px-5 pt-1 pb-1">
-          <span className="text-[10px] tracking-[0.18em]" style={{...menuText, opacity: 0.3}}>
-            Explore Nayara
-          </span>
-        </div>
-      )}
+      {/* Flat list — categories */}
+      {EXPLORE_MENU_ITEMS.map((item) => (
+        <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
+          <span className="text-[13px]" style={menuText}>{item.label}</span>
+        </button>
+      ))}
 
-      {/* Pillars Dropdown */}
-      {renderDropdownSection("pillars", "Pillars", PILLARS_COLUMN.links as { label: string; route: string; separatorBefore?: boolean }[])}
+      <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
 
-      {/* Explore Dropdown */}
-      {renderDropdownSection("explore", "Explore", EXPLORE_COLUMN.links as { label: string; route: string; separatorBefore?: boolean }[])}
+      {/* Flat list — hotels */}
+      {RESORTS_ITEMS.map((item) => (
+        <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
+          <span className="text-[13px]" style={menuText}>{item.label}</span>
+        </button>
+      ))}
 
-      {/* Costa Rica Dropdown */}
-      {renderDropdownSection("costaRica", "Costa Rica", COSTA_RICA_ITEMS as unknown as { label: string; route: string; separatorBefore?: boolean }[])}
+      <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
 
-      {/* Destinations Dropdown */}
-      {renderDropdownSection("resorts", "Destinations", resortsWithSeparator)}
+      {/* Journal — single link */}
+      <button type="button" onClick={() => handleNavigate(JOURNAL_NAV_ITEM.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
+        <span className="text-[13px]" style={menuText}>{JOURNAL_NAV_ITEM.label}</span>
+      </button>
     </div>
   );
 

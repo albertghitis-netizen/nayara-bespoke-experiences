@@ -27,7 +27,8 @@ import {
   EASE_CINEMATIC,
 } from "@/components/motion";
 import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
-import RoomScrollSection from "@/components/RoomScrollSection";
+import RoomSlider, { RoomSliderCard } from "@/components/RoomSlider";
+import { BOOKING_URLS } from "@/data/booking";
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -903,6 +904,56 @@ function ReserveCTA() {
   );
 }
 /* ═══════════════════════════════════════════════════════════════
+   ROOM SLIDER DATA
+   ═══════════════════════════════════════════════════════════════ */
+const TENTED_CAMP_ROOMS: RoomSliderCard[] = [
+  {
+    id: "nayara-tent",
+    label: "Nayara Tent",
+    tagline: "Where luxury meets the rainforest canopy",
+    sqft: "1,700",
+    sqm: "158",
+    guests: "2 adults + 2 children",
+    video: "/manus-storage/Tentreel4-converted_afd33d7d.mp4",
+    exploreLink: "/tented-camp/rooms/nayara-tent",
+    bookingUrl: BOOKING_URLS["tented-camp"],
+  },
+  {
+    id: "family-tent",
+    label: "Family Tent",
+    tagline: "Connected spaces for families who explore together",
+    sqft: "2,400",
+    sqm: "223",
+    guests: "2 adults + 3 children",
+    video: "/manus-storage/family-tent-hero-new_00a85ac0.mp4",
+    exploreLink: "/tented-camp/rooms/family-tent",
+    bookingUrl: BOOKING_URLS["tented-camp"],
+  },
+  {
+    id: "grand-tent",
+    label: "Grand Tent",
+    tagline: "A private compound in the heart of the jungle",
+    sqft: "4,804",
+    sqm: "446",
+    guests: "4 adults + 2 children",
+    video: "/manus-storage/tented-camp-horizontal-v2_973b7121.mp4",
+    exploreLink: "/tented-camp/rooms/grand-tent",
+    bookingUrl: BOOKING_URLS["tented-camp"],
+  },
+  {
+    id: "residence",
+    label: "Nayara Residence",
+    tagline: "The ultimate private estate for multi-generational journeys",
+    sqft: "7,664",
+    sqm: "712",
+    guests: "Up to 12 adults",
+    video: "/manus-storage/tented-residence-hero_e6990cf1.mp4",
+    exploreLink: "/tented-camp/rooms/residence",
+    bookingUrl: BOOKING_URLS["tented-camp"],
+  },
+];
+
+/* ═══════════════════════════════════════════════════════════════
    SECTION DATA — 8 cascade sections
    ═══════════════════════════════════════════════════════════════ */
 const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
@@ -1434,8 +1485,23 @@ export default function TentedCamp() {
       {/* ── One Rainforest, Three Resorts — Three Keys, One Door ── */}
       <OneRainforestCompactTC />
 
-      {/* ── Rooms: Horizontal Scroll-Jacking Section ── */}
-      <RoomScrollSection />
+      {/* ── Rooms: Horizontal Slider ── */}
+      <RoomSlider
+        sectionLabel="Accommodations"
+        headline="Luxury Tented Suites"
+        description="From intimate canopy retreats to expansive private estates — each tent is a world unto itself."
+        rooms={TENTED_CAMP_ROOMS}
+        palette={{
+          bg: COLOR_A,
+          text: PALETTE.text,
+          textSecondary: PALETTE.textSecondary,
+          primary: PALETTE.primary,
+          cardBg: COLOR_B,
+          cardBorder: `${PALETTE.primary}20`,
+          pillBg: PALETTE.primary,
+          pillText: "#FFFFFF",
+        }}
+      />
 
       {/* Remaining cascade sections: Experiences → Sustainability → Wellness (skip rooms at index 1) */}
       {SECTIONS_BEFORE_REVIEW.slice(2).map((section, i) => (

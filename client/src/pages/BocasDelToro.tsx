@@ -11,6 +11,8 @@ import Footer from "@/components/Footer";
 import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
+import RoomSlider, { RoomSliderCard } from "@/components/RoomSlider";
+import { BOOKING_URLS } from "@/data/booking";
 import {
   AnimateOnScroll,
   TextReveal,
@@ -62,6 +64,27 @@ const PALETTE = {
 };
 const BONE = "#FFFFFF";
 const DARK_SECTION_IDS = ["nayara-by-night"];
+
+const BOCAS_ROOMS: RoomSliderCard[] = [
+  {
+    id: "overwater-villa",
+    label: "Overwater Villa",
+    tagline: "Suspended above the Caribbean Sea with direct ocean access",
+    guests: "2 Adults",
+    video: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
+    exploreLink: "/bocas-del-toro/rooms",
+    bookingUrl: BOOKING_URLS["bocas-del-toro"],
+  },
+  {
+    id: "treehouse-villa",
+    label: "Treehouse Villa",
+    tagline: "Elevated among the jungle canopy with ocean views",
+    guests: "2 Adults",
+    video: "/manus-storage/bocas-accommodations-h_d33b2e24.mp4",
+    exploreLink: "/bocas-del-toro/rooms",
+    bookingUrl: BOOKING_URLS["bocas-del-toro"],
+  },
+];
 
 /* ═══════════════════════════════════════════════════════════════
    CDN ASSETS — EVERY Bocas asset, organized by section
@@ -840,8 +863,32 @@ export default function BocasDelToro() {
       ]} />
       <HeroSection />
 
-      {CASCADE_SECTIONS.map((section, i) => (
-        <CascadeSection key={section.id} section={section} index={i} />
+      {/* Story section */}
+      <CascadeSection key={CASCADE_SECTIONS[0].id} section={CASCADE_SECTIONS[0]} index={0} />
+
+      {/* ── Rooms: Horizontal Slider ── */}
+      <div id="rooms">
+        <RoomSlider
+          sectionLabel="Accommodations"
+          headline={"Overwater Villas\n& Rainforest Treehouses"}
+          description="Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views."
+          rooms={BOCAS_ROOMS}
+          palette={{
+            bg: COLOR_A,
+            text: PALETTE.text,
+            textSecondary: PALETTE.textSecondary,
+            primary: PALETTE.primary,
+            cardBg: COLOR_B,
+            cardBorder: `${PALETTE.primary}20`,
+            pillBg: PALETTE.primary,
+            pillText: "#FFFFFF",
+          }}
+        />
+      </div>
+
+      {/* Remaining cascade sections (experiences, sustainability, wellness, gastronomy, by-night) */}
+      {CASCADE_SECTIONS.slice(2).map((section, i) => (
+        <CascadeSection key={section.id} section={section} index={i + 2} />
       ))}
 
       <ReviewsBreak bgColor={COLOR_A} />

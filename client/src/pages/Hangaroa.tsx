@@ -237,8 +237,20 @@ export default function Hangaroa() {
       {/* ── TRIMMED: GalleryIntegratedSections hidden for performance ── */}
       {/* <GalleryIntegratedSections /> */}
       </div>
-      {/* ★ 6. NAYARA BY NIGHT */}
+
+      {/* ★ 6. REVIEWS */}
+      <HangaroaReviews />
+
+      {/* ★ 7. GETTING HERE */}
+      <HangaroaGettingHere />
+
+      {/* ★ 8. NAYARA BY NIGHT */}
       <NayaraByNightSection />
+
+      {/* ★ 9. RESERVE CTA */}
+      <HangaroaReserveCTA />
+
+      {/* ★ 10. EXPLORE HOTELS */}
       <CrossPropertyCTA
         suggestions={[
           {
@@ -952,5 +964,224 @@ function GalleryIntegratedSections() {
         );
       })}
     </>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   REVIEWS — Guest Voices
+   ═══════════════════════════════════════════════════════════════ */
+function HangaroaReviews() {
+  return (
+    <section
+      className="py-20 md:py-28 px-8 md:px-16"
+      style={{ backgroundColor: PALETTE.gradientEnd }}
+    >
+      <div className="max-w-3xl mx-auto text-center">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] mb-6"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+          >
+            Guest Voices
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <div className="flex justify-center gap-1 mb-6">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-5 h-5" fill={PALETTE.primary} viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <p
+            className="text-[13px] tracking-[0.04em] mb-8"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textTertiary }}
+          >
+            Based on 800+ reviews on TripAdvisor
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <blockquote>
+            <p
+              className="text-[17px] md:text-[20px] leading-relaxed italic mb-4"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.text }}
+            >
+              "A once-in-a-lifetime experience. The connection to Rapa Nui culture is authentic and deeply moving. Watching the sunrise over the Moai from our suite was something we will never forget. The staff made us feel like family."
+            </p>
+            <cite
+              className="text-[12px] tracking-[0.08em] not-italic"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textTertiary }}
+            >
+              — Sarah & James, TripAdvisor
+            </cite>
+          </blockquote>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <a
+            href="https://www.tripadvisor.com/Hotel_Review-g316040-d301079-Reviews-Hangaroa_Eco_Village_Spa-Easter_Island.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+          >
+            Read All Reviews →
+          </a>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GETTING HERE — Easter Island travel info
+   ═══════════════════════════════════════════════════════════════ */
+function HangaroaGettingHere() {
+  const routes = [
+    {
+      title: "International Flight to Santiago",
+      description: "Fly into Santiago de Chile (SCL) from major international hubs. Direct flights available from North America, Europe, and across South America.",
+      icon: "✈",
+    },
+    {
+      title: "Flight to Easter Island",
+      description: "LATAM Airlines operates daily flights from Santiago to Mataveri International Airport (IPC) on Easter Island. Flight time is approximately 5 hours.",
+      icon: "🏝",
+    },
+    {
+      title: "Airport Transfer",
+      description: "Nayara Hangaroa is just 5 minutes from Mataveri Airport. Our team greets you on arrival and provides a private transfer directly to the resort.",
+      icon: "🚐",
+    },
+    {
+      title: "Island Orientation",
+      description: "Upon arrival, your personal guide introduces you to the island's geography, culture, and your curated experience itinerary for the days ahead.",
+      icon: "🗺",
+    },
+  ];
+
+  return (
+    <section
+      id="getting-here"
+      className="py-20 md:py-28 px-8 md:px-16"
+      style={{ backgroundColor: PALETTE.gradientStart }}
+    >
+      <div className="max-w-[1000px] mx-auto">
+        <AnimateOnScroll variants={fadeUp}>
+          <SectionLabel>Getting Here</SectionLabel>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <h2 className="mb-4">
+            <span
+              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.1] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", color: PALETTE.text }}
+            >
+              Your Journey to Easter Island
+            </span>
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <p
+            className="text-[15px] leading-relaxed mb-12 md:mb-16 max-w-xl"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Easter Island — Rapa Nui — is one of the most remote inhabited islands on Earth, located 3,700 km off the coast of Chile in the southeastern Pacific Ocean.
+          </p>
+        </AnimateOnScroll>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+          {routes.map((route, i) => (
+            <AnimateOnScroll key={i} variants={fadeUp} delay={0.1 + i * 0.08}>
+              <div className="flex gap-5">
+                <div
+                  className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
+                  style={{ backgroundColor: `${PALETTE.primary}10`, color: PALETTE.primary }}
+                >
+                  {route.icon}
+                </div>
+                <div>
+                  <h3
+                    className="text-[16px] mb-2"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
+                  >
+                    {route.title}
+                  </h3>
+                  <p
+                    className="text-[13px] leading-relaxed"
+                    style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+                  >
+                    {route.description}
+                  </p>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.5}>
+          <div
+            className="mt-12 md:mt-16 p-6"
+            style={{ borderLeft: `2px solid ${PALETTE.primary}30` }}
+          >
+            <p
+              className="text-[13px] leading-relaxed"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span>{" "}
+              Our reservations team can arrange all flights and transfers. Contact us at{" "}
+              <a href="mailto:reservations@hangaroa.cl" className="underline" style={{ color: PALETTE.primary }}>
+                reservations@hangaroa.cl
+              </a>{" "}
+              or call{" "}
+              <a href="tel:+56322553700" className="underline" style={{ color: PALETTE.primary }}>
+                +56 32 255 3700
+              </a>.
+            </p>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESERVE CTA — "Begin Your Easter Island Journey"
+   ═══════════════════════════════════════════════════════════════ */
+function HangaroaReserveCTA() {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: PALETTE.gradientEnd }}>
+      <div className="max-w-[800px] mx-auto text-center">
+        <AnimateOnScroll variants={fadeUp}>
+          <TextReveal as="h2" className="mb-6" delay={0.1}>
+            <span
+              className="text-2xl md:text-4xl lg:text-5xl tracking-wide"
+              style={{ fontFamily: "var(--font-display)", color: PALETTE.text }}
+            >
+              Begin Your Easter Island Journey
+            </span>
+          </TextReveal>
+          <p className="text-[15px] leading-[1.8] mb-8" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+            Oceanfront suites, ancient Moai at sunrise, Polynesian culture, and the most remote luxury destination on Earth await.
+          </p>
+          <a
+            href="https://www.synxis.com/rez.aspx?Hotel=76901&Chain=24447&arrive=&depart=&adult=2&child=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-3.5 rounded-full text-[11px] tracking-[0.2em] transition-all hover:opacity-80"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: PALETTE.primary, color: "#fff" }}
+          >
+            Reserve Your Stay
+          </a>
+        </AnimateOnScroll>
+      </div>
+    </section>
   );
 }

@@ -8,6 +8,8 @@ import { Fragment, type ReactNode } from "react";
 import NightSky from "@/components/NightSky";
 import { motion } from "framer-motion";
 import BlobVideo from "@/components/BlobVideo";
+import RoomSlider, { RoomSliderCard } from "@/components/RoomSlider";
+import { BOOKING_URLS } from "@/data/booking";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -161,6 +163,36 @@ const ASSETS = {
   heroDesktopPhoto: "/manus-storage/4O1A1949-NayaraAltoAtacama-RainbowValley-byBriceFerreStudio(1)_a94c41d0.jpeg",
   propCard: "/manus-storage/prop-atacama_704b4f26.jpg",
 };
+
+const ATACAMA_ROOMS: RoomSliderCard[] = [
+  {
+    id: "quitor-suite",
+    label: "Quitor Suite",
+    tagline: "Panoramic desert views with private heated infinity pool",
+    guests: "2 Adults",
+    video: ASSETS.roomsV,
+    exploreLink: "/alto-atacama/rooms",
+    bookingUrl: BOOKING_URLS["alto-atacama"],
+  },
+  {
+    id: "ckuri-suite",
+    label: "Ckuri Suite",
+    tagline: "Premium suites with expansive terraces and desert panoramas",
+    guests: "2 Adults + 1 Child",
+    video: ASSETS.roomsH,
+    exploreLink: "/alto-atacama/rooms",
+    bookingUrl: BOOKING_URLS["alto-atacama"],
+  },
+  {
+    id: "puri-suite",
+    label: "Puri Suite",
+    tagline: "Intimate suites surrounded by native gardens",
+    guests: "2 Adults",
+    video: ASSETS.clip5H,
+    exploreLink: "/alto-atacama/rooms",
+    bookingUrl: BOOKING_URLS["alto-atacama"],
+  },
+];
 
 const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)" } as const;
@@ -705,6 +737,8 @@ export default function AltoAtacama() {
          V+Text always comes before its own H, ensuring no H touches H
          and no V touches V. */}
       {CASCADE_SECTIONS.map((section, i) => {
+        /* Insert RoomSlider after the first section (story) */
+        const showRoomSlider = i === 1;
         const bg = (section as any).bgOverride || SECTION_COLORS[i + 1] || SECTION_COLORS[SECTION_COLORS.length - 1];
         const isHidden = (section as any).hideH;
         const isHFirst = (section as any).hFirst;
@@ -815,6 +849,33 @@ export default function AltoAtacama() {
 
 
         const sectionId = section.label.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+        /* Replace the Accommodations cascade section with the RoomSlider */
+        if (showRoomSlider) {
+          return (
+            <Fragment key={i}>
+              <div id="accommodations">
+                <RoomSlider
+                  sectionLabel="Accommodations"
+                  headline="Desert Suites"
+                  description="Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape."
+                  rooms={ATACAMA_ROOMS}
+                  palette={{
+                    bg: COLOR_A,
+                    text: PALETTE.text,
+                    textSecondary: PALETTE.textSecondary,
+                    primary: MIDDLE,
+                    cardBg: LIGHT,
+                    cardBorder: `${MIDDLE}20`,
+                    pillBg: MIDDLE,
+                    pillText: "#FFFFFF",
+                  }}
+                />
+              </div>
+            </Fragment>
+          );
+        }
+
         return (
           <Fragment key={i}>
             <section id={sectionId} style={{ backgroundColor: bg }}>

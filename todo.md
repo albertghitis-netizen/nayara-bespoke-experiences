@@ -3396,3 +3396,61 @@
 - [x] 4 cards: Nayara Tent → Family Tent → Grand Tent → Residence
 - [x] Integrate into TentedCamp.tsx replacing current rooms cascade section
 - [x] Smooth transitions between room cards on scroll
+
+## Room Slider — All Properties (Regular Horizontal Slider, Video-Only)
+- [x] Build reusable RoomSlider component (horizontal card slider like PropertySlider on homepage)
+- [x] Each card: video background, room name, stats (sqft/m²/guests), Explore + Reserve buttons
+- [x] Video-only for now (user will provide stills later)
+- [x] Replace scroll-jacking RoomScrollSection on Tented Camp with new RoomSlider
+- [x] Implement RoomSlider on Gardens page with room types
+- [x] Implement RoomSlider on Springs page (single room, same style)
+- [x] Implement RoomSlider on Bocas del Toro page with room types
+- [x] Implement RoomSlider on Alto Atacama page with room types
+
+## Navigation Fix
+- [ ] Remove "Costa Rica" from hamburger nav menu
+
+## Navigation Fix
+- [ ] Remove "Costa Rica" link from hamburger nav menu (keep the page, just remove nav access)
+- [ ] Remove "Costa Rica" link from footer (keep the page, just remove footer access)
+
+## Room Slider — All Properties (Regular Horizontal Slider, Video-Only)
+- [x] Build reusable RoomSlider component (horizontal card slider like PropertySlider on homepage)
+- [x] Each card: video background, room name, stats (sqft/m²/guests), Explore + Reserve buttons
+- [x] Video-only for now (user will provide stills later)
+- [x] Replace scroll-jacking RoomScrollSection on Tented Camp with new RoomSlider
+- [x] Implement RoomSlider on Gardens page with room types
+- [x] Implement RoomSlider on Springs page (single room, same style)
+- [x] Implement RoomSlider on Bocas del Toro page with room types
+- [x] Implement RoomSlider on Alto Atacama page with room types
+
+## Costa Rica Page — Property-Themed Access
+- [ ] Costa Rica page nav/footer color matches referring property (Gardens/Springs/Tented Camp)
+- [ ] Access only from property home pages (Experiences, Sustainability, Gastronomy, Wellness sections)
+
+## Navigation Fix
+- [ ] Remove "Costa Rica" link from hamburger nav menu (keep the page, just remove nav access)
+- [ ] Remove "Costa Rica" link from footer (keep the page, just remove footer access)
+
+## Nav Restructure
+- [x] Hamburger nav: flat list (Experiences, Sustainability, Wellness, Gastronomy, Romance, Family, Gallery, all hotels, Journal)
+- [x] Remove Pillars/Explore/Our Resorts dropdown headers
+- [x] Footer: Journal as header with Blog, Press, Awards, Podcast, FAQ sub-links
+- [x] Remove Nayara by Night from nav
+- [x] Remove Costa Rica from nav and footer
+
+## Nayara by Night Changes
+- [ ] Remove standalone Nayara by Night page
+- [ ] Remove "Nayara by Night" from hamburger nav
+- [ ] Expand by Night sections on property home pages with horizontal slider for night experiences
+
+## Nav Flat List Update
+- [x] Remove "Explore" and "Our Resorts" dropdown headers — just flat list all sub-items
+
+## Hangaroa Property Page — Build Out (Bottom Up)
+- [x] By Night section (moai under milky way video/image)
+- [x] Getting Here section
+- [x] Reviews section
+- [x] Explore Hotels (Continue Your Journey) section
+- [x] CTA (Reserve Your Stay) section
+- [x] Hangaroa route now loads full page (not ComingSoon)

@@ -18,6 +18,8 @@ import PillarCrossLink from "@/components/PillarCrossLink";
 import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import PropertySlider from "@/components/PropertySlider";
+import RoomSlider, { RoomSliderCard } from "@/components/RoomSlider";
+import { BOOKING_URLS } from "@/data/booking";
 import PropertySorter from "@/components/PropertySorter";
 import {
   AnimateOnScroll,
@@ -103,6 +105,18 @@ const SLIDER_PALETTE = {
   pillActiveText: "#FFFFFF",    // Super bright white on dark nav
 };
 
+const SPRINGS_ROOMS: RoomSliderCard[] = [
+  {
+    id: "springs-villa",
+    label: "Springs Villa",
+    tagline: "Private hot spring pool villas in the rainforest canopy",
+    guests: "2 Adults",
+    video: "/manus-storage/springs-s3-accommodation_9a2a14f0.mp4",
+    exploreLink: "/springs/rooms/springs-villa",
+    bookingUrl: BOOKING_URLS.springs,
+  },
+];
+
 const roomCards = [
   { title: "Springs Villa", description: "Freestanding villas with private natural hot spring-fed plunge pools, outdoor garden showers, and floor-to-ceiling windows framing the Arenal Volcano. Each villa is a secluded sanctuary in the rainforest canopy.", tags: ["Private hot spring pool", "Volcano views", "Outdoor shower"] },
   { title: "Springs Grand Villa", description: "Our most expansive villas, offering separate living areas, oversized hot spring pools, and wraparound terraces. Designed for those seeking the ultimate in privacy and space.", tags: ["Grand hot spring pool", "Separate living area", "Wraparound terrace"] },
@@ -165,7 +179,25 @@ export default function Springs() {
       ]} />
       <HeroSection />
       <StorySection />
-      <SpringsVillaSection />
+      {/* ── Rooms: Horizontal Slider ── */}
+      <div id="accommodations">
+        <RoomSlider
+          sectionLabel="Accommodations"
+          headline="Springs Villa"
+          description="Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation."
+          rooms={SPRINGS_ROOMS}
+          palette={{
+            bg: PALETTE.gradientEnd,
+            text: PALETTE.text,
+            textSecondary: PALETTE.textSecondary,
+            primary: PALETTE.primary,
+            cardBg: PALETTE.gradientStart,
+            cardBorder: `${PALETTE.primary}20`,
+            pillBg: PALETTE.primary,
+            pillText: "#FFFFFF",
+          }}
+        />
+      </div>
       <ExperiencesSection />
       <SustainabilitySection />
       <WellnessSection />

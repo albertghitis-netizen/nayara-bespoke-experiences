@@ -1,10 +1,15 @@
 /**
  * NAVIGATION CONFIGURATION — Centralized navigation data for all page types
  *
- * Three page types with distinct hamburger menus:
- * 1. Property pages — focused on THIS property (Story, Rooms, Experiences, Wellness, Gastronomy, Sustainability, Getting Here)
- * 2. Brand pages — brand-level (Story, Experiences, Wellness, Gastronomy, Sustainability, Awards & Press, Journal)
- * 3. Content pages — same as brand pages
+ * Hamburger menu structure (3 sections):
+ * 1. Explore — Experiences, Sustainability, Wellness, Gastronomy, Romance, Family, Nayara by Night, Gallery
+ * 2. Our Resorts — All 6 hotels + Nayara Resorts brand home
+ * 3. Journal — single link to /journal (no sub-categories in nav)
+ *
+ * Footer structure (3 columns):
+ * 1. Explore — same as nav
+ * 2. Our Resorts — same as nav
+ * 3. Journal — header with 5 sub-links (Blog, Press, Awards, Podcast, FAQ) for SEO
  *
  * Universal rules:
  * - Hamburger menu text: NOT all caps, same font as body text
@@ -55,36 +60,48 @@ export const FAMILY_PROPERTIES = [
 
 export const CONTENT_SECTIONS = [
   { label: "Blog", route: "/journal" },
-  
   { label: "Awards & Press", route: "/awards" },
 ] as const;
 
 /* Property page hamburger — no in-page anchors, property home flows naturally */
 export const PROPERTY_MENU: MenuItem[] = [];
 
-/* Standardized menu items for brand & content pages (hamburger + footer match) */
-/* Costa Rica section */
-const COSTA_RICA_MENU_ITEMS: MenuItem[] = [
-  { label: "Rainforest Adventure", route: "/curated-excursions" },
-  { label: "Nurtured by Nature", route: "/costa-rica-wellness" },
-  { label: "Forest to Table", route: "/gastronomy" },
-  { label: "Beyond Reforestation", route: "/sustainability" },
-];
-
-/* Explore column items (7 brand pages) */
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 1: EXPLORE — 6 categories + Nayara by Night + Gallery
+   ═══════════════════════════════════════════════════════════════ */
 export const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Experiences", route: "/experiences" },
   { label: "Sustainability", route: "/sustainability" },
   { label: "Wellness", route: "/wellness" },
   { label: "Gastronomy", route: "/gastronomy" },
-  { label: "Journal", route: "/journal" },
-  { label: "Press & Awards", route: "/awards" },
   { label: "Romance", route: "/rainforest-romance" },
   { label: "Family", route: "/family-expeditions" },
   { label: "Gallery", route: "/gallery" },
 ];
 
-/* Costa Rica dropdown items */
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 2: OUR RESORTS — All hotels
+   ═══════════════════════════════════════════════════════════════ */
+export const RESORTS_ITEMS: MenuItem[] = [
+  ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
+  { label: "Nayara Resorts", route: "/" },
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 3: JOURNAL — single link in nav
+   ═══════════════════════════════════════════════════════════════ */
+export const JOURNAL_NAV_ITEM: MenuItem = { label: "Journal", route: "/journal" };
+
+/* Journal sub-links for footer (each with own URL for SEO) */
+export const JOURNAL_FOOTER_ITEMS: MenuItem[] = [
+  { label: "Blog", route: "/journal/blog" },
+  { label: "Press", route: "/journal/press" },
+  { label: "Awards", route: "/awards" },
+  { label: "Podcast", route: "/journal/podcast" },
+  { label: "FAQ", route: "/faq" },
+];
+
+/* Costa Rica dropdown items (kept for internal use, not in nav/footer) */
 export const COSTA_RICA_ITEMS: MenuItem[] = [
   { label: "Rainforest Adventure", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/costa-rica-wellness" },
@@ -95,19 +112,9 @@ export const COSTA_RICA_ITEMS: MenuItem[] = [
 /* Pura Vida pillar items for footer */
 export const PURA_VIDA_PILLARS: MenuItem[] = COSTA_RICA_ITEMS.slice(1);
 
-/* Our Resorts dropdown items */
-export const RESORTS_ITEMS: MenuItem[] = [
-  ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
-  { label: "Nayara Resorts", route: "/" },
-];
-
-/* Brand page hamburger — standardized menu */
+/* Brand page hamburger — 3 sections (Journal is single item, not dropdown) */
 export function getBrandMenu(): MenuSection[] {
   return [
-    {
-      header: "Costa Rica",
-      items: COSTA_RICA_ITEMS,
-    },
     {
       header: "Explore",
       items: EXPLORE_MENU_ITEMS,
@@ -115,6 +122,9 @@ export function getBrandMenu(): MenuSection[] {
     {
       header: "Our Resorts",
       items: RESORTS_ITEMS,
+    },
+    {
+      items: [JOURNAL_NAV_ITEM],
     },
   ];
 }
@@ -129,6 +139,24 @@ export interface FooterColumn {
   links: { label: string; route: string; external?: boolean; separatorBefore?: boolean }[];
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER COLUMNS — Match nav structure
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Explore column for footer */
+export const EXPLORE_COLUMN: FooterColumn = {
+  title: "Explore",
+  links: [
+    { label: "Experiences", route: "/experiences" },
+    { label: "Sustainability", route: "/sustainability" },
+    { label: "Wellness", route: "/wellness" },
+    { label: "Gastronomy", route: "/gastronomy" },
+    { label: "Romance", route: "/rainforest-romance" },
+    { label: "Family", route: "/family-expeditions" },
+    { label: "Gallery", route: "/gallery" },
+  ],
+};
+
 /* Resorts column for footer */
 const RESORTS_COLUMN: FooterColumn = {
   title: "Our Resorts",
@@ -138,51 +166,19 @@ const RESORTS_COLUMN: FooterColumn = {
   })),
 };
 
-/* Nayara Journal column for footer */
-const JOURNAL_COLUMN: FooterColumn = {
-  title: "Nayara Journal",
-  links: [
-    { label: "Journal", route: "/journal" },
-    { label: "Press & Awards", route: "/awards" },
-  ],
+/* Journal column for footer — "Journal" is header (not clickable), sub-items are links */
+export const JOURNAL_COLUMN: FooterColumn = {
+  title: "Journal",
+  links: JOURNAL_FOOTER_ITEMS,
 };
 
-/* Costa Rica column for footer */
-const COSTA_RICA_COLUMN: FooterColumn = {
-  title: "Costa Rica",
-  links: COSTA_RICA_ITEMS, // All 4 Costa Rica categories
-};
-
-/* Pillars column (was Explore) — the four core pillars */
-export const PILLARS_COLUMN: FooterColumn = {
-  title: "Pillars",
-  links: [
-    { label: "Experiences", route: "/experiences" },
-    { label: "Sustainability", route: "/sustainability" },
-    { label: "Wellness", route: "/wellness" },
-    { label: "Gastronomy", route: "/gastronomy" },
-    { label: "Romance", route: "/rainforest-romance" },
-    { label: "Family", route: "/family-expeditions" },
-  ],
-};
-
-/* New Explore column — Journal, Press, Awards, FAQ, Romance, Family, Nayara by Night, Gallery */
-export const EXPLORE_COLUMN: FooterColumn = {
-  title: "Explore",
-  links: [
-    { label: "Journal", route: "/journal" },
-    { label: "Press & Awards", route: "/awards" },
-    { label: "FAQ", route: "/faq" },
-    { label: "Nayara by Night", route: "/by-night" },
-    { label: "Gallery", route: "/gallery" },
-  ],
-};
+/* Keep PILLARS_COLUMN for backward compat (aliased to EXPLORE_COLUMN) */
+export const PILLARS_COLUMN: FooterColumn = EXPLORE_COLUMN;
 
 export function getFooterColumns(pageType: PageType): FooterColumn[] {
   return [
-    COSTA_RICA_COLUMN,
-    PILLARS_COLUMN,
     EXPLORE_COLUMN,
     RESORTS_COLUMN,
+    JOURNAL_COLUMN,
   ];
 }
