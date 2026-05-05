@@ -211,7 +211,6 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
     link: "/bocas-del-toro",
-    linkLabel: "Explore the Island",
     badges: true,
     blogUrl: "https://blog.nayararesorts.com/bocas-wins-cond%C3%A9-nast-traveler-award-2025",
     blogTitle: "Condé Nast names Bocas #1 in Central America",
