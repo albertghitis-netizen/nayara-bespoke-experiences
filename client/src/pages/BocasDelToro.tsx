@@ -76,11 +76,29 @@ const BOCAS_ROOMS: RoomSliderCard[] = [
     bookingUrl: BOOKING_URLS["bocas-del-toro"],
   },
   {
-    id: "treehouse-villa",
+    id: "overwater-villa-deluxe",
+    label: "Overwater Villa Deluxe",
+    tagline: "Premium overwater experience with enhanced amenities",
+    guests: "2 Adults",
+    video: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
+    exploreLink: "/bocas-del-toro/rooms",
+    bookingUrl: BOOKING_URLS["bocas-del-toro"],
+  },
+  {
+    id: "rainforest-treehouse",
     label: "Treehouse Villa",
     tagline: "Elevated among the jungle canopy with ocean views",
     guests: "2 Adults",
     video: "/manus-storage/bocas-accommodations-h_d33b2e24.mp4",
+    exploreLink: "/bocas-del-toro/rooms",
+    bookingUrl: BOOKING_URLS["bocas-del-toro"],
+  },
+  {
+    id: "premium-villa",
+    label: "Premium Villa — Coming Soon",
+    tagline: "Luxury villa experience launching soon",
+    guests: "2 Adults",
+    video: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
     exploreLink: "/bocas-del-toro/rooms",
     bookingUrl: BOOKING_URLS["bocas-del-toro"],
   },
@@ -219,7 +237,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   {
     id: "rooms",
     label: "Accommodations",
-    headline: "Overwater Villas\n& Rainforest Treehouses",
+    headline: "Overwater Villas\n& Treehouse Villas",
     body: "Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.",
     verticalSrc: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
     horizontalSrc: "/manus-storage/bocas-accommodations-h_d33b2e24.mp4",
@@ -871,7 +889,7 @@ export default function BocasDelToro() {
       <div id="rooms">
         <RoomSlider
           sectionLabel="Accommodations"
-          headline={"Overwater Villas\n& Rainforest Treehouses"}
+          headline={"Overwater Villas\n& Treehouse Villas"}
           description="Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views."
           rooms={BOCAS_ROOMS}
           palette={{

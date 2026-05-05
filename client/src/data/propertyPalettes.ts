@@ -108,16 +108,17 @@ export const palettes: Record<string, PropertyPalette> = {
 
   /* ─── BOCAS DEL TORO — Aqua (#008E97) ─── */
   "bocas-del-toro": {
-    primary: "#008E97",          // Aqua (Miami Dolphins)
+    // Updated to Deep Royal Blue
+    primary: "#1E3A8A",          // Aqua (Miami Dolphins)
     secondary: "#006D75",        // Deep Aqua
     accent: "#4DC9D1",           // Light Aqua
     gradientStart: "#F7F5F0",
     gradientEnd: "#E2F0F0",     // aqua tint
-    buttonBg: "#008E97",         // Aqua
+    buttonBg: "#1E3A8A",         // Aqua
     buttonText: "#FFFFFF",
-    footerBg: "#008E97",        // Aqua (matches nav)
+    footerBg: "#1E3A8A",        // Aqua (matches nav)
     footerText: "#FFFFFF",      // Super bright white
-    navPillBg: "#008E97",        // Aqua
+    navPillBg: "#1E3A8A",        // Aqua
     navPillText: "#FFFFFF",      // Super bright white
     bodyText: "#0D0704",         // Super dark brown on light
     bodyTextLight: "#FFFFFF",    // Super bright white on dark
