@@ -855,12 +855,12 @@ export default function BocasDelToro() {
         { name: "Nayara Bocas del Toro", url: "https://nayarabocasdeltoro.com" },
       ]} />
       <BrandNavigation pageType="property" sectionNav={[
-        { id: "rooms", label: "Rooms" },
+        { id: "rooms", label: "Private Villas" },
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
         { id: "gastronomy", label: "Gastronomy" },
-        { id: "night", label: "Night" },
+        { id: "night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />
       <HeroSection />
