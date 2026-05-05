@@ -550,7 +550,7 @@ function CascadeSection({
           {section.badges && (
             <div className="mt-8 hidden md:block">
               <div className="hidden md:block">
-                <video src="/manus-storage/badge-bocas-final_15068a56.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+                <video src="/manus-storage/Untitled(1000x315px)(1000x630px)(1200x400px)(1000x400px)(500x200px)(5130x1616px)(120x120px)(120x120px)-3_fd86f367.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
               </div>
             </div>
           )}
