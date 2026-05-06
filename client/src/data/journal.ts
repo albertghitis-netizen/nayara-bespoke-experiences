@@ -542,15 +542,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp",
     excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
   },
-  {
-    id: "wellness-adventure",
-    title: "Wellness as Adventure: Resetting Your Nervous System in Costa Rica's Rainforest",
-    url: "/blog/wellness-adventure-nayara",
-    property: "tented-camp",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/59_fbf56df9.jpg",
-    excerpt: "How the rainforest becomes your wellness partner — from cold plunges to forest bathing and nervous system reset.",
-  },
+
   {
     id: "atacama-winter-romance",
     title: "Winter & Romance in the Atacama",

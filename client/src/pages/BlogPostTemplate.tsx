@@ -22,6 +22,8 @@ import { Helmet } from "react-helmet-async";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import NativeVideo from "@/components/NativeVideo";
+import BlobVideo from "@/components/BlobVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 import type { BlogPostData } from "@/data/blogPosts";
 
 interface BlogPostTemplateProps {
@@ -33,6 +35,7 @@ interface BlogPostTemplateProps {
    ═══════════════════════════════════════════════════════════════ */
 export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
   const [currentUrl, setCurrentUrl] = useState("");
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setCurrentUrl(window.location.href);
@@ -98,8 +101,10 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
       <BrandNavigation pageType="content" />
 
       {/* ── 2. HERO VIDEO / IMAGE ── */}
-      <section className="relative w-full overflow-hidden" style={{ aspectRatio: "21/9", minHeight: "400px", maxHeight: "70vh" }}>
-        {post.heroVideo ? (
+      <section className="relative w-full overflow-hidden" style={{ aspectRatio: isMobile && post.mobileHeroVideo ? "9/16" : "21/9", minHeight: "400px", maxHeight: isMobile && post.mobileHeroVideo ? "85vh" : "70vh" }}>
+        {isMobile && post.mobileHeroVideo ? (
+          <BlobVideo src={post.mobileHeroVideo} className="absolute inset-0 w-full h-full object-cover" />
+        ) : post.heroVideo ? (
           <NativeVideo src={post.heroVideo.desktop} className="absolute inset-0 w-full h-full object-cover" autoPlay muted
             loop
             playsInline
@@ -293,6 +298,18 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
           </ul>
         </div>
       </section>
+
+      {/* ── FOOTER IMAGE (optional) ── */}
+      {post.footerImage && (
+        <section className="relative w-full overflow-hidden" style={{ aspectRatio: "21/9", minHeight: "300px", maxHeight: "50vh" }}>
+          <img
+            src={post.footerImage.src}
+            alt={post.footerImage.alt}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+        </section>
+      )}
 
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />

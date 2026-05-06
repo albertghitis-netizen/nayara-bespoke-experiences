@@ -63,7 +63,6 @@ const CURATED_IDS: string[] = [
   "archaeologist-rapanui",
   // Row 3
   "stargazing-atacama",
-  "leo-costa-rica-entrepreneurship",
   "treehouse-dreams",
   // Row 4
   "nature-based-wellness-colors",
@@ -88,6 +87,8 @@ const CURATED_IDS: string[] = [
   "holistic-wellness",
   "nayara-by-night",
   "green-globe",
+  // Last
+  "leo-costa-rica-entrepreneurship",
 ];
 
 function buildGallery(): JournalEntry[] {
@@ -110,11 +111,9 @@ const INITIAL_COUNT = 9;
 
 export default function Journal() {
   const [activeHotel, setActiveHotel] = useState("alto-atacama");
-  const [showAll, setShowAll] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
-  const visibleEntries = showAll ? ALL_ENTRIES : ALL_ENTRIES.slice(0, INITIAL_COUNT);
-  const hasMore = ALL_ENTRIES.length > INITIAL_COUNT;
+  const visibleEntries = ALL_ENTRIES;
 
   return (
     <div className="min-h-screen bg-[#F7F5F0]">
@@ -176,17 +175,7 @@ export default function Journal() {
             ))}
           </div>
 
-          {hasMore && !showAll && (
-            <div className="flex justify-center mt-10 md:mt-14">
-              <button
-                onClick={() => setShowAll(true)}
-                className="flex items-center gap-2.5 text-[11px] tracking-[0.2em] uppercase text-[#3B2B26]/45 hover:text-[#3B2B26] transition-colors py-3 px-8 border border-[#3B2B26]/15 rounded-full hover:border-[#3B2B26]/35"
-                style={{ ...body, fontWeight: 500 }}
-              >
-                View All Stories
-              </button>
-            </div>
-          )}
+
         </div>
       </section>
 
@@ -277,7 +266,7 @@ function GalleryCard({
   // ── EN/ES language toggle card ──
   if (hasLangToggle) {
     return (
-      <motion.div {...motionProps}>
+      <motion.div {...motionProps} onClick={() => !isAnyPlaying && setActiveVideo(`${entry.id}-en`)}>
         <CardShell entry={entry} index={index} isPlaying={isAnyPlaying} embedId={embedId} onClose={() => setActiveVideo(null)}>
           {!isAnyPlaying && (
             <CardOverlay entry={entry}>
@@ -295,7 +284,7 @@ function GalleryCard({
   // ── Watch card (video with YouTube embed) ──
   if (hasDualCTA) {
     return (
-      <motion.div {...motionProps}>
+      <motion.div {...motionProps} onClick={() => !isPlaying && setActiveVideo(entry.id)}>
         <CardShell entry={entry} index={index} isPlaying={isPlaying} embedId={embedId} onClose={() => setActiveVideo(null)}>
           {!isPlaying && (
             <CardOverlay entry={entry}>

@@ -1,16 +1,17 @@
 /**
- * FAMILY ADVENTURE , Pura Vida Sub-page
- * Editorial page celebrating family experiences in Costa Rica's rainforest
- * Hero → Intro → Within Our Grounds → Rainforest Adventures → Family Dining → Your Private Retreat → Property Links → Footer
- * All 12 family photos integrated throughout
+ * FAMILY ADVENTURE — Full Multi-Destination Experience Page
+ * Editorial page celebrating family experiences across ALL Nayara destinations
+ * Hero → Intro → Costa Rica (Within Grounds + Rainforest + Dining) → Atacama → Rapa Nui → Private Retreat → Property Links → Footer
+ * No blog link — this IS the family content destination
  */
 
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
+import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -27,37 +28,44 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
-/* CDN URLs for all 18 family photos (12 original + 6 new lifestyle) */
+/* CDN URLs for all family photos and videos */
 const FAMILY_CDN = {
-  family01: "/manus-storage/family-01_e9948091.jpeg", // Mom & toddler in infinity pool
-  family02: "/manus-storage/family-02_3a69b830.jpeg", // Family on boardwalk
-  family03: "/manus-storage/family-03_b660affc.jpeg", // Girl in hammock
-  family04: "/manus-storage/family-04_5c3acb9e.jpeg", // Kids on daybed under tent
-  family05: "/manus-storage/family-05_e332d3ec.jpeg", // Kids on golf cart
-  family06: "/manus-storage/family-06_2f82f791.jpeg", // Kids in yellow jackets on hanging bridge
-  family07: "/manus-storage/family-07_f0147c04.jpeg", // Kids at sunset dining
-  family08: "/manus-storage/family-08_ff4cf5e1.jpeg", // Kids on garden path
-  family09: "/manus-storage/family-09_666f1de3.jpeg", // Kids at poolside breakfast
-  family10: "/manus-storage/family-10_1f8a4a08.jpeg", // Dad throwing daughter in pool
-  family11: "/manus-storage/family-11_4cb70bfe.jpeg", // Family in infinity pool
-  family12: "/manus-storage/family-12_583766fc.jpeg", // Girl eating watermelon
-  // New lifestyle images (batch 1)
-  lifestyle01: "/manus-storage/C7EB2DFF-6668-48E6-899D-3067BC8714D3_4532f8cb.jpeg", // Family bonding moment
-  lifestyle02: "/manus-storage/1A05A53A-8844-4BE1-BEFF-68EB927D17EE_cd4d895b.jpeg", // Rainforest exploration
-  lifestyle03: "/manus-storage/0942721F-9688-4D31-BC00-088986813147_f28eaea7.jpeg", // Nature connection
-  lifestyle04: "/manus-storage/FB7E9511-08F3-408E-A526-4F8502B2BFEF_37862b6d.JPG", // Adventure moment
-  lifestyle05: "/manus-storage/9E3CE1EB-2513-4CFC-9A30-8BDF108560F2_f00b13a1.jpeg", // Family together
-  lifestyle06: "/manus-storage/19D87A5E-26A9-411A-808D-D5F063AEABAB_503a9e04.jpeg", // Sunset experience
-  // New lifestyle images (batch 2)
-  lifestyle07: "/manus-storage/2A490607-CB1C-40D1-9B00-545785B6DF46_bff954ff.jpeg", // Family at salt flats
-  lifestyle08: "/manus-storage/F150C1D3-7F2A-436E-A063-A16BAD15B4EC_570d5284.jpeg", // Family in desert landscape
-  lifestyle09: "/manus-storage/8E541EBC-C963-4A2E-B4D0-F17329128862_db843ae2.jpeg", // Family at rock formation
-  lifestyle10: "/manus-storage/AEE3A43C-D335-4894-B155-7FFC674164A5_c13d5544.jpeg", // Family at Rapa Nui moai
-  lifestyle11: "/manus-storage/DCEC7B37-9C64-4606-AFD1-4E72E53B5A79_2fe5beba.jpeg", // Family hiking in desert
-  // Family adventure videos
-  video01: "/manus-storage/FFA71E3F-2FC4-4F44-911C-B5F89132C534_609aded7.MP4", // Family adventure video 1
-  video02: "/manus-storage/F9D35949-EA6E-4F8A-9546-BC33C8E74D55_aa913437.MP4", // Family adventure video 2
-  video03: "/manus-storage/17B4FC71-6562-475F-A780-48284A75B8D6_7c241ab1.MP4", // Family adventure video 3
+  family01: "/manus-storage/family-01_e9948091.jpeg",
+  family02: "/manus-storage/family-02_3a69b830.jpeg",
+  family03: "/manus-storage/family-03_b660affc.jpeg",
+  family04: "/manus-storage/family-04_5c3acb9e.jpeg",
+  family05: "/manus-storage/family-05_e332d3ec.jpeg",
+  family06: "/manus-storage/family-06_2f82f791.jpeg",
+  family07: "/manus-storage/family-07_f0147c04.jpeg",
+  family08: "/manus-storage/family-08_ff4cf5e1.jpeg",
+  family09: "/manus-storage/family-09_666f1de3.jpeg",
+  family10: "/manus-storage/family-10_1f8a4a08.jpeg",
+  family11: "/manus-storage/family-11_4cb70bfe.jpeg",
+  family12: "/manus-storage/family-12_583766fc.jpeg",
+  // Lifestyle images
+  lifestyle01: "/manus-storage/C7EB2DFF-6668-48E6-899D-3067BC8714D3_4532f8cb.jpeg",
+  lifestyle02: "/manus-storage/1A05A53A-8844-4BE1-BEFF-68EB927D17EE_cd4d895b.jpeg",
+  lifestyle03: "/manus-storage/0942721F-9688-4D31-BC00-088986813147_f28eaea7.jpeg",
+  lifestyle04: "/manus-storage/FB7E9511-08F3-408E-A526-4F8502B2BFEF_37862b6d.JPG",
+  lifestyle05: "/manus-storage/9E3CE1EB-2513-4CFC-9A30-8BDF108560F2_f00b13a1.jpeg",
+  lifestyle06: "/manus-storage/19D87A5E-26A9-411A-808D-D5F063AEABAB_503a9e04.jpeg",
+  // Atacama + Rapa Nui lifestyle
+  lifestyle07: "/manus-storage/2A490607-CB1C-40D1-9B00-545785B6DF46_bff954ff.jpeg",
+  lifestyle08: "/manus-storage/F150C1D3-7F2A-436E-A063-A16BAD15B4EC_570d5284.jpeg",
+  lifestyle09: "/manus-storage/8E541EBC-C963-4A2E-B4D0-F17329128862_db843ae2.jpeg",
+  lifestyle10: "/manus-storage/AEE3A43C-D335-4894-B155-7FFC674164A5_c13d5544.jpeg",
+  lifestyle11: "/manus-storage/DCEC7B37-9C64-4606-AFD1-4E72E53B5A79_2fe5beba.jpeg",
+  // Blog-specific images
+  tentVolcano: "/manus-storage/family-tent-volcano_02f91f57.jpeg",
+  hangingBridge: "/manus-storage/family-hanging-bridge_be5ed446.jpeg",
+  poolToss: "/manus-storage/family-pool-toss_36807b93.jpeg",
+  atacamaBiking: "/manus-storage/family-atacama-biking_da3d4690.jpg",
+  rapaNuiMoai: "/manus-storage/family-rapa-nui-moai_0b273e95.jpg",
+  // Videos
+  video01: "/manus-storage/FFA71E3F-2FC4-4F44-911C-B5F89132C534_609aded7.MP4",
+  video02: "/manus-storage/F9D35949-EA6E-4F8A-9546-BC33C8E74D55_aa913437.MP4",
+  video03: "/manus-storage/17B4FC71-6562-475F-A780-48284A75B8D6_7c241ab1.MP4",
+  rainbowValley: "/manus-storage/rainbow-valley-vertical_dc5dfaab.mp4",
 };
 
 const C = {
@@ -78,6 +86,8 @@ export default function FamilyExpeditions() {
       <WithinOurGroundsSection />
       <RainforestAdventuresSection />
       <FamilyDiningSection />
+      <AtacamaFamilySection />
+      <RapaNuiFamilySection />
       <YourPrivateRetreatSection />
       <PropertyLinksSection />
       <Footer textColor="#FFFFFF" />
@@ -86,15 +96,19 @@ export default function FamilyExpeditions() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO , Family on hanging bridge (photo 06)
+   HERO — Family tent with volcano view
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
+
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
-      {/* Hero image */}
-      <img src={FAMILY_CDN.family06} alt="Family Adventure" className="absolute inset-0 w-full h-full object-cover" />
+      {isMobile ? (
+        <BlobVideo src={FAMILY_CDN.rainbowValley} className="absolute inset-0 w-full h-full object-cover" />
+      ) : (
+        <img src={FAMILY_CDN.tentVolcano} alt="Family tent deck overlooking Arenal Volcano" className="absolute inset-0 w-full h-full object-cover" />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10" />
-
 
       {/* Title */}
       <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-12 md:pb-16 px-6">
@@ -105,7 +119,7 @@ function HeroSection() {
           className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center leading-[1.1]"
           style={heading}
         >
-          Family Adventure
+          The World as a Classroom
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -114,7 +128,7 @@ function HeroSection() {
           className="mt-4 text-white/60 text-sm md:text-base tracking-[0.1em] uppercase text-center"
           style={body}
         >
-          Where wonder meets the wild
+          Family adventures across three countries
         </motion.p>
       </div>
     </section>
@@ -122,7 +136,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INTRO , "Where Every Day Is an Expedition"
+   INTRO — Philosophy
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -130,29 +144,26 @@ function IntroSection() {
       <div className="max-w-3xl mx-auto">
         <FadeIn>
           <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-8 text-center" style={{ ...heading, color: C.espresso }}>
-            Where Every Day Is an Expedition
+            Where Every Destination Is a Discovery
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.1}>
           <p className="text-base md:text-lg leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
-            The rainforest is the greatest classroom on Earth. It teaches patience, wonder, and respect for the living world. At Nayara, we believe families thrive when they explore together , not as tourists checking boxes, but as adventurers discovering something true about themselves and the natural world.
+            Most families see a bucket list as a list of dreams. At Nayara, it is a Tuesday. Across three countries and five properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools.
           </p>
         </FadeIn>
 
         <FadeIn delay={0.2}>
           <p className="text-base md:text-lg leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
-            Every moment in Costa Rica's rainforest is a lesson. Your children will learn the calls of howler monkeys before they learn the names of the animals making them. They'll understand why a sloth moves slowly, why poison dart frogs are brilliant colors, why the forest never sleeps. They'll discover that adventure isn't about conquering nature , it's about understanding it, respecting it, and becoming part of it.
+            Children do not study these things. They encounter them. And the difference between studying and encountering is the difference between knowing and understanding. This is what family travel looks like when the destination is designed for discovery.
           </p>
         </FadeIn>
 
         <FadeIn delay={0.3}>
-          <p className="text-base md:text-lg leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
-            We've designed every experience at Nayara with families in mind. From guided nature walks to volcano treks, from private dining under the stars to quiet moments in a hammock watching the canopy, every expedition is built for wonder at any age. This is where childhood memories become lifelong passions.
+          <p className="text-base md:text-lg leading-relaxed" style={{ ...body, color: C.secondary }}>
+            We've designed every experience at Nayara with families in mind. From guided nature walks to volcano treks, from cooking classes to stargazing observatories, from ancient archaeology to coral reef snorkeling — every expedition is built for wonder at any age. This is where childhood memories become lifelong passions.
           </p>
-          <Link href="/blog/family-bucket-list-nayara" className="inline-block text-[13px] tracking-[0.05em] border-b pb-0.5 transition-colors" style={{ ...body, color: C.muted, borderColor: `${C.muted}40` }}>
-            Read: The Family Bucket List at Nayara Gardens & Tented Camp →
-          </Link>
         </FadeIn>
       </div>
     </section>
@@ -160,14 +171,16 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   WITHIN OUR GROUNDS , On-property family experiences
-   Photos: 02 (boardwalk), 05 (golf cart), 08 (nature discovery)
+   WITHIN OUR GROUNDS — Costa Rica on-property experiences
    ═══════════════════════════════════════════════════════════════ */
 function WithinOurGroundsSection() {
   return (
     <section className="py-16 md:py-24 px-6" style={{ backgroundColor: C.bg }}>
       <div className="max-w-6xl mx-auto">
         <FadeIn>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-center mb-3" style={{ ...bodyMedium, color: C.accent }}>
+            Costa Rica
+          </p>
           <h3 className="text-xl md:text-2xl tracking-wide mb-12 text-center" style={{ ...heading, color: C.espresso }}>
             Within Our Grounds
           </h3>
@@ -195,7 +208,7 @@ function WithinOurGroundsSection() {
                 Getting Around
               </h4>
               <p className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
-                Golf carts become expedition vehicles. Kids love the freedom of riding through lush paths, discovering hidden corners of the property. Every turn reveals something new , a bird's nest, a waterfall, a view of Arenal Volcano through the trees.
+                Golf carts become expedition vehicles. Kids love the freedom of riding through lush paths, discovering hidden corners of the property. Every turn reveals something new — a bird's nest, a waterfall, a view of Arenal Volcano through the trees.
               </p>
             </div>
           </FadeIn>
@@ -208,7 +221,7 @@ function WithinOurGroundsSection() {
                 Nature Discovery
               </h4>
               <p className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
-                Guided nature walks with expert naturalists turn every path into a classroom. Children learn to identify plants, understand animal behavior, and develop a deep respect for the rainforest. Golden light, curious minds, and the sound of the forest , pure magic.
+                Guided nature walks with expert naturalists turn every path into a classroom. Children learn to identify plants, understand animal behavior, and develop a deep respect for the rainforest. Golden light, curious minds, and the sound of the forest — pure magic.
               </p>
             </div>
           </FadeIn>
@@ -219,8 +232,7 @@ function WithinOurGroundsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RAINFOREST ADVENTURES , Off-property experiences
-   Photo: 06 (hanging bridge) + link to Curated Excursions
+   RAINFOREST ADVENTURES — Off-property Costa Rica experiences
    ═══════════════════════════════════════════════════════════════ */
 function RainforestAdventuresSection() {
   return (
@@ -229,7 +241,7 @@ function RainforestAdventuresSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <FadeIn>
-            <img src={FAMILY_CDN.family06} alt="Hanging Bridges" className="w-full h-96 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.hangingBridge} alt="Children in yellow raincoats crossing hanging bridges" className="w-full h-96 object-cover rounded-lg" />
           </FadeIn>
 
           {/* Content */}
@@ -239,10 +251,10 @@ function RainforestAdventuresSection() {
                 Rainforest Adventures
               </h3>
               <p className="text-base leading-relaxed mb-6" style={{ ...body, color: "rgba(255,255,255,0.85)" }}>
-                Beyond the resort, the rainforest opens up. Hanging bridges suspended in the canopy offer perspectives few people ever experience. Zip lines, waterfall hikes, night safaris , every adventure is guided by experts who know the forest intimately and understand how to make it safe and magical for families.
+                Beyond the resort, the rainforest opens up. Hanging bridges suspended in the canopy offer perspectives few people ever experience. Zip lines, waterfall hikes, night safaris — every adventure is guided by experts who know the forest intimately and understand how to make it safe and magical for families.
               </p>
               <p className="text-base leading-relaxed mb-8" style={{ ...body, color: "rgba(255,255,255,0.85)" }}>
-                Your children will remember these moments forever. The rush of crossing a hanging bridge. The sound of howler monkeys echoing through the canopy. The discovery of a poison dart frog no bigger than a fingernail. The feeling of being truly alive in nature.
+                Your children will remember these moments forever. The rush of crossing a hanging bridge 200 feet above the forest floor. The sound of howler monkeys echoing through the canopy. The discovery of a poison dart frog no bigger than a fingernail. The feeling of being truly alive in nature.
               </p>
               <Link
                 href="/curated-excursions"
@@ -261,21 +273,20 @@ function RainforestAdventuresSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FAMILY DINING , Meals as experiences
-   Photos: 07 (sunset dining), 09 (poolside breakfast), 12 (watermelon)
+   FAMILY DINING — Meals as experiences
    ═══════════════════════════════════════════════════════════════ */
 function FamilyDiningSection() {
   return (
     <section className="py-16 md:py-24 px-6" style={{ backgroundColor: C.bg }}>
       <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <h3 className="text-xl md:text-2xl tracking-wide mb-12 text-center" style={{ ...heading, color: C.espresso }}>
+          <h3 className="text-xl md:text-2xl tracking-wide mb-4 text-center" style={{ ...heading, color: C.espresso }}>
             Family Dining
           </h3>
         </FadeIn>
 
         <p className="text-base leading-relaxed mb-12 text-center max-w-3xl mx-auto" style={{ ...body, color: C.secondary }}>
-          Meals at Nayara aren't just fuel , they're adventures. Fresh tropical fruits your children have never tasted. Local dishes prepared with ingredients from the region. Dining experiences that celebrate Costa Rican culture and the bounty of the rainforest.
+          Meals at Nayara aren't just fuel — they're adventures. Cooking classes where children build their own tacos. Chocolate experiences from bean to bar. Fresh tropical fruits your children have never tasted. Every meal is a taste of place.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -313,7 +324,7 @@ function FamilyDiningSection() {
                 Fresh Flavors
               </h4>
               <p className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
-                Watermelon so fresh it was picked this morning. Papaya, mango, passion fruit , flavors your children have never experienced. Costa Rican cuisine celebrates the land. Every meal is a taste of place.
+                Watermelon so fresh it was picked this morning. Papaya, mango, passion fruit — flavors your children have never experienced. Costa Rican cuisine celebrates the land. Every meal is a taste of place.
               </p>
             </div>
           </FadeIn>
@@ -324,12 +335,171 @@ function FamilyDiningSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   YOUR PRIVATE RETREAT , Accommodations and relaxation
-   Photos: 01 (infinity pool), 03 (hammock), 04 (daybed), 10 (pool play), 11 (family pool)
+   ATACAMA FAMILY — Desert adventures for families
+   ═══════════════════════════════════════════════════════════════ */
+function AtacamaFamilySection() {
+  return (
+    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: "#2a1f15" }}>
+      <div className="max-w-6xl mx-auto">
+        <FadeIn>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-center mb-3" style={{ ...bodyMedium, color: C.accent }}>
+            Chile
+          </p>
+          <h3 className="text-2xl md:text-3xl tracking-wide mb-6 text-center" style={{ ...heading, color: "white" }}>
+            The Desert as Classroom
+          </h3>
+          <p className="text-base leading-relaxed mb-12 text-center max-w-3xl mx-auto" style={{ ...body, color: "rgba(255,255,255,0.8)" }}>
+            The Atacama Desert is the driest place on Earth, and one of the most extraordinary classrooms a family could ask for. At Nayara Alto Atacama, the landscape itself becomes the lesson.
+          </p>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+          {/* Atacama biking image */}
+          <FadeIn>
+            <img src={FAMILY_CDN.atacamaBiking} alt="Family mountain biking through Atacama canyons" className="w-full h-80 object-cover rounded-lg" />
+          </FadeIn>
+
+          {/* Content */}
+          <FadeIn delay={0.1}>
+            <div>
+              <h4 className="text-xl mb-4" style={{ ...bodyMedium, color: "white" }}>
+                Rainbow Valley & Canyon Biking
+              </h4>
+              <p className="text-base leading-relaxed mb-4" style={{ ...body, color: "rgba(255,255,255,0.8)" }}>
+                Rainbow Valley is a geological canvas of mineral-stained hills in reds, greens, purples, and golds. Children walk through millions of years of Earth's history written in color across the rock face. Iron oxide for red, copper for green, manganese for purple — a chemistry lesson delivered by the landscape itself.
+              </p>
+              <p className="text-base leading-relaxed" style={{ ...body, color: "rgba(255,255,255,0.8)" }}>
+                The Devil's Trek mountain biking trails thread through narrow canyons carved by ancient rivers. Red rock walls rise on either side, the light shifting as the sun moves overhead. Challenging enough for teenagers, accessible enough for younger riders with guides who know every turn.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Atacama lifestyle grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FadeIn delay={0.1}>
+            <div className="flex flex-col">
+              <img src={FAMILY_CDN.lifestyle07} alt="Family at salt flats" className="w-full h-64 object-cover rounded-lg mb-6" />
+              <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: "white" }}>
+                Salt Flat Sunrise
+              </h4>
+              <p className="text-sm leading-relaxed" style={{ ...body, color: "rgba(255,255,255,0.7)" }}>
+                The Salar de Atacama at dawn, when flamingos feed in the shallow brine and the light turns the salt crust gold. Children learn that life thrives even in the most extreme environments.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.2}>
+            <div className="flex flex-col">
+              <img src={FAMILY_CDN.lifestyle11} alt="Family hiking in desert" className="w-full h-64 object-cover rounded-lg mb-6" />
+              <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: "white" }}>
+                Desert Trekking
+              </h4>
+              <p className="text-sm leading-relaxed" style={{ ...body, color: "rgba(255,255,255,0.7)" }}>
+                Guided hikes through canyons and valleys reveal the desert's hidden life. Ancient petroglyphs, geothermal vents, and rock formations that tell the story of millions of years. The silence teaches something about scale that no classroom can.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.3}>
+            <div className="flex flex-col">
+              <img src={FAMILY_CDN.lifestyle09} alt="Family at rock formation" className="w-full h-64 object-cover rounded-lg mb-6" />
+              <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: "white" }}>
+                Stargazing
+              </h4>
+              <p className="text-sm leading-relaxed" style={{ ...body, color: "rgba(255,255,255,0.7)" }}>
+                The SPACE observatory puts Saturn's rings within reach. Children who see the Milky Way as a river of light across the entire sky carry that image forever. They learn they are looking backward through time.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RAPA NUI FAMILY — Easter Island adventures for families
+   ═══════════════════════════════════════════════════════════════ */
+function RapaNuiFamilySection() {
+  return (
+    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: C.bg }}>
+      <div className="max-w-6xl mx-auto">
+        <FadeIn>
+          <p className="text-[11px] tracking-[0.3em] uppercase text-center mb-3" style={{ ...bodyMedium, color: C.accent }}>
+            Easter Island
+          </p>
+          <h3 className="text-2xl md:text-3xl tracking-wide mb-6 text-center" style={{ ...heading, color: C.espresso }}>
+            The Moai as Open-Air Museum
+          </h3>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Content */}
+          <FadeIn>
+            <div>
+              <p className="text-base leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
+                There are fewer than 1,000 Moai on Earth, and every single one stands on Rapa Nui. At Nayara Hangaroa, families encounter something that exists nowhere else: a civilization's legacy carved in volcanic stone, facing the Pacific.
+              </p>
+              <p className="text-base leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
+                How did an ancient civilization move these giants — some over 30 feet tall, weighing 80 tons — across the island without wheels, without metal tools, without written plans? Children ask this question immediately. Adults never stop asking it.
+              </p>
+              <p className="text-base leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
+                Between the archaeology, families explore on horseback across the island's green hills, snorkel in waters so clear the coral seems painted, and learn the Rapa Nui language from locals who still speak it. This is not a museum visit. It is a living culture.
+              </p>
+              <Link
+                href="/hangaroa"
+                className="inline-flex items-center gap-2 text-[13px] tracking-[0.05em] border-b pb-0.5 transition-colors"
+                style={{ ...body, color: C.muted, borderColor: `${C.muted}40` }}
+              >
+                Explore Nayara Hangaroa
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </FadeIn>
+
+          {/* Image */}
+          <FadeIn delay={0.1}>
+            <img src={FAMILY_CDN.rapaNuiMoai} alt="Family before the Moai statues on Rapa Nui" className="w-full h-96 object-cover rounded-lg" />
+          </FadeIn>
+        </div>
+
+        {/* Additional Rapa Nui image */}
+        <FadeIn delay={0.2} className="mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <img src={FAMILY_CDN.lifestyle10} alt="Family at Moai site" className="w-full h-64 object-cover rounded-lg" />
+            <div className="flex flex-col justify-center">
+              <h4 className="text-lg mb-4" style={{ ...bodyMedium, color: C.espresso }}>
+                The Rapa Nui Bucket List
+              </h4>
+              <ul className="space-y-3">
+                <li className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
+                  <strong style={{ color: C.espresso }}>Ahu Tongariki at Sunrise</strong> — Fifteen Moai silhouetted against the Pacific dawn
+                </li>
+                <li className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
+                  <strong style={{ color: C.espresso }}>Rano Raraku Quarry</strong> — Where the Moai were born, unfinished statues still embedded in hillside
+                </li>
+                <li className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
+                  <strong style={{ color: C.espresso }}>Horseback Across the Island</strong> — Green hills, volcanic craters, ocean views
+                </li>
+                <li className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
+                  <strong style={{ color: C.espresso }}>Snorkeling in Crystal Waters</strong> — Visibility that makes the ocean feel like air
+                </li>
+              </ul>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   YOUR PRIVATE RETREAT — Accommodations and relaxation
    ═══════════════════════════════════════════════════════════════ */
 function YourPrivateRetreatSection() {
   return (
-    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: C.bg }}>
+    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: "#f0ebe5" }}>
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <h3 className="text-xl md:text-2xl tracking-wide mb-12 text-center" style={{ ...heading, color: C.espresso }}>
@@ -341,95 +511,31 @@ function YourPrivateRetreatSection() {
           Adventure requires rest. Between expeditions, your family retreats to a private sanctuary designed for comfort and connection. Villas with infinity pools overlooking the rainforest. Hammocks for afternoon naps. Space to be together without distractions.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Infinity Pool */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           <FadeIn delay={0.1}>
-            <img src={FAMILY_CDN.family01} alt="Infinity Pool" className="w-full h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.family01} alt="Infinity Pool" className="w-full h-48 md:h-64 object-cover rounded-lg" />
           </FadeIn>
-
-          {/* Hammock Retreat */}
+          <FadeIn delay={0.15}>
+            <img src={FAMILY_CDN.poolToss} alt="Pool Play" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+          </FadeIn>
           <FadeIn delay={0.2}>
-            <img src={FAMILY_CDN.family03} alt="Hammock Retreat" className="w-full h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.family03} alt="Hammock Retreat" className="w-full h-48 md:h-64 object-cover rounded-lg" />
           </FadeIn>
-
-          {/* Tented Comfort */}
+          <FadeIn delay={0.25}>
+            <img src={FAMILY_CDN.family04} alt="Tented Comfort" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+          </FadeIn>
           <FadeIn delay={0.3}>
-            <img src={FAMILY_CDN.family04} alt="Tented Comfort" className="w-full h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.family11} alt="Family Pool" className="w-full h-48 md:h-64 object-cover rounded-lg" />
           </FadeIn>
-
-          {/* Pool Play */}
-          <FadeIn delay={0.4}>
-            <img src={FAMILY_CDN.family10} alt="Pool Play" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Family Pool */}
-          <FadeIn delay={0.5}>
-            <img src={FAMILY_CDN.family11} alt="Family Pool" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Family Bonding */}
-          <FadeIn delay={0.6}>
-            <img src={FAMILY_CDN.lifestyle01} alt="Family Bonding" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Rainforest Exploration */}
-          <FadeIn delay={0.7}>
-            <img src={FAMILY_CDN.lifestyle02} alt="Rainforest Exploration" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Nature Connection */}
-          <FadeIn delay={0.8}>
-            <img src={FAMILY_CDN.lifestyle03} alt="Nature Connection" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Adventure Moment */}
-          <FadeIn delay={0.9}>
-            <img src={FAMILY_CDN.lifestyle04} alt="Adventure Moment" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Family Together */}
-          <FadeIn delay={1.0}>
-            <img src={FAMILY_CDN.lifestyle05} alt="Family Together" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Sunset Experience */}
-          <FadeIn delay={1.1}>
-            <img src={FAMILY_CDN.lifestyle06} alt="Sunset Experience" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Family at Salt Flats */}
-          <FadeIn delay={1.2}>
-            <img src={FAMILY_CDN.lifestyle07} alt="Family at Salt Flats" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Family in Desert Landscape */}
-          <FadeIn delay={1.3}>
-            <img src={FAMILY_CDN.lifestyle08} alt="Family in Desert Landscape" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Family at Rock Formation */}
-          <FadeIn delay={1.4}>
-            <img src={FAMILY_CDN.lifestyle09} alt="Family at Rock Formation" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Family at Rapa Nui Moai */}
-          <FadeIn delay={1.5}>
-            <img src={FAMILY_CDN.lifestyle10} alt="Family at Rapa Nui Moai" className="w-full h-64 object-cover rounded-lg" />
-          </FadeIn>
-
-          {/* Lifestyle - Family Hiking in Desert */}
-          <FadeIn delay={1.6}>
-            <img src={FAMILY_CDN.lifestyle11} alt="Family Hiking in Desert" className="w-full h-64 object-cover rounded-lg" />
+          <FadeIn delay={0.35}>
+            <img src={FAMILY_CDN.lifestyle01} alt="Family Bonding" className="w-full h-48 md:h-64 object-cover rounded-lg" />
           </FadeIn>
         </div>
 
-        <FadeIn delay={0.7} className="mt-12">
+        <FadeIn delay={0.4} className="mt-12">
           <div className="max-w-3xl mx-auto">
-            <p className="text-base leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
-              Each villa is designed for families. Multiple bedrooms. Private plunge pools. Open-air showers surrounded by nature. Terraces where you can watch the sunset together. These aren't hotel rooms , they're homes in the rainforest.
-            </p>
             <p className="text-base leading-relaxed" style={{ ...body, color: C.secondary }}>
-              After a day of adventure, your family gathers on the terrace. Children are tired, happy, full of stories. The rainforest hums around you. The stars emerge. You realize that this is what you came for , not just the activities, but the connection. The time together. The feeling of being truly present with the people you love most.
+              After a day of adventure, your family gathers on the terrace. Children are tired, happy, full of stories. The rainforest hums around you. The stars emerge. You realize that this is what you came for — not just the activities, but the connection. The time together. The feeling of being truly present with the people you love most.
             </p>
           </div>
         </FadeIn>
@@ -439,29 +545,30 @@ function YourPrivateRetreatSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTY LINKS , Cross-link to Costa Rica properties
+   PROPERTY LINKS — All family-friendly properties
    ═══════════════════════════════════════════════════════════════ */
 function PropertyLinksSection() {
   const properties = [
     { name: "Nayara Gardens", desc: "Family-Friendly Rainforest Adventure", route: "/gardens" },
     { name: "Nayara Tented Camp", desc: "Luxury Tented Camp in the Rainforest", route: "/tented-camp" },
-    { name: "Nayara Springs", desc: "Private Hot Springs Villas", route: "/springs" },
+    { name: "Nayara Alto Atacama", desc: "Desert Stargazing & Canyon Adventures", route: "/alto-atacama" },
+    { name: "Nayara Hangaroa", desc: "Easter Island Archaeology & Culture", route: "/hangaroa" },
   ];
 
   return (
-    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: "#f0ebe5" }}>
+    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: C.bg }}>
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <h3 className="text-xl md:text-2xl tracking-wide mb-12 text-center" style={{ ...heading, color: C.espresso }}>
-            Explore Our Costa Rica Properties
+            Explore Our Family Destinations
           </h3>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {properties.map((prop, i) => (
             <FadeIn key={prop.name} delay={i * 0.1}>
               <Link href={prop.route} className="block p-6 rounded-lg border border-[#3a2a1a]/10 hover:border-[#3a2a1a]/30 hover:bg-white/50 transition-all duration-300">
-                <h4 className="text-lg mb-2" style={{ ...bodyMedium, color: C.espresso }}>
+                <h4 className="text-base mb-2" style={{ ...bodyMedium, color: C.espresso }}>
                   {prop.name}
                 </h4>
                 <p className="text-sm" style={{ ...body, color: C.muted }}>

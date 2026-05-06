@@ -4,7 +4,7 @@
  * Content is HTML-safe strings (rendered via dangerouslySetInnerHTML).
  */
 import { gastronomyBlogPost, inHouseActivitiesBlogPost } from "./blogPostsNew";
-import { experientialTravelPost, familyBucketListPost, wellnessAdventurePost } from "./blogPostsExperiential";
+import { experientialTravelPost, familyBucketListPost } from "./blogPostsExperiential";
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -52,12 +52,16 @@ export interface BlogPostData {
     desktop: string;
     mobile?: string;
   };
+  /** Vertical video for mobile hero (replaces heroImage on mobile) */
+  mobileHeroVideo?: string;
   keyFindings: string[];
   sections: BlogSectionData[];
   sources: BlogPostSource[];
   relatedArticles: RelatedArticle[];
   /** Properties to feature in the "Begin Your Journey" CTA */
   ctaProperties: { name: string; route: string }[];
+  /** Optional footer image displayed at the bottom of the blog */
+  footerImage?: { src: string; alt: string };
   seo: {
     metaTitle: string;
     metaDescription: string;
@@ -883,7 +887,6 @@ export const allBlogPosts: Record<string, BlogPostData> = {
   "in-house-activities-three-hotels-infinite-experiences": inHouseActivitiesBlogPost,
   "experiential-travel-nayara-2026": experientialTravelPost,
   "family-bucket-list-nayara": familyBucketListPost,
-  "wellness-adventure-nayara": wellnessAdventurePost,
 };
 
 /** Helper to get a blog post by slug */

@@ -36,7 +36,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const ExperientialTravelBlog = lazy(() => import("./pages/ExperientialTravelBlog"));
 const FamilyBucketListBlog = lazy(() => import("./pages/FamilyBucketListBlog"));
-const WellnessAdventureBlog = lazy(() => import("./pages/WellnessAdventureBlog"));
+
 
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
@@ -324,7 +324,7 @@ function Router() {
           <Route path="/blog/atacama-winter-romance" component={AtacamaWinterRomanceBlog} />
           <Route path="/blog/experiential-travel-nayara-2026" component={ExperientialTravelBlog} />
           <Route path="/blog/family-bucket-list-nayara" component={FamilyBucketListBlog} />
-          <Route path="/blog/wellness-adventure-nayara" component={WellnessAdventureBlog} />
+
           <Route path="/blog/golden-age-latin-america" component={GoldenAgeLatinAmericaBlog} />
           <Route path="/blog/lujo-despacio" component={LujoDEspacioBlog} />
           <Route path="/blog/seven-elements" component={SevenElementsBlog} />

@@ -76,6 +76,7 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Gastronomy", route: "/gastronomy" },
   { label: "Romance", route: "/romance" },
   { label: "Family", route: "/family-expeditions" },
+  { label: "Press & Awards", route: "/awards" },
   { label: "Journal", route: "/journal" },
   { label: "Gallery", route: "/gallery" },
 ];
