@@ -911,6 +911,35 @@ function NayaraJournalSection() {
       external: false,
       cta: "read",
     },
+    {
+      id: "atacama-sustainability",
+      label: "Watch",
+      title: "Nayara Alto Atacama Sustainability",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
+      href: null,
+      youtubeId: "6cfkWsqWWc8",
+      external: false,
+      cta: "watch",
+    },
+    {
+      id: "nature-based-wellness-colors",
+      label: "Read",
+      title: "Nature-Based Wellness by Colors: Brown, Black, Green, Blue",
+      image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
+      href: "/blog/wellness-by-colors",
+      external: false,
+      cta: "read",
+    },
+    {
+      id: "leo-suite-success",
+      label: "Watch",
+      title: "Leo Ghitis on Suite Success",
+      image: "/manus-storage/podcast-cover-suite-success_56bbedc7.jpg",
+      href: null,
+      youtubeId: "X_lTp6Jh8ag",
+      external: false,
+      cta: "watch",
+    },
   ];
 
   const allCards = [...teaserCards, ...dummyCards];
