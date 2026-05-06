@@ -850,21 +850,22 @@ function NayaraJournalSection() {
   // 3 curated cards: Listen · Read · Watch
   const teaserCards: JournalCardData[] = [
     {
-      id: "afar",
-      label: "Listen",
-      title: "Leo Ghitis on Going Beyond Sustainability",
-      image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
-      href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
-      external: true,
-      cta: "listen",
+      id: "leo-allure-sustainability",
+      label: "Watch",
+      title: "The Allure of Sustainability in Luxury Travel",
+      image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
+      href: null,
+      youtubeId: "7l072Yr__pE",
+      external: false,
+      cta: "watch",
     },
     {
-      id: "gastronomy",
+      id: "experiential-travel",
       label: "Read",
-      title: "Forest to Table: Gastronomy Across the World of Nayara",
-      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
-      href: "/blog/three-kitchens-one-rainforest",
-      external: true,
+      title: "Experiential Travel at Nayara: Where Every Destination Is a Discovery",
+      image: "/manus-storage/family-tent-volcano_02f91f57.jpeg",
+      href: "/blog/experiential-travel-nayara-2026",
+      external: false,
       cta: "read",
     },
     {
@@ -886,7 +887,7 @@ function NayaraJournalSection() {
     { id: "dummy-2", label: "Listen", title: "Coming Soon", image: "", href: null, external: false, cta: "listen" },
     { id: "dummy-3", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
     { id: "dummy-4", label: "View", title: "Coming Soon", image: "", href: null, external: false, cta: "watch" },
-    { id: "dummy-5", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
+    { id: "dummy-5", label: "Read", title: "Why the Atacama Desert is Mars on Earth", image: "", href: "/blog/atacama-mars", external: false, cta: "read" },
     { id: "dummy-6", label: "Listen", title: "Coming Soon", image: "", href: null, external: false, cta: "listen" },
   ];
 
