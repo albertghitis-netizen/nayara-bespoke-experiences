@@ -39,7 +39,7 @@ export const experientialTravelPost: BlogPostData = {
       heading: "Gastronomy as Language",
       content: `<p>The culinary tourism market is projected to grow from $16.1 billion in 2025 to $76.4 billion by 2033, expanding at nearly 22% annually. One in five travelers now books trips specifically to explore food destinations. Half secure dining reservations before booking any other activity.</p>
 <p>At Nayara, food is a vocabulary. In Costa Rica, our kitchens become classrooms. At Ayla in Tented Camp, open-fire cooking teaches elemental technique. At Asia Luna in Gardens, chefs demonstrate Costa Rican-Asian fusion using volcanic-soil ingredients. The chocolate experience moves from pod to bar, and children discover their preferences through tasting. The moment a child realizes they prefer 85% dark cacao is a moment of genuine self-knowledge.</p>
-<p>At Ckelar in <a href="/alto-atacama">Alto Atacama</a>, ancestral Atacameno cooking techniques use ingredients from the driest desert on Earth. These are not demonstrations. They are skills guests carry home, meals they recreate for years, flavors that transport them back to the place where they first learned to cook with fire.</p>
+<p>At Ckelar in <a href="https://altoatacama.com" target="_blank">Alto Atacama</a>, ancestral Atacameno cooking techniques use ingredients from the driest desert on Earth. These are not demonstrations. They are skills guests carry home, meals they recreate for years, flavors that transport them back to the place where they first learned to cook with fire.</p>
 <p><a href="/blog/three-kitchens-one-rainforest">Read more: Costa Rica Gastronomy at Nayara →</a></p>`,
       pullQuote: "Food is a vocabulary.",
     },
@@ -54,7 +54,7 @@ export const experientialTravelPost: BlogPostData = {
     {
       heading: "Nature as Architecture",
       content: `<p>Nature exposure improves attention, reduces stress, enhances mood, and lowers psychiatric risk. The American Psychological Association and UCLA Health document seven distinct benefits: immune boost, cognitive enhancement, cardiovascular health, sleep quality, stress reduction, physical activity, and emotional regulation.</p>
-<p>Every Nayara property is embedded in its ecosystem, not imposed upon it. <a href="/alto-atacama">Alto Atacama</a> sits within 55,000 acres of protected desert, offering Earth's clearest skies for stargazing. <a href="/gardens">Gardens</a> and <a href="/tented-camp">Tented Camp</a> border Arenal Volcano National Park, where 500+ bird species and half the world's butterfly species reside. <a href="/bocas-del-toro">Bocas del Toro</a> floats above Caribbean coral reefs. <a href="/hangaroa">Hangaroa</a> sits on the most remote inhabited island on Earth, where Polynesian culture and volcanic landscape merge.</p>
+<p>Every Nayara property is embedded in its ecosystem, not imposed upon it. <a href="https://altoatacama.com" target="_blank">Alto Atacama</a> sits within 55,000 acres of protected desert, offering Earth's clearest skies for stargazing. <a href="https://nayaragardens.com" target="_blank">Gardens</a> and <a href="https://nayaratentedcamp.com" target="_blank">Tented Camp</a> border Arenal Volcano National Park, where 500+ bird species and half the world's butterfly species reside. <a href="https://nayarabocasdeltoro.com" target="_blank">Bocas del Toro</a> floats above Caribbean coral reefs. <a href="https://hangaroa.cl" target="_blank">Hangaroa</a> sits on the most remote inhabited island on Earth, where Polynesian culture and volcanic landscape merge.</p>
 <p>These are not resorts with nature views. They are nature with rooms.</p>`,
     },
     {
@@ -137,7 +137,7 @@ export const familyBucketListPost: BlogPostData = {
   sections: [
     {
       heading: "The Classroom Has No Walls",
-      image: { src: "/manus-storage/kids-hanging-bridge_8aa17de0.jpg", alt: "Two children in yellow raincoats holding hands on a hanging bridge in the rainforest" },
+      image: { src: "/manus-storage/kids-hanging-bridge-wide_fc955faa.jpg", alt: "Two children in yellow raincoats holding hands on a hanging bridge in the rainforest" },
       content: `<p>Most families see a bucket list as a list of dreams. At Nayara, it is a Tuesday.</p>
 <p>Across three countries and five properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools. Children do not study these things. They encounter them. The difference between studying and encountering is the difference between knowing and understanding.</p>
 <p>This is what family travel looks like when the destination is designed for discovery.</p>`,
@@ -145,17 +145,17 @@ export const familyBucketListPost: BlogPostData = {
     {
       heading: "Costa Rica: The Rainforest as Classroom",
       content: `<p>In Costa Rica's Arenal region, where the jungle canopy rises to meet an active volcano and hot springs carve through ancient lava flows, families do not choose between nature and adventure. They get both, layered, simultaneous, and impossible to forget. Forbes' Bucket List Family put it best: "The jungle meets the ocean, creating the perfect spot for families who want both nature and adventure. Costa Rica is alive!"</p>
-<p>They are right. And at <a href="/gardens">Nayara Gardens</a> and <a href="/tented-camp">Nayara Tented Camp</a>, that aliveness is not something you drive to. It is where you wake up.</p>
+<p>They are right. And at <a href="https://nayaragardens.com" target="_blank">Nayara Gardens</a> and <a href="https://nayaratentedcamp.com" target="_blank">Nayara Tented Camp</a>, that aliveness is not something you drive to. It is where you wake up.</p>
 <p>The day begins before the alarm. Howler monkeys announce dawn from the ceiba trees above Tented Camp. Children press their faces to the mesh walls of their tents, watching toucans arc between branches in the half-light. By 7 a.m., the family is on a hanging bridge walk through the primary rainforest canopy. The bridges sway gently 200 feet above the forest floor. A naturalist guide points out a sloth, motionless, moss-covered, invisible until you know where to look. The four-year-old sees it first. She always does.</p>
 <p>This is not a zoo. There are no enclosures, no feeding times, no gift shops. The animals are home. You are the guest. And somehow, that distinction changes everything about how a child understands the natural world.</p>`,
       pullQuote: "This is not a resort that tolerates children. It is a place that was built understanding that the best travel memories are made between generations.",
     },
     {
       heading: "Costa Rica: Volcano, Water, and Wonder",
-      image: { src: "/manus-storage/family-pool-volcano_02acbc5c.jpg", alt: "Family swimming in infinity pool with Arenal Volcano and tropical plants in background" },
+      image: { src: "/manus-storage/family-pool-volcano-wide_1c04571f.jpg", alt: "Family swimming in infinity pool with Arenal Volcano and tropical plants in background" },
       content: `<p>After lunch at Ayla, where children build their own tacos from scratch while parents sip passion fruit cocktails, the family splits. This is the beauty of Nayara's design: it accommodates every generation simultaneously.</p>
 <p>The teenagers zip-line. The course threads through the canopy at speed, the volcano's cone visible through gaps in the tree cover. They scream. They always scream. And then they ask to go again.</p>
-<p>The grandparents take the thermal pools. <a href="/springs">Nayara Springs'</a> hot springs are heated by Arenal's geothermal energy, mineral-rich waters that have been soothing bodies for centuries. The temperature is perfect: warm enough to dissolve the tension in aging shoulders, cool enough to sit in for an hour without thinking about time.</p>
+<p>The grandparents take the thermal pools. <a href="https://nayarasprings.com" target="_blank">Nayara Springs'</a> hot springs are heated by Arenal's geothermal energy, mineral-rich waters that have been soothing bodies for centuries. The temperature is perfect: warm enough to dissolve the tension in aging shoulders, cool enough to sit in for an hour without thinking about time.</p>
 <p>The younger children? They are in the butterfly garden, learning that a blue morpho's wings are not actually blue. They are structured to refract light. A six-year-old explaining refraction to his grandmother at dinner is worth the entire trip.</p>
 <p>At night, the family walks to the volcano viewpoint. On clear nights, you can see the glow of Arenal's lava dome reflected in the clouds above. A naturalist points out constellations, different ones than they see at home. The youngest falls asleep in her father's arms, face tilted toward the Southern Cross.</p>`,
     },
@@ -164,7 +164,7 @@ export const familyBucketListPost: BlogPostData = {
     {
       heading: "Alto Atacama: The Desert as Classroom",
       image: { src: "/manus-storage/family-atacama-biking_da3d4690.jpg", alt: "Family mountain biking through Atacama Desert canyons with red rock walls" },
-      content: `<p>The Atacama Desert is the driest place on Earth, and one of the most extraordinary classrooms a family could ask for. At <a href="/alto-atacama">Nayara Alto Atacama</a>, the landscape itself becomes the lesson.</p>
+      content: `<p>The Atacama Desert is the driest place on Earth, and one of the most extraordinary classrooms a family could ask for. At <a href="https://altoatacama.com" target="_blank">Nayara Alto Atacama</a>, the landscape itself becomes the lesson.</p>
 <p><strong>Rainbow Valley (Valle del Arcoiris)</strong>: A geological canvas of mineral-stained hills in reds, greens, purples, and golds. Children walk through millions of years of Earth's history written in color across the rock face. No textbook compares. The minerals that create these colors, iron oxide for red, copper for green, manganese for purple, become a chemistry lesson delivered by the landscape itself.</p>
 <p><strong>Devil's Trek Mountain Biking</strong>: The family rides through narrow canyons carved by ancient rivers, red rock walls rising on either side, the light shifting as the sun moves overhead. The trails are challenging enough for teenagers, accessible enough for younger riders with guides who know every turn. The silence of the desert, broken only by tires on sand and the occasional gasp at a new vista, teaches something about scale that no classroom can.</p>`,
     },
@@ -178,7 +178,7 @@ export const familyBucketListPost: BlogPostData = {
     {
       heading: "Hangaroa: The Moai as Open-Air Museum",
       image: { src: "/manus-storage/family-moai-rapa-nui_0919ff07.jpg", alt: "Family standing before the Moai statues on Rapa Nui" },
-      content: `<p>There are fewer than 1,000 Moai on Earth, and every single one of them stands on Rapa Nui. At <a href="/hangaroa">Nayara Hangaroa</a>, families encounter something that exists nowhere else: a civilization's legacy carved in volcanic stone, facing the Pacific.</p>
+      content: `<p>There are fewer than 1,000 Moai on Earth, and every single one of them stands on Rapa Nui. At <a href="https://hangaroa.cl" target="_blank">Nayara Hangaroa</a>, families encounter something that exists nowhere else: a civilization's legacy carved in volcanic stone, facing the Pacific.</p>
 <p>The magic of the Moai is not just their scale, some stand over 30 feet tall, weighing 80 tons, but the mystery of how they arrived. How did an ancient civilization move these giants across the island without wheels, without metal tools, without written plans? Children ask this question immediately. Adults never stop asking it.</p>
 <p>Guided excursions take families to Ahu Tongariki at sunrise, where fifteen Moai stand in a row against the ocean. To Rano Raraku, the quarry where unfinished statues still lie half-buried in the hillside, frozen mid-creation. To Orongo, the ceremonial village perched on a volcanic crater's edge.</p>
 <p>Between the archaeology, families explore on horseback across the island's green hills, snorkel in waters so clear the coral seems painted, and learn the Rapa Nui language from locals who still speak it. This is not a museum visit. It is a living culture, and children who experience it understand something profound about human ingenuity and persistence.</p>`,
