@@ -97,11 +97,11 @@ export const JOURNAL_NAV_ITEM: MenuItem = { label: "Journal", route: "/journal" 
 
 /* Journal sub-links for footer (each with own URL for SEO) */
 export const JOURNAL_FOOTER_ITEMS: MenuItem[] = [
-  { label: "Blog", route: "/journal/blog" },
-  { label: "Long-Form Video", route: "/journal/long-form-video" },
-  { label: "Press", route: "/journal/press" },
+  { label: "Blog", route: "/journal" },
+  { label: "Long-Form Video", route: "/long-form-video" },
   { label: "Awards", route: "/awards" },
-  { label: "FAQ", route: "/faq" },
+  { label: "Press", route: "/journal?tab=press" },
+  { label: "FAQ", route: "/journal?tab=faq" },
 ];
 
 /* Costa Rica dropdown items (kept for internal use, not in nav/footer) */

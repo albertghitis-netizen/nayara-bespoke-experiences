@@ -85,7 +85,7 @@ export default function NewsletterMay() {
             picture of experiential travel at Nayara, backed by the data.
           </p>
           <a
-            href="/journal/experiential-travel-nayara-2026"
+            href="/blog/experiential-travel-nayara-2026"
             className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#8a7a5a" }}
           >
@@ -140,7 +140,7 @@ export default function NewsletterMay() {
             for the rest of their lives.
           </p>
           <a
-            href="/journal/family-bucket-list-nayara"
+            href="/blog/family-bucket-list-nayara"
             className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#8a7a5a" }}
           >
@@ -196,7 +196,7 @@ export default function NewsletterMay() {
             nervous system.
           </p>
           <a
-            href="/journal/wellness-adventure-nayara"
+            href="/blog/wellness-adventure-nayara"
             className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#8a7a5a" }}
           >

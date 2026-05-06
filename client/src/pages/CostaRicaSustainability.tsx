@@ -97,20 +97,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero propertySlug={propertySlug} />
 
-      {/* H1 , Beyond Reforestation */}
-      <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
-        <div className="max-w-[1200px] mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-3xl md:text-4xl lg:text-5xl tracking-wide text-center"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BRAND.primaryText }}
-          >
-            Beyond Reforestation
-          </motion.h1>
-        </div>
-      </section>
+
 
       {/* ESG Report , only renders if data has esgReport */}
       {data.esgReport && (

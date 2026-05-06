@@ -34,6 +34,10 @@ const Newsletter = lazy(() => import("./pages/Newsletter"));
 const NewsletterMay = lazy(() => import("./pages/NewsletterMay"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
+const LongFormVideo = lazy(() => import("./pages/LongFormVideo"));
+const ExperientialTravelBlog = lazy(() => import("./pages/ExperientialTravelBlog"));
+const FamilyBucketListBlog = lazy(() => import("./pages/FamilyBucketListBlog"));
+const WellnessAdventureBlog = lazy(() => import("./pages/WellnessAdventureBlog"));
 
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
@@ -265,7 +269,7 @@ function Router() {
           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
           <Route path="/newsletter/may" component={NewsletterMay} />
-          <Route path="/journal/:slug" component={DynamicBlogPost} />
+          <Route path="/long-form-video" component={LongFormVideo} />
 
           <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
@@ -296,6 +300,9 @@ function Router() {
           <Route path="/blog/caribbean-coral-reef" component={CaribbeanCoralReefBlog} />
           <Route path="/blog/maya-rapa-nui-climate" component={MayaRapaNuiClimateBlog} />
           <Route path="/blog/atacama-winter-romance" component={AtacamaWinterRomanceBlog} />
+          <Route path="/blog/experiential-travel-nayara-2026" component={ExperientialTravelBlog} />
+          <Route path="/blog/family-bucket-list-nayara" component={FamilyBucketListBlog} />
+          <Route path="/blog/wellness-adventure-nayara" component={WellnessAdventureBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/staff" component={Staff} />

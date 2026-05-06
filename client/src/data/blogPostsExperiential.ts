@@ -44,14 +44,14 @@ export const experientialTravelPost: BlogPostData = {
       content: `<p>The wellness tourism market reached $525 billion in 2025 and is growing at 11.6% annually. But the new wellness traveler is not looking for a spa menu. They are looking for transformation.</p>
 <p>The science supports what our guests already know: immersion in thermal waters between 95°F and 104°F significantly reduces cortisol , the stress hormone , while promoting endorphin release. Studies published in <em>Nature</em> show that hot spring bathing improves cardiac output and reduces peripheral vascular resistance. Forest bathing, as documented in Park et al.'s landmark 2009 study (cited over 1,900 times), leads to lower cortisol, reduced pulse rate, decreased blood pressure, and enhanced parasympathetic nervous activity.</p>
 <p><strong>At Nayara:</strong> At <a href="/springs">Springs</a>, guests soak in volcanic thermal pools heated by Arenal's geothermal energy , mineral-rich waters containing calcium, magnesium, and sulfur that have been used therapeutically for centuries. At <a href="/tented-camp">Tented Camp</a>, the rainforest canopy itself becomes the therapy , 20 to 30 minutes in these green spaces has been shown to reduce systolic blood pressure by 5 to 7 points. This is not relaxation. This is physiological recalibration.</p>
-<p><a href="/journal/wellness-adventure-nayara">Read more: Wellness as Adventure →</a></p>`,
+<p><a href="/blog/wellness-adventure-nayara">Read more: Wellness as Adventure →</a></p>`,
     },
     {
       heading: "3. The Family Bucket List: Adventures That Bond",
       content: `<p>Family travel is booming. In 2026, it outpaced both luxury travel (73%) and adventure travel (62%) as the fastest-growing segment. Nearly half of all travelers , 47% , are now opting for multigenerational trips, with group bookings of six or more surging 67% year-over-year.</p>
 <p>The Bucket List Family , who have explored almost 100 countries with their three children , put it simply about Costa Rica: "The jungle meets the ocean, creating the perfect spot for families who want both nature and adventure. Costa Rica is alive!"</p>
 <p><strong>At Nayara:</strong> <a href="/gardens">Gardens</a> and <a href="/tented-camp">Tented Camp</a> were designed for exactly this. Children zip-line through the canopy while grandparents soak in hot springs below. Families cook together, hike together, spot toucans together. The volcano is the backdrop; the bonding is the point.</p>
-<p><a href="/journal/family-bucket-list-nayara">Read more: The Family Bucket List at Nayara →</a></p>`,
+<p><a href="/blog/family-bucket-list-nayara">Read more: The Family Bucket List at Nayara →</a></p>`,
       pullQuote: "The jungle meets the ocean, creating the perfect spot for families who want both nature and adventure. Costa Rica is alive!",
     },
     {

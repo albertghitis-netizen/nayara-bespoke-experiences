@@ -150,7 +150,7 @@ function IntroSection() {
           <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
             From stargazing in the world's driest desert to snorkeling Caribbean reefs, from hiking volcanic craters on Easter Island to zip-lining through Costa Rica's cloud forest, every Nayara experience is designed by the land it inhabits. Our excursions are led by local guides, grounded in cultural heritage, and calibrated to the rhythms of each ecosystem.
           </p>
-          <Link href="/journal/experiential-travel-nayara-2026" className="inline-block mt-6 text-[#3B2B26]/50 text-[13px] tracking-[0.05em] border-b border-[#3B2B26]/20 pb-0.5 hover:text-[#3B2B26]/80 hover:border-[#3B2B26]/40 transition-colors" style={body}>
+          <Link href="/blog/experiential-travel-nayara-2026" className="inline-block mt-6 text-[#3B2B26]/50 text-[13px] tracking-[0.05em] border-b border-[#3B2B26]/20 pb-0.5 hover:text-[#3B2B26]/80 hover:border-[#3B2B26]/40 transition-colors" style={body}>
             Read: Why Nayara Is the Ultimate Experiential Travel Destination in 2026 →
           </Link>
           <p className="hidden">

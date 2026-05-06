@@ -527,22 +527,7 @@ const blogArticles: JournalEntry[] = [
 ];
 
 // ─── Audio Episodes (Podcasts) ───────────────────────────────
-const audioEpisodes: JournalEntry[] = [
-  {
-    id: "leo-afar-podcast",
-    title: "Leo Ghitis on Sustainability with AFAR",
-    type: "audio",
-    property: "brand",
-    podcastUrl: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
-    duration: "42 min",
-    guest: "Leo Ghitis, Co-Founder & CEO",
-    image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
-    excerpt: "Nayara Co-Founder & CEO Leo Ghitis speaks with AFAR Magazine about pioneering sustainable luxury across Latin America's most extraordinary landscapes , from Costa Rica's rainforests to Chile's Atacama Desert.",
-    featured: true,
-    sortPriority: 0,
-    date: "2025-11",
-  },
-];
+const audioEpisodes: JournalEntry[] = [];
 
 // ─── Video Episodes (Nayara Horizons + Sustainability Videos) ─
 const videoEpisodes: JournalEntry[] = [

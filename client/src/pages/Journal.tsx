@@ -13,8 +13,7 @@
  */
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Play, Headphones, ArrowUpRight } from "lucide-react";
-import NativeVideo from "@/components/NativeVideo";
+import { Play, ArrowUpRight } from "lucide-react";
 import BrandNavigation from "@/components/BrandNavigation";
 import HotelFilterBar3 from "@/components/HotelFilterBar3";
 import Footer from "@/components/Footer";
@@ -57,7 +56,6 @@ const JOURNAL_CDN = {
 const CURATED_IDS: string[] = [
   // Row 1
   "conde-nast-bocas",
-  "leo-afar-podcast",
   "hitorangi-rapanui",
   // Row 2
   "7-michelin-keys",
@@ -275,18 +273,7 @@ function GalleryCard({
     );
   }
 
-  // ── Listen-only card (AFAR podcast) ──
-  if (isListenOnly) {
-    return (
-      <motion.a href={entry.podcastUrl} target="_blank" rel="noopener noreferrer" {...motionProps}>
-        <CardShell entry={entry} index={index}>
-          <CardOverlay entry={entry}>
-            <SinglePill icon={<Headphones className="w-3 h-3" />} label="Listen" />
-          </CardOverlay>
-        </CardShell>
-      </motion.a>
-    );
-  }
+  // ── Listen-only cards removed (no more audio-only entries) ──
 
   // ── EN/ES language toggle card ──
   if (hasLangToggle) {
@@ -306,17 +293,14 @@ function GalleryCard({
     );
   }
 
-  // ── Watch/Listen dual-CTA card ──
+  // ── Watch card (video with YouTube embed) ──
   if (hasDualCTA) {
     return (
       <motion.div {...motionProps}>
         <CardShell entry={entry} index={index} isPlaying={isPlaying} embedId={embedId} onClose={() => setActiveVideo(null)}>
           {!isPlaying && (
             <CardOverlay entry={entry}>
-              <DualWatchListenPills
-                onWatch={() => setActiveVideo(entry.id)}
-                listenUrl={entry.listenUrl!}
-              />
+              <SinglePill icon={<Play className="w-2.5 h-2.5 fill-current" />} label="Watch" />
             </CardOverlay>
           )}
         </CardShell>
@@ -429,32 +413,7 @@ function SinglePill({ icon, label }: { icon: React.ReactNode; label: string }) {
   );
 }
 
-/* ── Dual Watch / Listen pills ── */
-function DualWatchListenPills({ onWatch, listenUrl }: { onWatch: () => void; listenUrl: string }) {
-  return (
-    <>
-      <button
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); onWatch(); }}
-        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase group-hover:bg-[#E1D1BA]/25 group-hover:border-[#E1D1BA]/40 group-hover:text-[#E1D1BA] transition-all duration-500"
-        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-      >
-        <Play className="w-2.5 h-2.5 fill-current" />
-        Watch
-      </button>
-      <a
-        href={listenUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(e) => e.stopPropagation()}
-        className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase group-hover:bg-[#E1D1BA]/25 group-hover:border-[#E1D1BA]/40 group-hover:text-[#E1D1BA] transition-all duration-500"
-        style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-      >
-        <Headphones className="w-2.5 h-2.5" />
-        Listen
-      </a>
-    </>
-  );
-}
+/* ── DualWatchListenPills removed (Listen labels removed) ── */
 
 /* ── Dual EN / ES language pills ── */
 function DualLangPills({ onEN, onES }: { onEN: () => void; onES: () => void }) {
