@@ -36,6 +36,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const ExperientialTravelBlog = lazy(() => import("./pages/ExperientialTravelBlog"));
 const FamilyBucketListBlog = lazy(() => import("./pages/FamilyBucketListBlog"));
+const GastronomyBlog = lazy(() => import("./pages/GastronomyBlog"));
 
 
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
@@ -184,7 +185,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = [];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/journal/three-kitchens-one-rainforest"];
 
 function Router() {
   const [location] = useLocation();
@@ -322,6 +323,8 @@ function Router() {
           <Route path="/blog/atacama-winter-romance" component={AtacamaWinterRomanceBlog} />
           <Route path="/blog/experiential-travel-nayara-2026" component={ExperientialTravelBlog} />
           <Route path="/blog/family-bucket-list-nayara" component={FamilyBucketListBlog} />
+          <Route path="/blog/three-kitchens-one-rainforest" component={GastronomyBlog} />
+          <Route path="/journal/three-kitchens-one-rainforest">{() => { window.location.replace("/blog/three-kitchens-one-rainforest"); return null; }}</Route>
 
           <Route path="/blog/golden-age-latin-america" component={GoldenAgeLatinAmericaBlog} />
           <Route path="/blog/lujo-despacio" component={LujoDEspacioBlog} />

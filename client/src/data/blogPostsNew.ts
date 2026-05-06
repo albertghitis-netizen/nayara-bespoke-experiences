@@ -202,7 +202,7 @@ export const inHouseActivitiesBlogPost: BlogPostData = {
   ],
   relatedArticles: [
     {
-      slug: "/journal/three-kitchens-one-rainforest",
+      slug: "/blog/three-kitchens-one-rainforest",
       title: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara",
       pillar: "Gastronomy",
       image: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",

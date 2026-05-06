@@ -28,12 +28,14 @@ import type { BlogPostData } from "@/data/blogPosts";
 
 interface BlogPostTemplateProps {
   post: BlogPostData;
+  hideNav?: boolean;
+  hideConcierge?: boolean;
 }
 
 /* ═══════════════════════════════════════════════════════════════
    MAIN TEMPLATE
    ═══════════════════════════════════════════════════════════════ */
-export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
+export default function BlogPostTemplate({ post, hideNav, hideConcierge }: BlogPostTemplateProps) {
   const [currentUrl, setCurrentUrl] = useState("");
   const isMobile = useIsMobile();
 
@@ -98,12 +100,19 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
       </Helmet>
 
       {/* ── 1. BRAND NAVIGATION ── */}
-      <BrandNavigation pageType="content" />
+      {!hideNav && <BrandNavigation pageType="content" />}
 
       {/* ── 2. HERO VIDEO / IMAGE ── */}
-      <section className="relative w-full overflow-hidden" style={{ aspectRatio: isMobile && post.mobileHeroVideo ? "9/16" : "21/9", minHeight: "400px", maxHeight: isMobile && post.mobileHeroVideo ? "85vh" : "70vh" }}>
+      <section className="relative w-full overflow-hidden" style={{ aspectRatio: isMobile && post.mobileHeroVideo ? "9/16" : post.hasAudio ? "16/9" : "21/9", minHeight: "400px", maxHeight: isMobile && post.mobileHeroVideo ? "85vh" : post.hasAudio ? "100vh" : "70vh" }}>
         {isMobile && post.mobileHeroVideo ? (
           <BlobVideo src={post.mobileHeroVideo} className="absolute inset-0 w-full h-full object-cover" />
+        ) : post.heroVideo && post.hasAudio ? (
+          <BlobVideo
+            src={post.heroVideo.desktop}
+            className="absolute inset-0 w-full h-full object-cover"
+            hasAudio
+            loop
+          />
         ) : post.heroVideo ? (
           <NativeVideo src={post.heroVideo.desktop} className="absolute inset-0 w-full h-full object-cover" autoPlay muted
             loop
@@ -118,6 +127,18 @@ export default function BlogPostTemplate({ post }: BlogPostTemplateProps) {
         )}
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+
+        {/* H1 title overlay for immersive hero (hasAudio) */}
+        {post.hasAudio && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center px-8">
+            <h1
+              className="text-white text-center text-2xl md:text-4xl lg:text-5xl leading-[1.15] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+            >
+              {post.title}
+            </h1>
+          </div>
+        )}
 
         {/* Pillar tag on hero */}
         <div className="absolute bottom-8 left-8 md:left-16 z-10">

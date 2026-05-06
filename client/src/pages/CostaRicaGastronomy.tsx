@@ -697,7 +697,7 @@ function BlogCrossLink() {
         <AnimateOnScroll variants={fadeUp}>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
             <Link
-              href="/journal/three-kitchens-one-rainforest"
+              href="/blog/three-kitchens-one-rainforest"
               className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
               style={{
                 ...body,

@@ -16,6 +16,10 @@ export const experientialTravelPost: BlogPostData = {
   pillar: "Experiences",
   tags: ["Experiential Travel", "Travel Trends", "2026", "Gastronomy", "Family", "Adventure", "Skillcation"],
   readingTime: 9,
+  heroVideo: {
+    desktop: "/manus-storage/experiential-travel-hero_873ea961.mp4",
+  },
+  hasAudio: true,
   heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
   keyFindings: [
     "The global experiences sector reached $271 billion in 2025 and is projected to surge past $342 billion by 2029, growing at 8% annually and outpacing the wider travel industry by more than 60%.",
@@ -37,7 +41,7 @@ export const experientialTravelPost: BlogPostData = {
       content: `<p>The culinary tourism market, valued at $16.1 billion in 2025, is projected to reach $76.4 billion by 2033, growing at nearly 22% annually. Nearly one in five travelers now book trips specifically to explore food destinations, and half secure dining reservations before booking any other activity.</p>
 <p>At Nayara, food is not a service. It is a vocabulary. In Costa Rica, our kitchens become classrooms: at Ayla in Tented Camp, open-fire cooking becomes a lesson in elemental simplicity. At Asia Luna in Gardens, chefs teach the art of Costa Rican-Asian fusion using ingredients grown in volcanic soil. The chocolate experience takes children and adults through every stage of cacao, from pod to bar, and the moment a child discovers they prefer 85% dark is a moment of genuine self-knowledge.</p>
 <p>At Ckelar in <a href="/alto-atacama">Alto Atacama</a>, ancestral Atacameno cooking techniques use ingredients from the driest desert on Earth. These are not demonstrations. They are skills guests carry home, meals they recreate for years, flavors that transport them back to the place where they first learned to cook with fire.</p>
-<p><a href="/blog/in-house-activities-three-hotels-infinite-experiences">Read more: Costa Rica Gastronomy at Nayara →</a></p>`,
+<p><a href="/blog/three-kitchens-one-rainforest">Read more: Costa Rica Gastronomy at Nayara →</a></p>`,
       pullQuote: "Food is not a service. It is a vocabulary.",
     },
     {

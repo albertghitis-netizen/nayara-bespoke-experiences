@@ -52,6 +52,8 @@ export interface BlogPostData {
     desktop: string;
     mobile?: string;
   };
+  /** Whether the hero video has audio (shows sound pill instead of nav) */
+  hasAudio?: boolean;
   /** Vertical video for mobile hero (replaces heroImage on mobile) */
   mobileHeroVideo?: string;
   keyFindings: string[];
