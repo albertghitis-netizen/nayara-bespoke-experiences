@@ -108,7 +108,7 @@ export const JOURNAL_FOOTER_ITEMS: MenuItem[] = [
 export const COSTA_RICA_ITEMS: MenuItem[] = [
   { label: "Rainforest Adventure", route: "/curated-excursions" },
   { label: "Nurtured by Nature", route: "/costa-rica-wellness" },
-  { label: "Forest to Table", route: "/gastronomy-arenal" },
+  { label: "Forest to Table", route: "/tented-camp/gastronomy" },
   { label: "Beyond Reforestation", route: "/tented-camp-sustainability" },
 ];
 

@@ -1,158 +1,177 @@
 /*
- * UNIVERSAL GASTRONOMY , Sustainability-style deep page for ALL properties
- * Renders in the color palette of whichever property the user came from.
- * Sections: Philosophy, Restaurants (by property), Sweet Moments, Bar Scene,
- *           Five Classes, The Nayara Difference, Blog cross-link
+ * DEFINITIVE COSTA RICA GASTRONOMY — "Forest to Table"
+ * The single gastronomy page for all three Costa Rica properties.
+ * Routes: /tented-camp/gastronomy, /gardens/gastronomy, /springs/gastronomy
+ * Always renders in Tented Camp palette (dark, immersive).
+ * 
+ * Sections:
+ * Hero → ScrollingHeader → Stats → Philosophy → Restaurant Grid (with images + deep links)
+ * → Sweet Moments → Bar Scene → Five Classes → Nayara Difference → Blog Cross-Link → Footer
  */
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import NativeVideo from "@/components/NativeVideo";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Link, useLocation } from "wouter";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import { properties, type Property } from "@/data/properties";
-import {
-  costaRicaDining,
-  atacamaDiningCollection,
-  bocasDiningCollection,
-  hangaroaDining,
-  type PropertyDining,
-} from "@/data/dining";
-import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
-import PillarCrossLink from "@/components/PillarCrossLink";
 import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
+import PillarCrossLink from "@/components/PillarCrossLink";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
-  TextReveal,
   DrawLine,
-  Parallax,
   fadeUp,
   staggerContainer,
 } from "@/components/motion";
 
-const CDN_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
+/* ── Palette (Tented Camp — always) ── */
+const PALETTE = {
+  bg: "#2C3A2E",
+  bgAlt: "#253228",
+  primary: "#868B75",
+  accent: "#B8A88A",
+  text: "#E6DFD5",
+  textMuted: "#E6DFD5",
+  footerBg: "#1a2a1c",
+};
+
+const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
-/** Hero videos per property */
-const HERO_VIDEOS: Record<string, string> = {
-  "tented-camp": `${CDN_BASE}/gastronomy-hero-audio_0f3604db.mp4`,
-  gardens: `${CDN_BASE}/gastronomy-hero-audio_0f3604db.mp4`,
-  springs: `${CDN_BASE}/gastronomy-hero-audio_0f3604db.mp4`,
-  "alto-atacama": `${CDN_BASE}/flamingos_1001c3d8.mp4`,
-  "bocas-del-toro": `${CDN_BASE}/bocas_gallery_video_0a7e31ab.mp4`,
-  hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
-};
+/* ── Hero video ── */
+const HERO_VIDEO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-audio_0f3604db.mp4";
+const HERO_IMAGE = "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg";
 
-/** Location subtitles per property */
-const LOCATIONS: Record<string, string> = {
-  "tented-camp": "Arenal Volcano National Park, Costa Rica",
-  gardens: "Arenal Volcano National Park, Costa Rica",
-  springs: "Arenal Volcano National Park, Costa Rica",
-  "alto-atacama": "San Pedro de Atacama, Chile",
-  "bocas-del-toro": "Bocas del Toro, Panamá",
-  hangaroa: "Rapa Nui, Easter Island, Chile",
-};
+/* ── Stats ── */
+const STATS = [
+  { value: "12", label: "Restaurants & Bars" },
+  { value: "3", label: "Properties" },
+  { value: "5", label: "Culinary Classes" },
+  { value: "1", label: "Philosophy" },
+];
 
-/** H1 headlines per property */
-const HEADLINES: Record<string, string> = {
-  "tented-camp": "Rainforest Dining",
-  gardens: "Rainforest Dining",
-  springs: "Rainforest Dining",
-  "alto-atacama": "Desert Dining",
-  "bocas-del-toro": "Caribbean Dining",
-  hangaroa: "Pacific Island Cuisine",
-};
-
-/** Dining data per property */
-const DINING_MAP: Record<string, PropertyDining> = {
-  "tented-camp": costaRicaDining,
-  gardens: costaRicaDining,
-  springs: costaRicaDining,
-  "alto-atacama": atacamaDiningCollection,
-  "bocas-del-toro": bocasDiningCollection,
-  hangaroa: hangaroaDining,
-};
-
-/* ── Costa Rica–specific deep content ── */
-
-const CR_SLUGS = ["tented-camp", "gardens", "springs"];
-
-interface RestaurantDeep {
+/* ── Restaurant data with enriched descriptions from blog ── */
+interface RestaurantEntry {
   name: string;
   cuisine: string;
   description: string;
-  property: string;
+  image: string;
+  route: string;
+  isVideo?: boolean;
 }
 
-const GARDENS_RESTAURANTS: RestaurantDeep[] = [
+const GARDENS_RESTAURANTS: RestaurantEntry[] = [
   {
     name: "Nostalgia Wine Bar",
     cuisine: "Wine & Small Plates",
-    description: "Sophisticated wine tastings paired with thoughtful small plates. The sommelier-led experience is not simply about drinking wine , it is an education in pairing and appreciation, guided by experts who understand how wine complements both food and the rainforest setting.",
-    property: "Nayara Gardens",
+    description: "A curated library of over 200 labels from Old and New World vineyards, presided over by a certified sommelier who leads structured tastings paired with artisanal cheese boards and charcuterie. Candlelit, open-air, overlooking the garden ponds — transforms a simple tasting into an event.",
+    image: "/manus-storage/nostalgia-1_2e268294.jpg",
+    route: "/gardens/gastronomy/nostalgia",
   },
   {
     name: "La Terrazza",
     cuisine: "Italian",
-    description: "Italian warmth in the rainforest with inviting atmosphere and classic preparations. There is something deeply satisfying about handmade pasta served beneath a canopy of tropical trees, where the sounds of the forest replace the noise of a city street.",
-    property: "Nayara Gardens",
+    description: "Handmade pasta prepared fresh daily. Costa Rican ingredients reinterpret Italian classics: pappardelle with slow-braised local beef, wood-fired pizzas topped with tropical herbs, and tiramisu made with Arenal-region coffee. Open terrace beneath a canopy of tropical trees.",
+    image: "/manus-storage/la-terraza-bar-front_ccd17a7a.jpg",
+    route: "/gardens/gastronomy/la-terraza",
   },
   {
-    name: "Asialluna",
+    name: "Asia Luna",
     cuisine: "Asian Fusion",
-    description: "Asian fusion blended with Costa Rican ingredients for a surprising and delightful culinary conversation. Familiar techniques from across Asia reinterpreted through the lens of Central American produce, spices, and tradition.",
-    property: "Nayara Gardens",
+    description: "Familiar techniques from across Asia reinterpreted through Central American produce and tradition. Thai curries with local coconut, Japanese-inspired ceviches using Costa Rican fish, wok-fired dishes celebrating volcanic soil's bounty. Open kitchen with seasonal specials from local farms.",
+    image: "/manus-storage/asia-luna-3_2b44c4d5.jpg",
+    route: "/gardens/gastronomy/asia-luna",
+  },
+  {
+    name: "Layla's Gelato",
+    cuisine: "Artisan Gelato",
+    description: "Handcrafted flavors that capture the essence of Costa Rica — guanábana, cas, local chocolate from the Caribbean coast, and seasonal inspirations churned fresh daily. Traditional Italian technique with Costa Rican ingredients, made in small batches.",
+    image: "/manus-storage/laylas-1_88c3c926.jpg",
+    route: "/gardens/gastronomy/lylas-gelato",
   },
 ];
 
-const SPRINGS_RESTAURANTS: RestaurantDeep[] = [
+const SPRINGS_RESTAURANTS: RestaurantEntry[] = [
   {
     name: "Amor Loco",
     cuisine: "Fine Dining",
-    description: "Culinary artistry meets impeccable service. Every dish is a composition , plated with the precision of a gallery piece, yet grounded in flavors that feel honest and intentional. Amor Loco is where special occasions become unforgettable ones.",
-    property: "Nayara Springs",
+    description: "Culinary artistry meets impeccable service. The tasting menu changes seasonally — ceviche of corvina cured in passion fruit and habanero, slow-cooked pork belly with tamarind glaze, chocolate dessert using single-origin cacao from Talamanca. Wine pairing curated by the sommelier.",
+    image: "/manus-storage/al300-07_456492ee.jpg",
+    route: "/springs/gastronomy/amor-loco",
   },
   {
     name: "Nysa Morris",
     cuisine: "Italian Bistro",
-    description: "Authentic Italian bistro fare that feels both elegant and approachable. The kind of restaurant where you come for a quick lunch and stay for two hours, because the atmosphere refuses to let you rush.",
-    property: "Nayara Springs",
+    description: "Simplicity executed perfectly: house-made focaccia, burrata with heirloom tomatoes, seasonal risottos, grilled meats and seafood. The atmosphere is warm and unhurried — the kind of restaurant where you come for a quick lunch and stay for two hours.",
+    image: "/manus-storage/mis-amores-3_58c06b2d.jpg",
+    route: "/springs/gastronomy/mis-amores",
+  },
+  {
+    name: "Besame Mucho",
+    cuisine: "Latin American",
+    description: "Passionate flavors of Latin America brought to life in the rainforest. Bold spices, traditional preparations, and the warmth of a cuisine built on generations of family recipes.",
+    image: "/manus-storage/besame-mucho-cover_6fcf6b29.jpg",
+    route: "/springs/gastronomy/besame-mucho",
+  },
+  {
+    name: "Mi Cafecito",
+    cuisine: "Coffee & Pastries",
+    description: "Costa Rican coffee heritage, bean to cup. Beans from the Tarrazú and Dota Valley highlands roasted for your morning cup. The citrus brightness of a light roast, the chocolate depth of a medium — every cup tells the story of volcanic soil and tropical seasons.",
+    image: "/manus-storage/mi-cafecito-1_bf532654.jpg",
+    route: "/springs/gastronomy/mi-cafecito",
   },
 ];
 
-const TENTED_RESTAURANTS: RestaurantDeep[] = [
+const TENTED_RESTAURANTS: RestaurantEntry[] = [
   {
     name: "Ayla",
-    cuisine: "Mediterranean",
-    description: "Mediterranean cuisine infused with local touches, offering a different flavor profile while maintaining the same commitment to quality that defines every Nayara kitchen. The open-air setting places you at the edge of the rainforest, where the boundary between restaurant and wilderness dissolves entirely.",
-    property: "Nayara Tented Camp",
+    cuisine: "Modern Mediterranean",
+    description: "The philosophy of cooking with fire reaches its fullest expression. Meats slow-cooked over native hardwoods, vegetables charred for natural sweetness. Lamb kofta with local yogurt tzatziki, grilled octopus with chimichurri, wood-fired flatbreads, mezze platters for sharing. The fire pit becomes a gathering point at night.",
+    image: "/manus-storage/ayla-cover-new_9e220bdb.jpg",
+    route: "/tented-camp/gastronomy/ayla",
+  },
+  {
+    name: "Henry's Bar",
+    cuisine: "Cocktail Bar & Lounge",
+    description: "An intimate setting for evening conversation. The cocktail menu is crafted around Costa Rican spirits — guaro, local rum, coffee liqueur — mixed with fresh ingredients that change with the season. Low lighting, the sound of the forest, the warmth of the fire pit nearby.",
+    image: "/manus-storage/henrys-bar-cover_981148ec.jpeg",
+    route: "/tented-camp/gastronomy/henrys-bar",
+  },
+  {
+    name: "Lapas Pool Bar",
+    cuisine: "Poolside Bites & Cocktails",
+    description: "Tropical refreshments by the infinity pool. Cocktails built around fresh tropical juices, local rum, and herbs picked from the property's garden. Arenal Volcano as backdrop makes every drink feel like a celebration.",
+    image: "/manus-storage/lapas-pool-bar-card_75d3e6ae.mp4",
+    route: "/tented-camp/gastronomy/lapas-pool-bar",
+    isVideo: true,
   },
 ];
 
-interface BarDeep {
+/* ── Bar data ── */
+interface BarEntry {
   name: string;
   property: string;
   description: string;
 }
 
-const BARS: BarDeep[] = [
+const BARS: BarEntry[] = [
   {
     name: "Lapa's Pool Bar",
     property: "Nayara Springs",
-    description: "Tropical and refreshing poolside cocktails, where the afternoon light filters through the canopy and every sip tastes like vacation.",
+    description: "Tropical and refreshing — cocktails built around fresh tropical juices, local rum, and herbs picked from the property's garden. The infinity pool setting, with Arenal Volcano as backdrop, makes every drink feel like a celebration.",
   },
   {
     name: "Henry's Lounge Bar",
     property: "Nayara Tented Camp",
-    description: "An intimate setting for evening conversation , the kind of place where a well-made cocktail and the sound of the forest are all you need.",
+    description: "The cocktail menu is crafted around Costa Rican spirits — guaro, local rum, coffee liqueur — mixed with fresh ingredients that change with the season. The atmosphere — low lighting, the sound of the forest, the warmth of the fire pit — is the kind of place where a well-made cocktail is all you need.",
   },
   {
     name: "Las Thermas Bar",
     property: "Nayara Tented Camp",
-    description: "More than just a hot springs area , it is a social hub where guests gather to soak, unwind, and connect over drinks heated by the earth itself.",
+    description: "Drinks poolside at the hot springs — imagine sipping a passion fruit mojito while soaking in geothermally heated water beneath the stars. More than a bar, it is a social hub where guests gather to soak, unwind, and connect.",
   },
   {
     name: "Tentacamp Pool Bar",
@@ -161,129 +180,112 @@ const BARS: BarDeep[] = [
   },
 ];
 
-interface ClassDeep {
+/* ── Class data (enriched from blog) ── */
+interface ClassEntry {
   name: string;
-  icon: string;
   description: string;
+  media: string;
+  type: "video" | "image";
 }
 
-const CLASSES: ClassDeep[] = [
+const CLASSES: ClassEntry[] = [
   {
     name: "Wine Tasting",
-    icon: "🍷",
-    description: "An education in pairing and appreciation at Nostalgia Wine Bar. Guided by sommeliers who understand how wine complements both food and the rainforest setting.",
+    description: "Five to seven wines at Nostalgia Wine Bar, each paired with a complementary bite. The sommelier explains terroir, vintage, and technique — in service of pleasure, never pedantry. Guests leave understanding not just what they like, but why.",
+    media: "/manus-storage/nostalgia-1_2e268294.jpg",
+    type: "image",
   },
   {
     name: "Cooking Class",
-    icon: "👨‍🍳",
-    description: "Learn to recreate the dishes you have fallen in love with, using techniques and ingredients that define Costa Rican cuisine.",
+    description: "At Ayla. Open-fire technique and Costa Rican-Mediterranean fusion. Gallo pinto, ceviche with local fish, and a main course over the grill. Hands-on — you cook, you taste, you adjust, you eat what you made. Families welcome.",
+    media: "/manus-storage/cooking-class-clip_a2af26bb.mp4",
+    type: "video",
   },
   {
     name: "Coffee Class",
-    icon: "☕",
-    description: "Trace the journey from bean to cup, celebrating the country's coffee heritage , from volcanic soil to your morning ritual.",
+    description: "A two-hour journey from cherry to cup. Roast your own beans, grind them, and brew using three different methods. Learn why altitude, soil, and processing method matter more than brand. Take home a bag of beans you roasted yourself.",
+    media: "/manus-storage/coffee-roasting_a59dcb29.webp",
+    type: "image",
   },
   {
     name: "Mixology Class",
-    icon: "🍹",
-    description: "Transform into a bartender, crafting cocktails that capture tropical flavors and local spirits under the guidance of Nayara's expert mixologists.",
+    description: "Balance sweet, sour, bitter, and spirit. Make three cocktails — one classic, one tropical, one of your own invention. The bartender shares techniques that work in any home kitchen.",
+    media: "/manus-storage/mixology-class-v2_f3dc1d6d.mp4",
+    type: "video",
   },
   {
     name: "Rum Tasting",
-    icon: "🥃",
-    description: "Celebrate one of Central America's most storied beverages, exploring how terroir and tradition shape every bottle.",
+    description: "Five rums, aged from two to twenty-three years, each with a story of terroir and tradition. Learn to nose, taste, and appreciate the difference between industrial and artisanal production. Central America's most storied spirit.",
+    media: "/manus-storage/nostalgia-1_2e268294.jpg",
+    type: "image",
   },
 ];
 
-/* ── Stats ── */
-const GASTRO_STATS = [
-  { value: "6", label: "Restaurants" },
-  { value: "5", label: "Bars & Lounges" },
-  { value: "5", label: "Culinary Classes" },
-  { value: "3", label: "Properties, One Ecosystem" },
-];
+/* ── Utility ── */
+function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
+  return (
+    <motion.div ref={ref} initial={{ opacity: 0, y: 10 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }} className={className}>
+      {children}
+    </motion.div>
+  );
+}
 
+/* ═══════════════════════════════════════════════════════════════
+   MAIN COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
 interface Props {
-  propertySlug: string;
+  propertySlug?: string;
 }
 
 export default function CostaRicaGastronomy({ propertySlug }: Props) {
-  // Use tented-camp palette for tented-camp and gardens; springs uses its own palette
-  const paletteSlug = (propertySlug === "springs") ? "springs" : (CR_SLUGS.includes(propertySlug) ? "tented-camp" : propertySlug);
-  const palette = getPalette(paletteSlug);
-  const propertyDisplay = properties.find((p: Property) => p.id === propertySlug);
-  const propertyName = propertyDisplay?.name || "Nayara";
-  const heroVideo = HERO_VIDEOS[propertySlug] || HERO_VIDEOS["tented-camp"];
-  const headline = HEADLINES[propertySlug] || "Forest to Table";
-  const dining = DINING_MAP[propertySlug] || costaRicaDining;
-  const location = LOCATIONS[propertySlug] || "";
-  const isCR = CR_SLUGS.includes(propertySlug);
-
   return (
-    <div className="min-h-screen" style={{ backgroundColor: palette.gradientEnd }}>
+    <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
       <BrandNavigation pageType="property" hideCenterLabel />
-      <GastronomyHero propertySlug={propertySlug} />
-      <ScrollingPillarHeader word="A TASTE OF PLACE" color={palette.primary} bgColor={palette.gradientEnd} />
-
-      {isCR ? (
-        <>
-          <ByTheNumbers palette={palette} />
-          <PhilosophySection palette={palette} />
-          <PropertyDiningSection
-            palette={palette}
-            propertyName="Nayara Gardens"
-            subtitle="Where It All Begins"
-            restaurants={GARDENS_RESTAURANTS}
-            index={0}
-          />
-          <PropertyDiningSection
-            palette={palette}
-            propertyName="Nayara Springs"
-            subtitle="Elevated Dining"
-            restaurants={SPRINGS_RESTAURANTS}
-            index={1}
-          />
-          <PropertyDiningSection
-            palette={palette}
-            propertyName="Nayara Tented Camp"
-            subtitle="Mediterranean Meets the Jungle"
-            restaurants={TENTED_RESTAURANTS}
-            index={2}
-          />
-          <SweetMomentsSection palette={palette} />
-          <BarSceneSection palette={palette} />
-          <ClassesSection palette={palette} />
-          <NayaraDifferenceSection palette={palette} />
-          <BlogCrossLink palette={palette} />
-        </>
-      ) : (
-        <>
-          <GastronomyIntro palette={palette} description={dining.description} />
-          <GastronomyContent palette={palette} restaurants={dining.restaurants} />
-        </>
-      )}
-
-      <Footer pageType="property" bgColor={palette.footerBg} textColor="#FFFFFF" propertyName={propertySlug === "gardens" ? "Gardens" : propertySlug === "tented-camp" ? "Tented Camp" : propertySlug === "springs" ? "Springs" : propertySlug === "bocas-del-toro" ? "Bocas del Toro" : undefined} />
+      <HeroSection />
+      <ScrollingPillarHeader word="A TASTE OF PLACE" color={PALETTE.primary} bgColor={PALETTE.bg} />
+      <ByTheNumbers />
+      <PhilosophySection />
+      <RestaurantGridSection />
+      <SweetMomentsSection />
+      <BarSceneSection />
+      <ClassesSection />
+      <NayaraDifferenceSection />
+      <BlogCrossLink />
+      <Footer pageType="property" bgColor={PALETTE.footerBg} textColor="#FFFFFF" />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO
+   HERO — Full-bleed image with gradient
    ═══════════════════════════════════════════════════════════════ */
-function GastronomyHero({ propertySlug }: { propertySlug: string }) {
-  const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
-    "tented-camp": { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
-    gardens: { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
-    springs: { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
-    "alto-atacama": { src: "/manus-storage/atacama-gastronomy-hero_c7d93f23.jpg", alt: "Avocado dessert bowls" },
-    "bocas-del-toro": { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
-    hangaroa: { src: "/manus-storage/tc-gastronomy-hero_d9a6b8ac.jpg", alt: "Honeycomb dessert" },
-  };
-  const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
+function HeroSection() {
   return (
     <section className="relative aspect-[16/9] w-full overflow-hidden">
-      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
+      <img src={HERO_IMAGE} alt="Honeycomb dessert — Costa Rica gastronomy" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+      <div className="absolute bottom-8 md:bottom-12 left-0 right-0 text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-xl md:text-3xl lg:text-4xl tracking-wide"
+          style={heading}
+        >
+          Forest to Table
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-white/50 text-[12px] tracking-[0.2em] uppercase mt-3"
+          style={{ ...body, fontWeight: 500 }}
+        >
+          Arenal Volcano National Park, Costa Rica
+        </motion.p>
+      </div>
     </section>
   );
 }
@@ -291,31 +293,31 @@ function GastronomyHero({ propertySlug }: { propertySlug: string }) {
 /* ═══════════════════════════════════════════════════════════════
    BY THE NUMBERS
    ═══════════════════════════════════════════════════════════════ */
-function ByTheNumbers({ palette }: { palette: PropertyPalette }) {
+function ByTheNumbers() {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.3em] uppercase mb-10"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
           >
             By the Numbers
           </p>
         </AnimateOnScroll>
 
         <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {GASTRO_STATS.map((stat, i) => (
+          {STATS.map((stat, i) => (
             <motion.div key={i} variants={fadeUp} className="text-center">
               <p
                 className="text-3xl md:text-4xl mb-2"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+                style={{ ...heading, color: PALETTE.primary }}
               >
                 {stat.value}
               </p>
               <p
                 className="text-[12px] tracking-[0.05em]"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "#E6DFD5" }}
+                style={{ ...body, color: PALETTE.text }}
               >
                 {stat.label}
               </p>
@@ -328,33 +330,43 @@ function ByTheNumbers({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PHILOSOPHY
+   PHILOSOPHY — "Three Properties, One Culinary Ecosystem"
    ═══════════════════════════════════════════════════════════════ */
-function PhilosophySection({ palette }: { palette: PropertyPalette }) {
+function PhilosophySection() {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={palette.primary} className="mb-8" />
-          <h2
-            className="text-2xl md:text-3xl mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
-          >
-            The Philosophy of Shared Luxury
-          </h2>
-          <div className="max-w-[780px] space-y-5">
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
-            >
-              Imagine a vacation where you get the intimacy and privacy of your own secluded hotel, but with access to the culinary world of three world-class properties. That is exactly what awaits at Nayara Gardens, Nayara Springs, and Nayara Tented Camp in Costa Rica's Arenal region.
-            </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
-            >
-              While each property maintains its own distinct character and peaceful sanctuary, guests enjoy seamless access to a shared ecosystem of dining that transforms a stay into an unforgettable gastronomic journey through one magical rainforest. You are not choosing between three separate hotels , you are choosing one interconnected destination where culinary excellence exists at every turn.
-            </p>
+          <DrawLine color={PALETTE.primary} className="mb-8" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            <div>
+              <span
+                className="text-[10px] tracking-[0.3em] uppercase block mb-4"
+                style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+              >
+                Farm to Table
+              </span>
+              <h2
+                className="text-2xl md:text-3xl leading-tight"
+                style={{ ...heading, color: PALETTE.text }}
+              >
+                Three Properties,<br />One Culinary Ecosystem
+              </h2>
+            </div>
+            <div className="space-y-5">
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9]"
+                style={{ ...body, color: PALETTE.text }}
+              >
+                You are not staying at three different hotels that happen to share some restaurants. You are entering a curated world where every meal, every glass, every class reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul.
+              </p>
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9]"
+                style={{ ...body, color: PALETTE.text }}
+              >
+                From the precision of Amor Loco's tasting menu to the warmth of La Terrazza's handmade pasta, from the inventive cocktails at Henry's Bar to the quiet ritual of Mi Cafecito's morning espresso — each experience is rooted in the volcanic soil, tropical abundance, and creative spirit of Arenal.
+              </p>
+            </div>
           </div>
         </AnimateOnScroll>
       </div>
@@ -363,97 +375,145 @@ function PhilosophySection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTY DINING SECTION (reusable for Gardens / Springs / TC)
+   RESTAURANT GRID — Grouped by property, with images + deep links
    ═══════════════════════════════════════════════════════════════ */
-function PropertyDiningSection({
-  palette,
-  propertyName,
-  subtitle,
-  restaurants,
-  index,
-}: {
-  palette: PropertyPalette;
-  propertyName: string;
-  subtitle: string;
-  restaurants: RestaurantDeep[];
-  index: number;
-}) {
-  const isAlt = index % 2 === 1;
-  const bgColor = isAlt ? `${palette.primary}08` : palette.gradientEnd;
+function RestaurantGridSection() {
+  const [, navigate] = useLocation();
+  const propertyGroups = [
+    { name: "Nayara Tented Camp", subtitle: "Fire, Earth, and Open Air", restaurants: TENTED_RESTAURANTS },
+    { name: "Nayara Springs", subtitle: "Elevated Dining", restaurants: SPRINGS_RESTAURANTS },
+    { name: "Nayara Gardens", subtitle: "Where It All Begins", restaurants: GARDENS_RESTAURANTS },
+  ];
 
   return (
-    <section className={sectionPadding} style={{ backgroundColor: bgColor }}>
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bgAlt }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="text-[11px] tracking-[0.3em] uppercase mb-3"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
-          >
-            {propertyName}
-          </p>
+          <DrawLine color={PALETTE.primary} className="mb-8" />
           <h2
-            className="text-2xl md:text-3xl mb-10"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
+            className="text-2xl md:text-3xl mb-3"
+            style={{ ...heading, color: PALETTE.text }}
           >
-            {subtitle}
+            Our Restaurants
           </h2>
+          <p
+            className="text-[15px] leading-[1.9] max-w-[600px] mb-14"
+            style={{ ...body, color: PALETTE.text }}
+          >
+            From fine dining to artisan gelato, each venue tells its own story while sharing the same commitment to quality.
+          </p>
         </AnimateOnScroll>
 
-        <StaggerOnScroll variants={staggerContainer} className="space-y-12">
-          {restaurants.map((r, i) => (
-            <motion.div key={i} variants={fadeUp}>
-              <DrawLine color={palette.primary} className="mb-6" />
-              <div className="flex flex-col md:flex-row md:items-start gap-4">
-                <div className="flex-1">
-                  <h3
-                    className="text-[20px] md:text-[22px] mb-1"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
-                  >
-                    {r.name}
-                  </h3>
-                  <p
-                    className="text-[11px] tracking-[0.12em] uppercase mb-4"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
-                  >
-                    {r.cuisine}
-                  </p>
-                  <p
-                    className="text-[14px] md:text-[15px] leading-[1.85]"
-                    style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
-                  >
-                    {r.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
+        {propertyGroups.map((group, gi) => (
+          <div key={group.name} className="mb-16 last:mb-0">
+            <AnimateOnScroll variants={fadeUp}>
+              <span
+                className="text-[10px] tracking-[0.25em] uppercase block mb-2"
+                style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+              >
+                {group.name}
+              </span>
+              <h3
+                className="text-xl md:text-2xl mb-8"
+                style={{ ...heading, color: PALETTE.text }}
+              >
+                {group.subtitle}
+              </h3>
+            </AnimateOnScroll>
+
+            <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {group.restaurants.map((r, ri) => (
+                <motion.div
+                  key={r.name}
+                  variants={fadeUp}
+                  className="group cursor-pointer overflow-hidden rounded-sm"
+                  style={{ backgroundColor: `${PALETTE.primary}10` }}
+                  onClick={() => navigate(r.route)}
+                >
+                  {/* Media */}
+                  <div className="aspect-[4/3] overflow-hidden">
+                    {r.isVideo ? (
+                      <video
+                        src={r.image}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                      />
+                    ) : (
+                      <img
+                        src={r.image}
+                        alt={r.name}
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
+                  {/* Content */}
+                  <div className="p-5">
+                    <p
+                      className="text-[10px] tracking-[0.15em] uppercase mb-2"
+                      style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+                    >
+                      {r.cuisine}
+                    </p>
+                    <h4
+                      className="text-[17px] mb-2"
+                      style={{ ...heading, fontWeight: 500, color: PALETTE.text }}
+                    >
+                      {r.name}
+                    </h4>
+                    <p
+                      className="text-[13px] leading-[1.75] line-clamp-3"
+                      style={{ ...body, color: `${PALETTE.text}99` }}
+                    >
+                      {r.description}
+                    </p>
+                    <span
+                      className="inline-block mt-3 text-[11px] tracking-[0.08em] border-b pb-0.5 transition-colors group-hover:border-white/40"
+                      style={{ ...body, fontWeight: 500, color: PALETTE.accent, borderColor: `${PALETTE.accent}40` }}
+                    >
+                      Explore →
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </StaggerOnScroll>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SWEET MOMENTS , Lila's Gelato & Coffee
+   SWEET MOMENTS — Lila's Gelato + Coffee Experience
    ═══════════════════════════════════════════════════════════════ */
-function SweetMomentsSection({ palette }: { palette: PropertyPalette }) {
+function SweetMomentsSection() {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={palette.primary} className="mb-8" />
+          <DrawLine color={PALETTE.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
+            style={{ ...heading, color: PALETTE.text }}
           >
             Beyond the Plate: The Simple Moments
           </h2>
-          <div className="max-w-[780px]">
+          <div className="max-w-[780px] space-y-5">
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
+              style={{ ...body, color: PALETTE.text }}
             >
-              Sometimes the best moments are the simple ones. <strong>Lila's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica and beyond , tropical fruits, local chocolate, and seasonal inspirations churned fresh daily. Throughout the properties, coffee experiences connect you to local culture , whether it is a morning ritual or an afternoon pick-me-up, the beans are always Costa Rican, always fresh, always worth savoring.
+              Sometimes the best moments are the simple ones. <strong>Lila's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica — tropical fruits like guanábana and cas, local chocolate from the Caribbean coast, and seasonal inspirations churned fresh daily. Traditional Italian technique with Costa Rican ingredients, made in small batches — the result is something you cannot find anywhere else on Earth.
+            </p>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9]"
+              style={{ ...body, color: PALETTE.text }}
+            >
+              The <strong>Coffee Experience</strong> traces the journey from cherry to cup. Costa Rica's coffee heritage spans over 200 years, and the Arenal region produces some of the country's finest beans. Guests learn to identify flavor notes — the citrus brightness of a light roast, the chocolate depth of a medium, the smoky intensity of a dark. They learn pour-over technique, the importance of water temperature, and why freshness matters more than brand. It is the kind of knowledge that changes your morning ritual forever.
             </p>
           </div>
         </AnimateOnScroll>
@@ -465,20 +525,20 @@ function SweetMomentsSection({ palette }: { palette: PropertyPalette }) {
 /* ═══════════════════════════════════════════════════════════════
    BAR SCENE
    ═══════════════════════════════════════════════════════════════ */
-function BarSceneSection({ palette }: { palette: PropertyPalette }) {
+function BarSceneSection() {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: `${palette.primary}08` }}>
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bgAlt }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.3em] uppercase mb-3"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
           >
             When the Sun Sets
           </p>
           <h2
             className="text-2xl md:text-3xl mb-10"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
+            style={{ ...heading, color: PALETTE.text }}
           >
             The Bar Scene
           </h2>
@@ -489,24 +549,24 @@ function BarSceneSection({ palette }: { palette: PropertyPalette }) {
             <motion.div
               key={i}
               variants={fadeUp}
-              className="p-6 rounded-lg border"
-              style={{ borderColor: `${palette.primary}20`, backgroundColor: palette.gradientEnd }}
+              className="p-6 rounded-sm border"
+              style={{ borderColor: `${PALETTE.primary}25`, backgroundColor: PALETTE.bg }}
             >
               <h3
                 className="text-[18px] mb-1"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
+                style={{ ...heading, fontWeight: 500, color: PALETTE.text }}
               >
                 {bar.name}
               </h3>
               <p
                 className="text-[10px] tracking-[0.15em] uppercase mb-3"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+                style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
               >
                 {bar.property}
               </p>
               <p
                 className="text-[14px] leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
+                style={{ ...body, color: PALETTE.text }}
               >
                 {bar.description}
               </p>
@@ -519,76 +579,74 @@ function BarSceneSection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FIVE CLASSES
+   FIVE CLASSES — Masonry grid with video/image
    ═══════════════════════════════════════════════════════════════ */
-function ClassesSection({ palette }: { palette: PropertyPalette }) {
-  const [activeClass, setActiveClass] = useState(0);
-
+function ClassesSection() {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={palette.primary} className="mb-8" />
+          <DrawLine color={PALETTE.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-3"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
+            style={{ ...heading, color: PALETTE.text }}
           >
             Five Classes That Go Deeper
           </h2>
           <p
-            className="text-[15px] leading-[1.9] max-w-[720px] mb-10"
-            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
+            className="text-[15px] leading-[1.9] max-w-[720px] mb-12"
+            style={{ ...body, color: PALETTE.text }}
           >
-            Why simply eat when you can learn, create, and experience? Five signature classes allow you to dive deeper into Costa Rican culinary culture. These are not tourist add-ons , they are invitations to understand a culture through its flavors.
+            Why simply eat when you can learn, create, and carry the experience home? Signature classes allow you to dive deeper into Costa Rican culinary culture. These are not tourist add-ons — they are invitations to understand a culture through its flavors.
           </p>
         </AnimateOnScroll>
 
-        {/* Tab bar */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {CLASSES.map((cls, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveClass(i)}
-              className="px-4 py-2.5 rounded-full text-[12px] tracking-[0.06em] transition-all duration-300"
-              style={{
-                fontFamily: "var(--font-body)",
-                fontWeight: 500,
-                backgroundColor: activeClass === i ? palette.primary : `${palette.primary}12`,
-                color: activeClass === i ? "#fff" : "#E6DFD5",
-              }}
-            >
-              <span className="mr-1.5">{cls.icon}</span>
-              {cls.name}
-            </button>
-          ))}
+        {/* Masonry grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[200px]">
+          {CLASSES.map((cls, i) => {
+            const isVideo = cls.type === "video";
+            return (
+              <AnimateOnScroll
+                key={i}
+                variants={fadeUp}
+                className={`group relative overflow-hidden rounded-sm ${isVideo ? "row-span-2" : ""}`}
+              >
+                {isVideo ? (
+                  <video
+                    src={cls.media}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : (
+                  <img
+                    src={cls.media}
+                    alt={cls.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <h3
+                    className="text-white text-lg mb-1"
+                    style={{ ...heading }}
+                  >
+                    {cls.name}
+                  </h3>
+                  <p
+                    className="text-white/60 text-[12px] leading-[1.6] line-clamp-3"
+                    style={{ ...body }}
+                  >
+                    {cls.description}
+                  </p>
+                </div>
+              </AnimateOnScroll>
+            );
+          })}
         </div>
-
-        {/* Active class detail */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeClass}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3 }}
-            className="p-8 rounded-lg border"
-            style={{ borderColor: `${palette.primary}20`, backgroundColor: `${palette.primary}06` }}
-          >
-            <h3
-              className="text-[22px] mb-2"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
-            >
-              <span className="mr-2">{CLASSES[activeClass].icon}</span>
-              {CLASSES[activeClass].name}
-            </h3>
-            <p
-              className="text-[15px] leading-[1.9] max-w-[680px]"
-              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
-            >
-              {CLASSES[activeClass].description}
-            </p>
-          </motion.div>
-        </AnimatePresence>
       </div>
     </section>
   );
@@ -597,30 +655,30 @@ function ClassesSection({ palette }: { palette: PropertyPalette }) {
 /* ═══════════════════════════════════════════════════════════════
    THE NAYARA DIFFERENCE
    ═══════════════════════════════════════════════════════════════ */
-function NayaraDifferenceSection({ palette }: { palette: PropertyPalette }) {
+function NayaraDifferenceSection() {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: `${palette.primary}08` }}>
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bgAlt }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={palette.primary} className="mb-8" />
+          <DrawLine color={PALETTE.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E6DFD5" }}
+            style={{ ...heading, color: PALETTE.text }}
           >
             The Nayara Difference
           </h2>
           <div className="max-w-[780px] space-y-5">
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
+              style={{ ...body, color: PALETTE.text }}
             >
-              You are not staying at three different hotels that happen to share some restaurants. You are entering a curated world where every meal, every glass, every class reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul.
+              A single day might begin with a coffee class at 7 a.m., move to breakfast at La Terrazza, a cooking class at Ayla before lunch, an afternoon gelato at Lila's, sunset cocktails at Lapa's Pool Bar, and dinner at Amor Loco. No transfers, no logistics, no friction — just a day that flows as naturally as the forest around you, from one extraordinary culinary moment to the next.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
+              style={{ ...body, color: PALETTE.text }}
             >
-              Whether you are celebrating a special occasion, seeking a culinary education, or simply craving an escape into nature without sacrificing the pleasures of the table, the three Nayara properties offer something increasingly rare , the chance to experience Costa Rica as it should be experienced, one extraordinary meal at a time.
+              Whether you are celebrating a special occasion, seeking a culinary education, or simply craving an escape into nature without sacrificing the pleasures of the table, the three Nayara properties offer something increasingly rare — the chance to experience Costa Rica as it should be experienced, one extraordinary meal at a time.
             </p>
           </div>
         </AnimateOnScroll>
@@ -632,17 +690,17 @@ function NayaraDifferenceSection({ palette }: { palette: PropertyPalette }) {
 /* ═══════════════════════════════════════════════════════════════
    BLOG CROSS-LINK
    ═══════════════════════════════════════════════════════════════ */
-function BlogCrossLink({ palette }: { palette: PropertyPalette }) {
+function BlogCrossLink() {
   return (
-    <section className="py-12 px-6 md:px-10" style={{ backgroundColor: palette.gradientEnd }}>
+    <section className="py-12 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <a
+            <Link
               href="/journal/three-kitchens-one-rainforest"
               className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
               style={{
-                fontFamily: "var(--font-body)",
+                ...body,
                 fontWeight: 500,
                 fontSize: "12px",
                 letterSpacing: "0.08em",
@@ -654,73 +712,9 @@ function BlogCrossLink({ palette }: { palette: PropertyPalette }) {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
               </svg>
               Read: Three Kitchens, One Rainforest
-            </a>
+            </Link>
           </div>
-
           <div className="mt-8">
-            <PillarCrossLink pillar="gastronomy" />
-          </div>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   FALLBACK SECTIONS (non-CR properties)
-   ═══════════════════════════════════════════════════════════════ */
-function GastronomyIntro({ palette, description }: { palette: PropertyPalette; description: string }) {
-  return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientEnd }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="text-[15px] md:text-[17px] leading-[1.9] max-w-[720px]"
-            style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
-          >
-            {description}
-          </p>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
-
-function GastronomyContent({ palette, restaurants }: { palette: PropertyPalette; restaurants: any[] }) {
-  return (
-    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
-      <div className={maxW}>
-        <StaggerOnScroll
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16"
-        >
-          {restaurants.map((restaurant: any, i: number) => (
-            <motion.div key={i} variants={fadeUp}>
-              <DrawLine color={palette.primary} className="mb-6" />
-              <h3
-                className="text-[20px] mb-2"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#E6DFD5" }}
-              >
-                {restaurant.name}
-              </h3>
-              <p
-                className="text-[11px] tracking-[0.1em] mb-4"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
-              >
-                {restaurant.cuisine}
-              </p>
-              <p
-                className="text-[14px] leading-[1.8]"
-                style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
-              >
-                {restaurant.description}
-              </p>
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.3}>
-          <div className="mt-16">
             <PillarCrossLink pillar="gastronomy" />
           </div>
         </AnimateOnScroll>

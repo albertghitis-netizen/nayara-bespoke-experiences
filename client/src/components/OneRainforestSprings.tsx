@@ -80,7 +80,7 @@ const MOMENTS = [
     period: "Afternoon",
     title: "Asia Luna Lunch",
     property: "All Three",
-    propertyRoute: "/gastronomy-arenal",
+    propertyRoute: "/tented-camp/gastronomy",
     description: "Pan-Asian fusion in the heart of the rainforest. One of six shared restaurants where the cuisine of three continents meets volcanic terroir.",
     image: `${CDN}/5_ac0cb283.jpg`,
     accent: P.primary,

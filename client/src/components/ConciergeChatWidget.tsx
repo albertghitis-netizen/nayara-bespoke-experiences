@@ -40,7 +40,7 @@ interface ConciergeChatWidgetProps {
 export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProps = {}) {
   const [loc] = useLocation();
   const slug = loc.split("/")[1] || "";
-  const costaRicaRoutes = ["curated-excursions", "costa-rica-wellness", "gastronomy-arenal", "tented-camp-sustainability"];
+  const costaRicaRoutes = ["curated-excursions", "costa-rica-wellness", "tented-camp/gastronomy", "tented-camp-sustainability"];
   const autoPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
     ? getPalette(slug) : null;
   const isCostaRica = costaRicaRoutes.includes(slug);

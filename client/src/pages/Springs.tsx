@@ -711,7 +711,7 @@ function GastronomySection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/gastronomy-arenal"
+              href="/tented-camp/gastronomy"
               className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >

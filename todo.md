@@ -3471,3 +3471,16 @@
 - [x] Update altoAtacamaExcursions with full 17 excursions from tour book (stargazing leads)
 - [x] AtacamaExperiences page renders all excursions in FilteredCardGrid format
 - [x] Verify TypeScript compiles with 0 errors
+
+## Definitive Costa Rica Gastronomy Page
+- [x] Merge CostaRicaGastronomy and ArenalGastronomy into one definitive page
+- [x] Enrich restaurant descriptions with blog content (specific dishes, techniques, atmosphere)
+- [x] Enrich Five Classes with detailed blog descriptions (Wine, Cooking, Coffee, Mixology, Rum)
+- [x] Remove chocolate experience (no longer offered)
+- [x] Add Sweet Moments section (Lila's Gelato + Coffee Experience)
+- [x] Add Bar Scene section (Lapa's, Henry's, Las Thermas, Tentacamp)
+- [x] Add Nayara Difference closing section
+- [x] Blog cross-link to "Three Kitchens, One Rainforest"
+- [x] Delete ArenalGastronomy.tsx and /gastronomy-arenal route
+- [x] Update all references from /gastronomy-arenal to /tented-camp/gastronomy
+- [x] Verify TypeScript compilation — zero errors

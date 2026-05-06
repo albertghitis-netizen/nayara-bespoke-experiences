@@ -1092,9 +1092,9 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
-    link: "/gastronomy-arenal",
+    link: "/tented-camp/gastronomy",
     linkLabel: "Explore Henry's Bar",
-    textLink: "/gastronomy-arenal",
+    textLink: "/tented-camp/gastronomy",
     textLinkLabel: "Explore Forest to Table",
     verticalOverlayButtons: {
       top: { explore: "Ayla", reserve: "", exploreLink: "#" },

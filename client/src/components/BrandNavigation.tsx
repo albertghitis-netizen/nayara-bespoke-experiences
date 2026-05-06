@@ -77,7 +77,7 @@ export default function BrandNavigation({
   const costaRicaRoutes = [
     "curated-excursions",
     "costa-rica-wellness",
-    "gastronomy-arenal",
+    "tented-camp/gastronomy",
     "tented-camp-sustainability",
   ];
   const isCR = costaRicaRoutes.includes(propertySlug);
