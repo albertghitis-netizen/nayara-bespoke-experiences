@@ -137,9 +137,8 @@ export const familyBucketListPost: BlogPostData = {
   sections: [
     {
       heading: "The Classroom Has No Walls",
-      content: `<p><em>For the mothers who choose adventure over brunch, who believe the best gift is a shared experience, and who know that the memories made together in wild places are the ones that last forever.</em></p>
-<p>Most families see a bucket list as a list of dreams. At Nayara, it is a Tuesday.</p>
-<p>Across three countries and five properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools. Children do not study these things. They encounter them. And the difference between studying and encountering is the difference between knowing and understanding.</p>
+      content: `<p>Most families see a bucket list as a list of dreams. At Nayara, it is a Tuesday.</p>
+<p>Across three countries and five properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools. Children do not study these things. They encounter them. The difference between studying and encountering is the difference between knowing and understanding.</p>
 <p>This is what family travel looks like when the destination is designed for discovery.</p>`,
     },
     {
@@ -159,12 +158,6 @@ export const familyBucketListPost: BlogPostData = {
 <p>The grandparents take the thermal pools. <a href="/springs">Nayara Springs'</a> hot springs are heated by Arenal's geothermal energy, mineral-rich waters that have been soothing bodies for centuries. The temperature is perfect: warm enough to dissolve the tension in aging shoulders, cool enough to sit in for an hour without thinking about time.</p>
 <p>The younger children? They are in the butterfly garden, learning that a blue morpho's wings are not actually blue. They are structured to refract light. A six-year-old explaining refraction to his grandmother at dinner is worth the entire trip.</p>
 <p>At night, the family walks to the volcano viewpoint. On clear nights, you can see the glow of Arenal's lava dome reflected in the clouds above. A naturalist points out constellations, different ones than they see at home. The youngest falls asleep in her father's arms, face tilted toward the Southern Cross.</p>`,
-    },
-    {
-      heading: "Costa Rica: Cooking, Chocolate, and the Language of Food",
-      content: `<p>Gastronomy at Nayara is not a meal. It is a continuation of the day's education. At Asia Luna, the family sits together, all three generations, and eats food that tells a story. The chef explains how Costa Rican cacao becomes chocolate. The children taste it at every stage. They decide they prefer it bitter. This surprises everyone.</p>
-<p>The cooking classes are designed for families: at Ayla, open-fire techniques turn simple ingredients into something extraordinary. Children who have never cracked an egg learn to make tortillas from scratch. Teenagers who live on their phones forget them entirely when their hands are covered in masa. At Asia Luna, the fusion of Costa Rican and Asian flavors becomes a lesson in geography, history, and chemistry all at once.</p>
-<p>The chocolate experience is the one children remember years later. Bean to bar. Tasting at every stage. The moment a child discovers they prefer 85% dark is a moment of genuine self-knowledge. They carry that preference home. They tell their friends. They become, at seven years old, people who know what they like and can articulate why.</p>`,
     },
     {
       heading: "The Costa Rica Bucket List",

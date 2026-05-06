@@ -9,12 +9,12 @@ import type { BlogPostData } from "./blogPosts";
 export const gastronomyBlogPost: BlogPostData = {
   slug: "three-kitchens-one-rainforest",
   title: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara",
-  subtitle: "Gastronomy",
+
   author: "Nayara Resorts",
   authorRole: "Editorial",
   date: "April 22, 2026",
   pillar: "Gastronomy",
-  tags: ["Gastronomy", "Dining", "Costa Rica", "Fine Dining", "Wine", "Cocktails"],
+  tags: [],
   readingTime: 8,
   heroImage: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
   heroVideo: {
@@ -30,71 +30,90 @@ export const gastronomyBlogPost: BlogPostData = {
     {
       heading: "The Philosophy of Shared Luxury",
       content: `<p>Imagine a vacation where you get the intimacy and privacy of your own secluded hotel, but with access to the culinary world of three world-class properties. That is exactly what awaits at Nayara Gardens, Nayara Springs, and Nayara Tented Camp in Costa Rica's Arenal region.</p>
-<p>While each property maintains its own distinct character and peaceful sanctuary, guests enjoy seamless access to a shared ecosystem of dining that transforms a stay into an unforgettable gastronomic journey through one magical rainforest. You are not choosing between three separate hotels — you are choosing one interconnected destination where culinary excellence exists at every turn.</p>
-<p>The culinary tourism market, valued at $16.1 billion in 2025, is projected to reach $76.4 billion by 2033. Nearly one in five travelers now book trips specifically to explore food destinations. At Nayara, food is not a service. It is a vocabulary — one spoken across six restaurants, five bars, and five immersive culinary classes that transform meals into lasting memories and skills you carry home.</p>`,
+<p>While each property maintains its own distinct character and peaceful sanctuary, guests enjoy seamless access to a shared ecosystem of dining that transforms a stay into an unforgettable gastronomic journey through one magical rainforest. You are not choosing between three separate hotels , you are choosing one interconnected destination where culinary excellence exists at every turn.</p>
+<p>The culinary tourism market, valued at $16.1 billion in 2025, is projected to reach $76.4 billion by 2033. Nearly one in five travelers now book trips specifically to explore food destinations. At Nayara, food is not a service. It is a vocabulary , one spoken across six restaurants, five bars, and five immersive culinary classes that transform meals into lasting memories and skills you carry home.</p>`,
     },
     {
       heading: "Nayara Gardens: Where It All Begins",
-      content: `<p>Your gastronomic journey begins the moment you arrive at <a href="/gardens">Nayara Gardens</a>.</p>
-<p><strong>Nostalgia Wine Bar</strong> is not merely a bar — it is a curated library of over 200 labels from Old and New World vineyards, presided over by a certified sommelier who leads structured tastings paired with artisanal cheese boards and charcuterie. The evening sessions move through three to five wines, each paired with a small plate designed to illuminate how terroir, acidity, and tannin interact with food. The setting — candlelit, open-air, overlooking the garden ponds — transforms what could be a simple tasting into an event.</p>
+
+         content: `<p>Your gastronomic journey begins the moment you arrive at <a href="https://nayaragardens.com">Nayara Gardens</a>.</p>
 <p><strong>La Terrazza</strong> brings Italian warmth to the rainforest with handmade pasta prepared fresh daily. The kitchen uses Costa Rican ingredients to reinterpret classics: think pappardelle with slow-braised local beef, wood-fired pizzas topped with tropical herbs, and tiramisu made with Arenal-region coffee. The open terrace seating means you dine beneath a canopy of tropical trees, where the sounds of the forest replace the noise of a city street.</p>
-<p><strong>Asia Luna</strong> is a study in contrasts — familiar techniques from across Asia reinterpreted through the lens of Central American produce, spices, and tradition. The menu spans Thai curries made with local coconut, Japanese-inspired ceviches using Costa Rican fish, and wok-fired dishes that celebrate the volcanic soil's bounty. The restaurant's open kitchen lets guests watch the choreography of preparation, and the chef regularly introduces seasonal specials based on what arrives fresh from local farms that morning.</p>`,
-    },
-    {
-      heading: "Nayara Springs: Elevated Dining",
-      content: `<p><a href="/springs">Nayara Springs</a> elevates the experience with two restaurants that define the upper register of Nayara's culinary range.</p>
-<p><strong>Amor Loco</strong> is the fine dining establishment where culinary artistry meets impeccable service. The tasting menu changes seasonally, drawing on Costa Rica's microclimates to source ingredients at peak expression. A typical evening might begin with a ceviche of corvina cured in passion fruit and habanero, move through a course of slow-cooked pork belly with tamarind glaze, and conclude with a chocolate dessert using single-origin cacao from the Talamanca region. Every dish is a composition — plated with the precision of a gallery piece, yet grounded in flavors that feel honest and intentional. The wine pairing, curated by the sommelier, elevates each course further. Amor Loco is where special occasions become unforgettable ones.</p>
-<p><strong>Nysa Morris</strong> serves authentic Italian bistro fare that feels both elegant and approachable. The menu focuses on simplicity executed perfectly: house-made focaccia, burrata with heirloom tomatoes, risottos that change with the season, and a selection of grilled meats and seafood. The atmosphere is warm and unhurried — the kind of restaurant where you come for a quick lunch and stay for two hours, because the food and setting refuse to let you rush.</p>`,
-    },
-    {
-      heading: "Nayara Tented Camp: Fire, Earth, and Open Air",
-      content: `<p>At <a href="/tented-camp">Nayara Tented Camp</a>, <strong>Ayla</strong> presents Mediterranean cuisine infused with Costa Rican touches, and it is here that the philosophy of cooking with fire reaches its fullest expression. The open-fire grill is central to Ayla's identity — meats are slow-cooked over native hardwoods, vegetables are charred to bring out their natural sweetness, and even desserts incorporate smoke and flame.</p>
-<p>The menu draws from the Eastern Mediterranean: lamb kofta with tzatziki made from local yogurt, grilled octopus with chimichurri, flatbreads baked in a wood-fired oven, and mezze platters designed for sharing. The open-air setting places you at the edge of the rainforest, where the boundary between restaurant and wilderness dissolves entirely. At night, the fire pit becomes a gathering point — guests linger with wine, watching sparks rise into the canopy above.</p>
-<p>Ayla also hosts the property's signature <strong>cooking classes</strong>, where families and couples learn open-fire techniques: how to control heat without a dial, how smoke becomes a flavor rather than an accident, how to read the color of coals. Children who have never cracked an egg learn to make tortillas from scratch. Teenagers who live on their phones forget them entirely when their hands are covered in masa. These are skills guests carry home — meals they recreate for years.</p>`,
+<p><strong>Asia Luna</strong> is a study in contrasts, familiar techniques from across Asia reinterpreted through the lens of Central American produce, spices, and tradition. The menu spans Thai curries made with local coconut, Japanese-inspired ceviches using Costa Rican fish, and wok-fired dishes that celebrate the volcanic soil's bounty. The restaurant's open kitchen lets guests watch the choreography of preparation, and the chef regularly introduces seasonal specials based on what arrives fresh from local farms that morning.</p>
+<p><strong>Nostalgia Wine Bar</strong> is not merely a bar, it is a curated library of over 200 labels from Old and New World vineyards, presided over by a certified sommelier who leads structured tastings paired with artisanal cheese boards and charcuterie. The evening sessions move through three to five wines, each paired with a small plate designed to illuminate how terroir, acidity, and tannin interact with food. The setting, candlelit, open-air, overlooking the garden ponds, transforms what could be a simple tasting into an event.</p>`,
       image: {
-        src: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
-        alt: "Ayla restaurant at Nayara Tented Camp — Mediterranean cuisine cooked over open fire in the rainforest",
-        caption: "Ayla at Nayara Tented Camp: where fire, earth, and rainforest converge",
+        src: "/manus-storage/gal-276-Nostalgia_c215b368.jpeg",
+        alt: "Nostalgia Wine Bar at Nayara Gardens, candlelit wine tasting with garden views",
+        caption: "Nostalgia Wine Bar: where wine meets the rainforest"
       },
     },
     {
-      heading: "The Chocolate Experience: Bean to Bar",
-      content: `<p>The chocolate experience is the one guests remember years later. It begins in the cacao grove, where pods grow directly from the trunk of the tree — a fact that surprises nearly everyone. Guests harvest pods, crack them open, taste the sweet-tart pulp surrounding the beans, and then follow the entire transformation: fermentation, drying, roasting, grinding, tempering, and finally, tasting.</p>
-<p>At every stage, there is a tasting. Raw cacao nibs. Roasted nibs. Untempered chocolate. The final bar. Children and adults discover their preferences — some prefer the fruity brightness of lightly roasted beans, others the deep bitterness of a long roast. The moment a child discovers they prefer 85% dark is a moment of genuine self-knowledge. They carry that preference home. They tell their friends. They become, at seven years old, people who know what they like and can articulate why.</p>
-<p>The experience takes approximately two hours and is available at all three properties. It is simultaneously a science lesson, a history lesson, a geography lesson, and a deeply sensory pleasure.</p>`,
+      heading: "Nayara Springs: Elevated Dining",
+      image: {
+        src: "/manus-storage/gal-277-PizzaovenNS-MisAmoresfireLR_1__5fe88b4f.JPG",
+        alt: "Wood-fired pizza oven at Nayara Springs, fire and culinary craft",
+        caption: "Fire as a culinary tool: tradition meets innovation"
+      },
+      content: `<p><a href="/springs">Nayara Springs</a> elevates the experience with two restaurants that define the upper register of Nayara's culinary range.</p>
+<p><strong>Amor Loco</strong> is the fine dining establishment where culinary artistry meets impeccable service. The tasting menu changes seasonally, drawing on Costa Rica's microclimates to source ingredients at peak expression. A typical evening might begin with a ceviche of corvina cured in passion fruit and habanero, move through a course of slow-cooked pork belly with tamarind glaze, and conclude with a chocolate dessert using single-origin cacao from the Talamanca region. Every dish is a composition , plated with the precision of a gallery piece, yet grounded in flavors that feel honest and intentional. The wine pairing, curated by the sommelier, elevates each course further. Amor Loco is where special occasions become unforgettable ones.</p>
+<p><strong>Mi Cafecito</strong> traces the journey from cherry to cup. Costa Rica's coffee heritage spans over 200 years, and the Arenal region produces some of the country's finest beans. Guests learn to identify flavor notes , the citrus brightness of a light roast, the chocolate depth of a medium, the smoky intensity of a dark. They learn pour-over technique, the importance of water temperature, and why freshness matters more than brand. It is the kind of knowledge that changes your morning ritual forever.</p>
+<p><strong>Mis Amores</strong> serves authentic Italian bistro fare that feels both elegant and approachable. The menu focuses on simplicity executed perfectly: house-made focaccia, burrata with heirloom tomatoes, risottos that change with the season, and a selection of grilled meats and seafood. The atmosphere is warm and unhurried, the kind of restaurant where you come for a quick lunch and stay for two hours, because the food and setting refuse to let you rush.</p>`,
     },
     {
-      heading: "Beyond the Plate: The Simple Moments",
-      content: `<p>Sometimes the best moments are the simple ones. <strong>Lila's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica — tropical fruits like guanabana and cas, local chocolate from the Caribbean coast, and seasonal inspirations churned fresh daily. The gelato is made in small batches using traditional Italian technique with Costa Rican ingredients, and the result is something you cannot find anywhere else on Earth.</p>
-<p>The <strong>Coffee Experience</strong> traces the journey from cherry to cup. Costa Rica's coffee heritage spans over 200 years, and the Arenal region produces some of the country's finest beans. Guests learn to identify flavor notes — the citrus brightness of a light roast, the chocolate depth of a medium, the smoky intensity of a dark. They learn pour-over technique, the importance of water temperature, and why freshness matters more than brand. It is the kind of knowledge that changes your morning ritual forever.</p>`,
+      heading: "Nayara Tented Camp: Fire, Earth, and Open Air",
+      content: `<p>At <a href="/tented-camp">Nayara Tented Camp</a>, <strong>Ayla</strong> presents Mediterranean cuisine infused with Costa Rican touches, and it is here that the philosophy of cooking with fire reaches its fullest expression. The open-fire grill is central to Ayla's identity , meats are slow-cooked over native hardwoods, vegetables are charred to bring out their natural sweetness, and even desserts incorporate smoke and flame.</p>
+<p>The menu draws from the Eastern Mediterranean: lamb kofta with tzatziki made from local yogurt, grilled octopus with chimichurri, flatbreads baked in a wood-fired oven, and mezze platters designed for sharing. The open-air setting places you at the edge of the rainforest, where the boundary between restaurant and wilderness dissolves entirely. At night, the fire pit becomes a gathering point , guests linger with wine, watching sparks rise into the canopy above.</p>
+`,
+      image: {
+        src: "/manus-storage/ayla-restaurant-07_e87e1356.jpg",
+        alt: "Ayla restaurant at Nayara Tented Camp, Mediterranean cuisine cooked over open fire in the rainforest",
+        caption: "Ayla at Nayara Tented Camp: where fire, earth, and rainforest converge",
+      },
+    },
+
+    {
+      heading: "I Scream You Scream We All Scream for Gelato",
+      content: `<p>Sometimes the best moments are the simple ones. <strong>Lyla's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica , tropical fruits like guanabana and cas, local chocolate from the Caribbean coast, and seasonal inspirations churned fresh daily. The gelato is made in small batches using traditional Italian technique with Costa Rican ingredients, and the result is something you cannot find anywhere else on Earth.</p>
+<p>Lyla's is perfect for families. Children discover flavors they've never encountered before, and the ritual of choosing becomes a moment of genuine decision-making. Parents watch their kids taste guanabana for the first time, or dark chocolate infused with local cacao, and see the joy of discovery on their faces. It's not just dessert, it's an introduction to the world through taste. Every scoop is a small adventure, and every visit becomes a memory the family carries home.`,
+      image: {
+        src: "/manus-storage/nayara-springs-r5_8ab70899.jpg",
+        alt: "Nayara Springs resort, elegant dining and relaxation spaces",
+        caption: "Nayara Springs: where simple pleasures become unforgettable moments"
+      },
     },
     {
       heading: "When the Sun Sets: The Bar Scene",
-      content: `<p>When the sun sets, the bars come alive. <strong>Lapa's Pool Bar</strong> at Nayara Springs keeps things tropical and refreshing — cocktails built around fresh tropical juices, local rum, and herbs picked from the property's garden. The infinity pool setting, with Arenal Volcano as backdrop, makes every drink feel like a celebration.</p>
-<p><strong>Henry's Lounge Bar</strong> at Nayara Tented Camp provides a more intimate setting for evening conversation. The cocktail menu is crafted around Costa Rican spirits — guaro, local rum, coffee liqueur — mixed with fresh ingredients that change with the season. The bartenders know their craft, and the atmosphere — low lighting, the sound of the forest, the warmth of the fire pit nearby — is the kind of place where a well-made cocktail is all you need.</p>
-<p><strong>Las Thermas Bar</strong> at Nayara Tented Camp serves drinks poolside at the hot springs — imagine sipping a passion fruit mojito while soaking in geothermally heated water beneath the stars. And <strong>Tentacamp Pool Bar</strong> rounds out the collection, offering casual refreshment with views that remind you why you came to Costa Rica in the first place.</p>`,
+      content: `<p>When the sun sets, the bars come alive. <strong>Lapa's Pool Bar</strong> at Nayara Springs keeps things tropical and refreshing , cocktails built around fresh tropical juices, local rum, and herbs picked from the property's garden. The infinity pool setting, with Arenal Volcano as backdrop, makes every drink feel like a celebration.</p>
+<p><strong>Las Thermas Bar</strong> at Nayara Tented Camp serves drinks poolside at the hot springs , imagine sipping a passion fruit mojito while soaking in geothermally heated water beneath the stars. The geothermal waters create an otherworldly setting where relaxation and craft cocktails merge into pure magic.</p>
+<p><strong>Henry's Lounge Bar</strong> at Nayara Tented Camp provides a more intimate setting for evening conversation. The cocktail menu is crafted around Costa Rican spirits , guaro, local rum, coffee liqueur , mixed with fresh ingredients that change with the season. The bartenders know their craft, and the atmosphere , low lighting, the sound of the forest, the warmth of the fire pit nearby , is the kind of place where a well-made cocktail is all you need.</p>`,
+      image: {
+        src: "/manus-storage/henrys-bar_0945a553.jpg",
+        alt: "Henry's Lounge Bar at Nayara Tented Camp, intimate cocktail setting with Costa Rican spirits",
+        caption: "Henry's Lounge Bar: where craft cocktails meet rainforest ambiance"
+      },
     },
     {
       heading: "Five Classes That Transform",
       content: `<p>Why simply eat when you can learn, create, and carry the experience home? Five signature classes allow you to dive deeper into Costa Rican culinary culture.</p>
-<p>The <strong>Wine Tasting</strong> at Nostalgia Wine Bar moves through five to seven wines, each paired with a complementary bite. The sommelier explains terroir, vintage, and technique — but always in service of pleasure, never pedantry. Guests leave understanding not just what they like, but why.</p>
-<p>The <strong>Cooking Class</strong> at Ayla teaches open-fire technique and Costa Rican-Mediterranean fusion. You learn to make gallo pinto (the national breakfast dish), ceviche with local fish, and a main course over the grill. The class is hands-on — you cook, you taste, you adjust, you eat what you made. Families are welcome, and children often surprise everyone with their enthusiasm.</p>
+<p>The <strong>Wine Tasting</strong> at Nostalgia Wine Bar moves through five to seven wines, each paired with a complementary bite. The sommelier explains terroir, vintage, and technique , but always in service of pleasure, never pedantry. Guests leave understanding not just what they like, but why.</p>
+<p>The <strong>Cooking Class</strong> at Ayla teaches open-fire technique and Costa Rican-Mediterranean fusion. You learn to make gallo pinto (the national breakfast dish), ceviche with local fish, and a main course over the grill. The class is hands-on , you cook, you taste, you adjust, you eat what you made. Families are welcome, and children often surprise everyone with their enthusiasm.</p>
 <p>The <strong>Coffee Class</strong> is a two-hour journey from cherry to cup. You roast your own beans, grind them, and brew using three different methods. You learn why altitude, soil, and processing method matter more than brand. You take home a bag of beans you roasted yourself.</p>
-<p>The <strong>Mixology Class</strong> transforms you into a bartender for an afternoon. You learn to balance sweet, sour, bitter, and spirit. You make three cocktails — one classic, one tropical, one of your own invention. The bartender shares techniques that work in any home kitchen.</p>
-<p>The <strong>Rum Tasting</strong> celebrates Central America's most storied spirit. Five rums, aged from two to twenty-three years, each with a story of terroir and tradition. You learn to nose, taste, and appreciate the difference between industrial and artisanal production. You leave understanding why a twenty-year rum costs what it does — and why it is worth it.</p>
-<p>These are not tourist add-ons. They are invitations to understand a culture through its flavors — and to take a piece of Costa Rica home with you.</p>`,
+<p>The <strong>Mixology Class</strong> transforms you into a bartender for an afternoon. You learn to balance sweet, sour, bitter, and spirit. You make three cocktails , one classic, one tropical, one of your own invention. The bartender shares techniques that work in any home kitchen.</p>
+<p>The <strong>Rum Tasting</strong> celebrates Central America's most storied spirit. Five rums, aged from two to twenty-three years, each with a story of terroir and tradition. You learn to nose, taste, and appreciate the difference between industrial and artisanal production. You leave understanding why a twenty-year rum costs what it does , and why it is worth it.</p>
+<p>These are not tourist add-ons. They are invitations to understand a culture through its flavors , and to take a piece of Costa Rica home with you.</p>`,
+      image: {
+        src: "/manus-storage/cooking-class-new_d64a9e7c.jpg",
+        alt: "Culinary classes at Nayara, hands-on learning experiences",
+        caption: "Five Classes That Transform: where learning becomes experience"
+      },
     },
     {
       heading: "The Nayara Difference",
       content: `<p>This is what sets Nayara apart. You are not staying at three different hotels that happen to share some restaurants. You are entering a curated world where every meal, every glass, every class reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul.</p>
-<p>A single day might begin with a coffee class at 7 a.m., move to breakfast at La Terrazza, a cooking class at Ayla before lunch, an afternoon gelato at Lila's, sunset cocktails at Lapa's Pool Bar, and dinner at Amor Loco. No transfers, no logistics, no friction — just a day that flows as naturally as the forest around you, from one extraordinary culinary moment to the next.</p>
-<p>Whether you are celebrating a special occasion, seeking a culinary education, or simply craving an escape into nature without sacrificing the pleasures of the table, the three Nayara properties offer something increasingly rare — the chance to experience Costa Rica as it should be experienced, one extraordinary meal at a time.</p>`,
+<p>A single day might begin with a coffee class at 7 a.m., move to breakfast at La Terrazza, a cooking class at Ayla before lunch, an afternoon gelato at Lila's, sunset cocktails at Lapa's Pool Bar, and dinner at Amor Loco. No transfers, no logistics, no friction , just a day that flows as naturally as the forest around you, from one extraordinary culinary moment to the next.</p>
+<p>Whether you are celebrating a special occasion, seeking a culinary education, or simply craving an escape into nature without sacrificing the pleasures of the table, the three Nayara properties offer something increasingly rare , the chance to experience Costa Rica as it should be experienced, one extraordinary meal at a time.</p>`,
     },
   ],
-  sources: [
-    { label: "Nayara Resorts , Dining", href: "https://nayararesorts.manus.space/gastronomy" },
-    { label: "Nayara Resorts , Experiences", href: "https://nayararesorts.manus.space/experiences" },
-  ],
+  sources: [],
   relatedArticles: [
     {
       slug: "/blog/holistic-wellness",

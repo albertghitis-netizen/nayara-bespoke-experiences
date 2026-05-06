@@ -140,15 +140,7 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge }: BlogP
           </div>
         )}
 
-        {/* Pillar tag on hero */}
-        <div className="absolute bottom-8 left-8 md:left-16 z-10">
-          <span
-            className="inline-block px-4 py-1.5 bg-[#3B2B26] text-white text-[10px] tracking-[0.3em] rounded-full"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            {post.pillar}
-          </span>
-        </div>
+
       </section>
 
       {/* ── 3. TITLE BLOCK ── */}
