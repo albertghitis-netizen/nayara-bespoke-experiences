@@ -159,9 +159,12 @@ function IntroSection() {
         </FadeIn>
 
         <FadeIn delay={0.3}>
-          <p className="text-base md:text-lg leading-relaxed" style={{ ...body, color: C.secondary }}>
+          <p className="text-base md:text-lg leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
             We've designed every experience at Nayara with families in mind. From guided nature walks to volcano treks, from private dining under the stars to quiet moments in a hammock watching the canopy, every expedition is built for wonder at any age. This is where childhood memories become lifelong passions.
           </p>
+          <Link href="/journal/family-bucket-list-nayara" className="inline-block text-[13px] tracking-[0.05em] border-b pb-0.5 transition-colors" style={{ ...body, color: C.muted, borderColor: `${C.muted}40` }}>
+            Read: The Family Bucket List at Nayara Gardens & Tented Camp →
+          </Link>
         </FadeIn>
       </div>
     </section>

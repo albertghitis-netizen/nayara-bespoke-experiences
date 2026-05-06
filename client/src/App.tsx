@@ -31,6 +31,7 @@ const Gardens = lazy(() => import("./pages/Gardens"));
 const Springs = lazy(() => import("./pages/Springs"));
 const ConciergeChatWidget = lazy(() => import("./components/ConciergeChatWidget"));
 const Newsletter = lazy(() => import("./pages/Newsletter"));
+const NewsletterMay = lazy(() => import("./pages/NewsletterMay"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 
@@ -263,6 +264,7 @@ function Router() {
           <Route path="/gastronomy" component={Gastronomy} />
           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
+          <Route path="/newsletter/may" component={NewsletterMay} />
           <Route path="/journal/:slug" component={DynamicBlogPost} />
 
           <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
