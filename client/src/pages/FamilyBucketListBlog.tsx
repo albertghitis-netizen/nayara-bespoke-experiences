@@ -6,5 +6,5 @@ import BlogPostTemplate from "./BlogPostTemplate";
 import { familyBucketListPost } from "@/data/blogPostsExperiential";
 
 export default function FamilyBucketListBlog() {
-  return <BlogPostTemplate post={familyBucketListPost} hideNav hideConcierge hideFooterSections />;
+  return <BlogPostTemplate post={familyBucketListPost} hideNav hideConcierge hideFooterSections heroAspect="16/9" />;
 }

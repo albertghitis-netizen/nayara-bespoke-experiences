@@ -123,8 +123,8 @@ export const familyBucketListPost: BlogPostData = {
   author: "Albert Ghitis",
   authorRole: "Nayara Resorts",
   date: "May 5, 2026",
-  pillar: "Experiences",
-  tags: ["Family Travel", "Costa Rica", "Chile", "Easter Island", "Bucket List", "Adventure", "Multigenerational"],
+  pillar: "",
+  tags: [],
   readingTime: 12,
   heroImage: "/manus-storage/family-tent-volcano_02f91f57.jpeg",
   mobileHeroVideo: "/manus-storage/rainbow-valley-vertical_dc5dfaab.mp4",
@@ -157,22 +157,8 @@ export const familyBucketListPost: BlogPostData = {
 <p>The younger children? They are in the butterfly garden, learning that a blue morpho's wings are not actually blue. They are structured to refract light. A six-year-old explaining refraction to his grandmother at dinner is worth the entire trip.</p>
 <p>At night, the family walks to the volcano viewpoint. On clear nights, you can see the glow of Arenal's lava dome reflected in the clouds above. A naturalist points out constellations, different ones than they see at home. The youngest falls asleep in her father's arms, face tilted toward the Southern Cross.</p>`,
     },
-    {
-      heading: "The Costa Rica Bucket List",
-      content: `<p>For families considering <a href="/gardens">Nayara Gardens</a> and <a href="/tented-camp">Tented Camp</a>, here is what to put on the list:</p>
-<p><strong>The Canopy Walk</strong>: Hanging bridges through primary rainforest. Sloths, toucans, and howler monkeys at eye level. No age minimum for wonder.</p>
-<p><strong>The Volcanic Hot Springs</strong>: Thermal pools heated by the Earth itself. Mineral-rich. Restorative. The one activity that satisfies every generation simultaneously.</p>
-<p><strong>The Zip-Line</strong>: Through the canopy, with the volcano as backdrop. For the brave and the almost-brave.</p>
-<p><strong>The Cooking Class</strong>: At Ayla or Asia Luna. Families cook together, eat together, and learn that food is a language.</p>
-<p><strong>The Night Walk</strong>: Guided by naturalists. Red-eyed tree frogs, sleeping birds, the sounds of a rainforest after dark. Children remember this one forever.</p>
-<p><strong>The Butterfly Garden</strong>: 30+ species. The blue morpho alone is worth the visit. Children learn optics without knowing it.</p>
-<p><strong>The Chocolate Experience</strong>: Bean to bar. Tasting at every stage. The moment a child discovers they prefer 85% dark is a moment of genuine self-knowledge.</p>`,
-    },
-    {
-      heading: "Where to Stay in Costa Rica",
-      content: `<p><strong><a href="/gardens">Nayara Gardens</a></strong>: For families who want space, privacy, and a pool of their own. The Arenal Pool Casitas are designed for families: separate sleeping areas, private gardens, and plunge pools surrounded by tropical plants. The resort's restaurants, spa, and trails are steps away, but the casita feels like its own world.</p>
-<p><strong><a href="/tented-camp">Nayara Tented Camp</a></strong>: For families who want immersion. The tents are luxurious, king beds, rain showers, hardwood floors, but the walls are open to the forest. You fall asleep to the sound of the river. You wake to birds. Children who stay here develop a different relationship with the outdoors. It is not something they visit. It is something they live inside.</p>`,
-    },
+
+
     {
       heading: "Alto Atacama: The Desert as Classroom",
       image: { src: "/manus-storage/family-atacama-biking_da3d4690.jpg", alt: "Family mountain biking through Atacama Desert canyons with red rock walls" },
@@ -186,15 +172,7 @@ export const familyBucketListPost: BlogPostData = {
 <p>The observatory sessions are led by astronomers who understand that wonder is the beginning of science. They do not lecture. They point. They ask questions. They let the sky do the teaching. And the sky, in the Atacama, is the most eloquent teacher on Earth.</p>
 <p>For families, the desert offers something cities cannot: darkness. Real darkness. The kind that lets you see the Milky Way as a river of light across the entire sky. Children who grow up in cities have never seen this. The first time they do, something shifts. The universe becomes real in a way that photographs and planetariums cannot replicate.</p>`,
     },
-    {
-      heading: "The Atacama Bucket List",
-      content: `<p>For families at <a href="/alto-atacama">Nayara Alto Atacama</a>:</p>
-<p><strong>Rainbow Valley</strong>: Walk through millions of years of geological history painted in mineral color. The ultimate outdoor science lesson.</p>
-<p><strong>Devil's Trek Biking</strong>: Canyon riding through ancient riverbeds. Challenging, beautiful, unforgettable.</p>
-<p><strong>SPACE Observatory</strong>: Saturn's rings. Jupiter's moons. The Milky Way as you have never seen it. Astronomers who make the universe accessible to every age.</p>
-<p><strong>Salt Flat Sunrise</strong>: The Salar de Atacama at dawn, when flamingos feed in the shallow brine and the light turns the salt crust gold.</p>
-<p><strong>Ancestral Cooking at Ckelar</strong>: Atacameno techniques using desert ingredients. A culinary tradition that predates written history.</p>`,
-    },
+
     {
       heading: "Hangaroa: The Moai as Open-Air Museum",
       image: { src: "/manus-storage/family-moai-rapa-nui_0919ff07.jpg", alt: "Family standing before the Moai statues on Rapa Nui" },
