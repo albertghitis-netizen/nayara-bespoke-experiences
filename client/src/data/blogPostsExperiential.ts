@@ -8,18 +8,18 @@ import type { BlogPostData } from "./blogPosts";
 
 export const experientialTravelPost: BlogPostData = {
   slug: "experiential-travel-nayara-2026",
-  title: "Experiential Travel at Nayara: Where Every Destination Is a Discovery",
+  title: "Experiential Travel at Nayara: Where Every Destination is a Discovery",
   subtitle: "How five properties across three countries became the blueprint for travel that transforms",
   author: "Albert Ghitis",
   authorRole: "Nayara Resorts",
   date: "May 5, 2026",
-  pillar: "Experiences",
-  tags: ["Experiential Travel", "Travel Trends", "2026", "Gastronomy", "Family", "Adventure", "Skillcation"],
+  pillar: "",
+  tags: [],
   readingTime: 9,
   heroVideo: {
     desktop: "/manus-storage/experiential-travel-hero_873ea961.mp4",
   },
-  hasAudio: true,
+  hasAudio: false,
   heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
   keyFindings: [
     "The global experiences sector reached $271 billion in 2025 and is projected to surge past $342 billion by 2029, growing at 8% annually and outpacing the wider travel industry by more than 60%.",
@@ -208,7 +208,7 @@ export const familyBucketListPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "experiential-travel-nayara-2026",
-      title: "Experiential Travel at Nayara: Where Every Destination Is a Discovery",
+      title: "Experiential Travel at Nayara: Where Every Destination is a Discovery",
       pillar: "Experiences",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
       date: "May 2026",

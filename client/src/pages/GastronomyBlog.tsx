@@ -6,5 +6,5 @@ import BlogPostTemplate from "./BlogPostTemplate";
 import { gastronomyBlogPost } from "@/data/blogPostsNew";
 
 export default function GastronomyBlog() {
-  return <BlogPostTemplate post={gastronomyBlogPost} hideNav hideConcierge />;
+  return <BlogPostTemplate post={gastronomyBlogPost} hideNav hideConcierge hideFooterSections />;
 }
