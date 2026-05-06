@@ -58,7 +58,6 @@ export default function Experiences() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <ExperientialTravelIntro />
-      <IntroSection />
       <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} label="Explore by Hotel" />
       <ExcursionGrid excursions={filtered} />
       <CTASection />
@@ -174,24 +173,7 @@ function ExperientialTravelIntro() {
   );
 }
 
-function IntroSection() {
-  return (
-    <section className="py-16 md:py-24 px-6 md:px-10">
-      <div className="max-w-[900px] mx-auto">
-        <FadeIn>
-          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Experience</p>
-          <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
-            Every Destination Tells a Different Story
-          </h2>
-          <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
-            From stargazing in the world's driest desert to snorkeling Caribbean reefs, from hiking volcanic craters on Easter Island to zip-lining through Costa Rica's cloud forest, every Nayara experience is designed by the land it inhabits. Our excursions are led by local guides, grounded in cultural heritage, and calibrated to the rhythms of each ecosystem.
-          </p>
 
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════════
    EXCURSION GRID , Cards for all filtered excursions
