@@ -98,7 +98,6 @@ export const JOURNAL_NAV_ITEM: MenuItem = { label: "Journal", route: "/journal" 
 /* Journal sub-links for footer (each with own URL for SEO) */
 export const JOURNAL_FOOTER_ITEMS: MenuItem[] = [
   { label: "Blog", route: "/journal" },
-  { label: "Long-Form Video", route: "/long-form-video" },
   { label: "Awards", route: "/awards" },
   { label: "Press", route: "/journal?tab=press" },
   { label: "FAQ", route: "/journal?tab=faq" },

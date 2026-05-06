@@ -34,7 +34,6 @@ const Newsletter = lazy(() => import("./pages/Newsletter"));
 const NewsletterMay = lazy(() => import("./pages/NewsletterMay"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
-const LongFormVideo = lazy(() => import("./pages/LongFormVideo"));
 const ExperientialTravelBlog = lazy(() => import("./pages/ExperientialTravelBlog"));
 const FamilyBucketListBlog = lazy(() => import("./pages/FamilyBucketListBlog"));
 const WellnessAdventureBlog = lazy(() => import("./pages/WellnessAdventureBlog"));
@@ -293,7 +292,6 @@ function Router() {
           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
           <Route path="/newsletter/may" component={NewsletterMay} />
-          <Route path="/long-form-video" component={LongFormVideo} />
 
           <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />

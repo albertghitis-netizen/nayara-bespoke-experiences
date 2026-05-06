@@ -63,11 +63,10 @@ const CURATED_IDS: string[] = [
   "archaeologist-rapanui",
   // Row 3
   "stargazing-atacama",
-  "coral-reef-restoration",
+  "leo-costa-rica-entrepreneurship",
   "treehouse-dreams",
   // Row 4
   "nature-based-wellness-colors",
-  "stargazing-atacama-video",
   "floating-paradise",
   // Row 5
   "mars-atacama",
@@ -232,7 +231,7 @@ function GalleryCard({
   const isVideo = entry.type === "video";
 
   // Determine card variant
-  const hasDualCTA = isVideo && !!entry.listenUrl && !entry.languageVariants;
+  const hasDualCTA = isVideo && !entry.languageVariants;
   const hasLangToggle = isVideo && !!entry.languageVariants;
   const isListenOnly = isAudio && !entry.youtubeId;
 
@@ -310,7 +309,7 @@ function GalleryCard({
 
   // ── Read (article) card ──
   return (
-    <motion.a href={entry.url} target="_blank" rel="noopener noreferrer" {...motionProps}>
+    <motion.a href={entry.url} {...(entry.url?.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })} {...motionProps}>
       <CardShell entry={entry} index={index}>
         <CardOverlay entry={entry}>
           <SinglePill icon={<ArrowUpRight className="w-3 h-3" />} label="Read" />
