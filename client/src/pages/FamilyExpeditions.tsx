@@ -8,7 +8,7 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -95,18 +95,6 @@ function HeroSection() {
       <img src={FAMILY_CDN.family06} alt="Family Adventure" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10" />
 
-      {/* Back to Pura Vida */}
-      <div className="absolute top-24 left-0 right-0 z-20 flex justify-center">
-        <Link
-          href="/costa-rica"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
-        >
-          <ArrowLeft className="w-4 h-4 text-white/80" />
-          <span className="text-white/80 text-[11px] tracking-[0.2em] uppercase" style={body}>
-            Pura Vida
-          </span>
-        </Link>
-      </div>
 
       {/* Title */}
       <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-12 md:pb-16 px-6">
