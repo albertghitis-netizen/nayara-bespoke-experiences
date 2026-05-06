@@ -137,6 +137,7 @@ export const familyBucketListPost: BlogPostData = {
   sections: [
     {
       heading: "The Classroom Has No Walls",
+      image: { src: "/manus-storage/kids-hanging-bridge_8aa17de0.jpg", alt: "Two children in yellow raincoats holding hands on a hanging bridge in the rainforest" },
       content: `<p>Most families see a bucket list as a list of dreams. At Nayara, it is a Tuesday.</p>
 <p>Across three countries and five properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools. Children do not study these things. They encounter them. The difference between studying and encountering is the difference between knowing and understanding.</p>
 <p>This is what family travel looks like when the destination is designed for discovery.</p>`,
@@ -151,6 +152,7 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       heading: "Costa Rica: Volcano, Water, and Wonder",
+      image: { src: "/manus-storage/family-pool-volcano_02acbc5c.jpg", alt: "Family swimming in infinity pool with Arenal Volcano and tropical plants in background" },
       content: `<p>After lunch at Ayla, where children build their own tacos from scratch while parents sip passion fruit cocktails, the family splits. This is the beauty of Nayara's design: it accommodates every generation simultaneously.</p>
 <p>The teenagers zip-line. The course threads through the canopy at speed, the volcano's cone visible through gaps in the tree cover. They scream. They always scream. And then they ask to go again.</p>
 <p>The grandparents take the thermal pools. <a href="/springs">Nayara Springs'</a> hot springs are heated by Arenal's geothermal energy, mineral-rich waters that have been soothing bodies for centuries. The temperature is perfect: warm enough to dissolve the tension in aging shoulders, cool enough to sit in for an hour without thinking about time.</p>
