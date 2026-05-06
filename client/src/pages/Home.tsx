@@ -881,14 +881,36 @@ function NayaraJournalSection() {
     },
   ];
 
-  // 6 dummy placeholder cards: Read, Listen, Read, View, Read, Listen
+  // Screen 2: Gastronomy, Guardians Conversation, Mars on Earth
   const dummyCards: JournalCardData[] = [
-    { id: "dummy-1", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
-    { id: "dummy-2", label: "Listen", title: "Coming Soon", image: "", href: null, external: false, cta: "listen" },
-    { id: "dummy-3", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
-    { id: "dummy-4", label: "View", title: "Coming Soon", image: "", href: null, external: false, cta: "watch" },
-    { id: "dummy-5", label: "Read", title: "Why the Atacama Desert is Mars on Earth", image: "", href: "/blog/atacama-mars", external: false, cta: "read" },
-    { id: "dummy-6", label: "Listen", title: "Coming Soon", image: "", href: null, external: false, cta: "listen" },
+    {
+      id: "gastronomy-screen2",
+      label: "Read",
+      title: "Forest to Table: Gastronomy Across the World of Nayara",
+      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
+      href: "/blog/three-kitchens-one-rainforest",
+      external: false,
+      cta: "read",
+    },
+    {
+      id: "guardians-conversation",
+      label: "Watch",
+      title: "The Guardians of Rapa Nui: A Conversation with the Hitorangi Family",
+      image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
+      href: null,
+      youtubeId: "FRPVRcUTNmk",
+      external: false,
+      cta: "watch",
+    },
+    {
+      id: "mars-atacama",
+      label: "Read",
+      title: "Why the Atacama Desert is Mars on Earth",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
+      href: "/blog/atacama-mars",
+      external: false,
+      cta: "read",
+    },
   ];
 
   const allCards = [...teaserCards, ...dummyCards];
