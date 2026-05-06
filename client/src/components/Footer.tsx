@@ -95,7 +95,7 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF" }: { propertyName?: 
             opacity: visible ? 1 : 0,
             transition: "opacity 1s ease-in",
             transitionDelay: "1s",
-            fontSize: "20px",
+            fontSize: "16px",
             color: textColor,
             fontFamily: "var(--font-display)",
             fontWeight: 400,
