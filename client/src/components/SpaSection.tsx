@@ -1,5 +1,5 @@
 /*
- * Spa & Wellness Section — Spa Puri treatments and rituals
+ * Spa & Wellness Section , Spa Puri treatments and rituals
  * Data from Spa Book PDF. Real photos only.
  * "Puri" means water in Kunza, the native Atacameño language.
  */
@@ -125,7 +125,7 @@ const treatments: Treatment[] = [
     duration: "80 min",
     price: "$120,000 CLP",
     description:
-      "Full-body treatment using mineral-rich Altiplano clay combined with honey. Antioxidant, antiseptic, hydrating — perfect for dry or sensitive skin in the desert climate.",
+      "Full-body treatment using mineral-rich Altiplano clay combined with honey. Antioxidant, antiseptic, hydrating , perfect for dry or sensitive skin in the desert climate.",
     category: "earth",
   },
   {
@@ -237,7 +237,7 @@ export default function SpaSection({ onInView }: SpaSectionProps) {
           >
             Puri means "water" in Kunza, the native language of the Atacama.
             Along the banks of the San Pedro River, our spa draws from the
-            desert's four elements — water, fire, earth, and air — to restore
+            desert's four elements , water, fire, earth, and air , to restore
             what the modern world takes away.
           </p>
         </motion.div>

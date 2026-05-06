@@ -1,16 +1,16 @@
 /**
- * CURATED EXCURSIONS — Pura Vida Sub-page
- * Design: Editorial magazine — bone/espresso brand palette
+ * CURATED EXCURSIONS , Pura Vida Sub-page
+ * Design: Editorial magazine , bone/espresso brand palette
  * Typography: Playfair Display (display) + DM Sans (body)
  *
  * Structure:
  *   1. Hero video (desktop/mobile)
- *   2. Property Intro — "Three Resorts. One Rainforest."
+ *   2. Property Intro , "Three Resorts. One Rainforest."
  *   3. On-Property Nature Experiences (dark espresso bg)
- *   4. Explore Arenal — Off-property excursions (bone bg)
+ *   4. Explore Arenal , Off-property excursions (bone bg)
  *   5. Footer
  *
- * Wellness & Culinary removed — those have their own Pura Vida sub-pages.
+ * Wellness & Culinary removed , those have their own Pura Vida sub-pages.
  */
 
 import { useState } from "react";
@@ -90,7 +90,7 @@ export default function ExperientialArenal() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO SECTION — Full-screen video
+   HERO SECTION , Full-screen video
    ═══════════════════════════════════════════════════════════════ */
 function ArenalHero() {
   const isMobile = useIsMobile();
@@ -128,7 +128,7 @@ function ArenalHero() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PILLAR DROPDOWN — Category selector below hero
+   PILLAR DROPDOWN , Category selector below hero
    ═══════════════════════════════════════════════════════════════ */
 function PillarDropdown() {
   const [open, setOpen] = useState(false);
@@ -183,7 +183,7 @@ function PillarDropdown() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTY INTRO — "Three Resorts. One Rainforest."
+   PROPERTY INTRO , "Three Resorts. One Rainforest."
    Experiential hospitality narrative: experiences are the reason
    to visit, not an add-on.
    ═══════════════════════════════════════════════════════════════ */
@@ -236,7 +236,7 @@ function PropertyIntro() {
             className="text-[#525642] text-xl md:text-2xl lg:text-[26px] leading-snug mb-6"
             style={headingLight}
           >
-            Arenal is not a backdrop. It is the reason everything here exists —
+            Arenal is not a backdrop. It is the reason everything here exists ,
             the hot springs, the biodiversity, the fertile soil, the weather
             patterns that sustain 500 bird species within walking distance of
             your villa.
@@ -251,14 +251,14 @@ function PropertyIntro() {
             fields you walk through today. Its mass generates the microclimate
             that keeps this pocket of Costa Rica impossibly green, impossibly
             alive. The volcano hikes, the dawn birdwatching, the hanging bridges
-            through the canopy — these are not amenities added to a room rate.
+            through the canopy , these are not amenities added to a room rate.
             They are the story itself.
           </p>
           <p
             className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed"
             style={body}
           >
-            Travelers no longer plan a trip and then look for things to do —
+            Travelers no longer plan a trip and then look for things to do ,
             they find the experience first, and build the journey around it.
             Every excursion below exists because someone asked a deeper question:
             not "what is there to do?" but "what will I become by doing it?"
@@ -270,7 +270,7 @@ function PropertyIntro() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   WITHIN OUR GROUNDS — On-property nature experiences
+   WITHIN OUR GROUNDS , On-property nature experiences
    Dark espresso background for contrast
    ═══════════════════════════════════════════════════════════════ */
 function WithinOurGroundsSection() {
@@ -309,7 +309,7 @@ function WithinOurGroundsSection() {
             Before venturing beyond the gates, discover the living rainforest
             that surrounds the three Nayara properties. Over 380 acres of
             primary and secondary forest, home to sloths, toucans, and over 500
-            bird species — all accessible from your villa.
+            bird species , all accessible from your villa.
           </p>
         </FadeIn>
       </div>
@@ -327,7 +327,7 @@ function WithinOurGroundsSection() {
                   )
                 }
               >
-                {/* Media — vertical video or image */}
+                {/* Media , vertical video or image */}
                 <div className="relative overflow-hidden h-72 md:h-80">
                   {excursion.verticalVideo ? (
                     <video
@@ -419,7 +419,7 @@ function WithinOurGroundsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXPLORE ARENAL — Off-property excursions
+   EXPLORE ARENAL , Off-property excursions
    Bone/cream background
    ═══════════════════════════════════════════════════════════════ */
 function ExploreArenalSection() {
@@ -443,7 +443,7 @@ function ExploreArenalSection() {
         </FadeIn>
       </div>
 
-      {/* Excursion Cards — exact brand experiences format */}
+      {/* Excursion Cards , exact brand experiences format */}
       <div className="max-w-[1200px] mx-auto px-6 md:px-10">
         <AnimatePresence mode="popLayout">
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -457,7 +457,7 @@ function ExploreArenalSection() {
                 transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
                 className="group bg-white/50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
-                {/* Media — horizontal video (videoDesktop) preferred, then image */}
+                {/* Media , horizontal video (videoDesktop) preferred, then image */}
                 {ex.videoDesktop ? (
                   <div className="aspect-[4/3] overflow-hidden">
                     <video
@@ -742,7 +742,7 @@ function FeaturedExcursionCard({
                       {cardImageSrc ? (
                         <img
                           src={cardImageSrc}
-                          alt={`${excursion.name} — landscape`}
+                          alt={`${excursion.name} , landscape`}
                           className="w-full h-full object-cover"
                         />
                       ) : (
@@ -770,7 +770,7 @@ function FeaturedExcursionCard({
                       {excursion.detailSquarePhoto ? (
                         <img
                           src={excursion.detailSquarePhoto}
-                          alt={`${excursion.name} — detail`}
+                          alt={`${excursion.name} , detail`}
                           className="w-full h-full object-cover"
                         />
                       ) : (
@@ -867,7 +867,7 @@ function FeaturedExcursionCard({
                       <div className="aspect-[3/4] overflow-hidden">
                         <img
                           src={excursion.detailVerticalPhoto}
-                          alt={`${excursion.name} — vertical`}
+                          alt={`${excursion.name} , vertical`}
                           className="w-full h-full object-cover"
                         />
                       </div>

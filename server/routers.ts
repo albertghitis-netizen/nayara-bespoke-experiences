@@ -13,12 +13,12 @@ const messageSchema = z.object({
   content: z.string(),
 });
 
-/* ── Social DM addendum — injected when channel is instagram or messenger ── */
+/* ── Social DM addendum , injected when channel is instagram or messenger ── */
 const SOCIAL_DM_ADDENDUM = `
 
-IMPORTANT — You are responding inside a social media DM (Instagram or Facebook Messenger). Follow these rules strictly:
+IMPORTANT , You are responding inside a social media DM (Instagram or Facebook Messenger). Follow these rules strictly:
 1. Keep every reply to 2-3 SHORT sentences max. Think text message, not email.
-2. Never use markdown formatting — no **, no *, no bullet points, no numbered lists.
+2. Never use markdown formatting , no **, no *, no bullet points, no numbered lists.
 3. Write in plain conversational text only, like a real person texting.
 4. If someone asks a complex question, give the key answer first in 1-2 sentences, then ask if they want more detail.
 5. Use line breaks between thoughts instead of long paragraphs.
@@ -39,7 +39,7 @@ export const appRouter = router({
   }),
 
   /* ═══════════════════════════════════════════
-     CONCIERGE CHATBOT — LLM-powered
+     CONCIERGE CHATBOT , LLM-powered
      Public procedure (no auth required for guests)
      ═══════════════════════════════════════════ */
   concierge: router({
@@ -51,7 +51,7 @@ export const appRouter = router({
         })
       )
       .mutation(async ({ input }) => {
-        // Build system prompt — add social DM rules when channel is social
+        // Build system prompt , add social DM rules when channel is social
         const isSocial = input.channel === "instagram" || input.channel === "messenger";
         const systemPrompt = isSocial
           ? NAYARA_CONCIERGE_SYSTEM_PROMPT + SOCIAL_DM_ADDENDUM
@@ -139,7 +139,7 @@ export const appRouter = router({
   }),
 
   /* ═══════════════════════════════════════════
-     LEAD CAPTURE — Direct endpoint
+     LEAD CAPTURE , Direct endpoint
      ═══════════════════════════════════════════ */
   leads: router({
     save: publicProcedure

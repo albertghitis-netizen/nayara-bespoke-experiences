@@ -1,5 +1,5 @@
 /**
- * GALLERY — Pinterest-style masonry grid
+ * GALLERY , Pinterest-style masonry grid
  * All user-provided images + sprinkled videos
  * No filters, no categories, no borders
  * Starts directly with content at the top

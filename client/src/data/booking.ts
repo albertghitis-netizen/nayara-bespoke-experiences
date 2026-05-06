@@ -1,5 +1,5 @@
 /**
- * BOOKING CONFIGURATION — Centralized SynXis booking URLs for all properties
+ * BOOKING CONFIGURATION , Centralized SynXis booking URLs for all properties
  * Update URLs here to change booking links across the entire site.
  *
  * Correct chain/hotel IDs sourced from nayararesorts.com Reserve dropdown:

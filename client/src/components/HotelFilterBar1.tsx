@@ -1,5 +1,5 @@
 /**
- * HotelFilterBar Variant 1 — Horizontal scrollable cards with icons
+ * HotelFilterBar Variant 1 , Horizontal scrollable cards with icons
  * For: Experiences page
  */
 

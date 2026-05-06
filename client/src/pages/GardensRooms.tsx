@@ -1,5 +1,5 @@
 /*
- * GARDENS ROOMS — Dedicated rooms/accommodations sub-page
+ * GARDENS ROOMS , Dedicated rooms/accommodations sub-page
  * Mirrors Alto Atacama secondary page structure with Gardens palette
  */
 
@@ -53,7 +53,7 @@ const roomTypes = [
   {
     name: "Royal Villa",
     description:
-      "The pinnacle of the Gardens experience — expansive villas with private infinity pools, dedicated concierge service, and panoramic views of the Arenal Volcano. Designed for guests who seek the ultimate in rainforest luxury.",
+      "The pinnacle of the Gardens experience , expansive villas with private infinity pools, dedicated concierge service, and panoramic views of the Arenal Volcano. Designed for guests who seek the ultimate in rainforest luxury.",
     features: ["Infinity pool", "Concierge service", "Panoramic views", "Luxury amenities"],
   },
 ];
@@ -89,7 +89,7 @@ function RoomsContent() {
           >
             Nestled among lush tropical gardens at the foot of the Arenal Volcano, each casita is a
             private retreat where the sounds of the rainforest become your soundtrack. Family-friendly
-            and designed for connection — with nature, with each other, and with the magic of Costa Rica.
+            and designed for connection , with nature, with each other, and with the magic of Costa Rica.
           </p>
         </AnimateOnScroll>
 

@@ -1,5 +1,5 @@
 /*
- * DELUXE OVERWATER VILLA — Room Detail Shell
+ * DELUXE OVERWATER VILLA , Room Detail Shell
  * Property: Nayara Bocas del Toro
  * Palette: Ocean teal (#008E97) on light blue (#EAF4FF)
  */

@@ -1,5 +1,5 @@
 /**
- * NAYARA BLOG — Content Section Page
+ * NAYARA BLOG , Content Section Page
  * Two-axis filtering: Destination (property) + Topic (pillar)
  * Hero → Filters → Featured → Grid → Footer
  */

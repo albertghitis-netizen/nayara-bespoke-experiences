@@ -122,7 +122,7 @@ export default function BocasCondeNastAwardBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              Condé Nast Traveler's recognition is not merely about luxury amenities or stunning views—though we certainly offer both. This award acknowledges our holistic approach to hospitality: the way we honor the natural environment, celebrate local culture, and create moments of genuine connection for our guests.
+              Condé Nast Traveler's recognition is not merely about luxury amenities or stunning views,though we certainly offer both. This award acknowledges our holistic approach to hospitality: the way we honor the natural environment, celebrate local culture, and create moments of genuine connection for our guests.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -159,7 +159,7 @@ export default function BocasCondeNastAwardBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              <strong style={{ color: BOCAS_PALETTE.primary }}>Environmental Stewardship:</strong> Every decision—from solar power generation to rainwater harvesting to environmentally safe wastewater treatment—reflects our commitment to preserving the "Galapagos of the Caribbean" for future generations.
+              <strong style={{ color: BOCAS_PALETTE.primary }}>Environmental Stewardship:</strong> Every decision,from solar power generation to rainwater harvesting to environmentally safe wastewater treatment,reflects our commitment to preserving the "Galapagos of the Caribbean" for future generations.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
@@ -196,13 +196,13 @@ export default function BocasCondeNastAwardBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              This Condé Nast Traveler award is not an endpoint but a milestone in our ongoing journey. We remain committed to pushing the boundaries of what luxury hospitality can be—a place where innovation serves nature, where comfort never compromises conscience, and where every guest leaves transformed.
+              This Condé Nast Traveler award is not an endpoint but a milestone in our ongoing journey. We remain committed to pushing the boundaries of what luxury hospitality can be,a place where innovation serves nature, where comfort never compromises conscience, and where every guest leaves transformed.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              To our guests, partners, and the Condé Nast Traveler team: thank you for recognizing what we've built here in Bocas del Toro. We invite you to experience it for yourself—to discover why this private island paradise has captured the hearts of discerning travelers from around the world.
+              To our guests, partners, and the Condé Nast Traveler team: thank you for recognizing what we've built here in Bocas del Toro. We invite you to experience it for yourself,to discover why this private island paradise has captured the hearts of discerning travelers from around the world.
             </p>
           </motion.div>
 
@@ -219,7 +219,7 @@ export default function BocasCondeNastAwardBlog() {
               className="text-center text-lg"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.primary, fontWeight: 600 }}
             >
-              Experience the award-winning luxury of Nayara Bocas del Toro — where innovation, nature, and hospitality converge in perfect harmony.
+              Experience the award-winning luxury of Nayara Bocas del Toro , where innovation, nature, and hospitality converge in perfect harmony.
             </p>
           </motion.div>
         </div>

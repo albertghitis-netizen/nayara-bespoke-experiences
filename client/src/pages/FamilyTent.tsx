@@ -1,6 +1,6 @@
 /**
- * FAMILY TENT — Deeper Room Detail Page
- * Layout style: "Editorial Magazine" — different from NayaraTent's product-page approach
+ * FAMILY TENT , Deeper Room Detail Page
+ * Layout style: "Editorial Magazine" , different from NayaraTent's product-page approach
  * Uses staggered asymmetric grids, full-bleed image breaks, and a horizontal
  * scrolling gallery instead of the snap slider used in NayaraTent.
  * Three-tone olive palette: primary #868B75, secondary #525642, accent #9A9086
@@ -66,12 +66,12 @@ const AMENITIES = [
 
 /* ── Gallery images for horizontal scroll ── */
 const GALLERY = [
-  { src: IMG.kidsRoom, alt: "Family Tent — Kids room with two queen beds and botanical art" },
-  { src: IMG.bathroom, alt: "Family Tent — Freestanding soaking tub and dual vanity" },
-  { src: IMG.tentExterior, alt: "Family Tent — Exterior close-up with lush palms and pool" },
-  { src: IMG.droneAngle, alt: "Family Tent — Drone view of two interconnected tent roofs" },
-  { src: IMG.tentsFromAbove, alt: "Family Tents — Multiple tents from above with jungle pathways" },
-  { src: IMG.droneTopDown, alt: "Family Tent — Top-down view showing full footprint and pool" },
+  { src: IMG.kidsRoom, alt: "Family Tent , Kids room with two queen beds and botanical art" },
+  { src: IMG.bathroom, alt: "Family Tent , Freestanding soaking tub and dual vanity" },
+  { src: IMG.tentExterior, alt: "Family Tent , Exterior close-up with lush palms and pool" },
+  { src: IMG.droneAngle, alt: "Family Tent , Drone view of two interconnected tent roofs" },
+  { src: IMG.tentsFromAbove, alt: "Family Tents , Multiple tents from above with jungle pathways" },
+  { src: IMG.droneTopDown, alt: "Family Tent , Top-down view showing full footprint and pool" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -95,7 +95,7 @@ export default function FamilyTent() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 — HERO: Full-bleed image with centered editorial title
+   S1 , HERO: Full-bleed image with centered editorial title
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -151,7 +151,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -172,7 +172,7 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Back pill — top right */}
+      {/* Back pill , top right */}
       <div className="absolute top-24 md:top-28 right-6 md:right-16">
         <a
           href="/tented-camp"
@@ -199,7 +199,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S2 — INTRO: Asymmetric two-column with overlapping card
+   S2 , INTRO: Asymmetric two-column with overlapping card
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -257,7 +257,7 @@ function IntroSection() {
               className="text-sm md:text-base leading-[1.85] mb-8"
               style={{ ...body, color: P.textSoft }}
             >
-              Our Family Tents are generously spacious and thoughtfully designed — two tents connected by an outdoor living space sharing a private pool for families to enjoy and create cherished and lasting memories together.
+              Our Family Tents are generously spacious and thoughtfully designed , two tents connected by an outdoor living space sharing a private pool for families to enjoy and create cherished and lasting memories together.
             </p>
 
             {/* Inline stat badges */}
@@ -291,7 +291,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S3 — FULL-BLEED BREAK: Parallax drone image with quote
+   S3 , FULL-BLEED BREAK: Parallax drone image with quote
    ═══════════════════════════════════════════════════════════════ */
 function FullBleedBreak() {
   const ref = useRef<HTMLDivElement>(null);
@@ -306,7 +306,7 @@ function FullBleedBreak() {
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
           src={IMG.droneTopDown}
-          alt="Family Tent from above — full footprint with pool and teak decks"
+          alt="Family Tent from above , full footprint with pool and teak decks"
           className="w-full h-[120%] object-cover"
           loading="lazy"
         />
@@ -341,7 +341,7 @@ function FullBleedBreak() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S4 — FEATURES GRID: Staggered masonry with amenity cards
+   S4 , FEATURES GRID: Staggered masonry with amenity cards
    ═══════════════════════════════════════════════════════════════ */
 function FeaturesGrid() {
   return (
@@ -384,7 +384,7 @@ function FeaturesGrid() {
             >
               <img
                 src={IMG.kidsRoom}
-                alt="Family Tent — Kids room with two queen beds"
+                alt="Family Tent , Kids room with two queen beds"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -393,12 +393,12 @@ function FeaturesGrid() {
                   className="text-white/90 text-[10px] tracking-[0.2em] uppercase"
                   style={{ ...body, fontWeight: 500 }}
                 >
-                  Kids Room — Two Queen Beds
+                  Kids Room , Two Queen Beds
                 </p>
               </div>
             </motion.div>
 
-            {/* Amenity cards — left half */}
+            {/* Amenity cards , left half */}
             <div className="grid grid-cols-2 gap-4">
               {AMENITIES.slice(0, 6).map((item, i) => (
                 <motion.div
@@ -425,9 +425,9 @@ function FeaturesGrid() {
             </div>
           </div>
 
-          {/* Right column: offset — amenities + image */}
+          {/* Right column: offset , amenities + image */}
           <div className="space-y-6 md:space-y-8 md:mt-16">
-            {/* Amenity cards — right half */}
+            {/* Amenity cards , right half */}
             <div className="grid grid-cols-2 gap-4">
               {AMENITIES.slice(6).map((item, i) => (
                 <motion.div
@@ -462,7 +462,7 @@ function FeaturesGrid() {
             >
               <img
                 src={IMG.bathroom}
-                alt="Family Tent — Freestanding soaking tub and dual vanity"
+                alt="Family Tent , Freestanding soaking tub and dual vanity"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -556,7 +556,7 @@ function AmenityIcon({ type }: { type: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S5 — HORIZONTAL GALLERY: Drag-to-scroll image strip
+   S5 , HORIZONTAL GALLERY: Drag-to-scroll image strip
    ═══════════════════════════════════════════════════════════════ */
 function HorizontalGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -646,7 +646,7 @@ function HorizontalGallery() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S6 — FAMILY EXPERIENCE: Numbered editorial blocks
+   S6 , FAMILY EXPERIENCE: Numbered editorial blocks
    ═══════════════════════════════════════════════════════════════ */
 function FamilyExperience() {
   const blocks = [
@@ -661,7 +661,7 @@ function FamilyExperience() {
     {
       num: "02",
       title: "Your Private Oasis",
-      text: "Between the tents, an outdoor living space opens onto your private plunge pool — fed by the region's natural mineral hot springs. Watch the Arenal Volcano emerge from morning mist while the children splash in warm, mineral-rich waters.",
+      text: "Between the tents, an outdoor living space opens onto your private plunge pool , fed by the region's natural mineral hot springs. Watch the Arenal Volcano emerge from morning mist while the children splash in warm, mineral-rich waters.",
       image: IMG.droneAngle,
       alt: "Drone view of two interconnected tent roofs surrounded by jungle",
       aspect: "aspect-[16/10]",
@@ -761,7 +761,7 @@ function FamilyExperience() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S7 — CTA: Full-bleed photo background with centered reserve
+   S7 , CTA: Full-bleed photo background with centered reserve
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   const [hovered, setHovered] = useState(false);
@@ -810,7 +810,7 @@ function CTASection() {
             <button
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+              onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...body,

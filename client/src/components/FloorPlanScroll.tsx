@@ -1,5 +1,5 @@
 /**
- * FLOOR PLAN SCROLL — Prototype C: "Scroll to Build"
+ * FLOOR PLAN SCROLL , Prototype C: "Scroll to Build"
  *
  * Creative concept: The blueprint constructs itself as you scroll.
  * A sticky SVG canvas stays pinned while narrative text panels scroll
@@ -79,7 +79,7 @@ const STEPS: ScrollStep[] = [
     tier: "tent",
     title: "Nayara Tent",
     subtitle: "The Foundation",
-    narrative: "Begin with the essence — a luxury tent nestled in the rainforest canopy. A king-size four-poster bed, two daybeds for afternoon reading, and your own private hot springs plunge pool.",
+    narrative: "Begin with the essence , a luxury tent nestled in the rainforest canopy. A king-size four-poster bed, two daybeds for afternoon reading, and your own private hot springs plunge pool.",
     detail: "Each tent is positioned for maximum privacy, with views of the Arenal Volcano through floor-to-ceiling openings. The bathroom features a large soaking tub, twin vanities, and both indoor and outdoor showers.",
     sqft: "1,700",
     sqm: "157.9",
@@ -91,7 +91,7 @@ const STEPS: ScrollStep[] = [
     tier: "family",
     title: "Family Tent",
     subtitle: "Add a Connecting Room",
-    narrative: "A covered walkway extends east, connecting to a second room with two queen beds — perfect for children or companions. The plunge pool is now shared between both spaces.",
+    narrative: "A covered walkway extends east, connecting to a second room with two queen beds , perfect for children or companions. The plunge pool is now shared between both spaces.",
     detail: "The connecting room mirrors the primary tent's luxury finishes, with its own full bathroom and dressing area. A shared terrace wraps both structures, creating a private family compound.",
     sqft: "2,400",
     sqm: "223",
@@ -115,7 +115,7 @@ const STEPS: ScrollStep[] = [
     tier: "residence",
     title: "Nayara Residence",
     subtitle: "The Complete Estate",
-    narrative: "The ultimate expression — two Nayara Tents, two connecting suites, a grand living pavilion, private infinity pool, and fire pit. A multi-generational sanctuary in the jungle.",
+    narrative: "The ultimate expression , two Nayara Tents, two connecting suites, a grand living pavilion, private infinity pool, and fire pit. A multi-generational sanctuary in the jungle.",
     detail: "With a dedicated personal concierge, four bedrooms sleeping up to twelve adults, and expansive indoor and outdoor entertainment spaces, the Residence is designed for extraordinary family or group travel.",
     sqft: "7,664",
     sqm: "712",
@@ -544,7 +544,7 @@ function Compass({ x, y }: { x: number; y: number }) {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   BLUEPRINT COMPOSITION — All elements always present, visibility
+   BLUEPRINT COMPOSITION , All elements always present, visibility
    controlled by scroll-driven step
    ══════════════════════════════════════════════════════════════════ */
 function Blueprint({ step, hoveredRoom, onHoverRoom }: {
@@ -653,7 +653,7 @@ function Blueprint({ step, hoveredRoom, onHoverRoom }: {
       <Bath x={tx + tw - 58} y={ty + th - 50} w={50} h={40} visible={isTent} delay={0.35} />
       <Door cx={tx} cy={ty + th / 2} r={12} startAngle={-90} visible={isTent} delay={0.25} />
 
-      {/* Pool — upgrades to oversized at Grand */}
+      {/* Pool , upgrades to oversized at Grand */}
       <Pool
         cx={tx + tw / 2 + (isGrand ? 30 : 0)}
         cy={ty - 42}
@@ -664,7 +664,7 @@ function Blueprint({ step, hoveredRoom, onHoverRoom }: {
         label={isGrand ? "Oversized Hot Springs Pool" : "Hot Springs Plunge Pool"}
       />
 
-      {/* CONNECTING ROOM (Family — step 1 only) */}
+      {/* CONNECTING ROOM (Family , step 1 only) */}
       {!isGrand && (
         <>
           <Connector x={tx + tw} y={ty + 55} w={20} h={26} visible={isFamily} delay={0.6} />
@@ -684,7 +684,7 @@ function Blueprint({ step, hoveredRoom, onHoverRoom }: {
         </>
       )}
 
-      {/* LIVING AREA (Grand — step 2) */}
+      {/* LIVING AREA (Grand , step 2) */}
       {isGrand && (
         <>
           <Connector x={tx + tw} y={ty + 45} w={20} h={24} visible={isGrand} delay={0.55} />
@@ -823,7 +823,7 @@ function NarrativePanel({ step, isActive }: { step: ScrollStep; isActive: boolea
 
         {/* CTA */}
         <button
-          onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+          onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
           className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
           style={{
             ...body, fontWeight: 500, fontSize: "10px",
@@ -849,7 +849,7 @@ function HoverTooltip({ room }: { room: string | null }) {
   const details: Record<string, { beds: string; bath: string; feature: string }> = {
     "Nayara Tent": { beds: "1 King + 2 Daybeds", bath: "Soaking tub, twin vanities", feature: "Private plunge pool" },
     "Connecting Room": { beds: "2 Queen Beds", bath: "Full bathroom", feature: "Covered walkway" },
-    "Living & Kitchen": { beds: "—", bath: "—", feature: "Full kitchen, dining, lounge" },
+    "Living & Kitchen": { beds: ",", bath: ",", feature: "Full kitchen, dining, lounge" },
     "Ground Floor": { beds: "2 Queen Beds", bath: "Full bathroom", feature: "Garden level" },
     "Tent A": { beds: "1 King + 2 Daybeds", bath: "Soaking tub, twin vanities", feature: "Private plunge pool" },
     "Tent B": { beds: "1 King + 2 Daybeds", bath: "Soaking tub, twin vanities", feature: "Private plunge pool" },
@@ -885,7 +885,7 @@ function HoverTooltip({ room }: { room: string | null }) {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   MAIN COMPONENT — Scroll-driven floor plan builder
+   MAIN COMPONENT , Scroll-driven floor plan builder
    ══════════════════════════════════════════════════════════════════ */
 interface FloorPlanScrollProps {
   maxStep?: number;
@@ -939,7 +939,7 @@ export default function FloorPlanScroll({ maxStep = 3 }: FloorPlanScrollProps) {
           </h2>
           <p className="text-sm mt-3 max-w-md mx-auto"
             style={{ ...body, color: C.textMuted }}>
-            Scroll down to watch the blueprint construct itself — each tier builds on the last
+            Scroll down to watch the blueprint construct itself , each tier builds on the last
           </p>
           {/* Scroll indicator */}
           <motion.div className="mt-8"

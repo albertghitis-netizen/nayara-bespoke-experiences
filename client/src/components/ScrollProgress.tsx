@@ -1,5 +1,5 @@
 /*
- * ScrollProgress — Thin gold progress line at the top of the page
+ * ScrollProgress , Thin gold progress line at the top of the page
  * Shows scroll position as a percentage bar
  */
 

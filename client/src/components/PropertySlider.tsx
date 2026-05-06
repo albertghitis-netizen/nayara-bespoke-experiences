@@ -1,5 +1,5 @@
 /**
- * PropertySlider — Horizontal carousel for Rooms, Sustainability, Gastronomy
+ * PropertySlider , Horizontal carousel for Rooms, Sustainability, Gastronomy
  * Used on property home pages as inline preview sections.
  * Accepts palette colors as props so each property can theme it.
  */

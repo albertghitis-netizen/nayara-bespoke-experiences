@@ -9,7 +9,7 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import BrandNavigation from "@/components/BrandNavigation";
-// CinematicScroll removed — no auto-scroll on Hangaroa
+// CinematicScroll removed , no auto-scroll on Hangaroa
 import { properties, type Property, type Excursion, type Treatment } from "@/data/properties";
 import { hangaroaDining } from "@/data/dining";
 import PillarCrossLink from "@/components/PillarCrossLink";
@@ -38,7 +38,7 @@ const hangaroa = properties.find((p: Property) => p.id === "hangaroa")!;
 /* ═══════════════════════════════════════════════════════════════
    PALETTE - "Stone"
    ═══════════════════════════════════════════════════════════════ */
-/* Slate Gray palette — volcanic stone */
+/* Slate Gray palette , volcanic stone */
 const PALETTE = {
   primary: "#536878",
   secondary: "#67737C",
@@ -170,7 +170,7 @@ export default function Hangaroa() {
       <S1CascadeSection />
 
       <div id="rooms">
-      {/* ★ 1. ROOMS — Slider */}
+      {/* ★ 1. ROOMS , Slider */}
       <PropertySlider
         sectionLabel="Accommodations"
         headline="Island Suites"
@@ -183,7 +183,7 @@ export default function Hangaroa() {
 
       </div>
       <div id="experiences">
-      {/* ★ 2. EXPERIENCES — Sorter */}
+      {/* ★ 2. EXPERIENCES , Sorter */}
       <PropertySorter
         sectionLabel="Experiences"
         headline="Rapa Nui Discoveries"
@@ -197,7 +197,7 @@ export default function Hangaroa() {
 
       </div>
       <div id="sustainability">
-      {/* ★ 3. SUSTAINABILITY — Slider */}
+      {/* ★ 3. SUSTAINABILITY , Slider */}
       <PropertySlider
         sectionLabel="Sustainability"
         headline="Guardians of Rapa Nui"
@@ -210,7 +210,7 @@ export default function Hangaroa() {
 
       </div>
       <div id="wellness">
-      {/* ★ 4. WELLNESS — Sorter */}
+      {/* ★ 4. WELLNESS , Sorter */}
       <PropertySorter
         sectionLabel="Wellness"
         headline={hangaroa.theme.spaHeadline.replace("\n", " ")}
@@ -224,7 +224,7 @@ export default function Hangaroa() {
 
       </div>
       <div id="gastronomy">
-      {/* ★ 5. GASTRONOMY — Slider */}
+      {/* ★ 5. GASTRONOMY , Slider */}
       <PropertySlider
         sectionLabel="Forest to Table"
         headline="Pacific Island Cuisine"
@@ -259,7 +259,7 @@ export default function Hangaroa() {
           {
             name: "Nayara Alto Atacama",
             chapter: "Where Desert Meets Sky",
-            tagline: "Stay in Chile, change the world — from Easter Island's stone giants to the Atacama's salt flats, geysers, and star-filled skies.",
+            tagline: "Stay in Chile, change the world , from Easter Island's stone giants to the Atacama's salt flats, geysers, and star-filled skies.",
             route: "/alto-atacama",
             image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
             video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",
@@ -268,7 +268,7 @@ export default function Hangaroa() {
           {
             name: "Nayara Springs",
             chapter: "The Hot Springs Sanctuary",
-            tagline: "From stone giants to hot springs — an adults-only volcanic sanctuary hidden in Costa Rica's rainforest canopy.",
+            tagline: "From stone giants to hot springs , an adults-only volcanic sanctuary hidden in Costa Rica's rainforest canopy.",
             route: "/springs",
             image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/5_ac0cb283.jpg",
             audienceTag: "Adults Only",
@@ -287,7 +287,7 @@ export default function Hangaroa() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   NAYARA BY NIGHT — Moai beneath the Milky Way
+   NAYARA BY NIGHT , Moai beneath the Milky Way
    ═══════════════════════════════════════════════════════════════ */
 function NayaraByNightSection() {
   const DARK = "#000000";
@@ -318,7 +318,7 @@ function NayaraByNightSection() {
               className="text-[15px] leading-[1.8] max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: "#FFFFFFCC" }}
             >
-              On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.
+              On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas , the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.
             </p>
           </AnimateOnScroll>
         </div>
@@ -342,7 +342,7 @@ function NayaraByNightSection() {
           <div className="overflow-hidden" style={{ aspectRatio: "21/9" }}>
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-crater-milkyway_00741a91.webp"
-              alt="Rano Kau crater beneath the Milky Way — Easter Island"
+              alt="Rano Kau crater beneath the Milky Way , Easter Island"
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -417,7 +417,7 @@ function HeroSection() {
         </button>}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
-      {/* H1 overlaid — bottom center */}
+      {/* H1 overlaid , bottom center */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -443,7 +443,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 CASCADE — Vertical video right, H2 + copy left
+   S1 CASCADE , Vertical video right, H2 + copy left
    ═══════════════════════════════════════════════════════════════ */
 function S1CascadeSection() {
   const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -452,7 +452,7 @@ function S1CascadeSection() {
     <section className={sectionPadding}>
       <div className={maxW}>
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
-          {/* Left — H2 + copy */}
+          {/* Left , H2 + copy */}
           <div className="flex-1 order-2 md:order-1">
             <AnimateOnScroll variants={fadeUp}>
               <SectionLabel>The Island</SectionLabel>
@@ -470,11 +470,11 @@ function S1CascadeSection() {
                 Known as "The Navel of the World," Rapa Nui sits over 2,000 miles from the nearest inhabited land. Its volcanic peaks rise from the Pacific like ancient sentinels, guarding nearly a thousand Moai statues carved by a civilization that navigated by the stars.
               </p>
               <p className="text-[15px] leading-[1.8]" style={{ ...body, color: PALETTE.textSecondary }}>
-                Here, the wind carries stories of ancestral voyagers, and every sunset paints the stone guardians in hues of amber and rose. Nayara Hangaroa is your gateway to this sacred landscape — where luxury meets the world's most remote living culture.
+                Here, the wind carries stories of ancestral voyagers, and every sunset paints the stone guardians in hues of amber and rose. Nayara Hangaroa is your gateway to this sacred landscape , where luxury meets the world's most remote living culture.
               </p>
             </AnimateOnScroll>
           </div>
-          {/* Right — vertical video */}
+          {/* Right , vertical video */}
           <div className="flex-1 order-1 md:order-2">
             <MediaReveal>
               <div className="overflow-hidden rounded-sm" style={{ aspectRatio: "3/4" }}>
@@ -528,7 +528,7 @@ function StorySection() {
             </div>
         </div>
 
-        {/* Landscape image — hidden on mobile */}
+        {/* Landscape image , hidden on mobile */}
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
@@ -577,7 +577,7 @@ function RoomsSection() {
           </div>
         </div>
 
-        {/* Landscape video — hidden on mobile */}
+        {/* Landscape video , hidden on mobile */}
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
@@ -876,7 +876,7 @@ function GalleryIntegratedSections() {
     {
       label: "The Moai",
       headline: "Guardians of\nthe Island",
-      body: "Standing sentinel across the volcanic landscape, the Moai are more than monuments — they are the spiritual embodiment of ancestral chiefs, watching over the island as they have for centuries. Each site tells a different chapter of Rapa Nui's remarkable story.",
+      body: "Standing sentinel across the volcanic landscape, the Moai are more than monuments , they are the spiritual embodiment of ancestral chiefs, watching over the island as they have for centuries. Each site tells a different chapter of Rapa Nui's remarkable story.",
       verticalSrc: CDN.s3,
       horizontalSrc: CDN.moaiPukao,
       verticalIsVideo: false,
@@ -906,7 +906,7 @@ function GalleryIntegratedSections() {
     {
       label: "Island Moments",
       headline: "Timeless\nBeauty",
-      body: "Every corner of Easter Island reveals a new perspective — the play of light on ancient stone, the wild horses grazing beneath the Moai, the vast Pacific stretching to infinity. These are the moments that make Hangaroa an experience beyond compare.",
+      body: "Every corner of Easter Island reveals a new perspective , the play of light on ancient stone, the wild horses grazing beneath the Moai, the vast Pacific stretching to infinity. These are the moments that make Hangaroa an experience beyond compare.",
       verticalSrc: CDN.culturalAdornment,
       horizontalSrc: CDN.s2,
       verticalIsVideo: false,
@@ -972,7 +972,7 @@ function GalleryIntegratedSections() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   REVIEWS — Guest Voices
+   REVIEWS , Guest Voices
    ═══════════════════════════════════════════════════════════════ */
 function HangaroaReviews() {
   return (
@@ -1021,7 +1021,7 @@ function HangaroaReviews() {
               className="text-[12px] tracking-[0.08em] not-italic"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textTertiary }}
             >
-              — Sarah & James, TripAdvisor
+              , Sarah & James, TripAdvisor
             </cite>
           </blockquote>
         </AnimateOnScroll>
@@ -1043,7 +1043,7 @@ function HangaroaReviews() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GETTING HERE — Easter Island travel info
+   GETTING HERE , Easter Island travel info
    ═══════════════════════════════════════════════════════════════ */
 function HangaroaGettingHere() {
   const routes = [
@@ -1096,7 +1096,7 @@ function HangaroaGettingHere() {
             className="text-[15px] leading-relaxed mb-12 md:mb-16 max-w-xl"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
-            Easter Island — Rapa Nui — is one of the most remote inhabited islands on Earth, located 3,700 km off the coast of Chile in the southeastern Pacific Ocean.
+            Easter Island , Rapa Nui , is one of the most remote inhabited islands on Earth, located 3,700 km off the coast of Chile in the southeastern Pacific Ocean.
           </p>
         </AnimateOnScroll>
 
@@ -1156,7 +1156,7 @@ function HangaroaGettingHere() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RESERVE CTA — "Begin Your Easter Island Journey"
+   RESERVE CTA , "Begin Your Easter Island Journey"
    ═══════════════════════════════════════════════════════════════ */
 function HangaroaReserveCTA() {
   return (

@@ -1,5 +1,5 @@
 /**
- * Component Showcase — Placeholder
+ * Component Showcase , Placeholder
  * Original content preserved in git history.
  */
 import BrandNavigation from "@/components/BrandNavigation";

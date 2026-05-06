@@ -135,7 +135,7 @@ const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability")
 
 const BocasRooms = lazy(() => import("./pages/BocasRooms"));
 const GardensRooms = lazy(() => import("./pages/GardensRooms"));
-// SpringsRooms deleted — Springs only has one room type (Springs Villa)
+// SpringsRooms deleted , Springs only has one room type (Springs Villa)
 const HangaroaRooms = lazy(() => import("./pages/HangaroaRooms"));
 
 /* ── Minimal loading fallback ── */

@@ -1,6 +1,6 @@
 /**
- * ARENAL GASTRONOMY — Costa Rica-wide culinary page
- * "Forest to Table" — Photo collage + all 9 restaurant links
+ * ARENAL GASTRONOMY , Costa Rica-wide culinary page
+ * "Forest to Table" , Photo collage + all 9 restaurant links
  * Pinterest-style masonry layout with real Brice Ferre photography
  */
 
@@ -50,7 +50,7 @@ export default function ArenalGastronomy() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-bleed image with "Forest to Table"
+   HERO , Full-bleed image with "Forest to Table"
    ═══════════════════════════════════════════════════════════════ */
 const GASTRO_CDN_ARENAL = {
   heroVideoMobile: "/manus-storage/gastronomy-mobile-hero-v2_f219aa4a.mp4",
@@ -71,7 +71,7 @@ function HeroSection() {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
 
-      {/* Content — just the title, positioned lower */}
+      {/* Content , just the title, positioned lower */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
@@ -88,7 +88,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PHILOSOPHY — Farm to Table intro
+   PHILOSOPHY , Farm to Table intro
    ═══════════════════════════════════════════════════════════════ */
 function PhilosophySection() {
   return (
@@ -122,7 +122,7 @@ function PhilosophySection() {
                 className="text-[15px] md:text-[16px] leading-[1.9]"
                 style={{ fontFamily: "var(--font-body)", color: BRAND_COLORS.secondary }}
               >
-                From the precision of Amor Loco's tasting menu to the warmth of La Terraza's handmade pasta, from the inventive cocktails at Henry's Bar to the quiet ritual of Mi Cafecito's morning espresso — each experience is rooted in the volcanic soil, tropical abundance, and creative spirit of Arenal.
+                From the precision of Amor Loco's tasting menu to the warmth of La Terraza's handmade pasta, from the inventive cocktails at Henry's Bar to the quiet ritual of Mi Cafecito's morning espresso , each experience is rooted in the volcanic soil, tropical abundance, and creative spirit of Arenal.
               </p>
             </div>
           </div>
@@ -160,7 +160,7 @@ function PhilosophySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RESTAURANT GRID — Cards linking to each restaurant
+   RESTAURANT GRID , Cards linking to each restaurant
    ═══════════════════════════════════════════════════════════════ */
 function RestaurantGrid() {
   const [, navigate] = useLocation();
@@ -262,7 +262,7 @@ function RestaurantGrid() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PHOTO COLLAGE — Pinterest-style masonry with filter
+   PHOTO COLLAGE , Pinterest-style masonry with filter
    ═══════════════════════════════════════════════════════════════ */
 function PhotoCollage({ filter, setFilter }: { filter: string; setFilter: (f: string) => void }) {
   return null;
@@ -353,7 +353,7 @@ function Lightbox({
           className="text-white/60 text-[12px] tracking-[0.08em]"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          {restaurants.find((r) => r.slug === img.restaurant)?.name} — {index + 1} / {images.length}
+          {restaurants.find((r) => r.slug === img.restaurant)?.name} , {index + 1} / {images.length}
         </span>
       </div>
     </motion.div>

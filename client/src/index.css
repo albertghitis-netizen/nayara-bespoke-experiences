@@ -42,14 +42,14 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* ═══════════════════════════════════════════════════
-     TYPOGRAPHY — Option B: Cormorant Garamond + DM Sans + Jost
+     TYPOGRAPHY , Option B: Cormorant Garamond + DM Sans + Jost
      ═══════════════════════════════════════════════════ */
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "DM Sans", system-ui, sans-serif;
   --font-heading: "Jost", system-ui, sans-serif;
 
   /* ═══════════════════════════════════════════════════
-     BRAND FOUNDATION — Official 36-Color Swatch Palette
+     BRAND FOUNDATION , Official 36-Color Swatch Palette
      Warm White (#F7F5F0) · Sand (#E6DFD5) · Bone (#E2D7C8) · Espresso (#3B2B26) · Olive Tree (#525642)
      ═══════════════════════════════════════════════════ */
   --color-nayara-gravel: oklch(0.659 0.019 67.4);   /* Taupe #9A9086 (swatch #26) */
@@ -65,7 +65,7 @@
   --color-nayara-nav: oklch(0.306 0.026 38.0);      /* Espresso #3B2B26 */
 
   /* ═══════════════════════════════════════════════════
-     PROPERTY PALETTES — Gardens (Clover Green)
+     PROPERTY PALETTES , Gardens (Clover Green)
      ═══════════════════════════════════════════════════ */
   --color-gardens-primary: oklch(0.448 0.082 155.9);   /* Clover Green #286241 (swatch #12) */
   --color-gardens-secondary: oklch(0.398 0.022 135.2); /* Dark Olive #424A3E (swatch #22) */
@@ -107,12 +107,12 @@
   --radius: 0.25rem;
   
   /* ═══════════════════════════════════════════════════
-     GLOBAL TEXT COLORS — Dark/Light Contrast System
+     GLOBAL TEXT COLORS , Dark/Light Contrast System
      ═══════════════════════════════════════════════════ */
   --text-dark: #0D0704;                         /* Super dark brown on light backgrounds */
   --text-light: #FFFFFF;                        /* Super bright white on dark backgrounds */
   
-  /* Brand foundation — Official 36-Color Swatch Palette */
+  /* Brand foundation , Official 36-Color Swatch Palette */
   --background: oklch(0.970 0.007 88.7);       /* Warm White #F7F5F0 */
   --foreground: oklch(0.306 0.026 38.0);       /* Espresso #3B2B26 */
   --card: oklch(0.970 0.007 88.7);             /* Warm White */
@@ -206,7 +206,7 @@ html {
   scroll-behavior: auto;
 }
 
-/* Custom scrollbar — muted brand tones */
+/* Custom scrollbar , muted brand tones */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -230,7 +230,7 @@ html {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Vine grow animation — starts fully off-screen left, slides in naturally */
+/* Vine grow animation , starts fully off-screen left, slides in naturally */
 @keyframes vineGrow {
   0% {
     transform: translateX(-100%);
@@ -257,7 +257,7 @@ html {
   animation-play-state: running;
 }
 
-/* Leaf — static, no animation */
+/* Leaf , static, no animation */
 .leaf-slide {
   transform: translateX(0%) translateY(-48%);
   opacity: 0.15;

@@ -1,5 +1,5 @@
 /**
- * CORAL CAFÉ RESTAURANT — Dining Detail Page
+ * CORAL CAFÉ RESTAURANT , Dining Detail Page
  * Property: Nayara Bocas del Toro
  * Palette: Ocean teal (#1B7B8C) on coastal sand (#F0EBE0)
  */
@@ -89,7 +89,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -261,7 +261,7 @@ function CTASection() {
             Experience casual Caribbean dining at Coral Café with tropical views and refreshing cuisine.
           </p>
           <button
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-block px-8 py-3 rounded-full text-[11px] tracking-[0.2em] uppercase transition-all duration-300 hover:opacity-80"
             style={{ ...body, fontWeight: 500, backgroundColor: P.white, color: P.primary }}
           >

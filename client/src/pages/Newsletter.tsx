@@ -1,6 +1,6 @@
 /*
- * NAYARA NEWSLETTER — April 2026
- * Standalone page — no nav, no footer, no hero
+ * NAYARA NEWSLETTER , April 2026
+ * Standalone page , no nav, no footer, no hero
  * Styled in the Tented Camp warm palette
  * Fonts: Playfair Display (display) + DM Sans (body)
  */
@@ -46,7 +46,7 @@ export default function Newsletter() {
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
 
-      {/* ══════════ TOPIC 1 — World Health Day ══════════ */}
+      {/* ══════════ TOPIC 1 , World Health Day ══════════ */}
       <section className="bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
@@ -92,7 +92,7 @@ export default function Newsletter() {
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
 
-      {/* ══════════ TOPIC 2 — Earth Day ══════════ */}
+      {/* ══════════ TOPIC 2 , Earth Day ══════════ */}
       <section className="bg-[#f7f5f0]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">
@@ -148,7 +148,7 @@ export default function Newsletter() {
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
 
-      {/* ══════════ TOPIC 3 — Wellness Escape ══════════ */}
+      {/* ══════════ TOPIC 3 , Wellness Escape ══════════ */}
       <section className="bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-10 pb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26] mb-6">

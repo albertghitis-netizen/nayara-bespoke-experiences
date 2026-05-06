@@ -1,7 +1,7 @@
 /*
- * Footer — Nayara Global Footer
+ * Footer , Nayara Global Footer
  * Brown background (#3B2B26) with light/white text
- * Luxury editorial style — Aman/Rosewood inspired
+ * Luxury editorial style , Aman/Rosewood inspired
  *
  * Now data-driven: columns come from navigation.ts getFooterColumns()
  * Accepts optional pageType prop to customize link groupings.
@@ -46,7 +46,7 @@ function TikTokIcon() {
   );
 }
 
-/* ── Animated Leaf — very slow fade in when scrolled into view ── */
+/* ── Animated Leaf , very slow fade in when scrolled into view ── */
 function AnimatedLeaf({ propertyName, textColor = "#FFFFFF" }: { propertyName?: string; textColor?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -72,7 +72,7 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF" }: { propertyName?: 
       className="pointer-events-none flex flex-col items-center"
       style={{ width: "278px" }}
     >
-      {/* Leaf — fades in at 0s (1s duration) */}
+      {/* Leaf , fades in at 0s (1s duration) */}
       <div
         style={{
           opacity: visible ? 1 : 0,
@@ -88,7 +88,7 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF" }: { propertyName?: 
           className="w-full h-full object-contain"
         />
       </div>
-      {/* Property name (e.g. "Alto Atacama") — fades in 1s after leaf */}
+      {/* Property name (e.g. "Alto Atacama") , fades in 1s after leaf */}
       {propertyName && (
         <span
           style={{
@@ -149,7 +149,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </>
       )}
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
-        {/* Leaf — absolutely positioned on the left, same vertical position as before */}
+        {/* Leaf , absolutely positioned on the left, same vertical position as before */}
         <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none" }}>
           <AnimatedLeaf propertyName={propertyName} textColor={textColor} />
         </div>
@@ -193,7 +193,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
             </div>
           ))}
 
-          {/* Contact — always present as the last column */}
+          {/* Contact , always present as the last column */}
           <div>
             <span
               className="text-[10px] tracking-[0.25em] block mb-4"
@@ -244,7 +244,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
 
         {/* Newsletter CTA */}
         <div className="relative flex flex-col items-center mt-10 mb-6">
-          {/* Mobile leaf — only shows on mobile since desktop has it in the column */}
+          {/* Mobile leaf , only shows on mobile since desktop has it in the column */}
           <div className="md:hidden absolute left-1/2 -translate-x-1/2" style={{ bottom: "100%", marginBottom: "-8px" }}>
             <AnimatedLeaf />
           </div>
@@ -263,7 +263,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           </a>
         </div>
 
-        {/* Social icons — centered, larger */}
+        {/* Social icons , centered, larger */}
         <div className="flex items-center justify-center gap-8 mt-6 mb-8" style={{ color: textColor }}>
           <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><InstagramIcon /></a>
           <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><YouTubeIcon /></a>

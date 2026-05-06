@@ -1,11 +1,11 @@
 /**
- * NAYARA JOURNEY MAP — v3
+ * NAYARA JOURNEY MAP , v3
  * Accurate continent outlines from Natural Earth 110m data.
  * Scroll-synced with the timeline: each milestone activates a location,
  * flight paths arc between destinations, and the current pin pulses.
  *
  * Desktop widescreen only. Editorial cartography aesthetic.
- * ViewBox: 0 0 800 680 — covers ~125°W–20°W, 30°N–60°S
+ * ViewBox: 0 0 800 680 , covers ~125°W–20°W, 30°N–60°S
  *
  * v3 improvements:
  * - Warmer parchment/sand tones for land
@@ -187,7 +187,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
         style={{ overflow: "visible" }}
       >
         <defs>
-          {/* Ocean gradient — deep blue Atlantic/Pacific */}
+          {/* Ocean gradient , deep blue Atlantic/Pacific */}
           <radialGradient id="oceanGrad" cx="40%" cy="45%" r="65%">
             <stop offset="0%" stopColor={OCEAN_LIGHT} />
             <stop offset="100%" stopColor={OCEAN_DEEP} />
@@ -252,7 +252,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
           ))}
         </g>
 
-        {/* ─── Continent fills — warm sand tones ─── */}
+        {/* ─── Continent fills , warm sand tones ─── */}
         <g>
           <path d={centralAmericaPath} fill={LAND_FILL} fillOpacity="0.9"
             stroke={LAND_STROKE} strokeWidth="1.2" strokeOpacity="0.8" strokeLinejoin="round" />
@@ -286,7 +286,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
           );
         })}
 
-        {/* ─── Ocean labels — very subtle ─── */}
+        {/* ─── Ocean labels , very subtle ─── */}
         <text x="50" y="320" fill={GRID_COLOR} fillOpacity="0.06" fontSize="16"
           fontFamily="var(--font-display)" fontWeight="300" letterSpacing="0.7em"
           transform="rotate(-18, 50, 320)">
@@ -312,7 +312,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
           </text>
         )}
 
-        {/* ─── Flight paths — gold arcs ─── */}
+        {/* ─── Flight paths , gold arcs ─── */}
         {activeFlightPaths.map((fp, i) => {
           const isEasterIslandPath = fp.from === "atacama" && fp.to === "easter-island";
           const isReturnPath = fp.from === "easter-island" && fp.to === "bocas";
@@ -347,7 +347,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                   opacity: { duration: 0.8, delay: 0.2 },
                 }}
               />
-              {/* Animated traveling dot — uses CSS offset-path animation */}
+              {/* Animated traveling dot , uses CSS offset-path animation */}
               <motion.circle
                 r={isEasterIslandPath ? 3.5 : 2.5}
                 fill={ACCENT_GOLD}
@@ -382,7 +382,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
           );
         })}
 
-        {/* ─── Location pins — refined gold design ─── */}
+        {/* ─── Location pins , refined gold design ─── */}
         {locations.map((loc) => {
           const isActive = activeLocationIds.has(loc.id);
           const isCurrent = currentLocationId === loc.id;
@@ -416,7 +416,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 </>
               )}
 
-              {/* Pin outer ring — gold */}
+              {/* Pin outer ring , gold */}
               <motion.circle
                 cx={loc.x} cy={loc.y}
                 r={isCurrent ? 9 : 6.5}
@@ -429,7 +429,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 style={{ transformOrigin: `${loc.x}px ${loc.y}px` }}
               />
 
-              {/* Pin dot — gold gradient */}
+              {/* Pin dot , gold gradient */}
               <motion.circle
                 cx={loc.x} cy={loc.y}
                 r={isCurrent ? 5 : 3.5}
@@ -457,7 +457,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
           );
         })}
 
-        {/* ─── Compass rose — refined ─── */}
+        {/* ─── Compass rose , refined ─── */}
         <g transform="translate(745, 55)" opacity="0.1">
           <circle cx="0" cy="0" r="22" fill="none" stroke={GRID_COLOR} strokeWidth="0.3" />
           <line x1="0" y1="-20" x2="0" y2="20" stroke={GRID_COLOR} strokeWidth="0.5" />

@@ -1,6 +1,6 @@
 /*
- * BOCAS DEL TORO SUSTAINABILITY — Dedicated sustainability sub-page
- * Caribbean ocean palette — Green Globe Certification
+ * BOCAS DEL TORO SUSTAINABILITY , Dedicated sustainability sub-page
+ * Caribbean ocean palette , Green Globe Certification
  */
 
 import { motion } from "framer-motion";
@@ -100,7 +100,7 @@ function GreenGlobeSection() {
             className="text-[15px] leading-[1.8] max-w-[700px]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
-            Nayara Bocas del Toro holds Green Globe Certification — the global standard for sustainable
+            Nayara Bocas del Toro holds Green Globe Certification , the global standard for sustainable
             tourism, recognizing our commitment to marine conservation, mangrove restoration, and responsible
             operations across our private island resort. This certification reflects our ongoing dedication
             to protecting the Bocas del Toro archipelago's extraordinary coral reefs and marine ecosystems.
@@ -148,7 +148,7 @@ function VideoSection() {
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
             Recorded live at ILTM Cannes, Leo Ghitis shares how Nayara Resorts is pioneering regenerative
-            travel through ambitious environmental restoration and deep community support — from powering
+            travel through ambitious environmental restoration and deep community support , from powering
             an off-grid island resort in Panama to coral reef partnerships in Bocas del Toro.
           </p>
           <div className="relative w-full max-w-[640px] mb-8" style={{ aspectRatio: "16/9" }}>

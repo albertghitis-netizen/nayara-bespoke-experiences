@@ -176,7 +176,7 @@ export default function WomensEmpowermentBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              In La Fortuna, we are developing a 40-unit residential community: not employee housing, not a company benefit, but a permanent neighborhood of privately titled homes for local families—approximately 150 residents. The first home is scheduled for completion in early 2027. Each parcel is legally owned by the individual resident, with ownership that is permanent and completely independent of employment at Nayara or anywhere else. If a resident works with us today and moves on tomorrow, the home remains theirs.
+              In La Fortuna, we are developing a 40-unit residential community: not employee housing, not a company benefit, but a permanent neighborhood of privately titled homes for local families,approximately 150 residents. The first home is scheduled for completion in early 2027. Each parcel is legally owned by the individual resident, with ownership that is permanent and completely independent of employment at Nayara or anywhere else. If a resident works with us today and moves on tomorrow, the home remains theirs.
             </p>
           </motion.div>
 

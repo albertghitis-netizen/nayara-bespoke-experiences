@@ -1,5 +1,5 @@
 /**
- * BY NIGHT CTA — Shared dark cascade section for all property pages
+ * BY NIGHT CTA , Shared dark cascade section for all property pages
  * Links to the /by-night page. Designed to sit at the darkest end of each cascade.
  * Each property provides its own night-relevant imagery.
  */
@@ -23,7 +23,7 @@ type ByNightCTAProps = {
   horizontalSrc?: string;
   horizontalIsVideo?: boolean;
   horizontalRatio?: string;
-  /** Dark background color — should be the darkest in the page's gradient */
+  /** Dark background color , should be the darkest in the page's gradient */
   bgColor?: string;
   /** Property-specific headline, e.g. "Stargazing\nin the Desert" */
   headline?: string;
@@ -47,7 +47,7 @@ export default function ByNightCTA({
   horizontalRatio = "16/9",
   bgColor = "#1a1a24",
   headline = "When Night\nFalls",
-  bodyText = "As darkness descends, a different world reveals itself — one of starlit skies, nocturnal sounds, and intimate warmth. Discover the extraordinary experiences that await after sunset across all Nayara properties.",
+  bodyText = "As darkness descends, a different world reveals itself , one of starlit skies, nocturnal sounds, and intimate warmth. Discover the extraordinary experiences that await after sunset across all Nayara properties.",
   textSide = "left",
   textLink,
   textLinkLabel,
@@ -150,7 +150,7 @@ export default function ByNightCTA({
         </div>
       </div>
 
-      {/* Horizontal media — full bleed, desktop only */}
+      {/* Horizontal media , full bleed, desktop only */}
       {horizontalSrc && (
         <div className="hidden md:block" style={{ backgroundColor: bgColor }}>
           <MediaReveal delay={0.05}>
@@ -158,7 +158,7 @@ export default function ByNightCTA({
               {horizontalIsVideo ? (
                 <NativeVideo src={horizontalSrc} className="w-full h-full object-cover" />
               ) : (
-                <img src={horizontalSrc} alt="Nayara by Night — landscape" className="w-full h-full object-cover" loading="lazy" />
+                <img src={horizontalSrc} alt="Nayara by Night , landscape" className="w-full h-full object-cover" loading="lazy" />
               )}
             </div>
           </MediaReveal>

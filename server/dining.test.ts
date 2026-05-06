@@ -13,7 +13,7 @@ import type { PropertyDining, Restaurant, MenuItem } from "../client/src/data/di
    DINING DATA INTEGRITY TESTS
    ═══════════════════════════════════════════ */
 
-describe("Dining data — allDining", () => {
+describe("Dining data , allDining", () => {
   it("should have 4 property dining collections", () => {
     expect(allDining).toHaveLength(4);
   });
@@ -40,7 +40,7 @@ describe("Dining data — allDining", () => {
   });
 });
 
-describe("Dining data — allRestaurants", () => {
+describe("Dining data , allRestaurants", () => {
   it("should have 10 total restaurants/venues", () => {
     expect(allRestaurants).toHaveLength(10);
   });

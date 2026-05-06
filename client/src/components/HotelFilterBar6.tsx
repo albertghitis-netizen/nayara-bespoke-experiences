@@ -1,5 +1,5 @@
 /**
- * HotelFilterBar Variant 6 — Minimalist text links
+ * HotelFilterBar Variant 6 , Minimalist text links
  * For: Press & Awards page
  */
 

@@ -1,5 +1,5 @@
 /**
- * RAINFOREST ROMANCE — Pura Vida Sub-page (Coming Soon)
+ * RAINFOREST ROMANCE , Pura Vida Sub-page (Coming Soon)
  * Placeholder page for the Rainforest Romance pillar
  */
 import { motion } from "framer-motion";
@@ -50,7 +50,7 @@ const TEASER_ITEMS = [
   {
     icon: Heart,
     title: "Private Springs Villa",
-    desc: "Adults-only Nayara Springs — each villa with its own plunge pool fed by natural hot springs.",
+    desc: "Adults-only Nayara Springs , each villa with its own plunge pool fed by natural hot springs.",
   },
   {
     icon: Sparkles,
@@ -65,7 +65,7 @@ const TEASER_ITEMS = [
   {
     icon: Flame,
     title: "Volcanic Hot Springs at Sunset",
-    desc: "The thermal waters of Arenal, warmed by the volcano itself — the most romantic hour is golden.",
+    desc: "The thermal waters of Arenal, warmed by the volcano itself , the most romantic hour is golden.",
   },
 ];
 

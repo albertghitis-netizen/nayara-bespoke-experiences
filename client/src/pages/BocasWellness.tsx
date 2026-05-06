@@ -1,7 +1,7 @@
 /*
- * BOCAS DEL TORO WELLNESS — Dedicated wellness sub-page
+ * BOCAS DEL TORO WELLNESS , Dedicated wellness sub-page
  * Mirrors Alto Atacama secondary page structure with Caribbean ocean palette
- * No "All" filter — users must choose a category
+ * No "All" filter , users must choose a category
  */
 
 import { useState } from "react";
@@ -84,7 +84,7 @@ function WellnessHero() {
 }
 
 function WellnessContent() {
-  // No "All" filter — default to first non-"all" category
+  // No "All" filter , default to first non-"all" category
   const categories = bocas.spaCategories.filter(c => c.id !== "all");
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "massage");
   const filtered = bocas.treatments.filter((t: Treatment) => t.category === activeCategory);

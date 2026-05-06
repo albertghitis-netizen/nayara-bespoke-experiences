@@ -1,5 +1,5 @@
 /*
- * ATACAMA GASTRONOMY — Dedicated gastronomy sub-page
+ * ATACAMA GASTRONOMY , Dedicated gastronomy sub-page
  * Accessible from Alto Atacama home via "Explore More" CTA
  * Uses Atacama "Mars" palette and motion system
  */

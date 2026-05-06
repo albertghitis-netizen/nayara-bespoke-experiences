@@ -18,7 +18,7 @@ vi.mock("./_core/llm", () => ({
         message: {
           role: "assistant",
           content:
-            "Welcome to Nayara! The Atacama Desert is truly magical. I'd recommend our stargazing excursion — the skies here are the clearest on Earth. Would you like to know more about our excursions?",
+            "Welcome to Nayara! The Atacama Desert is truly magical. I'd recommend our stargazing excursion , the skies here are the clearest on Earth. Would you like to know more about our excursions?",
         },
         finish_reason: "stop",
       },

@@ -1,5 +1,5 @@
 /*
- * CrossPropertyCTA — "Continue Your Journey"
+ * CrossPropertyCTA , "Continue Your Journey"
  * Shows two contrasting property suggestions at the bottom of each property page.
  * Each card links to a different biome/destination to reinforce the collection narrative.
  * Supports both static images and auto-playing video backgrounds.
@@ -63,7 +63,7 @@ export default function CrossPropertyCTA({
                 className="group block overflow-hidden"
                 style={{ border: `1px solid ${dividerColor}` }}
               >
-                {/* Media — video or image */}
+                {/* Media , video or image */}
                 <div className="relative h-[200px] md:h-[240px] overflow-hidden">
                   {prop.video ? (
                     <video

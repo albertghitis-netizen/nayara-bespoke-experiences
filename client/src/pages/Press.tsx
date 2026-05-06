@@ -1,5 +1,5 @@
 /**
- * PRESS — Nayara Resorts in the Media
+ * PRESS , Nayara Resorts in the Media
  * Two-axis filtering: Property + Topic
  */
 

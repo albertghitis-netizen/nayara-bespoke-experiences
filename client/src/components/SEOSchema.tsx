@@ -1,5 +1,5 @@
 /**
- * SEOSchema — JSON-LD structured data for SEO
+ * SEOSchema , JSON-LD structured data for SEO
  * Renders invisible <script type="application/ld+json"> tags
  * for Hotel, Organization, and Article schema.
  */

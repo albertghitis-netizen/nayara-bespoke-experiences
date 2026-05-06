@@ -1,7 +1,7 @@
 /*
- * GRAND TENT — Deeper Room Detail Page
+ * GRAND TENT , Deeper Room Detail Page
  * Layout: Editorial Magazine (matching FamilyTent style)
- * 446 sqm / 4,804 sq ft — King bed tent (upper) + ground-level bedroom
+ * 446 sqm / 4,804 sq ft , King bed tent (upper) + ground-level bedroom
  * with 2 queens + fully equipped kitchen villa + living areas +
  * oversized plunge pool + fire pit
  * Palette: Olive 3-tone (#868B75, #525642, #9A9086) on bone #EDEEE2
@@ -86,7 +86,7 @@ export default function GrandTent() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 — HERO: Full-bleed video with room name overlay
+   S1 , HERO: Full-bleed video with room name overlay
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -138,7 +138,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -158,7 +158,7 @@ function HeroSection() {
           </button>
         </motion.div>
       </div>
-      {/* Back pill — top right */}
+      {/* Back pill , top right */}
       <div className="absolute top-24 md:top-28 right-6 md:right-16 z-20">
         <a
           href="/tented-camp"
@@ -185,7 +185,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S2 — INTRO: Image left, text right
+   S2 , INTRO: Image left, text right
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -318,13 +318,13 @@ function FullBleedBreak() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FEATURES GRID — Text left, image right
+   FEATURES GRID , Text left, image right
    ═══════════════════════════════════════════════════════════════ */
 function FeaturesGrid() {
   const features = [
     {
       title: "Two Private Bedrooms",
-      desc: "A luxurious tent with a king-size 4-poster bed upstairs, and a ground-level bedroom with two queen-size beds — providing extra comfort and privacy for families or groups.",
+      desc: "A luxurious tent with a king-size 4-poster bed upstairs, and a ground-level bedroom with two queen-size beds , providing extra comfort and privacy for families or groups.",
       img: IMG.bedroom,
       alt: "Grand Tent master bedroom with king-size 4-poster bed",
     },
@@ -402,7 +402,7 @@ function FeaturesGrid() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GRAND EXPERIENCE — Dark section with parallax
+   GRAND EXPERIENCE , Dark section with parallax
    ═══════════════════════════════════════════════════════════════ */
 function GrandExperience() {
   const ref = useRef<HTMLDivElement>(null);
@@ -654,7 +654,7 @@ function HorizontalGallery() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CTA SECTION — Photo background with centered reserve
+   CTA SECTION , Photo background with centered reserve
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   const [hovered, setHovered] = useState(false);
@@ -695,14 +695,14 @@ function CTASection() {
             className="text-sm md:text-base leading-[1.8] mb-10 max-w-lg mx-auto"
             style={{ ...body, color: `${P.bone}BB` }}
           >
-            The Grand Tents offer complete privacy and generous entertainment areas — ideal for sharing unforgettable moments with family and friends.
+            The Grand Tents offer complete privacy and generous entertainment areas , ideal for sharing unforgettable moments with family and friends.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+              onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...body,

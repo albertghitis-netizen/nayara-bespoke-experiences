@@ -1,7 +1,7 @@
 /**
- * TREEHOUSE — Deeper Room Detail Page
+ * TREEHOUSE , Deeper Room Detail Page
  * Property: Nayara Bocas del Toro
- * Layout style: "Editorial Magazine" — matching FamilyTent format
+ * Layout style: "Editorial Magazine" , matching FamilyTent format
  * Staggered asymmetric grids, full-bleed image breaks, horizontal
  * scrolling gallery, numbered editorial blocks.
  * Palette: Caribbean teal + warm bamboo tones
@@ -66,12 +66,12 @@ const AMENITIES = [
 
 /* ── Gallery images for horizontal scroll ── */
 const GALLERY = [
-  { src: IMG.barDay, alt: "Treehouse — Bamboo bar and lounge with pendant lights and jungle view" },
-  { src: IMG.copperBath, alt: "Treehouse — Outdoor copper bathtub enclosed by reclaimed wood" },
-  { src: IMG.walkway, alt: "Treehouse — Wooden walkway with vine railings through tropical canopy" },
-  { src: IMG.roundDoor, alt: "Treehouse — Round window portal with bamboo structure and palm views" },
-  { src: IMG.canopyView, alt: "Treehouse — View from terrace across palm canopy to distant thatched roofs" },
-  { src: IMG.treehouseDome, alt: "Treehouse — Full structure with dome roof, staircase, and jungle surrounds" },
+  { src: IMG.barDay, alt: "Treehouse , Bamboo bar and lounge with pendant lights and jungle view" },
+  { src: IMG.copperBath, alt: "Treehouse , Outdoor copper bathtub enclosed by reclaimed wood" },
+  { src: IMG.walkway, alt: "Treehouse , Wooden walkway with vine railings through tropical canopy" },
+  { src: IMG.roundDoor, alt: "Treehouse , Round window portal with bamboo structure and palm views" },
+  { src: IMG.canopyView, alt: "Treehouse , View from terrace across palm canopy to distant thatched roofs" },
+  { src: IMG.treehouseDome, alt: "Treehouse , Full structure with dome roof, staircase, and jungle surrounds" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -94,7 +94,7 @@ export default function Treehouse() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 — HERO: Full-bleed video with centered editorial title
+   S1 , HERO: Full-bleed video with centered editorial title
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -149,7 +149,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -170,7 +170,7 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Back pill — top right */}
+      {/* Back pill , top right */}
       <div className="absolute top-24 md:top-28 right-6 md:right-16">
         <a
           href="/bocas-del-toro"
@@ -197,7 +197,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S2 — INTRO: Asymmetric two-column with overlapping card
+   S2 , INTRO: Asymmetric two-column with overlapping card
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -255,7 +255,7 @@ function IntroSection() {
               className="text-sm md:text-base leading-[1.85] mb-8"
               style={{ ...body, color: P.textSoft }}
             >
-              Rising above the mangrove canopy of Bocas del Toro, each Treehouse is a feat of artisanal craftsmanship — bamboo columns, hand-woven walls, reclaimed hardwood floors, and thatched roofs shaped by local builders who understand these forests intimately. No two are alike. Every joint, every curve, every railing follows the natural grain of the materials.
+              Rising above the mangrove canopy of Bocas del Toro, each Treehouse is a feat of artisanal craftsmanship , bamboo columns, hand-woven walls, reclaimed hardwood floors, and thatched roofs shaped by local builders who understand these forests intimately. No two are alike. Every joint, every curve, every railing follows the natural grain of the materials.
             </p>
 
             {/* Inline stat badges */}
@@ -289,7 +289,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S3 — FULL-BLEED BREAK: Parallax image with quote
+   S3 , FULL-BLEED BREAK: Parallax image with quote
    ═══════════════════════════════════════════════════════════════ */
 function FullBleedBreak() {
   const ref = useRef<HTMLDivElement>(null);
@@ -304,7 +304,7 @@ function FullBleedBreak() {
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
           src={IMG.barEvening}
-          alt="Treehouse bar at dusk — amber pendant lights, bamboo ceiling, Caribbean jungle canopy"
+          alt="Treehouse bar at dusk , amber pendant lights, bamboo ceiling, Caribbean jungle canopy"
           className="w-full h-[120%] object-cover"
           loading="lazy"
         />
@@ -339,7 +339,7 @@ function FullBleedBreak() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S4 — FEATURES GRID: Staggered masonry with amenity cards
+   S4 , FEATURES GRID: Staggered masonry with amenity cards
    ═══════════════════════════════════════════════════════════════ */
 function FeaturesGrid() {
   return (
@@ -382,7 +382,7 @@ function FeaturesGrid() {
             >
               <img
                 src={IMG.bedroom}
-                alt="Treehouse bedroom — woven bamboo headboard, warm light, linen bedding"
+                alt="Treehouse bedroom , woven bamboo headboard, warm light, linen bedding"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -396,7 +396,7 @@ function FeaturesGrid() {
               </div>
             </motion.div>
 
-            {/* Amenity cards — left half */}
+            {/* Amenity cards , left half */}
             <div className="grid grid-cols-2 gap-4">
               {AMENITIES.slice(0, 6).map((item, i) => (
                 <motion.div
@@ -423,9 +423,9 @@ function FeaturesGrid() {
             </div>
           </div>
 
-          {/* Right column: offset — amenities + image */}
+          {/* Right column: offset , amenities + image */}
           <div className="space-y-6 md:space-y-8 md:mt-16">
-            {/* Amenity cards — right half */}
+            {/* Amenity cards , right half */}
             <div className="grid grid-cols-2 gap-4">
               {AMENITIES.slice(6).map((item, i) => (
                 <motion.div
@@ -460,7 +460,7 @@ function FeaturesGrid() {
             >
               <img
                 src={IMG.copperBath}
-                alt="Treehouse — Outdoor copper bathtub with reclaimed wood enclosure"
+                alt="Treehouse , Outdoor copper bathtub with reclaimed wood enclosure"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -553,7 +553,7 @@ function AmenityIcon({ type }: { type: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S5 — HORIZONTAL GALLERY: Drag-to-scroll image strip
+   S5 , HORIZONTAL GALLERY: Drag-to-scroll image strip
    ═══════════════════════════════════════════════════════════════ */
 function HorizontalGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -643,14 +643,14 @@ function HorizontalGallery() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S6 — TREEHOUSE EXPERIENCE: Numbered editorial blocks
+   S6 , TREEHOUSE EXPERIENCE: Numbered editorial blocks
    ═══════════════════════════════════════════════════════════════ */
 function TreehouseExperience() {
   const blocks = [
     {
       num: "01",
       title: "Ascend to Another World",
-      text: "A winding wooden staircase, its railings shaped from living vines, carries you upward through layers of green. The canopy closes around you. The sounds of the forest floor fade. By the time you reach the threshold — a hand-carved round doorway — you've left the ordinary world behind entirely.",
+      text: "A winding wooden staircase, its railings shaped from living vines, carries you upward through layers of green. The canopy closes around you. The sounds of the forest floor fade. By the time you reach the threshold , a hand-carved round doorway , you've left the ordinary world behind entirely.",
       image: IMG.walkway,
       alt: "Wooden walkway with vine railings ascending through lush tropical canopy",
       aspect: "aspect-[3/4]",
@@ -658,7 +658,7 @@ function TreehouseExperience() {
     {
       num: "02",
       title: "Your Private Canopy Bar",
-      text: "The wraparound terrace opens onto a bamboo bar — your own private outpost above the jungle. Pendant lights cast warm amber across hardwood counters as you mix sundowners with the Caribbean horizon stretching beyond the palms. By evening, the bar glows like a lantern in the canopy, and the only sound is the chorus of tree frogs.",
+      text: "The wraparound terrace opens onto a bamboo bar , your own private outpost above the jungle. Pendant lights cast warm amber across hardwood counters as you mix sundowners with the Caribbean horizon stretching beyond the palms. By evening, the bar glows like a lantern in the canopy, and the only sound is the chorus of tree frogs.",
       image: IMG.barDay,
       alt: "Bamboo bar and lounge with warm pendant lights and jungle view",
       aspect: "aspect-[3/4]",
@@ -666,7 +666,7 @@ function TreehouseExperience() {
     {
       num: "03",
       title: "Bathing Under Open Sky",
-      text: "The outdoor bathroom is an experience unto itself. A hand-hammered copper tub sits on weathered hardwood decking, enclosed by reclaimed timber walls that let the breeze and birdsong in. A rain shower stands beside it. There is no ceiling — only palm fronds and sky. You bathe in the open air, surrounded by the scent of tropical rain and warm wood.",
+      text: "The outdoor bathroom is an experience unto itself. A hand-hammered copper tub sits on weathered hardwood decking, enclosed by reclaimed timber walls that let the breeze and birdsong in. A rain shower stands beside it. There is no ceiling , only palm fronds and sky. You bathe in the open air, surrounded by the scent of tropical rain and warm wood.",
       image: IMG.copperBath,
       alt: "Outdoor copper bathtub with reclaimed wood enclosure and palm fronds above",
       aspect: "aspect-[3/4]",
@@ -758,7 +758,7 @@ function TreehouseExperience() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S7 — CTA: Full-bleed photo background with centered reserve
+   S7 , CTA: Full-bleed photo background with centered reserve
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   const [hovered, setHovered] = useState(false);
@@ -800,14 +800,14 @@ function CTASection() {
             className="text-sm md:text-base leading-[1.8] mb-10 max-w-lg mx-auto"
             style={{ ...body, color: `${P.bone}BB` }}
           >
-            Sleep among the canopy in Panamá's most extraordinary retreat. Handcrafted bamboo, copper baths, and the Caribbean horizon — an experience that exists nowhere else on earth.
+            Sleep among the canopy in Panamá's most extraordinary retreat. Handcrafted bamboo, copper baths, and the Caribbean horizon , an experience that exists nowhere else on earth.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+              onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...body,

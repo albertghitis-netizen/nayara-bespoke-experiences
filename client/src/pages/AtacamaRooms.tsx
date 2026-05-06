@@ -1,5 +1,5 @@
 /*
- * ATACAMA ROOMS — Tile page with three room types
+ * ATACAMA ROOMS , Tile page with three room types
  * Tilo: Full 26-image gallery with lightbox
  * Catarpe & Quitor: Placeholder cards (awaiting media)
  * Three Programs: Dream, Full Experience, Private Guided
@@ -86,7 +86,7 @@ const ROOM_TYPES: RoomType[] = [
     kunzaName: "Laguna",
     tagline: "The Signature Suite",
     description:
-      "At 70 m², Tilo is the signature suite of Nayara Alto Atacama — named 'Laguna' in the Kunza language of the Atacameño people. A king bed faces floor-to-ceiling views of the Salt Mountain Range and the Andes. The private terrace extends into an outdoor shower beneath the desert sky, while inside, handwoven textiles and warm wood create a sanctuary that honors the landscape.",
+      "At 70 m², Tilo is the signature suite of Nayara Alto Atacama , named 'Laguna' in the Kunza language of the Atacameño people. A king bed faces floor-to-ceiling views of the Salt Mountain Range and the Andes. The private terrace extends into an outdoor shower beneath the desert sky, while inside, handwoven textiles and warm wood create a sanctuary that honors the landscape.",
     size: "70 m²",
     features: [
       "King bed",
@@ -123,7 +123,7 @@ const ROOM_TYPES: RoomType[] = [
     name: "Quitor",
     tagline: "Garden Serenity",
     description:
-      "Sharing the same thoughtful design and local materials as Catarpe, the Quitor rooms offer an intimate garden perspective. Each element is carefully curated to create a connection with the Atacama landscape — from the handcrafted furnishings to the terrace that opens onto lush desert gardens framed by distant mountain silhouettes.",
+      "Sharing the same thoughtful design and local materials as Catarpe, the Quitor rooms offer an intimate garden perspective. Each element is carefully curated to create a connection with the Atacama landscape , from the handcrafted furnishings to the terrace that opens onto lush desert gardens framed by distant mountain silhouettes.",
     size: "50 m²",
     features: [
       "King bed",
@@ -252,7 +252,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ROOM CARD — Image gallery (or placeholder) + text, alternating
+   ROOM CARD , Image gallery (or placeholder) + text, alternating
    ═══════════════════════════════════════════════════════════════ */
 
 function RoomCard({ room, index }: { room: RoomType; index: number }) {
@@ -377,7 +377,7 @@ function RoomCard({ room, index }: { room: RoomType; index: number }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   TILO GALLERY — Masonry grid with lightbox
+   TILO GALLERY , Masonry grid with lightbox
    ═══════════════════════════════════════════════════════════════ */
 
 function TiloGallery({ images, roomName }: { images: string[]; roomName: string }) {
@@ -406,7 +406,7 @@ function TiloGallery({ images, roomName }: { images: string[]; roomName: string 
             >
               <img
                 src={img}
-                alt={`${roomName} — ${i + 1}`}
+                alt={`${roomName} , ${i + 1}`}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
@@ -533,7 +533,7 @@ function Lightbox({
       >
         <img
           src={images[currentIndex]}
-          alt={`${roomName} — ${currentIndex + 1}`}
+          alt={`${roomName} , ${currentIndex + 1}`}
           className="max-w-full max-h-[85vh] object-contain"
         />
       </motion.div>
@@ -602,7 +602,7 @@ function ProgramsSection() {
             style={{ ...body, color: P.textSoft }}
           >
             Every stay at Nayara Alto Atacama is tailored to your rhythm. Choose the level of immersion
-            that speaks to you — from peaceful rest to fully guided desert exploration.
+            that speaks to you , from peaceful rest to fully guided desert exploration.
           </p>
         </AnimateOnScroll>
 
@@ -650,7 +650,7 @@ function ProgramsSection() {
                   ))}
                 </ul>
                 <button
-                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
                   className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02]"
                   style={{
                     ...body,

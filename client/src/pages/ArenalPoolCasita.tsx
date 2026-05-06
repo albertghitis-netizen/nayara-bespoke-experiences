@@ -1,6 +1,6 @@
 /**
- * ARENAL POOL CASITA — Deeper Room Detail Page
- * Layout: "Editorial Magazine" — matching FamilyTent structure exactly
+ * ARENAL POOL CASITA , Deeper Room Detail Page
+ * Layout: "Editorial Magazine" , matching FamilyTent structure exactly
  * Palette: Gardens green #286241 primary, #1E3D2B dark, #8FB89A accent
  * Background: warm cream #F6F4EF
  * Room: 1 king bed + 2 daybeds, 97 m², private plunge pool, Arenal Volcano views
@@ -75,12 +75,12 @@ const AMENITIES = [
 
 /* ── Gallery images for horizontal scroll ── */
 const GALLERY = [
-  { src: IMG.bedroom, alt: "Arenal Pool Casita — Bedroom with volcano views" },
-  { src: IMG.bathroom, alt: "Arenal Pool Casita — Double vessel sink bathroom" },
-  { src: IMG.pool1, alt: "Arenal Pool Casita — Secluded plunge pool" },
-  { src: IMG.lobby, alt: "Nayara Gardens — Quetzal mural lounge" },
-  { src: IMG.garden1, alt: "Arenal Pool Casita — Tropical garden setting" },
-  { src: IMG.terrace1, alt: "Arenal Pool Casita — Private terrace retreat" },
+  { src: IMG.bedroom, alt: "Arenal Pool Casita , Bedroom with volcano views" },
+  { src: IMG.bathroom, alt: "Arenal Pool Casita , Double vessel sink bathroom" },
+  { src: IMG.pool1, alt: "Arenal Pool Casita , Secluded plunge pool" },
+  { src: IMG.lobby, alt: "Nayara Gardens , Quetzal mural lounge" },
+  { src: IMG.garden1, alt: "Arenal Pool Casita , Tropical garden setting" },
+  { src: IMG.terrace1, alt: "Arenal Pool Casita , Private terrace retreat" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -104,7 +104,7 @@ export default function ArenalPoolCasita() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 — HERO: Full-bleed video with centered editorial title
+   S1 , HERO: Full-bleed video with centered editorial title
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -158,7 +158,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -185,7 +185,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S2 — INTRO: Asymmetric two-column with overlapping card
+   S2 , INTRO: Asymmetric two-column with overlapping card
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -246,7 +246,7 @@ function IntroSection() {
               Nestled within Nayara Gardens, each Arenal Pool Casita is a self-contained retreat
               surrounded by lush tropical foliage. Wake to the sight of Arenal Volcano framed through
               floor-to-ceiling windows, step onto your private terrace, and slip into your own plunge
-              pool — all without leaving the sanctuary of your garden hideaway.
+              pool , all without leaving the sanctuary of your garden hideaway.
             </p>
 
             {/* Stat badges */}
@@ -274,7 +274,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S3 — FULL BLEED BREAK: Parallax drone image + editorial quote
+   S3 , FULL BLEED BREAK: Parallax drone image + editorial quote
    ═══════════════════════════════════════════════════════════════ */
 function FullBleedBreak() {
   const ref = useRef<HTMLDivElement>(null);
@@ -314,7 +314,7 @@ function FullBleedBreak() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S4 — FEATURES GRID: Dark bg, staggered masonry + amenity cards
+   S4 , FEATURES GRID: Dark bg, staggered masonry + amenity cards
    ═══════════════════════════════════════════════════════════════ */
 function FeaturesGrid() {
   return (
@@ -475,7 +475,7 @@ function AmenityIcon({ type }: { type: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S5 — HORIZONTAL GALLERY: Drag-to-scroll image strip
+   S5 , HORIZONTAL GALLERY: Drag-to-scroll image strip
    ═══════════════════════════════════════════════════════════════ */
 function HorizontalGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -564,14 +564,14 @@ function HorizontalGallery() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S7 — CASITA EXPERIENCE: Numbered editorial blocks
+   S7 , CASITA EXPERIENCE: Numbered editorial blocks
    ═══════════════════════════════════════════════════════════════ */
 function CasitaExperience() {
   const blocks = [
     {
       num: "01",
       title: "Wake to the Volcano",
-      text: "Floor-to-ceiling windows frame Arenal Volcano as your morning alarm. Step onto your private terrace where a fresh tropical breakfast awaits — papaya, pineapple, and Costa Rican coffee — while toucans and hummingbirds flit through the garden canopy just beyond your railing.",
+      text: "Floor-to-ceiling windows frame Arenal Volcano as your morning alarm. Step onto your private terrace where a fresh tropical breakfast awaits , papaya, pineapple, and Costa Rican coffee , while toucans and hummingbirds flit through the garden canopy just beyond your railing.",
       image: IMG.view1,
       alt: "Rainforest canopy views from the casita terrace",
       aspect: "aspect-[3/4]",
@@ -587,7 +587,7 @@ function CasitaExperience() {
     {
       num: "03",
       title: "Into the Garden",
-      text: "Step beyond your terrace and the gardens unfold — winding stone paths through curated tropical plantings, hidden hammocks beneath ancient trees, and the gentle sound of water everywhere. The rainforest is not a backdrop here; it is the architecture.",
+      text: "Step beyond your terrace and the gardens unfold , winding stone paths through curated tropical plantings, hidden hammocks beneath ancient trees, and the gentle sound of water everywhere. The rainforest is not a backdrop here; it is the architecture.",
       image: IMG.garden1,
       alt: "Tropical garden pathways at Nayara Gardens",
       aspect: "aspect-[4/3]",
@@ -677,7 +677,7 @@ function CasitaExperience() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S8 — CTA: Full-bleed photo background with centered reserve
+   S8 , CTA: Full-bleed photo background with centered reserve
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   const [hovered, setHovered] = useState(false);
@@ -725,7 +725,7 @@ function CTASection() {
             <button
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+              onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...body,

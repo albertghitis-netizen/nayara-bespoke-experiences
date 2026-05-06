@@ -7,7 +7,7 @@ export default function AmorLoco() {
         name: "Amor Loco",
         tagline: "Latin American Soul Food with Volcanic Views",
         description:
-          "Amor Loco celebrates the passion of Latin American cuisine — from Peruvian ceviche to Argentine grills — all prepared with Costa Rican ingredients from our organic gardens. The restaurant overlooks the Arenal Volcano and is one of the most celebrated dining experiences in Central America.",
+          "Amor Loco celebrates the passion of Latin American cuisine , from Peruvian ceviche to Argentine grills , all prepared with Costa Rican ingredients from our organic gardens. The restaurant overlooks the Arenal Volcano and is one of the most celebrated dining experiences in Central America.",
         category: "gastronomy",
         categoryLabel: "Gastronomy · Nayara Springs",
         property: "Nayara Springs",

@@ -1,5 +1,5 @@
 /**
- * HotelFilterBar Variant 2 — Tab-style with underline animation
+ * HotelFilterBar Variant 2 , Tab-style with underline animation
  * For: Sustainability page
  */
 

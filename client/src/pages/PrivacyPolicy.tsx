@@ -1,5 +1,5 @@
 /**
- * Privacy Policy — Nayara Resorts
+ * Privacy Policy , Nayara Resorts
  * Clean editorial layout matching brand design language
  */
 

@@ -7,7 +7,7 @@ export default function HenrysBar() {
         name: "Henry's Bar",
         tagline: "Craft Cocktails & Stories from the Jungle",
         description:
-          "Named after the legendary explorer who first mapped the trails around Arenal, Henry's Bar is where adventure meets mixology. Handcrafted cocktails made with Costa Rican spirits, tropical fruits, and herbs from our garden — served in a setting that feels like a well-appointed explorer's club deep in the rainforest.",
+          "Named after the legendary explorer who first mapped the trails around Arenal, Henry's Bar is where adventure meets mixology. Handcrafted cocktails made with Costa Rican spirits, tropical fruits, and herbs from our garden , served in a setting that feels like a well-appointed explorer's club deep in the rainforest.",
         category: "gastronomy",
         categoryLabel: "Gastronomy · Nayara Tented Camp",
         property: "Nayara Tented Camp",

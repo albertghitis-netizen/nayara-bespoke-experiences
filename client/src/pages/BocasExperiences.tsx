@@ -1,7 +1,7 @@
 /*
- * BOCAS DEL TORO EXPERIENCES — Dedicated experiences sub-page
+ * BOCAS DEL TORO EXPERIENCES , Dedicated experiences sub-page
  * Mirrors Alto Atacama secondary page structure with Caribbean ocean palette
- * No "All" filter — users must choose a category
+ * No "All" filter , users must choose a category
  */
 
 import { useState } from "react";
@@ -85,7 +85,7 @@ function ExperiencesHero() {
 }
 
 function ExperiencesContent() {
-  // No "All" filter — default to first non-"all" category
+  // No "All" filter , default to first non-"all" category
   const categories = bocas.excursionCategories.filter(c => c.id !== "all");
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "water");
   const filtered = bocas.excursions.filter((e: Excursion) => e.category === activeCategory);

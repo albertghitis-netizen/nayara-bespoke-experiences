@@ -36,21 +36,21 @@ export function GradientPageLayout({
       {children}
       {showDummySections && (
         <>
-          <DummySection label="H3 — Rooms & Accommodations" />
+          <DummySection label="H3 , Rooms & Accommodations" />
           <GradientSpacer />
-          <DummySection label="H4 — Experiences" />
+          <DummySection label="H4 , Experiences" />
           <GradientSpacer />
-          <DummySection label="H5 — Wellness & Spa" />
+          <DummySection label="H5 , Wellness & Spa" />
           <GradientSpacer />
-          <DummySection label="H6 — Dining" />
+          <DummySection label="H6 , Dining" />
           <GradientSpacer />
-          <DummySection label="H7 — Gallery" />
+          <DummySection label="H7 , Gallery" />
           <GradientSpacer />
-          <DummySection label="H8 — Events" />
+          <DummySection label="H8 , Events" />
           <GradientSpacer />
-          <DummySection label="H9 — Sustainability" />
+          <DummySection label="H9 , Sustainability" />
           <GradientSpacer />
-          <DummySection label="H10 — Contact" />
+          <DummySection label="H10 , Contact" />
         </>
       )}
       <Footer />

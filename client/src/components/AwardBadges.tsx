@@ -1,5 +1,5 @@
 /**
- * Award Badges — Subtle award indicators for property Story sections
+ * Award Badges , Subtle award indicators for property Story sections
  * Uses actual CDN logos from awards.ts data
  */
 
@@ -8,7 +8,7 @@ import { awardsByProperty, type Award } from "@/data/awards";
 
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
-/* ── Award Badge Strip — horizontal row of logos + labels ── */
+/* ── Award Badge Strip , horizontal row of logos + labels ── */
 export function AwardBadgeStrip({ property }: { property: string }) {
   const awards = awardsByProperty[property] || [];
   if (awards.length === 0) return null;
@@ -59,7 +59,7 @@ export function AwardBadgeStrip({ property }: { property: string }) {
   );
 }
 
-/* ── Floating Award Badge — for hero overlays (white text) ── */
+/* ── Floating Award Badge , for hero overlays (white text) ── */
 export function FloatingAwardBadge({
   property,
   className = "",

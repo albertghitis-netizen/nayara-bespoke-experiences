@@ -1,5 +1,5 @@
 /*
- * HANGAROA ROOMS — Dedicated rooms/accommodations sub-page
+ * HANGAROA ROOMS , Dedicated rooms/accommodations sub-page
  * Hangaroa palette with Easter Island/Rapa Nui focus
  */
 
@@ -52,7 +52,7 @@ const roomTypes = [
   {
     name: "Hangaroa Suite",
     description:
-      "The most exclusive suite on the island — a standalone villa with panoramic views of Hanga Roa Bay, private plunge pool, and dedicated concierge. Designed for guests who want the ultimate Easter Island experience with the privacy of a private residence.",
+      "The most exclusive suite on the island , a standalone villa with panoramic views of Hanga Roa Bay, private plunge pool, and dedicated concierge. Designed for guests who want the ultimate Easter Island experience with the privacy of a private residence.",
     features: ["Panoramic bay views", "Private plunge pool", "Dedicated concierge", "Standalone villa"],
   },
 ];

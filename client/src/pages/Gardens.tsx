@@ -248,7 +248,7 @@ export default function Gardens() {
           {
             name: "Nayara Alto Atacama",
             chapter: "Where Desert Meets Sky",
-            tagline: "Trade rainforest symphony for desert silence — salt flats, geysers, and the clearest night skies on Earth.",
+            tagline: "Trade rainforest symphony for desert silence , salt flats, geysers, and the clearest night skies on Earth.",
             route: "/alto-atacama",
             image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
             video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",
@@ -257,7 +257,7 @@ export default function Gardens() {
           {
             name: "Nayara Tented Camp",
             chapter: "The Luxury Tented Camp",
-            tagline: "From rainforest village to canopy safari — elevated tents perched on a cliff above the jungle, with wildlife at dawn.",
+            tagline: "From rainforest village to canopy safari , elevated tents perched on a cliff above the jungle, with wildlife at dawn.",
             route: "/tented-camp",
             image: "/manus-storage/gal-new-aerial-tents_308da834.PNG",
             video: "/manus-storage/cta-tented-ultrawide_99ae6c78.mp4",
@@ -370,7 +370,7 @@ function StorySection() {
               className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              The original Nayara — a village of private villas and casitas woven into the rainforest canopy at the foot of Arenal Volcano. Family-friendly, with bespoke excursions from hanging bridges to chocolate tours.
+              The original Nayara , a village of private villas and casitas woven into the rainforest canopy at the foot of Arenal Volcano. Family-friendly, with bespoke excursions from hanging bridges to chocolate tours.
             </p>
           </AnimateOnScroll>
           <div className="mt-6 hidden md:block">
@@ -394,7 +394,7 @@ function StorySection() {
         </div>
       </div>
 
-      {/* S2 — One Rainforest, Three Resorts (compact) */}
+      {/* S2 , One Rainforest, Three Resorts (compact) */}
       <OneRainforestCompact />
 
       {/* ── Rooms: Horizontal Slider ── */}
@@ -421,8 +421,8 @@ function StorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ONE RAINFOREST COMPACT — Replaces S2 video
-   Three Keys, One Door — compact version without images or dining
+   ONE RAINFOREST COMPACT , Replaces S2 video
+   Three Keys, One Door , compact version without images or dining
    ═══════════════════════════════════════════════════════════════ */
 const OR_PROPERTIES = [
   { name: "Tented Camp", tagline: "Clifftop Tents & Suites", route: "/tented-camp", accent: "#868B75" },
@@ -508,7 +508,7 @@ function OneRainforestCompact() {
           ))}
         </div>
 
-        {/* Three property cards — text only */}
+        {/* Three property cards , text only */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {OR_PROPERTIES.map((prop) => (
             prop.current ? (
@@ -573,7 +573,7 @@ function OneRainforestCompact() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ACCOMMODATIONS EXPERIMENT — Timed overlay buttons on S3 + S4
+   ACCOMMODATIONS EXPERIMENT , Timed overlay buttons on S3 + S4
    S3: Vertical video (left) with timed overlays + text/room cards (right)
    S4: Horizontal video with timed overlays below
    ═══════════════════════════════════════════════════════════════ */
@@ -601,7 +601,7 @@ function AccommodationsExperiment() {
             />
           </div>
 
-          {/* Explore pill — centered lower */}
+          {/* Explore pill , centered lower */}
           <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
               href="/gardens/rooms/arenal-pool-casita"
@@ -705,7 +705,7 @@ function AccommodationsExperiment() {
           />
         </div>
 
-        {/* Explore pill — centered lower */}
+        {/* Explore pill , centered lower */}
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
             href="/gardens/rooms/rainforest-pool-villa"
@@ -1144,7 +1144,7 @@ function GalleryIntegratedSections() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   REVIEWS — Guest testimonials
+   REVIEWS , Guest testimonials
    ═══════════════════════════════════════════════════════════════ */
 function ReviewsSection() {
   return (
@@ -1187,13 +1187,13 @@ function ReviewsSection() {
               className="text-[17px] md:text-[20px] leading-relaxed italic mb-4"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.text }}
             >
-              "Nayara Gardens is pure magic — waking up to toucans on your terrace, soaking in volcanic hot springs under the stars, and the most attentive staff we've ever encountered. This place feels like a dream you never want to leave."
+              "Nayara Gardens is pure magic , waking up to toucans on your terrace, soaking in volcanic hot springs under the stars, and the most attentive staff we've ever encountered. This place feels like a dream you never want to leave."
             </p>
             <cite
               className="text-[12px] tracking-[0.08em] not-italic"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              — Michael & Laura, TripAdvisor
+              , Michael & Laura, TripAdvisor
             </cite>
           </blockquote>
         </AnimateOnScroll>
@@ -1215,7 +1215,7 @@ function ReviewsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GETTING HERE — Travel routes to Arenal
+   GETTING HERE , Travel routes to Arenal
    ═══════════════════════════════════════════════════════════════ */
 function GettingHereSection() {
   const routes = [
@@ -1321,7 +1321,7 @@ function GettingHereSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RESERVE CTA — Final call to action
+   RESERVE CTA , Final call to action
    ═══════════════════════════════════════════════════════════════ */
 function ReserveCTA() {
   return (
@@ -1356,7 +1356,7 @@ function ReserveCTA() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXPERIENCES — Text left + vertical video right, horizontal below
+   EXPERIENCES , Text left + vertical video right, horizontal below
    Alternates from Accommodations (which was image left, text right)
    ═══════════════════════════════════════════════════════════════ */
 function GardensExperiencesSection() {
@@ -1389,7 +1389,7 @@ function GardensExperiencesSection() {
               className="text-[15px] leading-[1.85] max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              Arenal Volcano — a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor — shapes everything around it. Its geothermal energy feeds the mineral springs, its eruption history created the lava fields you walk through today, and its mass generates the microclimate that keeps this pocket of Costa Rica impossibly green.
+              Arenal Volcano , a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor , shapes everything around it. Its geothermal energy feeds the mineral springs, its eruption history created the lava fields you walk through today, and its mass generates the microclimate that keeps this pocket of Costa Rica impossibly green.
             </p>
           </AnimateOnScroll>
 
@@ -1398,7 +1398,7 @@ function GardensExperiencesSection() {
               className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              From hanging bridges suspended above the canopy to guided naturalist walks through the volcano's shadow, each excursion connects your family to the extraordinary forces that define this land. The dawn birdwatching, the waterfall hikes, the night frog tours — these are not amenities added to a room rate. They are the story itself.
+              From hanging bridges suspended above the canopy to guided naturalist walks through the volcano's shadow, each excursion connects your family to the extraordinary forces that define this land. The dawn birdwatching, the waterfall hikes, the night frog tours , these are not amenities added to a room rate. They are the story itself.
             </p>
           </AnimateOnScroll>
 
@@ -1454,7 +1454,7 @@ function GardensExperiencesSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GASTRONOMY — Text left + vertical image right, horizontal below
+   GASTRONOMY , Text left + vertical image right, horizontal below
    Alternates from Sustainability (image left → now text left)
    ═══════════════════════════════════════════════════════════════ */
 function GardensGastronomyCascade() {
@@ -1548,7 +1548,7 @@ function GardensGastronomyCascade() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SUSTAINABILITY — Vertical video left + text right, horizontal below
+   SUSTAINABILITY , Vertical video left + text right, horizontal below
    Alternates from Experiences (text left → now image left)
    ═══════════════════════════════════════════════════════════════ */
 function GardensSustainabilityCascade() {
@@ -1599,7 +1599,7 @@ function GardensSustainabilityCascade() {
               className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              Our wildlife corridors connect fragmented habitats across the Arenal region, allowing two- and three-toed sloths, kinkajous, and howler monkeys to move safely between forest patches. These living bridges — planted and maintained by our conservation team — have restored critical migration routes and helped sloth populations thrive in an area where they were once in decline.
+              Our wildlife corridors connect fragmented habitats across the Arenal region, allowing two- and three-toed sloths, kinkajous, and howler monkeys to move safely between forest patches. These living bridges , planted and maintained by our conservation team , have restored critical migration routes and helped sloth populations thrive in an area where they were once in decline.
             </p>
           </AnimateOnScroll>
 

@@ -1,5 +1,5 @@
 /*
- * ATACAMA WELLNESS — Dedicated wellness sub-page
+ * ATACAMA WELLNESS , Dedicated wellness sub-page
  * Accessible from Alto Atacama home via "Explore More" CTA
  * Uses Atacama "Mars" palette and motion system
  */

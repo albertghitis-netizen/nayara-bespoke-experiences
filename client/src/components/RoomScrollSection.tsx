@@ -1,5 +1,5 @@
 /**
- * ROOM SCROLL SECTION — Horizontal Scroll-Jacking Rooms
+ * ROOM SCROLL SECTION , Horizontal Scroll-Jacking Rooms
  *
  * Creative concept: "Video Background + Floating Image Card"
  * Each room card takes the full viewport. As the user scrolls vertically,
@@ -51,7 +51,7 @@ const ROOMS: RoomCard[] = [
     guests: "2 adults + 2 children",
     video: "/manus-storage/Tentreel4-converted_afd33d7d.mp4",
     photo: "/manus-storage/RoomsNayaraTent1_c303c949.jpeg",
-    photoAlt: "Nayara Tent interior — king bed with canopy and rainforest views",
+    photoAlt: "Nayara Tent interior , king bed with canopy and rainforest views",
     exploreLink: "/tented-camp/rooms/nayara-tent",
   },
   {
@@ -87,7 +87,7 @@ const ROOMS: RoomCard[] = [
     guests: "Up to 12 adults",
     video: "/manus-storage/tented-residence-hero_e6990cf1.mp4",
     photo: `${CDN}/12.Residence_17d767d7.webp`,
-    photoAlt: "Nayara Residence — private estate with infinity pool and volcano views",
+    photoAlt: "Nayara Residence , private estate with infinity pool and volcano views",
     exploreLink: "/tented-camp/rooms/residence",
   },
 ];
@@ -278,7 +278,7 @@ export default function RoomScrollSection() {
     >
       {/* Sticky viewport */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Video backgrounds — all rendered, only active one plays */}
+        {/* Video backgrounds , all rendered, only active one plays */}
         {ROOMS.map((room, i) => (
           <div
             key={room.id}
@@ -299,7 +299,7 @@ export default function RoomScrollSection() {
           />
         ))}
 
-        {/* Content overlay — bottom left */}
+        {/* Content overlay , bottom left */}
         <div className="absolute bottom-0 left-0 right-0 z-20 p-8 md:p-12 lg:p-16">
           {/* Section label */}
           <p
@@ -403,7 +403,7 @@ export default function RoomScrollSection() {
           <ProgressDots total={ROOMS.length} current={activeIndex} />
         </div>
 
-        {/* Scroll hint — only on first card */}
+        {/* Scroll hint , only on first card */}
         {activeIndex === 0 && (
           <motion.div
             className="absolute bottom-8 right-8 md:right-12 z-20 flex items-center gap-2 text-white/40"

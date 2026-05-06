@@ -117,7 +117,7 @@ export default function CaribbeanCoralReefBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              Coral bleaching has become the most visible symptom of reef decline. When ocean temperatures rise even slightly above normal levels, corals expel the symbiotic algae (zooxanthellae) that live in their tissues and give them their vibrant colors. Without these algae, corals lose their primary food source and turn white—a process called bleaching. If temperatures return to normal quickly, corals can recover. But if stress persists, bleached corals die.
+              Coral bleaching has become the most visible symptom of reef decline. When ocean temperatures rise even slightly above normal levels, corals expel the symbiotic algae (zooxanthellae) that live in their tissues and give them their vibrant colors. Without these algae, corals lose their primary food source and turn white,a process called bleaching. If temperatures return to normal quickly, corals can recover. But if stress persists, bleached corals die.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -207,13 +207,13 @@ export default function CaribbeanCoralReefBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              The most successful conservation efforts are those that involve local communities. In Bocas del Toro, fishermen, dive operators, hotel owners, and residents have formed partnerships with conservation organizations to protect and restore reefs. These partnerships recognize that reef conservation is not just an environmental issue—it is an economic and cultural imperative for communities that depend on healthy reefs for their livelihoods and identity.
+              The most successful conservation efforts are those that involve local communities. In Bocas del Toro, fishermen, dive operators, hotel owners, and residents have formed partnerships with conservation organizations to protect and restore reefs. These partnerships recognize that reef conservation is not just an environmental issue,it is an economic and cultural imperative for communities that depend on healthy reefs for their livelihoods and identity.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              Marine protected areas (MPAs) have been established throughout Bocas del Toro to restrict fishing and reduce human pressure on reefs. These areas allow fish populations to recover and provide refugia for coral larvae. Education programs teach local children about reef ecology and conservation, fostering a new generation of reef stewards. Economic incentives—such as payments for ecosystem services—help local communities benefit directly from reef conservation.
+              Marine protected areas (MPAs) have been established throughout Bocas del Toro to restrict fishing and reduce human pressure on reefs. These areas allow fish populations to recover and provide refugia for coral larvae. Education programs teach local children about reef ecology and conservation, fostering a new generation of reef stewards. Economic incentives,such as payments for ecosystem services,help local communities benefit directly from reef conservation.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -242,7 +242,7 @@ export default function CaribbeanCoralReefBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              Reef conservation is not just the responsibility of scientists and governments—every visitor to Bocas del Toro can make a difference. When diving or snorkeling, follow simple guidelines: maintain neutral buoyancy to avoid touching corals, use reef-safe sunscreen (avoid oxybenzone and octinoxate, which damage corals), and never collect shells or other reef organisms. These simple actions protect reefs from direct damage and pollution.
+              Reef conservation is not just the responsibility of scientists and governments,every visitor to Bocas del Toro can make a difference. When diving or snorkeling, follow simple guidelines: maintain neutral buoyancy to avoid touching corals, use reef-safe sunscreen (avoid oxybenzone and octinoxate, which damage corals), and never collect shells or other reef organisms. These simple actions protect reefs from direct damage and pollution.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"

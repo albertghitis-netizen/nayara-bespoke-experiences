@@ -1,5 +1,5 @@
 /*
- * SIDEBAR NAVIGATION — Three-column layout
+ * SIDEBAR NAVIGATION , Three-column layout
  * Left: Main menu items
  * Middle: Sub-menu (appears on selection)
  * Right: Image preview (changes on hover)
@@ -81,7 +81,7 @@ export default function SidebarNavigation({
     if (hotel.url) {
       window.open(hotel.url, "_blank");
     } else {
-      import("sonner").then(({ toast }) => toast(hotel.label + " — Booking Coming Soon"));
+      import("sonner").then(({ toast }) => toast(hotel.label + " , Booking Coming Soon"));
     }
   };
 
@@ -95,7 +95,7 @@ export default function SidebarNavigation({
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-50 flex flex-col bg-[#e3dfd2]"
         >
-          {/* Close button — fixed at top, spans all columns */}
+          {/* Close button , fixed at top, spans all columns */}
           <div className="border-b border-[#3B2B26]/10 px-6 py-4 flex items-center justify-start">
             <button
               onClick={onClose}
@@ -107,9 +107,9 @@ export default function SidebarNavigation({
             </button>
           </div>
 
-          {/* Three columns container — perfectly aligned */}
+          {/* Three columns container , perfectly aligned */}
           <div className="flex flex-1 overflow-hidden">
-            {/* Left column — main menu */}
+            {/* Left column , main menu */}
             <motion.div
               initial={{ x: -300 }}
               animate={{ x: 0 }}
@@ -138,7 +138,7 @@ export default function SidebarNavigation({
               </div>
             </motion.div>
 
-            {/* Middle column — destinations pillar */}
+            {/* Middle column , destinations pillar */}
             <AnimatePresence mode="wait">
               {selectedMenu === "destinations" && (
                 <motion.div
@@ -176,7 +176,7 @@ export default function SidebarNavigation({
               )}
             </AnimatePresence>
 
-            {/* Property sections column — appears only when property is clicked */}
+            {/* Property sections column , appears only when property is clicked */}
             <AnimatePresence mode="wait">
               {selectedMenu === "destinations" && clickedProperty && (
                 <motion.div
@@ -210,7 +210,7 @@ export default function SidebarNavigation({
               )}
             </AnimatePresence>
 
-            {/* Right column — image preview */}
+            {/* Right column , image preview */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

@@ -1,5 +1,5 @@
 /*
- * TENTED CAMP EXPERIENCES — Dedicated experiences page
+ * TENTED CAMP EXPERIENCES , Dedicated experiences page
  * Accessible from Tented Camp page via "Explore More" button
  */
 

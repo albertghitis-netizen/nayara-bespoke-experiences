@@ -1,7 +1,7 @@
 /**
- * Nayara Resorts — Website Concierge Chat Widget
+ * Nayara Resorts , Website Concierge Chat Widget
  * A luxury-styled floating chat that represents the Nayara brand directly.
- * Warm, professional, knowledgeable — Henry, the Nayara concierge.
+ * Warm, professional, knowledgeable , Henry, the Nayara concierge.
  */
 
 import { useState, useRef, useEffect } from "react";
@@ -248,7 +248,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
               className="flex-1 overflow-y-auto px-5 py-4 space-y-4"
               style={{ scrollBehavior: "smooth" }}
             >
-              {/* Welcome — feels like a person just greeted you */}
+              {/* Welcome , feels like a person just greeted you */}
               {showWelcome && messages.length === 0 && (
                 <div className="flex justify-start">
                   <div

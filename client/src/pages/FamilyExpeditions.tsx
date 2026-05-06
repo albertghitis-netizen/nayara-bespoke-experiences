@@ -1,5 +1,5 @@
 /**
- * FAMILY ADVENTURE — Pura Vida Sub-page
+ * FAMILY ADVENTURE , Pura Vida Sub-page
  * Editorial page celebrating family experiences in Costa Rica's rainforest
  * Hero → Intro → Within Our Grounds → Rainforest Adventures → Family Dining → Your Private Retreat → Property Links → Footer
  * All 12 family photos integrated throughout
@@ -86,7 +86,7 @@ export default function FamilyExpeditions() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Family on hanging bridge (photo 06)
+   HERO , Family on hanging bridge (photo 06)
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
@@ -134,7 +134,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INTRO — "Where Every Day Is an Expedition"
+   INTRO , "Where Every Day Is an Expedition"
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -148,13 +148,13 @@ function IntroSection() {
 
         <FadeIn delay={0.1}>
           <p className="text-base md:text-lg leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
-            The rainforest is the greatest classroom on Earth. It teaches patience, wonder, and respect for the living world. At Nayara, we believe families thrive when they explore together — not as tourists checking boxes, but as adventurers discovering something true about themselves and the natural world.
+            The rainforest is the greatest classroom on Earth. It teaches patience, wonder, and respect for the living world. At Nayara, we believe families thrive when they explore together , not as tourists checking boxes, but as adventurers discovering something true about themselves and the natural world.
           </p>
         </FadeIn>
 
         <FadeIn delay={0.2}>
           <p className="text-base md:text-lg leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
-            Every moment in Costa Rica's rainforest is a lesson. Your children will learn the calls of howler monkeys before they learn the names of the animals making them. They'll understand why a sloth moves slowly, why poison dart frogs are brilliant colors, why the forest never sleeps. They'll discover that adventure isn't about conquering nature — it's about understanding it, respecting it, and becoming part of it.
+            Every moment in Costa Rica's rainforest is a lesson. Your children will learn the calls of howler monkeys before they learn the names of the animals making them. They'll understand why a sloth moves slowly, why poison dart frogs are brilliant colors, why the forest never sleeps. They'll discover that adventure isn't about conquering nature , it's about understanding it, respecting it, and becoming part of it.
           </p>
         </FadeIn>
 
@@ -169,7 +169,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   WITHIN OUR GROUNDS — On-property family experiences
+   WITHIN OUR GROUNDS , On-property family experiences
    Photos: 02 (boardwalk), 05 (golf cart), 08 (nature discovery)
    ═══════════════════════════════════════════════════════════════ */
 function WithinOurGroundsSection() {
@@ -204,7 +204,7 @@ function WithinOurGroundsSection() {
                 Getting Around
               </h4>
               <p className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
-                Golf carts become expedition vehicles. Kids love the freedom of riding through lush paths, discovering hidden corners of the property. Every turn reveals something new — a bird's nest, a waterfall, a view of Arenal Volcano through the trees.
+                Golf carts become expedition vehicles. Kids love the freedom of riding through lush paths, discovering hidden corners of the property. Every turn reveals something new , a bird's nest, a waterfall, a view of Arenal Volcano through the trees.
               </p>
             </div>
           </FadeIn>
@@ -217,7 +217,7 @@ function WithinOurGroundsSection() {
                 Nature Discovery
               </h4>
               <p className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
-                Guided nature walks with expert naturalists turn every path into a classroom. Children learn to identify plants, understand animal behavior, and develop a deep respect for the rainforest. Golden light, curious minds, and the sound of the forest — pure magic.
+                Guided nature walks with expert naturalists turn every path into a classroom. Children learn to identify plants, understand animal behavior, and develop a deep respect for the rainforest. Golden light, curious minds, and the sound of the forest , pure magic.
               </p>
             </div>
           </FadeIn>
@@ -228,7 +228,7 @@ function WithinOurGroundsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RAINFOREST ADVENTURES — Off-property experiences
+   RAINFOREST ADVENTURES , Off-property experiences
    Photo: 06 (hanging bridge) + link to Curated Excursions
    ═══════════════════════════════════════════════════════════════ */
 function RainforestAdventuresSection() {
@@ -248,7 +248,7 @@ function RainforestAdventuresSection() {
                 Rainforest Adventures
               </h3>
               <p className="text-base leading-relaxed mb-6" style={{ ...body, color: "rgba(255,255,255,0.85)" }}>
-                Beyond the resort, the rainforest opens up. Hanging bridges suspended in the canopy offer perspectives few people ever experience. Zip lines, waterfall hikes, night safaris — every adventure is guided by experts who know the forest intimately and understand how to make it safe and magical for families.
+                Beyond the resort, the rainforest opens up. Hanging bridges suspended in the canopy offer perspectives few people ever experience. Zip lines, waterfall hikes, night safaris , every adventure is guided by experts who know the forest intimately and understand how to make it safe and magical for families.
               </p>
               <p className="text-base leading-relaxed mb-8" style={{ ...body, color: "rgba(255,255,255,0.85)" }}>
                 Your children will remember these moments forever. The rush of crossing a hanging bridge. The sound of howler monkeys echoing through the canopy. The discovery of a poison dart frog no bigger than a fingernail. The feeling of being truly alive in nature.
@@ -270,7 +270,7 @@ function RainforestAdventuresSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FAMILY DINING — Meals as experiences
+   FAMILY DINING , Meals as experiences
    Photos: 07 (sunset dining), 09 (poolside breakfast), 12 (watermelon)
    ═══════════════════════════════════════════════════════════════ */
 function FamilyDiningSection() {
@@ -284,7 +284,7 @@ function FamilyDiningSection() {
         </FadeIn>
 
         <p className="text-base leading-relaxed mb-12 text-center max-w-3xl mx-auto" style={{ ...body, color: C.secondary }}>
-          Meals at Nayara aren't just fuel — they're adventures. Fresh tropical fruits your children have never tasted. Local dishes prepared with ingredients from the region. Dining experiences that celebrate Costa Rican culture and the bounty of the rainforest.
+          Meals at Nayara aren't just fuel , they're adventures. Fresh tropical fruits your children have never tasted. Local dishes prepared with ingredients from the region. Dining experiences that celebrate Costa Rican culture and the bounty of the rainforest.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -322,7 +322,7 @@ function FamilyDiningSection() {
                 Fresh Flavors
               </h4>
               <p className="text-sm leading-relaxed" style={{ ...body, color: C.muted }}>
-                Watermelon so fresh it was picked this morning. Papaya, mango, passion fruit — flavors your children have never experienced. Costa Rican cuisine celebrates the land. Every meal is a taste of place.
+                Watermelon so fresh it was picked this morning. Papaya, mango, passion fruit , flavors your children have never experienced. Costa Rican cuisine celebrates the land. Every meal is a taste of place.
               </p>
             </div>
           </FadeIn>
@@ -333,7 +333,7 @@ function FamilyDiningSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   YOUR PRIVATE RETREAT — Accommodations and relaxation
+   YOUR PRIVATE RETREAT , Accommodations and relaxation
    Photos: 01 (infinity pool), 03 (hammock), 04 (daybed), 10 (pool play), 11 (family pool)
    ═══════════════════════════════════════════════════════════════ */
 function YourPrivateRetreatSection() {
@@ -435,10 +435,10 @@ function YourPrivateRetreatSection() {
         <FadeIn delay={0.7} className="mt-12">
           <div className="max-w-3xl mx-auto">
             <p className="text-base leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
-              Each villa is designed for families. Multiple bedrooms. Private plunge pools. Open-air showers surrounded by nature. Terraces where you can watch the sunset together. These aren't hotel rooms — they're homes in the rainforest.
+              Each villa is designed for families. Multiple bedrooms. Private plunge pools. Open-air showers surrounded by nature. Terraces where you can watch the sunset together. These aren't hotel rooms , they're homes in the rainforest.
             </p>
             <p className="text-base leading-relaxed" style={{ ...body, color: C.secondary }}>
-              After a day of adventure, your family gathers on the terrace. Children are tired, happy, full of stories. The rainforest hums around you. The stars emerge. You realize that this is what you came for — not just the activities, but the connection. The time together. The feeling of being truly present with the people you love most.
+              After a day of adventure, your family gathers on the terrace. Children are tired, happy, full of stories. The rainforest hums around you. The stars emerge. You realize that this is what you came for , not just the activities, but the connection. The time together. The feeling of being truly present with the people you love most.
             </p>
           </div>
         </FadeIn>
@@ -448,7 +448,7 @@ function YourPrivateRetreatSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTY LINKS — Cross-link to Costa Rica properties
+   PROPERTY LINKS , Cross-link to Costa Rica properties
    ═══════════════════════════════════════════════════════════════ */
 function PropertyLinksSection() {
   const properties = [

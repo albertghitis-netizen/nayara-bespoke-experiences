@@ -32,9 +32,9 @@ PROPERTIES.forEach((p) => {
 });
 
 export interface NavPalette {
-  /** Dark text/icon color — replaces #3B2B26 */
+  /** Dark text/icon color , replaces #3B2B26 */
   dark: string;
-  /** Light pill background — replaces #ece8e1 */
+  /** Light pill background , replaces #ece8e1 */
   pillBg: string;
   /** Hover pill background */
   pillHover: string;
@@ -62,7 +62,7 @@ export default function BrandNavigation({
   navPalette,
   sectionNav,
 }: BrandNavigationProps) {
-  /* Resolve palette — auto-detect from URL or use brand brown */
+  /* Resolve palette , auto-detect from URL or use brand brown */
   const [location] = useLocation();
   const [, navigate] = useLocation();
   const propertySlug = location.split("/")[1] || "";
@@ -147,7 +147,7 @@ export default function BrandNavigation({
     if (hotel.available) {
       window.open(hotel.url, "_blank");
     } else {
-      import("sonner").then(({ toast }) => toast(hotel.label + " — Booking Coming Soon"));
+      import("sonner").then(({ toast }) => toast(hotel.label + " , Booking Coming Soon"));
     }
   };
 
@@ -257,7 +257,7 @@ export default function BrandNavigation({
         </>
       )}
 
-      {/* Flat list — categories (includes Journal above Gallery) */}
+      {/* Flat list , categories (includes Journal above Gallery) */}
       {EXPLORE_MENU_ITEMS.map((item) => (
         <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
           <span className="text-[13px]" style={menuText}>{item.label}</span>
@@ -266,7 +266,7 @@ export default function BrandNavigation({
 
       <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
 
-      {/* Flat list — hotels */}
+      {/* Flat list , hotels */}
       {RESORTS_ITEMS.map((item) => (
         <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
           <span className="text-[13px]" style={menuText}>{item.label}</span>
@@ -275,7 +275,7 @@ export default function BrandNavigation({
 
       <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
 
-      {/* Nayara Resorts — brand home at the very bottom */}
+      {/* Nayara Resorts , brand home at the very bottom */}
       <button type="button" onClick={() => handleNavigate(BRAND_HOME_ITEM.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
         <span className="text-[13px]" style={menuText}>{BRAND_HOME_ITEM.label}</span>
       </button>
@@ -420,7 +420,7 @@ export default function BrandNavigation({
           </div>
         </div>
 
-        {/* ── MOBILE NAV — Hamburger (left) + Center Property Nav + Reserve (right) ── */}
+        {/* ── MOBILE NAV , Hamburger (left) + Center Property Nav + Reserve (right) ── */}
         <div className="flex md:hidden items-center justify-between pointer-events-auto">
           {/* Left: Hamburger */}
           <div ref={menuRef} className="relative">

@@ -1,5 +1,5 @@
 /*
- * Excursions Section — Editorial grid of all tours/experiences
+ * Excursions Section , Editorial grid of all tours/experiences
  * Data from Tour Book PDF. Blog links cross-referenced.
  * Real photos only. Placeholders clearly marked.
  */
@@ -83,7 +83,7 @@ const excursions: Excursion[] = [
     difficulty: "Easy",
     acclimatization: "None",
     description:
-      "The Atacama offers the clearest skies on the planet — the same reason ALMA and international observatories chose this desert. From our private on-site observatory, explore the southern constellations, nebulae, and planets through a powerful telescope guided by expert astronomers.",
+      "The Atacama offers the clearest skies on the planet , the same reason ALMA and international observatories chose this desert. From our private on-site observatory, explore the southern constellations, nebulae, and planets through a powerful telescope guided by expert astronomers.",
     highlights: [
       "Private on-site observatory",
       "Eight swivel chairs for comfortable viewing",
@@ -104,7 +104,7 @@ const excursions: Excursion[] = [
     distance: "Varies",
     acclimatization: "None",
     description:
-      "Explore the vast Salar de Atacama — 3,000 km² of crystallized salt — and the jewel-toned lagoons where three species of flamingos feed in the mineral-rich waters. Chaxa Lagoon offers reflections so perfect the sky and earth merge.",
+      "Explore the vast Salar de Atacama , 3,000 km² of crystallized salt , and the jewel-toned lagoons where three species of flamingos feed in the mineral-rich waters. Chaxa Lagoon offers reflections so perfect the sky and earth merge.",
     highlights: [
       "Chaxa Lagoon flamingo observation",
       "Salar de Atacama salt formations",
@@ -163,7 +163,7 @@ const excursions: Excursion[] = [
     distance: "14 km",
     acclimatization: "None",
     description:
-      "Ride through the dramatic terrain of the Cordillera de la Sal on mountain bikes. The route passes through Devil's Throat — a narrow canyon carved by ancient rivers — and offers panoramic views of the salt range and distant volcanoes.",
+      "Ride through the dramatic terrain of the Cordillera de la Sal on mountain bikes. The route passes through Devil's Throat , a narrow canyon carved by ancient rivers , and offers panoramic views of the salt range and distant volcanoes.",
     highlights: [
       "Devil's Throat canyon passage",
       "Cordillera de la Sal panoramas",
@@ -181,7 +181,7 @@ const excursions: Excursion[] = [
     difficulty: "Easy",
     acclimatization: "None",
     description:
-      "Hidden in a narrow canyon, the Puritama Hot Springs feature eight natural pools with thermal waters between 28°C and 31°C. Rich in calcium, magnesium, sodium, and boron — revitalizing for body and mind.",
+      "Hidden in a narrow canyon, the Puritama Hot Springs feature eight natural pools with thermal waters between 28°C and 31°C. Rich in calcium, magnesium, sodium, and boron , revitalizing for body and mind.",
     highlights: [
       "Eight natural thermal pools",
       "Mineral-rich healing waters",
@@ -253,8 +253,8 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
           >
             From pre-dawn geyser eruptions at 4,320 meters to sunset over lunar
             valleys, every excursion is guided by experts who know this landscape
-            like home. Choose your program — Dream, Full Experience, or Private
-            Guided — and we'll craft the rest.
+            like home. Choose your program , Dream, Full Experience, or Private
+            Guided , and we'll craft the rest.
           </p>
         </motion.div>
 

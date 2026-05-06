@@ -1,5 +1,5 @@
 /**
- * FAQ Data — Organized by property and pillar for two-axis filtering
+ * FAQ Data , Organized by property and pillar for two-axis filtering
  * Each FAQ item has property tags and a pillar category.
  */
 
@@ -90,7 +90,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "exp-2",
     question: "Can I visit Arenal Volcano from Nayara?",
-    answer: "Yes. The three Costa Rica properties — Nayara Springs, Gardens, and Tented Camp — are located at the foot of Arenal Volcano. Guided hikes to the volcano's lava trails, hanging bridges walks, and waterfall excursions are available daily.",
+    answer: "Yes. The three Costa Rica properties , Nayara Springs, Gardens, and Tented Camp , are located at the foot of Arenal Volcano. Guided hikes to the volcano's lava trails, hanging bridges walks, and waterfall excursions are available daily.",
     properties: ["springs", "gardens", "tented-camp"],
     pillar: "experiences",
   },
@@ -150,7 +150,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "din-2",
     question: "Is dining included at Alto Atacama?",
-    answer: "Yes. All meals are included in your stay — breakfast, lunch, and dinner — along with an open bar featuring premium spirits, Chilean wines, cocktails, and non-alcoholic beverages. The restaurant focuses on Chilean cuisine with Atacameño influences.",
+    answer: "Yes. All meals are included in your stay , breakfast, lunch, and dinner , along with an open bar featuring premium spirits, Chilean wines, cocktails, and non-alcoholic beverages. The restaurant focuses on Chilean cuisine with Atacameño influences.",
     properties: ["alto-atacama"],
     pillar: "dining",
   },
@@ -180,7 +180,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "sust-3",
     question: "Is Nayara Tented Camp eco-friendly?",
-    answer: "Yes. Nayara Tented Camp is designed with minimal environmental impact — elevated canvas structures that leave virtually no footprint on the rainforest floor. The property uses sustainable materials, rainwater harvesting, and supports local reforestation initiatives.",
+    answer: "Yes. Nayara Tented Camp is designed with minimal environmental impact , elevated canvas structures that leave virtually no footprint on the rainforest floor. The property uses sustainable materials, rainwater harvesting, and supports local reforestation initiatives.",
     properties: ["tented-camp"],
     pillar: "sustainability",
   },
@@ -217,7 +217,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "get-5",
     question: "Do you provide altitude acclimatization guidance for Atacama?",
-    answer: "Yes. San Pedro de Atacama sits at approximately 2,400 meters (7,900 feet). The hotel provides acclimatization guidance and schedules excursions progressively — lower altitude activities on the first day, with higher-altitude excursions (like Tatio Geysers at 4,300m) later in your stay. Coca tea is available throughout the property.",
+    answer: "Yes. San Pedro de Atacama sits at approximately 2,400 meters (7,900 feet). The hotel provides acclimatization guidance and schedules excursions progressively , lower altitude activities on the first day, with higher-altitude excursions (like Tatio Geysers at 4,300m) later in your stay. Coca tea is available throughout the property.",
     properties: ["alto-atacama"],
     pillar: "getting-here",
   },

@@ -1,5 +1,5 @@
 /*
- * ATACAMA SUSTAINABILITY — Dedicated sustainability sub-page
+ * ATACAMA SUSTAINABILITY , Dedicated sustainability sub-page
  * Accessible from Alto Atacama home via "Explore More" CTA
  * Uses Atacama "Mars" palette and motion system
  * S Certification for Atacama
@@ -52,7 +52,7 @@ const BLOG_CARDS = [
   },
   {
     title: "An Oasis in the Desert",
-    excerpt: "How Nayara Alto Atacama became a sanctuary of life in the driest place on Earth — through water stewardship, adobe architecture, and deep respect for the land.",
+    excerpt: "How Nayara Alto Atacama became a sanctuary of life in the driest place on Earth , through water stewardship, adobe architecture, and deep respect for the land.",
     cover: CDN.redDesert,
     url: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
   },
@@ -136,7 +136,7 @@ function SCertificationSection() {
             className="text-[15px] leading-[1.8] max-w-[700px]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
-            Nayara Alto Atacama holds S Certification — Chile's national standard for sustainable tourism,
+            Nayara Alto Atacama holds S Certification , Chile's national standard for sustainable tourism,
             recognizing our commitment to environmental stewardship, cultural preservation, and responsible
             operations in one of the world's most fragile ecosystems. This certification reflects our ongoing
             dedication to protecting the Atacama Desert while delivering exceptional guest experiences.
@@ -154,7 +154,7 @@ function SCertificationSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ANIMATED COUNTER — reusable number animation
+   ANIMATED COUNTER , reusable number animation
    ═══════════════════════════════════════════════════════════════ */
 function AnimatedCounter({ target, suffix, duration = 2 }: { target: number; suffix: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -187,7 +187,7 @@ function AnimatedCounter({ target, suffix, duration = 2 }: { target: number; suf
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BY THE NUMBERS — 2×2 grid with 4 Atacama stats
+   BY THE NUMBERS , 2×2 grid with 4 Atacama stats
    ═══════════════════════════════════════════════════════════════ */
 function ByTheNumbersSection() {
   if (atacamaStats.length === 0) return null;
@@ -266,7 +266,7 @@ function ByTheNumbersSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BLOG CARDS — 2 editorial cards with cover images
+   BLOG CARDS , 2 editorial cards with cover images
    ═══════════════════════════════════════════════════════════════ */
 function BlogCardsSection() {
   return (
@@ -364,7 +364,7 @@ function BlogCardsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   JOURNAL — Closing editorial section
+   JOURNAL , Closing editorial section
    ═══════════════════════════════════════════════════════════════ */
 function JournalSection() {
   return (

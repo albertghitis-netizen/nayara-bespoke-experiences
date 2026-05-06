@@ -1,5 +1,5 @@
 /**
- * MutePill — Fixed top-left mute/unmute pill for hero sections.
+ * MutePill , Fixed top-left mute/unmute pill for hero sections.
  *
  * Pass a `videoRef` pointing to the hero <video> element.
  * The pill starts muted and toggles the video's own audio on click.

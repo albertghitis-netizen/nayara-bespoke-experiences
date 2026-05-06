@@ -1,7 +1,7 @@
 /**
- * NAYARA ALTO ATACAMA — Property Home Page
+ * NAYARA ALTO ATACAMA , Property Home Page
  * Extended gradient cascade: warm sand → deep earth
- * Every available asset shown — no repeats
+ * Every available asset shown , no repeats
  * Varied aspect ratios per section, zero-gap between all elements
  */
 import { Fragment, type ReactNode } from "react";
@@ -30,10 +30,10 @@ import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchem
 const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE — Extended "Mars" gradient: warm sand → deep earth
+   PALETTE , Extended "Mars" gradient: warm sand → deep earth
    More sections = more gradient steps
    ═══════════════════════════════════════════════════════════════ */
-const COLOR_A = "#F9EBE0"; // light — warm peach sand
+const COLOR_A = "#F9EBE0"; // light , warm peach sand
 const SECTION_COLORS = [
   COLOR_A, // 0 hero
   COLOR_A, // 1 story
@@ -58,9 +58,9 @@ const SECTION_COLORS = [
 ];
 
 /* 3-COLOR SYSTEM
-   Dark:    #6F463D — nav pills, mute btn (desktop), concierge, footer
-   Middle:  #B85C3C — blog pills, CTAs, accents, labels, links
-   Light:   #F9EBE0 — all page backgrounds
+   Dark:    #6F463D , nav pills, mute btn (desktop), concierge, footer
+   Middle:  #B85C3C , blog pills, CTAs, accents, labels, links
+   Light:   #F9EBE0 , all page backgrounds
    Text on light: Espresso #3B2B26 (brand)
    Text on dark:  Bone #F9F6F3 (brand)
 */
@@ -81,75 +81,75 @@ const PALETTE = {
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   CDN ASSETS — EVERY Atacama asset, organized by section
+   CDN ASSETS , EVERY Atacama asset, organized by section
    ═══════════════════════════════════════════════════════════════ */
-// Removed slow CloudFront CDN — using /manus-storage/ for all media
+// Removed slow CloudFront CDN , using /manus-storage/ for all media
 
 const ASSETS = {
-  // Hero (clip 1 — horizontal 16:9)
+  // Hero (clip 1 , horizontal 16:9)
   heroDesktop: "/manus-storage/atacama-hero-audio_e50ab49a.mp4",
   heroMobile: "/manus-storage/atacama-mobile-hero_4942d911.mp4",
 
-  // Clip 2 — vertical 3:4
+  // Clip 2 , vertical 3:4
   clip2V: "/manus-storage/atacama-s1-vertical-v3_b6fd3496.mp4",
 
-  // Clip 3 — horizontal 16:9
+  // Clip 3 , horizontal 16:9
   clip3H: "/manus-storage/atacama-s2-horizontal-v2_347c0422.mp4",
 
-  // Clip 4 — vertical 3:4
+  // Clip 4 , vertical 3:4
   clip4V: "/manus-storage/atacama-s3-vertical_bf21b975.mp4",
 
-  // Clip 5 — horizontal 16:9
+  // Clip 5 , horizontal 16:9
   clip5H: "/manus-storage/atacama-accom-h-final_b8107b28.mp4",
 
-  // Clip 6 — vertical 3:4
+  // Clip 6 , vertical 3:4
   clip6V: "/manus-storage/atacama-s1-vertical_0ae9ef8a.mp4",
 
-  // Clip 7 — horizontal 16:9
+  // Clip 7 , horizontal 16:9
   clip7H: "/manus-storage/atacama-geysers-h_d266e1ae.mp4",
 
-  // Clip 8 — vertical 3:4
+  // Clip 8 , vertical 3:4
   clip8V: "/manus-storage/clip8-v-trimmed_452e9341.mp4",
 
-  // Section 1 — Story: cascade desert aerial (cropped, no black bars)
+  // Section 1 , Story: cascade desert aerial (cropped, no black bars)
   storyV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   storyH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
 
-  // Section 2 — Rooms: cascade hotel property aerial (cropped, no black bars)
+  // Section 2 , Rooms: cascade hotel property aerial (cropped, no black bars)
   roomsV: "/manus-storage/atacama-cascade-4-accom-v_cdc03eb9.mp4",
   roomsH: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
-  // Section 3 — Experiences: cascade salt flat (cropped, no black bars)
+  // Section 3 , Experiences: cascade salt flat (cropped, no black bars)
   expV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   expH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
 
-  // Section 4 — Sustainability: cascade flamingos (cropped, no black bars)
+  // Section 4 , Sustainability: cascade flamingos (cropped, no black bars)
   susV: "/manus-storage/atacama-sustainability-v_67bf2c3e.mp4",
   susH: "/manus-storage/atacama-sus-h-new_71c95f9c.mp4",
 
-  // Section 5 — Wellness: cascade spa/wellness (cropped, no black bars)
+  // Section 5 , Wellness: cascade spa/wellness (cropped, no black bars)
   wellV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   wellH: "/manus-storage/atacama-cascade-1-hero-h_fbfccdb3.mp4",
   wellH2: "/manus-storage/atacama-wellness-h-v2_f00c123e.mp4",
   wellV2: "/manus-storage/atacama-wellness-v-still_4687073b.jpg",
 
-  // Section 6 — Forest to Table: plated dish H
+  // Section 6 , Forest to Table: plated dish H
   gastroV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
   gastroH: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
 
-  // Section 6b — Desert Ingredients: spice jars V + avocado mousse H
+  // Section 6b , Desert Ingredients: spice jars V + avocado mousse H
   gastro2V: "/manus-storage/atacama-cascade-4-accom-v_cdc03eb9.mp4",
   gastro2H: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
-  // Section 6c — The Art of Plating: tuna sashimi V + beetroot dessert H
+  // Section 6c , The Art of Plating: tuna sashimi V + beetroot dessert H
   gastro3V: "/manus-storage/5E8F3F4E-BF87-4A5F-BBB2-2737E82CE424_ad01d722.jpeg",
   gastro3H: "/manus-storage/96454375-D840-4B02-AEF7-98893DAD18AA_516b1771.jpeg",
 
-  // Section 6d — Sweet Finales: crostini wine V + honeycomb consommé H
+  // Section 6d , Sweet Finales: crostini wine V + honeycomb consommé H
   gastro4V: "/manus-storage/AA6682ED-A08D-4F1E-A869-56222938841C_38b364f9.jpeg",
   gastro4H: "/manus-storage/ACDF665C-3B75-4A15-9806-4E325514B1A9_b1da71b1.JPG",
 
-  // Section 6e — Meringue star dessert (H) + Milky Way bus (V, moved here)
+  // Section 6e , Meringue star dessert (H) + Milky Way bus (V, moved here)
   gastro5V: "/manus-storage/atacama-milkyway-bus_88a347bc.jpg",
   gastro5H: "/manus-storage/5F6D022D-5F89-45EF-93CF-878F0A7BCDEF_c678c03f.JPG",
 
@@ -200,7 +200,7 @@ function SectionLabel({ children, color }: { children: ReactNode; color?: string
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   MEDIA COMPONENT — Handles both video and image with proper ratio
+   MEDIA COMPONENT , Handles both video and image with proper ratio
    ═══════════════════════════════════════════════════════════════ */
 function MediaBlock({
   src,
@@ -227,7 +227,7 @@ function MediaBlock({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CASCADE TEXT BLOCK — Extracted for flat interleaved rendering
+   CASCADE TEXT BLOCK , Extracted for flat interleaved rendering
    ═══════════════════════════════════════════════════════════════ */
 function CascadeTextBlock({
   label,
@@ -295,7 +295,7 @@ function CascadeTextBlock({
         )}
         {blogLink && (
           isDark ? (
-            /* Starfield pill — black, white outline, twinkling stars */
+            /* Starfield pill , black, white outline, twinkling stars */
             <a
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
@@ -340,7 +340,7 @@ function CascadeTextBlock({
   );
 }
 /* ═══════════════════════════════════════════════════════════════
-   CASCADE SECTION — Zero-gap, gradient bg, varied ratios (LEGACY — kept for reference))
+   CASCADE SECTION , Zero-gap, gradient bg, varied ratios (LEGACY , kept for reference))
    ═══════════════════════════════════════════════════════════════ */
 function CascadeSection({
   label,
@@ -420,7 +420,7 @@ function CascadeSection({
         </p>
         {blogLink && (
           false ? (
-            /* Starfield pill — black, white outline, twinkling stars */
+            /* Starfield pill , black, white outline, twinkling stars */
             <a
               href={blogLink}
               target="_blank"
@@ -555,7 +555,7 @@ function CascadeSection({
   );
 }
 /* ═══════════════════════════════════════════════════════════════
-   SECTION DATA — All 11 cascade sections
+   SECTION DATA , All 11 cascade sections
    ═══════════════════════════════════════════════════════════════ */
 const CASCADE_SECTIONS = [
   {
@@ -589,8 +589,8 @@ const CASCADE_SECTIONS = [
   {
     label: "Experiences",
     headline: "Mars on Earth",
-    description: "NASA scientists have trained here. Geologists call it the closest thing on Earth to the surface of Mars. The Atacama Desert — hyper-arid, mineral-rich, and ancient beyond reckoning — is not a backdrop. It is the experience itself. At Nayara Alto Atacama, every excursion is guided by local experts who have spent lifetimes reading this landscape: its salt crusts, its volcanic craters, its silence.",
-    secondDescription: "Just beyond the salt flats, the Valle del Arcoiris — Rainbow Valley — reveals another dimension of the desert. Hillsides painted in ochre, copper, violet, and gold by millions of years of mineral oxidation. Walk among them at golden hour and the colours seem to shift with the light, as if the earth itself is still deciding what it wants to be.",
+    description: "NASA scientists have trained here. Geologists call it the closest thing on Earth to the surface of Mars. The Atacama Desert , hyper-arid, mineral-rich, and ancient beyond reckoning , is not a backdrop. It is the experience itself. At Nayara Alto Atacama, every excursion is guided by local experts who have spent lifetimes reading this landscape: its salt crusts, its volcanic craters, its silence.",
+    secondDescription: "Just beyond the salt flats, the Valle del Arcoiris , Rainbow Valley , reveals another dimension of the desert. Hillsides painted in ochre, copper, violet, and gold by millions of years of mineral oxidation. Walk among them at golden hour and the colours seem to shift with the light, as if the earth itself is still deciding what it wants to be.",
     vSrc: ASSETS.clip6V,
     hSrc: ASSETS.clip7H,
     vVideo: true, hVideo: true,
@@ -604,7 +604,7 @@ const CASCADE_SECTIONS = [
   {
     label: "Experiences",
     headline: "Rainbow Valley",
-    description: "A geological marvel painted in ochre, violet, and gold — the Valle del Arcoiris is one of the Atacama's most surreal landscapes. Walk among mineral-stained hillsides at golden hour and witness colours that seem to belong to another world.",
+    description: "A geological marvel painted in ochre, violet, and gold , the Valle del Arcoiris is one of the Atacama's most surreal landscapes. Walk among mineral-stained hillsides at golden hour and witness colours that seem to belong to another world.",
     vSrc: ASSETS.clip6V,
     hSrc: "/manus-storage/atacama-rainbow-valley-h_5c5c5ff9.mp4",
     vVideo: true, hVideo: true,
@@ -656,7 +656,7 @@ const CASCADE_SECTIONS = [
   {
     label: "Gastronomy",
     headline: "A Taste of the Desert",
-    description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients — quinoa, chañar, rica-rica herbs, and Andean potatoes — our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
+    description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients , quinoa, chañar, rica-rica herbs, and Andean potatoes , our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: "/manus-storage/atacama-taste-of-place-vertical_e5fa6f59.jpeg",
     hSrc: "/manus-storage/atacama-restaurant-interior_b3e2536a.jpg",
     vVideo: false, hVideo: false,
@@ -671,7 +671,7 @@ const CASCADE_SECTIONS = [
   {
     label: "By Night",
     headline: "The Clearest Skies on Earth",
-    description: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
+    description: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail , no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
     vSrc: "/manus-storage/atacama-bynight-telescope_95ffaa70.jpg",
     hSrc: "/manus-storage/atacama-by-night-horizontal_ae34aea4.mp4",
     vVideo: false, hVideo: true,
@@ -688,7 +688,7 @@ const CASCADE_SECTIONS = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   MAIN PAGE — Extended gradient cascade, all touching, color flow
+   MAIN PAGE , Extended gradient cascade, all touching, color flow
    ═══════════════════════════════════════════════════════════════ */
 export default function AltoAtacama() {
   return (
@@ -937,7 +937,7 @@ export default function AltoAtacama() {
           {
             name: "Nayara Tented Camp",
             chapter: "The Luxury Tented Camp",
-            tagline: "From desert silence to canopy safari — elevated tents perched on a cliff above Costa Rica's rainforest, with wildlife at dawn.",
+            tagline: "From desert silence to canopy safari , elevated tents perched on a cliff above Costa Rica's rainforest, with wildlife at dawn.",
             route: "/tented-camp",
             image: "/manus-storage/gal-new-aerial-tents_308da834.PNG",
             video: "/manus-storage/cta-tented-ultrawide_99ae6c78.mp4",
@@ -946,7 +946,7 @@ export default function AltoAtacama() {
           {
             name: "Nayara Bocas del Toro",
             chapter: "The Adults-Only Archipelago",
-            tagline: "Desert to archipelago — trade salt flats for Caribbean overwater villas on a solar-powered private island.",
+            tagline: "Desert to archipelago , trade salt flats for Caribbean overwater villas on a solar-powered private island.",
             route: "/bocas-del-toro",
             image: "/manus-storage/bocas-resort-24_5778eea7.jpg",
             video: "/manus-storage/cta-bocas-ultrawide_4b5a9425.mp4",
@@ -965,7 +965,7 @@ export default function AltoAtacama() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FUNCTIONAL BREAK — Guest Voices (Reviews)
+   FUNCTIONAL BREAK , Guest Voices (Reviews)
    Matches Tented Camp ReviewsBreak pattern exactly
    ═══════════════════════════════════════════════════════════════ */
 function ReviewsBreak({ bgColor }: { bgColor: string }) {
@@ -1021,7 +1021,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
               className="text-[12px] tracking-[0.08em] not-italic"
               style={{ ...body, color: subtleColor }}
             >
-              — Carolina, TripAdvisor
+              , Carolina, TripAdvisor
             </cite>
           </blockquote>
         </AnimateOnScroll>
@@ -1043,7 +1043,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-screen video, cinematic text reveal
+   HERO , Full-screen video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -1067,7 +1067,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
 
-      {/* H1 overlaid on video — bottom center */}
+      {/* H1 overlaid on video , bottom center */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -1093,14 +1093,14 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   OPTION A — STRUCTURED TAIL: Getting Here, Awards, Reserve CTA
+   OPTION A , STRUCTURED TAIL: Getting Here, Awards, Reserve CTA
    These sections live below the cascade, styled to match the gradient
    ═══════════════════════════════════════════════════════════════ */
 function GettingHereSection() {
   const routes = [
     { title: "Fly to Calama (CJC)", description: "Daily flights from Santiago to Calama airport. International connections via Santiago (SCL).", icon: "✈" },
     { title: "Complimentary Transfer", description: "Round-trip airport transfers from Calama to the resort, approximately 1 hour through the desert.", icon: "🚐" },
-    { title: "San Pedro de Atacama", description: "The nearest town is just 5 minutes from the property — shops, restaurants, and local culture.", icon: "🗺" },
+    { title: "San Pedro de Atacama", description: "The nearest town is just 5 minutes from the property , shops, restaurants, and local culture.", icon: "🗺" },
     { title: "Altitude Guidance", description: "At 2,400m elevation, we schedule excursions progressively. Coca tea available throughout the property.", icon: "⛰" },
   ];
   return (
@@ -1168,7 +1168,7 @@ function GettingHereSection() {
 
 function AwardsSection() {
   const awards = [
-    { name: "2 Michelin Keys", description: "An exceptional stay — recognized by the MICHELIN Key guide", year: "2025" },
+    { name: "2 Michelin Keys", description: "An exceptional stay , recognized by the MICHELIN Key guide", year: "2025" },
     { name: "Distinción Turismo Sustentable", description: "Chile's national sustainable tourism certification", year: "2024" },
     { name: "Virtuoso Best of the Best", description: "Recognized among the world's finest luxury properties", year: "2024" },
   ];
@@ -1210,7 +1210,7 @@ function ReserveCTA() {
             </span>
           </TextReveal>
           <p className="text-[15px] leading-[1.8] mb-8" style={{ ...body, color: PALETTE.textSecondary }}>
-            All-inclusive luxury in the world's driest desert — stargazing, geothermal wellness, and desert explorations await.
+            All-inclusive luxury in the world's driest desert , stargazing, geothermal wellness, and desert explorations await.
           </p>
           <a
             href="/reserve?property=alto-atacama"

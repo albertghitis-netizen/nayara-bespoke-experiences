@@ -1,8 +1,8 @@
 /*
- * RAINFOREST POOL VILLA — Nayara Gardens
- * Design: "Canopy Retreat" — warm, romantic, editorial.
+ * RAINFOREST POOL VILLA , Nayara Gardens
+ * Design: "Canopy Retreat" , warm, romantic, editorial.
  *         Terracotta + deep green + thatched textures.
- *         The premium room at Gardens — adults-only feel.
+ *         The premium room at Gardens , adults-only feel.
  * Palette: Same Gardens green base but warmer terracotta accents
  */
 import { useState, useRef } from "react";
@@ -30,7 +30,7 @@ const body = { fontFamily: "var(--font-body)" } as const;
 
 /* ── Images ── */
 const IMG = {
-  hero: "/manus-storage/rv-1_0529a96c.jpg",           // canopy bed bedroom — HERO
+  hero: "/manus-storage/rv-1_0529a96c.jpg",           // canopy bed bedroom , HERO
   heroVideo: "/manus-storage/rfv-hero_027949f5.mp4",   // horizontal hero video
   daybed: "/manus-storage/rv-daybed_20e202ed.jpg",     // outdoor daybed
   detail: "/manus-storage/rv-detail_f052dbcf.jpg",     // interior detail
@@ -84,7 +84,7 @@ export default function RainforestPoolVilla() {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   S1 — HERO: Canopy bed bedroom shot
+   S1 , HERO: Canopy bed bedroom shot
    ════════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -137,7 +137,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -163,7 +163,7 @@ function HeroSection() {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   S2 — INTRO STRIP
+   S2 , INTRO STRIP
    ════════════════════════════════════════════════════════════════ */
 function IntroStrip() {
   return (
@@ -197,7 +197,7 @@ function IntroStrip() {
           className="text-sm md:text-base leading-[2] max-w-2xl mx-auto"
           style={{ ...body, color: P.textSoft }}
         >
-          The Rainforest Pool Villa is the most spacious accommodation at Nayara Gardens — over 1,100 square feet of living space elevated among the treetops. A canopy king bed draped in white netting, terracotta headboard, and hand-woven Persian rugs set the tone. The wraparound terrace holds a private plunge pool, an oversized Jacuzzi, and an outdoor rain shower, all framed by views of either the Arenal Volcano or the dense rainforest canopy. Handcrafted works by local Costa Rican artists adorn every surface.
+          The Rainforest Pool Villa is the most spacious accommodation at Nayara Gardens , over 1,100 square feet of living space elevated among the treetops. A canopy king bed draped in white netting, terracotta headboard, and hand-woven Persian rugs set the tone. The wraparound terrace holds a private plunge pool, an oversized Jacuzzi, and an outdoor rain shower, all framed by views of either the Arenal Volcano or the dense rainforest canopy. Handcrafted works by local Costa Rican artists adorn every surface.
         </motion.p>
 
         {/* Stats row */}
@@ -225,7 +225,7 @@ function IntroStrip() {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   S3 — STORY: Alternating image/text blocks
+   S3 , STORY: Alternating image/text blocks
    ════════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
@@ -269,7 +269,7 @@ function StorySection() {
               className="text-sm md:text-base leading-[2]"
               style={{ ...body, color: P.textSoft }}
             >
-              Beneath a soaring thatched ceiling, the king-size canopy bed is draped in sheer white netting and anchored by a bold terracotta headboard. A hand-woven Persian rug in deep reds and blues warms the hardwood floor. Sliding glass doors open directly onto the pool deck, blurring the line between bedroom and rainforest. The botanical wall murals are painted by hand — each villa is one of a kind.
+              Beneath a soaring thatched ceiling, the king-size canopy bed is draped in sheer white netting and anchored by a bold terracotta headboard. A hand-woven Persian rug in deep reds and blues warms the hardwood floor. Sliding glass doors open directly onto the pool deck, blurring the line between bedroom and rainforest. The botanical wall murals are painted by hand , each villa is one of a kind.
             </p>
           </motion.div>
         </div>
@@ -299,7 +299,7 @@ function StorySection() {
               className="text-sm md:text-base leading-[2]"
               style={{ ...body, color: P.textSoft }}
             >
-              The wraparound terrace is the heart of the Rainforest Pool Villa. A private plunge pool sits alongside an oversized Jacuzzi, both overlooking the volcano or the dense canopy below. The outdoor daybed invites long afternoons of reading, while the rain shower lets you bathe beneath the open sky. Three distinct seating zones — poolside lounge, dining area, and a covered reading nook — ensure every hour has its place.
+              The wraparound terrace is the heart of the Rainforest Pool Villa. A private plunge pool sits alongside an oversized Jacuzzi, both overlooking the volcano or the dense canopy below. The outdoor daybed invites long afternoons of reading, while the rain shower lets you bathe beneath the open sky. Three distinct seating zones , poolside lounge, dining area, and a covered reading nook , ensure every hour has its place.
             </p>
           </motion.div>
           <motion.div
@@ -339,7 +339,7 @@ function StorySection() {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   S4 — FEATURES BAND
+   S4 , FEATURES BAND
    ════════════════════════════════════════════════════════════════ */
 function FeaturesBand() {
   return (
@@ -390,7 +390,7 @@ function FeaturesBand() {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   S5 — PHOTO GRID: Detail shots
+   S5 , PHOTO GRID: Detail shots
    ════════════════════════════════════════════════════════════════ */
 function PhotoGrid() {
   const [lightbox, setLightbox] = useState<number | null>(null);
@@ -474,7 +474,7 @@ function PhotoGrid() {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   S6 — CTA: Reserve your villa
+   S6 , CTA: Reserve your villa
    ════════════════════════════════════════════════════════════════ */
 function CTASection() {
   return (

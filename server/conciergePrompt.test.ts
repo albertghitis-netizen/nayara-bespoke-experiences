@@ -1,5 +1,5 @@
 /**
- * Concierge System Prompt — Content Verification Tests
+ * Concierge System Prompt , Content Verification Tests
  * Ensures the knowledge base contains all required information for all 6 properties.
  */
 import { describe, it, expect } from "vitest";
@@ -7,7 +7,7 @@ import { NAYARA_CONCIERGE_SYSTEM_PROMPT } from "./conciergePrompt";
 
 const prompt = NAYARA_CONCIERGE_SYSTEM_PROMPT;
 
-describe("Concierge prompt — Lead capture & contact info", () => {
+describe("Concierge prompt , Lead capture & contact info", () => {
   it("instructs email capture early in conversation", () => {
     expect(prompt).toMatch(/email/i);
     expect(prompt).toMatch(/early/i);
@@ -36,7 +36,7 @@ describe("Concierge prompt — Lead capture & contact info", () => {
   });
 });
 
-describe("Concierge prompt — Suggested prompts", () => {
+describe("Concierge prompt , Suggested prompts", () => {
   it("includes all 4 suggested prompts", () => {
     expect(prompt).toContain("Pricing and Availability");
     expect(prompt).toContain("Rooms and Accommodations");
@@ -45,7 +45,7 @@ describe("Concierge prompt — Suggested prompts", () => {
   });
 });
 
-describe("Concierge prompt — All 6 properties present", () => {
+describe("Concierge prompt , All 6 properties present", () => {
   it("covers Alto Atacama", () => {
     expect(prompt).toContain("NAYARA ALTO ATACAMA");
     expect(prompt).toContain("Catarpe Valley");
@@ -80,7 +80,7 @@ describe("Concierge prompt — All 6 properties present", () => {
   });
 });
 
-describe("Concierge prompt — Property distinctions", () => {
+describe("Concierge prompt , Property distinctions", () => {
   it("identifies adults-only properties", () => {
     expect(prompt).toMatch(/Adults.only.*Springs/i);
     expect(prompt).toMatch(/adults.only.*Bocas/i);
@@ -102,7 +102,7 @@ describe("Concierge prompt — Property distinctions", () => {
   });
 });
 
-describe("Concierge prompt — Meal plans", () => {
+describe("Concierge prompt , Meal plans", () => {
   it("Costa Rica is breakfast included", () => {
     expect(prompt).toMatch(/Breakfast included/i);
   });
@@ -117,7 +117,7 @@ describe("Concierge prompt — Meal plans", () => {
   });
 });
 
-describe("Concierge prompt — Awards (correct info)", () => {
+describe("Concierge prompt , Awards (correct info)", () => {
   it("Springs has THREE Michelin Keys", () => {
     expect(prompt).toMatch(/Springs.*THREE Michelin Keys/i);
   });
@@ -143,7 +143,7 @@ describe("Concierge prompt — Awards (correct info)", () => {
   });
 });
 
-describe("Concierge prompt — Booking links", () => {
+describe("Concierge prompt , Booking links", () => {
   it("includes SynXis booking links for all properties", () => {
     expect(prompt).toContain("be.synxis.com");
     // Should have multiple booking links
@@ -152,7 +152,7 @@ describe("Concierge prompt — Booking links", () => {
   });
 });
 
-describe("Concierge prompt — Key differentiators", () => {
+describe("Concierge prompt , Key differentiators", () => {
   it("mentions Alto Atacama oasis advantage", () => {
     expect(prompt).toMatch(/oasis/i);
     expect(prompt).toMatch(/ONLY.*hotel.*oasis|oasis.*ONLY/i);

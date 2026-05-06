@@ -7,7 +7,7 @@ export default function LapasBar() {
         name: "Lapas Bar",
         tagline: "Poolside Cocktails & Tropical Bites",
         description:
-          "Lapas Bar is the heart of Nayara Tented Camp's social scene — a vibrant poolside bar where guests gather to enjoy handcrafted cocktails, tropical refreshments, and light bites. Surrounded by rainforest canopy and the sounds of nature, it's the perfect spot to unwind after a day of exploration.",
+          "Lapas Bar is the heart of Nayara Tented Camp's social scene , a vibrant poolside bar where guests gather to enjoy handcrafted cocktails, tropical refreshments, and light bites. Surrounded by rainforest canopy and the sounds of nature, it's the perfect spot to unwind after a day of exploration.",
         category: "gastronomy",
         categoryLabel: "Gastronomy · Nayara Tented Camp",
         property: "Nayara Tented Camp",

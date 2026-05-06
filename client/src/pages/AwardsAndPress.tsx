@@ -1,5 +1,5 @@
 /*
- * AWARDS & PRESS — Combined page
+ * AWARDS & PRESS , Combined page
  * Awards, Michelin Keys, certifications + press clips, all filterable by property
  */
 
@@ -294,7 +294,7 @@ export default function AwardsAndPress() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {[
-                  { keys: 3, property: "Nayara Springs", location: "Costa Rica", description: "The first hotel in Costa Rica to earn three Michelin Keys — the highest recognition. Adults-only, private hot spring plunge pools, and world-class wellness." },
+                  { keys: 3, property: "Nayara Springs", location: "Costa Rica", description: "The first hotel in Costa Rica to earn three Michelin Keys , the highest recognition. Adults-only, private hot spring plunge pools, and world-class wellness." },
                   { keys: 2, property: "Nayara Bocas del Toro", location: "Panama", description: "An overwater paradise in the Caribbean. Off-grid solar power, coral restoration, and the most biodiverse marine ecosystem in the region." },
                   { keys: 2, property: "Nayara Alto Atacama", location: "Chile", description: "The only luxury hotel in an actual desert oasis. Private observatory, 40+ curated excursions, and the clearest skies on Earth." },
                 ].map((item, i) => (

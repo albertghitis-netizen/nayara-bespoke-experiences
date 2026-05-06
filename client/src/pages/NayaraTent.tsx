@@ -1,6 +1,6 @@
 /*
- * NAYARA TENT — Deeper Room Detail Page
- * Layout: "Editorial Magazine" — matching FamilyTent structure
+ * NAYARA TENT , Deeper Room Detail Page
+ * Layout: "Editorial Magazine" , matching FamilyTent structure
  * Three-tone olive palette: primary #868B75, secondary #525642, accent #9A9086
  * Background: bone #EDEEE2
  */
@@ -65,12 +65,12 @@ const AMENITIES = [
 
 /* ── Gallery images for horizontal scroll ── */
 const GALLERY = [
-  { src: IMG.bedroom, alt: "Nayara Tent — Four-poster canopy bed with tropical wallpaper" },
-  { src: IMG.drone, alt: "Nayara Tent — Aerial view with Arenal Volcano" },
-  { src: IMG.bathroom, alt: "Nayara Tent — Freestanding soaking tub and dual vanity" },
-  { src: IMG.outdoorShower, alt: "Nayara Tent — Outdoor rain shower with green marble" },
-  { src: IMG.resortExterior, alt: "Nayara Tented Camp — Resort grounds" },
-  { src: IMG.tentExterior, alt: "Nayara Tent — Exterior view surrounded by rainforest" },
+  { src: IMG.bedroom, alt: "Nayara Tent , Four-poster canopy bed with tropical wallpaper" },
+  { src: IMG.drone, alt: "Nayara Tent , Aerial view with Arenal Volcano" },
+  { src: IMG.bathroom, alt: "Nayara Tent , Freestanding soaking tub and dual vanity" },
+  { src: IMG.outdoorShower, alt: "Nayara Tent , Outdoor rain shower with green marble" },
+  { src: IMG.resortExterior, alt: "Nayara Tented Camp , Resort grounds" },
+  { src: IMG.tentExterior, alt: "Nayara Tent , Exterior view surrounded by rainforest" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -94,7 +94,7 @@ export default function NayaraTent() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 — HERO: Full-bleed video with centered editorial title
+   S1 , HERO: Full-bleed video with centered editorial title
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -149,7 +149,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -170,7 +170,7 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Back pill — top right */}
+      {/* Back pill , top right */}
       <div className="absolute top-24 md:top-28 right-6 md:right-16">
         <a
           href="/tented-camp"
@@ -197,7 +197,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S2 — INTRO: Asymmetric two-column with overlapping card
+   S2 , INTRO: Asymmetric two-column with overlapping card
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -289,7 +289,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S3 — FULL-BLEED BREAK: Parallax drone image with quote
+   S3 , FULL-BLEED BREAK: Parallax drone image with quote
    ═══════════════════════════════════════════════════════════════ */
 function FullBleedBreak() {
   const ref = useRef<HTMLDivElement>(null);
@@ -304,7 +304,7 @@ function FullBleedBreak() {
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
           src={IMG.drone}
-          alt="Nayara Tented Camp from above — Arenal Volcano and rainforest canopy"
+          alt="Nayara Tented Camp from above , Arenal Volcano and rainforest canopy"
           className="w-full h-[120%] object-cover"
           loading="lazy"
         />
@@ -339,7 +339,7 @@ function FullBleedBreak() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S4 — FEATURES GRID: Staggered masonry with amenity cards
+   S4 , FEATURES GRID: Staggered masonry with amenity cards
    ═══════════════════════════════════════════════════════════════ */
 function FeaturesGrid() {
   return (
@@ -382,7 +382,7 @@ function FeaturesGrid() {
             >
               <img
                 src={IMG.bedroom}
-                alt="Nayara Tent — Four-poster canopy bed"
+                alt="Nayara Tent , Four-poster canopy bed"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -396,7 +396,7 @@ function FeaturesGrid() {
               </div>
             </motion.div>
 
-            {/* Amenity cards — left half */}
+            {/* Amenity cards , left half */}
             <div className="grid grid-cols-2 gap-4">
               {AMENITIES.slice(0, 6).map((item, i) => (
                 <motion.div
@@ -423,9 +423,9 @@ function FeaturesGrid() {
             </div>
           </div>
 
-          {/* Right column: offset — amenities + image */}
+          {/* Right column: offset , amenities + image */}
           <div className="space-y-6 md:space-y-8 md:mt-16">
-            {/* Amenity cards — right half */}
+            {/* Amenity cards , right half */}
             <div className="grid grid-cols-2 gap-4">
               {AMENITIES.slice(6).map((item, i) => (
                 <motion.div
@@ -460,7 +460,7 @@ function FeaturesGrid() {
             >
               <img
                 src={IMG.outdoorShower}
-                alt="Nayara Tent — Outdoor rain shower with green marble"
+                alt="Nayara Tent , Outdoor rain shower with green marble"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -554,7 +554,7 @@ function AmenityIcon({ type }: { type: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S5 — HORIZONTAL GALLERY: Drag-to-scroll image strip
+   S5 , HORIZONTAL GALLERY: Drag-to-scroll image strip
    ═══════════════════════════════════════════════════════════════ */
 function HorizontalGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -644,7 +644,7 @@ function HorizontalGallery() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S6 — TENT EXPERIENCE: Numbered editorial blocks
+   S6 , TENT EXPERIENCE: Numbered editorial blocks
    ═══════════════════════════════════════════════════════════════ */
 function TentExperience() {
   const blocks = [
@@ -759,7 +759,7 @@ function TentExperience() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S7 — CTA: Full-bleed photo background with centered reserve
+   S7 , CTA: Full-bleed photo background with centered reserve
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   const [hovered, setHovered] = useState(false);
@@ -808,7 +808,7 @@ function CTASection() {
             <button
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+              onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...body,

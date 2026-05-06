@@ -1,5 +1,5 @@
 /**
- * FLOOR PLAN EXPLORER — Gardens & Springs Edition
+ * FLOOR PLAN EXPLORER , Gardens & Springs Edition
  *
  * Architectural blueprints for:
  * - Nayara Gardens: Arenal Pool Casita (97m², 1 king + 2 daybeds, families)
@@ -29,14 +29,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 /* ── Palette ── */
 const C = {
-  // Gardens palette — deep forest green
+  // Gardens palette , deep forest green
   gardensBg: "#F4F6F0",
   gardensPaper: "#FAFBF7",
   gardensAccent: "#286241",
   gardensAccentLight: "#3A8A5E",
   gardensWall: "#1A3A2A",
   gardensWallMed: "#2A5A3A",
-  // Springs palette — sage mineral
+  // Springs palette , sage mineral
   springsBg: "#F5F5F0",
   springsPaper: "#FAFAF5",
   springsAccent: "#5F7367",
@@ -101,7 +101,7 @@ const TIERS: TierInfo[] = [
     sqm: "97",
     guests: "2 adults + 2 children",
     guestIcon: "👨‍👩‍👧‍👦",
-    tagline: "A private garden sanctuary with volcano views — perfect for families",
+    tagline: "A private garden sanctuary with volcano views , perfect for families",
     features: [
       "King-size four-poster bed",
       "2 twin daybeds (ideal for children)",
@@ -120,7 +120,7 @@ const TIERS: TierInfo[] = [
     sqm: "139",
     guests: "2 adults + 1 child",
     guestIcon: "👨‍👩‍👧",
-    tagline: "Elevated among the canopy — intimate luxury with room for one more",
+    tagline: "Elevated among the canopy , intimate luxury with room for one more",
     features: [
       "King-size four-poster bed",
       "1 daybed (suitable for a child)",
@@ -220,7 +220,7 @@ function KingBed({ x, y, w, h, delay = 0, showRug = true }: {
       {/* Mattress */}
       <rect x={x} y={y} width={w} height={h} rx={3}
         fill={C.bed} stroke={C.bedStroke} strokeWidth={1.2} />
-      {/* Headboard — thick dark bar */}
+      {/* Headboard , thick dark bar */}
       <rect x={x - 1} y={y - 3} width={w + 2} height={6} rx={2}
         fill={C.bedStroke} opacity={0.7} />
       {/* Dual pillows */}
@@ -245,7 +245,7 @@ function KingBed({ x, y, w, h, delay = 0, showRug = true }: {
   );
 }
 
-/** Daybed — clearly labeled for child/lounging */
+/** Daybed , clearly labeled for child/lounging */
 function Daybed({ x, y, w, h, delay = 0, label = "Daybed" }: {
   x: number; y: number; w: number; h: number; delay?: number; label?: string;
 }) {
@@ -273,7 +273,7 @@ function Daybed({ x, y, w, h, delay = 0, label = "Daybed" }: {
   );
 }
 
-/** Person icon — shows capacity */
+/** Person icon , shows capacity */
 function PersonIcon({ x, y, isChild = false, delay = 0 }: {
   x: number; y: number; isChild?: boolean; delay?: number;
 }) {
@@ -315,7 +315,7 @@ function DoorArc({ cx, cy, r = 14, startAngle = 0, delay = 0 }: {
   );
 }
 
-/** Sliding glass door — architectural symbol */
+/** Sliding glass door , architectural symbol */
 function SlidingDoor({ x, y, w, vertical = false, delay = 0 }: {
   x: number; y: number; w: number; vertical?: boolean; delay?: number;
 }) {
@@ -350,7 +350,7 @@ function BathRoom({ x, y, w, h, delay = 0, hasOutdoorShower = false }: {
       initial={{ opacity: 0 }} animate={{ opacity: 0.5 }}
       transition={{ duration: FADE, delay: delay + 0.5 }}
     >
-      {/* Tile pattern — subtle grid */}
+      {/* Tile pattern , subtle grid */}
       {Array.from({ length: Math.floor(w / 8) }).map((_, i) => (
         <line key={`tv${i}`} x1={x + i * 8 + 4} y1={y + 2} x2={x + i * 8 + 4} y2={y + h - 2}
           stroke={C.bathStroke} strokeWidth={0.15} opacity={0.3} />
@@ -359,7 +359,7 @@ function BathRoom({ x, y, w, h, delay = 0, hasOutdoorShower = false }: {
         <line key={`th${i}`} x1={x + 2} y1={y + i * 8 + 4} x2={x + w - 2} y2={y + i * 8 + 4}
           stroke={C.bathStroke} strokeWidth={0.15} opacity={0.3} />
       ))}
-      {/* Bathtub — freestanding oval */}
+      {/* Bathtub , freestanding oval */}
       <ellipse cx={x + w * 0.35} cy={y + h * 0.35} rx={16} ry={10}
         fill={C.bath} stroke={C.bathStroke} strokeWidth={0.8} />
       <ellipse cx={x + w * 0.35} cy={y + h * 0.35} rx={12} ry={7}
@@ -495,7 +495,7 @@ function Pool({ cx, cy, w, h, delay = 0, label = "Plunge Pool", isHotSprings = f
   );
 }
 
-/** Vegetation — tree/plant circles */
+/** Vegetation , tree/plant circles */
 function Tree({ cx, cy, r = 9, delay = 0, dense = false }: {
   cx: number; cy: number; r?: number; delay?: number; dense?: boolean;
 }) {
@@ -521,7 +521,7 @@ function Tree({ cx, cy, r = 9, delay = 0, dense = false }: {
   );
 }
 
-/** Lounge furniture — chairs, table */
+/** Lounge furniture , chairs, table */
 function LoungeSet({ x, y, delay = 0 }: { x: number; y: number; delay?: number }) {
   return (
     <motion.g initial={{ opacity: 0 }} animate={{ opacity: 0.4 }}
@@ -657,7 +657,7 @@ function ViewArrow({ x, y, angle = 0, label = "Volcano View", delay = 0 }: {
 
 /* ══════════════════════════════════════════════════════════════════
    ARENAL POOL CASITA BLUEPRINT
-   97m² — 1 King + 2 Daybeds — Family-friendly
+   97m² , 1 King + 2 Daybeds , Family-friendly
    ══════════════════════════════════════════════════════════════════ */
 function CasitaBP() {
   // Main room
@@ -669,17 +669,17 @@ function CasitaBP() {
 
   return (
     <g>
-      {/* Main room outline — thick walls */}
+      {/* Main room outline , thick walls */}
       <Room path={rr(rx, ry, rw, rh, 5)} delay={0}
         fill={`${C.gardensPaper}90`} stroke={C.gardensWall} sw={2.8} hover />
 
       {/* Sliding glass doors to terrace */}
       <SlidingDoor x={rx + rw} y={ry + 40} w={50} vertical delay={0.3} />
 
-      {/* King bed — center of room */}
+      {/* King bed , center of room */}
       <KingBed x={rx + 50} y={ry + 75} w={80} h={60} delay={0.3} />
 
-      {/* Two daybeds — near window/terrace side */}
+      {/* Two daybeds , near window/terrace side */}
       <Daybed x={rx + 12} y={ry + 12} w={55} h={35} delay={0.5} label="Daybed (child)" />
       <Daybed x={rx + 12} y={ry + 110} w={55} h={35} delay={0.55} label="Daybed (child)" />
 
@@ -695,12 +695,12 @@ function CasitaBP() {
       <BathRoom x={bx + 2} y={by + 2} w={bw - 4} h={bh - 4} delay={0.4} hasOutdoorShower />
       <DoorArc cx={bx} cy={by + bh / 2} r={12} startAngle={180} delay={0.4} />
 
-      {/* Terrace — wrap-around */}
+      {/* Terrace , wrap-around */}
       <Terrace x={tx} y={ty} w={tw} h={th} delay={0.4} label="Covered Terrace" />
       <LoungeSet x={tx + 10} y={ty + 15} delay={0.5} />
       <DiningSet x={tx + 12} y={ty + 80} delay={0.55} />
 
-      {/* Plunge pool — in front of terrace */}
+      {/* Plunge pool , in front of terrace */}
       <Pool cx={tx + tw + 35} cy={ty + th / 2} w={45} h={45} delay={0.6}
         label="Plunge Pool" />
 
@@ -733,14 +733,14 @@ function CasitaBP() {
 
 /* ══════════════════════════════════════════════════════════════════
    RAINFOREST POOL VILLA BLUEPRINT
-   139m² — 1 King + 1 Daybed — Couples + 1 child
+   139m² , 1 King + 1 Daybed , Couples + 1 child
    ══════════════════════════════════════════════════════════════════ */
 function RainforestVillaBP() {
   // Main bedroom
   const rx = 60, ry = 70, rw = 160, rh = 140;
-  // Living area — connected
+  // Living area , connected
   const lx = rx + rw + 8, ly = ry + 10, lw = 90, lh = 100;
-  // Bathroom — large
+  // Bathroom , large
   const bx = rx + 10, by = ry + rh - 60, bw = 70, bh = 52;
   // Wrap-around terrace
   const tx = lx + lw + 4, ty = ry - 10, tw = 55, th = 160;
@@ -823,14 +823,14 @@ function RainforestVillaBP() {
 
 /* ══════════════════════════════════════════════════════════════════
    SPRINGS VILLA BLUEPRINT
-   139m² — 1 King — Adults Only — Hot Springs Pool
+   139m² , 1 King , Adults Only , Hot Springs Pool
    ══════════════════════════════════════════════════════════════════ */
 function SpringsVillaBP() {
-  // Main room — generous open plan
+  // Main room , generous open plan
   const rx = 70, ry = 55, rw = 190, rh = 170;
-  // Bathroom — luxurious
+  // Bathroom , luxurious
   const bx = rx + rw - 80, by = ry + rh - 60, bw = 72, bh = 52;
-  // Terrace — expansive
+  // Terrace , expansive
   const tx = rx + rw + 4, ty = ry + 10, tw = 70, th = 150;
 
   return (
@@ -839,14 +839,14 @@ function SpringsVillaBP() {
       <Room path={rr(rx, ry, rw, rh, 5)} delay={0}
         fill={`${C.springsPaper}90`} stroke={C.springsWall} sw={2.8} hover />
 
-      {/* Sliding glass doors — full width to terrace */}
+      {/* Sliding glass doors , full width to terrace */}
       <SlidingDoor x={rx + rw} y={ry + 30} w={60} vertical delay={0.3} />
       <SlidingDoor x={rx + rw} y={ry + 100} w={40} vertical delay={0.35} />
 
-      {/* King bed — prominent center placement */}
+      {/* King bed , prominent center placement */}
       <KingBed x={rx + 55} y={ry + 20} w={85} h={65} delay={0.3} />
 
-      {/* Living daybed — NOT for sleeping, for lounging */}
+      {/* Living daybed , NOT for sleeping, for lounging */}
       <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.5 }}>
         <rect x={rx + 15} y={ry + 105} width={70} height={35} rx={3}
@@ -859,7 +859,7 @@ function SpringsVillaBP() {
         </text>
       </motion.g>
 
-      {/* Person icons — adults only */}
+      {/* Person icons , adults only */}
       <PersonIcon x={rx + 92} y={ry + 13} delay={0.8} />
       <PersonIcon x={rx + 102} y={ry + 13} delay={0.85} />
 
@@ -874,13 +874,13 @@ function SpringsVillaBP() {
         </text>
       </motion.g>
 
-      {/* Bathroom — oversized luxury */}
+      {/* Bathroom , oversized luxury */}
       <Room path={rr(bx, by, bw, bh, 3)} delay={0.3}
         fill={`${C.bath}40`} stroke={C.springsWallMed} sw={1.5} />
       <BathRoom x={bx + 2} y={by + 2} w={bw - 4} h={bh - 4} delay={0.4} hasOutdoorShower />
       <DoorArc cx={bx} cy={by + bh / 2} r={12} startAngle={180} delay={0.4} />
 
-      {/* Terrace — expansive with hot springs focus */}
+      {/* Terrace , expansive with hot springs focus */}
       <Terrace x={tx} y={ty} w={tw} h={th} delay={0.4} label="Private Terrace" />
 
       {/* Terrace daybed */}
@@ -895,7 +895,7 @@ function SpringsVillaBP() {
       {/* Dining on terrace */}
       <DiningSet x={tx + 15} y={ty + 20} delay={0.55} />
 
-      {/* Hot Springs Plunge Pool — THE signature feature */}
+      {/* Hot Springs Plunge Pool , THE signature feature */}
       <Pool cx={tx + tw + 40} cy={ty + th / 2 - 10} w={55} h={55} delay={0.6}
         label="Hot Springs Pool" isHotSprings />
 
@@ -912,7 +912,7 @@ function SpringsVillaBP() {
       {/* View direction */}
       <ViewArrow x={tx + tw + 15} y={ty - 10} angle={-35} label="Volcano View" delay={0.7} />
 
-      {/* Lush vegetation — Springs is surrounded by dense forest */}
+      {/* Lush vegetation , Springs is surrounded by dense forest */}
       <Tree cx={rx - 30} cy={ry - 10} r={13} delay={0} dense />
       <Tree cx={rx - 35} cy={ry + 50} r={9} delay={0.05} dense />
       <Tree cx={rx - 28} cy={ry + 110} r={11} delay={0.1} />
@@ -1093,7 +1093,7 @@ export default function FloorPlanGardensSprings({
                   </div>
                 </div>
 
-                {/* Capacity — prominent */}
+                {/* Capacity , prominent */}
                 <div className="flex items-center gap-3 mb-6 px-4 py-3 rounded-lg"
                   style={{ backgroundColor: `${accent}08`, border: `1px solid ${accent}20` }}>
                   <span className="text-lg">{activeInfo.guestIcon}</span>
@@ -1123,7 +1123,7 @@ export default function FloorPlanGardensSprings({
 
                 {/* CTA */}
                 <button
-                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
                   className="inline-flex items-center gap-2 px-7 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03]"
                   style={{
                     ...body, fontWeight: 500, fontSize: "10px",

@@ -1,8 +1,8 @@
 /*
- * Hero Section — Full-viewport cinematic intro
+ * Hero Section , Full-viewport cinematic intro
  * Uses real uploaded video as background
  * Desktop: horizontal video | Mobile: vertical video
- * Just "Bespoke Experiences" at the bottom — clean and minimal
+ * Just "Bespoke Experiences" at the bottom , clean and minimal
  */
 
 import { useRef, useEffect } from "react";
@@ -51,7 +51,7 @@ export default function HeroSection({ onInView }: HeroSectionProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
       </div>
 
-      {/* Content — centered at bottom */}
+      {/* Content , centered at bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}

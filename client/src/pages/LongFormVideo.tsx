@@ -1,5 +1,5 @@
 /*
- * LONG-FORM VIDEO — Watch Atacama Sustainability with Language Options
+ * LONG-FORM VIDEO , Watch Atacama Sustainability with Language Options
  * English and Spanish video variants with toggle
  */
 import { useState } from "react";
@@ -39,7 +39,7 @@ export default function LongFormVideo() {
               className="text-lg text-[#5a4a3a]"
               style={body}
             >
-              How Nayara Alto Atacama operates sustainably in the driest desert on Earth — solar energy, adobe architecture, and 100% water reuse.
+              How Nayara Alto Atacama operates sustainably in the driest desert on Earth , solar energy, adobe architecture, and 100% water reuse.
             </p>
           </motion.div>
 

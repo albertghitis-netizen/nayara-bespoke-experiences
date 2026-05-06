@@ -1,7 +1,7 @@
 /*
- * NAYARA RESIDENCE — Deeper Room Detail Page
+ * NAYARA RESIDENCE , Deeper Room Detail Page
  * Layout: Editorial Magazine (matching FamilyTent/GrandTent style)
- * 712 sqm / 7,664 sq ft — 2 Nayara Tents (each: king + 2 daybeds) +
+ * 712 sqm / 7,664 sq ft , 2 Nayara Tents (each: king + 2 daybeds) +
  * 2 connecting rooms (each: 2 queens) + living area hub + infinity pool +
  * fire pit + full kitchen + private concierge
  * Palette: Olive 3-tone (#868B75, #525642, #9A9086) on bone #EDEEE2
@@ -90,7 +90,7 @@ export default function Residence() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 — HERO: Full-bleed video with room name overlay
+   S1 , HERO: Full-bleed video with room name overlay
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -142,7 +142,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -162,7 +162,7 @@ function HeroSection() {
           </button>
         </motion.div>
       </div>
-      {/* Back pill — top right */}
+      {/* Back pill , top right */}
       <div className="absolute top-24 md:top-28 right-6 md:right-16 z-20">
         <a
           href="/tented-camp"
@@ -189,7 +189,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S2 — INTRO: Image left, text right
+   S2 , INTRO: Image left, text right
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -322,19 +322,19 @@ function FullBleedBreak() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FEATURES GRID — Alternating text/image
+   FEATURES GRID , Alternating text/image
    ═══════════════════════════════════════════════════════════════ */
 function FeaturesGrid() {
   const features = [
     {
       title: "Four Private Bedrooms",
-      desc: "Two master guest rooms each with a king-size 4-poster bed and their own private plunge pool fed by natural hot springs. Two additional rooms each with two queen-size beds — perfect for multi-generational families or groups of friends.",
+      desc: "Two master guest rooms each with a king-size 4-poster bed and their own private plunge pool fed by natural hot springs. Two additional rooms each with two queen-size beds , perfect for multi-generational families or groups of friends.",
       img: IMG.bedroom,
       alt: "Residence master bedroom with king-size 4-poster bed",
     },
     {
       title: "Grand Living & Kitchen",
-      desc: "A fully equipped kitchen and dining room connected to expansive indoor and outdoor living spaces. Large outdoor dining area with daybeds, a private fire pit, and a private infinity pool from hot springs — the ultimate gathering place.",
+      desc: "A fully equipped kitchen and dining room connected to expansive indoor and outdoor living spaces. Large outdoor dining area with daybeds, a private fire pit, and a private infinity pool from hot springs , the ultimate gathering place.",
       img: IMG.kidsRoom,
       alt: "Residence living area and kitchen",
     },
@@ -406,7 +406,7 @@ function FeaturesGrid() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CONCIERGE SECTION — Dark section with parallax
+   CONCIERGE SECTION , Dark section with parallax
    ═══════════════════════════════════════════════════════════════ */
 function ConciergeSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -482,7 +482,7 @@ function ConciergeSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AMENITIES SECTION — Elegant list
+   AMENITIES SECTION , Elegant list
    ═══════════════════════════════════════════════════════════════ */
 function AmenitiesSection() {
   return (
@@ -511,7 +511,7 @@ function AmenitiesSection() {
             className="text-xs tracking-[0.15em] uppercase mt-2"
             style={{ ...body, fontWeight: 500, color: P.textMuted }}
           >
-            Max. 12 adults or families with children and 2 babies — cribs available
+            Max. 12 adults or families with children and 2 babies , cribs available
           </p>
         </motion.div>
 
@@ -550,7 +550,7 @@ function AmenitiesSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NATURE SECTION — Luxury adventures
+   NATURE SECTION , Luxury adventures
    ═══════════════════════════════════════════════════════════════ */
 function NatureSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -734,7 +734,7 @@ function HorizontalGallery() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CTA SECTION — Photo background with centered reserve
+   CTA SECTION , Photo background with centered reserve
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   const [hovered, setHovered] = useState(false);
@@ -782,7 +782,7 @@ function CTASection() {
             <button
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+              onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...body,

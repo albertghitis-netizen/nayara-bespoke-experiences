@@ -1,5 +1,5 @@
 /**
- * HotelFilterBar Variant 5 — Dropdown/select menu
+ * HotelFilterBar Variant 5 , Dropdown/select menu
  * For: Journal and Gallery pages
  */
 

@@ -1,5 +1,5 @@
 /*
- * BOCAS DEL TORO ROOMS — Dedicated rooms/accommodations sub-page
+ * BOCAS DEL TORO ROOMS , Dedicated rooms/accommodations sub-page
  * Mirrors Alto Atacama secondary page structure with Caribbean ocean palette
  */
 
@@ -89,7 +89,7 @@ function RoomsContent() {
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
             On a private island in Panama's Caribbean archipelago, each villa is a sanctuary
-            where the jungle meets the sea. Overwater, treehouse, or garden — every accommodation
+            where the jungle meets the sea. Overwater, treehouse, or garden , every accommodation
             offers an intimate connection with the turquoise waters and tropical landscapes of
             Bocas del Toro.
           </p>

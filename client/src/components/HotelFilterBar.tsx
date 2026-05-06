@@ -1,5 +1,5 @@
 /**
- * HotelFilterBar — Shared filter component for all brand pages
+ * HotelFilterBar , Shared filter component for all brand pages
  * Displays 6 hotel options without "All" option
  */
 

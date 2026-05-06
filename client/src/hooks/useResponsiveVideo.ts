@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 /**
- * useResponsiveVideo — Returns loop setting based on screen size
+ * useResponsiveVideo , Returns loop setting based on screen size
  * Desktop (md+): loop = true
  * Mobile: loop = false (ends on last frame)
  */

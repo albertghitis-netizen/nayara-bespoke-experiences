@@ -1,18 +1,18 @@
 /**
- * JOURNAL DATA — Unified feed of blog articles, video episodes, and newsletters
+ * JOURNAL DATA , Unified feed of blog articles, video episodes, and newsletters
  * All content merged into a single JournalEntry type for the unified Journal page.
  * Filtered by PROPERTY only (no pillar/topic filters).
  */
 
 // ─── Types ────────────────────────────────────────────────────
 
-/** Unified entry for the Journal feed — either an article or a video episode */
+/** Unified entry for the Journal feed , either an article or a video episode */
 export interface JournalEntry {
   id: string;
   title: string;
   excerpt: string;
   image: string;
-  /** Property filter tag — matches property slug or "brand" for cross-property content */
+  /** Property filter tag , matches property slug or "brand" for cross-property content */
   property: JournalProperty;
   /** "article" links out to blog.nayararesorts.com; "video" plays inline with YouTube embed; "audio" links to podcast player */
   type: "article" | "video" | "audio";
@@ -26,10 +26,10 @@ export interface JournalEntry {
   guest?: string;
   /** Whether this entry should be featured at the top */
   featured?: boolean;
-  /** Sort date (ISO-ish or descriptive — used for ordering) */
+  /** Sort date (ISO-ish or descriptive , used for ordering) */
   date?: string;
   /**
-   * EN/ES language variants — for sustainability videos that have both languages.
+   * EN/ES language variants , for sustainability videos that have both languages.
    * When present, the card shows two pills: 🇺🇸 English and 🇪🇸 Spanish.
    */
   languageVariants?: {
@@ -41,12 +41,12 @@ export interface JournalEntry {
   /** For audio entries: external podcast URL (Apple Podcasts, Spotify, etc.) */
   podcastUrl?: string;
   /**
-   * Listen URL — when present alongside youtubeId, the card shows dual CTAs:
+   * Listen URL , when present alongside youtubeId, the card shows dual CTAs:
    * ▶ Watch (opens YouTube) and 🎧 Listen (opens this URL).
    * For audio-only entries, use podcastUrl instead.
    */
   listenUrl?: string;
-  /** Sort priority — lower number = earlier in feed (0 = always first) */
+  /** Sort priority , lower number = earlier in feed (0 = always first) */
   sortPriority?: number;
   /** When true, card shows a "Coming Soon" overlay instead of active CTAs */
   comingSoon?: boolean;
@@ -111,7 +111,7 @@ const blogArticles: JournalEntry[] = [
     property: "springs",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/E056D1CD-5240-40E5-8567-21240563F763%203.jpg",
-    excerpt: "Nayara Resorts earns seven MICHELIN Keys across three countries — a testament to exceptional character, service, and sense of place.",
+    excerpt: "Nayara Resorts earns seven MICHELIN Keys across three countries , a testament to exceptional character, service, and sense of place.",
     featured: true,
   },
   {
@@ -148,7 +148,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bird-watching-hero_ddf4b8c3.jpg",
-    excerpt: "Every Nayara property is defined by seven elements that create a sense of place — from landscape and architecture to cuisine and community.",
+    excerpt: "Every Nayara property is defined by seven elements that create a sense of place , from landscape and architecture to cuisine and community.",
   },
   {
     id: "sunlit-sustainability",
@@ -175,7 +175,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
-    excerpt: "Discover holistic wellness at Nayara Resorts, where nature's tranquility — forest, desert, and sea — revitalizes mind, body, and spirit.",
+    excerpt: "Discover holistic wellness at Nayara Resorts, where nature's tranquility , forest, desert, and sea , revitalizes mind, body, and spirit.",
   },
   {
     id: "hot-springs-plunge-pools",
@@ -184,7 +184,7 @@ const blogArticles: JournalEntry[] = [
     property: "springs",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/6-Dec-07-2025-04-10-58-5077-AM.png",
-    excerpt: "From Roman thermae to Nayara Springs — the science and history behind private hot springs plunge pools and their profound wellness benefits.",
+    excerpt: "From Roman thermae to Nayara Springs , the science and history behind private hot springs plunge pools and their profound wellness benefits.",
   },
   {
     id: "holistic-wellness",
@@ -193,7 +193,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
-    excerpt: "How Nayara Resorts is redefining wellness through nature-based experiences that go beyond the spa — into the landscape itself.",
+    excerpt: "How Nayara Resorts is redefining wellness through nature-based experiences that go beyond the spa , into the landscape itself.",
   },
   {
     id: "ancient-wellness-easter-island",
@@ -202,7 +202,7 @@ const blogArticles: JournalEntry[] = [
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Drawing%20from%20Time",
-    excerpt: "Easter Island's Polynesian heritage holds ancient wellness wisdom — from ocean immersion to volcanic mineral baths and celestial navigation.",
+    excerpt: "Easter Island's Polynesian heritage holds ancient wellness wisdom , from ocean immersion to volcanic mineral baths and celestial navigation.",
   },
   {
     id: "wildlife-arenal-bocas",
@@ -211,7 +211,7 @@ const blogArticles: JournalEntry[] = [
     property: "gardens",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
-    excerpt: "From sloths to sea turtles — how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
+    excerpt: "From sloths to sea turtles , how Nayara Resorts protects wildlife across Costa Rica's rainforests and Panama's Caribbean islands.",
   },
   {
     id: "wildlife-atacama-easter-island",
@@ -220,7 +220,7 @@ const blogArticles: JournalEntry[] = [
     property: "alto-atacama",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Hangaroa-Horses-2048x13",
-    excerpt: "Vicuñas, flamingos, and endemic species — conservation efforts protecting Chile's most fragile ecosystems.",
+    excerpt: "Vicuñas, flamingos, and endemic species , conservation efforts protecting Chile's most fragile ecosystems.",
   },
   {
     id: "biodensity-underwater",
@@ -229,7 +229,7 @@ const blogArticles: JournalEntry[] = [
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Biodensity%2c%20Underwater",
-    excerpt: "A deep dive into the marine biodensity of Bocas del Toro — underwater mountains, coral reefs, and the ecosystems that sustain them.",
+    excerpt: "A deep dive into the marine biodensity of Bocas del Toro , underwater mountains, coral reefs, and the ecosystems that sustain them.",
   },
   {
     id: "collapse-maya-rapanui",
@@ -238,7 +238,7 @@ const blogArticles: JournalEntry[] = [
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Photo%20Jan%2014%202026%2c%2007%2042%2012.j",
-    excerpt: "The Maya and Rapa Nui civilizations didn't collapse — they adapted. What their resilience teaches us about climate, survival, and cultural continuity.",
+    excerpt: "The Maya and Rapa Nui civilizations didn't collapse , they adapted. What their resilience teaches us about climate, survival, and cultural continuity.",
   },
   {
     id: "solo-travel-female",
@@ -256,7 +256,7 @@ const blogArticles: JournalEntry[] = [
     property: "gardens",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(6",
-    excerpt: "From volcano hikes to wildlife encounters — how Nayara creates family vacations that inspire wonder and connection across generations.",
+    excerpt: "From volcano hikes to wildlife encounters , how Nayara creates family vacations that inspire wonder and connection across generations.",
   },
   {
     id: "nayara-by-night",
@@ -265,7 +265,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/2025/Moon.jpg",
-    excerpt: "When the sun sets, Nayara transforms. From the Atacama's observatory to Bocas del Toro's bioluminescent bays — the night reveals a different world.",
+    excerpt: "When the sun sets, Nayara transforms. From the Atacama's observatory to Bocas del Toro's bioluminescent bays , the night reveals a different world.",
   },
   {
     id: "pura-vida",
@@ -274,7 +274,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/IMG_9102.jpg",
-    excerpt: "Pura Vida isn't just a saying — it's a measurable phenomenon. The science behind why Costa Rica consistently ranks among the happiest places on Earth.",
+    excerpt: "Pura Vida isn't just a saying , it's a measurable phenomenon. The science behind why Costa Rica consistently ranks among the happiest places on Earth.",
     featured: true,
   },
   {
@@ -288,12 +288,12 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "adventures-in-flavor",
-    title: "Adventures in Flavor — Costa Rica",
+    title: "Adventures in Flavor , Costa Rica",
     url: "https://blog.nayararesorts.com/nayara-arenals-adventures-in-flavor",
     property: "tented-camp",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/WhatsApp%20Image%202025-04-30%20at%2015-48-",
-    excerpt: "From farm to table in the Arenal rainforest — how Nayara's chefs transform local ingredients into extraordinary dining experiences.",
+    excerpt: "From farm to table in the Arenal rainforest , how Nayara's chefs transform local ingredients into extraordinary dining experiences.",
   },
   {
     id: "arenal-timeless-wonder",
@@ -331,7 +331,7 @@ const blogArticles: JournalEntry[] = [
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/5%20Interesting%20Fac",
-    excerpt: "Discover the history, culture, and natural beauty of Bocas del Toro, Panama — from its colonial past to its bioluminescent bays.",
+    excerpt: "Discover the history, culture, and natural beauty of Bocas del Toro, Panama , from its colonial past to its bioluminescent bays.",
   },
   {
     id: "treehouse-dreams",
@@ -340,7 +340,7 @@ const blogArticles: JournalEntry[] = [
     property: "bocas-del-toro",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-bungalow_f4de28d6.jpg",
-    excerpt: "Nayara Bocas del Toro's treehouse villas redefine luxury — suspended above the Caribbean, surrounded by mangroves and starlight.",
+    excerpt: "Nayara Bocas del Toro's treehouse villas redefine luxury , suspended above the Caribbean, surrounded by mangroves and starlight.",
   },
   {
     id: "floating-paradise",
@@ -386,7 +386,7 @@ const blogArticles: JournalEntry[] = [
     property: "alto-atacama",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg",
-    excerpt: "Desert silence, mineral baths under the stars, and the world's clearest skies — why the Atacama winter is the ultimate romantic escape.",
+    excerpt: "Desert silence, mineral baths under the stars, and the world's clearest skies , why the Atacama winter is the ultimate romantic escape.",
   },
   {
     id: "oasis-atacama",
@@ -422,7 +422,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(1).jpg",
-    excerpt: "A comprehensive guide to the climate and conditions at each Nayara Resort — what to expect and what to bring.",
+    excerpt: "A comprehensive guide to the climate and conditions at each Nayara Resort , what to expect and what to bring.",
   },
   {
     id: "hito-family-rapanui",
@@ -440,7 +440,7 @@ const blogArticles: JournalEntry[] = [
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Challenge%20Easter%20Island%E2%80%99s%20Outdoors%20with%20Nayara%20Hangaroa%20(3)-1-1.jpeg",
-    excerpt: "Discover the ultimate adventure on Easter Island — from trekking volcanoes to exploring ancient ceremonial sites.",
+    excerpt: "Discover the ultimate adventure on Easter Island , from trekking volcanoes to exploring ancient ceremonial sites.",
   },
   {
     id: "green-globe",
@@ -458,7 +458,7 @@ const blogArticles: JournalEntry[] = [
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Tapati%20Rapa%20Nui%20Festival%20at%20Nayara%20Hangaroa%20(6).jpg",
-    excerpt: "The Tapati Festival lights up Easter Island every February — music, dance, ancestral competitions, and the living spirit of Rapa Nui.",
+    excerpt: "The Tapati Festival lights up Easter Island every February , music, dance, ancestral competitions, and the living spirit of Rapa Nui.",
   },
   {
     id: "fiery-heart-springs",
@@ -467,7 +467,7 @@ const blogArticles: JournalEntry[] = [
     property: "springs",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-pools_8e255e18.png",
-    excerpt: "Where volcanic warmth meets rainforest serenity — the story of Nayara Springs and why it's the most romantic resort in Costa Rica.",
+    excerpt: "Where volcanic warmth meets rainforest serenity , the story of Nayara Springs and why it's the most romantic resort in Costa Rica.",
   },
   {
     id: "birdwatching-costa-rica",
@@ -476,7 +476,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Scarlet-macaw-NA_CR_15-2048x1638.jpeg",
-    excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans — a birdwatcher's paradise.",
+    excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans , a birdwatcher's paradise.",
   },
   {
     id: "private-island-bocas",
@@ -485,7 +485,7 @@ const blogArticles: JournalEntry[] = [
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
-    excerpt: "A private island sanctuary in Panama's Caribbean archipelago — overwater villas, bioluminescent bays, and pristine coral reefs.",
+    excerpt: "A private island sanctuary in Panama's Caribbean archipelago , overwater villas, bioluminescent bays, and pristine coral reefs.",
   },
   {
     id: "bocas-history-culture-nature",
@@ -494,7 +494,7 @@ const blogArticles: JournalEntry[] = [
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/5%20Interesting%20Fac",
-    excerpt: "Discover the rich history, vibrant culture, and pristine natural beauty of Bocas del Toro — from its colonial heritage to bioluminescent bays.",
+    excerpt: "Discover the rich history, vibrant culture, and pristine natural beauty of Bocas del Toro , from its colonial heritage to bioluminescent bays.",
   },
   {
     id: "nayara-bocas-resort-experience",
@@ -503,7 +503,7 @@ const blogArticles: JournalEntry[] = [
     property: "bocas-del-toro",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg",
-    excerpt: "Experience the architectural innovation and natural beauty of Nayara Bocas — from overwater villas to treehouses to the world's first aerial beach.",
+    excerpt: "Experience the architectural innovation and natural beauty of Nayara Bocas , from overwater villas to treehouses to the world's first aerial beach.",
   },
   {
     id: "bocas-conde-nast-award",
@@ -512,7 +512,7 @@ const blogArticles: JournalEntry[] = [
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/8-Oct-07-2025-04-49-30-6724-AM.png",
-    excerpt: "Celebrating our 2025 award as the top luxury resort in Central America — a testament to innovation, sustainability, and unparalleled hospitality.",
+    excerpt: "Celebrating our 2025 award as the top luxury resort in Central America , a testament to innovation, sustainability, and unparalleled hospitality.",
     featured: true,
   },
   {
@@ -522,7 +522,7 @@ const blogArticles: JournalEntry[] = [
     property: "brand",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/night-sky_hero.jpg",
-    excerpt: "Discover the magic of darkness and celestial wonders — stargazing, bioluminescence, and the transformative power of the night sky at Nayara.",
+    excerpt: "Discover the magic of darkness and celestial wonders , stargazing, bioluminescence, and the transformative power of the night sky at Nayara.",
   },
 ];
 
@@ -537,7 +537,7 @@ const audioEpisodes: JournalEntry[] = [
     duration: "42 min",
     guest: "Leo Ghitis, Co-Founder & CEO",
     image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
-    excerpt: "Nayara Co-Founder & CEO Leo Ghitis speaks with AFAR Magazine about pioneering sustainable luxury across Latin America's most extraordinary landscapes — from Costa Rica's rainforests to Chile's Atacama Desert.",
+    excerpt: "Nayara Co-Founder & CEO Leo Ghitis speaks with AFAR Magazine about pioneering sustainable luxury across Latin America's most extraordinary landscapes , from Costa Rica's rainforests to Chile's Atacama Desert.",
     featured: true,
     sortPriority: 0,
     date: "2025-11",
@@ -552,7 +552,7 @@ const videoEpisodes: JournalEntry[] = [
     type: "video",
     property: "hangaroa",
     youtubeId: "FRPVRcUTNmk",
-    // Placeholder listen URL — replace with actual podcast episode link when available
+    // Placeholder listen URL , replace with actual podcast episode link when available
     listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "45 min",
     guest: "Hitorangi Family",
@@ -565,19 +565,19 @@ const videoEpisodes: JournalEntry[] = [
     type: "video",
     property: "hangaroa",
     youtubeId: "qFVLTTJa7hE",
-    // Placeholder listen URL — replace with actual podcast episode link when available
+    // Placeholder listen URL , replace with actual podcast episode link when available
     listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "38 min",
     guest: "Kenny Sims, Archaeologist",
     image: "/manus-storage/podcast-cover-ancient-worlds_a64d1b7e.png",
-    excerpt: "A deep dive into the archaeological mysteries of Easter Island — from moai construction techniques to new discoveries that challenge everything we thought we knew about Rapa Nui civilization.",
+    excerpt: "A deep dive into the archaeological mysteries of Easter Island , from moai construction techniques to new discoveries that challenge everything we thought we knew about Rapa Nui civilization.",
   },
   {
     id: "coral-reef-restoration",
     title: "Coral Reef Restoration in Bocas del Toro",
     type: "video",
     property: "bocas-del-toro",
-    youtubeId: "FRPVRcUTNmk",  // Placeholder — replace with actual YouTube ID
+    youtubeId: "FRPVRcUTNmk",  // Placeholder , replace with actual YouTube ID
     listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "32 min",
     guest: "Marine Biologist",
@@ -590,12 +590,12 @@ const videoEpisodes: JournalEntry[] = [
     title: "Stargazing in the Atacama: Where the Cosmos Begins",
     type: "video",
     property: "alto-atacama",
-    youtubeId: "6cfkWsqWWc8",  // Placeholder — replace with actual YouTube ID
+    youtubeId: "6cfkWsqWWc8",  // Placeholder , replace with actual YouTube ID
     listenUrl: "https://podcasts.apple.com/us/podcast/nayara-horizons",
     duration: "28 min",
     guest: "Nayara Astronomer",
     image: "/manus-storage/journal-cover-stargazing-atacama_f28faa78.jpg",
-    excerpt: "The Atacama Desert holds the clearest skies on Earth. Join Nayara's resident astronomer for a journey through the cosmos — from the Milky Way's core to ancient Atacameño star lore.",
+    excerpt: "The Atacama Desert holds the clearest skies on Earth. Join Nayara's resident astronomer for a journey through the cosmos , from the Milky Way's core to ancient Atacameño star lore.",
     comingSoon: true,
   },
   {
@@ -608,7 +608,7 @@ const videoEpisodes: JournalEntry[] = [
     duration: "8 min",
     guest: "Leo Ghitis, CEO & Co-Founder",
     image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
-    excerpt: "Leo Ghitis explores the journey of building Nayara Resorts — a brand that seamlessly blends ultra-luxury with profound environmental stewardship across Costa Rica, Panama, and Chile.",
+    excerpt: "Leo Ghitis explores the journey of building Nayara Resorts , a brand that seamlessly blends ultra-luxury with profound environmental stewardship across Costa Rica, Panama, and Chile.",
   },
   {
     id: "leo-suite-success",
@@ -636,7 +636,7 @@ const videoEpisodes: JournalEntry[] = [
     duration: "3 min",
     guest: "Nayara Resorts",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-sunset_1238744f.jpg",
-    excerpt: "Nayara Hangaroa's commitment to sustainability on Rapa Nui — renewable energy, water conservation, plastic elimination, cultural preservation, and community support.",
+    excerpt: "Nayara Hangaroa's commitment to sustainability on Rapa Nui , renewable energy, water conservation, plastic elimination, cultural preservation, and community support.",
   },
   {
     id: "atacama-sustainability",
@@ -652,12 +652,12 @@ const videoEpisodes: JournalEntry[] = [
     duration: "3 min",
     guest: "Nayara Resorts",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
-    excerpt: "How Nayara Alto Atacama operates sustainably in the driest desert on Earth — solar energy, adobe architecture, and 100% water reuse.",
+    excerpt: "How Nayara Alto Atacama operates sustainably in the driest desert on Earth , solar energy, adobe architecture, and 100% water reuse.",
   },
 ];
 
 // ─── Merged + Sorted Feed ────────────────────────────────────
-/** All journal entries — articles first (featured at top), then videos */
+/** All journal entries , articles first (featured at top), then videos */
 /** Interleave videos among articles so podcasts are spaced out, not clumped */
 function interleaveEntries(): JournalEntry[] {
   // Audio episodes with sortPriority 0 always go first
@@ -715,11 +715,11 @@ export interface PodcastEpisode {
   altDuration?: string;
   /** For audio entries: external podcast URL (Apple Podcasts, Spotify, etc.) */
   podcastUrl?: string;
-  /** Sort priority — lower number = earlier in feed (0 = always first) */
+  /** Sort priority , lower number = earlier in feed (0 = always first) */
   sortPriority?: number;
 }
 
-/** Legacy blog posts array — maps from new unified entries */
+/** Legacy blog posts array , maps from new unified entries */
 export const blogPosts: BlogPost[] = blogArticles.map(e => ({
   id: e.id,
   title: e.title,
@@ -731,7 +731,7 @@ export const blogPosts: BlogPost[] = blogArticles.map(e => ({
   featured: e.featured,
 }));
 
-/** Legacy podcast episodes array — maps from new unified entries */
+/** Legacy podcast episodes array , maps from new unified entries */
 export const podcastEpisodes: PodcastEpisode[] = videoEpisodes.map(e => ({
   id: e.id,
   title: e.title,
@@ -748,7 +748,7 @@ export const podcastEpisodes: PodcastEpisode[] = videoEpisodes.map(e => ({
   } : {}),
 }));
 
-// ─── Newsletters (The Naiad) — kept separate for Newsletter page ──
+// ─── Newsletters (The Naiad) , kept separate for Newsletter page ──
 export interface Newsletter {
   issue: number;
   title: string;
@@ -817,7 +817,7 @@ export const newsletters: Newsletter[] = [
   },
   {
     issue: 6,
-    title: "The Art of Sloth Time — The New Currency of Luxury",
+    title: "The Art of Sloth Time , The New Currency of Luxury",
     subtitle: "How cuisine, wellness, and nature are redefining meaningful travel",
     date: "August 2024",
     slug: "2024-08",
@@ -833,7 +833,7 @@ export const newsletters: Newsletter[] = [
   },
 ];
 
-// ─── Pillars & Destinations (legacy — kept for backward compat) ──
+// ─── Pillars & Destinations (legacy , kept for backward compat) ──
 export const PILLARS = [
   "All", "Brand", "Sustainability", "Wellness", "Wildlife",
   "Culture", "Night Sky", "Adventure", "Romance", "The Table",

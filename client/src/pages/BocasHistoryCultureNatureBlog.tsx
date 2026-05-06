@@ -172,7 +172,7 @@ export default function BocasHistoryCultureNatureBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              Bocas is one of Panama's most culturally rich destinations. Afro-Caribbean communities on Bastimentos trace their roots to Jamaican laborers who arrived generations ago, bringing with them Creole traditions and language. Nearby, the Ngäbe-Buglé people continue to preserve their indigenous customs. Walk through Bocas Town and you'll hear Spanish, Creole English, indigenous dialects, and Mandarin—a vibrant blend of influences that shape the region's food, music, and way of life.
+              Bocas is one of Panama's most culturally rich destinations. Afro-Caribbean communities on Bastimentos trace their roots to Jamaican laborers who arrived generations ago, bringing with them Creole traditions and language. Nearby, the Ngäbe-Buglé people continue to preserve their indigenous customs. Walk through Bocas Town and you'll hear Spanish, Creole English, indigenous dialects, and Mandarin,a vibrant blend of influences that shape the region's food, music, and way of life.
             </p>
           </motion.div>
 
@@ -216,7 +216,7 @@ export default function BocasHistoryCultureNatureBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              While Bocas is known for its calm lagoons and peaceful inlets, it's also a destination for surfers chasing reef breaks. During winter and early spring, storms in the Caribbean produce powerful swells that hit Bocas' reefs just right. Surf spots like Playa Paunch and Bluff Beach draw those seeking waves off the beaten path. And when the waves settle, the beaches remain—untouched, often empty, and impossibly beautiful.
+              While Bocas is known for its calm lagoons and peaceful inlets, it's also a destination for surfers chasing reef breaks. During winter and early spring, storms in the Caribbean produce powerful swells that hit Bocas' reefs just right. Surf spots like Playa Paunch and Bluff Beach draw those seeking waves off the beaten path. And when the waves settle, the beaches remain,untouched, often empty, and impossibly beautiful.
             </p>
           </motion.div>
 
@@ -233,7 +233,7 @@ export default function BocasHistoryCultureNatureBlog() {
               className="text-center text-lg"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.primary, fontWeight: 600 }}
             >
-              Discover the magic of Bocas del Toro — where history, culture, and untamed nature converge in perfect harmony.
+              Discover the magic of Bocas del Toro , where history, culture, and untamed nature converge in perfect harmony.
             </p>
           </motion.div>
         </div>

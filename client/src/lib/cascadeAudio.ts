@@ -3,13 +3,13 @@
  *
  * Single continuous audio track for the entire Atacama cascade.
  * One HTMLAudioElement plays the merged MP3 from start to finish.
- * All cascade videos are muted — audio comes only from here.
+ * All cascade videos are muted , audio comes only from here.
  *
  * API:
- *   cascadeAudio.start()      — call inside a user-gesture handler (onStart callback)
- *   cascadeAudio.setMuted(b)  — toggle mute from the pill UI
- *   cascadeAudio.stop()       — stop and reset
- *   cascadeAudio.isMuted      — current mute state
+ *   cascadeAudio.start()      , call inside a user-gesture handler (onStart callback)
+ *   cascadeAudio.setMuted(b)  , toggle mute from the pill UI
+ *   cascadeAudio.stop()       , stop and reset
+ *   cascadeAudio.isMuted      , current mute state
  */
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
@@ -39,7 +39,7 @@ class CascadeAudioManager {
     });
   }
 
-  /** Toggle mute state — called by the CinematicScroll mute pill. */
+  /** Toggle mute state , called by the CinematicScroll mute pill. */
   setMuted(muted: boolean) {
     this._muted = muted;
     if (this.el) {

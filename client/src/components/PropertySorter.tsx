@@ -1,5 +1,5 @@
 /**
- * PropertySorter — Category filter tabs + grid for Experiences and Wellness
+ * PropertySorter , Category filter tabs + grid for Experiences and Wellness
  * Used on property home pages as inline preview sections.
  * Accepts palette colors as props so each property can theme it.
  */
@@ -54,7 +54,7 @@ export default function PropertySorter({
   learnMoreLabel = "Explore All",
   palette,
 }: PropertySorterProps) {
-  // Filter out "all" categories — user doesn't want an "All" option
+  // Filter out "all" categories , user doesn't want an "All" option
   const realCategories = categories.filter((c) => c.id !== "all");
   const [activeCategory, setActiveCategory] = useState(realCategories[0]?.id || "");
 

@@ -1,7 +1,7 @@
 /*
- * UNDER THE CLEAREST SKIES ON EARTH — Alto Atacama Stargazing Experience
+ * UNDER THE CLEAREST SKIES ON EARTH , Alto Atacama Stargazing Experience
  * Structure: Hero Video → Story → Cascade sections → Footer
- * Dark theme throughout — replicates Nayara by Night layout
+ * Dark theme throughout , replicates Nayara by Night layout
  */
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -17,7 +17,7 @@ const CDN = {
   heroMobile: "/manus-storage/stargazing-hero-mobile_77790887.mp4",
   /* Telescope vertical (from By Night) */
   telescopeVertical: "/manus-storage/3a94f88f-2a69-457a-bc18-fae9946d8f0c(1)_463d1a87.jpg",
-  /* Petroglyph under Milky Way — Ancient Cultures */
+  /* Petroglyph under Milky Way , Ancient Cultures */
   petroglyphVertical: "/manus-storage/stargazing-petroglyph-milkyway_2c62bd09.jpg",
   /* Observatory telescope under Milky Way arch */
   observatoryVertical: "/manus-storage/stargazing-observatory-milkyway_12f50076.jpg",
@@ -27,15 +27,15 @@ const CDN = {
   pillarAuroraHorizontal: "/manus-storage/stargazing-pillar-aurora-horizontal_4d45b233.jpg",
   rockarchHorizontal: "/manus-storage/stargazing-rockarch-horizontal_7936b44b.jpg",
   rockarchVertical: "/manus-storage/stargazing-rockarch-vertical_2c10b104.jpg",
-  /* Cactus silhouette under Milky Way — Desert at Night */
+  /* Cactus silhouette under Milky Way , Desert at Night */
   cactusVertical: "/manus-storage/stargazing-cactus-milkyway_4c3ca29c.jpg",
   /* Mano del Desierto under Milky Way */
   manoDesiertoVertical: "/manus-storage/stargazing-mano-desierto-v2_2b3dc604.jpg",
-  /* Abandoned bus under Milky Way — Magic School Bus */
+  /* Abandoned bus under Milky Way , Magic School Bus */
   busMilkywayHorizontal: "/manus-storage/stargazing-bus-milkyway-horizontal_c3a196b2.jpg",
-  /* Rock formations with person — Ancient Cultures horizontal */
+  /* Rock formations with person , Ancient Cultures horizontal */
   rockformationsHorizontal: "/manus-storage/stargazing-rockformations-person_801f7152.jpg",
-  /* Petroglyph stone v2 — Ancient Cultures vertical */
+  /* Petroglyph stone v2 , Ancient Cultures vertical */
   petroglyphV2Vertical: "/manus-storage/stargazing-petroglyph-v2_02a3c06a.jpg",
 };
 
@@ -103,7 +103,7 @@ const STARGAZING_SECTIONS: StargazingSectionData[] = [
     id: "hand-and-bus",
     label: "Desert Landmarks",
     headline: "Hand of the Desert\n& Magic School Bus",
-    body: "Rising from the sand like a signal to the cosmos, the Mano del Desierto stands eleven meters tall in the emptiness between Antofagasta and the Atacama. Sculpted by Mario Irrarrázabal in 1992, the hand emerges from the desert floor as a monument to human vulnerability and endurance — a gesture reaching toward the same sky that has drawn travelers here for millennia.\n\nNearby, a graffiti-covered school bus sits abandoned beneath the Milky Way — a relic turned landmark, now one of the most photographed night-sky foregrounds in South America. Together they mark the surreal edge where human presence meets infinite sky.",
+    body: "Rising from the sand like a signal to the cosmos, the Mano del Desierto stands eleven meters tall in the emptiness between Antofagasta and the Atacama. Sculpted by Mario Irrarrázabal in 1992, the hand emerges from the desert floor as a monument to human vulnerability and endurance , a gesture reaching toward the same sky that has drawn travelers here for millennia.\n\nNearby, a graffiti-covered school bus sits abandoned beneath the Milky Way , a relic turned landmark, now one of the most photographed night-sky foregrounds in South America. Together they mark the surreal edge where human presence meets infinite sky.",
     verticalSrc: CDN.manoDesiertoVertical,
     horizontalSrc: CDN.busMilkywayHorizontal,
     verticalIsVideo: false,
@@ -115,7 +115,7 @@ const STARGAZING_SECTIONS: StargazingSectionData[] = [
     id: "andean-sky-knowledge",
     label: "Andean Cosmovision",
     headline: "How Ancient Cultures\nRead the Sky",
-    body: "For Indigenous Andean societies, the night sky was a living system connecting land, water, animals, and time. Unlike Western astronomy, Andean sky knowledge focused on the dark spaces within the Milky Way — 'dark constellations' formed by dust lanes visible only under extremely dark skies. The celestial llama, fox, and snake guided herding cycles and ecological awareness for millennia.",
+    body: "For Indigenous Andean societies, the night sky was a living system connecting land, water, animals, and time. Unlike Western astronomy, Andean sky knowledge focused on the dark spaces within the Milky Way , 'dark constellations' formed by dust lanes visible only under extremely dark skies. The celestial llama, fox, and snake guided herding cycles and ecological awareness for millennia.",
     verticalSrc: CDN.petroglyphV2Vertical,
     horizontalSrc: CDN.rockformationsHorizontal,
     verticalIsVideo: false,
@@ -127,7 +127,7 @@ const STARGAZING_SECTIONS: StargazingSectionData[] = [
     id: "desert-at-night",
     label: "The Desert at Night",
     headline: "When Darkness\nReveals Everything",
-    body: "As daylight fades, the Atacama transforms. Ancient cacti stand as silent witnesses beneath a sky so clear it feels close enough to touch. Without artificial light, the desert reveals its second landscape — one written in starlight. The Milky Way arcs overhead, and the silence is so complete you can hear the earth cooling.",
+    body: "As daylight fades, the Atacama transforms. Ancient cacti stand as silent witnesses beneath a sky so clear it feels close enough to touch. Without artificial light, the desert reveals its second landscape , one written in starlight. The Milky Way arcs overhead, and the silence is so complete you can hear the earth cooling.",
     verticalSrc: CDN.cactusVertical,
     horizontalSrc: CDN.pillarAuroraHorizontal,
     verticalIsVideo: false,
@@ -154,7 +154,7 @@ function StargazingCascadeSection({ section, index }: { section: StargazingSecti
               src={section.verticalSrc}
               isVideo={section.verticalIsVideo}
               ratio={section.verticalRatio}
-              alt={`${section.label} — Stargazing`}
+              alt={`${section.label} , Stargazing`}
             />
           </FadeIn>
         </div>
@@ -195,7 +195,7 @@ function StargazingCascadeSection({ section, index }: { section: StargazingSecti
         </div>
       </div>
 
-      {/* Horizontal media — full bleed */}
+      {/* Horizontal media , full bleed */}
       {section.horizontalSrc && (
         <div className="bg-black">
           <FadeIn delay={0.2}>
@@ -203,7 +203,7 @@ function StargazingCascadeSection({ section, index }: { section: StargazingSecti
               src={section.horizontalSrc}
               isVideo={section.horizontalIsVideo}
               ratio={section.horizontalRatio}
-              alt={`${section.label} — landscape`}
+              alt={`${section.label} , landscape`}
             />
           </FadeIn>
         </div>
@@ -251,7 +251,7 @@ export default function Stargazing() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   1. HERO — Full-screen video with title at bottom
+   1. HERO , Full-screen video with title at bottom
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -262,7 +262,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
 
-      {/* Content — anchored to bottom */}
+      {/* Content , anchored to bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -279,7 +279,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   2. STORY — Introduction text + vertical media
+   2. STORY , Introduction text + vertical media
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
@@ -314,7 +314,7 @@ function StorySection() {
           </FadeIn>
         </div>
 
-        {/* Vertical media — right half */}
+        {/* Vertical media , right half */}
         <div className="w-full md:w-1/2">
           <FadeIn delay={0.1}>
             <img
@@ -327,7 +327,7 @@ function StorySection() {
         </div>
       </div>
 
-      {/* Horizontal media — full bleed, splits Story vertical from cascade vertical */}
+      {/* Horizontal media , full bleed, splits Story vertical from cascade vertical */}
       <div className="bg-black">
         <FadeIn delay={0.2}>
           <img

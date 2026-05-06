@@ -1,10 +1,10 @@
 /**
- * CanvasVideo — Renders video frames onto a <canvas> element.
+ * CanvasVideo , Renders video frames onto a <canvas> element.
  * This completely eliminates native browser play buttons because
  * the <video> element is hidden and only the <canvas> is visible.
  * Works on all mobile browsers (iOS Safari, Chrome, Firefox).
  *
- * Accepts an optional `poster` prop — a static image shown instantly
+ * Accepts an optional `poster` prop , a static image shown instantly
  * while the video downloads and starts playing, eliminating the blank flash.
  */
 import { useRef, useEffect, useState } from "react";
@@ -90,11 +90,11 @@ export default function CanvasVideo({ src, poster, className = "", loop = true }
       let sx = 0, sy = 0, sw = video.videoWidth, sh = video.videoHeight;
 
       if (videoRatio > canvasRatio) {
-        // Video is wider — crop sides
+        // Video is wider , crop sides
         sw = video.videoHeight * canvasRatio;
         sx = (video.videoWidth - sw) / 2;
       } else {
-        // Video is taller — crop top/bottom
+        // Video is taller , crop top/bottom
         sh = video.videoWidth / canvasRatio;
         sy = (video.videoHeight - sh) / 2;
       }
@@ -108,7 +108,7 @@ export default function CanvasVideo({ src, poster, className = "", loop = true }
         setIsReady(true);
         drawFrame();
       }).catch(() => {
-        // Autoplay blocked — try again on user interaction
+        // Autoplay blocked , try again on user interaction
         const handleInteraction = () => {
           video.play().then(() => {
             setIsReady(true);

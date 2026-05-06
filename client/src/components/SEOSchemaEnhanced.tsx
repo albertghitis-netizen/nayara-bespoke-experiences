@@ -1,5 +1,5 @@
 /**
- * SEOSchemaEnhanced — Advanced JSON-LD structured data for SEO
+ * SEOSchemaEnhanced , Advanced JSON-LD structured data for SEO
  * Implements E-E-A-T signals, LocalBusiness schema, BreadcrumbList, and geo-targeting
  * Phase 2 of SEO Roadmap: Schema Markup for E-E-A-T and Geo signals
  */

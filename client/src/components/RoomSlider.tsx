@@ -1,5 +1,5 @@
 /**
- * ROOM SLIDER — Full-screen alternating layout
+ * ROOM SLIDER , Full-screen alternating layout
  *
  * Odd slides (0, 2, 4...): vertical video LEFT, text RIGHT
  * Even slides (1, 3, 5...): text LEFT, vertical video RIGHT
@@ -383,7 +383,7 @@ export default function RoomSlider({
         </AnimatePresence>
       </div>
 
-      {/* Navigation arrows — always visible */}
+      {/* Navigation arrows , always visible */}
       <button
         onClick={handlePrev}
         className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group"

@@ -1,15 +1,15 @@
 /**
- * NAVIGATION CONFIGURATION — Centralized navigation data for all page types
+ * NAVIGATION CONFIGURATION , Centralized navigation data for all page types
  *
  * Hamburger menu structure (3 sections):
- * 1. Explore — Experiences, Sustainability, Wellness, Gastronomy, Romance, Family, Nayara by Night, Gallery
- * 2. Our Resorts — All 6 hotels + Nayara Resorts brand home
- * 3. Journal — single link to /journal (no sub-categories in nav)
+ * 1. Explore , Experiences, Sustainability, Wellness, Gastronomy, Romance, Family, Nayara by Night, Gallery
+ * 2. Our Resorts , All 6 hotels + Nayara Resorts brand home
+ * 3. Journal , single link to /journal (no sub-categories in nav)
  *
  * Footer structure (3 columns):
- * 1. Explore — same as nav
- * 2. Our Resorts — same as nav
- * 3. Journal — header with 5 sub-links (Blog, Press, Awards, Podcast, FAQ) for SEO
+ * 1. Explore , same as nav
+ * 2. Our Resorts , same as nav
+ * 3. Journal , header with 5 sub-links (Blog, Press, Awards, Podcast, FAQ) for SEO
  *
  * Universal rules:
  * - Hamburger menu text: NOT all caps, same font as body text
@@ -45,7 +45,7 @@ export const PILLARS = [
   { label: "Beyond Sustainability", route: "/sustainability" },
 ] as const;
 
-/* Romance or Family Fun — property categorization */
+/* Romance or Family Fun , property categorization */
 export const ROMANCE_PROPERTIES = [
   { id: "springs", name: "Nayara Springs", route: "/springs", tag: "Adults Only" },
   { id: "bocas-del-toro", name: "Nayara Bocas del Toro", route: "/bocas-del-toro", tag: "Adults Only" },
@@ -63,11 +63,11 @@ export const CONTENT_SECTIONS = [
   { label: "Awards & Press", route: "/awards" },
 ] as const;
 
-/* Property page hamburger — no in-page anchors, property home flows naturally */
+/* Property page hamburger , no in-page anchors, property home flows naturally */
 export const PROPERTY_MENU: MenuItem[] = [];
 
 /* ═══════════════════════════════════════════════════════════════
-   SECTION 1: EXPLORE — 6 categories + Nayara by Night + Gallery
+   SECTION 1: EXPLORE , 6 categories + Nayara by Night + Gallery
    ═══════════════════════════════════════════════════════════════ */
 export const EXPLORE_MENU_ITEMS: MenuItem[] = [
   { label: "Experiences", route: "/experiences" },
@@ -81,17 +81,17 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   SECTION 2: OUR RESORTS — All hotels
+   SECTION 2: OUR RESORTS , All hotels
    ═══════════════════════════════════════════════════════════════ */
 export const RESORTS_ITEMS: MenuItem[] = [
   ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
 ];
 
-/* Nayara Resorts brand home — shown at the very bottom of nav */
+/* Nayara Resorts brand home , shown at the very bottom of nav */
 export const BRAND_HOME_ITEM: MenuItem = { label: "Nayara Resorts", route: "/" };
 
 /* ═══════════════════════════════════════════════════════════════
-   SECTION 3: JOURNAL — single link in nav
+   SECTION 3: JOURNAL , single link in nav
    ═══════════════════════════════════════════════════════════════ */
 export const JOURNAL_NAV_ITEM: MenuItem = { label: "Journal", route: "/journal" };
 
@@ -115,7 +115,7 @@ export const COSTA_RICA_ITEMS: MenuItem[] = [
 /* Pura Vida pillar items for footer */
 export const PURA_VIDA_PILLARS: MenuItem[] = COSTA_RICA_ITEMS.slice(1);
 
-/* Brand page hamburger — 3 sections (Journal is single item, not dropdown) */
+/* Brand page hamburger , 3 sections (Journal is single item, not dropdown) */
 export function getBrandMenu(): MenuSection[] {
   return [
     {
@@ -132,7 +132,7 @@ export function getBrandMenu(): MenuSection[] {
   ];
 }
 
-/* Content page hamburger — same as brand page */
+/* Content page hamburger , same as brand page */
 export function getContentMenu(): MenuSection[] {
   return getBrandMenu();
 }
@@ -143,7 +143,7 @@ export interface FooterColumn {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FOOTER COLUMNS — Match nav structure
+   FOOTER COLUMNS , Match nav structure
    ═══════════════════════════════════════════════════════════════ */
 
 /* Explore column for footer */
@@ -170,7 +170,7 @@ const RESORTS_COLUMN: FooterColumn = {
   ],
 };
 
-/* Journal column for footer — "Journal" is header (not clickable), sub-items are links */
+/* Journal column for footer , "Journal" is header (not clickable), sub-items are links */
 export const JOURNAL_COLUMN: FooterColumn = {
   title: "Journal",
   links: JOURNAL_FOOTER_ITEMS,

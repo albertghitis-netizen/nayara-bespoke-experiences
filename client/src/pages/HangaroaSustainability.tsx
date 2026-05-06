@@ -1,5 +1,5 @@
 /*
- * HANGAROA SUSTAINABILITY — Dedicated sustainability sub-page
+ * HANGAROA SUSTAINABILITY , Dedicated sustainability sub-page
  * Hangaroa palette with Easter Island conservation focus
  * S Certification for Hangaroa
  */
@@ -87,7 +87,7 @@ function SCertificationSection() {
             className="text-[15px] leading-[1.8] max-w-3xl mb-12"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
-            On one of the most remote islands on Earth, sustainability is not optional — it is survival.
+            On one of the most remote islands on Earth, sustainability is not optional , it is survival.
             Nayara Hangaroa is committed to preserving Rapa Nui's extraordinary archaeological heritage,
             restoring its native ecosystems, and ensuring that the island's Polynesian culture thrives
             for generations to come.
@@ -111,7 +111,7 @@ function SCertificationSection() {
             className="text-[15px] leading-[1.8] max-w-[700px]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
-            Nayara Hangaroa holds S Certification — Chile's national standard for sustainable tourism,
+            Nayara Hangaroa holds S Certification , Chile's national standard for sustainable tourism,
             recognizing our commitment to environmental stewardship, cultural preservation, and responsible
             operations on Easter Island. This certification reflects our dedication to protecting Rapa Nui's
             fragile ecosystem while delivering meaningful guest experiences rooted in the island's heritage.

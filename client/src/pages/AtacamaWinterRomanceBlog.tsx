@@ -1,5 +1,5 @@
 /*
- * ATACAMA WINTER & ROMANCE BLOG — Combined: Winter Clarity + Desert Romance
+ * ATACAMA WINTER & ROMANCE BLOG , Combined: Winter Clarity + Desert Romance
  * Property-specific blog in Atacama Colors (warm earth tones with desert accents)
  * Hero video: To be provided (horizontal for desktop, vertical for mobile)
  */
@@ -70,7 +70,7 @@ export default function AtacamaWinterRomanceBlog() {
               In the Atacama Desert, winter is not a compromise. It is the moment when the desert becomes legible. Cooler days, longer nights, and exceptional atmospheric clarity allow the landscape to reveal its deepest character.
             </p>
             <p style={body} className="text-lg text-gray-700 mb-6 leading-relaxed">
-              And when two people experience this clarity together, something shifts. The desert's simplicity—its reduction of noise, its demand for presence—becomes the foundation for something rare: genuine intimacy in a landscape that strips away everything unnecessary.
+              And when two people experience this clarity together, something shifts. The desert's simplicity,its reduction of noise, its demand for presence,becomes the foundation for something rare: genuine intimacy in a landscape that strips away everything unnecessary.
             </p>
           </FadeIn>
         </div>
@@ -151,7 +151,7 @@ export default function AtacamaWinterRomanceBlog() {
                   Brown days simplify attention. Black nights restore scale. The oasis sustains presence. Winter returns time. Sound narrows awareness. Shared vulnerability deepens trust.
                 </p>
                 <p style={body} className="text-gray-700">
-                  Romance here is not promised. It is permitted. The landscape does not create intimacy—it removes the obstacles to it.
+                  Romance here is not promised. It is permitted. The landscape does not create intimacy,it removes the obstacles to it.
                 </p>
               </div>
 
@@ -160,7 +160,7 @@ export default function AtacamaWinterRomanceBlog() {
                   Stargazing Together
                 </h3>
                 <p style={body} className="text-gray-700">
-                  When two people stand beneath the Atacama's winter sky and watch the Milky Way unfold, they are experiencing something most of humanity will never see. That shared rarity—that shared awe—becomes a bond. The universe becomes intimate.
+                  When two people stand beneath the Atacama's winter sky and watch the Milky Way unfold, they are experiencing something most of humanity will never see. That shared rarity,that shared awe,becomes a bond. The universe becomes intimate.
                 </p>
               </div>
             </div>
@@ -223,19 +223,19 @@ export default function AtacamaWinterRomanceBlog() {
                     <span style={{ color: atacamaColors.accent }} className="font-bold">
                       ◆
                     </span>
-                    <span>Journal of Environmental Psychology — Environmental Effects on Emotional Attunement</span>
+                    <span>Journal of Environmental Psychology , Environmental Effects on Emotional Attunement</span>
                   </li>
                   <li className="flex gap-3">
                     <span style={{ color: atacamaColors.accent }} className="font-bold">
                       ◆
                     </span>
-                    <span>European Southern Observatory — Atmospheric Conditions in Northern Chile</span>
+                    <span>European Southern Observatory , Atmospheric Conditions in Northern Chile</span>
                   </li>
                   <li className="flex gap-3">
                     <span style={{ color: atacamaColors.accent }} className="font-bold">
                       ◆
                     </span>
-                    <span>Greater Good Science Center — Awe and Connection Research</span>
+                    <span>Greater Good Science Center , Awe and Connection Research</span>
                   </li>
                 </ul>
               </div>

@@ -1,5 +1,5 @@
 /*
- * NAYARA SPRINGS — Arenal, Costa Rica
+ * NAYARA SPRINGS , Arenal, Costa Rica
  * Visual Identity: "Mineral" palette · Cormorant Garamond · Cinematic motion · Video-first
  */
 import { useState } from "react";
@@ -45,11 +45,11 @@ import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchem
 const springs = properties.find((p: Property) => p.id === "springs")!;
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE — Eucalyptus & Mint
+   PALETTE , Eucalyptus & Mint
    ═══════════════════════════════════════════════════════════════ */
 /* Eucalyptus (cool, silvery green) + Mint (bright, refreshing) */
 const PALETTE = {
-  primary: "#5F7367",           // Standard Eucalyptus (middle — buttons, accents)
+  primary: "#5F7367",           // Standard Eucalyptus (middle , buttons, accents)
   secondary: "#4B6358",         // Dark Eucalyptus (nav, footer)
   accent: "#3EB489",            // Standard Mint (bright highlights)
   gradientStart: "#F7F5F0",     // Bone (background)
@@ -209,7 +209,7 @@ export default function Springs() {
         horizontalSrc=""
         bgColor="#0D0704"
         headline={"Dine at\nAmor Loco"}
-        bodyText="Our fine dining restaurant Amor Loco offers a Michelin-caliber tasting menu that transforms Costa Rica's finest ingredients into an unforgettable culinary journey. Each evening, our chefs craft a multi-course experience that celebrates volcanic terroir and tropical abundance — an intimate, candlelit affair where every plate tells a story of the land beneath your feet."
+        bodyText="Our fine dining restaurant Amor Loco offers a Michelin-caliber tasting menu that transforms Costa Rica's finest ingredients into an unforgettable culinary journey. Each evening, our chefs craft a multi-course experience that celebrates volcanic terroir and tropical abundance , an intimate, candlelit affair where every plate tells a story of the land beneath your feet."
         textSide="left"
       />
       <ReviewsSection />
@@ -220,7 +220,7 @@ export default function Springs() {
           {
             name: "Nayara Bocas del Toro",
             chapter: "The Adults-Only Archipelago",
-            tagline: "Another adults-only sanctuary — trade volcanic hot springs for Caribbean overwater villas on a solar-powered private island.",
+            tagline: "Another adults-only sanctuary , trade volcanic hot springs for Caribbean overwater villas on a solar-powered private island.",
             route: "/bocas-del-toro",
             image: "/manus-storage/439F9FCA-A2F3-4915-9A84-F09142364988_0a08ae7a.jpg",
             audienceTag: "Adults Only",
@@ -228,7 +228,7 @@ export default function Springs() {
           {
             name: "Nayara Hangaroa",
             chapter: "The Land of Giants",
-            tagline: "From thermal sanctuary to ancient mystery — Moai guardians, Polynesian culture, the most remote island on Earth.",
+            tagline: "From thermal sanctuary to ancient mystery , Moai guardians, Polynesian culture, the most remote island on Earth.",
             route: "/hangaroa",
             image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
             video: "/manus-storage/cta-hangaroa-ultrawide_ed5ffb72.mp4",
@@ -247,7 +247,7 @@ export default function Springs() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-bleed video, cinematic text reveal
+   HERO , Full-bleed video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -292,7 +292,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   STORY — Text left, image right, landscape image below
+   STORY , Text left, image right, landscape image below
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
@@ -369,7 +369,7 @@ function StorySection() {
           </div>
         </div>
 
-        {/* S1 — Vertical video right */}
+        {/* S1 , Vertical video right */}
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
@@ -379,7 +379,7 @@ function StorySection() {
         </div>
       </div>
 
-      {/* ── S2 — One Rainforest, Three Resorts (compact) ── */}
+      {/* ── S2 , One Rainforest, Three Resorts (compact) ── */}
       <OneRainforestCompactSprings />
 
     </section>
@@ -387,7 +387,7 @@ function StorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SPRINGS VILLA — Image left, text right, landscape below
+   SPRINGS VILLA , Image left, text right, landscape below
    On tinted background (gradient end)
    ═══════════════════════════════════════════════════════════════ */
 function SpringsVillaSection() {
@@ -395,14 +395,14 @@ function SpringsVillaSection() {
     <section id="accommodations">
       {/* ── Row: S3 vertical video left + Text right ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
-        {/* S3 — Vertical video left */}
+        {/* S3 , Vertical video left */}
         <div className="w-full md:w-1/2 md:order-1 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <NativeVideo src="/manus-storage/springs-s3-accommodation_9a2a14f0.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
-          {/* Explore pill — centered lower */}
+          {/* Explore pill , centered lower */}
           <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
               href="/springs/rooms/springs-villa"
@@ -442,7 +442,7 @@ function SpringsVillaSection() {
             >
               Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation, these intimate sanctuaries offer an unparalleled experience of thermal wellness surrounded by rainforest canopy.
 
-              The perfect setting for a honeymoon or romantic escape, every detail is crafted for two — from candlelit dinners on your private terrace to couples' spa rituals using volcanic minerals and rainforest botanicals. Wake to birdsong, soak beneath the stars, and let the rhythm of the rainforest become the backdrop to your love story.
+              The perfect setting for a honeymoon or romantic escape, every detail is crafted for two , from candlelit dinners on your private terrace to couples' spa rituals using volcanic minerals and rainforest botanicals. Wake to birdsong, soak beneath the stars, and let the rhythm of the rainforest become the backdrop to your love story.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
@@ -457,10 +457,10 @@ function SpringsVillaSection() {
         </div>
       </div>
 
-      {/* ── S4 — Full-width horizontal video (desktop only) ── */}
+      {/* ── S4 , Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full relative">
         <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" /></div>
-        {/* Explore pill — centered lower */}
+        {/* Explore pill , centered lower */}
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
             href="/springs/rooms/springs-villa"
@@ -481,7 +481,7 @@ function SpringsVillaSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXPERIENCES — Card grid with category filters
+   EXPERIENCES , Card grid with category filters
    ═══════════════════════════════════════════════════════════════ */
 function ExperiencesSection() {
   return (
@@ -523,7 +523,7 @@ function ExperiencesSection() {
           </AnimateOnScroll>
         </div>
 
-        {/* S5 — Vertical video right */}
+        {/* S5 , Vertical video right */}
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
@@ -533,7 +533,7 @@ function ExperiencesSection() {
         </div>
       </div>
 
-      {/* ── S6 — Full-width horizontal video (desktop only) ── */}
+      {/* ── S6 , Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
         <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_4ae41545.mp4" className="w-full h-full object-cover" /></div>
       </div>
@@ -542,14 +542,14 @@ function ExperiencesSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SUSTAINABILITY — Dark overlay with palette accents
+   SUSTAINABILITY , Dark overlay with palette accents
    ═══════════════════════════════════════════════════════════════ */
 function SustainabilitySection() {
   return (
     <section id="sustainability">
       {/* ── Row: S7 vertical video left + Text right ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
-        {/* S7 — Vertical video left */}
+        {/* S7 , Vertical video left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
@@ -594,7 +594,7 @@ function SustainabilitySection() {
         </div>
       </div>
 
-      {/* ── S8 — Full-width horizontal video (desktop only) ── */}
+      {/* ── S8 , Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
         <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s8-sustainability-horizontal_7a9ba7b8.mp4" className="w-full h-full object-cover" /></div>
       </div>
@@ -603,7 +603,7 @@ function SustainabilitySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   WELLNESS — Treatment cards with category filters
+   WELLNESS , Treatment cards with category filters
    ═══════════════════════════════════════════════════════════════ */
 function WellnessSection() {
   return (
@@ -645,7 +645,7 @@ function WellnessSection() {
           </AnimateOnScroll>
         </div>
 
-        {/* S9 — Vertical video right */}
+        {/* S9 , Vertical video right */}
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
@@ -655,7 +655,7 @@ function WellnessSection() {
         </div>
       </div>
 
-      {/* ── S10 — Full-width horizontal video (desktop only) ── */}
+      {/* ── S10 , Full-width horizontal video (desktop only) ── */}
       <div className="hidden md:block w-full">
         <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full h-full object-cover" /></div>
       </div>
@@ -664,7 +664,7 @@ function WellnessSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GASTRONOMY — Restaurant cards with DrawLine dividers
+   GASTRONOMY , Restaurant cards with DrawLine dividers
    ═══════════════════════════════════════════════════════════════ */
 function GastronomySection() {
   return (
@@ -706,7 +706,7 @@ function GastronomySection() {
               className="text-[15px] leading-[1.85] max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              As a proud Relais & Châteaux property, Nayara Springs upholds the highest standards of culinary excellence. From the volcanic terroir of Arenal to your table, our culinary team transforms locally sourced ingredients into extraordinary dining experiences — each plate a celebration of Costa Rica's biodiversity, crafted with the artistry and precision that define the Relais & Châteaux tradition.
+              As a proud Relais & Châteaux property, Nayara Springs upholds the highest standards of culinary excellence. From the volcanic terroir of Arenal to your table, our culinary team transforms locally sourced ingredients into extraordinary dining experiences , each plate a celebration of Costa Rica's biodiversity, crafted with the artistry and precision that define the Relais & Châteaux tradition.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
@@ -736,7 +736,7 @@ function GastronomySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   REVIEWS — Guest pull-quote with stars
+   REVIEWS , Guest pull-quote with stars
    ═══════════════════════════════════════════════════════════════ */
 function ReviewsSection() {
   return (
@@ -785,7 +785,7 @@ function ReviewsSection() {
               className="text-[12px] tracking-[0.08em] not-italic"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              — Sarah & James, TripAdvisor
+              , Sarah & James, TripAdvisor
             </cite>
           </blockquote>
         </AnimateOnScroll>
@@ -807,7 +807,7 @@ function ReviewsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GETTING HERE — Travel routes to Arenal
+   GETTING HERE , Travel routes to Arenal
    ═══════════════════════════════════════════════════════════════ */
 function GettingHereSection() {
   const routes = [
@@ -920,7 +920,7 @@ function GettingHereSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RESERVE CTA — "Begin Your Rainforest Adventure"
+   RESERVE CTA , "Begin Your Rainforest Adventure"
    ═══════════════════════════════════════════════════════════════ */
 function ReserveCTA() {
   return (
@@ -956,7 +956,7 @@ function ReserveCTA() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   ONE RAINFOREST COMPACT (SPRINGS) — Three Keys, One Door
+   ONE RAINFOREST COMPACT (SPRINGS) , Three Keys, One Door
    Identical layout to Gardens version, Springs nav color
    ═══════════════════════════════════════════════════════════════ */
 const OR_PROPERTIES_SPRINGS = [
@@ -1043,7 +1043,7 @@ function OneRainforestCompactSprings() {
           ))}
         </div>
 
-        {/* Three property cards — text only */}
+        {/* Three property cards , text only */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {OR_PROPERTIES_SPRINGS.map((prop) => (
             prop.current ? (

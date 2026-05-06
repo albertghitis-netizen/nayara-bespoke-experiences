@@ -1,5 +1,5 @@
 /**
- * NAYARA SUSTAINABILITY — Brand-Level Pillar Page
+ * NAYARA SUSTAINABILITY , Brand-Level Pillar Page
  * Regenerative tourism across all 6 properties
  * Two-axis filter: 4 subcategories × 6 properties (no "All" for either)
  * Hero → Intro → Brand Pillars → Property Initiatives (filtered) → CTA → Footer
@@ -78,7 +78,7 @@ const allInitiatives: Initiative[] = [
   /* ── Alto Atacama ── */
   { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "flora-fauna", text: "Desert reforestation program planting native tamarugo and algarrobo trees across degraded land" },
   { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "flora-fauna", text: "Flamingo habitat monitoring at Salar de Atacama in partnership with local conservation groups" },
-  { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "certification", text: "Distinción Turismo Sustentable — Chile's national sustainable tourism certification (2024)" },
+  { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "certification", text: "Distinción Turismo Sustentable , Chile's national sustainable tourism certification (2024)" },
   { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "certification", text: "Astronomical light pollution reduction protocols protecting dark sky heritage" },
   { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "community", text: "Partnership with Atacameño communities to preserve ancestral water management systems" },
   { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "community", text: "Local artisan marketplace supporting 30+ indigenous craftspeople" },
@@ -98,7 +98,7 @@ const allInitiatives: Initiative[] = [
   /* ── Gardens ── */
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "flora-fauna", text: "Native plant nursery propagating 200+ species for habitat restoration" },
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "flora-fauna", text: "Rainforest canopy bridge system enabling wildlife movement across the property" },
-  { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "certification", text: "CST (Certification for Sustainable Tourism) — highest level from Costa Rica's ICT" },
+  { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "certification", text: "CST (Certification for Sustainable Tourism) , highest level from Costa Rica's ICT" },
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "certification", text: "Rainforest Alliance Certified for sustainable agriculture practices on-site" },
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "community", text: "La Fortuna community education fund supporting local school programs" },
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "community", text: "On-site organic farm supplying 40% of restaurant produce and training local farmers" },
@@ -110,14 +110,14 @@ const allInitiatives: Initiative[] = [
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "flora-fauna", text: "Seabird nesting site protection along the island's coastal cliffs" },
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "certification", text: "Partnership with CONAF for Rapa Nui National Park conservation standards" },
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "community", text: "Cultural preservation fund supporting Rapa Nui language and ceremony" },
-  { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "community", text: "Rapanui artisan employment program — 80% of staff from local community" },
+  { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "community", text: "Rapanui artisan employment program , 80% of staff from local community" },
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "operations", text: "Rainwater harvesting system reducing freshwater demand by 45%" },
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "operations", text: "Zero single-use plastic policy with biodegradable alternatives island-wide" },
 
   /* ── Springs ── */
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "flora-fauna", text: "Butterfly garden sanctuary supporting 30+ native species year-round" },
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "flora-fauna", text: "Spa products sourced from local botanical gardens using organic ingredients" },
-  { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "certification", text: "CST (Certification for Sustainable Tourism) — highest level from Costa Rica's ICT" },
+  { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "certification", text: "CST (Certification for Sustainable Tourism) , highest level from Costa Rica's ICT" },
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "community", text: "Adults-only design reduces environmental footprint per guest by 30%" },
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "community", text: "Local wellness practitioner partnerships for authentic spa experiences" },
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "operations", text: "Geothermal hot spring water recycled through natural filtration systems" },
@@ -202,7 +202,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
 
-      {/* Sound pill — espresso, identical to brand homepage */}
+      {/* Sound pill , espresso, identical to brand homepage */}
       <button
         onClick={() => setIsMuted(!isMuted)}
         aria-label={isMuted ? "Unmute" : "Mute"}
@@ -250,7 +250,7 @@ function IntroSection() {
             We Leave Every Place Stronger Than We Found It
           </h2>
           <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
-            Sustainability at Nayara is not a program — it is the operating system. From carbon-neutral operations to wildlife corridor preservation, from indigenous community partnerships to zero single-use plastic, every decision is measured against a simple question: does this leave the ecosystem stronger? Across six properties in three countries, the answer must always be yes.
+            Sustainability at Nayara is not a program , it is the operating system. From carbon-neutral operations to wildlife corridor preservation, from indigenous community partnerships to zero single-use plastic, every decision is measured against a simple question: does this leave the ecosystem stronger? Across six properties in three countries, the answer must always be yes.
           </p>
         </FadeIn>
       </div>
@@ -259,7 +259,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BRAND PILLARS — 6 key metrics
+   BRAND PILLARS , 6 key metrics
    ═══════════════════════════════════════════════════════════════ */
 function BrandPillarsSection() {
   return (
@@ -288,7 +288,7 @@ function BrandPillarsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTY INITIATIVES — Two-axis filter: Category × Property
+   PROPERTY INITIATIVES , Two-axis filter: Category × Property
    ═══════════════════════════════════════════════════════════════ */
 function PropertyInitiativesSection({
   activeCategory,

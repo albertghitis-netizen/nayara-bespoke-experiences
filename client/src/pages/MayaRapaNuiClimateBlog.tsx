@@ -88,7 +88,7 @@ export default function MayaRapaNuiClimateBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
             >
-              The Maya civilization flourished in Central America for over 3,000 years, developing sophisticated systems of agriculture, astronomy, writing, and governance. The Rapa Nui people transformed a remote Pacific island into a thriving society, creating the iconic moai statues that continue to captivate the world. Yet both civilizations faced profound environmental challenges—droughts, deforestation, and resource depletion—that tested their ability to adapt and survive.
+              The Maya civilization flourished in Central America for over 3,000 years, developing sophisticated systems of agriculture, astronomy, writing, and governance. The Rapa Nui people transformed a remote Pacific island into a thriving society, creating the iconic moai statues that continue to captivate the world. Yet both civilizations faced profound environmental challenges,droughts, deforestation, and resource depletion,that tested their ability to adapt and survive.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
@@ -117,13 +117,13 @@ export default function MayaRapaNuiClimateBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
             >
-              The Classic Maya civilization reached its peak around 800 AD, with major city-states like Tikal, Palenque, and Copán serving as centers of art, science, and commerce. Yet within a century, these great cities were abandoned. Temples fell silent, and the jungle reclaimed the plazas. For centuries, scholars debated the cause of this mysterious collapse. Today, evidence points to a series of severe droughts that lasted decades—a climate crisis that the Maya civilization could not overcome.
+              The Classic Maya civilization reached its peak around 800 AD, with major city-states like Tikal, Palenque, and Copán serving as centers of art, science, and commerce. Yet within a century, these great cities were abandoned. Temples fell silent, and the jungle reclaimed the plazas. For centuries, scholars debated the cause of this mysterious collapse. Today, evidence points to a series of severe droughts that lasted decades,a climate crisis that the Maya civilization could not overcome.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
             >
-              The droughts coincided with a period of political fragmentation and warfare. As water became scarce, competition for resources intensified. The sophisticated water management systems that had sustained Maya cities—including reservoirs, canals, and terraces—proved insufficient during extended dry periods. Crop failures led to famine, which destabilized societies and undermined the authority of rulers. The collapse was not instantaneous but a gradual unraveling of the social fabric that held Maya civilization together.
+              The droughts coincided with a period of political fragmentation and warfare. As water became scarce, competition for resources intensified. The sophisticated water management systems that had sustained Maya cities,including reservoirs, canals, and terraces,proved insufficient during extended dry periods. Crop failures led to famine, which destabilized societies and undermined the authority of rulers. The collapse was not instantaneous but a gradual unraveling of the social fabric that held Maya civilization together.
             </p>
 
             <h3
@@ -159,7 +159,7 @@ export default function MayaRapaNuiClimateBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
             >
-              Rapa Nui (Easter Island) presents a different but equally instructive case study. When Polynesian settlers arrived around 1200 AD, they found a lush island covered with forests of palm and other trees. Over the following centuries, the Rapa Nui people built a sophisticated society, creating the famous moai statues—massive stone figures that served as representations of ancestors and symbols of power and prestige.
+              Rapa Nui (Easter Island) presents a different but equally instructive case study. When Polynesian settlers arrived around 1200 AD, they found a lush island covered with forests of palm and other trees. Over the following centuries, the Rapa Nui people built a sophisticated society, creating the famous moai statues,massive stone figures that served as representations of ancestors and symbols of power and prestige.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -207,13 +207,13 @@ export default function MayaRapaNuiClimateBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
             >
-              Second, the speed and scale of environmental change matter. The Maya faced droughts that lasted decades—severe but not permanent. Rapa Nui faced deforestation that was largely irreversible. Societies that can adapt quickly to gradual change have better chances of survival than those facing rapid, catastrophic change. This has profound implications for our current climate crisis, which is occurring at unprecedented speed.
+              Second, the speed and scale of environmental change matter. The Maya faced droughts that lasted decades,severe but not permanent. Rapa Nui faced deforestation that was largely irreversible. Societies that can adapt quickly to gradual change have better chances of survival than those facing rapid, catastrophic change. This has profound implications for our current climate crisis, which is occurring at unprecedented speed.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
             >
-              Third, social cohesion and governance matter. The Maya collapse was accelerated by political fragmentation and warfare. Societies that maintain cooperation and trust are better positioned to respond collectively to environmental challenges. Finally, both civilizations developed sophisticated knowledge systems—agricultural practices, water management, astronomical observations—that helped them adapt. This underscores the importance of science, innovation, and knowledge sharing in addressing climate challenges.
+              Third, social cohesion and governance matter. The Maya collapse was accelerated by political fragmentation and warfare. Societies that maintain cooperation and trust are better positioned to respond collectively to environmental challenges. Finally, both civilizations developed sophisticated knowledge systems,agricultural practices, water management, astronomical observations,that helped them adapt. This underscores the importance of science, innovation, and knowledge sharing in addressing climate challenges.
             </p>
           </motion.div>
 

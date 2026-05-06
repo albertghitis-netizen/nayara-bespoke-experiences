@@ -36,7 +36,7 @@ export default function ThreeResortsGraphic() {
         Arenal Volcano National Park, Costa Rica
       </p>
 
-      {/* Placeholder rectangle — will be replaced with editorial graphic */}
+      {/* Placeholder rectangle , will be replaced with editorial graphic */}
       <div
         className="w-full rounded-lg border border-dashed border-[#4B4A4A]/20 bg-[#4B4A4A]/[0.03] flex items-center justify-center"
         style={{ aspectRatio: "16/7" }}

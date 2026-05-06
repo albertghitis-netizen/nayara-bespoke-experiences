@@ -1,5 +1,5 @@
 /**
- * HotelFilterBar Variant 7 — Pill buttons with gradient hover
+ * HotelFilterBar Variant 7 , Pill buttons with gradient hover
  * For: Gallery page
  */
 

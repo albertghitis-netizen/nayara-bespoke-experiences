@@ -1,5 +1,5 @@
 /*
- * MICHELIN KEYS BLOG — 7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence
+ * MICHELIN KEYS BLOG , 7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence
  * Multi-property blog in Brand Colors (warm earth tones)
  * Hero video: To be provided (horizontal for desktop, vertical for mobile)
  */
@@ -68,7 +68,7 @@ const michelin5Questions = [
   },
   {
     question: "Does its design honor local character?",
-    answer: "Every property draws from local tradition — from Costa Rican furnishings to Atacama desert aesthetics to Caribbean architectural influences.",
+    answer: "Every property draws from local tradition , from Costa Rican furnishings to Atacama desert aesthetics to Caribbean architectural influences.",
   },
   {
     question: "Is the service consistently excellent?",
@@ -76,7 +76,7 @@ const michelin5Questions = [
   },
   {
     question: "Does it deliver meaningful value?",
-    answer: "Nayara offers extraordinary experiences that justify their value — from world-class dining to transformative wellness to unparalleled natural access.",
+    answer: "Nayara offers extraordinary experiences that justify their value , from world-class dining to transformative wellness to unparalleled natural access.",
   },
   {
     question: "Does it have an authentic personality that could not exist anywhere else?",
@@ -124,7 +124,7 @@ export default function MichelinKeysBlog() {
               For over a century, the MICHELIN Guide has been the most trusted independent voice in hospitality evaluation. In 2025, the Guide expanded its hotel selection globally for the first time, introducing the MICHELIN Key system to recognize the world's finest hotels.
             </p>
             <p style={body} className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Nayara Resorts earned 7 MICHELIN Keys across three countries — a testament to our commitment to excellence, authenticity, and meaningful hospitality.
+              Nayara Resorts earned 7 MICHELIN Keys across three countries , a testament to our commitment to excellence, authenticity, and meaningful hospitality.
             </p>
           </FadeIn>
         </div>
@@ -214,7 +214,7 @@ export default function MichelinKeysBlog() {
                   Authentic Connection to Place
                 </h3>
                 <p style={body} className="text-gray-700">
-                  Each Nayara property is deeply rooted in its landscape and culture. We don't impose luxury on nature — we create experiences that honor it.
+                  Each Nayara property is deeply rooted in its landscape and culture. We don't impose luxury on nature , we create experiences that honor it.
                 </p>
               </div>
 

@@ -1,5 +1,5 @@
 /*
- * The World of Nayara — Simple heading section
+ * The World of Nayara , Simple heading section
  * DISABLED: This section has been removed from the /arenal page
  */
 

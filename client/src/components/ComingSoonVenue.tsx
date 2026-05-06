@@ -1,5 +1,5 @@
 /**
- * ComingSoonVenue — Reusable "Coming Soon" shell for restaurant & wellness deeper pages
+ * ComingSoonVenue , Reusable "Coming Soon" shell for restaurant & wellness deeper pages
  * Elegant, minimal design with Nayara brand language
  */
 
@@ -18,7 +18,7 @@ export interface VenueInfo {
   cuisine?: string;           // e.g. "Pan-Asian Fusion"
   atmosphere?: string;        // e.g. "Open-air tropical garden"
   hours?: string;
-  heroImage?: string;         // CDN URL — optional, falls back to gradient
+  heroImage?: string;         // CDN URL , optional, falls back to gradient
   backLink: string;           // e.g. "/tented-camp"
   backLabel: string;          // e.g. "Nayara Tented Camp"
   primaryColor?: string;      // e.g. "#868B75" for Tented Camp
@@ -52,7 +52,7 @@ export default function ComingSoonVenue({ venue }: { venue: VenueInfo }) {
         )}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* Back button — top center */}
+        {/* Back button , top center */}
         <div className="absolute top-6 left-0 right-0 z-20 flex justify-center">
           <button
             onClick={() => navigate(venue.backLink)}

@@ -265,7 +265,7 @@ export default function NayaraBocasResortExperienceBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: BOCAS_PALETTE.lightText }}
             >
-              In order to capture the magic of a true Caribbean beach experience, we created something entirely new: the world's first aerial beach built on stilts over the water. The island did not have a beach, and a man-made beach built on the shoreline would have disrupted the mangrove and ocean floor. The solution was to build a beach on stilts over the water—something no one had done before.
+              In order to capture the magic of a true Caribbean beach experience, we created something entirely new: the world's first aerial beach built on stilts over the water. The island did not have a beach, and a man-made beach built on the shoreline would have disrupted the mangrove and ocean floor. The solution was to build a beach on stilts over the water,something no one had done before.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"

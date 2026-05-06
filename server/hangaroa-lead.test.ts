@@ -12,7 +12,7 @@ describe("Hangaroa lead endpoint logic", () => {
     expect(typeof saveLead).toBe("function");
   });
 
-  it("validates required fields — nombre and email must be present", () => {
+  it("validates required fields , nombre and email must be present", () => {
     // Simulate the validation logic from the endpoint
     const validate = (body: Record<string, string>) => {
       const { nombre, email } = body;

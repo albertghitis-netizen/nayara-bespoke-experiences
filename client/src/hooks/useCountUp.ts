@@ -9,8 +9,8 @@ interface UseCountUpOptions {
 }
 
 /**
- * Animated counter hook — counts from 0 to `end` when triggered.
- * Returns [displayValue, ref] — attach ref to element, counter starts when visible.
+ * Animated counter hook , counts from 0 to `end` when triggered.
+ * Returns [displayValue, ref] , attach ref to element, counter starts when visible.
  */
 export function useCountUp({
   end,

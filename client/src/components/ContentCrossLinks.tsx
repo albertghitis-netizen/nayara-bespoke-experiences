@@ -1,5 +1,5 @@
 /**
- * ContentCrossLinks — "Explore More" section for content pages
+ * ContentCrossLinks , "Explore More" section for content pages
  * Shows links to related content sections and pillar pages.
  * Placed above Footer on Blog, Press, Awards, Podcast pages.
  */

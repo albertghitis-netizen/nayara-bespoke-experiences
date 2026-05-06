@@ -15,16 +15,16 @@ import { useRef, type ReactNode, type CSSProperties } from "react";
    MOTION CONSTANTS
    ═══════════════════════════════════════════════════════════════ */
 
-/** Gentle ease — smooth and understated */
+/** Gentle ease , smooth and understated */
 export const EASE_CINEMATIC = [0.25, 0.8, 0.25, 1] as const;
 
-/** Editorial ease — slightly more deliberate */
+/** Editorial ease , slightly more deliberate */
 export const EASE_EDITORIAL = [0.22, 0.9, 0.36, 1] as const;
 
-/** Subtle ease — for micro-interactions */
+/** Subtle ease , for micro-interactions */
 export const EASE_SUBTLE = [0.4, 0, 0.2, 1] as const;
 
-/** Duration presets — calmer, quicker */
+/** Duration presets , calmer, quicker */
 export const DURATION = {
   fast: 0.25,
   normal: 0.425,
@@ -33,7 +33,7 @@ export const DURATION = {
   hero: 0.85,
 } as const;
 
-/** Stagger presets — tighter */
+/** Stagger presets , tighter */
 export const STAGGER = {
   tight: 0.04,
   normal: 0.06,
@@ -105,7 +105,7 @@ export const clipRevealLeft: Variants = {
   },
 };
 
-/** Stagger container — wraps children that each have their own variants */
+/** Stagger container , wraps children that each have their own variants */
 export const staggerContainer: Variants = {
   hidden: {},
   visible: {
@@ -176,7 +176,7 @@ export function AnimateOnScroll({
 }
 
 /**
- * Stagger children on scroll — each child animates in sequence.
+ * Stagger children on scroll , each child animates in sequence.
  * Children should use motion.* elements with variants like fadeUp.
  */
 export function StaggerOnScroll({
@@ -205,7 +205,7 @@ export function StaggerOnScroll({
 }
 
 /**
- * Text reveal — gentle fade and slide up.
+ * Text reveal , gentle fade and slide up.
  * Much calmer than the previous clip-mask approach.
  */
 interface TextRevealProps {
@@ -246,7 +246,7 @@ export function TextReveal({
 }
 
 /**
- * Multi-line text reveal — each line staggers in gently.
+ * Multi-line text reveal , each line staggers in gently.
  */
 interface MultiLineRevealProps {
   lines: string[];
@@ -292,7 +292,7 @@ export function MultiLineReveal({
 }
 
 /**
- * Parallax wrapper — element moves at a different scroll speed.
+ * Parallax wrapper , element moves at a different scroll speed.
  * offset: how many pixels of parallax travel (positive = moves up slower)
  */
 interface ParallaxProps {
@@ -325,7 +325,7 @@ export function Parallax({
 }
 
 /**
- * Image/Video reveal — gentle fade with very subtle scale.
+ * Image/Video reveal , gentle fade with very subtle scale.
  * Much calmer than the previous clip-mask approach.
  */
 interface MediaRevealProps {
@@ -389,7 +389,7 @@ export function DrawLine({ className, color = "#E6DFD5", delay = 0 }: DrawLinePr
 }
 
 /**
- * Counter animation — animates a number from 0 to target.
+ * Counter animation , animates a number from 0 to target.
  */
 interface CountUpProps {
   target: number;
@@ -428,7 +428,7 @@ export function CountUp({
 }
 
 /**
- * Gradient section transition — renders a gradient background
+ * Gradient section transition , renders a gradient background
  * between two colors as a visual section divider.
  */
 interface GradientTransitionProps {

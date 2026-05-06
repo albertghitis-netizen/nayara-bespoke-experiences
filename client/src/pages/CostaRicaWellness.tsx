@@ -1,5 +1,5 @@
 /*
- * UNIVERSAL WELLNESS — Shared deep page for ALL properties
+ * UNIVERSAL WELLNESS , Shared deep page for ALL properties
  * Renders in the color palette of whichever property the user came from.
  * RESTRUCTURED: Private Hot Springs → Las Termas → Yoga → Sukha Spa → Treatments
  */
@@ -169,7 +169,7 @@ function PrivateHotSprings({ palette }: { palette: PropertyPalette }) {
                 className="text-[15px] md:text-[16px] leading-[1.9]"
                 style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
               >
-                The result is not simply a nicer pool. It is a different category of stay—where warmth, silence, nature, solitude, and geology converge into a direct encounter with the place itself.
+                The result is not simply a nicer pool. It is a different category of stay,where warmth, silence, nature, solitude, and geology converge into a direct encounter with the place itself.
               </p>
             </div>
           </div>

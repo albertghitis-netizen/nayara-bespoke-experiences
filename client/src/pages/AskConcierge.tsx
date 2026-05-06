@@ -1,5 +1,5 @@
 /**
- * Ask Concierge Page — Full-page chat experience
+ * Ask Concierge Page , Full-page chat experience
  * Shows what the AI concierge knows, what it still needs, and how it works
  */
 

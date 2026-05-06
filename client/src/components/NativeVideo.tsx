@@ -1,11 +1,11 @@
 /**
- * NativeVideo — Lightweight native <video> wrapper
+ * NativeVideo , Lightweight native <video> wrapper
  *
  * Sequential playback rules:
- * 1. On mount: preload="auto" + video.load() — buffers silently, stays paused at frame 0
- * 2. START playing: when the previous video is almost gone — this video's top edge
+ * 1. On mount: preload="auto" + video.load() , buffers silently, stays paused at frame 0
+ * 2. START playing: when the previous video is almost gone , this video's top edge
  *    reaches -80px above the viewport top (a sliver of previous still showing)
- * 3. FREEZE on last frame: no loop, no reset — video.ended leaves it on last frame
+ * 3. FREEZE on last frame: no loop, no reset , video.ended leaves it on last frame
  * 4. PAUSE when off screen: when fully above (rect.bottom <= 0) or fully below (rect.top >= vh)
  *
  * Audio: All cascade videos are ALWAYS muted. Audio comes from cascadeAudio's single
@@ -52,7 +52,7 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
 
   /**
    * MOUNT EFFECT: Start buffering
-   * Does NOT play — just loads data into the buffer
+   * Does NOT play , just loads data into the buffer
    */
   useEffect(() => {
     const video = videoRef.current;
@@ -62,9 +62,9 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     setHasError(false);
 
     video.autoplay = false;
-    video.muted = true; // Always muted — audio from cascadeAudio
+    video.muted = true; // Always muted , audio from cascadeAudio
     video.preload = "auto";
-    video.load(); // Start buffering immediately — does NOT play
+    video.load(); // Start buffering immediately , does NOT play
 
     const onLoaded = () => {
       setIsLoaded(true);
@@ -94,10 +94,10 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
 
   /* ── SCROLL-BASED PLAY/PAUSE ──
      START: when this video's top edge is within 80px above the viewport top.
-            This means the previous video has almost completely scrolled off —
-            just a sliver remains — giving a seamless handoff.
+            This means the previous video has almost completely scrolled off ,
+            just a sliver remains , giving a seamless handoff.
      STOP:  when fully off screen (above or below viewport).
-     FREEZE: video.ended — no loop, no reset, stays on last frame. */
+     FREEZE: video.ended , no loop, no reset, stays on last frame. */
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
@@ -110,7 +110,7 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
       const rect = container.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      // Fully off screen — pause (but don't reset)
+      // Fully off screen , pause (but don't reset)
       const isOffScreen = rect.bottom <= 0 || rect.top >= vh;
 
       // Start when top edge is 80px above viewport top (sliver of previous still showing)

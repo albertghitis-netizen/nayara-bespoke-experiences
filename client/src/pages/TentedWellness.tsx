@@ -1,5 +1,5 @@
 /**
- * BRAND WELLNESS — Nature-Based Wellness by Colors: Brown, Black, Green, Blue
+ * BRAND WELLNESS , Nature-Based Wellness by Colors: Brown, Black, Green, Blue
  * 6-hotel filter with Springs as default
  * Based on: https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health
  */
@@ -52,7 +52,7 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     color: "Brown",
     title: "Atacama Desert by Day",
     subtitle: "Nayara Alto Atacama",
-    description: "Across the deserts of the world, true oases are rare. Nayara Alto Atacama sits within the fertile Catarpe Valley at the edge of Chile's Atacama Desert. By day the desert setting feels stripped back to its elements — brown earth, open space, and quiet give the nervous system a low-input environment to recover from the chronic overload of dense urban life.",
+    description: "Across the deserts of the world, true oases are rare. Nayara Alto Atacama sits within the fertile Catarpe Valley at the edge of Chile's Atacama Desert. By day the desert setting feels stripped back to its elements , brown earth, open space, and quiet give the nervous system a low-input environment to recover from the chronic overload of dense urban life.",
     image: `${CDN}/IMG_6253_ffc4f157.PNG`,
     science: [
       "Attention Restoration Theory: environments with low sensory clutter help restore fatigued attention",
@@ -78,7 +78,7 @@ const wellnessEcosystems: WellnessEcosystem[] = [
     color: "Green",
     title: "Rainforest Wellness",
     subtitle: "Costa Rica: Gardens, Springs, Tented Camp",
-    description: "Walk out of your villa in Arenal and you are in the color green — layers of leaves, moss, epiphytes, and a canopy that filters light. Air feels thicker. You hear water before you see it. The rainforest directly calms the nervous system, triggering the parasympathetic \u201Crest and repair\u201D state through natural soundscapes, humidity, and layered greenery. The air itself is different: oxygen-rich and filled with phytoncides, natural plant compounds linked to improved mood, reduced inflammation, and enhanced immune response. Your body starts changing before you realize it.",
+    description: "Walk out of your villa in Arenal and you are in the color green , layers of leaves, moss, epiphytes, and a canopy that filters light. Air feels thicker. You hear water before you see it. The rainforest directly calms the nervous system, triggering the parasympathetic \u201Crest and repair\u201D state through natural soundscapes, humidity, and layered greenery. The air itself is different: oxygen-rich and filled with phytoncides, natural plant compounds linked to improved mood, reduced inflammation, and enhanced immune response. Your body starts changing before you realize it.",
     image: "/manus-storage/wellness-rainforest-bride_57ec030d.png",
     science: [
       "Dense rainforest environments stimulate the parasympathetic nervous system, reducing cortisol and slowing breathing",
@@ -140,7 +140,7 @@ export default function BrandWellness() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-screen video
+   HERO , Full-screen video
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -174,7 +174,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
 
-      {/* Sound pill — espresso, identical to brand homepage */}
+      {/* Sound pill , espresso, identical to brand homepage */}
       <button
         onClick={() => setIsMuted(!isMuted)}
         aria-label={isMuted ? "Unmute" : "Mute"}
@@ -216,7 +216,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INTRO — Pillar description
+   INTRO , Pillar description
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection({ palette }: { palette: PropertyPalette }) {
   return (
@@ -232,7 +232,7 @@ function IntroSection({ palette }: { palette: PropertyPalette }) {
               Brown, green, blue, and black describe four different environments across our portfolio. Deserts strip the visual field to light, rock, and distance. Rainforests overwhelm it with biodiversity, humidity, and sound. Oceans offer rhythm, horizon, and immersion. Dark skies change what the brain does with scale and time.
             </p>
             <p className="text-[15px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
-              Treating "nature" as a single ingredient flattens what the research shows: the body reads each ecosystem differently. Nature-based wellness at Nayara is painted in brown, black, green, and blue — each offering distinct restoration for mind, body, and spirit.
+              Treating "nature" as a single ingredient flattens what the research shows: the body reads each ecosystem differently. Nature-based wellness at Nayara is painted in brown, black, green, and blue , each offering distinct restoration for mind, body, and spirit.
             </p>
           </div>
         </FadeIn>
@@ -242,7 +242,7 @@ function IntroSection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ECOSYSTEMS — Four color sections
+   ECOSYSTEMS , Four color sections
    ═══════════════════════════════════════════════════════════════ */
 function EcosystemsSection({ palette }: { palette: PropertyPalette }) {
   return (
@@ -287,7 +287,7 @@ function EcosystemRow({ ecosystem, reversed, index, palette }: { ecosystem: Well
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BLOG LINK — CTA to read full article
+   BLOG LINK , CTA to read full article
    ═══════════════════════════════════════════════════════════════ */
 function BlogLinkSection({ palette }: { palette: PropertyPalette }) {
   return (
@@ -296,7 +296,7 @@ function BlogLinkSection({ palette }: { palette: PropertyPalette }) {
         <FadeIn>
           <div className="text-center">
             <p className="text-[15px] leading-relaxed mb-8" style={{ ...body, color: palette.secondary }}>
-              Four colors, four workloads for the nervous system — explore the full research, science, and philosophy behind nature-based wellness at Nayara Resorts.
+              Four colors, four workloads for the nervous system , explore the full research, science, and philosophy behind nature-based wellness at Nayara Resorts.
             </p>
             <a
               href="https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health"
@@ -316,7 +316,7 @@ function BlogLinkSection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   TREATMENTS — Spa menu for selected property
+   TREATMENTS , Spa menu for selected property
    ═══════════════════════════════════════════════════════════════ */
 function TreatmentsSection({ treatments, palette }: { treatments: Array<Treatment & { propertyId: string; propertyName: string }>; palette: PropertyPalette }) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);

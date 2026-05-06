@@ -1,5 +1,5 @@
 /**
- * New Projects — Placeholder
+ * New Projects , Placeholder
  * Original content preserved in git history.
  */
 import BrandNavigation from "@/components/BrandNavigation";

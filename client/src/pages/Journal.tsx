@@ -1,7 +1,7 @@
 /*
- * NAYARA JOURNAL — Full-bleed gallery grid
+ * NAYARA JOURNAL , Full-bleed gallery grid
  * Square cards, text overlay, deliberately mixed Read / Listen / Watch order
- * No filters, no sorting — pure editorial gallery
+ * No filters, no sorting , pure editorial gallery
  *
  * Card CTA types:
  *   - Listen-only (AFAR):        single 🎧 Listen pill → podcastUrl
@@ -9,7 +9,7 @@
  *   - EN/ES toggle (2 entries):  dual pills 🇺🇸 English + 🇪🇸 Spanish
  *   - Read (articles):           single ↗ Read pill → external blog URL
  *
- * FAQ section — coming soon
+ * FAQ section , coming soon
  */
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -43,7 +43,7 @@ const JOURNAL_CDN = {
 };
 
 /*
- * CURATED_IDS — deliberately mixed Read / Listen / Watch / EN-ES order
+ * CURATED_IDS , deliberately mixed Read / Listen / Watch / EN-ES order
  * Row 1: Read · Listen-only · Watch/Listen
  * Row 2: Read · Read        · Watch/Listen
  * Row 3: Read · Watch/Listen · Read
@@ -193,7 +193,7 @@ export default function Journal() {
         </div>
       </section>
 
-      {/* ── FAQ — Coming Soon ── */}
+      {/* ── FAQ , Coming Soon ── */}
       <section className="px-4 md:px-10 py-14 md:py-20 bg-white border-t border-stone-100">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
@@ -204,7 +204,7 @@ export default function Journal() {
               Frequently Asked Questions
             </h2>
             <p className="text-[#3B2B26]/35 text-[13px] leading-relaxed" style={body}>
-              Coming soon — answers to everything you want to know about staying at Nayara.
+              Coming soon , answers to everything you want to know about staying at Nayara.
             </p>
           </FadeIn>
         </div>
@@ -217,7 +217,7 @@ export default function Journal() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GALLERY CARD — Full-bleed square card with text overlay
+   GALLERY CARD , Full-bleed square card with text overlay
    ═══════════════════════════════════════════════════════════════ */
 function GalleryCard({
   entry,
@@ -238,7 +238,7 @@ function GalleryCard({
   const hasLangToggle = isVideo && !!entry.languageVariants;
   const isListenOnly = isAudio && !entry.youtubeId;
 
-  // Active playing state — for EN/ES we track which variant is playing
+  // Active playing state , for EN/ES we track which variant is playing
   const isPlaying = activeVideo === entry.id;
   const isPlayingEN = activeVideo === `${entry.id}-en`;
   const isPlayingES = activeVideo === `${entry.id}-es`;
@@ -336,7 +336,7 @@ function GalleryCard({
   );
 }
 
-/* ── Card Shell — image + optional YouTube embed ── */
+/* ── Card Shell , image + optional YouTube embed ── */
 function CardShell({
   entry,
   index,
@@ -400,7 +400,7 @@ function CardShell({
   );
 }
 
-/* ── Card Overlay — title + property label + CTA pills ── */
+/* ── Card Overlay , title + property label + CTA pills ── */
 function CardOverlay({ entry, children }: { entry: JournalEntry; children: React.ReactNode }) {
   return (
     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">

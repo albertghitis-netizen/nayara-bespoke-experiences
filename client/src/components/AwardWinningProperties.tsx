@@ -1,5 +1,5 @@
 /**
- * Award-Winning Properties — Full-width horizontal image
+ * Award-Winning Properties , Full-width horizontal image
  *
  * Text content (H2, body, CTA) lives in HomeIntroSection in each page.
  * Accepts optional imageSrc prop to display different images per property.

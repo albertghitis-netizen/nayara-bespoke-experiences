@@ -444,7 +444,7 @@ export const atacamaOasisPost: BlogPostData = {
       image: {
         src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/80_57ce5c18.jpg",
         alt: "Atacama desert landscape with volcanic terrain",
-        caption: "Nayara Alto Atacama — embedded within the Catarpe Valley oasis",
+        caption: "Nayara Alto Atacama , embedded within the Catarpe Valley oasis",
       },
     },
     {
@@ -463,7 +463,7 @@ export const atacamaOasisPost: BlogPostData = {
       image: {
         src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/83_621b9b3f.jpg",
         alt: "Desert landscape of the Atacama with mountains",
-        caption: "The Atacama — where human settlement has always followed water corridors",
+        caption: "The Atacama , where human settlement has always followed water corridors",
       },
     },
     {
@@ -478,7 +478,7 @@ export const atacamaOasisPost: BlogPostData = {
       heading: "Architecture Shaped by Survival",
       content: `<p>Desert architecture did not originate as an aesthetic exercise. It emerged as a survival mechanism.</p>
 <p>For millennia, thick earthen walls, recessed courtyards, and shaded passages moderated temperature and light long before mechanical systems existed. These principles are documented extensively by the <strong>Getty Conservation Institute</strong> and the <strong>International Council on Monuments and Sites</strong>.</p>
-<p>Nayara Alto Atacama draws directly from this lineage. Adobe walls absorb heat during the day and release it slowly at night. Terrace roofs are layered with native brea herbs to filter sunlight and cool interiors. Corridors are shaded with canes of <em>Chusquea quila</em>, a local bamboo species known for diffusing light and reducing heat gain — a passive cooling strategy consistent with arid-zone design principles.</p>
+<p>Nayara Alto Atacama draws directly from this lineage. Adobe walls absorb heat during the day and release it slowly at night. Terrace roofs are layered with native brea herbs to filter sunlight and cool interiors. Corridors are shaded with canes of <em>Chusquea quila</em>, a local bamboo species known for diffusing light and reducing heat gain , a passive cooling strategy consistent with arid-zone design principles.</p>
 <p>These materials are not decorative. They regulate the environment.</p>`,
     },
     {
@@ -492,12 +492,12 @@ export const atacamaOasisPost: BlogPostData = {
     },
   ],
   sources: [
-    { label: "National Geographic — Atacama Desert and Early Human Settlement", href: "https://www.nationalgeographic.com/" },
-    { label: "Memoria Chilena — Lickanantay (Atacameño) Culture", href: "https://www.memoriachilena.gob.cl/" },
-    { label: "Journal of Arid Environments — Oasis Effect", href: "https://www.sciencedirect.com/journal/journal-of-arid-environments" },
-    { label: "Scientific Reports — Microclimate Cooling in Oases", href: "https://www.nature.com/srep/" },
-    { label: "ScienceDirect — Oasis–Desert Microclimate Interactions", href: "https://www.sciencedirect.com/" },
-    { label: "NASA Earth Observatory — Atacama Desert", href: "https://earthobservatory.nasa.gov/" },
+    { label: "National Geographic , Atacama Desert and Early Human Settlement", href: "https://www.nationalgeographic.com/" },
+    { label: "Memoria Chilena , Lickanantay (Atacameño) Culture", href: "https://www.memoriachilena.gob.cl/" },
+    { label: "Journal of Arid Environments , Oasis Effect", href: "https://www.sciencedirect.com/journal/journal-of-arid-environments" },
+    { label: "Scientific Reports , Microclimate Cooling in Oases", href: "https://www.nature.com/srep/" },
+    { label: "ScienceDirect , Oasis–Desert Microclimate Interactions", href: "https://www.sciencedirect.com/" },
+    { label: "NASA Earth Observatory , Atacama Desert", href: "https://earthobservatory.nasa.gov/" },
   ],
   relatedArticles: [
     {
@@ -513,7 +513,7 @@ export const atacamaOasisPost: BlogPostData = {
   ],
   seo: {
     metaTitle: "The Best Place to Stay in the Atacama Desert Is an Oasis | Nayara Journal",
-    metaDescription: "Why a functioning oasis is not an amenity but the foundation of the Atacama experience — the science of desert microclimates, 10,000 years of human adaptation, and the Catarpe Valley.",
+    metaDescription: "Why a functioning oasis is not an amenity but the foundation of the Atacama experience , the science of desert microclimates, 10,000 years of human adaptation, and the Catarpe Valley.",
   },
 };
 
@@ -532,7 +532,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
   heroImage: "https://blog.nayararesorts.com/hubfs/9-Aug-11-2025-08-40-19-5669-PM.png",
   keyFindings: [
     "The Hito family, descended from early Polynesian settlers, are part-owners of Nayara Hangaroa and lead cultural and ecological regeneration on Rapa Nui.",
-    "Modern archaeological research confirmed that the moai were 'walked' using ropes and community cooperation — validating Rapa Nui oral tradition that the statues moved with mana.",
+    "Modern archaeological research confirmed that the moai were 'walked' using ropes and community cooperation , validating Rapa Nui oral tradition that the statues moved with mana.",
     "The toromiro tree, long extinct in the wild, has been reintroduced through global collaboration between Rapa Nui families and botanical gardens.",
   ],
   sections: [
@@ -545,7 +545,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
       image: {
         src: "https://blog.nayararesorts.com/hubfs/9-Aug-11-2025-08-40-19-5669-PM.png",
         alt: "Moai statues on Easter Island at sunset",
-        caption: "The Moai face inland — watching over the people, not themselves",
+        caption: "The Moai face inland , watching over the people, not themselves",
       },
     },
     {
@@ -570,16 +570,16 @@ export const hangaroaRegenerationPost: BlogPostData = {
     },
     {
       heading: "Regeneration as Legacy",
-      content: `<p>At Nayara Hangaroa, regeneration is not an initiative or activity. It is woven into daily life. Guests are invited to participate in restoration walks, tree-planting efforts, and coral-education programs — not as visitors but as contributors.</p>
+      content: `<p>At Nayara Hangaroa, regeneration is not an initiative or activity. It is woven into daily life. Guests are invited to participate in restoration walks, tree-planting efforts, and coral-education programs , not as visitors but as contributors.</p>
 <p>The Hito family remains at the center of this philosophy. Their work reflects a shift from sustainable luxury to <strong>regenerative luxury</strong>, where the goal is not to minimize impact but to restore what has been lost.</p>
 <p>From the volcanic shores of Rapa Nui to the rainforests of Costa Rica, regeneration at Nayara begins and ends with respect. Each place teaches its own form of restoration, and each community shapes the practices that sustain identity. Together, they form a single purpose: to ensure travel gives back more than it takes.</p>`,
       pullQuote: "Regenerative luxury: the goal is not to minimize impact but to restore what has been lost.",
     },
   ],
   sources: [
-    { label: "Carl Lipo & Terry Hunt — Walking Moai Research", href: "https://www.nationalgeographic.com/" },
-    { label: "Jared Diamond — Collapse: How Societies Choose to Fail or Succeed", href: "https://www.penguinrandomhouse.com/" },
-    { label: "Rapa Nui National Park — UNESCO World Heritage", href: "https://whc.unesco.org/en/list/715/" },
+    { label: "Carl Lipo & Terry Hunt , Walking Moai Research", href: "https://www.nationalgeographic.com/" },
+    { label: "Jared Diamond , Collapse: How Societies Choose to Fail or Succeed", href: "https://www.penguinrandomhouse.com/" },
+    { label: "Rapa Nui National Park , UNESCO World Heritage", href: "https://whc.unesco.org/en/list/715/" },
   ],
   relatedArticles: [
     {
@@ -595,7 +595,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
   ],
   seo: {
     metaTitle: "How Nayara Hangaroa Leads Regeneration on Rapa Nui | Nayara Journal",
-    metaDescription: "The Hito family, walking moai, and the future of Easter Island — how Nayara Hangaroa is leading cultural and ecological regeneration on Rapa Nui.",
+    metaDescription: "The Hito family, walking moai, and the future of Easter Island , how Nayara Hangaroa is leading cultural and ecological regeneration on Rapa Nui.",
   },
 };
 
@@ -603,7 +603,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
 
 export const bocasCondeNastPost: BlogPostData = {
   slug: "conde-nast-bocas-del-toro",
-  title: "Nayara Bocas del Toro: #1 Resort in Central America — Condé Nast Traveler 2025",
+  title: "Nayara Bocas del Toro: #1 Resort in Central America , Condé Nast Traveler 2025",
   subtitle: "The future of overwater luxury belongs to a private island in Panama",
   author: "Nayara Resorts",
   authorRole: "Nayara Editorial",
@@ -613,46 +613,46 @@ export const bocasCondeNastPost: BlogPostData = {
   readingTime: 10,
   heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
   keyFindings: [
-    "Nayara Bocas del Toro was named the #1 Resort in Central America in Condé Nast Traveler's 2025 Readers' Choice Awards — voted by more than 757,000 travelers.",
+    "Nayara Bocas del Toro was named the #1 Resort in Central America in Condé Nast Traveler's 2025 Readers' Choice Awards , voted by more than 757,000 travelers.",
     "The resort operates entirely off-grid on a private island, combining overwater villas, native landscape design, and community partnership.",
-    "Unlike distant overwater destinations like the Maldives or Bora Bora, Bocas offers the same dream — closer, richer, and designed entirely for romance.",
+    "Unlike distant overwater destinations like the Maldives or Bora Bora, Bocas offers the same dream , closer, richer, and designed entirely for romance.",
   ],
   sections: [
     {
       heading: "Because It Sits at the Meeting Point of Rainforest and Reef",
       content: `<p>For decades, the dream of the overwater bungalow belonged to the Maldives, Bora Bora, and Tahiti, but 20-hour flights, jet lag, and heavy carbon footprints have turned the fantasy into a contradiction. Bocas is different. We offer the same overwater dream, but closer, richer, and more alive.</p>
-<p>Here, coral gardens glow beneath your deck, mangroves stretch into the sea, and tropical rainforest meets reef. This stunning biodiversity is why we're known as the <em>Galápagos of the Caribbean</em> — and that uniqueness has just been recognized.</p>
-<p>Nayara Bocas del Toro was just named the <strong>#1 Resort in Central America</strong> in <a href="https://www.cntraveler.com/gallery/top-resorts-in-central-america-readers-choice-awards" target="_blank" rel="noopener noreferrer">Condé Nast Traveler's 2025 Readers' Choice Awards</a>. More than 757,000 travelers took part in the 38th annual awards — one of the most trusted recognitions in global travel.</p>
-<p>According to <a href="https://www.forbes.com/sites/petertaylor/2023/06/14/ive-traveled-to-six-continents-and-bocas-del-toro-panam-is-about-to-become-the-coolest-place-on-earth-heres-why/" target="_blank" rel="noopener noreferrer">Forbes</a>, Bocas is "about to become the coolest place on Earth" — a statement not about hype but transformation.</p>`,
+<p>Here, coral gardens glow beneath your deck, mangroves stretch into the sea, and tropical rainforest meets reef. This stunning biodiversity is why we're known as the <em>Galápagos of the Caribbean</em> , and that uniqueness has just been recognized.</p>
+<p>Nayara Bocas del Toro was just named the <strong>#1 Resort in Central America</strong> in <a href="https://www.cntraveler.com/gallery/top-resorts-in-central-america-readers-choice-awards" target="_blank" rel="noopener noreferrer">Condé Nast Traveler's 2025 Readers' Choice Awards</a>. More than 757,000 travelers took part in the 38th annual awards , one of the most trusted recognitions in global travel.</p>
+<p>According to <a href="https://www.forbes.com/sites/petertaylor/2023/06/14/ive-traveled-to-six-continents-and-bocas-del-toro-panam-is-about-to-become-the-coolest-place-on-earth-heres-why/" target="_blank" rel="noopener noreferrer">Forbes</a>, Bocas is "about to become the coolest place on Earth" , a statement not about hype but transformation.</p>`,
       image: {
         src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
         alt: "Aerial view of Nayara Bocas del Toro overwater villas among mangroves",
-        caption: "Nayara Bocas del Toro — #1 Resort in Central America, Condé Nast Traveler 2025",
+        caption: "Nayara Bocas del Toro , #1 Resort in Central America, Condé Nast Traveler 2025",
       },
     },
     {
       heading: "Overwater Villas Built for Privacy",
-      content: `<p>Bocas is proudly adults-only. That choice shapes everything. Privacy and intimacy aren't afterthoughts here — they are the blueprint.</p>
-<p>Our villas aren't just overwater — they are private sanctuaries designed exclusively for couples. Each has a plunge pool, a wrap-around deck, and a ladder descending straight into the Caribbean.</p>
+      content: `<p>Bocas is proudly adults-only. That choice shapes everything. Privacy and intimacy aren't afterthoughts here , they are the blueprint.</p>
+<p>Our villas aren't just overwater , they are private sanctuaries designed exclusively for couples. Each has a plunge pool, a wrap-around deck, and a ladder descending straight into the Caribbean.</p>
 <p>Romance here is not staged. It is built into the architecture, the landscape, and the rhythm of the resort.</p>`,
     },
     {
       heading: "The New Standard for All-Inclusive Travel",
-      content: `<p>The term "all-inclusive" often conjures images of buffets, wristbands, and overcrowded beach resorts. But a new era of all-inclusive is emerging — one built on elevated experience, not uniformity.</p>
+      content: `<p>The term "all-inclusive" often conjures images of buffets, wristbands, and overcrowded beach resorts. But a new era of all-inclusive is emerging , one built on elevated experience, not uniformity.</p>
 <p><a href="https://www.thezoereport.com/living/all-inclusive-resorts" target="_blank" rel="noopener noreferrer">The Zoe Report</a> frames this shift: "As a luxury experience, it is best described as 'all-encompassing' rather than 'all-inclusive.'"</p>
-<p>You won't find lines. You'll find a private island where comfort, cuisine, and connection coexist without compromises so couples can focus on each other, not logistics. Every meal is fine dining, every drink is hand-crafted, and kayaks, paddle boards, and snorkel gear aren't checked out — they're simply waiting at your overwater villa.</p>`,
+<p>You won't find lines. You'll find a private island where comfort, cuisine, and connection coexist without compromises so couples can focus on each other, not logistics. Every meal is fine dining, every drink is hand-crafted, and kayaks, paddle boards, and snorkel gear aren't checked out , they're simply waiting at your overwater villa.</p>`,
     },
     {
       heading: "A Private Island Shaped By Place",
       content: `<p>Unlike the Galápagos, Bocas connects marine and rainforest biomes seamlessly. Isla Bastimentos National Marine Park meets the mainland's Palo Seco Forest Reserve, forming an unbroken corridor from mountain cloud forest to coral reef. Few places on Earth let you see monkeys, sloths, and parrotfish in the same hour.</p>
-<p>Exploring it with your own private boat and captain isn't just an adventure — it's freedom made for two. A day might begin on the untouched sands of Zapatilla, where a romantic private picnic awaits on a beach, then end with dolphin pods leaping beside you at sunset.</p>
-<p>Add to that cultural depth — the Ngäbe-Buglé Indigenous communities, Afro-Antillean heritage, and a new wave of regenerative tourism — and you get an archipelago where biodiversity and humanity coexist instead of compete.</p>`,
+<p>Exploring it with your own private boat and captain isn't just an adventure , it's freedom made for two. A day might begin on the untouched sands of Zapatilla, where a romantic private picnic awaits on a beach, then end with dolphin pods leaping beside you at sunset.</p>
+<p>Add to that cultural depth , the Ngäbe-Buglé Indigenous communities, Afro-Antillean heritage, and a new wave of regenerative tourism , and you get an archipelago where biodiversity and humanity coexist instead of compete.</p>`,
       image: {
         src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
         alt: "Overwater villas at Nayara Bocas del Toro",
-        caption: "Bocas del Toro — where rainforest meets reef on a private Caribbean island",
+        caption: "Bocas del Toro , where rainforest meets reef on a private Caribbean island",
       },
-      pullQuote: "The Maldives, Bora Bora, and Tahiti will always inspire. But they are oceans away, while Bocas offers the same dream — closer, richer, and designed entirely for romance.",
+      pullQuote: "The Maldives, Bora Bora, and Tahiti will always inspire. But they are oceans away, while Bocas offers the same dream , closer, richer, and designed entirely for romance.",
     },
     {
       heading: "Treehouses in the Rainforest Canopy",
@@ -663,11 +663,11 @@ export const bocasCondeNastPost: BlogPostData = {
     },
   ],
   sources: [
-    { label: "Condé Nast Traveler — Readers' Choice Awards 2025", href: "https://www.cntraveler.com/gallery/top-resorts-in-central-america-readers-choice-awards" },
-    { label: "Forbes — The Coolest Place on Earth", href: "https://www.forbes.com/sites/petertaylor/2023/06/14/ive-traveled-to-six-continents-and-bocas-del-toro-panam-is-about-to-become-the-coolest-place-on-earth-heres-why/" },
-    { label: "The Zoe Report — All-Inclusive, Reimagined", href: "https://www.thezoereport.com/living/all-inclusive-resorts" },
+    { label: "Condé Nast Traveler , Readers' Choice Awards 2025", href: "https://www.cntraveler.com/gallery/top-resorts-in-central-america-readers-choice-awards" },
+    { label: "Forbes , The Coolest Place on Earth", href: "https://www.forbes.com/sites/petertaylor/2023/06/14/ive-traveled-to-six-continents-and-bocas-del-toro-panam-is-about-to-become-the-coolest-place-on-earth-heres-why/" },
+    { label: "The Zoe Report , All-Inclusive, Reimagined", href: "https://www.thezoereport.com/living/all-inclusive-resorts" },
     { label: "IBUKU Design Studio", href: "https://ibuku.com/" },
-    { label: "Atlas Obscura — Bastimentos National Marine Park", href: "https://www.atlasobscura.com/" },
+    { label: "Atlas Obscura , Bastimentos National Marine Park", href: "https://www.atlasobscura.com/" },
   ],
   relatedArticles: [
     {
@@ -683,7 +683,7 @@ export const bocasCondeNastPost: BlogPostData = {
   ],
   seo: {
     metaTitle: "Nayara Bocas del Toro: #1 Resort in Central America | Nayara Journal",
-    metaDescription: "Named #1 Resort in Central America by Condé Nast Traveler 2025 — why the future of overwater luxury belongs to a private island in Panama.",
+    metaDescription: "Named #1 Resort in Central America by Condé Nast Traveler 2025 , why the future of overwater luxury belongs to a private island in Panama.",
   },
 };
 
@@ -701,7 +701,7 @@ export const beyondSustainabilityPost: BlogPostData = {
   readingTime: 12,
   heroImage: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
   keyFindings: [
-    "Costa Rica was the epicenter of the ecotourism movement and home to the first eco-lodges — today it is a world leader in sustainable tourism.",
+    "Costa Rica was the epicenter of the ecotourism movement and home to the first eco-lodges , today it is a world leader in sustainable tourism.",
     "Regenerative tourism expands sustainable thinking beyond environmental stewardship, ensuring tourism benefits are shared equitably with local communities.",
     "Nayara's Costa Rica properties are fully carbon neutral, plastic-free since 2021, and have turned former cattle-ranching land into functioning wildlife corridors.",
     "Nayara Bocas del Toro was built entirely off-grid after five environmental studies, with nearly 100% solar power and 100,000 gallons of rainwater harvesting capacity.",
@@ -729,32 +729,32 @@ export const beyondSustainabilityPost: BlogPostData = {
     {
       heading: "Sustainability in the Costa Rican Rainforest",
       content: `<p>Located in the heart of the rainforest, Nayara Resorts in Costa Rica have an intimate relationship with nature. <a href="/tented-camp">Nayara Tented Camp</a>, the final addition to our family of resorts in Costa Rica, used to sit on a barren cattle ranch without a single bird or shrub to speak of.</p>
-<p>We took it upon ourselves to bring the rainforest back to this desolate landscape, planting hundreds of indigenous trees and plants, creating a habitat for countless wildlife including dozens of cecropia trees — a sloth favorite — that turned our resort into a veritable sloth sanctuary.</p>
+<p>We took it upon ourselves to bring the rainforest back to this desolate landscape, planting hundreds of indigenous trees and plants, creating a habitat for countless wildlife including dozens of cecropia trees , a sloth favorite , that turned our resort into a veritable sloth sanctuary.</p>
 <p>We built two pedestrian bridges hanging over our forest canopy to protect the trees and wildlife below. After a rigorous multi-year effort, we became <strong>fully carbon neutral</strong>. We calculate and offset all our greenhouse gas emissions.</p>
 <p>The majority of our team comes from the neighboring town of La Fortuna de San Carlos. We offer them free transportation, sustainable tourism education, and health services. Additional local initiatives include free early education for our employees' children and support for Hogarcito de Niños, a local orphanage.</p>`,
       image: {
         src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/11_576297a8.jpg",
         alt: "Nayara Tented Camp in the Costa Rican rainforest",
-        caption: "Nayara Tented Camp — built on former cattle-ranching land, now a thriving wildlife corridor",
+        caption: "Nayara Tented Camp , built on former cattle-ranching land, now a thriving wildlife corridor",
       },
     },
     {
       heading: "Sustainability Across All Destinations",
       content: `<p>In the Atacama, <a href="/alto-atacama">Nayara Alto Atacama</a> is the <strong>only luxury hotel</strong> in San Pedro de Atacama with an "S" certification for sustainable tourism from the Chilean government. We broke ground on a new solar panel and battery project completely disconnected from the national electricity grid.</p>
 <p>On Easter Island, <a href="/hangaroa">Nayara Hangaroa</a> was designed as a tribute to the Orongo ceremonial center. Our team comes from the neighboring town of Hanga Roa, and they're involved in every aspect of our operations, especially as guides and communicators of the history of the Rapa Nui.</p>
-<p>In Panama, <a href="/bocas-del-toro">Nayara Bocas del Toro</a> was built entirely on stilts and off-grid after five different environmental studies. Nearly 100% of the hotel's energy comes from solar panels, and all freshwater comes from harvested rainwater — up to <strong>100,000 gallons</strong> — purified through ultraviolet filtration.</p>
+<p>In Panama, <a href="/bocas-del-toro">Nayara Bocas del Toro</a> was built entirely on stilts and off-grid after five different environmental studies. Nearly 100% of the hotel's energy comes from solar panels, and all freshwater comes from harvested rainwater , up to <strong>100,000 gallons</strong> , purified through ultraviolet filtration.</p>
 <p>Our massive coral restoration program, in partnership with Caribbean Coral Restoration, has already seen a tremendous amount of marine life return to the bay.</p>`,
     },
     {
       heading: "Sustainability Is An Investment in Our Future",
-      content: `<p>Here at Nayara Resorts, we follow the principles of regenerative tourism even as we work to provide a peerless, world-class experience — not because it's a compelling marketing tool. In some ways, it <em>is</em> emotional — these destinations are our homes, and we want to protect them.</p>
+      content: `<p>Here at Nayara Resorts, we follow the principles of regenerative tourism even as we work to provide a peerless, world-class experience , not because it's a compelling marketing tool. In some ways, it <em>is</em> emotional , these destinations are our homes, and we want to protect them.</p>
 <p>But as countless others in the regenerative tourism movement understand, investing in our environment as well as the health and local economy of our communities is just a smart investment in the future, one that has already begun to pay dividends.</p>`,
     },
   ],
   sources: [
-    { label: "Nayara Resorts — Sustainability Report", href: "https://23160175.fs1.hubspotusercontent-na1.net/hubfs/23160175/PR/Sustainability%20Nayara%20Resorts%20(1).pdf" },
-    { label: "Costa Rica Tourism Board — Sustainability Certification", href: "https://www.ict.go.cr/" },
-    { label: "Green Globe — Certification Criteria", href: "https://www.greenglobe.com/" },
+    { label: "Nayara Resorts , Sustainability Report", href: "https://23160175.fs1.hubspotusercontent-na1.net/hubfs/23160175/PR/Sustainability%20Nayara%20Resorts%20(1).pdf" },
+    { label: "Costa Rica Tourism Board , Sustainability Certification", href: "https://www.ict.go.cr/" },
+    { label: "Green Globe , Certification Criteria", href: "https://www.greenglobe.com/" },
   ],
   relatedArticles: [
     {
@@ -782,7 +782,7 @@ export const beyondSustainabilityPost: BlogPostData = {
   ],
   seo: {
     metaTitle: "Beyond Sustainability: Regenerative Tourism at Nayara Resorts | Nayara Journal",
-    metaDescription: "From the first eco-lodges in Costa Rica to regenerative luxury across six destinations — how Nayara Resorts is redefining sustainable hospitality.",
+    metaDescription: "From the first eco-lodges in Costa Rica to regenerative luxury across six destinations , how Nayara Resorts is redefining sustainable hospitality.",
   },
 };
 
@@ -814,7 +814,7 @@ export const bocasAtacamaSustainabilityPost: BlogPostData = {
       image: {
         src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-mangroves_9d5e94f5.jpg",
         alt: "Aerial view of Nayara Bocas del Toro",
-        caption: "Nayara Bocas del Toro — built entirely off-grid on a private island",
+        caption: "Nayara Bocas del Toro , built entirely off-grid on a private island",
       },
     },
     {
@@ -828,7 +828,7 @@ export const bocasAtacamaSustainabilityPost: BlogPostData = {
       heading: "Chile: Solar Innovation in the Desert",
       content: `<p>Heading south to Chile, <a href="/alto-atacama">Nayara Alto Atacama</a> is the <strong>only</strong> luxury hotel in San Pedro de Atacama with an "S" certification for sustainable tourism from the Chilean government.</p>
 <p>In another first for Chile, we're breaking ground on a new solar panel and battery project that will be completely disconnected from the national electricity grid. Not only will this reduce our carbon footprint by more than a ton of CO₂ per year, but will also minimize noise and traffic pollution.</p>
-<p>We are using innovative solar panels that are <strong>coplanar</strong> — flat and non-reflective — so they fit seamlessly with the hotel and its surrounding mountainous desert environment. And, as in the case of Panama, we are dedicated to serving as an example and supporting the local community to create solar panel projects of their own.</p>`,
+<p>We are using innovative solar panels that are <strong>coplanar</strong> , flat and non-reflective , so they fit seamlessly with the hotel and its surrounding mountainous desert environment. And, as in the case of Panama, we are dedicated to serving as an example and supporting the local community to create solar panel projects of their own.</p>`,
     },
     {
       heading: "Leading the Way",
@@ -837,9 +837,9 @@ export const bocasAtacamaSustainabilityPost: BlogPostData = {
     },
   ],
   sources: [
-    { label: "Nayara Resorts — Sustainability Report", href: "https://23160175.fs1.hubspotusercontent-na1.net/hubfs/23160175/PR/Sustainability%20Nayara%20Resorts%20(1).pdf" },
+    { label: "Nayara Resorts , Sustainability Report", href: "https://23160175.fs1.hubspotusercontent-na1.net/hubfs/23160175/PR/Sustainability%20Nayara%20Resorts%20(1).pdf" },
     { label: "Caribbean Coral Restoration", href: "https://caribbeancoralrestoration.com/" },
-    { label: "SERNATUR — Chile's National Tourism Service", href: "https://www.sernatur.cl/" },
+    { label: "SERNATUR , Chile's National Tourism Service", href: "https://www.sernatur.cl/" },
   ],
   relatedArticles: [
     {
@@ -863,7 +863,7 @@ export const bocasAtacamaSustainabilityPost: BlogPostData = {
   ],
   seo: {
     metaTitle: "Nayara Bocas del Toro & Alto Atacama: A Study in Sustainability | Nayara Journal",
-    metaDescription: "How Nayara's properties in Panama and Chile are leading sustainable tourism — off-grid solar power, coral restoration, and Chile's S Certification.",
+    metaDescription: "How Nayara's properties in Panama and Chile are leading sustainable tourism , off-grid solar power, coral restoration, and Chile's S Certification.",
   },
 };
 

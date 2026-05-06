@@ -1,5 +1,5 @@
 /**
- * PropertyDiningSection — Reusable dining section for property pages.
+ * PropertyDiningSection , Reusable dining section for property pages.
  * Renders restaurant cards with expandable menus from dining.ts data.
  * Design: Editorial magazine style matching the site's "Desert Codex" language.
  */
@@ -11,7 +11,7 @@ import type { PropertyDining, Restaurant, MenuSection, MenuItem } from "@/data/d
 
 interface Props {
   dining: PropertyDining;
-  /** Background color variant — matches property page palette */
+  /** Background color variant , matches property page palette */
   bgClass?: string;
   /** Text color for headings */
   headingColor?: string;
@@ -99,7 +99,7 @@ function RestaurantCard({
       transition={{ duration: 0.6, delay: index * 0.15 }}
       className="bg-white/60 backdrop-blur-sm border border-stone-200/60 overflow-hidden"
     >
-      {/* Restaurant Header — always visible */}
+      {/* Restaurant Header , always visible */}
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full text-left p-6 md:p-8 flex items-start md:items-center justify-between gap-4 hover:bg-white/40 transition-colors"

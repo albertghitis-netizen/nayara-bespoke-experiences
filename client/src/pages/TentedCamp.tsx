@@ -1,9 +1,9 @@
 /**
- * NAYARA TENTED CAMP — Arenal, Costa Rica
+ * NAYARA TENTED CAMP , Arenal, Costa Rica
  * Option C: Cascade with functional breaks woven in
  * Full-bleed edge-to-edge media, canopy gradient
  * Functional breaks: Reviews pull-quote, Journal link, Getting Here
- * woven between cascade sections — not appended at the end
+ * woven between cascade sections , not appended at the end
  */
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,9 +32,9 @@ import { BOOKING_URLS } from "@/data/booking";
 
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE — "Canopy" gradient: misty green → deep forest
+   PALETTE , "Canopy" gradient: misty green → deep forest
    ═══════════════════════════════════════════════════════════════ */
-/* Beyond Reforestation palette — bone + olive green + gravel */
+/* Beyond Reforestation palette , bone + olive green + gravel */
 const COLOR_A = "#F7F5F0"; // Bone (primary background)
 const COLOR_B = "#EDEEE2"; // Warm olive tint (subtle variation)
 const SECTION_COLORS = [
@@ -128,7 +128,7 @@ const ASSETS = {
 
   badges: `${CDN}/award-badges-tented-camp_8aea5e71.webp`,
 
-  // S4 horizontal photo — tented camp sunset plunge pool
+  // S4 horizontal photo , tented camp sunset plunge pool
   s4Photo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/tented-camp-sunset-plunge_7573fe67.jpeg",
 
   // New cascade video
@@ -177,7 +177,7 @@ function MediaBlock({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CASCADE SECTION — Full-bleed desktop, stacked mobile
+   CASCADE SECTION , Full-bleed desktop, stacked mobile
    ═══════════════════════════════════════════════════════════════ */
 type CascadeSectionData = {
   id: string;
@@ -269,12 +269,12 @@ function CascadeSection({
               src={section.horizontalSrc}
               isVideo={section.horizontalIsVideo}
               ratio={section.horizontalRatio}
-              alt={`${section.label} landscape — Nayara Tented Camp`}
+              alt={`${section.label} landscape , Nayara Tented Camp`}
               className="w-full"
               loop={section.horizontalLoop}
             />
           )}
-          {/* Explore pills overlay — crossfade centered during video, split when ended */}
+          {/* Explore pills overlay , crossfade centered during video, split when ended */}
           {section.horizontalOverlayButtons ? (
             <div className="absolute bottom-[6%] left-0 right-0 z-10 pointer-events-none">
               {hVideoEnded ? (
@@ -362,7 +362,7 @@ function CascadeSection({
 
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
-        {/* Vertical media — on mobile: always after text (order-2), on desktop: alternates */}
+        {/* Vertical media , on mobile: always after text (order-2), on desktop: alternates */}
         <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
           {/* Explore pills on vertical media */}
           {section.verticalOverlayButtons && (
@@ -411,7 +411,7 @@ function CascadeSection({
                     src={section.mobileVerticalSrc}
                     isVideo={section.mobileVerticalIsVideo ?? false}
                     ratio={section.verticalRatio}
-                    alt={`${section.label} — Nayara Tented Camp`}
+                    alt={`${section.label} , Nayara Tented Camp`}
                     loop={section.verticalLoop}
                   />
                 </MediaReveal>
@@ -423,7 +423,7 @@ function CascadeSection({
                     src={section.verticalSrc}
                     isVideo={section.verticalIsVideo}
                     ratio={section.verticalRatio}
-                    alt={`${section.label} — Nayara Tented Camp`}
+                    alt={`${section.label} , Nayara Tented Camp`}
                     loop={section.verticalLoop}
                   />
                 </MediaReveal>
@@ -435,7 +435,7 @@ function CascadeSection({
                 src={section.verticalSrc}
                 isVideo={section.verticalIsVideo}
                 ratio={section.verticalRatio}
-                alt={`${section.label} — Nayara Tented Camp`}
+                alt={`${section.label} , Nayara Tented Camp`}
                 loop={section.verticalLoop}
               />
             </MediaReveal>
@@ -628,14 +628,14 @@ function CascadeSection({
         </div>
       </div>
 
-      {/* ── Full-width horizontal media AFTER (default) — hidden on mobile ── */}
+      {/* ── Full-width horizontal media AFTER (default) , hidden on mobile ── */}
       {!section.horizontalFirst && horizontalBlock}
     </section>
   );
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FUNCTIONAL BREAK — Reviews Pull-Quote
+   FUNCTIONAL BREAK , Reviews Pull-Quote
    Woven between Wellness and Gastronomy sections
    ═══════════════════════════════════════════════════════════════ */
 function ReviewsBreak({ bgColor }: { bgColor: string }) {
@@ -685,7 +685,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
               className="text-[12px] tracking-[0.08em] not-italic"
               style={{ ...body, color: PALETTE.textTertiary }}
             >
-              — Andrew, TripAdvisor
+              , Andrew, TripAdvisor
             </cite>
           </blockquote>
         </AnimateOnScroll>
@@ -707,7 +707,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FUNCTIONAL BREAK — Journal Link
+   FUNCTIONAL BREAK , Journal Link
    Woven between Wildlife and Adventure sections
    ═══════════════════════════════════════════════════════════════ */
 function JournalBreak({ bgColor }: { bgColor: string }) {
@@ -760,7 +760,7 @@ function JournalBreak({ bgColor }: { bgColor: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FUNCTIONAL BREAK — Getting Here
+   FUNCTIONAL BREAK , Getting Here
    After the last cascade section, before gallery
    ═══════════════════════════════════════════════════════════════ */
 function GettingHereBreak({ bgColor }: { bgColor: string }) {
@@ -875,7 +875,7 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   RESERVE CTA — "Begin Your Rainforest Adventure"
+   RESERVE CTA , "Begin Your Rainforest Adventure"
    ═══════════════════════════════════════════════════════════════ */
 function ReserveCTA() {
   const tailBg = SECTION_COLORS[SECTION_COLORS.length - 1];
@@ -954,7 +954,7 @@ const TENTED_CAMP_ROOMS: RoomSliderCard[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   SECTION DATA — 8 cascade sections
+   SECTION DATA , 8 cascade sections
    ═══════════════════════════════════════════════════════════════ */
 const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
   {
@@ -978,7 +978,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     id: "rooms",
     label: "Accommodations",
     headline: "Life Under\nCanvas",
-    body: "Each tented suite is a private sanctuary suspended in the canopy — featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.\n\nFrom the intimate Nayara Tent for couples to the expansive Residence accommodating up to twelve guests, every option is designed with multigenerational travel in mind. The Family Tent and Grand Tent offer generous living spaces for families, while the Residence brings everyone together under one roof — private pools, shared terraces, and room for three generations to create memories side by side.",
+    body: "Each tented suite is a private sanctuary suspended in the canopy , featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.\n\nFrom the intimate Nayara Tent for couples to the expansive Residence accommodating up to twelve guests, every option is designed with multigenerational travel in mind. The Family Tent and Grand Tent offer generous living spaces for families, while the Residence brings everyone together under one roof , private pools, shared terraces, and room for three generations to create memories side by side.",
     verticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
     mobileVerticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
     mobileVerticalIsVideo: true,
@@ -1029,7 +1029,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     id: "sustainability",
     label: "Sustainability",
     headline: "Rooted in\nResponsibility",
-    body: "What began as a barren cattle ranch is now a thriving 1,400-acre rainforest reserve. Every decision at Tented Camp — from solar-heated pools to zero single-use plastics — is guided by a simple principle: leave the land better than we found it.\n\nOver the past two decades, Nayara has reforested more than 600 acres of degraded pastureland, creating wildlife corridors that allow jaguars, tapirs, and scarlet macaws to move freely between protected areas. The property holds Costa Rica's highest CST 5 sustainability certification and generates 100% of its energy from renewable sources. Guests don't just witness this transformation — they become part of it.",
+    body: "What began as a barren cattle ranch is now a thriving 1,400-acre rainforest reserve. Every decision at Tented Camp , from solar-heated pools to zero single-use plastics , is guided by a simple principle: leave the land better than we found it.\n\nOver the past two decades, Nayara has reforested more than 600 acres of degraded pastureland, creating wildlife corridors that allow jaguars, tapirs, and scarlet macaws to move freely between protected areas. The property holds Costa Rica's highest CST 5 sustainability certification and generates 100% of its energy from renewable sources. Guests don't just witness this transformation , they become part of it.",
     verticalSrc: "/manus-storage/tented-sustainability-vertical_51ad5d43.mp4",
     horizontalSrc: "/manus-storage/tented-sustainability-h2_e4fd711d.mp4",
     verticalIsVideo: true,
@@ -1056,7 +1056,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     id: "wellness",
     label: "Wellness",
     headline: "Volcanic\nHealing",
-    body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.\n\nSurrender to the rhythm of the rainforest — from mineral-rich thermal soaks at dawn to guided breathwork sessions as the howler monkeys call through the canopy. Here, healing is not a treatment but a way of being.",
+    body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.\n\nSurrender to the rhythm of the rainforest , from mineral-rich thermal soaks at dawn to guided breathwork sessions as the howler monkeys call through the canopy. Here, healing is not a treatment but a way of being.",
     verticalSrc: "/manus-storage/tented-wellness-vertical-new_e0367ea8.mp4",
     horizontalSrc: "/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4",
     verticalIsVideo: true,
@@ -1083,7 +1083,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     id: "gastronomy",
     label: "Forest to Table",
     headline: "Forest\nto Table",
-    body: "From Mediterranean-inspired cuisine to the freshest local ingredients, Ayla brings a refined yet relaxed dining experience to the heart of the rainforest. Each dish celebrates Costa Rica's biodiversity with seasonal menus that change with the harvest.\n\nAt Henry's Bar, craft cocktails made with local spirits and tropical botanicals set the tone for unforgettable evenings. Small plates from the garden, a terrace floating above the treetops, and the warm glow of the volcano at sunset — this is where stories are shared and memories are made.",
+    body: "From Mediterranean-inspired cuisine to the freshest local ingredients, Ayla brings a refined yet relaxed dining experience to the heart of the rainforest. Each dish celebrates Costa Rica's biodiversity with seasonal menus that change with the harvest.\n\nAt Henry's Bar, craft cocktails made with local spirits and tropical botanicals set the tone for unforgettable evenings. Small plates from the garden, a terrace floating above the treetops, and the warm glow of the volcano at sunset , this is where stories are shared and memories are made.",
     verticalSrc: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
     horizontalSrc: "/manus-storage/HenrysBar(1)_189a43b4.jpg",
     verticalIsVideo: false,
@@ -1105,7 +1105,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     id: "nayara-by-night",
     label: "Nayara by Night",
     headline: "The Jungle\nAfter Dark",
-    body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets — a world that only comes alive after dark.",
+    body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets , a world that only comes alive after dark.",
     verticalSrc: "/manus-storage/tented-night-frogs-vertical_13b54b09.mp4",
     verticalIsVideo: true,
     verticalRatio: "3/4",
@@ -1161,7 +1161,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     id: "residence",
     label: "The Residence",
     headline: "Private\nRetreat",
-    body: "Our exclusive Residence offers the ultimate in privacy and space — a standalone villa with its own pool, living areas, and dedicated staff. Designed for families and groups seeking the full Tented Camp experience with complete seclusion.",
+    body: "Our exclusive Residence offers the ultimate in privacy and space , a standalone villa with its own pool, living areas, and dedicated staff. Designed for families and groups seeking the full Tented Camp experience with complete seclusion.",
     verticalSrc: ASSETS.galleryVideo2,
     horizontalSrc: ASSETS.galleryImg3,
     verticalIsVideo: false,
@@ -1175,7 +1175,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     id: "henrys-bar",
     label: "Henry's Bar",
     headline: "Cocktails\nAbove the Canopy",
-    body: "Named after our founder, Henry's Bar is the social heart of Tented Camp. Craft cocktails made with local spirits, small plates from the garden, and a terrace that floats above the treetops — the perfect place to watch the volcano glow at sunset.",
+    body: "Named after our founder, Henry's Bar is the social heart of Tented Camp. Craft cocktails made with local spirits, small plates from the garden, and a terrace that floats above the treetops , the perfect place to watch the volcano glow at sunset.",
     verticalSrc: ASSETS.galleryVideo1,
     horizontalSrc: ASSETS.galleryImg2,
     verticalIsVideo: false,
@@ -1189,7 +1189,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     id: "tented-residence",
     label: "Tented Residence",
     headline: "Canvas &\nVolcano Views",
-    body: "The Tented Residence is our most exclusive accommodation — soaring canvas ceilings, handcrafted wood details, and floor-to-ceiling openings that frame the Arenal Volcano. A private estate with multiple bedrooms, dedicated staff, and unparalleled privacy.",
+    body: "The Tented Residence is our most exclusive accommodation , soaring canvas ceilings, handcrafted wood details, and floor-to-ceiling openings that frame the Arenal Volcano. A private estate with multiple bedrooms, dedicated staff, and unparalleled privacy.",
     verticalSrc: ASSETS.galleryImg5,
     horizontalSrc: ASSETS.galleryImg6,
     verticalIsVideo: false,
@@ -1203,7 +1203,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     id: "camp-life",
     label: "Camp Life",
     headline: "Every Detail\nConsidered",
-    body: "From the morning birdsong to the evening fireflies, life at Tented Camp unfolds at nature's pace. Our team anticipates every need — whether it's a private dinner under the stars, a guided night walk, or simply the perfect cup of Costa Rican coffee on your deck.",
+    body: "From the morning birdsong to the evening fireflies, life at Tented Camp unfolds at nature's pace. Our team anticipates every need , whether it's a private dinner under the stars, a guided night walk, or simply the perfect cup of Costa Rican coffee on your deck.",
     verticalSrc: ASSETS.galleryVideo3,
     horizontalSrc: ASSETS.galleryImg7,
     verticalIsVideo: false,
@@ -1217,7 +1217,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     id: "rainforest-mornings",
     label: "Rainforest Mornings",
     headline: "First Light\nThrough the Canopy",
-    body: "Dawn at Tented Camp is a sensory awakening — howler monkeys call across the valley, mist rises from the volcanic springs, and the first golden light filters through the canopy. Step onto your private deck and watch the rainforest come alive.",
+    body: "Dawn at Tented Camp is a sensory awakening , howler monkeys call across the valley, mist rises from the volcanic springs, and the first golden light filters through the canopy. Step onto your private deck and watch the rainforest come alive.",
     verticalSrc: ASSETS.cascadeNewV,
     horizontalSrc: ASSETS.galleryImg8,
     verticalIsVideo: false,
@@ -1231,7 +1231,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     id: "canopy-dusk",
     label: "The Canopy at Dusk",
     headline: "Golden Hour\nAbove the Trees",
-    body: "As the sun sets behind Arenal Volcano, the canopy transforms into a theater of color — scarlet macaws return to roost, fireflies begin their nightly dance, and the sky shifts from amber to deep violet. This is the magic hour that defines Tented Camp.",
+    body: "As the sun sets behind Arenal Volcano, the canopy transforms into a theater of color , scarlet macaws return to roost, fireflies begin their nightly dance, and the sky shifts from amber to deep violet. This is the magic hour that defines Tented Camp.",
     verticalSrc: ASSETS.galleryImg9,
     horizontalSrc: ASSETS.galleryImg7,
     verticalIsVideo: false,
@@ -1259,7 +1259,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     id: "return",
     label: "Until We Return",
     headline: "Until We\nReturn",
-    body: "The trail back through the canopy feels different now — slower, more deliberate. Every hanging bridge, every birdsong, every shaft of light through the leaves becomes a memory you\u2019re already holding onto. Tented Camp doesn\u2019t say goodbye. It says: come back.",
+    body: "The trail back through the canopy feels different now , slower, more deliberate. Every hanging bridge, every birdsong, every shaft of light through the leaves becomes a memory you\u2019re already holding onto. Tented Camp doesn\u2019t say goodbye. It says: come back.",
     verticalSrc: `${CDN}/tented-return-vertical_1400bdca.mp4`,
     horizontalSrc: ASSETS.galleryVideo3,
     verticalIsVideo: true,
@@ -1272,7 +1272,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Cinematic opening video
+   HERO , Cinematic opening video
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -1324,7 +1324,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GALLERY — Remaining assets
+   GALLERY , Remaining assets
    ═══════════════════════════════════════════════════════════════ */
 function GallerySection() {
   const media = [
@@ -1380,7 +1380,7 @@ function GallerySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   MAIN PAGE — Option C: Cascade with functional breaks woven in
+   MAIN PAGE , Option C: Cascade with functional breaks woven in
    
    Flow:
    1. Hero
@@ -1485,14 +1485,14 @@ export default function TentedCamp() {
       {/* S1: Story (The Camp) */}
       <CascadeSection key={SECTIONS_BEFORE_REVIEW[0].id} section={SECTIONS_BEFORE_REVIEW[0]} index={0} />
 
-      {/* ── One Rainforest, Three Resorts — Three Keys, One Door ── */}
+      {/* ── One Rainforest, Three Resorts , Three Keys, One Door ── */}
       <OneRainforestCompactTC />
 
       {/* ── Rooms: Horizontal Slider ── */}
       <RoomSlider
         sectionLabel="Accommodations"
         headline="Luxury Tented Suites"
-        description="From intimate canopy retreats to expansive private estates — each tent is a world unto itself."
+        description="From intimate canopy retreats to expansive private estates , each tent is a world unto itself."
         rooms={TENTED_CAMP_ROOMS}
         palette={{
           bg: COLOR_A,
@@ -1529,7 +1529,7 @@ export default function TentedCamp() {
           {
             name: "Nayara Alto Atacama",
             chapter: "Where Desert Meets Sky",
-            tagline: "From canopy to cosmos — trade rainforest glamping for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
+            tagline: "From canopy to cosmos , trade rainforest glamping for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
             route: "/alto-atacama",
             image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
             video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",
@@ -1538,7 +1538,7 @@ export default function TentedCamp() {
           {
             name: "Nayara Hangaroa",
             chapter: "The Land of Giants",
-            tagline: "Two edges of the world — from the rainforest canopy to Easter Island's monumental Moai and Polynesian culture.",
+            tagline: "Two edges of the world , from the rainforest canopy to Easter Island's monumental Moai and Polynesian culture.",
             route: "/hangaroa",
             image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
             video: "/manus-storage/cta-hangaroa-ultrawide_ed5ffb72.mp4",
@@ -1558,7 +1558,7 @@ export default function TentedCamp() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   ONE RAINFOREST COMPACT (TENTED CAMP) — Three Keys, One Door
+   ONE RAINFOREST COMPACT (TENTED CAMP) , Three Keys, One Door
    Tented Camp in the middle ("You Are Here"), Springs on right (Adults Only)
    ═══════════════════════════════════════════════════════════════ */
 const OR_PROPERTIES_TC = [
@@ -1645,7 +1645,7 @@ function OneRainforestCompactTC() {
           ))}
         </div>
 
-        {/* Three property cards — text only */}
+        {/* Three property cards , text only */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {OR_PROPERTIES_TC.map((prop) => (
             prop.current ? (

@@ -204,7 +204,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       
-      {/* Sound pill — FIXED, aligned with BrandNavigation hamburger (same row) */}
+      {/* Sound pill , FIXED, aligned with BrandNavigation hamburger (same row) */}
       <button
         onClick={() => setIsMuted(!isMuted)}
         aria-label={isMuted ? "Unmute" : "Mute"}
@@ -250,7 +250,7 @@ function BrandStorySection() {
   const isMobile = useIsMobile();
   return (
     <section id="philosophy" style={{ backgroundColor: "#f4f1eb" }}>
-      {/* S1: Text left + Portrait image right — full bleed */}
+      {/* S1: Text left + Portrait image right , full bleed */}
       <div className="flex flex-col md:flex-row">
         <div className={`${isMobile ? 'w-full' : 'md:w-1/2'} px-6 md:px-10 lg:px-16 py-16 md:py-28 flex flex-col justify-center`}>
           <AnimateOnScroll variants={fadeUp}>
@@ -286,7 +286,7 @@ function BrandStorySection() {
             </a>
           </AnimateOnScroll>
 
-          {/* Badge animation video — desktop only */}
+          {/* Badge animation video , desktop only */}
           {!isMobile && (
             <div className="mt-6 overflow-hidden -ml-8">
               <video
@@ -300,7 +300,7 @@ function BrandStorySection() {
             </div>
           )}
         </div>
-        {/* Vertical image — desktop only */}
+        {/* Vertical image , desktop only */}
         {!isMobile && (
           <div className="md:w-1/2">
             <MediaReveal delay={0.2} className="h-full">
@@ -317,7 +317,7 @@ function BrandStorySection() {
         )}
       </div>
 
-      {/* S2: Horizontal image — full bleed, connected below S1 (desktop only) */}
+      {/* S2: Horizontal image , full bleed, connected below S1 (desktop only) */}
       <div className="hidden md:block w-full">
         <MediaReveal>
           <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
@@ -335,7 +335,7 @@ function BrandStorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTIES — Six destinations, one unified grid
+   PROPERTIES , Six destinations, one unified grid
    ═══════════════════════════════════════════════════════════════ */
 function PropertiesSection() {
   return (
@@ -355,7 +355,7 @@ function PropertiesSection() {
             </span>
           </TextReveal>
 
-          {/* 3-column grid — all 6 properties */}
+          {/* 3-column grid , all 6 properties */}
           <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             {allProps.map((prop) => (
               <motion.div key={prop.route} variants={fadeUp} className="group">
@@ -417,7 +417,7 @@ function PropertiesSection() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   TIMELINE — Two Decades of Discovery
+   TIMELINE , Two Decades of Discovery
    Map on left (sticky), milestones on right (scroll-tracked)
    ═══════════════════════════════════════════════════════════════ */
 function TimelineSection() {
@@ -466,7 +466,7 @@ function TimelineSection() {
 
         {/* Desktop: Map left + Timeline right */}
         <div className="flex gap-16 lg:gap-20 items-stretch">
-          {/* Map — sticky on the left, stretches full height of section */}
+          {/* Map , sticky on the left, stretches full height of section */}
           <div className="hidden lg:block w-[55%] flex-shrink-0">
             <div className="sticky top-24" style={{ height: 'calc(100vh - 6rem)' }}>
               {/* Map fills the full sticky height */}
@@ -485,13 +485,13 @@ function TimelineSection() {
                   className="text-[10px] tracking-[0.25em] uppercase"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#0D0604" }}
                 >
-                  {milestones[activeMilestone]?.year} — {milestones[activeMilestone]?.title}
+                  {milestones[activeMilestone]?.year} , {milestones[activeMilestone]?.title}
                 </span>
               </motion.div>
             </div>
           </div>
 
-          {/* Milestones — scrollable on the right */}
+          {/* Milestones , scrollable on the right */}
           <div className="flex-1 pb-[18vh]">
             {milestones.map((m, i) => {
               /* Costa Rica milestones (0,1,2) get compressed spacing so the plane flies sooner */
@@ -548,7 +548,7 @@ function TimelineSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AWARDS HIGHLIGHT — 4 key accolades before By Night
+   AWARDS HIGHLIGHT , 4 key accolades before By Night
    ═══════════════════════════════════════════════════════════════ */
 const awardsData = [
   {
@@ -655,7 +655,7 @@ function AwardsHighlightSection() {
         className="group relative flex flex-col p-6 md:p-8 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] hover:z-10 overflow-hidden"
         style={{ aspectRatio: "1/1", backgroundColor: cardBg }}
       >
-        {/* Video background — desktop only */}
+        {/* Video background , desktop only */}
         {!isMobile && (
           <video
             src={award.videoSrc}
@@ -666,7 +666,7 @@ function AwardsHighlightSection() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-        {/* Dark overlay — lightens on hover */}
+        {/* Dark overlay , lightens on hover */}
         <div className="absolute inset-0 bg-black/55 group-hover:bg-black/40 transition-all duration-700" />
         {/* Content */}
         <div className="relative z-10 flex flex-col h-full">
@@ -714,7 +714,7 @@ function AwardsHighlightSection() {
           </span>
         </TextReveal>
 
-        {/* Desktop: Horizontal slider — 3 cards visible at a time (matches Journal) */}
+        {/* Desktop: Horizontal slider , 3 cards visible at a time (matches Journal) */}
         <div className="hidden md:block relative">
           {/* Filled espresso square + white chevron arrows */}
           <button
@@ -836,7 +836,7 @@ interface JournalCardData {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NAYARA JOURNAL — Horizontal slider: 9 cards, 3 visible at a time
+   NAYARA JOURNAL , Horizontal slider: 9 cards, 3 visible at a time
    First 3 are real content, next 6 are dummy placeholders
    ═══════════════════════════════════════════════════════════════ */
 function NayaraJournalSection() {
@@ -947,7 +947,7 @@ function NayaraJournalSection() {
       </svg>
 
       <div className="relative z-10 max-w-[1200px] mx-auto">
-        {/* Header — matches Awards pattern: label → heading */}
+        {/* Header , matches Awards pattern: label → heading */}
         <AnimateOnScroll variants={fadeUp}>
           <SectionLabel>Stories</SectionLabel>
         </AnimateOnScroll>
@@ -960,7 +960,7 @@ function NayaraJournalSection() {
           </span>
         </TextReveal>
 
-        {/* Desktop: Horizontal slider — 3 cards visible at a time */}
+        {/* Desktop: Horizontal slider , 3 cards visible at a time */}
         <div className="hidden md:block relative">
           {/* Filled espresso square + white chevron arrows */}
           <button
@@ -1056,7 +1056,7 @@ function NayaraJournalSection() {
             ))}
           </div>
          </div>
-        {/* CTA below cards — matches Awards pattern */}
+        {/* CTA below cards , matches Awards pattern */}
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
           <div className="mt-12 text-center">
             <Link
@@ -1113,7 +1113,7 @@ function JournalTeaserCard({
         </>
       ) : isDummy ? (
         <>
-          {/* Dummy placeholder — warm gray square with type badge */}
+          {/* Dummy placeholder , warm gray square with type badge */}
           <div className="absolute top-4 left-4">
             <span
               className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
@@ -1132,7 +1132,7 @@ function JournalTeaserCard({
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          {/* Type label — pill badge matching dummy cards */}
+          {/* Type label , pill badge matching dummy cards */}
           <div className="absolute top-4 left-4">
             <span
               className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
@@ -1141,7 +1141,7 @@ function JournalTeaserCard({
               {card.label}
             </span>
           </div>
-          {/* Bottom gradient only — no text */}
+          {/* Bottom gradient only , no text */}
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
         </>
       )}
@@ -1157,7 +1157,7 @@ function JournalTeaserCard({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CONTENT HUB — Journal (Blog + Podcast + FAQ) & Press/Awards
+   CONTENT HUB , Journal (Blog + Podcast + FAQ) & Press/Awards
    ═══════════════════════════════════════════════════════════════ */
 const contentLinks = [
   {
@@ -1175,7 +1175,7 @@ const contentLinks = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   THE NAYARA COLLECTION — AI-optimized structured narrative
+   THE NAYARA COLLECTION , AI-optimized structured narrative
    Placed between Timeline and Awards
    ═══════════════════════════════════════════════════════════════ */
 const collectionData = [
@@ -1183,7 +1183,7 @@ const collectionData = [
     name: "Nayara Gardens",
     chapter: "The Rainforest Adventure",
     location: "Arenal Volcano, Costa Rica",
-    positioning: "The original Nayara — a village of private villas and casitas woven into the rainforest canopy at the foot of Arenal Volcano. Family-friendly, with bespoke excursions from hanging bridges to chocolate tours.",
+    positioning: "The original Nayara , a village of private villas and casitas woven into the rainforest canopy at the foot of Arenal Volcano. Family-friendly, with bespoke excursions from hanging bridges to chocolate tours.",
     audience: "Families & Couples",
     route: "/gardens",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
@@ -1201,7 +1201,7 @@ const collectionData = [
     name: "Nayara Tented Camp",
     chapter: "The Luxury Tented Camp",
     location: "Arenal Volcano, Costa Rica",
-    positioning: "Clifftop tents and suites perched above the rainforest canopy with unobstructed volcano views. Best Resort in Central America, four of the last five years — Travel + Leisure.",
+    positioning: "Clifftop tents and suites perched above the rainforest canopy with unobstructed volcano views. Best Resort in Central America, four of the last five years , Travel + Leisure.",
     audience: "Families & Couples",
     route: "/tented-camp",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG",
@@ -1219,7 +1219,7 @@ const collectionData = [
     name: "Nayara Bocas del Toro",
     chapter: "The Adults-Only Archipelago",
     location: "Bocas del Toro, Panama",
-    positioning: "Overwater villas and rainforest treehouses on a private island in Panama's Caribbean archipelago. Adults-only, solar-powered, and surrounded by coral reef. Two Michelin Keys. Number one in Central America — Condé Nast Traveler.",
+    positioning: "Overwater villas and rainforest treehouses on a private island in Panama's Caribbean archipelago. Adults-only, solar-powered, and surrounded by coral reef. Two Michelin Keys. Number one in Central America , Condé Nast Traveler.",
     audience: "Adults Only",
     route: "/bocas-del-toro",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
@@ -1255,11 +1255,11 @@ function CollectionNarrativeSection() {
             className="text-[15px] leading-[1.8] max-w-[680px] mb-14"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
-            Each Nayara property exists because a landscape demanded it. From volcanic rainforest to the driest desert on Earth, from a Caribbean archipelago to the most remote island in the Pacific — the collection is a single story told across six chapters.
+            Each Nayara property exists because a landscape demanded it. From volcanic rainforest to the driest desert on Earth, from a Caribbean archipelago to the most remote island in the Pacific , the collection is a single story told across six chapters.
           </p>
         </AnimateOnScroll>
 
-        {/* Collection grid — 2 columns on desktop, 1 on mobile */}
+        {/* Collection grid , 2 columns on desktop, 1 on mobile */}
         <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {collectionData.map((item) => (
             <motion.div key={item.route} variants={fadeUp}>
@@ -1312,7 +1312,7 @@ function CollectionNarrativeSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FIND YOUR NAYARA — Combined audience segmentation + journey pairings
+   FIND YOUR NAYARA , Combined audience segmentation + journey pairings
    Two categories: Romance & Wellness (adults-only) and Adventure & Discovery (all)
    Plus twin-center journey suggestions
    ═══════════════════════════════════════════════════════════════ */
@@ -1321,7 +1321,7 @@ const findYourNayaraData = [
     category: "Romance & Wellness",
     tag: "Adults Only",
     tagColor: "#8B5E3C",
-    description: "For couples seeking seclusion, thermal wellness, and uninterrupted intimacy. No children, no distractions — just two people and extraordinary nature.",
+    description: "For couples seeking seclusion, thermal wellness, and uninterrupted intimacy. No children, no distractions , just two people and extraordinary nature.",
     properties: [
       { name: "Nayara Springs", chapter: "The Hot Springs Sanctuary", detail: "Private volcanic plunge pools, three Michelin Keys, rainforest seclusion", route: "/springs" },
       { name: "Nayara Bocas del Toro", chapter: "The Adults-Only Archipelago", detail: "Overwater villas, Caribbean reef, solar-powered island privacy", route: "/bocas-del-toro" },
@@ -1337,7 +1337,7 @@ const findYourNayaraData = [
     category: "Adventure, Exploration & Discovery",
     tag: "Families Welcome",
     tagColor: "#525642",
-    description: "For families, explorers, and anyone who believes the best experiences happen where landscape overwhelms and culture runs deep — from rainforest canopy to desert stargazing to ancient stone giants.",
+    description: "For families, explorers, and anyone who believes the best experiences happen where landscape overwhelms and culture runs deep , from rainforest canopy to desert stargazing to ancient stone giants.",
     properties: [
       { name: "Nayara Gardens", chapter: "The Rainforest Adventure", detail: "Volcano-view villas, wildlife tours, hanging bridges, family suites", route: "/gardens" },
       { name: "Nayara Tented Camp", chapter: "The Luxury Tented Camp", detail: "Clifftop glamping, canopy walks, wildlife encounters at dawn", route: "/tented-camp" },
@@ -1373,7 +1373,7 @@ function FindYourNayaraSection() {
             className="text-[15px] leading-[1.8] max-w-[680px] mb-14"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
           >
-            Not every Nayara is for every traveler — and that's by design. Two are exclusively for adults. Four welcome everyone. All six share one philosophy: reveal the place, don't replace it.
+            Not every Nayara is for every traveler , and that's by design. Two are exclusively for adults. Four welcome everyone. All six share one philosophy: reveal the place, don't replace it.
           </p>
         </AnimateOnScroll>
 
@@ -1590,7 +1590,7 @@ function PillarsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INSTAGRAM GRID — Single row, 6 images from @nayararesorts
+   INSTAGRAM GRID , Single row, 6 images from @nayararesorts
    Warm transition from dark By Night back to footer
    ═══════════════════════════════════════════════════════════════ */
 const instagramPosts: { src: string; alt: string; isVideo?: boolean }[] = [
@@ -1646,7 +1646,7 @@ function InstagramGrid() {
           </div>
         </AnimateOnScroll>
 
-        {/* Single-row grid — 4 items */}
+        {/* Single-row grid , 4 items */}
         <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
           {instagramPosts.map((post, i) => (
             <motion.a
@@ -1693,7 +1693,7 @@ function InstagramGrid() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BRAND CTA — Rotating pillar slider before footer
+   BRAND CTA , Rotating pillar slider before footer
    ═══════════════════════════════════════════════════════════════ */
 const CTA_PILLARS = [
   { label: "Experiences", route: "/experiences" },
@@ -1745,7 +1745,7 @@ function BrandCTA() {
           className="text-base md:text-lg leading-relaxed max-w-[600px] mx-auto mb-14"
           style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "rgba(247,245,240,0.6)" }}
         >
-          From volcanic rainforest to the driest desert on Earth, from a Caribbean archipelago to the most remote island in the Pacific — discover which Nayara calls to you.
+          From volcanic rainforest to the driest desert on Earth, from a Caribbean archipelago to the most remote island in the Pacific , discover which Nayara calls to you.
         </p>
 
         {/* Rotating CTA slider */}

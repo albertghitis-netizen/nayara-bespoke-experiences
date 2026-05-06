@@ -1,5 +1,5 @@
 /*
- * UNIVERSAL GASTRONOMY — Sustainability-style deep page for ALL properties
+ * UNIVERSAL GASTRONOMY , Sustainability-style deep page for ALL properties
  * Renders in the color palette of whichever property the user came from.
  * Sections: Philosophy, Restaurants (by property), Sweet Moments, Bar Scene,
  *           Five Classes, The Nayara Difference, Blog cross-link
@@ -91,7 +91,7 @@ const GARDENS_RESTAURANTS: RestaurantDeep[] = [
   {
     name: "Nostalgia Wine Bar",
     cuisine: "Wine & Small Plates",
-    description: "Sophisticated wine tastings paired with thoughtful small plates. The sommelier-led experience is not simply about drinking wine — it is an education in pairing and appreciation, guided by experts who understand how wine complements both food and the rainforest setting.",
+    description: "Sophisticated wine tastings paired with thoughtful small plates. The sommelier-led experience is not simply about drinking wine , it is an education in pairing and appreciation, guided by experts who understand how wine complements both food and the rainforest setting.",
     property: "Nayara Gardens",
   },
   {
@@ -112,7 +112,7 @@ const SPRINGS_RESTAURANTS: RestaurantDeep[] = [
   {
     name: "Amor Loco",
     cuisine: "Fine Dining",
-    description: "Culinary artistry meets impeccable service. Every dish is a composition — plated with the precision of a gallery piece, yet grounded in flavors that feel honest and intentional. Amor Loco is where special occasions become unforgettable ones.",
+    description: "Culinary artistry meets impeccable service. Every dish is a composition , plated with the precision of a gallery piece, yet grounded in flavors that feel honest and intentional. Amor Loco is where special occasions become unforgettable ones.",
     property: "Nayara Springs",
   },
   {
@@ -147,12 +147,12 @@ const BARS: BarDeep[] = [
   {
     name: "Henry's Lounge Bar",
     property: "Nayara Tented Camp",
-    description: "An intimate setting for evening conversation — the kind of place where a well-made cocktail and the sound of the forest are all you need.",
+    description: "An intimate setting for evening conversation , the kind of place where a well-made cocktail and the sound of the forest are all you need.",
   },
   {
     name: "Las Thermas Bar",
     property: "Nayara Tented Camp",
-    description: "More than just a hot springs area — it is a social hub where guests gather to soak, unwind, and connect over drinks heated by the earth itself.",
+    description: "More than just a hot springs area , it is a social hub where guests gather to soak, unwind, and connect over drinks heated by the earth itself.",
   },
   {
     name: "Tentacamp Pool Bar",
@@ -181,7 +181,7 @@ const CLASSES: ClassDeep[] = [
   {
     name: "Coffee Class",
     icon: "☕",
-    description: "Trace the journey from bean to cup, celebrating the country's coffee heritage — from volcanic soil to your morning ritual.",
+    description: "Trace the journey from bean to cup, celebrating the country's coffee heritage , from volcanic soil to your morning ritual.",
   },
   {
     name: "Mixology Class",
@@ -353,7 +353,7 @@ function PhilosophySection({ palette }: { palette: PropertyPalette }) {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
-              While each property maintains its own distinct character and peaceful sanctuary, guests enjoy seamless access to a shared ecosystem of dining that transforms a stay into an unforgettable gastronomic journey through one magical rainforest. You are not choosing between three separate hotels — you are choosing one interconnected destination where culinary excellence exists at every turn.
+              While each property maintains its own distinct character and peaceful sanctuary, guests enjoy seamless access to a shared ecosystem of dining that transforms a stay into an unforgettable gastronomic journey through one magical rainforest. You are not choosing between three separate hotels , you are choosing one interconnected destination where culinary excellence exists at every turn.
             </p>
           </div>
         </AnimateOnScroll>
@@ -434,7 +434,7 @@ function PropertyDiningSection({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SWEET MOMENTS — Lila's Gelato & Coffee
+   SWEET MOMENTS , Lila's Gelato & Coffee
    ═══════════════════════════════════════════════════════════════ */
 function SweetMomentsSection({ palette }: { palette: PropertyPalette }) {
   return (
@@ -453,7 +453,7 @@ function SweetMomentsSection({ palette }: { palette: PropertyPalette }) {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
-              Sometimes the best moments are the simple ones. <strong>Lila's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica and beyond — tropical fruits, local chocolate, and seasonal inspirations churned fresh daily. Throughout the properties, coffee experiences connect you to local culture — whether it is a morning ritual or an afternoon pick-me-up, the beans are always Costa Rican, always fresh, always worth savoring.
+              Sometimes the best moments are the simple ones. <strong>Lila's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica and beyond , tropical fruits, local chocolate, and seasonal inspirations churned fresh daily. Throughout the properties, coffee experiences connect you to local culture , whether it is a morning ritual or an afternoon pick-me-up, the beans are always Costa Rican, always fresh, always worth savoring.
             </p>
           </div>
         </AnimateOnScroll>
@@ -539,7 +539,7 @@ function ClassesSection({ palette }: { palette: PropertyPalette }) {
             className="text-[15px] leading-[1.9] max-w-[720px] mb-10"
             style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
           >
-            Why simply eat when you can learn, create, and experience? Five signature classes allow you to dive deeper into Costa Rican culinary culture. These are not tourist add-ons — they are invitations to understand a culture through its flavors.
+            Why simply eat when you can learn, create, and experience? Five signature classes allow you to dive deeper into Costa Rican culinary culture. These are not tourist add-ons , they are invitations to understand a culture through its flavors.
           </p>
         </AnimateOnScroll>
 
@@ -620,7 +620,7 @@ function NayaraDifferenceSection({ palette }: { palette: PropertyPalette }) {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: "#E6DFD5" }}
             >
-              Whether you are celebrating a special occasion, seeking a culinary education, or simply craving an escape into nature without sacrificing the pleasures of the table, the three Nayara properties offer something increasingly rare — the chance to experience Costa Rica as it should be experienced, one extraordinary meal at a time.
+              Whether you are celebrating a special occasion, seeking a culinary education, or simply craving an escape into nature without sacrificing the pleasures of the table, the three Nayara properties offer something increasingly rare , the chance to experience Costa Rica as it should be experienced, one extraordinary meal at a time.
             </p>
           </div>
         </AnimateOnScroll>

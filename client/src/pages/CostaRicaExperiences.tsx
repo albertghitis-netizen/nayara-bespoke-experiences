@@ -1,5 +1,5 @@
 /*
- * UNIVERSAL EXPERIENCES — Shared deep page for ALL properties
+ * UNIVERSAL EXPERIENCES , Shared deep page for ALL properties
  * CR properties get a sustainability-style deep page with editorial sections
  * + the existing Explore Arenal card grid.
  * Non-CR properties keep the flat filtered card grid.
@@ -112,7 +112,7 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Shared across all properties
+   HERO , Shared across all properties
    ═══════════════════════════════════════════════════════════════ */
 
 function ExperiencesHero({ propertySlug }: { propertySlug: string }) {
@@ -130,7 +130,7 @@ function ExperiencesHero({ propertySlug }: { propertySlug: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CR DEEP PAGE — Sustainability-style editorial sections
+   CR DEEP PAGE , Sustainability-style editorial sections
    + Explore Arenal card grid at the bottom
    ═══════════════════════════════════════════════════════════════ */
 
@@ -182,7 +182,7 @@ function CRExperiencesDeep({ property, palette }: { property: Property; palette:
               className="text-[15px] leading-[1.8] max-w-[700px] mb-10"
               style={{ ...body, color: "#E6DFD5" }}
             >
-              Hanging bridges, turquoise rivers, volcanic lava fields, and white-water rapids — the Arenal
+              Hanging bridges, turquoise rivers, volcanic lava fields, and white-water rapids , the Arenal
               region is one of the most biodiverse corners of Costa Rica. Every excursion is guided by
               local experts who know this landscape intimately.
             </p>
@@ -209,7 +209,7 @@ function CRExperiencesDeep({ property, palette }: { property: Property; palette:
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PHILOSOPHY — One Interconnected Destination
+   PHILOSOPHY , One Interconnected Destination
    ═══════════════════════════════════════════════════════════════ */
 
 function PhilosophySection({ palette }: { palette: PropertyPalette }) {
@@ -289,7 +289,7 @@ function PhilosophySection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   YOGA — Wellness Through Movement
+   YOGA , Wellness Through Movement
    ═══════════════════════════════════════════════════════════════ */
 
 function YogaSection({ palette }: { palette: PropertyPalette }) {
@@ -342,7 +342,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
                   className="text-[14px] leading-[1.8]"
                   style={{ ...body, color: "#E6DFD5" }}
                 >
-                  Keeps your body flowing and energized, linking breath to movement in classes that feel alive and present. The practice takes on a different dimension when your mat is surrounded by the sounds of howler monkeys and tropical birds — the forest becomes part of the flow.
+                  Keeps your body flowing and energized, linking breath to movement in classes that feel alive and present. The practice takes on a different dimension when your mat is surrounded by the sounds of howler monkeys and tropical birds , the forest becomes part of the flow.
                 </p>
               </div>
 
@@ -358,7 +358,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
                   className="text-[14px] leading-[1.8]"
                   style={{ ...body, color: "#E6DFD5" }}
                 >
-                  Invites you to slow down, reconnect, and find stillness amid the symphony of the rainforest. It is less about physical exertion and more about presence — a practice designed for people who have forgotten what it feels like to simply be.
+                  Invites you to slow down, reconnect, and find stillness amid the symphony of the rainforest. It is less about physical exertion and more about presence , a practice designed for people who have forgotten what it feels like to simply be.
                 </p>
               </div>
 
@@ -371,7 +371,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
                   className="text-[13px] leading-[1.7]"
                   style={{ ...body, color: "#E6DFD5" }}
                 >
-                  Both are offered across the properties, so you can practice wherever you feel called — at the edge of a volcanic valley, beside a hot spring, or on a platform overlooking the forest canopy.
+                  Both are offered across the properties, so you can practice wherever you feel called , at the edge of a volcanic valley, beside a hot spring, or on a platform overlooking the forest canopy.
                 </p>
               </div>
             </div>
@@ -383,7 +383,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NATURE — Three Ways to Explore
+   NATURE , Three Ways to Explore
    ═══════════════════════════════════════════════════════════════ */
 
 function NatureSection({ palette }: { palette: PropertyPalette }) {
@@ -393,7 +393,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
     {
       title: "Botanical Nature Hike",
       description:
-        "Unveils the plant life that sustains the ecosystem — from towering ceiba trees to medicinal species used by indigenous peoples for centuries. Your guide does not simply point at trees; they tell the story of a forest that has been healing itself and others for millennia.",
+        "Unveils the plant life that sustains the ecosystem , from towering ceiba trees to medicinal species used by indigenous peoples for centuries. Your guide does not simply point at trees; they tell the story of a forest that has been healing itself and others for millennia.",
       highlights: ["Guided by expert naturalists", "Medicinal plant identification", "1,400-acre private reserve"],
     },
     {
@@ -405,7 +405,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
     {
       title: "Finding Tony the Sloth",
       description:
-        "A chance to encounter one of the rainforest's most beloved residents in his natural habitat. Led by naturalist guides who know Tony's favorite trees and sleeping spots, this gentle expedition is a moment that reminds you why conservation matters. Tony is not a prop or a performance — he is a wild two-toed sloth who has made the Nayara reserve his home.",
+        "A chance to encounter one of the rainforest's most beloved residents in his natural habitat. Led by naturalist guides who know Tony's favorite trees and sleeping spots, this gentle expedition is a moment that reminds you why conservation matters. Tony is not a prop or a performance , he is a wild two-toed sloth who has made the Nayara reserve his home.",
       highlights: ["Wild sloth in natural habitat", "Naturalist-guided expedition", "Conservation education"],
     },
   ];
@@ -430,7 +430,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
             style={{ ...body, color: "#E6DFD5" }}
           >
-            The rainforest is the greatest teacher. Three guided experiences bring its lessons to life — each one a different lens on the same extraordinary ecosystem.
+            The rainforest is the greatest teacher. Three guided experiences bring its lessons to life , each one a different lens on the same extraordinary ecosystem.
           </p>
         </AnimateOnScroll>
 
@@ -451,7 +451,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
                 className="text-white/60 text-[11px] tracking-[0.1em]"
                 style={{ ...body }}
               >
-                Costa Rica is home to over 900 bird species — many visible from the Nayara reserve
+                Costa Rica is home to over 900 bird species , many visible from the Nayara reserve
               </p>
             </div>
           </div>
@@ -508,7 +508,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   LAS THERMAS — Where Earth Meets Wellness
+   LAS THERMAS , Where Earth Meets Wellness
    ═══════════════════════════════════════════════════════════════ */
 
 function ThermasSection({ palette }: { palette: PropertyPalette }) {
@@ -552,7 +552,7 @@ function ThermasSection({ palette }: { palette: PropertyPalette }) {
               className="text-[15px] leading-[1.9] mb-6"
               style={{ ...body, color: "#E6DFD5" }}
             >
-              The springs are fed by the same volcanic system that powers Arenal — water that has traveled through layers of rock, absorbing minerals along the way. The result is a bathing experience that is not manufactured or chlorinated, but genuinely geological.
+              The springs are fed by the same volcanic system that powers Arenal , water that has traveled through layers of rock, absorbing minerals along the way. The result is a bathing experience that is not manufactured or chlorinated, but genuinely geological.
             </p>
 
             {/* Blog link pill */}
@@ -583,7 +583,7 @@ function ThermasSection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SHARED ACCESS — The Beauty of It
+   SHARED ACCESS , The Beauty of It
    ═══════════════════════════════════════════════════════════════ */
 
 function SharedAccessSection({ palette }: { palette: PropertyPalette }) {
@@ -608,13 +608,13 @@ function SharedAccessSection({ palette }: { palette: PropertyPalette }) {
               className="text-[15px] leading-[1.9] mb-8"
               style={{ ...body, color: "#E6DFD5" }}
             >
-              A morning might begin with Vinyasa yoga at Nayara Springs, followed by a botanical hike through the Tented Camp reserve, an afternoon soak at Las Thermas, and a sunset Mindfulness session overlooking the volcano. No transfers, no logistics, no friction — just a day that flows as naturally as the forest around you.
+              A morning might begin with Vinyasa yoga at Nayara Springs, followed by a botanical hike through the Tented Camp reserve, an afternoon soak at Las Thermas, and a sunset Mindfulness session overlooking the volcano. No transfers, no logistics, no friction , just a day that flows as naturally as the forest around you.
             </p>
             <p
               className="text-[15px] leading-[1.9]"
               style={{ ...body, color: "#E6DFD5" }}
             >
-              Every hike, every yoga class, every soak reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul. Whether you are celebrating a special occasion, seeking rejuvenation, or simply craving an escape into nature without sacrificing comfort, the three Nayara properties offer something increasingly rare — the chance to experience Costa Rica as it should be experienced.
+              Every hike, every yoga class, every soak reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul. Whether you are celebrating a special occasion, seeking rejuvenation, or simply craving an escape into nature without sacrificing comfort, the three Nayara properties offer something increasingly rare , the chance to experience Costa Rica as it should be experienced.
             </p>
           </div>
         </AnimateOnScroll>
@@ -647,7 +647,7 @@ function SharedAccessSection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FLAT CONTENT — For non-CR properties (unchanged behavior)
+   FLAT CONTENT , For non-CR properties (unchanged behavior)
    ═══════════════════════════════════════════════════════════════ */
 
 function ExperiencesContent({ property, palette }: { property: Property; palette: PropertyPalette }) {
@@ -698,7 +698,7 @@ function ExperiencesContent({ property, palette }: { property: Property; palette
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FILTERED CARD GRID — Reusable for Explore Arenal section
+   FILTERED CARD GRID , Reusable for Explore Arenal section
    ═══════════════════════════════════════════════════════════════ */
 
 function FilteredCardGrid({

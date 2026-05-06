@@ -1,5 +1,5 @@
 /**
- * HotelFilterBar Variant 4 — Dropdown/select menu
+ * HotelFilterBar Variant 4 , Dropdown/select menu
  * For: Gastronomy page
  */
 

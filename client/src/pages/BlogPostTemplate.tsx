@@ -1,5 +1,5 @@
 /*
- * NAYARA BLOG POST TEMPLATE — Definitive Editorial Template
+ * NAYARA BLOG POST TEMPLATE , Definitive Editorial Template
  * Data-driven: receives a BlogPostData object and renders the full post.
  * 
  * Structure:

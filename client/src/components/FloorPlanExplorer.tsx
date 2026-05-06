@@ -1,5 +1,5 @@
 /**
- * FLOOR PLAN EXPLORER — Interactive Architectural Blueprint v2
+ * FLOOR PLAN EXPLORER , Interactive Architectural Blueprint v2
  *
  * Creative concept: "The Blueprint Unfolds"
  * Starts with the base Nayara Tent, then progressively builds up
@@ -146,7 +146,7 @@ const DRAW = 1.0;
 const FADE = 0.7;
 
 /* ══════════════════════════════════════════════════════════════════
-   SVG BUILDING BLOCKS — Reusable architectural elements
+   SVG BUILDING BLOCKS , Reusable architectural elements
    ══════════════════════════════════════════════════════════════════ */
 
 /** Rounded rectangle path */
@@ -156,7 +156,7 @@ function rr(x: number, y: number, w: number, h: number, r = 6): string {
 
 /** Square pool shape */
 function poolShape(cx: number, cy: number, w: number, _h: number): string {
-  // All pools are square — use w for both dimensions
+  // All pools are square , use w for both dimensions
   const s = w; // square side = width
   const x = cx - s / 2, y = cy - s / 2;
   return `M${x},${y} L${x + s},${y} L${x + s},${y + s} L${x},${y + s} Z`;
@@ -243,7 +243,7 @@ function Bed({ x, y, w, h, label, delay = 0, isKing = false, showRug = false }: 
   );
 }
 
-/** Daybed — smaller, simpler */
+/** Daybed , smaller, simpler */
 function Daybed({ x, y, w, h, delay = 0 }: {
   x: number; y: number; w: number; h: number; delay?: number;
 }) {
@@ -290,7 +290,7 @@ function DoorArc({ cx, cy, r = 12, startAngle = 0, delay = 0 }: {
   );
 }
 
-/** Bathroom fixtures — bathtub + shower + vanity */
+/** Bathroom fixtures , bathtub + shower + vanity */
 function BathRoom({ x, y, w, h, delay = 0, compact = false }: {
   x: number; y: number; w: number; h: number; delay?: number; compact?: boolean;
 }) {
@@ -302,15 +302,15 @@ function BathRoom({ x, y, w, h, delay = 0, compact = false }: {
       {/* Room outline */}
       <rect x={x} y={y} width={w} height={h} rx={3}
         fill="none" stroke={C.wallThin} strokeWidth={0.5} strokeDasharray="3 3" />
-      {/* Bathtub — oval */}
+      {/* Bathtub , oval */}
       <ellipse cx={x + w * 0.35} cy={y + h * 0.4} rx={compact ? 10 : 14} ry={compact ? 7 : 9}
         fill={C.bath} stroke={C.bathStroke} strokeWidth={0.5} />
-      {/* Dual vanity — two circles */}
+      {/* Dual vanity , two circles */}
       <circle cx={x + w * 0.7} cy={y + h * 0.3} r={compact ? 4 : 5}
         fill="none" stroke={C.bathStroke} strokeWidth={0.4} />
       <circle cx={x + w * 0.85} cy={y + h * 0.3} r={compact ? 4 : 5}
         fill="none" stroke={C.bathStroke} strokeWidth={0.4} />
-      {/* Shower — small square with lines */}
+      {/* Shower , small square with lines */}
       <rect x={x + w * 0.65} y={y + h * 0.6} width={compact ? 10 : 14} height={compact ? 10 : 14} rx={2}
         fill="none" stroke={C.bathStroke} strokeWidth={0.4} />
       <circle cx={x + w * 0.65 + (compact ? 5 : 7)} cy={y + h * 0.6 + (compact ? 5 : 7)} r={2}
@@ -353,7 +353,7 @@ function Terrace({ x, y, w, h, delay = 0 }: {
   );
 }
 
-/** Vegetation — tree/plant circles around perimeter */
+/** Vegetation , tree/plant circles around perimeter */
 function Tree({ cx, cy, r = 8, delay = 0 }: {
   cx: number; cy: number; r?: number; delay?: number;
 }) {
@@ -505,7 +505,7 @@ function Dim({ x1, y1, x2, y2, label, delay = 0 }: {
   );
 }
 
-/** Living area furniture — sofa, dining table, chairs, kitchen counter */
+/** Living area furniture , sofa, dining table, chairs, kitchen counter */
 function LivingFurniture({ x, y, w, h, delay = 0, compact = false }: {
   x: number; y: number; w: number; h: number; delay?: number; compact?: boolean;
 }) {
@@ -513,12 +513,12 @@ function LivingFurniture({ x, y, w, h, delay = 0, compact = false }: {
   return (
     <motion.g initial={{ opacity: 0 }} animate={{ opacity: 0.45 }}
       transition={{ duration: 0.8, delay: delay + 0.4 }}>
-      {/* Sofa — L-shape */}
+      {/* Sofa , L-shape */}
       <rect x={x + 15 * s} y={y + 18 * s} width={70 * s} height={22 * s} rx={3}
         fill={C.living} stroke={C.bedStroke} strokeWidth={0.5} />
       <rect x={x + 15 * s} y={y + 18 * s} width={18 * s} height={40 * s} rx={3}
         fill={C.living} stroke={C.bedStroke} strokeWidth={0.5} />
-      {/* Dining table — oval */}
+      {/* Dining table , oval */}
       <ellipse cx={x + w / 2} cy={y + h * 0.55} rx={28 * s} ry={16 * s}
         fill="none" stroke={C.bedStroke} strokeWidth={0.5} />
       {/* Chairs around table */}
@@ -553,7 +553,7 @@ function Connector({ x, y, w, h, delay = 0 }: {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   BACKGROUND — Architectural grid + compass
+   BACKGROUND , Architectural grid + compass
    ══════════════════════════════════════════════════════════════════ */
 function ArchGrid({ w, h }: { w: number; h: number }) {
   const lines = useMemo(() => {
@@ -597,7 +597,7 @@ function TentBP() {
   const tx = 100, ty = 80, tw = 200, th = 180;
   return (
     <g>
-      {/* Terrace — left side */}
+      {/* Terrace , left side */}
       <Terrace x={tx - 35} y={ty + 20} w={30} h={120} delay={0.2} />
       {/* Tent outline */}
       <Room path={rr(tx, ty, tw, th, 8)} delay={0} fill={`${C.paper}90`} hover />
@@ -653,7 +653,7 @@ function FamilyBP() {
       <Daybed x={tx + 118} y={ty + 18} w={50} h={40} delay={0.5} />
       <BathRoom x={tx + tw - 60} y={ty + th - 50} w={50} h={40} delay={0.35} compact />
       <DoorArc cx={tx} cy={ty + th / 2} r={12} startAngle={-90} delay={0.25} />
-      {/* Pool — shared */}
+      {/* Pool , shared */}
       <Pool cx={tx + tw / 2 + 20} cy={ty - 40} w={65} h={65} delay={0.55}
         label="Shared Plunge Pool" />
       {/* Connector walkway */}
@@ -787,7 +787,7 @@ function ResidenceBP() {
       <DoorArc cx={rt.x} cy={rt.y + rt.h / 2 - 5} r={9} startAngle={90} delay={0.85} />
       {/* Right pool */}
       <Pool cx={rt.x + rt.w / 2} cy={rt.y - 28} w={65} h={65} delay={1.0} label="Plunge Pool" />
-      {/* Infinity pool — below living */}
+      {/* Infinity pool , below living */}
       <Pool cx={cv.x + cv.w / 2} cy={cv.y + cv.h + 35} w={100} h={100} delay={1.2}
         label="Infinity Pool" />
       {/* Fire pit */}
@@ -995,7 +995,7 @@ export default function FloorPlanExplorer({
                 </ul>
                 {/* CTA */}
                 <button
-                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
                   className="inline-flex items-center gap-2 px-7 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03]"
                   style={{
                     ...body, fontWeight: 500, fontSize: "10px",

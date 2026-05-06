@@ -1,5 +1,5 @@
 /**
- * NAYARA — THE TABLE — Brand-Level Pillar Page
+ * NAYARA , THE TABLE , Brand-Level Pillar Page
  * Dining across all 6 properties
  * One-axis filter: property selector
  * Hero → Intro → Filter → Restaurant Cards → CTA → Footer
@@ -117,7 +117,7 @@ function IntroSection() {
             Every Dish Tells the Story of Its Land
           </h2>
           <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
-            From Michelin-recognized kitchens in the Costa Rican rainforest to Pacific Island cuisine on Easter Island, from desert-adapted Chilean fare in the Atacama to Caribbean-Panamanian fusion over the water in Bocas del Toro — every Nayara restaurant sources locally, cooks seasonally, and honors the culinary traditions of its place. Seventy percent of our ingredients come from within 100 kilometers of each property.
+            From Michelin-recognized kitchens in the Costa Rican rainforest to Pacific Island cuisine on Easter Island, from desert-adapted Chilean fare in the Atacama to Caribbean-Panamanian fusion over the water in Bocas del Toro , every Nayara restaurant sources locally, cooks seasonally, and honors the culinary traditions of its place. Seventy percent of our ingredients come from within 100 kilometers of each property.
           </p>
         </FadeIn>
 
@@ -129,13 +129,13 @@ function IntroSection() {
               Zero-kilometer dining means the distance between earth and plate is measured in footsteps, not freight miles.
             </p>
             <p className="text-[#4B4A4A]/65 text-[15px] leading-[1.85] mb-5" style={body}>
-              The concept is simple but its implications are profound: source ingredients from the land you stand on, cook with what the season provides, and let the place itself become the flavor. In Costa Rica, that means coffee from the Tarraz\u00fa and Dota Valley highlands roasted for your morning cup at Mi Cafecito. It means tropical fruits — guan\u00e1bana, passion fruit, mango — picked from local farms and churned into gelato the same afternoon. It means cocktails at Terraza built from Cacique Guaro and Dota Valley apples, drinks that could not exist anywhere else because they are made from ingredients that belong to this soil.
+              The concept is simple but its implications are profound: source ingredients from the land you stand on, cook with what the season provides, and let the place itself become the flavor. In Costa Rica, that means coffee from the Tarraz\u00fa and Dota Valley highlands roasted for your morning cup at Mi Cafecito. It means tropical fruits , guan\u00e1bana, passion fruit, mango , picked from local farms and churned into gelato the same afternoon. It means cocktails at Terraza built from Cacique Guaro and Dota Valley apples, drinks that could not exist anywhere else because they are made from ingredients that belong to this soil.
             </p>
             <p className="text-[#4B4A4A]/65 text-[15px] leading-[1.85] mb-5" style={body}>
-              This is not farm-to-table as marketing language. It is a culinary philosophy rooted in a deeper truth: that food is identity. Recipes and traditions are passed down through generations, shaped by altitude and rainfall, by volcanic soil and tropical seasons. When Amor Loco prepares ceviche with Costa Rican ingredients from our organic gardens, or Asia Luna reinterprets Thai and Japanese techniques through locally sourced produce, they are not simply reducing food miles — they are telling the story of a place through flavor. The kitchen becomes a form of cartography.
+              This is not farm-to-table as marketing language. It is a culinary philosophy rooted in a deeper truth: that food is identity. Recipes and traditions are passed down through generations, shaped by altitude and rainfall, by volcanic soil and tropical seasons. When Amor Loco prepares ceviche with Costa Rican ingredients from our organic gardens, or Asia Luna reinterprets Thai and Japanese techniques through locally sourced produce, they are not simply reducing food miles , they are telling the story of a place through flavor. The kitchen becomes a form of cartography.
             </p>
             <p className="text-[#4B4A4A]/65 text-[15px] leading-[1.85]" style={body}>
-              Every Friday, guests join our staff at the local market in La Fortuna — meeting the vendors, discovering regional products, understanding the human chain that connects seed to plate. This is what zero-kilometer dining truly means: not just proximity, but relationship. Not just freshness, but belonging. When you eat at Nayara, you are not consuming a meal prepared for tourists. You are participating in the food culture of a place — and that place is participating in you.
+              Every Friday, guests join our staff at the local market in La Fortuna , meeting the vendors, discovering regional products, understanding the human chain that connects seed to plate. This is what zero-kilometer dining truly means: not just proximity, but relationship. Not just freshness, but belonging. When you eat at Nayara, you are not consuming a meal prepared for tourists. You are participating in the food culture of a place , and that place is participating in you.
             </p>
           </div>
         </FadeIn>
@@ -145,7 +145,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTY SECTIONS — Grouped by property
+   PROPERTY SECTIONS , Grouped by property
    ═══════════════════════════════════════════════════════════════ */
 function PropertySections({ filtered, navigate }: { filtered: PropertyDining[]; navigate: (path: string) => void }) {
   return (

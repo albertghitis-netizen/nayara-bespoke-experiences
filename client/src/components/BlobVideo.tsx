@@ -1,5 +1,5 @@
 /**
- * BlobVideo — Reliable cross-platform video component
+ * BlobVideo , Reliable cross-platform video component
  *
  * Features:
  * - Direct <video> tag with mobile-optimized attributes
@@ -70,7 +70,7 @@ export default function BlobVideo({
     const tryPlay = () => {
       if (autoPlay && video.paused) {
         video.play().catch(() => {
-          // Autoplay blocked — that's fine on mobile
+          // Autoplay blocked , that's fine on mobile
         });
       }
     };
@@ -117,7 +117,7 @@ export default function BlobVideo({
     return "video/mp4";
   };
 
-  /* Pill styling — use provided colors or fall back to brand espresso */
+  /* Pill styling , use provided colors or fall back to brand espresso */
   const bgStyle = pillBg || "rgba(59,43,38,0.8)";
   const fgStyle = pillColor || "#F7F5F0";
 
@@ -190,7 +190,7 @@ export default function BlobVideo({
         />
       )}
 
-      {/* Mute / Unmute pill — FIXED, aligned with BrandNavigation hamburger */}
+      {/* Mute / Unmute pill , FIXED, aligned with BrandNavigation hamburger */}
       {effectiveHasAudio && (
         <button
           onClick={toggleMute}
@@ -203,7 +203,7 @@ export default function BlobVideo({
             borderColor: "rgba(255,255,255,0.1)",
           }}
         >
-          {/* Pulse ring — draws attention, then fades */}
+          {/* Pulse ring , draws attention, then fades */}
           {isMuted && showPulse && (
             <span className="absolute inset-0 rounded-full border animate-ping" style={{ borderColor: `${fgStyle}30` }} />
           )}
@@ -241,7 +241,7 @@ export default function BlobVideo({
             </svg>
           )}
 
-          {/* Label — matches Reserve button text style */}
+          {/* Label , matches Reserve button text style */}
           <span
             className="text-xs tracking-[0.08em] transition-colors"
             style={{ color: fgStyle, fontFamily: "var(--font-body)", fontWeight: 500 }}

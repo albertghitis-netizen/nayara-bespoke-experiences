@@ -1,5 +1,5 @@
 /**
- * Culinary Images — CDN URLs for all Costa Rica restaurant photography
+ * Culinary Images , CDN URLs for all Costa Rica restaurant photography
  * Auto-generated from actual CDN upload results
  */
 
@@ -290,7 +290,7 @@ export function getAllCulinaryImages(): CulinaryImage[] {
   return restaurants.flatMap((r) =>
     r.images.map((src) => ({
       src,
-      alt: `${r.name} — ${r.propertyName}`,
+      alt: `${r.name} , ${r.propertyName}`,
       restaurant: r.slug,
       property: r.property,
     }))
@@ -310,7 +310,7 @@ export function getCollageImages(count: number = 24): CulinaryImage[] {
     for (let i = 0; i < take; i++) {
       curated.push({
         src: r.images[i],
-        alt: `${r.name} — ${r.propertyName}`,
+        alt: `${r.name} , ${r.propertyName}`,
         restaurant: r.slug,
         property: r.property,
       });

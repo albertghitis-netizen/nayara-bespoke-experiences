@@ -1,6 +1,6 @@
 /**
- * FLOOR PLAN TEST PAGE — Preview all floor plan prototypes
- * Internal testing only — not linked from navigation
+ * FLOOR PLAN TEST PAGE , Preview all floor plan prototypes
+ * Internal testing only , not linked from navigation
  */
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
 import FloorPlanBuilder from "@/components/FloorPlanBuilder";
@@ -32,7 +32,7 @@ export default function FloorPlanTest() {
           className="text-sm mt-4 max-w-lg mx-auto"
           style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}
         >
-          Architectural blueprints for Nayara properties — Gardens, Springs, and Tented Camp.
+          Architectural blueprints for Nayara properties , Gardens, Springs, and Tented Camp.
         </p>
       </section>
 
@@ -42,12 +42,12 @@ export default function FloorPlanTest() {
       <section className="pt-8 pb-4 px-6 text-center">
         <div className="inline-block px-4 py-1.5 rounded-full border mb-4" style={{ borderColor: "#28624120" }}>
           <span className="text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#286241" }}>
-            Gardens & Springs — Improved v2
+            Gardens & Springs , Improved v2
           </span>
         </div>
         <p className="text-xs mb-6" style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}>
           Arenal Pool Casita (families), Rainforest Pool Villa (couples + child), Springs Villa (adults only).
-          <br />Capacity-focused design — instantly see who each room is for.
+          <br />Capacity-focused design , instantly see who each room is for.
         </p>
       </section>
       <FloorPlanGardensSprings initialTier="casita" />
@@ -58,7 +58,7 @@ export default function FloorPlanTest() {
       <section className="pt-16 pb-4 px-6 text-center" style={{ backgroundColor: "#EDEEE2" }}>
         <div className="inline-block px-4 py-1.5 rounded-full border mb-4" style={{ borderColor: "#3B2B2620" }}>
           <span className="text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#525642" }}>
-            Tented Camp — Tab Explorer
+            Tented Camp , Tab Explorer
           </span>
         </div>
         <p className="text-xs mb-6" style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}>
@@ -68,12 +68,12 @@ export default function FloorPlanTest() {
       <FloorPlanExplorer initialTier="tent" />
 
       {/* ═══════════════════════════════════════════════════════ */}
-      {/* PROTOTYPE B: Progressive Builder — "Watch It Build" */}
+      {/* PROTOTYPE B: Progressive Builder , "Watch It Build" */}
       {/* ═══════════════════════════════════════════════════════ */}
       <section className="pt-16 pb-4 px-6 text-center" style={{ backgroundColor: "#EDEEE2" }}>
         <div className="inline-block px-4 py-1.5 rounded-full border mb-4" style={{ borderColor: "#3B2B2620" }}>
           <span className="text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#525642" }}>
-            Tented Camp — Progressive Builder
+            Tented Camp , Progressive Builder
           </span>
         </div>
         <p className="text-xs mb-6" style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}>
@@ -83,12 +83,12 @@ export default function FloorPlanTest() {
       <FloorPlanBuilder maxStep={3} />
 
       {/* ═══════════════════════════════════════════════════════ */}
-      {/* PROTOTYPE C: Scroll-Driven — "Scroll to Build" */}
+      {/* PROTOTYPE C: Scroll-Driven , "Scroll to Build" */}
       {/* ═══════════════════════════════════════════════════════ */}
       <section className="pt-16 pb-4 px-6 text-center" style={{ backgroundColor: "#EDEEE2" }}>
         <div className="inline-block px-4 py-1.5 rounded-full border mb-4" style={{ borderColor: "#3B2B2620" }}>
           <span className="text-[10px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#525642" }}>
-            Tented Camp — Scroll to Build
+            Tented Camp , Scroll to Build
           </span>
         </div>
         <p className="text-xs mb-6" style={{ fontFamily: "var(--font-body)", color: "#3B2B2680" }}>

@@ -1,5 +1,5 @@
 /**
- * PillarCrossLink — Subtle "Explore all [pillar] →" link
+ * PillarCrossLink , Subtle "Explore all [pillar] →" link
  * Used at the bottom of each pillar section on property pages
  * to cross-link to the brand-level pillar page.
  */

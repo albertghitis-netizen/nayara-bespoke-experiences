@@ -94,7 +94,7 @@ export default function GreenGlobeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Nayara Tented Camp is proud to announce that we have achieved Green Globe Certification—a milestone that represents years of commitment to doing business the right way.
+              Nayara Tented Camp is proud to announce that we have achieved Green Globe Certification,a milestone that represents years of commitment to doing business the right way.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -129,7 +129,7 @@ export default function GreenGlobeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              This is not a one-time assessment. Green Globe certification requires annual audits and continuous improvement. Every year, we must demonstrate that we are maintaining—and improving—our sustainability practices. It is a commitment that never ends.
+              This is not a one-time assessment. Green Globe certification requires annual audits and continuous improvement. Every year, we must demonstrate that we are maintaining,and improving,our sustainability practices. It is a commitment that never ends.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -189,7 +189,7 @@ export default function GreenGlobeBlog() {
                 className="text-[15px] md:text-[17px] leading-[1.9]"
                 style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
               >
-                Luxury should benefit the community, not exploit it. At Tented Camp, 85% of our staff comes from La Fortuna. We provide free transportation, comprehensive health insurance, and ongoing training in sustainable tourism practices. We partner with local suppliers whenever possible, supporting the regional economy. And through our partnership with a local bank, we have created a housing community where employees can purchase homes without a down payment—building equity and dignity regardless of their employment status. This is not charity. It is partnership.
+                Luxury should benefit the community, not exploit it. At Tented Camp, 85% of our staff comes from La Fortuna. We provide free transportation, comprehensive health insurance, and ongoing training in sustainable tourism practices. We partner with local suppliers whenever possible, supporting the regional economy. And through our partnership with a local bank, we have created a housing community where employees can purchase homes without a down payment,building equity and dignity regardless of their employment status. This is not charity. It is partnership.
               </p>
             </div>
 
@@ -221,7 +221,7 @@ export default function GreenGlobeBlog() {
                 className="text-[15px] md:text-[17px] leading-[1.9]"
                 style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
               >
-                This is where our heart lies. Tented Camp sits within 30,000 acres of rainforest that is home to half of Costa Rica's bird, mammal, and reptile species. We have planted over 50,000 native trees as part of our reforestation initiative. We have created wildlife corridors that allow jaguars, sloths, and other species to move freely across the landscape. We monitor biodiversity constantly, tracking the return of species like sloths that had disappeared from the region. We are not just protecting the forest—we are healing it.
+                This is where our heart lies. Tented Camp sits within 30,000 acres of rainforest that is home to half of Costa Rica's bird, mammal, and reptile species. We have planted over 50,000 native trees as part of our reforestation initiative. We have created wildlife corridors that allow jaguars, sloths, and other species to move freely across the landscape. We monitor biodiversity constantly, tracking the return of species like sloths that had disappeared from the region. We are not just protecting the forest,we are healing it.
               </p>
             </div>
           </motion.div>
@@ -251,13 +251,13 @@ export default function GreenGlobeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Some areas were straightforward. We were already carbon-neutral, already plastic-free, already investing in community housing. But other areas required us to raise our standards even higher. We enhanced our water management systems. We expanded our reforestation efforts. We deepened our partnerships with local communities. We did not just meet the standards—we exceeded them.
+              Some areas were straightforward. We were already carbon-neutral, already plastic-free, already investing in community housing. But other areas required us to raise our standards even higher. We enhanced our water management systems. We expanded our reforestation efforts. We deepened our partnerships with local communities. We did not just meet the standards,we exceeded them.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The result is a resort that operates at the highest level of sustainability. But more importantly, it is a resort that can prove it—through independent verification, annual audits, and measurable results.
+              The result is a resort that operates at the highest level of sustainability. But more importantly, it is a resort that can prove it,through independent verification, annual audits, and measurable results.
             </p>
           </motion.div>
 

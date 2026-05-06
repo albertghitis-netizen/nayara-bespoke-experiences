@@ -1,5 +1,5 @@
 /**
- * Nayara Resorts — Gastronomy & Dining Data
+ * Nayara Resorts , Gastronomy & Dining Data
  * Real menu content sourced from official documents.
  * Organized by property → restaurant → menu sections → items.
  */
@@ -45,7 +45,7 @@ export interface PropertyDining {
   restaurants: Restaurant[];
 }
 
-// ─── Costa Rica — Lapas Bar ──────────────────────────────────
+// ─── Costa Rica , Lapas Bar ──────────────────────────────────
 const lapasBar: Restaurant = {
   id: "lapas-bar",
   name: "Lapas Bar",
@@ -53,7 +53,7 @@ const lapasBar: Restaurant = {
   propertySlug: "arenal",
   tagline: "Tropical Cocktails in the Rainforest Canopy",
   description:
-    "Perched among the treetops with views of Arenal Volcano, Lapas Bar is where Costa Rican rum traditions meet modern mixology. Every cocktail tells a story — from tiki culture legends to Hemingway's Havana. Named after the scarlet macaws (lapas) that soar through the canopy at sunset.",
+    "Perched among the treetops with views of Arenal Volcano, Lapas Bar is where Costa Rican rum traditions meet modern mixology. Every cocktail tells a story , from tiki culture legends to Hemingway's Havana. Named after the scarlet macaws (lapas) that soar through the canopy at sunset.",
   cuisine: "Cocktail Bar",
   atmosphere: "Open-air rainforest canopy bar with volcano views",
   sections: [
@@ -80,7 +80,7 @@ const lapasBar: Restaurant = {
         {
           name: "Lychee Breeze Sour",
           description:
-            "Crisp, light, and refreshing — like a gentle tropical breeze by the pool, offering a touch of elegance with every sip.",
+            "Crisp, light, and refreshing , like a gentle tropical breeze by the pool, offering a touch of elegance with every sip.",
           ingredients:
             "Sugar Cane Juice Spirit, Centenario Blanco 4YO, Lychee and Ginger, Honey Chamomile Whey",
         },
@@ -120,7 +120,7 @@ const lapasBar: Restaurant = {
         {
           name: "Papa Doble",
           description:
-            'Created at La Floridita, Havana, Cuba, for Ernest Hemingway — known as "Papa" in Havana — who would request double rum in his daiquiris, giving rise to the Papa Doble.',
+            'Created at La Floridita, Havana, Cuba, for Ernest Hemingway , known as "Papa" in Havana , who would request double rum in his daiquiris, giving rise to the Papa Doble.',
           ingredients:
             "Ron Centenario 4, Grapefruit and Lime, Giffard Maraschino Liqueur",
         },
@@ -148,7 +148,7 @@ const lapasBar: Restaurant = {
         {
           name: "Conscious Zombie",
           description:
-            "All the bold, exotic energy of the Lost Paradise Zombie — without the spirits.",
+            "All the bold, exotic energy of the Lost Paradise Zombie , without the spirits.",
           ingredients:
             "Non-Alcoholic Rum, Non-Alcoholic Grapefruit Spirit, Hibiscus and Spices, Lime, Orgeat Syrup",
           isNonAlcoholic: true,
@@ -158,7 +158,7 @@ const lapasBar: Restaurant = {
   ],
 };
 
-// ─── Costa Rica — Terraza ────────────────────────────────────
+// ─── Costa Rica , Terraza ────────────────────────────────────
 const terraza: Restaurant = {
   id: "la-terraza",
   name: "La Terraza",
@@ -166,7 +166,7 @@ const terraza: Restaurant = {
   propertySlug: "gardens",
   tagline: "Where Costa Rican Terroir Meets the Art of the Cocktail",
   description:
-    "Terraza celebrates the spirit of Costa Rica through cocktails that tell the story of the land. Every signature drink is rooted in local ingredients, traditions, and the Tico way of life — from Cacique Guaro to Dota Valley apples to market-stall caramels.",
+    "Terraza celebrates the spirit of Costa Rica through cocktails that tell the story of the land. Every signature drink is rooted in local ingredients, traditions, and the Tico way of life , from Cacique Guaro to Dota Valley apples to market-stall caramels.",
   cuisine: "Cocktail Bar & Terrace",
   atmosphere: "Elevated terrace with panoramic volcano views",
   sections: [
@@ -177,7 +177,7 @@ const terraza: Restaurant = {
         {
           name: "Casitico Sour",
           description:
-            '"Tico" is a diminutive used by Costa Ricans to describe little things — reason why we are known as "Ticos." The Cas fruit is endemic to Costa Rica with a sweet and sour taste similar to guava.',
+            '"Tico" is a diminutive used by Costa Ricans to describe little things , reason why we are known as "Ticos." The Cas fruit is endemic to Costa Rica with a sweet and sour taste similar to guava.',
           ingredients:
             'Cacique Guaro, Cas and "Limón Dulce" Cordial, Mint Super Foam',
           price: "$17",
@@ -201,7 +201,7 @@ const terraza: Restaurant = {
         {
           name: "Tramos Fix",
           description:
-            'In the "Tramos" (market stalls) you find typical sweet treats — milk caramel bars, candied figs and bananas. Enjoy all of these sweet flavors in this cocktail.',
+            'In the "Tramos" (market stalls) you find typical sweet treats , milk caramel bars, candied figs and bananas. Enjoy all of these sweet flavors in this cocktail.',
           ingredients:
             'Tequila Don Julio Reposado, Centenario 12 Rum, "Cajeta" Cordial, Chipotle and Figs',
           price: "$17",
@@ -214,7 +214,7 @@ const terraza: Restaurant = {
         {
           name: "Rum Old Fashioned",
           description:
-            "The same formula as the first recorded definition of the word 'cocktail' — customized with Costa Rican Rum.",
+            "The same formula as the first recorded definition of the word 'cocktail' , customized with Costa Rican Rum.",
           ingredients:
             "Centenario 12 YO Rum, Demerara Syrup, Angostura and Chocolate Bitters",
           price: "$17",
@@ -249,7 +249,7 @@ const terraza: Restaurant = {
         {
           name: "Resbaladera Colada",
           description:
-            '"Resbaladera" is a traditional drink similar to horchata — rice and cinnamon based, consumed in the Costa Rican Pacific. Combined with pineapple rice water, our grandmothers\' refreshing beverage.',
+            '"Resbaladera" is a traditional drink similar to horchata , rice and cinnamon based, consumed in the Costa Rican Pacific. Combined with pineapple rice water, our grandmothers\' refreshing beverage.',
           ingredients:
             "Giffard Non-Alcoholic Pineapple, Rice Organic Water, Almond Orgeat, Fresh Basil, Cinnamon",
           price: "$15",
@@ -260,7 +260,7 @@ const terraza: Restaurant = {
   ],
 };
 
-// ─── Nayara Tented Camp — Restaurants ────────────────────────
+// ─── Nayara Tented Camp , Restaurants ────────────────────────
 const ayla: Restaurant = {
   id: "ayla",
   name: "Ayla",
@@ -281,13 +281,13 @@ const henrysBar: Restaurant = {
   propertySlug: "tented-camp",
   tagline: "Craft Cocktails & Stories from the Jungle",
   description:
-    "Named after the legendary explorer who first mapped the trails around Arenal, Henry's Bar is where adventure meets mixology. Handcrafted cocktails made with Costa Rican spirits, tropical fruits, and herbs from our garden — served in a setting that feels like a well-appointed explorer's club deep in the rainforest.",
+    "Named after the legendary explorer who first mapped the trails around Arenal, Henry's Bar is where adventure meets mixology. Handcrafted cocktails made with Costa Rican spirits, tropical fruits, and herbs from our garden , served in a setting that feels like a well-appointed explorer's club deep in the rainforest.",
   cuisine: "Craft Cocktail Bar",
   atmosphere: "Explorer's club ambiance in the jungle canopy",
   sections: [],
 };
 
-// ─── Nayara Springs — Restaurants ────────────────────────────
+// ─── Nayara Springs , Restaurants ────────────────────────────
 const misAmores: Restaurant = {
   id: "mis-amores",
   name: "Mis Amores",
@@ -295,7 +295,7 @@ const misAmores: Restaurant = {
   propertySlug: "springs",
   tagline: "Romantic Fine Dining for Two",
   description:
-    "Mis Amores is the culinary jewel of Nayara Springs — an adults-only fine dining experience where every detail is designed for romance. The menu weaves Costa Rican ingredients with international technique, served in an intimate candlelit setting overlooking the volcanic hot springs. A Relais & Châteaux dining experience.",
+    "Mis Amores is the culinary jewel of Nayara Springs , an adults-only fine dining experience where every detail is designed for romance. The menu weaves Costa Rican ingredients with international technique, served in an intimate candlelit setting overlooking the volcanic hot springs. A Relais & Châteaux dining experience.",
   cuisine: "Contemporary Fine Dining",
   atmosphere: "Intimate candlelit terrace with hot springs views",
   sections: [],
@@ -308,13 +308,13 @@ const miCafecito: Restaurant = {
   propertySlug: "springs",
   tagline: "Artisanal Coffee & Morning Rituals",
   description:
-    "Mi Cafecito is where mornings begin at Nayara Springs — with single-origin Costa Rican coffee, fresh pastries, and the quiet sounds of the rainforest. Beans are sourced from the Tarrazú and Dota Valley highlands and roasted with care. Pair your cup with a tropical fruit plate or a traditional gallo pinto.",
+    "Mi Cafecito is where mornings begin at Nayara Springs , with single-origin Costa Rican coffee, fresh pastries, and the quiet sounds of the rainforest. Beans are sourced from the Tarrazú and Dota Valley highlands and roasted with care. Pair your cup with a tropical fruit plate or a traditional gallo pinto.",
   cuisine: "Coffee House & Breakfast",
   atmosphere: "Tranquil morning gathering with garden views",
   sections: [],
 };
 
-// ─── Nayara Gardens — Restaurants ────────────────────────────
+// ─── Nayara Gardens , Restaurants ────────────────────────────
 const asiaLuna: Restaurant = {
   id: "asia-luna",
   name: "Asia Luna",
@@ -335,7 +335,7 @@ const amorLoco: Restaurant = {
   propertySlug: "springs",
   tagline: "Latin American Soul Food with Volcanic Views",
   description:
-    "Amor Loco celebrates the passion of Latin American cuisine — from Peruvian ceviche to Argentine grills — all prepared with Costa Rican ingredients from our organic gardens. The restaurant overlooks the Arenal Volcano and is one of the most celebrated dining experiences in Central America.",
+    "Amor Loco celebrates the passion of Latin American cuisine , from Peruvian ceviche to Argentine grills , all prepared with Costa Rican ingredients from our organic gardens. The restaurant overlooks the Arenal Volcano and is one of the most celebrated dining experiences in Central America.",
   cuisine: "Latin American",
   atmosphere: "Volcano-view terrace dining",
   sections: [],
@@ -348,7 +348,7 @@ const lylasGelato: Restaurant = {
   propertySlug: "gardens",
   tagline: "Artisanal Gelato Crafted in the Tropics",
   description:
-    "Lyla's Gelato brings the Italian tradition of handcrafted gelato to the Arenal rainforest. Made fresh daily with tropical fruits from local farms — guanábana, passion fruit, mango, and Costa Rican chocolate — each scoop is a celebration of the land. The perfect pause between adventures.",
+    "Lyla's Gelato brings the Italian tradition of handcrafted gelato to the Arenal rainforest. Made fresh daily with tropical fruits from local farms , guanábana, passion fruit, mango, and Costa Rican chocolate , each scoop is a celebration of the land. The perfect pause between adventures.",
   cuisine: "Artisanal Gelato & Desserts",
   atmosphere: "Charming garden-side gelato counter",
   sections: [],
@@ -367,7 +367,7 @@ const nostalgia: Restaurant = {
   sections: [],
 };
 
-// ─── Hangaroa — Poerava ──────────────────────────────────────
+// ─── Hangaroa , Poerava ──────────────────────────────────────
 const poerava: Restaurant = {
   id: "poerava",
   name: "Poerava",
@@ -603,7 +603,7 @@ const poerava: Restaurant = {
   ],
 };
 
-// ─── Bocas del Toro — Spa & Wellness Menu ────────────────────
+// ─── Bocas del Toro , Spa & Wellness Menu ────────────────────
 const bocasSpa: Restaurant = {
   id: "bocas-spa",
   name: "Nayara Spa",
@@ -623,13 +623,13 @@ const bocasSpa: Restaurant = {
           name: "Bliss Massage",
           description:
             "There is no better way to enhance your experience in Bocas del Toro than with a full body Swedish relaxation massage to soothe your body and mind.",
-          price: "1 hour — $120 · 90 minutes — $180",
+          price: "1 hour , $120 · 90 minutes , $180",
         },
         {
           name: "The Jungle Rub",
           description:
-            "Deep in the Jungle — utilizing deep-tissue techniques to knead away built-up tension. Your seasoned massage therapist will apply pressure to specific points. Perfect for precise relaxation.",
-          price: "1 hour — $120 · 90 minutes — $180",
+            "Deep in the Jungle , utilizing deep-tissue techniques to knead away built-up tension. Your seasoned massage therapist will apply pressure to specific points. Perfect for precise relaxation.",
+          price: "1 hour , $120 · 90 minutes , $180",
         },
       ],
     },
@@ -640,20 +640,20 @@ const bocasSpa: Restaurant = {
           name: "Deep Cleansing Facial",
           description:
             'This facial is perfect for that deep-cleaning experience to detoxify and rejuvenate. This treatment offers you the chance to "clean house" on your face, cleansing and hydrating your skin. Scalp, neck, and hand massages are included in this indulgent experience.',
-          price: "1 hour — $120 · 90 minutes — $180",
+          price: "1 hour , $120 · 90 minutes , $180",
         },
         {
           name: "Reflexology",
           description:
             "Reflexology is a massage that works on the points found in the feet which connect to the body. At the same time it helps you to relax the whole body.",
-          price: "1 hour — $120 · 90 minutes — $180",
+          price: "1 hour , $120 · 90 minutes , $180",
         },
       ],
     },
   ],
 };
 
-// ─── Alto Atacama — Dining ───────────────────────────────────
+// ─── Alto Atacama , Dining ───────────────────────────────────
 const atacamaDining: Restaurant = {
   id: "atacama-dining",
   name: "Alto Atacama Restaurant",
@@ -661,7 +661,7 @@ const atacamaDining: Restaurant = {
   propertySlug: "alto-atacama",
   tagline: "Desert Dining Under the Clearest Skies on Earth",
   description:
-    "The restaurant at Nayara Alto Atacama celebrates the flavors of northern Chile and the Atacama region. Using ingredients from the desert oasis — quinoa, local herbs, llama, and fresh produce from the resort's own gardens — the culinary team creates dishes that honor the land. Paired with Chilean wines from the nearby valleys, every meal is a journey through the desert's hidden abundance.",
+    "The restaurant at Nayara Alto Atacama celebrates the flavors of northern Chile and the Atacama region. Using ingredients from the desert oasis , quinoa, local herbs, llama, and fresh produce from the resort's own gardens , the culinary team creates dishes that honor the land. Paired with Chilean wines from the nearby valleys, every meal is a journey through the desert's hidden abundance.",
   cuisine: "Chilean Desert Cuisine",
   atmosphere: "Adobe-walled dining room with canyon and Andes views",
   sections: [
@@ -698,7 +698,7 @@ const atacamaDining: Restaurant = {
   ],
 };
 
-// ─── Bocas del Toro — Dining ─────────────────────────────────
+// ─── Bocas del Toro , Dining ─────────────────────────────────
 const bocasDining: Restaurant = {
   id: "bocas-dining",
   name: "Overwater Restaurant",
@@ -718,7 +718,7 @@ export const costaRicaDining: PropertyDining = {
   propertySlug: "arenal",
   headline: "Five Restaurants, One Volcanic Landscape",
   description:
-    "Across Nayara Gardens, Nayara Springs, and Nayara Tented Camp, guests enjoy access to five distinct dining venues — from Pan-Asian fusion at Asia Luna to Latin American soul food at Amor Loco, craft cocktails at Lapas Bar and Terraza, and artisanal coffee at Café Campesino. All restaurants source from our organic gardens and local farms.",
+    "Across Nayara Gardens, Nayara Springs, and Nayara Tented Camp, guests enjoy access to five distinct dining venues , from Pan-Asian fusion at Asia Luna to Latin American soul food at Amor Loco, craft cocktails at Lapas Bar and Terraza, and artisanal coffee at Café Campesino. All restaurants source from our organic gardens and local farms.",
   restaurants: [ayla, henrysBar, misAmores, miCafecito, amorLoco, asiaLuna, lylasGelato, terraza, nostalgia],
 };
 
@@ -727,7 +727,7 @@ export const hangaroaDining: PropertyDining = {
   propertySlug: "hangaroa",
   headline: "Pacific Island Cuisine with Rapa Nui Soul",
   description:
-    "Poerava is the culinary heart of Nayara Hangaroa, where every dish carries a name in both Spanish and Rapa Nui. The menu celebrates local seafood, Chilean wines, and island traditions — from Ceviche Rapa Nui to homemade pasta and traditional desserts.",
+    "Poerava is the culinary heart of Nayara Hangaroa, where every dish carries a name in both Spanish and Rapa Nui. The menu celebrates local seafood, Chilean wines, and island traditions , from Ceviche Rapa Nui to homemade pasta and traditional desserts.",
   restaurants: [poerava],
 };
 
@@ -745,7 +745,7 @@ export const atacamaDiningCollection: PropertyDining = {
   propertySlug: "alto-atacama",
   headline: "Desert Dining in the Driest Place on Earth",
   description:
-    "The culinary program at Nayara Alto Atacama draws from the hidden abundance of the Atacama Desert — quinoa, local herbs, llama, and produce from the resort's oasis gardens. Paired with wines from Chile's finest valleys, every meal tells the story of this extraordinary landscape.",
+    "The culinary program at Nayara Alto Atacama draws from the hidden abundance of the Atacama Desert , quinoa, local herbs, llama, and produce from the resort's oasis gardens. Paired with wines from Chile's finest valleys, every meal tells the story of this extraordinary landscape.",
   restaurants: [atacamaDining],
 };
 

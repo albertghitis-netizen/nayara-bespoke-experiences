@@ -1,10 +1,10 @@
 /**
- * FLOOR PLAN BUILDER — Prototype B: "Watch It Build"
+ * FLOOR PLAN BUILDER , Prototype B: "Watch It Build"
  *
  * Creative concept: Progressive construction animation.
  * Start with the base Nayara Tent. Step through each tier and
  * watch new rooms, pools, and living spaces animate in on top
- * of what's already there — like an architect adding wings
+ * of what's already there , like an architect adding wings
  * to a building in real time.
  *
  * Key differences from FloorPlanExplorer (Prototype A):
@@ -81,7 +81,7 @@ const STEPS: BuildStep[] = [
     tier: "tent",
     title: "Nayara Tent",
     subtitle: "The Foundation",
-    narrative: "Begin with the essence — a luxury tent nestled in the rainforest canopy. A king-size four-poster bed, two daybeds for afternoon reading, and your own private hot springs plunge pool.",
+    narrative: "Begin with the essence , a luxury tent nestled in the rainforest canopy. A king-size four-poster bed, two daybeds for afternoon reading, and your own private hot springs plunge pool.",
     sqft: "1,700",
     sqm: "157.9",
     guests: "2 adults + 2 children",
@@ -91,7 +91,7 @@ const STEPS: BuildStep[] = [
     tier: "family",
     title: "Family Tent",
     subtitle: "Add a Connecting Room",
-    narrative: "A covered walkway extends east, connecting to a second room with two queen beds — perfect for children or companions. The plunge pool is now shared between both spaces.",
+    narrative: "A covered walkway extends east, connecting to a second room with two queen beds , perfect for children or companions. The plunge pool is now shared between both spaces.",
     sqft: "2,400",
     sqm: "223",
     guests: "2 adults + 3 children",
@@ -111,7 +111,7 @@ const STEPS: BuildStep[] = [
     tier: "residence",
     title: "Nayara Residence",
     subtitle: "The Complete Estate",
-    narrative: "The ultimate expression — two Nayara Tents, two connecting suites, a grand living pavilion, private infinity pool, and fire pit. A multi-generational sanctuary in the jungle.",
+    narrative: "The ultimate expression , two Nayara Tents, two connecting suites, a grand living pavilion, private infinity pool, and fire pit. A multi-generational sanctuary in the jungle.",
     sqft: "7,664",
     sqm: "712",
     guests: "Up to 12 adults",
@@ -132,7 +132,7 @@ function poolShape(cx: number, cy: number, w: number, h: number): string {
   return `M${x + r},${y} Q${x + w * 0.3},${y - 3} ${x + w * 0.6},${y} Q${x + w},${y} ${x + w},${y + r} Q${x + w + 2},${y + h * 0.5} ${x + w},${y + h - r} Q${x + w},${y + h} ${x + w - r},${y + h} Q${x + w * 0.5},${y + h + 2} ${x + r},${y + h} Q${x},${y + h} ${x},${y + h - r} Q${x - 2},${y + h * 0.4} ${x},${y + r} Q${x},${y} ${x + r},${y} Z`;
 }
 
-/** Room that draws itself — can be "planned" (dashed) or "built" (solid) */
+/** Room that draws itself , can be "planned" (dashed) or "built" (solid) */
 function BuildRoom({ path, built, delay = 0, fill = "transparent", stroke = C.wall }: {
   path: string; built: boolean; delay?: number; fill?: string; stroke?: string;
 }) {
@@ -514,7 +514,7 @@ function Compass({ x, y }: { x: number; y: number }) {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   CONSTRUCTION STEP INDICATOR — "Building Progress"
+   CONSTRUCTION STEP INDICATOR , "Building Progress"
    ══════════════════════════════════════════════════════════════════ */
 function ConstructionBadge({ step, total }: { step: number; total: number }) {
   const pct = ((step + 1) / total) * 100;
@@ -559,13 +559,13 @@ function ConstructionBadge({ step, total }: { step: number; total: number }) {
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   THE FULL BLUEPRINT — All elements always present, visibility
+   THE FULL BLUEPRINT , All elements always present, visibility
    controlled by current step
    ══════════════════════════════════════════════════════════════════ */
 function FullBlueprint({ step }: { step: number }) {
   // Step 0: tent only
   // Step 1: tent + connecting room (family)
-  // Step 2: tent + living + ground floor (grand) — no connecting room
+  // Step 2: tent + living + ground floor (grand) , no connecting room
   // Step 3: 2 tents + 2 suites + living (residence)
 
   const isTent = step >= 0;
@@ -654,7 +654,7 @@ function FullBlueprint({ step }: { step: number }) {
   const tx = 80, ty = 80, tw = 180, th = 170;
   // Connecting room (Family)
   const cx = tx + tw + 20, cy = ty + 15, cw = 140, ch = 130;
-  // Living area (Grand) — between tent and ground floor
+  // Living area (Grand) , between tent and ground floor
   const lx = tx + tw + 20, ly = ty - 15, lw = 130, lh = 170;
   // Ground floor (Grand)
   const dx = lx + lw + 18, dy = ty + 15, dw = 120, dh = 115;
@@ -670,7 +670,7 @@ function FullBlueprint({ step }: { step: number }) {
       <BuildBath x={tx + tw - 58} y={ty + th - 50} w={50} h={40} built={isTent} delay={0.35} />
       <BuildDoor cx={tx} cy={ty + th / 2} r={12} startAngle={-90} built={isTent} delay={0.25} />
 
-      {/* Pool — upgrades to "oversized" at Grand */}
+      {/* Pool , upgrades to "oversized" at Grand */}
       <BuildPool
         cx={tx + tw / 2 + (isGrand ? 30 : 0)}
         cy={ty - 42}
@@ -681,7 +681,7 @@ function FullBlueprint({ step }: { step: number }) {
         label={isGrand ? "Oversized Hot Springs Pool" : "Hot Springs Plunge Pool"}
       />
 
-      {/* ── CONNECTING ROOM (Family — step 1 only, not Grand) ── */}
+      {/* ── CONNECTING ROOM (Family , step 1 only, not Grand) ── */}
       {!isGrand && (
         <>
           <BuildConnector x={tx + tw} y={ty + 55} w={20} h={26} built={isFamily} delay={0.6} />
@@ -694,7 +694,7 @@ function FullBlueprint({ step }: { step: number }) {
         </>
       )}
 
-      {/* ── LIVING AREA (Grand — step 2) ── */}
+      {/* ── LIVING AREA (Grand , step 2) ── */}
       {isGrand && (
         <>
           <BuildConnector x={tx + tw} y={ty + 45} w={20} h={24} built={isGrand} delay={0.55} />
@@ -974,7 +974,7 @@ export default function FloorPlanBuilder({
 
                 {/* CTA */}
                 <button
-                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+                  onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
                   className="inline-flex items-center gap-2 px-7 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03]"
                   style={{
                     ...body, fontWeight: 500, fontSize: "10px",

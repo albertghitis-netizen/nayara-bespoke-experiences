@@ -1,11 +1,11 @@
 /**
- * MASTER GALLERY DATA — All assets organized per property
+ * MASTER GALLERY DATA , All assets organized per property
  *
  * Rules:
  * - Every asset goes into its property gallery. No exceptions.
  * - Shared Costa Rica assets go in Springs gallery ONLY (zero duplicates).
  * - Videos autoplay muted in galleries.
- * - Gallery is the master pool — sections pull from here.
+ * - Gallery is the master pool , sections pull from here.
  */
 
 export type MediaType = "image" | "video";
@@ -23,7 +23,7 @@ export interface GalleryItem {
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 /* ═══════════════════════════════════════════════════════════════
-   SPRINGS — Includes all shared Costa Rica assets
+   SPRINGS , Includes all shared Costa Rica assets
    Gallery Layout: Classic masonry 3-column
    ═══════════════════════════════════════════════════════════════ */
 export const springsGallery: GalleryItem[] = [
@@ -61,7 +61,7 @@ export const springsGallery: GalleryItem[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   ALTO ATACAMA — Atacama Desert, Chile
+   ALTO ATACAMA , Atacama Desert, Chile
    Gallery Layout: Horizontal filmstrip / cinema-wide cards
    ═══════════════════════════════════════════════════════════════ */
 export const atacamaGallery: GalleryItem[] = [
@@ -85,7 +85,7 @@ export const atacamaGallery: GalleryItem[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   BOCAS DEL TORO — Panama
+   BOCAS DEL TORO , Panama
    Gallery Layout: Pinterest-style staggered
    ═══════════════════════════════════════════════════════════════ */
 export const bocasGallery: GalleryItem[] = [
@@ -128,7 +128,7 @@ export const bocasGallery: GalleryItem[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   TENTED CAMP — Arenal, Costa Rica
+   TENTED CAMP , Arenal, Costa Rica
    Gallery Layout: Editorial 2-column alternating large/small
    ═══════════════════════════════════════════════════════════════ */
 export const tentedCampGallery: GalleryItem[] = [
@@ -148,7 +148,7 @@ export const tentedCampGallery: GalleryItem[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   GARDENS — Arenal, Costa Rica
+   GARDENS , Arenal, Costa Rica
    Gallery Layout: Mosaic tiles (mixed sizes)
    ═══════════════════════════════════════════════════════════════ */
 export const gardensGallery: GalleryItem[] = [
@@ -160,7 +160,7 @@ export const gardensGallery: GalleryItem[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   HANGAROA — Easter Island, Chile
+   HANGAROA , Easter Island, Chile
    Gallery Layout: Full-width stacked with parallax
    ═══════════════════════════════════════════════════════════════ */
 export const hangaroaGallery: GalleryItem[] = [
@@ -220,7 +220,7 @@ export function getVideos(items: GalleryItem[]): GalleryItem[] {
   return items.filter((item) => item.type === "video");
 }
 
-/** Property gradient colors — light-to-deep */
+/** Property gradient colors , light-to-deep */
 export const PROPERTY_GRADIENTS: Record<string, { from: string; to: string }> = {
   springs: { from: "#f0f7f0", to: "#1a4a2e" },
   gardens: { from: "#eef5ee", to: "#2d5a3d" },
@@ -231,7 +231,7 @@ export const PROPERTY_GRADIENTS: Record<string, { from: string; to: string }> = 
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   UNIFIED GALLERY ITEMS — All new assets for brand gallery
+   UNIFIED GALLERY ITEMS , All new assets for brand gallery
    ═══════════════════════════════════════════════════════════════ */
 export const galleryItems: GalleryItem[] = [
   { id: "g1", src: "https://manus-storage.s3.amazonaws.com/IMG_5777_7f8e6c4f.jpg", alt: "Gallery item", type: "image", orientation: "landscape", tags: ["new"] },

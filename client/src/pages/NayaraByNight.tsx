@@ -1,7 +1,7 @@
 /*
- * NAYARA BY NIGHT — Standalone Night Sky Experience Page
+ * NAYARA BY NIGHT , Standalone Night Sky Experience Page
  * Structure: Hero Video → Story → Cascade sections (Atacama / Rapa Nui / Bocas) → Footer
- * Dark theme throughout — gallery images integrated into cascade sections
+ * Dark theme throughout , gallery images integrated into cascade sections
  */
 import { useRef, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
@@ -93,7 +93,7 @@ function MediaBlock({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   DARK CASCADE SECTION — Same layout as property pages, dark theme
+   DARK CASCADE SECTION , Same layout as property pages, dark theme
    ═══════════════════════════════════════════════════════════════ */
 type NightSectionData = {
   id: string;
@@ -125,7 +125,7 @@ function NightCascadeSection({ section, index }: { section: NightSectionData; in
               src={section.verticalSrc}
               isVideo={section.verticalIsVideo}
               ratio={section.verticalRatio}
-              alt={`${section.label} — Nayara by Night`}
+              alt={`${section.label} , Nayara by Night`}
             />
           </FadeIn>
         </div>
@@ -175,7 +175,7 @@ function NightCascadeSection({ section, index }: { section: NightSectionData; in
         </div>
       </div>
 
-      {/* Horizontal media — full bleed */}
+      {/* Horizontal media , full bleed */}
       {section.horizontalSrc && (
         <div style={{ backgroundColor: section.bgColor }}>
           <FadeIn delay={0.2}>
@@ -183,7 +183,7 @@ function NightCascadeSection({ section, index }: { section: NightSectionData; in
               src={section.horizontalSrc}
               isVideo={section.horizontalIsVideo}
               ratio="16/9"
-              alt={`${section.label} — landscape`}
+              alt={`${section.label} , landscape`}
             />
           </FadeIn>
         </div>
@@ -198,7 +198,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     id: "atacama-skies",
     label: "Atacama Desert",
     headline: "The Clearest\nSkies on Earth",
-    body: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail — no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
+    body: "At 2,400 meters in the driest desert on the planet, Alto Atacama offers some of the most pristine stargazing conditions anywhere. The Milky Way arcs overhead in impossible detail , no telescope required. Our observatory and guided night excursions reveal constellations, nebulae, and the Southern Cross in breathtaking clarity.",
     verticalSrc: "/manus-storage/3a94f88f-2a69-457a-bc18-fae9946d8f0c(1)_463d1a87.jpg",
     horizontalSrc: "/manus-storage/nbn-clearest-skies-horizontal_dedbd675.mp4",
     verticalIsVideo: false,
@@ -213,7 +213,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     id: "hangaroa-moai",
     label: "Rapa Nui",
     headline: "Moai Beneath\nthe Milky Way",
-    body: "On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.",
+    body: "On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas , the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.",
     verticalSrc: "/manus-storage/C4E3064D-C340-4EA4-BBC8-507E51A9B517_d666d0a5.jpeg",
     horizontalSrc: "/manus-storage/nbn-hero-v3_65e7fed1.mp4",
     verticalIsVideo: false,
@@ -227,7 +227,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     id: "bocas-bioluminescence",
     label: "Bocas del Toro",
     headline: "Bioluminescent\nWaters",
-    body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
+    body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow , kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
     verticalSrc: "/manus-storage/nbn-bioluminescence-vertical_541cd256.mp4",
     horizontalSrc: "/manus-storage/nbn-s2-horizontal_3e4fa16c.mp4",
     verticalIsVideo: true,
@@ -240,7 +240,7 @@ const NIGHT_SECTIONS: NightSectionData[] = [
     id: "night-frog-tour",
     label: "Nayara by Night",
     headline: "The Jungle\nAfter Dark",
-    body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets — a world that only comes alive after dark.",
+    body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets , a world that only comes alive after dark.",
     verticalSrc: "/manus-storage/tented-night-frogs_3e765061.mp4",
     horizontalSrc: "/manus-storage/nbn-jungle-dark-horizontal_d2bee113.mp4",
     verticalIsVideo: true,
@@ -262,7 +262,7 @@ export default function NayaraByNight() {
       <HeroSection />
       <StorySection />
 
-      {/* Cascade sections — all gallery images integrated */}
+      {/* Cascade sections , all gallery images integrated */}
       {NIGHT_SECTIONS.map((section, i) => (
         <NightCascadeSection key={section.id} section={section} index={i} />
       ))}
@@ -276,7 +276,7 @@ export default function NayaraByNight() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   1. HERO — Full-screen video with "Nayara by Night" H1
+   1. HERO , Full-screen video with "Nayara by Night" H1
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -287,7 +287,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
 
-      {/* Content — anchored to bottom */}
+      {/* Content , anchored to bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6 md:px-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -304,12 +304,12 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   2. STORY — Introduction text + landscape image
+   2. STORY , Introduction text + landscape image
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
   return (
     <section id="story">
-      {/* Row: Text left + Moai vertical right — full bleed */}
+      {/* Row: Text left + Moai vertical right , full bleed */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: "#000000" }}>
         {/* Text column */}
         <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24">
@@ -319,12 +319,12 @@ function StorySection() {
               Where Darkness Reveals<br />the Universe
             </h2>
             <p className="text-white text-[15px] leading-relaxed" style={body}>
-              From the clearest night skies on Earth in the Atacama Desert to the ancient Moai standing sentinel beneath the Milky Way on Rapa Nui, and the ethereal glow of bioluminescent plankton in the Caribbean waters of Bocas del Toro — Nayara's properties offer some of the most extraordinary nocturnal experiences on the planet.
+              From the clearest night skies on Earth in the Atacama Desert to the ancient Moai standing sentinel beneath the Milky Way on Rapa Nui, and the ethereal glow of bioluminescent plankton in the Caribbean waters of Bocas del Toro , Nayara's properties offer some of the most extraordinary nocturnal experiences on the planet.
             </p>
             <p className="text-white text-[15px] leading-relaxed mt-6" style={body}>
-              These are not staged moments. They are the natural gifts of the remote, pristine landscapes where Nayara has chosen to build — places where light pollution is a foreign concept and the cosmos reveals itself in full splendor.
+              These are not staged moments. They are the natural gifts of the remote, pristine landscapes where Nayara has chosen to build , places where light pollution is a foreign concept and the cosmos reveals itself in full splendor.
             </p>
-            {/* Blog Link — Of Moon and Stars */}
+            {/* Blog Link , Of Moon and Stars */}
             <a
               href="https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars"
               target="_blank"
@@ -335,12 +335,12 @@ function StorySection() {
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
               </svg>
-              Read: Nayara by Night — Of Moon and Stars
+              Read: Nayara by Night , Of Moon and Stars
             </a>
           </FadeIn>
         </div>
 
-        {/* Moai vertical — right half, full bleed */}
+        {/* Moai vertical , right half, full bleed */}
         <div className="w-full md:w-1/2">
           <FadeIn delay={0.1}>
             <NativeVideo
@@ -351,7 +351,7 @@ function StorySection() {
         </div>
       </div>
 
-      {/* s2 landscape video — full width, no gap, hidden on mobile */}
+      {/* s2 landscape video , full width, no gap, hidden on mobile */}
       <div className="hidden md:block">
         <FadeIn delay={0.2}>
           <div style={{ aspectRatio: "16/9" }} className="overflow-hidden">
@@ -364,7 +364,7 @@ function StorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXPLORE DESTINATIONS CTA — Links to all hotels
+   EXPLORE DESTINATIONS CTA , Links to all hotels
    ═══════════════════════════════════════════════════════════════ */
 const DESTINATIONS = [
   { name: "Nayara Alto Atacama", route: "/alto-atacama", location: "Atacama Desert, Chile" },
@@ -403,7 +403,7 @@ function ExploreDestinationsCTA() {
             className="text-white/70 text-[15px] leading-relaxed max-w-[700px] mb-14"
             style={body}
           >
-            At Nayara, nightfall is not an ending — it is a transformation. The jungle hums with nocturnal life, the sky deepens to reveal galaxies, and the resorts glow with intimate warmth. Every property is designed to celebrate the night as much as the day.
+            At Nayara, nightfall is not an ending , it is a transformation. The jungle hums with nocturnal life, the sky deepens to reveal galaxies, and the resorts glow with intimate warmth. Every property is designed to celebrate the night as much as the day.
           </p>
         </motion.div>
 
@@ -438,7 +438,7 @@ function ExploreDestinationsCTA() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SATURN DIVIDER — Cosmic separator between sections
+   SATURN DIVIDER , Cosmic separator between sections
    ═══════════════════════════════════════════════════════════════ */
 function MilkyWayDivider() {
   return (

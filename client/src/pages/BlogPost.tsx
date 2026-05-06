@@ -1,5 +1,5 @@
 /*
- * NAYARA BLOG POST — Editorial Template
+ * NAYARA BLOG POST , Editorial Template
  * Same warm palette as the Newsletter
  * Fonts: Playfair Display (display) + DM Sans (body)
  * Test case: "Pura Vida and the Science of Why Costa Rica Feels Different"
@@ -445,16 +445,16 @@ export default function BlogPost() {
           </h2>
           <ul className="space-y-2 text-[13px] text-[#2a1e1a] leading-[1.8]">
             {[
-              { label: "Happy Planet Index — Costa Rica", href: "https://happyplanetindex.org/" },
-              { label: "UNESCO — Abolition of the Army in Costa Rica", href: "https://en.unesco.org/memoryoftheworld" },
-              { label: "World Bank — Costa Rica Literacy Data", href: "https://data.worldbank.org/" },
-              { label: "OECD — Environment at a Glance: Costa Rica", href: "https://www.oecd.org/" },
-              { label: "Frontiers in Psychology — The Nature Pill", href: "https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00722/full" },
-              { label: "Harvard Business School — Time Affluence", href: "https://hbswk.hbs.edu/" },
+              { label: "Happy Planet Index , Costa Rica", href: "https://happyplanetindex.org/" },
+              { label: "UNESCO , Abolition of the Army in Costa Rica", href: "https://en.unesco.org/memoryoftheworld" },
+              { label: "World Bank , Costa Rica Literacy Data", href: "https://data.worldbank.org/" },
+              { label: "OECD , Environment at a Glance: Costa Rica", href: "https://www.oecd.org/" },
+              { label: "Frontiers in Psychology , The Nature Pill", href: "https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00722/full" },
+              { label: "Harvard Business School , Time Affluence", href: "https://hbswk.hbs.edu/" },
               { label: "Harvard Study of Adult Development", href: "https://www.adultdevelopmentstudy.org/" },
-              { label: "Daniel Gilbert — Affective Forecasting", href: "#" },
-              { label: "Blue Zones — Nicoya, Costa Rica", href: "https://www.bluezones.com/exploration/nicoya-costa-rica/" },
-              { label: "World Health Day 2026 — WHO", href: "https://www.who.int/campaigns/world-health-day/2026" },
+              { label: "Daniel Gilbert , Affective Forecasting", href: "#" },
+              { label: "Blue Zones , Nicoya, Costa Rica", href: "https://www.bluezones.com/exploration/nicoya-costa-rica/" },
+              { label: "World Health Day 2026 , WHO", href: "https://www.who.int/campaigns/world-health-day/2026" },
             ].map((src) => (
               <li key={src.label}>
                 <a

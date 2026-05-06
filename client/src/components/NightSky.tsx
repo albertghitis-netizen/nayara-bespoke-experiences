@@ -96,7 +96,7 @@ export default function NightSky({ className = "" }: { className?: string }) {
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
-      // Second pass — warm dust lane
+      // Second pass , warm dust lane
       const grad2 = ctx.createLinearGradient(w * 0.7, 0, w * 0.3, h);
       grad2.addColorStop(0, "rgba(200, 160, 80, 0.0)");
       grad2.addColorStop(0.35, "rgba(200, 160, 80, 0.03)");

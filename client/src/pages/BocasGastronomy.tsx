@@ -1,5 +1,5 @@
 /*
- * BOCAS DEL TORO GASTRONOMY — Dedicated gastronomy sub-page
+ * BOCAS DEL TORO GASTRONOMY , Dedicated gastronomy sub-page
  * Mirrors Alto Atacama secondary page structure with Caribbean ocean palette
  */
 

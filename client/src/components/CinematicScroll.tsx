@@ -1,17 +1,17 @@
 /**
- * CinematicScroll — Auto-scroll cinematic experience (DESKTOP ONLY)
+ * CinematicScroll , Auto-scroll cinematic experience (DESKTOP ONLY)
  *
- * On mobile, this component renders nothing — users scroll manually.
+ * On mobile, this component renders nothing , users scroll manually.
  *
  * Flow:
- * 1. Page loads muted, static — "Enter the [Property]" overlay on hero
+ * 1. Page loads muted, static , "Enter the [Property]" overlay on hero
  * 2. User clicks CTA → 5-second countdown → cascade begins, auto-scroll starts, audio plays
  * 3. User touches/clicks screen anywhere → scroll stops
  * 4. One fixed Sound pill follows the user (top-left)
  * 5. Sound pill toggles global mute via cascadeAudio.setMuted()
  *
  * Audio: Single HTMLAudioElement in cascadeAudio plays the merged MP3 track.
- * All cascade videos are always muted — audio comes only from cascadeAudio.
+ * All cascade videos are always muted , audio comes only from cascadeAudio.
  */
 
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -46,7 +46,7 @@ export default function CinematicScroll({
 }: CinematicScrollProps) {
   const [location] = useLocation();
 
-  /* ── Desktop only — skip on mobile/tablet ── */
+  /* ── Desktop only , skip on mobile/tablet ── */
   const [isMobile, setIsMobile] = useState(false);
 
   const [showOverlay, setShowOverlay] = useState(true);
@@ -121,13 +121,13 @@ export default function CinematicScroll({
     setIsScrolling(true);
     setIsMuted(false);
     startedAtRef.current = Date.now();
-    // Start the single continuous audio track — must be called inside user-gesture context
+    // Start the single continuous audio track , must be called inside user-gesture context
     cascadeAudio.start();
     onStart?.();
     startScrollLoop();
   }, [startScrollLoop, onStart]);
 
-  /* ── Begin experience — start 5-second countdown ── */
+  /* ── Begin experience , start 5-second countdown ── */
   const handleBegin = useCallback(() => {
     setCountdown(5);
     let count = 5;
@@ -177,7 +177,7 @@ export default function CinematicScroll({
     };
   }, [hasStarted, stopScrollLoop, isMobile]);
 
-  /* ── Mute toggle — delegates to cascadeAudio single audio element ── */
+  /* ── Mute toggle , delegates to cascadeAudio single audio element ── */
   const handleMuteToggle = useCallback(() => {
     const newMuted = !isMuted;
     setIsMuted(newMuted);

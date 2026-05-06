@@ -88,7 +88,7 @@ export default function BirdwatchingBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Costa Rica is a birdwatcher's paradise. With over 900 species of birds—more than the entire United States—the country offers some of the world's most spectacular avian encounters. The Arenal region, where Nayara Tented Camp is nestled, is particularly renowned for its incredible diversity of birds, from the iconic Resplendent Quetzal to the unmistakable Toucan.
+              Costa Rica is a birdwatcher's paradise. With over 900 species of birds,more than the entire United States,the country offers some of the world's most spectacular avian encounters. The Arenal region, where Nayara Tented Camp is nestled, is particularly renowned for its incredible diversity of birds, from the iconic Resplendent Quetzal to the unmistakable Toucan.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
@@ -117,13 +117,13 @@ export default function BirdwatchingBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The Arenal region sits at the intersection of two major bird migration routes. Every year, millions of birds pass through Central America, and many stop in the Arenal rainforest to feed, rest, and breed. The elevation gradient—from lowland rainforest to cloud forest—creates multiple habitat zones, each with its own distinct bird community.
+              The Arenal region sits at the intersection of two major bird migration routes. Every year, millions of birds pass through Central America, and many stop in the Arenal rainforest to feed, rest, and breed. The elevation gradient,from lowland rainforest to cloud forest,creates multiple habitat zones, each with its own distinct bird community.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The result is extraordinary diversity. In a single morning walk through the forest around Tented Camp, you might see 30 or more species. In a full day, experienced birders have recorded over 100 species. The best time for birdwatching is early morning, when birds are most active and vocal. Dawn chorus—the synchronized singing of multiple bird species—is one of nature's most magical experiences.
+              The result is extraordinary diversity. In a single morning walk through the forest around Tented Camp, you might see 30 or more species. In a full day, experienced birders have recorded over 100 species. The best time for birdwatching is early morning, when birds are most active and vocal. Dawn chorus,the synchronized singing of multiple bird species,is one of nature's most magical experiences.
             </p>
           </motion.div>
 
@@ -159,7 +159,7 @@ export default function BirdwatchingBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The Keel-billed Toucan is the most recognizable bird in the Arenal region. Its massive bill—which can be up to one-third the length of its entire body—is bright yellow with a red tip and a blue base. The bird's body is predominantly black, with a bright yellow face and throat. Despite the enormous bill, it is surprisingly light, composed of hollow struts covered with thin plates of keratin (the same material as human fingernails).
+              The Keel-billed Toucan is the most recognizable bird in the Arenal region. Its massive bill,which can be up to one-third the length of its entire body,is bright yellow with a red tip and a blue base. The bird's body is predominantly black, with a bright yellow face and throat. Despite the enormous bill, it is surprisingly light, composed of hollow struts covered with thin plates of keratin (the same material as human fingernails).
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -171,7 +171,7 @@ export default function BirdwatchingBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The best time to see Toucans is early morning or late afternoon, when they are most active. Listen for their distinctive calls echoing through the forest canopy. If you hear them but cannot see them, look up—Toucans often perch high in the tallest trees, silhouetted against the sky.
+              The best time to see Toucans is early morning or late afternoon, when they are most active. Listen for their distinctive calls echoing through the forest canopy. If you hear them but cannot see them, look up,Toucans often perch high in the tallest trees, silhouetted against the sky.
             </p>
           </motion.div>
 
@@ -235,7 +235,7 @@ export default function BirdwatchingBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The Arenal region is home to several species of macaws and parrots, including the Scarlet Macaw, the Great Green Macaw, and various parrot species. These large, colorful birds are highly vocal and often announce their presence before you see them. Their loud calls—a mix of squawks, screeches, and whistles—echo through the forest canopy.
+              The Arenal region is home to several species of macaws and parrots, including the Scarlet Macaw, the Great Green Macaw, and various parrot species. These large, colorful birds are highly vocal and often announce their presence before you see them. Their loud calls,a mix of squawks, screeches, and whistles,echo through the forest canopy.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -270,13 +270,13 @@ export default function BirdwatchingBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Over 25 species of hummingbirds inhabit Costa Rica, and many can be found in the Arenal region. These tiny birds—some weighing less than a penny—are among the most remarkable creatures in nature. Their wings beat up to 80 times per second, allowing them to hover in place and even fly backwards. Their heart rate can exceed 1,000 beats per minute.
+              Over 25 species of hummingbirds inhabit Costa Rica, and many can be found in the Arenal region. These tiny birds,some weighing less than a penny,are among the most remarkable creatures in nature. Their wings beat up to 80 times per second, allowing them to hover in place and even fly backwards. Their heart rate can exceed 1,000 beats per minute.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Hummingbirds feed on nectar and must consume approximately half their body weight in sugar every day to fuel their metabolism. They are highly territorial and will aggressively defend feeding areas from other hummingbirds. Their iridescent plumage—which appears to change color depending on the angle of light—is one of nature's most beautiful displays.
+              Hummingbirds feed on nectar and must consume approximately half their body weight in sugar every day to fuel their metabolism. They are highly territorial and will aggressively defend feeding areas from other hummingbirds. Their iridescent plumage,which appears to change color depending on the angle of light,is one of nature's most beautiful displays.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -344,13 +344,13 @@ export default function BirdwatchingBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The birds of the Arenal rainforest are not just beautiful—they are indicators of forest health. The presence of species like the Quetzal and the Macaw tells us that the ecosystem is thriving. By protecting the forest, we protect the birds that depend on it.
+              The birds of the Arenal rainforest are not just beautiful,they are indicators of forest health. The presence of species like the Quetzal and the Macaw tells us that the ecosystem is thriving. By protecting the forest, we protect the birds that depend on it.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              At Nayara Tented Camp, we are committed to forest conservation and sustainable birdwatching. Our guides are trained to observe birds responsibly, minimizing disturbance to nesting birds and sensitive species. When you birdwatch with us, you are not just experiencing nature—you are supporting conservation efforts that protect these magnificent creatures for generations to come.
+              At Nayara Tented Camp, we are committed to forest conservation and sustainable birdwatching. Our guides are trained to observe birds responsibly, minimizing disturbance to nesting birds and sensitive species. When you birdwatch with us, you are not just experiencing nature,you are supporting conservation efforts that protect these magnificent creatures for generations to come.
             </p>
           </motion.div>
 

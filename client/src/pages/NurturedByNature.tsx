@@ -1,5 +1,5 @@
 /*
- * NURTURED BY NATURE WELLNESS — Costa Rica Wellness Page
+ * NURTURED BY NATURE WELLNESS , Costa Rica Wellness Page
  * Philosophy: Nature IS the Wellness
  * Flow: Private Plunge Pools → Las Termas → Yoga → Sukha Spa → Spa Menu
  * Aesthetic: Tented Camp palette (Olive, Gravel, Bone, Light Green)
@@ -117,7 +117,7 @@ function IntroSection({ palette }: { palette: PropertyPalette }) {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <p className="text-[15px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
-              Nayara wellness is not a spa menu — it is a philosophy rooted in place. The volcanic hot springs, the rainforest canopy, the geothermal energy beneath the earth — these are not amenities. They are the treatment itself.
+              Nayara wellness is not a spa menu , it is a philosophy rooted in place. The volcanic hot springs, the rainforest canopy, the geothermal energy beneath the earth , these are not amenities. They are the treatment itself.
             </p>
             <p className="text-[15px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
               We do not import wellness trends. We listen to the land. Our three Costa Rica properties sit within landscapes that have been healing people for centuries. The nature does the work. We simply create the conditions for you to experience it.
@@ -145,10 +145,10 @@ function PrivatePlungPoolsSection({ palette }: { palette: PropertyPalette }) {
               Volcanic Waters as Healer
             </h2>
             <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
-              Every villa at Nayara Springs features a private hot springs plunge pool, fed by natural volcanic aquifers heated deep within the Earth. The mineral-rich waters — naturally heated to 38–42°C — have been used for centuries by indigenous communities for their therapeutic properties.
+              Every villa at Nayara Springs features a private hot springs plunge pool, fed by natural volcanic aquifers heated deep within the Earth. The mineral-rich waters , naturally heated to 38–42°C , have been used for centuries by indigenous communities for their therapeutic properties.
             </p>
             <p className="text-[15px] leading-relaxed mb-8" style={{ ...body, color: palette.secondary }}>
-              The water itself is the medicine. Minerals naturally occurring in volcanic aquifers — silica, magnesium, potassium — work on your nervous system without any human intervention. You are not receiving a treatment in nature. You are bathing in nature's own healing system.
+              The water itself is the medicine. Minerals naturally occurring in volcanic aquifers , silica, magnesium, potassium , work on your nervous system without any human intervention. You are not receiving a treatment in nature. You are bathing in nature's own healing system.
             </p>
             <ul className="space-y-3 mb-8">
               {["Private plunge pool in every villa", "Natural volcanic mineral water", "38–42°C therapeutic temperature", "Adults-only sanctuary"].map((d) => (
@@ -185,7 +185,7 @@ function LasThermasSection({ palette }: { palette: PropertyPalette }) {
               Las Thermas at Nayara Tented Camp offers something rare: natural hot springs heated by geothermal energy deep beneath the rainforest floor. More than a spa amenity, it is a place to soak in warmth, contemplate the night sky above, and feel the ancient power of the earth beneath you.
             </p>
             <p className="text-[15px] leading-relaxed" style={{ ...body, color: palette.secondary }}>
-              The springs are fed by the same volcanic system that powers Arenal — water that has traveled through layers of rock, absorbing minerals along the way. The result is a bathing experience that is not manufactured or chlorinated, but genuinely geological. You are not in a spa. You are in the earth's own healing system.
+              The springs are fed by the same volcanic system that powers Arenal , water that has traveled through layers of rock, absorbing minerals along the way. The result is a bathing experience that is not manufactured or chlorinated, but genuinely geological. You are not in a spa. You are in the earth's own healing system.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -227,7 +227,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
                   Vinyasa Yoga
                 </h3>
                 <p className="text-[14px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
-                  Keeps your body flowing and energized, linking breath to movement in classes that feel alive and present. Morning vinyasa flows face Arenal Volcano. The practice takes on a different dimension when your mat is suspended in the rainforest canopy, surrounded by the sounds of howler monkeys and tropical birds — the forest becomes part of the flow.
+                  Keeps your body flowing and energized, linking breath to movement in classes that feel alive and present. Morning vinyasa flows face Arenal Volcano. The practice takes on a different dimension when your mat is suspended in the rainforest canopy, surrounded by the sounds of howler monkeys and tropical birds , the forest becomes part of the flow.
                 </p>
               </div>
               <div>
@@ -235,12 +235,12 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
                   Relaxation Yoga
                 </h3>
                 <p className="text-[14px] leading-[1.8]" style={{ ...body, color: palette.secondary }}>
-                  Invites you to slow down, reconnect, and find stillness amid the symphony of the rainforest. Evening restorative sessions are accompanied by the chorus of tree frogs and the living breath of the forest. It is less about physical exertion and more about presence — a practice designed for people who have forgotten what it feels like to simply be.
+                  Invites you to slow down, reconnect, and find stillness amid the symphony of the rainforest. Evening restorative sessions are accompanied by the chorus of tree frogs and the living breath of the forest. It is less about physical exertion and more about presence , a practice designed for people who have forgotten what it feels like to simply be.
                 </p>
               </div>
               <div className="p-5 rounded-lg" style={{ backgroundColor: `${palette.primary}10`, borderLeft: `3px solid ${palette.primary}` }}>
                 <p className="text-[13px] leading-[1.7]" style={{ ...body, color: palette.secondary }}>
-                  Both are offered across the properties, so you can practice wherever you feel called — at the edge of a volcanic valley, beside a hot spring, or on a platform overlooking the forest canopy.
+                  Both are offered across the properties, so you can practice wherever you feel called , at the edge of a volcanic valley, beside a hot spring, or on a platform overlooking the forest canopy.
                 </p>
               </div>
             </div>
@@ -270,7 +270,7 @@ function SukhaSpaSection({ palette }: { palette: PropertyPalette }) {
               Treatments Rooted in Place
             </h2>
             <p className="text-[15px] leading-relaxed mb-6" style={{ ...body, color: palette.secondary }}>
-              Sukha Spa integrates the healing properties of the Arenal landscape into every treatment. Volcanic minerals, rainforest botanicals, geothermal energy — these are not ingredients added to treatments. They are the foundation of what we do.
+              Sukha Spa integrates the healing properties of the Arenal landscape into every treatment. Volcanic minerals, rainforest botanicals, geothermal energy , these are not ingredients added to treatments. They are the foundation of what we do.
             </p>
             <p className="text-[15px] leading-relaxed" style={{ ...body, color: palette.secondary }}>
               Every massage, every ritual, every therapy is designed to work with your nervous system using what the earth has already provided. You are not receiving a spa treatment in nature. You are experiencing nature's own healing modalities.

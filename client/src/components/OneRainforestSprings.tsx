@@ -1,12 +1,12 @@
 /**
- * OneRainforestSprings — "One Day, Three Worlds"
+ * OneRainforestSprings , "One Day, Three Worlds"
  *
  * An immersive section for the Springs page that tells the story of
  * a single day flowing across all three Costa Rica properties.
  * 
  * Design concept: A horizontal timeline showing moments from dawn to dusk,
  * each moment tied to a different property. The visual metaphor is that
- * a guest at Springs doesn't just stay at one hotel — they inhabit an
+ * a guest at Springs doesn't just stay at one hotel , they inhabit an
  * entire ecosystem of luxury across three worlds.
  *
  * Palette: Springs "Mineral" (mineral blues/teals)
@@ -91,7 +91,7 @@ const MOMENTS = [
     title: "Rainforest Spa Ritual",
     property: "Springs",
     propertyRoute: "/costa-rica-wellness",
-    description: "Volcanic mud wraps, coffee exfoliations, and hot stone massages — 28 treatments drawn from the geothermal earth and forest botanicals.",
+    description: "Volcanic mud wraps, coffee exfoliations, and hot stone massages , 28 treatments drawn from the geothermal earth and forest botanicals.",
     image: `${CDN}/4O1A1569-Spa-NayaraTentedCampwithLivLawbyBriceFerreStudio-VancouverPortraitAdventureandAthletePhotographer_0e850f3a.webp`,
     accent: P.primary,
   },
@@ -362,7 +362,7 @@ const SISTER_PROPERTIES = [
   },
   {
     name: "Nayara Gardens",
-    tagline: "The original Nayara — families and couples",
+    tagline: "The original Nayara , families and couples",
     route: "/gardens",
     image: `${CDN}/prop-gardens_5931d8af.jpg`,
   },
@@ -408,7 +408,7 @@ export default function OneRainforestSprings() {
             className="text-[15px] leading-[1.85] max-w-[640px] mb-4"
             style={{ fontFamily: "var(--font-body)", color: P.textSecondary }}
           >
-            As a guest of Nayara Springs, the entire Nayara universe is yours. Walk to Tented Camp for sunset cocktails, dine at any of six shared restaurants, and explore 16 curated excursions — all within the same 1,400-acre rainforest at the foot of Arenal Volcano.
+            As a guest of Nayara Springs, the entire Nayara universe is yours. Walk to Tented Camp for sunset cocktails, dine at any of six shared restaurants, and explore 16 curated excursions , all within the same 1,400-acre rainforest at the foot of Arenal Volcano.
           </p>
         </AnimateOnScroll>
 

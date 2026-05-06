@@ -1,5 +1,5 @@
 /*
- * UNIVERSAL SUSTAINABILITY — Shared deep page for ALL properties
+ * UNIVERSAL SUSTAINABILITY , Shared deep page for ALL properties
  * Renders in the color palette of whichever property the user came from.
  * Now includes an extensive ESG report section with animated stats,
  * environmental pillars, reforestation timeline, and editorial narrative.
@@ -97,7 +97,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
       <BrandNavigation pageType="property" hideCenterLabel />
       <SustainabilityHero propertySlug={propertySlug} />
 
-      {/* H1 — Beyond Reforestation */}
+      {/* H1 , Beyond Reforestation */}
       <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
         <div className="max-w-[1200px] mx-auto">
           <motion.h1
@@ -112,7 +112,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
         </div>
       </section>
 
-      {/* ESG Report — only renders if data has esgReport */}
+      {/* ESG Report , only renders if data has esgReport */}
       {data.esgReport && (
         <>
           <ESGStatsSection palette={palette} stats={data.esgReport.stats} />
@@ -123,12 +123,12 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
             <FeaturedGreenGlobeSection palette={palette} certifications={data.esgReport.certifications} />
           )}
 
-          {/* Deep Environmental Pillars — Reforestation, Energy, Water, Waste */}
+          {/* Deep Environmental Pillars , Reforestation, Energy, Water, Waste */}
           {data.esgReport.environmentalPillars && data.esgReport.environmentalPillars.length > 0 && (
             <EnvironmentalPillarsSection palette={palette} pillars={data.esgReport.environmentalPillars} />
           )}
 
-          {/* Social Impact — Employment, Equity, Local Workforce */}
+          {/* Social Impact , Employment, Equity, Local Workforce */}
           {data.esgReport.socialImpact && (
             <SocialImpactSection palette={palette} impact={data.esgReport.socialImpact} />
           )}
@@ -245,7 +245,7 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ESG STATS — Animated counters in a 3×2 grid
+   ESG STATS , Animated counters in a 3×2 grid
    ═══════════════════════════════════════════════════════════════ */
 function AnimatedCounter({ target, suffix, duration = 2 }: { target: number; suffix: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -356,7 +356,7 @@ function ESGStatsSection({ palette, stats }: { palette: PropertyPalette; stats: 
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ESG PILLARSIVE — Editorial storytelling section
+   ESG PILLARSIVE , Editorial storytelling section
    ═══════════════════════════════════════════════════════════════ */
 function ESGNarrativeSection({ palette, narrative }: { palette: PropertyPalette; narrative: ESGReport["narrative"] }) {
   return (
@@ -365,7 +365,7 @@ function ESGNarrativeSection({ palette, narrative }: { palette: PropertyPalette;
       style={{ backgroundColor: palette.gradientEnd || palette.gradientStart }}
     >
       <div className={`${maxW} grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16`}>
-        {/* Left column — title & subtitle */}
+        {/* Left column , title & subtitle */}
         <div className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">
           <AnimateOnScroll variants={slideFromLeft}>
             <p
@@ -390,7 +390,7 @@ function ESGNarrativeSection({ palette, narrative }: { palette: PropertyPalette;
           </AnimateOnScroll>
         </div>
 
-        {/* Right column — editorial paragraphs */}
+        {/* Right column , editorial paragraphs */}
         <div className="lg:col-span-8">
           <StaggerOnScroll variants={staggerContainerSlow} className="flex flex-col gap-8">
             {narrative.paragraphs.map((para, i) => (
@@ -428,7 +428,7 @@ function ESGNarrativeSection({ palette, narrative }: { palette: PropertyPalette;
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ESG PILLARS — 6-pillar grid with icons and metrics
+   ESG PILLARS , 6-pillar grid with icons and metrics
    ═══════════════════════════════════════════════════════════════ */
 const PILLAR_ICONS: Record<string, React.ReactNode> = {
   leaf: (
@@ -485,7 +485,7 @@ function ESGPillarsSection({ palette, pillars }: { palette: PropertyPalette; pil
             className="text-[15px] leading-[1.8] max-w-[700px] mb-14"
             style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
           >
-            Our sustainability framework is built on six interconnected pillars — each with measurable commitments and transparent reporting.
+            Our sustainability framework is built on six interconnected pillars , each with measurable commitments and transparent reporting.
           </p>
         </AnimateOnScroll>
 
@@ -539,7 +539,7 @@ function ESGPillarsSection({ palette, pillars }: { palette: PropertyPalette; pil
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ESG TIMELINE — Vertical timeline of sustainability milestones
+   ESG TIMELINE , Vertical timeline of sustainability milestones
    ═══════════════════════════════════════════════════════════════ */
 function ESGTimelineSection({ palette, timeline }: { palette: PropertyPalette; timeline: ESGTimeline[] }) {
   return (
@@ -565,7 +565,7 @@ function ESGTimelineSection({ palette, timeline }: { palette: PropertyPalette; t
             className="text-[15px] leading-[1.8] max-w-[700px] mb-14"
             style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
           >
-            From the first eco-lodge in Arenal to a globally recognized model of regenerative tourism — key milestones in our sustainability journey.
+            From the first eco-lodge in Arenal to a globally recognized model of regenerative tourism , key milestones in our sustainability journey.
           </p>
         </AnimateOnScroll>
 
@@ -622,7 +622,7 @@ function TimelineItem({
         style={{ backgroundColor: isInView ? palette.primary : BRAND.divider, transition: "background-color 0.5s" }}
       />
 
-      {/* Content — alternates sides on desktop */}
+      {/* Content , alternates sides on desktop */}
       <motion.div
         initial={{ opacity: 0, x: isLeft ? -20 : 20 }}
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -20 : 20 }}
@@ -653,7 +653,7 @@ function TimelineItem({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ESG CERTIFICATIONS — Badge-style certification cards
+   ESG CERTIFICATIONS , Badge-style certification cards
    ═══════════════════════════════════════════════════════════════ */
 function ESGCertificationsSection({ palette, certifications }: { palette: PropertyPalette; certifications: ESGCertification[] }) {
   return (
@@ -727,7 +727,7 @@ function ESGCertificationsSection({ palette, certifications }: { palette: Proper
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXISTING SECTIONS — Category cards + Initiative cards
+   EXISTING SECTIONS , Category cards + Initiative cards
    ═══════════════════════════════════════════════════════════════ */
 const CATEGORIES = [
   {
@@ -828,7 +828,7 @@ function ExploreSustainabilityCTA({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   VOICES — Videos + Blog cards
+   VOICES , Videos + Blog cards
    ═══════════════════════════════════════════════════════════════ */
 function VideoCard({ video, palette }: { video: SustainabilityVideo; palette: PropertyPalette }) {
   const [isAlt, setIsAlt] = useState(false);
@@ -1157,7 +1157,7 @@ function SustainabilityVoices({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   STORIES OF STEWARDSHIP — 3 Featured + Scrollable Carousel
+   STORIES OF STEWARDSHIP , 3 Featured + Scrollable Carousel
    ═══════════════════════════════════════════════════════════════ */
 function StoriesOfStewardshipSection({
   palette,
@@ -1494,7 +1494,7 @@ function StoriesOfStewardshipSection({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ENVIRONMENTAL PILLARS — Deep-dive into Reforestation, Energy, Water, Waste
+   ENVIRONMENTAL PILLARS , Deep-dive into Reforestation, Energy, Water, Waste
    ═══════════════════════════════════════════════════════════════ */
 const ENV_PILLAR_ICONS: Record<string, React.ReactNode> = {
   leaf: PILLAR_ICONS.leaf,
@@ -1533,7 +1533,7 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
             className="text-[15px] leading-[1.8] max-w-[700px] mb-10"
             style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
           >
-            From reforestation to zero-waste operations — the environmental commitments that define how Nayara operates.
+            From reforestation to zero-waste operations , the environmental commitments that define how Nayara operates.
           </p>
         </AnimateOnScroll>
 
@@ -1571,7 +1571,7 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
           transition={{ duration: 0.5, ease: EASE_EDITORIAL }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16"
         >
-          {/* Left — subtitle + highlights */}
+          {/* Left , subtitle + highlights */}
           <div className="lg:col-span-4">
             <h3
               className="text-xl md:text-2xl tracking-wide mb-3"
@@ -1615,7 +1615,7 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
             </div>
           </div>
 
-          {/* Right — editorial paragraphs */}
+          {/* Right , editorial paragraphs */}
           <div className="lg:col-span-8 flex flex-col gap-6">
             {current.paragraphs.map((para, i) => (
               <p
@@ -1657,7 +1657,7 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SOCIAL IMPACT — Employment, Equity, Local Workforce
+   SOCIAL IMPACT , Employment, Equity, Local Workforce
    ═══════════════════════════════════════════════════════════════ */
 function SocialImpactSection({ palette, impact }: { palette: PropertyPalette; impact: SocialImpact }) {
   return (
@@ -1669,7 +1669,7 @@ function SocialImpactSection({ palette, impact }: { palette: PropertyPalette; im
         <div className="mb-12" style={{ borderTop: `1px solid ${BRAND.divider}` }} />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-          {/* Left — headline + stats */}
+          {/* Left , headline + stats */}
           <div className="lg:col-span-5">
             <AnimateOnScroll variants={slideFromLeft}>
               <p
@@ -1720,7 +1720,7 @@ function SocialImpactSection({ palette, impact }: { palette: PropertyPalette; im
             </AnimateOnScroll>
           </div>
 
-          {/* Right — editorial paragraphs */}
+          {/* Right , editorial paragraphs */}
           <div className="lg:col-span-7">
             <StaggerOnScroll variants={staggerContainerSlow} className="flex flex-col gap-8">
               {impact.paragraphs.map((para, i) => (
@@ -1764,7 +1764,7 @@ function SocialImpactSection({ palette, impact }: { palette: PropertyPalette; im
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HOUSING PROJECT — 40 Homes for Staff
+   HOUSING PROJECT , 40 Homes for Staff
    ═══════════════════════════════════════════════════════════════ */
 function HousingProjectSection({
   palette,
@@ -1871,7 +1871,7 @@ function HousingProjectSection({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EMPLOYEE DEVELOPMENT — Training Programs
+   EMPLOYEE DEVELOPMENT , Training Programs
    ═══════════════════════════════════════════════════════════════ */
 function EmployeeDevelopmentSection({
   palette,
@@ -1959,7 +1959,7 @@ function EmployeeDevelopmentSection({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   COMMUNITY PROGRAMS — Grid of community initiatives
+   COMMUNITY PROGRAMS , Grid of community initiatives
    ═══════════════════════════════════════════════════════════════ */
 const COMMUNITY_ICONS: Record<string, React.ReactNode> = {
   wildlife: (
@@ -2114,7 +2114,7 @@ function CommunityProgramsSection({ palette, programs }: { palette: PropertyPale
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CARBON OFFSET — FONAFIFO Partnership
+   CARBON OFFSET , FONAFIFO Partnership
    ═══════════════════════════════════════════════════════════════ */
 function CarbonOffsetSection({ palette, offset }: { palette: PropertyPalette; offset: CarbonOffset }) {
   return (
@@ -2215,7 +2215,7 @@ function CarbonOffsetSection({ palette, offset }: { palette: PropertyPalette; of
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GOVERNANCE — Green Committee & Management Plan
+   GOVERNANCE , Green Committee & Management Plan
    ═══════════════════════════════════════════════════════════════ */
 function GovernanceSection({ palette, items }: { palette: PropertyPalette; items: GovernanceItem[] }) {
   return (
@@ -2278,7 +2278,7 @@ function GovernanceSection({ palette, items }: { palette: PropertyPalette; items
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SDG ALIGNMENT — UN Sustainable Development Goals
+   SDG ALIGNMENT , UN Sustainable Development Goals
    ═══════════════════════════════════════════════════════════════ */
 const SDG_COLORS: Record<number, string> = {
   5: "#FF3A21",
@@ -2315,7 +2315,7 @@ function SDGSection({ palette, sdgs }: { palette: PropertyPalette; sdgs: SDGAlig
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
             style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
           >
-            Our sustainability practices align with six of the United Nations Sustainable Development Goals — connecting local action to global impact.
+            Our sustainability practices align with six of the United Nations Sustainable Development Goals , connecting local action to global impact.
           </p>
         </AnimateOnScroll>
 
@@ -2367,7 +2367,7 @@ function SDGSection({ palette, sdgs }: { palette: PropertyPalette; sdgs: SDGAlig
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROMOTING AWARENESS — Guest & Staff Engagement Events
+   PROMOTING AWARENESS , Guest & Staff Engagement Events
    ═══════════════════════════════════════════════════════════════ */
 function AwarenessSection({
   palette,
@@ -2398,7 +2398,7 @@ function AwarenessSection({
             className="text-[15px] leading-[1.8] max-w-[700px] mb-12"
             style={{ fontFamily: "var(--font-body)", color: BRAND.secondaryText }}
           >
-            Sustainability is a shared responsibility — these programs invite guests and staff to participate directly.
+            Sustainability is a shared responsibility , these programs invite guests and staff to participate directly.
           </p>
         </AnimateOnScroll>
 
@@ -2436,7 +2436,7 @@ function AwarenessSection({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FEATURED GREEN GLOBE — Prominent certification showcase
+   FEATURED GREEN GLOBE , Prominent certification showcase
    ═══════════════════════════════════════════════════════════════ */
 function FeaturedGreenGlobeSection({
   palette,
@@ -2460,7 +2460,7 @@ function FeaturedGreenGlobeSection({
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            {/* Left — Green Globe badge and headline */}
+            {/* Left , Green Globe badge and headline */}
             <div className="lg:col-span-5">
               <div
                 className="inline-block px-4 py-3 rounded-lg mb-6"
@@ -2508,7 +2508,7 @@ function FeaturedGreenGlobeSection({
               </a>
             </div>
 
-            {/* Right — Key achievements or certification details */}
+            {/* Right , Key achievements or certification details */}
             <div className="lg:col-span-7">
               <div
                 className="p-8 md:p-10 rounded-lg"

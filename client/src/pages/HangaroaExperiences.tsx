@@ -1,5 +1,5 @@
 /*
- * HANGAROA EXPERIENCES — Dedicated experiences sub-page
+ * HANGAROA EXPERIENCES , Dedicated experiences sub-page
  * Uses Hangaroa excursions data with Easter Island palette
  */
 

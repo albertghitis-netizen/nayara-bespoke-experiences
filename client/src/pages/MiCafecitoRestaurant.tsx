@@ -1,5 +1,5 @@
 /**
- * MICAFECITO RESTAURANT — Dining Detail Page
+ * MICAFECITO RESTAURANT , Dining Detail Page
  * Property: Nayara Tented Camp
  * Palette: Olive green (#868B75) on bone (#F7F5F0)
  * Gallery: Images from culinaryImages.ts

@@ -1,5 +1,5 @@
 /**
- * HotelFilterBar Variant 3 — Pill-style filter for all brand pages
+ * HotelFilterBar Variant 3 , Pill-style filter for all brand pages
  * For: Journal, Gastronomy, Gallery, Sustainability, Wellness, Experiences, Press & Awards
  */
 

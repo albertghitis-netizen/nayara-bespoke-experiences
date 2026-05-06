@@ -1,5 +1,5 @@
 /**
- * Page rendering tests — verify all new pages exist and export default components
+ * Page rendering tests , verify all new pages exist and export default components
  * These are structural/smoke tests to ensure pages are wired correctly
  */
 import { describe, it, expect } from "vitest";

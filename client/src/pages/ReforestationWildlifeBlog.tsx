@@ -89,7 +89,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The rainforest is not a static monument—it is a living, breathing network of relationships. Trees communicate through underground fungal networks. Animals migrate through invisible highways. Water flows from canopy to soil to river, connecting distant ecosystems. At Nayara Tented Camp, we believe that true sustainability means understanding and protecting these connections.
+              The rainforest is not a static monument,it is a living, breathing network of relationships. Trees communicate through underground fungal networks. Animals migrate through invisible highways. Water flows from canopy to soil to river, connecting distant ecosystems. At Nayara Tented Camp, we believe that true sustainability means understanding and protecting these connections.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
@@ -101,7 +101,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Our reforestation and wildlife corridor initiatives are not just environmental projects—they are acts of restoration. And the return of sloths to our forests is proof that we are succeeding.
+              Our reforestation and wildlife corridor initiatives are not just environmental projects,they are acts of restoration. And the return of sloths to our forests is proof that we are succeeding.
             </p>
           </motion.div>
 
@@ -130,13 +130,13 @@ export default function ReforestationWildlifeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              At first glance, sloths seem almost useless. They move at a glacial pace, hanging upside down from branches, barely moving at all. But this apparent laziness masks a profound ecological purpose. Sloths are living gardens. Their fur hosts algae and insects. Their feces fertilize the very trees they eat from. They are, in essence, a mobile nutrient recycling system—moving nutrients from the canopy to the understory to the forest floor.
+              At first glance, sloths seem almost useless. They move at a glacial pace, hanging upside down from branches, barely moving at all. But this apparent laziness masks a profound ecological purpose. Sloths are living gardens. Their fur hosts algae and insects. Their feces fertilize the very trees they eat from. They are, in essence, a mobile nutrient recycling system,moving nutrients from the canopy to the understory to the forest floor.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              But there is more. Sloths require specific trees—primarily Cecropia trees—to survive. These trees are pioneer species that grow in disturbed areas and secondary forests. When sloths return to an area, it means that Cecropia trees are thriving. And when Cecropia trees thrive, it means the forest is regenerating. It means the ecosystem is healing.
+              But there is more. Sloths require specific trees,primarily Cecropia trees,to survive. These trees are pioneer species that grow in disturbed areas and secondary forests. When sloths return to an area, it means that Cecropia trees are thriving. And when Cecropia trees thrive, it means the forest is regenerating. It means the ecosystem is healing.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -206,7 +206,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Our reforestation efforts are guided by a simple principle: if we restore the forest for sloths, we restore it for everyone. By prioritizing the trees that sloths depend on—Cecropia, fig trees, and other canopy species—we create the conditions for the entire ecosystem to thrive.
+              Our reforestation efforts are guided by a simple principle: if we restore the forest for sloths, we restore it for everyone. By prioritizing the trees that sloths depend on,Cecropia, fig trees, and other canopy species,we create the conditions for the entire ecosystem to thrive.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -291,7 +291,7 @@ export default function ReforestationWildlifeBlog() {
               <li className="flex gap-4">
                 <span style={{ color: TENTED_PALETTE.accent, fontWeight: 600 }}>•</span>
                 <span>
-                  <strong>Ecosystem Cascade:</strong> As sloths return, they restore nutrient cycling, which benefits all forest species—from insects to jaguars.
+                  <strong>Ecosystem Cascade:</strong> As sloths return, they restore nutrient cycling, which benefits all forest species,from insects to jaguars.
                 </span>
               </li>
               <li className="flex gap-4">
@@ -322,7 +322,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Since launching our reforestation initiative, Nayara Tented Camp has achieved remarkable results. But the most important metric is not a number—it is a presence:
+              Since launching our reforestation initiative, Nayara Tented Camp has achieved remarkable results. But the most important metric is not a number,it is a presence:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="p-6 rounded-lg" style={{ backgroundColor: `${TENTED_PALETTE.primary}15` }}>
@@ -358,7 +358,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              But here is what truly matters: sloths now inhabit areas where they had been absent for decades. Our guests regularly spot them in the canopy above our tents. Their presence is not just a wildlife sighting—it is proof that the forest is healing.
+              But here is what truly matters: sloths now inhabit areas where they had been absent for decades. Our guests regularly spot them in the canopy above our tents. Their presence is not just a wildlife sighting,it is proof that the forest is healing.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -386,7 +386,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Our vision is ambitious: to create a continuous network of protected and restored forest that spans from the Caribbean coast to the Pacific, allowing wildlife—including sloths—to move freely across Costa Rica. This is not a project for one resort or one organization—it requires collaboration across borders, sectors, and generations.
+              Our vision is ambitious: to create a continuous network of protected and restored forest that spans from the Caribbean coast to the Pacific, allowing wildlife,including sloths,to move freely across Costa Rica. This is not a project for one resort or one organization,it requires collaboration across borders, sectors, and generations.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -398,7 +398,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              And when you look up into the canopy and see a sloth hanging peacefully from a branch, you will know that we are succeeding. You will know that the forest is healing. You will know that luxury and conservation are not opposing forces—they are partners in creating a better world.
+              And when you look up into the canopy and see a sloth hanging peacefully from a branch, you will know that we are succeeding. You will know that the forest is healing. You will know that luxury and conservation are not opposing forces,they are partners in creating a better world.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"

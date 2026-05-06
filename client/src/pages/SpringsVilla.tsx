@@ -1,6 +1,6 @@
 /**
- * SPRINGS VILLA — Deeper Room Detail Page
- * Layout: "Editorial Magazine" — matching FamilyTent structure exactly
+ * SPRINGS VILLA , Deeper Room Detail Page
+ * Layout: "Editorial Magazine" , matching FamilyTent structure exactly
  * Palette: Sage/Eucalyptus #96A78D primary, #7C8471 secondary, #728076 accent
  * Background: bone #F7F5F0
  * Room: 1 king bed, 139 m², adults only, private hot springs plunge pool
@@ -69,12 +69,12 @@ const AMENITIES = [
 
 /* ── Gallery images for horizontal scroll ── */
 const GALLERY = [
-  { src: IMG.wideBedroom, alt: "Springs Villa — Spacious bedroom with four-poster king bed" },
-  { src: IMG.outdoorShower, alt: "Springs Villa — Outdoor double rain showers" },
-  { src: IMG.mineralPool, alt: "Springs Villa — Private hot springs plunge pool" },
-  { src: IMG.blueEntrance, alt: "Springs Villa — Indigenous wood and stone entrance" },
-  { src: IMG.indoorShower, alt: "Springs Villa — Oversized bathroom with rain heads" },
-  { src: IMG.droneVilla, alt: "Springs Villa — Drone view of villa wrapped in jungle" },
+  { src: IMG.wideBedroom, alt: "Springs Villa , Spacious bedroom with four-poster king bed" },
+  { src: IMG.outdoorShower, alt: "Springs Villa , Outdoor double rain showers" },
+  { src: IMG.mineralPool, alt: "Springs Villa , Private hot springs plunge pool" },
+  { src: IMG.blueEntrance, alt: "Springs Villa , Indigenous wood and stone entrance" },
+  { src: IMG.indoorShower, alt: "Springs Villa , Oversized bathroom with rain heads" },
+  { src: IMG.droneVilla, alt: "Springs Villa , Drone view of villa wrapped in jungle" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -98,7 +98,7 @@ export default function SpringsVilla() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S1 — HERO: Full-bleed video with centered editorial title
+   S1 , HERO: Full-bleed video with centered editorial title
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const [hovered, setHovered] = useState(false);
@@ -152,7 +152,7 @@ function HeroSection() {
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
             style={{
               ...body,
@@ -178,7 +178,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S2 — INTRO: Asymmetric two-column with overlapping card
+   S2 , INTRO: Asymmetric two-column with overlapping card
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -236,7 +236,7 @@ function IntroSection() {
               className="text-sm md:text-base leading-[1.85] mb-8"
               style={{ ...body, color: P.textSoft }}
             >
-              Each Springs Villa is a world unto itself — 139 square meters of refined seclusion
+              Each Springs Villa is a world unto itself , 139 square meters of refined seclusion
               where the boundaries between indoors and out dissolve. Your private plunge pool is
               fed directly by the region's natural mineral hot springs, its temperature a constant
               invitation. The four-poster king bed faces the volcano through floor-to-ceiling glass,
@@ -268,7 +268,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S3 — FULL BLEED BREAK: Parallax aerial image + editorial quote
+   S3 , FULL BLEED BREAK: Parallax aerial image + editorial quote
    ═══════════════════════════════════════════════════════════════ */
 function FullBleedBreak() {
   const ref = useRef<HTMLDivElement>(null);
@@ -308,7 +308,7 @@ function FullBleedBreak() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S4 — FEATURES GRID: Dark bg, staggered masonry + amenity cards
+   S4 , FEATURES GRID: Dark bg, staggered masonry + amenity cards
    ═══════════════════════════════════════════════════════════════ */
 function FeaturesGrid() {
   return (
@@ -469,7 +469,7 @@ function AmenityIcon({ type }: { type: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S5 — HORIZONTAL GALLERY: Drag-to-scroll image strip
+   S5 , HORIZONTAL GALLERY: Drag-to-scroll image strip
    ═══════════════════════════════════════════════════════════════ */
 function HorizontalGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -558,14 +558,14 @@ function HorizontalGallery() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S7 — VILLA EXPERIENCE: Numbered editorial blocks
+   S7 , VILLA EXPERIENCE: Numbered editorial blocks
    ═══════════════════════════════════════════════════════════════ */
 function VillaExperience() {
   const blocks = [
     {
       num: "01",
       title: "Your Private Springs",
-      text: "Step from your villa directly into your own plunge pool, fed by the region's natural mineral hot springs. The water temperature hovers at a perfect 38°C year-round — no heaters, no chemicals, just the earth's own warmth. Float beneath the stars or watch morning mist rise from the volcanic springs as toucans call from the canopy above.",
+      text: "Step from your villa directly into your own plunge pool, fed by the region's natural mineral hot springs. The water temperature hovers at a perfect 38°C year-round , no heaters, no chemicals, just the earth's own warmth. Float beneath the stars or watch morning mist rise from the volcanic springs as toucans call from the canopy above.",
       image: IMG.mineralPool,
       alt: "Private hot springs plunge pool surrounded by tropical vegetation",
       aspect: "aspect-[3/4]",
@@ -573,7 +573,7 @@ function VillaExperience() {
     {
       num: "02",
       title: "Stillness as Luxury",
-      text: "Nayara Springs is adults only by design — a deliberate choice that transforms every moment into one of unhurried calm. The four-poster king bed faces the volcano through walls of glass. The living area opens to a private terrace where breakfast arrives each morning, and the only agenda is the one you write yourself.",
+      text: "Nayara Springs is adults only by design , a deliberate choice that transforms every moment into one of unhurried calm. The four-poster king bed faces the volcano through walls of glass. The living area opens to a private terrace where breakfast arrives each morning, and the only agenda is the one you write yourself.",
       image: IMG.coupleInBed,
       alt: "Couple enjoying the four-poster bed with exotic tropical touches",
       aspect: "aspect-[16/10]",
@@ -581,7 +581,7 @@ function VillaExperience() {
     {
       num: "03",
       title: "Into the Canopy",
-      text: "Beyond your villa, stone pathways wind through the rainforest to the spa, the restaurants, and the hanging bridges that span the river gorge. But the real discovery is closer — the hummingbirds at your feeder, the blue morpho butterflies drifting past your pool, the sound of the river that lulls you to sleep each night.",
+      text: "Beyond your villa, stone pathways wind through the rainforest to the spa, the restaurants, and the hanging bridges that span the river gorge. But the real discovery is closer , the hummingbirds at your feeder, the blue morpho butterflies drifting past your pool, the sound of the river that lulls you to sleep each night.",
       image: IMG.rainforestBridge,
       alt: "Rainforest bridge pathway through the Springs property",
       aspect: "aspect-[4/3]",
@@ -671,7 +671,7 @@ function VillaExperience() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S8 — CTA: Full-bleed photo background with centered reserve
+   S8 , CTA: Full-bleed photo background with centered reserve
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   const [hovered, setHovered] = useState(false);
@@ -719,7 +719,7 @@ function CTASection() {
             <button
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
-              onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+              onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...body,

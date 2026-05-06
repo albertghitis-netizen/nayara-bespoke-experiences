@@ -1,5 +1,5 @@
 /*
- * AWARDS — Full responsive page
+ * AWARDS , Full responsive page
  * Showcases awards, Michelin Keys, certifications across all 6 properties
  * Design: Editorial luxury aesthetic matching the rest of the site
  */
@@ -44,11 +44,11 @@ const allAwards: PropertyAwards[] = [
   {
     property: "Nayara Tented Camp",
     awards: [
-      { source: "Travel & Leisure", accolades: ["No. 2 in Central America 2025", "No. 1 in Central America 2024, 2023, 2022, 2021", "No. 1 in the World 2020 — Condé Nast Traveler Readers' Choice"] },
+      { source: "Travel & Leisure", accolades: ["No. 2 in Central America 2025", "No. 1 in Central America 2024, 2023, 2022, 2021", "No. 1 in the World 2020 , Condé Nast Traveler Readers' Choice"] },
       { source: "Condé Nast Traveler", accolades: ["No. 3 in Central America 2023", "No. 1 in the World 2020"] },
       { source: "Leading Hotels of the World", accolades: ["LHW Member Property", "No. 1 Hotel 2022"] },
       { source: "Green Globe", accolades: ["Certified Sustainable Property"] },
-      { source: "Carbon Neutral", accolades: ["100% Carbon Offset — Verified Conservation & Reforestation"] },
+      { source: "Carbon Neutral", accolades: ["100% Carbon Offset , Verified Conservation & Reforestation"] },
     ],
   },
   {
@@ -222,14 +222,14 @@ export default function Awards() {
               className="text-[#3B2B26]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              Michelin Keys are the hotel equivalent of Michelin Stars for restaurants. Awarded to properties that deliver an exceptional stay defined by outstanding architecture, interior design, quality of service, character, and a genuine sense of place. Three Keys is the highest distinction — reserved for the world's most extraordinary hotels.
+              Michelin Keys are the hotel equivalent of Michelin Stars for restaurants. Awarded to properties that deliver an exceptional stay defined by outstanding architecture, interior design, quality of service, character, and a genuine sense of place. Three Keys is the highest distinction , reserved for the world's most extraordinary hotels.
             </p>
           </motion.div>
 
           {/* Michelin Keys Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[
-              { keys: 3, property: "Nayara Springs", location: "Costa Rica", description: "The first hotel in Costa Rica to earn three Michelin Keys — the highest recognition. Adults-only, private hot spring plunge pools, and world-class wellness." },
+              { keys: 3, property: "Nayara Springs", location: "Costa Rica", description: "The first hotel in Costa Rica to earn three Michelin Keys , the highest recognition. Adults-only, private hot spring plunge pools, and world-class wellness." },
               { keys: 2, property: "Nayara Bocas del Toro", location: "Panama", description: "Caribbean's first carbon-neutral luxury hotel. Overwater villas above pristine reef, coral restoration partnership, and adults-only tranquility." },
               { keys: 2, property: "Nayara Alto Atacama", location: "Chile", description: "The only luxury hotel in an actual desert oasis. Private observatory, 40+ curated excursions, and the clearest skies on Earth." },
             ].map((item, i) => (

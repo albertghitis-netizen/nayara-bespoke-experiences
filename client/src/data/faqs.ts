@@ -103,7 +103,7 @@ export const faqs: FAQ[] = [
     id: "bocas-aerial-beach",
     category: "Bocas del Toro",
     question: "What is the aerial beach at Nayara Bocas?",
-    answer: "Nayara Bocas features the world's first aerial beach — an innovative engineering feat that creates a beach experience suspended above the water, combining the luxury of a private beach with the unique Caribbean setting.",
+    answer: "Nayara Bocas features the world's first aerial beach , an innovative engineering feat that creates a beach experience suspended above the water, combining the luxury of a private beach with the unique Caribbean setting.",
     source: "Nayara Bocas Resort Experience",
   },
   {
@@ -163,7 +163,7 @@ export const faqs: FAQ[] = [
     id: "nayara-michelin",
     category: "Nayara Resorts",
     question: "How many MICHELIN Keys does Nayara have?",
-    answer: "Nayara Resorts has earned 7 MICHELIN Keys across its properties — a testament to culinary excellence and hospitality standards. Nayara Springs alone holds 3 MICHELIN Keys.",
+    answer: "Nayara Resorts has earned 7 MICHELIN Keys across its properties , a testament to culinary excellence and hospitality standards. Nayara Springs alone holds 3 MICHELIN Keys.",
     source: "Brand Wellness: Nature-Based Wellness by Colors",
   },
 ];

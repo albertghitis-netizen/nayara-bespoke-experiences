@@ -1,5 +1,5 @@
 /*
- * HANGAROA WELLNESS — Dedicated wellness/spa sub-page
+ * HANGAROA WELLNESS , Dedicated wellness/spa sub-page
  * Uses Hangaroa treatments data with Easter Island palette
  */
 

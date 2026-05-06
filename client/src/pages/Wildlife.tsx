@@ -1,7 +1,7 @@
 /**
- * WILDLIFE — Curated Excursions Sub-page
+ * WILDLIFE , Curated Excursions Sub-page
  * Wildlife encounters & biodiversity experiences
- * Placeholder page — content to be added later
+ * Placeholder page , content to be added later
  */
 import { motion } from "framer-motion";
 import BrandNavigation from "@/components/BrandNavigation";

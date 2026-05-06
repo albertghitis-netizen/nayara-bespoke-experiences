@@ -1,5 +1,5 @@
 /**
- * AWARDS DATA — Per-property award badges with CDN logos
+ * AWARDS DATA , Per-property award badges with CDN logos
  * Each property has its own set of awards integrated into the Story section
  */
 
@@ -54,7 +54,7 @@ export const tentedCampAwards: Award[] = [
   {
     id: "ntc-tl",
     name: "#1 Resort in Central America",
-    description: "Travel + Leisure World's Best Awards — #1 in Central America 5 of the last 6 years",
+    description: "Travel + Leisure World's Best Awards , #1 in Central America 5 of the last 6 years",
     logo: LOGOS.travelLeisure2025,
     year: "2020–2026",
   },
@@ -98,7 +98,7 @@ export const atacamaAwards: Award[] = [
   {
     id: "ata-michelin",
     name: "2 Michelin Keys",
-    description: "An exceptional stay — recognized by the MICHELIN Key guide",
+    description: "An exceptional stay , recognized by the MICHELIN Key guide",
     logo: LOGOS.michelin2,
     year: "2025",
   },
@@ -129,7 +129,7 @@ export const gardensAwards: Award[] = [
   {
     id: "gar-tl-hof",
     name: "Hall of Fame",
-    description: "Travel + Leisure World's Best Awards — Hall of Fame inductee",
+    description: "Travel + Leisure World's Best Awards , Hall of Fame inductee",
     logo: LOGOS.travelLeisure2025,
   },
   {

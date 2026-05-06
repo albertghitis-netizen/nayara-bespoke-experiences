@@ -1,5 +1,5 @@
 /*
- * HANGAROA GASTRONOMY — Dedicated dining sub-page
+ * HANGAROA GASTRONOMY , Dedicated dining sub-page
  * Uses Hangaroa dining data with Easter Island palette
  */
 

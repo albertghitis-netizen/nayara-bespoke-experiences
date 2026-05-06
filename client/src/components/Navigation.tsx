@@ -1,5 +1,5 @@
 /*
- * Navigation — Minimal editorial top bar
+ * Navigation , Minimal editorial top bar
  * Fixed, transparent over hero, solid on scroll
  * Nayara brand identity with section anchors
  * Supports back-link to landing page for property pages
@@ -49,7 +49,7 @@ export default function Navigation({ activeSection, showBackLink = false }: Navi
         setMenuOpen(false);
       }
     } else {
-      toast(item.label + " — Coming Soon");
+      toast(item.label + " , Coming Soon");
       setMenuOpen(false);
     }
   };

@@ -1,5 +1,5 @@
 /**
- * OneRainforestGardens — "Three Keys, One Door"
+ * OneRainforestGardens , "Three Keys, One Door"
  *
  * An editorial section for the Gardens page that tells the story of
  * three Costa Rica properties sharing one rainforest, one volcano,
@@ -57,7 +57,7 @@ const PROPERTIES = [
   {
     name: "Gardens",
     tagline: "Rainforest Casitas & Villas",
-    description: "The original Nayara — lush tropical gardens, volcano views, and the warm hospitality that started it all. Families and couples alike.",
+    description: "The original Nayara , lush tropical gardens, volcano views, and the warm hospitality that started it all. Families and couples alike.",
     image: `${CDN}/prop-gardens_5931d8af.jpg`,
     route: "/gardens",
     accent: "#286241",
@@ -336,7 +336,7 @@ export default function OneRainforestGardens() {
             className="text-center text-[13px] leading-[1.7] max-w-[520px] mx-auto mb-4"
             style={{ fontFamily: "var(--font-body)", color: P.textTertiary }}
           >
-            From Pan-Asian fusion at Asia Luna to Latin American soul food at Amor Loco, craft cocktails at Lapas Bar, and artisanal coffee at Café Campesino — every table is yours.
+            From Pan-Asian fusion at Asia Luna to Latin American soul food at Amor Loco, craft cocktails at Lapas Bar, and artisanal coffee at Café Campesino , every table is yours.
           </p>
         </AnimateOnScroll>
       </div>

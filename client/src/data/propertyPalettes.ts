@@ -1,7 +1,7 @@
 /**
  * Nayara Property Color Palettes
  * Each property has a distinct, muted palette rooted in its landscape.
- * Colors are deliberately restrained — the luxury is in the subtlety.
+ * Colors are deliberately restrained , the luxury is in the subtlety.
  *
  * All colors sourced from the official Nayara 36-color brand swatch set.
  *
@@ -15,21 +15,21 @@
  */
 
 export interface PropertyPalette {
-  /** Dominant mood color — section labels, active filters, hover states */
+  /** Dominant mood color , section labels, active filters, hover states */
   primary: string;
-  /** Supporting tone — pull quote borders, card hover borders */
+  /** Supporting tone , pull quote borders, card hover borders */
   secondary: string;
-  /** Subtle highlights — tags, badges, metadata text */
+  /** Subtle highlights , tags, badges, metadata text */
   accent: string;
   /** Section gradient start (always page background) */
   gradientStart: string;
-  /** Section gradient end — whisper of the destination's color */
+  /** Section gradient end , whisper of the destination's color */
   gradientEnd: string;
-  /** Button background — property's signature color */
+  /** Button background , property's signature color */
   buttonBg: string;
   /** Button text color */
   buttonText: string;
-  /** Footer background — deep version of property color */
+  /** Footer background , deep version of property color */
   footerBg: string;
   /** Footer text color */
   footerText: string;
@@ -37,9 +37,9 @@ export interface PropertyPalette {
   navPillBg: string;
   /** Nav pill text */
   navPillText: string;
-  /** Body text on light backgrounds — super dark brown */
+  /** Body text on light backgrounds , super dark brown */
   bodyText: string;
-  /** Body text on dark backgrounds — super bright white */
+  /** Body text on dark backgrounds , super bright white */
   bodyTextLight: string;
 }
 
@@ -55,7 +55,7 @@ export const BRAND = {
 } as const;
 
 export const palettes: Record<string, PropertyPalette> = {
-  /* ─── TENTED CAMP — Olive Tree (swatch #3: #868B75) ─── */
+  /* ─── TENTED CAMP , Olive Tree (swatch #3: #868B75) ─── */
   "tented-camp": {
     primary: "#868B75",          // Olive Tree (swatch #3)
     secondary: "#525642",        // Dark Olive (swatch #4)
@@ -72,7 +72,7 @@ export const palettes: Record<string, PropertyPalette> = {
     bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
-  /* ─── GARDENS — Clover Green (swatch #12: #286241) ─── */
+  /* ─── GARDENS , Clover Green (swatch #12: #286241) ─── */
   gardens: {
     primary: "#286241",          // Clover Green (swatch #12)
     secondary: "#1E4F34",        // Deep Clover
@@ -89,9 +89,9 @@ export const palettes: Record<string, PropertyPalette> = {
     bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
-  /* --- SPRINGS — Eucalyptus & Mint --- */
+  /* --- SPRINGS , Eucalyptus & Mint --- */
   springs: {
-    primary: "#5F7367",          // Standard Eucalyptus (middle — accents, buttons)
+    primary: "#5F7367",          // Standard Eucalyptus (middle , accents, buttons)
     secondary: "#4B6358",        // Dark Eucalyptus (nav, footer)
     accent: "#3EB489",           // Standard Mint (bright highlights)
     gradientStart: "#E8F3EF",   // Light Eucalyptus (unified bg)
@@ -106,7 +106,7 @@ export const palettes: Record<string, PropertyPalette> = {
     bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
-  /* ─── BOCAS DEL TORO — Aqua (#008E97) ─── */
+  /* ─── BOCAS DEL TORO , Aqua (#008E97) ─── */
   "bocas-del-toro": {
     // Updated to Deep Royal Blue
     primary: "#1E3A8A",          // Aqua (Miami Dolphins)
@@ -124,7 +124,7 @@ export const palettes: Record<string, PropertyPalette> = {
     bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
-  /* ─── ALTO ATACAMA — Terracotta (swatch #7: #6F463D) ─── */
+  /* ─── ALTO ATACAMA , Terracotta (swatch #7: #6F463D) ─── */
   "alto-atacama": {
     primary: "#6F463D",          // Terracotta (swatch #7)
     secondary: "#9A9086",        // Taupe (swatch #26)
@@ -141,7 +141,7 @@ export const palettes: Record<string, PropertyPalette> = {
     bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
-  /* ─── HANGAROA — Steel Blue (swatch #24: #536878) ─── */
+  /* ─── HANGAROA , Steel Blue (swatch #24: #536878) ─── */
   hangaroa: {
     primary: "#536878",          // Steel Blue (swatch #24)
     secondary: "#67737C",        // Blue Gray (swatch #28)

@@ -1,8 +1,8 @@
 /**
- * NAYARA BOCAS DEL TORO — Pure Cascade (Option B)
+ * NAYARA BOCAS DEL TORO , Pure Cascade (Option B)
  * Romantic Escape Overwater Villas, Panama
  * Full-bleed edge-to-edge media, ocean gradient, ALL assets, no functional content
- * Zero-gap between all sections — one continuous visual journey
+ * Zero-gap between all sections , one continuous visual journey
  */
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
@@ -25,7 +25,7 @@ import {
 import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE — "Ocean" gradient: pale aqua → deep teal
+   PALETTE , "Ocean" gradient: pale aqua → deep teal
    Subtle enough to let the photography dominate
    ═══════════════════════════════════════════════════════════════ */
 const COLOR_A = "#EAF4FF"; // light blue tint
@@ -95,7 +95,7 @@ const BOCAS_ROOMS: RoomSliderCard[] = [
   },
   {
     id: "premium-villa",
-    label: "Premium Villa — Coming Soon",
+    label: "Premium Villa , Coming Soon",
     tagline: "Luxury villa experience launching soon",
     guests: "2 Adults",
     video: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
@@ -105,7 +105,7 @@ const BOCAS_ROOMS: RoomSliderCard[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   CDN ASSETS — EVERY Bocas asset, organized by section
+   CDN ASSETS , EVERY Bocas asset, organized by section
    ═══════════════════════════════════════════════════════════════ */
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
@@ -114,67 +114,67 @@ const ASSETS = {
   heroDesktop: `${CDN}/nbt-horizontal-desktop_0c584342.mp4`,
   heroMobile: `${CDN}/bocas-vertical2_03bbe8e5.mp4`,
 
-  // Section 1 — Story: wellness gallery video2 V (moved from wellness) + lagoon photo H
+  // Section 1 , Story: wellness gallery video2 V (moved from wellness) + lagoon photo H
   storyV: `${CDN}/bocas-gallery-video2_1dd3d81d.mp4`,
   storyH: `${CDN}/74_be6f8cb4.jpg`,
 
-  // Section 2 — Rooms: new drone overwater video V + aerial curved villas H
+  // Section 2 , Rooms: new drone overwater video V + aerial curved villas H
   roomsV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-drone-overwater_deda9dc1.mp4",
   roomsH: `${CDN}/80_57ce5c18.jpg`,
 
-  // Section 3 — Experiences: gallery video1 V + resort aerial sunset H
+  // Section 3 , Experiences: gallery video1 V + resort aerial sunset H
   expV: "/manus-storage/bocas-zapatilla-vertical_30319668.mp4",
   expH: `${CDN}/bocas-resort-aerial-sunset_d536b07d.jpg`,
 
-  // Section 4 — Sustainability: couple villa V + aerial mangroves H
+  // Section 4 , Sustainability: couple villa V + aerial mangroves H
   susV: `${CDN}/bocas-couple-villa-pool_42fafe14.jpg`,
   susH: `${CDN}/bocas-aerial-villas-mangroves_9d5e94f5.jpg`,
 
-  // Section 5 — Wellness: original drone vertical V + overwater deck H
+  // Section 5 , Wellness: original drone vertical V + overwater deck H
   wellV: `${CDN}/bocas-drone-vertical_e44907ce.mp4`,
   wellH: `${CDN}/bocas-overwater-villas-deck_16555482.jpg`,
 
-  // Section 6 — Gastronomy: copper mule V + tropical brunch H
+  // Section 6 , Gastronomy: copper mule V + tropical brunch H
   gastroV: `${CDN}/4F968B04-CC38-4AB0-98A7-C378A57F9E9A_0c985f05.jpeg`,
   gastroH: "/manus-storage/bocas-resort-24_5778eea7.jpg",
 
-  // Section 6b — Island Cocktails: citrus highball V + coconut bowl H
+  // Section 6b , Island Cocktails: citrus highball V + coconut bowl H
   gastro2V: `${CDN}/48250DE4-3015-4D89-AD19-54EC065D89EB_b238e17c.jpeg`,
   gastro2H: `${CDN}/78549D66-67E3-43F0-A2FA-D9ABA81DD686_eaaa81e7.jpeg`,
 
-  // Section 6c — Brunch: brioche skillet V + briceferre villa H (reuse old gastroV)
+  // Section 6c , Brunch: brioche skillet V + briceferre villa H (reuse old gastroV)
   gastro3V: `${CDN}/AE9734D5-7681-44D7-818F-D79FCA509603_fd830393.jpeg`,
   gastro3H: `${CDN}/bocas-briceferre-villa_c88fea38.jpg`,
 
-  // Section 7 — Marine: briceferre aerial V + lagoon aerial H
+  // Section 7 , Marine: briceferre aerial V + lagoon aerial H
   marineV: `${CDN}/bocas-briceferre-aerial_60c5ff23.jpg`,
   marineH: `${CDN}/74_11cc5b01.jpg`,
 
-  // Section 8 — Island: tropical video V + coastline H
+  // Section 8 , Island: tropical video V + coastline H
   islandV: `${CDN}/bocas_gallery_video_0a7e31ab.mp4`,
   islandH: `${CDN}/79_cfb33bcf.jpg`,
 
-  // Section 9 — Sunset: island paradise V + crystal swimming H
+  // Section 9 , Sunset: island paradise V + crystal swimming H
   sunsetV: `${CDN}/83_621b9b3f.jpg`,
   sunsetH: `${CDN}/86_bcac4579.jpg`,
 
-  // Section 10 — Beach & Jungle
+  // Section 10 , Beach & Jungle
   beachV: `${CDN}/bocas-overwater-villa-couple_ff0c8415.jpg`,
   beachH: `${CDN}/97_e7aef760.jpg`,
 
-  // Section 11 — Reef & Marine
+  // Section 11 , Reef & Marine
   reefV: `${CDN}/bocas-infinity-pool-woman_e4043059.jpg`,
   reefH: `${CDN}/119_e65d6018.jpg`,
 
-  // Section 12 — Aerial Views
+  // Section 12 , Aerial Views
   aerialV: `${CDN}/bocas-aerial-resort-treehouses_be44e763.jpg`,
   aerialH: `${CDN}/bocas-aerial-villas-turquoise_858d4570.jpg`,
 
-  // Section 13 — Lifestyle
+  // Section 13 , Lifestyle
   lifeV: `${CDN}/bocas-aerial-full-resort_d27193e4.jpg`,
   lifeH: `${CDN}/bocas-crystal-clear-swimming_6e9b8f96.jpg`,
 
-  // Section 14 — Final: landscape V + closing H
+  // Section 14 , Final: landscape V + closing H
   finalV: `${CDN}/88_33345812.jpg`,
   finalH: `${CDN}/bocas-aerial-sunset-panorama_a979b5b2.jpg`,
 
@@ -186,7 +186,7 @@ const ASSETS = {
 };
 
 /* ═══════════════════════════════════════════════════════════════
-   SECTION DATA — Pure visual storytelling, no functional content
+   SECTION DATA , Pure visual storytelling, no functional content
    ═══════════════════════════════════════════════════════════════ */
 type CascadeSectionData = {
   id: string;
@@ -336,7 +336,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     id: "nayara-by-night",
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
-    body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow — kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
+    body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow , kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
     verticalSrc: "/manus-storage/bocas-bynight-v2_ac8a1af2.mp4",
     verticalIsVideo: true,
     verticalRatio: "3/4",
@@ -356,7 +356,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════
-   HELPER — Section label
+   HELPER , Section label
    ═══════════════════════════════════════════════════════════════ */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -370,7 +370,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HELPER — Renders video or image
+   HELPER , Renders video or image
    ═══════════════════════════════════════════════════════════════ */
 function MediaBlock({
   src,
@@ -397,7 +397,7 @@ function MediaBlock({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CASCADE SECTION — Full-bleed desktop, stacked mobile
+   CASCADE SECTION , Full-bleed desktop, stacked mobile
    Vertical media + text side by side (alternating), horizontal below full-width
    ═══════════════════════════════════════════════════════════════ */
 function CascadeSection({
@@ -425,10 +425,10 @@ function CascadeSection({
             src={section.horizontalSrc}
             isVideo={section.horizontalIsVideo}
             ratio={section.horizontalRatio}
-            alt={`${section.label} landscape — Nayara Bocas del Toro`}
+            alt={`${section.label} landscape , Nayara Bocas del Toro`}
             className="w-full"
           />
-          {/* Overlay pill CTA — lower third, centered */}
+          {/* Overlay pill CTA , lower third, centered */}
           {section.link && (
             <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
               <a
@@ -465,14 +465,14 @@ function CascadeSection({
       {section.horizontalFirst && horizontalBlock}
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
-        {/* Vertical media — on mobile: always after text (order-2), on desktop: alternates */}
+        {/* Vertical media , on mobile: always after text (order-2), on desktop: alternates */}
         <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
             <MediaBlock
               src={section.verticalSrc}
               isVideo={section.verticalIsVideo}
               ratio={section.verticalRatio}
-              alt={`${section.label} — Nayara Bocas del Toro`}
+              alt={`${section.label} , Nayara Bocas del Toro`}
             />
           </MediaReveal>
         </div>
@@ -573,13 +573,13 @@ function CascadeSection({
           )}
         </div>
       </div>
-      {/* ── Full-width horizontal media AFTER (default) — hidden on mobile ── */}
+      {/* ── Full-width horizontal media AFTER (default) , hidden on mobile ── */}
       {!section.horizontalFirst && horizontalBlock}
     </section>
   );
 }
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-screen video
+   HERO , Full-screen video
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -626,7 +626,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FUNCTIONAL BREAK — Guest Voices (Reviews)
+   FUNCTIONAL BREAK , Guest Voices (Reviews)
    Matches Tented Camp ReviewsBreak pattern exactly
    ═══════════════════════════════════════════════════════════════ */
 function ReviewsBreak({ bgColor }: { bgColor: string }) {
@@ -670,13 +670,13 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
               className="text-[17px] md:text-[20px] leading-relaxed italic mb-4"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.text }}
             >
-              "Pure paradise. The overwater villas are breathtaking — waking up to turquoise water beneath your feet is surreal. The staff, the food, the snorkeling — everything exceeded our wildest expectations. We're already planning our return."
+              "Pure paradise. The overwater villas are breathtaking , waking up to turquoise water beneath your feet is surreal. The staff, the food, the snorkeling , everything exceeded our wildest expectations. We're already planning our return."
             </p>
             <cite
               className="text-[12px] tracking-[0.08em] not-italic"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textTertiary }}
             >
-              — Daniela, TripAdvisor
+              , Daniela, TripAdvisor
             </cite>
           </blockquote>
         </AnimateOnScroll>
@@ -698,7 +698,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FUNCTIONAL BREAK — Getting Here
+   FUNCTIONAL BREAK , Getting Here
    ═══════════════════════════════════════════════════════════════ */
 function GettingHereBreak({ bgColor }: { bgColor: string }) {
   const routes = [
@@ -709,7 +709,7 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
     },
     {
       title: "Domestic Flight to Bocas",
-      description: "Take a short domestic flight from Panama City to Bocas del Toro (BOC) — approximately 1 hour. Air Panama operates daily flights.",
+      description: "Take a short domestic flight from Panama City to Bocas del Toro (BOC) , approximately 1 hour. Air Panama operates daily flights.",
       icon: "⏱",
     },
     {
@@ -719,7 +719,7 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
     },
     {
       title: "Full Concierge Arrangement",
-      description: "Our reservations team can arrange your complete journey — flights, boat transfers, and any ground transportation — so you arrive seamlessly.",
+      description: "Our reservations team can arrange your complete journey , flights, boat transfers, and any ground transportation , so you arrive seamlessly.",
       icon: "✨",
     },
   ];
@@ -811,7 +811,7 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   RESERVE CTA — "Begin Your Caribbean Adventure"
+   RESERVE CTA , "Begin Your Caribbean Adventure"
    ═══════════════════════════════════════════════════════════════ */
 function ReserveCTA() {
   const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
@@ -827,7 +827,7 @@ function ReserveCTA() {
             </span>
           </TextReveal>
           <p className="text-[15px] leading-[1.8] mb-8" style={{ ...body, color: PALETTE.textSecondary }}>
-            All-inclusive luxury on a private Caribbean island — overwater villas, pristine reefs, and the untouched beauty of Bocas del Toro await.
+            All-inclusive luxury on a private Caribbean island , overwater villas, pristine reefs, and the untouched beauty of Bocas del Toro await.
           </p>
           <a
             href="/reserve?property=bocas-del-toro"
@@ -842,7 +842,7 @@ function ReserveCTA() {
   );
 }
 /* ═══════════════════════════════════════════════════════════════
-   MAIN PAGE — Pure cascade, no functional content (Option B)
+   MAIN PAGE , Pure cascade, no functional content (Option B)
    ═══════════════════════════════════════════════════════════════ */
 export default function BocasDelToro() {
   return (
@@ -919,7 +919,7 @@ export default function BocasDelToro() {
           {
             name: "Nayara Springs",
             chapter: "The Hot Springs Sanctuary",
-            tagline: "Two adults-only sanctuaries — trade Caribbean overwater for volcanic hot springs hidden in Costa Rica's rainforest.",
+            tagline: "Two adults-only sanctuaries , trade Caribbean overwater for volcanic hot springs hidden in Costa Rica's rainforest.",
             route: "/springs",
             image: "/manus-storage/springs-hero_2b3d0f5a.jpg",
             video: "/manus-storage/cta-springs-ultrawide_c03a39d0.mp4",
@@ -928,7 +928,7 @@ export default function BocasDelToro() {
           {
             name: "Nayara Alto Atacama",
             chapter: "Where Desert Meets Sky",
-            tagline: "Caribbean to cosmos — trade turquoise waters for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
+            tagline: "Caribbean to cosmos , trade turquoise waters for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
             route: "/alto-atacama",
             image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
             video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",

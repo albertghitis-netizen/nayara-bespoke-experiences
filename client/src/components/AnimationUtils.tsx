@@ -2,7 +2,7 @@
  * Shared animation utility components for property pages.
  * Provides: ParallaxImage, KenBurnsImage, RevealSection, WordReveal, AnimatedDivider
  *
- * All animations are calm and editorial — subtle reveals, gentle motion.
+ * All animations are calm and editorial , subtle reveals, gentle motion.
  */
 
 import { useRef } from "react";

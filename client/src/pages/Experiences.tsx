@@ -1,5 +1,5 @@
 /**
- * NAYARA EXPERIENCES — Brand-Level Pillar Page
+ * NAYARA EXPERIENCES , Brand-Level Pillar Page
  * Shows all excursions across all 6 properties
  * One-axis filter: property selector
  * Hero → Intro → Property Filter → Excursion Cards → CTA → Footer
@@ -67,7 +67,7 @@ export default function Experiences() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-screen video with audio + sound pill
+   HERO , Full-screen video with audio + sound pill
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
@@ -100,7 +100,7 @@ function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
 
-      {/* Sound pill — espresso, identical to brand homepage */}
+      {/* Sound pill , espresso, identical to brand homepage */}
       <button
         onClick={() => setIsMuted(!isMuted)}
         aria-label={isMuted ? "Unmute" : "Mute"}
@@ -136,7 +136,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INTRO — Pillar description
+   INTRO , Pillar description
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -148,7 +148,7 @@ function IntroSection() {
             Every Destination Tells a Different Story
           </h2>
           <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
-            From stargazing in the world's driest desert to snorkeling Caribbean reefs, from hiking volcanic craters on Easter Island to zip-lining through Costa Rica's cloud forest — every Nayara experience is designed by the land it inhabits. Our excursions are led by local guides, grounded in cultural heritage, and calibrated to the rhythms of each ecosystem.
+            From stargazing in the world's driest desert to snorkeling Caribbean reefs, from hiking volcanic craters on Easter Island to zip-lining through Costa Rica's cloud forest , every Nayara experience is designed by the land it inhabits. Our excursions are led by local guides, grounded in cultural heritage, and calibrated to the rhythms of each ecosystem.
           </p>
         </FadeIn>
       </div>
@@ -157,7 +157,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXCURSION GRID — Cards for all filtered excursions
+   EXCURSION GRID , Cards for all filtered excursions
    ═══════════════════════════════════════════════════════════════ */
 function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propertyId: string; propertyName: string; propertyRoute: string }> }) {
   return (
@@ -180,7 +180,7 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
                   transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
                   className="group bg-white/50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
                 >
-                  {/* Media — video clip if available, otherwise image */}
+                  {/* Media , video clip if available, otherwise image */}
                   {(ex.verticalVideo || ex.videoDesktop) ? (
                     <div className="aspect-[4/3] overflow-hidden">
                       <video
@@ -237,7 +237,7 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CTA — Explore properties
+   CTA , Explore properties
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   return (

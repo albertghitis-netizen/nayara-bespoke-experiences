@@ -1,5 +1,5 @@
 /*
- * TENTED CAMP ROOMS — 4 room type cards, each with a 4-image slider
+ * TENTED CAMP ROOMS , 4 room type cards, each with a 4-image slider
  * Style: Tented Camp palette (olive/canopy), frosted glass pill arrows
  */
 import { useState, useRef, useEffect } from "react";
@@ -59,7 +59,7 @@ const ROOM_TYPES: RoomType[] = [
     name: "Family Tent",
     tagline: "Adventure for Every Generation",
     description:
-      "Designed for families seeking an unforgettable rainforest adventure, these interconnected tents offer generous space, private plunge pools, and direct access to nature trails — all while keeping the safari-luxury experience intact for every generation.",
+      "Designed for families seeking an unforgettable rainforest adventure, these interconnected tents offer generous space, private plunge pools, and direct access to nature trails , all while keeping the safari-luxury experience intact for every generation.",
     stats: [
       { value: "1,200", label: "Sq Ft" },
       { value: "Connected", label: "Tents" },
@@ -77,7 +77,7 @@ const ROOM_TYPES: RoomType[] = [
     name: "Tented Residence",
     tagline: "The Ultimate Rainforest Retreat",
     description:
-      "The ultimate Tented Camp experience — a multi-room residence with private pool, dedicated butler service, and panoramic views of the Arenal Volcano. Perfect for families or those seeking the most exclusive rainforest retreat.",
+      "The ultimate Tented Camp experience , a multi-room residence with private pool, dedicated butler service, and panoramic views of the Arenal Volcano. Perfect for families or those seeking the most exclusive rainforest retreat.",
     stats: [
       { value: "2,800", label: "Sq Ft" },
       { value: "Private", label: "Pool" },
@@ -189,7 +189,7 @@ function RoomCard({ room, index }: { room: RoomType; index: number }) {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
                   <img
                     src={img}
-                    alt={`${room.name} — Image ${i + 1}`}
+                    alt={`${room.name} , Image ${i + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -198,7 +198,7 @@ function RoomCard({ room, index }: { room: RoomType; index: number }) {
             ))}
           </div>
 
-          {/* Arrows — desktop only */}
+          {/* Arrows , desktop only */}
           {!isMobile && totalSlides > 1 && (
             <>
               {currentSlide > 0 && (
@@ -324,7 +324,7 @@ function RoomCard({ room, index }: { room: RoomType; index: number }) {
                 </svg>
               </a>
               <button
-                onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+                onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
                 style={{
                   ...body,

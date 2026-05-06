@@ -1,5 +1,5 @@
 /*
- * DYNAMIC BLOG POST — Resolves any slug from the allBlogPosts registry
+ * DYNAMIC BLOG POST , Resolves any slug from the allBlogPosts registry
  * Route: /journal/:slug
  * Falls back to NotFound if slug doesn't match.
  */

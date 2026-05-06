@@ -1,5 +1,5 @@
 /*
- * ScrollingPillarHeader — Large typographic word that scrolls horizontally
+ * ScrollingPillarHeader , Large typographic word that scrolls horizontally
  * as the user scrolls down. Uses the property's accent color to make each
  * deep page feel unique per property.
  *
@@ -17,7 +17,7 @@ interface Props {
   color: string;
   /** Optional secondary color for the stroke/outline version */
   strokeColor?: string;
-  /** Background color — defaults to transparent */
+  /** Background color , defaults to transparent */
   bgColor?: string;
 }
 
@@ -68,7 +68,7 @@ export default function ScrollingPillarHeader({
           </span>
         </motion.div>
 
-        {/* Row 2: Outline/stroke, scrolls left — creates depth */}
+        {/* Row 2: Outline/stroke, scrolls left , creates depth */}
         <motion.div
           style={{ x: x2 }}
           className="whitespace-nowrap select-none pointer-events-none -mt-[2vw]"
