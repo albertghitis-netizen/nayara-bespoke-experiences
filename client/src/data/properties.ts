@@ -480,7 +480,7 @@ const exploreNayaraExperiences: Excursion[] = [
     description: "Immerse yourself in natural hot springs fed by Arenal\u2019s volcanic activity. Multiple pools at varying temperatures are nestled among tropical gardens, offering a restorative experience that has drawn visitors to this region for generations.",
     highlights: ["Natural volcanic hot springs", "Multiple temperature pools", "Tropical garden setting"],
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hot-springs-hero_a60a0e92.jpg",
-    videoDesktop: "/manus-storage/las-termas-hotsprings_2d9de067.mp4",
+    videoDesktop: "/manus-storage/AA8CE881-7D67-4BB3-AE42-CE3783273B45_b62c2db5.mov",
     verticalVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hot-springs-vertical_52b2b6ec.mp4",
     featured: true,
     placeholder: false,
