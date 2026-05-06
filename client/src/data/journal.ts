@@ -132,15 +132,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg",
     excerpt: "Latin America is experiencing a renaissance in luxury travel. Nayara Resorts is at the forefront, redefining what it means to travel with purpose.",
   },
-  {
-    id: "lujo-despacio",
-    title: "Nayara Resorts: Donde el Lujo se Vive Despacio",
-    url: "/blog/lujo-despacio",
-    property: "brand",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/135_de400071.jpg",
-    excerpt: "El lujo en Nayara no se mide en hilos de oro, sino en la quietud de un amanecer sobre el volcán, en el murmullo del bosque tropical.",
-  },
+
   {
     id: "seven-elements",
     title: "Defining Memories for a Lifetime: Nayara's Seven Elements of Place",
@@ -249,15 +241,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Future%20of%20S",
     excerpt: "Women are leading the solo travel revolution. Discover how Nayara Resorts creates safe, empowering, and transformative experiences for solo female travelers.",
   },
-  {
-    id: "family-travel",
-    title: "Creating Unforgettable Family Travel with Nayara",
-    url: "/blog/family-travel",
-    property: "gardens",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(6",
-    excerpt: "From volcano hikes to wildlife encounters , how Nayara creates family vacations that inspire wonder and connection across generations.",
-  },
+
   {
     id: "nayara-by-night",
     title: "Nayara by Night: Of Moon and Stars",
@@ -286,15 +270,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg",
     excerpt: "How Nayara Resorts is building homes and empowering women in La Fortuna through community-driven housing initiatives.",
   },
-  {
-    id: "adventures-in-flavor",
-    title: "Adventures in Flavor , Costa Rica",
-    url: "/blog/adventures-in-flavor",
-    property: "tented-camp",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/WhatsApp%20Image%202025-04-30%20at%2015-48-",
-    excerpt: "From farm to table in the Arenal rainforest , how Nayara's chefs transform local ingredients into extraordinary dining experiences.",
-  },
+
   {
     id: "arenal-timeless-wonder",
     title: "Arenal, Costa Rica: A Timeless Natural Wonder",

@@ -107,11 +107,13 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge }: BlogP
         {isMobile && post.mobileHeroVideo ? (
           <BlobVideo src={post.mobileHeroVideo} className="absolute inset-0 w-full h-full object-cover" />
         ) : post.heroVideo && post.hasAudio ? (
-          <BlobVideo
+          <NativeVideo
             src={post.heroVideo.desktop}
             className="absolute inset-0 w-full h-full object-cover"
-            hasAudio
+            autoPlay
+            muted
             loop
+            playsInline
           />
         ) : post.heroVideo ? (
           <NativeVideo src={post.heroVideo.desktop} className="absolute inset-0 w-full h-full object-cover" autoPlay muted
@@ -128,60 +130,54 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge }: BlogP
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
 
-        {/* H1 title overlay for immersive hero (hasAudio) */}
-        {post.hasAudio && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center px-8">
-            <h1
-              className="text-white text-center text-2xl md:text-4xl lg:text-5xl leading-[1.15] tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+
+
+        {/* Pillar tag on hero (hidden for hasAudio posts) */}
+        {!post.hasAudio && (
+          <div className="absolute bottom-8 left-8 md:left-16 z-10">
+            <span
+              className="inline-block px-4 py-1.5 bg-[#3B2B26] text-white text-[10px] tracking-[0.3em] rounded-full"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
-              {post.title}
-            </h1>
+              {post.pillar}
+            </span>
           </div>
         )}
-
-        {/* Pillar tag on hero */}
-        <div className="absolute bottom-8 left-8 md:left-16 z-10">
-          <span
-            className="inline-block px-4 py-1.5 bg-[#3B2B26] text-white text-[10px] tracking-[0.3em] rounded-full"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-          >
-            {post.pillar}
-          </span>
-        </div>
       </section>
 
       {/* ── 3. TITLE BLOCK ── */}
       <section className="bg-[#f7f5f0]">
         <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-8">
-          {/* Pillar + Tags */}
-          <div className="flex items-center gap-3 mb-5 flex-wrap">
-            <span
-              className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26]"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {post.pillar}
-            </span>
-            {post.tags.filter(t => t !== post.pillar).slice(0, 2).map((tag) => (
+          {/* Pillar + Tags (hidden for hasAudio immersive blogs) */}
+          {!post.hasAudio && (
+            <div className="flex items-center gap-3 mb-5 flex-wrap">
               <span
-                key={tag}
-                className="text-[10px] tracking-[0.2em] text-[#2a1e1a]/60 border border-[#c4bba8]/40 px-2 py-0.5 rounded-full"
+                className="text-[11px] font-medium tracking-[0.35em] text-[#3B2B26]"
+                style={{ fontFamily: "var(--font-body)" }}
               >
-                {tag}
+                {post.pillar}
               </span>
-            ))}
-          </div>
+              {post.tags.filter(t => t !== post.pillar).slice(0, 2).map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[10px] tracking-[0.2em] text-[#2a1e1a]/60 border border-[#c4bba8]/40 px-2 py-0.5 rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
 
           {/* Title */}
           <h1
-            className="text-3xl md:text-[40px] lg:text-[46px] leading-[1.15] mb-5"
+            className={`text-3xl md:text-[40px] lg:text-[46px] leading-[1.15] mb-5 ${post.hasAudio ? "text-center" : ""}`}
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
             {post.title}
           </h1>
 
           {/* Author + Date + Reading Time */}
-          <div className="flex items-center gap-3 text-[13px] text-[#2a1e1a] tracking-[0.05em] mb-6 flex-wrap">
+          <div className={`flex items-center gap-3 text-[13px] text-[#2a1e1a] tracking-[0.05em] mb-6 flex-wrap ${post.hasAudio ? "justify-center" : ""}`}>
             <span>{post.author}</span>
             <span className="text-[#c4bba8]">&middot;</span>
             <span>{post.date}</span>
@@ -193,7 +189,7 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge }: BlogP
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#3B2B26]" />
+      {!post.hasAudio && <div className="h-[3px] bg-[#3B2B26]" />}
 
       {/* ── 4. KEY FINDINGS ── */}
       <section className="bg-[#F5F0E8]">
@@ -220,22 +216,46 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge }: BlogP
       </section>
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#3B2B26]" />
+      {!post.hasAudio && <div className="h-[3px] bg-[#3B2B26]" />}
 
       {/* ── 5. BODY SECTIONS ── */}
       {post.sections.map((section, idx) => {
         const bg = bgColors[idx % 2];
+
+        /* Full-bleed image section (empty heading, no content, just image) */
+        if (!section.heading && !section.content && section.image) {
+          /* Use previous section's background so it feels continuous */
+          const prevBg = idx > 0 ? bgColors[(idx - 1) % 2] : bgColors[0];
+          return (
+            <div key={idx}>
+              <section style={{ backgroundColor: prevBg }}>
+                <div className="max-w-3xl mx-auto px-8 md:px-16 pt-4 pb-12">
+                  <img
+                    src={section.image.src}
+                    alt={section.image.alt}
+                    className="w-full h-auto rounded-lg shadow-md"
+                    loading="lazy"
+                  />
+                </div>
+              </section>
+              {!post.hasAudio && <div className="h-[3px] bg-[#3B2B26]" />}
+            </div>
+          );
+        }
+
         return (
           <div key={idx}>
             <section style={{ backgroundColor: bg }}>
               <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-12">
                 {/* Section heading */}
-                <h2
-                  className="text-2xl md:text-[30px] leading-snug mb-8 text-center"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-                >
-                  {section.heading}
-                </h2>
+                {section.heading && (
+                  <h2
+                    className="text-2xl md:text-[30px] leading-snug mb-8 text-center"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  >
+                    {section.heading}
+                  </h2>
+                )}
 
                 {/* Body content */}
                 <div
@@ -285,43 +305,45 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge }: BlogP
               </div>
             </section>
 
-            {/* Gold divider between sections */}
-            {idx < post.sections.length - 1 && <div className="h-[3px] bg-[#3B2B26]" />}
+            {/* Gold divider between sections — skip if next section is image-only */}
+            {idx < post.sections.length - 1 && !(post.sections[idx + 1] && !post.sections[idx + 1].heading && !post.sections[idx + 1].content && post.sections[idx + 1].image) && <div className="h-[3px] bg-[#3B2B26]" />}
           </div>
         );
       })}
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#3B2B26]" />
+      {!post.hasAudio && <div className="h-[3px] bg-[#3B2B26]" />}
 
-      {/* ── 6. SOURCES & FURTHER READING ── */}
-      <section className="bg-[#F5F0E8]">
-        <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-12">
-          <h2
-            className="text-xl mb-6 text-center"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Sources &amp; Further Reading
-          </h2>
-          <ul className="space-y-2 text-[13px] text-[#2a1e1a] leading-[1.8]">
-            {post.sources.map((src) => (
-              <li key={src.label}>
-                <a
-                  href={src.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#3B2B26] no-underline hover:underline transition-colors"
-                >
-                  {src.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* ── 6. SOURCES & FURTHER READING (hidden for hasAudio) ── */}
+      {!post.hasAudio && (
+        <section className="bg-[#F5F0E8]">
+          <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-12">
+            <h2
+              className="text-xl mb-6 text-center"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+            >
+              Sources &amp; Further Reading
+            </h2>
+            <ul className="space-y-2 text-[13px] text-[#2a1e1a] leading-[1.8]">
+              {post.sources.map((src) => (
+                <li key={src.label}>
+                  <a
+                    href={src.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#3B2B26] no-underline hover:underline transition-colors"
+                  >
+                    {src.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
-      {/* ── FOOTER IMAGE (optional) ── */}
-      {post.footerImage && (
+      {/* ── FOOTER IMAGE (optional, hidden for hasAudio) ── */}
+      {!post.hasAudio && post.footerImage && (
         <section className="relative w-full overflow-hidden" style={{ aspectRatio: "21/9", minHeight: "300px", maxHeight: "50vh" }}>
           <img
             src={post.footerImage.src}
@@ -333,34 +355,86 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge }: BlogP
       )}
 
       {/* ── GOLD RULE ── */}
-      <div className="h-[3px] bg-[#3B2B26]" />
+      {!post.hasAudio && <div className="h-[3px] bg-[#3B2B26]" />}
 
-      {/* ── BEGIN YOUR JOURNEY CTA ── */}
-      <section className="bg-[#f7f5f0] text-center py-14 px-8 md:px-16">
-        <h2
-          className="text-2xl md:text-[28px] leading-snug mb-4"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-        >
-          Begin Your Nayara Journey
-        </h2>
-        <p className="text-[15px] text-[#666666] leading-[1.9] mb-8 max-w-xl mx-auto">
-          Explore the properties that bring this story to life.
-        </p>
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
-          {post.ctaProperties.map((prop) => (
-            <Link
-              key={prop.name}
-              href={prop.route}
-              className="inline-block px-6 py-2.5 border border-[#3B2B26] text-[#3B2B26] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#3B2B26] hover:text-white transition-colors rounded-full"
+      {/* ── BEGIN YOUR JOURNEY CTA / BLOG FOOTER ── */}
+      {post.hasAudio ? (
+        /* Blog-style footer matching real Nayara blog */
+        <section className="bg-white pt-16 pb-12 px-8">
+          {/* Property links row */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-10">
+            <Link href="/gardens" className="text-[#3B2B26] text-[13px] tracking-[0.05em] underline underline-offset-4 decoration-[#c4bba8] hover:decoration-[#3B2B26] transition-colors" style={{ fontFamily: "var(--font-body)" }}>Nayara Gardens</Link>
+            <Link href="/springs" className="text-[#3B2B26] text-[13px] tracking-[0.05em] underline underline-offset-4 decoration-[#c4bba8] hover:decoration-[#3B2B26] transition-colors" style={{ fontFamily: "var(--font-body)" }}>Nayara Springs</Link>
+            <Link href="/tented-camp" className="text-[#3B2B26] text-[13px] tracking-[0.05em] underline underline-offset-4 decoration-[#c4bba8] hover:decoration-[#3B2B26] transition-colors" style={{ fontFamily: "var(--font-body)" }}>Nayara Tented Camp</Link>
+            <Link href="/alto-atacama" className="text-[#3B2B26] text-[13px] tracking-[0.05em] underline underline-offset-4 decoration-[#c4bba8] hover:decoration-[#3B2B26] transition-colors" style={{ fontFamily: "var(--font-body)" }}>Nayara Alto Atacama</Link>
+            <Link href="/hangaroa" className="text-[#3B2B26] text-[13px] tracking-[0.05em] underline underline-offset-4 decoration-[#c4bba8] hover:decoration-[#3B2B26] transition-colors" style={{ fontFamily: "var(--font-body)" }}>Nayara Hangaroa</Link>
+            <Link href="/bocas-del-toro" className="text-[#3B2B26] text-[13px] tracking-[0.05em] underline underline-offset-4 decoration-[#c4bba8] hover:decoration-[#3B2B26] transition-colors" style={{ fontFamily: "var(--font-body)" }}>Nayara Bocas Del Toro</Link>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-[#c4bba8]/50 max-w-4xl mx-auto mb-10" />
+
+          {/* Social icons */}
+          <div className="flex justify-center gap-6 mb-12">
+
+            <a href="https://www.linkedin.com/company/nayara-resorts" target="_blank" rel="noopener noreferrer" className="text-[#3B2B26] hover:text-[#3B2B26]/70 transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/nayararesorts" target="_blank" rel="noopener noreferrer" className="text-[#3B2B26] hover:text-[#3B2B26]/70 transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://x.com/NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#3B2B26] hover:text-[#3B2B26]/70 transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" className="text-[#3B2B26] hover:text-[#3B2B26]/70 transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+
+          </div>
+
+          {/* Reservation phone numbers */}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+            <div className="text-center">
+              <p className="text-[10px] tracking-[0.25em] uppercase text-[#3B2B26]/60 mb-1" style={{ fontFamily: "var(--font-body)" }}>Reservations</p>
+              <a href="tel:+50624791600" className="text-[#3B2B26] text-xl md:text-2xl no-underline hover:text-[#3B2B26]/70 transition-colors" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>+506 2479-1600</a>
+            </div>
+            <div className="text-center">
+              <p className="text-[10px] tracking-[0.25em] uppercase text-[#3B2B26]/60 mb-1" style={{ fontFamily: "var(--font-body)" }}>US Toll Free</p>
+              <a href="tel:+18448652002" className="text-[#3B2B26] text-xl md:text-2xl no-underline hover:text-[#3B2B26]/70 transition-colors" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>+1 844-865-2002</a>
+            </div>
+            <div className="text-center">
+              <p className="text-[10px] tracking-[0.25em] uppercase text-[#3B2B26]/60 mb-1" style={{ fontFamily: "var(--font-body)" }}>UK Local Call</p>
+              <a href="tel:+441617918120" className="text-[#3B2B26] text-xl md:text-2xl no-underline hover:text-[#3B2B26]/70 transition-colors" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>+44 1617918120</a>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <>
+          <section className="bg-[#f7f5f0] text-center py-14 px-8 md:px-16">
+            <h2
+              className="text-2xl md:text-[28px] leading-snug mb-4"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
-              {prop.name}
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 10. FOOTER ── */}
-      <Footer pageType="brand"  textColor="#FFFFFF" />
+              Begin Your Nayara Journey
+            </h2>
+            <p className="text-[15px] text-[#666666] leading-[1.9] mb-8 max-w-xl mx-auto">
+              Explore the properties that bring this story to life.
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
+              {post.ctaProperties.map((prop) => (
+                <Link
+                  key={prop.name}
+                  href={prop.route}
+                  className="inline-block px-6 py-2.5 border border-[#3B2B26] text-[#3B2B26] text-[11px] font-medium tracking-[0.2em] no-underline hover:bg-[#3B2B26] hover:text-white transition-colors rounded-full"
+                >
+                  {prop.name}
+                </Link>
+              ))}
+            </div>
+          </section>
+          <Footer pageType="brand" textColor="#FFFFFF" />
+        </>
+      )}
     </div>
   );
 }

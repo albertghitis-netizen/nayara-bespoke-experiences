@@ -863,7 +863,7 @@ function NayaraJournalSection() {
       label: "Read",
       title: "Forest to Table: Gastronomy Across the World of Nayara",
       image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
-      href: "/blog/adventures-in-flavor",
+      href: "/blog/three-kitchens-one-rainforest",
       external: true,
       cta: "read",
     },
