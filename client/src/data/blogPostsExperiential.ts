@@ -31,12 +31,14 @@ export const experientialTravelPost: BlogPostData = {
   sections: [
     {
       heading: "The End of Passive Travel",
+      image: { src: "/manus-storage/rainforest-bridge-woman_123c4c79.jpg", alt: "Woman walking along a lantern-lit rainforest bridge at Nayara" },
       content: `<p>The global experiences sector reached $271 billion in 2025 and is projected to surge past $342 billion by 2029, growing at 8% annually. This outpaces the wider travel industry by more than 60%. According to the Mastercard Economics Institute, 70% of travelers now prioritize bucket-list experiences over luxury goods. The shift is structural, not cyclical.</p>
 <p>Travelers no longer choose destinations for their hotels. They choose them for what happens within those walls: the volcanic hot spring at dawn, the cooking class that changes how they eat at home, the hanging bridge walk that recalibrates their relationship with fear. Arival's 2026 research confirms this: "Experiences are now a primary driver of destination choice, rather than an afterthought."</p>
 <p>Nayara's five properties across Costa Rica, Chile, Panama, and Easter Island were built around encounters, not rooms. What follows is the philosophy that connects them all.</p>`
     },
     {
       heading: "Gastronomy as Language",
+      image: { src: "/manus-storage/bocas-flaming-dish_320b7f24.jpg", alt: "Flaming volcanic rock dish with wine at Nayara Bocas del Toro" },
       content: `<p>The culinary tourism market is projected to grow from $16.1 billion in 2025 to $76.4 billion by 2033, expanding at nearly 22% annually. One in five travelers now books trips specifically to explore food destinations. Half secure dining reservations before booking any other activity.</p>
 <p>At Nayara, food is a vocabulary. In Costa Rica, our kitchens become classrooms. At Ayla in Tented Camp, open-fire cooking teaches elemental technique. At Asia Luna in Gardens, chefs demonstrate Costa Rican-Asian fusion using volcanic-soil ingredients. The chocolate experience moves from pod to bar, and children discover their preferences through tasting. The moment a child realizes they prefer 85% dark cacao is a moment of genuine self-knowledge.</p>
 <p>At Ckelar in <a href="https://altoatacama.com" target="_blank">Alto Atacama</a>, ancestral Atacameno cooking techniques use ingredients from the driest desert on Earth. These are not demonstrations. They are skills guests carry home, meals they recreate for years, flavors that transport them back to the place where they first learned to cook with fire.</p>
@@ -45,6 +47,7 @@ export const experientialTravelPost: BlogPostData = {
     },
     {
       heading: "Family as Expedition",
+      image: { src: "/manus-storage/family-atacama-desert_bf49fcb9.jpg", alt: "Family standing on sand dunes in the Atacama Desert with volcanoes in the background" },
       content: `<p>Family travel surged 67% year-over-year in 2026, outpacing luxury and adventure travel combined. Nearly half of all travelers now choose multigenerational trips. The challenge remains constant: how do you satisfy a four-year-old, a fourteen-year-old, and a seventy-four-year-old simultaneously?</p>
 <p>Nayara's answer spans three countries. In Costa Rica, the rainforest becomes a classroom where children learn optics from blue morpho butterflies and geology from a live volcano. In Chile's Atacama Desert, Rainbow Valley writes millions of years of Earth's history in color across rock faces. On Easter Island, the Moai stand as the world's greatest open-air museum. Children who encounter them understand something profound about human ingenuity.</p>
 <p>Every property accommodates every generation simultaneously. Teenagers zip-line while grandparents soak in thermal pools. Families cook together, hike together, stargaze together. The adventure becomes the bond.</p>
@@ -170,6 +173,7 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       heading: "Alto Atacama: Stargazing and the Universe as Teacher",
+      video: { src: "/manus-storage/atacama-stargazing_567783b6.mp4" },
       content: `<p>At night, the desert reveals its greatest gift: the clearest skies in the Southern Hemisphere. The SPACE observatory at Alto Atacama puts the Milky Way within reach. Children who see Saturn's rings through a telescope for the first time carry that image forever. They learn that the light they are seeing left those stars thousands of years ago. They learn that they are, in a very real sense, looking backward through time.</p>
 <p>The observatory sessions are led by astronomers who understand that wonder is the beginning of science. They do not lecture. They point. They ask questions. They let the sky do the teaching. And the sky, in the Atacama, is the most eloquent teacher on Earth.</p>
 <p>For families, the desert offers something cities cannot: darkness. Real darkness. The kind that lets you see the Milky Way as a river of light across the entire sky. Children who grow up in cities have never seen this. The first time they do, something shifts. The universe becomes real in a way that photographs and planetariums cannot replicate.</p>`,
