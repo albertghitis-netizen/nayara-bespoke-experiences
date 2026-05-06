@@ -287,6 +287,10 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
       })}
 
       {hideFooterSections && (
+        <>
+        {/* ── GOLD RULE ── */}
+        <div className="h-[3px] bg-[#3B2B26]" />
+
         <section className="bg-[#f7f5f0] pt-6 pb-16 px-8 md:px-16">
           {/* Begin Your Nayara Journey */}
           <div className="text-center mb-10">
@@ -349,6 +353,7 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
           </div>
 
         </section>
+        </>
       )}
 
       {!hideFooterSections && !hideFooterKeepSources && (
