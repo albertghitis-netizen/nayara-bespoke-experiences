@@ -326,7 +326,7 @@ function StorySection() {
             </p>
             {/* Blog Link , Of Moon and Stars */}
             <a
-              href="https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars"
+              href="/blog/nayara-by-night"
               target="_blank"
               rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md backdrop-blur-md"

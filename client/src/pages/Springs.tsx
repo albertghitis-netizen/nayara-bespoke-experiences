@@ -345,7 +345,7 @@ function StorySection() {
 
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
-              href="https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment"
+              href="/blog/michelin-keys"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 mt-4 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"

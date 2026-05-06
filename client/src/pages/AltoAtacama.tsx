@@ -569,7 +569,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "16/9",
 
     textSide: "left" as const,
-    blogLink: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
+    blogLink: "/blog/atacama-oasis",
     blogLinkLabel: "Read: Atacama Desert's True Oasis",
     badges: false,
     badgeImage: "/manus-storage/badge-atacama-correct_054a7823.mp4",
@@ -596,7 +596,7 @@ const CASCADE_SECTIONS = [
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
-    blogLink: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
+    blogLink: "/blog/atacama-mars",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
     hideH: true,

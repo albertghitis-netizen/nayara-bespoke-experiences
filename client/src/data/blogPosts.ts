@@ -167,21 +167,21 @@ export const puraVidaPost: BlogPostData = {
   ],
   relatedArticles: [
     {
-      slug: "https://blog.nayararesorts.com/holistic-wellness-naturally",
+      slug: "/blog/holistic-wellness",
       title: "Defining Nature-Based Wellness in Luxury Hospitality",
       pillar: "Wellness",
       image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
       date: "2025",
     },
     {
-      slug: "https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools",
+      slug: "/blog/hot-springs",
       title: "Private Villas and Hot-Springs Plunge Pools: The History & Science",
       pillar: "Wellness",
       image: "https://blog.nayararesorts.com/hubfs/6-Dec-07-2025-04-10-58-5077-AM.png",
       date: "2025",
     },
     {
-      slug: "https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health",
+      slug: "/blog/wellness-by-colors",
       title: "Nature-Based Wellness by Colors: Brown, Black, Green, Blue",
       pillar: "Wellness",
       image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
@@ -376,18 +376,18 @@ export const greenGlobePost: BlogPostData = {
     { label: "SERNATUR - Chile's National Tourism Service", href: "https://www.sernatur.cl/" },
     { label: "IBUKU - Bamboo Architecture", href: "https://ibuku.com/" },
     { label: "UN Tourism (UNWTO)", href: "https://www.unwto.org/" },
-    { label: "Nayara Resorts Blog - Setting the Standard: Green Globe Certification", href: "https://blog.nayararesorts.com/setting-the-standard-green-globe-certification" },
+    { label: "Nayara Resorts Blog - Setting the Standard: Green Globe Certification", href: "/blog/green-globe-certification" },
   ],
   relatedArticles: [
     {
-      slug: "https://blog.nayararesorts.com/sunlit-sustainability-powered-by-nature-clone",
+      slug: "/blog/sunlit-sustainability",
       title: "Sunlit Sustainability: Nature-Powered",
       pillar: "Sustainability",
       image: "https://blog.nayararesorts.com/hubfs/4-Aug-15-2025-06-36-01-1516-PM.png",
       date: "2025",
     },
     {
-      slug: "https://blog.nayararesorts.com/rooted-in-community-the-human-side-of-hospitality",
+      slug: "/blog/community-hospitality",
       title: "Rooted in Community: The Human Side of Hospitality",
       pillar: "Sustainability",
       image: "https://blog.nayararesorts.com/hubfs/IMG_8179.jpg",

@@ -557,7 +557,7 @@ function ThermasSection({ palette }: { palette: PropertyPalette }) {
 
             {/* Blog link pill */}
             <a
-              href="https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools"
+              href="/blog/hot-springs"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"

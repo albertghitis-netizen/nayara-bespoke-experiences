@@ -1,7 +1,7 @@
 /**
  * BRAND WELLNESS , Nature-Based Wellness by Colors: Brown, Black, Green, Blue
  * 6-hotel filter with Springs as default
- * Based on: https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health
+ * Based on: /blog/wellness-by-colors
  */
 
 import { useState, useRef, useMemo, useEffect } from "react";
@@ -299,7 +299,7 @@ function BlogLinkSection({ palette }: { palette: PropertyPalette }) {
               Four colors, four workloads for the nervous system , explore the full research, science, and philosophy behind nature-based wellness at Nayara Resorts.
             </p>
             <a
-              href="https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health"
+              href="/blog/wellness-by-colors"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-3 rounded-full border transition-all duration-300 hover:shadow-lg"

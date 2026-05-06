@@ -273,7 +273,7 @@ function BrandStorySection() {
             </p>
 
             <a
-              href="https://blog.nayararesorts.com/rom-deadly-sin-to-rainforest-royalty-the-soul-of-nayara"
+              href="/blog/nayara-story"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 mt-6 mb-6 px-6 py-2.5 rounded-full transition-all duration-300 hover:opacity-80"
@@ -576,7 +576,7 @@ const awardsData = [
     stat: "3",
     accolade: "Only 3 Michelin Key Hotel in Costa Rica",
     property: "Nayara Springs \u2014 MICHELIN Guide",
-    route: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
+    route: "/blog/michelin-keys",
     videoSrc: "/manus-storage/award-springs_33c98f30.mp4",
   },
   {
@@ -863,7 +863,7 @@ function NayaraJournalSection() {
       label: "Read",
       title: "Forest to Table: Gastronomy Across the World of Nayara",
       image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
-      href: "https://blog.nayararesorts.com/gastronomy",
+      href: "/blog/adventures-in-flavor",
       external: true,
       cta: "read",
     },

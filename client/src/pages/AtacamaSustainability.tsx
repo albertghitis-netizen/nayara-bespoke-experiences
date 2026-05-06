@@ -48,13 +48,13 @@ const BLOG_CARDS = [
     title: "Wildlife Conservation in Chile's Atacama and Easter Island",
     excerpt: "From flamingos in the salt flats to endemic species on Rapa Nui, discover how Nayara protects fragile ecosystems across Chile's most extraordinary landscapes.",
     cover: CDN.flamingo,
-    url: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
+    url: "/blog/atacama-wildlife",
   },
   {
     title: "An Oasis in the Desert",
     excerpt: "How Nayara Alto Atacama became a sanctuary of life in the driest place on Earth , through water stewardship, adobe architecture, and deep respect for the land.",
     cover: CDN.redDesert,
-    url: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
+    url: "/blog/atacama-oasis",
   },
 ];
 

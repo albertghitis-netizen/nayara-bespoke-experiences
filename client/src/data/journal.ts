@@ -14,7 +14,7 @@ export interface JournalEntry {
   image: string;
   /** Property filter tag , matches property slug or "brand" for cross-property content */
   property: JournalProperty;
-  /** "article" links out to blog.nayararesorts.com; "video" plays inline with YouTube embed; "audio" links to podcast player */
+  /** "article" links to internal /blog/ routes; "video" plays inline with YouTube embed; "audio" links to podcast player */
   type: "article" | "video" | "audio";
   /** External URL for articles */
   url?: string;
@@ -97,7 +97,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "latin-america-luxury-brand",
     title: "Luxury Resorts Rooted in Nature: The Nayara Story",
-    url: "https://blog.nayararesorts.com/rom-deadly-sin-to-rainforest-royalty-the-soul-of-nayara",
+    url: "/blog/nayara-story",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
@@ -107,7 +107,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "7-michelin-keys",
     title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
-    url: "https://blog.nayararesorts.com/7-michelin-keys-3-countries-1-commitment",
+    url: "/blog/michelin-keys",
     property: "springs",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/E056D1CD-5240-40E5-8567-21240563F763%203.jpg",
@@ -117,7 +117,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "travel-trends-2026",
     title: "The Top 10 Travel Trends of 2026",
-    url: "https://blog.nayararesorts.com/the-top-10-travel-trends-of-2026",
+    url: "/blog/travel-trends",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
@@ -126,7 +126,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "golden-age-latin-america",
     title: "A New Golden Age of Luxury Travel in Latin America",
-    url: "https://blog.nayararesorts.com/a-new-golden-age-of-luxury-travel-in-latin-america-nayara-leading-the-way",
+    url: "/blog/golden-age-latin-america",
     property: "brand",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg",
@@ -135,7 +135,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "lujo-despacio",
     title: "Nayara Resorts: Donde el Lujo se Vive Despacio",
-    url: "https://blog.nayararesorts.com/nayara-resorts-donde-el-lujo-se-vive-despacio",
+    url: "/blog/lujo-despacio",
     property: "brand",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/135_de400071.jpg",
@@ -144,7 +144,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "seven-elements",
     title: "Defining Memories for a Lifetime: Nayara's Seven Elements of Place",
-    url: "https://blog.nayararesorts.com/nayaras-seven-elements-of-place",
+    url: "/blog/seven-elements",
     property: "brand",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bird-watching-hero_ddf4b8c3.jpg",
@@ -153,7 +153,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "sunlit-sustainability",
     title: "Sunlit Sustainability: Nature-Powered",
-    url: "https://blog.nayararesorts.com/sunlit-sustainability-powered-by-nature-clone",
+    url: "/blog/sunlit-sustainability",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/4-Aug-15-2025-06-36-01-1516-PM.png",
@@ -162,7 +162,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "rooted-in-community",
     title: "Rooted in Community: Human Hospitality",
-    url: "https://blog.nayararesorts.com/rooted-in-community-the-human-side-of-hospitality",
+    url: "/blog/community-hospitality",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/IMG_8179.jpg",
@@ -171,7 +171,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "nature-based-wellness-colors",
     title: "Nature-Based Wellness by Colors: Brown, Black, Green, Blue",
-    url: "https://blog.nayararesorts.com/nature-based-wellness-at-nayara-resorts-how-deserts-rainforests-oceans-and-night-skies-shape-human-health",
+    url: "/blog/wellness-by-colors",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
@@ -180,7 +180,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "hot-springs-plunge-pools",
     title: "Private Villas and Hot-Springs Plunge Pools: The History & Science",
-    url: "https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools",
+    url: "/blog/hot-springs",
     property: "springs",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/6-Dec-07-2025-04-10-58-5077-AM.png",
@@ -189,7 +189,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "holistic-wellness",
     title: "Defining Nature-Based Wellness in Luxury Hospitality",
-    url: "https://blog.nayararesorts.com/holistic-wellness-naturally",
+    url: "/blog/holistic-wellness",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
@@ -198,7 +198,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "ancient-wellness-easter-island",
     title: "Ancient Origins of Nature-Based Wellness: Lessons from Easter Island",
-    url: "https://blog.nayararesorts.com/ancient-origins-of-nature-based-wellness-lessons-from-easter-island-and-polynesia",
+    url: "/blog/ancient-wellness-easter-island",
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Drawing%20from%20Time",
@@ -207,7 +207,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "wildlife-arenal-bocas",
     title: "Wildlife Conservation in Arenal and Bocas del Toro",
-    url: "https://blog.nayararesorts.com/wildlife-conservation-in-arenal-and-bocas-del-toro",
+    url: "/blog/arenal-bocas-wildlife",
     property: "gardens",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
@@ -216,7 +216,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "wildlife-atacama-easter-island",
     title: "Wildlife Conservation in Chile's Atacama Desert and Easter Island",
-    url: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
+    url: "/blog/atacama-wildlife",
     property: "alto-atacama",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Hangaroa-Horses-2048x13",
@@ -225,7 +225,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "biodensity-underwater",
     title: "Biodensity, Underwater Mountains, and More",
-    url: "https://blog.nayararesorts.com/biodensity-underwater-mountains-and-more-a-different-perspective-on-our-ecosystems",
+    url: "/blog/biodensity-underwater",
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Biodensity%2c%20Underwater",
@@ -234,7 +234,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "collapse-maya-rapanui",
     title: "A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us",
-    url: "https://blog.nayararesorts.com/a-collapse-that-wasnt-what-the-maya-and-rapa-nui-teach-us",
+    url: "/blog/maya-rapa-nui",
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Photo%20Jan%2014%202026%2c%2007%2042%2012.j",
@@ -243,7 +243,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "solo-travel-female",
     title: "The Future of Solo Travel is Female",
-    url: "https://blog.nayararesorts.com/the-future-of-solo-travel-is-female",
+    url: "/blog/solo-travel-female",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Future%20of%20S",
@@ -252,7 +252,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "family-travel",
     title: "Creating Unforgettable Family Travel with Nayara",
-    url: "https://blog.nayararesorts.com/window-to-the-wild-arenal-volcano-family-vacations-with-nayara-gardens-and-nayara-tented-camp",
+    url: "/blog/family-travel",
     property: "gardens",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(6",
@@ -261,7 +261,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "nayara-by-night",
     title: "Nayara by Night: Of Moon and Stars",
-    url: "https://blog.nayararesorts.com/nayara-by-night-of-moon-and-stars",
+    url: "/blog/nayara-by-night",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/2025/Moon.jpg",
@@ -270,7 +270,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "pura-vida",
     title: "Pura Vida and the Science of Why Costa Rica Feels Different",
-    url: "https://blog.nayararesorts.com/pura-vida",
+    url: "/blog/pura-vida",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/IMG_9102.jpg",
@@ -280,7 +280,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "womens-empowerment",
     title: "Women's Empowerment Through Housing in Costa Rica's La Fortuna",
-    url: "https://blog.nayararesorts.com/womens-empowerment-through-housing-in-costa-ricas-la-fortuna",
+    url: "/blog/womens-empowerment",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg",
@@ -289,7 +289,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "adventures-in-flavor",
     title: "Adventures in Flavor , Costa Rica",
-    url: "https://blog.nayararesorts.com/nayara-arenals-adventures-in-flavor",
+    url: "/blog/adventures-in-flavor",
     property: "tented-camp",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/WhatsApp%20Image%202025-04-30%20at%2015-48-",
@@ -298,7 +298,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "arenal-timeless-wonder",
     title: "Arenal, Costa Rica: A Timeless Natural Wonder",
-    url: "https://blog.nayararesorts.com/arenal-costa-rica-a-timeless-natural-wonder",
+    url: "/blog/arenal-timeless-wonder",
     property: "brand",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/frog-tour-hero_dc75898f.jpg",
@@ -307,7 +307,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "toucans-arenal",
     title: "Meeting The Toucans of Arenal Rainforest",
-    url: "https://blog.nayararesorts.com/meeting-the-toucans-of-arenal-rainforest-who-they-are-and-how-to-see-them",
+    url: "/blog/toucans-arenal",
     property: "gardens",
     type: "article",
     image: "/manus-storage/Untitleddesign-14_e259375b.jpg",
@@ -316,7 +316,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "conde-nast-bocas",
     title: "Why Condé Nast Traveler Named Nayara Bocas del Toro #1",
-    url: "https://blog.nayararesorts.com/why-conde-nast-traveler-named-nayara-bocas-del-toro-1-in-central-and-south-america",
+    url: "/blog/bocas-conde-nast",
     property: "bocas-del-toro",
     type: "article",
     image: "/manus-storage/journal-bocas-square_07eed662.mp4",
@@ -327,7 +327,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "bocas-facts",
     title: "5 Interesting Facts About Bocas del Toro, Panama",
-    url: "https://blog.nayararesorts.com/5-interesting-facts-about-bocas-del-toro-panama",
+    url: "/blog/bocas-facts",
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/5%20Interesting%20Fac",
@@ -336,16 +336,16 @@ const blogArticles: JournalEntry[] = [
   {
     id: "treehouse-dreams",
     title: "The Treehouse of Your Dreams",
-    url: "https://blog.nayararesorts.com/nayarabocasdeltorotreehouse",
+    url: "/blog/treehouse-dreams",
     property: "bocas-del-toro",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-bungalow_f4de28d6.jpg",
+    image: "/manus-storage/bocas-treehouse-cover_5eb7138e.jpg",
     excerpt: "Nayara Bocas del Toro's treehouse villas redefine luxury , suspended above the Caribbean, surrounded by mangroves and starlight.",
   },
   {
     id: "floating-paradise",
     title: "Your Floating Paradise in the Galápagos of the Caribbean",
-    url: "https://blog.nayararesorts.com/your-floating-paradise-in-the-galapagos-of-the-caribbean-nayara-bocas-del-toro",
+    url: "/blog/floating-paradise",
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Nayara%20Bocas%20del%20Toro%20(2).webp",
@@ -354,7 +354,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "mars-atacama",
     title: "Why the Atacama Desert is Mars on Earth",
-    url: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
+    url: "/blog/atacama-mars",
     property: "alto-atacama",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/5-Jan-28-2026-12-18-54-4709-AM.png",
@@ -364,7 +364,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "stargazing-atacama",
     title: "Why Nayara Alto Atacama Is the Best Stargazing Resort",
-    url: "https://blog.nayararesorts.com/best-stargazing-resort-atacama-desert",
+    url: "/blog/stargazing-atacama",
     property: "alto-atacama",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/iotw2334a_crop.jpg",
@@ -373,7 +373,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "winter-atacama",
     title: "Why Winter is the Best Time to Experience the Atacama Desert",
-    url: "https://blog.nayararesorts.com/why-winter-is-the-best-time-to-experience-the-atacama-desert",
+    url: "/blog/atacama-winter",
     property: "alto-atacama",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Astrotourism.jpg",
@@ -382,7 +382,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "romance-atacama",
     title: "Why The Atacama Desert Winter is Built for Romance",
-    url: "https://blog.nayararesorts.com/why-nayara-alto-atacama-is-the-best-resort-in-the-atacama-desert-for-couples",
+    url: "/blog/atacama-romance",
     property: "alto-atacama",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg",
@@ -391,7 +391,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "oasis-atacama",
     title: "What Defines The Best Place to Stay in the Atacama Desert",
-    url: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
+    url: "/blog/atacama-oasis",
     property: "alto-atacama",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/3-Nov-26-2025-02-34-59-4966-AM.png",
@@ -400,7 +400,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "packing-atacama",
     title: "What to Pack for the Atacama Desert's Extremes",
-    url: "https://blog.nayararesorts.com/what-to-pack-for-the-atacama-deserts-extreme-beauty",
+    url: "/blog/packing-atacama",
     property: "alto-atacama",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Destination%205.jpg",
@@ -409,7 +409,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "edge-habitability",
     title: "The Atacama Desert: At the Edge of Habitability",
-    url: "https://blog.nayararesorts.com/nayara-alto-atacama-exploring-an-alien-landscape-from-the-lap-of-luxury",
+    url: "/blog/edge-habitability",
     property: "alto-atacama",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg",
@@ -418,7 +418,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "climate-packing-all",
     title: "Climate, Conditions, and Packing Tips",
-    url: "https://blog.nayararesorts.com/climate-conditions-and-packing-tips-for-each-of-the-nayara-resorts",
+    url: "/blog/climate-packing",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(1).jpg",
@@ -427,7 +427,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "hito-family-rapanui",
     title: "How Nayara Hangaroa Leads Regeneration on Rapa Nui",
-    url: "https://blog.nayararesorts.com/walking-giants-the-hito-family-the-future-of-easter-island",
+    url: "/blog/hangaroa-regeneration",
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/9-Aug-11-2025-08-40-19-5669-PM.png",
@@ -436,7 +436,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "challenge-easter-island",
     title: "Challenge Easter Island's Outdoors with Nayara Hangaroa",
-    url: "https://blog.nayararesorts.com/challenge-easter-islands-outdoors-with-nayara-hangaroa",
+    url: "/blog/challenge-easter-island",
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Challenge%20Easter%20Island%E2%80%99s%20Outdoors%20with%20Nayara%20Hangaroa%20(3)-1-1.jpeg",
@@ -445,7 +445,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "green-globe",
     title: "Setting the Standard: Green Globe Certification",
-    url: "https://blog.nayararesorts.com/setting-the-standard-green-globe-certification",
+    url: "/blog/green-globe-certification",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Green%20globe-3-1.png",
@@ -454,7 +454,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "tapati-festival",
     title: "The Tapati Rapa Nui Festival at Nayara Hangaroa",
-    url: "https://blog.nayararesorts.com/the-tapati-rapa-nui-festival-at-nayara-hangaroa",
+    url: "/blog/tapati-festival",
     property: "hangaroa",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Tapati%20Rapa%20Nui%20Festival%20at%20Nayara%20Hangaroa%20(6).jpg",
@@ -463,7 +463,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "fiery-heart-springs",
     title: "The Fiery Heart of Costa Rica: Life and Love at Nayara Springs",
-    url: "https://blog.nayararesorts.com/the-fiery-heart-of-costa-ricas-rainforest-life-and-love-at-nayara-springs",
+    url: "/blog/fiery-heart-springs",
     property: "springs",
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-pools_8e255e18.png",
@@ -472,7 +472,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "birdwatching-costa-rica",
     title: "Birdwatching in Costa Rica",
-    url: "https://blog.nayararesorts.com/birdwatching-in-costa-rica",
+    url: "/blog/birdwatching",
     property: "brand",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Scarlet-macaw-NA_CR_15-2048x1638.jpeg",
@@ -481,7 +481,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "private-island-bocas",
     title: "The Private Island Paradise of Bocas del Toro",
-    url: "https://blog.nayararesorts.com/the-private-island-paradise-of-bocas-del-toro",
+    url: "/blog/private-island-bocas",
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
@@ -523,6 +523,96 @@ const blogArticles: JournalEntry[] = [
     type: "article",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/night-sky_hero.jpg",
     excerpt: "Discover the magic of darkness and celestial wonders , stargazing, bioluminescence, and the transformative power of the night sky at Nayara.",
+  },
+  {
+    id: "experiential-travel-2026",
+    title: "Why Nayara Is the Ultimate Experiential Travel Destination in 2026",
+    url: "/blog/experiential-travel-nayara-2026",
+    property: "brand",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
+    excerpt: "From volcano hikes to jungle immersion, discover why Nayara defines experiential luxury in 2026.",
+  },
+  {
+    id: "family-bucket-list",
+    title: "The Family Bucket List: Adventures at Nayara Gardens & Tented Camp",
+    url: "/blog/family-bucket-list-nayara",
+    property: "gardens",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp",
+    excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
+  },
+  {
+    id: "wellness-adventure",
+    title: "Wellness as Adventure: Resetting Your Nervous System in Costa Rica's Rainforest",
+    url: "/blog/wellness-adventure-nayara",
+    property: "tented-camp",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/59_fbf56df9.jpg",
+    excerpt: "How the rainforest becomes your wellness partner — from cold plunges to forest bathing and nervous system reset.",
+  },
+  {
+    id: "atacama-winter-romance",
+    title: "Winter & Romance in the Atacama",
+    url: "/blog/atacama-winter-romance",
+    property: "alto-atacama",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-romance-hero_e2c4f8d1.jpg",
+    excerpt: "Why the Atacama's winter months offer the most romantic and dramatic desert experience.",
+  },
+  {
+    id: "caribbean-coral-reef",
+    title: "Caribbean Coral Reef Restoration",
+    url: "/blog/caribbean-coral-reef",
+    property: "bocas-del-toro",
+    type: "article",
+    image: FALLBACK_IMG,
+    excerpt: "How Nayara Bocas del Toro partners with marine biologists to restore the Caribbean's coral ecosystems.",
+  },
+  {
+    id: "coral-reef",
+    title: "Coral Reef Conservation at Nayara",
+    url: "/blog/coral-reef",
+    property: "bocas-del-toro",
+    type: "article",
+    image: FALLBACK_IMG,
+    excerpt: "Our commitment to protecting and restoring coral reef ecosystems in Bocas del Toro.",
+  },
+  {
+    id: "maya-rapa-nui-climate",
+    title: "Maya & Rapa Nui: Ancient Wisdom for Climate Survival",
+    url: "/blog/maya-rapa-nui-climate",
+    property: "hangaroa",
+    type: "article",
+    image: FALLBACK_IMG,
+    excerpt: "What the Maya and Rapa Nui civilizations teach us about resilience, adaptation, and climate change.",
+  },
+  {
+    id: "reforestation-wildlife",
+    title: "Reforestation & Wildlife Corridors",
+    url: "/blog/reforestation-wildlife",
+    property: "gardens",
+    type: "article",
+    image: FALLBACK_IMG,
+    excerpt: "How Nayara's reforestation efforts create vital wildlife corridors in Costa Rica's Arenal region.",
+  },
+  {
+    id: "wellness-hospitality",
+    title: "Wellness & Hospitality: A New Standard",
+    url: "/blog/wellness-hospitality",
+    property: "brand",
+    type: "article",
+    image: FALLBACK_IMG,
+    excerpt: "How Nayara is redefining luxury hospitality through science-backed wellness programming.",
+  },
+  {
+    id: "sustainability-blog",
+    title: "Nayara's Sustainability Journey",
+    url: "/blog/sustainability",
+    property: "brand",
+    type: "article",
+    image: FALLBACK_IMG,
+    excerpt: "From ocean conservation to community empowerment — Nayara's holistic approach to sustainable tourism.",
   },
 ];
 

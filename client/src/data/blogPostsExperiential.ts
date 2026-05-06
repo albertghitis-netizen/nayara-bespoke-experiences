@@ -100,7 +100,7 @@ export const experientialTravelPost: BlogPostData = {
       date: "May 2026",
     },
     {
-      slug: "https://blog.nayararesorts.com/the-top-10-travel-trends-of-2026",
+      slug: "/blog/travel-trends",
       title: "The Top 10 Travel Trends of 2026",
       pillar: "Experiences",
       image: "https://blog.nayararesorts.com/hubfs/travel-trends-2026.jpg",
@@ -320,7 +320,7 @@ export const wellnessAdventurePost: BlogPostData = {
       date: "March 2026",
     },
     {
-      slug: "https://blog.nayararesorts.com/the-history-and-science-of-private-villas-hot-springs-plunge-pools",
+      slug: "/blog/hot-springs",
       title: "Private Villas and Hot-Springs Plunge Pools: The History & Science",
       pillar: "Wellness",
       image: "https://blog.nayararesorts.com/hubfs/6-Dec-07-2025-04-10-58-5077-AM.png",

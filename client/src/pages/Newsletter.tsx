@@ -75,7 +75,7 @@ export default function Newsletter() {
             This is the science behind happiness.
           </p>
           <a
-            href="https://blog.nayararesorts.com/pura-vida"
+            href="/blog/pura-vida"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"

@@ -162,7 +162,7 @@ function VideoSection() {
             />
           </div>
           <a
-            href="https://blog.nayararesorts.com/nayara-resorts-partners-with-one-ocean-planet"
+            href="/blog/sustainability"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"

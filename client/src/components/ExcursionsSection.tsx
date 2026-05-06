@@ -51,7 +51,7 @@ const excursions: Excursion[] = [
       "Otherworldly rock amphitheaters",
     ],
     image: DESERT_IMG,
-    blogUrl: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
+    blogUrl: "/blog/atacama-mars",
     blogTitle: "Why the Atacama Desert Is Mars on Earth",
     category: "landscape",
   },
@@ -90,7 +90,7 @@ const excursions: Excursion[] = [
       "Atacameño cosmovision storytelling",
     ],
     placeholder: true,
-    blogUrl: "https://blog.nayararesorts.com/best-stargazing-resort-atacama-desert",
+    blogUrl: "/blog/stargazing-atacama",
     blogTitle: "Stargazing in the Atacama: The World's Clearest Skies",
     category: "culture",
   },
@@ -111,7 +111,7 @@ const excursions: Excursion[] = [
       "Toconao village and bell tower",
     ],
     image: VICUNAS_IMG,
-    blogUrl: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
+    blogUrl: "/blog/atacama-wildlife",
     blogTitle: "Wildlife Conservation in the Atacama Desert",
     category: "landscape",
   },
@@ -326,27 +326,27 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
             {[
               {
                 title: "Why the Atacama Is Mars on Earth",
-                url: "https://blog.nayararesorts.com/mars-atacama-final-frontier-of-travel",
+                url: "/blog/atacama-mars",
               },
               {
                 title: "Wildlife Conservation in the Atacama",
-                url: "https://blog.nayararesorts.com/wildlife-conservation-in-chiles-atacama-desert-and-easter-island",
+                url: "/blog/atacama-wildlife",
               },
               {
                 title: "Why Winter Is the Best Time to Visit",
-                url: "https://blog.nayararesorts.com/why-winter-is-the-best-time-to-experience-the-atacama-desert",
+                url: "/blog/atacama-winter",
               },
               {
                 title: "The Best Stargazing Resort",
-                url: "https://blog.nayararesorts.com/best-stargazing-resort-atacama-desert",
+                url: "/blog/stargazing-atacama",
               },
               {
                 title: "An Oasis in the Desert",
-                url: "https://blog.nayararesorts.com/best-place-to-stay-atacama-desert-oasis",
+                url: "/blog/atacama-oasis",
               },
               {
                 title: "Romance in the Atacama",
-                url: "https://blog.nayararesorts.com/why-nayara-alto-atacama-is-the-best-resort-in-the-atacama-desert-for-couples",
+                url: "/blog/atacama-romance",
               },
             ].map((blog) => (
               <a
