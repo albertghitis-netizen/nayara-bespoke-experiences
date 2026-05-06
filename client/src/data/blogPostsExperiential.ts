@@ -143,7 +143,6 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       heading: "Costa Rica: The Rainforest as Classroom",
-      image: { src: "/manus-storage/family-hanging-bridge_be5ed446.jpeg", alt: "Children in yellow raincoats crossing hanging bridges through the rainforest canopy" },
       content: `<p>In Costa Rica's Arenal region, where the jungle canopy rises to meet an active volcano and hot springs carve through ancient lava flows, families do not choose between nature and adventure. They get both, layered, simultaneous, and impossible to forget. Forbes' Bucket List Family put it best: "The jungle meets the ocean, creating the perfect spot for families who want both nature and adventure. Costa Rica is alive!"</p>
 <p>They are right. And at <a href="/gardens">Nayara Gardens</a> and <a href="/tented-camp">Nayara Tented Camp</a>, that aliveness is not something you drive to. It is where you wake up.</p>
 <p>The day begins before the alarm. Howler monkeys announce dawn from the ceiba trees above Tented Camp. Children press their faces to the mesh walls of their tents, watching toucans arc between branches in the half-light. By 7 a.m., the family is on a hanging bridge walk through the primary rainforest canopy. The bridges sway gently 200 feet above the forest floor. A naturalist guide points out a sloth, motionless, moss-covered, invisible until you know where to look. The four-year-old sees it first. She always does.</p>
@@ -152,7 +151,6 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       heading: "Costa Rica: Volcano, Water, and Wonder",
-      image: { src: "/manus-storage/family-pool-toss_36807b93.jpeg", alt: "Father and daughter playing in the pool with Arenal volcano in the background" },
       content: `<p>After lunch at Ayla, where children build their own tacos from scratch while parents sip passion fruit cocktails, the family splits. This is the beauty of Nayara's design: it accommodates every generation simultaneously.</p>
 <p>The teenagers zip-line. The course threads through the canopy at speed, the volcano's cone visible through gaps in the tree cover. They scream. They always scream. And then they ask to go again.</p>
 <p>The grandparents take the thermal pools. <a href="/springs">Nayara Springs'</a> hot springs are heated by Arenal's geothermal energy, mineral-rich waters that have been soothing bodies for centuries. The temperature is perfect: warm enough to dissolve the tension in aging shoulders, cool enough to sit in for an hour without thinking about time.</p>
