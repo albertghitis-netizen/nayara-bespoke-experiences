@@ -4,6 +4,7 @@
  * Content is HTML-safe strings (rendered via dangerouslySetInnerHTML).
  */
 import { gastronomyBlogPost, inHouseActivitiesBlogPost } from "./blogPostsNew";
+import { experientialTravelPost, familyBucketListPost, wellnessAdventurePost } from "./blogPostsExperiential";
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -880,6 +881,9 @@ export const allBlogPosts: Record<string, BlogPostData> = {
   "bocas-atacama-sustainability-study": bocasAtacamaSustainabilityPost,
   "three-kitchens-one-rainforest": gastronomyBlogPost,
   "in-house-activities-three-hotels-infinite-experiences": inHouseActivitiesBlogPost,
+  "experiential-travel-nayara-2026": experientialTravelPost,
+  "family-bucket-list-nayara": familyBucketListPost,
+  "wellness-adventure-nayara": wellnessAdventurePost,
 };
 
 /** Helper to get a blog post by slug */

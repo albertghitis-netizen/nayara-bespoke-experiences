@@ -263,7 +263,7 @@ function Router() {
           <Route path="/gastronomy" component={Gastronomy} />
           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
-          {/* ARCHIVED ROUTE: /journal/:slug - Component file still exists at ./pages/DynamicBlogPost.tsx */}
+          <Route path="/journal/:slug" component={DynamicBlogPost} />
 
           <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
