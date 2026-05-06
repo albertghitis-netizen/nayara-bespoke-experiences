@@ -84,7 +84,7 @@ export default function RoomSlider({
   const pillBg = palette.pillBg || palette.primary;
   const pillText = palette.pillText || "#ffffff";
   const currentRoom = rooms[currentIndex];
-  const isVideoLeft = currentIndex % 2 === 0;
+  const isVideoLeft = currentIndex % 2 === 1;
 
   const slideVariants = {
     enter: (dir: number) => ({ x: dir > 0 ? 150 : -150, opacity: 0 }),
