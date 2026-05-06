@@ -160,7 +160,7 @@ function ExperientialTravelIntro() {
               <p className="text-[#3B2B26]/60 text-[13px] tracking-[0.05em] mt-2" style={body}>Destinations Across Three Countries</p>
             </div>
             <div>
-              <p className="text-[#3B2B26] text-[32px] md:text-[40px]" style={{ ...heading, fontWeight: 600 }}>80</p>
+              <p className="text-[#3B2B26] text-[32px] md:text-[40px]" style={{ ...heading, fontWeight: 600 }}>80+</p>
               <p className="text-[#3B2B26]/60 text-[13px] tracking-[0.05em] mt-2" style={body}>Curated Excursions & Activities</p>
             </div>
             <div>
