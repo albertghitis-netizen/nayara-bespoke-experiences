@@ -197,26 +197,14 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       heading: "Hangaroa: The Moai as Open-Air Museum",
+      image: { src: "/manus-storage/family-moai-rapa-nui_0919ff07.jpg", alt: "Family standing before the Moai statues on Rapa Nui" },
       content: `<p>There are fewer than 1,000 Moai on Earth, and every single one of them stands on Rapa Nui. At <a href="/hangaroa">Nayara Hangaroa</a>, families encounter something that exists nowhere else: a civilization's legacy carved in volcanic stone, facing the Pacific.</p>
 <p>The magic of the Moai is not just their scale, some stand over 30 feet tall, weighing 80 tons, but the mystery of how they arrived. How did an ancient civilization move these giants across the island without wheels, without metal tools, without written plans? Children ask this question immediately. Adults never stop asking it.</p>
 <p>Guided excursions take families to Ahu Tongariki at sunrise, where fifteen Moai stand in a row against the ocean. To Rano Raraku, the quarry where unfinished statues still lie half-buried in the hillside, frozen mid-creation. To Orongo, the ceremonial village perched on a volcanic crater's edge.</p>
 <p>Between the archaeology, families explore on horseback across the island's green hills, snorkel in waters so clear the coral seems painted, and learn the Rapa Nui language from locals who still speak it. This is not a museum visit. It is a living culture, and children who experience it understand something profound about human ingenuity and persistence.</p>`,
     },
-    {
-      heading: "The Rapa Nui Bucket List",
-      content: `<p>For families at <a href="/hangaroa">Nayara Hangaroa</a>:</p>
-<p><strong>Ahu Tongariki at Sunrise</strong>: Fifteen Moai silhouetted against the Pacific dawn. The most powerful archaeological site in Polynesia.</p>
-<p><strong>Rano Raraku Quarry</strong>: Where the Moai were born. Unfinished statues still embedded in the hillside. Children become archaeologists for a morning.</p>
-<p><strong>Horseback Across the Island</strong>: Green hills, volcanic craters, ocean views. The way Rapa Nui people have traveled for centuries.</p>
-<p><strong>Snorkeling in Crystal Waters</strong>: Visibility that makes the ocean feel like air. Tropical fish, sea turtles, and coral gardens.</p>
-<p><strong>Rapa Nui Language and Culture</strong>: Learn greetings, hear legends, understand the living culture that still inhabits this island.</p>`,
-    },
   ],
-  sources: [
-    { label: "Jim Dobson, The Bucket List Family's 15 Best Travel Adventures, Forbes (Feb 2026)", href: "https://www.forbes.com/sites/jimdobson/2026/02/21/the-bucket-list-familys-15-best-travel-adventures/" },
-    { label: "Family Travel Association, 2026 Family Travel Trends", href: "https://familytravel.org/" },
-    { label: "DuckAbroad / Journeyscape, Multigenerational Travel Statistics (2026)", href: "https://duckabroad.com/" },
-  ],
+  sources: [],
   relatedArticles: [
     {
       slug: "experiential-travel-nayara-2026",
@@ -233,13 +221,7 @@ export const familyBucketListPost: BlogPostData = {
       date: "April 2026",
     },
   ],
-  ctaProperties: [
-    { name: "Nayara Gardens", route: "/gardens" },
-    { name: "Nayara Tented Camp", route: "/tented-camp" },
-    { name: "Nayara Alto Atacama", route: "/alto-atacama" },
-    { name: "Nayara Hangaroa", route: "/hangaroa" },
-  ],
-  footerImage: { src: "/manus-storage/family-rapa-nui-moai_0b273e95.jpg", alt: "Family standing before the Moai statues on Rapa Nui at sunset" },
+  ctaProperties: [],
   seo: {
     metaTitle: "The World as a Classroom: A Family Guide to Every Nayara Destination | Nayara Journal",
     metaDescription: "From rainforest canopy walks and volcanic hot springs to Atacama stargazing and Easter Island archaeology, discover why Nayara's five properties across three countries are the ultimate family adventure destinations.",
