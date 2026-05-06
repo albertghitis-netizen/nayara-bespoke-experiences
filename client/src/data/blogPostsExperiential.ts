@@ -179,11 +179,7 @@ export const familyBucketListPost: BlogPostData = {
 <p><strong>The Butterfly Garden</strong>: 30+ species. The blue morpho alone is worth the visit. Children learn optics without knowing it.</p>
 `,
     },
-    {
-      heading: "Where to Stay in Costa Rica",
-      content: `<p><strong><a href="/gardens">Nayara Gardens</a></strong>: For families who want space, privacy, and a pool of their own. The Arenal Pool Casitas are designed for families: separate sleeping areas, private gardens, and plunge pools surrounded by tropical plants. The resort's restaurants, spa, and trails are steps away, but the casita feels like its own world.</p>
-<p><strong><a href="/tented-camp">Nayara Tented Camp</a></strong>: For families who want immersion. The tents are luxurious, king beds, rain showers, hardwood floors, but the walls are open to the forest. You fall asleep to the sound of the river. You wake to birds. Children who stay here develop a different relationship with the outdoors. It is not something they visit. It is something they live inside.</p>`,
-    },
+
     {
       heading: "Alto Atacama: The Desert as Classroom",
       image: { src: "/manus-storage/family-atacama-biking_da3d4690.jpg", alt: "Family mountain biking through Atacama Desert canyons with red rock walls" },
