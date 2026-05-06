@@ -39,7 +39,7 @@ export const experientialTravelPost: BlogPostData = {
     {
       heading: "Gastronomy as Language",
       content: `<p>The culinary tourism market, valued at $16.1 billion in 2025, is projected to reach $76.4 billion by 2033, growing at nearly 22% annually. Nearly one in five travelers now book trips specifically to explore food destinations, and half secure dining reservations before booking any other activity.</p>
-<p>At Nayara, food is not a service. It is a vocabulary. In Costa Rica, our kitchens become classrooms: at Ayla in Tented Camp, open-fire cooking becomes a lesson in elemental simplicity. At Asia Luna in Gardens, chefs teach the art of Costa Rican-Asian fusion using ingredients grown in volcanic soil. The cooking classes turn guests into participants, not spectators — hands in the dough, fire on the grill, flavors discovered through direct experience.</p>
+<p>At Nayara, food is not a service. It is a vocabulary. In Costa Rica, our kitchens become classrooms: at Ayla in Tented Camp, open-fire cooking becomes a lesson in elemental simplicity. At Asia Luna in Gardens, chefs teach the art of Costa Rican-Asian fusion using ingredients grown in volcanic soil. The chocolate experience takes children and adults through every stage of cacao, from pod to bar, and the moment a child discovers they prefer 85% dark is a moment of genuine self-knowledge.</p>
 <p>At Ckelar in <a href="/alto-atacama">Alto Atacama</a>, ancestral Atacameno cooking techniques use ingredients from the driest desert on Earth. These are not demonstrations. They are skills guests carry home, meals they recreate for years, flavors that transport them back to the place where they first learned to cook with fire.</p>
 <p><a href="/blog/three-kitchens-one-rainforest">Read more: Costa Rica Gastronomy at Nayara →</a></p>`,
       pullQuote: "Food is not a service. It is a vocabulary.",
@@ -127,7 +127,6 @@ export const familyBucketListPost: BlogPostData = {
   pillar: "Experiences",
   tags: ["Family Travel", "Costa Rica", "Chile", "Easter Island", "Bucket List", "Adventure", "Multigenerational"],
   readingTime: 12,
-  hasAudio: true,
   heroImage: "/manus-storage/family-tent-volcano_02f91f57.jpeg",
   mobileHeroVideo: "/manus-storage/rainbow-valley-vertical_dc5dfaab.mp4",
   keyFindings: [
@@ -146,7 +145,7 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       heading: "Costa Rica: The Rainforest as Classroom",
-
+      image: { src: "/manus-storage/family-hanging-bridge_be5ed446.jpeg", alt: "Children in yellow raincoats crossing hanging bridges through the rainforest canopy" },
       content: `<p>In Costa Rica's Arenal region, where the jungle canopy rises to meet an active volcano and hot springs carve through ancient lava flows, families do not choose between nature and adventure. They get both, layered, simultaneous, and impossible to forget. Forbes' Bucket List Family put it best: "The jungle meets the ocean, creating the perfect spot for families who want both nature and adventure. Costa Rica is alive!"</p>
 <p>They are right. And at <a href="/gardens">Nayara Gardens</a> and <a href="/tented-camp">Nayara Tented Camp</a>, that aliveness is not something you drive to. It is where you wake up.</p>
 <p>The day begins before the alarm. Howler monkeys announce dawn from the ceiba trees above Tented Camp. Children press their faces to the mesh walls of their tents, watching toucans arc between branches in the half-light. By 7 a.m., the family is on a hanging bridge walk through the primary rainforest canopy. The bridges sway gently 200 feet above the forest floor. A naturalist guide points out a sloth, motionless, moss-covered, invisible until you know where to look. The four-year-old sees it first. She always does.</p>
@@ -155,7 +154,7 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       heading: "Costa Rica: Volcano, Water, and Wonder",
-
+      image: { src: "/manus-storage/family-pool-toss_36807b93.jpeg", alt: "Father and daughter playing in the pool with Arenal volcano in the background" },
       content: `<p>After lunch at Ayla, where children build their own tacos from scratch while parents sip passion fruit cocktails, the family splits. This is the beauty of Nayara's design: it accommodates every generation simultaneously.</p>
 <p>The teenagers zip-line. The course threads through the canopy at speed, the volcano's cone visible through gaps in the tree cover. They scream. They always scream. And then they ask to go again.</p>
 <p>The grandparents take the thermal pools. <a href="/springs">Nayara Springs'</a> hot springs are heated by Arenal's geothermal energy, mineral-rich waters that have been soothing bodies for centuries. The temperature is perfect: warm enough to dissolve the tension in aging shoulders, cool enough to sit in for an hour without thinking about time.</p>
@@ -163,10 +162,10 @@ export const familyBucketListPost: BlogPostData = {
 <p>At night, the family walks to the volcano viewpoint. On clear nights, you can see the glow of Arenal's lava dome reflected in the clouds above. A naturalist points out constellations, different ones than they see at home. The youngest falls asleep in her father's arms, face tilted toward the Southern Cross.</p>`,
     },
     {
-      heading: "Costa Rica: Cooking and the Language of Food",
-      content: `<p>Gastronomy at Nayara is not a meal. It is a continuation of the day's education. At Asia Luna, the family sits together, all three generations, and eats food that tells a story. The chef explains the origins of each ingredient, how volcanic soil shapes flavor, how altitude changes a coffee bean's character.</p>
+      heading: "Costa Rica: Cooking, Chocolate, and the Language of Food",
+      content: `<p>Gastronomy at Nayara is not a meal. It is a continuation of the day's education. At Asia Luna, the family sits together, all three generations, and eats food that tells a story. The chef explains how Costa Rican cacao becomes chocolate. The children taste it at every stage. They decide they prefer it bitter. This surprises everyone.</p>
 <p>The cooking classes are designed for families: at Ayla, open-fire techniques turn simple ingredients into something extraordinary. Children who have never cracked an egg learn to make tortillas from scratch. Teenagers who live on their phones forget them entirely when their hands are covered in masa. At Asia Luna, the fusion of Costa Rican and Asian flavors becomes a lesson in geography, history, and chemistry all at once.</p>
-<p>Food becomes the language families share. The vocabulary of spice, texture, and technique gives children a way to describe the world that they carry home with them.</p>`,
+<p>The chocolate experience is the one children remember years later. Bean to bar. Tasting at every stage. The moment a child discovers they prefer 85% dark is a moment of genuine self-knowledge. They carry that preference home. They tell their friends. They become, at seven years old, people who know what they like and can articulate why.</p>`,
     },
     {
       heading: "The Costa Rica Bucket List",
@@ -177,9 +176,13 @@ export const familyBucketListPost: BlogPostData = {
 <p><strong>The Cooking Class</strong>: At Ayla or Asia Luna. Families cook together, eat together, and learn that food is a language.</p>
 <p><strong>The Night Walk</strong>: Guided by naturalists. Red-eyed tree frogs, sleeping birds, the sounds of a rainforest after dark. Children remember this one forever.</p>
 <p><strong>The Butterfly Garden</strong>: 30+ species. The blue morpho alone is worth the visit. Children learn optics without knowing it.</p>
-`,
+<p><strong>The Chocolate Experience</strong>: Bean to bar. Tasting at every stage. The moment a child discovers they prefer 85% dark is a moment of genuine self-knowledge.</p>`,
     },
-
+    {
+      heading: "Where to Stay in Costa Rica",
+      content: `<p><strong><a href="/gardens">Nayara Gardens</a></strong>: For families who want space, privacy, and a pool of their own. The Arenal Pool Casitas are designed for families: separate sleeping areas, private gardens, and plunge pools surrounded by tropical plants. The resort's restaurants, spa, and trails are steps away, but the casita feels like its own world.</p>
+<p><strong><a href="/tented-camp">Nayara Tented Camp</a></strong>: For families who want immersion. The tents are luxurious, king beds, rain showers, hardwood floors, but the walls are open to the forest. You fall asleep to the sound of the river. You wake to birds. Children who stay here develop a different relationship with the outdoors. It is not something they visit. It is something they live inside.</p>`,
+    },
     {
       heading: "Alto Atacama: The Desert as Classroom",
       image: { src: "/manus-storage/family-atacama-biking_da3d4690.jpg", alt: "Family mountain biking through Atacama Desert canyons with red rock walls" },
@@ -208,11 +211,15 @@ export const familyBucketListPost: BlogPostData = {
 <p>The magic of the Moai is not just their scale, some stand over 30 feet tall, weighing 80 tons, but the mystery of how they arrived. How did an ancient civilization move these giants across the island without wheels, without metal tools, without written plans? Children ask this question immediately. Adults never stop asking it.</p>
 <p>Guided excursions take families to Ahu Tongariki at sunrise, where fifteen Moai stand in a row against the ocean. To Rano Raraku, the quarry where unfinished statues still lie half-buried in the hillside, frozen mid-creation. To Orongo, the ceremonial village perched on a volcanic crater's edge.</p>
 <p>Between the archaeology, families explore on horseback across the island's green hills, snorkel in waters so clear the coral seems painted, and learn the Rapa Nui language from locals who still speak it. This is not a museum visit. It is a living culture, and children who experience it understand something profound about human ingenuity and persistence.</p>`,
-      image: {
-        src: "/manus-storage/family-rapa-nui-moai_0b273e95.jpg",
-        alt: "Family walking toward the Moai at Ahu Tongariki, Easter Island — Nayara Hangaroa",
-        caption: "",
-      },
+    },
+    {
+      heading: "The Rapa Nui Bucket List",
+      content: `<p>For families at <a href="/hangaroa">Nayara Hangaroa</a>:</p>
+<p><strong>Ahu Tongariki at Sunrise</strong>: Fifteen Moai silhouetted against the Pacific dawn. The most powerful archaeological site in Polynesia.</p>
+<p><strong>Rano Raraku Quarry</strong>: Where the Moai were born. Unfinished statues still embedded in the hillside. Children become archaeologists for a morning.</p>
+<p><strong>Horseback Across the Island</strong>: Green hills, volcanic craters, ocean views. The way Rapa Nui people have traveled for centuries.</p>
+<p><strong>Snorkeling in Crystal Waters</strong>: Visibility that makes the ocean feel like air. Tropical fish, sea turtles, and coral gardens.</p>
+<p><strong>Rapa Nui Language and Culture</strong>: Learn greetings, hear legends, understand the living culture that still inhabits this island.</p>`,
     },
   ],
   sources: [

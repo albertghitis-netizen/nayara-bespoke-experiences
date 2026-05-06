@@ -728,7 +728,7 @@ function JournalBreak({ bgColor }: { bgColor: string }) {
 
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <a
-            href="/blog/three-kitchens-one-rainforest"
+            href="/blog/adventures-in-flavor"
             target="_blank"
             rel="noopener noreferrer"
             className="group block p-6 md:p-8 transition-all"

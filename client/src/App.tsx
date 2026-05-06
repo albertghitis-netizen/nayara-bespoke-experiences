@@ -71,13 +71,16 @@ const CaribbeanCoralReefBlog = lazy(() => import("./pages/CaribbeanCoralReefBlog
 const MayaRapaNuiClimateBlog = lazy(() => import("./pages/MayaRapaNuiClimateBlog"));
 const AtacamaWinterRomanceBlog = lazy(() => import("./pages/AtacamaWinterRomanceBlog"));
 const GoldenAgeLatinAmericaBlog = lazy(() => import("./pages/GoldenAgeLatinAmericaBlog"));
+const LujoDEspacioBlog = lazy(() => import("./pages/LujoDEspacioBlog"));
 const SevenElementsBlog = lazy(() => import("./pages/SevenElementsBlog"));
 const SunlitSustainabilityBlog = lazy(() => import("./pages/SunlitSustainabilityBlog"));
 const HolisticWellnessBlog = lazy(() => import("./pages/HolisticWellnessBlog"));
 const AncientWellnessEasterIslandBlog = lazy(() => import("./pages/AncientWellnessEasterIslandBlog"));
 const BiodensityUnderwaterBlog = lazy(() => import("./pages/BiodensityUnderwaterBlog"));
 const SoloTravelFemaleBlog = lazy(() => import("./pages/SoloTravelFemaleBlog"));
+const FamilyTravelBlog = lazy(() => import("./pages/FamilyTravelBlog"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
+const AdventuresInFlavorBlog = lazy(() => import("./pages/AdventuresInFlavorBlog"));
 const ArenalTimelessWonderBlog = lazy(() => import("./pages/ArenalTimelessWonderBlog"));
 const ToucansArenalBlog = lazy(() => import("./pages/ToucansArenalBlog"));
 const BocasFactsBlog = lazy(() => import("./pages/BocasFactsBlog"));
@@ -143,7 +146,6 @@ const VaikoaBarRestaurant = lazy(() => import("./pages/VaikoaBarRestaurant"));
 const CostaRicaExperiences = lazy(() => import("./pages/CostaRicaExperiences"));
 const CostaRicaWellness = lazy(() => import("./pages/CostaRicaWellness"));
 const CostaRicaGastronomy = lazy(() => import("./pages/CostaRicaGastronomy"));
-const ArenalGastronomy = lazy(() => import("./pages/ArenalGastronomy"));
 const AylaRestaurant = lazy(() => import("./pages/AylaRestaurant"));
 const AmorLocoRestaurant = lazy(() => import("./pages/AmorLocoRestaurant"));
 const AsiaLunaRestaurant = lazy(() => import("./pages/AsiaLunaRestaurant"));
@@ -286,7 +288,6 @@ function Router() {
           
           {/* ARCHIVED REDIRECT: /press - Previously redirected to /awards */}
           <Route path="/gastronomy" component={Gastronomy} />
-          <Route path="/gastronomy-arenal" component={ArenalGastronomy} />
           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
           <Route path="/newsletter/may" component={NewsletterMay} />
@@ -326,13 +327,16 @@ function Router() {
           <Route path="/journal/three-kitchens-one-rainforest">{() => { window.location.replace("/blog/three-kitchens-one-rainforest"); return null; }}</Route>
 
           <Route path="/blog/golden-age-latin-america" component={GoldenAgeLatinAmericaBlog} />
+          <Route path="/blog/lujo-despacio" component={LujoDEspacioBlog} />
           <Route path="/blog/seven-elements" component={SevenElementsBlog} />
           <Route path="/blog/sunlit-sustainability" component={SunlitSustainabilityBlog} />
           <Route path="/blog/holistic-wellness" component={HolisticWellnessBlog} />
           <Route path="/blog/ancient-wellness-easter-island" component={AncientWellnessEasterIslandBlog} />
           <Route path="/blog/biodensity-underwater" component={BiodensityUnderwaterBlog} />
           <Route path="/blog/solo-travel-female" component={SoloTravelFemaleBlog} />
+          <Route path="/blog/family-travel" component={FamilyTravelBlog} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
+          <Route path="/blog/adventures-in-flavor" component={AdventuresInFlavorBlog} />
           <Route path="/blog/arenal-timeless-wonder" component={ArenalTimelessWonderBlog} />
           <Route path="/blog/toucans-arenal" component={ToucansArenalBlog} />
           <Route path="/blog/bocas-facts" component={BocasFactsBlog} />

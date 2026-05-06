@@ -488,7 +488,7 @@ function RestaurantGridSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SWEET MOMENTS — Lyla's Gelato + Coffee Experience
+   SWEET MOMENTS — Lila's Gelato + Coffee Experience
    ═══════════════════════════════════════════════════════════════ */
 function SweetMomentsSection() {
   return (
@@ -507,7 +507,7 @@ function SweetMomentsSection() {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ ...body, color: PALETTE.text }}
             >
-              Sometimes the best moments are the simple ones. <strong>Lyla's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica — tropical fruits like guanábana and cas, local chocolate from the Caribbean coast, and seasonal inspirations churned fresh daily. Traditional Italian technique with Costa Rican ingredients, made in small batches — the result is something you cannot find anywhere else on Earth.
+              Sometimes the best moments are the simple ones. <strong>Lila's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica — tropical fruits like guanábana and cas, local chocolate from the Caribbean coast, and seasonal inspirations churned fresh daily. Traditional Italian technique with Costa Rican ingredients, made in small batches — the result is something you cannot find anywhere else on Earth.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -672,7 +672,7 @@ function NayaraDifferenceSection() {
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ ...body, color: PALETTE.text }}
             >
-              A single day might begin with a coffee class at 7 a.m., move to breakfast at La Terrazza, a cooking class at Ayla before lunch, an afternoon gelato at Lyla's, sunset cocktails at Lapa's Pool Bar, and dinner at Amor Loco. No transfers, no logistics, no friction — just a day that flows as naturally as the forest around you, from one extraordinary culinary moment to the next.
+              A single day might begin with a coffee class at 7 a.m., move to breakfast at La Terrazza, a cooking class at Ayla before lunch, an afternoon gelato at Lila's, sunset cocktails at Lapa's Pool Bar, and dinner at Amor Loco. No transfers, no logistics, no friction — just a day that flows as naturally as the forest around you, from one extraordinary culinary moment to the next.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"

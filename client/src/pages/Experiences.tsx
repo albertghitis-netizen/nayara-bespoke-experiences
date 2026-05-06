@@ -57,7 +57,7 @@ export default function Experiences() {
     <div className="min-h-screen bg-[#f7f5f0]">
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
-      <ExperientialTravelIntro />
+      <IntroSection />
       <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} label="Explore by Hotel" />
       <ExcursionGrid excursions={filtered} />
       <CTASection />
@@ -138,42 +138,28 @@ function HeroSection() {
 /* ═══════════════════════════════════════════════════════════════
    INTRO , Pillar description
    ═══════════════════════════════════════════════════════════════ */
-/* ─── EXPERIENTIAL TRAVEL INTRO ─── */
-function ExperientialTravelIntro() {
+function IntroSection() {
   return (
-    <section className="py-20 md:py-28 px-6 md:px-10 bg-[#f7f5f0]">
-      <div className="max-w-[1000px] mx-auto">
+    <section className="py-16 md:py-24 px-6 md:px-10">
+      <div className="max-w-[900px] mx-auto">
         <FadeIn>
-          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-6" style={{ ...body, fontWeight: 600 }}>EXPERIENTIAL TRAVEL</p>
-          <h2 className="text-[#3B2B26] mb-8" style={{ ...heading, fontSize: "clamp(28px, 4vw, 42px)", lineHeight: 1.15 }}>
-            Travel That Transforms
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>The Nayara Experience</p>
+          <h2 className="text-[#4B4A4A] mb-8" style={{ ...heading, fontSize: "clamp(24px, 3.5vw, 38px)", lineHeight: 1.15 }}>
+            Every Destination Tells a Different Story
           </h2>
-          <p className="text-[#3B2B26]/75 text-[16px] leading-[1.8] mb-10" style={body}>
-            Experiential travel goes beyond sightseeing. It's about immersion—learning from local guides, participating in cultural traditions, and understanding ecosystems from the inside. At Nayara, every excursion is designed to connect you deeply with the destination, whether you're stargazing in the Atacama, trekking through Costa Rican cloud forests, or exploring the archaeological wonders of Easter Island.
+          <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
+            From stargazing in the world's driest desert to snorkeling Caribbean reefs, from hiking volcanic craters on Easter Island to zip-lining through Costa Rica's cloud forest, every Nayara experience is designed by the land it inhabits. Our excursions are led by local guides, grounded in cultural heritage, and calibrated to the rhythms of each ecosystem.
           </p>
-          
-          {/* Data Section */}
-          <div className="grid grid-cols-3 gap-6 md:gap-10 mt-12 pt-8 border-t border-[#3B2B26]/10">
-            <div>
-              <p className="text-[#3B2B26] text-[32px] md:text-[40px]" style={{ ...heading, fontWeight: 600 }}>6</p>
-              <p className="text-[#3B2B26]/60 text-[13px] tracking-[0.05em] mt-2" style={body}>Destinations Across Three Countries</p>
-            </div>
-            <div>
-              <p className="text-[#3B2B26] text-[32px] md:text-[40px]" style={{ ...heading, fontWeight: 600 }}>80+</p>
-              <p className="text-[#3B2B26]/60 text-[13px] tracking-[0.05em] mt-2" style={body}>Curated Excursions & Activities</p>
-            </div>
-            <div>
-              <p className="text-[#3B2B26] text-[32px] md:text-[40px]" style={{ ...heading, fontWeight: 600 }}>100%</p>
-              <p className="text-[#3B2B26]/60 text-[13px] tracking-[0.05em] mt-2" style={body}>Local Guides & Expert Naturalists</p>
-            </div>
-          </div>
+          <Link href="/blog/experiential-travel-nayara-2026" className="inline-block mt-6 text-[#3B2B26]/50 text-[13px] tracking-[0.05em] border-b border-[#3B2B26]/20 pb-0.5 hover:text-[#3B2B26]/80 hover:border-[#3B2B26]/40 transition-colors" style={body}>
+            Read: Why Nayara Is the Ultimate Experiential Travel Destination in 2026 →
+          </Link>
+          <p className="hidden">
+          </p>
         </FadeIn>
       </div>
     </section>
   );
 }
-
-
 
 /* ═══════════════════════════════════════════════════════════════
    EXCURSION GRID , Cards for all filtered excursions
