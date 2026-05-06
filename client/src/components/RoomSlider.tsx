@@ -34,6 +34,7 @@ interface RoomSliderProps {
   headline?: string;
   description?: string;
   rooms: RoomSliderCard[];
+  forceVideoLeft?: boolean;
   palette: {
     bg: string;
     text: string;
@@ -51,6 +52,7 @@ export default function RoomSlider({
   headline = "Our Rooms",
   description,
   rooms,
+  forceVideoLeft,
   palette,
 }: RoomSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -84,7 +86,7 @@ export default function RoomSlider({
   const pillBg = palette.pillBg || palette.primary;
   const pillText = palette.pillText || "#ffffff";
   const currentRoom = rooms[currentIndex];
-  const isVideoLeft = currentIndex % 2 === 1;
+  const isVideoLeft = forceVideoLeft !== undefined ? forceVideoLeft : currentIndex % 2 === 1;
 
   const slideVariants = {
     enter: (dir: number) => ({ x: dir > 0 ? 150 : -150, opacity: 0 }),
@@ -172,6 +174,7 @@ export default function RoomSlider({
       </div>
 
       {/* Progress dots */}
+      {rooms.length > 1 && (
       <div className="flex gap-2 mt-10">
         {rooms.map((_, i) => (
           <button
@@ -185,6 +188,7 @@ export default function RoomSlider({
           />
         ))}
       </div>
+      )}
     </motion.div>
   );
 
@@ -384,6 +388,8 @@ export default function RoomSlider({
       </div>
 
       {/* Navigation arrows , always visible */}
+      {rooms.length > 1 && (
+      <>
       <button
         onClick={handlePrev}
         className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group"
@@ -404,6 +410,8 @@ export default function RoomSlider({
       >
         <ChevronRight className="w-7 h-7" strokeWidth={2.5} />
       </button>
+      </>
+      )}
 
       {/* ─── MOBILE LAYOUT (full-screen video with overlay) ─── */}
       <div className="md:hidden w-full h-full relative">
@@ -467,6 +475,8 @@ export default function RoomSlider({
         </AnimatePresence>
 
         {/* Mobile arrows */}
+        {rooms.length > 1 && (
+        <>
         <button onClick={handlePrev} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95" style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.3)" }}>
           <ChevronLeft className="w-6 h-6" strokeWidth={2.5} />
         </button>
@@ -480,6 +490,8 @@ export default function RoomSlider({
             <button key={i} onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); }} className="h-2 rounded-full transition-all" style={{ backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.4)", width: i === currentIndex ? "24px" : "8px" }} />
           ))}
         </div>
+        </>
+        )}
       </div>
     </section>
   );

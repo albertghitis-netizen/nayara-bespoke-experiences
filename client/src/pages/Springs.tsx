@@ -111,7 +111,7 @@ const SPRINGS_ROOMS: RoomSliderCard[] = [
     label: "Springs Villa",
     tagline: "Private hot spring pool villas in the rainforest canopy",
     guests: "2 Adults",
-    video: "/manus-storage/NayaraSprings-DJI_0968-byBriceFerreStudio_bd1143c6.jpg",
+    video: "/manus-storage/springs-villa-reel_f264d2c5.mp4",
     exploreLink: "/springs/rooms/springs-villa",
     bookingUrl: BOOKING_URLS.springs,
   },
@@ -186,6 +186,7 @@ export default function Springs() {
           headline="Springs Villa"
           description="Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation."
           rooms={SPRINGS_ROOMS}
+          forceVideoLeft={true}
           palette={{
             bg: PALETTE.gradientEnd,
             text: PALETTE.text,

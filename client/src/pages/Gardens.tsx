@@ -130,6 +130,17 @@ const roomCards = [
 
 const GARDENS_ROOMS: RoomSliderCard[] = [
   {
+    id: "arenal-pool-casita",
+    label: "Arenal Pool Casita",
+    tagline: "Private plunge pool villas in the rainforest canopy",
+    sqm: "93",
+    guests: "2 Adults + 1 Child",
+    video: "/manus-storage/arenal-pool-casita-reel_223077fb.mp4",
+    photo: "/manus-storage/gardens-casita-square_c0e6674c.jpg",
+    exploreLink: "/gardens/rooms/arenal-pool-casita",
+    bookingUrl: BOOKING_URLS.gardens,
+  },
+  {
     id: "rainforest-pool-villa",
     label: "Rainforest Pool Villa",
     tagline: "Expansive villas with panoramic volcano views",
@@ -138,17 +149,6 @@ const GARDENS_ROOMS: RoomSliderCard[] = [
     video: "/manus-storage/gardens-rpv-vertical-916_94afded7.mp4",
     photo: "/manus-storage/gardens-rpv-landscape_0f7db594.jpg",
     exploreLink: "/gardens/rooms/rainforest-pool-villa",
-    bookingUrl: BOOKING_URLS.gardens,
-  },
-  {
-    id: "arenal-pool-casita",
-    label: "Arenal Pool Casita",
-    tagline: "Private plunge pool villas in the rainforest canopy",
-    sqm: "93",
-    guests: "2 Adults + 1 Child",
-    video: "/manus-storage/DJI_0220-NayaraGardens-CasitabyBriceFerreStudio_a4f06c62.jpg",
-    photo: "/manus-storage/gardens-casita-square_c0e6674c.jpg",
-    exploreLink: "/gardens/rooms/arenal-pool-casita",
     bookingUrl: BOOKING_URLS.gardens,
   },
 ];
