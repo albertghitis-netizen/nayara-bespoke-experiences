@@ -807,8 +807,8 @@ function AwardsHighlightSection() {
           <div className="mt-12 text-center">
             <Link
               href="/awards"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80 border"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "transparent", color: "#868B75", borderColor: "#868B75" }}
             >
               View All Awards & Press
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -1082,11 +1082,11 @@ function NayaraJournalSection() {
         {/* CTA below cards , matches Awards pattern */}
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
           <div className="mt-12 text-center">
-            <Link
-              href="/journal"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
-            >
+              <Link
+                href="/journal"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80 border"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "transparent", color: "#868B75", borderColor: "#868B75" }}
+              >
               Enter the Journal
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -1820,7 +1820,7 @@ function BrandCTA() {
           <button
             onClick={goNext}
             className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110"
-            style={{ borderColor: "rgba(176,141,87,0.4)", color: "rgba(176,141,87,0.8)" }}
+            style={{ borderColor: "#868B75", color: "#868B75" }}
             aria-label="Next"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
