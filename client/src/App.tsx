@@ -143,6 +143,7 @@ const VaikoaBarRestaurant = lazy(() => import("./pages/VaikoaBarRestaurant"));
 const CostaRicaExperiences = lazy(() => import("./pages/CostaRicaExperiences"));
 const CostaRicaWellness = lazy(() => import("./pages/CostaRicaWellness"));
 const CostaRicaGastronomy = lazy(() => import("./pages/CostaRicaGastronomy"));
+const ArenalGastronomy = lazy(() => import("./pages/ArenalGastronomy"));
 const AylaRestaurant = lazy(() => import("./pages/AylaRestaurant"));
 const AmorLocoRestaurant = lazy(() => import("./pages/AmorLocoRestaurant"));
 const AsiaLunaRestaurant = lazy(() => import("./pages/AsiaLunaRestaurant"));
@@ -285,6 +286,7 @@ function Router() {
           
           {/* ARCHIVED REDIRECT: /press - Previously redirected to /awards */}
           <Route path="/gastronomy" component={Gastronomy} />
+          <Route path="/gastronomy-arenal" component={ArenalGastronomy} />
           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
           <Route path="/newsletter/may" component={NewsletterMay} />
