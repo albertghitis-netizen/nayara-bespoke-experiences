@@ -164,7 +164,7 @@ function ExperientialTravelIntro() {
             </div>
             <div>
               <p className="text-[#3B2B26] text-[32px] md:text-[40px]" style={{ ...heading, fontWeight: 600 }}>100%</p>
-              <p className="text-[#3B2B26]/60 text-[13px] tracking-[0.05em] mt-2" style={body}>Local Guides & Cultural Experts</p>
+              <p className="text-[#3B2B26]/60 text-[13px] tracking-[0.05em] mt-2" style={body}>Local Guides & Expert Naturalists</p>
             </div>
           </div>
         </FadeIn>

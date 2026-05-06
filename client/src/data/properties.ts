@@ -420,7 +420,7 @@ const exploreNayaraExperiences: Excursion[] = [
     suggestedTime: "9:00 AM",
     description: "Tony, our head gardener and resident sloth-spotter, leads you through the cecropia trees and canopy corridors where two- and three-toed sloths are almost always found. He knows their habits, their favorite trees, and exactly where to look. A gentle, unhurried experience , at sloth pace.",
     highlights: ["Resident sloth-spotting expert", "Two- and three-toed sloths", "Family-friendly, all ages welcome"],
-    verticalVideo: "/manus-storage/tony-sloth-new-clip_b6a401d3.mp4",
+    verticalVideo: "/manus-storage/tony-sloth-trimmed_eb2780ce.mp4",
     featured: true,
     placeholder: false,
     category: "nature",

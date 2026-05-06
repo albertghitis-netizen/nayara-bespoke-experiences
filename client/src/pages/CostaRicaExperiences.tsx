@@ -513,7 +513,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
 
 function ThermasSection({ palette }: { palette: PropertyPalette }) {
   const thermasImage = `${CDN_BASE}/hot-springs-hero_a60a0e92.jpg`;
-  const thermasVideoH = "/manus-storage/las-termas-hotsprings_2d9de067.mp4";
+  const thermasVideoH = "/manus-storage/AA8CE881-7D67-4BB3-AE42-CE3783273B45(1)_9fdd2a36.mov";
 
   return (
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
