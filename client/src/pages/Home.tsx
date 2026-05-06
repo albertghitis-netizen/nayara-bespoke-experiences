@@ -1741,32 +1741,32 @@ function BrandCTA() {
   return (
     <section
       className="relative py-28 md:py-40 px-6 overflow-hidden"
-      style={{ backgroundColor: "#1a0f0a" }}
+      style={{ backgroundColor: "#F7F5F0" }}
     >
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a0f0a] via-[#2a1a10] to-[#1a0f0a]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F7F5F0] via-[#F5F3ED] to-[#F7F5F0]" />
 
       <div className="relative z-10 max-w-[900px] mx-auto text-center">
         {/* Decorative line */}
-        <div className="w-16 h-px mx-auto mb-8" style={{ backgroundColor: "rgba(176,141,87,0.4)" }} />
+        <div className="w-16 h-px mx-auto mb-8" style={{ backgroundColor: "#868B75" }} />
 
         <p
           className="text-[10px] tracking-[0.4em] uppercase mb-6"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(176,141,87,0.7)" }}
+          style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#868B75" }}
         >
           Begin Your Journey
         </p>
 
         <h2
           className="text-3xl md:text-5xl lg:text-[56px] leading-[1.1] tracking-wide mb-8"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}
         >
           Six Landscapes.<br />One Invitation.
         </h2>
 
         <p
           className="text-base md:text-lg leading-relaxed max-w-[600px] mx-auto mb-14"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "rgba(247,245,240,0.6)" }}
+          style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "rgba(59,43,38,0.6)" }}
         >
           From volcanic rainforest to the driest desert on Earth, from a Caribbean archipelago to the most remote island in the Pacific , discover which Nayara calls to you.
         </p>
@@ -1777,7 +1777,7 @@ function BrandCTA() {
           <button
             onClick={goPrev}
             className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110"
-            style={{ borderColor: "rgba(176,141,87,0.4)", color: "rgba(176,141,87,0.8)" }}
+            style={{ borderColor: "#868B75", color: "#868B75" }}
             aria-label="Previous"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -1795,9 +1795,9 @@ function BrandCTA() {
               fontSize: "12px",
               letterSpacing: "0.18em",
               textTransform: "uppercase" as const,
-              color: "#F7F5F0",
-              backgroundColor: "rgba(176,141,87,0.15)",
-              borderColor: "rgba(176,141,87,0.5)",
+              color: "#3B2B26",
+              backgroundColor: "rgba(134,139,117,0.1)",
+              borderColor: "#868B75",
             }}
           >
             <AnimatePresence mode="wait">
