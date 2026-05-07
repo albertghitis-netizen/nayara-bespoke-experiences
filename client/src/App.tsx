@@ -161,6 +161,7 @@ const CostaRicaSustainability = lazy(() => import("./pages/CostaRicaSustainabili
 const AtacamaSustainability = lazy(() => import("./pages/AtacamaSustainability"));
 
 const BocasRooms = lazy(() => import("./pages/BocasRooms"));
+const BocasSustainability = lazy(() => import("./pages/BocasSustainability"));
 const GardensRooms = lazy(() => import("./pages/GardensRooms"));
 // SpringsRooms deleted , Springs only has one room type (Springs Villa)
 const HangaroaRooms = lazy(() => import("./pages/HangaroaRooms"));
@@ -276,7 +277,7 @@ function Router() {
           <Route path="/bocas-del-toro/experiences">{() => <CostaRicaExperiences propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy">{() => <CostaRicaGastronomy propertySlug="bocas-del-toro" />}</Route>
-          <Route path="/bocas-del-toro/sustainability">{() => <CostaRicaSustainability propertySlug="bocas-del-toro" />}</Route>
+          <Route path="/bocas-del-toro/sustainability" component={BocasSustainability} />
           <Route path="/journal" component={Journal} />
            {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/awards" component={AwardsAndPress} />
