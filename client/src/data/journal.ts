@@ -548,7 +548,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/family-bucket-list-nayara",
     property: "gardens",
     type: "article",
-    image: "/manus-storage/journal-family-bucket-list_0bb784d5.jpg",
+    image: "/manus-storage/journal-family-cover-v2_8d8fbf0a.jpg",
     excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
   },
 
