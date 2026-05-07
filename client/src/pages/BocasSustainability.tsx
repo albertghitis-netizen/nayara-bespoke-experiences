@@ -27,7 +27,7 @@ const PALETTE = {
   sand: "#F7F5F0",       // Bone (light section bg)
   white: "#FFFFFF",
   text: "#0D0704",        // Super dark brown on light
-  muted: "#1E3A8A",      // Royal blue for muted labels
+  muted: "#1A0A00",      // Pure dark brown for body text on light backgrounds
   divider: "#B8D4E8",
   faint: "rgba(30,58,138,0.07)",
 };
@@ -93,7 +93,7 @@ export default function BocasSustainability() {
       <CommunityEducation />
       <ClosingCTA />
 
-      <Footer pageType="property" bgColor={PALETTE.ocean} textColor={PALETTE.white} />
+      <Footer pageType="property" bgColor={PALETTE.ocean} textColor={PALETTE.white} propertyName="Bocas del Toro" />
     </div>
   );
 }
@@ -199,7 +199,7 @@ function TheGlobalCrisis() {
           </p>
           <h2
             className="text-3xl md:text-5xl mb-10 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
             The Fourth Mass Bleaching Event
           </h2>
@@ -266,7 +266,7 @@ function BocasContext() {
           </p>
           <h2
             className="text-2xl md:text-3xl mb-6 leading-[1.2]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
             A Reef Worth Fighting For
           </h2>
@@ -308,7 +308,7 @@ function ThePartnership() {
           </p>
           <h2
             className="text-3xl md:text-5xl mb-10 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
             Caribbean Coral Restoration
           </h2>
@@ -348,7 +348,7 @@ function ThePartnership() {
               borderColor: PALETTE.accent,
               fontFamily: "var(--font-display)",
               fontWeight: 400,
-              color: PALETTE.ocean,
+              color: "#1A0A00",
             }}
           >
             "Our main goal is to set an example — and help other local hotels start coral reef restoration programs of their own."
@@ -454,7 +454,7 @@ function WhatMakesItUnique() {
           </p>
           <h2
             className="text-3xl md:text-4xl mb-16 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
             Two Things That Truly Differentiate This Program
           </h2>
@@ -483,7 +483,7 @@ function WhatMakesItUnique() {
                 </span>
                 <h3
                   className="text-2xl mb-5"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
                 >
                   {item.title}
                 </h3>
@@ -520,7 +520,7 @@ function GuestExperience() {
           </p>
           <h2
             className="text-2xl md:text-3xl mb-6 leading-[1.2]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
             What Guests Experience
           </h2>
