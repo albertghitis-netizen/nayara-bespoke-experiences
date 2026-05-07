@@ -20,6 +20,7 @@ export const gastronomyBlogPost: BlogPostData = {
   heroVideo: {
     desktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4",
   },
+  mobileHeroVideo: "/manus-storage/975DF34E-CD76-492C-B4AF-E68A62C02E30_40151f87.jpg",
   keyFindings: [
     "Guests at any of the three Nayara properties enjoy seamless access to all restaurants and bars across the shared ecosystem.",
     "Six distinct restaurants span Italian, Asian fusion, Mediterranean, and fine dining , each rooted in Costa Rican ingredients.",
