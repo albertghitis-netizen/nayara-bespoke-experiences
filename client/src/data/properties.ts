@@ -570,7 +570,7 @@ const exploreNayaraExperiences: Excursion[] = [
     difficulty: "Easy",
     description: "Five rums, aged from two to twenty-three years, each with a story of terroir and tradition. Learn to nose, taste, and appreciate the difference between industrial and artisanal production. Central America's most storied spirit.",
     highlights: ["5 rums aged 2\u201323 years", "Artisanal vs industrial", "Terroir and tradition"],
-    image: "/manus-storage/nostalgia-1_2e268294.jpg",
+    image: "/manus-storage/rum-tasting-cocktail_98f56e17.jpg",
     featured: true,
     placeholder: false,
     category: "gastronomy",
