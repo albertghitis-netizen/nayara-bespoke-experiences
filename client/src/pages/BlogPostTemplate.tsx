@@ -134,15 +134,13 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
         {/* Read overlay — bottom-center pill */}
         <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center pointer-events-none">
           <div
-            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer pointer-events-auto transition-all duration-300"
-            style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.25)" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.28)"; (e.currentTarget as HTMLElement).style.border = "1px solid rgba(255,255,255,0.5)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLElement).style.border = "1px solid rgba(255,255,255,0.25)"; }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer pointer-events-auto"
+            style={{ background: "rgba(255,255,255,0.28)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.5)" }}
           >
             <BookOpen className="w-3.5 h-3.5 text-white" />
             <span className="text-white text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Read</span>
             {/* Custom long-stem down arrow */}
-            <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white transition-transform duration-300 group-hover:translate-y-0.5">
+            <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="translate-y-0.5">
               <line x1="7" y1="0" x2="7" y2="14" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
               <polyline points="3,10 7,15 11,10" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
