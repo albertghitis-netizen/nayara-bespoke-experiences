@@ -228,7 +228,6 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[1],
     nextBgColor: SECTION_COLORS[2],
-    link: "/bocas-del-toro",
     badges: true,
     blogUrl: "/blog/bocas-conde-nast",
     blogTitle: "Condé Nast names Bocas #1 in Central America",

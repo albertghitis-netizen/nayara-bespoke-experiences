@@ -61,7 +61,6 @@ const AtacamaMarsEarthBlog = lazy(() => import("./pages/AtacamaMarsEarthBlog"));
 const NayaraStoryBlog = lazy(() => import("./pages/NayaraStoryBlog"));
 const WellnessHospitalityBlog = lazy(() => import("./pages/WellnessHospitalityBlog"));
 const NayaraByNightBlog = lazy(() => import("./pages/NayaraByNightBlog"));
-const NayaraByNight = lazy(() => import("./pages/NayaraByNight"));
 const BocasHistoryCultureNatureBlog = lazy(() => import("./pages/BocasHistoryCultureNatureBlog"));
 const NayaraBocasResortExperienceBlog = lazy(() => import("./pages/NayaraBocasResortExperienceBlog"));
 const BocasCondeNastAwardBlog = lazy(() => import("./pages/BocasCondeNastAwardBlog"));
@@ -312,7 +311,6 @@ function Router() {
           <Route path="/blog/atacama-mars" component={AtacamaMarsEarthBlog} />
           <Route path="/blog/nayara-story" component={NayaraStoryBlog} />
           <Route path="/blog/wellness-hospitality" component={WellnessHospitalityBlog} />
-          <Route path="/by-night" component={NayaraByNight} />
           <Route path="/blog/nayara-by-night" component={NayaraByNightBlog} />
           <Route path="/blog/bocas-history-culture-nature" component={BocasHistoryCultureNatureBlog} />
           <Route path="/blog/nayara-bocas-resort-experience" component={NayaraBocasResortExperienceBlog} />

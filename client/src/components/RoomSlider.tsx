@@ -296,11 +296,13 @@ export default function RoomSlider({
                       Reserve
                     </a>
                   </div>
+                  {rooms.length > 1 && (
                   <div className="flex gap-2 mt-10">
                     {rooms.map((_, i) => (
                       <button key={i} onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); }} className="h-1.5 rounded-full transition-all" style={{ backgroundColor: i === currentIndex ? palette.primary : `${palette.primary}30`, width: i === currentIndex ? "24px" : "8px" }} />
                     ))}
                   </div>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -365,11 +367,13 @@ export default function RoomSlider({
                       Reserve
                     </a>
                   </div>
+                  {rooms.length > 1 && (
                   <div className="flex gap-2 mt-10">
                     {rooms.map((_, i) => (
                       <button key={i} onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); }} className="h-1.5 rounded-full transition-all" style={{ backgroundColor: i === currentIndex ? palette.primary : `${palette.primary}30`, width: i === currentIndex ? "24px" : "8px" }} />
                     ))}
                   </div>
+                  )}
                 </div>
               </div>
               {/* Video half */}
