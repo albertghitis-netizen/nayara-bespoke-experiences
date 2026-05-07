@@ -19,6 +19,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "wouter";
 import { Helmet } from "react-helmet-async";
+import { BookOpen, ArrowUpRight } from "lucide-react";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import NativeVideo from "@/components/NativeVideo";
@@ -130,8 +131,17 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
         )}
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
-
-
+        {/* Read overlay — bottom-left pill */}
+        <div className="absolute bottom-6 left-6 z-10">
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+            style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.25)" }}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-white" />
+            <span className="text-white text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Read</span>
+            <ArrowUpRight className="w-3 h-3 text-white" />
+          </div>
+        </div>
         {/* H1 title overlay for immersive hero (hasAudio) */}
         {post.hasAudio && (
           <div className="absolute inset-0 z-10 flex items-center justify-center px-8">

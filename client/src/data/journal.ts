@@ -100,7 +100,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/three-kitchens-one-rainforest",
     property: "gardens",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ayla-restaurant_0b1c2d3e.jpg",
+    image: "/manus-storage/journal-three-kitchens_3e02f35f.jpg",
     excerpt: "Three restaurants, one rainforest. How Nayara's kitchens at Ayla, Nostalgia, and Nayara Springs define Costa Rican-Mediterranean cuisine.",
     featured: true,
   },
@@ -540,7 +540,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/experiential-travel-nayara-2026",
     property: "brand",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
+    image: "/manus-storage/journal-experiential-travel_b0f82291.jpg",
     excerpt: "From volcano hikes to jungle immersion, discover why Nayara defines experiential luxury in 2026.",
   },
   {
@@ -549,7 +549,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/family-bucket-list-nayara",
     property: "gardens",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/(Rooms)NayaraTent3copy_54044994.webp",
+    image: "/manus-storage/journal-family-bucket-list_0bb784d5.jpg",
     excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
   },
 
