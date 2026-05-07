@@ -271,14 +271,14 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
 
                 {/* In-body image */}
                 {section.image && (
-                  <figure className="my-10">
+                  <figure className="my-10 overflow-hidden rounded-lg shadow-md">
                     <img
                       src={section.image.src}
                       alt={section.image.alt}
-                      className="w-full rounded-lg shadow-md"
+                      className="w-full rounded-lg shadow-md transition-transform duration-700 ease-in-out hover:scale-105"
                       loading="lazy"
+                      style={{ display: "block", transformOrigin: "center center" }}
                     />
-
                   </figure>
                 )}
 
