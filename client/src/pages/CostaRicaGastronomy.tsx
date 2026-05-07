@@ -164,7 +164,7 @@ const BARS: BarEntry[] = [
     description: "Tropical and refreshing — cocktails built around fresh tropical juices, local rum, and herbs picked from the property's garden. The infinity pool setting, with Arenal Volcano as backdrop, makes every drink feel like a celebration.",
   },
   {
-    name: "Henry's Lounge Bar",
+    name: "Henry's Bar",
     property: "Nayara Tented Camp",
     description: "The cocktail menu is crafted around Costa Rican spirits — guaro, local rum, coffee liqueur — mixed with fresh ingredients that change with the season. The atmosphere — low lighting, the sound of the forest, the warmth of the fire pit — is the kind of place where a well-made cocktail is all you need.",
   },

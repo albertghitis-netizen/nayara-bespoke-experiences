@@ -85,11 +85,11 @@ export const gastronomyBlogPost: BlogPostData = {
       heading: "When the Sun Sets: The Bar Scene",
       content: `<p>When the sun sets, the bars come alive. <strong>Lapa's Pool Bar</strong> at Nayara Springs keeps things tropical and refreshing , cocktails built around fresh tropical juices, local rum, and herbs picked from the property's garden. The infinity pool setting, with Arenal Volcano as backdrop, makes every drink feel like a celebration.</p>
 <p><strong>Las Thermas Bar</strong> at Nayara Tented Camp serves drinks poolside at the hot springs , imagine sipping a passion fruit mojito while soaking in geothermally heated water beneath the stars. The geothermal waters create an otherworldly setting where relaxation and craft cocktails merge into pure magic.</p>
-<p><strong>Henry's Lounge Bar</strong> at Nayara Tented Camp provides a more intimate setting for evening conversation. The cocktail menu is crafted around Costa Rican spirits , guaro, local rum, coffee liqueur , mixed with fresh ingredients that change with the season. The bartenders know their craft, and the atmosphere , low lighting, the sound of the forest, the warmth of the fire pit nearby , is the kind of place where a well-made cocktail is all you need.</p>`,
+<p><strong>Henry's Bar</strong> at Nayara Tented Camp provides a more intimate setting for evening conversation. The cocktail menu is crafted around Costa Rican spirits , guaro, local rum, coffee liqueur , mixed with fresh ingredients that change with the season. The bartenders know their craft, and the atmosphere , low lighting, the sound of the forest, the warmth of the fire pit nearby , is the kind of place where a well-made cocktail is all you need.</p>`,
       image: {
         src: "/manus-storage/henrys-bar_0945a553.jpg",
-        alt: "Henry's Lounge Bar at Nayara Tented Camp, intimate cocktail setting with Costa Rican spirits",
-        caption: "Henry's Lounge Bar: where craft cocktails meet rainforest ambiance"
+        alt: "Henry's Bar at Nayara Tented Camp, intimate cocktail setting with Costa Rican spirits",
+        caption: "Henry's Bar: where craft cocktails meet rainforest ambiance"
       },
     },
     {
