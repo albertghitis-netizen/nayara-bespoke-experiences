@@ -139,7 +139,7 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
           >
             <BookOpen className="w-3.5 h-3.5 text-white" />
             <span className="text-white text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Read</span>
-            <ArrowDown className="w-3 h-3 text-white" />
+            <ArrowDown className="w-4 h-4 text-white" />
           </div>
         </div>
         {/* H1 title overlay for immersive hero (hasAudio) */}
