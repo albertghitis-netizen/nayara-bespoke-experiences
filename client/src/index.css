@@ -373,3 +373,54 @@ video::cue-region {
 video {
   -webkit-tap-highlight-color: transparent !important;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL LINK HOVER — subtle animation on every link
+   ═══════════════════════════════════════════════════════════ */
+a {
+  transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+
+a:hover {
+  opacity: 0.7 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Exceptions: nav pills, buttons, and full-block image links
+   should not shift — only their inner text/icon fades */
+a.no-hover-lift:hover,
+button:hover {
+  transform: none !important;
+}
+
+/* Footer nav links — color shift to semi-transparent on hover */
+footer a {
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
+}
+
+footer a:hover {
+  opacity: 0.55 !important;
+  transform: translateX(2px) !important;
+}
+
+/* Social icons — scale up slightly */
+footer .social-icon-link:hover {
+  opacity: 1 !important;
+  transform: scale(1.15) translateY(-1px) !important;
+}
+
+/* Newsletter circle — glow + color shift on hover */
+footer .newsletter-cta {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+footer .newsletter-cta:hover {
+  opacity: 1 !important;
+  transform: scale(1.02) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.4) !important;
+  border-color: rgba(255,255,255,0.7) !important;
+}
+
+footer .newsletter-cta:hover .newsletter-text {
+  opacity: 0.6 !important;
+}

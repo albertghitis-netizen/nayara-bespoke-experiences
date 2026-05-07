@@ -253,12 +253,12 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
-            className="inline-flex items-center justify-center h-12 px-12 rounded-full border transition-all duration-300"
-            style={{ borderColor: `${textColor}33` }}
+            className="newsletter-cta inline-flex items-center justify-center h-12 px-12 rounded-full border"
+            style={{ borderColor: `${textColor}55` }}
           >
             <span
-              className="text-[11px] tracking-[0.25em]"
-              style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
+              className="newsletter-text text-[11px] tracking-[0.25em] transition-opacity duration-300"
+              style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.22em" }}
             >
               Stay Inspired with the Nayara Newsletter
             </span>
@@ -267,10 +267,10 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
 
         {/* Social icons , centered, larger */}
         <div className="flex items-center justify-center gap-8 mt-6 mb-8" style={{ color: textColor }}>
-          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><InstagramIcon /></a>
-          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><YouTubeIcon /></a>
-          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><FacebookIcon /></a>
-          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }} className="hover:opacity-80 transition-opacity"><TikTokIcon /></a>
+          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><InstagramIcon /></a>
+          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><YouTubeIcon /></a>
+          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><FacebookIcon /></a>
+          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><TikTokIcon /></a>
         </div>
 
         {/* Copyright + Privacy */}
