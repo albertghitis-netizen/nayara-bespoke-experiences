@@ -36,7 +36,7 @@ const PILL_BORDER = "rgba(255,255,255,0.25)";
 
 /* ── CDN Images ── */
 const IMG = {
-  heroVideo: "/manus-storage/05-NayaraTentedCamp-ColorCorrected-NoFade_e1e93d71.mp4",
+  heroVideo: "/manus-storage/family-tent-new_90ea0d30.mp4",
   hero: "/manus-storage/68.FamilyTentandVolcanojpg_c3734d05.jpeg",
   tentExterior: "/manus-storage/65_9a53e6a2.jpg",
   droneAngle: "/manus-storage/1.Familytentviewoftheroofs-DJI_0123_44ada3fa.jpeg",

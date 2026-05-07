@@ -61,7 +61,7 @@ const ROOMS: RoomCard[] = [
     sqft: "2,400",
     sqm: "223",
     guests: "2 adults + 3 children",
-    video: "/manus-storage/05-NayaraTentedCamp-ColorCorrected-NoFade_e1e93d71.mp4",
+    video: "/manus-storage/family-tent-new_90ea0d30.mp4",
     photo: "/manus-storage/8.Familytentkidsroom.4O1A0231_f12fc400.jpeg",
     photoAlt: "Family Tent kids room with two queen beds and rainforest views",
     exploreLink: "/tented-camp/rooms/family-tent",
