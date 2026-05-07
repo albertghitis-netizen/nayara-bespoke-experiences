@@ -925,7 +925,7 @@ const TENTED_CAMP_ROOMS: RoomSliderCard[] = [
     sqft: "2,400",
     sqm: "223",
     guests: "2 adults + 3 children",
-    video: "/manus-storage/tented-camp-family-tent-footage_d85a83c2.mp4",
+    video: "/manus-storage/family-tent-new_90ea0d30.mp4",
     exploreLink: "/tented-camp/rooms/family-tent",
     bookingUrl: BOOKING_URLS["tented-camp"],
   },
