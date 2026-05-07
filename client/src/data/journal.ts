@@ -325,12 +325,11 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "conde-nast-bocas",
-    title: "Why Condé Nast Traveler Named Nayara Bocas del Toro #1",
+    title: "Nayara Bocas del Toro: #1 Resort in Central America — Condé Nast Traveler 2025",
     url: "/blog/bocas-conde-nast",
     property: "bocas-del-toro",
     type: "article",
-    image: "/manus-storage/journal-bocas-square_07eed662.mp4",
-    video: true,
+    image: "/manus-storage/bocas-aerial-cover_46f0bbf4.jpg",
     excerpt: "Condé Nast Traveler readers voted Nayara Bocas del Toro the #1 resort in Central and South America. Here's why.",
     featured: true,
   },
@@ -536,7 +535,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "experiential-travel-2026",
-    title: "Why Nayara Is the Ultimate Experiential Travel Destination in 2026",
+    title: "Experiential Travel at Nayara: Where Every Destination is a Discovery",
     url: "/blog/experiential-travel-nayara-2026",
     property: "brand",
     type: "article",
@@ -545,7 +544,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "family-bucket-list",
-    title: "The Family Bucket List: Adventures at Nayara Gardens & Tented Camp",
+    title: "The World as a Classroom: A Family Guide to Every Nayara Destination",
     url: "/blog/family-bucket-list-nayara",
     property: "gardens",
     type: "article",
