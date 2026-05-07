@@ -96,7 +96,7 @@ function destToProperty(dest: string): JournalProperty {
 const blogArticles: JournalEntry[] = [
   {
     id: "three-kitchens-one-rainforest",
-    title: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara",
+    title: "Forest to Table: Three Kitchens, One Rainforest",
     url: "/blog/three-kitchens-one-rainforest",
     property: "gardens",
     type: "article",

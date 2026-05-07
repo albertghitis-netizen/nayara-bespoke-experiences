@@ -91,7 +91,7 @@ export const experientialTravelPost: BlogPostData = {
     },
     {
       slug: "in-house-activities-three-hotels-infinite-experiences",
-      title: "Three Hotels, Infinite Experiences: Costa Rica Gastronomy at Nayara",
+      title: "Forest to Table: Three Kitchens, One Rainforest",
       pillar: "Experiences",
       image: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
       date: "April 2026",
@@ -199,7 +199,7 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       slug: "in-house-activities-three-hotels-infinite-experiences",
-      title: "Three Hotels, Infinite Experiences: Costa Rica Gastronomy at Nayara",
+      title: "Forest to Table: Three Kitchens, One Rainforest",
       pillar: "Experiences",
       image: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
       date: "April 2026",

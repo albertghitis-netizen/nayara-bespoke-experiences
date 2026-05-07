@@ -8,7 +8,7 @@ import type { BlogPostData } from "./blogPosts";
 // ─── Gastronomy Blog Post ────────────────────────────────────
 export const gastronomyBlogPost: BlogPostData = {
   slug: "three-kitchens-one-rainforest",
-  title: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara",
+  title: "Forest to Table: Three Kitchens, One Rainforest",
 
   author: "Nayara Resorts",
   authorRole: "Editorial",
@@ -143,7 +143,7 @@ export const gastronomyBlogPost: BlogPostData = {
     { name: "Nayara Tented Camp", route: "/tented-camp" },
   ],
   seo: {
-    metaTitle: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara | Nayara Journal",
+    metaTitle: "Forest to Table: Three Kitchens, One Rainforest | Nayara Journal",
     metaDescription: "Discover six restaurants, five culinary classes, and a shared culinary ecosystem across Nayara Gardens, Nayara Springs, and Nayara Tented Camp in Costa Rica.",
   },
 };
@@ -222,7 +222,7 @@ export const inHouseActivitiesBlogPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "/blog/three-kitchens-one-rainforest",
-      title: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara",
+      title: "Forest to Table: Three Kitchens, One Rainforest",
       pillar: "Gastronomy",
       image: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
       date: "2026-04-22",
