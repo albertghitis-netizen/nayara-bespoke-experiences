@@ -278,11 +278,7 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
                       className="w-full rounded-lg shadow-md"
                       loading="lazy"
                     />
-                    {section.image.caption && (
-                      <figcaption className="mt-3 text-[12px] text-[#2a1e1a] text-center italic tracking-[0.03em]">
-                        {section.image.caption}
-                      </figcaption>
-                    )}
+
                   </figure>
                 )}
 
