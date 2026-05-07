@@ -63,6 +63,7 @@ export const experientialTravelPost: BlogPostData = {
     },
     {
       heading: "Purpose Beyond the Stay",
+      image: { src: "/manus-storage/Paddleboard1_cf66a34d.jpeg", alt: "Woman paddleboarding on the turquoise waters of Bocas del Toro with overwater bungalows in the background" },
       content: `<p>Travelers increasingly demand that their presence contributes rather than extracts. At Nayara, sustainability is not a program. It is the architecture.</p>
 <p>Alto Atacama's Desert Stewardship initiative protects fragile Atacameno ecosystems. Costa Rica properties hold Green Globe certification, supporting reforestation, wildlife corridors, and local employment. At Hangaroa on Easter Island, Rapa Nui cultural preservation is woven into every guest interaction. At Bocas del Toro, marine conservation and coral reef protection define the property's relationship with its surroundings.</p>
 <p>When you stay at Nayara, the land is better for your having been there.</p>`,
@@ -161,7 +162,7 @@ export const familyBucketListPost: BlogPostData = {
 <p>The teenagers zip-line. The course threads through the canopy at speed, the volcano's cone visible through gaps in the tree cover. They scream. They always scream. And then they ask to go again.</p>
 <p>The grandparents take the thermal pools. <a href="https://nayarasprings.com" target="_blank">Nayara Springs'</a> hot springs are heated by Arenal's geothermal energy, mineral-rich waters that have been soothing bodies for centuries. The temperature is perfect: warm enough to dissolve the tension in aging shoulders, cool enough to sit in for an hour without thinking about time.</p>
 <p>The younger children? They are in the butterfly garden, learning that a blue morpho's wings are not actually blue. They are structured to refract light. A six-year-old explaining refraction to his grandmother at dinner is worth the entire trip.</p>
-<p>At night, the family walks to the volcano viewpoint. On clear nights, you can see the glow of Arenal's lava dome reflected in the clouds above. A naturalist points out constellations, different ones than they see at home. The youngest falls asleep in her father's arms, face tilted toward the Southern Cross.</p>`,
+`,
     },
 
 
@@ -175,7 +176,7 @@ export const familyBucketListPost: BlogPostData = {
     {
       heading: "Alto Atacama: Stargazing and the Universe as Teacher",
       video: { src: "/manus-storage/atacama-stargazing_567783b6.mp4" },
-      content: `<p>At night, the desert reveals its greatest gift: the clearest skies in the Southern Hemisphere. The SPACE observatory at Alto Atacama puts the Milky Way within reach. Children who see Saturn's rings through a telescope for the first time carry that image forever. They learn that the light they are seeing left those stars thousands of years ago. They learn that they are, in a very real sense, looking backward through time.</p>
+      content: `<p>At night, the desert reveals its greatest gift: the clearest skies in the Southern Hemisphere. Alto Atacama's on-site observatory puts the Milky Way within reach. Children who see Saturn's rings through a telescope for the first time carry that image forever. They learn that the light they are seeing left those stars thousands of years ago. They learn that they are, in a very real sense, looking backward through time.</p>
 <p>The observatory sessions are led by astronomers who understand that wonder is the beginning of science. They do not lecture. They point. They ask questions. They let the sky do the teaching. And the sky, in the Atacama, is the most eloquent teacher on Earth.</p>
 <p>For families, the desert offers something cities cannot: darkness. Real darkness. The kind that lets you see the Milky Way as a river of light across the entire sky. Children who grow up in cities have never seen this. The first time they do, something shifts. The universe becomes real in a way that photographs and planetariums cannot replicate.</p>`,
     },

@@ -150,7 +150,7 @@ function IntroSection() {
 
         <FadeIn delay={0.1}>
           <p className="text-base md:text-lg leading-relaxed mb-6" style={{ ...body, color: C.secondary }}>
-            Most families see a bucket list as a list of dreams. At Nayara, it is a Tuesday. Across three countries and five properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools.
+            Most families see a bucket list as a list of dreams. At Nayara, it is a Tuesday. Across three countries and six properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools.
           </p>
         </FadeIn>
 
@@ -408,7 +408,7 @@ function AtacamaFamilySection() {
                 Stargazing
               </h4>
               <p className="text-sm leading-relaxed" style={{ ...body, color: "rgba(255,255,255,0.7)" }}>
-                The SPACE observatory puts Saturn's rings within reach. Children who see the Milky Way as a river of light across the entire sky carry that image forever. They learn they are looking backward through time.
+                Alto Atacama's on-site observatory puts Saturn's rings within reach. Children who see the Milky Way as a river of light across the entire sky carry that image forever. They learn they are looking backward through time.
               </p>
             </div>
           </FadeIn>
