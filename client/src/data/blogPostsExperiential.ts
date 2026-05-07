@@ -9,7 +9,7 @@ import type { BlogPostData } from "./blogPosts";
 export const experientialTravelPost: BlogPostData = {
   slug: "experiential-travel-nayara-2026",
   title: "Experiential Travel at Nayara: Where Every Destination is a Discovery",
-  subtitle: "How five properties across three countries became the blueprint for travel that transforms",
+  subtitle: "How six properties across three countries became the blueprint for travel that transforms",
   author: "Albert Ghitis",
   authorRole: "Nayara Resorts",
   date: "May 5, 2026",
@@ -34,7 +34,7 @@ export const experientialTravelPost: BlogPostData = {
       image: { src: "/manus-storage/rainforest-bridge-woman_123c4c79.jpg", alt: "Woman walking along a lantern-lit rainforest bridge at Nayara" },
       content: `<p>The global experiences sector reached $271 billion in 2025 and is projected to surge past $342 billion by 2029, growing at 8% annually. This outpaces the wider travel industry by more than 60%. According to the Mastercard Economics Institute, 70% of travelers now prioritize bucket-list experiences over luxury goods. The shift is structural, not cyclical.</p>
 <p>Travelers no longer choose destinations for their hotels. They choose them for what happens within those walls: the volcanic hot spring at dawn, the cooking class that changes how they eat at home, the hanging bridge walk that recalibrates their relationship with fear. Arival's 2026 research confirms this: "Experiences are now a primary driver of destination choice, rather than an afterthought."</p>
-<p>Nayara's five properties across Costa Rica, Chile, Panama, and Easter Island were built around encounters, not rooms. What follows is the philosophy that connects them all.</p>`
+<p>Nayara's six properties across Costa Rica, Chile, and Panama were built around encounters, not rooms. What follows is the philosophy that connects them all.</p>`
     },
     {
       heading: "Gastronomy as Language",
@@ -69,7 +69,7 @@ export const experientialTravelPost: BlogPostData = {
     {
       heading: "The Philosophy",
       content: `<p>Travelers in 2026 prioritize transformation over relaxation. They choose family adventure over luxury goods. They demand that travel creates positive impact. They cut back on material purchases to fund bucket-list moments. They choose destinations for what they will do, feel, and learn. Not for thread count.</p>
-<p>Nayara was built for this moment. Not because we followed a trend, but because we began here, in the volcano's shadow, in the desert's silence, in the rainforest's embrace, and built outward from experience itself. Five properties. Three countries. One philosophy: the world is not something you look at. It is something you move through, taste, touch, and carry home changed.</p>`,
+<p>Nayara was built for this moment. Not because we followed a trend, but because we began here, in the volcano's shadow, in the desert's silence, in the rainforest's embrace, and built outward from experience itself. Six properties. Three countries. One philosophy: the world is not something you look at. It is something you move through, taste, touch, and carry home changed.</p>`,
     },
   ],
   sources: [
@@ -113,7 +113,7 @@ export const experientialTravelPost: BlogPostData = {
   ],
   seo: {
     metaTitle: "Experiential Travel at Nayara: Where Every Destination Is a Discovery | Nayara Journal",
-    metaDescription: "The global experiences sector is surging past $342 billion. Discover the philosophy of experiential travel that connects five Nayara properties across three countries, from gastronomy and family adventure to nature immersion and purpose-driven tourism.",
+    metaDescription: "The global experiences sector is surging past $342 billion. Discover the philosophy of experiential travel that connects six Nayara properties across three countries, from gastronomy and family adventure to nature immersion and purpose-driven tourism.",
   },
 };
 
@@ -142,7 +142,7 @@ export const familyBucketListPost: BlogPostData = {
       heading: "The Classroom Has No Walls",
       image: { src: "/manus-storage/kids-hanging-bridge-wide_fc955faa.jpg", alt: "Two children in yellow raincoats holding hands on a hanging bridge in the rainforest" },
       content: `<p>Most families see a bucket list as a list of dreams. At Nayara, it is a Tuesday.</p>
-<p>Across three countries and five properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools. Children do not study these things. They encounter them. The difference between studying and encountering is the difference between knowing and understanding.</p>
+<p>Across three countries and six properties, the world becomes the curriculum. The rainforest teaches biology without a textbook. The desert teaches geology in color. The Moai teach history by standing in front of you, 30 feet tall, carved from volcanic stone by hands that had no metal tools. Children do not study these things. They encounter them. The difference between studying and encountering is the difference between knowing and understanding.</p>
 <p>This is what family travel looks like when the destination is designed for discovery.</p>`,
     },
     {
@@ -208,6 +208,6 @@ export const familyBucketListPost: BlogPostData = {
   ctaProperties: [],
   seo: {
     metaTitle: "The World as a Classroom: A Family Guide to Every Nayara Destination | Nayara Journal",
-    metaDescription: "From rainforest canopy walks and volcanic hot springs to Atacama stargazing and Easter Island archaeology, discover why Nayara's five properties across three countries are the ultimate family adventure destinations.",
+    metaDescription: "From rainforest canopy walks and volcanic hot springs to Atacama stargazing and Easter Island archaeology, discover why Nayara's six properties across three countries are the ultimate family adventure destinations.",
   },
 };
