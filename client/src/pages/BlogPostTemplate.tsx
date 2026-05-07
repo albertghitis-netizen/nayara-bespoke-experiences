@@ -131,8 +131,8 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
         )}
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
-        {/* Read overlay — centered pill */}
-        <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+        {/* Read overlay — bottom-center pill */}
+        <div className="absolute bottom-8 left-0 right-0 z-10 flex justify-center pointer-events-none">
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
             style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.25)" }}
