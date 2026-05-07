@@ -45,15 +45,15 @@ import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchem
 const springs = properties.find((p: Property) => p.id === "springs")!;
 
 /* ═══════════════════════════════════════════════════════════════
-   PALETTE , Eucalyptus & Mint
+   PALETTE , Ocean Teal
    ═══════════════════════════════════════════════════════════════ */
-/* Eucalyptus (cool, silvery green) + Mint (bright, refreshing) */
+/* Ocean Teal — deep, mineral, distinct from green properties */
 const PALETTE = {
-  primary: "#5F7367",           // Standard Eucalyptus (middle , buttons, accents)
-  secondary: "#4B6358",         // Dark Eucalyptus (nav, footer)
-  accent: "#3EB489",            // Standard Mint (bright highlights)
-  gradientStart: "#F7F5F0",     // Bone (background)
-  gradientEnd: "#E8F3EF",       // Light Eucalyptus tint
+  primary: "#0E6B7E",           // Ocean Teal (buttons, accents)
+  secondary: "#0B4F5E",         // Deep Ocean (nav, footer)
+  accent: "#3DAFC7",            // Light Teal (bright highlights)
+  gradientStart: "#EAF4F7",     // Light Teal tint (background)
+  gradientEnd: "#EAF4F7",       // Light Teal tint
   text: "#0D0704",           // Super dark brown on light backgrounds
   textSecondary: "#0D0704",
   textTertiary: "#0D070499",

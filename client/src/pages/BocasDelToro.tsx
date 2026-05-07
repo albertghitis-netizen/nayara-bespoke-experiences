@@ -126,9 +126,9 @@ const ASSETS = {
   expV: "/manus-storage/bocas-zapatilla-vertical_30319668.mp4",
   expH: `${CDN}/bocas-resort-aerial-sunset_d536b07d.jpg`,
 
-  // Section 4 , Sustainability: couple villa V + aerial mangroves H
+  // Section 4 , Sustainability: couple villa V + coral reef H
   susV: `${CDN}/bocas-couple-villa-pool_42fafe14.jpg`,
-  susH: `${CDN}/bocas-aerial-villas-mangroves_9d5e94f5.jpg`,
+  susH: `/manus-storage/coral_6023f935.jpeg`,
 
   // Section 5 , Wellness: original drone vertical V + overwater deck H
   wellV: `${CDN}/bocas-drone-vertical_e44907ce.mp4`,
@@ -284,7 +284,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
     link: "/bocas-del-toro/sustainability",
-    linkLabel: "Explore Beyond Sustainability",
+    linkLabel: "Explore Coral Reef Restoration",
     stats: [
       { value: "100%", label: "Renewable Energy" },
       { value: "CST 5", label: "Certified" },

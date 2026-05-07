@@ -89,18 +89,18 @@ export const palettes: Record<string, PropertyPalette> = {
     bodyTextLight: "#FFFFFF",    // Super bright white on dark
   },
 
-  /* --- SPRINGS , Eucalyptus & Mint --- */
+  /* --- SPRINGS , Ocean Teal --- */
   springs: {
-    primary: "#5F7367",          // Standard Eucalyptus (middle , accents, buttons)
-    secondary: "#4B6358",        // Dark Eucalyptus (nav, footer)
-    accent: "#3EB489",           // Standard Mint (bright highlights)
-    gradientStart: "#E8F3EF",   // Light Eucalyptus (unified bg)
-    gradientEnd: "#E8F3EF",     // Light Eucalyptus tint
-    buttonBg: "#5F7367",        // Standard Eucalyptus
+    primary: "#0E6B7E",          // Ocean Teal (accents, buttons)
+    secondary: "#0B4F5E",        // Deep Ocean (nav, footer)
+    accent: "#3DAFC7",           // Light Teal (bright highlights)
+    gradientStart: "#EAF4F7",   // Light Teal tint (unified bg)
+    gradientEnd: "#EAF4F7",     // Light Teal tint
+    buttonBg: "#0E6B7E",        // Ocean Teal
     buttonText: "#FFFFFF",       // White for contrast
-    footerBg: "#4B6358",        // Dark Eucalyptus (darker for footer)
+    footerBg: "#0B4F5E",        // Deep Ocean (darker for footer)
     footerText: "#FFFFFF",      // Super bright white
-    navPillBg: "#4B6358",       // Dark Eucalyptus (darker for nav)
+    navPillBg: "#0B4F5E",       // Deep Ocean (darker for nav)
     navPillText: "#FFFFFF",      // Super bright white
     bodyText: "#0D0704",         // Super dark brown on light
     bodyTextLight: "#FFFFFF",    // Super bright white on dark
