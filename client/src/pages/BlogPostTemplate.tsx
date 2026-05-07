@@ -109,7 +109,11 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
       {/* ── 2. HERO VIDEO / IMAGE ── */}
       <section className="relative w-full overflow-hidden" style={{ aspectRatio: isMobile && post.mobileHeroVideo ? "9/16" : heroAspect || (post.hasAudio ? "16/9" : "21/9"), minHeight: "400px", maxHeight: isMobile && post.mobileHeroVideo ? "85vh" : (heroAspect === "16/9" || post.hasAudio) ? "100vh" : "70vh" }}>
         {isMobile && post.mobileHeroVideo ? (
-          <BlobVideo src={post.mobileHeroVideo} className="absolute inset-0 w-full h-full object-cover" />
+          /\.(jpe?g|png|webp|avif|gif)$/i.test(post.mobileHeroVideo) ? (
+            <img src={post.mobileHeroVideo} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+          ) : (
+            <BlobVideo src={post.mobileHeroVideo} className="absolute inset-0 w-full h-full object-cover" />
+          )
         ) : post.heroVideo && post.hasAudio ? (
           <BlobVideo
             src={post.heroVideo.desktop}
