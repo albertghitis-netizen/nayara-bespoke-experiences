@@ -47,7 +47,7 @@ function TikTokIcon() {
 }
 
 /* ── Animated Leaf , very slow fade in when scrolled into view ── */
-function AnimatedLeaf({ propertyName, textColor = "#FFFFFF" }: { propertyName?: string; textColor?: string }) {
+function AnimatedLeaf({ propertyName, textColor = "#FFFFFF", nameFontSize = "16px" }: { propertyName?: string; textColor?: string; nameFontSize?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -95,7 +95,7 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF" }: { propertyName?: 
             opacity: visible ? 1 : 0,
             transition: "opacity 1s ease-in",
             transitionDelay: "1s",
-            fontSize: "16px",
+            fontSize: nameFontSize,
             color: textColor,
             fontFamily: "var(--font-display)",
             fontWeight: 400,
@@ -123,9 +123,11 @@ interface FooterProps {
   nightSkyBg?: boolean;
   propertyName?: string;
   /** Property name to display under the leaf */
+  /** Override font size for the property name label (default: 16px) */
+  nameFontSize?: string;
 }
 
-export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFFFF", nightSkyBg, propertyName }: FooterProps) {
+export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFFFF", nightSkyBg, propertyName, nameFontSize }: FooterProps) {
   const [, navigate] = useLocation();
   const columns = getFooterColumns(pageType);
 
@@ -151,7 +153,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
       <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
         {/* Leaf , absolutely positioned on the left, same vertical position as before */}
         <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none" }}>
-          <AnimatedLeaf propertyName={propertyName} textColor={textColor} />
+          <AnimatedLeaf propertyName={propertyName} textColor={textColor} nameFontSize={nameFontSize} />
         </div>
 
         {/* Dynamic columns from navigation config + Contact column */}

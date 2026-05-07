@@ -94,8 +94,8 @@ export const palettes: Record<string, PropertyPalette> = {
     primary: "#0E6B7E",          // Ocean Teal (accents, buttons)
     secondary: "#0B4F5E",        // Deep Ocean (nav, footer)
     accent: "#3DAFC7",           // Light Teal (bright highlights)
-    gradientStart: "#EAF4F7",   // Light Teal tint (unified bg)
-    gradientEnd: "#EAF4F7",     // Light Teal tint
+    gradientStart: "#F7F5F0",   // Bone (background)
+    gradientEnd: "#E8F3EF",     // Light Eucalyptus tint (original Springs bg)
     buttonBg: "#0E6B7E",        // Ocean Teal
     buttonText: "#FFFFFF",       // White for contrast
     footerBg: "#0B4F5E",        // Deep Ocean (darker for footer)

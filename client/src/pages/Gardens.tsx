@@ -270,7 +270,7 @@ export default function Gardens() {
         accentColor={PALETTE.primary}
         dividerColor={PALETTE.divider}
       />
-      <Footer bgColor="#286241" textColor="#FFFFFF" propertyName="Gardens" />
+      <Footer bgColor="#286241" textColor="#FFFFFF" propertyName="Gardens" nameFontSize="20px" />
     </div>
   );
 }
@@ -302,7 +302,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[#3a2a1a] text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+          className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
           Family-Friendly Rainforest Adventure
@@ -311,7 +311,7 @@ function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-[#3a2a1a]/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          className="text-white/70 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
           Arenal Volcano National Park, Costa Rica

@@ -20,16 +20,16 @@ import {
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
 const PALETTE = {
-  ocean: "#0B4F5E",
-  teal: "#0E6B7E",
-  accent: "#3DAFC7",
-  light: "#EAF4F7",
-  sand: "#F5F0E8",
+  ocean: "#1E3A8A",      // Bocas royal blue (primary/nav/footer)
+  teal: "#006D75",       // Bocas deep aqua (secondary accents)
+  accent: "#4DC9D1",     // Bocas light aqua (highlights)
+  light: "#E2F0F0",      // Bocas aqua tint (backgrounds)
+  sand: "#F7F5F0",       // Bone (light section bg)
   white: "#FFFFFF",
-  text: "#0A3340",
-  muted: "#2C6070",
-  divider: "#B8DDE8",
-  faint: "rgba(11,79,94,0.07)",
+  text: "#0D0704",        // Super dark brown on light
+  muted: "#1E3A8A",      // Royal blue for muted labels
+  divider: "#B8D4E8",
+  faint: "rgba(30,58,138,0.07)",
 };
 
 /* ── STATS ─────────────────────────────────────────────────── */
