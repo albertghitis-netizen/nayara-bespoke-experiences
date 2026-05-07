@@ -95,6 +95,16 @@ function destToProperty(dest: string): JournalProperty {
 // ─── Blog Articles ───────────────────────────────────────────
 const blogArticles: JournalEntry[] = [
   {
+    id: "three-kitchens-one-rainforest",
+    title: "Three Kitchens, One Rainforest: A Culinary Journey Through Nayara",
+    url: "/blog/three-kitchens-one-rainforest",
+    property: "gardens",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/ayla-restaurant_0b1c2d3e.jpg",
+    excerpt: "Three restaurants, one rainforest. How Nayara's kitchens at Ayla, Nostalgia, and Nayara Springs define Costa Rican-Mediterranean cuisine.",
+    featured: true,
+  },
+  {
     id: "latin-america-luxury-brand",
     title: "Luxury Resorts Rooted in Nature: The Nayara Story",
     url: "/blog/nayara-story",

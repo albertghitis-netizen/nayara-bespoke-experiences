@@ -54,10 +54,14 @@ const JOURNAL_CDN = {
  * Row 9: Read · Read         · Read
  */
 const CURATED_IDS: string[] = [
-  // Row 1
+  // Row 1 — New 2026 blogs
+  "experiential-travel-2026",
+  "family-bucket-list",
+  "three-kitchens-one-rainforest",
+  // Row 2
   "conde-nast-bocas",
   "hitorangi-rapanui",
-  // Row 2
+  // Row 3
   "7-michelin-keys",
   "arenal-timeless-wonder",
   "archaeologist-rapanui",
