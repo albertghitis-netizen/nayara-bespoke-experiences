@@ -131,7 +131,7 @@ export const familyBucketListPost: BlogPostData = {
   tags: [],
   readingTime: 12,
   heroImage: "/manus-storage/family-tent-volcano_02f91f57.jpeg",
-  mobileHeroVideo: "/manus-storage/9517B856-98AA-4E19-AAAB-7CBBDCD1A306(2)_f2072df2.jpg",
+  mobileHeroVideo: "/manus-storage/9517B856-98AA-4E19-AAAB-7CBBDCD1A306(3)_6c1a64bf.jpg",
   keyFindings: [
     "Family travel outpaced luxury and adventure travel as the fastest-growing segment in 2026, with multigenerational bookings surging 67% year-over-year.",
     "The Bucket List Family, who have explored almost 100 countries, calls Costa Rica 'alive' and the perfect spot for families who want both nature and adventure.",
