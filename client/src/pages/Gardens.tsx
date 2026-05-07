@@ -607,7 +607,7 @@ function AccommodationsExperiment() {
               href="/gardens/rooms/arenal-pool-casita"
               className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
               style={{
-                backgroundColor: "#F5E4ED",
+                backgroundColor: "#E8F3EF",
                 fontFamily: "var(--font-body)",
               }}
             >
@@ -711,7 +711,7 @@ function AccommodationsExperiment() {
             href="/gardens/rooms/rainforest-pool-villa"
             className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
             style={{
-              backgroundColor: "#F5E4ED",
+              backgroundColor: "#E8F3EF",
               fontFamily: "var(--font-body)",
             }}
           >
@@ -1425,7 +1425,7 @@ function GardensExperiencesSection() {
             <a
               href="#night-frog-tour"
               className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-              style={{ backgroundColor: "#F5E4ED", fontFamily: "var(--font-body)" }}
+              style={{ backgroundColor: "#E8F3EF", fontFamily: "var(--font-body)" }}
             >
               <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Arenal Volcano Tour</span>
               <svg className="w-3.5 h-3.5 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -1442,7 +1442,7 @@ function GardensExperiencesSection() {
           <a
             href="#night-frog-tour"
             className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-            style={{ backgroundColor: "#F5E4ED", fontFamily: "var(--font-body)" }}
+            style={{ backgroundColor: "#E8F3EF", fontFamily: "var(--font-body)" }}
           >
             <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore La Fortuna Waterfall</span>
             <svg className="w-3.5 h-3.5 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -1536,7 +1536,7 @@ function GardensGastronomyCascade() {
           <a
             href="#night-frog-tour"
             className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-            style={{ backgroundColor: "#F5E4ED", fontFamily: "var(--font-body)" }}
+            style={{ backgroundColor: "#E8F3EF", fontFamily: "var(--font-body)" }}
           >
             <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Nostalgia</span>
             <svg className="w-3.5 h-3.5 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
