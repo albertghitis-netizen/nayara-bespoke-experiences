@@ -6,12 +6,9 @@
  * Real photos only. No AI-generated imagery.
  */
 
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
-import { ParallaxImage, RevealSection, WordReveal, KenBurnsImage } from "@/components/AnimationUtils";
+import { motion } from "framer-motion";
 import { Link } from "wouter";
 import Footer from "@/components/Footer";
-import BlobVideo from "@/components/BlobVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import {
   AnimateOnScroll,
@@ -21,7 +18,6 @@ import {
 } from "@/components/motion";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
-const STORAGE = "/manus-storage";
 
 const PALETTE = {
   ocean: "#1E3A8A",      // Bocas royal blue (primary/nav/footer)
@@ -36,7 +32,7 @@ const PALETTE = {
   faint: "rgba(30,58,138,0.07)",
 };
 
-/* ── STATS ──────────────────────────────────────────── */
+/* ── STATS ─────────────────────────────────────────────────── */
 const STATS = [
   { number: "500+", label: "Coral Fragments\nRestored" },
   { number: "3", label: "Active\nRestoration Sites" },
@@ -83,21 +79,17 @@ const STEPS = [
 export default function BocasSustainability() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.sand }}>
-      <BrandNavigation pageType="property" hideCenterLabel hideMenu hideReserve />
+      <BrandNavigation pageType="property" hideCenterLabel />
 
       <Hero />
       <StatsBar />
-      <OceanAlarmAndCrisis />
-      <OceanDivider />
+      <TheGlobalCrisis />
       <BocasContext />
       <ThePartnership />
       <RestorationProcess />
-      <ArtificialReefPhoto />
+      <ImageBreak />
       <WhatMakesItUnique />
       <GuestExperience />
-      <EconomicEmpowerment />
-      <CommunityWellness />
-      <OurInitiatives />
       <CommunityEducation />
       <ClosingCTA />
 
@@ -109,11 +101,12 @@ export default function BocasSustainability() {
 /* ── HERO ─────────────────────────────────────────────────── */
 function Hero() {
   return (
-    <section className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+    <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
       <img
-        src="/manus-storage/destination-8-coral-reef_3a82983f.jpeg"
-        alt="Vibrant coral reef ecosystem in Bocas del Toro, Panama"
+        src={`${CDN}/bocas-aerial-villas-turquoise_858d4570.jpg`}
+        alt="Aerial view of Nayara Bocas del Toro overwater villas above turquoise Caribbean waters"
         className="absolute inset-0 w-full h-full object-cover object-center"
+        loading="eager"
       />
       <div
         className="absolute inset-0"
@@ -123,7 +116,7 @@ function Hero() {
         }}
       />
 
-      <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-16 lg:px-24 pb-12 md:pb-16">
+      <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-16 lg:px-24 pb-20 md:pb-28" style={{ minHeight: "90vh" }}>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -143,111 +136,22 @@ function Hero() {
           </span>
         </TextReveal>
 
-
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.75, ease: EASE_CINEMATIC }}
+          className="mt-6 text-lg md:text-xl leading-relaxed max-w-2xl"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}
+        >
+          In partnership with Caribbean Coral Restoration, Nayara Bocas del Toro is rebuilding one of the
+          Caribbean's most threatened ecosystems — one genetically resilient coral fragment at a time.
+        </motion.p>
       </div>
     </section>
   );
 }
 
-/* ── OCEAN ALARM + GLOBAL CRISIS (side by side) ──────────── */
-function OceanAlarmAndCrisis() {
-  return (
-    <section style={{ backgroundColor: PALETTE.sand }}>
-      <div className="grid md:grid-cols-2 gap-0">
-        {/* LEFT — Why the Ocean Is Sounding the Alarm */}
-        <div className="px-8 md:px-14 lg:px-20 py-16 md:py-24">
-          <AnimateOnScroll variants={fadeUp}>
-            <p
-              className="uppercase tracking-[0.28em] text-[11px] mb-5"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-            >
-              The Global Context
-            </p>
-            <h2
-              className="text-3xl md:text-4xl mb-10 leading-[1.1]"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-            >
-              Why the Ocean Is Sounding the Alarm
-            </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variants={fadeUp} delay={0.1}>
-            <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-              The planet's environmental systems are under strain, and nowhere is this more visible than in the ocean. Coral reefs are experiencing unprecedented stress due to rising ocean temperatures, acidification, and land-based pollution.
-            </p>
-            <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-              In 2024, the U.S. National Oceanic and Atmospheric Administration confirmed the fourth global coral bleaching event on record, driven by prolonged marine heatwaves affecting reefs across the Atlantic, Pacific, and Indian Oceans.
-            </p>
-            <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-              According to NOAA Coral Reef Watch, bleaching-level heat stress has affected more than 80 percent of the world's coral reef area, making this the most widespread bleaching event ever documented.
-            </p>
-            <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-              The Intergovernmental Panel on Climate Change reports that at 1.5°C of global warming, coral reefs are expected to decline by 70–90 percent, with losses exceeding 99 percent at 2°C.
-            </p>
-            <p className="text-[16px] leading-[1.9] mb-10" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-              The ocean absorbs over 90 percent of excess heat trapped by greenhouse gases and roughly one-quarter of global CO₂ emissions — buffering climate impacts while becoming warmer and more acidic.
-            </p>
-            <blockquote
-              className="pl-6 border-l-2 text-lg md:text-xl leading-[1.6] italic"
-              style={{ borderColor: PALETTE.accent, fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-            >
-              This is the context in which One Ocean exists. Not as an abstract idea, but as a response to a planet whose water systems are sending increasingly clear signals of stress.
-            </blockquote>
-          </AnimateOnScroll>
-        </div>
-
-        {/* RIGHT — The Fourth Mass Bleaching Event */}
-        <div className="flex flex-col" style={{ backgroundColor: PALETTE.light }}>
-          {/* Large bleaching image */}
-          <div className="overflow-hidden" style={{ minHeight: "420px", flex: "0 0 auto" }}>
-            <img
-              src="/manus-storage/pasted_file_oSevgU_image_7636ecdb.png"
-              alt="Bleached white staghorn coral — a stark image of coral bleaching in the Caribbean"
-              className="w-full h-full object-cover object-center"
-              style={{ minHeight: "420px" }}
-              loading="lazy"
-            />
-          </div>
-          <p className="px-8 pt-3 pb-0 text-[11px] tracking-[0.06em] uppercase" style={{ fontFamily: "var(--font-body)", color: "rgba(26,10,0,0.35)" }}>
-            Bleached staghorn coral, Caribbean
-          </p>
-          {/* Bleaching text */}
-          <div className="px-8 md:px-14 py-10 md:py-16">
-            <AnimateOnScroll variants={fadeUp}>
-              <p
-                className="uppercase tracking-[0.28em] text-[11px] mb-5"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-              >
-                The Crisis
-              </p>
-              <h2
-                className="text-3xl md:text-4xl mb-8 leading-[1.1]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-              >
-                The Fourth Mass Bleaching Event
-              </h2>
-            </AnimateOnScroll>
-            <AnimateOnScroll variants={fadeUp} delay={0.1}>
-              <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                In 2024, NOAA declared the world's fourth global mass coral bleaching event on record — the most widespread in history, affecting reefs across the Atlantic, Pacific, and Indian Oceans simultaneously. The trigger: sea surface temperatures rising to levels coral cannot survive.
-              </p>
-              <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                Coral bleaching occurs when water temperatures rise even slightly above normal for an extended period. Corals expel the symbiotic algae — zooxanthellae — that provide up to 90% of their energy. Without them, the coral turns white and, if temperatures don't return to normal quickly, starves to death.
-              </p>
-              <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                The Caribbean has been among the hardest hit. Caribbean reefs have declined by approximately <strong>80% over the last fifty years</strong> — driven by bleaching, ocean acidification, agricultural runoff, coastal development, and overfishing.
-              </p>
-              <p className="text-[16px] leading-[1.9]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                Over 50% of the world's coral reefs have been lost since the 1950s. Coral reefs cover less than 1% of the ocean floor but support an estimated 25% of all marine species — and the livelihoods of more than a billion people.
-              </p>
-            </AnimateOnScroll>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── STATS BAR ──────────────────────────────────────────── */
+/* ── STATS BAR ────────────────────────────────────────────── */
 function StatsBar() {
   return (
     <section style={{ backgroundColor: PALETTE.ocean }}>
@@ -280,121 +184,67 @@ function StatsBar() {
     </section>
   );
 }
-/* ── OCEAN DIVIDER ──────────────────────────────────────────── */
-function OceanDivider() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y1 = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
-  const y2 = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
-  const y3 = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
+/* ── THE GLOBAL CRISIS ────────────────────────────────────── */
+function TheGlobalCrisis() {
   return (
-    <div
-      ref={ref}
-      className="relative overflow-hidden"
-      style={{ height: "340px", backgroundColor: PALETTE.ocean }}
-    >
-      {/* Deep layer — darkest, slowest */}
-      <motion.div
-        style={{ y: y3, opacity }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(ellipse 120% 60% at 50% 60%, rgba(77,201,209,0.08) 0%, transparent 70%)`,
-          }}
-        />
-      </motion.div>
+    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-3xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            The Global Context
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            The Fourth Mass Bleaching Event
+          </h2>
+        </AnimateOnScroll>
 
-      {/* Wave layer 1 — back */}
-      <motion.div style={{ y: y3 }} className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ height: "120px" }}>
-          <path
-            d="M0 60 C240 100 480 20 720 60 C960 100 1200 20 1440 60 L1440 120 L0 120 Z"
-            fill="rgba(77,201,209,0.07)"
-          />
-        </svg>
-      </motion.div>
-
-      {/* Wave layer 2 — mid */}
-      <motion.div style={{ y: y2 }} className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ height: "100px" }}>
-          <path
-            d="M0 40 C180 80 360 0 540 40 C720 80 900 0 1080 40 C1260 80 1350 20 1440 40 L1440 100 L0 100 Z"
-            fill="rgba(77,201,209,0.12)"
-          />
-        </svg>
-      </motion.div>
-
-      {/* Wave layer 3 — front, fastest */}
-      <motion.div style={{ y: y1 }} className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ height: "80px" }}>
-          <path
-            d="M0 30 C120 60 300 0 480 30 C660 60 840 0 1020 30 C1200 60 1320 10 1440 30 L1440 80 L0 80 Z"
-            fill="rgba(77,201,209,0.18)"
-          />
-        </svg>
-      </motion.div>
-
-      {/* Central editorial text */}
-      <motion.div
-        style={{ opacity }}
-        className="absolute inset-0 flex flex-col items-center justify-center text-center px-8"
-      >
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 h-px w-24 origin-center"
-          style={{ backgroundColor: PALETTE.accent }}
-        />
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[11px] uppercase tracking-[0.4em] mb-4"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
-        >
-          Bocas del Toro, Panama
-        </motion.p>
-        <motion.h3
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="text-2xl md:text-4xl leading-[1.2] text-white"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-        >
-          The reef is still here.
-          <br />
-          <span style={{ color: PALETTE.accent }}>It just needs a chance.</span>
-        </motion.h3>
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 h-px w-24 origin-center"
-          style={{ backgroundColor: PALETTE.accent }}
-        />
-      </motion.div>
-    </div>
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            In 2024, NOAA declared the world's fourth global mass coral bleaching event on record — the most widespread in history, affecting reefs across the Atlantic, Pacific, and Indian Oceans simultaneously. The trigger: sea surface temperatures rising to levels coral cannot survive.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Coral bleaching occurs when water temperatures rise even slightly above normal for an extended period. Corals expel the symbiotic algae — zooxanthellae — that live in their tissues and provide up to 90% of their energy through photosynthesis. Without them, the coral turns white and, if temperatures don't return to normal quickly, starves to death. What was once a rare event now occurs with increasing frequency and severity.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            The Caribbean has been among the hardest hit. Caribbean reefs have declined by approximately <strong>80% over the last fifty years</strong> — a collapse driven by bleaching, ocean acidification, agricultural runoff, coastal development, and overfishing. Six Caribbean coral species are now listed as threatened under the U.S. Endangered Species Act, including Staghorn coral (<em>Acropora cervicornis</em>) and Elkhorn coral (<em>Acropora palmata</em>) — once the dominant reef-building species across the entire region.
+          </p>
+          <p
+            className="text-[17px] md:text-[19px] leading-[1.9]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Over 50% of the world's coral reefs have been lost since the 1950s. Scientists estimate that without significant intervention, the majority of the world's remaining reefs could be functionally extinct within decades. Coral reefs cover less than 1% of the ocean floor but support an estimated 25% of all marine species — and the livelihoods of more than a billion people.
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
   );
 }
 
-/* ── BOCAS CONTEXT ────────────────────────────────────── */
+/* ── BOCAS CONTEXT ────────────────────────────────────────── */
 function BocasContext() {
   return (
     <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
       {/* Image left */}
       <div className="overflow-hidden" style={{ minHeight: "380px" }}>
         <img
-          src={`${STORAGE}/NayarabocasdelToro-LivLaw-DJI_0278-byBriceFerreStudio_60a188a3.jpg`}
-          alt="Aerial view of Bocas del Toro archipelago islands and coral reefs, by Brice Ferre Studio"
+          src={`${CDN}/bocas-aerial-villas-mangroves_9d5e94f5.jpg`}
+          alt="Aerial view of Nayara Bocas del Toro overwater villas surrounded by mangroves and turquoise water"
           className="w-full h-full object-cover object-center"
           loading="lazy"
           style={{ minHeight: "380px", transition: "transform 700ms ease-in-out" }}
@@ -569,58 +419,6 @@ function RestorationProcess() {
   );
 }
 
-/* ── ARTIFICIAL REEF PHOTO ───────────────────────────────── */
-function ArtificialReefPhoto() {
-  return (
-    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
-      {/* Image left */}
-      <div className="overflow-hidden" style={{ minHeight: "400px" }}>
-        <img
-          src={`${STORAGE}/placingartificalreef_0799c415.webp`}
-          alt="Divers placing an artificial reef structure on the seafloor in Bocas del Toro"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-          style={{ minHeight: "400px", transition: "transform 700ms ease-in-out" }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")}
-        />
-      </div>
-      {/* Text right */}
-      <div
-        className="flex flex-col justify-center px-10 md:px-16 py-16"
-        style={{ backgroundColor: PALETTE.ocean }}
-      >
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
-          >
-            Step 04 in Action
-          </p>
-          <h2
-            className="text-2xl md:text-3xl mb-6 leading-[1.2] text-white"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Installing the Foundation
-          </h2>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
-            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
-          >
-            Caribbean Coral Restoration's divers lower an artificial reef structure into position on the seafloor of Bocas del Toro bay. Each structure is built on land from environmentally friendly materials, designed to mimic natural reef architecture, and installed before any coral is outplanted.
-          </p>
-          <p
-            className="text-[15px] md:text-[16px] leading-[1.85]"
-            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
-          >
-            The result is a stable, clean foundation that gives each coral fragment the best possible start. Within months of installation, fish and invertebrates begin colonizing the structure — long before the coral itself is fully established.
-          </p>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
-
 /* ── IMAGE BREAK ──────────────────────────────────────────── */
 function ImageBreak() {
   return (
@@ -704,8 +502,7 @@ function WhatMakesItUnique() {
   );
 }
 
-/* ── ADOPT A REEF ───────────────────────────────────────────────── */
-/* (was: GUEST EXPERIENCE --───────────────────────────────────── */
+/* ── GUEST EXPERIENCE ─────────────────────────────────────── */
 function GuestExperience() {
   return (
     <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
@@ -719,31 +516,31 @@ function GuestExperience() {
             className="uppercase tracking-[0.28em] text-[11px] mb-5"
             style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
           >
-            Guest Experience
+            Your Role
           </p>
           <h2
-            className="text-2xl md:text-4xl mb-6 leading-[1.1]"
+            className="text-2xl md:text-3xl mb-6 leading-[1.2]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
-            Adopt a Reef
+            What Guests Experience
           </h2>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The reef we're building is shallow enough to snorkel — and that's exactly the point. Guests wade in, mask on, and swim out to the active restoration site where our marine biologists are waiting. There, in just a few feet of warm Caribbean water, you plant your own coral fragment onto the reef structure.
+            Guests at Nayara Bocas del Toro can participate directly in the restoration program. Led by our team and Caribbean Coral Restoration's marine biologists, the experience takes you beneath the surface of the bay to the active restoration sites — where you will see the artificial reef structures, coral fragments in various stages of growth, and the marine life that has already returned.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Each coral gets a small personal tag — your mark on the reef. From that moment, it's yours. Through our Adopt a Reef program, you can log in from anywhere in the world and watch your coral grow over months and years, tracked by our restoration team with regular photo updates.
+            Participants learn to identify coral species, understand the science of bleaching and resilience, and — in some sessions — assist with outplanting coral fragments onto the structures. It is a rare opportunity to contribute something real and lasting to a place you have chosen to visit.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            No dive certification needed. No prior experience required. Just a willingness to get in the water and leave something living behind. Arrange through the resort concierge — groups are kept small to protect the restoration site.
+            No prior diving experience is required for snorkeling sessions. For certified divers, deeper reef monitoring dives are available. Both are intimate — small groups only — to minimize impact on the restoration sites. Arrange through the resort concierge.
           </p>
         </AnimateOnScroll>
       </div>
@@ -808,197 +605,13 @@ function CommunityEducation() {
   );
 }
 
-/* ── ECONOMIC EMPOWERMENT ────────────────────────────── */
-function EconomicEmpowerment() {
-  return (
-    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
-      {/* Image left */}
-      <div className="overflow-hidden" style={{ minHeight: "420px" }}>
-        <img
-          src="/manus-storage/pasted_file_whSa3D_image_c5600b60.webp"
-          alt="Spotted cleaner shrimp on coral — biodiversity supporting Caribbean economic empowerment and marine conservation"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-          style={{ minHeight: "420px" }}
-        />
-      </div>
-      {/* Text right */}
-      <div className="flex flex-col justify-center px-10 md:px-16 py-16" style={{ backgroundColor: PALETTE.sand }}>
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            Community Impact
-          </p>
-          <h2
-            className="text-3xl md:text-4xl mb-8 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            Economic Empowerment
-          </h2>
-        </AnimateOnScroll>
-        <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            Ocean damage can be reversed, but there's no switch to flip — recovery takes time and willing participation. It requires education and training directed toward a sustainable future.
-          </p>
-          <p className="text-[16px] leading-[1.9]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            Coral restoration and reef reconstruction demand diverse talents. Unskilled interns learn carpentry, metalworking, electrical and plumbing systems, and water flow management. Our goal: provide skills that increase employment and entrepreneurship possibilities. Along with tangible skills, we're instilling awareness of sustainable marine conservation that will transcend into wide-ranging positive impact.
-          </p>
-        </AnimateOnScroll>
-      </div>
-    </section>
-  );
-}
-
-/* ── COMMUNITY WELLNESS ───────────────────────────────── */
-function CommunityWellness() {
-  return (
-    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
-      {/* Text left */}
-      <div className="flex flex-col justify-center px-10 md:px-16 py-16 order-2 md:order-1" style={{ backgroundColor: PALETTE.light }}>
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            Community Impact
-          </p>
-          <h2
-            className="text-3xl md:text-4xl mb-8 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            Community Wellness
-          </h2>
-        </AnimateOnScroll>
-        <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            Traditional harvesting methods far exceed the fisheries' ability to maintain stability. Without serious limits and enforceable Marine Protected Areas, there likely won't be sustainable fisheries in this archipelago. Sustainable subsistence harvest is achievable — but it requires cooperation and coordination.
-          </p>
-          <p className="text-[16px] leading-[1.9]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            Small island communities traditionally have little industry. The sea has provided the main protein source for most residents. Unfortunately, overfishing combined with reef loss has depleted fisheries to the brink of collapse. It can be restored through awareness, education, and participation by the people who will benefit most from what we're demonstrating can be achieved.
-          </p>
-        </AnimateOnScroll>
-      </div>
-      {/* Image right */}
-      <div className="overflow-hidden order-1 md:order-2" style={{ minHeight: "420px" }}>
-        <img
-          src="/manus-storage/pasted_file_sYcRek_image_0cdf29f6.png"
-          alt="Local Ngäbe-Buglé family in a traditional dugout canoe on the waters of Bocas del Toro"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-          style={{ minHeight: "420px" }}
-        />
-      </div>
-    </section>
-  );
-}
-
-/* ── OUR INITIATIVES ────────────────────────────────────── */
-function OurInitiatives() {
-  return (
-    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
-      <div className="max-w-6xl">
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            Our Initiatives
-          </p>
-          <h2
-            className="text-3xl md:text-5xl mb-6 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            Where Purpose Meets Action
-          </h2>
-          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-16 max-w-3xl" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            Stationed on the island of Solarte in Bocas Del Toro, Panama, we're advancing reef restoration and rebuilding diverse fish habitats through work that extends far beyond our immediate shoreline. The Bocas Archipelago faces interconnected challenges: overfishing, water pollution, climate change, reef collapse, resource exploitation, economically struggling villages, inconsistent infrastructure, and fragmented oversight. These problems demand thoughtful, coordinated action — and that's exactly what we're building.
-          </p>
-        </AnimateOnScroll>
-
-        <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-          {/* Initiative 1 */}
-          <AnimateOnScroll variants={fadeUp} delay={0.05}>
-            <div>
-              <p
-                className="uppercase tracking-[0.2em] text-[10px] mb-4"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 700, color: PALETTE.accent }}
-              >
-                01
-              </p>
-              <h3
-                className="text-xl md:text-2xl mb-5 leading-[1.2]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-              >
-                Coral Restoration &amp; Habitat Recovery
-              </h3>
-              <p className="text-[15px] leading-[1.85]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                Our coral gene bank facility preserves genetic diversity while our artificial reef program creates critical habitat infrastructure. Each structure we install becomes an anchor point for ecosystem recovery, attracting fish populations and rebuilding the underwater architecture that healthy oceans require.
-              </p>
-              <p className="text-[15px] leading-[1.85] mt-4" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                We've learned through crisis and adaptation. The bleaching events that devastated our region taught us to innovate — developing adjustable nursery systems, monitoring protocols, and rescue operations that transform challenges into knowledge we can share with practitioners worldwide.
-              </p>
-            </div>
-          </AnimateOnScroll>
-
-          {/* Initiative 2 */}
-          <AnimateOnScroll variants={fadeUp} delay={0.1}>
-            <div>
-              <p
-                className="uppercase tracking-[0.2em] text-[10px] mb-4"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 700, color: PALETTE.accent }}
-              >
-                02
-              </p>
-              <h3
-                className="text-xl md:text-2xl mb-5 leading-[1.2]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-              >
-                Community Impact &amp; Education
-              </h3>
-              <p className="text-[15px] leading-[1.85]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                We believe the future of our oceans depends on the next generation. Our Community Impact Events inspire youth and families through hands-on workshops, school partnerships, and interactive field experiences. By collaborating with local and national organizations, we foster environmental stewardship and provide opportunities for young people to actively participate in coral restoration and ocean protection.
-              </p>
-              <p className="text-[15px] leading-[1.85] mt-4" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                These events cultivate responsibility and hope, ensuring future generations are equipped to continue this vital work.
-              </p>
-            </div>
-          </AnimateOnScroll>
-
-          {/* Initiative 3 */}
-          <AnimateOnScroll variants={fadeUp} delay={0.15}>
-            <div>
-              <p
-                className="uppercase tracking-[0.2em] text-[10px] mb-4"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 700, color: PALETTE.accent }}
-              >
-                03
-              </p>
-              <h3
-                className="text-xl md:text-2xl mb-5 leading-[1.2]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-              >
-                Scaling Across the Archipelago
-              </h3>
-              <p className="text-[15px] leading-[1.85]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-                The long-term ambition is to establish a replicable model that other hotels, communities, and governments across the region can adopt. What begins at our bay is designed to spread — creating a network of reef restoration sites and trained practitioners throughout the Bocas del Toro archipelago and beyond.
-              </p>
-            </div>
-          </AnimateOnScroll>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ── CLOSING CTA ──────────────────────────────────────────── */
 function ClosingCTA() {
   return (
     <section className="relative overflow-hidden" style={{ height: "70vh" }}>
       <img
-        src="/manus-storage/zapatillas-island_72d0a134.jpg"
-        alt="Zapatillas Island, Bocas del Toro archipelago, Panama"
+        src={`${CDN}/bocas-aerial-full-resort_d27193e4.jpg`}
+        alt="Aerial view of Nayara Bocas del Toro full resort on the private island"
         className="w-full h-full object-cover object-center"
         loading="lazy"
       />

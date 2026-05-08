@@ -150,59 +150,106 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.65)" }} />
         </>
       )}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 pt-5 md:pt-7 pb-10">
-        {/* Desktop: logo absolutely positioned on left, columns fill right portion */}
-        <div className="hidden md:block relative text-[13px] leading-relaxed mb-8" style={{ minHeight: '180px' }}>
-          {/* Logo — absolutely positioned so it doesn't affect column layout */}
-          <div className="absolute left-0 top-0">
-            <AnimatedLeaf propertyName={propertyName} textColor={textColor} nameFontSize={nameFontSize} />
-          </div>
-          {/* Nav columns — occupy right 75% of the row, spread evenly */}
-          <div className="flex justify-between pt-12" style={{ marginLeft: '25%' }}>
-            {columns.map((col, idx) => (
-              <div key={col.title} style={{ marginLeft: idx < 2 ? '2rem' : undefined }}>
-                <span className="text-[11px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>{col.title}</span>
-                <div className="flex flex-col gap-[6px]">
-                  {col.links.map((link) => (
-                    <span key={link.label} className="flex flex-col">
-                      {link.separatorBefore && <div className="mt-2 mb-2" style={{ width: "10em", height: "1px", backgroundColor: `${textColor}33` }} />}
-                      <a href={link.route} onClick={(e) => { if (link.external) return; e.preventDefault(); navigate(link.route); }} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined} className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>{link.label}</a>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-            {/* Contact column */}
-            <div style={{ marginLeft: '-2rem' }}>
-              <span className="text-[11px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>Contact</span>
-              <div className="flex flex-col gap-[6px]">
-                <a href="mailto:reservations@nayararesorts.com" className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>reservations@nayararesorts.com</a>
-                <a href="tel:+18448652002" className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>+1 844 865 2002 (US)</a>
-                <a href="tel:+442070784060" className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>+44 020 7078 4060 (UK)</a>
-                <a href="tel:+50624791600" className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>+506 2479 1600 (Costa Rica)</a>
-                <a href="/privacy-policy" onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }} className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>Privacy Policy</a>
-              </div>
-            </div>
-          </div>
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
+        {/* Leaf , absolutely positioned on the left, same vertical position as before */}
+        <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none" }}>
+          <AnimatedLeaf propertyName={propertyName} textColor={textColor} nameFontSize={nameFontSize} />
         </div>
 
-        {/* Mobile fallback grid */}
-        <div className="md:hidden grid grid-cols-2 gap-8 text-[12px] leading-relaxed mb-8">
-          {columns.map((col) => (
-            <div key={col.title}>
-              <span className="text-[11px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>{col.title}</span>
+        {/* Dynamic columns from navigation config + Contact column */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed" style={{ paddingLeft: "240px" }}>
+          {columns.map((col, idx) => (
+            <div key={col.title} style={{ marginLeft: idx === 2 ? '12px' : undefined }}>
+              <span
+                className="text-[10px] tracking-[0.25em] block mb-4"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
+              >
+                {col.title}
+              </span>
               <div className="flex flex-col gap-[6px]">
                 {col.links.map((link) => (
-                  <a key={link.label} href={link.route} onClick={(e) => { if (!link.external) { e.preventDefault(); navigate(link.route); } }} className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>{link.label}</a>
+                  <span key={link.label} className="flex flex-col">
+                    {link.separatorBefore && (
+                      <div
+                        className="mt-2 mb-2"
+                        style={{ width: "10em", height: "1px", backgroundColor: `${textColor}33` }}
+                      />
+                    )}
+                    <a
+                      href={link.route}
+                      onClick={(e) => {
+                        if (link.external) return;
+                        e.preventDefault();
+                        navigate(link.route);
+                      }}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="transition-colors"
+                      style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+                    >
+                      {link.label}
+                    </a>
+                  </span>
                 ))}
               </div>
             </div>
           ))}
+
+          {/* Contact , always present as the last column */}
+          <div>
+            <span
+              className="text-[10px] tracking-[0.25em] block mb-4"
+              style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Contact
+            </span>
+            <div className="flex flex-col gap-[6px]">
+              <a
+                href="mailto:reservations@nayararesorts.com"
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                reservations@nayararesorts.com
+              </a>
+              <a
+                href="tel:+18448652002"
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                +1 844 865 2002 (US)
+              </a>
+              <a
+                href="tel:+442070784060"
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                +44 020 7078 4060 (UK)
+              </a>
+              <a
+                href="tel:+50624791600"
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                +506 2479 1600 (Costa Rica)
+              </a>
+              <a
+                href="/privacy-policy"
+                onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
+                className="transition-colors"
+                style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+              >
+                Privacy Policy
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Newsletter CTA */}
-        <div className="relative flex flex-col items-center mt-10 mb-6" style={{ paddingLeft: '8%' }}>
-          {/* Mobile leaf removed per design */}
+        <div className="relative flex flex-col items-center mt-10 mb-6">
+          {/* Mobile leaf , only shows on mobile since desktop has it in the column */}
+          <div className="md:hidden absolute left-1/2 -translate-x-1/2" style={{ bottom: "100%", marginBottom: "-8px" }}>
+            <AnimatedLeaf />
+          </div>
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
@@ -219,7 +266,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </div>
 
         {/* Social icons , centered, larger */}
-        <div className="flex items-center justify-center gap-8 mt-6 mb-8" style={{ paddingLeft: '8%', color: textColor }}>
+        <div className="flex items-center justify-center gap-8 mt-6 mb-8" style={{ color: textColor }}>
           <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><InstagramIcon /></a>
           <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><YouTubeIcon /></a>
           <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><FacebookIcon /></a>
@@ -227,7 +274,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </div>
 
         {/* Copyright + Privacy */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4" style={{ paddingLeft: '8%' }}>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
           <p
             className="text-[10px]"
             style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 300 }}

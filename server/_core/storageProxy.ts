@@ -83,17 +83,12 @@ export function registerStorageProxy(app: Express) {
       }
 
       // Forward relevant headers
-      let contentType = upstream.headers.get("content-type");
+      const contentType = upstream.headers.get("content-type");
       const contentLength = upstream.headers.get("content-length");
       const contentRange = upstream.headers.get("content-range");
       const acceptRanges = upstream.headers.get("accept-ranges");
       const lastModified = upstream.headers.get("last-modified");
       const etag = upstream.headers.get("etag");
-
-      // Override video/quicktime to video/mp4 so Chromium-based browsers can play .mov files
-      if (key.endsWith(".mov") || contentType === "video/quicktime") {
-        contentType = "video/mp4";
-      }
 
       if (contentType) res.set("Content-Type", contentType);
       if (contentLength) res.set("Content-Length", contentLength);

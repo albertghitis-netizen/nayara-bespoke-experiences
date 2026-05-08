@@ -333,15 +333,7 @@ const blogArticles: JournalEntry[] = [
     excerpt: "Condé Nast Traveler readers voted Nayara Bocas del Toro the #1 resort in Central and South America. Here's why.",
     featured: true,
   },
-  {
-    id: "bocas-facts",
-    title: "5 Interesting Facts About Bocas del Toro, Panama",
-    url: "/blog/bocas-facts",
-    property: "bocas-del-toro",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/5%20Interesting%20Fac",
-    excerpt: "Discover the history, culture, and natural beauty of Bocas del Toro, Panama , from its colonial past to its bioluminescent bays.",
-  },
+
   {
     id: "treehouse-dreams",
     title: "The Treehouse of Your Dreams",

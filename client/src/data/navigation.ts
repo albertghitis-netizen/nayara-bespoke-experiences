@@ -99,9 +99,8 @@ export const JOURNAL_NAV_ITEM: MenuItem = { label: "Journal", route: "/journal" 
 /* Journal sub-links for footer (each with own URL for SEO) */
 export const JOURNAL_FOOTER_ITEMS: MenuItem[] = [
   { label: "Blog", route: "/journal" },
-  { label: "Podcast", route: "/journal" },
-  { label: "Press", route: "/journal?tab=press" },
   { label: "Awards", route: "/awards" },
+  { label: "Press", route: "/journal?tab=press" },
   { label: "FAQ", route: "/journal?tab=faq" },
 ];
 
@@ -157,6 +156,7 @@ export const EXPLORE_COLUMN: FooterColumn = {
     { label: "Gastronomy", route: "/gastronomy" },
     { label: "Romance", route: "/romance" },
     { label: "Family", route: "/family-expeditions" },
+    { label: "Journal", route: "/journal" },
     { label: "Gallery", route: "/gallery" },
   ],
 };

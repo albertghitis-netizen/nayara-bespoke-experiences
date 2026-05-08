@@ -53,10 +53,6 @@ interface BrandNavigationProps {
   navPalette?: NavPalette;
   /** Property-level section navigation items */
   sectionNav?: SectionNavItem[];
-  /** Hide the hamburger menu pill */
-  hideMenu?: boolean;
-  /** Hide the Reserve pill */
-  hideReserve?: boolean;
 }
 
 export default function BrandNavigation({
@@ -65,8 +61,6 @@ export default function BrandNavigation({
   hideCenterLabel = false,
   navPalette,
   sectionNav,
-  hideMenu = false,
-  hideReserve = false,
 }: BrandNavigationProps) {
   /* Resolve palette , auto-detect from URL or use brand brown */
   const [location] = useLocation();
@@ -295,29 +289,26 @@ export default function BrandNavigation({
         <div className="hidden md:flex items-center justify-between pointer-events-auto relative">
           {/* Left: Hamburger */}
           <div ref={menuRef} className="relative shrink-0">
-            {!hideMenu && (
-              <>
-                <button
-                  onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-                  className={`${pill} w-9 h-9`}
-                  style={pillStyle}
-                  aria-label="Menu"
-                >
-                  <div className="flex flex-col gap-1">
-                    <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                    <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                  </div>
-                </button>
-                <AnimatePresence>
-                  {menuOpen && (
-                    <motion.div {...dropdownAnim} className={`${dropdownCls} left-0 top-full w-56`}>
-                      {renderMenuContent()}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </>
-            )}
-          </div>
+            <button
+              onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
+              className={`${pill} w-9 h-9`}
+              style={pillStyle}
+              aria-label="Menu"
+            >
+              <div className="flex flex-col gap-1">
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+              </div>
+            </button>
+
+            <AnimatePresence>
+              {menuOpen && (
+                <motion.div {...dropdownAnim} className={`${dropdownCls} left-0 top-full w-56`}>
+                  {renderMenuContent()}
+                </motion.div>
+              )}
+            </AnimatePresence>
+           </div>
 
 
           {/* Center: Property Section Nav or Brand Name */}
@@ -433,28 +424,25 @@ export default function BrandNavigation({
         <div className="flex md:hidden items-center justify-between pointer-events-auto">
           {/* Left: Hamburger */}
           <div ref={menuRef} className="relative">
-            {!hideMenu && (
-              <>
-                <button
-                  onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
-                  className={`${pill} w-9 h-9`}
-                  style={pillStyle}
-                  aria-label="Menu"
-                >
-                  <div className="flex flex-col gap-1">
-                    <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                    <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
-                  </div>
-                </button>
-                <AnimatePresence>
-                  {menuOpen && (
-                    <motion.div {...dropdownAnim} className={`${dropdownCls} left-0 top-full w-56`}>
-                      {renderMenuContent()}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </>
-            )}
+            <button
+              onClick={() => { closeAll(); setMenuOpen(!menuOpen); }}
+              className={`${pill} w-9 h-9`}
+              style={pillStyle}
+              aria-label="Menu"
+            >
+              <div className="flex flex-col gap-1">
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+                <span className={`block w-4 h-px transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[2.5px]" : ""}`} style={{ backgroundColor: dk }} />
+              </div>
+            </button>
+
+            <AnimatePresence>
+              {menuOpen && (
+                <motion.div {...dropdownAnim} className={`${dropdownCls} left-0 top-full w-56`}>
+                  {renderMenuContent()}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           {/* Center: Property Section Nav (mobile) */}
           {sectionNav && sectionNav.length > 0 && (
@@ -497,50 +485,46 @@ export default function BrandNavigation({
                     </div>
                   </motion.div>
                 )}
-                </AnimatePresence>
+              </AnimatePresence>
             </div>
           )}
 
           {/* Right: Reserve */}
-          <div ref={reserveRef} className="relative shrink-0">
-            {!hideReserve && (
-              <>
-                <button
-                  onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
-                  className={`${pill} h-9 px-4`}
-                  style={pillStyle}
-                >
-                  <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
-                </button>
-                <AnimatePresence>
-                  {reserveOpen && (
-                    <motion.div {...dropdownAnim} className={`${dropdownCls} right-0 top-full w-56`}>
-                      <div className="py-2">
-                        {hotelBookingLinks.map((hotel) => (
-                          <button
-                            key={hotel.label}
-                            onClick={() => handleBooking(hotel)}
-                            className={`${menuItem} flex items-center justify-between`}
-                          >
-                            <span
-                              className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3B2B26]/80" : "text-[#3B2B26]/30"}`}
-                              style={menuText}
-                            >
-                              {hotel.label}
-                            </span>
-                            {!hotel.available && (
-                              <span className="text-[8px] tracking-[0.1em] text-[#3B2B26]/20 border border-[#3B2B26]/12 px-1.5 py-0.5 rounded-full">
-                                Soon
-                              </span>
-                            )}
-                          </button>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </>
-            )}
+          <div ref={reserveRef} className="relative">
+            <button
+              onClick={() => { closeAll(); setReserveOpen(!reserveOpen); }}
+              className={`${pill} h-9 px-4`}
+              style={pillStyle}
+            >
+              <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
+            </button>
+            <AnimatePresence>
+              {reserveOpen && (
+                <motion.div {...dropdownAnim} className={`${dropdownCls} right-0 top-full w-56`}>
+                  <div className="py-2">
+                    {hotelBookingLinks.map((hotel) => (
+                      <button
+                        key={hotel.label}
+                        onClick={() => handleBooking(hotel)}
+                        className={`${menuItem} flex items-center justify-between`}
+                      >
+                        <span
+                          className={`text-[13px] whitespace-nowrap ${hotel.available ? "text-[#3B2B26]/80" : "text-[#3B2B26]/30"}`}
+                          style={menuText}
+                        >
+                          {hotel.label}
+                        </span>
+                        {!hotel.available && (
+                          <span className="text-[8px] tracking-[0.1em] text-[#3B2B26]/20 border border-[#3B2B26]/12 px-1.5 py-0.5 rounded-full">
+                            Soon
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </nav>
