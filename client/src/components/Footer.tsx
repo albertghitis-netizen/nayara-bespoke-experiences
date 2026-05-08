@@ -157,11 +157,11 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </div>
 
         {/* Dynamic columns from navigation config + Contact column */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed" style={{ paddingLeft: "240px" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[13px] leading-relaxed" style={{ paddingLeft: "240px" }}>
           {columns.map((col, idx) => (
             <div key={col.title} style={{ marginLeft: idx === 2 ? '32px' : undefined }}>
               <span
-                className="text-[10px] tracking-[0.25em] block mb-4"
+                className="text-[11px] tracking-[0.25em] block mb-4"
                 style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
               >
                 {col.title}
@@ -198,7 +198,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           {/* Contact , always present as the last column */}
           <div>
             <span
-              className="text-[10px] tracking-[0.25em] block mb-4"
+              className="text-[11px] tracking-[0.25em] block mb-4"
               style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Contact
@@ -257,7 +257,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
             style={{ borderColor: `${textColor}55` }}
           >
             <span
-              className="newsletter-text text-[11px] tracking-[0.25em] transition-opacity duration-300"
+              className="newsletter-text text-[12px] tracking-[0.25em] transition-opacity duration-300"
               style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 700, letterSpacing: "0.22em" }}
             >
               Stay Inspired with the Nayara Newsletter
@@ -276,7 +276,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         {/* Copyright + Privacy */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
           <p
-            className="text-[10px]"
+            className="text-[11px]"
             style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
@@ -285,7 +285,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           <a
             href="/privacy-policy"
             onClick={(e) => { e.preventDefault(); navigate("/privacy-policy"); }}
-            className="text-[10px] hover:opacity-100 transition-opacity"
+            className="text-[11px] hover:opacity-100 transition-opacity"
             style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             Privacy Policy
