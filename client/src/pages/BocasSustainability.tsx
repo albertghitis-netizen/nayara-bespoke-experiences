@@ -6,7 +6,9 @@
  * Real photos only. No AI-generated imagery.
  */
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
+import { ParallaxImage, RevealSection, WordReveal, KenBurnsImage } from "@/components/AnimationUtils";
 import { Link } from "wouter";
 import Footer from "@/components/Footer";
 import BlobVideo from "@/components/BlobVideo";
@@ -86,6 +88,7 @@ export default function BocasSustainability() {
       <Hero />
       <StatsBar />
       <OceanAlarmAndCrisis />
+      <OceanDivider />
       <BocasContext />
       <ThePartnership />
       <RestorationProcess />
@@ -277,8 +280,113 @@ function StatsBar() {
     </section>
   );
 }
+/* ── OCEAN DIVIDER ──────────────────────────────────────────── */
+function OceanDivider() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y1 = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
+  const y2 = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const y3 = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
-/* ── BOCAS CONTEXT ────────────────────────────────────────── */
+  return (
+    <div
+      ref={ref}
+      className="relative overflow-hidden"
+      style={{ height: "340px", backgroundColor: PALETTE.ocean }}
+    >
+      {/* Deep layer — darkest, slowest */}
+      <motion.div
+        style={{ y: y3, opacity }}
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `radial-gradient(ellipse 120% 60% at 50% 60%, rgba(77,201,209,0.08) 0%, transparent 70%)`,
+          }}
+        />
+      </motion.div>
+
+      {/* Wave layer 1 — back */}
+      <motion.div style={{ y: y3 }} className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ height: "120px" }}>
+          <path
+            d="M0 60 C240 100 480 20 720 60 C960 100 1200 20 1440 60 L1440 120 L0 120 Z"
+            fill="rgba(77,201,209,0.07)"
+          />
+        </svg>
+      </motion.div>
+
+      {/* Wave layer 2 — mid */}
+      <motion.div style={{ y: y2 }} className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ height: "100px" }}>
+          <path
+            d="M0 40 C180 80 360 0 540 40 C720 80 900 0 1080 40 C1260 80 1350 20 1440 40 L1440 100 L0 100 Z"
+            fill="rgba(77,201,209,0.12)"
+          />
+        </svg>
+      </motion.div>
+
+      {/* Wave layer 3 — front, fastest */}
+      <motion.div style={{ y: y1 }} className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ height: "80px" }}>
+          <path
+            d="M0 30 C120 60 300 0 480 30 C660 60 840 0 1020 30 C1200 60 1320 10 1440 30 L1440 80 L0 80 Z"
+            fill="rgba(77,201,209,0.18)"
+          />
+        </svg>
+      </motion.div>
+
+      {/* Central editorial text */}
+      <motion.div
+        style={{ opacity }}
+        className="absolute inset-0 flex flex-col items-center justify-center text-center px-8"
+      >
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-6 h-px w-24 origin-center"
+          style={{ backgroundColor: PALETTE.accent }}
+        />
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[11px] uppercase tracking-[0.4em] mb-4"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+        >
+          Bocas del Toro, Panama
+        </motion.p>
+        <motion.h3
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="text-2xl md:text-4xl leading-[1.2] text-white"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          The reef is still here.
+          <br />
+          <span style={{ color: PALETTE.accent }}>It just needs a chance.</span>
+        </motion.h3>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6 h-px w-24 origin-center"
+          style={{ backgroundColor: PALETTE.accent }}
+        />
+      </motion.div>
+    </div>
+  );
+}
+
+/* ── BOCAS CONTEXT ────────────────────────────────────── */
 function BocasContext() {
   return (
     <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
