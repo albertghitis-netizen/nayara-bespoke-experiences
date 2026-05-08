@@ -19,6 +19,7 @@ import {
 } from "@/components/motion";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
+const STORAGE = "/manus-storage";
 
 const PALETTE = {
   ocean: "#1E3A8A",      // Bocas royal blue (primary/nav/footer)
@@ -88,6 +89,7 @@ export default function BocasSustainability() {
       <BocasContext />
       <ThePartnership />
       <RestorationProcess />
+      <ArtificialReefPhoto />
       <ImageBreak />
       <WhatMakesItUnique />
       <GuestExperience />
@@ -104,7 +106,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
       <BlobVideo
-        src="/manus-storage/intro_5faa5357.mov"
+        src="/manus-storage/intro_h264_d64d158b.mp4"
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
       <div
@@ -233,8 +235,8 @@ function BocasContext() {
       {/* Image left */}
       <div className="overflow-hidden" style={{ minHeight: "380px" }}>
         <img
-          src={`${CDN}/bocas-aerial-villas-mangroves_9d5e94f5.jpg`}
-          alt="Aerial view of Nayara Bocas del Toro overwater villas surrounded by mangroves and turquoise water"
+          src={`${STORAGE}/NayarabocasdelToro-LivLaw-DJI_0278-byBriceFerreStudio_60a188a3.jpg`}
+          alt="Aerial view of Bocas del Toro archipelago islands and coral reefs, by Brice Ferre Studio"
           className="w-full h-full object-cover object-center"
           loading="lazy"
           style={{ minHeight: "380px", transition: "transform 700ms ease-in-out" }}
@@ -404,6 +406,58 @@ function RestorationProcess() {
             </AnimateOnScroll>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── ARTIFICIAL REEF PHOTO ───────────────────────────────── */
+function ArtificialReefPhoto() {
+  return (
+    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
+      {/* Image left */}
+      <div className="overflow-hidden" style={{ minHeight: "400px" }}>
+        <img
+          src={`${STORAGE}/placingartificalreef_0799c415.webp`}
+          alt="Divers placing an artificial reef structure on the seafloor in Bocas del Toro"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+          style={{ minHeight: "400px", transition: "transform 700ms ease-in-out" }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")}
+        />
+      </div>
+      {/* Text right */}
+      <div
+        className="flex flex-col justify-center px-10 md:px-16 py-16"
+        style={{ backgroundColor: PALETTE.ocean }}
+      >
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+          >
+            Step 04 in Action
+          </p>
+          <h2
+            className="text-2xl md:text-3xl mb-6 leading-[1.2] text-white"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            Installing the Foundation
+          </h2>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
+          >
+            Caribbean Coral Restoration's divers lower an artificial reef structure into position on the seafloor of Bocas del Toro bay. Each structure is built on land from environmentally friendly materials, designed to mimic natural reef architecture, and installed before any coral is outplanted.
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85]"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
+          >
+            The result is a stable, clean foundation that gives each coral fragment the best possible start. Within months of installation, fish and invertebrates begin colonizing the structure — long before the coral itself is fully established.
+          </p>
+        </AnimateOnScroll>
       </div>
     </section>
   );
