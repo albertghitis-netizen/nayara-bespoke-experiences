@@ -173,7 +173,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
               </div>
             ))}
             {/* Contact column */}
-            <div>
+            <div style={{ marginLeft: '-2rem' }}>
               <span className="text-[11px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>Contact</span>
               <div className="flex flex-col gap-[6px]">
                 <a href="mailto:reservations@nayararesorts.com" className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>reservations@nayararesorts.com</a>
