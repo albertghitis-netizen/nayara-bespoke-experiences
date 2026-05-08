@@ -1586,6 +1586,7 @@ const PANORAMA_PANELS = [
     image: `${CDN_TC}/tented-camp-sunset-plunge_7573fe67.jpeg`,
     route: null,
     accent: "#868B75",
+    videoPosition: "center 20%",
   },
   {
     name: "Springs",
@@ -1596,6 +1597,7 @@ const PANORAMA_PANELS = [
     image: `${CDN_TC}/springs-villa-plunge-pool-straight_a5d505d1.webp`,
     route: "/springs",
     accent: "#4B6358",
+    videoPosition: "center 35%",
   },
 ];
 
@@ -1659,6 +1661,7 @@ function PanoramaPanel({
         style={{
           transform: isHovered ? "scale(1.06)" : "scale(1.0)",
           transition: "transform 1.1s cubic-bezier(0.77,0,0.175,1)",
+          objectPosition: (panel as any).videoPosition || "center center",
         }}
         poster={panel.image}
       />
