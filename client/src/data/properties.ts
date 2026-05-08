@@ -1004,7 +1004,8 @@ const bocasExcursions: Excursion[] = [
     price: "$90 per person + boat transfer",
     description: "Visit the famous Monkey Island where white-faced capuchins swing through the trees and approach visitors. Continue to a sloth sanctuary to observe these gentle creatures up close. A family-friendly wildlife adventure.",
     highlights: ["White-faced capuchin monkeys", "Sloth sanctuary visit", "Boat ride through mangrove channels"],
-    placeholder: true,
+    image: "/manus-storage/bird-island_4046e66c.jpg",
+    placeholder: false,
     category: "nature",
   },
   {
@@ -1016,7 +1017,8 @@ const bocasExcursions: Excursion[] = [
     price: "$120 per person + boat transfer",
     description: "Island-hop to Red Frog Beach \u2014 named for the tiny red poison dart frogs that inhabit the forest behind the sand. Continue to the Zapatilla Cays, uninhabited islands with crystal-clear snorkeling and powdery white sand.",
     highlights: ["Red poison dart frog spotting", "Snorkeling at Zapatilla Cays", "Pristine uninhabited islands"],
-    placeholder: true,
+    image: "/manus-storage/zapatillas-island-compressed_e5fd6981.jpg",
+    placeholder: false,
     category: "nature",
   },
   {
@@ -1028,7 +1030,8 @@ const bocasExcursions: Excursion[] = [
     price: "$90 per person + boat transfer",
     description: "Wade into the warm, shallow turquoise waters of Starfish Beach where dozens of orange and red starfish dot the sandy bottom. One of the most photographed spots in Bocas del Toro.",
     highlights: ["Dozens of starfish in shallow water", "Crystal-clear turquoise waters", "Relaxed beach atmosphere"],
-    placeholder: true,
+    image: "/manus-storage/starfish-beach-compressed_abde3e92.jpg",
+    placeholder: false,
     category: "nature",
   },
   {
@@ -1054,7 +1057,8 @@ const bocasExcursions: Excursion[] = [
     price: "$90 per person + boat transfer",
     description: "Explore a sea cave inhabited by fruit bats, then snorkel over vibrant coral reefs teeming with tropical fish. The contrast between the dark cave and the colorful underwater world is unforgettable.",
     highlights: ["Sea cave with fruit bat colony", "Vibrant coral reef snorkeling", "Tropical fish and marine life"],
-    placeholder: true,
+    image: "/manus-storage/coral-reef-compressed_26f1aba8.jpg",
+    placeholder: false,
     category: "adventure",
   },
   {
@@ -1066,7 +1070,8 @@ const bocasExcursions: Excursion[] = [
     price: "From $120 per person",
     description: "Dive into Bocas del Toro\u2019s rich Caribbean reef systems. Sites range from shallow coral gardens to deeper walls and even a shipwreck. Encounter nurse sharks, eagle rays, seahorses, and vibrant reef fish.",
     highlights: ["Multiple dive sites for all levels", "Nurse sharks and eagle rays", "Shipwreck exploration"],
-    placeholder: true,
+    image: "/manus-storage/escudo-de-veraguas_bd2cbaff.jpg",
+    placeholder: false,
     category: "adventure",
   },
   {
@@ -1078,7 +1083,8 @@ const bocasExcursions: Excursion[] = [
     price: "From $1,000 (half day) to $1,600 (full day)",
     description: "Sail a luxury 40ft catamaran through the most beautiful spots in Bocas del Toro. Swim, snorkel, surf, fish, spearfish, and paddleboard. Full-day includes champagne breakfast, lunch, snacks, and drinks for up to 4 guests.",
     highlights: ["40ft luxury catamaran", "Champagne breakfast and gourmet lunch", "Multiple water activities included"],
-    placeholder: true,
+    image: "/manus-storage/paddleboarding-compressed_631d1c68.jpg",
+    placeholder: false,
     category: "water",
   },
   {
