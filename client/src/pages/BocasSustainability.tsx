@@ -596,7 +596,8 @@ function WhatMakesItUnique() {
   );
 }
 
-/* ── GUEST EXPERIENCE ─────────────────────────────────────── */
+/* ── ADOPT A REEF ───────────────────────────────────────────────── */
+/* (was: GUEST EXPERIENCE --───────────────────────────────────── */
 function GuestExperience() {
   return (
     <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
@@ -610,31 +611,31 @@ function GuestExperience() {
             className="uppercase tracking-[0.28em] text-[11px] mb-5"
             style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
           >
-            Your Role
+            Guest Experience
           </p>
           <h2
-            className="text-2xl md:text-3xl mb-6 leading-[1.2]"
+            className="text-2xl md:text-4xl mb-6 leading-[1.1]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
-            What Guests Experience
+            Adopt a Reef
           </h2>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Guests at Nayara Bocas del Toro can participate directly in the restoration program. Led by our team and Caribbean Coral Restoration's marine biologists, the experience takes you beneath the surface of the bay to the active restoration sites — where you will see the artificial reef structures, coral fragments in various stages of growth, and the marine life that has already returned.
+            The reef we're building is shallow enough to snorkel — and that's exactly the point. Guests wade in, mask on, and swim out to the active restoration site where our marine biologists are waiting. There, in just a few feet of warm Caribbean water, you plant your own coral fragment onto the reef structure.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Participants learn to identify coral species, understand the science of bleaching and resilience, and — in some sessions — assist with outplanting coral fragments onto the structures. It is a rare opportunity to contribute something real and lasting to a place you have chosen to visit.
+            Each coral gets a small personal tag — your mark on the reef. From that moment, it's yours. Through our Adopt a Reef program, you can log in from anywhere in the world and watch your coral grow over months and years, tracked by our restoration team with regular photo updates.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            No prior diving experience is required for snorkeling sessions. For certified divers, deeper reef monitoring dives are available. Both are intimate — small groups only — to minimize impact on the restoration sites. Arrange through the resort concierge.
+            No dive certification needed. No prior experience required. Just a willingness to get in the water and leave something living behind. Arrange through the resort concierge — groups are kept small to protect the restoration site.
           </p>
         </AnimateOnScroll>
       </div>
