@@ -1615,6 +1615,7 @@ function PanoramaPanel({
   onLeave: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const inView = useRef(false);
   const [visible, setVisible] = useState(false);
 
@@ -1634,6 +1635,17 @@ function PanoramaPanel({
     return () => observer.disconnect();
   }, [index]);
 
+  // Play on hover, pause on leave (stays on current frame)
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isHovered) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isHovered]);
+
   const inner = (
     <div
       ref={ref}
@@ -1648,13 +1660,13 @@ function PanoramaPanel({
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
     >
-      {/* Video background with image fallback */}
+      {/* Video background — still on poster until hover, plays on hover */}
       <video
+        ref={videoRef}
         src={panel.video}
-        autoPlay
         muted
-        loop
         playsInline
+        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           transform: isHovered ? "scale(1.06)" : "scale(1.0)",
