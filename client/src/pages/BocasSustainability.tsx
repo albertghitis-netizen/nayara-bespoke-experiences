@@ -883,8 +883,8 @@ function CommunityWellness() {
       {/* Image right */}
       <div className="overflow-hidden order-1 md:order-2" style={{ minHeight: "420px" }}>
         <img
-          src="/manus-storage/destination-8-coral-reef_3a82983f.jpeg"
-          alt="Vibrant coral reef ecosystem supporting community wellness and sustainable fisheries in Bocas del Toro"
+          src="/manus-storage/pasted_file_sYcRek_image_0cdf29f6.png"
+          alt="Local Ngäbe-Buglé family in a traditional dugout canoe on the waters of Bocas del Toro"
           className="w-full h-full object-cover object-center"
           loading="lazy"
           style={{ minHeight: "420px" }}
