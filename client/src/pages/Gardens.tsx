@@ -424,153 +424,237 @@ function StorySection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ONE RAINFOREST COMPACT , Replaces S2 video
-   Three Keys, One Door , compact version without images or dining
+   THREE KEYS, ONE DOOR — Cinematic Panorama (Gardens in middle)
    ═══════════════════════════════════════════════════════════════ */
-const OR_PROPERTIES = [
-  { name: "Tented Camp", tagline: "Clifftop Tents & Suites", route: "/tented-camp", accent: "#868B75" },
-  { name: "Gardens", tagline: "Rainforest Casitas & Villas", route: "/gardens", accent: "#286241", current: true },
-  { name: "Springs", tagline: "Private Hot Springs Villas", route: "/springs", accent: "#3B6E7B", adultsOnly: true },
+const GARDENS_PANORAMA_PANELS = [
+  {
+    name: "Tented Camp",
+    tagline: "Clifftop Tents & Suites",
+    description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
+    badge: null,
+    video: "/manus-storage/panel-tented-16x9-v2_0a79914b.mp4",
+    image: "/manus-storage/poster-tented_0bb4a3c9.jpg",
+    route: "/tented-camp",
+    accent: "#868B75",
+  },
+  {
+    name: "Gardens",
+    tagline: "Rainforest Casitas & Villas",
+    description: "Intimate casitas and rainforest villas nestled in a 1,400-acre private reserve. Plunge pools, canopy walks, and the sounds of the jungle at your doorstep.",
+    badge: "You Are Here",
+    video: "/manus-storage/panel-gardens-16x9_1756d5d5.mp4",
+    image: "/manus-storage/poster-gardens_cd7a149e.jpg",
+    route: null,
+    accent: "#286241",
+  },
+  {
+    name: "Springs",
+    tagline: "Private Hot Springs Villas · Adults Only",
+    description: "The world's only Three-Key MICHELIN hotel in Costa Rica. Private volcanic hot spring pools, a floating breakfast, and the most intimate luxury in the rainforest.",
+    badge: null,
+    video: "/manus-storage/panel-springs-16x9_1ad9b29e.mp4",
+    image: "/manus-storage/poster-springs_42fdf73b.jpg",
+    route: "/springs",
+    accent: "#4B6358",
+  },
 ];
 
-const OR_STATS = [
-  { value: 12, label: "Shared Restaurants", suffix: "" },
-  { value: 28, label: "Spa Treatments", suffix: "+" },
-  { value: 16, label: "Curated Excursions", suffix: "" },
-  { value: 1400, label: "Acres of Rainforest", suffix: "" },
-];
+function GardensPanoramaPanel({
+  panel,
+  index,
+  isHovered,
+  anyHovered,
+  onEnter,
+  onLeave,
+}: {
+  panel: (typeof GARDENS_PANORAMA_PANELS)[number];
+  index: number;
+  isHovered: boolean;
+  anyHovered: boolean;
+  onEnter: () => void;
+  onLeave: () => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const inView = useRef(false);
+  const [visible, setVisible] = useState(false);
 
-function CompactStatCounter({ value, label, suffix, delay }: { value: number; label: string; suffix: string; delay: number }) {
-  const [display, ref] = useCountUp({ end: value, duration: 2200, delay, suffix });
-  return (
-    <div className="text-center">
-      <span
-        ref={ref as React.RefObject<HTMLSpanElement>}
-        className="block text-2xl md:text-3xl tracking-tight"
-        style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#fff" }}
-      >
-        {display}
-      </span>
-      <span
-        className="block mt-1 text-[10px] tracking-[0.15em] uppercase"
-        style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
-      >
-        {label}
-      </span>
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !inView.current) {
+          inView.current = true;
+          setTimeout(() => setVisible(true), index * 120);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [index]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isHovered) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isHovered]);
+
+  const inner = (
+    <div
+      ref={ref}
+      className="relative overflow-hidden cursor-pointer"
+      style={{
+        flex: isHovered ? "1.55 1 0%" : anyHovered ? "0.72 1 0%" : "1 1 0%",
+        minHeight: "520px",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : "scale(1.04)",
+        transition: `flex 0.7s cubic-bezier(0.77,0,0.175,1), opacity 0.9s ease ${index * 0.12}s, transform 0.9s ease ${index * 0.12}s`,
+      }}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+    >
+      <video
+        ref={videoRef}
+        src={panel.video}
+        muted
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{
+          transform: isHovered ? "scale(1.06)" : "scale(1.0)",
+          transition: "transform 1.1s cubic-bezier(0.77,0,0.175,1)",
+        }}
+        poster={panel.image}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: isHovered
+            ? "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 55%, transparent 100%)"
+            : "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.08) 60%, transparent 100%)",
+          transition: "background 0.6s ease",
+        }}
+      />
+      {index < 2 && (
+        <div className="absolute top-0 right-0 bottom-0 w-px" style={{ backgroundColor: "rgba(255,255,255,0.18)" }} />
+      )}
+      {panel.badge && (
+        <div className="absolute top-5 right-5 z-10">
+          <span
+            className="text-[9px] tracking-[0.18em] uppercase px-3 py-1.5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${panel.accent}CC`, backdropFilter: "blur(6px)" }}
+          >
+            {panel.badge}
+          </span>
+        </div>
+      )}
+      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10">
+        <p className="text-[10px] tracking-[0.22em] uppercase mb-2" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.65)", opacity: isHovered ? 1 : 0.7, transition: "opacity 0.5s ease" }}>
+          {panel.tagline}
+        </p>
+        <h3 className="text-xl md:text-2xl lg:text-3xl tracking-wide leading-none" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
+          Nayara {panel.name}
+        </h3>
+        <div style={{ overflow: "hidden", maxHeight: isHovered ? "120px" : "0px", opacity: isHovered ? 1 : 0, transition: "max-height 0.6s ease, opacity 0.5s ease" }}>
+          <p className="mt-3 text-[12px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}>
+            {panel.description}
+          </p>
+        </div>
+        {panel.route && (
+          <div style={{ overflow: "hidden", maxHeight: isHovered ? "48px" : "0px", opacity: isHovered ? 1 : 0, transition: "max-height 0.5s ease, opacity 0.4s ease 0.1s" }}>
+            <p className="mt-3 text-[11px] tracking-[0.14em] uppercase flex items-center gap-2" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.85)" }}>
+              Explore
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+            </p>
+          </div>
+        )}
+      </div>
     </div>
+  );
+
+  return panel.route ? (
+    <Link href={panel.route} className="contents">{inner}</Link>
+  ) : (
+    <>{inner}</>
   );
 }
 
 function OneRainforestCompact() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setHeaderVisible(true); },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="relative overflow-hidden px-6 md:px-10 py-20 md:py-28" style={{ backgroundColor: "#1a2e1a" }}>
-      {/* Bright image background with light overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/manus-storage/gardens-3keys-bg-v3_d1bbc4d7.jpg"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.35)" }} />
+    <div ref={sectionRef} style={{ backgroundColor: "#EDEEE2" }}>
+      <div
+        className="px-6 md:px-10 pt-16 md:pt-20 pb-10 md:pb-12 text-center"
+        style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(20px)", transition: "opacity 0.9s ease, transform 0.9s ease" }}
+      >
+        <p className="text-[10px] tracking-[0.25em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(58,42,26,0.55)" }}>
+          One Rainforest, Three Resorts
+        </p>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3a2a1a" }}>
+          Three Keys, One Door
+        </h2>
+        <p className="mt-4 text-[13px] md:text-[14px] leading-[1.8] max-w-[520px] mx-auto" style={{ fontFamily: "var(--font-body)", color: "rgba(58,42,26,0.7)" }}>
+          Stay at Gardens and the restaurants, spa, hot springs, and experiences of Tented Camp and Springs are all yours.
+        </p>
       </div>
-      <div className="relative z-10 max-w-[1000px] mx-auto">
-        {/* Header */}
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="text-[11px] tracking-[0.2em] mb-3 uppercase text-center"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.8)" }}
-          >
-            One Rainforest, Three Resorts
-          </p>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <h2 className="text-center mb-4">
-            <span
-              className="text-xl md:text-2xl lg:text-3xl leading-[1.05] tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
-            >
-              Three Keys, One Door
-            </span>
-          </h2>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <p
-            className="text-[14px] leading-[1.8] max-w-[560px] mx-auto text-center mb-8"
-            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}
-          >
-            Stay at Gardens and the restaurants, spa, hot springs, and experiences of Tented Camp and Springs are all yours.
-          </p>
-        </AnimateOnScroll>
-
-        {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-          {OR_STATS.map((stat, i) => (
-            <CompactStatCounter key={stat.label} {...stat} delay={i * 150} />
-          ))}
-        </div>
-
-        {/* Three property cards , text only */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {OR_PROPERTIES.map((prop) => (
-            prop.current ? (
-              <div
-                key={prop.name}
-                className="relative px-5 py-4 rounded-sm text-center"
-                style={{ backgroundColor: "rgba(40,98,65,0.92)", border: "1px solid #286241" }}
-              >
-                <span
-                  className="absolute top-1 right-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
-                >
-                  You Are Here
-                </span>
-                <h4
-                  className="text-base tracking-wide mb-1"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
-                >
-                  Nayara {prop.name}
-                </h4>
-                <p
-                  className="text-[11px] tracking-[0.08em] uppercase"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
-                >
-                  {prop.tagline}
-                </p>
+      <div className="hidden md:flex" style={{ height: "580px" }}>
+        {GARDENS_PANORAMA_PANELS.map((panel, i) => (
+          <GardensPanoramaPanel
+            key={panel.name}
+            panel={panel}
+            index={i}
+            isHovered={hoveredIndex === i}
+            anyHovered={hoveredIndex !== null}
+            onEnter={() => setHoveredIndex(i)}
+            onLeave={() => setHoveredIndex(null)}
+          />
+        ))}
+      </div>
+      <div className="flex flex-col md:hidden">
+        {GARDENS_PANORAMA_PANELS.map((panel, i) => {
+          const inner = (
+            <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
+              <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
+              {panel.badge && (
+                <div className="absolute top-4 right-4">
+                  <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${panel.accent}CC` }}>{panel.badge}</span>
+                </div>
+              )}
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <p className="text-[9px] tracking-[0.2em] uppercase mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>{panel.tagline}</p>
+                <h3 className="text-lg tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>Nayara {panel.name}</h3>
               </div>
-            ) : (
-              <Link
-                key={prop.name}
-                href={prop.route}
-                className="relative block px-5 py-4 rounded-sm text-center transition-colors duration-300 hover:brightness-110"
-                style={{ backgroundColor: "rgba(40,98,65,0.85)", border: "1px solid #286241" }}
-              >
-                {prop.adultsOnly && (
-                  <span
-                    className="absolute top-1 right-3 text-[8px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#1a3d28", backgroundColor: "#e8d5b0" }}
-                  >
-                    Adults Only
-                  </span>
-                )}
-                <h4
-                  className="text-base tracking-wide mb-1"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
-                >
-                  Nayara {prop.name}
-                </h4>
-                <p
-                  className="text-[11px] tracking-[0.08em] uppercase"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}
-                >
-                  {prop.tagline}
-                </p>
-              </Link>
-            )
-          ))}
-        </div>
+            </div>
+          );
+          return panel.route ? (
+            <Link key={panel.name} href={panel.route} className="block">{inner}</Link>
+          ) : (
+            <div key={panel.name}>{inner}</div>
+          );
+        })}
       </div>
+      <div className="h-12 md:h-16" />
     </div>
   );
 }
