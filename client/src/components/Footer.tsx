@@ -154,11 +154,11 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         {/* Desktop: all 5 items (logo + 4 columns) in one justify-between flex row */}
         <div className="hidden md:flex items-start justify-between text-[12px] leading-relaxed mb-8">
           {/* Logo / Leaf column — treated as first column, lowered to align with nav columns */}
-          <div className="shrink-0">
+          <div className="shrink-0 -ml-6">
             <AnimatedLeaf propertyName={propertyName} textColor={textColor} nameFontSize={nameFontSize} />
           </div>
           {/* Nav columns — same level as logo, spread evenly */}
-          <div className="flex justify-between flex-1 pl-16 pt-8">
+          <div className="flex justify-between flex-1 pl-8 pt-12">
             {columns.map((col) => (
               <div key={col.title}>
                 <span className="text-[10px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>{col.title}</span>
