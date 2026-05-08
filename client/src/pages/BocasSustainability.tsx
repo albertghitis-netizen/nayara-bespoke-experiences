@@ -85,8 +85,7 @@ export default function BocasSustainability() {
 
       <Hero />
       <StatsBar />
-      <OceanAlarm />
-      <TheGlobalCrisis />
+      <OceanAlarmAndCrisis />
       <BocasContext />
       <ThePartnership />
       <RestorationProcess />
@@ -144,56 +143,99 @@ function Hero() {
   );
 }
 
-/* ── OCEAN ALARM ──────────────────────────────────── */
-function OceanAlarm() {
+/* ── OCEAN ALARM + GLOBAL CRISIS (side by side) ──────────── */
+function OceanAlarmAndCrisis() {
   return (
     <section style={{ backgroundColor: PALETTE.sand }}>
-      {/* Text content */}
-      <div className="max-w-3xl px-8 md:px-16 lg:px-24 py-16 md:py-24">
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            The Global Context
-          </p>
-          <h2
-            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            Why the Ocean Is Sounding the Alarm
-          </h2>
-        </AnimateOnScroll>
+      <div className="grid md:grid-cols-2 gap-0">
+        {/* LEFT — Why the Ocean Is Sounding the Alarm */}
+        <div className="px-8 md:px-14 lg:px-20 py-16 md:py-24">
+          <AnimateOnScroll variants={fadeUp}>
+            <p
+              className="uppercase tracking-[0.28em] text-[11px] mb-5"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+            >
+              The Global Context
+            </p>
+            <h2
+              className="text-3xl md:text-4xl mb-10 leading-[1.1]"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+            >
+              Why the Ocean Is Sounding the Alarm
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+              The planet's environmental systems are under strain, and nowhere is this more visible than in the ocean. Coral reefs are experiencing unprecedented stress due to rising ocean temperatures, acidification, and land-based pollution.
+            </p>
+            <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+              In 2024, the U.S. National Oceanic and Atmospheric Administration confirmed the fourth global coral bleaching event on record, driven by prolonged marine heatwaves affecting reefs across the Atlantic, Pacific, and Indian Oceans.
+            </p>
+            <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+              According to NOAA Coral Reef Watch, bleaching-level heat stress has affected more than 80 percent of the world's coral reef area, making this the most widespread bleaching event ever documented.
+            </p>
+            <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+              The Intergovernmental Panel on Climate Change reports that at 1.5°C of global warming, coral reefs are expected to decline by 70–90 percent, with losses exceeding 99 percent at 2°C.
+            </p>
+            <p className="text-[16px] leading-[1.9] mb-10" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+              The ocean absorbs over 90 percent of excess heat trapped by greenhouse gases and roughly one-quarter of global CO₂ emissions — buffering climate impacts while becoming warmer and more acidic.
+            </p>
+            <blockquote
+              className="pl-6 border-l-2 text-lg md:text-xl leading-[1.6] italic"
+              style={{ borderColor: PALETTE.accent, fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+            >
+              This is the context in which One Ocean exists. Not as an abstract idea, but as a response to a planet whose water systems are sending increasingly clear signals of stress.
+            </blockquote>
+          </AnimateOnScroll>
+        </div>
 
-        <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            The planet's environmental systems are under strain, and nowhere is this more visible than in the ocean. Coral reefs are experiencing unprecedented stress due to rising ocean temperatures, acidification, and land-based pollution.
+        {/* RIGHT — The Fourth Mass Bleaching Event */}
+        <div className="flex flex-col" style={{ backgroundColor: PALETTE.light }}>
+          {/* Large bleaching image */}
+          <div className="overflow-hidden" style={{ minHeight: "420px", flex: "0 0 auto" }}>
+            <img
+              src="/manus-storage/pasted_file_oSevgU_image_7636ecdb.png"
+              alt="Bleached white staghorn coral — a stark image of coral bleaching in the Caribbean"
+              className="w-full h-full object-cover object-center"
+              style={{ minHeight: "420px" }}
+              loading="lazy"
+            />
+          </div>
+          <p className="px-8 pt-3 pb-0 text-[11px] tracking-[0.06em] uppercase" style={{ fontFamily: "var(--font-body)", color: "rgba(26,10,0,0.35)" }}>
+            Bleached staghorn coral, Caribbean
           </p>
-          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            In 2024, the U.S. National Oceanic and Atmospheric Administration confirmed the fourth global coral bleaching event on record, driven by prolonged marine heatwaves affecting reefs across the Atlantic, Pacific, and Indian Oceans.
-          </p>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            According to NOAA Coral Reef Watch, bleaching-level heat stress has affected more than 80 percent of the world's coral reef area, making this the most widespread bleaching event ever documented.
-          </p>
-          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            The Intergovernmental Panel on Climate Change reports that at 1.5 degrees Celsius of global warming, coral reefs are expected to decline by 70 to 90 percent, with losses exceeding 99 percent at 2 degrees Celsius.
-          </p>
-          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            On land, biodiversity loss is accelerating. The Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services identifies land-use change, deforestation, and climate stress as primary drivers of ecosystem degradation worldwide. Forests regulate rainfall, stabilize soils, and filter water before it reaches rivers and coastal zones. When forests are removed or fragmented, erosion increases and water quality declines downstream, directly affecting marine ecosystems.
-          </p>
-          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-10" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            The ocean reflects all of this. It absorbs over 90 percent of excess heat trapped by greenhouse gases and roughly one-quarter of global carbon dioxide emissions, buffering climate impacts while becoming warmer and more acidic.
-          </p>
-          <blockquote
-            className="pl-6 border-l-2 text-xl md:text-2xl leading-[1.5] italic"
-            style={{ borderColor: PALETTE.accent, fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            This is the context in which One Ocean exists. Not as an abstract idea, but as a response to a planet whose water systems are sending increasingly clear signals of stress.
-          </blockquote>
-        </AnimateOnScroll>
+          {/* Bleaching text */}
+          <div className="px-8 md:px-14 py-10 md:py-16">
+            <AnimateOnScroll variants={fadeUp}>
+              <p
+                className="uppercase tracking-[0.28em] text-[11px] mb-5"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+              >
+                The Crisis
+              </p>
+              <h2
+                className="text-3xl md:text-4xl mb-8 leading-[1.1]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+              >
+                The Fourth Mass Bleaching Event
+              </h2>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.1}>
+              <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                In 2024, NOAA declared the world's fourth global mass coral bleaching event on record — the most widespread in history, affecting reefs across the Atlantic, Pacific, and Indian Oceans simultaneously. The trigger: sea surface temperatures rising to levels coral cannot survive.
+              </p>
+              <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                Coral bleaching occurs when water temperatures rise even slightly above normal for an extended period. Corals expel the symbiotic algae — zooxanthellae — that provide up to 90% of their energy. Without them, the coral turns white and, if temperatures don't return to normal quickly, starves to death.
+              </p>
+              <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                The Caribbean has been among the hardest hit. Caribbean reefs have declined by approximately <strong>80% over the last fifty years</strong> — driven by bleaching, ocean acidification, agricultural runoff, coastal development, and overfishing.
+              </p>
+              <p className="text-[16px] leading-[1.9]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                Over 50% of the world's coral reefs have been lost since the 1950s. Coral reefs cover less than 1% of the ocean floor but support an estimated 25% of all marine species — and the livelihoods of more than a billion people.
+              </p>
+            </AnimateOnScroll>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -229,76 +271,6 @@ function StatsBar() {
       >
         Sources: Caribbean Coral Restoration Center (loveforthesea.com) · NOAA Coral Reef Watch 2024
       </p>
-    </section>
-  );
-}
-
-/* ── THE GLOBAL CRISIS ────────────────────────────────────── */
-function TheGlobalCrisis() {
-  return (
-    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
-      <div className="max-w-3xl">
-        <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="uppercase tracking-[0.28em] text-[11px] mb-5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
-          >
-            The Global Context
-          </p>
-          <h2
-            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
-          >
-            The Fourth Mass Bleaching Event
-          </h2>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            In 2024, NOAA declared the world's fourth global mass coral bleaching event on record — the most widespread in history, affecting reefs across the Atlantic, Pacific, and Indian Oceans simultaneously. The trigger: sea surface temperatures rising to levels coral cannot survive.
-          </p>
-        </AnimateOnScroll>
-
-        {/* Bleaching image */}
-        <AnimateOnScroll variants={fadeUp} delay={0.12}>
-          <div className="my-10 overflow-hidden">
-            <img
-              src="/manus-storage/pasted_file_oSevgU_image_7636ecdb.png"
-              alt="Bleached white staghorn coral — a stark image of coral bleaching in the Caribbean"
-              className="w-full object-cover"
-              style={{ maxHeight: "400px", objectPosition: "center" }}
-              loading="lazy"
-            />
-            <p className="mt-3 text-[12px] tracking-[0.06em] uppercase" style={{ fontFamily: "var(--font-body)", color: "rgba(26,10,0,0.4)" }}>
-              Bleached staghorn coral, Caribbean
-            </p>
-          </div>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            Coral bleaching occurs when water temperatures rise even slightly above normal for an extended period. Corals expel the symbiotic algae — zooxanthellae — that live in their tissues and provide up to 90% of their energy through photosynthesis. Without them, the coral turns white and, if temperatures don't return to normal quickly, starves to death. What was once a rare event now occurs with increasing frequency and severity.
-          </p>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            The Caribbean has been among the hardest hit. Caribbean reefs have declined by approximately <strong>80% over the last fifty years</strong> — a collapse driven by bleaching, ocean acidification, agricultural runoff, coastal development, and overfishing. Six Caribbean coral species are now listed as threatened under the U.S. Endangered Species Act, including Staghorn coral (<em>Acropora cervicornis</em>) and Elkhorn coral (<em>Acropora palmata</em>) — once the dominant reef-building species across the entire region.
-          </p>
-          <p
-            className="text-[17px] md:text-[19px] leading-[1.9]"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            Over 50% of the world's coral reefs have been lost since the 1950s. Scientists estimate that without significant intervention, the majority of the world's remaining reefs could be functionally extinct within decades. Coral reefs cover less than 1% of the ocean floor but support an estimated 25% of all marine species — and the livelihoods of more than a billion people.
-          </p>
-        </AnimateOnScroll>
-      </div>
     </section>
   );
 }
