@@ -201,7 +201,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </div>
 
         {/* Newsletter CTA */}
-        <div className="relative flex flex-col items-center mt-10 mb-6">
+        <div className="relative flex flex-col items-center mt-10 mb-6" style={{ paddingLeft: '8%' }}>
           {/* Mobile leaf , only shows on mobile since desktop has it in the column */}
           <div className="md:hidden absolute left-1/2 -translate-x-1/2" style={{ bottom: "100%", marginBottom: "-8px" }}>
             <AnimatedLeaf />
@@ -222,7 +222,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </div>
 
         {/* Social icons , centered, larger */}
-        <div className="flex items-center justify-center gap-8 mt-6 mb-8" style={{ color: textColor }}>
+        <div className="flex items-center justify-center gap-8 mt-6 mb-8" style={{ paddingLeft: '8%', color: textColor }}>
           <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><InstagramIcon /></a>
           <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><YouTubeIcon /></a>
           <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.75 }} className="social-icon-link"><FacebookIcon /></a>
@@ -230,7 +230,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </div>
 
         {/* Copyright + Privacy */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4" style={{ paddingLeft: '8%' }}>
           <p
             className="text-[10px]"
             style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 300 }}
