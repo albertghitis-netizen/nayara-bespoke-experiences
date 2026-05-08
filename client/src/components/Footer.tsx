@@ -151,17 +151,17 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </>
       )}
       <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 pt-5 md:pt-7 pb-10">
-        {/* Desktop: all 5 items (logo + 4 columns) in one justify-between flex row */}
-        <div className="hidden md:flex items-start justify-between text-[12px] leading-relaxed mb-8">
-          {/* Logo / Leaf column — treated as first column, lowered to align with nav columns */}
-          <div className="shrink-0 -ml-6">
+        {/* Desktop: logo absolutely positioned on left, columns fill right portion */}
+        <div className="hidden md:block relative text-[13px] leading-relaxed mb-8" style={{ minHeight: '180px' }}>
+          {/* Logo — absolutely positioned so it doesn't affect column layout */}
+          <div className="absolute left-0 top-0">
             <AnimatedLeaf propertyName={propertyName} textColor={textColor} nameFontSize={nameFontSize} />
           </div>
-          {/* Nav columns — same level as logo, spread evenly */}
-          <div className="flex justify-between flex-1 pl-8 pt-12">
-            {columns.map((col) => (
-              <div key={col.title}>
-                <span className="text-[10px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>{col.title}</span>
+          {/* Nav columns — occupy right 75% of the row, spread evenly */}
+          <div className="flex justify-between pt-12" style={{ marginLeft: '25%' }}>
+            {columns.map((col, idx) => (
+              <div key={col.title} style={{ marginLeft: idx < 2 ? '2rem' : undefined }}>
+                <span className="text-[11px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>{col.title}</span>
                 <div className="flex flex-col gap-[6px]">
                   {col.links.map((link) => (
                     <span key={link.label} className="flex flex-col">
@@ -174,7 +174,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
             ))}
             {/* Contact column */}
             <div>
-              <span className="text-[10px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>Contact</span>
+              <span className="text-[11px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>Contact</span>
               <div className="flex flex-col gap-[6px]">
                 <a href="mailto:reservations@nayararesorts.com" className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>reservations@nayararesorts.com</a>
                 <a href="tel:+18448652002" className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>+1 844 865 2002 (US)</a>
@@ -190,7 +190,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         <div className="md:hidden grid grid-cols-2 gap-8 text-[12px] leading-relaxed mb-8">
           {columns.map((col) => (
             <div key={col.title}>
-              <span className="text-[10px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>{col.title}</span>
+              <span className="text-[11px] tracking-[0.25em] block mb-4" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}>{col.title}</span>
               <div className="flex flex-col gap-[6px]">
                 {col.links.map((link) => (
                   <a key={link.label} href={link.route} onClick={(e) => { if (!link.external) { e.preventDefault(); navigate(link.route); } }} className="transition-colors" style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}>{link.label}</a>
