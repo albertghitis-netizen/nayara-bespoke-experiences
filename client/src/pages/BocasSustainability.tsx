@@ -148,17 +148,6 @@ function Hero() {
 function OceanAlarm() {
   return (
     <section style={{ backgroundColor: PALETTE.sand }}>
-      {/* Full-width coral reef image */}
-      <div className="relative overflow-hidden" style={{ height: "55vh" }}>
-        <img
-          src="/manus-storage/destination-8-coral-reef_3a82983f.jpeg"
-          alt="Vibrant coral reef ecosystem in Bocas del Toro, Panama"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-        />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(247,245,240,0.95) 100%)" }} />
-      </div>
-
       {/* Text content */}
       <div className="max-w-3xl px-8 md:px-16 lg:px-24 py-16 md:py-24">
         <AnimateOnScroll variants={fadeUp}>
