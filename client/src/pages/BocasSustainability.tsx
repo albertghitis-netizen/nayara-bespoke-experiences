@@ -9,6 +9,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import Footer from "@/components/Footer";
+import BlobVideo from "@/components/BlobVideo";
 import BrandNavigation from "@/components/BrandNavigation";
 import {
   AnimateOnScroll,
@@ -102,11 +103,9 @@ export default function BocasSustainability() {
 function Hero() {
   return (
     <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
-      <img
-        src={`${CDN}/bocas-aerial-villas-turquoise_858d4570.jpg`}
-        alt="Aerial view of Nayara Bocas del Toro overwater villas above turquoise Caribbean waters"
+      <BlobVideo
+        src="/manus-storage/intro_5faa5357.mov"
         className="absolute inset-0 w-full h-full object-cover object-center"
-        loading="eager"
       />
       <div
         className="absolute inset-0"
