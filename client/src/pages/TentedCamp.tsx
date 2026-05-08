@@ -1586,18 +1586,18 @@ const PANORAMA_PANELS = [
     image: `${CDN_TC}/tented-camp-sunset-plunge_7573fe67.jpeg`,
     route: null,
     accent: "#868B75",
-    videoPosition: "center 20%",
+    videoOffset: "-30%",
   },
   {
     name: "Springs",
     tagline: "Private Hot Springs Villas · Adults Only",
     description: "The world's only Three-Key MICHELIN hotel in Costa Rica. Private volcanic hot spring pools, a floating breakfast, and the most intimate luxury in the rainforest.",
     badge: null,
-    video: "/manus-storage/panorama-springs_31bb80db.mp4",
+    video: "/manus-storage/panorama-springs-v2_f7a7c7ed.mp4",
     image: `${CDN_TC}/springs-villa-plunge-pool-straight_a5d505d1.webp`,
     route: "/springs",
     accent: "#4B6358",
-    videoPosition: "center 35%",
+    videoOffset: "-15%",
   },
 ];
 
@@ -1651,20 +1651,27 @@ function PanoramaPanel({
       onMouseLeave={onLeave}
     >
       {/* Video background with image fallback */}
-      <video
-        src={panel.video}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{
-          transform: isHovered ? "scale(1.06)" : "scale(1.0)",
-          transition: "transform 1.1s cubic-bezier(0.77,0,0.175,1)",
-          objectPosition: (panel as any).videoPosition || "center center",
-        }}
-        poster={panel.image}
-      />
+      <div
+        className="absolute inset-0"
+        style={{ overflow: "hidden" }}
+      >
+        <video
+          src={panel.video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute w-full h-[130%]"
+          style={{
+            top: (panel as any).videoOffset || "0%",
+            left: 0,
+            objectFit: "cover",
+            transform: isHovered ? "scale(1.06)" : "scale(1.0)",
+            transition: "transform 1.1s cubic-bezier(0.77,0,0.175,1)",
+          }}
+          poster={panel.image}
+        />
+      </div>
 
       {/* Gradient overlay — always present */}
       <div
