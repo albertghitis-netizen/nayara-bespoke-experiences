@@ -92,6 +92,9 @@ export default function BocasSustainability() {
       <ArtificialReefPhoto />
       <WhatMakesItUnique />
       <GuestExperience />
+      <EconomicEmpowerment />
+      <CommunityWellness />
+      <OurInitiatives />
       <CommunityEducation />
       <ClosingCTA />
 
@@ -691,6 +694,190 @@ function CommunityEducation() {
             The long-term ambition is to scale reef restoration across the entire Bocas del Toro archipelago — establishing a model that other hotels, communities, and governments in the region can replicate. What begins at our bay is meant to spread.
           </p>
         </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── ECONOMIC EMPOWERMENT ────────────────────────────── */
+function EconomicEmpowerment() {
+  return (
+    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
+      {/* Image left */}
+      <div className="overflow-hidden" style={{ minHeight: "420px" }}>
+        <img
+          src="/manus-storage/pasted_file_whSa3D_image_c5600b60.webp"
+          alt="Spotted cleaner shrimp on coral — biodiversity supporting Caribbean economic empowerment and marine conservation"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+          style={{ minHeight: "420px" }}
+        />
+      </div>
+      {/* Text right */}
+      <div className="flex flex-col justify-center px-10 md:px-16 py-16" style={{ backgroundColor: PALETTE.sand }}>
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Community Impact
+          </p>
+          <h2
+            className="text-3xl md:text-4xl mb-8 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Economic Empowerment
+          </h2>
+        </AnimateOnScroll>
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            Ocean damage can be reversed, but there's no switch to flip — recovery takes time and willing participation. It requires education and training directed toward a sustainable future.
+          </p>
+          <p className="text-[16px] leading-[1.9]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            Coral restoration and reef reconstruction demand diverse talents. Unskilled interns learn carpentry, metalworking, electrical and plumbing systems, and water flow management. Our goal: provide skills that increase employment and entrepreneurship possibilities. Along with tangible skills, we're instilling awareness of sustainable marine conservation that will transcend into wide-ranging positive impact.
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── COMMUNITY WELLNESS ───────────────────────────────── */
+function CommunityWellness() {
+  return (
+    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
+      {/* Text left */}
+      <div className="flex flex-col justify-center px-10 md:px-16 py-16 order-2 md:order-1" style={{ backgroundColor: PALETTE.light }}>
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Community Impact
+          </p>
+          <h2
+            className="text-3xl md:text-4xl mb-8 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Community Wellness
+          </h2>
+        </AnimateOnScroll>
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p className="text-[16px] leading-[1.9] mb-6" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            Traditional harvesting methods far exceed the fisheries' ability to maintain stability. Without serious limits and enforceable Marine Protected Areas, there likely won't be sustainable fisheries in this archipelago. Sustainable subsistence harvest is achievable — but it requires cooperation and coordination.
+          </p>
+          <p className="text-[16px] leading-[1.9]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            Small island communities traditionally have little industry. The sea has provided the main protein source for most residents. Unfortunately, overfishing combined with reef loss has depleted fisheries to the brink of collapse. It can be restored through awareness, education, and participation by the people who will benefit most from what we're demonstrating can be achieved.
+          </p>
+        </AnimateOnScroll>
+      </div>
+      {/* Image right */}
+      <div className="overflow-hidden order-1 md:order-2" style={{ minHeight: "420px" }}>
+        <img
+          src="/manus-storage/destination-8-coral-reef_3a82983f.jpeg"
+          alt="Vibrant coral reef ecosystem supporting community wellness and sustainable fisheries in Bocas del Toro"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+          style={{ minHeight: "420px" }}
+        />
+      </div>
+    </section>
+  );
+}
+
+/* ── OUR INITIATIVES ────────────────────────────────────── */
+function OurInitiatives() {
+  return (
+    <section className="py-20 md:py-32 px-8 md:px-16 lg:px-24" style={{ backgroundColor: PALETTE.sand }}>
+      <div className="max-w-6xl">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            Our Initiatives
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-6 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Where Purpose Meets Action
+          </h2>
+          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-16 max-w-3xl" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            Stationed on the island of Solarte in Bocas Del Toro, Panama, we're advancing reef restoration and rebuilding diverse fish habitats through work that extends far beyond our immediate shoreline. The Bocas Archipelago faces interconnected challenges: overfishing, water pollution, climate change, reef collapse, resource exploitation, economically struggling villages, inconsistent infrastructure, and fragmented oversight. These problems demand thoughtful, coordinated action — and that's exactly what we're building.
+          </p>
+        </AnimateOnScroll>
+
+        <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+          {/* Initiative 1 */}
+          <AnimateOnScroll variants={fadeUp} delay={0.05}>
+            <div>
+              <p
+                className="uppercase tracking-[0.2em] text-[10px] mb-4"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 700, color: PALETTE.accent }}
+              >
+                01
+              </p>
+              <h3
+                className="text-xl md:text-2xl mb-5 leading-[1.2]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+              >
+                Coral Restoration &amp; Habitat Recovery
+              </h3>
+              <p className="text-[15px] leading-[1.85]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                Our coral gene bank facility preserves genetic diversity while our artificial reef program creates critical habitat infrastructure. Each structure we install becomes an anchor point for ecosystem recovery, attracting fish populations and rebuilding the underwater architecture that healthy oceans require.
+              </p>
+              <p className="text-[15px] leading-[1.85] mt-4" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                We've learned through crisis and adaptation. The bleaching events that devastated our region taught us to innovate — developing adjustable nursery systems, monitoring protocols, and rescue operations that transform challenges into knowledge we can share with practitioners worldwide.
+              </p>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Initiative 2 */}
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <div>
+              <p
+                className="uppercase tracking-[0.2em] text-[10px] mb-4"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 700, color: PALETTE.accent }}
+              >
+                02
+              </p>
+              <h3
+                className="text-xl md:text-2xl mb-5 leading-[1.2]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+              >
+                Community Impact &amp; Education
+              </h3>
+              <p className="text-[15px] leading-[1.85]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                We believe the future of our oceans depends on the next generation. Our Community Impact Events inspire youth and families through hands-on workshops, school partnerships, and interactive field experiences. By collaborating with local and national organizations, we foster environmental stewardship and provide opportunities for young people to actively participate in coral restoration and ocean protection.
+              </p>
+              <p className="text-[15px] leading-[1.85] mt-4" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                These events cultivate responsibility and hope, ensuring future generations are equipped to continue this vital work.
+              </p>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Initiative 3 */}
+          <AnimateOnScroll variants={fadeUp} delay={0.15}>
+            <div>
+              <p
+                className="uppercase tracking-[0.2em] text-[10px] mb-4"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 700, color: PALETTE.accent }}
+              >
+                03
+              </p>
+              <h3
+                className="text-xl md:text-2xl mb-5 leading-[1.2]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+              >
+                Scaling Across the Archipelago
+              </h3>
+              <p className="text-[15px] leading-[1.85]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                The long-term ambition is to establish a replicable model that other hotels, communities, and governments across the region can adopt. What begins at our bay is designed to spread — creating a network of reef restoration sites and trained practitioners throughout the Bocas del Toro archipelago and beyond.
+              </p>
+            </div>
+          </AnimateOnScroll>
+        </div>
       </div>
     </section>
   );
