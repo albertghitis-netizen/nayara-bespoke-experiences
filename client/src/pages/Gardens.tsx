@@ -218,6 +218,9 @@ export default function Gardens() {
       {/* ══ SUSTAINABILITY ══ */}
       <GardensSustainabilityCascade />
 
+      {/* ══ WELLNESS ══ */}
+      <WellnessSection />
+
       {/* ══ GASTRONOMY ══ */}
       <GardensGastronomyCascade />
 
@@ -940,9 +943,10 @@ function WellnessSection() {
 
   return (
     <section id="wellness">
-      {/* Wellness header - clean, no video */}
-      <div className={sectionPadding} style={{ backgroundColor: PALETTE.gradientEnd }}>
-        <div className={maxW}>
+      {/* Wellness cascade: text left + vertical video right */}
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
+        {/* Text column */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1">
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Wellness</SectionLabel>
           </AnimateOnScroll>
@@ -952,10 +956,21 @@ function WellnessSection() {
             </span>
           </TextReveal>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <p className="text-[15px] leading-[1.8] max-w-2xl" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-              Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy.
+            <p className="text-[15px] leading-[1.8] max-w-[480px]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+              Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Surrender to the rhythm of the rainforest — from mineral-rich thermal soaks at dawn to guided breathwork sessions as the howler monkeys call through the canopy.
             </p>
           </AnimateOnScroll>
+        </div>
+        {/* Wellness vertical video right */}
+        <div className="w-full md:w-1/2 md:order-2">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+              <NativeVideo
+                src="/manus-storage/tented-wellness-vertical-new_e0367ea8.mp4"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </MediaReveal>
         </div>
       </div>
 

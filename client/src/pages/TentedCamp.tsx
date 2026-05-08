@@ -1057,7 +1057,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "Wellness",
     headline: "Volcanic\nHealing",
     body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.\n\nSurrender to the rhythm of the rainforest , from mineral-rich thermal soaks at dawn to guided breathwork sessions as the howler monkeys call through the canopy. Here, healing is not a treatment but a way of being.",
-    verticalSrc: "/manus-storage/tented-wellness-vertical-new_e0367ea8.mp4",
+    verticalSrc: "/manus-storage/tented-wellness-vertical-v3_f9c311f7.mp4",
     horizontalSrc: "/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
