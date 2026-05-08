@@ -91,7 +91,6 @@ export default function BocasSustainability() {
       <ThePartnership />
       <RestorationProcess />
       <ArtificialReefPhoto />
-      <ImageBreak />
       <WhatMakesItUnique />
       <GuestExperience />
       <CommunityEducation />
@@ -106,8 +105,9 @@ export default function BocasSustainability() {
 function Hero() {
   return (
     <section className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-      <BlobVideo
-        src="/manus-storage/intro_h264_d64d158b.mp4"
+      <img
+        src="/manus-storage/destination-8-coral-reef_3a82983f.jpeg"
+        alt="Vibrant coral reef ecosystem in Bocas del Toro, Panama"
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
       <div
@@ -183,22 +183,6 @@ function OceanAlarm() {
           <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
             In 2024, the U.S. National Oceanic and Atmospheric Administration confirmed the fourth global coral bleaching event on record, driven by prolonged marine heatwaves affecting reefs across the Atlantic, Pacific, and Indian Oceans.
           </p>
-        </AnimateOnScroll>
-
-        {/* Bleaching image inline */}
-        <AnimateOnScroll variants={fadeUp} delay={0.12}>
-          <div className="my-10 overflow-hidden">
-            <img
-              src="/manus-storage/pasted_file_oSevgU_image_7636ecdb.png"
-              alt="Bleached white staghorn coral with a single fish, a stark image of coral bleaching in the Caribbean"
-              className="w-full object-cover"
-              style={{ maxHeight: "380px", objectPosition: "center" }}
-              loading="lazy"
-            />
-            <p className="mt-3 text-[12px] tracking-[0.06em] uppercase" style={{ fontFamily: "var(--font-body)", color: "rgba(26,10,0,0.4)" }}>
-              Bleached staghorn coral, Caribbean
-            </p>
-          </div>
         </AnimateOnScroll>
 
         <AnimateOnScroll variants={fadeUp} delay={0.15}>
@@ -287,6 +271,25 @@ function TheGlobalCrisis() {
           >
             In 2024, NOAA declared the world's fourth global mass coral bleaching event on record — the most widespread in history, affecting reefs across the Atlantic, Pacific, and Indian Oceans simultaneously. The trigger: sea surface temperatures rising to levels coral cannot survive.
           </p>
+        </AnimateOnScroll>
+
+        {/* Bleaching image */}
+        <AnimateOnScroll variants={fadeUp} delay={0.12}>
+          <div className="my-10 overflow-hidden">
+            <img
+              src="/manus-storage/pasted_file_oSevgU_image_7636ecdb.png"
+              alt="Bleached white staghorn coral — a stark image of coral bleaching in the Caribbean"
+              className="w-full object-cover"
+              style={{ maxHeight: "400px", objectPosition: "center" }}
+              loading="lazy"
+            />
+            <p className="mt-3 text-[12px] tracking-[0.06em] uppercase" style={{ fontFamily: "var(--font-body)", color: "rgba(26,10,0,0.4)" }}>
+              Bleached staghorn coral, Caribbean
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
