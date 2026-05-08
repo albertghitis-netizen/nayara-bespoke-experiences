@@ -1572,7 +1572,7 @@ const PANORAMA_PANELS = [
     tagline: "Rainforest Casitas & Villas",
     description: "Intimate casitas and rainforest villas nestled in a 1,400-acre private reserve. Plunge pools, canopy walks, and the sounds of the jungle at your doorstep.",
     badge: null,
-    video: "/manus-storage/panorama-gardens_370a72be.mp4",
+    video: "/manus-storage/panel-gardens-16x9_1756d5d5.mp4",
     image: `${CDN_TC}/prop-gardens_5931d8af.jpg`,
     route: "/gardens",
     accent: "#286241",
@@ -1582,22 +1582,20 @@ const PANORAMA_PANELS = [
     tagline: "Clifftop Tents & Suites",
     description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
     badge: "You Are Here",
-    video: "/manus-storage/panorama-tented-v2_a8acc0b9.mp4",
+    video: "/manus-storage/panel-tented-16x9_2cda2e2a.mp4",
     image: `${CDN_TC}/tented-camp-sunset-plunge_7573fe67.jpeg`,
     route: null,
     accent: "#868B75",
-    videoOffset: "-30%",
   },
   {
     name: "Springs",
     tagline: "Private Hot Springs Villas · Adults Only",
     description: "The world's only Three-Key MICHELIN hotel in Costa Rica. Private volcanic hot spring pools, a floating breakfast, and the most intimate luxury in the rainforest.",
     badge: null,
-    video: "/manus-storage/panorama-springs-v2_f7a7c7ed.mp4",
+    video: "/manus-storage/panel-springs-16x9_1ad9b29e.mp4",
     image: `${CDN_TC}/springs-villa-plunge-pool-straight_a5d505d1.webp`,
     route: "/springs",
     accent: "#4B6358",
-    videoOffset: "-15%",
   },
 ];
 
@@ -1651,27 +1649,19 @@ function PanoramaPanel({
       onMouseLeave={onLeave}
     >
       {/* Video background with image fallback */}
-      <div
-        className="absolute inset-0"
-        style={{ overflow: "hidden" }}
-      >
-        <video
-          src={panel.video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute w-full h-[130%]"
-          style={{
-            top: (panel as any).videoOffset || "0%",
-            left: 0,
-            objectFit: "cover",
-            transform: isHovered ? "scale(1.06)" : "scale(1.0)",
-            transition: "transform 1.1s cubic-bezier(0.77,0,0.175,1)",
-          }}
-          poster={panel.image}
-        />
-      </div>
+      <video
+        src={panel.video}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{
+          transform: isHovered ? "scale(1.06)" : "scale(1.0)",
+          transition: "transform 1.1s cubic-bezier(0.77,0,0.175,1)",
+        }}
+        poster={panel.image}
+      />
 
       {/* Gradient overlay — always present */}
       <div
