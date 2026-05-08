@@ -34,7 +34,7 @@ const PALETTE = {
   faint: "rgba(30,58,138,0.07)",
 };
 
-/* ── STATS ─────────────────────────────────────────────────── */
+/* ── STATS ──────────────────────────────────────────── */
 const STATS = [
   { number: "500+", label: "Coral Fragments\nRestored" },
   { number: "3", label: "Active\nRestoration Sites" },
@@ -85,6 +85,7 @@ export default function BocasSustainability() {
 
       <Hero />
       <StatsBar />
+      <OceanAlarm />
       <TheGlobalCrisis />
       <BocasContext />
       <ThePartnership />
@@ -104,7 +105,7 @@ export default function BocasSustainability() {
 /* ── HERO ─────────────────────────────────────────────────── */
 function Hero() {
   return (
-    <section className="relative overflow-hidden" style={{ minHeight: "90vh" }}>
+    <section className="relative overflow-hidden" style={{ paddingTop: "56.25%" /* 16:9 */ }}>
       <BlobVideo
         src="/manus-storage/intro_h264_d64d158b.mp4"
         className="absolute inset-0 w-full h-full object-cover object-center"
@@ -117,7 +118,7 @@ function Hero() {
         }}
       />
 
-      <div className="relative z-10 h-full flex flex-col justify-end px-8 md:px-16 lg:px-24 pb-20 md:pb-28" style={{ minHeight: "90vh" }}>
+      <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-16 lg:px-24 pb-12 md:pb-16">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -143,7 +144,89 @@ function Hero() {
   );
 }
 
-/* ── STATS BAR ────────────────────────────────────────────── */
+/* ── OCEAN ALARM ──────────────────────────────────── */
+function OceanAlarm() {
+  return (
+    <section style={{ backgroundColor: PALETTE.sand }}>
+      {/* Full-width coral reef image */}
+      <div className="relative overflow-hidden" style={{ height: "55vh" }}>
+        <img
+          src="/manus-storage/destination-8-coral-reef_3a82983f.jpeg"
+          alt="Vibrant coral reef ecosystem in Bocas del Toro, Panama"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(247,245,240,0.95) 100%)" }} />
+      </div>
+
+      {/* Text content */}
+      <div className="max-w-3xl px-8 md:px-16 lg:px-24 py-16 md:py-24">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            The Global Context
+          </p>
+          <h2
+            className="text-3xl md:text-5xl mb-10 leading-[1.1]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Why the Ocean Is Sounding the Alarm
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            The planet's environmental systems are under strain, and nowhere is this more visible than in the ocean. Coral reefs are experiencing unprecedented stress due to rising ocean temperatures, acidification, and land-based pollution.
+          </p>
+          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            In 2024, the U.S. National Oceanic and Atmospheric Administration confirmed the fourth global coral bleaching event on record, driven by prolonged marine heatwaves affecting reefs across the Atlantic, Pacific, and Indian Oceans.
+          </p>
+        </AnimateOnScroll>
+
+        {/* Bleaching image inline */}
+        <AnimateOnScroll variants={fadeUp} delay={0.12}>
+          <div className="my-10 overflow-hidden">
+            <img
+              src="/manus-storage/pasted_file_oSevgU_image_7636ecdb.png"
+              alt="Bleached white staghorn coral with a single fish, a stark image of coral bleaching in the Caribbean"
+              className="w-full object-cover"
+              style={{ maxHeight: "380px", objectPosition: "center" }}
+              loading="lazy"
+            />
+            <p className="mt-3 text-[12px] tracking-[0.06em] uppercase" style={{ fontFamily: "var(--font-body)", color: "rgba(26,10,0,0.4)" }}>
+              Bleached staghorn coral, Caribbean
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            According to NOAA Coral Reef Watch, bleaching-level heat stress has affected more than 80 percent of the world's coral reef area, making this the most widespread bleaching event ever documented.
+          </p>
+          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            The Intergovernmental Panel on Climate Change reports that at 1.5 degrees Celsius of global warming, coral reefs are expected to decline by 70 to 90 percent, with losses exceeding 99 percent at 2 degrees Celsius.
+          </p>
+          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-7" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            On land, biodiversity loss is accelerating. The Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services identifies land-use change, deforestation, and climate stress as primary drivers of ecosystem degradation worldwide. Forests regulate rainfall, stabilize soils, and filter water before it reaches rivers and coastal zones. When forests are removed or fragmented, erosion increases and water quality declines downstream, directly affecting marine ecosystems.
+          </p>
+          <p className="text-[17px] md:text-[19px] leading-[1.9] mb-10" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            The ocean reflects all of this. It absorbs over 90 percent of excess heat trapped by greenhouse gases and roughly one-quarter of global carbon dioxide emissions, buffering climate impacts while becoming warmer and more acidic.
+          </p>
+          <blockquote
+            className="pl-6 border-l-2 text-xl md:text-2xl leading-[1.5] italic"
+            style={{ borderColor: PALETTE.accent, fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            This is the context in which One Ocean exists. Not as an abstract idea, but as a response to a planet whose water systems are sending increasingly clear signals of stress.
+          </blockquote>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── STATS BAR ──────────────────────────────────────────── */
 function StatsBar() {
   return (
     <section style={{ backgroundColor: PALETTE.ocean }}>
