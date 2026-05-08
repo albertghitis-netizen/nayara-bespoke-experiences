@@ -1582,7 +1582,7 @@ const PANORAMA_PANELS = [
     tagline: "Clifftop Tents & Suites",
     description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
     badge: "You Are Here",
-    video: "/manus-storage/panel-tented-16x9_2cda2e2a.mp4",
+    video: "/manus-storage/panel-tented-16x9-v2_0a79914b.mp4",
     image: `${CDN_TC}/tented-camp-sunset-plunge_7573fe67.jpeg`,
     route: null,
     accent: "#868B75",
