@@ -1,316 +1,122 @@
 /*
- * MICHELIN KEYS BLOG , 7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence
- * Multi-property blog in Brand Colors (warm earth tones)
- * Hero video: To be provided (horizontal for desktop, vertical for mobile)
+ * MICHELIN KEYS BLOG — /blog/michelin-keys
+ * "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence"
+ * Author: Albert Ghitis | Mar 1, 2026
+ * Uses BlogPostTemplate with full article data
  */
+import BlogPostTemplate from "./BlogPostTemplate";
+import type { BlogPostData } from "@/data/blogPosts";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import Footer from "@/components/Footer";
-import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
-import BrandNavigation from "@/components/BrandNavigation";
-
-const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
-const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
-
-function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.15 });
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 10 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-// Brand color palette for multi-property content
-const brandColors = {
-  primary: "#8B7355",
-  secondary: "#A0826D",
-  accent: "#D4A574",
-  light: "#F5F1ED",
-  dark: "#3A2A1A",
-  text: "#2C2C2C",
+const michelinKeysPost: BlogPostData = {
+  slug: "michelin-keys",
+  title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
+  author: "Albert Ghitis",
+  authorRole: "Nayara Resorts",
+  date: "March 1, 2026",
+  pillar: "Experiences",
+  tags: ["MICHELIN Keys", "Awards", "Nayara Springs", "Nayara Bocas del Toro", "Nayara Alto Atacama", "Luxury Travel"],
+  readingTime: 8,
+  heroImage: "/manus-storage/michelin-2025-keys_cd3d9c09.jpg",
+  keyFindings: [
+    "Nayara Springs is Costa Rica's first and only Three-Key hotel — one of just 143 Three-Key properties in the world.",
+    "Nayara Bocas del Toro and Nayara Alto Atacama each received Two MICHELIN Keys, recognized for memorable experiences rooted in local culture.",
+    "MICHELIN inspectors evaluate hotels on five criteria: connection to destination, design integrity, service consistency, meaningful value, and authentic individual character.",
+    "Seven Keys across three countries confirms that Nayara's approach — building place by place, property by property — is recognized as exceptional by the most rigorous evaluators in hospitality.",
+  ],
+  sections: [
+    {
+      heading: "What the MICHELIN Key Is",
+      content: `<p>For over a century, the MICHELIN Guide has been the most trusted independent voice in hospitality evaluation. Its inspectors travel anonymously, pay their own bills, and answer to no one except the criteria they have spent decades refining. The Star, awarded to restaurants, is one of the most recognized symbols in global culture. Now, the same philosophy applies to hotels.</p>
+<p>The MICHELIN Key was introduced as the hotel equivalent of the Star. In 2025, the Guide expanded its hotel selection globally for the first time, evaluating properties across more than 100 countries and awarding Keys to the 2,457 it deemed worthy of distinction. Three tiers exist: One Key for an exceptional stay, Two Keys for a memorable experience with authentic roots in place and culture, and Three Keys for what MICHELIN calls the rarest category: hotels that deliver an extraordinary level of comfort, service, and design that leaves a lasting mark.</p>
+<p>What distinguishes the MICHELIN methodology from reader polls and editorial rankings is its independence and its criteria. MICHELIN inspectors are not measuring the size of the pool or the thread count of the sheets. They are asking five questions:</p>
+<ul>
+  <li>Does this hotel feel genuinely connected to its destination?</li>
+  <li>Does its design honor local character?</li>
+  <li>Is the service consistently excellent?</li>
+  <li>Does it deliver meaningful value?</li>
+  <li>And most importantly, does it have an authentic personality that could not exist anywhere else?</li>
+</ul>
+<p>That final criterion is the hardest to fake and the first thing guests feel when they arrive. It is also the thing Nayara is built on.</p>`,
+    },
+    {
+      heading: "Nayara Springs: The Only Three Keys Resort in Costa Rica",
+      content: `<p>When the MICHELIN Guide's global 2025 selection was announced on October 8, one phrase appeared next to the name Nayara Springs: Costa Rica's first and only Three-Key hotel.</p>
+<p>Three Keys places a property in a global group of 143. Of those 143 hotels, Nayara Springs is the only one in Costa Rica. It shares that distinction with a handful of properties that have become genuine landmarks of world hospitality, places where the experience is not assembled from parts but built from a single, coherent vision of what a stay can be.</p>
+<p>The MICHELIN Guide's own description of Nayara Springs captures what its inspectors found: a high-end, adults-only property in the Arenal Volcano region offering exceptional dining, open-air spa pavilions surrounded by forest, and guided excursions that showcase exactly what makes this small Central American country a perennial favorite for international travelers.</p>
+<p>The 35 private villas sit inside the rainforest, each with a spring-fed plunge pool, indoor and outdoor showers, and furnishings drawn from Costa Rican tradition. The architecture does not impose itself on the landscape. It reads as a continuation of it. Elevated walkways thread through the canopy. The spa pavilions open to the forest on all sides. Even the two restaurants, which MICHELIN noted are "frankly more impressive than they really need to be," treat local ingredients and culinary tradition as the starting point, not an afterthought.</p>
+<p>What Three Keys ultimately affirms is something Nayara Springs has always understood: that the Arenal region is not a backdrop to the resort. The resort exists as a way of entering it more deeply.</p>
+<p><a href="https://guide.michelin.com/en/article/features/nayara-springs-costa-rica" target="_blank" rel="noopener noreferrer">See Nayara Springs in the MICHELIN Guide →</a></p>`,
+      pullQuote: "Three Keys places Nayara Springs in a global group of 143. It is the only hotel in all of Costa Rica to receive this distinction.",
+    },
+    {
+      heading: "Nayara Bocas del Toro: Two Keys Above the Caribbean",
+      content: `<p>There is no exact precedent for Nayara Bocas del Toro. Sixteen villas stand on stilts above the Caribbean waters of Isla Frangipani, a private island inside Panama's Bocas del Toro Archipelago. The design, by architect Andrés Brenes, is described by MICHELIN as "unmistakably local and thoroughly modern," a combination that sounds simple and is, in practice, extremely difficult to achieve.</p>
+<p>MICHELIN's inspectors awarded Two Keys and described the property as "a blissfully private escape" in which "the experience, in its low-tech immediacy, is just what the modern traveler needs." The coral reefs surrounding the island, among the most biodiverse marine systems in the Caribbean, serve not as scenery but as the primary reason to be there. Swimming, snorkeling, and kayaking are not amenities in a brochure; they are the architecture of daily life at Bocas.</p>
+<p>Two Keys in the MICHELIN system means a memorable experience rooted in culture and style. The culture here is specific: the Bocas del Toro Archipelago, its water, its reef, its rhythms. The resort does not translate that experience into something more manageable or more recognizable. It gives guests direct access to it, and trusts them to meet it on its own terms.</p>
+<p>Nayara Bocas del Toro is also the property that Condé Nast readers named the #1 Resort in Central America and one of the Top 20 in the world. MICHELIN's Two Keys are a different kind of confirmation, one that required no votes, only inspection.</p>
+<p><a href="https://guide.michelin.com/en/article/features/nayara-bocas-del-toro-panama" target="_blank" rel="noopener noreferrer">See Nayara Bocas del Toro in the MICHELIN Guide →</a></p>`,
+    },
+    {
+      heading: "Nayara Alto Atacama: Two Keys in the World's Driest Desert",
+      content: `<p>The Atacama Desert is the driest non-polar desert on Earth. The Cordillera de Sal, the Salt Mountains, rise in shades of red, orange, and ochre around the Catarpe Valley, where Nayara Alto Atacama sits in a terracotta lodge designed specifically not to be seen from a distance.</p>
+<p>That is the point. The MICHELIN Guide's description of Nayara Alto Atacama opens with this observation: while some Chilean adventure hotels go in for grand architectural gestures, Nayara Alto Atacama's terracotta lodge was designed to blend in seamlessly with the environment that surrounds it. And when that environment is the otherworldly beauty of the Cordillera de Sal, the result, as subtle as it is, is one of the most visually striking hotels on the planet.</p>
+<p>Two Keys from MICHELIN in this context recognize what blending in actually requires: knowing the place well enough to let it lead. The Andean park garden spans over 2,000 square meters of desert, planted with indigenous species and designed to function as a living microcosm of the altiplano. More than half of the staff is indigenous to the region. The cuisine draws from the same cultural knowledge: local, organic, rooted in what the Atacameño people have always known how to grow and prepare here.</p>
+<p>The 42 rooms and suites are positioned to maximize natural heating and ventilation, minimizing mechanical climate control. Private terraces face the Catarpe Valley, where the light changes across the day in ways that make sitting still feel like doing something. At night, the hotel's telescope platform opens some of the best skies in the world.</p>
+<p>MICHELIN evaluated properties across all of Chile and recognized Nayara Alto Atacama among its very best. The Two Keys reflect what the Atacama demands of anyone who comes here with honest intentions: humility before the landscape, and the craft to honor it.</p>
+<p><a href="https://guide.michelin.com/en/article/features/nayara-alto-atacama-chile" target="_blank" rel="noopener noreferrer">See Nayara Alto Atacama in the MICHELIN Guide →</a></p>`,
+      pullQuote: "MICHELIN called the result 'one of the most visually striking hotels on the planet' — despite, or because of, its architectural restraint.",
+    },
+    {
+      heading: "What Seven Keys Across Three Properties Means",
+      content: `<p>It would be easy to present these recognitions as a collection: three properties, seven Keys, one brand. But that framing misses something.</p>
+<p>Nayara Springs, Nayara Bocas del Toro, and Nayara Alto Atacama are not interchangeable expressions of the same aesthetic. They exist in fundamentally different ecosystems, shaped by different geographies, different cultures, and different relationships between the built environment and the natural one. A rainforest villa above Arenal has almost nothing in common, in material terms, with an overwater suite in the Caribbean or a terracotta room in a high-altitude desert.</p>
+<p>What connects them is not style. It is a way of thinking about what a hotel is for.</p>
+<p>MICHELIN's criteria reward exactly this: the belief that a hotel's primary obligation is to open its destination to the guest, not to insulate the guest from it. Seven Keys across three countries is confirmation that this approach, built place by place, property by property, is recognized as exceptional by the most rigorous evaluators in hospitality.</p>
+<p>It is not a ranking system. There is no points total or composite score. An inspector visits, evaluates against five criteria, and either recognizes the hotel or does not.</p>
+<p>Nayara Springs, Nayara Bocas del Toro, and Nayara Alto Atacama were recognized. That is what seven Keys means.</p>`,
+    },
+  ],
+  sources: [
+    { label: "MICHELIN Guide: Nayara Springs", href: "https://guide.michelin.com/en/article/features/nayara-springs-costa-rica" },
+    { label: "MICHELIN Guide: Nayara Bocas del Toro", href: "https://guide.michelin.com/en/article/features/nayara-bocas-del-toro-panama" },
+    { label: "MICHELIN Guide: Nayara Alto Atacama", href: "https://guide.michelin.com/en/article/features/nayara-alto-atacama-chile" },
+    { label: "The 2025 MICHELIN Key Hotels: Global Selection", href: "https://guide.michelin.com/en/article/features/michelin-key-hotels-2025" },
+    { label: "Tico Times: Costa Rica's Nayara Springs Named Among World's Best Hotels by MICHELIN", href: "https://ticotimes.net/2024/10/08/costa-ricas-nayara-springs-named-among-worlds-best-hotels-by-michelin" },
+  ],
+  relatedArticles: [
+    {
+      slug: "atacama-mars",
+      title: "Why the Atacama Desert is Mars on Earth",
+      pillar: "Experiences",
+      image: "https://blog.nayararesorts.com/hubfs/5-Jan-28-2026-12-18-54-4709-AM.png",
+      date: "Sep 27, 2025",
+    },
+    {
+      slug: "stargazing-atacama",
+      title: "Why Nayara Alto Atacama Is the Best Stargazing Resort",
+      pillar: "Experiences",
+      image: "https://blog.nayararesorts.com/hubfs/iotw2334a_crop.jpg",
+      date: "Jun 11, 2024",
+    },
+    {
+      slug: "wildlife-conservation",
+      title: "Wildlife Conservation in Arenal and Bocas del Toro",
+      pillar: "Sustainability",
+      image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+      date: "Feb 28, 2026",
+    },
+  ],
+  ctaProperties: [
+    { name: "Nayara Springs", route: "/springs" },
+    { name: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
+    { name: "Nayara Alto Atacama", route: "/alto-atacama" },
+  ],
+  seo: {
+    metaTitle: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence | Nayara Resorts",
+    metaDescription: "Nayara Springs earned Three MICHELIN Keys — Costa Rica's first and only. Nayara Bocas del Toro and Nayara Alto Atacama each earned Two Keys. Seven Keys across three countries.",
+  },
 };
 
-interface MichelinProperty {
-  name: string;
-  keys: number;
-  location: string;
-  description: string;
-}
-
-const properties: MichelinProperty[] = [
-  {
-    name: "Nayara Springs",
-    keys: 3,
-    location: "Costa Rica",
-    description: "Costa Rica's first and only Three-Key hotel. An adults-only property in the Arenal Volcano region offering exceptional dining, open-air spa pavilions, and guided excursions.",
-  },
-  {
-    name: "Nayara Bocas del Toro",
-    keys: 2,
-    location: "Panama",
-    description: "A Two-Key property in the Caribbean archipelago, combining overwater villas, innovative architecture, and pristine natural surroundings.",
-  },
-  {
-    name: "Nayara Alto Atacama",
-    keys: 2,
-    location: "Chile",
-    description: "A Two-Key property in the Atacama Desert, offering stargazing, wellness experiences, and exceptional cuisine in one of Earth's most unique landscapes.",
-  },
-];
-
-const michelin5Questions = [
-  {
-    question: "Does this hotel feel genuinely connected to its destination?",
-    answer: "Nayara properties are built into their landscapes, not imposed upon them. Each resort exists as a way of entering its destination more deeply.",
-  },
-  {
-    question: "Does its design honor local character?",
-    answer: "Every property draws from local tradition , from Costa Rican furnishings to Atacama desert aesthetics to Caribbean architectural influences.",
-  },
-  {
-    question: "Is the service consistently excellent?",
-    answer: "Nayara's hospitality standards are consistent across all properties, delivering exceptional service in every interaction.",
-  },
-  {
-    question: "Does it deliver meaningful value?",
-    answer: "Nayara offers extraordinary experiences that justify their value , from world-class dining to transformative wellness to unparalleled natural access.",
-  },
-  {
-    question: "Does it have an authentic personality that could not exist anywhere else?",
-    answer: "Each Nayara property has a distinct personality rooted in its specific landscape, culture, and ecosystem. This authenticity is what MICHELIN recognizes.",
-  },
-];
-
 export default function MichelinKeysBlog() {
-  return (
-    <div className="min-h-screen bg-white">
-      <EnhancedArticleSchema
-        image="https://nayararesorts.manus.space"
-        headline="Michelin Keys: Culinary Excellence at Nayara Resorts"
-        description="Explore the award-winning restaurants and farm-to-table dining experiences across our six properties."
-        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
-        datePublished="2024-03-10"
-        url="https://nayararesorts.manus.space/blog/michelinkeys"
-      />
-      <BrandNavigation />
-
-      {/* Hero Section - Placeholder for video */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: brandColors.dark }}>
-        <div className="absolute inset-0 opacity-30 bg-gradient-to-b from-black/40 to-black/60" />
-
-        <div className="relative z-10 text-center px-6 md:px-10 max-w-3xl">
-          <FadeIn>
-            <h1 style={heading} className="text-4xl md:text-6xl mb-6 text-white leading-tight">
-              7 MICHELIN Keys
-            </h1>
-            <p style={body} className="text-xl md:text-2xl mb-8 text-white/90">
-              3 Countries. 1 Standard of Excellence
-            </p>
-            <p style={body} className="text-lg text-white/80">
-              Celebrating Nayara's recognition as a global leader in luxury hospitality
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Introduction */}
-      <section className="py-20 px-6 md:px-10 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <FadeIn>
-            <p style={body} className="text-lg text-gray-700 mb-6 leading-relaxed">
-              For over a century, the MICHELIN Guide has been the most trusted independent voice in hospitality evaluation. In 2025, the Guide expanded its hotel selection globally for the first time, introducing the MICHELIN Key system to recognize the world's finest hotels.
-            </p>
-            <p style={body} className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Nayara Resorts earned 7 MICHELIN Keys across three countries , a testament to our commitment to excellence, authenticity, and meaningful hospitality.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* MICHELIN Key Criteria */}
-      <section className="py-20 px-6 md:px-10" style={{ backgroundColor: brandColors.light }}>
-        <div className="max-w-4xl mx-auto">
-          <FadeIn>
-            <h2 className="text-3xl md:text-4xl mb-12 text-center" style={{ ...heading, color: brandColors.dark }}>
-              The MICHELIN Key Criteria
-            </h2>
-
-            <p style={body} className="text-gray-700 mb-12 text-center">
-              MICHELIN inspectors evaluate hotels on five essential questions:
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {michelin5Questions.map((item, idx) => (
-                <FadeIn key={idx} delay={idx * 0.1}>
-                  <div className="p-6 bg-white rounded-lg shadow-sm border-l-4" style={{ borderColor: brandColors.accent }}>
-                    <h3 className="text-lg mb-3" style={{ ...heading, color: brandColors.primary }}>
-                      {item.question}
-                    </h3>
-                    <p style={body} className="text-gray-700">
-                      {item.answer}
-                    </p>
-                  </div>
-                </FadeIn>
-              ))}
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Nayara Properties */}
-      <section className="py-20 px-6 md:px-10 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <FadeIn>
-            <h2 className="text-3xl md:text-4xl mb-12 text-center" style={{ ...heading, color: brandColors.dark }}>
-              Nayara's MICHELIN Keys
-            </h2>
-          </FadeIn>
-
-          <div className="space-y-12">
-            {properties.map((prop, idx) => (
-              <FadeIn key={idx} delay={idx * 0.1}>
-                <div className="grid md:grid-cols-3 gap-8 items-center pb-12 border-b border-gray-200">
-                  <div>
-                    <h3 className="text-2xl mb-2" style={{ ...heading, color: brandColors.primary }}>
-                      {prop.name}
-                    </h3>
-                    <p style={body} className="text-sm text-gray-600 mb-4">
-                      {prop.location}
-                    </p>
-                    <div className="flex gap-1">
-                      {Array.from({ length: prop.keys }).map((_, i) => (
-                        <div key={i} className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style={{ backgroundColor: brandColors.accent }}>
-                          ◆
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="md:col-span-2">
-                    <p style={body} className="text-gray-700 leading-relaxed">
-                      {prop.description}
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What MICHELIN Recognizes */}
-      <section className="py-20 px-6 md:px-10" style={{ backgroundColor: brandColors.light }}>
-        <div className="max-w-4xl mx-auto">
-          <FadeIn>
-            <h2 className="text-3xl md:text-4xl mb-12 text-center" style={{ ...heading, color: brandColors.dark }}>
-              What MICHELIN Recognizes in Nayara
-            </h2>
-
-            <div className="space-y-8">
-              <div className="p-8 bg-white rounded-lg">
-                <h3 className="text-xl mb-4" style={{ ...heading, color: brandColors.primary }}>
-                  Authentic Connection to Place
-                </h3>
-                <p style={body} className="text-gray-700">
-                  Each Nayara property is deeply rooted in its landscape and culture. We don't impose luxury on nature , we create experiences that honor it.
-                </p>
-              </div>
-
-              <div className="p-8 bg-white rounded-lg">
-                <h3 className="text-xl mb-4" style={{ ...heading, color: brandColors.primary }}>
-                  Exceptional Culinary Excellence
-                </h3>
-                <p style={body} className="text-gray-700">
-                  Our restaurants are destinations in themselves. Local ingredients and culinary traditions are the starting point, not an afterthought.
-                </p>
-              </div>
-
-              <div className="p-8 bg-white rounded-lg">
-                <h3 className="text-xl mb-4" style={{ ...heading, color: brandColors.primary }}>
-                  Meaningful Hospitality
-                </h3>
-                <p style={body} className="text-gray-700">
-                  Our service is built on genuine care and understanding. We anticipate needs and create moments that guests will remember for a lifetime.
-                </p>
-              </div>
-
-              <div className="p-8 bg-white rounded-lg">
-                <h3 className="text-xl mb-4" style={{ ...heading, color: brandColors.primary }}>
-                  Sustainability & Regeneration
-                </h3>
-                <p style={body} className="text-gray-700">
-                  We're committed to leaving destinations better than we found them. Every property implements practices that support local communities and ecosystems.
-                </p>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Sources & Further Reading */}
-      <section className="py-20 px-6 md:px-10 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <FadeIn>
-            <h2 className="text-3xl md:text-4xl mb-12 text-center" style={{ ...heading, color: brandColors.dark }}>
-              Sources & Further Reading
-            </h2>
-
-            <div className="space-y-12">
-              <div>
-                <h3 className="text-xl mb-6" style={{ ...heading, color: brandColors.primary }}>
-                  Official MICHELIN Resources
-                </h3>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex gap-3">
-                    <span style={{ color: brandColors.accent }} className="font-bold">
-                      ◆
-                    </span>
-                    <a href="https://guide.michelin.com/en/hotels" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: brandColors.primary }}>
-                      MICHELIN Guide: Hotel Selection
-                    </a>
-                  </li>
-                  <li className="flex gap-3">
-                    <span style={{ color: brandColors.accent }} className="font-bold">
-                      ◆
-                    </span>
-                    <a href="https://guide.michelin.com/en/hotels/nayara-springs" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: brandColors.primary }}>
-                      MICHELIN Guide: Nayara Springs
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl mb-6" style={{ ...heading, color: brandColors.primary }}>
-                  Related Nayara Content
-                </h3>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex gap-3">
-                    <span style={{ color: brandColors.accent }} className="font-bold">
-                      →
-                    </span>
-                    <a href="/wellness" className="hover:underline" style={{ color: brandColors.primary }}>
-                      Brand Wellness: Nature-Based Wellness by Colors
-                    </a>
-                  </li>
-                  <li className="flex gap-3">
-                    <span style={{ color: brandColors.accent }} className="font-bold">
-                      →
-                    </span>
-                    <a href="/blog/bocas-conde-nast-award" className="hover:underline" style={{ color: brandColors.primary }}>
-                      Bocas del Toro: Condé Nast Traveler Award
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      <Footer textColor="#FFFFFF" />
-    </div>
-  );
+  return <BlogPostTemplate post={michelinKeysPost} />;
 }
