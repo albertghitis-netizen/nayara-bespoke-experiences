@@ -111,8 +111,8 @@ export default function BlobVideo({
   }, [isMuted]);
 
   // Determine video type from URL
+  // .mov files are H.264 in QuickTime container — declare as video/mp4 so Chromium plays them
   const getVideoType = (url: string): string => {
-    if (url.includes(".mov")) return "video/quicktime";
     if (url.includes(".webm")) return "video/webm";
     return "video/mp4";
   };

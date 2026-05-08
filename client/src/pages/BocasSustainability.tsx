@@ -135,16 +135,7 @@ function Hero() {
           </span>
         </TextReveal>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.75, ease: EASE_CINEMATIC }}
-          className="mt-6 text-lg md:text-xl leading-relaxed max-w-2xl"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}
-        >
-          In partnership with Caribbean Coral Restoration, Nayara Bocas del Toro is rebuilding one of the
-          Caribbean's most threatened ecosystems — one genetically resilient coral fragment at a time.
-        </motion.p>
+
       </div>
     </section>
   );
