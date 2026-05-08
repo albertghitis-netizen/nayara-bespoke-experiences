@@ -93,7 +93,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center leading-[1.1]"
+          className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide text-center leading-[1.1]"
           style={heading}
         >
           Where Nature Writes the Love Story
