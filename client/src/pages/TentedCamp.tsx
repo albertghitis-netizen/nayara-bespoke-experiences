@@ -1570,7 +1570,9 @@ const PANORAMA_PANELS = [
   {
     name: "Gardens",
     tagline: "Rainforest Casitas & Villas",
+    description: "Intimate casitas and rainforest villas nestled in a 1,400-acre private reserve. Plunge pools, canopy walks, and the sounds of the jungle at your doorstep.",
     badge: null,
+    video: "/manus-storage/panorama-gardens_370a72be.mp4",
     image: `${CDN_TC}/prop-gardens_5931d8af.jpg`,
     route: "/gardens",
     accent: "#286241",
@@ -1578,15 +1580,19 @@ const PANORAMA_PANELS = [
   {
     name: "Tented Camp",
     tagline: "Clifftop Tents & Suites",
+    description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
     badge: "You Are Here",
+    video: "/manus-storage/panorama-tented_5635516f.mp4",
     image: `${CDN_TC}/tented-camp-sunset-plunge_7573fe67.jpeg`,
     route: null,
     accent: "#868B75",
   },
   {
     name: "Springs",
-    tagline: "Private Hot Springs Villas",
-    badge: "Adults Only",
+    tagline: "Private Hot Springs Villas · Adults Only",
+    description: "The world's only Three-Key MICHELIN hotel in Costa Rica. Private volcanic hot spring pools, a floating breakfast, and the most intimate luxury in the rainforest.",
+    badge: null,
+    video: "/manus-storage/panorama-springs_31bb80db.mp4",
     image: `${CDN_TC}/springs-villa-plunge-pool-straight_a5d505d1.webp`,
     route: "/springs",
     accent: "#4B6358",
@@ -1642,16 +1648,19 @@ function PanoramaPanel({
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
     >
-      {/* Photo */}
-      <img
-        src={panel.image}
-        alt={`Nayara ${panel.name}`}
+      {/* Video background with image fallback */}
+      <video
+        src={panel.video}
+        autoPlay
+        muted
+        loop
+        playsInline
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           transform: isHovered ? "scale(1.06)" : "scale(1.0)",
           transition: "transform 1.1s cubic-bezier(0.77,0,0.175,1)",
         }}
-        loading="lazy"
+        poster={panel.image}
       />
 
       {/* Gradient overlay — always present */}
@@ -1691,53 +1700,70 @@ function PanoramaPanel({
         </div>
       )}
 
-      {/* Bottom text */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10">
-        <p
-          className="text-[10px] tracking-[0.22em] uppercase mb-2"
-          style={{
-            fontFamily: "var(--font-body)",
-            fontWeight: 500,
-            color: "rgba(255,255,255,0.65)",
-            opacity: isHovered ? 1 : 0.7,
-            transition: "opacity 0.5s ease",
-          }}
-        >
-          {panel.tagline}
-        </p>
-        <h3
-          className="text-xl md:text-2xl lg:text-3xl tracking-wide leading-none"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 400,
-            color: "#fff",
-          }}
-        >
-          Nayara {panel.name}
-        </h3>
+        {/* Bottom text */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10">
+          <p
+            className="text-[10px] tracking-[0.22em] uppercase mb-2"
+            style={{
+              fontFamily: "var(--font-body)",
+              fontWeight: 500,
+              color: "rgba(255,255,255,0.65)",
+              opacity: isHovered ? 1 : 0.7,
+              transition: "opacity 0.5s ease",
+            }}
+          >
+            {panel.tagline}
+          </p>
+          <h3
+            className="text-xl md:text-2xl lg:text-3xl tracking-wide leading-none"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 400,
+              color: "#fff",
+            }}
+          >
+            Nayara {panel.name}
+          </h3>
 
-        {/* Explore arrow — only on hover, only for non-current */}
-        {panel.route && (
+          {/* Description — appears on hover */}
           <div
             style={{
               overflow: "hidden",
-              maxHeight: isHovered ? "48px" : "0px",
+              maxHeight: isHovered ? "120px" : "0px",
               opacity: isHovered ? 1 : 0,
-              transition: "max-height 0.5s ease, opacity 0.4s ease",
+              transition: "max-height 0.6s ease, opacity 0.5s ease",
             }}
           >
             <p
-              className="mt-3 text-[11px] tracking-[0.14em] uppercase flex items-center gap-2"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.85)" }}
+              className="mt-3 text-[12px] leading-[1.7]"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}
             >
-              Explore
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              {panel.description}
             </p>
           </div>
-        )}
-      </div>
+
+          {/* Explore arrow — only on hover, only for non-current */}
+          {panel.route && (
+            <div
+              style={{
+                overflow: "hidden",
+                maxHeight: isHovered ? "48px" : "0px",
+                opacity: isHovered ? 1 : 0,
+                transition: "max-height 0.5s ease, opacity 0.4s ease 0.1s",
+              }}
+            >
+              <p
+                className="mt-3 text-[11px] tracking-[0.14em] uppercase flex items-center gap-2"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.85)" }}
+              >
+                Explore
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </p>
+            </div>
+          )}
+        </div>
     </div>
   );
 
@@ -1767,7 +1793,7 @@ function OneRainforestCompactTC() {
   }, []);
 
   return (
-    <div ref={sectionRef} style={{ backgroundColor: "#0e1a0e" }}>
+    <div ref={sectionRef} style={{ backgroundColor: "#EDEEE2" }}>
       {/* ── Header ── */}
       <div
         className="px-6 md:px-10 pt-16 md:pt-20 pb-10 md:pb-12 text-center"
@@ -1779,19 +1805,19 @@ function OneRainforestCompactTC() {
       >
         <p
           className="text-[10px] tracking-[0.25em] uppercase mb-3"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.55)" }}
+          style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(58,42,26,0.55)" }}
         >
           One Rainforest, Three Resorts
         </p>
         <h2
           className="text-2xl md:text-3xl lg:text-4xl tracking-wide"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3a2a1a" }}
         >
           Three Keys, One Door
         </h2>
         <p
           className="mt-4 text-[13px] md:text-[14px] leading-[1.8] max-w-[520px] mx-auto"
-          style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.65)" }}
+          style={{ fontFamily: "var(--font-body)", color: "rgba(58,42,26,0.7)" }}
         >
           Stay at Tented Camp and the restaurants, spa, hot springs, and experiences of Gardens and Springs are all yours.
         </p>
