@@ -159,7 +159,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         {/* Dynamic columns from navigation config + Contact column */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[12px] leading-relaxed" style={{ paddingLeft: "240px" }}>
           {columns.map((col, idx) => (
-            <div key={col.title} style={{ marginLeft: idx === 2 ? '12px' : undefined }}>
+            <div key={col.title} style={{ marginLeft: idx === 2 ? '32px' : undefined }}>
               <span
                 className="text-[10px] tracking-[0.25em] block mb-4"
                 style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 500 }}
