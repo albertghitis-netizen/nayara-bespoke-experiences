@@ -105,7 +105,7 @@ export default function BocasSustainability() {
 /* ── HERO ─────────────────────────────────────────────────── */
 function Hero() {
   return (
-    <section className="relative overflow-hidden" style={{ paddingTop: "56.25%" /* 16:9 */ }}>
+    <section className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
       <BlobVideo
         src="/manus-storage/intro_h264_d64d158b.mp4"
         className="absolute inset-0 w-full h-full object-cover object-center"
