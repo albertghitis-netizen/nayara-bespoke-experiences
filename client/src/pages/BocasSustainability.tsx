@@ -83,7 +83,7 @@ const STEPS = [
 export default function BocasSustainability() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.sand }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" hideCenterLabel hideMenu hideReserve />
 
       <Hero />
       <StatsBar />
@@ -997,8 +997,8 @@ function ClosingCTA() {
   return (
     <section className="relative overflow-hidden" style={{ height: "70vh" }}>
       <img
-        src={`${CDN}/bocas-aerial-full-resort_d27193e4.jpg`}
-        alt="Aerial view of Nayara Bocas del Toro full resort on the private island"
+        src="/manus-storage/zapatillas-island_72d0a134.jpg"
+        alt="Zapatillas Island, Bocas del Toro archipelago, Panama"
         className="w-full h-full object-cover object-center"
         loading="lazy"
       />

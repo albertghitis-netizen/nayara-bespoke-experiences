@@ -278,6 +278,7 @@ function Router() {
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy">{() => <CostaRicaGastronomy propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/sustainability" component={BocasSustainability} />
+          <Route path="/nayara-coral-reef-restoration" component={BocasSustainability} />
           <Route path="/journal" component={Journal} />
            {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/awards" component={AwardsAndPress} />
