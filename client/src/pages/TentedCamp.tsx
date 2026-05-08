@@ -1009,7 +1009,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Discover the Magic\nof the Rainforest",
     body: "Hike through pristine rainforest to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the indigenous Maleku people.\n\nRappel down cascading waterfalls surrounded by ancient ferns and orchids, feeling the mist on your skin as you descend into hidden volcanic gorges.\n\nFrom hanging bridges above the canopy to night walks through bioluminescent trails, every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
     verticalSrc: "/manus-storage/tc-experiences-vertical-waterfall_99c30f0e.mp4",
-    horizontalSrc: "/manus-storage/tc-experiences-horizontal-final_f0b35603.mp4",
+    horizontalSrc: "",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
