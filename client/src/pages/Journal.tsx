@@ -37,7 +37,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideoDesktop: "/manus-storage/46A64062-4302-4BB8-A8CD-E6DAAEF3C36A_77ff6a07.mp4",
+  heroVideoDesktop: "/manus-storage/journal-hero-noaudio_863733fa.mp4",
   heroVideoMobile: "/manus-storage/journal-mobile-hero-v2-hq_3c7654fa.mp4",
 };
 
@@ -116,15 +116,6 @@ const INITIAL_COUNT = 9;
 export default function Journal() {
   const [activeHotel, setActiveHotel] = useState("alto-atacama");
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
-  const [heroMuted, setHeroMuted] = useState(true);
-
-  const toggleHeroSound = () => {
-    if (!heroVideoRef.current) return;
-    const next = !heroMuted;
-    setHeroMuted(next);
-    heroVideoRef.current.muted = next;
-  };
 
   const visibleEntries = ALL_ENTRIES;
 
@@ -138,7 +129,6 @@ export default function Journal() {
           {JOURNAL_CDN.heroVideoDesktop && (
             <>
               <video
-                ref={heroVideoRef}
                 src={JOURNAL_CDN.heroVideoDesktop}
                 autoPlay
                 loop
@@ -159,30 +149,6 @@ export default function Journal() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />
         </div>
 
-        {/* Sound pill — matches BlobVideo: same line as hamburger/Reserve */}
-        <button
-          onClick={toggleHeroSound}
-          className="fixed z-50 hidden md:flex lg:flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
-          style={{
-            top: '10px',
-            left: '56px',
-            backgroundColor: 'rgba(59,43,38,0.8)',
-            borderColor: 'rgba(255,255,255,0.1)',
-          }}
-        >
-          {heroMuted ? (
-            <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: '#F7F5F0' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z" />
-            </svg>
-          ) : (
-            <svg className="w-3.5 h-3.5 mr-1.5" style={{ color: '#F7F5F0' }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z" />
-            </svg>
-          )}
-          <span className="text-xs tracking-[0.08em]" style={{ color: '#F7F5F0', fontFamily: 'var(--font-body)', fontWeight: 500 }}>
-            {heroMuted ? 'Sound' : 'Mute'}
-          </span>
-        </button>
 
         <div className="absolute inset-0 z-10 flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
           <motion.h1

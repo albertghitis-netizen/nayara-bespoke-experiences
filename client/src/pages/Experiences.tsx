@@ -31,7 +31,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 /* ─── CDN Assets ─── */
 const CDN = {
   heroVertical: "/manus-storage/experiences-mobile-hero_3641d7ed.mp4",
-  heroHorizontal: "/manus-storage/3D6265C6-9455-4486-9BC4-7A7CCD821660_accfc159.mov",
+  heroHorizontal: "/manus-storage/experiences-pillar-hero_157374e5.mp4",
 };
 
 export default function Experiences() {
