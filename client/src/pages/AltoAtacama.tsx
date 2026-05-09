@@ -645,7 +645,7 @@ const CASCADE_SECTIONS = [
     label: "Gastronomy",
     headline: "A Taste of the Desert",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients , quinoa, chañar, rica-rica herbs, and Andean potatoes , our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
-    vSrc: "/manus-storage/atacama-taste-of-place-vertical_e5fa6f59.jpeg",
+    vSrc: "/manus-storage/5178CD9B-559F-438F-BDFC-144084EAE0C2_9fb87b69.jpeg",
     hSrc: "/manus-storage/atacama-restaurant-interior_b3e2536a.jpg",
     vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "3/2",
@@ -667,11 +667,11 @@ const CASCADE_SECTIONS = [
     textSide: "left" as const,
     badges: false,
     isDarkSection: true,
-    hideH: false,
     bgOverride: "#000000",
     blogLink: "/alto-atacama/stargazing",
     blogLinkLabel: "Explore the Stargazing Page",
     blogLinkInternal: true,
+    overlayOnVideo: true,
   },
 ];
 

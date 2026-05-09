@@ -3491,3 +3491,5 @@
 - [x] Replace Atacama hero video with new audio video (Edits_Atacama_horizontal_1)
 - [x] Remove Sustainability horizontal video ("Explore Beyond Sustainability")
 - [x] Remove Desert Renewal vertical video, put headline + text overlaid on horizontal (Option B style)
+- [x] Fix: Restore vertical image on "A Taste of the Desert" (Gastronomy) — new green tarts photo
+- [x] Fix: "The Clearest Skies on Earth" (Stargazing) — text overlay on horizontal video
