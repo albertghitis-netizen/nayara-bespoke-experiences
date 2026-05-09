@@ -87,7 +87,7 @@ const PALETTE = {
 
 const ASSETS = {
   // Hero (clip 1 , horizontal 16:9)
-  heroDesktop: "/manus-storage/atacama-hero-audio_e50ab49a.mp4",
+  heroDesktop: "/manus-storage/atacama-hero-new_e54af64d.mp4",
   heroMobile: "/manus-storage/atacama-mobile-hero_4942d911.mp4",
 
   // Clip 2 , vertical 3:4
@@ -590,31 +590,17 @@ const CASCADE_SECTIONS = [
     label: "Experiences",
     headline: "Mars on Earth",
     description: "NASA scientists have trained here. Geologists call it the closest thing on Earth to the surface of Mars. The Atacama Desert , hyper-arid, mineral-rich, and ancient beyond reckoning , is not a backdrop. It is the experience itself. At Nayara Alto Atacama, every excursion is guided by local experts who have spent lifetimes reading this landscape: its salt crusts, its volcanic craters, its silence.",
-    secondDescription: "Just beyond the salt flats, the Valle del Arcoiris , Rainbow Valley , reveals another dimension of the desert. Hillsides painted in ochre, copper, violet, and gold by millions of years of mineral oxidation. Walk among them at golden hour and the colours seem to shift with the light, as if the earth itself is still deciding what it wants to be.",
     vSrc: ASSETS.clip6V,
-    hSrc: ASSETS.clip7H,
+    hSrc: "/manus-storage/mars-on-earth-horizontal_8827fcd2.mp4",
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
+    link: "/alto-atacama/experiences",
+    linkLabel: "Explore Experiences",
     blogLink: "/blog/atacama-mars",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
     badges: false,
-    hideH: true,
-  },
-  {
-    label: "Experiences",
-    headline: "Rainbow Valley",
-    description: "A geological marvel painted in ochre, violet, and gold , the Valle del Arcoiris is one of the Atacama's most surreal landscapes. Walk among mineral-stained hillsides at golden hour and witness colours that seem to belong to another world.",
-    vSrc: ASSETS.clip6V,
-    hSrc: "/manus-storage/Video_Nayara_Atacama00005_9facd1be.mp4",
-    vVideo: true, hVideo: true,
-    vRatio: "3/4", hRatio: "16/9",
-    textSide: "right" as const,
-    link: "/alto-atacama/experiences",
-    linkLabel: "Follow the Rainbow",
-    badges: false,
-    hFirst: true,
-    hideV: true,
+    overlayOnVideo: true,
   },
   {
     label: "Sustainability",
@@ -639,6 +625,7 @@ const CASCADE_SECTIONS = [
       { value: "0%", label: "Water Waste" },
     ],
     badges: false,
+    hideH: true,
   },
   {
     label: "Wellness",
@@ -652,6 +639,7 @@ const CASCADE_SECTIONS = [
     link: "/alto-atacama/wellness",
     linkLabel: "Explore Nature-Based Wellness",
     badges: false,
+    overlayOnVideo: true,
   },
   {
     label: "Gastronomy",
@@ -742,6 +730,7 @@ export default function AltoAtacama() {
         const isHideV = (section as any).hideV;
 
         const isDarkSection = !!(section as any).isDarkSection;
+        const isOverlay = !!(section as any).overlayOnVideo;
 
         const VTextRow = isHideV ? null : (
           <div className="hidden md:block relative z-[1]" style={{ marginTop: '-1px' }}>
@@ -869,6 +858,102 @@ export default function AltoAtacama() {
                   }}
                 />
               </div>
+            </Fragment>
+          );
+        }
+
+        /* === OVERLAY VARIANT: Full-width video with text overlaid === */
+        if (isOverlay) {
+          return (
+            <Fragment key={i}>
+              <section id={sectionId} style={{ backgroundColor: bg }}>
+                {/* Desktop: Full-width 16:9 video with text overlay */}
+                <div className="hidden md:block relative w-full" style={{ marginTop: '-1px' }}>
+                  <MediaReveal delay={0.1}>
+                    <MediaBlock
+                      src={section.hSrc}
+                      alt={section.headline}
+                      isVideo={section.hVideo}
+                      aspectRatio="16/9"
+                    />
+                  </MediaReveal>
+                  {/* Dark gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" />
+                  {/* Text overlay at bottom-left */}
+                  <div className="absolute bottom-0 left-0 right-0 p-10 lg:p-16 xl:p-20 pointer-events-none">
+                    <AnimateOnScroll variants={fadeUp}>
+                      <SectionLabel color={MIDDLE}>{section.label}</SectionLabel>
+                    </AnimateOnScroll>
+                    <TextReveal as="h2" className="mb-4" delay={0.1}>
+                      <span
+                        className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                        style={{ ...display, color: BONE }}
+                      >
+                        {section.headline}
+                      </span>
+                    </TextReveal>
+                    <AnimateOnScroll variants={fadeUp} delay={0.3}>
+                      <p
+                        className="text-[15px] leading-[1.8] max-w-2xl mb-6"
+                        style={{ ...body, color: `${BONE}CC` }}
+                      >
+                        {section.description}
+                      </p>
+                      {section.link && (
+                        <a
+                          href={section.link}
+                          className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                          style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", color: BONE, backgroundColor: MIDDLE, textTransform: "uppercase" }}
+                        >
+                          {section.linkLabel || "Explore More"}
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                          </svg>
+                        </a>
+                      )}
+                    </AnimateOnScroll>
+                  </div>
+                </div>
+
+                {/* MOBILE: Video with text overlay */}
+                <div className="md:hidden relative">
+                  <MediaReveal delay={0.1}>
+                    <MediaBlock
+                      src={section.hSrc}
+                      alt={section.headline}
+                      isVideo={section.hVideo}
+                      aspectRatio="16/9"
+                    />
+                  </MediaReveal>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 pointer-events-none">
+                    <p className="text-[10px] tracking-[0.2em] mb-2" style={{ ...body, fontWeight: 500, color: MIDDLE }}>
+                      {section.label}
+                    </p>
+                    <h2
+                      className="text-xl leading-[1.1] tracking-wide mb-2"
+                      style={{ ...display, color: BONE }}
+                    >
+                      {section.headline}
+                    </h2>
+                    <p
+                      className="text-[13px] leading-[1.6] mb-4"
+                      style={{ ...body, color: `${BONE}BB` }}
+                    >
+                      {section.description}
+                    </p>
+                    {section.link && (
+                      <a
+                        href={section.link}
+                        className="pointer-events-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full"
+                        style={{ ...body, fontWeight: 500, fontSize: "10px", letterSpacing: "0.15em", color: BONE, backgroundColor: MIDDLE, textTransform: "uppercase" }}
+                      >
+                        {section.linkLabel || "Explore More"}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </section>
             </Fragment>
           );
         }

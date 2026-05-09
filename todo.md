@@ -3484,3 +3484,10 @@
 - [x] Delete ArenalGastronomy.tsx and /gastronomy-arenal route
 - [x] Update all references from /gastronomy-arenal to /tented-camp/gastronomy
 - [x] Verify TypeScript compilation — zero errors
+
+## Alto Atacama Homepage — Mars on Earth Redesign
+- [x] Remove Rainbow Valley horizontal section entirely (video + second paragraph)
+- [x] Implement Option B for Mars on Earth: text overlaid on full-width horizontal video with dark gradient (headline + first paragraph only)
+- [x] Replace Atacama hero video with new audio video (Edits_Atacama_horizontal_1)
+- [x] Remove Sustainability horizontal video ("Explore Beyond Sustainability")
+- [x] Remove Desert Renewal vertical video, put headline + text overlaid on horizontal (Option B style)
