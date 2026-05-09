@@ -5,7 +5,7 @@
  * Non-CR properties keep the flat filtered card grid.
  */
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
@@ -40,10 +40,13 @@ const HERO_VIDEOS: Record<string, string> = {
   "tented-camp": `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
   gardens: `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
   springs: `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
-  "alto-atacama": `${CDN_BASE}/experiences-hero-geysers-audio_7e6b6a00.mp4`,
+  "alto-atacama": "/manus-storage/510CD524-263F-4647-BD14-0E6EFF6676D1(1)_8c9838dc.mov",
   "bocas-del-toro": `${CDN_BASE}/bocas-gallery-video1_d18b5ced.mp4`,
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
 };
+
+/** Properties whose hero video has audio (show Sound pill) */
+const HERO_HAS_AUDIO = new Set(["alto-atacama"]);
 
 /** Location subtitles per property */
 const LOCATIONS: Record<string, string> = {
@@ -114,15 +117,89 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
    ═══════════════════════════════════════════════════════════════ */
 
 function ExperiencesHero({ propertySlug }: { propertySlug: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const hasAudio = HERO_HAS_AUDIO.has(propertySlug);
+  const heroVideo = HERO_VIDEOS[propertySlug];
+
   const HERO_IMAGES: Record<string, { src: string; alt: string }> = {
     "tented-camp": { src: "/manus-storage/tc-experiences-bridge-v2_40206a9a.jpg", alt: "Hanging bridge through the rainforest canopy" },
-    "alto-atacama": { src: "/manus-storage/atacama-exp-stargazing_c8a71e15.jpg", alt: "Stargazing under the Milky Way in the Atacama Desert" },
     "bocas-del-toro": { src: "/manus-storage/bocas-experiences-hero_83418211.jpg", alt: "Swimming in crystal clear Caribbean waters" },
   };
-  const hero = HERO_IMAGES[propertySlug] || HERO_IMAGES["tented-camp"];
+  const fallbackImage = HERO_IMAGES[propertySlug];
+
+  const headline = HEADLINES[propertySlug] || "Bespoke Experiences";
+  const location = LOCATIONS[propertySlug] || "";
+
+  const toggleSound = () => {
+    if (!videoRef.current) return;
+    const next = !muted;
+    setMuted(next);
+    videoRef.current.muted = next;
+  };
+
+  if (heroVideo) {
+    return (
+      <section className="relative w-full overflow-hidden bg-[#1a0a00] -mt-1" style={{ paddingTop: '56.25%' }}>
+        <video
+          ref={videoRef}
+          src={heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
+        {/* Sound pill */}
+        {hasAudio && (
+          <button
+            onClick={toggleSound}
+            className="absolute top-6 left-6 z-20 flex items-center gap-2 h-9 px-4 rounded-full backdrop-blur-md transition-all duration-300"
+            style={{ backgroundColor: 'rgba(58,42,26,0.7)', border: '1px solid rgba(255,255,255,0.15)' }}
+          >
+            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              {muted ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+              )}
+            </svg>
+            <span className="text-white text-[10px] tracking-[0.2em] uppercase" style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}>
+              {muted ? 'Sound' : 'Mute'}
+            </span>
+          </button>
+        )}
+        <div className="absolute inset-0 z-10 flex flex-col justify-end items-start pb-10 md:pb-14 px-8 md:px-14">
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide"
+            style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}
+          >
+            {headline}
+          </motion.h1>
+          {location && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-white/50 text-[11px] tracking-[0.25em] uppercase mt-3"
+              style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
+            >
+              {location}
+            </motion.p>
+          )}
+        </div>
+      </section>
+    );
+  }
+
+  // Fallback: static image for properties without a video
   return (
     <section className="relative aspect-[16/9] w-full overflow-hidden">
-      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
+      <img src={fallbackImage?.src || ''} alt={fallbackImage?.alt || ''} className="w-full h-full object-cover" />
     </section>
   );
 }
