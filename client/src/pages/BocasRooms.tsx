@@ -13,7 +13,6 @@ import {
   MediaReveal,
   fadeUp,
 } from "@/components/motion";
-import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
 
 const PALETTE = {
   primary: "#008E97",
@@ -63,7 +62,6 @@ export default function BocasRooms() {
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <RoomsHero />
-      <ScrollingPillarHeader word="OVERWATER VILLAS & TREEHOUSES" color={PALETTE.primary} bgColor={PALETTE.gradientEnd} />
       <RoomsContent />
       <Footer pageType="property" bgColor="#008E97" textColor="#FFFFFF" propertyName="Bocas del Toro" />
     </div>

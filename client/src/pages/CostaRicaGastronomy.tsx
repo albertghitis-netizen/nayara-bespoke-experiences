@@ -14,7 +14,6 @@ import { motion, useInView } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
 import PillarCrossLink from "@/components/PillarCrossLink";
 import {
   AnimateOnScroll,
@@ -244,7 +243,6 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
       <BrandNavigation pageType="property" hideCenterLabel />
       <HeroSection />
-      <ScrollingPillarHeader word="A TASTE OF PLACE" color={PALETTE.primary} bgColor={PALETTE.bg} />
       <ByTheNumbers />
       <PhilosophySection />
       <RestaurantGridSection />

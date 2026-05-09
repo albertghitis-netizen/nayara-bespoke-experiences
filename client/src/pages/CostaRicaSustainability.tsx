@@ -32,7 +32,6 @@ import {
   type SDGAlignment,
 } from "@/data/sustainability";
 import PillarCrossLink from "@/components/PillarCrossLink";
-import ScrollingPillarHeader from "@/components/ScrollingPillarHeader";
 import {
   AnimateOnScroll,
   StaggerOnScroll,

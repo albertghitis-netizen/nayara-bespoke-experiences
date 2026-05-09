@@ -124,7 +124,7 @@ export default function Journal() {
       <BrandNavigation pageType="brand" hideCenterLabel />
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-screen md:h-[75vh] overflow-hidden bg-[#3a2a1a] -mt-1">
+      <section className="relative w-full overflow-hidden bg-[#3a2a1a] -mt-1" style={{ paddingTop: '56.25%' }}>
         <div className="absolute inset-0">
           {JOURNAL_CDN.heroVideoDesktop && (
             <>
@@ -148,7 +148,7 @@ export default function Journal() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />
         </div>
 
-        <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
+        <div className="absolute inset-0 z-10 flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
