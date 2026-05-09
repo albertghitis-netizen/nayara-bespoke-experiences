@@ -65,13 +65,12 @@ const CURATED_IDS: string[] = [
   // Row 3: Watch · Read · Watch
   "atacama-sustainability",
   "three-kitchens-one-rainforest",
-  "hangaroa-sustainability",
+  "leo-suite-success",
   // Row 4: Read · Watch · Read
   "7-michelin-keys",
-  "leo-suite-success",
+  "hangaroa-sustainability",
   "arenal-timeless-wonder",
   // Row 5
-  "leo-costa-rica-entrepreneurship",
   "stargazing-atacama",
   "treehouse-dreams",
   // Row 6
@@ -274,12 +273,17 @@ function GalleryCard({
       <motion.div {...motionProps} onClick={() => !isAnyPlaying && setActiveVideo(`${entry.id}-en`)}>
         <CardShell entry={entry} index={index} isPlaying={isAnyPlaying} embedId={embedId} onClose={() => setActiveVideo(null)}>
           {!isAnyPlaying && (
-            <CardOverlay entry={entry}>
-              <DualLangPills
-                onEN={() => setActiveVideo(`${entry.id}-en`)}
-                onES={() => setActiveVideo(`${entry.id}-es`)}
-              />
-            </CardOverlay>
+            <>
+              <div className="absolute top-3 left-3 flex items-center gap-2 z-10">
+                <DualLangPills
+                  onEN={() => setActiveVideo(`${entry.id}-en`)}
+                  onES={() => setActiveVideo(`${entry.id}-es`)}
+                />
+              </div>
+              <CardOverlay entry={entry}>
+                <SinglePill icon={<Play className="w-2.5 h-2.5 fill-current" />} label="Watch" />
+              </CardOverlay>
+            </>
           )}
         </CardShell>
       </motion.div>
