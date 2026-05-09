@@ -1,25 +1,16 @@
 /*
- * ATACAMA EXPERIENCES , Dedicated experiences sub-page
- * Accessible from Alto Atacama home via "Explore More" CTA
- * Uses Atacama "Mars" palette and motion system
+ * ATACAMA EXPERIENCES — Dedicated experiences sub-page
+ * Hero: 16:9 video placeholder (video to be added)
+ * No scrolling text, no parallax, no BESPOKE ticker
  */
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import NativeVideo from "@/components/NativeVideo";
-import BlobVideo from "@/components/BlobVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Excursion } from "@/data/properties";
 import PillarCrossLink from "@/components/PillarCrossLink";
-import {
-  AnimateOnScroll,
-  StaggerOnScroll,
-  TextReveal,
-  Parallax,
-  fadeUp,
-  staggerContainer,
-} from "@/components/motion";
+import { AnimateOnScroll, StaggerOnScroll, fadeUp, staggerContainer } from "@/components/motion";
 
 const atacama = properties.find((p: Property) => p.id === "alto-atacama")!;
 
@@ -36,8 +27,7 @@ const PALETTE = {
 };
 
 const CDN = {
-  desertExploration: "/manus-storage/atacama-exp-stargazing_c8a71e15.jpg",
-  heroVideo: "/manus-storage/58128D23-96B9-4F10-AC0C-CAD0BB257E79_a0d45ef5.mov",
+  heroVideo: "", // video coming
 };
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
@@ -56,19 +46,29 @@ export default function AtacamaExperiences() {
 
 function ExperiencesHero() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#1a0a00] -mt-1" style={{ aspectRatio: '16/9' }}>
-      <div className="absolute inset-0">
+    <div className="relative w-full bg-[#1a0a00] -mt-1" style={{ paddingTop: "56.25%" }}>
+      {/* ── Video goes here ── */}
+      {CDN.heroVideo ? (
         <video
           src={CDN.heroVideo}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
-      </div>
-      <div className="relative z-10 h-full flex flex-col justify-end items-start pb-10 md:pb-14 px-8 md:px-14">
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center bg-[#1a0a00]">
+          <span
+            className="text-white/20 text-[11px] tracking-[0.3em] uppercase"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Video coming
+          </span>
+        </div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
+      <div className="absolute inset-0 flex flex-col justify-end items-start pb-10 md:pb-14 px-8 md:px-14">
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ function ExperiencesHero() {
           className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Mars on Earth
+          Stand on Another Planet
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -88,7 +88,7 @@ function ExperiencesHero() {
           Nayara Alto Atacama
         </motion.p>
       </div>
-    </section>
+    </div>
   );
 }
 
