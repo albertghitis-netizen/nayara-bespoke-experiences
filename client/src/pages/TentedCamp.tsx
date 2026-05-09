@@ -209,6 +209,7 @@ type CascadeSectionData = {
   stats?: { label: string; value: string }[];
   roomCards?: { label: string; route: string; sqm: string; guests: string }[];
   hideH?: boolean;
+  overlayOnVideo?: boolean;
   textLink?: string;
   textLinkLabel?: string;
 };
@@ -354,6 +355,51 @@ function CascadeSection({
       </MediaReveal>
     </div>
   ) : null;
+
+  /* ── Overlay mode: text overlaid on full-width horizontal ── */
+  if (section.overlayOnVideo && section.horizontalSrc) {
+    return (
+      <section id={section.id}>
+        <div className="relative w-full">
+          <div style={{ aspectRatio: section.horizontalRatio || "16/9" }}>
+            <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" loop={section.horizontalLoop} />
+          </div>
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+          {/* Text overlay */}
+          <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
+            <AnimateOnScroll variants={fadeUp}>
+              <span className="[&_p]:!text-white/70"><SectionLabel>{section.label}</SectionLabel></span>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.1}>
+              <h2 className="mb-4 md:mb-6">
+                {section.headline.split("\n").map((line, i) => (
+                  <span key={i} className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ ...display }}>{line}</span>
+                ))}
+              </h2>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.2}>
+              <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ ...body }}>
+                {section.body.split("\n\n")[0]}
+              </p>
+            </AnimateOnScroll>
+            {section.link && (
+              <AnimateOnScroll variants={fadeUp} delay={0.3}>
+                <a
+                  href={section.link}
+                  className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {section.linkLabel || "Explore"}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </a>
+              </AnimateOnScroll>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id={section.id}>
@@ -1007,23 +1053,20 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     id: "experiences",
     label: "Experiences",
     headline: "Discover the Magic\nof the Rainforest",
-    body: "Hike through pristine rainforest to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the indigenous Maleku people.\n\nRappel down cascading waterfalls surrounded by ancient ferns and orchids, feeling the mist on your skin as you descend into hidden volcanic gorges.\n\nFrom hanging bridges above the canopy to night walks through bioluminescent trails, every experience at Tented Camp connects you to the raw power and beauty of the Arenal rainforest.",
-    verticalSrc: "/manus-storage/tc-experiences-vertical-waterfall_99c30f0e.mp4",
-    horizontalSrc: "",
+    body: "Hike through pristine rainforest to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the indigenous Maleku people.",
+    verticalSrc: "",
+    horizontalSrc: "/manus-storage/gardens-experience-horizontal-v3_3ad62308.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
-    link: "/curated-excursions",
-    linkLabel: "Explore Rappelling",
-    textLink: "/curated-excursions",
+    link: "/tented-camp/experiences",
+    linkLabel: "Explore Experiences",
+    overlayOnVideo: true,
+    textLink: "/tented-camp/experiences",
     textLinkLabel: "Explore Bespoke Experiences",
-    verticalOverlayButtons: {
-      top: { explore: "Rio Celeste", reserve: "", exploreLink: "#" },
-      bottom: { explore: "Rio Celeste", reserve: "", exploreLink: "#" },
-    },
   },
   {
     id: "sustainability",

@@ -212,6 +212,7 @@ type CascadeSectionData = {
   verticalLoop?: boolean;
   stats?: { label: string; value: string }[];
   hideH?: boolean;
+  overlayOnVideo?: boolean;
 };
 
 const CASCADE_SECTIONS: CascadeSectionData[] = [
@@ -259,7 +260,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Experiences",
     headline: "Your Private Boat\n& Captain Await",
     body: "From snorkeling vibrant coral reefs to kayaking through bioluminescent bays, every day brings a new discovery. Explore hidden beaches, dive alongside tropical fish, or simply drift in the warm Caribbean waters that surround your private island retreat.",
-    verticalSrc: "/manus-storage/bocas-caribbean-adventure-v_e1c6cfa3.mp4",
+    verticalSrc: "",
     horizontalSrc: "/manus-storage/bocas-exp-horizontal_1b318bff.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
@@ -268,7 +269,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[3],
     nextBgColor: SECTION_COLORS[4],
     link: "/bocas-del-toro/experiences",
-    linkLabel: "Explore More",
+    linkLabel: "Explore Experiences",
+    overlayOnVideo: true,
   },
   {
     id: "sustainability",
@@ -457,6 +459,49 @@ function CascadeSection({
       </MediaReveal>
     </div>
   ) : null;
+
+  /* ── Overlay mode: text overlaid on full-width horizontal ── */
+  if (section.overlayOnVideo && section.horizontalSrc) {
+    return (
+      <section id={section.id}>
+        <div className="relative w-full">
+          <div style={{ aspectRatio: section.horizontalRatio || "16/9" }}>
+            <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
+            <AnimateOnScroll variants={fadeUp}>
+              <p className="text-[11px] tracking-[0.25em] uppercase mb-4 text-white/70" style={{ ...body, fontWeight: 500 }}>{section.label}</p>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.1}>
+              <h2 className="mb-4 md:mb-6">
+                {section.headline.split("\n").map((line, i) => (
+                  <span key={i} className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ ...display }}>{line}</span>
+                ))}
+              </h2>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.2}>
+              <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ ...body }}>
+                {section.body.split("\n\n")[0]}
+              </p>
+            </AnimateOnScroll>
+            {section.link && (
+              <AnimateOnScroll variants={fadeUp} delay={0.3}>
+                <a
+                  href={section.link}
+                  className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {section.linkLabel || "Explore"}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </a>
+              </AnimateOnScroll>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id={section.id}>

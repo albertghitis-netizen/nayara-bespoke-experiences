@@ -3498,3 +3498,8 @@
 - [ ] Remove horizontal from Gastronomy section on Atacama homepage (keep vertical + text + Explore link)
 - [ ] Fix horizontal scroll issue on Atacama page
 - [ ] UNIVERSAL RULE: Add property dropdown nav bar to ALL subpages for ALL properties (Atacama, Tented Camp, Gardens, Springs, Bocas, Hangaroa)
+- [x] UNIVERSAL RULE: Back arrow + property name centered in nav on all subpages (Atacama, Tented Camp, Gardens, Springs, Bocas)
+- [ ] Gardens: Replace experiences horizontal with new volcano video, remove vertical, overlay text (Rainforest Adventures + first para)
+- [ ] Tented Camp: Move La Fortuna Waterfall horizontal from Gardens to TC experiences, remove vertical, overlay text
+- [ ] Springs: Remove experiences vertical, overlay text on horizontal
+- [ ] Bocas: Remove experiences vertical, overlay text on horizontal

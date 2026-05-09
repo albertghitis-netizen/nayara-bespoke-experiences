@@ -587,7 +587,7 @@ const CASCADE_SECTIONS = [
     description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
     secondDescription: "A desert lodge in the driest desert on Earth, where salt flats, geysers, and the clearest night skies in the Southern Hemisphere converge. Two Michelin Keys.",
     vSrc: ASSETS.clip2V,
-    hSrc: ASSETS.clip3H,
+    hSrc: "/manus-storage/atacama-s2-drone-trimmed_54c02da9.mp4",
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
 
@@ -602,7 +602,7 @@ const CASCADE_SECTIONS = [
     headline: "Desert Suites",
     description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
     vSrc: ASSETS.clip4V,
-    hSrc: "/manus-storage/atacama-s2-drone_e8c16bf7.mp4",
+    hSrc: ASSETS.clip5H,
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,

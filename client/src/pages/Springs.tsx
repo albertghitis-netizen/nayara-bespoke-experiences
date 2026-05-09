@@ -487,56 +487,39 @@ function SpringsVillaSection() {
 function ExperiencesSection() {
   return (
     <section id="experiences">
-      {/* ── Row: Text left + S5 vertical video right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
-        {/* Text column */}
-        <div
-          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
-          style={{ backgroundColor: PALETTE.gradientEnd }}
-        >
+      {/* ── Full-width horizontal video with text overlay ── */}
+      <div className="relative w-full">
+        <div style={{ aspectRatio: "16/9" }}>
+          <NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_4ae41545.mp4" className="w-full h-full object-cover" />
+        </div>
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+        {/* Text overlay */}
+        <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Experiences</SectionLabel>
+            <p className="text-[11px] tracking-[0.25em] uppercase mb-4 text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</p>
           </AnimateOnScroll>
-          <TextReveal as="h2" className="mb-8" delay={0.1}>
-            <span
-              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-            >
-              Arenal Adventures
-            </span>
-          </TextReveal>
-          <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <p
-              className="text-[15px] leading-[1.85] max-w-[480px]"
-              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
-            >
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-4 md:mb-6">
+              <span className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Arenal Adventures</span>
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
               From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
             </p>
           </AnimateOnScroll>
-          <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
-              href="/curated-excursions"
-              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              href="/springs/experiences"
+              className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10"
+              style={{ fontFamily: "var(--font-body)" }}
             >
-              Explore Experiences →
+              Explore Experiences
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
         </div>
-
-        {/* S5 , Vertical video right */}
-        <div className="w-full md:w-1/2 md:order-2">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/springs-s5-experiences_16b5c78e.mp4" className="w-full h-full object-cover" />
-            </div>
-          </MediaReveal>
-        </div>
-      </div>
-
-      {/* ── S6 , Full-width horizontal video (desktop only) ── */}
-      <div className="hidden md:block w-full">
-        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_4ae41545.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );
