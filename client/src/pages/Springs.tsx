@@ -207,11 +207,14 @@ export default function Springs() {
         verticalSrc="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio(1)_9a4dccd8.jpeg"
         verticalIsVideo={false}
         verticalRatio="3/4"
-        horizontalSrc=""
+        horizontalSrc="/manus-storage/by-night-horizontal_1b49ceb7.mp4"
+        horizontalIsVideo={true}
+        horizontalRatio="16/9"
         bgColor="#0D0704"
         headline={"Dine at\nAmor Loco"}
         bodyText="Our fine dining restaurant Amor Loco offers a Michelin-caliber tasting menu that transforms Costa Rica's finest ingredients into an unforgettable culinary journey. Each evening, our chefs craft a multi-course experience that celebrates volcanic terroir and tropical abundance , an intimate, candlelit affair where every plate tells a story of the land beneath your feet."
         textSide="left"
+        overlayOnVideo={true}
       />
       <ReviewsSection />
       <GettingHereSection />
@@ -512,7 +515,7 @@ function ExperiencesSection() {
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="/springs/experiences"
-              className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10"
+              className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Explore Experiences
@@ -569,18 +572,14 @@ function SustainabilitySection() {
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
               href="/tented-camp-sustainability"
-              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
-              Explore Sustainability →
+              Explore Sustainability
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
         </div>
-      </div>
-
-      {/* ── S8 , Full-width horizontal video (desktop only) ── */}
-      <div className="hidden md:block w-full">
-        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s8-sustainability-horizontal_7a9ba7b8.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );
@@ -592,56 +591,39 @@ function SustainabilitySection() {
 function WellnessSection() {
   return (
     <section id="wellness">
-      {/* ── Row: Text left + S9 vertical video right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
-        {/* Text column */}
-        <div
-          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1"
-          style={{ backgroundColor: PALETTE.gradientEnd }}
-        >
+      {/* Wellness: horizontal overlay (rule: wellness = horizontal only) */}
+      <div className="relative w-full">
+        <div style={{ aspectRatio: "16/9" }}>
+          <NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Wellness</SectionLabel>
+            <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
           </AnimateOnScroll>
-          <TextReveal as="h2" className="mb-8" delay={0.1}>
-            <span
-              className="text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-            >
-              Nurtured by Nature
-            </span>
-          </TextReveal>
-          <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <p
-              className="text-[15px] leading-[1.85] max-w-[480px]"
-              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
-            >
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-4 md:mb-6">
+              <span className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                Nurtured by Nature
+              </span>
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
               The spa at Nayara Springs draws its rituals from the geothermal earth and forest botanicals that surround it. Volcanic mineral waters, indigenous healing traditions, and the stillness of the rainforest converge to create an experience that restores from the inside out.
             </p>
           </AnimateOnScroll>
-          <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="/costa-rica-wellness"
-              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
+              style={{ fontFamily: "var(--font-body)" }}
             >
-              Explore Wellness →
+              Nurtured by Nature
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
         </div>
-
-        {/* S9 , Vertical video right */}
-        <div className="w-full md:w-1/2 md:order-2">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/springs-s9-wellness-vertical_af7fc01e.mp4" className="w-full h-full object-cover" />
-            </div>
-          </MediaReveal>
-        </div>
-      </div>
-
-      {/* ── S10 , Full-width horizontal video (desktop only) ── */}
-      <div className="hidden md:block w-full">
-        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full h-full object-cover" /></div>
       </div>
     </section>
   );
@@ -696,24 +678,14 @@ function GastronomySection() {
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
               href="/tented-camp/gastronomy"
-              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
-              Explore Gastronomy →
+              Explore Gastronomy
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
         </div>
-      </div>
-
-      {/* ── Full-width horizontal image (food, desktop only) ── */}
-      <div className="hidden md:block w-full">
-        <img
-          src="/manus-storage/NayaraAltoAtacama_1_32854bbb.jpg"
-          alt="Artisanal cuisine at Nayara"
-          className="w-full object-cover"
-          style={{ aspectRatio: "16/9" }}
-          loading="lazy"
-        />
       </div>
     </section>
   );

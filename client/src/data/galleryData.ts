@@ -43,7 +43,7 @@ export const galleryImages: GalleryItem[] = [
   // 13. Spices close-up (VERT, warm reds/oranges)
   { src: "/manus-storage/newgal-008-A50DCA72-3FCB-46E5-A703-DFFB62080A51_ba9d9d7f.jpeg", w: 1536, h: 1920, type: "image" },
   // 14. VIDEO , Luxury reel (VERT, 3.5s)
-  { src: "/manus-storage/gal-vid-13-luxury_6e693596.mov", w: 1080, h: 1440, type: "video" },
+  { src: "/manus-storage/gal-vid-13-luxury_6e693596_3673faf9.mp4", w: 1080, h: 1440, type: "video" },
   // 15. Dessert plate (VERT, warm tones)
   { src: "/manus-storage/newgal-009-Untitleddesign-15_4f84f70d.JPG", w: 1440, h: 1920, type: "image" },
   // 16. Alto Atacama desert (HORIZ, sandy/brown)
@@ -71,7 +71,7 @@ export const galleryImages: GalleryItem[] = [
   // 27. Tented camp interior (VERT, warm wood)
   { src: "/manus-storage/newgal-017-3df15446-15eb-4056-8ddb-437113d81e19_1__c8d836fc.JPG", w: 853, h: 1280, type: "image" },
   // 28. VIDEO , Sloths (HORIZ, 2.9s) , ANIMAL
-  { src: "/manus-storage/gal-vid-11-sloths_2b7857d0.mov", w: 1256, h: 706, type: "video" },
+  { src: "/manus-storage/gal-vid-11-sloths_2b7857d0_757ee0b6.mp4", w: 1256, h: 706, type: "video" },
   // 29. Tented camp exterior (VERT, green/tent)
   { src: "/manus-storage/newgal-018-Ayla_NayaraTentedCamp_11_8d494b88.jpeg", w: 1280, h: 1920, type: "image" },
   // 30. Mi Cafecito (HORIZ, warm coffee tones)
@@ -81,17 +81,17 @@ export const galleryImages: GalleryItem[] = [
   // 32. Pizza oven fire (HORIZ, warm orange) , moved down
   { src: "/manus-storage/newgal-006-PizzaovenNS-MisAmoresfireLR_1__ee95369f.JPG", w: 3200, h: 2133, type: "image" },
   // 33. VIDEO , Atacama square (SQUARE, 2.6s) , moved to middle, fourth square
-  { src: "/manus-storage/gal-vid-10-atacama_e5c902dc.mov", w: 1440, h: 1440, type: "video" },
+  { src: "/manus-storage/gal-vid-10-atacama_e5c902dc_f14d177f.mp4", w: 1440, h: 1440, type: "video" },
   // 34. Volcano green crater (VERT, vivid green)
   { src: "/manus-storage/newgal-021-Untitleddesign-10_0c8ee777.JPG", w: 1440, h: 1920, type: "image" },
   // 35. VIDEO , vid-07 (HORIZ, 2.6s)
-  { src: "/manus-storage/gal-vid-07_e5f7383a.mov", w: 1440, h: 810, type: "video" },
+  { src: "/manus-storage/gal-vid-07_e5f7383a_587c55d8.mp4", w: 1440, h: 810, type: "video" },
   // 36. Woodpecker (SQUARE, green/red) , ANIMAL, fifth square
   { src: "/manus-storage/gal-new-woodpecker_b77158ab.jpeg", w: 1915, h: 1920, type: "image" },
   // 37. Wide landscape (HORIZ, green/brown)
   { src: "/manus-storage/newgal-027-B8309DA4-5C35-42C4-B56F-B3B37583818C_6b48f038.jpg", w: 3240, h: 2430, type: "image" },
   // 38. VIDEO , vid-08 (HORIZ, 3.5s)
-  { src: "/manus-storage/gal-vid-08_1a39cf78.mov", w: 1440, h: 810, type: "video" },
+  { src: "/manus-storage/gal-vid-08_1a39cf78_9d44e162.mp4", w: 1440, h: 810, type: "video" },
   // 39. Flamingos (VERT, pink/blue) , ANIMAL
   { src: "/manus-storage/newgal-022-6F47449D-76D3-464F-9095-1480197434EC_2e1247b6.jpeg", w: 1538, h: 1920, type: "image" },
   // 40. Resort room detail (VERT, warm)
@@ -113,7 +113,7 @@ export const galleryImages: GalleryItem[] = [
   // 48. Romantic dinner (VERT, warm amber/night) , NIGHT
   { src: "/manus-storage/newgal-032-02472240-7796-42F8-B9F3-B955D66EAD89_062baa07.jpeg", w: 1538, h: 1920, type: "image" },
   // 49. VIDEO , vid-02 (HORIZ, 1.6s)
-  { src: "/manus-storage/gal-vid-02_ec251b26.mov", w: 1096, h: 616, type: "video" },
+  { src: "/manus-storage/gal-vid-02_ec251b26_d0c081fa.mp4", w: 1096, h: 616, type: "video" },
   // 50. Milky way stargazing (VERT, dark blue/purple) , NIGHT [swapped from G11]
   { src: "/manus-storage/newgal-007-D7AC6CFD-2329-4619-B8C9-447268366C3F_a35005f7.jpeg", w: 1440, h: 1920, type: "image" },
   // 51. Toucan (VERT, green/colorful) , ANIMAL
@@ -131,7 +131,7 @@ export const galleryImages: GalleryItem[] = [
   // 57. Night scene/bar (VERT, dark amber) , NIGHT
   { src: "/manus-storage/newgal-040-3E487026-8F2B-41DB-A34D-0A5F0265A62D_1__db48f8d9.jpeg", w: 1538, h: 1920, type: "image" },
   // 58. VIDEO , vid-03 (VERT, 2.5s)
-  { src: "/manus-storage/gal-vid-03_2cfe9be8.mov", w: 720, h: 960, type: "video" },
+  { src: "/manus-storage/gal-vid-03_2cfe9be8_4b06cc90.mp4", w: 720, h: 960, type: "video" },
   // 59. Layla's gardens (VERT, green/bright)
   { src: "/manus-storage/newgal-044-Layla_s_NayaraGardens_1_1__f7b01cbf.jpg", w: 3406, h: 4541, type: "image" },
   // 60. Pool/resort scene (SQUARE, blue/green) , sixth square

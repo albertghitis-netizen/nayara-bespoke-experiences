@@ -282,7 +282,7 @@ export const galleryItems: GalleryItem[] = [
   { id: "g46", src: "https://manus-storage.s3.amazonaws.com/4O1A9347-NayaraTentedCampHangingBridgewithLivLaw-byBriceFerreStudio_b2c47b54.jpeg", alt: "Gallery item", type: "image", orientation: "landscape", tags: ["new"] },
   { id: "g47", src: "https://manus-storage.s3.amazonaws.com/96454375-D840-4B02-AEF7-98893DAD18AA_1dcbc251.jpeg", alt: "Gallery item", type: "image", orientation: "portrait", tags: ["new"] },
   { id: "g48", src: "https://manus-storage.s3.amazonaws.com/ACDF665C-3B75-4A15-9806-4E325514B1A9_43c954df.jpg", alt: "Gallery item", type: "image", orientation: "landscape", tags: ["new"] },
-  { id: "g49", src: "https://manus-storage.s3.amazonaws.com/trim_8b62c7bf.mov", alt: "Gallery item", type: "video", orientation: "landscape", tags: ["new"] },
+  { id: "g49", src: "/manus-storage/trim_8b62c7bf_c87c24cb.mp4", alt: "Gallery item", type: "video", orientation: "landscape", tags: ["new"] },
   { id: "g50", src: "/manus-storage/16c8c451-954d-4872-8d52-a4c15b629886_a3b2ae86.JPG", alt: "Milky Way arch over desert rocks", type: "image", orientation: "landscape", tags: ["by-night", "atacama"] },
   { id: "g51", src: "/manus-storage/16179e40-057d-49c6-a4e5-e8df45591809_c2dfdbe4.JPG", alt: "Milky Way over abandoned bus in desert", type: "image", orientation: "landscape", tags: ["by-night", "atacama"] },
   { id: "g52", src: "/manus-storage/f6306496-0129-4458-8b7e-ad0a635cadf2_eb49b46f.JPG", alt: "Milky Way arch over blue-lit desert explorer", type: "image", orientation: "landscape", tags: ["by-night", "atacama"] },

@@ -229,13 +229,17 @@ export default function Gardens() {
         verticalSrc="/manus-storage/gardens-bynight-frog_51f8e4f1.jpg"
         verticalIsVideo={false}
         verticalRatio="3/4"
+        horizontalSrc="/manus-storage/by-night-horizontal_1b49ceb7.mp4"
+        horizontalIsVideo={true}
+        horizontalRatio="16/9"
         bgColor="#000000"
         headline={"Fireflies &\nFrog Song"}
         bodyText="As twilight settles over the Arenal rainforest, the gardens come alive with bioluminescent fireflies and the chorus of red-eyed tree frogs. Join our naturalists for a nocturnal safari through the canopy, or simply listen from your private terrace as the jungle reveals its most intimate secrets."
         textSide="left"
         textLink=""
         textLinkLabel=""
-        hideButton={true}
+        hideButton={false}
+        overlayOnVideo={true}
       />
 
       {/* ══ REVIEWS ══ */}
@@ -1027,34 +1031,38 @@ function WellnessSection() {
 
   return (
     <section id="wellness">
-      {/* Wellness cascade: text left + vertical video right */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
-        {/* Text column */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-1">
+      {/* Wellness: horizontal overlay (rule: wellness = horizontal only) */}
+      <div className="relative w-full">
+        <div style={{ aspectRatio: "16/9" }}>
+          <NativeVideo src="/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Wellness</SectionLabel>
+            <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
           </AnimateOnScroll>
-          <TextReveal as="h2" className="mb-4" delay={0.1}>
-            <span className="text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}>
-              {gardens.theme.spaHeadline.replace("\n", " ")}
-            </span>
-          </TextReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2 className="mb-4 md:mb-6">
+              <span className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                {gardens.theme.spaHeadline.replace("\n", " ")}
+              </span>
+            </h2>
+          </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <p className="text-[15px] leading-[1.8] max-w-[480px]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+            <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
               Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Surrender to the rhythm of the rainforest — from mineral-rich thermal soaks at dawn to guided breathwork sessions as the howler monkeys call through the canopy.
             </p>
           </AnimateOnScroll>
-        </div>
-        {/* Wellness vertical video right */}
-        <div className="w-full md:w-1/2 md:order-2">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo
-                src="/manus-storage/tented-wellness-vertical-new_e0367ea8.mp4"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </MediaReveal>
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <a
+              href="/costa-rica-wellness"
+              className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Nurtured by Nature
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </AnimateOnScroll>
         </div>
       </div>
 
@@ -1499,7 +1507,7 @@ function GardensExperiencesSection() {
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="/gardens/experiences"
-              className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10"
+              className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Explore Experiences
@@ -1558,10 +1566,11 @@ function GardensGastronomyCascade() {
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="/tented-camp/gastronomy"
-              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#3a2a1a" }}
+              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
-              Explore Dining →
+              Explore Dining
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
         </div>
@@ -1587,21 +1596,6 @@ function GardensGastronomyCascade() {
         </div>
       </div>
 
-      {/* ── Full-width horizontal image (desktop only) ── */}
-      <div className="hidden md:block w-full relative">
-        <img src="/manus-storage/gardens-gastronomy-horizontal_184cc30e.jpeg" alt="Nostalgia Wine Bar" className="w-full object-cover" style={{ aspectRatio: "16/9" }} />
-        {/* Explore pill */}
-        <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
-          <a
-            href="#night-frog-tour"
-            className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-            style={{ backgroundColor: PALETTE.primary, fontFamily: "var(--font-body)" }}
-            >
-              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Nostalgia</span>
-              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-          </a>
-        </div>
-      </div>
     </section>
   );
 }
@@ -1665,19 +1659,16 @@ function GardensSustainabilityCascade() {
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="/tented-camp-sustainability"
-              className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
-              Explore Sustainability →
+              Explore Sustainability
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
         </div>
       </div>
 
-      {/* ── Full-width horizontal video (desktop only) ── */}
-      <div className="hidden md:block w-full">
-        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/gardens-sustainability-horizontal_16aa396f.mp4" className="w-full h-full object-cover" /></div>
-      </div>
     </section>
   );
 }

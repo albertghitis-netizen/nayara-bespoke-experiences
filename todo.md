@@ -3503,3 +3503,22 @@
 - [ ] Tented Camp: Move La Fortuna Waterfall horizontal from Gardens to TC experiences, remove vertical, overlay text
 - [ ] Springs: Remove experiences vertical, overlay text on horizontal
 - [ ] Bocas: Remove experiences vertical, overlay text on horizontal
+
+## MOV to MP4 Conversion (All Files)
+- [x] Convert all 15 MOV files to MP4 and re-upload to CDN
+- [x] Update all MOV references in blogPosts.ts, gallery.ts, galleryData.ts, properties.ts, CostaRicaWellness.tsx, Hangaroa.tsx
+
+## Section Layout Rules (All Property Homepages)
+- [x] Accommodations: vertical only (remove horizontal where present)
+- [x] Experiences: horizontal only (already overlay — remove vertical where present)
+- [x] Sustainability: vertical only (remove horizontal where present)
+- [x] Wellness: horizontal only (remove vertical where present)
+- [x] Gastronomy: vertical only (remove horizontal where present)
+- [x] By Night / Stargazing: horizontal only (remove vertical where present)
+- [x] Apply rules to: Atacama, Tented Camp, Gardens, Springs, Bocas del Toro
+
+## Button/Pill Styling Rules (All Property Homepages)
+- [x] Horizontal sections: overlay text (headline + paragraph left) + see-through glass pill button (transparent, white border, backdrop-blur)
+- [x] Vertical sections: text block beside vertical + solid pill button in property brand color
+- [x] Fix Atacama pills that are too long — pills should only be as wide as the text within them (no extra width)
+- [x] Apply consistent pill sizing across all properties (width = auto/fit-content)

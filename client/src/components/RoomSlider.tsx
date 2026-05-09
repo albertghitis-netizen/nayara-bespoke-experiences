@@ -157,7 +157,7 @@ export default function RoomSlider({
       <div className="flex gap-4">
         <a
           href={currentRoom.exploreLink}
-          className="px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.05] hover:shadow-lg"
+          className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit"
           style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}
         >
           Explore
@@ -166,7 +166,7 @@ export default function RoomSlider({
           href={currentRoom.bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.05] hover:shadow-lg"
+          className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit"
           style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: palette.text, border: `1px solid ${palette.textSecondary}40` }}
         >
           Reserve
@@ -289,10 +289,10 @@ export default function RoomSlider({
                     </span>
                   </div>
                   <div className="flex gap-4">
-                    <a href={currentRoom.exploreLink} className="px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.05] hover:shadow-lg" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
+                    <a href={currentRoom.exploreLink} className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
                       Explore
                     </a>
-                    <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.05] hover:shadow-lg" style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: palette.text, border: `1px solid ${palette.textSecondary}40` }}>
+                    <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit" style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: palette.text, border: `1px solid ${palette.textSecondary}40` }}>
                       Reserve
                     </a>
                   </div>
@@ -360,10 +360,10 @@ export default function RoomSlider({
                     </span>
                   </div>
                   <div className="flex gap-4">
-                    <a href={currentRoom.exploreLink} className="px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.05] hover:shadow-lg" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
+                    <a href={currentRoom.exploreLink} className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
                       Explore
                     </a>
-                    <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.05] hover:shadow-lg" style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: palette.text, border: `1px solid ${palette.textSecondary}40` }}>
+                    <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit" style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: palette.text, border: `1px solid ${palette.textSecondary}40` }}>
                       Reserve
                     </a>
                   </div>
@@ -467,10 +467,10 @@ export default function RoomSlider({
                 </span>
               </div>
               <div className="flex gap-3">
-                <a href={currentRoom.exploreLink} className="px-6 py-2.5 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
+                <a href={currentRoom.exploreLink} className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
                   Explore
                 </a>
-                <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium border border-white/50" style={{ ...body, fontWeight: 500, color: "white" }}>
+                <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border border-white/50" style={{ ...body, fontWeight: 500, color: "white" }}>
                   Reserve
                 </a>
               </div>

@@ -329,12 +329,12 @@ function CascadeTextBlock({
       {link && (
         <a
           href={link}
-          className="inline-flex items-center gap-2.5 mt-6 px-5 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+          className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
           style={{
             fontFamily: "var(--font-body)",
             fontWeight: 500,
             fontSize: "11px",
-            letterSpacing: "0.18em",
+            letterSpacing: "0.15em",
             textTransform: "uppercase" as const,
             color: BONE,
             backgroundColor: PALETTE.accent,
@@ -481,7 +481,7 @@ function CascadeSection({
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <a
             href={link}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] w-fit"
             style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: PALETTE.text, backgroundColor: "rgba(58,42,26,0.08)", borderColor: "rgba(58,42,26,0.25)" }}
           >
             {linkLabel || "Explore"}
@@ -844,7 +844,7 @@ export default function AltoAtacama() {
               <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
                 <a
                   href={section.link}
-                  className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                  className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.03] hover:shadow-lg w-fit"
                   style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", color: BONE, backgroundColor: MIDDLE, textTransform: "uppercase" }}
                 >
                   {section.linkLabel || "Explore More"}
@@ -926,7 +926,7 @@ export default function AltoAtacama() {
                       {section.link && (
                         <a
                           href={section.link}
-                          className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+                          className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] w-fit"
                           style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: BONE, backgroundColor: "rgba(255,255,255,0.08)", borderColor: "rgba(255,255,255,0.35)" }}
                         >
                           {section.linkLabel || "Explore More"}
@@ -969,7 +969,7 @@ export default function AltoAtacama() {
                     {section.link && (
                       <a
                         href={section.link}
-                        className="pointer-events-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full border backdrop-blur-sm"
+                        className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm w-fit"
                         style={{ ...body, fontWeight: 500, fontSize: "10px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: BONE, backgroundColor: "rgba(255,255,255,0.08)", borderColor: "rgba(255,255,255,0.35)" }}
                       >
                         {section.linkLabel || "Explore More"}

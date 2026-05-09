@@ -245,6 +245,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
+    hideH: true,
     bgColor: SECTION_COLORS[2],
     nextBgColor: SECTION_COLORS[3],
     link: "/bocas-del-toro/rooms",
@@ -283,6 +284,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
+    hideH: true,
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
     link: "/bocas-del-toro/sustainability",
@@ -307,6 +309,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
+    overlayOnVideo: true,
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
     link: "/bocas-del-toro/wellness",
@@ -328,6 +331,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
+    hideH: true,
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
     link: "/bocas-del-toro/gastronomy",
@@ -341,10 +345,10 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     verticalSrc: "/manus-storage/bocas-bynight-v2_ac8a1af2.mp4",
     verticalIsVideo: true,
     verticalRatio: "3/4",
-    horizontalSrc: "",
-    horizontalIsVideo: false,
+    horizontalSrc: "/manus-storage/bocas-bynight-v2_ac8a1af2.mp4",
+    horizontalIsVideo: true,
     horizontalRatio: "16/9",
-    hideH: true,
+    overlayOnVideo: true,
     bgColor: "#000000",
     nextBgColor: "#000000",
   },
@@ -434,12 +438,12 @@ function CascadeSection({
             <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
               <a
                 href={section.link}
-                className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.03] hover:shadow-lg w-fit"
                 style={{
                   fontFamily: "var(--font-body)",
                   fontWeight: 500,
                   fontSize: "11px",
-                  letterSpacing: "0.18em",
+                  letterSpacing: "0.15em",
                   textTransform: "uppercase" as const,
                   color: "#FFFFFF",
                   backgroundColor: PILL_BG,
@@ -489,7 +493,7 @@ function CascadeSection({
               <AnimateOnScroll variants={fadeUp} delay={0.3}>
                 <a
                   href={section.link}
-                  className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10"
+                  className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   {section.linkLabel || "Explore"}
@@ -567,13 +571,13 @@ function CascadeSection({
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
                 href={section.link}
-                className="inline-block mt-6 text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-                style={{ ...body, fontWeight: 500, color: accentColor }}
+                className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+                style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
               >
                 {section.linkLabel || "Explore More"}
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg> →
+                </svg>
               </a>
             </AnimateOnScroll>
           )}
@@ -583,7 +587,7 @@ function CascadeSection({
                 href={section.blogUrl}
                 target={section.blogUrl.startsWith("http") ? "_blank" : undefined}
                 rel={section.blogUrl.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center gap-2.5 mt-8 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
                 style={{
                   ...body,
                   fontWeight: 500,

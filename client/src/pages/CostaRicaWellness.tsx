@@ -90,7 +90,7 @@ function WellnessHero({ propertySlug }: { propertySlug: string }) {
   return (
     <section className="relative aspect-[16/9] w-full overflow-hidden">
       <NativeVideo
-        src="/manus-storage/AC144F9B-1C57-4187-8ABE-9F160B2F40AD_2b771883.mov"
+        src="/manus-storage/AC144F9B-1C57-4187-8ABE-9F160B2F40AD_2b771883_f3c4a5ea.mp4"
         className="w-full h-full"
       />
     </section>
@@ -178,7 +178,7 @@ function PrivateHotSprings({ palette }: { palette: PropertyPalette }) {
           <div className="mb-12">
             <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <NativeVideo
-                src="/manus-storage/NayaraResorts-HeroVideobyBriceFerreStudio_42eb4d15.mov"
+                src="/manus-storage/NayaraResorts-HeroVideobyBriceFerreStudio_42eb4d15_b9969174.mp4"
                 className="w-full h-full"
               />
             </div>
@@ -221,7 +221,7 @@ function LasTermas({ palette }: { palette: PropertyPalette }) {
             <div>
               <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
                 <NativeVideo
-                  src="/manus-storage/NayaraResorts-HeroVideobyBriceFerreStudio_42eb4d15.mov"
+                  src="/manus-storage/NayaraResorts-HeroVideobyBriceFerreStudio_42eb4d15_b9969174.mp4"
                   className="w-full h-full"
                 />
               </div>
@@ -230,7 +230,7 @@ function LasTermas({ palette }: { palette: PropertyPalette }) {
             <div>
               <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "9/16" }}>
                 <NativeVideo
-                  src="/manus-storage/537195DB-9898-40EA-9014-7AF3FFF321D7(2)_bd2835d1.mov"
+                  src="/manus-storage/537195DB-9898-40EA-9014-7AF3FFF321D7(2)_bd2835d1_eebdd27f.mp4"
                   className="w-full h-full"
                 />
               </div>

@@ -326,7 +326,7 @@ function NayaraByNightSection() {
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
               <video
-                src="/manus-storage/772E29FE-4AF3-446F-A8F1-D8BA15DACE44_f5a81bf8.mov"
+                src="/manus-storage/772E29FE-4AF3-446F-A8F1-D8BA15DACE44_f5a81bf8_0615fffd.mp4"
                 autoPlay
                 muted
                 loop

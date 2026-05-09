@@ -2,6 +2,10 @@
  * BY NIGHT CTA , Shared dark cascade section for all property pages
  * Links to the /by-night page. Designed to sit at the darkest end of each cascade.
  * Each property provides its own night-relevant imagery.
+ * 
+ * Supports two modes:
+ * - overlayOnVideo=true: Full-width horizontal video with text overlay (horizontal-only rule)
+ * - overlayOnVideo=false (default): Vertical media + text column side by side
  */
 import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
@@ -19,7 +23,7 @@ type ByNightCTAProps = {
   verticalSrc: string;
   verticalIsVideo?: boolean;
   verticalRatio?: string;
-  /** Horizontal media (full-width below) */
+  /** Horizontal media (full-width below or overlay source) */
   horizontalSrc?: string;
   horizontalIsVideo?: boolean;
   horizontalRatio?: string;
@@ -36,6 +40,8 @@ type ByNightCTAProps = {
   textLinkLabel?: string;
   /** Hide the "Nayara by Night" button */
   hideButton?: boolean;
+  /** When true, render as horizontal overlay (By Night = horizontal rule) */
+  overlayOnVideo?: boolean;
 };
 
 export default function ByNightCTA({
@@ -52,9 +58,76 @@ export default function ByNightCTA({
   textLink,
   textLinkLabel,
   hideButton = false,
+  overlayOnVideo = false,
 }: ByNightCTAProps) {
   const isTextLeft = textSide === "left";
 
+  /* ── Overlay mode: full-width horizontal video with text overlay ── */
+  if (overlayOnVideo) {
+    const overlaySrc = horizontalSrc || verticalSrc;
+    const overlayIsVideo = horizontalSrc ? horizontalIsVideo : verticalIsVideo;
+    return (
+      <section id="by-night-cta">
+        <div className="relative w-full">
+          <div style={{ aspectRatio: horizontalRatio || "16/9" }}>
+            {overlayIsVideo ? (
+              <NativeVideo src={overlaySrc} className="w-full h-full object-cover" loop />
+            ) : (
+              <img src={overlaySrc} alt="Nayara by Night" className="w-full h-full object-cover" loading="lazy" />
+            )}
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
+            <AnimateOnScroll variants={fadeUp}>
+              <span
+                className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70"
+                style={{ ...body, fontWeight: 500 }}
+              >
+                Nayara by Night
+              </span>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.1}>
+              <h2 className="mb-4 md:mb-6">
+                {headline.split("\n").map((line, i) => (
+                  <span
+                    key={i}
+                    className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white"
+                    style={heading}
+                  >
+                    {line}
+                  </span>
+                ))}
+              </h2>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.2}>
+              <p
+                className="text-[15px] leading-[1.85] max-w-[480px] text-white/85"
+                style={body}
+              >
+                {bodyText.split("\n\n")[0]}
+              </p>
+            </AnimateOnScroll>
+            {!hideButton && (
+              <AnimateOnScroll variants={fadeUp} delay={0.3}>
+                <a
+                  href="/by-night"
+                  className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Nayara by Night
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
+              </AnimateOnScroll>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  /* ── Standard mode: vertical media + text column ── */
   return (
     <section id="by-night-cta">
       {/* Row: Vertical media + Text column */}
@@ -127,16 +200,12 @@ export default function ByNightCTA({
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
                 href="/by-night"
-                className="group mt-8 md:mt-10 inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-[#C4A265] text-[#C4A265] hover:bg-[#C4A265] hover:text-black transition-all duration-300"
+                className="group mt-8 md:mt-10 inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
+                style={{ fontFamily: "var(--font-body)" }}
               >
-                <span
-                  className="text-[11px] tracking-[0.2em] uppercase"
-                  style={{ ...body, fontWeight: 500 }}
-                >
-                  Nayara by Night
-                </span>
+                Nayara by Night
                 <svg
-                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
