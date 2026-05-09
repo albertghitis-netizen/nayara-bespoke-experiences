@@ -140,7 +140,7 @@ function ExperiencesHero({ propertySlug }: { propertySlug: string }) {
 
   if (heroVideo) {
     return (
-      <section className="relative w-full overflow-hidden bg-[#1a0a00] -mt-1" style={{ paddingTop: '56.25%' }}>
+      <section className="relative w-full overflow-hidden bg-[#1a0a00] -mt-1" style={{ aspectRatio: '16/9', maxHeight: '100vh' }}>
         <video
           ref={videoRef}
           src={heroVideo}
