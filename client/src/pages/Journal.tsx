@@ -54,45 +54,44 @@ const JOURNAL_CDN = {
  * Row 9: Read · Read         · Read
  */
 const CURATED_IDS: string[] = [
-  // Row 1 — New 2026 blogs
-  "experiential-travel-2026",
-  "family-bucket-list",
-  "three-kitchens-one-rainforest",
-  // Row 2
-  "conde-nast-bocas",
+  // Row 1: Watch · Read · Watch
   "hitorangi-rapanui",
-  // Row 3
-  "7-michelin-keys",
-  "arenal-timeless-wonder",
+  "experiential-travel-2026",
+  "leo-luxury-travel-innovators",
+  // Row 2: Read · Watch · Read
+  "family-bucket-list",
   "archaeologist-rapanui",
-  // Row 3
+  "conde-nast-bocas",
+  // Row 3: Watch · Read · Watch
+  "atacama-sustainability",
+  "three-kitchens-one-rainforest",
+  "hangaroa-sustainability",
+  // Row 4: Read · Watch · Read
+  "7-michelin-keys",
+  "leo-suite-success",
+  "arenal-timeless-wonder",
+  // Row 5
+  "leo-costa-rica-entrepreneurship",
   "stargazing-atacama",
   "treehouse-dreams",
-  // Row 4
+  // Row 6
   "nature-based-wellness-colors",
   "floating-paradise",
-  // Row 5
   "mars-atacama",
-  "toucans-arenal",
-  "leo-luxury-travel-innovators",
-  // Row 6
-  "pura-vida",
-  "atacama-sustainability",
-  "bocas-facts",
   // Row 7
-  "seven-elements",
-  "leo-suite-success",
-  "wildlife-arenal-bocas",
+  "toucans-arenal",
+  "pura-vida",
+  "bocas-facts",
   // Row 8
+  "seven-elements",
+  "wildlife-arenal-bocas",
   "sunlit-sustainability",
-  "solo-travel-female",
-  "hangaroa-sustainability",
   // Row 9
+  "solo-travel-female",
   "holistic-wellness",
   "nayara-by-night",
+  // Row 10
   "green-globe",
-  // Last
-  "leo-costa-rica-entrepreneurship",
 ];
 
 function buildGallery(): JournalEntry[] {
