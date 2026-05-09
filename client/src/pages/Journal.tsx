@@ -37,7 +37,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideoDesktop: "/manus-storage/58128D23-96B9-4F10-AC0C-CAD0BB257E79_a0d45ef5.mov",
+  heroVideoDesktop: "/manus-storage/journal-hero-16x9_19d99e5e.mp4",
   heroVideoMobile: "/manus-storage/journal-mobile-hero-v2-hq_3c7654fa.mp4",
 };
 
@@ -124,7 +124,7 @@ export default function Journal() {
       <BrandNavigation pageType="brand" hideCenterLabel />
 
       {/* ── Hero ── */}
-      <section className="relative w-full overflow-hidden bg-[#3a2a1a] -mt-1" style={{ aspectRatio: '16/9' }}>
+      <section className="relative w-full h-screen md:h-[75vh] overflow-hidden bg-[#3a2a1a] -mt-1">
         <div className="absolute inset-0">
           {JOURNAL_CDN.heroVideoDesktop && (
             <>

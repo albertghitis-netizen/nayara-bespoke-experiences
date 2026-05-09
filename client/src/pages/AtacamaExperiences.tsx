@@ -37,6 +37,7 @@ const PALETTE = {
 
 const CDN = {
   desertExploration: "/manus-storage/atacama-exp-stargazing_c8a71e15.jpg",
+  heroVideo: "/manus-storage/58128D23-96B9-4F10-AC0C-CAD0BB257E79_a0d45ef5.mov",
 };
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
@@ -55,31 +56,39 @@ export default function AtacamaExperiences() {
 
 function ExperiencesHero() {
   return (
-    <Parallax offset={60} className="w-full" style={{ aspectRatio: "2/1" }}>
-      <div className="relative w-full aspect-[2/1]">
-        <img src={CDN.desertExploration} alt="Stargazing in the Atacama Desert" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
-        <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-          <TextReveal as="h1" delay={0.2}>
-            <span
-              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-            >
-              Desert Explorations
-            </span>
-          </TextReveal>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-white/50 text-[11px] tracking-[0.2em] mt-3"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
-          >
-            Nayara Alto Atacama
-          </motion.p>
-        </div>
+    <section className="relative w-full overflow-hidden bg-[#1a0a00] -mt-1" style={{ aspectRatio: '16/9' }}>
+      <div className="absolute inset-0">
+        <video
+          src={CDN.heroVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
       </div>
-    </Parallax>
+      <div className="relative z-10 h-full flex flex-col justify-end items-start pb-10 md:pb-14 px-8 md:px-14">
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Mars on Earth
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-white/50 text-[11px] tracking-[0.25em] uppercase mt-3"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Nayara Alto Atacama
+        </motion.p>
+      </div>
+    </section>
   );
 }
 
