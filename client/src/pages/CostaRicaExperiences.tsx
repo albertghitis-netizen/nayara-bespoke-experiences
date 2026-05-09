@@ -40,7 +40,7 @@ const HERO_VIDEOS: Record<string, string> = {
   "tented-camp": `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
   gardens: `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
   springs: `${CDN_BASE}/experiences-hero-audio_8cbbcad0.mp4`,
-  "alto-atacama": "/manus-storage/510CD524-263F-4647-BD14-0E6EFF6676D1(1)_8c9838dc.mov",
+  "alto-atacama": "/manus-storage/510CD524_experiences_hero_daf43141.mp4",
   "bocas-del-toro": `${CDN_BASE}/bocas-gallery-video1_d18b5ced.mp4`,
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
 };
@@ -63,7 +63,7 @@ const HEADLINES: Record<string, string> = {
   "tented-camp": "Rainforest Adventures",
   gardens: "Rainforest Adventures",
   springs: "Rainforest Adventures",
-  "alto-atacama": "Desert Explorations",
+  "alto-atacama": "Stand on Another Planet",
   "bocas-del-toro": "Caribbean Adventures",
   hangaroa: "Rapa Nui Explorations",
 };
@@ -107,7 +107,7 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
       ) : (
         <ExperiencesContent property={property} palette={palette} />
       )}
-      <Footer pageType="property" bgColor={palette.footerBg} textColor="#FFFFFF" propertyName={propertySlug === "gardens" ? "Gardens" : propertySlug === "tented-camp" ? "Tented Camp" : propertySlug === "springs" ? "Springs" : propertySlug === "bocas-del-toro" ? "Bocas del Toro" : undefined} />
+      <Footer pageType="property" bgColor={propertySlug === "alto-atacama" ? "#B85C3C" : palette.footerBg} textColor="#FFFFFF" propertyName={propertySlug === "gardens" ? "Gardens" : propertySlug === "tented-camp" ? "Tented Camp" : propertySlug === "springs" ? "Springs" : propertySlug === "bocas-del-toro" ? "Bocas del Toro" : propertySlug === "alto-atacama" ? "Alto Atacama" : undefined} />
     </div>
   );
 }
