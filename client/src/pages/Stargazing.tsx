@@ -218,7 +218,7 @@ function StargazingCascadeSection({ section, index }: { section: StargazingSecti
 export default function Stargazing() {
   return (
     <div className="min-h-screen bg-black">
-      <BrandNavigation pageType="brand" navPalette={{ dark: "#ffffff", pillBg: "#000000", pillHover: "#1a1a1a" }} />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Alto Atacama", href: "/alto-atacama" }} navPalette={{ dark: "#ffffff", pillBg: "#000000", pillHover: "#1a1a1a" }} />
       <HeroSection />
       <StorySection />
 

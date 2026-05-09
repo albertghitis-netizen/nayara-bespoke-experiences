@@ -194,7 +194,7 @@ const PROGRAMS: Program[] = [
 export default function AtacamaRooms() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: P.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Alto Atacama", href: "/alto-atacama" }} />
       <HeroSection />
 
       {/* Room Type Cards */}

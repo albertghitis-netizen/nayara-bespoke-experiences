@@ -79,7 +79,7 @@ const STEPS = [
 export default function BocasSustainability() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.sand }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Bocas del Toro", href: "/bocas-del-toro" }} />
 
       <Hero />
       <StatsBar />

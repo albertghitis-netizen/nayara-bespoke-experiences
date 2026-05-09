@@ -42,7 +42,7 @@ const maxW = "max-w-[1200px] mx-auto";
 export default function AtacamaGastronomy() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Alto Atacama", href: "/alto-atacama" }} />
       <GastronomyHero />
       <GastronomyContent />
       <Footer pageType="property" bgColor="#B85C3C" textColor="#FFFFFF" propertyName="Alto Atacama" />

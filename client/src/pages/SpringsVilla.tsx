@@ -83,7 +83,7 @@ const GALLERY = [
 export default function SpringsVilla() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: P.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Springs", href: "/springs" }} />
       <HeroSection />
       <IntroSection />
       <FullBleedBreak />

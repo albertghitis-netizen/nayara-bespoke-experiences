@@ -25,7 +25,7 @@ export default function AylaRestaurant() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: BRAND.pageBackground }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Tented Camp", href: "/tented-camp" }} />
       <HeroSection restaurant={restaurant} />
       <IntroSection restaurant={restaurant} />
       <GallerySection restaurant={restaurant} />

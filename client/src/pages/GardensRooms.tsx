@@ -60,7 +60,7 @@ const roomTypes = [
 export default function GardensRooms() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Gardens", href: "/gardens" }} />
       <RoomsHero />
       <RoomsContent />
       <Footer pageType="property" bgColor="#525642" textColor="#FFFFFF" propertyName="Gardens" />

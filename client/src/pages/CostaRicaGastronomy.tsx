@@ -15,6 +15,7 @@ import { Link, useLocation } from "wouter";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import PillarCrossLink from "@/components/PillarCrossLink";
+import { PROPERTIES } from "@/data/navigation";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
@@ -239,9 +240,10 @@ interface Props {
 }
 
 export default function CostaRicaGastronomy({ propertySlug }: Props) {
+  const propertyName = PROPERTIES.find(p => p.id === propertySlug)?.name || "Nayara";
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${propertySlug}` }} />
       <HeroSection />
       <ByTheNumbers />
       <PhilosophySection />

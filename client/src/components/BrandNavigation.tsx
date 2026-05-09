@@ -53,6 +53,8 @@ interface BrandNavigationProps {
   navPalette?: NavPalette;
   /** Property-level section navigation items */
   sectionNav?: SectionNavItem[];
+  /** Show a centered back-arrow pill linking to the parent property page */
+  backLink?: { label: string; href: string };
 }
 
 export default function BrandNavigation({
@@ -61,6 +63,7 @@ export default function BrandNavigation({
   hideCenterLabel = false,
   navPalette,
   sectionNav,
+  backLink,
 }: BrandNavigationProps) {
   /* Resolve palette , auto-detect from URL or use brand brown */
   const [location] = useLocation();
@@ -311,8 +314,28 @@ export default function BrandNavigation({
            </div>
 
 
-          {/* Center: Property Section Nav or Brand Name */}
-          {sectionNav && sectionNav.length > 0 ? (
+          {/* Center: Back Link, Property Section Nav, or Brand Name */}
+          {backLink ? (
+            <a
+              href={backLink.href}
+              className="absolute left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontWeight: 500,
+                fontSize: '11px',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase' as const,
+                color: dk,
+                backgroundColor: finalPillBg,
+                border: 'none',
+              }}
+            >
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+              </svg>
+              {backLink.label}
+            </a>
+          ) : sectionNav && sectionNav.length > 0 ? (
             <div ref={sectionNavRef} className="absolute left-1/2 -translate-x-1/2">
               <button
                 onClick={() => { closeAll(); setSectionNavOpen(!sectionNavOpen); }}
@@ -444,8 +467,28 @@ export default function BrandNavigation({
               )}
             </AnimatePresence>
           </div>
-          {/* Center: Property Section Nav (mobile) */}
-          {sectionNav && sectionNav.length > 0 && (
+          {/* Center: Back Link or Property Section Nav (mobile) */}
+          {backLink ? (
+            <a
+              href={backLink.href}
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full backdrop-blur-sm transition-all duration-300"
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontWeight: 500,
+                fontSize: '10px',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase' as const,
+                color: dk,
+                backgroundColor: finalPillBg,
+                border: 'none',
+              }}
+            >
+              <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+              </svg>
+              {backLink.label}
+            </a>
+          ) : sectionNav && sectionNav.length > 0 ? (
             <div className="relative">
               <button
                 onClick={() => { closeAll(); setSectionNavOpen(!sectionNavOpen); }}
@@ -487,7 +530,7 @@ export default function BrandNavigation({
                 )}
               </AnimatePresence>
             </div>
-          )}
+          ) : null}
 
           {/* Right: Reserve */}
           <div ref={reserveRef} className="relative">

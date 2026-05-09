@@ -3493,3 +3493,8 @@
 - [x] Remove Desert Renewal vertical video, put headline + text overlaid on horizontal (Option B style)
 - [x] Fix: Restore vertical image on "A Taste of the Desert" (Gastronomy) — new green tarts photo
 - [x] Fix: "The Clearest Skies on Earth" (Stargazing) — text overlay on horizontal video
+- [ ] Move Gastronomy horizontal (restaurant interior) to be the hero of /alto-atacama/gastronomy subpage
+- [ ] Gastronomy subpage: feature all 3 restaurants (Puri, Quincho, Ckelar) — no individual pages
+- [ ] Remove horizontal from Gastronomy section on Atacama homepage (keep vertical + text + Explore link)
+- [ ] Fix horizontal scroll issue on Atacama page
+- [ ] UNIVERSAL RULE: Add property dropdown nav bar to ALL subpages for ALL properties (Atacama, Tented Camp, Gardens, Springs, Bocas, Hangaroa)

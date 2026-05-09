@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function TentedExperiences() {
   return (
     <>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Tented Camp", href: "/tented-camp" }} />
       <ExperiencesSection />
       <Footer pageType="property" bgColor="#868B75" textColor="#FFFFFF" propertyName="Tented Camp" />
     </>

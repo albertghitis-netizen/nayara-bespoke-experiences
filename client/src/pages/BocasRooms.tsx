@@ -60,7 +60,7 @@ const roomTypes = [
 export default function BocasRooms() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Bocas del Toro", href: "/bocas-del-toro" }} />
       <RoomsHero />
       <RoomsContent />
       <Footer pageType="property" bgColor="#008E97" textColor="#FFFFFF" propertyName="Bocas del Toro" />

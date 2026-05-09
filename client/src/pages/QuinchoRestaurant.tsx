@@ -31,7 +31,7 @@ const PILL_BORDER = "rgba(255, 255, 255, 0.25)";
 export default function QuinchoRestaurant() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: P.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Alto Atacama", href: "/alto-atacama" }} />
       <HeroSection />
       <IntroSection />
       <OfferingsSection />

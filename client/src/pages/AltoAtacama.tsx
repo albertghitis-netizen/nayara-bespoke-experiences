@@ -326,6 +326,26 @@ function CascadeTextBlock({
           )
         )}
       </AnimateOnScroll>
+      {link && (
+        <a
+          href={link}
+          className="inline-flex items-center gap-2.5 mt-6 px-5 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontWeight: 500,
+            fontSize: "11px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase" as const,
+            color: BONE,
+            backgroundColor: PALETTE.accent,
+          }}
+        >
+          {linkLabel}
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      )}
       {badgeImage && (
         <div className="mt-8 hidden md:block">
           <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
@@ -461,10 +481,13 @@ function CascadeSection({
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <a
             href={link}
-            className="inline-block text-[11px] tracking-[0.15em] transition-colors hover:opacity-70"
-            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: PALETTE.text, backgroundColor: "rgba(58,42,26,0.08)", borderColor: "rgba(58,42,26,0.25)" }}
           >
-            {linkLabel} →
+            {linkLabel || "Explore"}
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
           </a>
         </AnimateOnScroll>
       )}
@@ -579,7 +602,7 @@ const CASCADE_SECTIONS = [
     headline: "Desert Suites",
     description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
     vSrc: ASSETS.clip4V,
-    hSrc: ASSETS.clip5H,
+    hSrc: "/manus-storage/atacama-s2-drone_e8c16bf7.mp4",
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
@@ -651,10 +674,11 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "3/2",
     textSide: "left" as const,
     link: "/alto-atacama/gastronomy",
-    linkLabel: "Explore Gastronomy",
+    linkLabel: "Explore Desert to Table",
     badges: false,
     hFirst: false,
     hideMobileV: true,
+    hideH: true,
   },
   {
     label: "By Night",
@@ -665,11 +689,11 @@ const CASCADE_SECTIONS = [
     vVideo: false, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
+    link: "/alto-atacama/stargazing",
+    linkLabel: "Explore On-Site Stargazing",
     badges: false,
     isDarkSection: true,
     bgOverride: "#000000",
-    blogLink: "/alto-atacama/stargazing",
-    blogLinkLabel: "Explore the Stargazing Page",
     blogLinkInternal: true,
     overlayOnVideo: true,
   },
@@ -902,8 +926,8 @@ export default function AltoAtacama() {
                       {section.link && (
                         <a
                           href={section.link}
-                          className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
-                          style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", color: BONE, backgroundColor: MIDDLE, textTransform: "uppercase" }}
+                          className="pointer-events-auto inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+                          style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: BONE, backgroundColor: "rgba(255,255,255,0.08)", borderColor: "rgba(255,255,255,0.35)" }}
                         >
                           {section.linkLabel || "Explore More"}
                           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -945,8 +969,8 @@ export default function AltoAtacama() {
                     {section.link && (
                       <a
                         href={section.link}
-                        className="pointer-events-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full"
-                        style={{ ...body, fontWeight: 500, fontSize: "10px", letterSpacing: "0.15em", color: BONE, backgroundColor: MIDDLE, textTransform: "uppercase" }}
+                        className="pointer-events-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full border backdrop-blur-sm"
+                        style={{ ...body, fontWeight: 500, fontSize: "10px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: BONE, backgroundColor: "rgba(255,255,255,0.08)", borderColor: "rgba(255,255,255,0.35)" }}
                       >
                         {section.linkLabel || "Explore More"}
                       </a>

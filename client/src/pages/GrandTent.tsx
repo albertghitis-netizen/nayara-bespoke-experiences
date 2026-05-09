@@ -70,7 +70,7 @@ const AMENITIES = [
 export default function GrandTent() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: P.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Tented Camp", href: "/tented-camp" }} />
       <HeroSection />
       <IntroSection />
       <FullBleedBreak />

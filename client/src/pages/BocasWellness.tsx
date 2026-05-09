@@ -45,7 +45,7 @@ const maxW = "max-w-[1200px] mx-auto";
 export default function BocasWellness() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Bocas del Toro", href: "/bocas-del-toro" }} />
       <WellnessHero />
       <WellnessContent />
       <Footer pageType="property" bgColor="#008E97"  textColor="#FFFFFF" />

@@ -128,7 +128,7 @@ export default function BrandWellness() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#F7F5F0" }}>
-      <BrandNavigation pageType="brand" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Tented Camp", href: "/tented-camp" }} />
       <HeroSection />
       <IntroSection palette={palette} />
       <EcosystemsSection palette={palette} />

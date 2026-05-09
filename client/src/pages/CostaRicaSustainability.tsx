@@ -93,7 +93,7 @@ export default function CostaRicaSustainability({ propertySlug }: Props) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${propertySlug}` }} />
       <SustainabilityHero propertySlug={propertySlug} />
 
 

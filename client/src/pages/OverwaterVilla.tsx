@@ -22,7 +22,7 @@ const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 export default function OverwaterVilla() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: P.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Bocas del Toro", href: "/bocas-del-toro" }} />
 
       {/* Hero placeholder */}
       <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden" style={{ backgroundColor: "#005F66" }}>

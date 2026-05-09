@@ -202,9 +202,7 @@ function Router() {
           <Route path="/alto-atacama/rooms/catarpe" component={Catarpe} />
           <Route path="/alto-atacama/rooms/quitor" component={Quitor} />
           <Route path="/alto-atacama/rooms/suite-tilo" component={SuiteTilo} />
-          <Route path="/alto-atacama/gastronomy/ckelar" component={CkelarRestaurant} />
-          <Route path="/alto-atacama/gastronomy/quincho" component={QuinchoRestaurant} />
-          <Route path="/alto-atacama/gastronomy/bar-puri" component={BarPuriRestaurant} />
+          {/* Individual restaurant pages removed — all on /alto-atacama/gastronomy */}
           <Route path="/alto-atacama/experiences">{() => <CostaRicaExperiences propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/wellness">{() => <CostaRicaWellness propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>

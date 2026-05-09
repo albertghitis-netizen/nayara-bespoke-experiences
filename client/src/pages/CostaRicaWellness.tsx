@@ -73,7 +73,7 @@ export default function CostaRicaWellness({ propertySlug }: Props) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${propertySlug}` }} />
       <WellnessHero propertySlug={propertySlug} />
       <WellnessIntro palette={palette} spaSubheadline={property.theme.spaSubheadline} />
       {CR_SLUGS.has(propertySlug) && <PrivateHotSprings palette={palette} />}

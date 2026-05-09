@@ -25,7 +25,7 @@ export default function LaylasRestaurant() {
 
   return (
     <div className="min-h-screen" style={ { backgroundColor: BRAND.pageBackground }}>
-      <BrandNavigation pageType="property" hideCenterLabel navPalette={{ dark: "#3a2a1a", pillBg: "#F5E4EDB3", pillHover: "#F5E4EDE6" }} />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Gardens", href: "/gardens" }} navPalette={{ dark: "#3a2a1a", pillBg: "#F5E4EDB3", pillHover: "#F5E4EDE6" }} />
       <HeroSection restaurant={restaurant} />
       <IntroSection restaurant={restaurant} />
       <GallerySection restaurant={restaurant} />

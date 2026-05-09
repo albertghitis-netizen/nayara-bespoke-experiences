@@ -100,7 +100,7 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${propertySlug}` }} />
       <ExperiencesHero propertySlug={propertySlug} />
       {isCR ? (
         <CRExperiencesDeep property={property} palette={palette} />

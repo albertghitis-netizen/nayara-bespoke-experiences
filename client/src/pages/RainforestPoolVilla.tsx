@@ -71,7 +71,7 @@ const FEATURES = [
 export default function RainforestPoolVilla() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: P.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Gardens", href: "/gardens" }} />
       <HeroSection />
       <IntroStrip />
       <StorySection />

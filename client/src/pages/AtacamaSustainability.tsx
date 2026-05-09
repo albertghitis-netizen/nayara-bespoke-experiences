@@ -68,7 +68,7 @@ const maxW = "max-w-[1200px] mx-auto";
 export default function AtacamaSustainability() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Alto Atacama", href: "/alto-atacama" }} />
       <SustainabilityHero />
       <SCertificationSection />
       <ByTheNumbersSection />

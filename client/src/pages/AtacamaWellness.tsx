@@ -44,7 +44,7 @@ const maxW = "max-w-[1200px] mx-auto";
 export default function AtacamaWellness() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.gradientStart }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Alto Atacama", href: "/alto-atacama" }} />
       <WellnessHero />
       <WellnessContent />
       <Footer pageType="property" bgColor="#B85C3C" textColor="#FFFFFF" propertyName="Alto Atacama" />

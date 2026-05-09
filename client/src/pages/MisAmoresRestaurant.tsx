@@ -25,7 +25,7 @@ export default function MisAmoresRestaurant() {
 
   return (
     <div className="min-h-screen" style={ { backgroundColor: BRAND.pageBackground }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Springs", href: "/springs" }} />
       <HeroSection restaurant={restaurant} />
       <IntroSection restaurant={restaurant} />
       <GallerySection restaurant={restaurant} />

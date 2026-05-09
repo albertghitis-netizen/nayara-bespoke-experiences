@@ -96,7 +96,7 @@ const ROOM_TYPES: RoomType[] = [
 export default function TentedRooms() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
-      <BrandNavigation pageType="property" hideCenterLabel />
+      <BrandNavigation pageType="property" backLink={{ label: "Nayara Tented Camp", href: "/tented-camp" }} />
 
       {/* Hero */}
       <section className="relative aspect-[2/1] w-full overflow-hidden">
