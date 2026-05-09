@@ -531,7 +531,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/experiential-travel-nayara-2026",
     property: "brand",
     type: "article",
-    image: "/manus-storage/journal-experiential-travel_b0f82291.jpg",
+    image: "/manus-storage/3E487026-8F2B-41DB-A34D-0A5F0265A62D(1)_f2a614f0.jpg",
     excerpt: "From volcano hikes to jungle immersion, discover why Nayara defines experiential luxury in 2026.",
   },
   {
