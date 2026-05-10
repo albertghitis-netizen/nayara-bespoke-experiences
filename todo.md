@@ -3525,3 +3525,7 @@
 
 ## Tented Camp Sustainability Horizontal Fix
 - [x] Remove "Beyond Sustainability" horizontal from Tented Camp homepage (fix hideH not being respected in renderer)
+
+## Tented Camp Wellness Video Replacement
+- [x] Replace wellness horizontal video on Tented Camp homepage with new 16:9 video (tented-wellness-16x9_d70aeb22.mp4)
+- [x] Update aspect ratio from 13/5 (ultra-wide) to 16/9
