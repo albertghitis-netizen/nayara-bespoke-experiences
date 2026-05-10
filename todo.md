@@ -3522,3 +3522,6 @@
 - [x] Vertical sections: text block beside vertical + solid pill button in property brand color
 - [x] Fix Atacama pills that are too long — pills should only be as wide as the text within them (no extra width)
 - [x] Apply consistent pill sizing across all properties (width = auto/fit-content)
+
+## Tented Camp Sustainability Horizontal Fix
+- [x] Remove "Beyond Sustainability" horizontal from Tented Camp homepage (fix hideH not being respected in renderer)

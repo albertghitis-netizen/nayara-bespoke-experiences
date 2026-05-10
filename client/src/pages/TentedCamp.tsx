@@ -404,7 +404,7 @@ function CascadeSection({
   return (
     <section id={section.id}>
       {/* ── Horizontal FIRST if flagged ── */}
-      {section.horizontalFirst && horizontalBlock}
+      {section.horizontalFirst && !section.hideH && horizontalBlock}
 
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
@@ -675,7 +675,7 @@ function CascadeSection({
       </div>
 
       {/* ── Full-width horizontal media AFTER (default) , hidden on mobile ── */}
-      {!section.horizontalFirst && horizontalBlock}
+      {!section.horizontalFirst && !section.hideH && horizontalBlock}
     </section>
   );
 }
