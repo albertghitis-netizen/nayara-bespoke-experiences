@@ -207,12 +207,12 @@ export default function Springs() {
         verticalSrc="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio(1)_9a4dccd8.jpeg"
         verticalIsVideo={false}
         verticalRatio="3/4"
-        horizontalSrc="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio_637be646.jpg"
-        horizontalIsVideo={false}
+        horizontalSrc="/manus-storage/springs-by-night-horizontal_2c67894f.mp4"
+        horizontalIsVideo={true}
         horizontalRatio="16/9"
         bgColor="#0D0704"
-        headline={"Dine at\nAmor Loco"}
-        bodyText="Our fine dining restaurant Amor Loco offers a Michelin-caliber tasting menu that transforms Costa Rica's finest ingredients into an unforgettable culinary journey. Each evening, our chefs craft a multi-course experience that celebrates volcanic terroir and tropical abundance , an intimate, candlelit affair where every plate tells a story of the land beneath your feet."
+        headline={"Night Frog\nTour"}
+        bodyText="As darkness descends on the rainforest, a hidden world reveals itself. Join our naturalist guides on an intimate nocturnal expedition through the volcanic trails, where dozens of rare frog species emerge under the canopy , their calls creating a symphony that can only be heard after nightfall."
         textSide="left"
         overlayOnVideo={true}
       />
@@ -673,13 +673,21 @@ function GastronomySection() {
               As a proud Relais & Châteaux property, Nayara Springs upholds the highest standards of culinary excellence. From the volcanic terroir of Arenal to your table, our culinary team transforms locally sourced ingredients into extraordinary dining experiences , each plate a celebration of Costa Rica's biodiversity, crafted with the artistry and precision that define the Relais & Châteaux tradition.
             </p>
           </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.35}>
+            <p
+              className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Our fine dining restaurant Amor Loco offers a Michelin-caliber tasting menu that transforms Costa Rica's finest ingredients into an unforgettable culinary journey. Each evening, our chefs craft a multi-course experience that celebrates volcanic terroir and tropical abundance , an intimate, candlelit affair where every plate tells a story of the land beneath your feet.
+            </p>
+          </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/tented-camp/gastronomy"
+              href="/springs/gastronomy"
               className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
-              Explore Gastronomy
+              Explore Amor Loco
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
