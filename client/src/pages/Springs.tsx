@@ -636,23 +636,16 @@ function GastronomySection() {
   return (
     <section id="gastronomy">
       {/* ── Row: Vertical image (bar) left + Text right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
+      <div className="flex flex-col md:flex-row" style={{ backgroundColor: "#FFFFFF" }}>
         {/* Vertical image left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
-            <div className="relative overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img
-                src="/manus-storage/NayaraAltoAtacama_1_423cd21e.jpg"
+                src="/manus-storage/NayaraAltoAtacama_1_v2_7318cfbb.jpg"
                 alt="Relais & Châteaux fine dining dish"
                 className="w-full h-full object-cover"
                 loading="lazy"
-              />
-              {/* Fade gradient + Relais & Châteaux logo at bottom center */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
-              <img
-                src="/manus-storage/relais-chateaux-logo_9ec16a14.svg"
-                alt="Relais & Châteaux"
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 w-32 md:w-40 opacity-70 pointer-events-none"
               />
             </div>
           </MediaReveal>
@@ -661,7 +654,7 @@ function GastronomySection() {
         {/* Text column right */}
         <div
           className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
-          style={{ backgroundColor: PALETTE.gradientEnd }}
+          style={{ backgroundColor: "#FFFFFF" }}
         >
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>The Table</SectionLabel>
@@ -1098,7 +1091,7 @@ function OneRainforestCompactSprings() {
   }, []);
 
   return (
-    <div ref={sectionRef} style={{ backgroundColor: "#EDEEE2" }}>
+    <div ref={sectionRef} style={{ backgroundColor: PALETTE.gradientEnd }}>
       <div
         className="px-6 md:px-10 pt-16 md:pt-20 pb-10 md:pb-12 text-center"
         style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(20px)", transition: "opacity 0.9s ease, transform 0.9s ease" }}
@@ -1150,7 +1143,6 @@ function OneRainforestCompactSprings() {
           );
         })}
       </div>
-      <div className="h-12 md:h-16" />
     </div>
   );
 }

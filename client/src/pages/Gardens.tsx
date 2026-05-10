@@ -606,7 +606,7 @@ function OneRainforestCompact() {
   }, []);
 
   return (
-    <div ref={sectionRef} style={{ backgroundColor: "#EDEEE2" }}>
+    <div ref={sectionRef} style={{ backgroundColor: PALETTE.gradientStart }}>
       <div
         className="px-6 md:px-10 pt-16 md:pt-20 pb-10 md:pb-12 text-center"
         style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(20px)", transition: "opacity 0.9s ease, transform 0.9s ease" }}
@@ -658,7 +658,6 @@ function OneRainforestCompact() {
           );
         })}
       </div>
-      <div className="h-12 md:h-16" />
     </div>
   );
 }

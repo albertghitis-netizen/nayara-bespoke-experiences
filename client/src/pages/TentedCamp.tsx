@@ -1941,8 +1941,6 @@ function OneRainforestCompactTC() {
         })}
       </div>
 
-      {/* Bottom padding (half height strip) */}
-      <div className="h-6 md:h-8" />
     </div>
   );
 }
