@@ -207,8 +207,8 @@ export default function Springs() {
         verticalSrc="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio(1)_9a4dccd8.jpeg"
         verticalIsVideo={false}
         verticalRatio="3/4"
-        horizontalSrc="/manus-storage/by-night-horizontal_1b49ceb7.mp4"
-        horizontalIsVideo={true}
+        horizontalSrc="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio_637be646.jpg"
+        horizontalIsVideo={false}
         horizontalRatio="16/9"
         bgColor="#0D0704"
         headline={"Dine at\nAmor Loco"}
