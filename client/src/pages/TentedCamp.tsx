@@ -1553,19 +1553,14 @@ export default function TentedCamp() {
         }}
       />
 
-      {/* Divider strip between Accommodations and Experiences */}
-      <div className="h-6 md:h-8" style={{ backgroundColor: COLOR_B }} />
-
       {/* Remaining cascade sections: Experiences → Sustainability → Wellness (skip rooms at index 1) */}
       {SECTIONS_BEFORE_REVIEW.slice(2).map((section, i) => (
         <React.Fragment key={section.id}>
-          {i > 0 && <div className="h-6 md:h-8" style={{ backgroundColor: section.bgColor }} />}
           <CascadeSection section={section} index={i + 2} />
         </React.Fragment>
       ))}
       {SECTIONS_AFTER_REVIEW.map((section, i) => (
         <React.Fragment key={section.id}>
-          {i > 0 && <div className="h-6 md:h-8" style={{ backgroundColor: section.bgColor }} />}
           <CascadeSection
             section={section}
             index={i + SECTIONS_BEFORE_REVIEW.length}
