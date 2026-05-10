@@ -652,7 +652,7 @@ function GastronomySection() {
               <img
                 src="/manus-storage/relais-chateaux-logo_9ec16a14.svg"
                 alt="Relais & Châteaux"
-                className="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 md:w-20 opacity-70 pointer-events-none"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 w-32 md:w-40 opacity-70 pointer-events-none"
               />
             </div>
           </MediaReveal>
