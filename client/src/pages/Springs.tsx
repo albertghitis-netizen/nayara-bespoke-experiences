@@ -637,15 +637,13 @@ function GastronomySection() {
     <section id="gastronomy">
       {/* ── Row: Vertical image (bar) left + Text right ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: "#FFFFFF" }}>
-        {/* Vertical image left */}
+        {/* Vertical video left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img
-                src="/manus-storage/NayaraAltoAtacama_1_v2_7318cfbb.jpg"
-                alt="Relais & Châteaux fine dining dish"
+              <NativeVideo
+                src="/manus-storage/springs-gastronomy-vertical_3f6a9106.mp4"
                 className="w-full h-full object-cover"
-                loading="lazy"
               />
             </div>
           </MediaReveal>
