@@ -640,12 +640,19 @@ function GastronomySection() {
         {/* Vertical image left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
-            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+            <div className="relative overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img
                 src="/manus-storage/NayaraAltoAtacama_1_423cd21e.jpg"
                 alt="Relais & Châteaux fine dining dish"
                 className="w-full h-full object-cover"
                 loading="lazy"
+              />
+              {/* Fade gradient + Relais & Châteaux logo at bottom center */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+              <img
+                src="/manus-storage/relais-chateaux-logo_9ec16a14.svg"
+                alt="Relais & Châteaux"
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 w-16 md:w-20 opacity-70 pointer-events-none"
               />
             </div>
           </MediaReveal>
