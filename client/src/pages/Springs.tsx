@@ -642,8 +642,8 @@ function GastronomySection() {
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img
-                src="/manus-storage/IMG_8080(1)_bb3bc942.jpg"
-                alt="Relais & Châteaux embroidered logo on chef jacket"
+                src="/manus-storage/NayaraAltoAtacama_1_423cd21e.jpg"
+                alt="Relais & Châteaux fine dining dish"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
