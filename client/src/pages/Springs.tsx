@@ -287,7 +287,7 @@ function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
           className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400, fontSize: '13px' }}
         >
           Arenal Volcano National Park, Costa Rica
         </motion.p>
