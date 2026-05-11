@@ -3534,3 +3534,8 @@
 - [x] Fix black line above wellness/overlay sections by adding backgroundColor to section wrappers (TentedCamp, Gardens, Springs, ByNightCTA)
 - [x] Fix Gardens 16/10 ratio to 16/9 (aerial casita photo)
 - [x] Verify all horizontals on TentedCamp, Gardens, Springs are 16:9
+
+## Three Keys One Door — Springs Redesign
+- [x] Springs: Three Keys One Door section — Springs in middle, Tented Camp left, Gardens right
+- [x] Starts as horizontal (expanded/hovered state) showing Springs content by default
+- [x] On hover of side hotels (Tented Camp/Gardens), transitions to vertical view for that property

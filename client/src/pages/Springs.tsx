@@ -1081,7 +1081,7 @@ function SpringsPanoramaPanel({
 }
 
 function OneRainforestCompactSprings() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1); // Springs (middle) starts expanded
   const sectionRef = useRef<HTMLDivElement>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
 
@@ -1121,7 +1121,7 @@ function OneRainforestCompactSprings() {
             isHovered={hoveredIndex === i}
             anyHovered={hoveredIndex !== null}
             onEnter={() => setHoveredIndex(i)}
-            onLeave={() => setHoveredIndex(null)}
+            onLeave={() => setHoveredIndex(1)} // Reset to middle (Springs) when mouse leaves
           />
         ))}
       </div>
