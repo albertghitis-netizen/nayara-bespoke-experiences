@@ -88,7 +88,6 @@ export default function SpringsVilla() {
       <IntroSection />
       <FullBleedBreak />
       <FeaturesGrid />
-      <HorizontalGallery />
       <FloorPlanExplorer initialTier="tent" availableTiers={["tent"]} />
       <VillaExperience />
       <CTASection />
@@ -142,7 +141,7 @@ function HeroSection() {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
-            className="inline-flex items-center gap-2 px-8 py-3 border border-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
+            className="inline-flex items-center gap-2 px-8 py-3 border border-white/60 rounded-full backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
             style={{
               ...body,
               fontWeight: 500,
@@ -276,10 +275,10 @@ function FullBleedBreak() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="text-center max-w-2xl"
+          className="text-center max-w-5xl"
         >
           <p
-            className="text-white text-xl md:text-3xl lg:text-4xl leading-[1.3] italic"
+            className="text-white text-xl md:text-2xl lg:text-3xl leading-[1.3] italic whitespace-nowrap"
             style={display}
           >
             "The first hotel in Costa Rica to earn three Michelin Keys"
@@ -320,37 +319,8 @@ function FeaturesGrid() {
           </h2>
         </motion.div>
 
-        {/* Staggered masonry: 2 images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="overflow-hidden rounded-sm"
-          >
-            <img
-              src={IMG.wideBedroom}
-              alt="Springs Villa bedroom with four-poster king bed"
-              className="w-full h-full object-cover aspect-[4/3]"
-              loading="lazy"
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="overflow-hidden rounded-sm md:mt-16"
-          >
-            <img
-              src={IMG.outdoorShower}
-              alt="Springs Villa outdoor rain showers"
-              className="w-full h-full object-cover aspect-[4/3]"
-              loading="lazy"
-            />
-          </motion.div>
-        </div>
+        {/* Gallery slideshow */}
+        <GallerySlideshow />
 
         {/* Amenity icon cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
@@ -453,7 +423,58 @@ function AmenityIcon({ type }: { type: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   S5 , HORIZONTAL GALLERY: Drag-to-scroll image strip
+   GALLERY SLIDESHOW: Carousel within Refined in Every Detail
+   ═══════════════════════════════════════════════════════════════ */
+function GallerySlideshow() {
+  const [current, setCurrent] = useState(0);
+
+  const next = () => setCurrent((c) => (c + 1) % GALLERY.length);
+  const prev = () => setCurrent((c) => (c - 1 + GALLERY.length) % GALLERY.length);
+
+  return (
+    <div className="relative mb-16">
+      <div className="overflow-hidden rounded-sm aspect-[16/9]">
+        <img
+          src={GALLERY[current].src}
+          alt={GALLERY[current].alt}
+          className="w-full h-full object-cover transition-all duration-500"
+        />
+      </div>
+      {/* Nav arrows */}
+      <button
+        onClick={prev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors"
+      >
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors"
+      >
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+      </button>
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {GALLERY.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              i === current ? "bg-white scale-125" : "bg-white/40"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   S5 , HORIZONTAL GALLERY: Drag-to-scroll image strip (unused)
    ═══════════════════════════════════════════════════════════════ */
 function HorizontalGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);

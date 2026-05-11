@@ -212,7 +212,7 @@ export default function Springs() {
         horizontalIsVideo={true}
         horizontalRatio="16/9"
         bgColor="#0D0704"
-        headline={"Night Frog\nTour"}
+        headline={"Night Frog Tour"}
         bodyText="As darkness descends on the rainforest, a hidden world reveals itself. Join our naturalist guides on an intimate nocturnal expedition through the volcanic trails, where dozens of rare frog species emerge under the canopy , their calls creating a symphony that can only be heard after nightfall."
         textSide="left"
         overlayOnVideo={true}
@@ -270,7 +270,8 @@ function HeroSection() {
           pillBg={`${PALETTE.secondary}B3`}
           pillColor="#F7F5F0"/>
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1
