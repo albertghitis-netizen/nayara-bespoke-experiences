@@ -1041,14 +1041,20 @@ function SpringsPanoramaPanel({
       )}
       {/* Three Keys, One Door title overlay on middle panel */}
       {index === 1 && (
-        <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center pt-10 md:pt-14 pointer-events-none">
-          <p className="text-[10px] tracking-[0.25em] uppercase mb-2" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>
-            One Rainforest, Three Resorts
-          </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
-            Three Keys, One Door
-          </h2>
-        </div>
+        <>
+          <div className="absolute top-0 left-0 right-0 h-[55%] z-[5] pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 55%, transparent 100%)" }} />
+          <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center pt-10 md:pt-14 px-4 pointer-events-none">
+            <p className="text-[10px] tracking-[0.25em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}>
+              One Rainforest, Three Resorts
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
+              Three Keys, One Door
+            </h2>
+            <p className="mt-4 text-[13px] md:text-[14px] leading-[1.8] max-w-[480px] text-center" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}>
+              Stay at Springs and the restaurants, spa, hot springs, and experiences of Tented Camp and Gardens are all yours.
+            </p>
+          </div>
+        </>
       )}
       {panel.badge && (
         <div className="absolute top-5 right-5 z-10">
