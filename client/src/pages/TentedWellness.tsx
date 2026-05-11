@@ -133,6 +133,7 @@ export default function BrandWellness() {
       <IntroSection palette={palette} />
       <EcosystemsSection palette={palette} />
       <BlogLinkSection palette={palette} />
+      <WellnessRetreatsSection palette={palette} />
 
       <Footer bgColor="#3B2B26" textColor="#FFFFFF" propertyName="Tented Camp" />
     </div>
@@ -408,6 +409,131 @@ function TreatmentsSection({ treatments, palette }: { treatments: Array<Treatmen
             )}
           </AnimatePresence>
         </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   WELLNESS RETREATS — Book from Desert to Rainforest to Reef
+   ═══════════════════════════════════════════════════════════════ */
+const RETREAT_DESTINATIONS = [
+  {
+    id: "rainforest",
+    label: "Rainforest",
+    location: "Costa Rica",
+    description: "Immerse yourself in the healing canopy of Arenal's rainforest. Hot springs, volcanic earth, and phytoncide-rich air form the foundation of a wellness retreat unlike any other.",
+    image: "/manus-storage/wellness-rainforest-bride_57ec030d.png",
+    link: "/costa-rica-wellness",
+    properties: ["Nayara Springs", "Nayara Tented Camp", "Nayara Gardens"],
+  },
+  {
+    id: "island",
+    label: "Island",
+    location: "Bocas del Toro, Panamá",
+    description: "Where rainforest meets reef. Overwater villas, salt-water immersion, and the rhythm of the Caribbean recalibrate your nervous system from the inside out.",
+    image: "/manus-storage/wellness-bluegreen-bocas_c3bd5fc3.jpg",
+    link: "/bocas-del-toro/wellness",
+    properties: ["Nayara Bocas del Toro"],
+  },
+  {
+    id: "desert",
+    label: "Desert",
+    location: "Atacama, Chile",
+    description: "The world's driest desert strips away sensory overload. Dark-sky stargazing, mineral-rich thermal baths, and vast silence restore attention and reset circadian rhythm.",
+    image: `/manus-storage/wellness-darksky-milkyway_4b9b988a.jpg`,
+    link: "/alto-atacama/wellness",
+    properties: ["Nayara Alto Atacama"],
+  },
+];
+
+function WellnessRetreatsSection({ palette }: { palette: PropertyPalette }) {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  return (
+    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+      <div className="max-w-[1200px] mx-auto">
+        <FadeIn>
+          <div className="text-center mb-16">
+            <h2
+              className="text-2xl md:text-4xl tracking-wide mb-4"
+              style={{ ...heading, color: palette.primary }}
+            >
+              Book Your Wellness Retreat
+            </h2>
+            <p
+              className="text-sm md:text-base tracking-[0.15em] uppercase"
+              style={{ ...body, color: palette.secondary, opacity: 0.6 }}
+            >
+              From Desert to Rainforest to Reef
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {RETREAT_DESTINATIONS.map((dest, i) => (
+            <FadeIn key={dest.id} delay={i * 0.15}>
+              <Link href={dest.link}>
+                <div
+                  className="group cursor-pointer"
+                  onMouseEnter={() => setHoveredId(dest.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[3/4] overflow-hidden mb-5">
+                    <img
+                      src={dest.image}
+                      alt={dest.label}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-500" />
+                    {/* Location overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <p
+                        className="text-white/80 text-[11px] tracking-[0.3em] uppercase mb-1"
+                        style={body}
+                      >
+                        {dest.location}
+                      </p>
+                      <h3
+                        className="text-white text-xl md:text-2xl tracking-wide"
+                        style={heading}
+                      >
+                        {dest.label}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p
+                    className="text-[13px] leading-relaxed mb-3"
+                    style={{ ...body, color: palette.secondary, opacity: 0.8 }}
+                  >
+                    {dest.description}
+                  </p>
+
+                  {/* Properties */}
+                  <p
+                    className="text-[11px] tracking-[0.1em] uppercase"
+                    style={{ ...body, color: palette.primary, opacity: 0.5 }}
+                  >
+                    {dest.properties.join(" · ")}
+                  </p>
+
+                  {/* CTA */}
+                  <div
+                    className="mt-4 inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase transition-all duration-300"
+                    style={{ ...body, fontWeight: 500, color: palette.primary, opacity: hoveredId === dest.id ? 1 : 0.6 }}
+                  >
+                    <span>Explore</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

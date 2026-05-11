@@ -6,7 +6,7 @@
  * Room: 1 king bed, 139 m², adults only, private hot springs plunge pool
  */
 import { useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
@@ -427,33 +427,58 @@ function AmenityIcon({ type }: { type: string }) {
    ═══════════════════════════════════════════════════════════════ */
 function GallerySlideshow() {
   const [current, setCurrent] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [dragStart, setDragStart] = useState<number | null>(null);
 
   const next = () => setCurrent((c) => (c + 1) % GALLERY.length);
   const prev = () => setCurrent((c) => (c - 1 + GALLERY.length) % GALLERY.length);
 
+  const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX);
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const diff = touchStart - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+    setTouchStart(null);
+  };
+  const handleMouseDown = (e: React.MouseEvent) => setDragStart(e.clientX);
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (dragStart === null) return;
+    const diff = dragStart - e.clientX;
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); }
+    setDragStart(null);
+  };
+
   return (
     <div className="relative mb-16">
-      <div className="overflow-hidden rounded-sm aspect-[16/9]">
+      <div
+        className="overflow-hidden rounded-sm aspect-[16/9] cursor-grab active:cursor-grabbing select-none"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={() => setDragStart(null)}
+      >
         <img
           src={GALLERY[current].src}
           alt={GALLERY[current].alt}
-          className="w-full h-full object-cover transition-all duration-500"
+          className="w-full h-full object-cover transition-all duration-500 pointer-events-none"
+          draggable={false}
         />
       </div>
-      {/* Nav arrows */}
+      {/* Nav arrows — prominent */}
       <button
         onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors"
+        className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-black/70 transition-colors border border-white/20"
       >
-        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
       </button>
       <button
         onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center hover:bg-black/60 transition-colors"
+        className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-black/70 transition-colors border border-white/20"
       >
-        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
       </button>
