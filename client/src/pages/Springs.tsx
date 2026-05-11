@@ -1073,11 +1073,7 @@ function SpringsPanoramaPanel({
         <h3 className="text-xl md:text-2xl lg:text-3xl tracking-wide leading-none" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
           Nayara {panel.name}
         </h3>
-        <div style={{ overflow: "hidden", maxHeight: isHovered ? "120px" : "0px", opacity: isHovered ? 1 : 0, transition: "max-height 0.6s ease, opacity 0.5s ease" }}>
-          <p className="mt-3 text-[12px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}>
-            {panel.description}
-          </p>
-        </div>
+
         {panel.route && (
           <div style={{ overflow: "hidden", maxHeight: isHovered ? "48px" : "0px", opacity: isHovered ? 1 : 0, transition: "max-height 0.5s ease, opacity 0.4s ease 0.1s" }}>
             <p className="mt-3 text-[11px] tracking-[0.14em] uppercase flex items-center gap-2" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.85)" }}>
