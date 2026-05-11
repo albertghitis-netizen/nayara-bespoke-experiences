@@ -3529,3 +3529,8 @@
 ## Tented Camp Wellness Video Replacement
 - [x] Replace wellness horizontal video on Tented Camp homepage with new 16:9 video (tented-wellness-16x9_d70aeb22.mp4)
 - [x] Update aspect ratio from 13/5 (ultra-wide) to 16/9
+
+## Black Line Fix & 16:9 Enforcement
+- [x] Fix black line above wellness/overlay sections by adding backgroundColor to section wrappers (TentedCamp, Gardens, Springs, ByNightCTA)
+- [x] Fix Gardens 16/10 ratio to 16/9 (aerial casita photo)
+- [x] Verify all horizontals on TentedCamp, Gardens, Springs are 16:9

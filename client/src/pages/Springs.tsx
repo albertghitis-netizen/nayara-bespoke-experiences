@@ -489,7 +489,7 @@ function SpringsVillaSection() {
    ═══════════════════════════════════════════════════════════════ */
 function ExperiencesSection() {
   return (
-    <section id="experiences">
+    <section id="experiences" style={{ backgroundColor: "#000" }}>
       {/* ── Full-width horizontal video with text overlay ── */}
       <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
@@ -590,7 +590,7 @@ function SustainabilitySection() {
    ═══════════════════════════════════════════════════════════════ */
 function WellnessSection() {
   return (
-    <section id="wellness">
+    <section id="wellness" style={{ backgroundColor: "#000" }}>
       {/* Wellness: horizontal overlay (rule: wellness = horizontal only) */}
       <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>

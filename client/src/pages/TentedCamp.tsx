@@ -359,7 +359,7 @@ function CascadeSection({
   /* ── Overlay mode: text overlaid on full-width horizontal ── */
   if (section.overlayOnVideo && section.horizontalSrc) {
     return (
-      <section id={section.id}>
+      <section id={section.id} style={{ backgroundColor: section.bgColor }}>
         <div className="relative w-full">
           <div style={{ aspectRatio: section.horizontalRatio || "16/9" }}>
             <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" loop={section.horizontalLoop} />

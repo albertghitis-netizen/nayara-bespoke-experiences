@@ -40,6 +40,10 @@ type ByNightCTAProps = {
   textLinkLabel?: string;
   /** Hide the "Nayara by Night" button */
   hideButton?: boolean;
+  /** Custom button label (defaults to "Nayara by Night") */
+  buttonLabel?: string;
+  /** Custom button href (defaults to "/by-night") */
+  buttonHref?: string;
   /** When true, render as horizontal overlay (By Night = horizontal rule) */
   overlayOnVideo?: boolean;
 };
@@ -58,6 +62,8 @@ export default function ByNightCTA({
   textLink,
   textLinkLabel,
   hideButton = false,
+  buttonLabel = "Nayara by Night",
+  buttonHref = "/by-night",
   overlayOnVideo = false,
 }: ByNightCTAProps) {
   const isTextLeft = textSide === "left";
@@ -67,7 +73,7 @@ export default function ByNightCTA({
     const overlaySrc = horizontalSrc || verticalSrc;
     const overlayIsVideo = horizontalSrc ? horizontalIsVideo : verticalIsVideo;
     return (
-      <section id="by-night-cta">
+      <section id="by-night-cta" style={{ backgroundColor: bgColor }}>
         <div className="relative w-full">
           <div style={{ aspectRatio: horizontalRatio || "16/9" }}>
             {overlayIsVideo ? (
@@ -110,11 +116,11 @@ export default function ByNightCTA({
             {!hideButton && (
               <AnimateOnScroll variants={fadeUp} delay={0.3}>
                 <a
-                  href="/by-night"
+                  href={buttonHref}
                   className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  Nayara by Night
+                  {buttonLabel}
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                   </svg>
@@ -199,11 +205,11 @@ export default function ByNightCTA({
           {!hideButton && (
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
-                href="/by-night"
+                href={buttonHref}
                 className="group mt-8 md:mt-10 inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Nayara by Night
+                {buttonLabel}
                 <svg
                   className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform"
                   fill="none"

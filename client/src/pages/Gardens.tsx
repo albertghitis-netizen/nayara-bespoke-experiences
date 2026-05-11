@@ -229,16 +229,18 @@ export default function Gardens() {
         verticalSrc="/manus-storage/gardens-bynight-frog_51f8e4f1.jpg"
         verticalIsVideo={false}
         verticalRatio="3/4"
-        horizontalSrc="/manus-storage/by-night-horizontal_1b49ceb7.mp4"
-        horizontalIsVideo={true}
+        horizontalSrc="/manus-storage/Nostalgia_ea4fd458.jpeg"
+        horizontalIsVideo={false}
         horizontalRatio="16/9"
         bgColor="#000000"
-        headline={"Fireflies &\nFrog Song"}
-        bodyText="As twilight settles over the Arenal rainforest, the gardens come alive with bioluminescent fireflies and the chorus of red-eyed tree frogs. Join our naturalists for a nocturnal safari through the canopy, or simply listen from your private terrace as the jungle reveals its most intimate secrets."
+        headline={"Nostalgia\nWine Bar"}
+        bodyText="An intimate evening ritual awaits at Nostalgia, our curated wine bar where over 200 labels from around the world meet the warmth of hand-carved wood and candlelight. Self-serve Enomatic dispensers invite discovery by the glass, while our sommelier guides you through rare vintages paired with artisanal charcuterie , the perfect nightcap after dinner at any of our five restaurants."
         textSide="left"
         textLink=""
         textLinkLabel=""
         hideButton={false}
+        buttonLabel="Explore Nostalgia"
+        buttonHref="/gardens/by-night"
         overlayOnVideo={true}
       />
 
@@ -865,7 +867,7 @@ function RoomsSection() {
         {/* Aerial casita photo */}
         <div className="mt-10 md:mt-16">
           <MediaReveal delay={0.15}>
-            <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
+            <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <img src={CDN.roomsAerial} alt="Aerial view of a Nayara Gardens casita with private plunge pool" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
@@ -1029,7 +1031,7 @@ function WellnessSection() {
   const filtered = activeCategory === "all" ? gardens.treatments : gardens.treatments.filter((t: Treatment) => t.category === activeCategory);
 
   return (
-    <section id="wellness">
+    <section id="wellness" style={{ backgroundColor: "#000" }}>
       {/* Wellness: horizontal overlay (rule: wellness = horizontal only) */}
       <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
@@ -1233,7 +1235,7 @@ function GalleryIntegratedSections() {
               </div>
             </div>
             <MediaReveal delay={0.15}>
-              <div className="overflow-hidden" style={{ aspectRatio: "21/9" }}>
+              <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
                 {section.horizontalIsVideo ? (
                   <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
                 ) : (
@@ -1467,7 +1469,7 @@ function ReserveCTA() {
    ═══════════════════════════════════════════════════════════════ */
 function GardensExperiencesSection() {
   return (
-    <section id="experiences">
+    <section id="experiences" style={{ backgroundColor: "#000" }}>
       {/* ── Full-width horizontal video with text overlay ── */}
       <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
