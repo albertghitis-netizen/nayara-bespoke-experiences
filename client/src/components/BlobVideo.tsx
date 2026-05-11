@@ -197,7 +197,7 @@ export default function BlobVideo({
           aria-label={isMuted ? "Unmute video" : "Mute video"}
           className="fixed z-50 hidden md:flex lg:flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 px-4"
           style={{
-            top: "10px",
+            top: "28px",
             left: "56px",
             backgroundColor: bgStyle,
             borderColor: "rgba(255,255,255,0.1)",
