@@ -193,6 +193,23 @@ export default function RoomSlider({
   );
 
   /* ── Shared video block ── */
+  const mediaElement = currentRoom.video ? (
+    <video
+      src={currentRoom.video}
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="w-full h-full object-cover"
+    />
+  ) : currentRoom.photo ? (
+    <img
+      src={currentRoom.photo}
+      alt={currentRoom.label}
+      className="w-full h-full object-cover"
+    />
+  ) : null;
+
   const videoContent = (
     <motion.div
       key={`video-${currentIndex}`}
@@ -204,14 +221,7 @@ export default function RoomSlider({
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className="absolute inset-0"
     >
-      <video
-        src={currentRoom.video}
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="w-full h-full object-cover"
-      />
+      {mediaElement}
     </motion.div>
   );
 
@@ -237,15 +247,23 @@ export default function RoomSlider({
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="absolute inset-0 flex"
             >
-              {/* Video half */}
+              {/* Video/Image half */}
               <div className="relative w-1/2 h-full overflow-hidden">
-                <video
-                  src={currentRoom.video}
-                  autoPlay
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+                {currentRoom.video ? (
+                  <video
+                    src={currentRoom.video}
+                    autoPlay
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : currentRoom.photo ? (
+                  <img
+                    src={currentRoom.photo}
+                    alt={currentRoom.label}
+                    className="w-full h-full object-cover"
+                  />
+                ) : null}
               </div>
               {/* Text half */}
               <div
@@ -376,15 +394,23 @@ export default function RoomSlider({
                   )}
                 </div>
               </div>
-              {/* Video half */}
+              {/* Video/Image half */}
               <div className="relative w-1/2 h-full overflow-hidden">
-                <video
-                  src={currentRoom.video}
-                  autoPlay
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+                {currentRoom.video ? (
+                  <video
+                    src={currentRoom.video}
+                    autoPlay
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : currentRoom.photo ? (
+                  <img
+                    src={currentRoom.photo}
+                    alt={currentRoom.label}
+                    className="w-full h-full object-cover"
+                  />
+                ) : null}
               </div>
             </motion.div>
           )}
@@ -430,14 +456,22 @@ export default function RoomSlider({
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
             className="absolute inset-0"
           >
-            <video
-              src={currentRoom.video}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            />
+            {currentRoom.video ? (
+              <video
+                src={currentRoom.video}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            ) : currentRoom.photo ? (
+              <img
+                src={currentRoom.photo}
+                alt={currentRoom.label}
+                className="w-full h-full object-cover"
+              />
+            ) : null}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
             <div className="absolute bottom-0 left-0 right-0 p-6 pb-16">
               <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ ...body, fontWeight: 500, color: palette.primary }}>
