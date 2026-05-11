@@ -1039,6 +1039,17 @@ function SpringsPanoramaPanel({
       {index < 2 && (
         <div className="absolute top-0 right-0 bottom-0 w-px" style={{ backgroundColor: "rgba(255,255,255,0.18)" }} />
       )}
+      {/* Three Keys, One Door title overlay on middle panel */}
+      {index === 1 && (
+        <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center pt-10 md:pt-14 pointer-events-none">
+          <p className="text-[10px] tracking-[0.25em] uppercase mb-2" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>
+            One Rainforest, Three Resorts
+          </p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
+            Three Keys, One Door
+          </h2>
+        </div>
+      )}
       {panel.badge && (
         <div className="absolute top-5 right-5 z-10">
           <span
@@ -1097,21 +1108,7 @@ function OneRainforestCompactSprings() {
   }, []);
 
   return (
-    <div ref={sectionRef} style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <div
-        className="px-6 md:px-10 pt-16 md:pt-20 pb-10 md:pb-12 text-center"
-        style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(20px)", transition: "opacity 0.9s ease, transform 0.9s ease" }}
-      >
-        <p className="text-[10px] tracking-[0.25em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(58,42,26,0.55)" }}>
-          One Rainforest, Three Resorts
-        </p>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3a2a1a" }}>
-          Three Keys, One Door
-        </h2>
-        <p className="mt-4 text-[13px] md:text-[14px] leading-[1.8] max-w-[520px] mx-auto" style={{ fontFamily: "var(--font-body)", color: "rgba(58,42,26,0.7)" }}>
-          Stay at Springs and the restaurants, spa, hot springs, and experiences of Tented Camp and Gardens are all yours.
-        </p>
-      </div>
+    <div ref={sectionRef} style={{ backgroundColor: "#000" }}>
       <div className="hidden md:flex" style={{ height: "580px" }}>
         {SPRINGS_PANORAMA_PANELS.map((panel, i) => (
           <SpringsPanoramaPanel
