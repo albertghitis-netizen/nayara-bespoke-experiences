@@ -1044,7 +1044,7 @@ function SpringsPanoramaPanel({
         <>
           <div className="absolute top-0 left-0 right-0 h-[55%] z-[5] pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 55%, transparent 100%)" }} />
           <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center pt-10 md:pt-14 px-4 pointer-events-none">
-            <p className="text-[10px] tracking-[0.25em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}>
+            <p className="text-[12px] md:text-[13px] tracking-[0.25em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}>
               One Rainforest, Three Resorts
             </p>
             <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
