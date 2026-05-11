@@ -111,64 +111,48 @@ function HeroSection() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
 
   return (
-    <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
+    <section ref={heroRef} className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <BlobVideo
-          src={heroVideo}
+        <img
+          src="/manus-storage/NayaraSprings-R5_21255-byBriceFerreStudio_0e51902a.jpg"
+          alt="Nayara Springs Villa"
           className="w-full h-full object-cover"
         />
       </motion.div>
       <motion.div
-        className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60"
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60"
         style={{ opacity: heroOpacity }}
       />
 
-      {/* Centered editorial title */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+      {/* Title + Check Availability at bottom */}
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-14 px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
+          className="flex flex-col items-center"
         >
-          <p
-            className="text-white/50 text-[10px] md:text-[11px] tracking-[0.4em] uppercase mb-4"
-            style={{ ...body, fontWeight: 500 }}
-          >
-            Nayara Springs
-          </p>
           <h1
-            className="text-white text-5xl md:text-7xl lg:text-8xl mb-4"
+            className="text-white text-3xl md:text-5xl lg:text-6xl mb-6"
             style={display}
           >
             Springs Villa
           </h1>
-          <div className="w-16 h-px mx-auto mb-5" style={{ backgroundColor: "rgba(255,255,255,0.4)" }} />
-          <p
-            className="text-white/70 text-sm md:text-base max-w-md mx-auto mb-8"
-            style={body}
-          >
-            Adults only, naturally heated
-          </p>
           <button
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+            onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+            className="inline-flex items-center gap-2 px-8 py-3 border border-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
             style={{
               ...body,
               fontWeight: 500,
               fontSize: "11px",
-              letterSpacing: "0.18em",
+              letterSpacing: "0.25em",
               textTransform: "uppercase" as const,
               color: P.white,
-              backgroundColor: hovered ? PILL_BG_HOVER : PILL_BG,
-              borderColor: PILL_BORDER,
             }}
           >
             Check Availability
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
           </button>
         </motion.div>
       </div>

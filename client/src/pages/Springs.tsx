@@ -255,17 +255,24 @@ export default function Springs() {
    HERO , Full-bleed video, cinematic text reveal
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
+  const mobileHeroImage = "/manus-storage/springs-mobile-hero_572a69ce.png";
   return (
-    <section className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+    <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src="/manus-storage/NayaraSprings-R5_21255-byBriceFerreStudio_0e51902a.jpg"
-          alt="Nayara Springs"
+        {isMobile ? (
+          <img src={mobileHeroImage} alt="Nayara Springs" className="w-full h-full object-cover" />
+        ) : (
+          <BlobVideo
+          src={CDN.heroDesktop}
           className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 pointer-events-none" />
+          hasAudio={true}
+          pillBg={`${PALETTE.secondary}B3`}
+          pillColor="#F7F5F0"/>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
-      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-8 md:pb-12 px-6">
+      <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -273,20 +280,17 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Springs Villa
+          Adults-Only Private Hot Springs Villas
         </motion.h1>
-        <motion.a
-          href="https://www.nayarasprings.com/reservations"
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-4 px-8 py-3 border border-white/60 text-white text-[11px] md:text-xs tracking-[0.25em] uppercase hover:bg-white/10 transition-colors"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
         >
-          Check Availability
-        </motion.a>
+          Arenal Volcano National Park, Costa Rica
+        </motion.p>
       </div>
     </section>
   );
