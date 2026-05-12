@@ -17,7 +17,7 @@
  */
 
 import { useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 /* ─── Accurate SVG paths from Natural Earth 110m ─── */
 
@@ -44,6 +44,9 @@ interface MapLocation {
   milestoneIndices: number[];
   labelSide: "right" | "left" | "below";
   countryPath?: string;
+  image: string;
+  tagline: string;
+  cardOffset?: { dx: number; dy: number };
 }
 
 const locations: MapLocation[] = [
@@ -56,6 +59,9 @@ const locations: MapLocation[] = [
     milestoneIndices: [0, 1, 2],
     labelSide: "right",
     countryPath: costaRicaPath,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
+    tagline: "Private Rainforest Villas",
+    cardOffset: { dx: 25, dy: -55 },
   },
   {
     id: "atacama",
@@ -65,6 +71,9 @@ const locations: MapLocation[] = [
     y: 404,
     milestoneIndices: [3],
     labelSide: "right",
+    image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
+    tagline: "Desert Lodge Villas",
+    cardOffset: { dx: 25, dy: -55 },
   },
   {
     id: "easter-island",
@@ -74,6 +83,9 @@ const locations: MapLocation[] = [
     y: 431,
     milestoneIndices: [4],
     labelSide: "right",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-hangaroa_a0a3fad0.jpg",
+    tagline: "Oceanfront Villas on Rapa Nui",
+    cardOffset: { dx: 25, dy: -55 },
   },
   {
     id: "bocas",
@@ -84,6 +96,9 @@ const locations: MapLocation[] = [
     milestoneIndices: [5],
     labelSide: "right",
     countryPath: panamaPath,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
+    tagline: "Overwater Villas",
+    cardOffset: { dx: 25, dy: -55 },
   },
 ];
 
@@ -312,10 +327,13 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
           </text>
         )}
 
-        {/* ─── Flight paths , gold arcs ─── */}
+        {/* ─── Flight paths , gold arcs , staggered ─── */}
         {activeFlightPaths.map((fp, i) => {
           const isEasterIslandPath = fp.from === "atacama" && fp.to === "easter-island";
           const isReturnPath = fp.from === "easter-island" && fp.to === "bocas";
+          /* Stagger each path: first starts at 0.3s, each subsequent waits 1.8s more */
+          const staggerDelay = 0.3 + i * 1.8;
+          const pathDuration = isEasterIslandPath ? 3.5 : 2.5;
           return (
             <g key={`${fp.from}-${fp.to}`}>
               {/* Wide glow underlay */}
@@ -327,8 +345,8 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
                 transition={{
-                  pathLength: { duration: isEasterIslandPath ? 3.5 : 2.5, ease: EASE, delay: 0.3 },
-                  opacity: { duration: 0.8, delay: 0.2 },
+                  pathLength: { duration: pathDuration, ease: EASE, delay: staggerDelay },
+                  opacity: { duration: 0.8, delay: staggerDelay - 0.1 },
                 }}
               />
               {/* Main dashed path */}
@@ -343,8 +361,8 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 1 }}
                 transition={{
-                  pathLength: { duration: isEasterIslandPath ? 3.5 : 2.5, ease: EASE, delay: 0.3 },
-                  opacity: { duration: 0.8, delay: 0.2 },
+                  pathLength: { duration: pathDuration, ease: EASE, delay: staggerDelay },
+                  opacity: { duration: 0.8, delay: staggerDelay - 0.1 },
                 }}
               />
               {/* Animated traveling dot , uses CSS offset-path animation */}
@@ -354,11 +372,11 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 fillOpacity="0.7"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: staggerDelay - 0.1 }}
                 style={{
                   offsetPath: `path('${fp.path}')`,
                   offsetDistance: "100%",
-                  animation: `travelDot ${isEasterIslandPath ? 3.5 : 2.5}s ${EASE_CSS} 0.3s forwards`,
+                  animation: `travelDot ${pathDuration}s ${EASE_CSS} ${staggerDelay}s forwards`,
                 }}
               />
               {/* Small sparkle icon for Easter Island path */}
@@ -368,11 +386,11 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                   fill={ACCENT_GOLD}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 0.6, 0.6, 0] }}
-                  transition={{ duration: 3.5, ease: EASE, delay: 0.3 }}
+                  transition={{ duration: 3.5, ease: EASE, delay: staggerDelay }}
                   style={{
                     offsetPath: `path('${fp.path}')`,
                     offsetDistance: "100%",
-                    animation: `travelDot 3.5s ${EASE_CSS} 0.3s forwards`,
+                    animation: `travelDot 3.5s ${EASE_CSS} ${staggerDelay}s forwards`,
                   }}
                 >
                   ✦
@@ -484,6 +502,88 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
           </text>
         </g>
       </svg>
+
+      {/* ─── Property popup cards , HTML overlays ─── */}
+      <AnimatePresence mode="wait">
+        {locations.map((loc) => {
+          const isCurrent = currentLocationId === loc.id;
+          if (!isCurrent) return null;
+          /* Convert SVG coords to percentage positions */
+          const xPct = ((loc.x + (loc.cardOffset?.dx || 25)) / 800) * 100;
+          const yPct = ((loc.y + (loc.cardOffset?.dy || -55)) / 680) * 100;
+          return (
+            <motion.div
+              key={loc.id}
+              initial={{ opacity: 0, y: 8, scale: 0.92 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -6, scale: 0.95 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.8, 0.25, 1] }}
+              className="absolute pointer-events-none"
+              style={{
+                left: `${xPct}%`,
+                top: `${yPct}%`,
+                width: "160px",
+                zIndex: 10,
+              }}
+            >
+              {/* Card with image + text */}
+              <div
+                className="rounded overflow-hidden shadow-lg"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.95)",
+                  backdropFilter: "blur(8px)",
+                  border: "1px solid rgba(240,192,64,0.3)",
+                }}
+              >
+                <div className="relative" style={{ height: "90px" }}>
+                  <img
+                    src={loc.image}
+                    alt={loc.label}
+                    className="w-full h-full object-cover"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)",
+                    }}
+                  />
+                </div>
+                <div className="px-2.5 py-2">
+                  <p
+                    className="text-[10px] tracking-[0.12em] uppercase leading-tight"
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 500,
+                      color: "#3a2a1a",
+                    }}
+                  >
+                    {loc.label}
+                  </p>
+                  <p
+                    className="text-[8px] tracking-[0.06em] mt-0.5 leading-tight"
+                    style={{
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 400,
+                      color: "#8a7a6a",
+                    }}
+                  >
+                    {loc.tagline}
+                  </p>
+                </div>
+              </div>
+              {/* Connector line from card to pin */}
+              <div
+                className="mx-auto"
+                style={{
+                  width: "1px",
+                  height: "12px",
+                  backgroundColor: "rgba(240,192,64,0.4)",
+                }}
+              />
+            </motion.div>
+          );
+        })}
+      </AnimatePresence>
     </div>
   );
 }

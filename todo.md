@@ -3543,3 +3543,7 @@
 ## Homepage Hero Headline Update
 - [x] Change H1 from "Luxury Resorts Rooted in Nature" to "We Don't Build Hotels. We Reveal Places."
 - [x] Add H2: "A family of nature-immersed luxury resorts rooted in Latin America's most pristine ecosystems."
+
+## Journey Map Enhancement
+- [x] Add property image popup cards to the journey map when flight path arrives at each destination
+- [x] Stagger flight path animations with pauses between each line
