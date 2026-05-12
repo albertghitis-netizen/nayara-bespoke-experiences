@@ -238,8 +238,17 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Luxury Resorts Rooted in Nature
+          We Don’t Build Hotels. We Reveal Places.
         </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white/80 text-sm md:text-base lg:text-lg tracking-[0.06em] text-center mt-3 md:mt-4"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          A family of nature-immersed luxury resorts rooted in Latin America’s most pristine ecosystems.
+        </motion.p>
       </div>
     </section>
   );

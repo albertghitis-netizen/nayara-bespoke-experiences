@@ -3539,3 +3539,7 @@
 - [x] Springs: Three Keys One Door section — Springs in middle, Tented Camp left, Gardens right
 - [x] Starts as horizontal (expanded/hovered state) showing Springs content by default
 - [x] On hover of side hotels (Tented Camp/Gardens), transitions to vertical view for that property
+
+## Homepage Hero Headline Update
+- [x] Change H1 from "Luxury Resorts Rooted in Nature" to "We Don't Build Hotels. We Reveal Places."
+- [x] Add H2: "A family of nature-immersed luxury resorts rooted in Latin America's most pristine ecosystems."
