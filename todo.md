@@ -3547,3 +3547,7 @@
 ## Journey Map Enhancement
 - [x] Add property image popup cards to the journey map when flight path arrives at each destination
 - [x] Stagger flight path animations with pauses between each line
+
+## Bocas Blog Slider & Blog Audit
+- [ ] Add blog/journal slider section to Bocas del Toro homepage (matching brand homepage journal style, Bocas colors, 9 placeholder cards)
+- [ ] Audit all 25 Bocas blog posts and recommend consolidation into 4-5 posts

@@ -114,8 +114,15 @@ function generateCurvedPath(from: MapLocation, to: MapLocation): string {
   const dy = to.y - from.y;
   const dist = Math.sqrt(dx * dx + dy * dy);
 
-  // Easter Island gets a dramatic sweeping arc into the Pacific
-  if (to.id === "easter-island" || from.id === "easter-island") {
+  // Easter Island RETURN path (Easter Island → Bocas): arc sweeps right/east
+  if (from.id === "easter-island" && to.id === "bocas") {
+    const cx = (from.x + to.x) / 2 + dist * 0.15;
+    const cy = (from.y + to.y) / 2 + dist * 0.1;
+    return `M ${from.x} ${from.y} Q ${cx} ${cy} ${to.x} ${to.y}`;
+  }
+
+  // Easter Island OUTBOUND path (Atacama → Easter Island): dramatic sweep into Pacific
+  if (to.id === "easter-island") {
     const cx = Math.min(from.x, to.x) - dist * 0.35;
     const cy = (from.y + to.y) / 2 - dist * 0.1;
     return `M ${from.x} ${from.y} Q ${cx} ${cy} ${to.x} ${to.y}`;
@@ -503,87 +510,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
         </g>
       </svg>
 
-      {/* ─── Property popup cards , HTML overlays ─── */}
-      <AnimatePresence mode="wait">
-        {locations.map((loc) => {
-          const isCurrent = currentLocationId === loc.id;
-          if (!isCurrent) return null;
-          /* Convert SVG coords to percentage positions */
-          const xPct = ((loc.x + (loc.cardOffset?.dx || 25)) / 800) * 100;
-          const yPct = ((loc.y + (loc.cardOffset?.dy || -55)) / 680) * 100;
-          return (
-            <motion.div
-              key={loc.id}
-              initial={{ opacity: 0, y: 8, scale: 0.92 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -6, scale: 0.95 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.8, 0.25, 1] }}
-              className="absolute pointer-events-none"
-              style={{
-                left: `${xPct}%`,
-                top: `${yPct}%`,
-                width: "160px",
-                zIndex: 10,
-              }}
-            >
-              {/* Card with image + text */}
-              <div
-                className="rounded overflow-hidden shadow-lg"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.95)",
-                  backdropFilter: "blur(8px)",
-                  border: "1px solid rgba(240,192,64,0.3)",
-                }}
-              >
-                <div className="relative" style={{ height: "90px" }}>
-                  <img
-                    src={loc.image}
-                    alt={loc.label}
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: "linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%)",
-                    }}
-                  />
-                </div>
-                <div className="px-2.5 py-2">
-                  <p
-                    className="text-[10px] tracking-[0.12em] uppercase leading-tight"
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 500,
-                      color: "#3a2a1a",
-                    }}
-                  >
-                    {loc.label}
-                  </p>
-                  <p
-                    className="text-[8px] tracking-[0.06em] mt-0.5 leading-tight"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontWeight: 400,
-                      color: "#8a7a6a",
-                    }}
-                  >
-                    {loc.tagline}
-                  </p>
-                </div>
-              </div>
-              {/* Connector line from card to pin */}
-              <div
-                className="mx-auto"
-                style={{
-                  width: "1px",
-                  height: "12px",
-                  backgroundColor: "rgba(240,192,64,0.4)",
-                }}
-              />
-            </motion.div>
-          );
-        })}
-      </AnimatePresence>
+
     </div>
   );
 }

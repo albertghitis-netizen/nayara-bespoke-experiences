@@ -4,7 +4,9 @@
  * Full-bleed edge-to-edge media, ocean gradient, ALL assets, no functional content
  * Zero-gap between all sections , one continuous visual journey
  */
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
@@ -240,12 +242,11 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     headline: "Overwater Villas\n& Treehouse Villas",
     body: "Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.",
     verticalSrc: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
-    horizontalSrc: "/manus-storage/bocas-accommodations-h_d33b2e24.mp4",
+    horizontalSrc: "",
     verticalIsVideo: true,
-    horizontalIsVideo: true,
+    horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    hideH: true,
     bgColor: SECTION_COLORS[2],
     nextBgColor: SECTION_COLORS[3],
     link: "/bocas-del-toro/rooms",
@@ -262,8 +263,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     headline: "Your Private Boat\n& Captain Await",
     body: "From snorkeling vibrant coral reefs to kayaking through bioluminescent bays, every day brings a new discovery. Explore hidden beaches, dive alongside tropical fish, or simply drift in the warm Caribbean waters that surround your private island retreat.",
     verticalSrc: "",
-    horizontalSrc: "/manus-storage/bocas-exp-horizontal_1b318bff.mp4",
-    verticalIsVideo: true,
+    horizontalSrc: "/manus-storage/underwater-1-compressed_a1862dee.mp4",
+    verticalIsVideo: false,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -279,12 +280,11 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     headline: "Protecting\nParadise",
     body: "Our commitment to marine conservation and island stewardship ensures that the pristine beauty of Bocas del Toro endures for generations. Through partnerships with local conservation organizations, renewable energy systems, and community programs, we protect the delicate ecosystems that make this place extraordinary.\n\nNayara Bocas del Toro operates on 100% renewable energy and has partnered with the Smithsonian Tropical Research Institute to monitor and protect the coral reefs surrounding Isla Pastores. Our zero single-use plastic policy, coral restoration nurseries, and dolphin-safe boating protocols ensure that every guest visit actively contributes to the health of this irreplaceable Caribbean ecosystem.",
     verticalSrc: "/manus-storage/bocas-delfines_dc5e78fc.mp4",
-    horizontalSrc: ASSETS.susH,
+    horizontalSrc: "",
     verticalIsVideo: true,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    hideH: true,
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
     link: "/bocas-del-toro/sustainability",
@@ -303,9 +303,9 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Wellness",
     headline: "Serenity,\nElevated",
     body: "Surrender to the rhythm of the ocean at our overwater spa. Treatments draw from Caribbean healing traditions, using locally sourced ingredients and the soothing sounds of the sea to restore body and mind. Each session unfolds above the gentle turquoise waters.",
-    verticalSrc: "/manus-storage/bocas-wellness-v2_42b49989.mp4",
+    verticalSrc: "",
     horizontalSrc: "/manus-storage/bocas-wellness-h2_b08668ba.mp4",
-    verticalIsVideo: true,
+    verticalIsVideo: false,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -326,12 +326,11 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     headline: "Caribbean\nFlavors",
     body: "Our culinary program celebrates the extraordinary bounty of the Caribbean Sea and the rich agricultural traditions of Panama. Fresh-caught seafood, tropical fruits, and locally grown ingredients are transformed into dishes that honor both the land and the ocean.",
     verticalSrc: ASSETS.gastroV,
-    horizontalSrc: ASSETS.gastroH,
+    horizontalSrc: "",
     verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
-    hideH: true,
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
     link: "/bocas-del-toro/gastronomy",
@@ -342,10 +341,10 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow , kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: "/manus-storage/bocas-bynight-v2_ac8a1af2.mp4",
-    verticalIsVideo: true,
+    verticalSrc: "",
+    verticalIsVideo: false,
     verticalRatio: "3/4",
-    horizontalSrc: "/manus-storage/bocas-bynight-v2_ac8a1af2.mp4",
+    horizontalSrc: "/manus-storage/bocas-bynight-horizontal_5ac8b96c.mp4",
     horizontalIsVideo: true,
     horizontalRatio: "16/9",
     overlayOnVideo: true,
@@ -889,6 +888,277 @@ function ReserveCTA() {
     </section>
   );
 }
+/* ─── Blog card type ─── */
+interface BlogCardData {
+  id: string;
+  label: string;
+  title: string;
+  image: string;
+  href: string | null;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BOCAS JOURNAL SLIDER , 9 cards, 3 visible at a time
+   Matches brand homepage Journal section, in Bocas blue palette
+   ═══════════════════════════════════════════════════════════════ */
+function BocasJournalSlider() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [mobileCard, setMobileCard] = useState(0);
+  const totalPages = 3;
+
+  const placeholderCards: BlogCardData[] = Array.from({ length: 9 }, (_, i) => ({
+    id: `blog-${i + 1}`,
+    label: "Read",
+    title: "Coming Soon",
+    image: "",
+    href: null,
+  }));
+
+  const scrollToPage = (page: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: page * el.clientWidth, behavior: "smooth" });
+    setCurrentPage(page);
+  };
+
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCurrentPage(Math.round(el.scrollLeft / el.clientWidth));
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToMobileCard = (idx: number) => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: idx * el.clientWidth, behavior: "smooth" });
+    setMobileCard(idx);
+  };
+
+  const handleMobileScroll = useCallback(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    setMobileCard(Math.round(el.scrollLeft / el.clientWidth));
+  }, []);
+
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (el) el.addEventListener("scroll", handleMobileScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleMobileScroll);
+  }, [handleMobileScroll]);
+
+  const pillStyle = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
+  const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+
+  return (
+    <section
+      className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden"
+      style={{ backgroundColor: COLOR_A }}
+    >
+      {/* Grain overlay */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.025]" xmlns="http://www.w3.org/2000/svg">
+        <filter id="grain-bocas-journal">
+          <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain-bocas-journal)" />
+      </svg>
+
+      <div className="relative z-10 max-w-[1200px] mx-auto">
+        {/* Header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[10px] tracking-[0.3em] mb-4 uppercase"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.text }}
+          >
+            Stories
+          </p>
+        </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-14 md:mb-20" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+            style={{ ...displayFont, color: PALETTE.text }}
+          >
+            From the Blog
+          </span>
+        </TextReveal>
+
+        {/* Desktop: 3 cards per page */}
+        <div className="hidden md:block relative">
+          <button
+            onClick={() => scrollToPage(currentPage - 1)}
+            disabled={currentPage === 0}
+            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: PALETTE.primary }}
+            aria-label="Previous"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#FFFFFF" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button
+            onClick={() => scrollToPage(currentPage + 1)}
+            disabled={currentPage >= totalPages - 1}
+            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: PALETTE.primary }}
+            aria-label="Next"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#FFFFFF" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {[0, 1, 2].map((pageIdx) => (
+              <div
+                key={pageIdx}
+                className="flex-shrink-0 w-full grid grid-cols-3 gap-5"
+                style={{ scrollSnapAlign: "start" }}
+              >
+                {placeholderCards.slice(pageIdx * 3, pageIdx * 3 + 3).map((card) => (
+                  <div key={card.id} className="flex flex-col">
+                    <div
+                      className="group relative w-full overflow-hidden rounded-lg"
+                      style={{ aspectRatio: "1/1", backgroundColor: "#C8DFF0" }}
+                    >
+                      {card.image ? (
+                        <>
+                          <img
+                            src={card.image}
+                            alt={card.title}
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                        </>
+                      ) : null}
+                      <div className="absolute top-4 left-4">
+                        <span
+                          className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
+                          style={{ ...pillStyle, backgroundColor: PALETTE.primary, color: "#FFFFFF" }}
+                        >
+                          {card.label}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="pt-4 pb-2">
+                      <h3
+                        className="text-[14px] md:text-[15px] leading-[1.3]"
+                        style={{ ...displayFont, color: PALETTE.text }}
+                      >
+                        {card.title}
+                      </h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+          {/* Desktop dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {[0, 1, 2].map((i) => (
+              <button
+                key={i}
+                onClick={() => scrollToPage(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{ backgroundColor: PALETTE.primary, opacity: currentPage === i ? 1 : 0.2 }}
+                aria-label={`Page ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: 1 card at a time */}
+        <div className="md:hidden relative">
+          <div
+            ref={mobileScrollRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {placeholderCards.map((card) => (
+              <div key={card.id} className="flex-shrink-0 w-full px-1" style={{ scrollSnapAlign: "start" }}>
+                <div className="flex flex-col">
+                  <div
+                    className="group relative w-full overflow-hidden rounded-lg"
+                    style={{ aspectRatio: "1/1", backgroundColor: "#C8DFF0" }}
+                  >
+                    {card.image ? (
+                      <>
+                        <img
+                          src={card.image}
+                          alt={card.title}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      </>
+                    ) : null}
+                    <div className="absolute top-4 left-4">
+                      <span
+                        className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
+                        style={{ ...pillStyle, backgroundColor: PALETTE.primary, color: "#FFFFFF" }}
+                      >
+                        {card.label}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="pt-4 pb-2">
+                    <h3
+                      className="text-[14px] leading-[1.3]"
+                      style={{ ...displayFont, color: PALETTE.text }}
+                    >
+                      {card.title}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Mobile dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {placeholderCards.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToMobileCard(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{ backgroundColor: PALETTE.primary, opacity: mobileCard === i ? 1 : 0.2 }}
+                aria-label={`Card ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <div className="mt-12 text-center">
+            <a
+              href="https://nayarabocasdeltoro.com/blog/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
+              style={{ ...pillStyle, backgroundColor: PALETTE.primary, color: "#FFFFFF" }}
+            >
+              Read More Stories
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
 /* ═══════════════════════════════════════════════════════════════
    MAIN PAGE , Pure cascade, no functional content (Option B)
    ═══════════════════════════════════════════════════════════════ */
@@ -959,6 +1229,8 @@ export default function BocasDelToro() {
       ))}
 
       <ReviewsBreak bgColor={COLOR_A} />
+
+      <BocasJournalSlider />
 
       <GettingHereBreak bgColor="#C8DFF0" />
       <ReserveCTA />
