@@ -130,6 +130,7 @@ export default function BrandWellness() {
     <div className="min-h-screen" style={{ backgroundColor: "#F7F5F0" }}>
       <BrandNavigation pageType="property" backLink={{ label: "Nayara Tented Camp", href: "/tented-camp" }} />
       <HeroSection />
+      <SpaByHotelSection palette={palette} />
       <IntroSection palette={palette} />
       <EcosystemsSection palette={palette} />
       <BlogLinkSection palette={palette} />
@@ -415,6 +416,231 @@ function TreatmentsSection({ treatments, palette }: { treatments: Array<Treatmen
 }
 
 
+/* ═══════════════════════════════════════════════════════════════
+   SPA BY HOTEL — Treatments organized by destination
+   ═══════════════════════════════════════════════════════════════ */
+const SPA_HOTELS = [
+  { id: "costa-rica", label: "Costa Rica", subtitle: "Springs · Tented Camp · Gardens", propertyIds: ["springs", "tented-camp", "gardens"] },
+  { id: "alto-atacama", label: "Alto Atacama", subtitle: "Atacama Desert, Chile", propertyIds: ["alto-atacama"] },
+  { id: "bocas-del-toro", label: "Bocas del Toro", subtitle: "Caribbean, Panama", propertyIds: ["bocas-del-toro"] },
+  { id: "hangaroa", label: "Hangaroa", subtitle: "Easter Island, Chile", propertyIds: ["hangaroa"] },
+];
+
+function SpaByHotelSection({ palette }: { palette: PropertyPalette }) {
+  const [activeHotelTab, setActiveHotelTab] = useState("costa-rica");
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const currentHotel = SPA_HOTELS.find((h) => h.id === activeHotelTab)!;
+  const isComingSoon = activeHotelTab === "hangaroa";
+
+  const treatments = useMemo(() => {
+    const result: Treatment[] = [];
+    for (const p of properties) {
+      if (currentHotel.propertyIds.includes(p.id)) {
+        for (const t of p.treatments) {
+          // Avoid duplicates (Costa Rica shares treatments)
+          if (!result.find((r) => r.id === t.id)) {
+            result.push(t);
+          }
+        }
+      }
+    }
+    return result;
+  }, [activeHotelTab]);
+
+  const categories = useMemo(() => {
+    const cats = new Set(treatments.map((t) => t.category));
+    return Array.from(cats).sort();
+  }, [treatments]);
+
+  const filtered = activeCategory ? treatments.filter((t) => t.category === activeCategory) : treatments;
+
+  // Reset category when hotel changes
+  useEffect(() => {
+    setActiveCategory(null);
+  }, [activeHotelTab]);
+
+  const categoryLabels: Record<string, string> = {
+    exclusive: "Signature Rituals",
+    massage: "Massage",
+    earth: "Earth Treatments",
+    wellbeing: "Well-Being",
+    body: "Body Treatments",
+    facial: "Facials",
+    couples: "Couples",
+    wellness: "Wellness Therapies",
+    signature: "Signature",
+    romantic: "Romantic Rituals",
+  };
+
+  return (
+    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+      <div className="max-w-[1200px] mx-auto">
+        <FadeIn>
+          <p
+            className="text-[10px] tracking-[0.3em] mb-4 uppercase"
+            style={{ ...body, fontWeight: 600, color: palette.primary }}
+          >
+            Spa & Treatments
+          </p>
+          <h2
+            className="text-2xl md:text-4xl tracking-wide mb-4"
+            style={{ ...heading, color: palette.primary }}
+          >
+            Our Spa Menus
+          </h2>
+          <p
+            className="text-[14px] leading-relaxed mb-12 max-w-[600px]"
+            style={{ ...body, color: palette.secondary, opacity: 0.7 }}
+          >
+            Browse treatments by destination. Each spa draws on its local landscape, ingredients, and healing traditions.
+          </p>
+        </FadeIn>
+
+        {/* Hotel tabs */}
+        <FadeIn delay={0.1}>
+          <div className="flex flex-wrap gap-3 mb-10">
+            {SPA_HOTELS.map((hotel) => (
+              <button
+                key={hotel.id}
+                onClick={() => setActiveHotelTab(hotel.id)}
+                className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-400"
+                style={{
+                  ...body,
+                  fontWeight: 500,
+                  backgroundColor: activeHotelTab === hotel.id ? palette.primary : "transparent",
+                  color: activeHotelTab === hotel.id ? "#F7F5F0" : `${palette.primary}99`,
+                  border: `1px solid ${activeHotelTab === hotel.id ? palette.primary : `${palette.primary}33`}`,
+                }}
+              >
+                {hotel.label}
+              </button>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* Subtitle for selected hotel */}
+        <FadeIn delay={0.15}>
+          <p
+            className="text-[12px] tracking-[0.15em] uppercase mb-8"
+            style={{ ...body, color: palette.primary, opacity: 0.5 }}
+          >
+            {currentHotel.subtitle}
+          </p>
+        </FadeIn>
+
+        {/* Coming Soon state for Hangaroa */}
+        {isComingSoon ? (
+          <FadeIn delay={0.2}>
+            <div className="text-center py-20">
+              <p
+                className="text-xl md:text-2xl tracking-wide mb-4"
+                style={{ ...heading, color: palette.primary, opacity: 0.6 }}
+              >
+                Coming Soon
+              </p>
+              <p
+                className="text-[14px] leading-relaxed max-w-[400px] mx-auto"
+                style={{ ...body, color: palette.secondary, opacity: 0.5 }}
+              >
+                The Hangaroa spa menu is being curated. Check back soon for treatments inspired by Rapa Nui traditions.
+              </p>
+            </div>
+          </FadeIn>
+        ) : (
+          <>
+            {/* Category filter pills */}
+            {categories.length > 1 && (
+              <FadeIn delay={0.2}>
+                <div className="flex flex-wrap gap-2 mb-10">
+                  <button
+                    onClick={() => setActiveCategory(null)}
+                    className="px-4 py-2 rounded-full text-[11px] tracking-[0.08em] transition-all duration-300"
+                    style={{
+                      ...body,
+                      fontWeight: 500,
+                      backgroundColor: activeCategory === null ? `${palette.primary}15` : "transparent",
+                      color: activeCategory === null ? palette.primary : `${palette.primary}80`,
+                      border: `1px solid ${activeCategory === null ? palette.primary : `${palette.primary}22`}`,
+                    }}
+                  >
+                    All
+                  </button>
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveCategory(cat)}
+                      className="px-4 py-2 rounded-full text-[11px] tracking-[0.08em] transition-all duration-300"
+                      style={{
+                        ...body,
+                        fontWeight: 500,
+                        backgroundColor: activeCategory === cat ? `${palette.primary}15` : "transparent",
+                        color: activeCategory === cat ? palette.primary : `${palette.primary}80`,
+                        border: `1px solid ${activeCategory === cat ? palette.primary : `${palette.primary}22`}`,
+                      }}
+                    >
+                      {categoryLabels[cat] || cat}
+                    </button>
+                  ))}
+                </div>
+              </FadeIn>
+            )}
+
+            {/* Treatment grid */}
+            <AnimatePresence mode="popLayout">
+              <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {filtered.map((t, i) => (
+                  <motion.div
+                    key={t.id}
+                    layout
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ duration: 0.35, delay: Math.min(i * 0.03, 0.25) }}
+                    className="p-6 transition-all duration-500 hover:translate-y-[-2px]"
+                    style={{
+                      backgroundColor: "rgba(255,255,255,0.4)",
+                      backdropFilter: "blur(8px)",
+                      borderRadius: "12px",
+                      borderBottom: `2px solid ${palette.primary}22`,
+                    }}
+                  >
+                    <h4
+                      className="text-[16px] mb-1.5"
+                      style={{ ...heading, fontWeight: 500, color: palette.primary }}
+                    >
+                      {t.name}
+                    </h4>
+                    {t.localName && (
+                      <p
+                        className="text-[12px] mb-2 italic"
+                        style={{ ...body, color: `${palette.primary}88` }}
+                      >
+                        {t.localName}
+                      </p>
+                    )}
+                    <p
+                      className="text-[11px] tracking-[0.08em] mb-3"
+                      style={{ ...body, fontWeight: 500, color: `${palette.primary}cc` }}
+                    >
+                      {t.duration} · {t.price}
+                    </p>
+                    <p
+                      className="text-[13px] leading-[1.65]"
+                      style={{ ...body, color: palette.secondary, opacity: 0.75 }}
+                    >
+                      {t.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
 /* ═══════════════════════════════════════════════════════════════
    WELLNESS RETREATS — Book from Desert to Rainforest to Reef
    ═══════════════════════════════════════════════════════════════ */
