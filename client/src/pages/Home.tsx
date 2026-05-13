@@ -289,7 +289,7 @@ function BrandStorySection() {
               href="/blog/nayara-story"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 mt-6 mb-6 px-6 py-2.5 rounded-full transition-all duration-300 hover:opacity-80"
+              className="inline-flex items-center gap-2.5 mt-6 mb-6 px-6 py-2.5 rounded-full transition-all duration-300 hover:!bg-[#3B2B26]"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", color: "#F7F5F0", backgroundColor: "#6a604f", textTransform: "uppercase" }}
             >
               <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -403,7 +403,7 @@ function PropertiesSection() {
                       href={BOOKING_URLS[prop.bookingId]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center h-8 px-4 rounded-full text-[10px] tracking-[0.1em] transition-all duration-300 hover:opacity-80"
+                      className="inline-flex items-center justify-center h-8 px-4 rounded-full text-[10px] tracking-[0.1em] transition-all duration-300 hover:!bg-[#3B2B26]"
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#6a604f", color: "#fff" }}
                     >
                       Reserve
@@ -771,20 +771,16 @@ function AwardsHighlightSection() {
               </div>
             ))}
           </div>
-          {/* Desktop page dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: awardsDesktopPages }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollToAwardsDesktopPage(i)}
-                className="w-2 h-2 rounded-full transition-all duration-300"
-                style={{
-                  backgroundColor: "#3B2B26",
-                  opacity: awardsDesktopPage === i ? 1 : 0.2,
-                }}
-                aria-label={`Page ${i + 1}`}
-              />
-            ))}
+          {/* Desktop progress bar */}
+          <div className="mt-8 mx-auto w-24 h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+            <div
+              className="h-full rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: "#3B2B26",
+                width: `${100 / awardsDesktopPages}%`,
+                marginLeft: `${(awardsDesktopPage / awardsDesktopPages) * 100}%`,
+              }}
+            />
           </div>
         </div>
 
@@ -801,17 +797,16 @@ function AwardsHighlightSection() {
               </div>
             ))}
           </div>
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {awardsData.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollToAward(i)}
-                className="w-2 h-2 rounded-full transition-all duration-300"
-                style={{ backgroundColor: "#3B2B26", opacity: awardsPage === i ? 1 : 0.2 }}
-                aria-label={`Award ${i + 1}`}
-              />
-            ))}
+          {/* Progress bar */}
+          <div className="mt-6 mx-auto w-24 h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+            <div
+              className="h-full rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: "#3B2B26",
+                width: `${100 / awardsData.length}%`,
+                marginLeft: `${(awardsPage / awardsData.length) * 100}%`,
+              }}
+            />
           </div>
         </div>
 
@@ -820,7 +815,7 @@ function AwardsHighlightSection() {
           <div className="mt-12 text-center">
             <Link
               href="/awards"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:!bg-[#3B2B26]"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#6a604f", color: "#F7F5F0" }}
             >
               View All Awards & Press
@@ -1022,20 +1017,16 @@ function NayaraJournalSection() {
               </div>
             ))}
           </div>
-          {/* Desktop page dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {[0, 1, 2].map((i) => (
-              <button
-                key={i}
-                onClick={() => scrollToPage(i)}
-                className="w-2 h-2 rounded-full transition-all duration-300"
-                style={{
-                  backgroundColor: "#3B2B26",
-                  opacity: currentPage === i ? 1 : 0.2,
-                }}
-                aria-label={`Page ${i + 1}`}
-              />
-            ))}
+          {/* Desktop progress bar */}
+          <div className="mt-8 mx-auto w-24 h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+            <div
+              className="h-full rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: "#3B2B26",
+                width: `${100 / 3}%`,
+                marginLeft: `${(currentPage / 3) * 100}%`,
+              }}
+            />
           </div>
         </div>
         {/* Mobile: 1 card at a time, swipeable (same as Awards) */}
@@ -1056,17 +1047,16 @@ function NayaraJournalSection() {
               </div>
             ))}
           </div>
-          {/* Mobile dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {allCards.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollToMobileCard(i)}
-                className="w-2 h-2 rounded-full transition-all duration-300"
-                style={{ backgroundColor: "#3B2B26", opacity: mobileCard === i ? 1 : 0.2 }}
-                aria-label={`Card ${i + 1}`}
-              />
-            ))}
+          {/* Progress bar */}
+          <div className="mt-6 mx-auto w-24 h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+            <div
+              className="h-full rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: "#3B2B26",
+                width: `${100 / allCards.length}%`,
+                marginLeft: `${(mobileCard / allCards.length) * 100}%`,
+              }}
+            />
           </div>
          </div>
         {/* CTA below cards , matches Awards pattern */}
@@ -1074,7 +1064,7 @@ function NayaraJournalSection() {
           <div className="mt-12 text-center">
             <Link
               href="/journal"
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:!bg-[#3B2B26]"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#6a604f", color: "#F7F5F0" }}
             >
               Enter the Journal
