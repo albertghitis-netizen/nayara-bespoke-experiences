@@ -771,17 +771,7 @@ function AwardsHighlightSection() {
               </div>
             ))}
           </div>
-          {/* Desktop progress bar */}
-          <div className="mt-8 mx-auto w-32 h-[3px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
-            <div
-              className="h-full rounded-full transition-all duration-300"
-              style={{
-                backgroundColor: "#3B2B26",
-                width: `${100 / awardsDesktopPages}%`,
-                marginLeft: `${(awardsDesktopPage / awardsDesktopPages) * 100}%`,
-              }}
-            />
-          </div>
+
         </div>
 
         {/* Mobile: 1 card at a time, swipeable */}
@@ -1017,17 +1007,7 @@ function NayaraJournalSection() {
               </div>
             ))}
           </div>
-          {/* Desktop progress bar */}
-          <div className="mt-8 mx-auto w-32 h-[3px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
-            <div
-              className="h-full rounded-full transition-all duration-300"
-              style={{
-                backgroundColor: "#3B2B26",
-                width: `${100 / 3}%`,
-                marginLeft: `${(currentPage / 3) * 100}%`,
-              }}
-            />
-          </div>
+
         </div>
         {/* Mobile: 1 card at a time, swipeable (same as Awards) */}
         <div className="md:hidden relative">
