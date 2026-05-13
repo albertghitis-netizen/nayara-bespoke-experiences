@@ -170,6 +170,8 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
   }, [activeMilestoneIndex]);
 
   const activeFlightPaths = useMemo(() => {
+    // Journey only begins once Tented Camp (milestone 2) is reached
+    if (activeMilestoneIndex < 2) return [];
     const paths: { from: string; to: string; path: string }[] = [];
     for (let i = 1; i < flightPathOrder.length; i++) {
       const fromLoc = getLocationById(flightPathOrder[i - 1]);
@@ -184,7 +186,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
       }
     }
     return paths;
-  }, [activeLocationIds]);
+  }, [activeLocationIds, activeMilestoneIndex]);
 
   const currentLocationId = useMemo(() => {
     for (const loc of locations) {
