@@ -313,19 +313,19 @@ function BrandStorySection() {
             </div>
           )}
         </div>
-        {/* Vertical image , desktop only */}
+        {/* Vertical video , desktop only */}
         {!isMobile && (
           <div className="md:w-1/2">
-            <MediaReveal delay={0.2} className="h-full">
-              <div className="overflow-hidden w-full h-full">
-                <img
-                  src="/manus-storage/brand-s1-tent-v_4a147fd7.jpg"
-                  alt="Nayara Tented Camp surrounded by lush tropical greenery"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </MediaReveal>
+            <div className="overflow-hidden w-full h-full">
+              <video
+                src="/manus-storage/brand-philosophy-reel_6368eb9a.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         )}
       </div>
