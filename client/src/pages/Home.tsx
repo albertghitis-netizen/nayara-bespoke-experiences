@@ -449,7 +449,7 @@ function TimelineSection() {
             setActiveMilestone(i);
           }
         },
-        { threshold: 0.4, rootMargin: "-15% 0px -35% 0px" }
+        { threshold: 0.2, rootMargin: "-10% 0px -20% 0px" }
       );
       observer.observe(el);
       observers.push(observer);
@@ -505,11 +505,11 @@ function TimelineSection() {
           </div>
 
           {/* Milestones , scrollable on the right */}
-          <div className="flex-1 pb-[18vh]">
+          <div className="flex-1 pb-[60vh]">
             {milestones.map((m, i) => {
               /* Costa Rica milestones (0,1,2) get compressed spacing so the plane flies sooner */
               const isCostaRica = i < 3;
-              const spacing = i === 0 ? "" : isCostaRica ? "mt-6 lg:mt-8" : "mt-16 lg:mt-20";
+              const spacing = i === 0 ? "" : isCostaRica ? "mt-6 lg:mt-8" : "mt-24 lg:mt-32";
               return (
               <div
                 key={m.year}
