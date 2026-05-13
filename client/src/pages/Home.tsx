@@ -1765,7 +1765,7 @@ function BrandCTA() {
           <button
             onClick={goPrev}
             className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110"
-            style={{ borderColor: "rgba(176,141,87,0.4)", color: "rgba(176,141,87,0.8)" }}
+            style={{ borderColor: "rgba(59,43,38,0.5)", color: "#3B2B26" }}
             aria-label="Previous"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -1808,7 +1808,7 @@ function BrandCTA() {
           <button
             onClick={goNext}
             className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110"
-            style={{ borderColor: "rgba(176,141,87,0.4)", color: "rgba(176,141,87,0.8)" }}
+            style={{ borderColor: "rgba(59,43,38,0.5)", color: "#3B2B26" }}
             aria-label="Next"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
