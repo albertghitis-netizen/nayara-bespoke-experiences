@@ -772,7 +772,7 @@ function AwardsHighlightSection() {
             ))}
           </div>
           {/* Desktop progress bar */}
-          <div className="mt-8 mx-auto w-24 h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+          <div className="mt-8 mx-auto w-32 h-[3px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
             <div
               className="h-full rounded-full transition-all duration-300"
               style={{
@@ -798,7 +798,7 @@ function AwardsHighlightSection() {
             ))}
           </div>
           {/* Progress bar */}
-          <div className="mt-6 mx-auto w-24 h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+          <div className="mt-6 mx-auto w-32 h-[3px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
             <div
               className="h-full rounded-full transition-all duration-300"
               style={{
@@ -1018,7 +1018,7 @@ function NayaraJournalSection() {
             ))}
           </div>
           {/* Desktop progress bar */}
-          <div className="mt-8 mx-auto w-24 h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+          <div className="mt-8 mx-auto w-32 h-[3px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
             <div
               className="h-full rounded-full transition-all duration-300"
               style={{
@@ -1048,7 +1048,7 @@ function NayaraJournalSection() {
             ))}
           </div>
           {/* Progress bar */}
-          <div className="mt-6 mx-auto w-24 h-[2px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+          <div className="mt-6 mx-auto w-32 h-[3px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
             <div
               className="h-full rounded-full transition-all duration-300"
               style={{
@@ -1737,14 +1737,14 @@ function BrandCTA() {
 
         <h2
           className="text-3xl md:text-5xl lg:text-[56px] leading-[1.1] tracking-wide mb-8"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#F7F5F0" }}
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFFFFF" }}
         >
           Six Landscapes.<br />One Invitation.
         </h2>
 
         <p
           className="text-base md:text-lg leading-relaxed max-w-[600px] mx-auto mb-14"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "rgba(247,245,240,0.6)" }}
+          style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "rgba(255,255,255,0.7)" }}
         >
           From volcanic rainforest to the driest desert on Earth, from a Caribbean archipelago to the most remote island in the Pacific , discover which Nayara calls to you.
         </p>
@@ -1754,8 +1754,8 @@ function BrandCTA() {
           {/* Left arrow */}
           <button
             onClick={goPrev}
-            className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110"
-            style={{ borderColor: "rgba(59,43,38,0.5)", color: "#3B2B26" }}
+            className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+            style={{ backgroundColor: "#3B2B26", color: "#FFFFFF" }}
             aria-label="Previous"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -1773,9 +1773,9 @@ function BrandCTA() {
               fontSize: "12px",
               letterSpacing: "0.18em",
               textTransform: "uppercase" as const,
-              color: "#F7F5F0",
-              backgroundColor: "rgba(176,141,87,0.15)",
-              borderColor: "rgba(176,141,87,0.5)",
+              color: "#FFFFFF",
+              backgroundColor: "#3B2B26",
+              borderColor: "#3B2B26",
             }}
           >
             <AnimatePresence mode="wait">
@@ -1797,8 +1797,8 @@ function BrandCTA() {
           {/* Right arrow */}
           <button
             onClick={goNext}
-            className="w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 hover:scale-110"
-            style={{ borderColor: "rgba(59,43,38,0.5)", color: "#3B2B26" }}
+            className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+            style={{ backgroundColor: "#3B2B26", color: "#FFFFFF" }}
             aria-label="Next"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
