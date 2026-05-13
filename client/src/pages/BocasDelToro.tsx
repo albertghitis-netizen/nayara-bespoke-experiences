@@ -279,7 +279,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Sustainability",
     headline: "Protecting\nParadise",
     body: "Our commitment to marine conservation and island stewardship ensures that the pristine beauty of Bocas del Toro endures for generations. Through partnerships with local conservation organizations, renewable energy systems, and community programs, we protect the delicate ecosystems that make this place extraordinary.\n\nNayara Bocas del Toro operates on 100% renewable energy and has partnered with the Smithsonian Tropical Research Institute to monitor and protect the coral reefs surrounding Isla Pastores. Our zero single-use plastic policy, coral restoration nurseries, and dolphin-safe boating protocols ensure that every guest visit actively contributes to the health of this irreplaceable Caribbean ecosystem.",
-    verticalSrc: "/manus-storage/bocas-delfines_dc5e78fc.mp4",
+    verticalSrc: "/manus-storage/bocas-sustainability-v-new_62c80f7c.mp4",
     horizontalSrc: "",
     verticalIsVideo: true,
     horizontalIsVideo: false,
@@ -343,8 +343,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Nayara by Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow , kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
-    verticalSrc: "/manus-storage/bocas-bynight-vertical-new_3768ac6e.mp4",
-    verticalIsVideo: true,
+    verticalSrc: "/manus-storage/bocas-bynight-bioluminescence_628c75d7.jpg",
+    verticalIsVideo: false,
     verticalRatio: "3/4",
     horizontalSrc: "",
     horizontalIsVideo: false,
@@ -384,15 +384,17 @@ function MediaBlock({
   ratio,
   alt,
   className = "",
+  fillHeight = false,
 }: {
   src: string;
   isVideo: boolean;
   ratio: string;
   alt?: string;
   className?: string;
+  fillHeight?: boolean;
 }) {
   return (
-    <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
+    <div className={`overflow-hidden ${fillHeight ? "h-full" : ""} ${className}`} style={fillHeight ? undefined : { aspectRatio: ratio }}>
       {isVideo ? (
         <NativeVideo src={src} className="w-full h-full object-cover" />
       ) : (
@@ -516,12 +518,13 @@ function CascadeSection({
       <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media , on mobile: always after text (order-2), on desktop: alternates */}
         <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
-          <MediaReveal delay={0.1}>
+          <MediaReveal delay={0.1} className="h-full">
             <MediaBlock
               src={section.verticalSrc}
               isVideo={section.verticalIsVideo}
               ratio={section.verticalRatio}
               alt={`${section.label} , Nayara Bocas del Toro`}
+              fillHeight={true}
             />
           </MediaReveal>
         </div>
@@ -941,7 +944,7 @@ export default function BocasDelToro() {
           headline={"Overwater Villas\n& Treehouse Villas"}
           description="Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views."
           rooms={BOCAS_ROOMS}
-          startVideoLeft={true}
+          forceVideoLeft={true}
           palette={{
             bg: COLOR_A,
             text: PALETTE.text,
