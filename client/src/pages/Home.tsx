@@ -1731,10 +1731,8 @@ function BrandCTA() {
   return (
     <section
       className="relative py-28 md:py-40 px-6 overflow-hidden"
-      style={{ backgroundColor: "#1a0f0a" }}
+      style={{ backgroundColor: "#6a604f" }}
     >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a0f0a] via-[#2a1a10] to-[#1a0f0a]" />
 
       <div className="relative z-10 max-w-[900px] mx-auto text-center">
         {/* Decorative line */}
