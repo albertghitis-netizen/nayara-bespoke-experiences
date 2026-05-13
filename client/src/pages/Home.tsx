@@ -170,7 +170,7 @@ export default function Home() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = "/manus-storage/brand-hero-v2_9adc41f2.mp4";
+  const heroVideo = "/manus-storage/brand-hero-v2_6ba8a331.mp4";
   const mobileHeroVideo = "/manus-storage/mobile-hero-web_9f66d743.mp4";
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -325,8 +325,9 @@ function BrandStorySection() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-8 left-0 right-0 flex justify-center">
-                <span className="px-6 py-2.5 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 text-white text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                  Explore Nayara Bocas del Toro
+                <span className="px-6 py-2.5 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 text-white text-[11px] tracking-[0.2em] uppercase inline-flex items-center gap-2" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Explore Bocas del Toro
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
                 </span>
               </div>
             </div>
@@ -345,8 +346,9 @@ function BrandStorySection() {
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-8 left-0 right-0 flex justify-center">
-            <span className="px-6 py-2.5 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 text-white text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-              Explore Nayara Alto Atacama
+            <span className="px-6 py-2.5 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 text-white text-[11px] tracking-[0.2em] uppercase inline-flex items-center gap-2" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+              Explore Alto Atacama
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
             </span>
           </div>
         </div>
