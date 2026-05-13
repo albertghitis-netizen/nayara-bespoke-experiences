@@ -149,7 +149,7 @@ export default function Home() {
       <BreadcrumbListSchema items={[
         { name: "Home", url: "https://nayararesorts.manus.space" },
       ]} />
-      <BrandNavigation pageType="brand" />
+      <BrandNavigation pageType="brand" navPalette={{ dark: "#fff", pillBg: "rgba(106,96,79,0.8)", pillHover: "rgba(106,96,79,0.95)" }} />
       <HeroSection />
       <BrandStorySection />
       <PropertiesSection />
@@ -212,7 +212,7 @@ function HeroSection() {
         style={{
           top: "8px",
           left: "56px",
-          backgroundColor: "rgba(59,43,38,0.8)",
+          backgroundColor: "rgba(106,96,79,0.8)",
           borderColor: "rgba(255,255,255,0.1)",
         }}
       >
