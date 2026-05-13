@@ -290,7 +290,7 @@ function BrandStorySection() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 mt-6 mb-6 px-6 py-2.5 rounded-full transition-all duration-300 hover:opacity-80"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", color: "#F7F5F0", backgroundColor: "#3B2B26", textTransform: "uppercase" }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", color: "#F7F5F0", backgroundColor: "#6a604f", textTransform: "uppercase" }}
             >
               <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
@@ -404,7 +404,7 @@ function PropertiesSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center h-8 px-4 rounded-full text-[10px] tracking-[0.1em] transition-all duration-300 hover:opacity-80"
-                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: PALETTE.accent, color: "#fff" }}
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#6a604f", color: "#fff" }}
                     >
                       Reserve
                     </a>
@@ -821,7 +821,7 @@ function AwardsHighlightSection() {
             <Link
               href="/awards"
               className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#6a604f", color: "#F7F5F0" }}
             >
               View All Awards & Press
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -1075,7 +1075,7 @@ function NayaraJournalSection() {
             <Link
               href="/journal"
               className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, backgroundColor: "#6a604f", color: "#F7F5F0" }}
             >
               Enter the Journal
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
