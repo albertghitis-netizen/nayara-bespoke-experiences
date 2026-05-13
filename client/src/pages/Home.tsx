@@ -318,7 +318,7 @@ function BrandStorySection() {
           <div className="md:w-1/2">
             <div className="relative overflow-hidden w-full h-full">
               <video
-                src="/manus-storage/brand-s1-vertical-v2_168e4733.mp4"
+                src="/manus-storage/brand-s1-vertical-v3_bf4a2032.mp4"
                 autoPlay
                 muted
                 playsInline
@@ -326,7 +326,7 @@ function BrandStorySection() {
               />
               <div className="absolute bottom-8 left-0 right-0 flex justify-center">
                 <span className="px-6 py-2.5 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 text-white text-[11px] tracking-[0.2em] uppercase inline-flex items-center gap-2" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-                  Explore Bocas del Toro
+                  Explore Tented Camp
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
                 </span>
               </div>
