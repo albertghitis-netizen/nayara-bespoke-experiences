@@ -279,7 +279,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Sustainability",
     headline: "Protecting\nParadise",
     body: "Our commitment to marine conservation and island stewardship ensures that the pristine beauty of Bocas del Toro endures for generations. Through partnerships with local conservation organizations, renewable energy systems, and community programs, we protect the delicate ecosystems that make this place extraordinary.\n\nNayara Bocas del Toro operates on 100% renewable energy and has partnered with the Smithsonian Tropical Research Institute to monitor and protect the coral reefs surrounding Isla Pastores. Our zero single-use plastic policy, coral restoration nurseries, and dolphin-safe boating protocols ensure that every guest visit actively contributes to the health of this irreplaceable Caribbean ecosystem.",
-    verticalSrc: "/manus-storage/bocas-sustainability-v-new_62c80f7c.mp4",
+    verticalSrc: "/manus-storage/bocas-sustainability-v-new2_a97923a3.mp4",
     horizontalSrc: "",
     verticalIsVideo: true,
     horizontalIsVideo: false,
