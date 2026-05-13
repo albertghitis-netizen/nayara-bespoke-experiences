@@ -324,10 +324,10 @@ function BrandStorySection() {
                 playsInline
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
-                <p className="text-white text-[13px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+              <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+                <span className="px-6 py-2.5 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 text-white text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
                   Explore Nayara Bocas del Toro
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -344,10 +344,10 @@ function BrandStorySection() {
             playsInline
             className="w-full h-full object-cover"
           />
-          <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
-            <p className="text-white text-[13px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+          <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+            <span className="px-6 py-2.5 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 text-white text-[11px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
               Explore Nayara Alto Atacama
-            </p>
+            </span>
           </div>
         </div>
       </div>
