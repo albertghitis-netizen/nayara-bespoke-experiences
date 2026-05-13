@@ -246,10 +246,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
 
         {/* Newsletter CTA */}
         <div className="relative flex flex-col items-center mt-10 mb-6">
-          {/* Mobile leaf , only shows on mobile since desktop has it in the column */}
-          <div className="md:hidden absolute left-1/2 -translate-x-1/2" style={{ bottom: "100%", marginBottom: "-8px" }}>
-            <AnimatedLeaf />
-          </div>
+
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}

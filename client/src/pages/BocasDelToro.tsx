@@ -4,6 +4,7 @@
  * Full-bleed edge-to-edge media, ocean gradient, ALL assets, no functional content
  * Zero-gap between all sections , one continuous visual journey
  */
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -213,6 +214,7 @@ type CascadeSectionData = {
   stats?: { label: string; value: string }[];
   hideH?: boolean;
   overlayOnVideo?: boolean;
+  hideVerticalOnMobile?: boolean;
 };
 
 const CASCADE_SECTIONS: CascadeSectionData[] = [
@@ -220,12 +222,13 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     id: "story",
     label: "The Property",
     headline: "Rainforest to Reef",
-    body: "Nayara Bocas del Toro is an adults-only sanctuary on a private Caribbean island, where overwater villas float above crystal-clear turquoise waters. Each villa features direct ocean access, private plunge pools, and unobstructed views of pristine beaches and jungle-covered islands.\n\nOverwater villas and rainforest treehouses on a private island in Panama\u2019s Caribbean archipelago. Adults-only, solar-powered, and surrounded by coral reef. Two Michelin Keys. Number one in Central America \u2014 Cond\u00e9 Nast Traveler.",
+    body: "Nayara Bocas del Toro is an adults-only sanctuary on a private Caribbean island, where overwater villas float above crystal-clear turquoise waters. Each villa features direct ocean access, private plunge pools, and unobstructed views of pristine beaches and jungle-covered islands.\n\nOverwater villas and rainforest treehouses on a private island in Panama’s Caribbean archipelago. Adults-only, solar-powered, and surrounded by coral reef. Two Michelin Keys. Number one in Central America — Condé Nast Traveler.",
     verticalSrc: "/manus-storage/bocas-story-v-new_107d5bb2.mp4",
     horizontalSrc: "",
     verticalIsVideo: true,
     horizontalIsVideo: false,
     hideH: true,
+    hideVerticalOnMobile: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[1],
@@ -517,7 +520,7 @@ function CascadeSection({
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media , on mobile: always after text (order-2), on desktop: alternates */}
-        <div className={`w-full md:w-1/2 relative z-[2] order-2 h-full ${textLeft ? "md:order-2" : "md:order-1"}`}>
+        <div className={`w-full md:w-1/2 relative z-[2] order-2 h-full ${textLeft ? "md:order-2" : "md:order-1"} ${section.hideVerticalOnMobile ? "hidden md:block" : ""}`}>
             <MediaBlock
               src={section.verticalSrc}
               isVideo={section.verticalIsVideo}
@@ -676,74 +679,262 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FUNCTIONAL BREAK , Guest Voices (Reviews)
-   Matches Tented Camp ReviewsBreak pattern exactly
+   BOCAS JOURNAL , Horizontal slider with real Bocas entries + placeholders
+   Replaces Guest Reviews section
    ═══════════════════════════════════════════════════════════════ */
-function ReviewsBreak({ bgColor }: { bgColor: string }) {
+interface BocasJournalCard {
+  id: string;
+  label: string;
+  title: string;
+  image: string;
+  href: string | null;
+  placeholder?: boolean;
+}
+
+const BOCAS_JOURNAL_CARDS: BocasJournalCard[] = [
+  {
+    id: "conde-nast-bocas",
+    label: "Read",
+    title: "#1 Resort in Central America — Condé Nast Traveler 2025",
+    image: "/manus-storage/bocas-aerial-cover_46f0bbf4.jpg",
+    href: "/blog/bocas-conde-nast",
+  },
+  {
+    id: "treehouse-dreams",
+    label: "Read",
+    title: "The Treehouse of Your Dreams",
+    image: "/manus-storage/bocas-treehouse-cover_5eb7138e.jpg",
+    href: "/blog/treehouse-dreams",
+  },
+  {
+    id: "floating-paradise",
+    label: "Read",
+    title: "Your Floating Paradise in the Galápagos of the Caribbean",
+    image: "https://blog.nayararesorts.com/hubfs/Nayara%20Bocas%20del%20Toro%20(2).webp",
+    href: "/blog/floating-paradise",
+  },
+  {
+    id: "private-island-bocas",
+    label: "Read",
+    title: "The Private Island Paradise of Bocas del Toro",
+    image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
+    href: "/blog/private-island-bocas",
+  },
+  { id: "placeholder-1", label: "Watch", title: "Coming Soon", image: "", href: null, placeholder: true },
+  { id: "placeholder-2", label: "Listen", title: "Coming Soon", image: "", href: null, placeholder: true },
+  { id: "placeholder-3", label: "Read", title: "Coming Soon", image: "", href: null, placeholder: true },
+  { id: "placeholder-4", label: "Watch", title: "Coming Soon", image: "", href: null, placeholder: true },
+  { id: "placeholder-5", label: "Read", title: "Coming Soon", image: "", href: null, placeholder: true },
+];
+
+function BocasJournalSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [mobileCard, setMobileCard] = useState(0);
+  const totalPages = 3;
+  const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+  const body = { fontFamily: "var(--font-body)" } as const;
+
+  const scrollToPage = (page: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: page * el.clientWidth, behavior: "smooth" });
+    setCurrentPage(page);
+  };
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const newPage = Math.round(el.scrollLeft / el.clientWidth);
+    setCurrentPage(newPage);
+  }, []);
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  const scrollToMobileCard = (idx: number) => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: idx * el.clientWidth, behavior: "smooth" });
+    setMobileCard(idx);
+  };
+  const handleMobileScroll = useCallback(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    setMobileCard(Math.round(el.scrollLeft / el.clientWidth));
+  }, []);
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (el) el.addEventListener("scroll", handleMobileScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleMobileScroll);
+  }, [handleMobileScroll]);
+
   return (
-    <section
-      className="py-20 md:py-28 px-8 md:px-16"
-      style={{ backgroundColor: bgColor }}
-    >
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden" style={{ backgroundColor: COLOR_A }}>
+      <div className="relative z-10 max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <p
-            className="text-[11px] tracking-[0.2em] mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+            className="text-[11px] tracking-[0.2em] mb-4"
+            style={{ ...body, fontWeight: 500, color: PALETTE.primary }}
           >
-            Guest Voices
+            Stories
           </p>
         </AnimateOnScroll>
+        <TextReveal as="h2" className="mb-14 md:mb-20" delay={0.1}>
+          <span
+            className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+            style={{ ...display, color: PALETTE.text }}
+          >
+            Explore Nayara Bocas
+          </span>
+        </TextReveal>
 
-        <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <div className="flex justify-center gap-1 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <svg key={i} className="w-5 h-5" fill={PALETTE.primary} viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
+        {/* Desktop: 3 cards per page */}
+        <div className="hidden md:block relative">
+          <button
+            onClick={() => scrollToPage(currentPage - 1)}
+            disabled={currentPage === 0}
+            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: PALETTE.primary }}
+            aria-label="Previous"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button
+            onClick={() => scrollToPage(currentPage + 1)}
+            disabled={currentPage >= totalPages - 1}
+            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: PALETTE.primary }}
+            aria-label="Next"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {[0, 1, 2].map((pageIdx) => (
+              <div key={pageIdx} className="flex-shrink-0 w-full grid grid-cols-3 gap-5" style={{ scrollSnapAlign: "start" }}>
+                {BOCAS_JOURNAL_CARDS.slice(pageIdx * 3, pageIdx * 3 + 3).map((card) => (
+                  <BocasJournalCard key={card.id} card={card} />
+                ))}
+              </div>
             ))}
           </div>
-        </AnimateOnScroll>
+          <div className="flex justify-center gap-2 mt-8">
+            {[0, 1, 2].map((i) => (
+              <button
+                key={i}
+                onClick={() => scrollToPage(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{ backgroundColor: PALETTE.primary, opacity: currentPage === i ? 1 : 0.2 }}
+                aria-label={`Page ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
 
-        <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <p
-            className="text-[13px] tracking-[0.04em] mb-8"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.textTertiary }}
+        {/* Mobile: 1 card at a time */}
+        <div className="md:hidden relative">
+          <div
+            ref={mobileScrollRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
           >
-            Based on 500+ reviews on TripAdvisor
-          </p>
-        </AnimateOnScroll>
+            {BOCAS_JOURNAL_CARDS.map((card) => (
+              <div key={card.id} className="flex-shrink-0 w-full px-1" style={{ scrollSnapAlign: "start" }}>
+                <BocasJournalCard card={card} />
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center gap-2 mt-6">
+            {BOCAS_JOURNAL_CARDS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToMobileCard(i)}
+                className="w-2 h-2 rounded-full transition-all duration-300"
+                style={{ backgroundColor: PALETTE.primary, opacity: mobileCard === i ? 1 : 0.2 }}
+                aria-label={`Card ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
 
-        <AnimateOnScroll variants={fadeUp} delay={0.2}>
-          <blockquote>
-            <p
-              className="text-[17px] md:text-[20px] leading-relaxed italic mb-4"
-              style={{ fontFamily: "var(--font-body)", color: PALETTE.text }}
-            >
-              "Pure paradise. The overwater villas are breathtaking , waking up to turquoise water beneath your feet is surreal. The staff, the food, the snorkeling , everything exceeded our wildest expectations. We're already planning our return."
-            </p>
-            <cite
-              className="text-[12px] tracking-[0.08em] not-italic"
-              style={{ fontFamily: "var(--font-body)", color: PALETTE.textTertiary }}
-            >
-              , Daniela, TripAdvisor
-            </cite>
-          </blockquote>
-        </AnimateOnScroll>
-
+        {/* CTA */}
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
-          <a
-            href="https://www.tripadvisor.com/Hotel_Review-g1577087-d23465752-Reviews-Nayara_Bocas_Del_Toro-Isla_Pastores_Bocas_del_Toro_Province.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-8 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
-          >
-            Read All Reviews →
-          </a>
+          <div className="mt-12 text-center">
+            <a
+              href="/journal"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-500 hover:opacity-80"
+              style={{ ...body, fontWeight: 500, backgroundColor: PALETTE.primary, color: "#fff" }}
+            >
+              Enter the Journal
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
         </AnimateOnScroll>
       </div>
     </section>
+  );
+}
+
+function BocasJournalCard({ card }: { card: BocasJournalCard }) {
+  const body = { fontFamily: "var(--font-body)", fontWeight: 500 } as const;
+  const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
+  const isDummy = !card.image;
+  return (
+    <div className="flex flex-col">
+      <div
+        className="group relative w-full overflow-hidden rounded-lg"
+        style={{ aspectRatio: "1/1", backgroundColor: isDummy ? "#C8DFF0" : "#1c1917" }}
+      >
+        {isDummy ? (
+          <div className="absolute top-4 left-4">
+            <span
+              className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
+              style={{ ...body, backgroundColor: PALETTE.primary, color: "#fff" }}
+            >
+              {card.label}
+            </span>
+          </div>
+        ) : (
+          <a href={card.href || "#"} className="block w-full h-full">
+            <img
+              src={card.image}
+              alt={card.title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            <div className="absolute top-4 left-4">
+              <span
+                className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
+                style={{ ...body, backgroundColor: PALETTE.primary, color: "#fff" }}
+              >
+                {card.label}
+              </span>
+            </div>
+          </a>
+        )}
+      </div>
+      <div className="pt-4 pb-2">
+        <h3
+          className="text-[14px] md:text-[15px] leading-[1.3]"
+          style={{ ...display, color: PALETTE.text }}
+        >
+          {card.title}
+        </h3>
+      </div>
+    </div>
   );
 }
 
@@ -961,7 +1152,7 @@ export default function BocasDelToro() {
         <CascadeSection key={section.id} section={section} index={i + 2} />
       ))}
 
-      <ReviewsBreak bgColor={COLOR_A} />
+      <BocasJournalSection />
 
       <GettingHereBreak bgColor="#C8DFF0" />
       <ReserveCTA />
