@@ -170,8 +170,8 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
   }, [activeMilestoneIndex]);
 
   const activeFlightPaths = useMemo(() => {
-    // Journey only begins once Tented Camp (milestone 2) is reached
-    if (activeMilestoneIndex < 2) return [];
+    // Journey only begins once Springs (milestone 1) is reached
+    if (activeMilestoneIndex < 1) return [];
     // Each flight path maps to a specific milestone trigger:
     // Path 0: costa-rica → atacama (triggers at milestone 3)
     // Path 1: atacama → easter-island (triggers at milestone 4)
