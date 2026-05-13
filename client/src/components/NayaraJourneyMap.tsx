@@ -172,21 +172,28 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
   const activeFlightPaths = useMemo(() => {
     // Journey only begins once Tented Camp (milestone 2) is reached
     if (activeMilestoneIndex < 2) return [];
-    const paths: { from: string; to: string; path: string }[] = [];
+    // Each flight path maps to a specific milestone trigger:
+    // Path 0: costa-rica → atacama (triggers at milestone 3)
+    // Path 1: atacama → easter-island (triggers at milestone 4)
+    // Path 2: easter-island → bocas (triggers at milestone 5)
+    const pathTriggers = [3, 4, 5];
+    const paths: { from: string; to: string; path: string; isNew: boolean }[] = [];
     for (let i = 1; i < flightPathOrder.length; i++) {
       const fromLoc = getLocationById(flightPathOrder[i - 1]);
       const toLoc = getLocationById(flightPathOrder[i]);
       if (!fromLoc || !toLoc) continue;
-      if (activeLocationIds.has(toLoc.id)) {
+      const triggerMilestone = pathTriggers[i - 1];
+      if (activeMilestoneIndex >= triggerMilestone) {
         paths.push({
           from: fromLoc.id,
           to: toLoc.id,
           path: generateCurvedPath(fromLoc, toLoc),
+          isNew: activeMilestoneIndex === triggerMilestone,
         });
       }
     }
     return paths;
-  }, [activeLocationIds, activeMilestoneIndex]);
+  }, [activeMilestoneIndex]);
 
   const currentLocationId = useMemo(() => {
     for (const loc of locations) {
@@ -340,9 +347,9 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
         {activeFlightPaths.map((fp, i) => {
           const isEasterIslandPath = fp.from === "atacama" && fp.to === "easter-island";
           const isReturnPath = fp.from === "easter-island" && fp.to === "bocas";
-          /* Stagger each path: first starts at 0.3s, each subsequent waits 1.8s more */
-          const staggerDelay = 0.3 + i * 1.8;
-          const pathDuration = isEasterIslandPath ? 3.5 : 2.5;
+          /* New paths animate in; previously drawn paths appear instantly */
+          const staggerDelay = fp.isNew ? 0.3 : 0;
+          const pathDuration = fp.isNew ? (isEasterIslandPath ? 3.5 : 2.5) : 0.01;
           return (
             <g key={`${fp.from}-${fp.to}`}>
               {/* Wide glow underlay */}

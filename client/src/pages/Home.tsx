@@ -515,11 +515,10 @@ function TimelineSection() {
           </div>
 
           {/* Milestones , scrollable on the right */}
-          <div className="flex-1 pb-[60vh]">
+          <div className="flex-1 pb-[30vh]">
             {milestones.map((m, i) => {
-              /* Costa Rica milestones (0,1,2) get compressed spacing so the plane flies sooner */
-              const isCostaRica = i < 3;
-              const spacing = i === 0 ? "" : isCostaRica ? "mt-6 lg:mt-8" : "mt-24 lg:mt-32";
+              /* Uniform spacing for all milestones */
+              const spacing = i === 0 ? "" : "mt-20 lg:mt-28";
               return (
               <div
                 key={m.year}
