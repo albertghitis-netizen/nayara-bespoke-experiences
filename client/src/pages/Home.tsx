@@ -330,18 +330,18 @@ function BrandStorySection() {
         )}
       </div>
 
-      {/* S2: Horizontal image , full bleed, connected below S1 (desktop only) */}
+      {/* S2: Horizontal video , full bleed, connected below S1 (desktop only) */}
       <div className="hidden md:block w-full">
-        <MediaReveal>
-          <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-            <img
-              src="/manus-storage/brand-s2-bocas-new_d18b38a1.jpg"
-              alt="Aerial view of Bocas del Toro tropical island with turquoise waters"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </MediaReveal>
+        <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+          <video
+            src="/manus-storage/brand-s2-horizontal_6876be11.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
     </section>
   );
