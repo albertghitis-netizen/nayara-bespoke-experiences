@@ -316,15 +316,19 @@ function BrandStorySection() {
         {/* Vertical video , desktop only */}
         {!isMobile && (
           <div className="md:w-1/2">
-            <div className="overflow-hidden w-full h-full">
+            <div className="relative overflow-hidden w-full h-full">
               <video
-                src="/manus-storage/brand-philosophy-reel_6368eb9a.mp4"
+                src="/manus-storage/brand-s1-vertical-v2_168e4733.mp4"
                 autoPlay
-                loop
                 muted
                 playsInline
                 className="w-full h-full object-cover"
               />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
+                <p className="text-white text-[13px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+                  Explore Nayara Bocas del Toro
+                </p>
+              </div>
             </div>
           </div>
         )}
@@ -332,15 +336,19 @@ function BrandStorySection() {
 
       {/* S2: Horizontal video , full bleed, connected below S1 (desktop only) */}
       <div className="hidden md:block w-full">
-        <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+        <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <video
-            src="/manus-storage/brand-s2-horizontal_6876be11.mp4"
+            src="/manus-storage/brand-s2-horizontal-v3_49dc9248.mp4"
             autoPlay
-            loop
             muted
             playsInline
             className="w-full h-full object-cover"
           />
+          <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/60 via-black/20 to-transparent">
+            <p className="text-white text-[13px] tracking-[0.2em] uppercase" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+              Explore Nayara Alto Atacama
+            </p>
+          </div>
         </div>
       </div>
     </section>
