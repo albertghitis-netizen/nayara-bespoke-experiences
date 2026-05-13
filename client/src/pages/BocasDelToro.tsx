@@ -517,8 +517,7 @@ function CascadeSection({
       {/* ── Row: Vertical media + Text column ── */}
       <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
         {/* Vertical media , on mobile: always after text (order-2), on desktop: alternates */}
-        <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
-          <MediaReveal delay={0.1} className="h-full">
+        <div className={`w-full md:w-1/2 relative z-[2] order-2 h-full ${textLeft ? "md:order-2" : "md:order-1"}`}>
             <MediaBlock
               src={section.verticalSrc}
               isVideo={section.verticalIsVideo}
@@ -526,7 +525,6 @@ function CascadeSection({
               alt={`${section.label} , Nayara Bocas del Toro`}
               fillHeight={true}
             />
-          </MediaReveal>
         </div>
         {/* Text column */}
         <div
