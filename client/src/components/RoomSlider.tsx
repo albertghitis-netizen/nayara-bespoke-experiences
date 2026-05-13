@@ -35,6 +35,7 @@ interface RoomSliderProps {
   description?: string;
   rooms: RoomSliderCard[];
   forceVideoLeft?: boolean;
+  startVideoLeft?: boolean;
   palette: {
     bg: string;
     text: string;
@@ -53,6 +54,7 @@ export default function RoomSlider({
   description,
   rooms,
   forceVideoLeft,
+  startVideoLeft,
   palette,
 }: RoomSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -86,7 +88,7 @@ export default function RoomSlider({
   const pillBg = palette.pillBg || palette.primary;
   const pillText = palette.pillText || "#ffffff";
   const currentRoom = rooms[currentIndex];
-  const isVideoLeft = forceVideoLeft !== undefined ? forceVideoLeft : currentIndex % 2 === 1;
+  const isVideoLeft = forceVideoLeft !== undefined ? forceVideoLeft : startVideoLeft ? currentIndex % 2 === 0 : currentIndex % 2 === 1;
 
   const slideVariants = {
     enter: (dir: number) => ({ x: dir > 0 ? 150 : -150, opacity: 0 }),

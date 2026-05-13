@@ -67,20 +67,20 @@ const DARK_SECTION_IDS = ["nayara-by-night"];
 
 const BOCAS_ROOMS: RoomSliderCard[] = [
   {
-    id: "overwater-villa",
-    label: "Overwater Villa",
-    tagline: "Suspended above the Caribbean Sea with direct ocean access",
-    guests: "2 Adults",
-    video: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
-    exploreLink: "/bocas-del-toro/rooms",
-    bookingUrl: BOOKING_URLS["bocas-del-toro"],
-  },
-  {
     id: "overwater-villa-deluxe",
     label: "Overwater Villa Deluxe",
     tagline: "Premium overwater experience with enhanced amenities",
     guests: "2 Adults",
-    video: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
+    video: "/manus-storage/bocas-overwater-deluxe-v_29c8c2b1.mp4",
+    exploreLink: "/bocas-del-toro/rooms",
+    bookingUrl: BOOKING_URLS["bocas-del-toro"],
+  },
+  {
+    id: "overwater-villa",
+    label: "Overwater Villa",
+    tagline: "Suspended above the Caribbean Sea with direct ocean access",
+    guests: "2 Adults",
+    video: "/manus-storage/bocas-overwater-villa-v_1ed816bc.mp4",
     exploreLink: "/bocas-del-toro/rooms",
     bookingUrl: BOOKING_URLS["bocas-del-toro"],
   },
@@ -89,16 +89,16 @@ const BOCAS_ROOMS: RoomSliderCard[] = [
     label: "Treehouse Villa",
     tagline: "Elevated among the jungle canopy with ocean views",
     guests: "2 Adults",
-    video: "/manus-storage/bocas-accommodations-h_d33b2e24.mp4",
+    video: "/manus-storage/bocas-treehouse-v_a94ad5e7.mp4",
     exploreLink: "/bocas-del-toro/rooms",
     bookingUrl: BOOKING_URLS["bocas-del-toro"],
   },
   {
     id: "premium-villa",
-    label: "Premium Villa , Coming Soon",
-    tagline: "Luxury villa experience launching soon",
+    label: "Premium Villa",
+    tagline: "Coming Soon",
     guests: "2 Adults",
-    video: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
+    video: "",
     exploreLink: "/bocas-del-toro/rooms",
     bookingUrl: BOOKING_URLS["bocas-del-toro"],
   },
@@ -325,7 +325,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "Forest to Table",
     headline: "Caribbean\nFlavors",
     body: "Our culinary program celebrates the extraordinary bounty of the Caribbean Sea and the rich agricultural traditions of Panama. Fresh-caught seafood, tropical fruits, and locally grown ingredients are transformed into dishes that honor both the land and the ocean.",
-    verticalSrc: ASSETS.gastroV,
+    verticalSrc: "/manus-storage/bocas-gastro-v-new_e9dfa238.jpg",
     horizontalSrc: "",
     verticalIsVideo: false,
     horizontalIsVideo: false,
@@ -940,6 +940,7 @@ export default function BocasDelToro() {
           headline={"Overwater Villas\n& Treehouse Villas"}
           description="Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views."
           rooms={BOCAS_ROOMS}
+          startVideoLeft={true}
           palette={{
             bg: COLOR_A,
             text: PALETTE.text,
