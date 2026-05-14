@@ -1141,17 +1141,15 @@ function JournalTeaserCard({
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          {/* Type label , pill badge matching dummy cards */}
-          <div className="absolute top-4 left-4">
+          {/* Type label , transparent frosted glass pill, bottom-left, matching Journal page style */}
+          <div className="absolute bottom-4 left-4">
             <span
-              className="inline-block px-3 py-1 rounded-full text-[9px] tracking-[0.25em] uppercase"
-              style={{ ...bodyFont, backgroundColor: "#3B2B26", color: "#F7F5F0" }}
+              className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase"
+              style={bodyFont}
             >
               {card.label}
             </span>
           </div>
-          {/* Bottom gradient only , no text */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent" />
         </>
       )}
     </div>
