@@ -550,6 +550,23 @@ function GardensPanoramaPanel({
       {index < 2 && (
         <div className="absolute top-0 right-0 bottom-0 w-px" style={{ backgroundColor: "rgba(255,255,255,0.18)" }} />
       )}
+      {/* Three Keys, One Door title overlay on middle panel */}
+      {index === 1 && (
+        <>
+          <div className="absolute top-0 left-0 right-0 h-[55%] z-[5] pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 55%, transparent 100%)" }} />
+          <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center pt-10 md:pt-14 px-4 pointer-events-none">
+            <p className="text-[12px] md:text-[13px] tracking-[0.25em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.7)" }}>
+              One Rainforest, Three Resorts
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
+              Three Keys, One Door
+            </h2>
+            <p className="mt-4 text-[13px] md:text-[14px] leading-[1.8] max-w-[480px] text-center" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}>
+              Stay at Gardens and the restaurants, spa, hot springs, and experiences of Tented Camp and Springs are all yours.
+            </p>
+          </div>
+        </>
+      )}
       {panel.badge && (
         <div className="absolute top-5 right-5 z-10">
           <span
@@ -567,11 +584,7 @@ function GardensPanoramaPanel({
         <h3 className="text-xl md:text-2xl lg:text-3xl tracking-wide leading-none" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
           Nayara {panel.name}
         </h3>
-        <div style={{ overflow: "hidden", maxHeight: isHovered ? "120px" : "0px", opacity: isHovered ? 1 : 0, transition: "max-height 0.6s ease, opacity 0.5s ease" }}>
-          <p className="mt-3 text-[12px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}>
-            {panel.description}
-          </p>
-        </div>
+
         {panel.route && (
           <div style={{ overflow: "hidden", maxHeight: isHovered ? "48px" : "0px", opacity: isHovered ? 1 : 0, transition: "max-height 0.5s ease, opacity 0.4s ease 0.1s" }}>
             <p className="mt-3 text-[11px] tracking-[0.14em] uppercase flex items-center gap-2" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.85)" }}>
@@ -592,37 +605,11 @@ function GardensPanoramaPanel({
 }
 
 function OneRainforestCompact() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1); // Gardens (middle) starts expanded
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [headerVisible, setHeaderVisible] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setHeaderVisible(true); },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <div ref={sectionRef} style={{ backgroundColor: PALETTE.gradientStart }}>
-      <div
-        className="px-6 md:px-10 pt-16 md:pt-20 pb-10 md:pb-12 text-center"
-        style={{ opacity: headerVisible ? 1 : 0, transform: headerVisible ? "none" : "translateY(20px)", transition: "opacity 0.9s ease, transform 0.9s ease" }}
-      >
-        <p className="text-[10px] tracking-[0.25em] uppercase mb-3" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(58,42,26,0.55)" }}>
-          One Rainforest, Three Resorts
-        </p>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3a2a1a" }}>
-          Three Keys, One Door
-        </h2>
-        <p className="mt-4 text-[13px] md:text-[14px] leading-[1.8] max-w-[520px] mx-auto" style={{ fontFamily: "var(--font-body)", color: "rgba(58,42,26,0.7)" }}>
-          Stay at Gardens and the restaurants, spa, hot springs, and experiences of Tented Camp and Springs are all yours.
-        </p>
-      </div>
+    <div ref={sectionRef} style={{ backgroundColor: "#000" }}>
       <div className="hidden md:flex" style={{ height: "580px" }}>
         {GARDENS_PANORAMA_PANELS.map((panel, i) => (
           <GardensPanoramaPanel
@@ -632,7 +619,7 @@ function OneRainforestCompact() {
             isHovered={hoveredIndex === i}
             anyHovered={hoveredIndex !== null}
             onEnter={() => setHoveredIndex(i)}
-            onLeave={() => setHoveredIndex(null)}
+            onLeave={() => setHoveredIndex(1)}
           />
         ))}
       </div>
