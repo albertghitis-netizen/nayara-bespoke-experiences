@@ -327,9 +327,9 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   {
     id: "gastronomy",
     label: "Forest to Table",
-    headline: "Caribbean\nFlavors",
+    headline: "Elephant\nHouse",
     body: "An unexpected culinary journey in the middle of the Caribbean Sea. Our chef creates a new meticulously crafted dinner menu every night of the week, using the finest hand-selected meats, local seafood directly from the sea, and fresh organic vegetables and ingredients.\n\nOur fine dining restaurant, the majestic Elephant House, is a 100-year-old structure shipped halfway around the world from Bali, Indonesia. Take in the moon glistening on the water and spot a stingray gliding by as you delight in lobster paired with the perfect chilled white wine. By day, the poolside Coral Café offers a cheerful alfresco setting for a leisurely breakfast or lunch.\n\nOur kitchens are driven by the philosophy of Cero Kilómetros — zero kilometers between our produce and our kitchen — supporting local farmers and producers while offering sustainable, healthy food that celebrates Panama's rich flavors.",
-    verticalSrc: "/manus-storage/bocas-gastro-v-new_e9dfa238.jpg",
+    verticalSrc: "/manus-storage/fb12-bocas-gastronomy_8f3f15ff.jpg",
     horizontalSrc: "",
     verticalIsVideo: false,
     horizontalIsVideo: false,
