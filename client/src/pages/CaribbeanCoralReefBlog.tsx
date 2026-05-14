@@ -1,13 +1,15 @@
 /**
- * CARIBBEAN CORAL REEF RESTORATION
- * Full editorial page about Nayara Bocas del Toro's coral restoration program
+ * BOCAS DEL TORO — OCEAN HABITAT RESTORATION
+ * Broader sustainability landing page: One System framing (Smithsonian STRI),
+ * off-grid construction, solar/rainwater infrastructure, coral restoration,
+ * mangrove preservation, Green Globe certification framework.
  * Partner: Caribbean Coral Restoration Center (loveforthesea.com)
- * Design: Deep ocean teal — editorial, immersive, data-driven
+ * Design: Deep ocean teal palette, editorial, immersive
  * Real photos only. No AI-generated imagery.
  */
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { useLocation } from "wouter";
+
 import Footer from "@/components/Footer";
 import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 
@@ -25,74 +27,95 @@ const PALETTE = {
   white: "#FFFFFF",
 };
 
+/* ── STATS ─────────────────────────────────────────────────── */
 const STATS = [
+  {
+    number: "5",
+    label: "Environmental Studies",
+    sub: "Completed before a single piling was driven",
+  },
+  {
+    number: "100%",
+    label: "Solar Powered",
+    sub: "Entirely off-grid energy from photovoltaic systems",
+  },
+  {
+    number: "10",
+    label: "Artificial Reef Structures",
+    sub: "Purpose-built foundations for coral restoration",
+  },
   {
     number: "500+",
     label: "Coral Fragments Restored",
-    sub: "Contributing to reef regeneration and marine biodiversity",
-  },
-  {
-    number: "3",
-    label: "Active Restoration Sites",
-    sub: "Monitored for growth, research, and conservation",
+    sub: "Genetically resilient specimens selected for warming oceans",
   },
   {
     number: "25",
     label: "Community Partners",
-    sub: "Local organizations, schools, and community groups",
+    sub: "Local schools, cooperatives, and neighboring businesses",
   },
   {
-    number: "12",
-    label: "Research Projects",
-    sub: "Studying coral resilience and ecosystem health",
-  },
-  {
-    number: "1,000+",
-    label: "Volunteer Hours / Month",
-    sub: "Dedicated by our team and community supporters",
-  },
-  {
-    number: "80%",
-    label: "Caribbean Reef Decline",
-    sub: "Lost over the last 50 years — the crisis that drives our work",
+    number: "77%",
+    label: "Of Travelers",
+    sub: "Now seek a sustainability ethos when choosing where to stay",
   },
 ];
 
+/* ── RESTORATION STEPS ─────────────────────────────────────── */
 const STEPS = [
   {
     step: "01",
-    title: "Survey & Select",
-    body: "Our team scours the Bocas del Toro archipelago for coral specimens already demonstrating resilience to elevated water temperatures — survivors of past bleaching events.",
+    title: "Survey and Select",
+    body: "Teams scour the Bocas del Toro archipelago for coral specimens already demonstrating resilience to elevated water temperatures. These survivors of past bleaching events carry the genetic traits that give coral the best chance in a warming ocean.",
   },
   {
     step: "02",
-    title: "Clone & Cultivate",
-    body: "Resilient coral fragments are cloned and grown in Caribbean Coral Restoration's land-water nursery on Isla Solarte, where they can be monitored and protected during their most vulnerable growth phase.",
+    title: "Clone and Cultivate",
+    body: "Resilient fragments are cloned and grown in Caribbean Coral Restoration's land-water nursery on Isla Solarte, where they can be monitored and protected during their most vulnerable growth phase.",
   },
   {
     step: "03",
     title: "Build the Foundation",
-    body: "Artificial reef structures are constructed on land — environmentally friendly frameworks designed to mimic natural reef architecture and provide immediate habitat for fish and invertebrates.",
+    body: "Artificial reef structures are constructed on land. These environmentally friendly frameworks mimic natural reef architecture and provide immediate habitat for fish and invertebrates upon installation.",
   },
   {
     step: "04",
-    title: "Install & Outplant",
-    body: "Structures are installed at the three active restoration sites in the bay. Nursery-grown coral is then outplanted onto the structures, giving each fragment the stable base it needs to thrive.",
+    title: "Install and Outplant",
+    body: "Structures are installed at active restoration sites in the bay. Nursery-grown coral is then outplanted onto the structures, giving each fragment the stable base it needs to thrive independently of degraded reef below.",
   },
   {
     step: "05",
-    title: "Monitor & Research",
-    body: "Each site is actively monitored for coral growth, fish colonization, and ecosystem health. Twelve ongoing research projects study coral resilience, bleaching response, and long-term recovery rates.",
+    title: "Monitor and Research",
+    body: "Each site is actively monitored for coral growth, fish colonization, and ecosystem health. Ongoing research projects study coral resilience, bleaching response, and long-term recovery rates across the archipelago.",
   },
   {
     step: "06",
-    title: "Expand & Educate",
-    body: "The program engages 25 local community partners — schools, fishing cooperatives, and neighboring hotels — with the long-term goal of scaling reef restoration across the entire archipelago.",
+    title: "Expand and Educate",
+    body: "The program engages 25 local community partners with the long-term goal of scaling reef restoration across the entire archipelago and setting an example that other local hotels can replicate.",
+  },
+];
+
+/* ── GREEN GLOBE PILLARS ───────────────────────────────────── */
+const GREEN_GLOBE_PILLARS = [
+  {
+    title: "Sustainable Management",
+    body: "Environmental responsibility is built into every operational decision. Carbon-neutral operations, zero single-use plastics, water conservation systems, waste management programs achieving 85% diversion from landfills, and renewable energy integration across all facilities.",
+  },
+  {
+    title: "Social and Economic Performance",
+    body: "Luxury should benefit the community, not exploit it. Local hiring, comprehensive health insurance, ongoing training in sustainable tourism practices, and partnerships with local suppliers that support the regional economy.",
+  },
+  {
+    title: "Cultural Heritage Preservation",
+    body: "Working with local indigenous communities and cultural organizations to ensure tourism respects and preserves traditions. Local guides share the stories and knowledge of their ancestors. Traditional crafts and artwork are sourced from local artisans.",
+  },
+  {
+    title: "Environmental Stewardship",
+    body: "Active habitat restoration, biodiversity monitoring, wildlife corridor creation, and whole-system conservation that treats reef, mangrove, rainforest, and seagrass as the single interconnected organism they are.",
   },
 ];
 
 export default function CaribbeanCoralReefBlog() {
-  const [, navigate] = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -102,9 +125,9 @@ export default function CaribbeanCoralReefBlog() {
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.sand }}>
       <EnhancedArticleSchema
         image={`${CDN}/bocas-aerial-villas-turquoise_858d4570.jpg`}
-        headline="Coral Reef Restoration at Nayara Bocas del Toro | Caribbean Coral Restoration"
-        description="Nayara Bocas del Toro partners with Caribbean Coral Restoration to rebuild the reefs of the Bocas del Toro archipelago — through artificial reef structures, genetically resilient coral, and guest-led conservation."
-        author={{ name: "Nayara Resorts", expertise: ["Sustainable Tourism", "Ocean Conservation"] }}
+        headline="Ocean Habitat Restoration at Nayara Bocas del Toro | Beyond Sustainability"
+        description="How Nayara Bocas del Toro was built from scratch without harming a single mangrove or coral head, and why reef, mangrove, rainforest, and seagrass function as one interdependent system."
+        author={{ name: "Nayara Resorts", expertise: ["Sustainable Tourism", "Ocean Conservation", "Regenerative Travel"] }}
         datePublished="2024-06-01"
         url="https://nayararesorts.manus.space/blog/caribbean-coral-reef"
       />
@@ -113,7 +136,7 @@ export default function CaribbeanCoralReefBlog() {
       <section className="relative h-screen w-full overflow-hidden">
         <img
           src={`${CDN}/bocas-aerial-villas-turquoise_858d4570.jpg`}
-          alt="Aerial view of Nayara Bocas del Toro overwater villas above turquoise Caribbean waters"
+          alt="Aerial view of Nayara Bocas del Toro overwater villas above turquoise Caribbean waters surrounded by mangroves"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
         />
@@ -121,13 +144,13 @@ export default function CaribbeanCoralReefBlog() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(11,79,94,0.35) 0%, rgba(11,79,94,0.6) 60%, rgba(11,79,94,0.85) 100%)",
+              "linear-gradient(to bottom, rgba(11,79,94,0.3) 0%, rgba(11,79,94,0.55) 60%, rgba(11,79,94,0.85) 100%)",
           }}
         />
 
         {/* Back button */}
         <button
-          onClick={() => navigate(-1 as any)}
+          onClick={() => window.history.back()}
           className="absolute top-8 left-8 z-20 flex items-center gap-2 transition-colors duration-300"
           style={{
             fontFamily: "var(--font-body)",
@@ -161,22 +184,23 @@ export default function CaribbeanCoralReefBlog() {
             className="mb-4 uppercase tracking-[0.3em] text-[11px]"
             style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
           >
-            Ocean Conservation · Bocas del Toro, Panama
+            Beyond Sustainability · Bocas del Toro, Panama
           </p>
           <h1
             className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-6 text-white"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Restoring the Reefs
+            One System.
             <br />
-            of Bocas del Toro
+            One Commitment.
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed max-w-2xl"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.85)" }}
           >
-            In partnership with Caribbean Coral Restoration, Nayara Bocas del Toro is rebuilding one
-            of the Caribbean's most threatened ecosystems — one coral fragment at a time.
+            Reef, mangrove, rainforest, and seagrass are not three ecosystems that happen to share a
+            coastline. They are a single functioning system. At Nayara Bocas del Toro, every decision
+            we make honors that truth.
           </p>
         </motion.div>
       </section>
@@ -192,7 +216,7 @@ export default function CaribbeanCoralReefBlog() {
             className="text-center uppercase tracking-[0.3em] text-[11px] mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
           >
-            The Program at a Glance
+            The Commitment at a Glance
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -202,7 +226,7 @@ export default function CaribbeanCoralReefBlog() {
             className="text-3xl md:text-4xl text-center text-white mb-16"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Restoration by the Numbers
+            Built to Protect, Not to Extract
           </motion.h2>
 
           <div
@@ -245,13 +269,13 @@ export default function CaribbeanCoralReefBlog() {
             className="text-center text-[12px] mt-6"
             style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.4)" }}
           >
-            Sources: Caribbean Coral Restoration Center (loveforthesea.com) · NOAA Coral Reef Watch
-            2024
+            Sources: Caribbean Coral Restoration Center · NOAA Coral Reef Watch 2024 · Booking.com
+            Sustainable Travel Report 2024
           </p>
         </div>
       </section>
 
-      {/* ── WHY NOW ──────────────────────────────────────────────── */}
+      {/* ── ONE SYSTEM (SMITHSONIAN FRAMING) ─────────────────────── */}
       <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.sand }}>
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -264,40 +288,44 @@ export default function CaribbeanCoralReefBlog() {
               className="uppercase tracking-[0.3em] text-[11px] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
             >
-              The Crisis
+              The Science
             </p>
             <h2
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              Why Now — and Why Here
+              Bocas del Toro: One System
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
-              In 2024, NOAA declared the world's fourth global mass coral bleaching event on record.
-              Caribbean reefs have declined by approximately 80% over the last fifty years. Six
-              Caribbean coral species — including Staghorn and Elkhorn coral — are now listed as
-              threatened under the U.S. Endangered Species Act.
+              The standard way to describe Bocas del Toro is as a place where reef, mangrove, and
+              rainforest meet. That framing is convenient but misleading. These are not three
+              ecosystems that happen to share a coastline. They are a single functioning system in
+              which each component is structurally dependent on the others.
             </p>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
-              Bocas del Toro sits at the heart of this crisis. The archipelago's reefs — once among
-              the most biodiverse in the Caribbean — have suffered from rising sea surface
-              temperatures, agricultural runoff, and decades of unmanaged tourism. The question was
-              never whether to act, but how to act meaningfully.
+              The Smithsonian Tropical Research Institute has studied this system since establishing
+              its research station here in 1998. What that research makes clear is that the causal
+              chains run in every direction: mangrove root systems filter the terrestrial runoff that
+              would otherwise smother reef corals. Reef structures shelter juvenile fish that will
+              eventually feed the dolphins and sharks patrolling deeper water. Rainforest canopy
+              stabilizes soils that, if eroded, would carry sediment into shallow-reef zones and cut
+              off the light that coral requires. Seagrass meadows between mangroves and reef provide
+              the feeding grounds on which sea turtles depend.
             </p>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
-              When we built Nayara Bocas del Toro — entirely off-grid, on stilts, after five
-              independent environmental studies — we made a commitment to the bay we call home. Our
-              coral restoration program with Caribbean Coral Restoration is the most direct expression
-              of that commitment.
+              Conservation strategies that treat any one of these components in isolation are not
+              conservation strategies. They are delay. At Nayara Bocas del Toro, we operate with a
+              whole-system awareness that shapes decisions about where boats travel, how lighting is
+              managed, what materials enter the water, and when and how guests access sensitive zones.
             </p>
           </motion.div>
         </div>
@@ -330,8 +358,8 @@ export default function CaribbeanCoralReefBlog() {
             className="text-2xl md:text-3xl leading-[1.4] text-white mb-8"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            "Our main goal is to set an example — and help other local hotels start coral reef
-            restoration programs of their own."
+            "Our main goal is to set an example and help other local hotels start restoration
+            programs of their own."
           </blockquote>
           <p
             className="text-[14px] leading-[1.7]"
@@ -342,7 +370,152 @@ export default function CaribbeanCoralReefBlog() {
         </div>
       </section>
 
-      {/* ── THE PARTNERSHIP ──────────────────────────────────────── */}
+      {/* ── BUILDING FROM SCRATCH ────────────────────────────────── */}
+      <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.light }}>
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <p
+              className="uppercase tracking-[0.3em] text-[11px] mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+            >
+              Built from Scratch
+            </p>
+            <h2
+              className="text-3xl md:text-4xl mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+            >
+              $100,000 Before a Single Guest Arrived
+            </h2>
+            <p
+              className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              Before a single piling was driven into the seabed, Nayara Bocas del Toro commissioned
+              five independent environmental impact studies. The cost exceeded $100,000. The purpose
+              was not regulatory compliance. It was understanding: what lives here, how it connects,
+              and what constraints must govern every construction decision that follows.
+            </p>
+            <p
+              className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              The resort was built completely off-grid on stilts above the water, without harming a
+              single native mangrove or coral head. There are no roads. There is no connection to
+              municipal infrastructure. Every system that sustains the resort was designed and built
+              from zero: private power, private water, private wastewater treatment.
+            </p>
+            <p
+              className="text-[16px] md:text-[18px] leading-[1.9]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              This was not the cheapest way to build a hotel. It was the only way to build one here
+              without becoming part of the problem. The archipelago's reefs have declined by
+              approximately 80% over the last fifty years. Adding another source of runoff, light
+              pollution, or habitat disruption was never an option.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── INFRASTRUCTURE: SOLAR + RAINWATER ────────────────────── */}
+      <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.sand }}>
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <p
+              className="uppercase tracking-[0.3em] text-[11px] mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+            >
+              Off-Grid Infrastructure
+            </p>
+            <h2
+              className="text-3xl md:text-4xl"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+            >
+              Powered by Sun. Sustained by Rain.
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "100% Solar Energy",
+                body: "The entire resort runs on photovoltaic solar panels. There is no diesel generator as backup. There is no connection to a mainland grid. Every watt of energy that powers the guest experience, the kitchens, the spa, and the water treatment systems comes from the Caribbean sun. This was a deliberate engineering choice, not a marketing one.",
+              },
+              {
+                title: "Rainwater Harvesting with UV Purification",
+                body: "All freshwater at the resort is collected from rainfall, stored in dedicated cisterns, and purified through a multi-stage UV treatment system. The result is drinking-quality water produced entirely on-site, with zero draw on the island's limited freshwater resources. The system was designed to exceed WHO standards for potable water.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="p-8 md:p-10"
+                style={{
+                  backgroundColor: PALETTE.light,
+                  borderLeft: `3px solid ${PALETTE.teal}`,
+                }}
+              >
+                <h3
+                  className="text-xl mb-4"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  className="text-[15px] leading-[1.85]"
+                  style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+                >
+                  {item.body}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── AERIAL IMAGE BREAK ───────────────────────────────────── */}
+      <section className="relative overflow-hidden" style={{ height: "60vh" }}>
+        <img
+          src={`${CDN}/bocas-aerial-villas-mangroves_9d5e94f5.jpg`}
+          alt="Aerial view of Nayara Bocas del Toro overwater villas surrounded by mangroves and turquoise water"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+          style={{ transition: "transform 700ms ease-in-out" }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to bottom, transparent 40%, rgba(11,79,94,0.7) 100%)",
+          }}
+        />
+        <div className="absolute bottom-10 left-8 md:left-16 right-8 md:right-16">
+          <p
+            className="text-[13px] leading-[1.6] max-w-xl"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}
+          >
+            Built entirely off-grid on a private island, on stilts, preserving the native mangroves
+            and coral reefs below. No roads. No municipal connection. One system, protected.
+          </p>
+        </div>
+      </section>
+
+      {/* ── CORAL RESTORATION PARTNERSHIP ─────────────────────────── */}
       <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.light }}>
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -368,7 +541,7 @@ export default function CaribbeanCoralReefBlog() {
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
               In 2022, we partnered with the{" "}
-              <strong>Caribbean Coral Restoration Center</strong> — a locally-based nonprofit
+              <strong>Caribbean Coral Restoration Center</strong>, a locally-based nonprofit
               stationed on Isla Solarte in Bocas del Toro. Their mission: to be cultivators and
               guardians of flourishing ocean ecosystems. Their approach is unlike most restoration
               programs in the Caribbean.
@@ -379,20 +552,29 @@ export default function CaribbeanCoralReefBlog() {
             >
               Rather than simply transplanting coral fragments onto existing degraded reef, Caribbean
               Coral Restoration builds their own{" "}
-              <strong>artificial reef structures</strong> — constructed on land, installed at
+              <strong>artificial reef structures</strong>. These are constructed on land, installed at
               restoration sites, and then seeded with coral grown in their land-water nursery on Isla
-              Solarte. This creates a stable, purpose-built foundation for reef recovery that doesn't
-              depend on the health of what's already there.
+              Solarte. This creates a stable, purpose-built foundation for reef recovery that does not
+              depend on the health of what is already there.
+            </p>
+            <p
+              className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              The coral they grow is not randomly selected. Their team scours the Bocas archipelago for
+              specimens already demonstrating resilience to extreme water temperatures. These are
+              corals that have survived bleaching events. They are cloned, grown in the nursery, and
+              outplanted onto the artificial structures. It is a form of assisted evolution: selecting
+              for the traits that give coral the best chance in a warming ocean.
             </p>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
-              The coral they grow isn't randomly selected. Their team scours the Bocas archipelago for
-              specimens already demonstrating resilience to extreme water temperatures — corals that
-              have survived bleaching events. These are cloned, grown in the nursery, and outplanted
-              onto the artificial structures. It's a form of assisted evolution: selecting for the
-              traits that give coral the best chance in a warming ocean.
+              Today, ten artificial reef structures are active in the waters surrounding the resort.
+              Marine life has already begun returning: juvenile fish colonize the structures within
+              weeks of installation, and the genetically resilient coral fragments show measurably
+              higher survival rates than wild populations on degraded reef nearby.
             </p>
           </motion.div>
         </div>
@@ -460,35 +642,7 @@ export default function CaribbeanCoralReefBlog() {
         </div>
       </section>
 
-      {/* ── AERIAL IMAGE BREAK ───────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ height: "60vh" }}>
-        <img
-          src={`${CDN}/bocas-aerial-villas-mangroves_9d5e94f5.jpg`}
-          alt="Aerial view of Nayara Bocas del Toro overwater villas surrounded by mangroves and turquoise water"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-          style={{ transition: "transform 700ms ease-in-out" }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.05)")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to bottom, transparent 40%, rgba(11,79,94,0.7) 100%)",
-          }}
-        />
-        <div className="absolute bottom-10 left-8 md:left-16 right-8 md:right-16">
-          <p
-            className="text-[13px] leading-[1.6] max-w-xl"
-            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}
-          >
-            Nayara Bocas del Toro was built entirely off-grid on a private island — on stilts,
-            preserving the native mangroves and coral reefs below.
-          </p>
-        </div>
-      </section>
-
-      {/* ── GUEST EXPERIENCE ─────────────────────────────────────── */}
+      {/* ── MANGROVE PRESERVATION ────────────────────────────────── */}
       <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.light }}>
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -501,47 +655,48 @@ export default function CaribbeanCoralReefBlog() {
               className="uppercase tracking-[0.3em] text-[11px] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
             >
-              Your Role
+              Whole-System Awareness
             </p>
             <h2
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              What Guests Experience
+              Mangrove Preservation
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
-              Guests at Nayara Bocas del Toro can participate directly in the restoration program. Led
-              by our team and Caribbean Coral Restoration's marine biologists, the experience takes you
-              beneath the surface of the bay to the active restoration sites — where you'll see the
-              artificial reef structures, the coral fragments in various stages of growth, and the
-              marine life that has already returned.
+              Mangroves are the connective tissue of this system. Their root networks filter sediment
+              and agricultural runoff before it reaches the reef. They provide nursery habitat for
+              juvenile fish. They stabilize shorelines against storm surge. And they sequester carbon
+              at rates up to four times higher than terrestrial forests.
             </p>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
-              Participants learn to identify coral species, understand the science of bleaching and
-              resilience, and — in some sessions — assist with outplanting coral fragments onto the
-              structures. It's a rare opportunity to contribute something real and lasting to a place
-              you've chosen to visit.
+              At Nayara Bocas del Toro, mangrove preservation is not a separate initiative. It is
+              embedded in daily operations. Boat routes are designed to avoid prop wash in sensitive
+              root zones. Exterior lighting is managed to prevent disruption to nocturnal species that
+              depend on mangrove canopy. Construction materials were selected to eliminate leaching
+              into the surrounding water column.
             </p>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
-              The program is available to all guests and can be arranged through the resort's
-              concierge. No prior diving experience is required for snorkeling sessions. For certified
-              divers, deeper reef monitoring dives are available. Both experiences are intimate — small
-              groups only — to minimize impact on the restoration sites.
+              Guest access to mangrove zones is guided and limited. Kayak routes follow designated
+              channels. Snorkeling excursions to mangrove-reef transition zones are led by trained
+              naturalists who understand the sensitivity of these areas. The goal is not to keep
+              guests away from nature, but to ensure that every encounter leaves the system stronger
+              than it was found.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── WHAT MAKES IT UNIQUE ─────────────────────────────────── */}
+      {/* ── GREEN GLOBE CERTIFICATION ────────────────────────────── */}
       <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.ocean }}>
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -555,27 +710,28 @@ export default function CaribbeanCoralReefBlog() {
               className="uppercase tracking-[0.3em] text-[11px] mb-4"
               style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
             >
-              What Sets This Apart
+              Certification
             </p>
             <h2
-              className="text-3xl md:text-4xl text-white"
+              className="text-3xl md:text-4xl text-white mb-4"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
-              Two Things That Truly Differentiate This Program
+              Green Globe Certified
             </h2>
+            <p
+              className="text-[16px] md:text-[18px] leading-[1.9] max-w-3xl"
+              style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.8)" }}
+            >
+              Green Globe is the world's leading certification program for sustainable tourism,
+              recognized by the Global Sustainable Tourism Council and operating in over 80 countries.
+              Certification requires comprehensive audits against 380 specific indicators across four
+              pillars, with annual re-assessment and continuous improvement. It is not a label you can
+              buy. It is a rigorous, independent verification.
+            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Artificial Reef Architecture",
-                body: "Most coral restoration programs work with whatever degraded reef structure already exists. Caribbean Coral Restoration builds their own — purpose-designed artificial reef structures installed at restoration sites before any coral is outplanted. This means the foundation is always stable, clean, and optimized for coral attachment and fish habitat. It's a fundamentally different approach, and it's why the program has been able to operate three active sites simultaneously.",
-              },
-              {
-                title: "Climate-Resilient Genetics",
-                body: "The coral fragments used in this program aren't random. They're selected specifically because they have already survived bleaching events — specimens that demonstrate natural resilience to elevated water temperatures. By cloning and propagating these individuals, the program is essentially selecting for the genetic traits that give coral the best chance in a warming ocean. It's restoration designed for the climate reality we're already living in, not the one we wish we had.",
-              },
-            ].map((item, i) => (
+            {GREEN_GLOBE_PILLARS.map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -606,8 +762,61 @@ export default function CaribbeanCoralReefBlog() {
         </div>
       </section>
 
-      {/* ── COMMUNITY & EDUCATION ────────────────────────────────── */}
+      {/* ── GUEST EXPERIENCE ─────────────────────────────────────── */}
       <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.sand }}>
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <p
+              className="uppercase tracking-[0.3em] text-[11px] mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+            >
+              Your Role
+            </p>
+            <h2
+              className="text-3xl md:text-4xl mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
+            >
+              What Guests Experience
+            </h2>
+            <p
+              className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              Guests at Nayara Bocas del Toro can participate directly in the restoration program. Led
+              by our team and Caribbean Coral Restoration's marine biologists, the experience takes you
+              beneath the surface of the bay to the active restoration sites, where you will see the
+              artificial reef structures, the coral fragments in various stages of growth, and the
+              marine life that has already returned.
+            </p>
+            <p
+              className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              Participants learn to identify coral species, understand the science of bleaching and
+              resilience, and in some sessions assist with outplanting coral fragments onto the
+              structures. It is a rare opportunity to contribute something real and lasting to a place
+              you have chosen to visit.
+            </p>
+            <p
+              className="text-[16px] md:text-[18px] leading-[1.9]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+            >
+              The program is available to all guests and can be arranged through the resort concierge.
+              No prior diving experience is required for snorkeling sessions. For certified divers,
+              deeper reef monitoring dives are available. Both experiences are intimate, with small
+              groups only, to minimize impact on the restoration sites.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── COMMUNITY AND EDUCATION ──────────────────────────────── */}
+      <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.light }}>
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -625,7 +834,7 @@ export default function CaribbeanCoralReefBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              Community &amp; Education
+              Community and Education
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -634,14 +843,14 @@ export default function CaribbeanCoralReefBlog() {
               The program's 25 community partners include local schools, fishing cooperatives, and
               neighboring businesses across the Bocas del Toro archipelago. Caribbean Coral
               Restoration runs education and training programs that teach reef ecology, restoration
-              techniques, and marine conservation to local students and community members — building
+              techniques, and marine conservation to local students and community members, building
               the knowledge base that will sustain this work long after any single partnership ends.
             </p>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
             >
-              For local fishing communities, healthy reefs aren't an abstraction — they're the
+              For local fishing communities, healthy reefs are not an abstraction. They are the
               foundation of livelihoods. As marine life returns to the restoration sites, the
               ecological and economic case for reef protection becomes tangible. The program is
               designed to make reef stewardship a shared value across the archipelago, not just a
@@ -693,8 +902,8 @@ export default function CaribbeanCoralReefBlog() {
               className="text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-10"
               style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}
             >
-              Every guest at Nayara Bocas del Toro has the opportunity to contribute to the reef's
-              recovery. Arrange your coral restoration experience through our concierge.
+              Every guest at Nayara Bocas del Toro has the opportunity to contribute to the
+              system's recovery. Arrange your coral restoration experience through our concierge.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
