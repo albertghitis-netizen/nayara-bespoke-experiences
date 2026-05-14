@@ -28,6 +28,7 @@ import {
   EASE_CINEMATIC,
 } from "@/components/motion";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { Play, ArrowUpRight, Share2 } from "lucide-react";
 
 /* ─── Type definitions ─── */
 interface Milestone {
@@ -1141,14 +1142,35 @@ function JournalTeaserCard({
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          {/* Type label , transparent frosted glass pill, bottom-left, matching Journal page style */}
-          <div className="absolute bottom-4 left-4">
+          {/* Type label + share icon , bottom-left, matching Journal page style */}
+          <div className="absolute bottom-4 left-4 flex items-center gap-2">
             <span
               className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase"
               style={bodyFont}
             >
+              {card.cta === "watch" ? (
+                <Play className="w-2.5 h-2.5 fill-current" />
+              ) : (
+                <ArrowUpRight className="w-3 h-3" />
+              )}
               {card.label}
             </span>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const url = card.href || (card.youtubeId ? `https://www.youtube.com/watch?v=${card.youtubeId}` : window.location.href);
+                if (navigator.share) {
+                  navigator.share({ title: card.title, url });
+                } else {
+                  navigator.clipboard.writeText(url);
+                }
+              }}
+              className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 hover:bg-white/20 hover:text-white/90 transition-all duration-300"
+              aria-label="Share"
+            >
+              <Share2 className="w-3 h-3" />
+            </button>
           </div>
         </>
       )}
