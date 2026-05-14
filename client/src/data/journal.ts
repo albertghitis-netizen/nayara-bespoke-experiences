@@ -521,15 +521,7 @@ const blogArticles: JournalEntry[] = [
     image: FALLBACK_IMG,
     excerpt: "How Nayara Bocas del Toro partners with marine biologists to restore the Caribbean's coral ecosystems.",
   },
-  {
-    id: "coral-reef",
-    title: "Coral Reef Conservation at Nayara",
-    url: "/blog/coral-reef",
-    property: "bocas-del-toro",
-    type: "article",
-    image: FALLBACK_IMG,
-    excerpt: "Our commitment to protecting and restoring coral reef ecosystems in Bocas del Toro.",
-  },
+
   {
     id: "maya-rapa-nui-climate",
     title: "Maya & Rapa Nui: Ancient Wisdom for Climate Survival",

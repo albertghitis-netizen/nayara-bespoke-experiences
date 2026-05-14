@@ -52,7 +52,6 @@ const AtacamaRomanceBlog = lazy(() => import("./pages/AtacamaRomanceBlog"));
 const AtacamaWinterBlog = lazy(() => import("./pages/AtacamaWinterBlog"));
 const AtacamaOasisBlog = lazy(() => import("./pages/AtacamaOasisBlog"));
 const TravelTrendsBlog = lazy(() => import("./pages/TravelTrendsBlog"));
-const CoralReefBlog = lazy(() => import("./pages/CoralReefBlog"));
 const WellnessByColorsBlog = lazy(() => import("./pages/WellnessByColorsBlog"));
 const HotSpringsBlog = lazy(() => import("./pages/HotSpringsBlog"));
 const HangaroaRegenerationBlog = lazy(() => import("./pages/HangaroaRegenerationBlog"));
@@ -298,7 +297,6 @@ function Router() {
           <Route path="/blog/atacama-winter" component={AtacamaWinterBlog} />
           <Route path="/blog/atacama-oasis" component={AtacamaOasisBlog} />
           <Route path="/blog/travel-trends" component={TravelTrendsBlog} />
-          <Route path="/blog/coral-reef" component={CoralReefBlog} />
           <Route path="/blog/wellness-by-colors" component={WellnessByColorsBlog} />
           <Route path="/blog/hot-springs" component={HotSpringsBlog} />
           <Route path="/blog/hangaroa-regeneration" component={HangaroaRegenerationBlog} />
