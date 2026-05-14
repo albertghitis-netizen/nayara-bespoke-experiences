@@ -1,7 +1,8 @@
 /**
- * NAYARA BY NIGHT BLOG
- * Editorial blog about the night sky and nocturnal experiences at Nayara resorts
- * Uses black/dark sky color palette (from Brand Wellness framework)
+ * NAYARA BY NIGHT: OF MOON AND STARS
+ * By Albert Ghitis — Sep 3, 2025
+ * Editorial blog about nocturnal experiences across all Nayara properties
+ * Sections: Atacama Observatory, Rapa Nui Navigation, Bocas Bioluminescence, Costa Rica Rainforest
  */
 
 import { useEffect, useRef } from "react";
@@ -9,281 +10,413 @@ import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
 import BrandNavigation from "@/components/BrandNavigation";
+import BlobVideo from "@/components/BlobVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 
-const NIGHT_PALETTE = {
-  primary: "#0A0E27",
-  secondary: "#1A1F3A",
+const NIGHT = {
+  bg: "#0A0E1A",
+  card: "#111827",
   accent: "#FFD700",
-  text: "#E8E8E8",
-  lightText: "#B8B8B8",
-  background: "#0F1219",
-  divider: "#2A2F42",
+  text: "#E0DDD5",
+  muted: "#9CA3AF",
+  divider: "#1F2937",
 };
+
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
+
+const IMG = {
+  heroVideo: `${CDN}/nbn-hero-night_104e129b.mp4`,
+  heroVertical: `${CDN}/nbn-hero-vertical-new_efde71a9.mp4`,
+  heroStill: `${CDN}/night-sky_hero.jpg`,
+  atacamaCactus: `${CDN}/nbn-cactus-milkyway_a7dc0b5c.webp`,
+  atacamaArch: `${CDN}/nbn-rock-arch-milkyway_729bcc81.webp`,
+  atacamaCrater: `${CDN}/nbn-crater-milkyway_00741a91.webp`,
+  moaiMilkyway: `${CDN}/nbn-moai-milkyway_0588cd10.webp`,
+  moaiSilhouette: `${CDN}/nbn-moai-sunset-silhouette_692f6a23.webp`,
+  ranoKau: `${CDN}/nbn-rano-kau-milkyway_dd16a9d7.webp`,
+  bioluminescence: "/manus-storage/bocas-bynight-bioluminescence_628c75d7.jpg",
+  frogTour: "/manus-storage/night-frog-tour-clip_564600db.mp4",
+  frogTourVertical: "/manus-storage/night-frog-tour-vertical_596427d2.mp4",
+};
+
+/* ─── Fade-in wrapper ─── */
+function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-60px" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ─── Section image with caption ─── */
+function SectionImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <Reveal className="my-12 md:my-16">
+      <div className="relative overflow-hidden" style={{ borderRadius: "2px" }}>
+        <img
+          src={src}
+          alt={alt}
+          className="w-full object-cover"
+          style={{ maxHeight: "520px" }}
+          loading="lazy"
+        />
+      </div>
+      {caption && (
+        <p
+          className="mt-3 text-[12px] tracking-[0.08em] uppercase text-center"
+          style={{ fontFamily: "var(--font-body)", color: NIGHT.muted }}
+        >
+          {caption}
+        </p>
+      )}
+    </Reveal>
+  );
+}
+
+/* ─── Full-width image pair ─── */
+function ImagePair({ left, right }: { left: { src: string; alt: string; caption?: string }; right: { src: string; alt: string; caption?: string } }) {
+  return (
+    <Reveal className="my-12 md:my-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <img src={left.src} alt={left.alt} className="w-full object-cover" style={{ height: "360px", borderRadius: "2px" }} loading="lazy" />
+          {left.caption && (
+            <p className="mt-2 text-[11px] tracking-[0.08em] uppercase text-center" style={{ fontFamily: "var(--font-body)", color: NIGHT.muted }}>{left.caption}</p>
+          )}
+        </div>
+        <div>
+          <img src={right.src} alt={right.alt} className="w-full object-cover" style={{ height: "360px", borderRadius: "2px" }} loading="lazy" />
+          {right.caption && (
+            <p className="mt-2 text-[11px] tracking-[0.08em] uppercase text-center" style={{ fontFamily: "var(--font-body)", color: NIGHT.muted }}>{right.caption}</p>
+          )}
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
+/* ─── Divider ─── */
+function Divider() {
+  return <div className="my-14 md:my-20 mx-auto w-16" style={{ borderTop: `1px solid ${NIGHT.divider}` }} />;
+}
 
 export default function NayaraByNightBlog() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: NIGHT_PALETTE.background }}>
+    <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: NIGHT.bg }}>
       <EnhancedArticleSchema
-        image="https://nayararesorts.manus.space"
-        headline="NayaraByNight | Nayara Resorts"
-        description="Discover insights about nayarabynight at Nayara Resorts."
-        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
-        datePublished="2024-01-01"
-        url="https://nayararesorts.manus.space/blog/nayarabynight"
+        image={IMG.heroStill}
+        headline="Nayara by Night: Of Moon and Stars"
+        description="From the Atacama's observatory to Bocas del Toro's bioluminescent bays, the night reveals a different world at Nayara Resorts."
+        author={{ name: "Albert Ghitis", expertise: ["Luxury Travel", "Sustainable Tourism", "Hospitality"] }}
+        datePublished="2025-09-03"
+        url="https://nayararesorts.manus.space/blog/nayara-by-night"
       />
       <BrandNavigation pageType="brand" hideCenterLabel />
-      
-      {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: "linear-gradient(135deg, #0A0E27 0%, #1A1F3A 100%)",
-          }}
-        />
-        <div className="absolute inset-0 opacity-20" style={{ backgroundColor: "#000000" }} />
+
+      {/* ═══════════ HERO ═══════════ */}
+      <section className="relative h-screen w-full overflow-hidden flex items-end justify-center pb-16 md:pb-24">
+        <div className="absolute inset-0">
+          <BlobVideo
+            src={isMobile ? IMG.heroVertical : IMG.heroVideo}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E1A] via-[#0A0E1A]/40 to-transparent" />
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 text-center px-6 md:px-12 max-w-4xl"
         >
           <p
-            className="text-[11px] tracking-[0.3em] mb-6 uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: NIGHT_PALETTE.accent }}
+            className="text-[10px] md:text-[11px] tracking-[0.35em] mb-5 uppercase"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: NIGHT.accent }}
           >
-            Nocturnal Experiences
+            Albert Ghitis &nbsp;·&nbsp; September 2025
           </p>
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
+            className="text-3xl md:text-5xl lg:text-6xl leading-[1.05] mb-5"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Nayara by Night: Of Moon and Stars
+            Nayara by Night:<br />Of Moon and Stars
           </h1>
           <p
-            className="text-lg md:text-xl leading-relaxed"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.85)" }}
+            className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.75)" }}
           >
-            Discover the magic of darkness and the celestial wonders above
+            Stargazing, bioluminescence, and the transformative power of the night sky
           </p>
         </motion.div>
       </section>
 
-      {/* Content Section */}
+      {/* ═══════════ ARTICLE BODY ═══════════ */}
       <section className="py-16 md:py-24 px-6 md:px-12">
         <div className="max-w-3xl mx-auto">
-          {/* Intro */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
+
+          {/* ── INTRODUCTION ── */}
+          <Reveal>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              When the sun sets over Nayara's pristine landscapes, a different world awakens. The night sky transforms into a canvas of infinite possibility,a realm where the moon casts its silver glow and stars tell stories written across millennia. At Nayara resorts, darkness is not something to fear or avoid, but rather an invitation to experience nature in its most profound and magical form.
+              On July 20, 1969, Neil Armstrong took one small step — and mankind was forever changed. For a moment, the world paused to look up in awe. International Moon Day commemorates that extraordinary leap into the unknown, celebrating our timeless fascination with the sky above and inviting us to reflect on our enduring connection to the cosmos.
             </p>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              From the light-polluted corners of our world, the night sky has become a luxury,a rare gift that fewer and fewer people experience. At Nayara, we've preserved this gift. Here, beneath skies unmarred by artificial light, you'll discover what it means to truly see the stars.
+              But the Moon is more than a symbol — it is essential to our very survival. Its gravitational pull creates the tides, mixing land and sea in the rhythm that gave rise to life. It slowed Earth's rotation, giving us the 24-hour day. And it acts as a cosmic shield, protecting us from asteroids that might have otherwise ended our story before it began.
             </p>
-          </motion.div>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
+            >
+              The Moon has also shaped the way we understand ourselves. For millennia, it has been central to astrology — marking cycles of emotion, transformation, and balance. Whether or not one believes in signs and houses, the Moon's rhythm has long been woven into how cultures interpret human experience and cosmic harmony.
+            </p>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.95]"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
+            >
+              At Nayara Resorts, that sense of wonder becomes manifest. Whether you're stargazing in the clear skies of the Atacama Desert, walking under the Moon in Costa Rica's rainforest — where the wildlife comes alive after dark — or paddling through glowing bioluminescence in Bocas del Toro, nightfall isn't an ending — it's a new beginning.
+            </p>
+          </Reveal>
 
-          {/* Section Divider */}
-          <div className="my-12" style={{ borderTop: `2px solid ${NIGHT_PALETTE.divider}` }} />
+          <Divider />
 
-          {/* The Gift of Darkness */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
+          {/* ── SECTION 1: ATACAMA OBSERVATORY ── */}
+          <Reveal>
+            <p
+              className="text-[10px] tracking-[0.35em] uppercase mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: NIGHT.accent }}
+            >
+              Nayara Alto Atacama
+            </p>
             <h2
-              className="text-3xl md:text-4xl mb-8"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: NIGHT_PALETTE.accent }}
+              className="text-2xl md:text-4xl mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              The Gift of Darkness
+              A New Observatory in the Desert
             </h2>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              In our modern world, darkness has become a rarity. Artificial light dominates our cities, our homes, and increasingly, our natural spaces. Yet darkness is essential,not just for the health of ecosystems, but for our own wellbeing. Studies show that exposure to natural darkness regulates our circadian rhythms, reduces stress, and restores a sense of wonder we've nearly forgotten.
+              The Atacama Desert isn't just one of the best places on Earth to observe the night sky — it's the very best. With its high altitude, dry air, and near-total absence of light pollution, it offers unmatched clarity. That's why NASA, the European Southern Observatory, and other space agencies have built major observatories here, drawn by skies so clear you can see galaxies with the naked eye.
+            </p>
+          </Reveal>
+
+          <SectionImage src={IMG.atacamaCactus} alt="Milky Way over cactus in the Atacama Desert" caption="The Milky Way rises over the Atacama — the world's clearest skies" />
+
+          <Reveal>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
+            >
+              At Nayara Alto Atacama, guests already enjoy stargazing experiences unlike anywhere else — but now, the expanded observation platform will take it even further. Designed to enhance visibility and comfort, it offers a deeper immersion into this otherworldly setting. Under the expert guidance of our on-staff specialized astronomy guides, guests trace the craters of the Moon, view Saturn's rings through a telescope, and glimpse distant galaxies glowing with ancient light.
             </p>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95]"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              At Nayara, we've intentionally designed our resorts to preserve the night. Minimal artificial lighting, strategic placement of fixtures, and a commitment to dark-sky principles mean that when you step outside after sunset, you're stepping into an authentic nocturnal landscape,one that has existed for billions of years.
+              Beyond the observatory, moonlit desert walks provide a different kind of immersion, one of silence and raw connection. The Milky Way stretches overhead, and the desert breathes with an ancient rhythm. In Andean cosmology, the Moon — known as <em>Killa</em> — is a feminine force representing balance and renewal. To walk beneath her light in the Atacama is to experience both wonder and grounding energy.
             </p>
-          </motion.div>
+          </Reveal>
 
-          {/* Section Divider */}
-          <div className="my-12" style={{ borderTop: `2px solid ${NIGHT_PALETTE.divider}` }} />
+          <ImagePair
+            left={{ src: IMG.atacamaArch, alt: "Rock arch under the Milky Way", caption: "Rock formations frame the southern sky" }}
+            right={{ src: IMG.atacamaCrater, alt: "Crater under the Milky Way in Atacama", caption: "Volcanic craters beneath the cosmos" }}
+          />
 
-          {/* Stargazing & Celestial Experiences */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <h2
-              className="text-3xl md:text-4xl mb-8"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: NIGHT_PALETTE.accent }}
+          <Divider />
+
+          {/* ── SECTION 2: RAPA NUI NAVIGATION ── */}
+          <Reveal>
+            <p
+              className="text-[10px] tracking-[0.35em] uppercase mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: NIGHT.accent }}
             >
-              Stargazing & Celestial Experiences
+              Nayara Hangaroa
+            </p>
+            <h2
+              className="text-2xl md:text-4xl mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
+            >
+              Navigating by Moon and Memory
             </h2>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              Imagine lying on your villa's deck, a blanket beneath you, as the Milky Way stretches across the sky in all its glory. This is not a fantasy,it's a nightly reality at Nayara. Our locations, carefully chosen for their minimal light pollution, offer some of the clearest night skies in the world.
+              For the ancient Polynesian voyagers who settled Rapa Nui, the Moon and stars were not symbols of romance or wonder — they were tools of survival and discovery. Navigators sailed thousands of miles across the Pacific using a sophisticated system of wayfinding passed down through generations — not written down, but memorized and recited.
             </p>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              Join our expert guides for guided stargazing sessions where ancient constellations come alive with meaning. Learn the stories behind Orion, Cassiopeia, and the Southern Cross. Understand the dance of planets and the cycles of the moon. These are not just astronomical facts,they're invitations to reconnect with the cosmos and our place within it.
+              Stars acted as a celestial compass. Navigators memorized dozens of star paths — knowing which stars rose and set on the horizon at specific latitudes. By keeping a particular star on the horizon off the bow of the canoe, they could hold a consistent direction through the night. As the night progressed and stars shifted, they switched to the next star in the sequence.
+            </p>
+          </Reveal>
+
+          <SectionImage src={IMG.moaiMilkyway} alt="Moai statues under the Milky Way on Easter Island" caption="The Moai stand sentinel beneath the southern constellations" />
+
+          <Reveal>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
+            >
+              The Moon served as a timekeeper and secondary guide. Its phases helped estimate travel duration and plan launches around tides and weather patterns. In some cases, navigators used the Moon's position in the sky relative to stars or the horizon to confirm their orientation — especially when the stars were obscured.
             </p>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95]"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              For those seeking deeper exploration, telescope sessions reveal the craters of the moon, the rings of Saturn, and distant galaxies that challenge our understanding of scale and wonder.
+              At Nayara Hangaroa, guests can explore this legacy through evening walks among the Moai, the island's iconic stone statues. As the sky darkens, their shadows lengthen across volcanic earth, inviting quiet contemplation. Cultural talks deepen the experience, exploring how celestial navigation and lunar cycles shaped migration, mythology, and daily life.
             </p>
-          </motion.div>
+          </Reveal>
 
-          {/* Section Divider */}
-          <div className="my-12" style={{ borderTop: `2px solid ${NIGHT_PALETTE.divider}` }} />
+          <ImagePair
+            left={{ src: IMG.moaiSilhouette, alt: "Moai silhouette at sunset", caption: "Moai shadows lengthen at dusk" }}
+            right={{ src: IMG.ranoKau, alt: "Rano Kau crater under the Milky Way", caption: "Rano Kau crater beneath the stars" }}
+          />
 
-          {/* Nocturnal Wildlife & Bioluminescence */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
+          <Divider />
+
+          {/* ── SECTION 3: BOCAS BIOLUMINESCENCE ── */}
+          <Reveal>
+            <p
+              className="text-[10px] tracking-[0.35em] uppercase mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: NIGHT.accent }}
+            >
+              Nayara Bocas del Toro
+            </p>
             <h2
-              className="text-3xl md:text-4xl mb-8"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: NIGHT_PALETTE.accent }}
+              className="text-2xl md:text-4xl mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              Nocturnal Wildlife & Bioluminescence
+              Stars Below the Surface: Bioluminescence in Bocas
             </h2>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              When darkness falls, a different world awakens. Nocturnal creatures emerge,from the haunting calls of night birds to the rustling of small mammals in the undergrowth. At Nayara, guided night walks reveal this hidden ecosystem, offering glimpses into behaviors and adaptations that daylight travelers never witness.
+              In Bocas del Toro, Panama, the Moon shares its stage with something even more otherworldly: bioluminescence. On select nights, the ocean itself seems to shimmer with stardust. Tiny marine organisms, disturbed by paddles or footsteps, emit a neon-blue glow — like constellations rippling just beneath the surface.
+            </p>
+          </Reveal>
+
+          <SectionImage src={IMG.bioluminescence} alt="Bioluminescent waters in Bocas del Toro" caption="Bioluminescent waters glow beneath the Caribbean night" />
+
+          <Reveal>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
+            >
+              At Nayara Bocas del Toro, guests can kayak or swim through these luminous waters, guided by soft moonlight and the gentle pulse of the tide. The experience feels like entering a dream: quiet, magical, and alive. Local guides share stories of Caribbean folklore, where glowing bays were thought to be enchanted or blessed by ancestral spirits.
             </p>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95]"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              Perhaps most magical are our bioluminescence tours, where the waters themselves seem to glow with an otherworldly light. Millions of dinoflagellates create a living constellation in the ocean, responding to movement with brilliant flashes of blue-green light. Paddle through these waters and watch as your paddle strokes paint trails of light,a moment that feels like touching magic itself.
+              And just as the Moon's gravity pulls the tides, shaping the rhythms of coastal life, it also orchestrates the spectacle itself — bioluminescence thrives under the right lunar conditions. Full moons bring brilliance, while darker skies make the glow more pronounced. In Bocas, the Moon is both conductor and companion, helping to create a perfect harmony between sky and sea.
             </p>
+          </Reveal>
+
+          <Divider />
+
+          {/* ── SECTION 4: COSTA RICA RAINFOREST ── */}
+          <Reveal>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[10px] tracking-[0.35em] uppercase mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: NIGHT.accent }}
             >
-              These experiences remind us that nature's wonders are not confined to daylight. The night holds its own mysteries, its own beauty, its own profound lessons about the world we inhabit.
+              Nayara Tented Camp
             </p>
-          </motion.div>
-
-          {/* Section Divider */}
-          <div className="my-12" style={{ borderTop: `2px solid ${NIGHT_PALETTE.divider}` }} />
-
-          {/* Moonlit Romance & Reflection */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
             <h2
-              className="text-3xl md:text-4xl mb-8"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: NIGHT_PALETTE.accent }}
+              className="text-2xl md:text-4xl mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              Moonlit Romance & Reflection
+              The Rainforest After Dark
             </h2>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              There's something inherently romantic about the moon. Its gentle light softens the landscape, creates intimacy without intrusion, and invites contemplation. At Nayara, moonlit nights are occasions for connection,whether with a loved one, with nature, or with yourself.
+              In Costa Rica, nightfall unveils the rainforest's secret life. At Nayara Tented Camp, the sun sets and the forest awakens. Crickets sing, mist rises, fireflies blink. And under the glow of the Moon, nature shifts into a slower, more intimate rhythm.
+            </p>
+          </Reveal>
+
+          {/* Frog tour video */}
+          <Reveal className="my-12 md:my-16">
+            <div className="relative overflow-hidden" style={{ borderRadius: "2px", maxHeight: "480px" }}>
+              <BlobVideo
+                src={IMG.frogTour}
+                className="w-full object-cover max-h-[480px]"
+              />
+            </div>
+            <p
+              className="mt-3 text-[12px] tracking-[0.08em] uppercase text-center"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.muted }}
+            >
+              The signature Frog Tour — nocturnal encounters in the Arenal rainforest
+            </p>
+          </Reveal>
+
+          <Reveal>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
+            >
+              Our signature Frog Tour offers guests a guided encounter with this nocturnal world. Red-eyed tree frogs, glass frogs, and other elusive creatures emerge under the moonlight. Each step reveals the intricacy of the forest after dark — a living, breathing mosaic of sound and motion.
             </p>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95]"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              Imagine a moonlit dinner on your private villa deck, the ocean glowing softly beneath a full moon. Or a midnight swim in waters that seem to hold the moon's reflection. These are the moments that stay with us long after we leave,moments when we feel most alive, most present, most connected to something larger than ourselves.
+              For Costa Rica's Indigenous communities, such as the Bribri and Cabécar peoples, the Moon governs planting cycles, healing rituals, and spiritual balance. At Nayara, rainforest experiences are rooted in that same respect for lunar wisdom. Night is not simply the end of the day; it is a time of harmony and renewal.
             </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
-            >
-              The night invites us to slow down, to listen, to reflect. In the silence of darkness, we often find clarity we've been seeking. At Nayara, we've created spaces where this reflection is not just possible,it's inevitable.
-            </p>
-          </motion.div>
+          </Reveal>
 
-          {/* Section Divider */}
-          <div className="my-12" style={{ borderTop: `2px solid ${NIGHT_PALETTE.divider}` }} />
+          <Divider />
 
-          {/* Closing */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
+          {/* ── CLOSING ── */}
+          <Reveal>
             <h2
-              className="text-3xl md:text-4xl mb-8"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: NIGHT_PALETTE.accent }}
+              className="text-2xl md:text-4xl mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              Reclaim the Night
+              What the Moon Reveals
             </h2>
             <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.lightText }}
+              className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: NIGHT.text }}
             >
-              In a world increasingly dominated by artificial light and constant connectivity, the night sky has become a symbol of what we've lost,and what we can reclaim. At Nayara, the night is not an interruption to your day; it's an essential part of your journey. It's where you'll find some of your most profound moments, your deepest connections, and your truest self.
+              Across Nayara, the Moon and stars do more than cast light. They create space for stillness, awaken wonder, and reveal beauty that lives beyond the visible, shaped by nature and layered with meaning. In the Atacama, they open a window to the cosmos. In Rapa Nui, they carry echoes of the past. In Costa Rica, they guide us into the quiet rhythm of the forest. And in Bocas del Toro, they dance across glowing waters, where bioluminescence pulses with every paddle and movement under the night sky.
             </p>
-          </motion.div>
+          </Reveal>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mt-16 p-8 rounded-lg"
-            style={{ backgroundColor: NIGHT_PALETTE.accent, opacity: 0.1 }}
-          >
+          {/* Moon is calling CTA */}
+          <Reveal className="mt-16 mb-8">
             <p
-              className="text-center text-lg"
-              style={{ fontFamily: "var(--font-body)", color: NIGHT_PALETTE.accent, fontWeight: 600 }}
+              className="text-center text-xl md:text-2xl italic"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: NIGHT.accent }}
             >
-              Experience Nayara by Night , where the stars guide you home to yourself.
+              The Moon is calling.
             </p>
-          </motion.div>
+          </Reveal>
+
         </div>
       </section>
 
