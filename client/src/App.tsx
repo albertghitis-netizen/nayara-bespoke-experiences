@@ -168,7 +168,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/journal/three-kitchens-one-rainforest"];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest"];
 
 function Router() {
   const [location] = useLocation();
@@ -298,7 +298,6 @@ function Router() {
           <Route path="/blog/experiential-travel-nayara-2026" component={ExperientialTravelBlog} />
           <Route path="/blog/family-bucket-list-nayara" component={FamilyBucketListBlog} />
           <Route path="/blog/three-kitchens-one-rainforest" component={GastronomyBlog} />
-          <Route path="/journal/three-kitchens-one-rainforest">{() => { window.location.replace("/blog/three-kitchens-one-rainforest"); return null; }}</Route>
 
           <Route path="/blog/sunlit-sustainability" component={SunlitSustainabilityBlog} />
           <Route path="/blog/biodensity-underwater" component={BiodensityUnderwaterBlog} />

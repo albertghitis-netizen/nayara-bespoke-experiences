@@ -3558,3 +3558,6 @@
 - [x] Build comprehensive FAQ page (/faq) aggregating FAQs from all blogs (Nayara Story, Edge Habitability, Stargazing, Oasis)
 - [x] Add FAQ route to App.tsx with lazy import
 - [x] Update Journal page FAQ section from "Coming Soon" to link to /faq
+
+## Duplicate Route Fix
+- [x] Remove duplicate /journal/three-kitchens-one-rainforest route (should only exist at /blog/three-kitchens-one-rainforest)
