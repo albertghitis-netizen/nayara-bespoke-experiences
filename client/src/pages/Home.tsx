@@ -913,6 +913,35 @@ function NayaraJournalSection() {
       external: false,
       cta: "read",
     },
+    {
+      id: "leo-luxury-travel",
+      label: "Watch",
+      title: "The Allure of Sustainability in Luxury Travel",
+      image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
+      href: null,
+      youtubeId: "7l072Yr__pE",
+      external: false,
+      cta: "watch",
+    },
+    {
+      id: "experiential-travel-2026",
+      label: "Read",
+      title: "Experiential Travel at Nayara: Where Every Destination is a Discovery",
+      image: "/manus-storage/3E487026-8F2B-41DB-A34D-0A5F0265A62D(1)_f2a614f0.jpg",
+      href: "/blog/experiential-travel-nayara-2026",
+      external: false,
+      cta: "read",
+    },
+    {
+      id: "hangaroa-sustainability",
+      label: "Watch",
+      title: "Nayara Hangaroa Sustainability",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-sunset_1238744f.jpg",
+      href: null,
+      youtubeId: "_M3ATv4I0B8",
+      external: false,
+      cta: "watch",
+    },
   ];
 
   const allCards = [...teaserCards];
