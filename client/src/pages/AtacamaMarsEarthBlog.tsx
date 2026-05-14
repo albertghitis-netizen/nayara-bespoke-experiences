@@ -92,8 +92,8 @@ const atacamaMarsPost: BlogPostData = {
       date: "March 1, 2026",
     },
     {
-      slug: "atacama-winter",
-      title: "Why Winter is the Best Time to Experience the Atacama Desert",
+      slug: "edge-habitability",
+      title: "The Atacama Desert: At the Edge of Habitability",
       pillar: "Experiences",
       image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
       date: "Jan 27, 2026",

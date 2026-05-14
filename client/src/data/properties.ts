@@ -1197,10 +1197,9 @@ export const properties: Property[] = [
     blogLinks: [
       { title: "Why the Atacama Is Mars on Earth", url: "/blog/atacama-mars" },
       { title: "Wildlife Conservation in the Atacama", url: "/blog/atacama-wildlife" },
-      { title: "Why Winter Is the Best Time to Visit", url: "/blog/atacama-winter" },
       { title: "The Best Stargazing Resort", url: "/blog/stargazing-atacama" },
       { title: "An Oasis in the Desert", url: "/blog/atacama-oasis" },
-      { title: "Romance in the Atacama", url: "/blog/atacama-romance" },
+      { title: "At the Edge of Habitability", url: "/blog/edge-habitability" },
     ],
     theme: {
       accent: "terracotta",
@@ -1256,7 +1255,7 @@ export const properties: Property[] = [
     blogLinks: [
       { title: "Pura Vida: The Science of Why Costa Rica Feels Different", url: "/blog/pura-vida" },
       { title: "Nature-Based Wellness: Rainforests, Oceans & Night Skies", url: "/blog/wellness-by-colors" },
-      { title: "Holistic Wellness Naturally", url: "/blog/holistic-wellness" },
+      { title: "Wellness in Luxury Hospitality", url: "/blog/wellness-hospitality" },
       { title: "Meeting the Toucans of Arenal Rainforest", url: "/blog/toucans-arenal" },
       { title: "Window to the Wild: Arenal Volcano Family Vacations", url: "/blog/family-travel" },
       { title: "Wildlife Conservation in Arenal and Bocas del Toro", url: "/blog/arenal-bocas-wildlife" },
@@ -1316,7 +1315,7 @@ export const properties: Property[] = [
     blogLinks: [
       { title: "Pura Vida: The Science of Why Costa Rica Feels Different", url: "/blog/pura-vida" },
       { title: "Nature-Based Wellness: Rainforests, Oceans & Night Skies", url: "/blog/wellness-by-colors" },
-      { title: "Holistic Wellness Naturally", url: "/blog/holistic-wellness" },
+      { title: "Wellness in Luxury Hospitality", url: "/blog/wellness-hospitality" },
       { title: "Meeting the Toucans of Arenal Rainforest", url: "/blog/toucans-arenal" },
       { title: "Window to the Wild: Arenal Volcano Family Vacations", url: "/blog/family-travel" },
       { title: "Wildlife Conservation in Arenal and Bocas del Toro", url: "/blog/arenal-bocas-wildlife" },
@@ -1376,7 +1375,7 @@ export const properties: Property[] = [
     blogLinks: [
       { title: "Pura Vida: The Science of Why Costa Rica Feels Different", url: "/blog/pura-vida" },
       { title: "The History and Science of Private Hot Springs & Plunge Pools", url: "/blog/hot-springs" },
-      { title: "Holistic Wellness Naturally", url: "/blog/holistic-wellness" },
+      { title: "Wellness in Luxury Hospitality", url: "/blog/wellness-hospitality" },
       { title: "Nature-Based Wellness: Rainforests, Oceans & Night Skies", url: "/blog/wellness-by-colors" },
       { title: "Birdwatching in Costa Rica", url: "/blog/birdwatching" },
       { title: "Meeting the Toucans of Arenal Rainforest", url: "/blog/toucans-arenal" },
@@ -1433,7 +1432,6 @@ export const properties: Property[] = [
       { title: "Wildlife Conservation on Easter Island", url: "/blog/atacama-wildlife" },
       { title: "The Tapati Rapa Nui Festival at Nayara Hangaroa", url: "/blog/tapati-festival" },
       { title: "Walking Giants: The Hito Family & the Future of Easter Island", url: "/blog/hangaroa-regeneration" },
-      { title: "Challenge Easter Island's Outdoors with Nayara Hangaroa", url: "/blog/challenge-easter-island" },
       { title: "A Collapse That Wasn't: Maya and Rapa Nui on Climate & Survival", url: "/blog/maya-rapa-nui" },
       { title: "Nature-Based Wellness: Deserts, Rainforests, Oceans & Night Skies", url: "/blog/wellness-by-colors" },
     ],
@@ -1490,8 +1488,6 @@ export const properties: Property[] = [
     ],
     blogLinks: [
       { title: "5 Interesting Facts About Bocas del Toro, Panama", url: "/blog/bocas-facts" },
-      { title: "The Private Island Paradise of Bocas del Toro", url: "/blog/private-island-bocas" },
-      { title: "Your Floating Paradise in the Galápagos of the Caribbean", url: "/blog/floating-paradise" },
       { title: "Nayara Bocas del Toro Treehouse", url: "/blog/treehouse-dreams" },
       { title: "Biodensity, Underwater Mountains & Our Ecosystems", url: "/blog/biodensity-underwater" },
       { title: "Wildlife Conservation in Arenal and Bocas del Toro", url: "/blog/arenal-bocas-wildlife" },

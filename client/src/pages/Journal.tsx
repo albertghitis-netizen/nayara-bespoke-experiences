@@ -75,19 +75,18 @@ const CURATED_IDS: string[] = [
   "treehouse-dreams",
   // Row 6
   "nature-based-wellness-colors",
-  "floating-paradise",
   "mars-atacama",
   // Row 7
   "toucans-arenal",
   "pura-vida",
   "bocas-facts",
   // Row 8
-  "seven-elements",
+  "edge-habitability",
   "wildlife-arenal-bocas",
   "sunlit-sustainability",
   // Row 9
   "solo-travel-female",
-  "holistic-wellness",
+  "oasis-atacama",
   "nayara-by-night",
   // Row 10
   "green-globe",

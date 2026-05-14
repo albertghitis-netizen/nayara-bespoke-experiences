@@ -173,8 +173,8 @@ export const puraVidaPost: BlogPostData = {
   ],
   relatedArticles: [
     {
-      slug: "/blog/holistic-wellness",
-      title: "Defining Nature-Based Wellness in Luxury Hospitality",
+      slug: "/blog/wellness-hospitality",
+      title: "Wellness in Luxury Hospitality",
       pillar: "Wellness",
       image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
       date: "2025",
@@ -393,9 +393,9 @@ export const greenGlobePost: BlogPostData = {
       date: "2025",
     },
     {
-      slug: "/blog/community-hospitality",
-      title: "Rooted in Community: The Human Side of Hospitality",
-      pillar: "Sustainability",
+      slug: "/blog/nayara-story",
+      title: "The Nayara Story: Time Is the Highest Currency",
+      pillar: "Brand",
       image: "https://blog.nayararesorts.com/hubfs/IMG_8179.jpg",
       date: "2025",
     },

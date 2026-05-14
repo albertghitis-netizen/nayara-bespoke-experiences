@@ -592,7 +592,7 @@ export const sustainabilityData: Record<string, {
         title: "Rooted in Community: Human Hospitality",
         excerpt: "Explore how Nayara Resorts' commitment to community and regenerative travel transforms lives and landscapes.",
         image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-atacama-dusk-resort_b5829c95.webp",
-        url: "/blog/community-hospitality",
+        url: "/blog/nayara-story",
       },
       {
         title: "The Best Place to Stay in the Atacama Desert Is an Oasis",
@@ -760,7 +760,7 @@ export const sustainabilityData: Record<string, {
         title: "Nayara Resorts Partners with One Ocean Planet",
         excerpt: "A new partnership with One Ocean Planet brings marine conservation, coral restoration, and ocean education to the heart of Nayara Bocas del Toro.",
         image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
-        url: "/blog/sustainability",
+        url: "/blog/caribbean-coral-reef",
       },
 
     ],

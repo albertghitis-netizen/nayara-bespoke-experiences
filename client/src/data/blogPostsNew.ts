@@ -117,8 +117,8 @@ export const gastronomyBlogPost: BlogPostData = {
   sources: [],
   relatedArticles: [
     {
-      slug: "/blog/holistic-wellness",
-      title: "Holistic Wellness, Naturally",
+      slug: "/blog/wellness-hospitality",
+      title: "Wellness in Luxury Hospitality",
       pillar: "Wellness",
       image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
       date: "2025-08-11",
@@ -236,8 +236,8 @@ export const inHouseActivitiesBlogPost: BlogPostData = {
       date: "2026-03-15",
     },
     {
-      slug: "/blog/holistic-wellness",
-      title: "Holistic Wellness, Naturally",
+      slug: "/blog/wellness-hospitality",
+      title: "Wellness in Luxury Hospitality",
       pillar: "Wellness",
       image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
       date: "2025-08-11",

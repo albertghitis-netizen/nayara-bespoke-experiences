@@ -701,20 +701,7 @@ const BOCAS_JOURNAL_CARDS: BocasJournalCard[] = [
     image: "/manus-storage/bocas-treehouse-cover_5eb7138e.jpg",
     href: "/blog/treehouse-dreams",
   },
-  {
-    id: "floating-paradise",
-    label: "Read",
-    title: "Your Floating Paradise in the Galápagos of the Caribbean",
-    image: "https://blog.nayararesorts.com/hubfs/Nayara%20Bocas%20del%20Toro%20(2).webp",
-    href: "/blog/floating-paradise",
-  },
-  {
-    id: "private-island-bocas",
-    label: "Read",
-    title: "The Private Island Paradise of Bocas del Toro",
-    image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
-    href: "/blog/private-island-bocas",
-  },
+
   { id: "placeholder-1", label: "Watch", title: "Coming Soon", image: "", href: null, placeholder: true },
   { id: "placeholder-2", label: "Listen", title: "Coming Soon", image: "", href: null, placeholder: true },
   { id: "placeholder-3", label: "Read", title: "Coming Soon", image: "", href: null, placeholder: true },

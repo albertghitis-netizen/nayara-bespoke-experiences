@@ -133,25 +133,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
     excerpt: "From regenerative travel to digital detox, discover the trends shaping luxury hospitality in 2026 and how Nayara Resorts leads the way.",
   },
-  {
-    id: "golden-age-latin-america",
-    title: "A New Golden Age of Luxury Travel in Latin America",
-    url: "/blog/golden-age-latin-america",
-    property: "brand",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg",
-    excerpt: "Latin America is experiencing a renaissance in luxury travel. Nayara Resorts is at the forefront, redefining what it means to travel with purpose.",
-  },
 
-  {
-    id: "seven-elements",
-    title: "Defining Memories for a Lifetime: Nayara's Seven Elements of Place",
-    url: "/blog/seven-elements",
-    property: "brand",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bird-watching-hero_ddf4b8c3.jpg",
-    excerpt: "Every Nayara property is defined by seven elements that create a sense of place , from landscape and architecture to cuisine and community.",
-  },
   {
     id: "sunlit-sustainability",
     title: "Sunlit Sustainability: Nature-Powered",
@@ -160,15 +142,6 @@ const blogArticles: JournalEntry[] = [
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/4-Aug-15-2025-06-36-01-1516-PM.png",
     excerpt: "Explore how Nayara Resorts harnesses solar power for sustainable luxury, from the Atacama Desert to Easter Island, Costa Rica, and Bocas del Toro.",
-  },
-  {
-    id: "rooted-in-community",
-    title: "Rooted in Community: Human Hospitality",
-    url: "/blog/community-hospitality",
-    property: "brand",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/IMG_8179.jpg",
-    excerpt: "Explore how Nayara Resorts' commitment to community and regenerative travel transforms lives and landscapes across Costa Rica, Panama, Chile, and Easter Island.",
   },
   {
     id: "nature-based-wellness-colors",
@@ -187,15 +160,6 @@ const blogArticles: JournalEntry[] = [
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/6-Dec-07-2025-04-10-58-5077-AM.png",
     excerpt: "From Roman thermae to Nayara Springs , the science and history behind private hot springs plunge pools and their profound wellness benefits.",
-  },
-  {
-    id: "holistic-wellness",
-    title: "Defining Nature-Based Wellness in Luxury Hospitality",
-    url: "/blog/holistic-wellness",
-    property: "brand",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
-    excerpt: "How Nayara Resorts is redefining wellness through nature-based experiences that go beyond the spa , into the landscape itself.",
   },
 
   {
@@ -319,15 +283,7 @@ const blogArticles: JournalEntry[] = [
     image: "/manus-storage/bocas-treehouse-cover_5eb7138e.jpg",
     excerpt: "Nayara Bocas del Toro's treehouse villas redefine luxury , suspended above the Caribbean, surrounded by mangroves and starlight.",
   },
-  {
-    id: "floating-paradise",
-    title: "Your Floating Paradise in the Galápagos of the Caribbean",
-    url: "/blog/floating-paradise",
-    property: "bocas-del-toro",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Nayara%20Bocas%20del%20Toro%20(2).webp",
-    excerpt: "Prepare to embark on a journey where every moment is a testament to the breathtaking allure of Bocas del Toro's Caribbean archipelago.",
-  },
+
   {
     id: "mars-atacama",
     title: "Why the Atacama Desert is Mars on Earth",
@@ -348,24 +304,6 @@ const blogArticles: JournalEntry[] = [
     excerpt: "Discover why the Atacama has the clearest night skies on Earth and how Nayara Alto Atacama's private observatory unlocks the cosmos.",
   },
   {
-    id: "winter-atacama",
-    title: "Why Winter is the Best Time to Experience the Atacama Desert",
-    url: "/blog/atacama-winter",
-    property: "alto-atacama",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Astrotourism.jpg",
-    excerpt: "Winter reveals the Atacama at its clearest. Cooler days, longer nights, and exceptional atmospheric clarity make winter the ideal season.",
-  },
-  {
-    id: "romance-atacama",
-    title: "Why The Atacama Desert Winter is Built for Romance",
-    url: "/blog/atacama-romance",
-    property: "alto-atacama",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/88_33345812.jpg",
-    excerpt: "Desert silence, mineral baths under the stars, and the world's clearest skies , why the Atacama winter is the ultimate romantic escape.",
-  },
-  {
     id: "oasis-atacama",
     title: "What Defines The Best Place to Stay in the Atacama Desert",
     url: "/blog/atacama-oasis",
@@ -373,15 +311,6 @@ const blogArticles: JournalEntry[] = [
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/3-Nov-26-2025-02-34-59-4966-AM.png",
     excerpt: "In the Atacama, location matters. Learn why staying inside a true desert oasis transforms comfort, recovery, and the entire experience.",
-  },
-  {
-    id: "packing-atacama",
-    title: "What to Pack for the Atacama Desert's Extremes",
-    url: "/blog/packing-atacama",
-    property: "alto-atacama",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Destination%205.jpg",
-    excerpt: "Essential packing tips for a comfortable and adventurous trip to the Atacama Desert, from day hikes to stargazing nights.",
   },
   {
     id: "edge-habitability",
@@ -392,15 +321,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg",
     excerpt: "Understanding the Atacama Desert: landscape, climate, and extremes. How life persists at the edge of habitability.",
   },
-  {
-    id: "climate-packing-all",
-    title: "Climate, Conditions, and Packing Tips",
-    url: "/blog/climate-packing",
-    property: "brand",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(1).jpg",
-    excerpt: "A comprehensive guide to the climate and conditions at each Nayara Resort , what to expect and what to bring.",
-  },
+
   {
     id: "hito-family-rapanui",
     title: "How Nayara Hangaroa Leads Regeneration on Rapa Nui",
@@ -410,15 +331,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/9-Aug-11-2025-08-40-19-5669-PM.png",
     excerpt: "Rapa Nui's Hito family leads cultural and ecological regeneration. Learn how moai traditions, reforestation, and community shape the island's future.",
   },
-  {
-    id: "challenge-easter-island",
-    title: "Challenge Easter Island's Outdoors with Nayara Hangaroa",
-    url: "/blog/challenge-easter-island",
-    property: "hangaroa",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Challenge%20Easter%20Island%E2%80%99s%20Outdoors%20with%20Nayara%20Hangaroa%20(3)-1-1.jpeg",
-    excerpt: "Discover the ultimate adventure on Easter Island , from trekking volcanoes to exploring ancient ceremonial sites.",
-  },
+
   {
     id: "green-globe",
     title: "Setting the Standard: Green Globe Certification",
@@ -447,15 +360,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Scarlet-macaw-NA_CR_15-2048x1638.jpeg",
     excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans , a birdwatcher's paradise.",
   },
-  {
-    id: "private-island-bocas",
-    title: "The Private Island Paradise of Bocas del Toro",
-    url: "/blog/private-island-bocas",
-    property: "bocas-del-toro",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/The-Private-Island-Paradise-of-Bocas-del-Toro-4.jpg",
-    excerpt: "A private island sanctuary in Panama's Caribbean archipelago , overwater villas, bioluminescent bays, and pristine coral reefs.",
-  },
+
   {
     id: "bocas-history-culture-nature",
     title: "Bocas del Toro: History, Culture & Nature",
@@ -548,15 +453,6 @@ const blogArticles: JournalEntry[] = [
     type: "article",
     image: FALLBACK_IMG,
     excerpt: "How Nayara is redefining luxury hospitality through science-backed wellness programming.",
-  },
-  {
-    id: "sustainability-blog",
-    title: "Nayara's Sustainability Journey",
-    url: "/blog/sustainability",
-    property: "brand",
-    type: "article",
-    image: FALLBACK_IMG,
-    excerpt: "From ocean conservation to community empowerment — Nayara's holistic approach to sustainable tourism.",
   },
 ];
 

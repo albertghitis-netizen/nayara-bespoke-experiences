@@ -333,10 +333,6 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
                 url: "/blog/atacama-wildlife",
               },
               {
-                title: "Why Winter Is the Best Time to Visit",
-                url: "/blog/atacama-winter",
-              },
-              {
                 title: "The Best Stargazing Resort",
                 url: "/blog/stargazing-atacama",
               },
@@ -345,8 +341,8 @@ export default function ExcursionsSection({ onInView }: ExcursionsSectionProps) 
                 url: "/blog/atacama-oasis",
               },
               {
-                title: "Romance in the Atacama",
-                url: "/blog/atacama-romance",
+                title: "At the Edge of Habitability",
+                url: "/blog/edge-habitability",
               },
             ].map((blog) => (
               <a

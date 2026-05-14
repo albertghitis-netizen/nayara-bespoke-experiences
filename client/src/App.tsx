@@ -48,8 +48,6 @@ const MichelinKeysBlog = lazy(() => import("./pages/MichelinKeysBlog"));
 const AtacamaWildlifeBlog = lazy(() => import("./pages/AtacamaWildlifeBlog"));
 const ArenalBocasWildlifeBlog = lazy(() => import("./pages/ArenalBocasWildlifeBlog"));
 const MayaRapaNuiBlog = lazy(() => import("./pages/MayaRapaNuiBlog"));
-const AtacamaRomanceBlog = lazy(() => import("./pages/AtacamaRomanceBlog"));
-const AtacamaWinterBlog = lazy(() => import("./pages/AtacamaWinterBlog"));
 const AtacamaOasisBlog = lazy(() => import("./pages/AtacamaOasisBlog"));
 const TravelTrendsBlog = lazy(() => import("./pages/TravelTrendsBlog"));
 const WellnessByColorsBlog = lazy(() => import("./pages/WellnessByColorsBlog"));
@@ -63,14 +61,9 @@ const NayaraByNightBlog = lazy(() => import("./pages/NayaraByNightBlog"));
 const BocasHistoryCultureNatureBlog = lazy(() => import("./pages/BocasHistoryCultureNatureBlog"));
 const NayaraBocasResortExperienceBlog = lazy(() => import("./pages/NayaraBocasResortExperienceBlog"));
 const BocasCondeNastAwardBlog = lazy(() => import("./pages/BocasCondeNastAwardBlog"));
-const CommunityHospitalityBlog = lazy(() => import("./pages/CommunityHospitalityBlog"));
-const SustainabilityBlog = lazy(() => import("./pages/SustainabilityBlog"));
 const CaribbeanCoralReefBlog = lazy(() => import("./pages/CaribbeanCoralReefBlog"));
 const MayaRapaNuiClimateBlog = lazy(() => import("./pages/MayaRapaNuiClimateBlog"));
-const GoldenAgeLatinAmericaBlog = lazy(() => import("./pages/GoldenAgeLatinAmericaBlog"));
-const SevenElementsBlog = lazy(() => import("./pages/SevenElementsBlog"));
 const SunlitSustainabilityBlog = lazy(() => import("./pages/SunlitSustainabilityBlog"));
-const HolisticWellnessBlog = lazy(() => import("./pages/HolisticWellnessBlog"));
 const BiodensityUnderwaterBlog = lazy(() => import("./pages/BiodensityUnderwaterBlog"));
 const SoloTravelFemaleBlog = lazy(() => import("./pages/SoloTravelFemaleBlog"));
 const FamilyTravelBlog = lazy(() => import("./pages/FamilyTravelBlog"));
@@ -79,14 +72,9 @@ const ArenalTimelessWonderBlog = lazy(() => import("./pages/ArenalTimelessWonder
 const ToucansArenalBlog = lazy(() => import("./pages/ToucansArenalBlog"));
 const BocasFactsBlog = lazy(() => import("./pages/BocasFactsBlog"));
 const TreehouseDreamsBlog = lazy(() => import("./pages/TreehouseDreamsBlog"));
-const FloatingParadiseBlog = lazy(() => import("./pages/FloatingParadiseBlog"));
 const StargazingAtacamaBlog = lazy(() => import("./pages/StargazingAtacamaBlog"));
-const PackingAtacamaBlog = lazy(() => import("./pages/PackingAtacamaBlog"));
 const EdgeHabitabilityBlog = lazy(() => import("./pages/EdgeHabitabilityBlog"));
-const ClimatePackingBlog = lazy(() => import("./pages/ClimatePackingBlog"));
-const ChallengeEasterIslandBlog = lazy(() => import("./pages/ChallengeEasterIslandBlog"));
 const TapatiFestivalBlog = lazy(() => import("./pages/TapatiFestivalBlog"));
-const PrivateIslandBocasBlog = lazy(() => import("./pages/PrivateIslandBocasBlog"));
 // const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -293,8 +281,6 @@ function Router() {
           <Route path="/blog/atacama-wildlife" component={AtacamaWildlifeBlog} />
           <Route path="/blog/arenal-bocas-wildlife" component={ArenalBocasWildlifeBlog} />
           <Route path="/blog/maya-rapa-nui" component={MayaRapaNuiBlog} />
-          <Route path="/blog/atacama-romance" component={AtacamaRomanceBlog} />
-          <Route path="/blog/atacama-winter" component={AtacamaWinterBlog} />
           <Route path="/blog/atacama-oasis" component={AtacamaOasisBlog} />
           <Route path="/blog/travel-trends" component={TravelTrendsBlog} />
           <Route path="/blog/wellness-by-colors" component={WellnessByColorsBlog} />
@@ -307,8 +293,6 @@ function Router() {
           <Route path="/blog/nayara-by-night" component={NayaraByNightBlog} />
           <Route path="/blog/bocas-history-culture-nature" component={BocasHistoryCultureNatureBlog} />
           <Route path="/blog/nayara-bocas-resort-experience" component={NayaraBocasResortExperienceBlog} />
-          <Route path="/blog/community-hospitality" component={CommunityHospitalityBlog} />
-          <Route path="/blog/sustainability" component={SustainabilityBlog} />
           <Route path="/blog/caribbean-coral-reef" component={CaribbeanCoralReefBlog} />
           <Route path="/blog/maya-rapa-nui-climate" component={MayaRapaNuiClimateBlog} />
           <Route path="/blog/experiential-travel-nayara-2026" component={ExperientialTravelBlog} />
@@ -316,10 +300,7 @@ function Router() {
           <Route path="/blog/three-kitchens-one-rainforest" component={GastronomyBlog} />
           <Route path="/journal/three-kitchens-one-rainforest">{() => { window.location.replace("/blog/three-kitchens-one-rainforest"); return null; }}</Route>
 
-          <Route path="/blog/golden-age-latin-america" component={GoldenAgeLatinAmericaBlog} />
-          <Route path="/blog/seven-elements" component={SevenElementsBlog} />
           <Route path="/blog/sunlit-sustainability" component={SunlitSustainabilityBlog} />
-          <Route path="/blog/holistic-wellness" component={HolisticWellnessBlog} />
           <Route path="/blog/biodensity-underwater" component={BiodensityUnderwaterBlog} />
           <Route path="/blog/solo-travel-female" component={SoloTravelFemaleBlog} />
           <Route path="/blog/family-travel" component={FamilyTravelBlog} />
@@ -328,14 +309,9 @@ function Router() {
           <Route path="/blog/toucans-arenal" component={ToucansArenalBlog} />
           <Route path="/blog/bocas-facts" component={BocasFactsBlog} />
           <Route path="/blog/treehouse-dreams" component={TreehouseDreamsBlog} />
-          <Route path="/blog/floating-paradise" component={FloatingParadiseBlog} />
           <Route path="/blog/stargazing-atacama" component={StargazingAtacamaBlog} />
-          <Route path="/blog/packing-atacama" component={PackingAtacamaBlog} />
           <Route path="/blog/edge-habitability" component={EdgeHabitabilityBlog} />
-          <Route path="/blog/climate-packing" component={ClimatePackingBlog} />
-          <Route path="/blog/challenge-easter-island" component={ChallengeEasterIslandBlog} />
           <Route path="/blog/tapati-festival" component={TapatiFestivalBlog} />
-          <Route path="/blog/private-island-bocas" component={PrivateIslandBocasBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/staff" component={Staff} />
