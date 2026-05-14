@@ -159,7 +159,6 @@ export default function Home() {
       </div>
       <AwardsHighlightSection />
       <NayaraJournalSection />
-      <BrandCTA />
       <Footer textColor="#FFFFFF" />
     </div>
   );
@@ -852,18 +851,19 @@ function NayaraJournalSection() {
   const [currentPage, setCurrentPage] = useState(0);
   const [mobileCard, setMobileCard] = useState(0);
   const mobileScrollRef = useRef<HTMLDivElement>(null);
-  const totalPages = 3; // 9 cards / 3 per page
+  const totalPages = 2; // 6 cards / 3 per page
 
-  // 3 curated cards: Listen · Read · Watch
+  // 6 curated cards: Watch · Read · Watch · Read · Watch · Read
   const teaserCards: JournalCardData[] = [
     {
-      id: "afar",
-      label: "Listen",
-      title: "Leo Ghitis on Going Beyond Sustainability",
-      image: "/manus-storage/afar-podcast-cover_47ce0dce.jpg",
-      href: "https://podcasts.apple.com/us/podcast/view-from-afar/id1811656485?i=1000740311355",
-      external: true,
-      cta: "listen",
+      id: "leo-luxury-travel",
+      label: "Watch",
+      title: "The Allure of Sustainability in Luxury Travel",
+      image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
+      href: null,
+      youtubeId: "7l072Yr__pE",
+      external: false,
+      cta: "watch",
     },
     {
       id: "gastronomy",
@@ -881,23 +881,40 @@ function NayaraJournalSection() {
       image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
       href: null,
       youtubeId: "FRPVRcUTNmk",
-      listenUrl: undefined,
       external: false,
       cta: "watch",
     },
+    {
+      id: "wellness-colors",
+      label: "Read",
+      title: "Nature-Based Wellness by Colors: Brown, Black, Green, Blue",
+      image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
+      href: "/blog/wellness-by-colors",
+      external: false,
+      cta: "read",
+    },
+    {
+      id: "archaeologist-rapanui",
+      label: "Watch",
+      title: "Uncovering Rapa Nui: An Archaeologist's Perspective",
+      image: "/manus-storage/podcast-cover-ancient-worlds_a64d1b7e.png",
+      href: null,
+      youtubeId: "qFVLTTJa7hE",
+      external: false,
+      cta: "watch",
+    },
+    {
+      id: "conde-nast-bocas",
+      label: "Read",
+      title: "Nayara Bocas del Toro: #1 Resort in Central America — Condé Nast Traveler 2025",
+      image: "/manus-storage/bocas-aerial-cover_46f0bbf4.jpg",
+      href: "/blog/bocas-conde-nast",
+      external: false,
+      cta: "read",
+    },
   ];
 
-  // 6 dummy placeholder cards: Read, Listen, Read, View, Read, Listen
-  const dummyCards: JournalCardData[] = [
-    { id: "dummy-1", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
-    { id: "dummy-2", label: "Listen", title: "Coming Soon", image: "", href: null, external: false, cta: "listen" },
-    { id: "dummy-3", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
-    { id: "dummy-4", label: "View", title: "Coming Soon", image: "", href: null, external: false, cta: "watch" },
-    { id: "dummy-5", label: "Read", title: "Coming Soon", image: "", href: null, external: false, cta: "read" },
-    { id: "dummy-6", label: "Listen", title: "Coming Soon", image: "", href: null, external: false, cta: "listen" },
-  ];
-
-  const allCards = [...teaserCards, ...dummyCards];
+  const allCards = [...teaserCards];
 
   const scrollToPage = (page: number) => {
     const el = scrollRef.current;
