@@ -159,7 +159,7 @@ export default function Home() {
       </div>
       <AwardsHighlightSection />
       <NayaraJournalSection />
-      <Footer textColor="#FFFFFF" />
+      <Footer textColor="#FFFFFF" bgColor="#6a604f" />
     </div>
   );
 }
