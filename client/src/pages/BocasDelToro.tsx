@@ -215,6 +215,7 @@ type CascadeSectionData = {
   hideH?: boolean;
   overlayOnVideo?: boolean;
   hideVerticalOnMobile?: boolean;
+  verticalOverlayLabel?: string;
 };
 
 const CASCADE_SECTIONS: CascadeSectionData[] = [
@@ -318,6 +319,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     nextBgColor: SECTION_COLORS[6],
     link: "/bocas-del-toro/wellness",
     linkLabel: "Explore Nature-Based Wellness",
+    verticalOverlayLabel: "Explore Treehouse Spa",
     stats: [
       { value: "Overwater", label: "Spa Pavilion" },
       { value: "Caribbean", label: "Healing Traditions" },
@@ -326,7 +328,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   },
   {
     id: "gastronomy",
-    label: "Forest to Table",
+    label: "A Taste of Place",
     headline: "Elephant\nHouse",
     body: "Our fine dining restaurant, the majestic Elephant House, is a 100-year-old structure shipped halfway around the world from Bali, Indonesia. Take in the moon glistening on the water and spot a stingray gliding by as you delight in lobster paired with the perfect chilled white wine. By day, the poolside Coral Café offers a cheerful alfresco setting for a leisurely breakfast or lunch.\n\nAn unexpected culinary journey in the middle of the Caribbean Sea. Our chef creates a new meticulously crafted dinner menu every night of the week, using the finest hand-selected meats, local seafood directly from the sea, and fresh organic vegetables and ingredients.",
     verticalSrc: "/manus-storage/fb12-bocas-gastronomy_8f3f15ff.jpg",
@@ -339,7 +341,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
     link: "/bocas-del-toro/gastronomy",
-    linkLabel: "Explore Dining",
+    linkLabel: "Explore A Taste of Place",
+    verticalOverlayLabel: "Explore Elephant House",
   },
   {
     id: "nayara-by-night",
@@ -528,6 +531,26 @@ function CascadeSection({
               alt={`${section.label} , Nayara Bocas del Toro`}
               fillHeight={true}
             />
+            {section.verticalOverlayLabel && (
+              <div className="absolute bottom-6 left-6 z-10">
+                <span
+                  className="inline-flex items-center gap-2 px-4 py-2.5 text-[11px] tracking-[0.14em] uppercase"
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontWeight: 500,
+                    color: "#fff",
+                    backgroundColor: "rgba(255,255,255,0.12)",
+                    backdropFilter: "blur(8px)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                  }}
+                >
+                  {section.verticalOverlayLabel}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            )}
         </div>
         {/* Text column */}
         <div
