@@ -182,7 +182,7 @@ export default function Journal() {
         </div>
       </section>
 
-      {/* ── FAQ , Coming Soon ── */}
+      {/* ── FAQ ── */}
       <section className="px-4 md:px-10 py-14 md:py-20 bg-white border-t border-stone-100">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
@@ -192,9 +192,16 @@ export default function Journal() {
             <h2 className="text-[#3B2B26] text-xl md:text-2xl mb-4" style={heading}>
               Frequently Asked Questions
             </h2>
-            <p className="text-[#3B2B26]/35 text-[13px] leading-relaxed" style={body}>
-              Coming soon , answers to everything you want to know about staying at Nayara.
+            <p className="text-[#3B2B26]/35 text-[13px] leading-relaxed mb-6" style={body}>
+              Answers to everything you want to know about staying at Nayara.
             </p>
+            <a
+              href="/faq"
+              className="inline-block px-8 py-3 border border-[#3B2B26]/20 text-[#3B2B26] text-[11px] tracking-[0.2em] uppercase hover:bg-[#3B2B26] hover:text-white transition-all duration-300"
+              style={{ ...body, fontWeight: 500 }}
+            >
+              View All FAQs
+            </a>
           </FadeIn>
         </div>
       </section>

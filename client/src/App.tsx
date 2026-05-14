@@ -74,6 +74,7 @@ const BocasFactsBlog = lazy(() => import("./pages/BocasFactsBlog"));
 const TreehouseDreamsBlog = lazy(() => import("./pages/TreehouseDreamsBlog"));
 const StargazingAtacamaBlog = lazy(() => import("./pages/StargazingAtacamaBlog"));
 const EdgeHabitabilityBlog = lazy(() => import("./pages/EdgeHabitabilityBlog"));
+const FAQ = lazy(() => import("./pages/FAQ"));
 const TapatiFestivalBlog = lazy(() => import("./pages/TapatiFestivalBlog"));
 // const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
@@ -260,7 +261,7 @@ function Router() {
           <Route path="/bocas-del-toro/sustainability" component={BocasSustainability} />
           <Route path="/corey" component={BocasSustainability} />
           <Route path="/journal" component={Journal} />
-           {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
+          <Route path="/faq" component={FAQ} />
           <Route path="/awards" component={AwardsAndPress} />
           <Route path="/sustainability" component={Sustainability} />
           <Route path="/experiences" component={Experiences} />
@@ -269,7 +270,6 @@ function Router() {
           
           {/* ARCHIVED REDIRECT: /press - Previously redirected to /awards */}
           <Route path="/gastronomy" component={Gastronomy} />
-          {/* ARCHIVED REDIRECT: /faq - Previously redirected to /journal */}
           <Route path="/newsletter" component={Newsletter} />
           <Route path="/newsletter/may" component={NewsletterMay} />
 

@@ -3547,3 +3547,14 @@
 ## Journey Map Enhancement
 - [x] Add property image popup cards to the journey map when flight path arrives at each destination
 - [x] Stagger flight path animations with pauses between each line
+
+## Atacama Blog Series (3 New Pages) + FAQ Page
+- [x] EdgeHabitabilityBlog.tsx — full verbatim content from source, Desert Codex design, hero image, sources, related articles
+- [x] StargazingAtacamaBlog.tsx — full verbatim content from source, Desert Codex design, hero image, sources, related articles
+- [x] AtacamaOasisBlog.tsx — full verbatim content from source, Desert Codex design, hero image, sources, related articles
+- [x] Cross-link all 4 Atacama blogs in relatedArticles sections
+- [x] Cross-link NayaraByNightBlog → StargazingAtacamaBlog
+- [x] Update AtacamaMarsEarthBlog relatedArticles to reference EdgeHabitability, Stargazing, and AtacamaOasis
+- [x] Build comprehensive FAQ page (/faq) aggregating FAQs from all blogs (Nayara Story, Edge Habitability, Stargazing, Oasis)
+- [x] Add FAQ route to App.tsx with lazy import
+- [x] Update Journal page FAQ section from "Coming Soon" to link to /faq

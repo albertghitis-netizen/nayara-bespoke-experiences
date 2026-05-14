@@ -407,6 +407,17 @@ export default function NayaraByNightBlog() {
             </p>
           </Reveal>
 
+          {/* Cross-link to Stargazing Atacama */}
+          <Reveal className="mt-12">
+            <a
+              href="/blog/stargazing-atacama"
+              className="inline-block text-sm tracking-[0.12em] uppercase border-b border-[#FFD700]/40 pb-1 hover:border-[#FFD700] transition-colors"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: NIGHT.accent }}
+            >
+              Continue reading: Why Nayara Alto Atacama Is the Best Stargazing Resort
+            </a>
+          </Reveal>
+
           {/* Moon is calling CTA */}
           <Reveal className="mt-16 mb-8">
             <p

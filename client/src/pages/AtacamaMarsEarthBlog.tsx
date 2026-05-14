@@ -78,6 +78,13 @@ const atacamaMarsPost: BlogPostData = {
   ],
   relatedArticles: [
     {
+      slug: "edge-habitability",
+      title: "The Atacama Desert: At the Edge of Habitability",
+      pillar: "Experiences",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg",
+      date: "Jan 8, 2024",
+    },
+    {
       slug: "stargazing-atacama",
       title: "Why Nayara Alto Atacama Is the Best Stargazing Resort",
       pillar: "Experiences",
@@ -85,17 +92,10 @@ const atacamaMarsPost: BlogPostData = {
       date: "Jun 11, 2024",
     },
     {
-      slug: "michelin-keys",
-      title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
+      slug: "atacama-oasis",
+      title: "What Defines The Best Place to Stay in the Atacama Desert: The Oasis Factor",
       pillar: "Experiences",
-      image: "/manus-storage/michelin-2025-keys_cd3d9c09.jpg",
-      date: "March 1, 2026",
-    },
-    {
-      slug: "edge-habitability",
-      title: "The Atacama Desert: At the Edge of Habitability",
-      pillar: "Experiences",
-      image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+      image: "https://blog.nayararesorts.com/hubfs/3-Nov-26-2025-02-34-59-4966-AM.png",
       date: "Jan 27, 2026",
     },
   ],
