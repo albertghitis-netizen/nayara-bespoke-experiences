@@ -140,6 +140,40 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
     ],
   },
+  {
+    title: "Nature-Based Wellness",
+    description: "Questions about how ecosystems shape health and wellbeing at Nayara Resorts.",
+    faqs: [
+      {
+        question: "What is nature-based wellness?",
+        answer: "Nature-based wellness treats specific ecosystems as active health inputs rather than passive backdrops. Research in environmental psychology, forest medicine, and blue-space health shows that different natural settings produce different physiological and psychological responses. At Nayara, we design stays around four ecosystem types: desert (brown), dark sky (black), rainforest (green), and coast/reef (blue).",
+      },
+      {
+        question: "What do you mean by brown, black, green, and blue-green spaces?",
+        answer: "Brown refers to arid, low-input landscapes like the Atacama Desert. Black refers to genuinely dark night skies free of artificial light. Green refers to dense, biodiverse environments like tropical rainforests. Blue-green refers to settings where coastal water and vegetation overlap, such as reef-and-mangrove systems in Bocas del Toro.",
+      },
+      {
+        question: "Is there real science behind forest bathing, hot springs, and time near water?",
+        answer: "Yes. Systematic reviews and meta-analyses report that forest immersion tends to reduce cortisol, heart rate, and blood pressure. Balneotherapy research shows thermal bathing can reduce pain and improve mobility in musculoskeletal conditions. Blue-space studies link regular time near coasts and lakes with higher life satisfaction and lower psychological distress.",
+      },
+      {
+        question: "How much time in nature do you need to feel a difference?",
+        answer: "A large cross-sectional study published in Nature Scientific Reports found that people who spent at least 120 minutes per week in natural environments reported significantly higher health and wellbeing than those who spent less. The effect appeared whether the time was taken in a single visit or spread across several shorter ones.",
+      },
+      {
+        question: "How do Nayara properties fit into this color-based framework?",
+        answer: "Nayara Alto Atacama is our primary brown and black space, with open desert views, minimal vegetation, and protected dark skies. Nayara Gardens, Nayara Springs, and Nayara Tented Camp together form a green and green-blue rainforest circuit. Nayara Bocas del Toro is our blue and blue-green setting, echoing blue-space studies that link coastal environments with better mental health.",
+      },
+      {
+        question: "Are these experiences medical treatments?",
+        answer: "They are not positioned as medical treatments and should not replace clinical advice. The research base indicates that nature exposure, forest immersion, thermal bathing, and time near water can support mental health, stress recovery, sleep, and quality of life, and in some cases help manage symptoms alongside standard care. Guests with specific conditions should follow guidance from their clinicians.",
+      },
+      {
+        question: "How is this different from a typical spa or wellness retreat?",
+        answer: "Traditional spa menus often start with treatments and add the setting later. Our approach starts with ecosystems and treats architecture, programming, and spa design as ways to deliver specific types of exposure to desert, rainforest, reef, and night sky. Spa treatments at Nayara sit on top of that ecological base rather than replacing it.",
+      },
+    ],
+  },
 ];
 
 /* All FAQs flattened for schema */

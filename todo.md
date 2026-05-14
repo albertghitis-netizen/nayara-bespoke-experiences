@@ -3561,3 +3561,10 @@
 
 ## Duplicate Route Fix
 - [x] Remove duplicate /journal/three-kitchens-one-rainforest route (should only exist at /blog/three-kitchens-one-rainforest)
+
+## Wellness by Colors Blog
+- [x] Scrape content from HubSpot blog (nature-based-wellness-at-nayara-resorts)
+- [x] Build WellnessByColorsBlog.tsx with full verbatim content, merged with pasted_content_4.txt
+- [x] Register /blog/wellness-by-colors route in App.tsx (already existed)
+- [x] Verify cross-link from NayaraStoryBlog works (already linked)
+- [x] Add 7 wellness FAQs to central FAQ page
