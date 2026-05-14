@@ -1378,7 +1378,6 @@ export const properties: Property[] = [
       { title: "The History and Science of Private Hot Springs & Plunge Pools", url: "/blog/hot-springs" },
       { title: "Holistic Wellness Naturally", url: "/blog/holistic-wellness" },
       { title: "Nature-Based Wellness: Rainforests, Oceans & Night Skies", url: "/blog/wellness-by-colors" },
-      { title: "The Fiery Heart of Costa Rica: Life and Love at Nayara Springs", url: "/blog/fiery-heart-springs" },
       { title: "Birdwatching in Costa Rica", url: "/blog/birdwatching" },
       { title: "Meeting the Toucans of Arenal Rainforest", url: "/blog/toucans-arenal" },
       { title: "Wildlife Conservation in Arenal and Bocas del Toro", url: "/blog/arenal-bocas-wildlife" },

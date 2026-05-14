@@ -924,12 +924,7 @@ export const sustainabilityData: Record<string, {
         image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Challenge%20Easter%20Island%E2%80%99s%20Outdoors%20with%20Nayara%20Hangaroa%20(3",
         url: "/blog/atacama-wildlife",
       },
-      {
-        title: "Ancient Origins of Nature-Based Wellness: Lessons from Easter Island",
-        excerpt: "Easter Island's Polynesian heritage holds ancient wellness wisdom - from ocean immersion to volcanic mineral baths and celestial navigation.",
-        image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Drawing%20from%20Time",
-        url: "/blog/ancient-wellness-easter-island",
-      },
+
       {
         title: "What Is Tapati Rapa Nui and Why It Matters",
         excerpt: "Each February, Rapa Nui enters a different rhythm. Tapati is a two-week cultural festival where athletic competition, music, craftsmanship, and ancestral ritual converge - a living system of cultural transmission.",

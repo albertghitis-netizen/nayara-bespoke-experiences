@@ -142,15 +142,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg",
     excerpt: "Latin America is experiencing a renaissance in luxury travel. Nayara Resorts is at the forefront, redefining what it means to travel with purpose.",
   },
-  {
-    id: "lujo-despacio",
-    title: "Nayara Resorts: Donde el Lujo se Vive Despacio",
-    url: "/blog/lujo-despacio",
-    property: "brand",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/135_de400071.jpg",
-    excerpt: "El lujo en Nayara no se mide en hilos de oro, sino en la quietud de un amanecer sobre el volcán, en el murmullo del bosque tropical.",
-  },
+
   {
     id: "seven-elements",
     title: "Defining Memories for a Lifetime: Nayara's Seven Elements of Place",
@@ -205,15 +197,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
     excerpt: "How Nayara Resorts is redefining wellness through nature-based experiences that go beyond the spa , into the landscape itself.",
   },
-  {
-    id: "ancient-wellness-easter-island",
-    title: "Ancient Origins of Nature-Based Wellness: Lessons from Easter Island",
-    url: "/blog/ancient-wellness-easter-island",
-    property: "hangaroa",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Drawing%20from%20Time",
-    excerpt: "Easter Island's Polynesian heritage holds ancient wellness wisdom , from ocean immersion to volcanic mineral baths and celestial navigation.",
-  },
+
   {
     id: "wildlife-arenal-bocas",
     title: "Wildlife Conservation in Arenal and Bocas del Toro",
@@ -296,15 +280,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg",
     excerpt: "How Nayara Resorts is building homes and empowering women in La Fortuna through community-driven housing initiatives.",
   },
-  {
-    id: "adventures-in-flavor",
-    title: "Adventures in Flavor , Costa Rica",
-    url: "/blog/adventures-in-flavor",
-    property: "tented-camp",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/WhatsApp%20Image%202025-04-30%20at%2015-48-",
-    excerpt: "From farm to table in the Arenal rainforest , how Nayara's chefs transform local ingredients into extraordinary dining experiences.",
-  },
+
   {
     id: "arenal-timeless-wonder",
     title: "Arenal, Costa Rica: A Timeless Natural Wonder",
@@ -461,15 +437,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Tapati%20Rapa%20Nui%20Festival%20at%20Nayara%20Hangaroa%20(6).jpg",
     excerpt: "The Tapati Festival lights up Easter Island every February , music, dance, ancestral competitions, and the living spirit of Rapa Nui.",
   },
-  {
-    id: "fiery-heart-springs",
-    title: "The Fiery Heart of Costa Rica: Life and Love at Nayara Springs",
-    url: "/blog/fiery-heart-springs",
-    property: "springs",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-s1-pools_8e255e18.png",
-    excerpt: "Where volcanic warmth meets rainforest serenity , the story of Nayara Springs and why it's the most romantic resort in Costa Rica.",
-  },
+
   {
     id: "birdwatching-costa-rica",
     title: "Birdwatching in Costa Rica",
@@ -544,15 +512,6 @@ const blogArticles: JournalEntry[] = [
     excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
   },
 
-  {
-    id: "atacama-winter-romance",
-    title: "Winter & Romance in the Atacama",
-    url: "/blog/atacama-winter-romance",
-    property: "alto-atacama",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/atacama-romance-hero_e2c4f8d1.jpg",
-    excerpt: "Why the Atacama's winter months offer the most romantic and dramatic desert experience.",
-  },
   {
     id: "caribbean-coral-reef",
     title: "Caribbean Coral Reef Restoration",
