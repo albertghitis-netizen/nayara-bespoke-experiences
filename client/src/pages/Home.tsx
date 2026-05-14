@@ -28,7 +28,7 @@ import {
   EASE_CINEMATIC,
 } from "@/components/motion";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Play, ArrowUpRight, Share2 } from "lucide-react";
+import { Play, ArrowUpRight } from "lucide-react";
 
 /* ─── Type definitions ─── */
 interface Milestone {
@@ -857,12 +857,12 @@ function NayaraJournalSection() {
   // 6 curated cards: Watch · Read · Watch · Read · Watch · Read
   const teaserCards: JournalCardData[] = [
     {
-      id: "leo-luxury-travel",
+      id: "atacama-sustainability",
       label: "Watch",
-      title: "The Allure of Sustainability in Luxury Travel",
-      image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
+      title: "Nayara Alto Atacama Sustainability",
+      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
       href: null,
-      youtubeId: "7l072Yr__pE",
+      youtubeId: "6cfkWsqWWc8",
       external: false,
       cta: "watch",
     },
@@ -1155,22 +1155,7 @@ function JournalTeaserCard({
               )}
               {card.label}
             </span>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                const url = card.href || (card.youtubeId ? `https://www.youtube.com/watch?v=${card.youtubeId}` : window.location.href);
-                if (navigator.share) {
-                  navigator.share({ title: card.title, url });
-                } else {
-                  navigator.clipboard.writeText(url);
-                }
-              }}
-              className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 hover:bg-white/20 hover:text-white/90 transition-all duration-300"
-              aria-label="Share"
-            >
-              <Share2 className="w-3 h-3" />
-            </button>
+
           </div>
         </>
       )}
