@@ -3606,3 +3606,13 @@
 - [x] Simplify mobile footer: social icons + contact info + Nayara leaf logo + "NAYARA" text
 - [x] Keep full elaborate footer for desktop/tablet
 - [x] Centered, clean layout on mobile — no multi-column, no nav links
+
+## Bocas del Toro Sustainability Page Update
+- [x] Rebrand from "Coral Reef Restoration" to "Ocean Habitat Restoration" throughout
+- [x] Add "building a city" metaphor intro at the top (structures first → fish/crustaceans arrive → coral settles permanently)
+- [x] Update hero title, subtitle, and tagline to reflect broader ocean habitat framing
+
+## T+L 2026 World's Best Awards Ad Copy (separate text deliverable)
+- [ ] Write short awards blurb (T+L 2026, #1 five out of last six years)
+- [ ] Write short brand description (Nayara philosophy)
+- [ ] Write short descriptions of each hotel in the collection

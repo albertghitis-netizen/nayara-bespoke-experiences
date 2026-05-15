@@ -1,5 +1,5 @@
 /*
- * BOCAS DEL TORO — CORAL REEF RESTORATION
+ * BOCAS DEL TORO — OCEAN HABITAT RESTORATION
  * Definitive editorial page: the global crisis, the science, the partnership,
  * the program, and how guests participate.
  * Partner: Caribbean Coral Restoration Center (loveforthesea.com)
@@ -34,12 +34,12 @@ const PALETTE = {
 
 /* ── STATS ─────────────────────────────────────────────────── */
 const STATS = [
-  { number: "500+", label: "Coral Fragments\nRestored" },
+  { number: "500+", label: "Coral Fragments\nOutplanted" },
   { number: "3", label: "Active\nRestoration Sites" },
   { number: "25", label: "Community\nPartners" },
   { number: "12", label: "Research\nProjects" },
   { number: "1,000+", label: "Volunteer Hours\nper Month" },
-  { number: "80%", label: "Caribbean Reef\nDecline in 50 Years" },
+  { number: "80%", label: "Caribbean Habitat\nDecline in 50 Years" },
 ];
 
 /* ── RESTORATION STEPS ─────────────────────────────────────── */
@@ -124,7 +124,7 @@ function Hero() {
           className="uppercase tracking-[0.3em] text-[11px] mb-5"
           style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
         >
-          Coral Reef Restoration · Bocas del Toro, Panama
+          Ocean Habitat Restoration · Bocas del Toro, Panama
         </motion.p>
 
         <TextReveal as="h1" delay={0.45}>
@@ -132,7 +132,7 @@ function Hero() {
             className="text-white text-4xl md:text-6xl lg:text-[5.5rem] leading-[1.02] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Rebuilding the Reef
+            Restoring the Ocean
           </span>
         </TextReveal>
 
@@ -143,8 +143,7 @@ function Hero() {
           className="mt-6 text-lg md:text-xl leading-relaxed max-w-2xl"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}
         >
-          In partnership with Caribbean Coral Restoration, Nayara Bocas del Toro is rebuilding one of the
-          Caribbean's most threatened ecosystems — one genetically resilient coral fragment at a time.
+          Imagine building a city from nothing. First you lay the foundations — the structures, the streets, the architecture. Then the mobile residents arrive: fish dart through the corridors, crustaceans claim the crevices, invertebrates colonize every surface. Life fills the city because the city is worth living in. And then, finally, the permanent residents settle — coral, which once attached cannot leave. They are not visitors. They are the city itself. In partnership with Caribbean Coral Restoration, Nayara Bocas del Toro is building that city — restoring one of the Caribbean's most threatened ocean habitats from the foundation up.
         </motion.p>
       </div>
     </section>
@@ -268,7 +267,7 @@ function BocasContext() {
             className="text-2xl md:text-3xl mb-6 leading-[1.2]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
           >
-            A Reef Worth Fighting For
+            An Ocean Habitat Worth Fighting For
           </h2>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
@@ -381,7 +380,7 @@ function RestorationProcess() {
             className="text-3xl md:text-4xl mb-16 text-white"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            The Restoration Process
+            The Habitat Restoration Process
           </h2>
         </AnimateOnScroll>
 
@@ -630,13 +629,13 @@ function ClosingCTA() {
             className="text-3xl md:text-5xl text-white mb-6 max-w-2xl mx-auto leading-[1.1]"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Join the Restoration
+            Join the Restoration Effort
           </h2>
           <p
             className="text-[16px] md:text-[18px] leading-relaxed max-w-xl mx-auto mb-10"
             style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.82)" }}
           >
-            Every guest at Nayara Bocas del Toro has the opportunity to contribute to the reef's recovery. Arrange your coral restoration experience through our concierge.
+            Every guest at Nayara Bocas del Toro has the opportunity to contribute to the ocean habitat's recovery. Arrange your restoration experience through our concierge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
