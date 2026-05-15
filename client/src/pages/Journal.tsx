@@ -313,7 +313,13 @@ function GalleryCard({
 
   // ── Read (article) card ──
   return (
-    <motion.a href={entry.url} {...(entry.url?.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })} {...motionProps}>
+    <motion.a
+      href={entry.url}
+      {...(entry.url?.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+      {...motionProps}
+      whileTap={{ scale: 0.97 }}
+      transition={{ ...motionProps.transition, scale: { duration: 0.15 } }}
+    >
       <CardShell entry={entry} index={index}>
         <CardOverlay entry={entry}>
           <SinglePill icon={<ArrowUpRight className="w-3 h-3" />} label="Read" />

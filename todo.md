@@ -3703,10 +3703,10 @@
 - [x] Update maya-rapa-nui-climate and reforestation-wildlife images from FALLBACK_IMG to proper images
 
 ## Journal Page Transitions & Loading Animations
-- [ ] Add smooth page transition animation when navigating from journal feed to blog post
-- [ ] Add smooth page transition animation when navigating back from blog post to journal feed
-- [ ] Add loading skeleton/animation while blog post content loads via lazy import
-- [ ] Ensure transitions work for both /journal/:slug dynamic routes and /blog/* static routes
+- [x] Add smooth page transition animation when navigating from journal feed to blog post
+- [x] Add smooth page transition animation when navigating back from blog post to journal feed
+- [x] Add loading skeleton/animation while blog post content loads via lazy import
+- [x] Ensure transitions work for both /journal/:slug dynamic routes and /blog/* static routes
 
 ## Blog Hero Cleanup
 - [x] Remove all Read arrow buttons from blog hero sections (all blog pages)

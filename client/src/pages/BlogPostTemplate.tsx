@@ -19,12 +19,23 @@
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "wouter";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
 import BrandNavigation from "@/components/BrandNavigation";
 import Footer from "@/components/Footer";
 import NativeVideo from "@/components/NativeVideo";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import type { BlogPostData } from "@/data/blogPosts";
+
+/* Staggered entrance animation for blog content */
+const contentEntrance = {
+  hidden: { opacity: 0, y: 18 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay, ease: [0.25, 0.8, 0.25, 1] as [number, number, number, number] },
+  }),
+};
 
 interface BlogPostTemplateProps {
   post: BlogPostData;
@@ -152,7 +163,13 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
       </section>
 
       {/* ── 3. TITLE BLOCK ── */}
-      <section className="bg-[#f7f5f0]">
+      <motion.section
+        className="bg-[#f7f5f0]"
+        variants={contentEntrance}
+        initial="hidden"
+        animate="visible"
+        custom={0.1}
+      >
         <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-8">
           {/* Pillar + Tags */}
           <div className="flex items-center gap-3 mb-5 flex-wrap">
@@ -190,13 +207,19 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
 
       {/* ── 4. KEY FINDINGS ── */}
-      <section className="bg-[#F5F0E8]">
+      <motion.section
+        className="bg-[#F5F0E8]"
+        variants={contentEntrance}
+        initial="hidden"
+        animate="visible"
+        custom={0.25}
+      >
         <div className="max-w-3xl mx-auto px-8 md:px-16 py-12">
           <div className="border border-[#c4bba8] rounded-lg p-6 md:p-8 bg-[#f7f5f0]">
             <p
@@ -217,7 +240,7 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
             </ul>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ── GOLD RULE ── */}
       <div className="h-[3px] bg-[#3B2B26]" />
@@ -227,7 +250,14 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
         const bg = bgColors[idx % 2];
         return (
           <div key={idx}>
-            <section style={{ backgroundColor: bg }}>
+            <motion.section
+              style={{ backgroundColor: bg }}
+              variants={contentEntrance}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              custom={0.1}
+            >
               <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-12">
                 {/* Section heading */}
                 <h2
@@ -279,7 +309,7 @@ export default function BlogPostTemplate({ post, hideNav, hideConcierge, hideFoo
                   </div>
                 )}
               </div>
-            </section>
+            </motion.section>
 
             {/* Gold divider between sections */}
             {idx < post.sections.length - 1 && <div className="h-[3px] bg-[#3B2B26]" />}

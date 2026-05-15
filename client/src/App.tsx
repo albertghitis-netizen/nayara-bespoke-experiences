@@ -2,7 +2,10 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense, useMemo } from "react";
+import { AnimatePresence } from "framer-motion";
+import PageTransition from "./components/PageTransition";
+import BlogLoadingSkeleton from "./components/BlogLoadingSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./index.css";
@@ -160,6 +163,11 @@ function PageLoader() {
   );
 }
 
+/** Blog-specific loader shown when navigating to /blog/* or /journal/:slug */
+function BlogLoader() {
+  return <BlogLoadingSkeleton />;
+}
+
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
@@ -175,12 +183,16 @@ const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/
 function Router() {
   const [location] = useLocation();
   const hideWidget = HIDE_WIDGET_PATHS.includes(location);
+  const isBlogRoute = location.startsWith("/blog/") || location.startsWith("/journal/");
+  const fallback = isBlogRoute ? <BlogLoader /> : <PageLoader />;
 
   return (
     <>
       <ScrollToTop />
-      <Suspense fallback={<PageLoader />}>
-        <Switch>
+      <AnimatePresence mode="wait">
+        <Suspense fallback={fallback} key={location + "-suspense"}>
+          <PageTransition routeKey={location}>
+            <Switch>
           <Route path="/" component={Home} />
           <Route path="/alto-atacama" component={AltoAtacama} />
           <Route path="/alto-atacama/rooms" component={AtacamaRooms} />
@@ -327,13 +339,15 @@ function Router() {
 
           <Route path="/404" component={NotFound} />
           <Route component={NotFound} />
-        </Switch>
-        {!hideWidget && (
-          <Suspense fallback={null}>
-            <ConciergeChatWidget />
-          </Suspense>
-        )}
-      </Suspense>
+            </Switch>
+          </PageTransition>
+        </Suspense>
+      </AnimatePresence>
+      {!hideWidget && (
+        <Suspense fallback={null}>
+          <ConciergeChatWidget />
+        </Suspense>
+      )}
     </>
   );
 }
