@@ -3726,3 +3726,9 @@
 - [x] Update relatedArticles references in blogPosts.ts to match new titles (10 refs updated)
 - [x] Update SEO metaTitles in blogPosts.ts to match new H1s (6 metaTitles updated)
 - [x] Update NayaraByNightBlog headline SEO prop
+
+## Bocas Island Blog Updates
+- [x] Upload Bocas horizontal video to CDN (no audio, MP4, 25MB)
+- [x] Set video as hero on "How Nayara Built an Off-Grid Resort on a Private Island in Panama" blog
+- [x] Update blog subtitle: no roads, no grid, no municipal water, five environmental studies, commitment to leave ecosystem better
+- [x] Remove "$100,000 in research" reference from blog subtitle

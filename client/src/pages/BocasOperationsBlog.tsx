@@ -36,7 +36,7 @@ export default function BocasOperationsBlog() {
       <EnhancedArticleSchema
         image={`${CDN}/bocas-aerial-island_34b68171.jpg`}
         headline="How Nayara Built an Off Grid Resort on a Private Island in Panama"
-        description="The story of building Nayara Bocas del Toro entirely off-grid on a private island in Panama, from five environmental studies to 100% solar power and rainwater harvesting."
+        description="The story of building Nayara Bocas del Toro entirely off-grid on a private island in Panama. No roads, no grid, no municipal water. Five environmental studies and a commitment to leave the ecosystem better than we found it."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism", "Off-Grid Architecture"] }}
         datePublished="2025-05-15"
         url="https://nayararesorts.manus.space/blog/how-we-built-a-hotel-on-an-island"
@@ -45,11 +45,16 @@ export default function BocasOperationsBlog() {
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="relative h-screen w-full overflow-hidden">
-        <img
-          src={`${CDN}/bocas-aerial-island_34b68171.jpg`}
-          alt="Aerial view of Nayara Bocas del Toro private island"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover object-center"
-        />
+          poster={`${CDN}/bocas-aerial-island_34b68171.jpg`}
+        >
+          <source src="/manus-storage/bocas-island-blog-hero-noaudio_38553ba8.mp4" type="video/mp4" />
+        </video>
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom, rgba(11,79,94,0.3) 0%, rgba(11,79,94,0.7) 100%)" }}
@@ -71,13 +76,13 @@ export default function BocasOperationsBlog() {
               className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-6 text-white"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
-              How We Built a Hotel on an Island
+              How Nayara Built an Off-Grid Resort on a Private Island in Panama
             </h1>
             <p
               className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
               style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.85)" }}
             >
-              No roads. No grid. No municipal water. Five environmental studies, $100,000 in research, and a commitment to leave the ecosystem better than we found it.
+              No roads. No grid. No municipal water. Five environmental studies and a commitment to leave the ecosystem better than we found it.
             </p>
           </motion.div>
         </div>
