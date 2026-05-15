@@ -132,7 +132,7 @@ function Hero() {
             className="text-white text-4xl md:text-6xl lg:text-[5.5rem] leading-[1.02] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
           >
-            Restoring the Ocean
+            Ocean Habitat Restoration
           </span>
         </TextReveal>
 

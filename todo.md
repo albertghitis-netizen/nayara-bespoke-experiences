@@ -3613,6 +3613,6 @@
 - [x] Update hero title, subtitle, and tagline to reflect broader ocean habitat framing
 
 ## T+L 2026 World's Best Awards Ad Copy (separate text deliverable)
-- [ ] Write short awards blurb (T+L 2026, #1 five out of last six years)
-- [ ] Write short brand description (Nayara philosophy)
-- [ ] Write short descriptions of each hotel in the collection
+- [x] Write short awards blurb (T+L 2026, #1 five out of last six years)
+- [x] Write short brand description (Nayara philosophy)
+- [x] Write short descriptions of each hotel in the collection
