@@ -3601,3 +3601,8 @@
 - [x] Move location text below the tagline (e.g., below "Private Hot Springs Villas") as full-width single line
 - [x] Make map pin label text bigger (9.5/11 up from 7/8)
 - [x] Add short blurb under each timeline milestone (desc field now rendered)
+
+## Mobile Footer Simplification
+- [x] Simplify mobile footer: social icons + contact info + Nayara leaf logo + "NAYARA" text
+- [x] Keep full elaborate footer for desktop/tablet
+- [x] Centered, clean layout on mobile — no multi-column, no nav links

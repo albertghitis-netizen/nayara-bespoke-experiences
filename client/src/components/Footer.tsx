@@ -5,6 +5,9 @@
  *
  * Now data-driven: columns come from navigation.ts getFooterColumns()
  * Accepts optional pageType prop to customize link groupings.
+ *
+ * MOBILE: Simplified — social icons + contact info + leaf logo + "NAYARA" text
+ * DESKTOP: Full elaborate multi-column footer
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -47,7 +50,7 @@ function TikTokIcon() {
 }
 
 /* ── Animated Leaf , very slow fade in when scrolled into view ── */
-function AnimatedLeaf({ propertyName, textColor = "#FFFFFF", nameFontSize = "16px" }: { propertyName?: string; textColor?: string; nameFontSize?: string }) {
+function AnimatedLeaf({ propertyName, textColor = "#FFFFFF", nameFontSize = "16px", compact = false }: { propertyName?: string; textColor?: string; nameFontSize?: string; compact?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -66,11 +69,15 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF", nameFontSize = "16p
     return () => observer.disconnect();
   }, []);
 
+  const leafSize = compact ? { width: "120px", height: "130px" } : { width: "278px", height: "303px" };
+  const containerWidth = compact ? "120px" : "278px";
+  const nameMarginTop = compact ? "-28px" : "-62px";
+
   return (
     <div
       ref={ref}
       className="pointer-events-none flex flex-col items-center"
-      style={{ width: "278px" }}
+      style={{ width: containerWidth }}
     >
       {/* Leaf , fades in at 0s (1s duration) */}
       <div
@@ -78,8 +85,7 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF", nameFontSize = "16p
           opacity: visible ? 1 : 0,
           transition: "opacity 1s ease-in",
           transitionDelay: "0s",
-          width: "278px",
-          height: "303px",
+          ...leafSize,
         }}
       >
         <img
@@ -102,7 +108,7 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF", nameFontSize = "16p
             letterSpacing: "0.15em",
             textAlign: "center",
             textTransform: "uppercase",
-            marginTop: "-62px",
+            marginTop: nameMarginTop,
           }}
         >
           {propertyName}
@@ -150,14 +156,84 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.65)" }} />
         </>
       )}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-4 pt-10 md:pt-14 pb-10">
-        {/* Leaf , absolutely positioned on the left, same vertical position as before */}
-        <div className="hidden md:block absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none" }}>
+
+      {/* ═══════════════════════════════════════════════════════════
+          MOBILE FOOTER — Simplified: socials + contact + leaf + NAYARA
+          Only visible on small screens (< md)
+         ═══════════════════════════════════════════════════════════ */}
+      <div className="md:hidden relative z-10 flex flex-col items-center px-6 pt-10 pb-8">
+        {/* Social icons */}
+        <div className="flex items-center justify-center gap-6 mb-8" style={{ color: textColor }}>
+          <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.85 }}><InstagramIcon /></a>
+          <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.85 }}><YouTubeIcon /></a>
+          <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.85 }}><FacebookIcon /></a>
+          <a href="https://www.tiktok.com/@nayararesorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.85 }}><TikTokIcon /></a>
+        </div>
+
+        {/* Contact info */}
+        <div className="flex flex-col items-center gap-2 mb-8">
+          <a
+            href="mailto:reservations@nayararesorts.com"
+            className="text-[13px]"
+            style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+          >
+            reservations@nayararesorts.com
+          </a>
+          <a
+            href="tel:+18448652002"
+            className="text-[13px]"
+            style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+          >
+            +1 844 865 2002 (US)
+          </a>
+          <a
+            href="tel:+50624791600"
+            className="text-[13px]"
+            style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400 }}
+          >
+            +506 2479 1600 (Costa Rica)
+          </a>
+        </div>
+
+        {/* Leaf logo + NAYARA text */}
+        <div className="flex flex-col items-center mb-6">
+          <AnimatedLeaf textColor={textColor} compact={true} />
+          <span
+            className="mt-2"
+            style={{
+              color: textColor,
+              fontFamily: "var(--font-display)",
+              fontWeight: 400,
+              fontSize: "13px",
+              letterSpacing: "0.35em",
+              textTransform: "uppercase",
+            }}
+          >
+            Nayara
+          </span>
+        </div>
+
+        {/* Copyright */}
+        <p
+          className="text-[10px] text-center"
+          style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 300, opacity: 0.6 }}
+        >
+          &copy; {new Date().getFullYear()} Nayara Resorts. All rights reserved.
+        </p>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════
+          DESKTOP FOOTER — Full elaborate multi-column layout
+          Only visible on md+ screens
+         ═══════════════════════════════════════════════════════════ */}
+      <div className="hidden md:block relative z-10 max-w-[1200px] mx-auto px-4 pt-14 pb-10">
+        {/* Leaf , absolutely positioned on the left */}
+        <div className="absolute" style={{ left: "-100px", top: "20px", zIndex: 20, pointerEvents: "none" }}>
           <AnimatedLeaf propertyName={propertyName} textColor={textColor} nameFontSize={nameFontSize} />
         </div>
 
         {/* Dynamic columns from navigation config + Contact column */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-[13px] leading-relaxed" style={{ paddingLeft: "240px" }}>
+        <div className="grid grid-cols-4 gap-6 text-[13px] leading-relaxed" style={{ paddingLeft: "240px" }}>
           {columns.map((col, idx) => (
             <div key={col.title} style={{ marginLeft: idx === 2 ? '32px' : undefined }}>
               <span
@@ -246,7 +322,6 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
 
         {/* Newsletter CTA */}
         <div className="relative flex flex-col items-center mt-10 mb-6">
-
           <a
             href="#"
             onClick={handlePlaceholder("Newsletter")}
