@@ -195,22 +195,31 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           </a>
         </div>
 
-        {/* Leaf logo + NAYARA text */}
+        {/* Hotel links — 3x2 grid */}
+        <div className="grid grid-cols-3 gap-x-4 gap-y-2 text-center mb-8">
+          {[
+            { label: "Gardens", route: "/gardens" },
+            { label: "Springs", route: "/springs" },
+            { label: "Tented Camp", route: "/tented-camp" },
+            { label: "Alto Atacama", route: "/alto-atacama" },
+            { label: "Hangaroa", route: "/hangaroa" },
+            { label: "Bocas del Toro", route: "/bocas-del-toro" },
+          ].map((hotel) => (
+            <a
+              key={hotel.label}
+              href={hotel.route}
+              onClick={(e) => { e.preventDefault(); navigate(hotel.route); }}
+              className="text-[11px] tracking-[0.05em]"
+              style={{ color: textColor, fontFamily: "var(--font-body)", fontWeight: 400, opacity: 0.85 }}
+            >
+              {hotel.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Leaf logo */}
         <div className="flex flex-col items-center mb-6">
           <AnimatedLeaf textColor={textColor} compact={true} />
-          <span
-            className="mt-2"
-            style={{
-              color: textColor,
-              fontFamily: "var(--font-display)",
-              fontWeight: 400,
-              fontSize: "13px",
-              letterSpacing: "0.35em",
-              textTransform: "uppercase",
-            }}
-          >
-            Nayara
-          </span>
         </div>
 
         {/* Copyright */}
