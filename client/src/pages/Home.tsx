@@ -119,7 +119,7 @@ const allProps: PropertyCard[] = [
     route: "/bocas-del-toro",
     bookingId: "bocas-del-toro",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-bocas_6adf9525.jpg",
-    tagline: "Overwater Villas & Rainforest Treehouses",
+    tagline: "Overwater Villas & Treehouses",
   },
 ];
 
