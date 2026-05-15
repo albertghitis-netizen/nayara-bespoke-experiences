@@ -76,6 +76,7 @@ const StargazingAtacamaBlog = lazy(() => import("./pages/StargazingAtacamaBlog")
 const EdgeHabitabilityBlog = lazy(() => import("./pages/EdgeHabitabilityBlog"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const TapatiFestivalBlog = lazy(() => import("./pages/TapatiFestivalBlog"));
+const CommunityBlog = lazy(() => import("./pages/CommunityBlog"));
 // const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -311,6 +312,7 @@ function Router() {
           <Route path="/blog/stargazing-atacama" component={StargazingAtacamaBlog} />
           <Route path="/blog/edge-habitability" component={EdgeHabitabilityBlog} />
           <Route path="/blog/tapati-festival" component={TapatiFestivalBlog} />
+          <Route path="/blog/rooted-in-community" component={CommunityBlog} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/staff" component={Staff} />

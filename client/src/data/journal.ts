@@ -144,6 +144,15 @@ const blogArticles: JournalEntry[] = [
     excerpt: "Explore how Nayara Resorts harnesses solar power for sustainable luxury, from the Atacama Desert to Easter Island, Costa Rica, and Bocas del Toro.",
   },
   {
+    id: "rooted-in-community",
+    title: "Rooted in Community: Human Hospitality",
+    url: "/blog/rooted-in-community",
+    property: "brand",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
+    excerpt: "From the volcano that changed La Fortuna to the shores of Rapa Nui, the communities around Nayara tell a shared story of commitment, dignity, and regeneration.",
+  },
+  {
     id: "nature-based-wellness-colors",
     title: "Nature-Based Wellness by Colors: Brown, Black, Green, Blue",
     url: "/blog/wellness-by-colors",

@@ -3635,8 +3635,21 @@
 - [x] Fix punctuation issues (missing spaces after commas, awkward comma splices)
 
 ## Hot Springs Blog
-- [ ] Create HotSpringsBlog.tsx at /blog/hot-springs
-- [ ] Verbatim text from pasted_content_10.txt with sources/further reading
-- [ ] Remove FAQ section (scrape FAQs to FAQ page)
-- [ ] Add route in App.tsx
-- [ ] No em dashes
+- [x] Create HotSpringsBlog.tsx at /blog/hot-springs
+- [x] Verbatim text from pasted_content_10.txt with sources/further reading
+- [x] Remove FAQ section (scrape FAQs to FAQ page)
+- [x] Add route in App.tsx (already existed)
+- [x] No em dashes
+
+## Community Blog (Rooted in Community)
+- [x] Create CommunityBlog.tsx (Rooted in Community: Human Hospitality)
+- [x] Verbatim text from pasted_content_11.txt
+- [x] Link to women's housing blog from the housing section
+- [x] Add route in App.tsx
+- [x] No em dashes
+
+## Solo Travel Blog (Combined)
+- [x] Read both solo travel URLs for content
+- [x] Create SoloTravelBlog.tsx combining both articles (female solo travel as star)
+- [x] Route already existed at /blog/solo-travel-female
+- [x] No em dashes
