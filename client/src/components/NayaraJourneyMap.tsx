@@ -53,7 +53,7 @@ const locations: MapLocation[] = [
   {
     id: "costa-rica",
     label: "Arenal Volcano National Park, Costa Rica",
-    subLabel: "Gardens · Springs · Tented Camp — Three resorts in the rainforest at the foot of Arenal Volcano",
+    subLabel: "",
     x: 307,
     y: 147,
     milestoneIndices: [0, 1, 2],
@@ -65,8 +65,8 @@ const locations: MapLocation[] = [
   },
   {
     id: "atacama",
-    label: "San Pedro de Atacama, Chile",
-    subLabel: "Alto Atacama — A desert lodge where salt flats meet the clearest night skies on Earth",
+    label: "Atacama Desert, Chile",
+    subLabel: "",
     x: 433,
     y: 404,
     milestoneIndices: [3],
@@ -77,8 +77,8 @@ const locations: MapLocation[] = [
   },
   {
     id: "easter-island",
-    label: "Rapa Nui (Easter Island), Chile",
-    subLabel: "Hangaroa — The only luxury lodge on the most remote inhabited island on Earth",
+    label: "Easter Island, Chile",
+    subLabel: "",
     x: 120,
     y: 431,
     milestoneIndices: [4],
@@ -90,7 +90,7 @@ const locations: MapLocation[] = [
   {
     id: "bocas",
     label: "Bocas del Toro, Panama",
-    subLabel: "Bocas del Toro — Overwater villas on a private island in Panama's Caribbean archipelago",
+    subLabel: "",
     x: 326,
     y: 156,
     milestoneIndices: [5],
@@ -507,17 +507,19 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                     >
                       {loc.label}
                     </text>
-                    <text
-                      x={labelX}
-                      y={labelY + 14}
-                      fill="#7a6a5a"
-                      fontSize="7.5"
-                      fontFamily="var(--font-body)"
-                      fontWeight="400"
-                      letterSpacing="0.02em"
-                    >
-                      {loc.subLabel.length > 50 ? loc.subLabel.slice(0, 50) + "\u2026" : loc.subLabel}
-                    </text>
+                    {loc.subLabel && (
+                      <text
+                        x={labelX}
+                        y={labelY + 14}
+                        fill="#7a6a5a"
+                        fontSize="7.5"
+                        fontFamily="var(--font-body)"
+                        fontWeight="400"
+                        letterSpacing="0.02em"
+                      >
+                        {loc.subLabel}
+                      </text>
+                    )}
                   </motion.g>
                 )}
               </AnimatePresence>
