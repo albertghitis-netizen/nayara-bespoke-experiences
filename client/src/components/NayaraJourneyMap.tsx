@@ -486,9 +486,9 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 />
               )}
 
-              {/* Location label */}
+              {/* Location label — only shows for current milestone, always gold, disappears after */}
               <AnimatePresence>
-                {isActive && (
+                {isCurrent && (
                   <motion.g
                     initial={{ opacity: 0, x: loc.labelSide === "left" ? 8 : -8 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -498,8 +498,8 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                     <text
                       x={labelX}
                       y={labelY}
-                      fill={isCurrent ? ACCENT_GOLD : "#5a4a3a"}
-                      fontSize={isCurrent ? "11" : "9.5"}
+                      fill={ACCENT_GOLD}
+                      fontSize="11"
                       fontFamily="var(--font-display)"
                       fontWeight="400"
                       letterSpacing="0.04em"
@@ -507,19 +507,6 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                     >
                       {loc.label}
                     </text>
-                    {loc.subLabel && (
-                      <text
-                        x={labelX}
-                        y={labelY + 14}
-                        fill="#7a6a5a"
-                        fontSize="7.5"
-                        fontFamily="var(--font-body)"
-                        fontWeight="400"
-                        letterSpacing="0.02em"
-                      >
-                        {loc.subLabel}
-                      </text>
-                    )}
                   </motion.g>
                 )}
               </AnimatePresence>
