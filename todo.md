@@ -3633,3 +3633,10 @@
 - [x] Add Bocas del Toro section to existing Green Globe blog
 - [x] Update blog title/hero to reflect all four properties (not just Tented Camp)
 - [x] Fix punctuation issues (missing spaces after commas, awkward comma splices)
+
+## Hot Springs Blog
+- [ ] Create HotSpringsBlog.tsx at /blog/hot-springs
+- [ ] Verbatim text from pasted_content_10.txt with sources/further reading
+- [ ] Remove FAQ section (scrape FAQs to FAQ page)
+- [ ] Add route in App.tsx
+- [ ] No em dashes
