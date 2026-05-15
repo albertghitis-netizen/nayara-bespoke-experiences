@@ -116,7 +116,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "7-michelin-keys",
-    title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
+    title: "7 MICHELIN Keys Across Costa Rica, Chile, and Panama at Nayara Resorts",
     url: "/blog/michelin-keys",
     property: "springs",
     type: "article",
@@ -126,7 +126,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "travel-trends-2026",
-    title: "The Top 10 Travel Trends of 2026",
+    title: "Top 10 Luxury Travel Trends of 2026 and How Nayara Leads Them",
     url: "/blog/travel-trends",
     property: "brand",
     type: "article",
@@ -136,7 +136,7 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "sunlit-sustainability",
-    title: "Sunlit Sustainability: Nature-Powered",
+    title: "Solar Energy at Nayara Resorts: Sustainability Powered by Nature",
     url: "/blog/sunlit-sustainability",
     property: "brand",
     type: "article",
@@ -145,7 +145,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "rooted-in-community",
-    title: "Rooted in Community: Human Hospitality",
+    title: "Rooted in Community: How Nayara Supports Local People Across Four Destinations",
     url: "/blog/rooted-in-community",
     property: "brand",
     type: "article",
@@ -154,7 +154,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "nature-based-wellness-colors",
-    title: "Nature-Based Wellness by Colors: Brown, Black, Green, Blue",
+    title: "Nature Based Wellness at Nayara: Brown Earth, Black Volcanic Mud, Green Forest, Blue Sea",
     url: "/blog/wellness-by-colors",
     property: "brand",
     type: "article",
@@ -201,7 +201,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "solo-travel-female",
-    title: "The Future of Solo Travel is Female",
+    title: "Solo Female Travel in Costa Rica, Chile, and Panama at Nayara Resorts",
     url: "/blog/solo-travel-female",
     property: "brand",
     type: "article",
@@ -220,7 +220,7 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "pura-vida",
-    title: "Pura Vida and the Science of Why Costa Rica Feels Different",
+    title: "Pura Vida: The Science of Why Costa Rica Is the Healthiest Country on Earth",
     url: "/blog/pura-vida",
     property: "brand",
     type: "article",
@@ -230,7 +230,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "womens-empowerment",
-    title: "Women's Empowerment Through Housing in Costa Rica's La Fortuna",
+    title: "Women's Empowerment Through Housing at Nayara in Costa Rica",
     url: "/blog/womens-empowerment",
     property: "brand",
     type: "article",
@@ -249,7 +249,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "toucans-arenal",
-    title: "Meeting The Toucans of Arenal Rainforest",
+    title: "Birdwatching in Costa Rica: The Best Birds to See Near Arenal Volcano",
     url: "/blog/toucans-arenal",
     property: "gardens",
     type: "article",
@@ -258,7 +258,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "conde-nast-bocas",
-    title: "Nayara Bocas del Toro: #1 Resort in Central America — Condé Nast Traveler 2025",
+    title: "Nayara Bocas del Toro: #1 Resort in Central America, Condé Nast Traveler 2025",
     url: "/blog/bocas-conde-nast",
     property: "bocas-del-toro",
     type: "article",
@@ -272,7 +272,7 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "how-we-built-a-hotel-on-an-island",
-    title: "How We Built a Hotel on an Island",
+    title: "How Nayara Built an Off Grid Resort on a Private Island in Panama",
     url: "/blog/how-we-built-a-hotel-on-an-island",
     property: "bocas-del-toro",
     type: "article",
@@ -283,7 +283,7 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "mars-atacama",
-    title: "Why the Atacama Desert is Mars on Earth",
+    title: "Why the Atacama Desert Is Called Mars on Earth",
     url: "/blog/atacama-mars",
     property: "alto-atacama",
     type: "article",
@@ -293,7 +293,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "stargazing-atacama",
-    title: "Why Nayara Alto Atacama Is the Best Stargazing Resort",
+    title: "Best Stargazing Resort in the Atacama Desert: Why Nayara Alto Atacama Leads",
     url: "/blog/stargazing-atacama",
     property: "alto-atacama",
     type: "article",
@@ -302,7 +302,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "oasis-atacama",
-    title: "What Defines The Best Place to Stay in the Atacama Desert",
+    title: "The Oasis Factor: What Defines the Best Place to Stay in the Atacama Desert",
     url: "/blog/atacama-oasis",
     property: "alto-atacama",
     type: "article",
@@ -311,7 +311,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "edge-habitability",
-    title: "The Atacama Desert: At the Edge of Habitability",
+    title: "The Atacama Desert at the Edge of Habitability: Life in the Driest Place on Earth",
     url: "/blog/edge-habitability",
     property: "alto-atacama",
     type: "article",
@@ -321,7 +321,7 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "hito-family-rapanui",
-    title: "How Nayara Hangaroa Leads Regeneration on Rapa Nui",
+    title: "How Nayara Hangaroa Leads Ecological Regeneration on Easter Island",
     url: "/blog/hangaroa-regeneration",
     property: "hangaroa",
     type: "article",
@@ -331,7 +331,7 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "green-globe",
-    title: "Setting the Standard: Green Globe Certification",
+    title: "Green Globe Certification at Nayara Resorts in Costa Rica and Panama",
     url: "/blog/green-globe-certification",
     property: "brand",
     type: "article",
@@ -340,7 +340,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "s-certification",
-    title: "Chile's S Certification: Sustainable Tourism in the Desert and on Easter Island",
+    title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
     url: "/journal/s-certification",
     property: "alto-atacama",
     type: "article",
@@ -349,7 +349,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "tapati-festival",
-    title: "The Tapati Rapa Nui Festival at Nayara Hangaroa",
+    title: "Tapati Rapa Nui Festival: Experience Easter Island Culture at Nayara Hangaroa",
     url: "/blog/tapati-festival",
     property: "hangaroa",
     type: "article",
@@ -359,7 +359,7 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "birdwatching-costa-rica",
-    title: "Birdwatching in Costa Rica",
+    title: "Birdwatching in Costa Rica: The Best Birds to See Near Arenal Volcano",
     url: "/blog/birdwatching",
     property: "brand",
     type: "article",
@@ -369,7 +369,7 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "bocas-history-culture-nature",
-    title: "Bocas del Toro: History, Culture & Nature",
+    title: "Bocas del Toro Panama: History, Culture, and Nature of the Archipelago",
     url: "/blog/bocas-history-culture-nature",
     property: "bocas-del-toro",
     type: "article",
@@ -378,7 +378,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "nayara-bocas-resort-experience",
-    title: "Nayara Bocas del Toro: The Resort Experience",
+    title: "A Day at Nayara Bocas del Toro: Your Private Island in Panama",
     url: "/blog/nayara-bocas-resort-experience",
     property: "bocas-del-toro",
     type: "article",
@@ -387,7 +387,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "bocas-conde-nast-award",
-    title: "Why Condé Nast Traveler Named Nayara Bocas del Toro #1",
+    title: "Why Nayara Bocas del Toro Won #1 Resort in Central America",
     url: "/blog/bocas-conde-nast-award",
     property: "bocas-del-toro",
     type: "article",
@@ -397,7 +397,7 @@ const blogArticles: JournalEntry[] = [
   },
   {
     id: "nayara-by-night",
-    title: "Nayara by Night: Of Moon and Stars",
+    title: "Nayara by Night: Stargazing, Bioluminescence, and the Rainforest After Dark",
     url: "/blog/nayara-by-night",
     property: "brand",
     type: "article",
@@ -428,7 +428,7 @@ const blogArticles: JournalEntry[] = [
   // maya-rapa-nui-climate: consolidated into single entry above (was duplicate)
   {
     id: "reforestation-wildlife",
-    title: "Reforestation & Wildlife Corridors",
+    title: "Reforestation and Wildlife Corridors at Nayara Arenal in Costa Rica",
     url: "/blog/reforestation-wildlife",
     property: "gardens",
     type: "article",

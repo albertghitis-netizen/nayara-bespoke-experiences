@@ -1,6 +1,6 @@
 /*
  * TAPATI FESTIVAL BLOG — /blog/tapati-festival
- * "The Tapati Rapa Nui Festival at Nayara Hangaroa"
+ * "Tapati Rapa Nui Festival: Experience Easter Island Culture at Nayara Hangaroa"
  * Uses BlogPostTemplate with full article data
  */
 import BlogPostTemplate from "./BlogPostTemplate";

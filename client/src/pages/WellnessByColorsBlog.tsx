@@ -1,6 +1,6 @@
 /*
  * WELLNESS BY COLORS BLOG — /blog/wellness-by-colors
- * "Nature-Based Wellness by Colors: Brown, Black, Green, Blue"
+ * "Nature Based Wellness at Nayara: Brown Earth, Black Volcanic Mud, Green Forest, Blue Sea"
  * Author: Albert Ghitis | Dec 6, 2025
  * Pillar: Wellness
  * Uses BlogPostTemplate with full article data

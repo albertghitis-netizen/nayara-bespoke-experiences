@@ -63,7 +63,7 @@ export default function ReforestationWildlifeBlog() {
             className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Reforestation & Wildlife Corridors
+            Reforestation and Wildlife Corridors at Nayara Arenal in Costa Rica
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed"
@@ -118,7 +118,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              The Sloth: A Keystone Species
+              The Sloth as a Keystone Species in Costa Rica's Rainforest
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -159,7 +159,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              When the Sloths Disappeared
+              When the Sloths Disappeared from Arenal
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -200,7 +200,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Reforestation for Sloths: A Strategy for Ecosystem Recovery
+              How Nayara's Reforestation Brought Sloths Back to Arenal
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -258,7 +258,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Wildlife Corridors: Connecting Fragmented Habitats
+              Wildlife Corridors Connecting Fragmented Habitats in Costa Rica
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -316,7 +316,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Measuring Our Impact: The Sloth as Indicator
+              Measuring Conservation Impact: Sloths as an Indicator Species
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
@@ -380,7 +380,7 @@ export default function ReforestationWildlifeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              A Vision for the Future: More Sloths, Healthier Forests
+              The Future of Wildlife Conservation at Nayara Arenal
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"

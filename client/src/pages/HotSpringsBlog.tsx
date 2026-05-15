@@ -194,7 +194,7 @@ export default function HotSpringsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              How Settled Life Invented Privacy
+              How Settled Life Invented the Private Bath
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -255,7 +255,7 @@ export default function HotSpringsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              From Roman Baths to Rainforest Springs
+              From Roman Baths to Volcanic Hot Springs in Costa Rica
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -310,7 +310,7 @@ export default function HotSpringsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Japan's Onsen Culture and Iceland's Blue Lagoon
+              Japan's Onsen Tradition and Iceland's Blue Lagoon Compared
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -353,7 +353,7 @@ export default function HotSpringsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Not All Hot Springs Are Created Equal
+              Why Volcanic Hot Springs at Arenal Are Different
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -390,7 +390,7 @@ export default function HotSpringsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              The Water Remembers
+              The Mineral Profile of Arenal Volcanic Water
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -427,7 +427,7 @@ export default function HotSpringsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              The Science
+              The Science of Hot Springs and Cortisol Reduction
             </h2>
             <ul className="space-y-6">
               <li

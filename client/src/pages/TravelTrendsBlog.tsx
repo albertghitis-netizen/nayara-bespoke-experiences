@@ -1,6 +1,6 @@
 /*
  * TRAVEL TRENDS 2026 BLOG — /blog/travel-trends
- * "The Top 10 Travel Trends of 2026"
+ * "Top 10 Luxury Travel Trends of 2026 and How Nayara Leads Them"
  * Author: Albert Ghitis | Jan 7, 2026
  * Uses BlogPostTemplate with full article data
  */

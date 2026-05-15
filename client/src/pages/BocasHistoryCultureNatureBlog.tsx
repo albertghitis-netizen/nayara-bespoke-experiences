@@ -65,7 +65,7 @@ export default function BocasHistoryCultureNatureBlog() {
             className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Bocas del Toro: History, Culture & Nature
+            Bocas del Toro Panama: History, Culture, and Nature of the Archipelago
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed"
@@ -122,7 +122,7 @@ export default function BocasHistoryCultureNatureBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              1. A Historic Gateway to the Americas
+              Bocas del Toro as a Historic Gateway to the Americas
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -144,7 +144,7 @@ export default function BocasHistoryCultureNatureBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              2. The Banana Empire's Caribbean Capital
+              The Banana Trade and Its Legacy in Bocas del Toro
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -166,7 +166,7 @@ export default function BocasHistoryCultureNatureBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              3. A Tapestry of Cultures
+              Indigenous and Afro Caribbean Cultures of Bocas del Toro
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -188,7 +188,7 @@ export default function BocasHistoryCultureNatureBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              4. Nature at Its Wildest
+              Wildlife and Biodiversity in the Bocas del Toro Archipelago
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -210,7 +210,7 @@ export default function BocasHistoryCultureNatureBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              5. Waves, Reefs, and Rare Solitude
+              Surfing, Snorkeling, and Solitude in Bocas del Toro
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"

@@ -1,6 +1,6 @@
 /*
  * MICHELIN KEYS BLOG — /blog/michelin-keys
- * "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence"
+ * "7 MICHELIN Keys Across Costa Rica, Chile, and Panama at Nayara Resorts"
  * Author: Albert Ghitis | Mar 1, 2026
  * Uses BlogPostTemplate with full article data
  */

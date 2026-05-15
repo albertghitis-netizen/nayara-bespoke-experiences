@@ -1,6 +1,6 @@
 /*
  * STARGAZING ATACAMA BLOG — /blog/stargazing-atacama
- * "Why Nayara Alto Atacama Is the Best Stargazing Resort in the Atacama Desert"
+ * "Best Stargazing Resort in the Atacama Desert: Why Nayara Alto Atacama Leads"
  * Author: Albert Ghitis | Jun 11, 2024
  * Part 3 of the 4-part Atacama series
  * Uses BlogPostTemplate with full article data

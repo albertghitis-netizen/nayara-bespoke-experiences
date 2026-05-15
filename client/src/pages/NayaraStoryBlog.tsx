@@ -218,7 +218,7 @@ export default function NayaraStoryBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Time Is the Highest Currency
+              Time Is the Highest Currency at Nayara Resorts
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -269,7 +269,7 @@ export default function NayaraStoryBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Because Luxury at Nayara Begins with Nature (and Sloths)
+              Why Luxury at Nayara Begins with Nature and Sloths
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -350,7 +350,7 @@ export default function NayaraStoryBlog() {
               className="text-3xl md:text-4xl"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              The Principles That Define Nayara
+              The Principles That Define Nayara Resorts
             </h2>
           </motion.div>
 
@@ -440,7 +440,7 @@ export default function NayaraStoryBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Because Our Night Sky Experiences Are Rooted in Place
+              Night Sky Experiences Rooted in Place at Nayara
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -518,7 +518,7 @@ export default function NayaraStoryBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Because We Go Beyond Sustainability
+              How Nayara Goes Beyond Sustainability to Regeneration
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -605,7 +605,7 @@ export default function NayaraStoryBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Because Nature Defines Our Wellness Experience
+              Nature as the Foundation of Wellness at Nayara
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -662,7 +662,7 @@ export default function NayaraStoryBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Now It Is Your Turn
+              Experience Nayara for Yourself
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"

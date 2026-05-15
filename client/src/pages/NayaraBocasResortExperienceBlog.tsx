@@ -66,7 +66,7 @@ export default function NayaraBocasResortExperienceBlog() {
             className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Nayara Bocas del Toro: Your Private Island Paradise
+            A Day at Nayara Bocas del Toro: Your Private Island in Panama
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed"
@@ -105,7 +105,7 @@ export default function NayaraBocasResortExperienceBlog() {
           {/* Section Divider */}
           <div className="my-12" style={{ borderTop: `2px solid ${BOCAS_PALETTE.divider}` }} />
 
-          {/* Sunrise Over Sea */}
+          {/* Sunrise Over the Caribbean at Nayara Bocas del Toro */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -154,7 +154,7 @@ export default function NayaraBocasResortExperienceBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              Answering the Call to Adventure
+              Private Boat Adventures in the Bocas del Toro Archipelago
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
@@ -185,7 +185,7 @@ export default function NayaraBocasResortExperienceBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              The Elegant Elephant House & Poolside Coral Café
+              The Elephant House Restaurant and Coral Cafe at Nayara Bocas
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
@@ -222,7 +222,7 @@ export default function NayaraBocasResortExperienceBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              Twilight in the Trees: The Elora Hardy Treehouses
+              The IBUKU Treehouses Designed by Elora Hardy at Nayara Bocas
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
@@ -259,7 +259,7 @@ export default function NayaraBocasResortExperienceBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: BOCAS_PALETTE.primary }}
             >
-              The World's First Aerial Beach: Kupu Kupu Beach
+              Kupu Kupu Beach: The World's First Aerial Beach in Panama
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"

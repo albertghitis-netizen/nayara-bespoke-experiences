@@ -1,6 +1,6 @@
 /*
  * ATACAMA MARS BLOG — /blog/atacama-mars
- * "Why the Atacama Desert is Mars on Earth"
+ * "Why the Atacama Desert Is Called Mars on Earth"
  * Author: Albert Ghitis | Sep 27, 2025
  * Uses BlogPostTemplate with full article data
  */

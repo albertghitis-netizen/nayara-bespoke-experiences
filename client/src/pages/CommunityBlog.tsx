@@ -54,7 +54,7 @@ export default function CommunityBlog() {
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.cream }}>
       <EnhancedArticleSchema
         image={`${CDN}/pura-vida-hero_567b6d5c.jpeg`}
-        headline="Rooted in Community: Human Hospitality"
+        headline="Rooted in Community: How Nayara Supports Local People Across Four Destinations: Human Hospitality"
         description="At the heart of Nayara's approach to regenerative travel is not just the environment, but the people who care for it, depend on it, and shape the guest experience."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Hospitality", "Sustainable Tourism", "Community Development"] }}
         datePublished="2025-09-03"
@@ -172,7 +172,7 @@ export default function CommunityBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              The Volcano That Changed Everything
+              How Arenal Volcano Changed La Fortuna and Nayara's Community Role
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -278,7 +278,7 @@ export default function CommunityBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Bocas del Toro: Regeneration Through Inclusion and Impact
+              Community Impact and Regeneration in Bocas del Toro Panama
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -351,7 +351,7 @@ export default function CommunityBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Reclaiming a Harsh and Sacred Landscape
+              Community Partnerships in the Atacama Desert at Nayara Alto Atacama
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -418,7 +418,7 @@ export default function CommunityBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Reviving the Spirit of Rapa Nui
+              Reviving Rapa Nui Culture Through Community at Nayara Hangaroa
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -473,7 +473,7 @@ export default function CommunityBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              The Human Thread of Regeneration
+              The Human Thread of Regenerative Tourism at Nayara
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"

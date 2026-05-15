@@ -62,7 +62,7 @@ export default function GreenGlobeBlog() {
             className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Green Globe Certified
+            Green Globe Certification at Nayara Resorts in Costa Rica and Panama
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed"
@@ -117,7 +117,7 @@ export default function GreenGlobeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              What is Green Globe Certification?
+              What Is Green Globe Certification in Sustainable Tourism?
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -152,7 +152,7 @@ export default function GreenGlobeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              The Four Pillars of Green Globe
+              The Four Pillars of Green Globe Certification
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-8"
@@ -239,7 +239,7 @@ export default function GreenGlobeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              The Path to Certification
+              How Nayara Earned Green Globe Certification
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -274,7 +274,7 @@ export default function GreenGlobeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              What Green Globe Certification Means for You
+              What Green Globe Means for Guests at Nayara
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -308,7 +308,7 @@ export default function GreenGlobeBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Continuous Improvement: The Work Never Ends
+              Why Green Globe Requires Continuous Improvement
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"

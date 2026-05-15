@@ -35,7 +35,7 @@ export default function BocasOperationsBlog() {
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: PALETTE.light }}>
       <EnhancedArticleSchema
         image={`${CDN}/bocas-aerial-island_34b68171.jpg`}
-        headline="How We Built a Hotel on an Island"
+        headline="How Nayara Built an Off Grid Resort on a Private Island in Panama"
         description="The story of building Nayara Bocas del Toro entirely off-grid on a private island in Panama, from five environmental studies to 100% solar power and rainwater harvesting."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism", "Off-Grid Architecture"] }}
         datePublished="2025-05-15"
@@ -102,7 +102,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              How Do You Build Without Destroying?
+              How to Build a Resort Without Destroying the Ecosystem
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -146,7 +146,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-4xl mb-4"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              Five Environmental Studies. $100,000.
+              Five Environmental Studies Before Construction in Bocas del Toro
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] max-w-3xl"
@@ -225,7 +225,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              Built on Stilts. Built to Disappear.
+              Overwater Villas Built on Stilts to Protect Mangroves and Coral
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -291,7 +291,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-4xl"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              Powered by Sun. Sustained by Rain.
+              Solar Power and Rainwater Harvesting at Nayara Bocas del Toro
             </h2>
           </motion.div>
 
@@ -352,7 +352,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              The Mangroves Stay. We Work Around Them.
+              How Nayara Preserved Native Mangroves During Construction
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -395,7 +395,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              Fifty Feet Above the Forest Floor
+              IBUKU Treehouses: 50 Feet Above the Bocas del Toro Rainforest
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -460,7 +460,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-5xl mb-8 text-white"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
-              One System, Protected.
+              One Integrated Ecosystem, Protected
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] max-w-2xl mx-auto"
@@ -491,7 +491,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              Building Was Just the Beginning
+              Why Sustainable Construction Was Just the Beginning
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"

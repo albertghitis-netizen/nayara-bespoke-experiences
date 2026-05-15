@@ -118,7 +118,7 @@ export default function NayaraByNightBlog() {
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: NIGHT.bg }}>
       <EnhancedArticleSchema
         image={IMG.heroStill}
-        headline="Nayara by Night: Of Moon and Stars"
+        headline="Nayara by Night: Stargazing, Bioluminescence, and the Rainforest After Dark"
         description="From the Atacama's observatory to Bocas del Toro's bioluminescent bays, the night reveals a different world at Nayara Resorts."
         author={{ name: "Albert Ghitis", expertise: ["Luxury Travel", "Sustainable Tourism", "Hospitality"] }}
         datePublished="2025-09-03"
@@ -152,7 +152,7 @@ export default function NayaraByNightBlog() {
             className="text-3xl md:text-5xl lg:text-6xl leading-[1.05] mb-5"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Nayara by Night:<br />Of Moon and Stars
+            Nayara by Night:<br />Stargazing, Bioluminescence, and the Rainforest After Dark
           </h1>
           <p
             className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto"
@@ -209,7 +209,7 @@ export default function NayaraByNightBlog() {
               className="text-2xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              A New Observatory in the Desert
+              Stargazing at Nayara Alto Atacama: A New Observatory in the Atacama Desert
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
@@ -255,7 +255,7 @@ export default function NayaraByNightBlog() {
               className="text-2xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              Navigating by Moon and Memory
+              Navigating by Moon and Memory on Easter Island
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
@@ -307,7 +307,7 @@ export default function NayaraByNightBlog() {
               className="text-2xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              Stars Below the Surface: Bioluminescence in Bocas
+              Bioluminescence in Bocas del Toro: Stars Below the Surface
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
@@ -348,7 +348,7 @@ export default function NayaraByNightBlog() {
               className="text-2xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              The Rainforest After Dark
+              The Arenal Rainforest After Dark at Nayara
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.95] mb-6"
@@ -397,7 +397,7 @@ export default function NayaraByNightBlog() {
               className="text-2xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              What the Moon Reveals
+              What the Night Sky Reveals Across Nayara Destinations
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.95] mb-6"

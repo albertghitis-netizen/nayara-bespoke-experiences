@@ -3701,3 +3701,28 @@
 - [x] Redirect /blog/maya-rapa-nui stub to /blog/maya-rapa-nui-climate (real content)
 - [x] Remove treehouse-dreams, biodensity-underwater, wellness-hospitality stubs from journal feed (no real content)
 - [x] Update maya-rapa-nui-climate and reforestation-wildlife images from FALLBACK_IMG to proper images
+
+## Journal Page Transitions & Loading Animations
+- [ ] Add smooth page transition animation when navigating from journal feed to blog post
+- [ ] Add smooth page transition animation when navigating back from blog post to journal feed
+- [ ] Add loading skeleton/animation while blog post content loads via lazy import
+- [ ] Ensure transitions work for both /journal/:slug dynamic routes and /blog/* static routes
+
+## Blog Hero Cleanup
+- [x] Remove all Read arrow buttons from blog hero sections (all blog pages)
+- [x] Ensure H1 title is overlaid on the hero image/video (not below it)
+
+## Blog Hero Read Button Removal
+- [x] Remove Read arrow button from BlogPostTemplate hero section
+- [x] Remove Read arrow buttons from all standalone blog pages with custom heroes (none had them, only BlogPostTemplate)
+
+## Blog H1/H2 AEO/GEO/SEO Optimization
+- [x] Audit all blog H1 titles across blogPosts.ts and standalone blog pages
+- [x] Audit all blog H2 section headings across blogPosts.ts and standalone blog pages
+- [x] Optimize all H1s for AEO (answer engine), GEO (geographic), SEO (search engine)
+- [x] Optimize all H2s for AEO/GEO/SEO
+- [x] No em dashes in any titles
+- [x] Update journal.ts titles to match new blog H1s (25 titles updated)
+- [x] Update relatedArticles references in blogPosts.ts to match new titles (10 refs updated)
+- [x] Update SEO metaTitles in blogPosts.ts to match new H1s (6 metaTitles updated)
+- [x] Update NayaraByNightBlog headline SEO prop

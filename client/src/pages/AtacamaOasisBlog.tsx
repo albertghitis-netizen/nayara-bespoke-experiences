@@ -1,6 +1,6 @@
 /*
  * ATACAMA OASIS BLOG — /blog/atacama-oasis
- * "What Defines The Best Place to Stay in the Atacama Desert: The Oasis Factor"
+ * "The Oasis Factor: What Defines the Best Place to Stay in the Atacama Desert"
  * Author: Albert Ghitis | Jan 27, 2026
  * Part 4 of the 4-part Atacama series
  * Uses BlogPostTemplate with full article data

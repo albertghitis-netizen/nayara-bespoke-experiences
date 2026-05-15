@@ -74,7 +74,7 @@ export interface BlogPostData {
 
 export const puraVidaPost: BlogPostData = {
   slug: "pura-vida",
-  title: "Pura Vida and the Science of Why Costa Rica Feels Different",
+  title: "Pura Vida: The Science of Why Costa Rica Is the Healthiest Country on Earth",
   subtitle: "World Health Day 2026",
   author: "Albert Ghitis",
   authorRole: "Nayara Resorts",
@@ -94,7 +94,7 @@ export const puraVidaPost: BlogPostData = {
   ],
   sections: [
     {
-      heading: "Why Costa Rica Feels the Way It Does",
+      heading: "Why Costa Rica Feels Different: Nature, Time, and the Happy Planet Index",
       content: `<p>On April 7, the World Health Organization observes <a href="https://www.who.int/campaigns/world-health-day/2026" target="_blank" rel="noopener noreferrer">World Health Day</a>. This year's theme, <em>Together for health. Stand with science</em>, asks a question we think about every day: what actually makes people well? Not what treats illness. What produces health in the first place.</p>
 <p>We live and work in a country that has been quietly answering that question for decades. This is our attempt to explain what Costa Rica understands about health that richer countries often seem to forget.</p>
 <p>There are countries that feel efficient, countries that feel rich, countries that feel beautiful, and countries that feel alive. Costa Rica belongs to the last category.</p>
@@ -109,7 +109,7 @@ export const puraVidaPost: BlogPostData = {
       },
     },
     {
-      heading: "What Happens to You at Nayara",
+      heading: "What Happens to Your Body at Nayara Arenal",
       content: `<p>The science of wellbeing does not require a resort. It requires conditions.</p>
 <p>That distinction is what makes Nayara relevant to this story without making Nayara the whole story. <a href="/gardens">Nayara Gardens</a>, <a href="/springs">Nayara Springs</a>, and <a href="/tented-camp">Nayara Tented Camp</a> do not manufacture Costa Rican happiness. They remove friction between the guest and the conditions Costa Rica already provides.</p>
 <p>Warm water lowers vigilance. Forest absorbs the background noise your nervous system was tracking without telling you. Distance from traffic, from notification, from the low hum of logistical anxiety changes the pace at which your body scans for threat. Long meals slow the day down enough for appetite and conversation to return to their actual size. A view of canopy at dawn does not solve anything on its own, but it changes the body's first conversation with the morning.</p>
@@ -123,14 +123,14 @@ export const puraVidaPost: BlogPostData = {
       pullQuote: "Nayara does not manufacture Costa Rican happiness. It removes friction between the guest and the conditions Costa Rica already provides.",
     },
     {
-      heading: "The Decision That Changed the Atmosphere",
+      heading: "How Costa Rica Abolished Its Army and Built a Wellness Culture",
       content: `<p>To understand why Costa Rica feels the way it does, you have to begin with a decision so unusual that it still sounds improbable.</p>
 <p>In 1949, Costa Rica constitutionally abolished its army. <a href="https://en.unesco.org/memoryoftheworld" target="_blank" rel="noopener noreferrer">UNESCO's Memory of the World listing</a> treats the abolition as documentary heritage and frames it as part of the country's long-term commitment to peace and social development.</p>
 <p>Over time, that choice compounded into a broader civic atmosphere. Costa Rica built high literacy, invested in public health and education, and protected a significant share of its land. The World Bank literacy indicator places Costa Rica in the mid-90s, while the OECD's 2025 country note places terrestrial protected areas at roughly 26 percent of national territory.</p>
 <p>That is why Costa Rica feels different. Not because it escaped modernity, but because it made certain tradeoffs differently. The result is not perfection. The result is a country where health often feels embedded in the landscape and tempo of life rather than outsourced entirely to institutions that only intervene once something has already gone wrong.</p>`,
     },
     {
-      heading: "What the Science Actually Suggests",
+      heading: "The Science of Wellbeing in Costa Rica: Cortisol, Time Affluence, and Blue Zones",
       content: `<p>The strongest explanation for Costa Rica's appeal is not a single secret. It is an overlap of known variables that wellbeing researchers have been circling for years. Taken individually, none of them is uniquely Costa Rican. Taken together, they explain why the country feels the way it does.</p>
 <p>Start with what the body already knows. A widely cited <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00722/full" target="_blank" rel="noopener noreferrer">Frontiers in Psychology report</a> on the "nature pill" study found that spending 20 to 30 minutes in a natural setting was associated with a meaningful reduction in cortisol, the body's primary stress hormone. Costa Rica's advantage is not that it invented this effect. It is that nature exposure is unusually hard to avoid.</p>
 <p>Then there is time. Research summarized by <a href="https://hbswk.hbs.edu/" target="_blank" rel="noopener noreferrer">Harvard Business School</a> on time affluence argues that the feeling of having enough time is a major predictor of wellbeing, in some contexts more important than additional income once basic needs are met.</p>
@@ -143,7 +143,7 @@ export const puraVidaPost: BlogPostData = {
       },
     },
     {
-      heading: "Pura Vida Is Not Translation. It Is Compression.",
+      heading: "What Pura Vida Really Means Beyond the Translation",
       content: `<p>Tourists often ask what Pura Vida means as if the answer were lexical.</p>
 <p>It is not.</p>
 <p>Literal translations are easy. Pure life. Simple life. Good life. None of them quite gets it. Pura Vida is not just a phrase but a compression of attitude, permission, and proportion. It is what a culture says when it refuses to make stress sound noble.</p>
@@ -152,7 +152,7 @@ export const puraVidaPost: BlogPostData = {
       pullQuote: "Pura Vida names something wealthy societies regularly lose: the ability to experience enoughness without reading it as failure.",
     },
     {
-      heading: "The Ecosystem That Makes It Possible",
+      heading: "Why Conservation Is the Foundation of Wellness at Nayara",
       content: `<p>Everything in this article depends on something staying alive.</p>
 <p>The forest that lowers cortisol only works if the forest is there. The water that lowers vigilance only flows if the watershed is intact. The birds whose calls stitch the canopy together only sing where the canopy is continuous. A place that feels alive changes the person inside it. Not through metaphor. Through physiology.</p>
 <p>The same living systems that sustain wildlife are the ones that restore people. That connection is the reason we treat conservation not as a corporate initiative but as the foundation of everything we offer.</p>
@@ -200,7 +200,7 @@ export const puraVidaPost: BlogPostData = {
     { name: "Nayara Tented Camp", route: "/tented-camp" },
   ],
   seo: {
-    metaTitle: "Pura Vida and the Science of Why Costa Rica Feels Different | Nayara Journal",
+    metaTitle: "Pura Vida: The Science of Why Costa Rica Is the Healthiest Country on Earth | Nayara Journal",
     metaDescription: "On World Health Day, we explore the science behind Costa Rica's wellbeing - from nature exposure and time affluence to the Blue Zone of Nicoya - and what Pura Vida really means.",
   },
 };
@@ -209,7 +209,7 @@ export const puraVidaPost: BlogPostData = {
 
 export const sCertificationPost: BlogPostData = {
   slug: "s-certification",
-  title: "Chile's S Certification: How Nayara Leads Sustainable Tourism in the Desert and on Easter Island",
+  title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
   subtitle: "Nayara Alto Atacama and Nayara Hangaroa are the only luxury hotels in their destinations to hold Chile's government-backed S Certification",
   author: "Albert Ghitis",
   authorRole: "Nayara Resorts",
@@ -226,7 +226,7 @@ export const sCertificationPost: BlogPostData = {
   ],
   sections: [
     {
-      heading: "What the S Certification Means",
+      heading: "What Is Chile's S Certification for Sustainable Tourism?",
       content: `<p>Chile's <strong>S Certification (Sello S)</strong> is administered by <a href="https://www.sernatur.cl/" target="_blank" rel="noopener noreferrer">SERNATUR</a>, Chile's national tourism service. It is not a voluntary marketing label. It is a government-backed distinction that has been <a href="https://www.gstc.org/chilean-national-system-for-distinction-of-sustainable-tourism-achieves-recognized-global-sustainable-tourism-council-status-for-its-standard/" target="_blank" rel="noopener noreferrer">recognized by the GSTC since 2014</a>, meaning it meets the same international baseline as Green Globe and other GSTC-accredited standards.</p>
 <p>Properties are audited by an independent third party (ICOMCER) across socio-cultural, economic, and environmental criteria. These are not self-reported badges. They require documented evidence, on-site inspections, and annual re-certification. A property cannot hold them passively. It must demonstrate continuous improvement - or lose them.</p>
 <p>Nayara Alto Atacama and Nayara Hangaroa are the <strong>only luxury hotels in their respective destinations</strong> to carry this distinction.</p>`,
@@ -237,7 +237,7 @@ export const sCertificationPost: BlogPostData = {
       },
     },
     {
-      heading: "The Atacama Desert: Solar Innovation and Adobe Wisdom",
+      heading: "Solar Energy and Adobe Architecture at Nayara Alto Atacama",
       content: `<p><a href="/alto-atacama">Nayara Alto Atacama</a> is the <strong>only luxury hotel in the Atacama region</strong> to hold the S Certification for Sustainable Tourism.</p>
 <p>The property's solar energy project mitigates over a ton of CO₂ emissions annually. The state-of-the-art solar panels blend seamlessly into the desert landscape, preserving its natural beauty while harnessing renewable energy in what is one of the highest-radiation environments on earth.</p>
 <p>The hotel's adobe rooms reflect thoughtful sustainable design at every level. Strategically oriented to capture solar warmth and natural ventilation, they minimize the need for artificial heating and cooling. A special thermal insulation layer retains warmth during winter while maintaining cool interiors in summer - an engineering solution drawn directly from the ancestral building techniques of the Atacameño people who have lived in this desert for millennia.</p>
@@ -249,7 +249,7 @@ export const sCertificationPost: BlogPostData = {
       },
     },
     {
-      heading: "Easter Island: Green Roofs, Cultural Roots",
+      heading: "Green Roofs and Rapa Nui Culture at Nayara Hangaroa",
       content: `<p><a href="/hangaroa">Nayara Hangaroa</a> on Rapa Nui (Easter Island) also holds the S Certification - making it and Alto Atacama the <strong>only luxury hotels in their respective destinations</strong> to carry this distinction.</p>
 <p>The hotel embraces sustainable design inspired by the Rapa Nui <em>Kainga</em> philosophy. Its green roofs cool buildings naturally while blending seamlessly into the volcanic landscape. The architecture reflects the iconic Orongo ceremonial village through its materials and spatial design - immersing guests in culture and nature simultaneously.</p>
 <p>A solar plant complements the hotel's energy supply, reducing dependence on Rapa Nui's electrical grid - an infrastructure that is particularly sensitive due to the island's geographic isolation in the middle of the Pacific Ocean.</p>
@@ -263,7 +263,7 @@ export const sCertificationPost: BlogPostData = {
       pullQuote: "The S Certification is not just an environmental badge - it validates the full spectrum of responsible operations.",
     },
     {
-      heading: "Why Certification Matters",
+      heading: "Why Sustainability Certification Matters in Luxury Travel",
       content: `<p>The difference between a sustainability claim and a sustainability certification is an auditor. What the S Certification requires is <strong>documented, measurable, independently verified performance</strong> - reviewed annually, with the real possibility of losing the certification if standards slip.</p>
 <p>For Nayara, the certifications are not the goal. They are the proof. The goal is to demonstrate that luxury hospitality and environmental responsibility are not in tension.</p>
 <p><em>The desert and the island are not amenities. They are the reason any of this exists.</em></p>`,
@@ -279,14 +279,14 @@ export const sCertificationPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "/blog/green-globe-certification",
-      title: "Green Globe Certification: Costa Rica and Bocas del Toro",
+      title: "Green Globe Certification: How Nayara Earned It Across Costa Rica and Panama",
       pillar: "Sustainability",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
       date: "April 2026",
     },
     {
       slug: "/blog/pura-vida",
-      title: "Pura Vida and the Science of Why Costa Rica Feels Different",
+      title: "Pura Vida: The Science of Why Costa Rica Is the Healthiest Country on Earth",
       pillar: "Wellness",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
       date: "March 2026",
@@ -297,7 +297,7 @@ export const sCertificationPost: BlogPostData = {
     { name: "Nayara Hangaroa", route: "/hangaroa" },
   ],
   seo: {
-    metaTitle: "Chile's S Certification at Nayara Alto Atacama and Hangaroa | Nayara Journal",
+    metaTitle: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism | Nayara Journal",
     metaDescription: "How Nayara Alto Atacama and Nayara Hangaroa earned Chile's government-backed S Certification for Sustainable Tourism - the only luxury hotels in their destinations to hold this distinction.",
   },
 };
@@ -306,7 +306,7 @@ export const sCertificationPost: BlogPostData = {
 
 export const greenGlobePost: BlogPostData = {
   slug: "green-globe-certification",
-  title: "Green Globe Certification: How Nayara Sets the Standard in Costa Rica and Panama",
+  title: "Green Globe Certification: How Nayara Earned It Across Costa Rica and Panama",
   subtitle: "Four properties, one commitment - how Green Globe's 400+ compliance indicators validate Nayara's sustainability model",
   author: "Albert Ghitis",
   authorRole: "Nayara Resorts",
@@ -326,14 +326,14 @@ export const greenGlobePost: BlogPostData = {
   ],
   sections: [
     {
-      heading: "Green Globe: The Global Standard",
+      heading: "What Is Green Globe Certification and Why Does It Matter?",
       content: `<p><a href="https://www.greenglobe.com/" target="_blank" rel="noopener noreferrer">Green Globe</a> is one of the oldest and most widely recognized sustainability certification programs in tourism. Developed over three decades, it evaluates properties against <strong>44 core criteria grouped into four pillars</strong>: Sustainable Management, Social and Economic Impact, Cultural Heritage, and Environmental Performance.</p>
 <p>Behind those four pillars sit more than 400 compliance indicators. Each one requires documented evidence - not intention, not marketing language, but operational proof. Energy consumption logs. Waste diversion rates. Water quality testing. Staff training records. Community partnership agreements. Procurement sourcing data.</p>
 <p>Green Globe is aligned with the <a href="https://www.gstc.org/" target="_blank" rel="noopener noreferrer">GSTC</a> criteria, is an affiliate member of <a href="https://www.unwto.org/" target="_blank" rel="noopener noreferrer">UN Tourism (UNWTO)</a>, and participates in the Tourism Sustainability Certifications Alliance (TSCA). Properties must pass an annual independent audit to retain certification. There is no lifetime membership. There is no grandfathering.</p>`,
       pullQuote: "Green Globe requires documented evidence across 400+ compliance indicators - not intention, not marketing language, but operational proof.",
     },
     {
-      heading: "Costa Rica: Where the Green Committee Leads",
+      heading: "Green Globe at Nayara Arenal: Carbon Neutral and Plastic Free Since 2021",
       content: `<p>The three Nayara properties in Costa Rica's Arenal region - Gardens, Springs, and Tented Camp - share a single sustainability infrastructure. They sit within 30,000 acres of lush rainforest that is home to half of Costa Rica's bird, mammal, and reptile species. The forest is not a backdrop. It is the reason the hotels exist.</p>
 <p>The Green Globe evaluation confirmed what the properties had been building for years: ongoing reforestation programs that have turned former cattle-ranching land into functioning wildlife corridors; renewable energy sourcing; water preservation systems that protect the volcanic watershed; comprehensive recycling practices; and community engagement initiatives that extend well beyond the property boundaries.</p>
 <p>The majority of staff come from the town of La Fortuna. Nayara's community housing project - developed in partnership with a local bank - provides homes to La Fortuna families with no down payment required. The equity belongs to the families regardless of employment status. Free transportation, education support, and early childhood programs for staff families are standard.</p>
@@ -346,7 +346,7 @@ export const greenGlobePost: BlogPostData = {
       },
     },
     {
-      heading: "Panama: Building Sustainability from Day One",
+      heading: "Green Globe at Nayara Bocas del Toro: Off Grid Solar and Rainwater Harvesting",
       content: `<p>Nayara Bocas del Toro was not retrofitted for sustainability. It was designed for it.</p>
 <p>Before a single piling was driven, five separate environmental impact studies were conducted. The resort was built entirely on stilts to protect native mangroves and coral reefs. With no natural beaches on the mangrove island, the world's first floating beach was created - also on stilts - preserving the delicate seabed ecosystem beneath.</p>
 <p>The resort operates <strong>completely off-grid</strong>. Nearly 100% of the hotel's energy needs are generated by solar power. Freshwater comes exclusively from rainwater harvesting: custom gutter systems collect rainfall into large catchment basins holding up to <strong>100,000 gallons</strong>, which is then purified using advanced ultraviolet filtration for drinking, bathing, and cooking.</p>
@@ -359,13 +359,13 @@ export const greenGlobePost: BlogPostData = {
       pullQuote: "Nayara Bocas del Toro operates completely off-grid - nearly 100% solar powered, with freshwater from rainwater harvesting purified through UV filtration.",
     },
     {
-      heading: "Zero-Kilometer Cuisine: The Table as Ecosystem",
+      heading: "Zero Kilometer Cuisine: How Nayara Sources Food Locally Across Four Destinations",
       content: `<p>Across all Nayara properties, the <strong>zero-kilometer food philosophy</strong> prioritizes local farms and fresh seafood sourced directly from surrounding waters. This is not a menu label. It is a supply chain decision that reduces carbon emissions, supports regional economies, and delivers seasonal, nutritious, and culturally authentic cuisine.</p>
 <p>In Costa Rica, on-site organic farms supply a significant portion of restaurant produce. In the Atacama, the <em>Cero Kilómetros</em> gastronomic philosophy draws on ancestral ingredients and local producers. In Bocas del Toro, Caribbean seafood arrives from the waters visible from the dining room.</p>
 <p>The connection between food and place is not decorative. It is structural. When a hotel sources locally, it creates economic incentives for the surrounding community to maintain the agricultural and marine systems that make the destination worth visiting in the first place. The table becomes part of the ecosystem - not separate from it.</p>`,
     },
     {
-      heading: "Why Certification Matters More Than Claims",
+      heading: "Why Green Globe and S Certification Matter More Than Marketing Claims",
       content: `<p>The difference between a sustainability claim and a sustainability certification is an auditor.</p>
 <p>Any hotel can say it cares about the environment. Any marketing team can write copy about green initiatives. What Green Globe and the S Certification require is something harder: <strong>documented, measurable, independently verified performance</strong> - reviewed annually, with the real possibility of losing the certification if standards slip.</p>
 <p>That accountability is what makes these certifications meaningful. They are not awards given once and displayed forever. They are ongoing commitments that require continuous improvement, transparent reporting, and the willingness to be held to a standard that most luxury hotels never volunteer for.</p>
@@ -401,7 +401,7 @@ export const greenGlobePost: BlogPostData = {
     },
     {
       slug: "/blog/pura-vida",
-      title: "Pura Vida and the Science of Why Costa Rica Feels Different",
+      title: "Pura Vida: The Science of Why Costa Rica Is the Healthiest Country on Earth",
       pillar: "Wellness",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
       date: "March 2026",
@@ -416,7 +416,7 @@ export const greenGlobePost: BlogPostData = {
     { name: "Nayara Hangaroa", route: "/hangaroa" },
   ],
   seo: {
-    metaTitle: "Green Globe and S Certification Across Nayara Resorts | Nayara Journal",
+    metaTitle: "Green Globe Certification: How Nayara Earned It Across Costa Rica and Panama | Nayara Journal",
     metaDescription: "How Nayara Resorts earned and maintains Green Globe and Chile's S Certification across four destinations - from Costa Rica's rainforest to the Atacama Desert, Panama's mangroves, and Easter Island.",
   },
 };
@@ -426,7 +426,7 @@ export const greenGlobePost: BlogPostData = {
 
 export const atacamaOasisPost: BlogPostData = {
   slug: "best-place-to-stay-atacama-desert-oasis",
-  title: "The Best Place to Stay in the Atacama Desert Is an Oasis",
+  title: "The Best Place to Stay in the Atacama Desert: Inside the Catarpe Valley Oasis",
   subtitle: "Why a functioning oasis is not an amenity, but the foundation of the experience",
   author: "Nayara Resorts",
   authorRole: "Nayara Editorial",
@@ -442,7 +442,7 @@ export const atacamaOasisPost: BlogPostData = {
   ],
   sections: [
     {
-      heading: "Why Location Matters More Than Amenities in the Atacama",
+      heading: "Why Location Matters More Than Amenities in the Atacama Desert",
       content: `<p>In the Atacama Desert, where exposure defines experience, the best place to stay is not a matter of luxury. It is a matter of location.</p>
 <p>Oases have always determined where human life can exist in this landscape. Groundwater forced to the surface by geology, vegetation that moderates temperature, and landforms that reduce wind and solar stress create narrow zones where movement, recovery, and continuity become possible. Archaeological research documented by <strong>Memoria Chilena</strong> shows that Indigenous Lickanantay settlements followed these same sheltered valleys rather than exposed plateaus.</p>
 <p>Modern science confirms what early inhabitants understood intuitively. Studies published in <strong>Scientific Reports</strong> and the <strong>Journal of Arid Environments</strong> demonstrate that desert oases measurably reduce temperature extremes, stabilize humidity, and soften wind exposure, creating microclimates that support sustained human activity.</p>
@@ -454,14 +454,14 @@ export const atacamaOasisPost: BlogPostData = {
       },
     },
     {
-      heading: "What a Desert Oasis Really Is",
+      heading: "What Is a Desert Oasis and How Does It Create a Microclimate?",
       content: `<p>An oasis is not a place where water simply appears. It is a system.</p>
 <p>In arid environments, a reliable source of water triggers a chain reaction. Vegetation becomes viable. Soil retains moisture. Wind slows. Temperatures stabilize. Sound softens. Movement changes. The lived experience of the desert shifts from exposure to continuity.</p>
 <p>Environmental research defines this phenomenon as the <strong>oasis effect</strong>, a measurable microclimate outcome in which vegetated and watered areas remain cooler and more stable than surrounding desert surfaces. Studies published in the <em>Journal of Arid Environments</em> describe oases as localized climate modifiers rather than isolated anomalies.</p>
 <p>Further research in <em>Scientific Reports</em> confirms that oases can reduce surface temperatures by several degrees, particularly during peak heat. Vegetation and hydrology reshape climate. They do not decorate it.</p>`,
     },
     {
-      heading: "Why Oases Made the Atacama Habitable",
+      heading: "10,000 Years of Human Settlement Along Atacama Oasis Corridors",
       content: `<p>Human presence in the Atacama is an oasis story.</p>
 <p>Archaeological and anthropological research shows that settlement in northern Chile extends back more than <strong>10,000 years</strong>. Survival here was never accidental. Early cultures adapted to the desert through restraint, mobility, and alignment with water sources rather than attempts to dominate the environment.</p>
 <p>The <strong>Lickanantay people</strong>, also known as the Atacameño, organized life around oasis corridors where rivers, springs, and groundwater made agriculture and continuity possible. These oases were not simply places to live. They were bases for seasonal movement, trade, and ceremony.</p>
@@ -473,7 +473,7 @@ export const atacamaOasisPost: BlogPostData = {
       },
     },
     {
-      heading: "The Catarpe Valley: An Oasis Shaped by Geography",
+      heading: "The Catarpe Valley: Where Nayara Alto Atacama Sits Inside the Oasis",
       content: `<p>The Catarpe Valley is not an abstract concept. It is a defined landscape shaped by hydrology and terrain.</p>
 <p>Located just outside San Pedro de Atacama, the valley follows a river corridor that allows vegetation to persist in one of the driest environments on Earth. Cliffs and slopes create natural wind protection, while water flow supports plant life that further stabilizes the microclimate.</p>
 <p>This geography produces a basin effect. Heat disperses more slowly. Wind is softened. Sound carries differently. The desert becomes less confrontational and more legible.</p>
@@ -481,14 +481,14 @@ export const atacamaOasisPost: BlogPostData = {
       pullQuote: "Nayara Alto Atacama is embedded inside the oasis system rather than adjacent to it. This placement is deliberate.",
     },
     {
-      heading: "Architecture Shaped by Survival",
+      heading: "Adobe Architecture in the Atacama: Ancient Desert Building Techniques",
       content: `<p>Desert architecture did not originate as an aesthetic exercise. It emerged as a survival mechanism.</p>
 <p>For millennia, thick earthen walls, recessed courtyards, and shaded passages moderated temperature and light long before mechanical systems existed. These principles are documented extensively by the <strong>Getty Conservation Institute</strong> and the <strong>International Council on Monuments and Sites</strong>.</p>
 <p>Nayara Alto Atacama draws directly from this lineage. Adobe walls absorb heat during the day and release it slowly at night. Terrace roofs are layered with native brea herbs to filter sunlight and cool interiors. Corridors are shaded with canes of <em>Chusquea quila</em>, a local bamboo species known for diffusing light and reducing heat gain , a passive cooling strategy consistent with arid-zone design principles.</p>
 <p>These materials are not decorative. They regulate the environment.</p>`,
     },
     {
-      heading: "Why Being Inside the Oasis Matters",
+      heading: "Why Staying Inside an Oasis Changes the Atacama Experience",
       content: `<p>Many places in the Atacama offer views of the desert. Fewer offer immersion in its systems.</p>
 <p>Being inside an oasis means waking to vegetation rather than dust. Moving through shade rather than exposure. Hearing water rather than wind. These are subtle differences, but in a desert, subtlety is decisive.</p>
 <p>From within the Catarpe oasis, the Atacama is experienced as a continuous landscape rather than an adversarial one. Exploration becomes sustained rather than episodic. Observation deepens.</p>
@@ -508,7 +508,7 @@ export const atacamaOasisPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "/journal/s-certification",
-      title: "Chile's S Certification: Sustainable Tourism in the Desert and Easter Island",
+      title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
       pillar: "Sustainability",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
       date: "April 2026",
@@ -518,7 +518,7 @@ export const atacamaOasisPost: BlogPostData = {
     { name: "Nayara Alto Atacama", route: "/alto-atacama" },
   ],
   seo: {
-    metaTitle: "The Best Place to Stay in the Atacama Desert Is an Oasis | Nayara Journal",
+    metaTitle: "The Best Place to Stay in the Atacama Desert: Inside the Catarpe Valley Oasis | Nayara Journal",
     metaDescription: "Why a functioning oasis is not an amenity but the foundation of the Atacama experience , the science of desert microclimates, 10,000 years of human adaptation, and the Catarpe Valley.",
   },
 };
@@ -527,7 +527,7 @@ export const atacamaOasisPost: BlogPostData = {
 
 export const hangaroaRegenerationPost: BlogPostData = {
   slug: "hangaroa-regeneration-rapa-nui",
-  title: "How Nayara Hangaroa Leads Regeneration on Rapa Nui",
+  title: "How Nayara Hangaroa Leads Ecological Regeneration on Easter Island",
   subtitle: "Walking giants, the Hito family, and the future of Easter Island",
   author: "Nayara Resorts",
   authorRole: "Nayara Editorial",
@@ -543,7 +543,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
   ],
   sections: [
     {
-      heading: "From Carvers of Stone to Guardians of Culture",
+      heading: "The Polynesian Origins of Rapa Nui and the Hito Family Legacy",
       content: `<p>Centuries ago, a small wooden canoe appeared over the endless blue, carrying a handful of Polynesian voyagers who had followed the stars across thousands of kilometers of open ocean. Among them were the ancestors of the Hito family. Guided by birds, currents, and memory, they landed on a volcanic speck of land now known as Rapa Nui.</p>
 <p>For centuries, Rapa Nui flourished. Families cultivated <strong>manavai gardens</strong>, circular rock enclosures that protected crops from wind and preserved moisture in volcanic soil. Communities fished sustainably, farmed communally, and lived according to navigational knowledge carried across the Pacific.</p>
 <p>From the slopes of Rano Raraku came the <strong>Moai</strong>. These enormous stone figures honored ancestors and held <em>mana</em>, the spiritual energy that protected the living. Facing inland, they watched over villages and helped maintain a balance between people and place.</p>
@@ -555,7 +555,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
       },
     },
     {
-      heading: "The Hito Legacy",
+      heading: "The Hito Family: Part Owners of Nayara Hangaroa and Guardians of Rapa Nui",
       content: `<p>Among the lineages that carried the island's memory forward is the <strong>Hito family</strong>. Their ancestors carved Moai, farmed the rocky soil, and fished the surrounding reefs. Through colonization, disease, and exile, they preserved the traditions of stewardship that had shaped Rapa Nui for centuries.</p>
 <p>Today the Hito family are guardians of both heritage and habitat, and part-owners of Nayara Hangaroa. They plant toromiro and makoi trees on ancestral land once left barren. They collaborate with scientists and artists to protect coral reefs, restore soils, and teach the next generation what balance truly means.</p>
 <p><em>"The Moai remind us to walk carefully,"</em> says one elder of the family. <em>"They face inward because they protect the people, not themselves."</em></p>
@@ -563,19 +563,19 @@ export const hangaroaRegenerationPost: BlogPostData = {
       pullQuote: "The Moai remind us to walk carefully. They face inward because they protect the people, not themselves.",
     },
     {
-      heading: "The Science of Walking Giants",
+      heading: "How the Moai Walked: The Science That Confirmed Rapa Nui Oral Tradition",
       content: `<p>For centuries, the mystery of how the moai moved puzzled historians. Were they dragged on wooden sledges? Rolled on logs? Modern research led by archaeologists <strong>Carl Lipo</strong> and <strong>Terry Hunt</strong> revealed that the statues were <em>walked</em>.</p>
 <p>With ropes and rhythm, teams could tilt each moai upright. By shifting weight side to side, they walked it forward until it reached its resting place. The discovery confirmed what Rapa Nui oral tradition had always said: the moai walked with <em>mana</em>.</p>
 <p>It was both a scientific revelation and a cultural vindication. What once seemed like myth became proof that belief and physics can coexist. The moai walked because the people walked together.</p>`,
     },
     {
-      heading: "Collapse and Renewal",
+      heading: "From Ecological Collapse to Renewal on Easter Island",
       content: `<p>Jared Diamond once called Rapa Nui the clearest example of ecological collapse in human history. Yet that label misses the second half of the story: <strong>renewal</strong>.</p>
 <p>Today, forests are returning. Coral reefs are recovering. Traditional agriculture and fishing are being revived through community education. The same ingenuity that built the moai is now rebuilding the ecosystem.</p>
 <p>The <strong>toromiro tree</strong>, long extinct in the wild, has been reintroduced through a global collaboration between Rapa Nui families and botanical gardens. Each new sapling represents both science and faith. The coral reefs around the island, once bleached and lifeless, are showing color again thanks to local conservation programs.</p>`,
     },
     {
-      heading: "Regeneration as Legacy",
+      heading: "Regenerative Luxury at Nayara Hangaroa: Restoration as a Guest Experience",
       content: `<p>At Nayara Hangaroa, regeneration is not an initiative or activity. It is woven into daily life. Guests are invited to participate in restoration walks, tree-planting efforts, and coral-education programs , not as visitors but as contributors.</p>
 <p>The Hito family remains at the center of this philosophy. Their work reflects a shift from sustainable luxury to <strong>regenerative luxury</strong>, where the goal is not to minimize impact but to restore what has been lost.</p>
 <p>From the volcanic shores of Rapa Nui to the rainforests of Costa Rica, regeneration at Nayara begins and ends with respect. Each place teaches its own form of restoration, and each community shapes the practices that sustain identity. Together, they form a single purpose: to ensure travel gives back more than it takes.</p>`,
@@ -590,7 +590,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "/journal/s-certification",
-      title: "Chile's S Certification: Sustainable Tourism in the Desert and Easter Island",
+      title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
       pillar: "Sustainability",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
       date: "April 2026",
@@ -600,7 +600,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
     { name: "Nayara Hangaroa", route: "/hangaroa" },
   ],
   seo: {
-    metaTitle: "How Nayara Hangaroa Leads Regeneration on Rapa Nui | Nayara Journal",
+    metaTitle: "How Nayara Hangaroa Leads Ecological Regeneration on Easter Island | Nayara Journal",
     metaDescription: "The Hito family, walking moai, and the future of Easter Island , how Nayara Hangaroa is leading cultural and ecological regeneration on Rapa Nui.",
   },
 };
@@ -609,7 +609,7 @@ export const hangaroaRegenerationPost: BlogPostData = {
 
 export const bocasCondeNastPost: BlogPostData = {
   slug: "conde-nast-bocas-del-toro",
-  title: "Nayara Bocas del Toro: #1 Resort in Central America , Condé Nast Traveler 2025",
+  title: "Nayara Bocas del Toro: #1 Resort in Central America, Condé Nast Traveler 2025",
   subtitle: "The future of overwater luxury belongs to a private island in Panama",
   author: "Nayara Resorts",
   authorRole: "Nayara Editorial",
@@ -625,7 +625,7 @@ export const bocasCondeNastPost: BlogPostData = {
   ],
   sections: [
     {
-      heading: "Because It Sits at the Meeting Point of Rainforest and Reef",
+      heading: "Why Bocas del Toro Is the New Overwater Destination for Couples",
       content: `<p>For decades, the dream of the overwater bungalow belonged to the Maldives, Bora Bora, and Tahiti, but 20-hour flights, jet lag, and heavy carbon footprints have turned the fantasy into a contradiction. Bocas is different. We offer the same overwater dream, but closer, richer, and more alive.</p>
 <p>Here, coral gardens glow beneath your deck, mangroves stretch into the sea, and tropical rainforest meets reef. This stunning biodiversity is why we're known as the <em>Galápagos of the Caribbean</em> , and that uniqueness has just been recognized.</p>
 <p>Nayara Bocas del Toro was just named the <strong>#1 Resort in Central America</strong> in <a href="https://www.cntraveler.com/gallery/top-resorts-in-central-america-readers-choice-awards" target="_blank" rel="noopener noreferrer">Condé Nast Traveler's 2025 Readers' Choice Awards</a>. More than 757,000 travelers took part in the 38th annual awards , one of the most trusted recognitions in global travel.</p>
@@ -637,19 +637,19 @@ export const bocasCondeNastPost: BlogPostData = {
       },
     },
     {
-      heading: "Overwater Villas Built for Privacy",
+      heading: "Overwater Villas in Panama: Adults Only Privacy at Nayara Bocas",
       content: `<p>Bocas is proudly adults-only. That choice shapes everything. Privacy and intimacy aren't afterthoughts here , they are the blueprint.</p>
 <p>Our villas aren't just overwater , they are private sanctuaries designed exclusively for couples. Each has a plunge pool, a wrap-around deck, and a ladder descending straight into the Caribbean.</p>
 <p>Romance here is not staged. It is built into the architecture, the landscape, and the rhythm of the resort.</p>`,
     },
     {
-      heading: "The New Standard for All-Inclusive Travel",
+      heading: "All Inclusive Luxury Redefined at Nayara Bocas del Toro",
       content: `<p>The term "all-inclusive" often conjures images of buffets, wristbands, and overcrowded beach resorts. But a new era of all-inclusive is emerging , one built on elevated experience, not uniformity.</p>
 <p><a href="https://www.thezoereport.com/living/all-inclusive-resorts" target="_blank" rel="noopener noreferrer">The Zoe Report</a> frames this shift: "As a luxury experience, it is best described as 'all-encompassing' rather than 'all-inclusive.'"</p>
 <p>You won't find lines. You'll find a private island where comfort, cuisine, and connection coexist without compromises so couples can focus on each other, not logistics. Every meal is fine dining, every drink is hand-crafted, and kayaks, paddle boards, and snorkel gear aren't checked out , they're simply waiting at your overwater villa.</p>`,
     },
     {
-      heading: "A Private Island Shaped By Place",
+      heading: "A Private Island in Panama Where Rainforest Meets Caribbean Reef",
       content: `<p>Unlike the Galápagos, Bocas connects marine and rainforest biomes seamlessly. Isla Bastimentos National Marine Park meets the mainland's Palo Seco Forest Reserve, forming an unbroken corridor from mountain cloud forest to coral reef. Few places on Earth let you see monkeys, sloths, and parrotfish in the same hour.</p>
 <p>Exploring it with your own private boat and captain isn't just an adventure , it's freedom made for two. A day might begin on the untouched sands of Zapatilla, where a romantic private picnic awaits on a beach, then end with dolphin pods leaping beside you at sunset.</p>
 <p>Add to that cultural depth , the Ngäbe-Buglé Indigenous communities, Afro-Antillean heritage, and a new wave of regenerative tourism , and you get an archipelago where biodiversity and humanity coexist instead of compete.</p>`,
@@ -661,7 +661,7 @@ export const bocasCondeNastPost: BlogPostData = {
       pullQuote: "The Maldives, Bora Bora, and Tahiti will always inspire. But they are oceans away, while Bocas offers the same dream , closer, richer, and designed entirely for romance.",
     },
     {
-      heading: "Treehouses in the Rainforest Canopy",
+      heading: "IBUKU Treehouses and the Calibri Spa at Nayara Bocas del Toro",
       content: `<p>While the overwater bungalows bring you to the sea, our luxury treehouses, suspended 50 feet, carry you into the forest.</p>
 <p>Conceived by world-renowned design studio <a href="https://ibuku.com/" target="_blank" rel="noopener noreferrer">IBUKU</a>, each was crafted from hardwood salvaged from the bottom of the Panama Canal. This unique material not only lends extraordinary strength and character, but also ties them to Panama's history.</p>
 <p>Wellness also rises with our new Calibri Treehouse Spa. Couples' massages in the canopy, yoga where light filters through leaves, and spa rituals use native cacao, volcanic mud, and tropical botanicals.</p>
@@ -678,7 +678,7 @@ export const bocasCondeNastPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "/journal/green-globe-certification",
-      title: "Green Globe Certification: Costa Rica and Bocas del Toro",
+      title: "Green Globe Certification: How Nayara Earned It Across Costa Rica and Panama",
       pillar: "Sustainability",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
       date: "April 2026",
@@ -688,7 +688,7 @@ export const bocasCondeNastPost: BlogPostData = {
     { name: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
   ],
   seo: {
-    metaTitle: "Nayara Bocas del Toro: #1 Resort in Central America | Nayara Journal",
+    metaTitle: "Nayara Bocas del Toro: #1 Resort in Central America, Condé Nast Traveler 2025 | Nayara Journal",
     metaDescription: "Named #1 Resort in Central America by Condé Nast Traveler 2025 , why the future of overwater luxury belongs to a private island in Panama.",
   },
 };
@@ -769,14 +769,14 @@ export const beyondSustainabilityPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "/journal/green-globe-certification",
-      title: "Green Globe Certification: Costa Rica and Bocas del Toro",
+      title: "Green Globe Certification: How Nayara Earned It Across Costa Rica and Panama",
       pillar: "Sustainability",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
       date: "April 2026",
     },
     {
       slug: "/journal/s-certification",
-      title: "Chile's S Certification at Nayara Alto Atacama and Hangaroa",
+      title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
       pillar: "Sustainability",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
       date: "April 2026",
@@ -854,14 +854,14 @@ export const bocasAtacamaSustainabilityPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "/journal/green-globe-certification",
-      title: "Green Globe Certification: Costa Rica and Bocas del Toro",
+      title: "Green Globe Certification: How Nayara Earned It Across Costa Rica and Panama",
       pillar: "Sustainability",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
       date: "April 2026",
     },
     {
       slug: "/journal/s-certification",
-      title: "Chile's S Certification at Nayara Alto Atacama and Hangaroa",
+      title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
       pillar: "Sustainability",
       image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
       date: "April 2026",

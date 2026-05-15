@@ -65,7 +65,7 @@ export default function BocasCondeNastAwardBlog() {
             className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Why Condé Nast Traveler Named Nayara Bocas del Toro #1
+            Why Nayara Bocas del Toro Won #1 Resort in Central America
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed"
@@ -104,7 +104,7 @@ export default function BocasCondeNastAwardBlog() {
           {/* Section Divider */}
           <div className="my-12" style={{ borderTop: `2px solid ${BOCAS_PALETTE.divider}` }} />
 
-          {/* Why This Award Matters */}
+          {/* Why the Conde Nast Readers' Choice Award Matters for Bocas del Toro */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ export default function BocasCondeNastAwardBlog() {
           {/* Section Divider */}
           <div className="my-12" style={{ borderTop: `2px solid ${BOCAS_PALETTE.divider}` }} />
 
-          {/* What Sets Us Apart */}
+          {/* What Sets Nayara Bocas del Toro Apart From Other Overwater Resorts */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -178,7 +178,7 @@ export default function BocasCondeNastAwardBlog() {
           {/* Section Divider */}
           <div className="my-12" style={{ borderTop: `2px solid ${BOCAS_PALETTE.divider}` }} />
 
-          {/* Looking Forward */}
+          {/* What Comes Next for Nayara Bocas del Toro */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

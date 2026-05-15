@@ -1,6 +1,6 @@
 /*
  * EDGE OF HABITABILITY BLOG — /blog/edge-habitability
- * "The Atacama Desert: At the Edge of Habitability"
+ * "The Atacama Desert at the Edge of Habitability: Life in the Driest Place on Earth"
  * Author: Albert Ghitis | Jan 8, 2024
  * Part 2 of the 4-part Atacama series
  * Uses BlogPostTemplate with full article data

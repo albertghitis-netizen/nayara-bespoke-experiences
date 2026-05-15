@@ -62,7 +62,7 @@ export default function BirdwatchingBlog() {
             className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Birdwatching in Costa Rica
+            Birdwatching in Costa Rica: The Best Birds to See Near Arenal Volcano
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed"
@@ -111,7 +111,7 @@ export default function BirdwatchingBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Why Arenal is a Birdwatcher's Dream
+              Why Arenal Volcano Is the Best Birdwatching Destination in Costa Rica
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -140,7 +140,7 @@ export default function BirdwatchingBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Meeting the Toucans: Iconic Birds of the Canopy
+              Toucans of Arenal: Iconic Birds of the Costa Rican Canopy
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -188,7 +188,7 @@ export default function BirdwatchingBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              The Resplendent Quetzal: A Bird of Legend
+              The Resplendent Quetzal: Where to See Costa Rica's Rarest Bird
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -229,7 +229,7 @@ export default function BirdwatchingBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Macaws and Parrots: The Rainforest's Loud Chorus
+              Macaws and Parrots in the Arenal Rainforest
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -264,7 +264,7 @@ export default function BirdwatchingBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Hummingbirds: Jewels of the Forest
+              Hummingbirds of Costa Rica: Species Found Near Nayara
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -299,7 +299,7 @@ export default function BirdwatchingBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Tips for Successful Birdwatching
+              Tips for Birdwatching at Nayara Arenal
             </h2>
             <ul
               className="space-y-4"

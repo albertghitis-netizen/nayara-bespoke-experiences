@@ -63,7 +63,7 @@ export default function WomensEmpowermentBlog() {
             className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
           >
-            Women's Empowerment Through Housing
+            Women's Empowerment Through Housing at Nayara in Costa Rica
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed"
@@ -123,7 +123,7 @@ export default function WomensEmpowermentBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              A Morning Without Fear
+              A Morning Without Fear: Housing Security for Women in La Fortuna
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -158,7 +158,7 @@ export default function WomensEmpowermentBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Ownership is Not Luxury. It is Oxygen.
+              Why Home Ownership Is Not Luxury but Oxygen for Women
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -193,7 +193,7 @@ export default function WomensEmpowermentBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              What Stability Actually Looks Like
+              What Housing Stability Looks Like for Nayara Employees
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -221,7 +221,7 @@ export default function WomensEmpowermentBlog() {
             </p>
           </motion.div>
 
-          {/* Section 3: The Pressure Behind the Postcard */}
+          {/* Section 3: The Pressure Behind the Postcard in Costa Rica Tourism */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -275,7 +275,7 @@ export default function WomensEmpowermentBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              A Country That Chose Schools Over Soldiers
+              Costa Rica: A Country That Chose Schools Over Soldiers
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
@@ -310,7 +310,7 @@ export default function WomensEmpowermentBlog() {
               className="text-2xl md:text-3xl mb-6"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
             >
-              Why Ownership Matters for Women
+              Why Home Ownership Matters for Women in Costa Rica
             </h2>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"

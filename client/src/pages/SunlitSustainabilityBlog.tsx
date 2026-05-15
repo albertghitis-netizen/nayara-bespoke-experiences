@@ -1,6 +1,6 @@
 /*
  * SUNLIT SUSTAINABILITY BLOG — /blog/sunlit-sustainability
- * "Sunlit Sustainability: Nature-Powered"
+ * "Solar Energy at Nayara Resorts: Sustainability Powered by Nature"
  * Author: Nayara Resorts | Sep 3, 2025
  * The "Sun" counterpart to NayaraByNight (the "Moon")
  * Standalone piece; will eventually tie to a broader sustainability series

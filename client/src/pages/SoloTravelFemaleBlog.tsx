@@ -1,6 +1,6 @@
 /**
  * THE FUTURE OF SOLO TRAVEL IS FEMALE
- * Combined from two articles: "The Future of Solo Travel is Female" (May 2025)
+ * Combined from two articles: "Solo Female Travel in Costa Rica, Chile, and Panama at Nayara Resorts" (May 2025)
  * and "Luxury for the Solo Traveler" (Jul 2024). No em dashes.
  */
 
@@ -160,7 +160,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Why Women Travel Solo
+              Why More Women Are Traveling Solo in 2026
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -185,7 +185,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              A Growing Global Movement
+              Solo Female Travel Is a Growing Global Movement
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -210,7 +210,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Solo, But Not Alone
+              Solo Travel at Nayara: Independent But Never Alone
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -241,7 +241,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Arenal Rainforest
+              Solo Travel in the Arenal Rainforest at Nayara Costa Rica
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -278,7 +278,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Atacama Desert
+              Solo Travel in the Atacama Desert at Nayara Alto Atacama
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -315,7 +315,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Health, Wellbeing, and Comfort
+              Health, Wellbeing, and Comfort for Solo Female Travelers
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -340,7 +340,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              New and Worthwhile Experiences
+              Unique Experiences for Solo Travelers at Nayara
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9]"
@@ -365,7 +365,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
-              Safety and Culture
+              Safety and Cultural Immersion for Solo Female Travelers
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9]"
@@ -390,7 +390,7 @@ export default function SoloTravelFemaleBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
             >
-              All Are Welcome
+              All Solo Travelers Are Welcome at Nayara
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-8"
