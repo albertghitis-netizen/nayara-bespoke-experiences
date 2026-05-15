@@ -75,7 +75,7 @@ interface PropertyCard {
 const allProps: PropertyCard[] = [
   {
     name: "Nayara Gardens",
-    location: "Arenal Volcano",
+    location: "Arenal Volcano National Park, Costa Rica",
     route: "/gardens",
     bookingId: "gardens",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/prop-gardens_5931d8af.jpg",
@@ -83,7 +83,7 @@ const allProps: PropertyCard[] = [
   },
   {
     name: "Nayara Springs",
-    location: "Arenal Volcano",
+    location: "Arenal Volcano National Park, Costa Rica",
     route: "/springs",
     bookingId: "springs",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/springs-villa-plunge-pool-straight_a5d505d1.webp",
@@ -91,7 +91,7 @@ const allProps: PropertyCard[] = [
   },
   {
     name: "Nayara Tented Camp",
-    location: "Arenal Volcano",
+    location: "Arenal Volcano National Park, Costa Rica",
     route: "/tented-camp",
     bookingId: "tented-camp",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/19B9D444-0A7C-4C29-93A3-A8C0DFDFBD31_aa5cae9d.JPEG",
@@ -99,7 +99,7 @@ const allProps: PropertyCard[] = [
   },
   {
     name: "Nayara Alto Atacama",
-    location: "Atacama Desert, Chile",
+    location: "San Pedro de Atacama, Chile",
     route: "/alto-atacama",
     bookingId: "alto-atacama",
     image: "/manus-storage/alto-atacama-resort_38eead8b.jpeg",
@@ -401,6 +401,12 @@ function PropertiesSection() {
                     >
                       {prop.name}
                     </h3>
+                    <p
+                      className="text-[10px] tracking-[0.08em] uppercase mb-0.5"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary }}
+                    >
+                      {prop.location}
+                    </p>
                     <p
                       className="text-[11px] tracking-[0.06em]"
                       style={{ fontFamily: "var(--font-body)", color: "#0D0604" }}
@@ -1320,10 +1326,16 @@ function CollectionNarrativeSection() {
                   {/* Text */}
                   <div className="flex-1">
                     <p
-                      className="text-[10px] tracking-[0.2em] uppercase mb-1"
+                      className="text-[10px] tracking-[0.2em] uppercase mb-0.5"
                       style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: item.audience === "Adults Only" ? "#8B5E3C" : PALETTE.textSecondary }}
                     >
                       {item.chapter} · {item.audience}
+                    </p>
+                    <p
+                      className="text-[10px] tracking-[0.08em] mb-1"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: PALETTE.textSecondary, opacity: 0.7 }}
+                    >
+                      {item.location}
                     </p>
                     <h3
                       className="text-[16px] md:text-[18px] mb-1.5"

@@ -52,8 +52,8 @@ interface MapLocation {
 const locations: MapLocation[] = [
   {
     id: "costa-rica",
-    label: "Arenal, Costa Rica",
-    subLabel: "Gardens · Springs · Tented Camp",
+    label: "Arenal Volcano National Park, Costa Rica",
+    subLabel: "Gardens · Springs · Tented Camp — Three resorts in the rainforest at the foot of Arenal Volcano",
     x: 307,
     y: 147,
     milestoneIndices: [0, 1, 2],
@@ -65,8 +65,8 @@ const locations: MapLocation[] = [
   },
   {
     id: "atacama",
-    label: "Atacama Desert, Chile",
-    subLabel: "Alto Atacama",
+    label: "San Pedro de Atacama, Chile",
+    subLabel: "Alto Atacama — A desert lodge where salt flats meet the clearest night skies on Earth",
     x: 433,
     y: 404,
     milestoneIndices: [3],
@@ -77,8 +77,8 @@ const locations: MapLocation[] = [
   },
   {
     id: "easter-island",
-    label: "Easter Island",
-    subLabel: "Hangaroa",
+    label: "Rapa Nui (Easter Island), Chile",
+    subLabel: "Hangaroa — The only luxury lodge on the most remote inhabited island on Earth",
     x: 120,
     y: 431,
     milestoneIndices: [4],
@@ -90,7 +90,7 @@ const locations: MapLocation[] = [
   {
     id: "bocas",
     label: "Bocas del Toro, Panama",
-    subLabel: "Bocas del Toro",
+    subLabel: "Bocas del Toro — Overwater villas on a private island in Panama's Caribbean archipelago",
     x: 326,
     y: 156,
     milestoneIndices: [5],
@@ -486,6 +486,41 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 />
               )}
 
+              {/* Location label */}
+              <AnimatePresence>
+                {isActive && (
+                  <motion.g
+                    initial={{ opacity: 0, x: loc.labelSide === "left" ? 8 : -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6, ease: EASE }}
+                  >
+                    <text
+                      x={labelX}
+                      y={labelY}
+                      fill={isCurrent ? ACCENT_GOLD : "#5a4a3a"}
+                      fontSize={isCurrent ? "8" : "7"}
+                      fontFamily="var(--font-display)"
+                      fontWeight="400"
+                      letterSpacing="0.04em"
+                      filter="url(#labelShadow)"
+                    >
+                      {loc.label}
+                    </text>
+                    <text
+                      x={labelX}
+                      y={labelY + 11}
+                      fill="#7a6a5a"
+                      fontSize="5.5"
+                      fontFamily="var(--font-body)"
+                      fontWeight="400"
+                      letterSpacing="0.02em"
+                    >
+                      {loc.subLabel.length > 55 ? loc.subLabel.slice(0, 55) + "\u2026" : loc.subLabel}
+                    </text>
+                  </motion.g>
+                )}
+              </AnimatePresence>
 
             </g>
           );

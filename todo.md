@@ -3590,3 +3590,9 @@
 - [x] Update TapatiFestivalBlog cross-links to tie into the 5-part Rapa Nui series
 - [x] Cross-link all 3 blogs + 2 journal videos (Guardians of Rapa Nui, Archaeology with Dr. Seligson)
 - [x] Add 6 Rapa Nui series FAQs to central FAQ page
+
+## Homepage — Hotel Cards & Map Updates
+- [x] Add location text under each hotel card (Arenal Volcano National Park CR, San Pedro de Atacama Chile, Easter Island Chile, Bocas del Toro Panama)
+- [x] Add small text blurb under each property in Explore Our World map section
+- [x] Add country labels to each property in the map section
+- [x] Add location labels with blurbs to map pins (SVG text labels)
