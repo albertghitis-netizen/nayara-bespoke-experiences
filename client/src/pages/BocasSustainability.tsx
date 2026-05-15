@@ -86,6 +86,7 @@ export default function BocasSustainability() {
       <TheGlobalCrisis />
       <BocasContext />
       <ThePartnership />
+      <TheFounder />
       <RestorationProcess />
       <ImageBreak />
       <WhatMakesItUnique />
@@ -350,13 +351,95 @@ function ThePartnership() {
               color: "#1A0A00",
             }}
           >
-            "Our main goal is to set an example — and help other local hotels start coral reef restoration programs of their own."
+            "Our main goal is to set an example — and help other local hotels start ocean habitat restoration programs of their own."
           </blockquote>
           <p
             className="mt-4 text-[13px] tracking-[0.08em] uppercase"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
             — Nayara Bocas del Toro
+          </p>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ── THE FOUNDER ──────────────────────────────────────────── */
+function TheFounder() {
+  return (
+    <section className="grid md:grid-cols-2" style={{ minHeight: "520px" }}>
+      {/* Text left */}
+      <div
+        className="flex flex-col justify-center px-10 md:px-16 py-16"
+        style={{ backgroundColor: PALETTE.light }}
+      >
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="uppercase tracking-[0.28em] text-[11px] mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.teal }}
+          >
+            The Founder
+          </p>
+          <h2
+            className="text-2xl md:text-3xl mb-6 leading-[1.2]"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#1A0A00" }}
+          >
+            Doug Marcy
+          </h2>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Doug Marcy was born on a ranch in the Nebraska Sandhills — about as far from the ocean as you can get and still remain in North America. He learned to dive in swimming pools and murky settlement basins along Interstate 80 during engineering college. His first ocean dive, near West Palm Beach in 1972, changed everything. "My wife and I simply sat on the seafloor and watched," he recalls. "Around us was an explosion of movement, color, and life unlike anything I had ever imagined."
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            Decades later, among the islands of the Bocas del Toro Archipelago, Marcy rediscovered that same sense of wonder — and then watched it disappear. Entire reef systems collapsed within months. Familiar dive sites became ghost landscapes. What began as exploration became an obsession with understanding why, and then a commitment to doing something about it.
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            That commitment became the Caribbean Coral Restoration Center — a 501(c)(3) nonprofit focused not just on planting coral, but on rebuilding entire marine ecosystems from the ground up. Marcy and his team immersed themselves in structural engineering, marine chemistry, material science, and habitat geometry to design artificial reef systems that restore biomass, biodiversity, and ecological balance.
+          </p>
+          <p
+            className="text-[15px] md:text-[16px] leading-[1.85]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+          >
+            In areas once nearly devoid of life, new habitat zones transformed into thriving underwater communities within just a few years. Zooplankton swarms returned. Schools of fish established residence. Predators followed prey back into the system. Then came the coral — resilient specimens carefully positioned to encourage future spawning and genetic exchange. Over time, new juvenile corals began appearing naturally, without human intervention. The reef was beginning to heal itself.
+          </p>
+        </AnimateOnScroll>
+      </div>
+      {/* Pull quote right */}
+      <div
+        className="flex flex-col justify-center px-10 md:px-16 py-16"
+        style={{ backgroundColor: PALETTE.ocean }}
+      >
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <blockquote
+            className="text-2xl md:text-3xl leading-[1.4] italic mb-8"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.white }}
+          >
+            "The ocean still remembers how to heal. Our responsibility is to give it that chance."
+          </blockquote>
+          <div
+            className="w-16 h-px mb-6"
+            style={{ backgroundColor: PALETTE.accent }}
+          />
+          <p
+            className="text-[13px] tracking-[0.12em] uppercase mb-2"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+          >
+            Doug Marcy
+          </p>
+          <p
+            className="text-[14px] leading-[1.7]"
+            style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.65)" }}
+          >
+            Founder, Caribbean Coral Restoration Center. Ocean advocate, applied scientist, and dedicated steward of marine ecosystems through restoration, education, and long-term habitat recovery in the Bocas del Toro Archipelago.
           </p>
         </AnimateOnScroll>
       </div>
