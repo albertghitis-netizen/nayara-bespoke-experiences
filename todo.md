@@ -3616,3 +3616,20 @@
 - [x] Write short awards blurb (T+L 2026, #1 five out of last six years)
 - [x] Write short brand description (Nayara philosophy)
 - [x] Write short descriptions of each hotel in the collection
+
+## Bocas Sustainability — New Pillars
+- [ ] Add Coastal Ecosystem Restoration section (seagrass + mangroves)
+- [ ] Add Marine Life Conservation section (biodiversity outcome + Nayara's protector role)
+
+## Bocas Sustainability Landing Page Expansion
+- [ ] Add Coastal Ecosystem Restoration section (seagrass + mangroves)
+- [ ] Add Marine Life Conservation section (biodiversity + Nayara protector role)
+- [ ] Add Green Globe summary section with link to full Green Globe blog
+- [ ] Fold in unique blog content (One System framing, off-grid construction)
+- [ ] Redirect journal coral reef blog link to /bocas-del-toro/sustainability
+- [ ] Remove old CaribbeanCoralReefBlog page and route
+
+## Green Globe Blog Update
+- [x] Add Bocas del Toro section to existing Green Globe blog
+- [x] Update blog title/hero to reflect all four properties (not just Tented Camp)
+- [x] Fix punctuation issues (missing spaces after commas, awkward comma splices)

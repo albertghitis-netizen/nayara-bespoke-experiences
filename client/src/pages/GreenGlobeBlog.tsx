@@ -1,7 +1,7 @@
 /*
- * GREEN GLOBE CERTIFICATION: TENTED CAMP
- * Editorial blog post about Nayara Tented Camp's Green Globe Certification
- * Emphasizes rigorous standards, commitment to sustainability, and community impact
+ * GREEN GLOBE CERTIFICATION: NAYARA RESORTS
+ * Editorial blog post about Green Globe Certification across Nayara properties
+ * Covers Costa Rica (Tented Camp, Springs, Gardens) and Bocas del Toro (Panama)
  */
 
 import { useEffect, useRef } from "react";
@@ -30,8 +30,8 @@ export default function GreenGlobeBlog() {
     <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: TENTED_PALETTE.background }}>
       <EnhancedArticleSchema
         image="https://nayararesorts.manus.space"
-        headline="Green Globe Certification: Our Sustainable Hospitality Achievement"
-        description="Discover how Nayara Resorts achieved Green Globe certification through sustainable practices."
+        headline="Green Globe Certification: Four Properties, One Standard"
+        description="How Nayara Tented Camp, Springs, Gardens, and Bocas del Toro each earned Green Globe certification through rigorous sustainability practices."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
         datePublished="2024-04-05"
         url="https://nayararesorts.manus.space/blog/greenglobe"
@@ -68,7 +68,7 @@ export default function GreenGlobeBlog() {
             className="text-lg md:text-xl leading-relaxed"
             style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.85)" }}
           >
-            Meeting the world's most rigorous standards for sustainable luxury. Nayara Tented Camp achieves Green Globe Certification.
+            Meeting the world's most rigorous standards for sustainable luxury across four properties in Costa Rica and Panama.
           </p>
         </motion.div>
       </section>
@@ -94,7 +94,7 @@ export default function GreenGlobeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Nayara Tented Camp is proud to announce that we have achieved Green Globe Certification,a milestone that represents years of commitment to doing business the right way.
+              Nayara Tented Camp is proud to announce that we have achieved Green Globe Certification, a milestone that represents years of commitment to doing business the right way.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -129,7 +129,7 @@ export default function GreenGlobeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              This is not a one-time assessment. Green Globe certification requires annual audits and continuous improvement. Every year, we must demonstrate that we are maintaining,and improving,our sustainability practices. It is a commitment that never ends.
+              This is not a one-time assessment. Green Globe certification requires annual audits and continuous improvement. Every year, we must demonstrate that we are maintaining and improving our sustainability practices. It is a commitment that never ends.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
@@ -189,7 +189,7 @@ export default function GreenGlobeBlog() {
                 className="text-[15px] md:text-[17px] leading-[1.9]"
                 style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
               >
-                Luxury should benefit the community, not exploit it. At Tented Camp, 85% of our staff comes from La Fortuna. We provide free transportation, comprehensive health insurance, and ongoing training in sustainable tourism practices. We partner with local suppliers whenever possible, supporting the regional economy. And through our partnership with a local bank, we have created a housing community where employees can purchase homes without a down payment,building equity and dignity regardless of their employment status. This is not charity. It is partnership.
+                Luxury should benefit the community, not exploit it. At Tented Camp, 85% of our staff comes from La Fortuna. We provide free transportation, comprehensive health insurance, and ongoing training in sustainable tourism practices. We partner with local suppliers whenever possible, supporting the regional economy. And through our partnership with a local bank, we have created a housing community where employees can purchase homes without a down payment, building equity and dignity regardless of their employment status. This is not charity. It is partnership.
               </p>
             </div>
 
@@ -221,7 +221,7 @@ export default function GreenGlobeBlog() {
                 className="text-[15px] md:text-[17px] leading-[1.9]"
                 style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
               >
-                This is where our heart lies. Tented Camp sits within 30,000 acres of rainforest that is home to half of Costa Rica's bird, mammal, and reptile species. We have planted over 50,000 native trees as part of our reforestation initiative. We have created wildlife corridors that allow jaguars, sloths, and other species to move freely across the landscape. We monitor biodiversity constantly, tracking the return of species like sloths that had disappeared from the region. We are not just protecting the forest,we are healing it.
+                This is where our heart lies. Tented Camp sits within 30,000 acres of rainforest that is home to half of Costa Rica's bird, mammal, and reptile species. We have planted over 50,000 native trees as part of our reforestation initiative. We have created wildlife corridors that allow jaguars, sloths, and other species to move freely across the landscape. We monitor biodiversity constantly, tracking the return of species like sloths that had disappeared from the region. We are not just protecting the forest. We are healing it.
               </p>
             </div>
           </motion.div>
@@ -251,13 +251,13 @@ export default function GreenGlobeBlog() {
               className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Some areas were straightforward. We were already carbon-neutral, already plastic-free, already investing in community housing. But other areas required us to raise our standards even higher. We enhanced our water management systems. We expanded our reforestation efforts. We deepened our partnerships with local communities. We did not just meet the standards,we exceeded them.
+              Some areas were straightforward. We were already carbon-neutral, already plastic-free, already investing in community housing. But other areas required us to raise our standards even higher. We enhanced our water management systems. We expanded our reforestation efforts. We deepened our partnerships with local communities. We did not just meet the standards. We exceeded them.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              The result is a resort that operates at the highest level of sustainability. But more importantly, it is a resort that can prove it,through independent verification, annual audits, and measurable results.
+              The result is a resort that operates at the highest level of sustainability. But more importantly, it is a resort that can prove it through independent verification, annual audits, and measurable results.
             </p>
           </motion.div>
 
@@ -330,6 +330,53 @@ export default function GreenGlobeBlog() {
             </p>
           </motion.div>
 
+          {/* Section: Bocas del Toro */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-16 pb-12"
+            style={{ borderBottom: `1px solid ${TENTED_PALETTE.divider}` }}
+          >
+            <h2
+              className="text-2xl md:text-3xl mb-6"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.primary }}
+            >
+              Bocas del Toro, Panama
+            </h2>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
+              style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
+            >
+              Nayara Bocas del Toro was built entirely off-grid on a private island in Panama's Caribbean archipelago. Before a single piling was driven into the seabed, five independent environmental impact studies were commissioned at a cost exceeding $100,000. The purpose was not regulatory compliance. It was understanding: what lives here, how it connects, and what constraints must govern every construction decision.
+            </p>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
+              style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
+            >
+              The resort was built on stilts above the water without harming a single native mangrove or coral head. There are no roads and no connection to municipal infrastructure. Every system that sustains the property was designed from zero: solar panels provide close to 100% of the resort's energy, freshwater comes exclusively from collected rainwater purified through ultraviolet filtration, and wastewater is treated on site.
+            </p>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
+              style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
+            >
+              Green Globe certification at Bocas reflects the same four pillars applied to a fundamentally different ecosystem. Sustainable management here means zero single-use plastics, carbon-neutral operations, and boat routes designed to avoid prop wash in sensitive mangrove root zones. Social and economic performance means partnerships with local fishing cooperatives and 25 community organizations across the archipelago. Cultural heritage preservation means working alongside indigenous communities whose families have lived on these islands for generations.
+            </p>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
+              style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
+            >
+              Environmental stewardship at Bocas centers on ocean habitat restoration. In partnership with the Caribbean Coral Restoration Center, the resort supports active reef rebuilding with 500+ coral fragments outplanted across three restoration sites, mangrove preservation programs, and seagrass meadow protection. The Bocas del Toro archipelago is one of the most biodiverse marine systems remaining in the Caribbean, and the resort operates with whole-system awareness that shapes decisions about where boats travel, how lighting is managed, and when guests access sensitive zones.
+            </p>
+            <p
+              className="text-[15px] md:text-[17px] leading-[1.9]"
+              style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
+            >
+              This was not the cheapest way to build a hotel. It was the only way to build one here without becoming part of the problem. The archipelago's reefs have declined by approximately 80% over the last fifty years. Adding another source of runoff, light pollution, or habitat disruption was never an option.
+            </p>
+          </motion.div>
+
           {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -349,26 +396,41 @@ export default function GreenGlobeBlog() {
               className="text-xl md:text-2xl mb-4"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: TENTED_PALETTE.text }}
             >
-              Explore Nayara Tented Camp's Full Sustainability Commitment
+              Explore Our Full Sustainability Commitment
             </h3>
             <p
               className="text-[15px] leading-[1.7] mb-6"
               style={{ fontFamily: "var(--font-body)", color: TENTED_PALETTE.lightText }}
             >
-              Discover the full scope of our environmental stewardship, community partnerships, and conservation initiatives that earned us Green Globe Certification.
+              Discover the full scope of our environmental stewardship, community partnerships, and conservation initiatives across all four Green Globe certified properties.
             </p>
-            <a
-              href="/tented-camp-sustainability"
-              className="inline-block px-8 py-3 rounded-full transition-all duration-300 hover:translate-y-[-2px] text-[13px] tracking-[0.06em] uppercase"
-              style={{
-                backgroundColor: TENTED_PALETTE.primary,
-                color: "white",
-                fontFamily: "var(--font-body)",
-                fontWeight: 600,
-              }}
-            >
-              View Full Sustainability Report
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/costa-rica/sustainability"
+                className="inline-block px-8 py-3 rounded-full transition-all duration-300 hover:translate-y-[-2px] text-[13px] tracking-[0.06em] uppercase"
+                style={{
+                  backgroundColor: TENTED_PALETTE.primary,
+                  color: "white",
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                }}
+              >
+                Costa Rica Sustainability
+              </a>
+              <a
+                href="/bocas-del-toro/sustainability"
+                className="inline-block px-8 py-3 rounded-full transition-all duration-300 hover:translate-y-[-2px] text-[13px] tracking-[0.06em] uppercase"
+                style={{
+                  backgroundColor: "transparent",
+                  color: TENTED_PALETTE.primary,
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  border: `1px solid ${TENTED_PALETTE.primary}`,
+                }}
+              >
+                Bocas del Toro Sustainability
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

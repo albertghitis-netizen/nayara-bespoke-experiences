@@ -47,7 +47,7 @@ const STEPS = [
   {
     n: "01",
     title: "Survey & Select",
-    body: "Teams scour the Bocas del Toro archipelago for coral specimens that have already survived bleaching events — individuals demonstrating natural resilience to elevated water temperatures.",
+    body: "Teams scour the Bocas del Toro archipelago for coral specimens that have already survived bleaching events, individuals demonstrating natural resilience to elevated water temperatures.",
   },
   {
     n: "02",
@@ -72,7 +72,7 @@ const STEPS = [
   {
     n: "06",
     title: "Expand & Educate",
-    body: "The program engages 25 local community partners — schools, fishing cooperatives, and neighboring hotels — with the long-term goal of scaling reef restoration across the entire archipelago.",
+    body: "The program engages 25 local community partners, including schools, fishing cooperatives, and neighboring hotels, with the long-term goal of scaling reef restoration across the entire archipelago.",
   },
 ];
 
@@ -144,7 +144,7 @@ function Hero() {
           className="mt-6 text-lg md:text-xl leading-relaxed max-w-2xl"
           style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.82)" }}
         >
-          Imagine building a city from nothing. First you lay the foundations — the structures, the streets, the architecture. Then the mobile residents arrive: fish dart through the corridors, crustaceans claim the crevices, invertebrates colonize every surface. Life fills the city because the city is worth living in. And then, finally, the permanent residents settle — coral, which once attached cannot leave. They are not visitors. They are the city itself. In partnership with Caribbean Coral Restoration, Nayara Bocas del Toro is building that city — restoring one of the Caribbean's most threatened ocean habitats from the foundation up.
+          Imagine building a city from nothing. First you lay the foundations: the structures, the streets, the architecture. Then the mobile residents arrive. Fish dart through the corridors, crustaceans claim the crevices, invertebrates colonize every surface. Life fills the city because the city is worth living in. And then, finally, the permanent residents settle. Coral, which once attached cannot leave. They are not visitors. They are the city itself. In partnership with Caribbean Coral Restoration, Nayara Bocas del Toro is building that city, restoring one of the Caribbean's most threatened ocean habitats from the foundation up.
         </motion.p>
       </div>
     </section>
@@ -210,25 +210,25 @@ function TheGlobalCrisis() {
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            In 2024, NOAA declared the world's fourth global mass coral bleaching event on record — the most widespread in history, affecting reefs across the Atlantic, Pacific, and Indian Oceans simultaneously. The trigger: sea surface temperatures rising to levels coral cannot survive.
+            In 2024, NOAA declared the world's fourth global mass coral bleaching event on record, the most widespread in history, affecting reefs across the Atlantic, Pacific, and Indian Oceans simultaneously. The trigger: sea surface temperatures rising to levels coral cannot survive.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Coral bleaching occurs when water temperatures rise even slightly above normal for an extended period. Corals expel the symbiotic algae — zooxanthellae — that live in their tissues and provide up to 90% of their energy through photosynthesis. Without them, the coral turns white and, if temperatures don't return to normal quickly, starves to death. What was once a rare event now occurs with increasing frequency and severity.
+            Coral bleaching occurs when water temperatures rise even slightly above normal for an extended period. Corals expel the symbiotic algae (zooxanthellae) that live in their tissues and provide up to 90% of their energy through photosynthesis. Without them, the coral turns white and, if temperatures don't return to normal quickly, starves to death. What was once a rare event now occurs with increasing frequency and severity.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The Caribbean has been among the hardest hit. Caribbean reefs have declined by approximately <strong>80% over the last fifty years</strong> — a collapse driven by bleaching, ocean acidification, agricultural runoff, coastal development, and overfishing. Six Caribbean coral species are now listed as threatened under the U.S. Endangered Species Act, including Staghorn coral (<em>Acropora cervicornis</em>) and Elkhorn coral (<em>Acropora palmata</em>) — once the dominant reef-building species across the entire region.
+            The Caribbean has been among the hardest hit. Caribbean reefs have declined by approximately <strong>80% over the last fifty years</strong>, a collapse driven by bleaching, ocean acidification, agricultural runoff, coastal development, and overfishing. Six Caribbean coral species are now listed as threatened under the U.S. Endangered Species Act, including Staghorn coral (<em>Acropora cervicornis</em>) and Elkhorn coral (<em>Acropora palmata</em>), once the dominant reef-building species across the entire region.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Over 50% of the world's coral reefs have been lost since the 1950s. Scientists estimate that without significant intervention, the majority of the world's remaining reefs could be functionally extinct within decades. Coral reefs cover less than 1% of the ocean floor but support an estimated 25% of all marine species — and the livelihoods of more than a billion people.
+            Over 50% of the world's coral reefs have been lost since the 1950s. Scientists estimate that without significant intervention, the majority of the world's remaining reefs could be functionally extinct within decades. Coral reefs cover less than 1% of the ocean floor but support an estimated 25% of all marine species and the livelihoods of more than a billion people.
           </p>
         </AnimateOnScroll>
       </div>
@@ -280,7 +280,7 @@ function BocasContext() {
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            But monitoring data from 2023–2024 shows increasing dead coral and bleaching trends across the archipelago. The same forces driving global reef collapse are at work here — and the window for intervention is narrowing.
+            But monitoring data from 2023–2024 shows increasing dead coral and bleaching trends across the archipelago. The same forces driving global reef collapse are at work here, and the window for intervention is narrowing.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85]"
@@ -319,25 +319,25 @@ function ThePartnership() {
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            In 2022, Nayara Bocas del Toro partnered with the <strong>Caribbean Coral Restoration Center</strong> — a 501(c)(3) nonprofit based on Isla Solarte in Bocas del Toro. Their mission is to be cultivators and guardians of flourishing ocean ecosystems. Their approach is fundamentally different from most restoration programs in the Caribbean.
+            In 2022, Nayara Bocas del Toro partnered with the <strong>Caribbean Coral Restoration Center</strong>, a 501(c)(3) nonprofit based on Isla Solarte in Bocas del Toro. Their mission is to be cultivators and guardians of flourishing ocean ecosystems. Their approach is fundamentally different from most restoration programs in the Caribbean.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Most coral restoration programs work with whatever degraded reef structure already exists — transplanting coral fragments directly onto broken, bleached, or algae-covered substrate. Caribbean Coral Restoration takes a different approach: they <strong>build their own artificial reef structures from scratch</strong>, constructed on land and then installed at restoration sites before any coral is outplanted. The foundation is always stable, clean, and purpose-designed for coral attachment and fish habitat.
+            Most coral restoration programs work with whatever degraded reef structure already exists, transplanting coral fragments directly onto broken, bleached, or algae-covered substrate. Caribbean Coral Restoration takes a different approach: they <strong>build their own artificial reef structures from scratch</strong>, constructed on land and then installed at restoration sites before any coral is outplanted. The foundation is always stable, clean, and purpose-designed for coral attachment and fish habitat.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The coral they grow isn't randomly selected either. Their team scours the Bocas archipelago specifically for specimens that have already survived bleaching events — individuals demonstrating natural resilience to extreme water temperatures. These are cloned, grown in a land-water nursery on Isla Solarte, and outplanted onto the artificial structures. It is a form of assisted evolution: selecting for the genetic traits that give coral the best chance in a warming ocean.
+            The coral they grow isn't randomly selected either. Their team scours the Bocas archipelago specifically for specimens that have already survived bleaching events, individuals demonstrating natural resilience to extreme water temperatures. These are cloned, grown in a land-water nursery on Isla Solarte, and outplanted onto the artificial structures. It is a form of assisted evolution: selecting for the genetic traits that give coral the best chance in a warming ocean.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            The program takes a holistic view of reef health — not just planting coral, but rebuilding fish habitat, managing the surrounding ecosystem, and creating the conditions in which a reef can sustain itself. Three active restoration sites are currently operating in the bay, with 500+ coral fragments successfully restored and 12 ongoing research projects tracking long-term outcomes.
+            The program takes a holistic view of reef health, not just planting coral, but rebuilding fish habitat, managing the surrounding ecosystem, and creating the conditions in which a reef can sustain itself. Three active restoration sites are currently operating in the bay, with 500+ coral fragments successfully restored and 12 ongoing research projects tracking long-term outcomes.
           </p>
         </AnimateOnScroll>
 
@@ -351,13 +351,13 @@ function ThePartnership() {
               color: "#1A0A00",
             }}
           >
-            "Our main goal is to set an example — and help other local hotels start ocean habitat restoration programs of their own."
+            "Our main goal is to set an example and help other local hotels start ocean habitat restoration programs of their own."
           </blockquote>
           <p
             className="mt-4 text-[13px] tracking-[0.08em] uppercase"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            — Nayara Bocas del Toro
+            Nayara Bocas del Toro
           </p>
         </AnimateOnScroll>
       </div>
@@ -391,25 +391,25 @@ function TheFounder() {
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Doug Marcy was born on a ranch in the Nebraska Sandhills — about as far from the ocean as you can get and still remain in North America. He learned to dive in swimming pools and murky settlement basins along Interstate 80 during engineering college. His first ocean dive, near West Palm Beach in 1972, changed everything. "My wife and I simply sat on the seafloor and watched," he recalls. "Around us was an explosion of movement, color, and life unlike anything I had ever imagined."
+            Doug Marcy was born on a ranch in the Nebraska Sandhills, about as far from the ocean as you can get and still remain in North America. He learned to dive in swimming pools and murky settlement basins along Interstate 80 during engineering college. His first ocean dive, near West Palm Beach in 1972, changed everything. "My wife and I simply sat on the seafloor and watched," he recalls. "Around us was an explosion of movement, color, and life unlike anything I had ever imagined."
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Decades later, among the islands of the Bocas del Toro Archipelago, Marcy rediscovered that same sense of wonder — and then watched it disappear. Entire reef systems collapsed within months. Familiar dive sites became ghost landscapes. What began as exploration became an obsession with understanding why, and then a commitment to doing something about it.
+            Decades later, among the islands of the Bocas del Toro Archipelago, Marcy rediscovered that same sense of wonder, and then watched it disappear. Entire reef systems collapsed within months. Familiar dive sites became ghost landscapes. What began as exploration became an obsession with understanding why, and then a commitment to doing something about it.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            That commitment became the Caribbean Coral Restoration Center — a 501(c)(3) nonprofit focused not just on planting coral, but on rebuilding entire marine ecosystems from the ground up. Marcy and his team immersed themselves in structural engineering, marine chemistry, material science, and habitat geometry to design artificial reef systems that restore biomass, biodiversity, and ecological balance.
+            That commitment became the Caribbean Coral Restoration Center, a 501(c)(3) nonprofit focused not just on planting coral, but on rebuilding entire marine ecosystems from the ground up. Marcy and his team immersed themselves in structural engineering, marine chemistry, material science, and habitat geometry to design artificial reef systems that restore biomass, biodiversity, and ecological balance.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            In areas once nearly devoid of life, new habitat zones transformed into thriving underwater communities within just a few years. Zooplankton swarms returned. Schools of fish established residence. Predators followed prey back into the system. Then came the coral — resilient specimens carefully positioned to encourage future spawning and genetic exchange. Over time, new juvenile corals began appearing naturally, without human intervention. The reef was beginning to heal itself.
+            In areas once nearly devoid of life, new habitat zones transformed into thriving underwater communities within just a few years. Zooplankton swarms returned. Schools of fish established residence. Predators followed prey back into the system. Then came the coral, resilient specimens carefully positioned to encourage future spawning and genetic exchange. Over time, new juvenile corals began appearing naturally, without human intervention. The reef was beginning to heal itself.
           </p>
         </AnimateOnScroll>
       </div>
@@ -547,12 +547,12 @@ function WhatMakesItUnique() {
             {
               num: "I",
               title: "Artificial Reef Architecture",
-              body: "Most coral restoration programs work with whatever degraded reef structure already exists. Caribbean Coral Restoration builds their own — purpose-designed artificial reef structures installed at restoration sites before any coral is outplanted. This means the foundation is always stable, clean, and optimized for coral attachment and fish habitat. It is a fundamentally different approach, and it is why the program has been able to operate three active sites simultaneously in the bay.",
+              body: "Most coral restoration programs work with whatever degraded reef structure already exists. Caribbean Coral Restoration builds their own: purpose-designed artificial reef structures installed at restoration sites before any coral is outplanted. This means the foundation is always stable, clean, and optimized for coral attachment and fish habitat. It is a fundamentally different approach, and it is why the program has been able to operate three active sites simultaneously in the bay.",
             },
             {
               num: "II",
               title: "Climate-Resilient Genetics",
-              body: "The coral fragments used in this program are not randomly selected. They are chosen specifically because they have already survived bleaching events — specimens that demonstrate natural resilience to elevated water temperatures. By cloning and propagating these individuals, the program is selecting for the genetic traits that give coral the best chance in a warming ocean. It is restoration designed for the climate reality we are already living in, not the one we wish we had.",
+              body: "The coral fragments used in this program are not randomly selected. They are chosen specifically because they have already survived bleaching events, specimens that demonstrate natural resilience to elevated water temperatures. By cloning and propagating these individuals, the program is selecting for the genetic traits that give coral the best chance in a warming ocean. It is restoration designed for the climate reality we are already living in, not the one we wish we had.",
             },
           ].map((item, i) => (
             <AnimateOnScroll key={i} variants={fadeUp} delay={i * 0.1}>
@@ -610,19 +610,19 @@ function GuestExperience() {
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Guests at Nayara Bocas del Toro can participate directly in the restoration program. Led by our team and Caribbean Coral Restoration's marine biologists, the experience takes you beneath the surface of the bay to the active restoration sites — where you will see the artificial reef structures, coral fragments in various stages of growth, and the marine life that has already returned.
+            Guests at Nayara Bocas del Toro can participate directly in the restoration program. Led by our team and Caribbean Coral Restoration's marine biologists, the experience takes you beneath the surface of the bay to the active restoration sites, where you will see the artificial reef structures, coral fragments in various stages of growth, and the marine life that has already returned.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85] mb-5"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            Participants learn to identify coral species, understand the science of bleaching and resilience, and — in some sessions — assist with outplanting coral fragments onto the structures. It is a rare opportunity to contribute something real and lasting to a place you have chosen to visit.
+            Participants learn to identify coral species, understand the science of bleaching and resilience, and in some sessions assist with outplanting coral fragments onto the structures. It is a rare opportunity to contribute something real and lasting to a place you have chosen to visit.
           </p>
           <p
             className="text-[15px] md:text-[16px] leading-[1.85]"
             style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
           >
-            No prior diving experience is required for snorkeling sessions. For certified divers, deeper reef monitoring dives are available. Both are intimate — small groups only — to minimize impact on the restoration sites. Arrange through the resort concierge.
+            No prior diving experience is required for snorkeling sessions. For certified divers, deeper reef monitoring dives are available. Both are intimate, small groups only, to minimize impact on the restoration sites. Arrange through the resort concierge.
           </p>
         </AnimateOnScroll>
       </div>
@@ -667,19 +667,19 @@ function CommunityEducation() {
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
           >
-            The program's 25 community partners include local schools, fishing cooperatives, and neighboring businesses across the Bocas del Toro archipelago. Caribbean Coral Restoration runs education and training programs that teach reef ecology, restoration techniques, and marine conservation to local students and community members — building the knowledge base that will sustain this work long after any single partnership ends.
+            The program's 25 community partners include local schools, fishing cooperatives, and neighboring businesses across the Bocas del Toro archipelago. Caribbean Coral Restoration runs education and training programs that teach reef ecology, restoration techniques, and marine conservation to local students and community members, building the knowledge base that will sustain this work long after any single partnership ends.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9] mb-7"
             style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
           >
-            For local fishing communities, healthy reefs are not an abstraction — they are the foundation of livelihoods. As marine life returns to the restoration sites, the ecological and economic case for reef protection becomes tangible. The program is designed to make reef stewardship a shared value across the archipelago, not just a resort amenity.
+            For local fishing communities, healthy reefs are not an abstraction. They are the foundation of livelihoods. As marine life returns to the restoration sites, the ecological and economic case for reef protection becomes tangible. The program is designed to make reef stewardship a shared value across the archipelago, not just a resort amenity.
           </p>
           <p
             className="text-[17px] md:text-[19px] leading-[1.9]"
             style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.75)" }}
           >
-            The long-term ambition is to scale reef restoration across the entire Bocas del Toro archipelago — establishing a model that other hotels, communities, and governments in the region can replicate. What begins at our bay is meant to spread.
+            The long-term ambition is to scale reef restoration across the entire Bocas del Toro archipelago, establishing a model that other hotels, communities, and governments in the region can replicate. What begins at our bay is meant to spread.
           </p>
         </AnimateOnScroll>
       </div>
