@@ -195,22 +195,24 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           </a>
         </div>
 
-        {/* Leaf logo + NAYARA */}
+        {/* Leaf logo + property name or NAYARA */}
         <div className="flex flex-col items-center mb-6">
-          <AnimatedLeaf textColor={textColor} compact={false} />
-          <span
-            className="mt-4"
-            style={{
-              color: textColor,
-              fontFamily: "var(--font-display)",
-              fontWeight: 400,
-              fontSize: "16px",
-              letterSpacing: "0.4em",
-              textTransform: "uppercase",
-            }}
-          >
-            Nayara
-          </span>
+          <AnimatedLeaf propertyName={propertyName} textColor={textColor} compact={false} nameFontSize="16px" />
+          {!propertyName && (
+            <span
+              className="mt-4"
+              style={{
+                color: textColor,
+                fontFamily: "var(--font-display)",
+                fontWeight: 400,
+                fontSize: "16px",
+                letterSpacing: "0.4em",
+                textTransform: "uppercase",
+              }}
+            >
+              Nayara
+            </span>
+          )}
         </div>
 
         {/* Copyright */}
