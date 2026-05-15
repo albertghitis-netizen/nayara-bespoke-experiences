@@ -161,9 +161,9 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           MOBILE FOOTER — Simplified: socials + contact + leaf + NAYARA
           Only visible on small screens (< md)
          ═══════════════════════════════════════════════════════════ */}
-      <div className="md:hidden relative z-10 flex flex-col items-center px-6 pt-10 pb-8">
+      <div className="md:hidden relative z-10 flex flex-col items-center px-6 pt-6 pb-4">
         {/* Social icons */}
-        <div className="flex items-center justify-center gap-6 mb-8" style={{ color: textColor }}>
+        <div className="flex items-center justify-center gap-6 mb-4" style={{ color: textColor }}>
           <a href="https://www.instagram.com/nayararesorts/" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.85 }}><InstagramIcon /></a>
           <a href="https://www.youtube.com/@NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.85 }}><YouTubeIcon /></a>
           <a href="https://www.facebook.com/NayaraResorts" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.85 }}><FacebookIcon /></a>
@@ -171,7 +171,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
         </div>
 
         {/* Contact info */}
-        <div className="flex flex-col items-center gap-2 mb-8">
+        <div className="flex flex-col items-center gap-1 mb-4">
           <a
             href="mailto:reservations@nayararesorts.com"
             className="text-[13px]"
@@ -195,24 +195,9 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
           </a>
         </div>
 
-        {/* Leaf logo + property name or NAYARA */}
-        <div className="flex flex-col items-center mb-6">
-          <AnimatedLeaf propertyName={propertyName} textColor={textColor} compact={false} nameFontSize="16px" />
-          {!propertyName && (
-            <span
-              className="mt-4"
-              style={{
-                color: textColor,
-                fontFamily: "var(--font-display)",
-                fontWeight: 400,
-                fontSize: "16px",
-                letterSpacing: "0.4em",
-                textTransform: "uppercase",
-              }}
-            >
-              Nayara
-            </span>
-          )}
+        {/* Leaf logo */}
+        <div className="flex flex-col items-center mb-3">
+          <AnimatedLeaf textColor={textColor} compact={true} />
         </div>
 
         {/* Copyright */}
