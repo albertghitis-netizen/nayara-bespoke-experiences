@@ -3687,4 +3687,17 @@
 - [x] Add route in App.tsx
 - [x] Add journal entry
 - [x] No em dashes
-- [ ] Delete Caribbean Coral Reef blog (redirect to landing page)
+- [x] Delete Caribbean Coral Reef blog (redirect to landing page)
+
+## Journal Cleanup (May 15, 2026)
+- [x] Remove duplicate nayara-by-night entry from journal.ts (kept CDN image version)
+- [x] Delete CaribbeanCoralReefBlog.tsx file (content lives on /bocas-del-toro/sustainability)
+- [x] Comment out beyondSustainabilityPost and bocasAtacamaSustainabilityPost from blogPosts.ts (artificial combined posts)
+- [x] Remove artificial posts from allBlogPosts registry
+- [x] Replace sustainability.ts references to bocas-atacama-sustainability-study with real blog links
+- [x] Add /journal/:slug dynamic route to App.tsx for DynamicBlogPost
+- [x] Add S Certification journal entry (was unreachable despite having full content)
+- [x] Consolidate duplicate Maya/Rapa Nui journal entries (collapse-maya-rapanui + maya-rapa-nui-climate) into single entry
+- [x] Redirect /blog/maya-rapa-nui stub to /blog/maya-rapa-nui-climate (real content)
+- [x] Remove treehouse-dreams, biodensity-underwater, wellness-hospitality stubs from journal feed (no real content)
+- [x] Update maya-rapa-nui-climate and reforestation-wildlife images from FALLBACK_IMG to proper images

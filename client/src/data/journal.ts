@@ -189,23 +189,15 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Hangaroa-Horses-2048x13",
     excerpt: "Vicuñas, flamingos, and endemic species , conservation efforts protecting Chile's most fragile ecosystems.",
   },
+
   {
-    id: "biodensity-underwater",
-    title: "Biodensity, Underwater Mountains, and More",
-    url: "/blog/biodensity-underwater",
-    property: "bocas-del-toro",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Biodensity%2c%20Underwater",
-    excerpt: "A deep dive into the marine biodensity of Bocas del Toro , underwater mountains, coral reefs, and the ecosystems that sustain them.",
-  },
-  {
-    id: "collapse-maya-rapanui",
+    id: "maya-rapa-nui-climate",
     title: "A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us",
-    url: "/blog/maya-rapa-nui",
+    url: "/blog/maya-rapa-nui-climate",
     property: "hangaroa",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Photo%20Jan%2014%202026%2c%2007%2042%2012.j",
-    excerpt: "The Maya and Rapa Nui civilizations didn't collapse , they adapted. What their resilience teaches us about climate, survival, and cultural continuity.",
+    image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+    excerpt: "The Maya and Rapa Nui civilizations didn't collapse, they adapted. What their resilience teaches us about climate, survival, and cultural continuity.",
   },
   {
     id: "solo-travel-female",
@@ -225,15 +217,7 @@ const blogArticles: JournalEntry[] = [
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(6",
     excerpt: "From volcano hikes to wildlife encounters , how Nayara creates family vacations that inspire wonder and connection across generations.",
   },
-  {
-    id: "nayara-by-night",
-    title: "Nayara by Night: Of Moon and Stars",
-    url: "/blog/nayara-by-night",
-    property: "brand",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/2025/Moon.jpg",
-    excerpt: "When the sun sets, Nayara transforms. From the Atacama's observatory to Bocas del Toro's bioluminescent bays , the night reveals a different world.",
-  },
+
   {
     id: "pura-vida",
     title: "Pura Vida and the Science of Why Costa Rica Feels Different",
@@ -283,15 +267,8 @@ const blogArticles: JournalEntry[] = [
     featured: true,
   },
 
-  {
-    id: "treehouse-dreams",
-    title: "The Treehouse of Your Dreams",
-    url: "/blog/treehouse-dreams",
-    property: "bocas-del-toro",
-    type: "article",
-    image: "/manus-storage/bocas-treehouse-cover_5eb7138e.jpg",
-    excerpt: "Nayara Bocas del Toro's treehouse villas redefine luxury , suspended above the Caribbean, surrounded by mangroves and starlight.",
-  },
+  // treehouse-dreams: removed from journal feed (stub page, no real content yet)
+  // biodensity-underwater: removed from journal feed (stub page, no real content yet)
 
   {
     id: "how-we-built-a-hotel-on-an-island",
@@ -360,6 +337,15 @@ const blogArticles: JournalEntry[] = [
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Green%20globe-3-1.png",
     excerpt: "Discover how Nayara Resorts' Green Globe Certification underscores our commitment to sustainability across every property.",
+  },
+  {
+    id: "s-certification",
+    title: "Chile's S Certification: Sustainable Tourism in the Desert and on Easter Island",
+    url: "/journal/s-certification",
+    property: "alto-atacama",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
+    excerpt: "Nayara Alto Atacama and Nayara Hangaroa are the only luxury hotels in their destinations to hold Chile's government-backed S Certification for sustainable tourism.",
   },
   {
     id: "tapati-festival",
@@ -437,43 +423,19 @@ const blogArticles: JournalEntry[] = [
     excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
   },
 
-  {
-    id: "caribbean-coral-reef",
-    title: "Caribbean Coral Reef Restoration",
-    url: "/blog/caribbean-coral-reef",
-    property: "bocas-del-toro",
-    type: "article",
-    image: FALLBACK_IMG,
-    excerpt: "How Nayara Bocas del Toro partners with marine biologists to restore the Caribbean's coral ecosystems.",
-  },
+  // Caribbean Coral Reef blog removed, content now lives on /bocas-del-toro/sustainability
 
-  {
-    id: "maya-rapa-nui-climate",
-    title: "Maya & Rapa Nui: Ancient Wisdom for Climate Survival",
-    url: "/blog/maya-rapa-nui-climate",
-    property: "hangaroa",
-    type: "article",
-    image: FALLBACK_IMG,
-    excerpt: "What the Maya and Rapa Nui civilizations teach us about resilience, adaptation, and climate change.",
-  },
+  // maya-rapa-nui-climate: consolidated into single entry above (was duplicate)
   {
     id: "reforestation-wildlife",
     title: "Reforestation & Wildlife Corridors",
     url: "/blog/reforestation-wildlife",
     property: "gardens",
     type: "article",
-    image: FALLBACK_IMG,
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/11_576297a8.jpg",
     excerpt: "How Nayara's reforestation efforts create vital wildlife corridors in Costa Rica's Arenal region.",
   },
-  {
-    id: "wellness-hospitality",
-    title: "Wellness & Hospitality: A New Standard",
-    url: "/blog/wellness-hospitality",
-    property: "brand",
-    type: "article",
-    image: FALLBACK_IMG,
-    excerpt: "How Nayara is redefining luxury hospitality through science-backed wellness programming.",
-  },
+  // wellness-hospitality: removed from journal feed (stub page, no real content yet)
 ];
 
 // ─── Audio Episodes (Podcasts) ───────────────────────────────

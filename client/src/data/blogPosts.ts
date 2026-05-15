@@ -693,8 +693,12 @@ export const bocasCondeNastPost: BlogPostData = {
   },
 };
 
-// ─── Beyond Sustainability Blog Post ─────────────────────────
+// ─── Beyond Sustainability & Bocas/Atacama Study posts REMOVED ─────
+// Content now lives in individual blogs: How We Built a Hotel on an Island,
+// Sunlit Sustainability, Green Globe Certification, S Certification, etc.
+// These artificial combined posts have been retired.
 
+/* REMOVED: beyondSustainabilityPost — was an artificial construction
 export const beyondSustainabilityPost: BlogPostData = {
   slug: "beyond-sustainability-regenerative-tourism",
   title: "Beyond Sustainability: Regenerative Tourism at Nayara Resorts",
@@ -791,9 +795,9 @@ export const beyondSustainabilityPost: BlogPostData = {
     metaDescription: "From the first eco-lodges in Costa Rica to regenerative luxury across six destinations , how Nayara Resorts is redefining sustainable hospitality.",
   },
 };
+*/
 
-// ─── Bocas & Atacama Sustainability Study Blog Post ──────────
-
+/* REMOVED: bocasAtacamaSustainabilityPost — was an artificial construction
 export const bocasAtacamaSustainabilityPost: BlogPostData = {
   slug: "bocas-atacama-sustainability-study",
   title: "Nayara Bocas del Toro & Alto Atacama: A Study in Sustainability",
@@ -872,6 +876,7 @@ export const bocasAtacamaSustainabilityPost: BlogPostData = {
     metaDescription: "How Nayara's properties in Panama and Chile are leading sustainable tourism , off-grid solar power, coral restoration, and Chile's S Certification.",
   },
 };
+*/
 
 // ─── All Blog Posts (registry) ───────────────────────────────
 
@@ -883,8 +888,6 @@ export const allBlogPosts: Record<string, BlogPostData> = {
   "best-place-to-stay-atacama-desert-oasis": atacamaOasisPost,
   "hangaroa-regeneration-rapa-nui": hangaroaRegenerationPost,
   "conde-nast-bocas-del-toro": bocasCondeNastPost,
-  "beyond-sustainability-regenerative-tourism": beyondSustainabilityPost,
-  "bocas-atacama-sustainability-study": bocasAtacamaSustainabilityPost,
   "three-kitchens-one-rainforest": gastronomyBlogPost,
   "in-house-activities-three-hotels-infinite-experiences": inHouseActivitiesBlogPost,
   "experiential-travel-nayara-2026": experientialTravelPost,
