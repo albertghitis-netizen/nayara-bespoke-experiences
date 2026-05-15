@@ -3653,3 +3653,38 @@
 - [x] Create SoloTravelBlog.tsx combining both articles (female solo travel as star)
 - [x] Route already existed at /blog/solo-travel-female
 - [x] No em dashes
+
+## Merged Regenerative Tourism Blog
+- [ ] Read 3 external URLs (future-sustainable-luxury, pioneering-regenerative, sustainability)
+- [ ] Create merged blog at /blog/regenerative-tourism
+- [ ] Add journal entry
+- [ ] No em dashes
+
+## Sustainability Content Linking
+- [ ] Categorize all sustainability blogs under 4 sub-pillars: Environmental/Wildlife Preservation, Community, Operations, Verification
+- [ ] Ensure all sustainability videos are properly tagged
+- [ ] Cross-link related blogs within each blog's "Related Articles" sections
+- [ ] Ensure journal feed properly surfaces all sustainability content
+
+## Merged Regenerative Tourism Blog
+- [ ] Read 3 external URLs (future-sustainable-luxury, pioneering-regenerative, sustainability)
+- [ ] Create merged blog at /blog/regenerative-tourism
+- [ ] Add journal entry
+- [ ] No em dashes
+
+## Sustainability Content Linking (4 Sub-Pillars)
+- [ ] Environmental/Wildlife Preservation: Ocean Habitat, Reforestation, Arenal/Bocas Wildlife, Atacama Wildlife
+- [ ] Community: Rooted in Community, Women's Empowerment
+- [ ] Operations: Sunlit Sustainability, Hangaroa Regeneration, Regenerative Tourism (merged)
+- [ ] Verification: Green Globe, S Certification
+- [ ] Tag all sustainability videos under appropriate sub-pillars
+- [ ] Cross-link related blogs within each blog's Related Articles sections
+- [ ] Ensure journal feed properly surfaces all sustainability content
+
+## Bocas Operations Blog ("How We Built a Hotel on an Island")
+- [x] Gather content from existing sources (Beyond Sustainability post, external articles)
+- [x] Build full blog page with construction/operations story
+- [x] Add route in App.tsx
+- [x] Add journal entry
+- [x] No em dashes
+- [ ] Delete Caribbean Coral Reef blog (redirect to landing page)

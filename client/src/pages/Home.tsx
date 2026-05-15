@@ -526,7 +526,7 @@ function TimelineSection() {
               /* Uniform spacing for all milestones */
               const spacing = i === 0 ? "" : "mt-20 lg:mt-28";
               return (
-              <div
+                <div
                 key={m.year}
                 ref={(el) => { milestoneRefs.current[i] = el; }}
                 className={spacing}

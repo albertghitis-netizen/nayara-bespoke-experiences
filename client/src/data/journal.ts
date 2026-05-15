@@ -294,6 +294,17 @@ const blogArticles: JournalEntry[] = [
   },
 
   {
+    id: "how-we-built-a-hotel-on-an-island",
+    title: "How We Built a Hotel on an Island",
+    url: "/blog/how-we-built-a-hotel-on-an-island",
+    property: "bocas-del-toro",
+    type: "article",
+    image: "/manus-storage/bocas-aerial-island_34b68171.jpg",
+    excerpt: "No roads. No grid. No municipal water. Five environmental studies, $100,000 in research, and a commitment to leave the ecosystem better than we found it.",
+    featured: true,
+  },
+
+  {
     id: "mars-atacama",
     title: "Why the Atacama Desert is Mars on Earth",
     url: "/blog/atacama-mars",
