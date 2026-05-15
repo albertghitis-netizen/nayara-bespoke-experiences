@@ -3596,3 +3596,8 @@
 - [x] Add small text blurb under each property in Explore Our World map section
 - [x] Add country labels to each property in the map section
 - [x] Add location labels with blurbs to map pins (SVG text labels)
+
+## Hotel Card Location Text Fix
+- [x] Move location text below the tagline (e.g., below "Private Hot Springs Villas") as full-width single line
+- [x] Make map pin label text bigger (9.5/11 up from 7/8)
+- [x] Add short blurb under each timeline milestone (desc field now rendered)

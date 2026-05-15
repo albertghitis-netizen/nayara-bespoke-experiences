@@ -499,7 +499,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                       x={labelX}
                       y={labelY}
                       fill={isCurrent ? ACCENT_GOLD : "#5a4a3a"}
-                      fontSize={isCurrent ? "8" : "7"}
+                      fontSize={isCurrent ? "11" : "9.5"}
                       fontFamily="var(--font-display)"
                       fontWeight="400"
                       letterSpacing="0.04em"
@@ -509,14 +509,14 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                     </text>
                     <text
                       x={labelX}
-                      y={labelY + 11}
+                      y={labelY + 14}
                       fill="#7a6a5a"
-                      fontSize="5.5"
+                      fontSize="7.5"
                       fontFamily="var(--font-body)"
                       fontWeight="400"
                       letterSpacing="0.02em"
                     >
-                      {loc.subLabel.length > 55 ? loc.subLabel.slice(0, 55) + "\u2026" : loc.subLabel}
+                      {loc.subLabel.length > 50 ? loc.subLabel.slice(0, 50) + "\u2026" : loc.subLabel}
                     </text>
                   </motion.g>
                 )}

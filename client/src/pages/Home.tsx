@@ -402,12 +402,6 @@ function PropertiesSection() {
                       {prop.name}
                     </h3>
                     <p
-                      className="text-[10px] tracking-[0.08em] uppercase mb-0.5"
-                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary }}
-                    >
-                      {prop.location}
-                    </p>
-                    <p
                       className="text-[11px] tracking-[0.06em]"
                       style={{ fontFamily: "var(--font-body)", color: "#0D0604" }}
                     >
@@ -433,6 +427,12 @@ function PropertiesSection() {
                     </Link>
                   </div>
                 </div>
+                <p
+                  className="text-[10px] tracking-[0.12em] uppercase mt-1.5"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary }}
+                >
+                  {prop.location}
+                </p>
               </motion.div>
             ))}
           </StaggerOnScroll>
@@ -557,12 +557,19 @@ function TimelineSection() {
                       />
                     </div>
                     <h3
-                      className="text-[20px] lg:text-[22px] mb-3"
+                      className="text-[20px] lg:text-[22px] mb-2"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
                     >
                       {m.title}
                     </h3>
-
+                    {m.desc && (
+                      <p
+                        className="text-[13px] lg:text-[14px] leading-[1.6] max-w-md"
+                        style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: PALETTE.textSecondary }}
+                      >
+                        {m.desc}
+                      </p>
+                    )}
                   </div>
                 </AnimateOnScroll>
               </div>
