@@ -3568,3 +3568,25 @@
 - [x] Register /blog/wellness-by-colors route in App.tsx (already existed)
 - [x] Verify cross-link from NayaraStoryBlog works (already linked)
 - [x] Add 7 wellness FAQs to central FAQ page
+
+## Travel Trends 2026 Blog
+- [x] Build TravelTrendsBlog.tsx at /blog/travel-trends with full verbatim content
+- [x] Register route in App.tsx (already existed)
+- [x] Add cross-link from ExperientialTravelBlog back to travel-trends (already existed in data)
+- [x] Add 3 Travel Trends FAQs to central FAQ page
+- [ ] Save checkpoint
+
+## Sunlit Sustainability Blog
+- [x] Scrape content from HubSpot (sunlit-sustainability-powered-by-nature-clone)
+- [x] Build SunlitSustainabilityBlog.tsx at /blog/sunlit-sustainability (standalone, no old pillar series)
+- [x] Preserve FAQs, sources, and further reading (7 FAQs, 6 sources)
+- [x] Cross-link with NayaraByNight (sun/moon pairing)
+- [x] Add 7 Sunlit Sustainability FAQs to central FAQ page
+- [ ] Save checkpoint
+
+## 5-Part Rapa Nui Series
+- [x] Build MayaRapaNuiClimateBlog with Dr. Kenneth Seligson as author, full bio, verbatim content from pasted_content_6.txt
+- [x] Build HangaroaRegenerationBlog with full content from pasted_content_7.txt
+- [x] Update TapatiFestivalBlog cross-links to tie into the 5-part Rapa Nui series
+- [x] Cross-link all 3 blogs + 2 journal videos (Guardians of Rapa Nui, Archaeology with Dr. Seligson)
+- [x] Add 6 Rapa Nui series FAQs to central FAQ page

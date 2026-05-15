@@ -78,6 +78,17 @@ const tapatiFestivalPost: BlogPostData = {
 <p><em>Culture lives only where it is practiced. And on Rapa Nui, practice is non-negotiable.</em></p>`,
       pullQuote: "The island is not presenting itself. It is continuing itself.",
     },
+    {
+      heading: "Companion Content: The Rapa Nui Series",
+      content: `<p>This article is part of a five-part series exploring Rapa Nui's archaeology, culture, and regeneration through Nayara Hangaroa:</p>
+<ul>
+<li><strong>Part 1:</strong> <a href="/blog/maya-rapa-nui-climate">A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us About Climate and Survival</a> (Dr. Kenneth Seligson)</li>
+<li><strong>Part 2:</strong> <a href="/blog/hangaroa-regeneration">How Nayara Hangaroa Leads Regeneration on Rapa Nui</a> (Albert Ghitis)</li>
+<li><strong>Part 3 (This Article):</strong> What Is Tapati Rapa Nui and Why It Matters</li>
+<li><strong>Video:</strong> <a href="/journal#hitorangi-rapanui">The Guardians of Rapa Nui: A Conversation with the Hitorangi Family</a></li>
+<li><strong>Video:</strong> <a href="/journal#archaeologist-rapanui">Uncovering Rapa Nui: An Archaeologist's Perspective</a> (featuring Dr. Kenneth Seligson)</li>
+</ul>`,
+    },
   ],
   sources: [
     { label: "Museo Antropológico Padre Sebastián Englert (MAPSE)", href: "https://www.museorapanui.gob.cl/" },
@@ -105,11 +116,11 @@ const tapatiFestivalPost: BlogPostData = {
       date: "Jan 31, 2026",
     },
     {
-      slug: "michelin-keys",
-      title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
+      slug: "nayara-story",
+      title: "Luxury Resorts Rooted in Nature: The Nayara Story",
       pillar: "Experiences",
-      image: "/manus-storage/michelin-2025-keys_cd3d9c09.jpg",
-      date: "March 1, 2026",
+      image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Luxury%20Resorts%20Rooted%20in%20Nature%20The%20Nayara%20Story%20(1).jpg",
+      date: "Sep 3, 2025",
     },
   ],
   ctaProperties: [

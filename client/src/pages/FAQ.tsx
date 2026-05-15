@@ -174,6 +174,88 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
     ],
   },
+  {
+    title: "Travel Trends 2026",
+    description: "Questions about the top travel trends shaping luxury hospitality in 2026",
+    faqs: [
+      {
+        question: "What are the top travel trends for 2026?",
+        answer: "The top 10 travel trends for 2026 include regenerative travel, experiential luxury, dark sky tourism, wellness immersion, slow travel, cultural preservation tourism, off-grid retreats, multi-generational journeys, climate-conscious itineraries, and culinary exploration rooted in place.",
+      },
+      {
+        question: "What is regenerative travel?",
+        answer: "Regenerative travel goes beyond sustainability by actively restoring ecosystems, supporting local communities, and leaving destinations better than they were found. It includes reforestation, coral restoration, cultural preservation, and community-led tourism initiatives.",
+      },
+      {
+        question: "How does dark sky tourism work?",
+        answer: "Dark sky tourism involves visiting destinations with minimal light pollution for stargazing and astronomical observation. The Atacama Desert in Chile is one of the world's premier dark sky destinations, where guests at Nayara Alto Atacama can observe the Milky Way, nebulae, and planets through professional telescopes.",
+      },
+    ],
+  },
+  {
+    title: "Sunlit Sustainability",
+    description: "Questions about Nayara's solar energy, renewable power, and environmental certifications",
+    faqs: [
+      {
+        question: "Do all Nayara properties use solar energy?",
+        answer: "Not all, and deliberately so. In Costa Rica, where 98.6% of electricity is already generated from renewable sources, on-site solar panels are unnecessary. Our Arenal properties operate entirely on the national clean energy grid. In Chile, Easter Island, and Panama, where grid infrastructure is limited or diesel-dependent, we have installed solar systems to reduce emissions and support off-grid resilience.",
+      },
+      {
+        question: "How much energy does the Nayara Hangaroa solar system produce?",
+        answer: "The 45-kilowatt photovoltaic system at Nayara Hangaroa offsets the annual energy consumption equivalent of 28 family homes on Rapa Nui. It reduces demand on SASIPA, the island's diesel-based energy grid, cutting carbon emissions in one of the world's most ecologically sensitive environments.",
+      },
+      {
+        question: "Is Nayara Bocas del Toro fully off-grid?",
+        answer: "Nearly. Solar panels provide close to 100% of the resort's energy needs. Freshwater comes exclusively from collected rainwater, purified on-site through an ultraviolet filtration system. Five separate environmental studies were conducted before the property opened to ensure operations would not harm the surrounding mangroves or coral reefs.",
+      },
+      {
+        question: "What certifications do Nayara properties hold for sustainability?",
+        answer: "Our three Costa Rica properties hold Green Globe Certification, one of the most respected international seals in the hospitality industry, maintained through annual audits that assess environmental management, cultural heritage, and social impact. Nayara Alto Atacama holds 'S' Certification from the Chilean government, the country's official sustainability standard for tourism.",
+      },
+      {
+        question: "How does Nayara Alto Atacama protect the Atacama's dark skies?",
+        answer: "Lighting across the property is kept intentionally minimal to preserve the night sky, which is among the clearest on earth. Pathways use warm, carefully directed fixtures. Buildings are constructed from adobe with natural pigments so they blend into the landscape rather than reflecting light. The telescope platform opens some of the best stargazing conditions available anywhere.",
+      },
+      {
+        question: "What was the reforestation effort at Nayara Tented Camp?",
+        answer: "What is now a dense rainforest surrounding Nayara Tented Camp was once barren cattle pasture. We planted over 20,000 native trees, restoring wildlife corridors, capturing carbon, and creating new habitat for monkeys, sloths, and hundreds of bird species. It is one of the most ambitious private reforestation efforts in Central America.",
+      },
+      {
+        question: "Does Nayara plan to expand its solar capacity?",
+        answer: "Our approach to renewable energy is shaped by each property's ecosystem and infrastructure. Where solar makes the most impact, as in the Atacama, Rapa Nui, and Bocas del Toro, we invest in it directly. Where the national grid already runs clean, as in Costa Rica, we focus on other forms of environmental stewardship including reforestation, water management, and wildlife corridor restoration.",
+      },
+    ],
+  },
+  {
+    title: "Rapa Nui: Regeneration and Culture",
+    description: "Questions about Rapa Nui history, the Hito family, moai, and Nayara Hangaroa's regeneration efforts",
+    faqs: [
+      {
+        question: "Who are the Hito family?",
+        answer: "The Hito family are a multigenerational Rapa Nui lineage descended from early Polynesian settlers. They are recognized for their cultural preservation work, leadership in reforestation and reef restoration, and stewardship of Nayara Hangaroa.",
+      },
+      {
+        question: "Why do the moai face inland?",
+        answer: "Each moai faces its community to watch over the people. This reflects the belief that ancestral energy (mana) protects life, maintains balance, and connects families to their land.",
+      },
+      {
+        question: "What caused deforestation on Rapa Nui?",
+        answer: "Centuries of overharvesting for agriculture and moving statues, combined with soil erosion and changing climate patterns, led to the island's deforestation. Modern restoration projects now reintroduce native trees and protect remaining habitats.",
+      },
+      {
+        question: "How were the moai moved?",
+        answer: "Archaeological research shows that the statues were walked using ropes, with teams shifting their weight side to side until they moved forward. This method aligns with Rapa Nui oral tradition, which has long said the moai 'walked.'",
+      },
+      {
+        question: "What does regeneration mean on Rapa Nui today?",
+        answer: "Regeneration focuses on restoring ecosystems and cultural practices. This includes reviving traditional agriculture, rebuilding coral reefs, planting native species, reducing waste, and involving local families in conservation and education.",
+      },
+      {
+        question: "How does Nayara Hangaroa support regeneration?",
+        answer: "Nayara Hangaroa collaborates with Rapa Nui families, environmental groups, and cultural leaders to restore land and marine habitats. Efforts include composting organic material, supporting reforestation, reducing water use through natural filtration, and offering guest programs that contribute to local conservation.",
+      },
+    ],
+  },
 ];
 
 /* All FAQs flattened for schema */

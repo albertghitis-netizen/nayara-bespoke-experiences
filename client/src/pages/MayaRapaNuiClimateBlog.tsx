@@ -1,301 +1,177 @@
-/**
- * MAYA & RAPA NUI CLIMATE SURVIVAL
- * Editorial blog about ancient civilizations and climate resilience
- * Covers how Maya and Rapa Nui civilizations adapted to environmental challenges
+/*
+ * MAYA & RAPA NUI CLIMATE BLOG — /blog/maya-rapa-nui-climate
+ * "A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us About Climate and Survival"
+ * Author: Dr. Kenneth Seligson | Jan 31, 2026
+ * Part 1 of the 5-part Rapa Nui series
+ * Uses BlogPostTemplate with full article data
+ *
+ * 5-Part Rapa Nui Series:
+ *   1. /blog/maya-rapa-nui-climate — A Collapse That Wasn't (Dr. Kenneth Seligson)
+ *   2. /blog/hangaroa-regeneration — How Nayara Hangaroa Leads Regeneration (Albert Ghitis)
+ *   3. /blog/tapati-festival — What Is Tapati Rapa Nui and Why It Matters
+ *   4. Video: Guardians of Rapa Nui (Hitorangi family conversation)
+ *   5. Video: Uncovering Rapa Nui (Archaeologist's Perspective with Dr. Seligson)
  */
+import BlogPostTemplate from "./BlogPostTemplate";
+import type { BlogPostData } from "@/data/blogPosts";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import Footer from "@/components/Footer";
-import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
-
-const HANGAROA_PALETTE = {
-  primary: "#6B4423",
-  secondary: "#8B5A2B",
-  accent: "#D4A574",
-  text: "#3D2817",
-  lightText: "#5A4A3A",
-  background: "#FAF7F2",
-  divider: "#E8DFD5",
+const mayaRapaNuiClimatePost: BlogPostData = {
+  slug: "maya-rapa-nui-climate",
+  title: "A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us About Climate and Survival",
+  author: "Dr. Kenneth Seligson",
+  authorRole: "Chair and Associate Professor of Anthropology, California State University Dominguez Hills",
+  date: "January 31, 2026",
+  pillar: "Sustainability",
+  tags: ["Maya", "Rapa Nui", "Easter Island", "Climate Change", "Archaeology", "Collapse Narratives", "Resilience", "Nayara Hangaroa", "Dr. Kenneth Seligson"],
+  readingTime: 14,
+  heroImage: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+  keyFindings: [
+    "The Maya did not vanish. During the Late Classic and Terminal Classic periods, what changed most dramatically was political authority, not cultural continuity. Maya communities persisted, reorganized, and continued to live as Maya long after dynastic monuments ceased.",
+    "Rapa Nui did not experience a demographic collapse before European contact. Population modeling, radiocarbon evidence, and settlement patterns support resilience and continuity prior to the nineteenth century.",
+    "Both societies endured centuries of environmental and political stress and responded through adaptation rather than societal failure, challenging the idea that ecological pressure leads inevitably to collapse.",
+  ],
+  sections: [
+    {
+      heading: "Why Diamond's Collapse Template Took Hold",
+      content: `<p>For more than two decades, Rapa Nui and the Maya have been framed as cautionary tales. In popular culture and academic shorthand alike, they are presented as societies that exceeded environmental limits, triggered their own collapse, and vanished as warnings to the modern world.</p>
+<p>That framing entered public consciousness most forcefully through Jared Diamond's <em>Collapse</em>, which cast Rapa Nui as an extreme case of ecological self-destruction and extended the same logic to the Maya. The argument is elegant. It is memorable. It is also incorrect.</p>
+<p>Its durability has less to do with evidence than with psychology. Collapse narratives satisfy modern anxieties about climate, consumption, and limits. They reduce complex histories into moral lessons. They make the past feel manageable.</p>
+<p>Archaeology does not work that way. It rarely produces clean endings or single causes. What it reveals instead are long arcs of adjustment, uneven change, and societies that reorganize rather than disappear.</p>
+<p>Diamond's argument works in part because it uses real observations.</p>
+<p>Rapa Nui once had forests. Those forests largely disappeared. The moai are heavy. The island is isolated. The chain feels intuitive: trees were cut to move statues, the land failed, society collapsed.</p>
+<p>In the Maya case, the same logic appears: drought, deforestation, warfare, abandonment.</p>
+<p>The issue is not that these elements are fictional. The issue is that the causal chain is treated as inevitable, when the evidence shows a more complex and more human pattern.</p>
+<p>Environmental stress is real. What follows from it depends on political systems, social coordination, and the capacity to adapt.</p>
+<p>That is where both stories become more interesting.</p>`,
+    },
+    {
+      heading: "What the Maya and Climate Change Actually Shows",
+      content: `<p>In my recent book, <em>The Maya and Climate Change</em>, I examine one of the central misunderstandings behind the so-called Maya collapse: the assumption that climate acted as a verdict rather than as a constraint navigated through long-term social and environmental management.</p>
+<p>Rather than treating climate stress as a singular cause of failure, the book situates it within a highly engineered landscape shaped by centuries of water management, agricultural innovation, and institutional learning. Its focus is not the dramatic end of dynasties, but the long arc of how Maya communities built, refined, and sustained socio-ecological systems across prolonged periods of environmental uncertainty.</p>
+<p>It is true that the Maya lowlands experienced periods of reduced rainfall. It is also true that water management was central to Maya urbanism.</p>
+<p>The Maya were not blind to risk. They engineered landscapes for uncertainty. Reservoirs, chultuns, aguadas, canals, and terracing reflect an ongoing effort to buffer variability.</p>
+<p>The important point is this: environmental stress tends to break rigid systems first. It reveals fragility in political organization, in resource distribution, and in the legitimacy of leadership.</p>
+<p>That is a systems story, not a morality tale.</p>
+<p>When climate stress is treated as a single deterministic cause, it replaces analysis with inevitability. It also implies that people were passive or ignorant.</p>
+<p>The archaeological record shows the opposite.</p>`,
+    },
+    {
+      heading: "A Dig Teaches You to Distrust Neat Stories",
+      content: `<p>If you spend enough time excavating, you learn that sweeping narratives often collapse under small evidence.</p>
+<p>At the site of Xanab Chak in the Puuc region, one of the most instructive lessons came from a single object. A ceramic figurine with unusually stylized eyes, holding what appears to be a bowl-like vessel, was recovered from an early context. It was unlike anything previously documented in the northern Maya lowlands and forced a reassessment of early connections and local innovation.</p>
+<p>One figurine does not rewrite Maya history. But it dismantles lazy assumptions. It forces better questions. It reminds us that what we think we know often reflects what we have been trained to expect.</p>
+<p>That lesson applies at the scale of civilizations as well.</p>`,
+    },
+    {
+      heading: "Pop Culture Turned Collapse Into a Brand",
+      content: `<p>The collapse template did not remain within academic debate. It migrated into popular imagination and became entertainment.</p>
+<p>A clear example is Mel Gibson's <em>Apocalypto</em>. In a public interview, Gibson explicitly cited <em>Collapse</em> as a source of inspiration, alongside selective readings of the Popol Vuh. The result was not scholarship, but atmosphere. Collapse became plot.</p>
+<p>Once a collapse story gains cultural traction, it becomes easy to apply everywhere. Rapa Nui becomes the island version. The Maya become the rainforest version. Ecological and historical differences disappear. The genre remains.</p>
+<p>The problem is that genre is not evidence.</p>`,
+    },
+    {
+      heading: "Rapa Nui Was Not a Pre-Contact Collapse",
+      content: `<p>Rapa Nui is often framed as the perfect collapse case because it is isolated and finite. That finitude is real. But the inference of self-destruction is not.</p>
+<p>The strongest correction comes from population modeling and radiocarbon data. In <a href="https://www.nature.com/articles/s41467-021-24252-z" target="_blank" rel="noopener noreferrer">DiNapoli et al. in Nature Communications</a>, the authors conclude that there is no evidence for a pre-contact demographic collapse. Population patterns show resilience and continuity before European arrival.</p>
+<p>Forest loss on Rapa Nui also does not follow the simplistic chain Diamond proposed. Research points to the impact of introduced rats on palm seed regeneration. This is summarized in the <a href="https://www.binghamton.edu/news/story/3291/what-happened-to-the-trees-on-easter-island" target="_blank" rel="noopener noreferrer">Binghamton University report</a>, which explains how ecological transformation can occur even without reckless human intent.</p>
+<p>Most importantly, the island's agricultural response was adaptive. Lithic mulching and manavai enclosures represent investment and planning. They are not the residue of collapse. They are the infrastructure of persistence.</p>
+<p>Rapa Nui's social systems also show evidence of cooperative resource management, directly countering "tragedy of the commons" assumptions. That argument is made explicitly in <a href="https://www.mdpi.com/2071-1050/12/11/4522" target="_blank" rel="noopener noreferrer">Triumph of the Commons</a>, which frames Rapa Nui as a case of sustained social coordination under constraint.</p>
+<p>One of the most compelling reframings of moai and settlement comes from the freshwater record. A spatial analysis in <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0210409" target="_blank" rel="noopener noreferrer">PLOS ONE</a> shows strong alignment between monument platforms and freshwater availability, suggesting that ceremonial and social geography was organized around survival systems, not excess.</p>
+<p>Climate context matters too. Evidence of prolonged drought overlapping with the decline of monument construction appears in <a href="https://www.nature.com/articles/s43247-022-00618-5" target="_blank" rel="noopener noreferrer">Communications Earth & Environment</a>, with additional synthesis reported by the <a href="https://news.climate.columbia.edu/2022/12/14/lake-sediments-rewrite-the-history-of-easter-islands-societal-collapse/" target="_blank" rel="noopener noreferrer">Lamont-Doherty Earth Observatory</a>.</p>
+<p>That pattern, again, is familiar. Stress increases. Systems shift. Culture continues.</p>`,
+    },
+    {
+      heading: "The 111 Survivors and the Real Rupture",
+      content: `<p>The strongest evidence against the pre-contact collapse myth is not statistical. It is human.</p>
+<p>In a <a href="/journal#hitorangi-rapanui">recent filmed conversation on Rapa Nui</a>, Tauma Hitorangi described the island's post-contact devastation in the way many Rapa Nui families recount it: the population reduced to roughly 111 people after slave raids and disease, with cultural suppression aimed at language and practice.</p>
+<p>Whether the precise number is 111 or slightly different in archival records, the historical reality is unchanged. The catastrophic rupture on Rapa Nui came after contact, not before it.</p>
+<p>A concise external summary of this post-contact devastation appears in the <a href="https://www.manchester.ac.uk/discover/news/outsiders-blamed-for-easter-islands-historic-demise/" target="_blank" rel="noopener noreferrer">University of Manchester piece "Outsiders blamed for Easter Island's historic demise"</a>, which emphasizes disease, slavery, and the lack of archaeological evidence for pre-contact societal collapse.</p>
+<p>If you want to talk about catastrophe, this is where the story belongs.</p>`,
+    },
+    {
+      heading: "Why I Include Rapa Nui While Being a Maya Specialist",
+      content: `<p>I am not a Rapa Nui archaeologist. My primary fieldwork and scholarship are in the Maya lowlands.</p>
+<p>But I include Rapa Nui here for two reasons.</p>
+<p>First, the collapse narrative operates as a template across cultures. If you study how the Maya have been misread, you begin to recognize the same errors elsewhere.</p>
+<p>Second, I have followed the Rapa Nui literature closely and have helped convene public scholarship that addresses it directly. I organized an <a href="https://www.archaeological.org/events/" target="_blank" rel="noopener noreferrer">Archaeological Institute of America event</a> featuring Jo Anne Van Tilburg, director of the <a href="http://www.eisp.org/" target="_blank" rel="noopener noreferrer">Easter Island Statue Project</a>. Her work provides the most comprehensive long-term inventory and documentation of moai and related sculpture.</p>
+<p>That is not the same as excavation experience on Rapa Nui. It is enough to understand that the collapse myth is not sustained by the evidence.</p>`,
+    },
+    {
+      heading: "What the Maya and Rapa Nui Actually Share",
+      content: `<p>They do not share a time period. They do not share ecology. They do not share political structure.</p>
+<p>What they share is how they have been turned into parables.</p>
+<p>Both are treated as mysteries. Both are treated as vanished. Both are treated as proof that Indigenous societies were careless stewards of their environments.</p>
+<p>The evidence shows something else.</p>
+<p>Environmental stress reshapes political systems more often than it erases cultures. Monument silence is not cultural death. Collapse is rarely total. Continuity is the rule.</p>
+<p>The mistake was never theirs. It was ours.</p>`,
+    },
+    {
+      heading: "About the Author",
+      content: `<p>Ken Seligson, PhD, is an anthropological archaeologist whose research focuses on human-environment relationships in the northern Maya lowlands of the Yucatan Peninsula. He is Chair and Associate Professor of Anthropology at California State University Dominguez Hills.</p>
+<p>His work examines how Maya communities managed resources, adapted to environmental stress, and reorganized political and economic systems over time, with particular emphasis on the Puuc region of northern Yucatan. Since 2021, he has directed the Proyecto Arqueologico de Sitios de Pequena Escala en el Puuc Oriental (PASPEPO), investigating early agricultural communities, water-management strategies, and small-scale settlement patterns.</p>
+<p>His research demonstrates that Maya technologies during periods of climatic stress were often fuel-efficient and conservation-oriented, challenging collapse-based interpretations of Maya history. His work has been supported by the National Science Foundation and other academic institutions, and his work contributes to ongoing scholarly reassessment of collapse narratives applied to ancient societies.</p>`,
+    },
+    {
+      heading: "Companion Content: The Rapa Nui Series",
+      content: `<p>This article is part of a five-part series exploring Rapa Nui's archaeology, culture, and regeneration through Nayara Hangaroa:</p>
+<ul>
+<li><strong>Part 1 (This Article):</strong> A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us About Climate and Survival</li>
+<li><strong>Part 2:</strong> <a href="/blog/hangaroa-regeneration">How Nayara Hangaroa Leads Regeneration on Rapa Nui</a></li>
+<li><strong>Part 3:</strong> <a href="/blog/tapati-festival">What Is Tapati Rapa Nui and Why It Matters</a></li>
+<li><strong>Video:</strong> <a href="/journal#hitorangi-rapanui">The Guardians of Rapa Nui: A Conversation with the Hitorangi Family</a></li>
+<li><strong>Video:</strong> <a href="/journal#archaeologist-rapanui">Uncovering Rapa Nui: An Archaeologist's Perspective</a> (featuring Dr. Kenneth Seligson)</li>
+</ul>`,
+    },
+  ],
+  sources: [
+    { label: "The Maya and Climate Change, Oxford University Press", href: "https://global.oup.com/academic/product/the-maya-and-climate-change-9780197696583" },
+    { label: "Classic Period collapse of the Central Maya Lowlands, PNAS synthesis via PubMed", href: "https://pubmed.ncbi.nlm.nih.gov/" },
+    { label: "CSUDH announcement of The Maya and Climate Change", href: "https://www.csudh.edu/" },
+    { label: "Xanab Chak figurine report, Archaeology Magazine", href: "https://www.archaeology.org/" },
+    { label: "Population resilience on Rapa Nui, DiNapoli et al., Nature Communications", href: "https://www.nature.com/articles/s41467-021-24252-z" },
+    { label: "What happened to Easter Island's trees, Binghamton University", href: "https://www.binghamton.edu/news/story/3291/what-happened-to-the-trees-on-easter-island" },
+    { label: "Triumph of the Commons, Sustainability (MDPI)", href: "https://www.mdpi.com/2071-1050/12/11/4522" },
+    { label: "Monument locations and freshwater, PLOS ONE", href: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0210409" },
+    { label: "Prolonged drought and monument decline, Communications Earth & Environment", href: "https://www.nature.com/articles/s43247-022-00618-5" },
+    { label: "Lake sediments rewrite collapse story, Lamont-Doherty Earth Observatory", href: "https://news.climate.columbia.edu/2022/12/14/lake-sediments-rewrite-the-history-of-easter-islands-societal-collapse/" },
+    { label: "Outsiders blamed for Easter Island's historic demise, University of Manchester", href: "https://www.manchester.ac.uk/discover/news/outsiders-blamed-for-easter-islands-historic-demise/" },
+    { label: "Ma'u Henua, Indigenous stewardship of Rapa Nui National Park", href: "https://www.mauhenua.org/" },
+    { label: "UNESCO Rapa Nui World Heritage Site", href: "https://whc.unesco.org/en/list/715/" },
+    { label: "Easter Island Statue Project, Jo Anne Van Tilburg", href: "http://www.eisp.org/" },
+    { label: "AIA event listing: Uncovering Easter Island", href: "https://www.archaeological.org/events/" },
+  ],
+  relatedArticles: [
+    {
+      slug: "hangaroa-regeneration",
+      title: "How Nayara Hangaroa Leads Regeneration on Rapa Nui",
+      pillar: "Sustainability",
+      image: "https://blog.nayararesorts.com/hubfs/9-Aug-11-2025-08-40-19-5669-PM.png",
+      date: "Nov 5, 2025",
+    },
+    {
+      slug: "tapati-festival",
+      title: "The Tapati Rapa Nui Festival at Nayara Hangaroa",
+      pillar: "Experiences",
+      image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Tapati%20Rapa%20Nui%20Festival%20at%20Nayara%20Hangaroa%20(6).jpg",
+      date: "February 2025",
+    },
+    {
+      slug: "wellness-by-colors",
+      title: "Nature-Based Wellness at Nayara Resorts",
+      pillar: "Wellness",
+      image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+      date: "2025",
+    },
+  ],
+  ctaProperties: [
+    { name: "Nayara Hangaroa", route: "/hangaroa" },
+  ],
+  seo: {
+    metaTitle: "A Collapse That Wasn't: Maya & Rapa Nui Climate Survival | Nayara Resorts",
+    metaDescription: "Dr. Kenneth Seligson challenges Jared Diamond's collapse narrative. The Maya and Rapa Nui adapted to environmental stress through resilience, not failure. Part of the Nayara Rapa Nui series.",
+  },
 };
 
 export default function MayaRapaNuiClimateBlog() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return (
-    <div ref={containerRef} className="min-h-screen" style={{ backgroundColor: HANGAROA_PALETTE.background }}>
-      <EnhancedArticleSchema
-        image="https://nayararesorts.manus.space"
-        headline="MayaRapaNuiClimate | Nayara Resorts"
-        description="Discover insights about mayarapanuiclimate at Nayara Resorts."
-        author={{ name: "Nayara Resorts", expertise: ["Luxury Travel", "Sustainable Tourism"] }}
-        datePublished="2024-01-01"
-        url="https://nayararesorts.manus.space/blog/mayarapanuiclimate"
-      />
-      {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: "linear-gradient(135deg, #6B4423 0%, #8B5A2B 100%)",
-          }}
-        />
-        <div className="absolute inset-0 opacity-20" style={{ backgroundColor: "#3D2817" }} />
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="relative z-10 text-center px-6 md:px-12 max-w-4xl"
-        >
-          <p
-            className="text-[11px] tracking-[0.3em] mb-6 uppercase"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: HANGAROA_PALETTE.accent }}
-          >
-            Culture & Climate Resilience
-          </p>
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
-          >
-            Maya & Rapa Nui: Ancient Wisdom for Climate Survival
-          </h1>
-          <p
-            className="text-lg md:text-xl leading-relaxed"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.85)" }}
-          >
-            How two ancient civilizations adapted to environmental challenges and what their stories teach us about resilience, sustainability, and human ingenuity in the face of climate change.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* Content Section */}
-      <section className="py-16 md:py-24 px-6 md:px-12">
-        <div className="max-w-3xl mx-auto">
-          {/* Intro */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              The Maya civilization flourished in Central America for over 3,000 years, developing sophisticated systems of agriculture, astronomy, writing, and governance. The Rapa Nui people transformed a remote Pacific island into a thriving society, creating the iconic moai statues that continue to captivate the world. Yet both civilizations faced profound environmental challenges,droughts, deforestation, and resource depletion,that tested their ability to adapt and survive.
-            </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              Today, as we face our own climate crisis, the stories of these ancient peoples offer valuable lessons. They demonstrate both the resilience of human societies and the consequences of unsustainable practices. By understanding how the Maya and Rapa Nui responded to environmental change, we gain insights into how we might navigate our own uncertain future.
-            </p>
-          </motion.div>
-
-          {/* Section 1: The Maya and Drought */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${HANGAROA_PALETTE.divider}` }}
-          >
-            <h2
-              className="text-2xl md:text-3xl mb-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: HANGAROA_PALETTE.primary }}
-            >
-              The Maya Collapse: Lessons from Drought
-            </h2>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              The Classic Maya civilization reached its peak around 800 AD, with major city-states like Tikal, Palenque, and Copán serving as centers of art, science, and commerce. Yet within a century, these great cities were abandoned. Temples fell silent, and the jungle reclaimed the plazas. For centuries, scholars debated the cause of this mysterious collapse. Today, evidence points to a series of severe droughts that lasted decades,a climate crisis that the Maya civilization could not overcome.
-            </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              The droughts coincided with a period of political fragmentation and warfare. As water became scarce, competition for resources intensified. The sophisticated water management systems that had sustained Maya cities,including reservoirs, canals, and terraces,proved insufficient during extended dry periods. Crop failures led to famine, which destabilized societies and undermined the authority of rulers. The collapse was not instantaneous but a gradual unraveling of the social fabric that held Maya civilization together.
-            </p>
-
-            <h3
-              className="text-lg md:text-xl mb-3 mt-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: HANGAROA_PALETTE.primary }}
-            >
-              Adaptation and Survival
-            </h3>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              Yet the Maya did not disappear. Millions of Maya people survived the collapse of the Classic civilization. They adapted by dispersing into smaller settlements, developing new agricultural practices, and reorganizing their societies. The Maya civilization transformed rather than ended. Today, over 6 million Maya descendants live in Mexico, Guatemala, Belize, and Honduras, maintaining their languages, traditions, and cultural identity. Their story demonstrates both the fragility of complex societies and the resilience of human communities.
-            </p>
-          </motion.div>
-
-          {/* Section 2: Rapa Nui - Ecological Collapse */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${HANGAROA_PALETTE.divider}` }}
-          >
-            <h2
-              className="text-2xl md:text-3xl mb-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: HANGAROA_PALETTE.primary }}
-            >
-              Rapa Nui: The Island That Deforested Itself
-            </h2>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              Rapa Nui (Easter Island) presents a different but equally instructive case study. When Polynesian settlers arrived around 1200 AD, they found a lush island covered with forests of palm and other trees. Over the following centuries, the Rapa Nui people built a sophisticated society, creating the famous moai statues,massive stone figures that served as representations of ancestors and symbols of power and prestige.
-            </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              The construction of moai required enormous resources. Trees were felled to create wooden sleds and rollers for transporting the statues across the island. As demand for moai increased, so did deforestation. By around 1500 AD, the island's forests had been almost completely cleared. Without trees, soil erosion accelerated, crop yields declined, and the population that the island could support shrank dramatically. Archaeological evidence suggests that this ecological collapse led to social upheaval, including warfare and the abandonment of moai construction.
-            </p>
-
-            <h3
-              className="text-lg md:text-xl mb-3 mt-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: HANGAROA_PALETTE.primary }}
-            >
-              The Rapa Nui Paradox
-            </h3>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              The Rapa Nui story presents a paradox: a society that created one of the world's most impressive monuments ultimately destroyed the ecological foundation upon which it depended. Yet this is not a story of inevitable decline. Recent research suggests that after the collapse, Rapa Nui society reorganized and adapted. The people developed new agricultural practices suited to the degraded environment, including the ahu (ceremonial platforms) that served both spiritual and practical purposes. They survived and maintained their culture despite catastrophic environmental change.
-            </p>
-          </motion.div>
-
-          {/* Section 3: Common Themes and Lessons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${HANGAROA_PALETTE.divider}` }}
-          >
-            <h2
-              className="text-2xl md:text-3xl mb-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: HANGAROA_PALETTE.primary }}
-            >
-              Common Themes: What We Can Learn
-            </h2>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              Both the Maya and Rapa Nui faced environmental crises that challenged their societies' ability to survive. Yet their experiences reveal important insights. First, environmental change does not automatically lead to civilizational collapse. Both societies adapted, reorganized, and persisted despite profound challenges. This demonstrates human resilience and the capacity for innovation in the face of adversity.
-            </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              Second, the speed and scale of environmental change matter. The Maya faced droughts that lasted decades,severe but not permanent. Rapa Nui faced deforestation that was largely irreversible. Societies that can adapt quickly to gradual change have better chances of survival than those facing rapid, catastrophic change. This has profound implications for our current climate crisis, which is occurring at unprecedented speed.
-            </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              Third, social cohesion and governance matter. The Maya collapse was accelerated by political fragmentation and warfare. Societies that maintain cooperation and trust are better positioned to respond collectively to environmental challenges. Finally, both civilizations developed sophisticated knowledge systems,agricultural practices, water management, astronomical observations,that helped them adapt. This underscores the importance of science, innovation, and knowledge sharing in addressing climate challenges.
-            </p>
-          </motion.div>
-
-          {/* Section 4: Ancient Wisdom for Modern Times */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${HANGAROA_PALETTE.divider}` }}
-          >
-            <h2
-              className="text-2xl md:text-3xl mb-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: HANGAROA_PALETTE.primary }}
-            >
-              Ancient Wisdom for Our Climate Future
-            </h2>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              The stories of the Maya and Rapa Nui offer guidance as we navigate our own climate crisis. They remind us that environmental challenges are real and consequential, but they also demonstrate that human societies possess remarkable capacity for adaptation and resilience. The key is to act proactively, before environmental degradation becomes irreversible.
-            </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9] mb-4"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              We must invest in science and innovation to understand climate change and develop solutions. We must strengthen social bonds and international cooperation to respond collectively to global challenges. We must learn from indigenous knowledge systems that have sustained communities for centuries. And we must act with urgency, recognizing that the window for preventing catastrophic climate change is narrowing.
-            </p>
-            <p
-              className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              The Maya and Rapa Nui survived environmental catastrophes and maintained their cultures across centuries. Their resilience offers hope. But their experiences also serve as warnings: we must act now to prevent the worst outcomes of climate change. The future is not predetermined. Through collective action, innovation, and commitment to sustainability, we can build a more resilient and equitable world for generations to come.
-            </p>
-          </motion.div>
-
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mt-16 pt-12"
-            style={{ borderTop: `1px solid ${HANGAROA_PALETTE.divider}` }}
-          >
-            <p
-              className="text-[14px] tracking-[0.08em] uppercase mb-4"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: HANGAROA_PALETTE.primary }}
-            >
-              Experience It
-            </p>
-            <h3
-              className="text-xl md:text-2xl mb-4"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: HANGAROA_PALETTE.text }}
-            >
-              Explore Rapa Nui's Ancient Heritage
-            </h3>
-            <p
-              className="text-[15px] leading-[1.7] mb-6"
-              style={{ fontFamily: "var(--font-body)", color: HANGAROA_PALETTE.lightText }}
-            >
-              Walk with giants among the moai statues. Learn about Rapa Nui's rich history, culture, and the lessons its people offer about resilience and adaptation. Our expert guides share stories of ancient wisdom and contemporary conservation efforts.
-            </p>
-            <a
-              href="/hangaroa/experiences"
-              className="inline-block px-8 py-3 rounded-full transition-all duration-300 hover:translate-y-[-2px] text-[13px] tracking-[0.06em] uppercase"
-              style={{
-                backgroundColor: HANGAROA_PALETTE.primary,
-                color: "white",
-                fontFamily: "var(--font-body)",
-                fontWeight: 600,
-              }}
-            >
-              Explore Our Experiences
-            </a>
-          </motion.div>
-        </div>
-      </section>
-
-      <Footer textColor="#FFFFFF" />
-    </div>
-  );
+  return <BlogPostTemplate post={mayaRapaNuiClimatePost} />;
 }

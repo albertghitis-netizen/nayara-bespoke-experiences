@@ -418,6 +418,17 @@ export default function NayaraByNightBlog() {
             </a>
           </Reveal>
 
+          {/* Cross-link to Sunlit Sustainability (the Sun counterpart) */}
+          <Reveal className="mt-4">
+            <a
+              href="/blog/sunlit-sustainability"
+              className="inline-block text-sm tracking-[0.12em] uppercase border-b border-[#FFD700]/40 pb-1 hover:border-[#FFD700] transition-colors"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: NIGHT.accent }}
+            >
+              Continue reading: Sunlit Sustainability: Nature-Powered
+            </a>
+          </Reveal>
+
           {/* Moon is calling CTA */}
           <Reveal className="mt-16 mb-8">
             <p
