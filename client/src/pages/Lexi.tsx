@@ -16,7 +16,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/lexi-logo-final-PHebnBoX7bAEZYhGVRja4c.png";
 
 const CATEGORIES = [
-  { id: "mood", label: "Mood", color: "#C9A96E", icon: "◐" },
+  { id: "mood", label: "Journal", color: "#C9A96E", icon: "◐" },
   { id: "therapy", label: "Therapy", color: "#5C6B4A", icon: "◉" },
   { id: "sleep", label: "Sleep", color: "#5A6B7A", icon: "☽" },
   { id: "nutrition", label: "Nutrition", color: "#7A9E7E", icon: "◈" },
@@ -29,6 +29,10 @@ const CATEGORIES = [
 ] as const;
 
 type CategoryId = (typeof CATEGORIES)[number]["id"];
+
+/* Categories that can be logged in the calendar */
+const NON_LOGGABLE = new Set(["triggers", "addiction", "faq"]);
+const LOGGABLE_CATEGORIES = CATEGORIES.filter((c) => !NON_LOGGABLE.has(c.id));
 
 interface CalendarEntry {
   id: string;
@@ -542,7 +546,7 @@ function CalendarView({
       {/* Legend */}
       <div className="mt-8 pt-6 border-t" style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}>
         <div className="flex flex-wrap gap-4">
-          {CATEGORIES.map((cat) => (
+          {LOGGABLE_CATEGORIES.map((cat) => (
             <div key={cat.id} className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full" style={{ background: cat.color }} />
               <span className="text-xs uppercase tracking-wider opacity-60">{cat.label}</span>
@@ -594,7 +598,7 @@ function AddEntryForm({
             className="w-full px-3 py-2 rounded-lg border text-sm bg-white"
             style={{ borderColor: "rgba(58, 42, 26, 0.15)" }}
           >
-            {CATEGORIES.map((cat) => (
+            {LOGGABLE_CATEGORIES.map((cat) => (
               <option key={cat.id} value={cat.id}>{cat.label}</option>
             ))}
           </select>
@@ -850,40 +854,117 @@ function InfoSection({ title, children }: { title: string; children: React.React
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   MOOD PAGE — Informational
+   JOURNAL PAGE — Pure mood journal, entries first
    ═══════════════════════════════════════════════════════════════ */
 
 function MoodPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "mood")!;
+  const [showAddForm, setShowAddForm] = useState(false);
+  const today = new Date().toISOString().split("T")[0];
+  const allEntries = props.entries
+    .sort((a, b) => b.date.localeCompare(a.date) || b.time.localeCompare(a.time));
+  const todayEntries = allEntries.filter((e) => e.date === today);
+  const pastEntries = allEntries.filter((e) => e.date < today);
+
   return (
     <div className="space-y-6">
-      <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Mood</h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Track where you are on the spectrum today</p>
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-2xl" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Journal</h2>
+          <p className="text-xs opacity-50 mt-0.5" style={{ fontFamily: "'DM Sans', sans-serif" }}>How are you feeling?</p>
+        </div>
+        <button
+          onClick={() => setShowAddForm(true)}
+          className="text-xs uppercase tracking-wider px-4 py-2 rounded-full text-white shadow-sm"
+          style={{ background: category.color }}
+        >
+          + New Entry
+        </button>
       </div>
 
-      <InfoSection title="Mood and Addiction">
-        <p>Substances directly alter the neurotransmitter systems that regulate mood. Alcohol depletes serotonin over time. Stimulants cause dopamine crashes. Even after you stop using, your brain's mood regulation system can take months to recalibrate. During that window, mood swings are more frequent and more intense than they would be from the mood disorder alone.</p>
-      </InfoSection>
+      {/* Add form */}
+      <AnimatePresence>
+        {showAddForm && (
+          <AddEntryForm
+            date={today}
+            onAdd={(entry) => { props.addEntry({ ...entry, category: "mood" }); setShowAddForm(false); }}
+            onCancel={() => setShowAddForm(false)}
+          />
+        )}
+      </AnimatePresence>
 
-      <InfoSection title="Why Mood Episodes Trigger Cravings">
-        <p>During depressive episodes, the brain seeks relief from emotional pain, and substances offer fast but temporary relief. During manic or hypomanic episodes, impulsivity increases and risk assessment decreases, making it easier to justify using. The mood disorder creates the vulnerability; the addiction exploits it.</p>
-      </InfoSection>
+      {/* Today's entries */}
+      <div>
+        <h3 className="text-xs uppercase tracking-[0.15em] opacity-50 font-medium mb-3">Today</h3>
+        {todayEntries.length === 0 ? (
+          <div className="rounded-xl p-6 text-center" style={{ background: "#E8E3DA" }}>
+            <p className="text-sm opacity-40 italic">No entries yet today. How are you feeling?</p>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-2">
+            {todayEntries.map((entry) => (
+              <div key={entry.id} className="rounded-xl p-4" style={{ background: `${category.color}12` }}>
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => props.toggleComplete(entry.id)}
+                      className="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5"
+                      style={{ borderColor: category.color, background: entry.completed ? category.color : "transparent" }}
+                    >
+                      {entry.completed && <span className="text-white text-xs">✓</span>}
+                    </button>
+                    <div>
+                      <span className="text-xs opacity-40">{entry.time}</span>
+                      {entry.note && <p className={`text-sm mt-0.5 ${entry.completed ? "line-through opacity-40" : ""}`} style={{ fontFamily: "'DM Sans', sans-serif" }}>{entry.note}</p>}
+                    </div>
+                  </div>
+                  <button onClick={() => props.deleteEntry(entry.id)} className="text-xs opacity-30 hover:opacity-70">✕</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
-      <InfoSection title="The 1 to 10 Scale">
-        <p>1 is deeply depressed. 5 is stable. 10 is manic. Pay special attention to the extremes. Both very low moods (1 to 3) and elevated moods (8 to 10) are high-risk windows for relapse. Tracking your number daily helps you and your treatment team spot patterns before they escalate.</p>
-      </InfoSection>
+      {/* Past entries */}
+      {pastEntries.length > 0 && (
+        <div>
+          <h3 className="text-xs uppercase tracking-[0.15em] opacity-50 font-medium mb-3">Previous</h3>
+          <div className="flex flex-col gap-2">
+            {pastEntries.slice(0, 20).map((entry) => (
+              <div key={entry.id} className="rounded-lg p-3 flex items-start gap-3" style={{ background: "#E8E3DA" }}>
+                <div className="shrink-0">
+                  <span className="text-xs font-medium opacity-60">{entry.date.slice(5)}</span>
+                  <span className="text-xs opacity-40 ml-2">{entry.time}</span>
+                </div>
+                <p className={`text-sm flex-1 ${entry.completed ? "line-through opacity-40" : ""}`} style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  {entry.note || "\u2014"}
+                </p>
+                <button onClick={() => props.deleteEntry(entry.id)} className="text-xs opacity-20 hover:opacity-60">✕</button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
-      <InfoSection title="Withdrawal vs. Mood Episode">
-        <p>They can look identical. Withdrawal from alcohol or benzodiazepines can mimic depression or anxiety. Stimulant withdrawal mimics depressive episodes. The key differentiator is timeline. Withdrawal symptoms follow a predictable arc after your last use. Mood episodes can emerge at any time. Logging both your substance use and your mood helps your provider distinguish between them.</p>
-      </InfoSection>
-
-      <InfoSection title="Track the Good Days Too">
-        <p>Especially the good days. Consistent tracking builds the baseline that makes warning signs visible. If you only log when things are bad, you lose the contrast. A stable week followed by a dip is meaningful data. A stable week with no log before it tells you nothing.</p>
-      </InfoSection>
-
-      <LoggingSection categoryId="mood" categoryColor={category.color} logLabel="Log Mood" {...props} />
+      {/* Stats */}
+      <div className="pt-4 border-t" style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}>
+        <div className="grid grid-cols-3 gap-4 text-center">
+          <div>
+            <div className="text-2xl font-semibold" style={{ color: category.color }}>{allEntries.length}</div>
+            <div className="text-[10px] uppercase tracking-wider opacity-40">Total Entries</div>
+          </div>
+          <div>
+            <div className="text-2xl font-semibold" style={{ color: category.color }}>{allEntries.filter((e) => e.completed).length}</div>
+            <div className="text-[10px] uppercase tracking-wider opacity-40">Completed</div>
+          </div>
+          <div>
+            <div className="text-2xl font-semibold" style={{ color: category.color }}>{getStreak(allEntries)}</div>
+            <div className="text-[10px] uppercase tracking-wider opacity-40">Day Streak</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -1048,46 +1129,117 @@ function ExercisePage(props: CategoryPageProps) {
    MEDS PAGE — FAQ Format + Medication Reference
    ═══════════════════════════════════════════════════════════════ */
 
-const MEDICATIONS = [
+const MED_CATEGORIES = [
   {
-    id: "lithium",
-    name: "Lithium",
-    type: "Mood Stabilizer",
-    description: "First-line treatment for bipolar disorder. Reduces frequency and severity of manic episodes. Requires regular blood level monitoring.",
-    commonDoses: ["300mg", "450mg", "600mg", "900mg", "1200mg"],
+    category: "Antidepressants",
+    description: "Target serotonin, norepinephrine, and dopamine systems to lift depressive episodes. In people with co-occurring addiction, the choice of antidepressant matters because some carry higher abuse potential or dangerous interactions with substances.",
+    meds: [
+      {
+        id: "sertraline",
+        name: "Sertraline (Zoloft)",
+        description: "SSRI. One of the most studied antidepressants for co-occurring alcohol use disorder. Takes 4 to 6 weeks for full effect. Relatively safe in overdose. Alcohol reduces its efficacy and worsens side effects like dizziness and drowsiness. Do not stop abruptly — taper under medical supervision to avoid discontinuation syndrome.",
+        commonDoses: ["25mg", "50mg", "100mg", "150mg", "200mg"],
+      },
+      {
+        id: "fluoxetine",
+        name: "Fluoxetine (Prozac)",
+        description: "SSRI with the longest half-life, which makes missed doses less destabilizing. FDA-approved for depression, OCD, panic disorder, and bulimia. Less sedating than other SSRIs. Can cause activation and insomnia in some people. Interacts with many substances through the CYP2D6 enzyme pathway — tell your prescriber about everything you take.",
+        commonDoses: ["10mg", "20mg", "40mg", "60mg"],
+      },
+      {
+        id: "bupropion",
+        name: "Bupropion (Wellbutrin)",
+        description: "NDRI — works on norepinephrine and dopamine instead of serotonin. Unique among antidepressants because it also reduces nicotine and stimulant cravings. No sexual side effects (common with SSRIs). Lowers seizure threshold, so it is contraindicated in people with seizure disorders, eating disorders, or heavy alcohol use. Not appropriate during active alcohol withdrawal.",
+        commonDoses: ["150mg SR", "300mg SR", "150mg XL", "300mg XL", "450mg XL"],
+      },
+      {
+        id: "mirtazapine",
+        name: "Mirtazapine (Remeron)",
+        description: "Atypical antidepressant that also helps with insomnia and appetite loss — two common problems in early recovery. Sedating at lower doses, less so at higher doses. Weight gain is a common side effect. Some evidence for reducing alcohol cravings. Avoid combining with alcohol or benzodiazepines due to additive sedation.",
+        commonDoses: ["7.5mg", "15mg", "30mg", "45mg"],
+      },
+      {
+        id: "venlafaxine",
+        name: "Venlafaxine (Effexor)",
+        description: "SNRI — works on both serotonin and norepinephrine. Effective for depression with prominent anxiety or chronic pain. Requires consistent dosing; missed doses cause rapid withdrawal symptoms (brain zaps, nausea, irritability). This makes it a poor choice for people who frequently miss doses. Blood pressure monitoring required at higher doses.",
+        commonDoses: ["37.5mg", "75mg", "150mg", "225mg"],
+      },
+    ],
   },
   {
-    id: "depakote",
-    name: "Depakote",
-    type: "Mood Stabilizer / Anticonvulsant",
-    description: "Divalproex sodium. Effective for manic episodes and mixed states. Also used as maintenance therapy.",
-    commonDoses: ["250mg", "500mg", "750mg", "1000mg", "1500mg"],
+    category: "Mood Stabilizers",
+    description: "Prevent the extreme highs and lows of bipolar disorder and reduce emotional volatility. For people with addiction, mood stabilizers are critical because untreated mood swings are one of the strongest relapse triggers.",
+    meds: [
+      {
+        id: "lithium",
+        name: "Lithium",
+        description: "The gold standard for bipolar disorder since the 1970s. Reduces suicide risk more than any other psychiatric medication. Requires regular blood level monitoring (therapeutic range is narrow). Dehydration from alcohol use, vomiting, or excessive sweating can push lithium to toxic levels. Symptoms of toxicity include tremor, confusion, and nausea. Kidney and thyroid function must be monitored long-term.",
+        commonDoses: ["300mg", "450mg", "600mg", "900mg", "1200mg"],
+      },
+      {
+        id: "depakote",
+        name: "Depakote (Divalproex)",
+        description: "Anticonvulsant used as a mood stabilizer. Particularly effective for rapid cycling and mixed episodes. Also has some evidence for reducing impulsivity, which is relevant to addiction. Liver function must be monitored — heavy alcohol use combined with Depakote significantly increases liver damage risk. Weight gain and hair thinning are common side effects. Contraindicated in pregnancy.",
+        commonDoses: ["250mg", "500mg", "750mg", "1000mg", "1500mg"],
+      },
+      {
+        id: "lamotrigine",
+        name: "Lamotrigine (Lamictal)",
+        description: "Anticonvulsant primarily used to prevent bipolar depressive episodes. One of the better-tolerated mood stabilizers — fewer cognitive side effects than lithium or Depakote. Must be titrated slowly over 6 to 8 weeks to avoid a rare but serious skin reaction (Stevens-Johnson syndrome). Any rash during titration requires immediate medical attention. Relatively safe with moderate alcohol use but alcohol still undermines its mood-stabilizing effect.",
+        commonDoses: ["25mg", "50mg", "100mg", "200mg", "300mg"],
+      },
+      {
+        id: "carbamazepine",
+        name: "Carbamazepine (Tegretol)",
+        description: "Anticonvulsant mood stabilizer. Used when lithium and Depakote are not tolerated. Also used for alcohol withdrawal seizure prevention. Induces liver enzymes, which means it can reduce the effectiveness of many other medications including birth control. Blood count monitoring required due to rare risk of aplastic anemia. Interacts with grapefruit juice.",
+        commonDoses: ["200mg", "400mg", "600mg", "800mg", "1200mg"],
+      },
+    ],
   },
   {
-    id: "seroquel",
-    name: "Seroquel",
-    type: "Atypical Antipsychotic",
-    description: "Quetiapine. Used for both manic and depressive episodes. Also helps with sleep at lower doses.",
-    commonDoses: ["25mg", "50mg", "100mg", "200mg", "300mg", "400mg"],
-  },
-  {
-    id: "naltrexone",
-    name: "Naltrexone",
-    type: "Opioid Antagonist / Anti-Craving",
-    description: "Blocks opioid receptors and reduces alcohol cravings. Available as daily pill or monthly injection (Vivitrol). Does not cause dependence.",
-    commonDoses: ["50mg daily", "380mg monthly injection"],
-  },
-  {
-    id: "gabapentin",
-    name: "Gabapentin",
-    type: "Anticonvulsant / Anxiolytic",
-    description: "Used off-label for anxiety, alcohol withdrawal, and craving reduction. Also helps with sleep and neuropathic pain. Lower abuse potential than benzodiazepines.",
-    commonDoses: ["100mg", "300mg", "600mg", "900mg"],
+    category: "Antipsychotics",
+    description: "Originally developed for schizophrenia, atypical antipsychotics are now widely used for bipolar disorder, treatment-resistant depression, and agitation. They work primarily by modulating dopamine and serotonin receptors.",
+    meds: [
+      {
+        id: "seroquel",
+        name: "Quetiapine (Seroquel)",
+        description: "One of the most prescribed psychiatric medications. FDA-approved for bipolar mania, bipolar depression, and as an add-on for major depression. At low doses (25 to 100mg) it is primarily sedating and used for insomnia. At higher doses (300 to 800mg) it has full antipsychotic and mood-stabilizing effects. Weight gain and metabolic syndrome are significant long-term risks. Blood sugar and cholesterol should be monitored. Combining with alcohol or opioids increases sedation dangerously.",
+        commonDoses: ["25mg", "50mg", "100mg", "200mg", "300mg", "400mg"],
+      },
+      {
+        id: "aripiprazole",
+        name: "Aripiprazole (Abilify)",
+        description: "Partial dopamine agonist — it stabilizes dopamine rather than simply blocking it. Less sedating and less metabolic impact than Seroquel. FDA-approved for bipolar mania, schizophrenia, and as an add-on for depression. Available as a monthly injection (Abilify Maintena) for people who struggle with daily pill adherence. Can cause akathisia (restlessness) which is sometimes mistaken for anxiety.",
+        commonDoses: ["2mg", "5mg", "10mg", "15mg", "20mg", "30mg"],
+      },
+      {
+        id: "olanzapine",
+        name: "Olanzapine (Zyprexa)",
+        description: "Potent antipsychotic effective for acute mania and psychotic features. Works quickly for agitation. The combination of olanzapine and fluoxetine (Symbyax) is FDA-approved for bipolar depression. Major downside is weight gain — average of 10 to 15 pounds in the first year. Increases risk of diabetes. Requires metabolic monitoring. Very sedating, which can be therapeutic for insomnia but problematic for daily functioning.",
+        commonDoses: ["2.5mg", "5mg", "10mg", "15mg", "20mg"],
+      },
+      {
+        id: "risperidone",
+        name: "Risperidone (Risperdal)",
+        description: "Effective for mania and psychotic symptoms. Available as a long-acting injection (Risperdal Consta) given every two weeks. At higher doses, can cause elevated prolactin levels leading to breast tenderness, menstrual changes, or sexual dysfunction. Less weight gain than olanzapine but more than aripiprazole. Can cause movement side effects (EPS) at higher doses.",
+        commonDoses: ["0.5mg", "1mg", "2mg", "3mg", "4mg"],
+      },
+      {
+        id: "lurasidone",
+        name: "Lurasidone (Latuda)",
+        description: "FDA-approved specifically for bipolar depression. Must be taken with food (at least 350 calories) for proper absorption. Lower metabolic risk than most other antipsychotics — less weight gain, less impact on blood sugar and cholesterol. Can cause nausea and akathisia. One of the better options when metabolic side effects are a concern.",
+        commonDoses: ["20mg", "40mg", "60mg", "80mg", "120mg"],
+      },
+    ],
   },
 ];
 
+/* Flat list for logging */
+const ALL_MEDICATIONS = MED_CATEGORIES.flatMap((cat) => cat.meds);
+
 function MedsPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "meds")!;
+  const [expandedCat, setExpandedCat] = useState<string | null>("Antidepressants");
   const [selectedMed, setSelectedMed] = useState<string | null>(null);
   const [showLogForm, setShowLogForm] = useState(false);
   const [logDose, setLogDose] = useState("");
@@ -1113,111 +1265,118 @@ function MedsPage(props: CategoryPageProps) {
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Medications</h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Mood stabilizers, anti-craving, and more</p>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Antidepressants, mood stabilizers, antipsychotics</p>
       </div>
 
-      <InfoSection title="Medication Compliance">
-        <p>Substances interfere with medication effectiveness. Alcohol reduces the efficacy of most psychiatric medications. Stimulants can counteract mood stabilizers. Beyond the chemistry, the impulsivity and cognitive distortion that come with active use make it easy to rationalize skipping doses. Consistent medication tracking is one of the most impactful things you can do for stability.</p>
-      </InfoSection>
+      {/* Category sections */}
+      {MED_CATEGORIES.map((medCat) => (
+        <div key={medCat.category}>
+          {/* Category header — clickable to expand/collapse */}
+          <button
+            onClick={() => setExpandedCat(expandedCat === medCat.category ? null : medCat.category)}
+            className="w-full text-left flex items-center justify-between py-3 border-b"
+            style={{ borderColor: "rgba(58, 42, 26, 0.15)" }}
+          >
+            <h3 className="text-lg" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>{medCat.category}</h3>
+            <span className="text-sm opacity-40 transition-transform" style={{ transform: expandedCat === medCat.category ? "rotate(180deg)" : "rotate(0)" }}>
+              ▼
+            </span>
+          </button>
 
-      <InfoSection title="Alcohol and Psychiatric Medications">
-        <p>In almost all cases, do not mix them. Alcohol interacts dangerously with lithium (dehydration affects blood levels), benzodiazepines (combined CNS depression), antidepressants (increased side effects and reduced efficacy), and antipsychotics (excessive sedation). Beyond interactions, alcohol destabilizes the mood you are trying to stabilize.</p>
-      </InfoSection>
+          <AnimatePresence>
+            {expandedCat === medCat.category && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                {/* Category description */}
+                <p className="text-sm opacity-60 leading-relaxed mt-3 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  {medCat.description}
+                </p>
 
-      <InfoSection title="Medications That Address Both Conditions">
-        <p>Naltrexone reduces alcohol and opioid cravings while being safe with most mood stabilizers. Gabapentin helps with anxiety, sleep, and alcohol cravings. Some antidepressants (particularly bupropion) can help with both depression and nicotine/stimulant cravings. Your prescriber should know about both conditions to choose medications that address the full picture.</p>
-      </InfoSection>
+                {/* Individual medication cards */}
+                <div className="flex flex-col gap-3">
+                  {medCat.meds.map((med) => (
+                    <div
+                      key={med.id}
+                      className="p-4 rounded-xl border transition-all"
+                      style={{
+                        borderColor: selectedMed === med.id ? category.color : "rgba(58, 42, 26, 0.1)",
+                        background: selectedMed === med.id ? `${category.color}08` : "white",
+                      }}
+                    >
+                      <h4 className="text-base font-semibold" style={{ color: "#3a2a1a" }}>{med.name}</h4>
+                      <p className="text-sm opacity-60 mt-2 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>{med.description}</p>
 
-      <InfoSection title="If You Relapse While on Medication">
-        <p>Do not stop your medication. Contact your prescriber. A relapse does not erase the progress your medication has made on your mood stability. Stopping medication during a relapse creates a double crisis: active use plus unmedicated mood disorder. Your treatment team needs to know so they can adjust your plan, not so they can judge you.</p>
-      </InfoSection>
+                      <div className="mt-3 flex items-center gap-2 flex-wrap">
+                        <button
+                          onClick={() => { setSelectedMed(med.id); setShowLogForm(true); }}
+                          className="text-xs uppercase tracking-wider px-3 py-1.5 rounded-full text-white transition"
+                          style={{ background: category.color }}
+                        >
+                          + Log Dose
+                        </button>
+                        <span className="text-xs opacity-40">
+                          Doses: {med.commonDoses.join(", ")}
+                        </span>
+                      </div>
 
-      {/* Medication Reference Cards */}
-      <div>
-        <h3 className="text-xs uppercase tracking-[0.15em] opacity-50 font-medium mb-3">Medication Reference</h3>
-        <div className="flex flex-col gap-3">
-          {MEDICATIONS.map((med) => (
-            <div
-              key={med.id}
-              className="p-4 rounded-xl border transition-all"
-              style={{
-                borderColor: selectedMed === med.id ? category.color : "rgba(58, 42, 26, 0.1)",
-                background: selectedMed === med.id ? `${category.color}08` : "white",
-              }}
-            >
-              <div>
-                <h3 className="text-lg font-semibold" style={{ color: "#3a2a1a" }}>{med.name}</h3>
-                <span
-                  className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full inline-block mt-1"
-                  style={{ background: `${category.color}20`, color: category.color }}
-                >
-                  {med.type}
-                </span>
-                <p className="text-sm opacity-60 mt-2 leading-relaxed">{med.description}</p>
-              </div>
-
-              <div className="mt-3 flex items-center gap-2">
-                <button
-                  onClick={() => { setSelectedMed(med.id); setShowLogForm(true); }}
-                  className="text-xs uppercase tracking-wider px-3 py-1.5 rounded-full text-white transition"
-                  style={{ background: category.color }}
-                >
-                  + Log Dose
-                </button>
-                <span className="text-xs opacity-40">
-                  Doses: {med.commonDoses.join(", ")}
-                </span>
-              </div>
-
-              {showLogForm && selectedMed === med.id && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  className="mt-3 pt-3 border-t flex items-center gap-2 flex-wrap"
-                  style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
-                >
-                  <select
-                    value={logDose}
-                    onChange={(e) => setLogDose(e.target.value)}
-                    className="px-2 py-1.5 rounded-lg border text-sm bg-white"
-                    style={{ borderColor: "rgba(58, 42, 26, 0.15)" }}
-                  >
-                    <option value="">Select dose</option>
-                    {med.commonDoses.map((d) => (
-                      <option key={d} value={d}>{d}</option>
-                    ))}
-                  </select>
-                  <input
-                    type="time"
-                    value={logTime}
-                    onChange={(e) => setLogTime(e.target.value)}
-                    className="px-2 py-1.5 rounded-lg border text-sm bg-white"
-                    style={{ borderColor: "rgba(58, 42, 26, 0.15)" }}
-                  />
-                  <button
-                    onClick={() => logDose && handleLogMed(med.name, logDose, logTime)}
-                    className="px-3 py-1.5 rounded-lg text-xs uppercase tracking-wider text-white"
-                    style={{ background: logDose ? category.color : "#ccc" }}
-                    disabled={!logDose}
-                  >
-                    Save
-                  </button>
-                  <button
-                    onClick={() => { setShowLogForm(false); setSelectedMed(null); }}
-                    className="text-xs opacity-40 hover:opacity-70"
-                  >
-                    Cancel
-                  </button>
-                </motion.div>
-              )}
-            </div>
-          ))}
+                      {showLogForm && selectedMed === med.id && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          className="mt-3 pt-3 border-t flex items-center gap-2 flex-wrap"
+                          style={{ borderColor: "rgba(58, 42, 26, 0.1)" }}
+                        >
+                          <select
+                            value={logDose}
+                            onChange={(e) => setLogDose(e.target.value)}
+                            className="px-2 py-1.5 rounded-lg border text-sm bg-white"
+                            style={{ borderColor: "rgba(58, 42, 26, 0.15)" }}
+                          >
+                            <option value="">Select dose</option>
+                            {med.commonDoses.map((d) => (
+                              <option key={d} value={d}>{d}</option>
+                            ))}
+                          </select>
+                          <input
+                            type="time"
+                            value={logTime}
+                            onChange={(e) => setLogTime(e.target.value)}
+                            className="px-2 py-1.5 rounded-lg border text-sm bg-white"
+                            style={{ borderColor: "rgba(58, 42, 26, 0.15)" }}
+                          />
+                          <button
+                            onClick={() => logDose && handleLogMed(med.name, logDose, logTime)}
+                            className="px-3 py-1.5 rounded-lg text-xs uppercase tracking-wider text-white"
+                            style={{ background: logDose ? category.color : "#ccc" }}
+                            disabled={!logDose}
+                          >
+                            Save
+                          </button>
+                          <button
+                            onClick={() => { setShowLogForm(false); setSelectedMed(null); }}
+                            className="text-xs opacity-40 hover:opacity-70"
+                          >
+                            Cancel
+                          </button>
+                        </motion.div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </div>
+      ))}
 
       {/* Today's med log */}
       {todayEntries.length > 0 && (
-        <div>
+        <div className="pt-4">
           <h3 className="text-xs uppercase tracking-[0.15em] opacity-50 font-medium mb-3">Today's Doses</h3>
           <div className="flex flex-col gap-2">
             {todayEntries.map((entry) => (
