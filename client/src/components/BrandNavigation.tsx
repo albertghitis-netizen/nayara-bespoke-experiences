@@ -410,7 +410,7 @@ export default function BrandNavigation({
               className={`${pill} h-9 px-4`}
               style={pillStyle}
             >
-              <span className="text-xs tracking-[0.08em] uppercase" style={{ ...menuText, color: dk }}>Reserve</span>
+              <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
             </button>
 
             <AnimatePresence>
@@ -539,7 +539,7 @@ export default function BrandNavigation({
               className={`${pill} h-9 px-4`}
               style={pillStyle}
             >
-              <span className="text-xs tracking-[0.08em] uppercase" style={{ ...menuText, color: dk }}>Reserve</span>
+              <span className="text-xs tracking-[0.08em]" style={{ ...menuText, color: dk }}>Reserve</span>
             </button>
             <AnimatePresence>
               {reserveOpen && (

@@ -79,7 +79,6 @@ const CURATED_IDS: string[] = [
   // Row 7
   "toucans-arenal",
   "pura-vida",
-  "bocas-facts",
   // Row 8
   "edge-habitability",
   "wildlife-arenal-bocas",

@@ -424,16 +424,13 @@ export default function BocasOperationsBlog() {
         </div>
       </section>
 
-      {/* ── TREEHOUSE VIDEO BREAK ────────────────────────────────── */}
+      {/* ── TREEHOUSE STILL IMAGE BREAK ────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ height: "60vh" }}>
-        <video
-          autoPlay
-          muted
-          playsInline
+        <img
+          src="/manus-storage/bocas-ibuku-treehouses-lastframe_3e0ff35a.jpg"
+          alt="IBUKU treehouses at Nayara Bocas del Toro, 50 feet above the rainforest"
           className="w-full h-full object-cover object-center"
-        >
-          <source src="/manus-storage/bocas-ibuku-treehouses_85e17e6a.mp4" type="video/mp4" />
-        </video>
+        />
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(11,79,94,0.6) 100%)" }}

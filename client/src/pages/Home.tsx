@@ -391,24 +391,26 @@ function PropertiesSection() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                    <div className="absolute top-4 left-4 z-10">
+                      <span
+                        className="inline-block px-4 py-1.5 rounded-full text-[11px] tracking-[0.18em] uppercase backdrop-blur-sm"
+                        style={{ fontFamily: "var(--font-display)", fontWeight: 700, color: "#3B2B26", backgroundColor: "rgba(247,245,240,0.85)", letterSpacing: "0.18em" }}
+                      >
+                        {prop.name}
+                      </span>
+                    </div>
                   </div>
                 </Link>
-                <div className="flex items-start justify-between gap-2">
+                <div className="flex items-center justify-between gap-2">
                   <div>
-                    <h3
-                      className="text-[15px] mb-0.5"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-                    >
-                      {prop.name}
-                    </h3>
                     <p
-                      className="text-[11px] tracking-[0.06em]"
+                      className="text-[13px] tracking-[0.04em]"
                       style={{ fontFamily: "var(--font-body)", color: "#0D0604" }}
                     >
                       {prop.tagline}
                     </p>
                   </div>
-                  <div className="flex gap-2 flex-shrink-0 mt-0.5">
+                  <div className="flex gap-2 flex-shrink-0">
                     <a
                       href={BOOKING_URLS[prop.bookingId]}
                       target="_blank"
@@ -421,7 +423,7 @@ function PropertiesSection() {
                     <Link
                       href={prop.route}
                       className="inline-flex items-center justify-center h-8 px-4 rounded-full text-[10px] tracking-[0.1em] transition-all duration-300"
-                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: `1px solid ${PALETTE.divider}`, color: PALETTE.textSecondary }}
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 500, border: `2px solid ${PALETTE.divider}`, color: PALETTE.textSecondary }}
                     >
                       Explore
                     </Link>

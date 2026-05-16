@@ -192,7 +192,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
             aria-label="Concierge"
           >
             <span
-              className="text-[11px] font-medium tracking-[0.25em] uppercase whitespace-nowrap flex items-center justify-center"
+              className="text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
               style={{ color: dk, fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Concierge

@@ -1487,7 +1487,6 @@ export const properties: Property[] = [
       { id: "facial", label: "Skin Care" },
     ],
     blogLinks: [
-      { title: "5 Interesting Facts About Bocas del Toro, Panama", url: "/blog/bocas-facts" },
       { title: "Nayara Bocas del Toro Treehouse", url: "/blog/treehouse-dreams" },
       { title: "Biodensity, Underwater Mountains & Our Ecosystems", url: "/blog/biodensity-underwater" },
       { title: "Wildlife Conservation in Arenal and Bocas del Toro", url: "/blog/arenal-bocas-wildlife" },
