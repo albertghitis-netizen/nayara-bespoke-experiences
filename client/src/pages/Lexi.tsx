@@ -24,8 +24,7 @@ const CATEGORIES = [
   { id: "meds", label: "Meds", color: "#8B6B7A", icon: "⊕" },
   { id: "social", label: "Social", color: "#6B8A9E", icon: "◇" },
   { id: "triggers", label: "Triggers", color: "#A65D5D", icon: "⚡" },
-  { id: "sobriety", label: "Sobriety", color: "#4A7C6B", icon: "◎" },
-  { id: "cravings", label: "Cravings", color: "#9B6B3A", icon: "◆" },
+  { id: "addiction", label: "Addiction", color: "#4A7C6B", icon: "◎" },
 ] as const;
 
 type CategoryId = (typeof CATEGORIES)[number]["id"];
@@ -273,7 +272,7 @@ export default function Lexi() {
           onClick={() => { setActiveView("calendar"); setMenuOpen(false); }}
           className="flex items-center justify-center h-11 px-5 rounded-full backdrop-blur-md shadow-lg transition-all duration-300"
           style={{
-            background: activeView === "calendar" ? "rgba(92, 107, 74, 0.85)" : "rgba(58, 42, 26, 0.7)",
+            background: "rgba(92, 107, 74, 0.85)",
           }}
         >
           <span className="text-white text-[11px] tracking-[0.2em] uppercase font-medium">
@@ -340,10 +339,8 @@ export default function Lexi() {
           <SocialPage {...categoryProps("social")} />
         ) : activeView === "triggers" ? (
           <TriggersPage {...categoryProps("triggers")} />
-        ) : activeView === "sobriety" ? (
-          <SobrietyPage {...categoryProps("sobriety")} />
-        ) : activeView === "cravings" ? (
-          <CravingsPage {...categoryProps("cravings")} />
+        ) : activeView === "addiction" ? (
+          <AddictionPage {...categoryProps("addiction")} />
         ) : (
           <CategoryPage
             category={CATEGORIES.find((c) => c.id === activeView)!}
@@ -780,11 +777,6 @@ function HomePage() {
     <div className="space-y-8">
       {/* Hero */}
       <div className="text-center pt-4">
-        <img
-          src={LOGO_URL}
-          alt="Lexi"
-          className="h-20 w-20 object-contain mx-auto mb-4"
-        />
         <h1
           className="text-3xl tracking-wide mb-2"
           style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
@@ -1469,32 +1461,40 @@ function TriggersPage(props: CategoryPageProps) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SOBRIETY PAGE — FAQ Format (NEW)
+   ADDICTION PAGE — FAQ Format (substance-specific)
    ═══════════════════════════════════════════════════════════════ */
 
-function SobrietyPage(props: CategoryPageProps) {
-  const category = CATEGORIES.find((c) => c.id === "sobriety")!;
+function AddictionPage(props: CategoryPageProps) {
+  const category = CATEGORIES.find((c) => c.id === "addiction")!;
 
   const faq: FAQItem[] = [
     {
-      question: "What does sobriety look like with a mood disorder?",
-      answer: "Sobriety in dual diagnosis is not just abstinence from substances. It is the active process of building a life where you manage both your addiction and your mood disorder simultaneously. Some days, sobriety means resisting a craving. Other days, it means taking your medication even when depression tells you nothing matters. It is a daily practice, not a destination.",
+      question: "How does alcohol interact with mood disorders?",
+      answer: "Alcohol is a central nervous system depressant that initially produces relaxation and euphoria by boosting GABA and dopamine. But chronic use suppresses serotonin production and disrupts sleep architecture. For people with depression, alcohol deepens depressive episodes within days of heavy use. For people with bipolar disorder, alcohol can trigger rapid cycling between mania and depression. Withdrawal from alcohol can produce anxiety, insomnia, and seizures that mimic or worsen mood episodes. Alcohol is the most common substance involved in dual diagnosis.",
     },
     {
-      question: "Does getting sober fix the mood disorder?",
-      answer: "No. Removing substances removes one major destabilizer, but the mood disorder remains and still requires treatment. In fact, early sobriety often feels worse before it feels better because you are now experiencing emotions without the numbing effect of substances. This is normal and temporary. Your brain needs time to recalibrate its natural chemistry. Most people see significant mood improvement between 3 and 12 months of sustained sobriety.",
+      question: "How does cocaine affect people with mood disorders?",
+      answer: "Cocaine floods the brain with dopamine, producing intense euphoria followed by a severe crash. For people with depression, the crash is devastating because the brain was already low on dopamine. For people with bipolar disorder, cocaine can trigger manic episodes and psychosis. The comedown mimics a depressive episode so closely that it is often impossible to tell where the drug effect ends and the mood disorder begins. Chronic cocaine use permanently reduces the brain's ability to produce dopamine naturally, making the underlying mood disorder worse over time.",
     },
     {
-      question: "What is the relationship between relapse and mood episodes?",
-      answer: "They are deeply intertwined. Depressive episodes are the number one predictor of relapse because the pain of depression drives the search for relief. Manic episodes lower inhibition and impair judgment, making it easy to justify using. Conversely, substance use triggers mood episodes. A single night of heavy drinking can destabilize weeks of mood stability. Understanding this cycle is essential to breaking it.",
+      question: "What is the relationship between marijuana and mood disorders?",
+      answer: "Marijuana affects the endocannabinoid system, which regulates mood, sleep, appetite, and stress response. Short-term use can reduce anxiety, but chronic use disrupts the brain's natural ability to regulate these functions. High-THC strains are associated with increased risk of psychosis, particularly in people with bipolar disorder or schizophrenia. For depression, marijuana creates a cycle of temporary relief followed by amotivation and emotional blunting. Many people underestimate marijuana's impact because it feels less dangerous than other substances, but for dual diagnosis it can be a significant destabilizer.",
     },
     {
-      question: "How do I count sober days when I also have mood episodes?",
-      answer: "A mood episode is not a failure of sobriety. Having a depressive or manic episode while sober does not reset your sobriety count. These are two separate conditions. Your sobriety count tracks substance use. Your mood tracking tracks episodes. Both matter. Both are progress. Do not let a mood episode convince you that sobriety is not working.",
+      question: "How do crack and meth affect mood disorders?",
+      answer: "Crack cocaine and methamphetamine are both powerful stimulants that produce extreme dopamine surges. Crack delivers a shorter, more intense high than powder cocaine, leading to rapid binge cycles. Meth produces a longer high but causes severe neurotoxicity, literally damaging dopamine-producing neurons. Both substances can trigger psychosis, paranoia, and aggression even in people without pre-existing conditions. For people with mood disorders, these substances accelerate the progression of the illness. Meth in particular can cause permanent changes to brain structure that worsen depression and anxiety for years after the last use.",
     },
     {
-      question: "What should I log for sobriety tracking?",
-      answer: "Log your sober day count, any urges or close calls, what helped you stay sober today, and your overall sense of recovery strength on a 1 to 10 scale. On difficult days, write what got you through. On good days, write what made it good. Over time, this log becomes evidence that recovery is possible, which is invaluable during the moments when your brain tells you it is not.",
+      question: "How does Xanax and benzodiazepine use complicate mood disorders?",
+      answer: "Benzodiazepines like Xanax, Klonopin, and Valium are prescribed for anxiety but carry high addiction potential. They work by enhancing GABA, producing calm and sedation. Tolerance develops quickly, requiring higher doses for the same effect. Withdrawal from benzodiazepines is medically dangerous and can include seizures, panic attacks, and rebound anxiety worse than the original condition. For people with mood disorders, benzodiazepine dependence creates a secondary layer of chemical instability. The withdrawal cycle can trigger depressive and manic episodes, and the cognitive impairment from chronic use interferes with therapy and self-awareness.",
+    },
+    {
+      question: "How do opiates interact with mood disorders?",
+      answer: "Opiates including heroin, fentanyl, oxycodone, and hydrocodone hijack the brain's endorphin system. They produce profound pain relief and euphoria by binding to mu-opioid receptors. For people with depression, opiates feel like the first time they have not been in emotional pain, which makes them extraordinarily addictive in this population. Chronic opiate use suppresses the brain's natural endorphin production, creating a state where you cannot feel pleasure or relief without the drug. Withdrawal produces severe physical symptoms plus depression and anxiety that can last months. Medication-assisted treatment with buprenorphine or methadone is often essential for people with co-occurring opiate addiction and mood disorders.",
+    },
+    {
+      question: "What should I log for addiction tracking?",
+      answer: "Log your substance of concern, days since last use, craving intensity on a 1 to 10 scale, what triggered the craving, what coping strategy you used, and your mood state at the time. If you used, log that honestly without judgment. The data is for you. Over time, this log reveals which mood states precede cravings, which situations are highest risk, and which coping strategies actually work versus which ones you think should work but do not.",
     },
   ];
 
@@ -1503,75 +1503,23 @@ function SobrietyPage(props: CategoryPageProps) {
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Sobriety
+          Addiction
         </h2>
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Track your recovery, one day at a time
+          Understanding how substances interact with your mood
         </p>
       </div>
 
       <FAQSection items={faq} accentColor={category.color} />
 
       <LoggingSection
-        categoryId="sobriety"
+        categoryId="addiction"
         categoryColor={category.color}
-        logLabel="Log Sobriety"
+        logLabel="Log Entry"
         {...props}
       />
     </div>
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   CRAVINGS PAGE — FAQ Format (NEW)
-   ═══════════════════════════════════════════════════════════════ */
 
-function CravingsPage(props: CategoryPageProps) {
-  const category = CATEGORIES.find((c) => c.id === "cravings")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "What exactly is a craving?",
-      answer: "A craving is a powerful urge to use a substance, driven by your brain's reward system. It involves the same neural pathways (primarily dopamine in the nucleus accumbens) that are activated during actual use. Cravings are not a sign of weakness. They are a neurological response that your brain has been conditioned to produce. Understanding this removes the shame and lets you treat cravings as data rather than character flaws.",
-    },
-    {
-      question: "How do mood states affect craving intensity?",
-      answer: "Depression amplifies cravings because the brain is seeking relief from emotional pain, and it remembers that substances provided temporary relief. Anxiety increases cravings because the brain wants to calm down fast. Mania reduces the perceived risk of using, making cravings feel more like good ideas than dangerous urges. Every mood state has its own craving profile, which is why tracking both mood and cravings together reveals patterns that neither alone would show.",
-    },
-    {
-      question: "How long do cravings last?",
-      answer: "Individual craving episodes typically peak within 15 to 30 minutes and then subside. This is called 'urge surfing.' The intensity and frequency of cravings decrease over time with sustained sobriety, but they can resurface months or years later, often triggered by stress, mood episodes, or environmental cues. Knowing that cravings are temporary and survivable is one of the most important facts in recovery.",
-    },
-    {
-      question: "What is urge surfing?",
-      answer: "Urge surfing is a mindfulness technique where you observe the craving without acting on it. Instead of fighting it or giving in, you notice it: where you feel it in your body, how intense it is on a 1 to 10 scale, what triggered it. You watch it rise, peak, and fall. Each time you successfully surf an urge, you strengthen the neural pathways for self-regulation and weaken the pathways for automatic substance-seeking behavior.",
-    },
-    {
-      question: "What should I log when I have a craving?",
-      answer: "Log the time, intensity (1 to 10), what triggered it (emotion, person, place, thought), what you did instead of using, and how long it lasted. Also note your mood state at the time. Over weeks and months, this data reveals your craving patterns: time of day, emotional states, specific triggers, and which coping strategies actually work for you versus which ones you think should work but do not.",
-    },
-  ];
-
-  return (
-    <div className="space-y-6">
-      <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Cravings
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Observe, track, and outlast them
-        </p>
-      </div>
-
-      <FAQSection items={faq} accentColor={category.color} />
-
-      <LoggingSection
-        categoryId="cravings"
-        categoryColor={category.color}
-        logLabel="Log Craving"
-        {...props}
-      />
-    </div>
-  );
-}
