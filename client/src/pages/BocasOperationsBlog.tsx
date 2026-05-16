@@ -41,7 +41,7 @@ export default function BocasOperationsBlog() {
         datePublished="2025-05-15"
         url="https://nayararesorts.manus.space/blog/how-we-built-a-hotel-on-an-island"
       />
-      <BrandNavigation pageType="brand" hideCenterLabel />
+      <BrandNavigation pageType="brand" hideCenterLabel navPalette={{ dark: "#FFFFFF", pillBg: "#1E3A8AB3", pillHover: "#1E3A8AE6" }} />
 
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="relative h-screen w-full overflow-hidden">
@@ -53,13 +53,13 @@ export default function BocasOperationsBlog() {
           className="w-full h-full object-cover object-center"
           poster={`${CDN}/bocas-aerial-island_34b68171.jpg`}
         >
-          <source src="/manus-storage/bocas-island-blog-hero-noaudio_38553ba8.mp4" type="video/mp4" />
+          <source src="/manus-storage/bocas-hero-v2_a0ea8700.mp4" type="video/mp4" />
         </video>
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom, rgba(11,79,94,0.3) 0%, rgba(11,79,94,0.7) 100%)" }}
         />
-        <div className="absolute inset-0 flex flex-col justify-end items-center pb-16 md:pb-24 px-6">
+        <div className="absolute inset-0 flex flex-col justify-end items-center pb-8 md:pb-12 px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,10 +73,10 @@ export default function BocasOperationsBlog() {
               Beyond Sustainability
             </p>
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-6 text-white"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+              className="text-3xl md:text-5xl lg:text-[3.5rem] leading-[1.1] mb-6 text-white"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontVariantLigatures: "none" }}
             >
-              How Nayara Built an Off-Grid Resort on a Private Island in Panama
+              How Nayara Built an <span className="whitespace-nowrap">Off‑Grid</span> Resort<br className="hidden md:inline" /> on a Private Island in Panama
             </h1>
             <p
               className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
@@ -400,7 +400,7 @@ export default function BocasOperationsBlog() {
               className="text-3xl md:text-4xl mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.ocean }}
             >
-              IBUKU Treehouses: 50 Feet Above the Bocas del Toro Rainforest
+              IBUKU Treehouses: 50 Feet Above the Rainforest
             </h2>
             <p
               className="text-[16px] md:text-[18px] leading-[1.9] mb-6"
@@ -424,14 +424,16 @@ export default function BocasOperationsBlog() {
         </div>
       </section>
 
-      {/* ── TREEHOUSE IMAGE BREAK ────────────────────────────────── */}
+      {/* ── TREEHOUSE VIDEO BREAK ────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ height: "60vh" }}>
-        <img
-          src={`${CDN}/bocas-aerial-resort-treehouses_be44e763.jpg`}
-          alt="Aerial view of IBUKU-designed treehouses rising above the forest canopy"
+        <video
+          autoPlay
+          muted
+          playsInline
           className="w-full h-full object-cover object-center"
-          loading="lazy"
-        />
+        >
+          <source src="/manus-storage/bocas-ibuku-treehouses_85e17e6a.mp4" type="video/mp4" />
+        </video>
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(11,79,94,0.6) 100%)" }}
@@ -581,7 +583,7 @@ export default function BocasOperationsBlog() {
         </div>
       </section>
 
-      <Footer bgColor="#0B4F5E" textColor="#FFFFFF" />
+      <Footer bgColor="#1E3A8A" textColor="#FFFFFF" propertyName="Bocas del Toro" />
     </div>
   );
 }

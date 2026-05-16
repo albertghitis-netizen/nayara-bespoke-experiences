@@ -40,9 +40,13 @@ interface ConciergeChatWidgetProps {
 export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProps = {}) {
   const [loc] = useLocation();
   const slug = loc.split("/")[1] || "";
+  const fullPath = loc;
   const costaRicaRoutes = ["curated-excursions", "costa-rica-wellness", "tented-camp/gastronomy", "tented-camp-sustainability"];
+  // Bocas-specific blog pages should use Bocas palette
+  const bocasBlogRoutes = ["/blog/how-we-built-a-hotel-on-an-island"];
+  const isBocasBlog = bocasBlogRoutes.some(r => fullPath.startsWith(r));
   const autoPalette = ["tented-camp", "gardens", "springs", "alto-atacama", "bocas-del-toro", "hangaroa"].includes(slug)
-    ? getPalette(slug) : null;
+    ? getPalette(slug) : isBocasBlog ? getPalette("bocas-del-toro") : null;
   const isCostaRica = costaRicaRoutes.includes(slug);
   const dk = "#FFFFFF";  // Bright white text for concierge button
   const isBrandHome = slug === "";
@@ -188,7 +192,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
             aria-label="Concierge"
           >
             <span
-              className="text-xs font-medium tracking-[0.08em] whitespace-nowrap flex items-center justify-center"
+              className="text-[11px] font-medium tracking-[0.25em] uppercase whitespace-nowrap flex items-center justify-center"
               style={{ color: dk, fontFamily: "var(--font-body)", fontWeight: 500 }}
             >
               Concierge
