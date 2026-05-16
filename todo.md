@@ -3751,3 +3751,40 @@
 - [x] Scrape solo travel blog images from HubSpot and add to SoloTravelFemaleBlog
 - [x] Add Bocas Condé Nast hero image from HubSpot
 - [x] Final audit: all 31 blogs compile clean, have Footer, Explore More, no dividers, no stubs
+
+## Reading Time + Author Profile
+- [ ] Build reusable BlogAuthorReadTime component (dynamic word count, reading time, author avatar + name + date)
+- [ ] Prototype on one blog (PuraVidaBlog via BlogPostTemplate) for user approval
+- [ ] Roll out to all 15 BlogPostTemplate-driven blogs
+- [ ] Roll out to all 16 standalone blogs
+- [ ] Verify all 31 blogs display reading time + author profile correctly
+
+## Pura Vida Blog — Verbatim Rewrite
+- [ ] Rewrite Pura Vida blog to match HubSpot original verbatim (title, intro, sections, FAQ, sources)
+- [ ] Grab all images from HubSpot Pura Vida blog and add to blog
+- [ ] Fix Sources section background to always contrast with section above
+- [ ] Remove full-section espresso treatment; use espresso only for pull quote blocks
+
+## Community Blog Fixes
+- [ ] Crop kitchen team photo to ultra-wide blog hero aspect ratio
+- [ ] Replace Community blog hero with new kitchen team photo
+- [ ] Fix missing blog nav at top of Community blog
+- [ ] Scrape images from HubSpot "A Collapse That Wasn't a Collapse" blog and add to /blog/maya-rapa-nui-climate
+- [ ] Move old Community blog hero (pura-vida-hero) to a Costa Rica blog missing its hero
+
+## Lexi App (Dual Diagnosis Management Tool)
+- [x] Create Lexi landing/app page at /lexi with own identity (no Nayara nav)
+- [x] Logo: olive green leaf-L wordmark (lexi-logo-final.png)
+- [x] Hamburger (left): Mood, Therapy, Sleep, Nutrition, Exercise, Meds, Social, Triggers, Sobriety, Cravings
+- [x] Calendar pill (right): unified color-coded calendar view
+- [x] Category colors: Mood=#C9A96E, Therapy=#5C6B4A, Sleep=#5A6B7A, Nutrition=#7A9E7E, Exercise=#B8704A, Meds=#8B6B7A, Social=#5A7B9E, Triggers=#C45D3E, Sobriety=#2E8B6E, Cravings=#9E7B3E
+- [x] Each category has its own sub-page with FAQ format
+- [x] Calendar entries with 5-minute-before reminder/beep notification
+- [x] Background: bone/cream (#F7F5F0), text: espresso (#3a2a1a)
+- [x] Rewrite from bipolar-only to dual diagnosis (addiction + mood disorders)
+- [x] Add Sobriety category with dedicated SobrietyPage (FAQ + logging)
+- [x] Add Cravings category with dedicated CravingsPage (FAQ + logging)
+- [x] All 10 category pages use FAQ accordion format
+- [x] Homepage explains dual diagnosis, amplification cycle, and routine importance
+- [x] MedsPage includes addiction-relevant medications (Naltrexone, Gabapentin, Buprenorphine)
+- [x] TriggersPage includes HALT framework for dual diagnosis

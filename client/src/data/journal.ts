@@ -220,12 +220,12 @@ const blogArticles: JournalEntry[] = [
 
   {
     id: "pura-vida",
-    title: "Pura Vida: The Science of Why Costa Rica Is the Healthiest Country on Earth",
+    title: "Pura Vida and the Science of Why Costa Rica Feels Different",
     url: "/blog/pura-vida",
     property: "brand",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/IMG_9102.jpg",
-    excerpt: "Pura Vida isn't just a saying , it's a measurable phenomenon. The science behind why Costa Rica consistently ranks among the happiest places on Earth.",
+    image: "/manus-storage/pura-vida-hero_9a138a66.jpeg",
+    excerpt: "On World Health Day, we explore the science behind Costa Rica's wellbeing, from nature exposure and time affluence to the Blue Zone of Nicoya, and what Pura Vida really means.",
     featured: true,
   },
   {

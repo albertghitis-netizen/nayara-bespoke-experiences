@@ -82,6 +82,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const Staff = lazy(() => import("./pages/Staff"));
 // const Sharalynn = lazy(() => import("./pages/Sharalynn")); // ARCHIVED: Can be restored if needed
 const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
+const Lexi = lazy(() => import("./pages/Lexi"));
 
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
 /* Atacama/Bocas/Hangaroa deep pages now use the universal shared components */
@@ -324,6 +325,7 @@ function Router() {
           {/* ── Internal / Private pages ── */}
           {/* ARCHIVED ROUTES: /internal-brandbook and /internal-henry - Component files still exist */}
           <Route path="/test-floorplan" component={FloorPlanTest} />
+          <Route path="/lexi" component={Lexi} />
           {/* ARCHIVED ROUTE: /sharalynn - Component file still exists at ./pages/Sharalynn.tsx */}
 
           <Route path="/404" component={NotFound} />

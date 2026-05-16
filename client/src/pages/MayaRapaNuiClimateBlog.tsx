@@ -24,7 +24,7 @@ const mayaRapaNuiClimatePost: BlogPostData = {
   pillar: "Sustainability",
   tags: ["Maya", "Rapa Nui", "Easter Island", "Climate Change", "Archaeology", "Collapse Narratives", "Resilience", "Nayara Hangaroa", "Dr. Kenneth Seligson"],
   readingTime: 14,
-  heroImage: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+  heroImage: "/manus-storage/maya-rapa-nui-hero-moai-sunset_a87477ad.jpeg",
   keyFindings: [
     "The Maya did not vanish. During the Late Classic and Terminal Classic periods, what changed most dramatically was political authority, not cultural continuity. Maya communities persisted, reorganized, and continued to live as Maya long after dynastic monuments ceased.",
     "Rapa Nui did not experience a demographic collapse before European contact. Population modeling, radiocarbon evidence, and settlement patterns support resilience and continuity prior to the nineteenth century.",
@@ -33,6 +33,7 @@ const mayaRapaNuiClimatePost: BlogPostData = {
   sections: [
     {
       heading: "Why Diamond's Collapse Template Took Hold",
+      image: { src: "/manus-storage/maya-rapa-nui-pyramid-moai_425c64ac.jpeg", alt: "Maya pyramid at Chichén Itzá alongside moai statues of Rapa Nui" },
       content: `<p>For more than two decades, Rapa Nui and the Maya have been framed as cautionary tales. In popular culture and academic shorthand alike, they are presented as societies that exceeded environmental limits, triggered their own collapse, and vanished as warnings to the modern world.</p>
 <p>That framing entered public consciousness most forcefully through Jared Diamond's <em>Collapse</em>, which cast Rapa Nui as an extreme case of ecological self-destruction and extended the same logic to the Maya. The argument is elegant. It is memorable. It is also incorrect.</p>
 <p>Its durability has less to do with evidence than with psychology. Collapse narratives satisfy modern anxieties about climate, consumption, and limits. They reduce complex histories into moral lessons. They make the past feel manageable.</p>
@@ -57,6 +58,7 @@ const mayaRapaNuiClimatePost: BlogPostData = {
     },
     {
       heading: "A Dig Teaches You to Distrust Neat Stories",
+      image: { src: "/manus-storage/maya-rapa-nui-figurine_f9e348f4.jpeg", alt: "Xanab Chak ceramic figurine recovered from the Puuc region" },
       content: `<p>If you spend enough time excavating, you learn that sweeping narratives often collapse under small evidence.</p>
 <p>At the site of Xanab Chak in the Puuc region, one of the most instructive lessons came from a single object. A ceramic figurine with unusually stylized eyes, holding what appears to be a bowl-like vessel, was recovered from an early context. It was unlike anything previously documented in the northern Maya lowlands and forced a reassessment of early connections and local innovation.</p>
 <p>One figurine does not rewrite Maya history. But it dismantles lazy assumptions. It forces better questions. It reminds us that what we think we know often reflects what we have been trained to expect.</p>
@@ -98,6 +100,7 @@ const mayaRapaNuiClimatePost: BlogPostData = {
     },
     {
       heading: "What the Maya and Rapa Nui Actually Share",
+      image: { src: "/manus-storage/maya-rapa-nui-archaeologist_6dc20fe6.jpeg", alt: "Dr. Kenneth Seligson at a Maya archaeological site in the Yucatán" },
       content: `<p>They do not share a time period. They do not share ecology. They do not share political structure.</p>
 <p>What they share is how they have been turned into parables.</p>
 <p>Both are treated as mysteries. Both are treated as vanished. Both are treated as proof that Indigenous societies were careless stewards of their environments.</p>

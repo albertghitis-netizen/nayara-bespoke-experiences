@@ -55,7 +55,7 @@ const RELATED_ARTICLES = [
   },
   {
     slug: "/blog/pura-vida",
-    title: "Pura Vida: The Science of Why Costa Rica Is the Healthiest Country on Earth",
+    title: "Pura Vida: The Science of Why Costa Rica is the Healthiest Country on Earth",
     pillar: "Wellness",
     image: "/manus-storage/flamingos-salt-flat_018bb536.webp",
   },

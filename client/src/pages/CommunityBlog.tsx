@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import Footer from "@/components/Footer";
 import { EnhancedArticleSchema } from "@/components/SEOSchemaEnhanced";
+import BrandNavigation from "@/components/BrandNavigation";
+import BlogAuthorReadTime from "@/components/BlogAuthorReadTime";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
@@ -52,7 +54,7 @@ export default function CommunityBlog() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.cream }}>
       <EnhancedArticleSchema
-        image={`${CDN}/pura-vida-hero_567b6d5c.jpeg`}
+        image="/manus-storage/community-hero-ultrawide_6075f665.jpg"
         headline="Rooted in Community: How Nayara Supports Local People Across Four Destinations: Human Hospitality"
         description="At the heart of Nayara's approach to regenerative travel is not just the environment, but the people who care for it, depend on it, and shape the guest experience."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Hospitality", "Sustainable Tourism", "Community Development"] }}
@@ -60,66 +62,52 @@ export default function CommunityBlog() {
         url="https://nayararesorts.manus.space/blog/rooted-in-community"
       />
 
-      {/* HERO */}
-      <section className="relative h-screen w-full overflow-hidden">
+      {/* BRAND NAVIGATION */}
+      <BrandNavigation pageType="content" />
+      {/* HERO IMAGE */}
+      <section
+        className="relative w-full overflow-hidden"
+        style={{ aspectRatio: "21/9", minHeight: "400px", maxHeight: "70vh" }}
+      >
         <img
-          src={`${CDN}/pura-vida-hero_567b6d5c.jpeg`}
-          alt="Nayara community and team members in Costa Rica"
+          src="/manus-storage/community-hero-ultrawide_6075f665.jpg"
+          alt="Nayara kitchen team celebrating together"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(45,74,45,0.2) 0%, rgba(59,43,38,0.4) 50%, rgba(59,43,38,0.8) 100%)",
-          }}
-        />
-
-        <button
-          onClick={() => window.history.back()}
-          className="absolute top-8 left-8 z-20 flex items-center gap-2 transition-colors duration-300"
-          style={{
-            fontFamily: "var(--font-body)",
-            fontSize: "12px",
-            letterSpacing: "0.12em",
-            color: "rgba(255,255,255,0.75)",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 12H5M12 5l-7 7 7 7" />
-          </svg>
-          BACK
-        </button>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 h-full flex flex-col justify-end items-start px-8 md:px-16 lg:px-24 pb-16 md:pb-24 max-w-5xl"
-        >
-          <p
-            className="mb-4 uppercase tracking-[0.3em] text-[11px]"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "rgba(255,255,255,0.7)" }}
-          >
-            Community &middot; Nayara Resorts
-          </p>
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-6 text-white"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-          >
-            Rooted in Community
-          </h1>
-          <p
-            className="text-lg md:text-xl leading-relaxed max-w-2xl"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: "rgba(255,255,255,0.85)" }}
-          >
-            Human Hospitality
-          </p>
-        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
       </section>
+      {/* TITLE BLOCK */}
+      <motion.section
+        style={{ backgroundColor: PALETTE.cream }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+      >
+        <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-8">
+          <div className="flex items-center gap-3 mb-5 flex-wrap">
+            <span
+              className="text-[11px] font-medium tracking-[0.35em]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.espresso }}
+            >
+              COMMUNITY
+            </span>
+          </div>
+          <h1
+            className="text-3xl md:text-[40px] lg:text-[46px] leading-[1.15] mb-5"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
+          >
+            Rooted in Community: Human Hospitality
+          </h1>
+        </div>
+      </motion.section>
+      {/* AUTHOR + READING TIME */}
+      <BlogAuthorReadTime
+        author="Albert Ghitis"
+        authorRole="Nayara Resorts"
+        date="September 3, 2025"
+        wordCount={2800}
+      />
 
       {/* INTRO */}
       <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: PALETTE.cream }}>

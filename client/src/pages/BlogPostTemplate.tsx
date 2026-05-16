@@ -32,6 +32,7 @@ import NativeVideo from "@/components/NativeVideo";
 import BlobVideo from "@/components/BlobVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import type { BlogPostData } from "@/data/blogPosts";
+import BlogAuthorReadTime, { countWordsInHTML } from "@/components/BlogAuthorReadTime";
 
 const PALETTE = {
   espresso: "#3B2B26",
@@ -74,9 +75,11 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
 
   // Alternating section backgrounds: cream / stone
   const bgColors = [PALETTE.cream, PALETTE.stone];
+  // Track the last body section bg so Sources always contrasts
+  const lastSectionBg = post.sections.length > 0 ? bgColors[(post.sections.length - 1) % 2] : PALETTE.cream;
+  const sourcesBg = lastSectionBg === PALETTE.stone ? PALETTE.cream : PALETTE.stone;
 
-  // Find the first section with a pullQuote to render as espresso dark section
-  const espressoSectionIdx = post.sections.findIndex((s) => s.pullQuote);
+  // Pull quotes render as standalone espresso dark blocks within their section
 
   // JSON-LD Article schema
   const articleSchema = {
@@ -225,16 +228,17 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
             {post.title}
           </h1>
 
-          {/* Author + Date + Reading Time */}
-          <div className="flex items-center gap-3 text-[13px] tracking-[0.05em] mb-6 flex-wrap" style={{ color: PALETTE.muted }}>
-            <span>{post.author}</span>
-            <span style={{ color: PALETTE.stone }}>&middot;</span>
-            <span>{post.date}</span>
-            <span style={{ color: PALETTE.stone }}>&middot;</span>
-            <span>{post.readingTime} min read</span>
-          </div>
         </div>
       </motion.section>
+
+      {/* ── 3b. AUTHOR + READING TIME ── */}
+      <BlogAuthorReadTime
+        author={post.author}
+        authorRole={post.authorRole || "Nayara Resorts"}
+        date={post.date}
+        wordCount={post.sections.reduce((acc, s) => acc + countWordsInHTML(s.content), 0)}
+        readingTime={post.readingTime}
+      />
 
       {/* ── 4. KEY FINDINGS ── */}
       <motion.section
@@ -269,13 +273,10 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
 
       {/* ── 5. BODY SECTIONS ── */}
       {post.sections.map((section, idx) => {
-        // Check if this section should be the espresso dark section
-        const isEspressoSection = idx === espressoSectionIdx;
-
-        // Background: espresso for the special section, otherwise alternate cream/stone
-        const bg = isEspressoSection ? PALETTE.espresso : bgColors[idx % 2];
-        const textColor = isEspressoSection ? "rgba(255,255,255,0.85)" : PALETTE.muted;
-        const headingColor = isEspressoSection ? "white" : PALETTE.espresso;
+        // Alternate cream/stone backgrounds
+        const bg = bgColors[idx % 2];
+        const textColor = PALETTE.muted;
+        const headingColor = PALETTE.espresso;
 
         return (
           <motion.section
@@ -303,28 +304,18 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
                 dangerouslySetInnerHTML={{ __html: section.content }}
               />
 
-              {/* Pull quote (only if NOT the espresso section, since espresso section IS the quote) */}
-              {section.pullQuote && !isEspressoSection && (
-                <blockquote className="my-10 mx-4 md:mx-12 py-6 px-8 border-l-4 rounded-r-lg" style={{ borderColor: PALETTE.espresso, backgroundColor: `${PALETTE.cream}99` }}>
-                  <p
-                    className="text-lg italic leading-relaxed"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
-                  >
-                    "{section.pullQuote}"
-                  </p>
-                </blockquote>
-              )}
-
-              {/* Espresso section: render the pull quote as the main content */}
-              {isEspressoSection && section.pullQuote && (
-                <blockquote className="my-6 text-center">
-                  <p
-                    className="text-xl md:text-2xl italic leading-relaxed"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "white" }}
-                  >
-                    "{section.pullQuote}"
-                  </p>
-                </blockquote>
+              {/* Pull quote — standalone espresso dark block */}
+              {section.pullQuote && (
+                <div className="my-10 -mx-8 md:-mx-16 px-8 md:px-16 py-10" style={{ backgroundColor: PALETTE.espresso }}>
+                  <blockquote className="max-w-2xl mx-auto text-center">
+                    <p
+                      className="text-lg md:text-xl italic leading-relaxed"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "rgba(247,245,240,0.9)" }}
+                    >
+                      "{section.pullQuote}"
+                    </p>
+                  </blockquote>
+                </div>
               )}
 
               {/* In-body image: centered below body text, horizontal */}
@@ -358,9 +349,47 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
         );
       })}
 
+      {/* ── 5b. FAQ SECTION (if present) ── */}
+      {post.faq && post.faq.length > 0 && (
+        <section style={{ backgroundColor: PALETTE.stone }}>
+          <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-12">
+            <p
+              className="uppercase tracking-[0.3em] text-[11px] mb-4 text-center"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+            >
+              FAQ
+            </p>
+            <h2
+              className="text-2xl md:text-[30px] leading-snug mb-8 text-center"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
+            >
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6">
+              {post.faq.map((item, idx) => (
+                <div key={idx}>
+                  <h3
+                    className="text-[16px] font-semibold mb-2"
+                    style={{ fontFamily: "var(--font-body)", color: PALETTE.espresso }}
+                  >
+                    {item.question}
+                  </h3>
+                  <p
+                    className="text-[15px] leading-[1.8]"
+                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
+                  >
+                    {item.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── 6. SOURCES & FURTHER READING (simple flat list) ── */}
       {post.sources && post.sources.length > 0 && (
-        <section style={{ backgroundColor: PALETTE.stone }}>
+        <section style={{ backgroundColor: sourcesBg }}>
           <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-12">
             <p
               className="uppercase tracking-[0.3em] text-[11px] mb-4 text-center"
