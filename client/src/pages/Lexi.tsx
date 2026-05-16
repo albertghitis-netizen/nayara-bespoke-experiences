@@ -25,6 +25,7 @@ const CATEGORIES = [
   { id: "social", label: "Social", color: "#6B8A9E", icon: "◇" },
   { id: "triggers", label: "Triggers", color: "#A65D5D", icon: "⚡" },
   { id: "addiction", label: "Addiction", color: "#4A7C6B", icon: "◎" },
+  { id: "faq", label: "FAQ", color: "#8A7A5A", icon: "?" },
 ] as const;
 
 type CategoryId = (typeof CATEGORIES)[number]["id"];
@@ -262,7 +263,7 @@ export default function Lexi() {
         <img
           src={LOGO_URL}
           alt="Lexi"
-          className="h-14 w-14 object-contain"
+          className="h-20 w-20 object-contain"
           onClick={() => { setActiveView("home"); setMenuOpen(false); }}
           style={{ cursor: "pointer" }}
         />
@@ -270,7 +271,7 @@ export default function Lexi() {
         {/* Calendar pill */}
         <button
           onClick={() => { setActiveView("calendar"); setMenuOpen(false); }}
-          className="flex items-center justify-center h-11 px-5 rounded-full backdrop-blur-md shadow-lg transition-all duration-300"
+          className="flex items-center justify-center h-8 px-2.5 rounded-full backdrop-blur-md shadow-lg transition-all duration-300"
           style={{
             background: "rgba(92, 107, 74, 0.85)",
           }}
@@ -341,6 +342,8 @@ export default function Lexi() {
           <TriggersPage {...categoryProps("triggers")} />
         ) : activeView === "addiction" ? (
           <AddictionPage {...categoryProps("addiction")} />
+        ) : activeView === "faq" ? (
+          <FAQPage />
         ) : (
           <CategoryPage
             category={CATEGORIES.find((c) => c.id === activeView)!}
@@ -775,7 +778,6 @@ function playBeep() {
 function HomePage() {
   return (
     <div className="space-y-8">
-      {/* Hero */}
       <div className="text-center pt-4">
         <h1
           className="text-3xl tracking-wide mb-2"
@@ -788,82 +790,44 @@ function HomePage() {
         </p>
       </div>
 
-      {/* What is Dual Diagnosis */}
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-          What is Dual Diagnosis?
-        </h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What is Dual Diagnosis?</h2>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Dual diagnosis means living with both a substance use disorder and a mood disorder at the same time. 
-          Depression, bipolar disorder, anxiety, and PTSD are the most common mood conditions that co-occur 
-          with addiction. Nearly half of people with a severe mental health condition also experience substance 
-          use disorder. These are not two separate problems. They are one interconnected condition where each 
-          side feeds the other.
+          Dual diagnosis means living with both a substance use disorder and a mood disorder at the same time. Depression, bipolar disorder, anxiety, and PTSD are the most common mood conditions that co-occur with addiction. Nearly half of people with a severe mental health condition also experience substance use disorder. These are not two separate problems. They are one interconnected condition where each side feeds the other.
         </p>
       </section>
 
-      {/* How They Amplify Each Other */}
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-          How Addiction and Mood Disorders Amplify Each Other
-        </h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>How They Amplify Each Other</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Substances change brain chemistry in the same systems that regulate mood. Alcohol suppresses 
-          serotonin and GABA over time. Stimulants flood and then deplete dopamine. Opioids hijack the 
-          brain's reward circuitry. When you already have a mood disorder, these chemical disruptions hit 
-          harder and recover slower.
+          Substances change brain chemistry in the same systems that regulate mood. Alcohol suppresses serotonin and GABA over time. Stimulants flood and then deplete dopamine. Opioids hijack the brain's reward circuitry. When you already have a mood disorder, these chemical disruptions hit harder and recover slower.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          The cycle works both ways. A depressive episode makes you reach for relief. A manic episode 
-          lowers inhibition and amplifies risk-taking. Withdrawal mimics and triggers mood episodes. 
-          Shame from relapse deepens depression. Without treating both conditions together, recovery 
-          from either one is significantly harder.
+          The cycle works both ways. A depressive episode makes you reach for relief. A manic episode lowers inhibition and amplifies risk-taking. Withdrawal mimics and triggers mood episodes. Shame from relapse deepens depression. Without treating both conditions together, recovery from either one is significantly harder.
         </p>
       </section>
 
-      {/* Why Routine */}
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-          Why Routine is the Foundation
-        </h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Why Routine is the Foundation</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Research on Interpersonal and Social Rhythm Therapy (IPSRT) shows that stabilizing daily routines 
-          is one of the most effective interventions for mood disorders. For addiction, structure is equally 
-          critical. Idle time, disrupted sleep, skipped meals, and social isolation are the environments 
-          where cravings thrive and relapse happens.
+          Research on Interpersonal and Social Rhythm Therapy (IPSRT) shows that stabilizing daily routines is one of the most effective interventions for mood disorders. For addiction, structure is equally critical. Idle time, disrupted sleep, skipped meals, and social isolation are the environments where cravings thrive and relapse happens.
         </p>
-        <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Lexi helps you track the pillars of stability for both conditions:
-        </p>
+        <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Lexi helps you track the pillars of stability:</p>
       </section>
 
-      {/* Category Cards */}
       <div className="grid grid-cols-2 gap-3">
-        {CATEGORIES.map((cat) => (
-          <div
-            key={cat.id}
-            className="rounded-lg p-4 text-center"
-            style={{ background: cat.color + "15", borderLeft: `3px solid ${cat.color}` }}
-          >
+        {CATEGORIES.filter(c => c.id !== "faq").map((cat) => (
+          <div key={cat.id} className="rounded-lg p-4 text-center" style={{ background: cat.color + "15", borderLeft: `3px solid ${cat.color}` }}>
             <span className="text-2xl block mb-1">{cat.icon}</span>
-            <span className="text-xs uppercase tracking-wider font-medium" style={{ color: cat.color }}>
-              {cat.label}
-            </span>
+            <span className="text-xs uppercase tracking-wider font-medium" style={{ color: cat.color }}>{cat.label}</span>
           </div>
         ))}
       </div>
 
-      {/* The Goal */}
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-          Catch It Before It Catches You
-        </h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Catch It Before It Catches You</h2>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          The goal is not perfection. It is awareness. By logging your mood, sleep, meds, exercise, 
-          nutrition, social activity, therapy, sobriety, cravings, and triggers, you start to see patterns. 
-          You notice when sleep is slipping. When you are isolating. When cravings spike after certain 
-          situations. These are the early warning signs. Lexi helps you see them before they become 
-          episodes or relapses.
+          The goal is not perfection. It is awareness. By logging your mood, sleep, meds, exercise, nutrition, social activity, therapy, and triggers, you start to see patterns. You notice when sleep is slipping. When you are isolating. When cravings spike after certain situations. These are the early warning signs. Lexi helps you see them before they become episodes or relapses.
         </p>
       </section>
     </div>
@@ -871,55 +835,55 @@ function HomePage() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   MOOD PAGE — FAQ Format
+   INFORMATIONAL SECTION COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
+
+function InfoSection({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
+      <h3 className="text-base font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h3>
+      <div className="text-sm leading-relaxed opacity-80 space-y-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        {children}
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOOD PAGE — Informational
    ═══════════════════════════════════════════════════════════════ */
 
 function MoodPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "mood")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "How does addiction affect mood stability?",
-      answer: "Substances directly alter the neurotransmitter systems that regulate mood. Alcohol depletes serotonin over time. Stimulants cause dopamine crashes. Even after you stop using, your brain's mood regulation system can take months to recalibrate. During that window, mood swings are more frequent and more intense than they would be from the mood disorder alone.",
-    },
-    {
-      question: "Why do mood episodes trigger cravings?",
-      answer: "During depressive episodes, the brain seeks relief from emotional pain, and substances offer fast (temporary) relief. During manic or hypomanic episodes, impulsivity increases and risk assessment decreases, making it easier to justify using. The mood disorder creates the vulnerability; the addiction exploits it.",
-    },
-    {
-      question: "What does the 1 to 10 mood scale mean for dual diagnosis?",
-      answer: "1 is deeply depressed, 5 is stable, 10 is manic. For dual diagnosis, pay special attention to the extremes. Both very low moods (1 to 3) and elevated moods (8 to 10) are high-risk windows for relapse. Tracking your number daily helps you and your treatment team spot patterns before they escalate.",
-    },
-    {
-      question: "How do I tell the difference between withdrawal and a mood episode?",
-      answer: "They can look identical. Withdrawal from alcohol or benzodiazepines can mimic depression or anxiety. Stimulant withdrawal mimics depressive episodes. The key differentiator is timeline. Withdrawal symptoms follow a predictable arc after your last use. Mood episodes can emerge at any time. Logging both your substance use and your mood helps your provider distinguish between them.",
-    },
-    {
-      question: "Should I track mood even on good days?",
-      answer: "Especially on good days. Consistent tracking builds the baseline that makes warning signs visible. If you only log when things are bad, you lose the contrast. A stable week followed by a dip is meaningful data. A stable week with no log before it tells you nothing.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Mood
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Track where you are on the spectrum today
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Mood</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Track where you are on the spectrum today</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="Mood and Addiction">
+        <p>Substances directly alter the neurotransmitter systems that regulate mood. Alcohol depletes serotonin over time. Stimulants cause dopamine crashes. Even after you stop using, your brain's mood regulation system can take months to recalibrate. During that window, mood swings are more frequent and more intense than they would be from the mood disorder alone.</p>
+      </InfoSection>
 
-      <LoggingSection
-        categoryId="mood"
-        categoryColor={category.color}
-        logLabel="Log Mood"
-        {...props}
-      />
+      <InfoSection title="Why Mood Episodes Trigger Cravings">
+        <p>During depressive episodes, the brain seeks relief from emotional pain, and substances offer fast but temporary relief. During manic or hypomanic episodes, impulsivity increases and risk assessment decreases, making it easier to justify using. The mood disorder creates the vulnerability; the addiction exploits it.</p>
+      </InfoSection>
+
+      <InfoSection title="The 1 to 10 Scale">
+        <p>1 is deeply depressed. 5 is stable. 10 is manic. Pay special attention to the extremes. Both very low moods (1 to 3) and elevated moods (8 to 10) are high-risk windows for relapse. Tracking your number daily helps you and your treatment team spot patterns before they escalate.</p>
+      </InfoSection>
+
+      <InfoSection title="Withdrawal vs. Mood Episode">
+        <p>They can look identical. Withdrawal from alcohol or benzodiazepines can mimic depression or anxiety. Stimulant withdrawal mimics depressive episodes. The key differentiator is timeline. Withdrawal symptoms follow a predictable arc after your last use. Mood episodes can emerge at any time. Logging both your substance use and your mood helps your provider distinguish between them.</p>
+      </InfoSection>
+
+      <InfoSection title="Track the Good Days Too">
+        <p>Especially the good days. Consistent tracking builds the baseline that makes warning signs visible. If you only log when things are bad, you lose the contrast. A stable week followed by a dip is meaningful data. A stable week with no log before it tells you nothing.</p>
+      </InfoSection>
+
+      <LoggingSection categoryId="mood" categoryColor={category.color} logLabel="Log Mood" {...props} />
     </div>
   );
 }
@@ -930,50 +894,35 @@ function MoodPage(props: CategoryPageProps) {
 
 function TherapyPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "therapy")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "Why is therapy essential for dual diagnosis?",
-      answer: "Medication manages brain chemistry. Therapy manages the behaviors, thought patterns, and relationship dynamics that either stabilize or destabilize you. Research consistently shows that integrated treatment addressing both addiction and mood disorders simultaneously produces significantly better outcomes than treating either condition alone.",
-    },
-    {
-      question: "What types of therapy work best for co-occurring disorders?",
-      answer: "Cognitive Behavioral Therapy (CBT) helps identify distorted thinking in both mood episodes and addiction (such as 'one drink won't hurt' or 'nothing will ever get better'). Dialectical Behavior Therapy (DBT) teaches distress tolerance so you can ride out cravings and mood episodes without acting on them. Interpersonal and Social Rhythm Therapy (IPSRT) stabilizes daily routines, which protects against both relapse and mood episodes. Many people benefit from a combination.",
-    },
-    {
-      question: "How often should I go to therapy?",
-      answer: "Weekly sessions during unstable periods or early recovery. Biweekly during maintenance. Skipping therapy when you feel good is one of the most common mistakes in dual diagnosis. Stability is when you build the skills you will need during the next crisis. Your therapist is also an early warning system who can spot changes you cannot see in yourself.",
-    },
-    {
-      question: "What about group therapy and 12-step programs?",
-      answer: "Group therapy and peer support (AA, NA, SMART Recovery, DBSA) provide accountability, community, and the experience of people who understand both conditions. They are not a replacement for individual therapy, but they fill a gap that individual therapy cannot: the knowledge that you are not alone in this, and the structure of regular attendance.",
-    },
-    {
-      question: "What should I tell my therapist about my substance use?",
-      answer: "Everything. Holding back information about your use makes it impossible for your therapist to help you effectively. If your therapist only treats the mood disorder and does not know about the addiction (or vice versa), you are getting half-treatment. The best outcomes come from providers who understand both conditions and treat them as one integrated problem.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Therapy
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Track sessions and build your support system
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Therapy</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Track sessions and build your support system</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="Why Therapy is Essential">
+        <p>Medication manages brain chemistry. Therapy manages the behaviors, thought patterns, and relationship dynamics that either stabilize or destabilize you. Research consistently shows that integrated treatment addressing both addiction and mood disorders simultaneously produces significantly better outcomes than treating either condition alone.</p>
+      </InfoSection>
 
-      <LoggingSection
-        categoryId="therapy"
-        categoryColor={category.color}
-        logLabel="Log Session"
-        {...props}
-      />
+      <InfoSection title="Types of Therapy That Work">
+        <p>Cognitive Behavioral Therapy (CBT) helps identify distorted thinking in both mood episodes and addiction—thoughts like "one drink won't hurt" or "nothing will ever get better." Dialectical Behavior Therapy (DBT) teaches distress tolerance so you can ride out cravings and mood episodes without acting on them. Interpersonal and Social Rhythm Therapy (IPSRT) stabilizes daily routines, which protects against both relapse and mood episodes. Many people benefit from a combination.</p>
+      </InfoSection>
+
+      <InfoSection title="How Often to Go">
+        <p>Weekly sessions during unstable periods or early recovery. Biweekly during maintenance. Skipping therapy when you feel good is one of the most common mistakes. Stability is when you build the skills you will need during the next crisis. Your therapist is also an early warning system who can spot changes you cannot see in yourself.</p>
+      </InfoSection>
+
+      <InfoSection title="Group Therapy and Peer Support">
+        <p>Group therapy and peer support (AA, NA, SMART Recovery, DBSA) provide accountability, community, and the experience of people who understand both conditions. They are not a replacement for individual therapy, but they fill a gap that individual therapy cannot: the knowledge that you are not alone in this, and the structure of regular attendance.</p>
+      </InfoSection>
+
+      <InfoSection title="What to Tell Your Therapist">
+        <p>Everything. Holding back information about your use makes it impossible for your therapist to help you effectively. If your therapist only treats the mood disorder and does not know about the addiction, you are getting half-treatment. The best outcomes come from providers who understand both conditions and treat them as one integrated problem.</p>
+      </InfoSection>
+
+      <LoggingSection categoryId="therapy" categoryColor={category.color} logLabel="Log Session" {...props} />
     </div>
   );
 }
@@ -984,50 +933,35 @@ function TherapyPage(props: CategoryPageProps) {
 
 function SleepPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "sleep")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "Why is sleep the number one priority in dual diagnosis?",
-      answer: "Sleep disruption is both the earliest warning sign and the most potent trigger for mood episodes. Even one night of lost sleep can trigger hypomania in vulnerable individuals. For addiction, poor sleep is one of the strongest predictors of relapse. The brain's ability to resist cravings, regulate emotions, and make good decisions all depend on adequate sleep. When sleep goes, everything else follows.",
-    },
-    {
-      question: "How does substance use disrupt sleep?",
-      answer: "Alcohol fragments sleep architecture, suppressing REM sleep and causing early morning waking. Stimulants prevent sleep onset and can cause insomnia for days. Cannabis suppresses dreaming and creates rebound insomnia during withdrawal. Opioid withdrawal causes severe insomnia. Even after substances are removed, sleep disturbance can persist for weeks or months as the brain recalibrates.",
-    },
-    {
-      question: "How does sleep loss affect mood episodes?",
-      answer: "For bipolar disorder, decreased sleep is the single strongest trigger for mania. The feedback loop is dangerous: less sleep leads to more energy, which leads to even less sleep, which leads to a full episode. For depression, irregular sleep timing deepens the episode. Maintaining a consistent wake time, even during depression, is one of the most effective interventions.",
-    },
-    {
-      question: "What are the sleep hygiene rules for dual diagnosis?",
-      answer: "Same bedtime and wake time every day, including weekends. No screens one hour before bed. Dark, cool room. No caffeine after noon. No alcohol (it fragments sleep even if it helps you fall asleep). If you cannot sleep after 20 minutes, get up and do something boring until drowsy. These rules are non-negotiable for dual diagnosis because the margin for error is smaller.",
-    },
-    {
-      question: "What should I track?",
-      answer: "Log hours slept, time to bed, time awake, and quality on a 1 to 10 scale. Over time, you will see the correlation between sleep changes and both mood shifts and craving intensity. Often the sleep change comes 2 to 3 days before the mood change or craving spike. That is your early warning window.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Sleep
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Protect the foundation everything else is built on
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Sleep</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Protect the foundation everything else is built on</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="Sleep is the Number One Priority">
+        <p>Sleep disruption is both the earliest warning sign and the most potent trigger for mood episodes. Even one night of lost sleep can trigger hypomania in vulnerable individuals. Poor sleep is also one of the strongest predictors of relapse. The brain's ability to resist cravings, regulate emotions, and make good decisions all depend on adequate sleep. When sleep goes, everything else follows.</p>
+      </InfoSection>
 
-      <LoggingSection
-        categoryId="sleep"
-        categoryColor={category.color}
-        logLabel="Log Sleep"
-        {...props}
-      />
+      <InfoSection title="How Substances Disrupt Sleep">
+        <p>Alcohol fragments sleep architecture, suppressing REM sleep and causing early morning waking. Stimulants prevent sleep onset and can cause insomnia for days. Cannabis suppresses dreaming and creates rebound insomnia during withdrawal. Opioid withdrawal causes severe insomnia. Even after substances are removed, sleep disturbance can persist for weeks or months as the brain recalibrates.</p>
+      </InfoSection>
+
+      <InfoSection title="Sleep Loss and Mood Episodes">
+        <p>For bipolar disorder, decreased sleep is the single strongest trigger for mania. The feedback loop is dangerous: less sleep leads to more energy, which leads to even less sleep, which leads to a full episode. For depression, irregular sleep timing deepens the episode. Maintaining a consistent wake time, even during depression, is one of the most effective interventions.</p>
+      </InfoSection>
+
+      <InfoSection title="Sleep Hygiene Rules">
+        <p>Same bedtime and wake time every day, including weekends. No screens one hour before bed. Dark, cool room. No caffeine after noon. No alcohol—it fragments sleep even if it helps you fall asleep. If you cannot sleep after 20 minutes, get up and do something boring until drowsy. The margin for error is smaller when you are managing both conditions.</p>
+      </InfoSection>
+
+      <InfoSection title="What to Track">
+        <p>Log hours slept, time to bed, time awake, and quality on a 1 to 10 scale. Over time, you will see the correlation between sleep changes and both mood shifts and craving intensity. Often the sleep change comes 2 to 3 days before the mood change or craving spike. That is your early warning window.</p>
+      </InfoSection>
+
+      <LoggingSection categoryId="sleep" categoryColor={category.color} logLabel="Log Sleep" {...props} />
     </div>
   );
 }
@@ -1038,50 +972,35 @@ function SleepPage(props: CategoryPageProps) {
 
 function NutritionPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "nutrition")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "Why does nutrition matter for dual diagnosis?",
-      answer: "Your brain consumes 20% of your daily calories despite being only 2% of your body weight. What you eat directly impacts neurotransmitter production, inflammation levels, and gut-brain signaling, all of which are disrupted in both mood disorders and addiction. Chronic substance use depletes essential nutrients, and nutritional deficiencies worsen mood instability and increase craving intensity.",
-    },
-    {
-      question: "How does blood sugar affect mood and cravings?",
-      answer: "Blood sugar spikes and crashes from refined carbs and sugar can mimic or trigger mood episodes and amplify cravings. The crash after a sugar spike feels similar to the come-down from substances, which can trigger the brain's craving response. Stable blood sugar means more stable mood and fewer craving spikes. Eat protein with every meal, prioritize complex carbs, and avoid long gaps between meals.",
-    },
-    {
-      question: "What role do omega-3 fatty acids play?",
-      answer: "Multiple studies show that omega-3s (EPA and DHA from fish oil) have antidepressant effects and may help stabilize mood. They reduce neuroinflammation and support cell membrane integrity in the brain. For people in recovery, omega-3s also support the brain's healing process as it recalibrates after substance use. Aim for fatty fish 2 to 3 times per week or supplement with 1 to 2 grams of EPA and DHA.",
-    },
-    {
-      question: "How does the gut-brain connection affect recovery?",
-      answer: "90% of serotonin is produced in the gut. Chronic alcohol use, poor diet, and antibiotics disrupt the microbiome, which directly impacts mood regulation and craving intensity. Fermented foods, fiber, and diverse plant intake support a healthy microbiome. Rebuilding gut health is an underappreciated part of dual diagnosis recovery.",
-    },
-    {
-      question: "Are there foods or substances I should avoid with my medications?",
-      answer: "Lithium levels are affected by sodium and hydration. Grapefruit interacts with many psychiatric medications. Caffeine can trigger anxiety and disrupt sleep. Alcohol destabilizes mood and reduces medication effectiveness. If you are on MAOIs, tyramine-rich foods (aged cheese, cured meats) can cause dangerous blood pressure spikes. Track what you eat to spot patterns and share logs with your prescriber.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Nutrition
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Fuel the brain that is healing
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Nutrition</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Fuel the brain that is healing</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="Why Nutrition Matters">
+        <p>Your brain consumes 20% of your daily calories despite being only 2% of your body weight. What you eat directly impacts neurotransmitter production, inflammation levels, and gut-brain signaling. Chronic substance use depletes essential nutrients, and nutritional deficiencies worsen mood instability and increase craving intensity.</p>
+      </InfoSection>
 
-      <LoggingSection
-        categoryId="nutrition"
-        categoryColor={category.color}
-        logLabel="Log Meal"
-        {...props}
-      />
+      <InfoSection title="Blood Sugar, Mood, and Cravings">
+        <p>Blood sugar spikes and crashes from refined carbs and sugar can mimic or trigger mood episodes and amplify cravings. The crash after a sugar spike feels similar to the come-down from substances, which can trigger the brain's craving response. Stable blood sugar means more stable mood and fewer craving spikes. Eat protein with every meal, prioritize complex carbs, and avoid long gaps between meals.</p>
+      </InfoSection>
+
+      <InfoSection title="Omega-3 Fatty Acids">
+        <p>Multiple studies show that omega-3s (EPA and DHA from fish oil) have antidepressant effects and may help stabilize mood. They reduce neuroinflammation and support cell membrane integrity in the brain. For people in recovery, omega-3s also support the brain's healing process as it recalibrates after substance use. Aim for fatty fish 2 to 3 times per week or supplement with 1 to 2 grams of EPA and DHA.</p>
+      </InfoSection>
+
+      <InfoSection title="The Gut-Brain Connection">
+        <p>90% of serotonin is produced in the gut. Chronic alcohol use, poor diet, and antibiotics disrupt the microbiome, which directly impacts mood regulation and craving intensity. Fermented foods, fiber, and diverse plant intake support a healthy microbiome. Rebuilding gut health is an underappreciated part of recovery.</p>
+      </InfoSection>
+
+      <InfoSection title="Food and Medication Interactions">
+        <p>Lithium levels are affected by sodium and hydration. Grapefruit interacts with many psychiatric medications. Caffeine can trigger anxiety and disrupt sleep. If you are on MAOIs, tyramine-rich foods (aged cheese, cured meats) can cause dangerous blood pressure spikes. Track what you eat to spot patterns and share logs with your prescriber.</p>
+      </InfoSection>
+
+      <LoggingSection categoryId="nutrition" categoryColor={category.color} logLabel="Log Meal" {...props} />
     </div>
   );
 }
@@ -1092,50 +1011,35 @@ function NutritionPage(props: CategoryPageProps) {
 
 function ExercisePage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "exercise")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "How does exercise help with dual diagnosis?",
-      answer: "Exercise directly impacts the neurotransmitter systems (serotonin, dopamine, norepinephrine, BDNF) that are dysregulated in both mood disorders and addiction. For depression, aerobic exercise has been shown to be as effective as antidepressants for mild-to-moderate cases. For addiction, exercise provides a natural dopamine release that helps fill the void left by substances and reduces craving intensity.",
-    },
-    {
-      question: "Can exercise replace the high from substances?",
-      answer: "Not exactly, but it activates overlapping reward pathways. The endorphin release from exercise engages the same opioid receptors that substances target, just at a lower, sustainable level. Over time, regular exercise helps the brain's reward system recalibrate toward natural sources of pleasure. Studies show that people who exercise regularly in early recovery have significantly lower relapse rates.",
-    },
-    {
-      question: "How much exercise is enough?",
-      answer: "30 minutes of moderate aerobic exercise (walking, swimming, cycling) 3 to 5 times per week. Yoga and weight training also show benefits. The key is consistency over intensity. Showing up matters more than performance. For dual diagnosis, the routine aspect of exercise is as important as the physical benefit because it anchors your daily schedule.",
-    },
-    {
-      question: "Can too much exercise be a problem?",
-      answer: "Yes. Over-exercise can trigger hypomania in people with bipolar disorder. It can also become a substitute addiction, replacing substances with compulsive exercise. Warning signs include working out twice a day, inability to rest, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals.",
-    },
-    {
-      question: "When is the best time to exercise?",
-      answer: "Morning exercise is particularly effective for dual diagnosis because it reinforces your circadian clock, improves sleep onset at night, and provides a natural mood boost that carries through the day. It also fills the early morning hours, which can be a high-risk time for cravings. Whatever time you choose, keep it consistent.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Exercise
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Move your body, heal your brain
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Exercise</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Move your body, heal your brain</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="How Exercise Helps">
+        <p>Exercise directly impacts the neurotransmitter systems (serotonin, dopamine, norepinephrine, BDNF) that are dysregulated in both mood disorders and addiction. For depression, aerobic exercise has been shown to be as effective as antidepressants for mild-to-moderate cases. For addiction, exercise provides a natural dopamine release that helps fill the void left by substances and reduces craving intensity.</p>
+      </InfoSection>
 
-      <LoggingSection
-        categoryId="exercise"
-        categoryColor={category.color}
-        logLabel="Log Exercise"
-        {...props}
-      />
+      <InfoSection title="The Natural High">
+        <p>Exercise activates overlapping reward pathways. The endorphin release engages the same opioid receptors that substances target, just at a lower, sustainable level. Over time, regular exercise helps the brain's reward system recalibrate toward natural sources of pleasure. Studies show that people who exercise regularly in early recovery have significantly lower relapse rates.</p>
+      </InfoSection>
+
+      <InfoSection title="How Much is Enough">
+        <p>30 minutes of moderate aerobic exercise (walking, swimming, cycling) 3 to 5 times per week. Yoga and weight training also show benefits. The key is consistency over intensity. Showing up matters more than performance. The routine aspect of exercise is as important as the physical benefit because it anchors your daily schedule.</p>
+      </InfoSection>
+
+      <InfoSection title="When Exercise Becomes a Problem">
+        <p>Over-exercise can trigger hypomania in people with bipolar disorder. It can also become a substitute addiction. Warning signs include working out twice a day, inability to rest, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals.</p>
+      </InfoSection>
+
+      <InfoSection title="Best Time to Exercise">
+        <p>Morning exercise is particularly effective because it reinforces your circadian clock, improves sleep onset at night, and provides a natural mood boost that carries through the day. It also fills the early morning hours, which can be a high-risk time for cravings. Whatever time you choose, keep it consistent.</p>
+      </InfoSection>
+
+      <LoggingSection categoryId="exercise" categoryColor={category.color} logLabel="Log Exercise" {...props} />
     </div>
   );
 }
@@ -1204,42 +1108,29 @@ function MedsPage(props: CategoryPageProps) {
     setLogDose("");
   };
 
-  const faq: FAQItem[] = [
-    {
-      question: "Why is medication compliance harder with dual diagnosis?",
-      answer: "Substances interfere with medication effectiveness. Alcohol reduces the efficacy of most psychiatric medications. Stimulants can counteract mood stabilizers. Beyond the chemistry, the impulsivity and cognitive distortion that come with active use make it easy to rationalize skipping doses. Consistent medication tracking is one of the most impactful things you can do for stability.",
-    },
-    {
-      question: "Can I drink alcohol on psychiatric medications?",
-      answer: "In almost all cases, no. Alcohol interacts dangerously with lithium (dehydration affects blood levels), benzodiazepines (combined CNS depression), antidepressants (increased side effects and reduced efficacy), and antipsychotics (excessive sedation). Beyond interactions, alcohol destabilizes the mood you are trying to stabilize. This is one of the hardest realities of dual diagnosis.",
-    },
-    {
-      question: "What medications help with both mood and addiction?",
-      answer: "Naltrexone reduces alcohol and opioid cravings while being safe with most mood stabilizers. Gabapentin helps with anxiety, sleep, and alcohol cravings. Some antidepressants (particularly bupropion) can help with both depression and nicotine/stimulant cravings. Your prescriber should know about both conditions to choose medications that address the full picture.",
-    },
-    {
-      question: "What happens if I relapse while on medication?",
-      answer: "Do not stop your medication. Contact your prescriber. A relapse does not erase the progress your medication has made on your mood stability. Stopping medication during a relapse creates a double crisis: active use plus unmedicated mood disorder. Your treatment team needs to know so they can adjust your plan, not so they can judge you.",
-    },
-    {
-      question: "How do I track medication effectively?",
-      answer: "Log each dose with the time taken. Note any side effects or missed doses. Track how you feel 1 to 2 hours after taking medication. Over time, this data helps your prescriber fine-tune dosing and timing. It also builds accountability: seeing a streak of consistent doses is motivating, and gaps become visible patterns rather than forgotten moments.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Medications
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Mood stabilizers, anti-craving, and more
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Medications</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Mood stabilizers, anti-craving, and more</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="Medication Compliance">
+        <p>Substances interfere with medication effectiveness. Alcohol reduces the efficacy of most psychiatric medications. Stimulants can counteract mood stabilizers. Beyond the chemistry, the impulsivity and cognitive distortion that come with active use make it easy to rationalize skipping doses. Consistent medication tracking is one of the most impactful things you can do for stability.</p>
+      </InfoSection>
+
+      <InfoSection title="Alcohol and Psychiatric Medications">
+        <p>In almost all cases, do not mix them. Alcohol interacts dangerously with lithium (dehydration affects blood levels), benzodiazepines (combined CNS depression), antidepressants (increased side effects and reduced efficacy), and antipsychotics (excessive sedation). Beyond interactions, alcohol destabilizes the mood you are trying to stabilize.</p>
+      </InfoSection>
+
+      <InfoSection title="Medications That Address Both Conditions">
+        <p>Naltrexone reduces alcohol and opioid cravings while being safe with most mood stabilizers. Gabapentin helps with anxiety, sleep, and alcohol cravings. Some antidepressants (particularly bupropion) can help with both depression and nicotine/stimulant cravings. Your prescriber should know about both conditions to choose medications that address the full picture.</p>
+      </InfoSection>
+
+      <InfoSection title="If You Relapse While on Medication">
+        <p>Do not stop your medication. Contact your prescriber. A relapse does not erase the progress your medication has made on your mood stability. Stopping medication during a relapse creates a double crisis: active use plus unmedicated mood disorder. Your treatment team needs to know so they can adjust your plan, not so they can judge you.</p>
+      </InfoSection>
 
       {/* Medication Reference Cards */}
       <div>
@@ -1358,50 +1249,35 @@ function MedsPage(props: CategoryPageProps) {
 
 function SocialPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "social")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "Why is social connection critical for dual diagnosis?",
-      answer: "Isolation is one of the most dangerous states for someone with co-occurring disorders. It removes accountability, eliminates external reality checks, and allows both distorted thinking and craving cycles to go unchallenged. Social connection is a fundamental human need and a powerful protective factor against both depression and relapse.",
-    },
-    {
-      question: "How do I handle social situations where people are drinking or using?",
-      answer: "Early in recovery, avoid them entirely. This is not weakness; it is strategy. As you build stability, you can gradually reintroduce social situations with a plan: bring a sober support person, have an exit strategy, keep a non-alcoholic drink in hand, and leave when you feel uncomfortable. Never test your willpower when you do not have to.",
-    },
-    {
-      question: "What if my social circle revolves around substance use?",
-      answer: "This is one of the hardest parts of dual diagnosis recovery. You may need to build an entirely new social network. Recovery meetings (AA, NA, SMART Recovery), group therapy, volunteer work, and hobby-based communities are all places to find people who support your recovery. The people who only want to be around you when you are using are not your support system.",
-    },
-    {
-      question: "How does over-socializing affect mood disorders?",
-      answer: "During hypomania, the instinct is to say yes to everything, stay out late, talk to everyone. This feels amazing but it disrupts sleep, overstimulates the brain, and can accelerate into full mania. The key is recognizing when your social drive is elevated beyond your baseline. If you are suddenly the life of every party, that is data, not just personality.",
-    },
-    {
-      question: "What should I track?",
-      answer: "Log who you saw, for how long, and how you felt after. Note whether the interaction was in a recovery-supportive environment or a high-risk one. Over time, you will identify which relationships energize versus drain you, and whether your social patterns are shifting in ways that predict episodes or relapse risk.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Social
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Build the network that keeps you stable
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Social</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Build the network that keeps you stable</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="The Danger of Isolation">
+        <p>Isolation is one of the most dangerous states for someone with co-occurring disorders. It removes accountability, eliminates external reality checks, and allows both distorted thinking and craving cycles to go unchallenged. Social connection is a fundamental human need and a powerful protective factor against both depression and relapse.</p>
+      </InfoSection>
 
-      <LoggingSection
-        categoryId="social"
-        categoryColor={category.color}
-        logLabel="Log Social"
-        {...props}
-      />
+      <InfoSection title="Navigating Social Situations">
+        <p>Early in recovery, avoid situations where people are drinking or using. This is not weakness; it is strategy. As you build stability, you can gradually reintroduce social situations with a plan: bring a sober support person, have an exit strategy, keep a non-alcoholic drink in hand, and leave when you feel uncomfortable. Never test your willpower when you do not have to.</p>
+      </InfoSection>
+
+      <InfoSection title="Rebuilding Your Social Circle">
+        <p>You may need to build an entirely new social network. Recovery meetings (AA, NA, SMART Recovery), group therapy, volunteer work, and hobby-based communities are all places to find people who support your recovery. The people who only want to be around you when you are using are not your support system.</p>
+      </InfoSection>
+
+      <InfoSection title="Over-Socializing and Mood">
+        <p>During hypomania, the instinct is to say yes to everything, stay out late, talk to everyone. This feels amazing but it disrupts sleep, overstimulates the brain, and can accelerate into full mania. The key is recognizing when your social drive is elevated beyond your baseline. If you are suddenly the life of every party, that is data, not just personality.</p>
+      </InfoSection>
+
+      <InfoSection title="What to Track">
+        <p>Log who you saw, for how long, and how you felt after. Note whether the interaction was in a recovery-supportive environment or a high-risk one. Over time, you will identify which relationships energize versus drain you, and whether your social patterns are shifting in ways that predict episodes or relapse risk.</p>
+      </InfoSection>
+
+      <LoggingSection categoryId="social" categoryColor={category.color} logLabel="Log Social" {...props} />
     </div>
   );
 }
@@ -1412,50 +1288,35 @@ function SocialPage(props: CategoryPageProps) {
 
 function TriggersPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "triggers")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "What are triggers in dual diagnosis?",
-      answer: "Triggers are situations, emotions, people, places, or internal states that increase the risk of either a mood episode or a relapse. In dual diagnosis, triggers often overlap: the same stressor that destabilizes your mood also activates cravings. Identifying your personal triggers is the first line of defense because you cannot manage what you do not recognize.",
-    },
-    {
-      question: "What are HALT states and why do they matter?",
-      answer: "HALT stands for Hungry, Angry, Lonely, Tired. These four basic states are the most common precursors to both mood destabilization and relapse. They are deceptively simple but profoundly dangerous. When you are in a HALT state, your brain's prefrontal cortex (the part that makes good decisions) is compromised. Checking in with yourself using HALT before any major decision is a foundational recovery skill.",
-    },
-    {
-      question: "How do emotional triggers differ from environmental triggers?",
-      answer: "Emotional triggers are internal states like shame, boredom, excitement, loneliness, or anger that activate craving or mood instability. Environmental triggers are external: a bar you used to drink at, a person you used with, a song associated with past use, or even a time of day. Both types require different strategies. Emotional triggers need coping skills. Environmental triggers need avoidance or reframing.",
-    },
-    {
-      question: "Can positive events be triggers?",
-      answer: "Absolutely. Falling in love, getting a promotion, celebrating a milestone, or any intense positive emotion can trigger hypomania in people with bipolar disorder. For addiction, celebrations are high-risk because they are culturally associated with substance use ('let's celebrate with a drink'). Positive triggers are harder to recognize because they feel good, which makes them more dangerous.",
-    },
-    {
-      question: "How do I build a trigger management plan?",
-      answer: "List your known triggers. For each one, write down the early warning signs (what you feel in your body and mind), the action plan (what you will do instead of using or spiraling), and the support contact (who you will call). Review this plan with your therapist. Keep it accessible on your phone. The time to build the plan is when you are stable, not when you are in crisis.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Triggers
-        </h2>
-        <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Know what destabilizes you before it happens
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Triggers</h2>
+        <p className="text-xs opacity-50 mt-1 max-w-sm mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>Know what destabilizes you before it happens</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="What Are Triggers">
+        <p>Triggers are situations, emotions, people, places, or internal states that increase the risk of either a mood episode or a relapse. Triggers often overlap: the same stressor that destabilizes your mood also activates cravings. Identifying your personal triggers is the first line of defense because you cannot manage what you do not recognize.</p>
+      </InfoSection>
 
-      <LoggingSection
-        categoryId="triggers"
-        categoryColor={category.color}
-        logLabel="Log Trigger"
-        {...props}
-      />
+      <InfoSection title="HALT: Hungry, Angry, Lonely, Tired">
+        <p>These four basic states are the most common precursors to both mood destabilization and relapse. They are deceptively simple but profoundly dangerous. When you are in a HALT state, your brain's prefrontal cortex (the part that makes good decisions) is compromised. Checking in with yourself using HALT before any major decision is a foundational recovery skill.</p>
+      </InfoSection>
+
+      <InfoSection title="Emotional vs. Environmental Triggers">
+        <p>Emotional triggers are internal states like shame, boredom, excitement, loneliness, or anger that activate craving or mood instability. Environmental triggers are external: a bar you used to drink at, a person you used with, a song associated with past use, or even a time of day. Both types require different strategies. Emotional triggers need coping skills. Environmental triggers need avoidance or reframing.</p>
+      </InfoSection>
+
+      <InfoSection title="Positive Events as Triggers">
+        <p>Falling in love, getting a promotion, celebrating a milestone, or any intense positive emotion can trigger hypomania. Celebrations are also high-risk because they are culturally associated with substance use. Positive triggers are harder to recognize because they feel good, which makes them more dangerous.</p>
+      </InfoSection>
+
+      <InfoSection title="Building a Trigger Management Plan">
+        <p>List your known triggers. For each one, write down the early warning signs (what you feel in your body and mind), the action plan (what you will do instead of using or spiraling), and the support contact (who you will call). Review this plan with your therapist. Keep it accessible on your phone. The time to build the plan is when you are stable, not when you are in crisis.</p>
+      </InfoSection>
+
+      <LoggingSection categoryId="triggers" categoryColor={category.color} logLabel="Log Trigger" {...props} />
     </div>
   );
 }
@@ -1466,60 +1327,222 @@ function TriggersPage(props: CategoryPageProps) {
 
 function AddictionPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "addiction")!;
-
-  const faq: FAQItem[] = [
-    {
-      question: "How does alcohol interact with mood disorders?",
-      answer: "Alcohol is a central nervous system depressant that initially produces relaxation and euphoria by boosting GABA and dopamine. But chronic use suppresses serotonin production and disrupts sleep architecture. For people with depression, alcohol deepens depressive episodes within days of heavy use. For people with bipolar disorder, alcohol can trigger rapid cycling between mania and depression. Withdrawal from alcohol can produce anxiety, insomnia, and seizures that mimic or worsen mood episodes. Alcohol is the most common substance involved in dual diagnosis.",
-    },
-    {
-      question: "How does cocaine affect people with mood disorders?",
-      answer: "Cocaine floods the brain with dopamine, producing intense euphoria followed by a severe crash. For people with depression, the crash is devastating because the brain was already low on dopamine. For people with bipolar disorder, cocaine can trigger manic episodes and psychosis. The comedown mimics a depressive episode so closely that it is often impossible to tell where the drug effect ends and the mood disorder begins. Chronic cocaine use permanently reduces the brain's ability to produce dopamine naturally, making the underlying mood disorder worse over time.",
-    },
-    {
-      question: "What is the relationship between marijuana and mood disorders?",
-      answer: "Marijuana affects the endocannabinoid system, which regulates mood, sleep, appetite, and stress response. Short-term use can reduce anxiety, but chronic use disrupts the brain's natural ability to regulate these functions. High-THC strains are associated with increased risk of psychosis, particularly in people with bipolar disorder or schizophrenia. For depression, marijuana creates a cycle of temporary relief followed by amotivation and emotional blunting. Many people underestimate marijuana's impact because it feels less dangerous than other substances, but for dual diagnosis it can be a significant destabilizer.",
-    },
-    {
-      question: "How do crack and meth affect mood disorders?",
-      answer: "Crack cocaine and methamphetamine are both powerful stimulants that produce extreme dopamine surges. Crack delivers a shorter, more intense high than powder cocaine, leading to rapid binge cycles. Meth produces a longer high but causes severe neurotoxicity, literally damaging dopamine-producing neurons. Both substances can trigger psychosis, paranoia, and aggression even in people without pre-existing conditions. For people with mood disorders, these substances accelerate the progression of the illness. Meth in particular can cause permanent changes to brain structure that worsen depression and anxiety for years after the last use.",
-    },
-    {
-      question: "How does Xanax and benzodiazepine use complicate mood disorders?",
-      answer: "Benzodiazepines like Xanax, Klonopin, and Valium are prescribed for anxiety but carry high addiction potential. They work by enhancing GABA, producing calm and sedation. Tolerance develops quickly, requiring higher doses for the same effect. Withdrawal from benzodiazepines is medically dangerous and can include seizures, panic attacks, and rebound anxiety worse than the original condition. For people with mood disorders, benzodiazepine dependence creates a secondary layer of chemical instability. The withdrawal cycle can trigger depressive and manic episodes, and the cognitive impairment from chronic use interferes with therapy and self-awareness.",
-    },
-    {
-      question: "How do opiates interact with mood disorders?",
-      answer: "Opiates including heroin, fentanyl, oxycodone, and hydrocodone hijack the brain's endorphin system. They produce profound pain relief and euphoria by binding to mu-opioid receptors. For people with depression, opiates feel like the first time they have not been in emotional pain, which makes them extraordinarily addictive in this population. Chronic opiate use suppresses the brain's natural endorphin production, creating a state where you cannot feel pleasure or relief without the drug. Withdrawal produces severe physical symptoms plus depression and anxiety that can last months. Medication-assisted treatment with buprenorphine or methadone is often essential for people with co-occurring opiate addiction and mood disorders.",
-    },
-    {
-      question: "What should I log for addiction tracking?",
-      answer: "Log your substance of concern, days since last use, craving intensity on a 1 to 10 scale, what triggered the craving, what coping strategy you used, and your mood state at the time. If you used, log that honestly without judgment. The data is for you. Over time, this log reveals which mood states precede cravings, which situations are highest risk, and which coping strategies actually work versus which ones you think should work but do not.",
-    },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>
-          Addiction
-        </h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Understanding how substances interact with your mood
-        </p>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Addiction</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Understanding how substances interact with your mood</p>
       </div>
 
-      <FAQSection items={faq} accentColor={category.color} />
+      <InfoSection title="Alcohol">
+        <p>Alcohol is a central nervous system depressant that initially produces relaxation and euphoria by boosting GABA and dopamine. But chronic use suppresses serotonin production and disrupts sleep architecture. For people with depression, alcohol deepens depressive episodes within days of heavy use. For bipolar disorder, alcohol can trigger rapid cycling. Withdrawal can produce anxiety, insomnia, and seizures that mimic or worsen mood episodes.</p>
+      </InfoSection>
 
-      <LoggingSection
-        categoryId="addiction"
-        categoryColor={category.color}
-        logLabel="Log Entry"
-        {...props}
-      />
+      <InfoSection title="Cocaine">
+        <p>Cocaine floods the brain with dopamine, producing intense euphoria followed by a severe crash. For people with depression, the crash is devastating because the brain was already low on dopamine. For bipolar disorder, cocaine can trigger manic episodes and psychosis. The comedown mimics a depressive episode so closely that it is often impossible to tell where the drug effect ends and the mood disorder begins. Chronic use permanently reduces the brain's ability to produce dopamine naturally.</p>
+      </InfoSection>
+
+      <InfoSection title="Marijuana">
+        <p>Marijuana affects the endocannabinoid system, which regulates mood, sleep, appetite, and stress response. Short-term use can reduce anxiety, but chronic use disrupts the brain's natural ability to regulate these functions. High-THC strains are associated with increased risk of psychosis. For depression, marijuana creates a cycle of temporary relief followed by amotivation and emotional blunting. Many people underestimate marijuana's impact because it feels less dangerous than other substances.</p>
+      </InfoSection>
+
+      <InfoSection title="Crack and Meth">
+        <p>Both are powerful stimulants that produce extreme dopamine surges. Crack delivers a shorter, more intense high than powder cocaine, leading to rapid binge cycles. Meth produces a longer high but causes severe neurotoxicity, literally damaging dopamine-producing neurons. Both can trigger psychosis, paranoia, and aggression. Meth in particular can cause permanent changes to brain structure that worsen depression and anxiety for years after the last use.</p>
+      </InfoSection>
+
+      <InfoSection title="Xanax and Benzodiazepines">
+        <p>Benzodiazepines like Xanax, Klonopin, and Valium are prescribed for anxiety but carry high addiction potential. Tolerance develops quickly. Withdrawal is medically dangerous and can include seizures, panic attacks, and rebound anxiety worse than the original condition. Benzodiazepine dependence creates a secondary layer of chemical instability. The withdrawal cycle can trigger depressive and manic episodes, and cognitive impairment from chronic use interferes with therapy and self-awareness.</p>
+      </InfoSection>
+
+      <InfoSection title="Opiates">
+        <p>Opiates including heroin, fentanyl, oxycodone, and hydrocodone hijack the brain's endorphin system. For people with depression, opiates feel like the first time they have not been in emotional pain, which makes them extraordinarily addictive. Chronic use suppresses the brain's natural endorphin production, creating a state where you cannot feel pleasure or relief without the drug. Withdrawal produces severe physical symptoms plus depression and anxiety that can last months. Medication-assisted treatment with buprenorphine or methadone is often essential.</p>
+      </InfoSection>
+
+      <InfoSection title="What to Log">
+        <p>Log your substance of concern, days since last use, craving intensity on a 1 to 10 scale, what triggered the craving, what coping strategy you used, and your mood state at the time. If you used, log that honestly without judgment. The data is for you. Over time, this log reveals which mood states precede cravings, which situations are highest risk, and which coping strategies actually work.</p>
+      </InfoSection>
+
+      <LoggingSection categoryId="addiction" categoryColor={category.color} logLabel="Log Entry" {...props} />
     </div>
   );
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   FAQ PAGE — Mega FAQ combining all category questions
+   ═══════════════════════════════════════════════════════════════ */
 
+const FAQ_SECTIONS = [
+  {
+    title: "Mood",
+    icon: "\u{1F30A}",
+    color: "#C9A96E",
+    items: [
+      { q: "How does addiction affect mood stability?", a: "Substances directly alter the neurotransmitter systems that regulate mood. Alcohol depletes serotonin over time. Stimulants cause dopamine crashes. Even after you stop using, your brain's mood regulation system can take months to recalibrate. During that window, mood swings are more frequent and more intense." },
+      { q: "Why do mood episodes trigger cravings?", a: "During depressive episodes, the brain seeks relief from emotional pain, and substances offer fast but temporary relief. During manic or hypomanic episodes, impulsivity increases and risk assessment decreases, making it easier to justify using." },
+      { q: "How do I tell the difference between withdrawal and a mood episode?", a: "They can look identical. The key differentiator is timeline. Withdrawal symptoms follow a predictable arc after your last use. Mood episodes can emerge at any time. Logging both your substance use and your mood helps your provider distinguish between them." },
+    ],
+  },
+  {
+    title: "Therapy",
+    icon: "\u{1F9E0}",
+    color: "#5C6B4A",
+    items: [
+      { q: "Why is therapy essential?", a: "Medication manages brain chemistry. Therapy manages the behaviors, thought patterns, and relationship dynamics that either stabilize or destabilize you. Integrated treatment addressing both conditions simultaneously produces significantly better outcomes than treating either alone." },
+      { q: "What types of therapy work best?", a: "CBT helps identify distorted thinking. DBT teaches distress tolerance so you can ride out cravings and mood episodes without acting on them. IPSRT stabilizes daily routines. Many people benefit from a combination." },
+      { q: "How often should I go?", a: "Weekly during unstable periods or early recovery. Biweekly during maintenance. Skipping therapy when you feel good is one of the most common mistakes. Stability is when you build the skills you will need during the next crisis." },
+    ],
+  },
+  {
+    title: "Sleep",
+    icon: "\u{1F319}",
+    color: "#5A6B7A",
+    items: [
+      { q: "Why is sleep the number one priority?", a: "Sleep disruption is both the earliest warning sign and the most potent trigger for mood episodes. Even one night of lost sleep can trigger hypomania. Poor sleep is also one of the strongest predictors of relapse." },
+      { q: "How do substances disrupt sleep?", a: "Alcohol fragments sleep architecture. Stimulants prevent sleep onset. Cannabis suppresses dreaming and creates rebound insomnia during withdrawal. Even after substances are removed, sleep disturbance can persist for weeks or months." },
+      { q: "What are the non-negotiable sleep rules?", a: "Same bedtime and wake time every day. No screens one hour before bed. Dark, cool room. No caffeine after noon. No alcohol. If you cannot sleep after 20 minutes, get up and do something boring until drowsy." },
+    ],
+  },
+  {
+    title: "Nutrition",
+    icon: "\u{1F96C}",
+    color: "#7A9E7E",
+    items: [
+      { q: "Why does nutrition matter?", a: "Your brain consumes 20% of your daily calories despite being only 2% of your body weight. What you eat directly impacts neurotransmitter production, inflammation levels, and gut-brain signaling. Chronic substance use depletes essential nutrients." },
+      { q: "How does blood sugar affect mood and cravings?", a: "Blood sugar spikes and crashes can mimic or trigger mood episodes and amplify cravings. The crash after a sugar spike feels similar to the come-down from substances. Eat protein with every meal, prioritize complex carbs, and avoid long gaps between meals." },
+      { q: "What about the gut-brain connection?", a: "90% of serotonin is produced in the gut. Chronic alcohol use, poor diet, and antibiotics disrupt the microbiome, which directly impacts mood regulation and craving intensity. Fermented foods, fiber, and diverse plant intake support a healthy microbiome." },
+    ],
+  },
+  {
+    title: "Exercise",
+    icon: "\u{1F3C3}",
+    color: "#B8704A",
+    items: [
+      { q: "How does exercise help?", a: "Exercise directly impacts serotonin, dopamine, norepinephrine, and BDNF. For depression, aerobic exercise has been shown to be as effective as antidepressants for mild-to-moderate cases. For addiction, exercise provides a natural dopamine release that reduces craving intensity." },
+      { q: "Can exercise replace the high from substances?", a: "Not exactly, but it activates overlapping reward pathways. The endorphin release engages the same opioid receptors that substances target, just at a lower, sustainable level. People who exercise regularly in early recovery have significantly lower relapse rates." },
+      { q: "Can too much exercise be a problem?", a: "Yes. Over-exercise can trigger hypomania. It can also become a substitute addiction. Warning signs include working out twice a day, inability to rest, exercising through injury, and feeling anxious when you miss a session." },
+    ],
+  },
+  {
+    title: "Medications",
+    icon: "\u{1F48A}",
+    color: "#8B6B7A",
+    items: [
+      { q: "Can I drink alcohol on psychiatric medications?", a: "In almost all cases, no. Alcohol interacts dangerously with lithium, benzodiazepines, antidepressants, and antipsychotics. Beyond interactions, alcohol destabilizes the mood you are trying to stabilize." },
+      { q: "What medications help with both conditions?", a: "Naltrexone reduces alcohol and opioid cravings while being safe with most mood stabilizers. Gabapentin helps with anxiety, sleep, and alcohol cravings. Bupropion can help with both depression and nicotine/stimulant cravings." },
+      { q: "What if I relapse while on medication?", a: "Do not stop your medication. Contact your prescriber. A relapse does not erase the progress your medication has made. Stopping medication during a relapse creates a double crisis." },
+    ],
+  },
+  {
+    title: "Social",
+    icon: "\u{1F465}",
+    color: "#5A7B9E",
+    items: [
+      { q: "How do I handle social situations where people are using?", a: "Early in recovery, avoid them entirely. As you build stability, reintroduce social situations with a plan: bring a sober support person, have an exit strategy, and leave when you feel uncomfortable. Never test your willpower when you do not have to." },
+      { q: "What if my social circle revolves around substance use?", a: "You may need to build an entirely new social network. Recovery meetings, group therapy, volunteer work, and hobby-based communities are all places to find people who support your recovery." },
+      { q: "How does over-socializing affect mood?", a: "During hypomania, the instinct is to say yes to everything. This disrupts sleep, overstimulates the brain, and can accelerate into full mania. If you are suddenly the life of every party, that is data, not just personality." },
+    ],
+  },
+  {
+    title: "Triggers",
+    icon: "\u26A1",
+    color: "#C45D3E",
+    items: [
+      { q: "What are HALT states?", a: "Hungry, Angry, Lonely, Tired. These four basic states are the most common precursors to both mood destabilization and relapse. When you are in a HALT state, your brain's decision-making is compromised." },
+      { q: "Can positive events be triggers?", a: "Absolutely. Falling in love, getting a promotion, or any intense positive emotion can trigger hypomania. Celebrations are also high-risk because they are culturally associated with substance use." },
+      { q: "How do I build a trigger management plan?", a: "List your known triggers. For each one, write down the early warning signs, the action plan, and the support contact. Review this plan with your therapist. The time to build the plan is when you are stable, not when you are in crisis." },
+    ],
+  },
+  {
+    title: "Addiction",
+    icon: "\u{1F525}",
+    color: "#2E8B6E",
+    items: [
+      { q: "How does alcohol interact with mood disorders?", a: "Chronic use suppresses serotonin production and disrupts sleep architecture. For depression, alcohol deepens episodes within days of heavy use. For bipolar disorder, it can trigger rapid cycling. Withdrawal can produce anxiety, insomnia, and seizures." },
+      { q: "What about cocaine?", a: "Cocaine floods the brain with dopamine, producing intense euphoria followed by a severe crash. The comedown mimics a depressive episode so closely that it is often impossible to tell where the drug effect ends and the mood disorder begins." },
+      { q: "How do opiates interact with mood disorders?", a: "For people with depression, opiates feel like the first time they have not been in emotional pain, which makes them extraordinarily addictive. Chronic use suppresses natural endorphin production. Medication-assisted treatment is often essential." },
+      { q: "What about benzodiazepines?", a: "Tolerance develops quickly. Withdrawal is medically dangerous. Benzodiazepine dependence creates a secondary layer of chemical instability. The withdrawal cycle can trigger depressive and manic episodes." },
+    ],
+  },
+];
+
+function FAQPage() {
+  const [openSection, setOpenSection] = useState<number | null>(null);
+  const [openQ, setOpenQ] = useState<string | null>(null);
+
+  return (
+    <div className="space-y-6">
+      <div className="text-center">
+        <span className="text-3xl">❓</span>
+        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: "#3a2a1a" }}>Frequently Asked Questions</h2>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Everything you need to know, organized by topic</p>
+      </div>
+
+      {FAQ_SECTIONS.map((section, sIdx) => (
+        <div key={section.title} className="rounded-xl overflow-hidden" style={{ border: `1px solid ${section.color}30` }}>
+          <button
+            onClick={() => setOpenSection(openSection === sIdx ? null : sIdx)}
+            className="w-full flex items-center gap-3 p-4 text-left transition-colors"
+            style={{ background: openSection === sIdx ? `${section.color}15` : "white" }}
+          >
+            <span className="text-xl">{section.icon}</span>
+            <span className="flex-1 text-base font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: section.color }}>
+              {section.title}
+            </span>
+            <motion.span
+              animate={{ rotate: openSection === sIdx ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="text-sm opacity-40"
+            >
+              ▼
+            </motion.span>
+          </button>
+
+          <AnimatePresence>
+            {openSection === sIdx && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-4 pb-4 space-y-2">
+                  {section.items.map((item) => {
+                    const key = `${sIdx}-${item.q}`;
+                    return (
+                      <div key={key} className="rounded-lg" style={{ background: "rgba(58,42,26,0.03)" }}>
+                        <button
+                          onClick={() => setOpenQ(openQ === key ? null : key)}
+                          className="w-full text-left p-3 flex items-start gap-2"
+                        >
+                          <span className="text-xs mt-0.5 shrink-0" style={{ color: section.color }}>{openQ === key ? "▲" : "▼"}</span>
+                          <span className="text-sm font-medium" style={{ fontFamily: "'DM Sans', sans-serif", color: "#3a2a1a" }}>{item.q}</span>
+                        </button>
+                        <AnimatePresence>
+                          {openQ === key && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden"
+                            >
+                              <p className="px-3 pb-3 text-sm leading-relaxed opacity-70" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                                {item.a}
+                              </p>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
+    </div>
+  );
+}
