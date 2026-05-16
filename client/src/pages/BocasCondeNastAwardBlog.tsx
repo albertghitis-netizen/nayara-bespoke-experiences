@@ -17,7 +17,6 @@ const BOCAS_PALETTE = {
   text: "#0A3A45",
   lightText: "#2C5A6A",
   background: "#F0F8FA",
-  divider: "#D4E8F0",
 };
 
 export default function BocasCondeNastAwardBlog() {
@@ -41,13 +40,12 @@ export default function BocasCondeNastAwardBlog() {
       
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: "linear-gradient(135deg, #0B5563 0%, #1B7A8F 100%)",
-          }}
+        <img
+          src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-conde-nast-hero_286e6834.jpeg"
+          alt="Nayara Bocas del Toro overwater villas surrounded by rainforest"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 opacity-20" style={{ backgroundColor: "#0A3A45" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

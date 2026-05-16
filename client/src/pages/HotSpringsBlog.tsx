@@ -21,7 +21,6 @@ const PALETTE = {
   accent: "#8B6914",
   text: "#2C2016",
   muted: "#5A4A3A",
-  divider: "#E8DFD5",
 };
 
 /* ── RELATED ARTICLES ──────────────────────────────────────── */
@@ -497,7 +496,7 @@ export default function HotSpringsBlog() {
                   <li
                     key={i}
                     className="text-[14px] leading-[1.7] pl-4"
-                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted, borderLeft: `1px solid ${PALETTE.divider}` }}
+                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
                   >
                     {source}
                   </li>
@@ -521,7 +520,7 @@ export default function HotSpringsBlog() {
                   <li
                     key={i}
                     className="text-[14px] leading-[1.7] pl-4"
-                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted, borderLeft: `1px solid ${PALETTE.divider}` }}
+                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
                   >
                     {source}
                   </li>
@@ -545,7 +544,7 @@ export default function HotSpringsBlog() {
                   <li
                     key={i}
                     className="text-[14px] leading-[1.7] pl-4"
-                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted, borderLeft: `1px solid ${PALETTE.divider}` }}
+                    style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
                   >
                     {source}
                   </li>

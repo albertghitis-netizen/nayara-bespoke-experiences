@@ -18,7 +18,6 @@ const BOCAS_PALETTE = {
   text: "#0A3A45",
   lightText: "#2C5A6A",
   background: "#F0F8FA",
-  divider: "#D4E8F0",
 };
 
 export default function NayaraBocasResortExperienceBlog() {

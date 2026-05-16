@@ -3746,3 +3746,8 @@
 - [x] Kill divider lines across all blogs
 - [x] Ensure all blogs end with Explore More 3 related articles section
 - [x] FAQ always separate from blog posts (permanent rule)
+- [x] Delete ArenalTimelessWonderBlog and BiodensityUnderwaterBlog stubs + clean routes
+- [x] Add Explore More + Footer to 11 remaining standalone blogs: SunlitSustainability, HangaroaRegeneration, StargazingAtacama, AtacamaOasis, MayaRapaNuiClimate, WellnessByColors, EdgeHabitability, FamilyTravel, BocasCondéNast, MayaRapaNui, WellnessHospitality
+- [x] Scrape solo travel blog images from HubSpot and add to SoloTravelFemaleBlog
+- [x] Add Bocas Condé Nast hero image from HubSpot
+- [x] Final audit: all 31 blogs compile clean, have Footer, Explore More, no dividers, no stubs

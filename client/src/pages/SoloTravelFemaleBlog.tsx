@@ -20,7 +20,6 @@ const PALETTE = {
   accent: "#8B6F5C",
   text: "#2C2016",
   muted: "#5A4A3A",
-  divider: "#E8DFD5",
   deep: "#3a2a1a",
 };
 
@@ -53,7 +52,7 @@ export default function SoloTravelFemaleBlog() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.cream }}>
       <EnhancedArticleSchema
-        image={`${CDN}/prop-tented_0fd865a2.jpg`}
+        image={`${CDN}/solo-travel-hero_46bd73b9.jpeg`}
         headline="The Future of Solo Travel is Female"
         description="More women than ever are choosing to travel solo. What was once considered unconventional has become a powerful expression of independence, curiosity, and self-discovery."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Hospitality", "Solo Travel", "Wellness Tourism"] }}
@@ -64,8 +63,8 @@ export default function SoloTravelFemaleBlog() {
       {/* HERO */}
       <section className="relative h-screen w-full overflow-hidden">
         <img
-          src={`${CDN}/prop-tented_0fd865a2.jpg`}
-          alt="Solo traveler overlooking the rainforest at Nayara Tented Camp"
+          src={`${CDN}/solo-travel-hero_46bd73b9.jpeg`}
+          alt="Solo female traveler silhouetted against a golden sunset"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
         />
@@ -194,6 +193,14 @@ export default function SoloTravelFemaleBlog() {
               According to recent reports, 84% of solo travelers are women. Among them is a growing segment of middle- and upper-income women who are choosing to invest in meaningful experiences. Today, many women travel the world for work, so why not for themselves, too? This trend is especially strong among Millennial and Gen Z women, with a 41% rise in solo travel among this group in the past five years. From exploring bucket list destinations like the Atacama Desert to customized wellness retreats in Bocas del Toro in the Caribbean islands of Panama, women are increasingly prioritizing freedom, self-care, and intentional connection with the world around them.
             </p>
           </motion.div>
+          {/* Image: paddleboard */}
+          <div className="mt-12">
+            <img
+              src={`${CDN}/solo-travel-paddleboard_5356f6e3.jpeg`}
+              alt="Solo traveler paddleboarding at Nayara Bocas del Toro"
+              className="w-full max-w-2xl mx-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 
@@ -256,6 +263,14 @@ export default function SoloTravelFemaleBlog() {
               A solo journey into Arenal provides a distraction-free immersion in nature and the chance to embrace a lifestyle intimately connected to the rhythm of the rainforest. Wake up to the call of the birds and fall asleep as the sun sets. Along the way, consult with Nayara Resorts guides and staff to customize your tours, hikes, and experiences, allowing you to encounter tropical birds, mammals, and other captivating species in their natural habitats. This personalized approach helps you understand the intricacies of their fascinating lives.
             </p>
           </motion.div>
+          {/* Image: yoga */}
+          <div className="mt-12">
+            <img
+              src={`${CDN}/solo-travel-yoga_2568bd79.jpeg`}
+              alt="Yoga in a treehouse spa overlooking the rainforest"
+              className="w-full max-w-2xl mx-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 
@@ -324,6 +339,14 @@ export default function SoloTravelFemaleBlog() {
               Sometimes, solo travel is less about seeking company and more about reconnecting with yourself. For many women, it is a rare chance to step away from the constant demands of work, caregiving, and routine, allowing them to rest, reflect, and recharge. Wellness-focused retreats offer the space and support to do just that, blending quiet solitude with the gentle structure of movement, mindfulness, and nature. It is time to slow down, breathe deeply, and nourish both body and mind.
             </p>
           </motion.div>
+          {/* Image: boardwalk */}
+          <div className="mt-12">
+            <img
+              src={`${CDN}/solo-travel-boardwalk_7e1bd17c.jpeg`}
+              alt="Woman walking on a boardwalk through tropical gardens"
+              className="w-full max-w-2xl mx-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 
@@ -374,6 +397,14 @@ export default function SoloTravelFemaleBlog() {
               Safety and peace of mind are key to any solo journey, and all Nayara Resorts are designed with that in mind. Each property offers a secure, welcoming environment with 24-hour staff presence, gated access, and attentive concierge service.
             </p>
           </motion.div>
+          {/* Image: atacama sunset */}
+          <div className="mt-12">
+            <img
+              src={`${CDN}/solo-travel-atacama-sunset_855433d3.jpeg`}
+              alt="Atacama Desert sunset landscape"
+              className="w-full max-w-2xl mx-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 

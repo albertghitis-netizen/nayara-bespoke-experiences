@@ -19,7 +19,6 @@ const NIGHT = {
   accent: "#FFD700",
   text: "#E0DDD5",
   muted: "#9CA3AF",
-  divider: "#1F2937",
 };
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";

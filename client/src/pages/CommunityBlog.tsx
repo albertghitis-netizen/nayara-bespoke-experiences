@@ -20,7 +20,6 @@ const PALETTE = {
   accent: "#5B7F4A",
   text: "#2C2016",
   muted: "#5A4A3A",
-  divider: "#E8DFD5",
   forest: "#2D4A2D",
 };
 
@@ -200,7 +199,7 @@ export default function CommunityBlog() {
             </p>
             <p
               className="text-[20px] md:text-[22px] leading-[1.7] italic my-8 py-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso, borderTop: `1px solid ${PALETTE.divider}`, borderBottom: `1px solid ${PALETTE.divider}` }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
               The volcano that had taken so much began, paradoxically, to give back.
             </p>
@@ -242,7 +241,7 @@ export default function CommunityBlog() {
             </p>
             <p
               className="text-[20px] md:text-[22px] leading-[1.7] italic my-8 py-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso, borderTop: `1px solid ${PALETTE.divider}`, borderBottom: `1px solid ${PALETTE.divider}` }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
               What began with a volcano has become something even more powerful: a thriving community built on pride, dignity, and the belief that where you come from should never limit where you are going.
             </p>
@@ -324,7 +323,7 @@ export default function CommunityBlog() {
             </p>
             <p
               className="text-[20px] md:text-[22px] leading-[1.7] italic my-8 py-6"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso, borderTop: `1px solid ${PALETTE.divider}`, borderBottom: `1px solid ${PALETTE.divider}` }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
             >
               Just as Costa Rica redirected its resources from war to wellbeing, we believe tourism in Bocas can shift from extraction to inclusion.
             </p>
@@ -534,7 +533,7 @@ export default function CommunityBlog() {
                   <div
                     className="flex items-center gap-4 py-3 px-4 transition-colors duration-300 cursor-pointer"
                     style={{
-                      borderLeft: item.active ? `3px solid ${PALETTE.accent}` : `1px solid ${PALETTE.divider}`,
+                      borderLeft: item.active ? `3px solid ${PALETTE.accent}` : `1px solid transparent`,
                       backgroundColor: item.active ? "rgba(91,127,74,0.06)" : "transparent",
                     }}
                   >

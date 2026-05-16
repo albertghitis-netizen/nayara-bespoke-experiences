@@ -50,7 +50,6 @@ const Stargazing = lazy(() => import("./pages/Stargazing"));
 const MichelinKeysBlog = lazy(() => import("./pages/MichelinKeysBlog"));
 const AtacamaWildlifeBlog = lazy(() => import("./pages/AtacamaWildlifeBlog"));
 const ArenalBocasWildlifeBlog = lazy(() => import("./pages/ArenalBocasWildlifeBlog"));
-const MayaRapaNuiBlog = lazy(() => import("./pages/MayaRapaNuiBlog"));
 const AtacamaOasisBlog = lazy(() => import("./pages/AtacamaOasisBlog"));
 const TravelTrendsBlog = lazy(() => import("./pages/TravelTrendsBlog"));
 const WellnessByColorsBlog = lazy(() => import("./pages/WellnessByColorsBlog"));
@@ -59,7 +58,6 @@ const HangaroaRegenerationBlog = lazy(() => import("./pages/HangaroaRegeneration
 
 const AtacamaMarsEarthBlog = lazy(() => import("./pages/AtacamaMarsEarthBlog"));
 const NayaraStoryBlog = lazy(() => import("./pages/NayaraStoryBlog"));
-const WellnessHospitalityBlog = lazy(() => import("./pages/WellnessHospitalityBlog"));
 const NayaraByNightBlog = lazy(() => import("./pages/NayaraByNightBlog"));
 const BocasHistoryCultureNatureBlog = lazy(() => import("./pages/BocasHistoryCultureNatureBlog"));
 const NayaraBocasResortExperienceBlog = lazy(() => import("./pages/NayaraBocasResortExperienceBlog"));
@@ -67,11 +65,8 @@ const BocasCondeNastAwardBlog = lazy(() => import("./pages/BocasCondeNastAwardBl
 // CaribbeanCoralReefBlog removed — content lives on /bocas-del-toro/sustainability
 const MayaRapaNuiClimateBlog = lazy(() => import("./pages/MayaRapaNuiClimateBlog"));
 const SunlitSustainabilityBlog = lazy(() => import("./pages/SunlitSustainabilityBlog"));
-const BiodensityUnderwaterBlog = lazy(() => import("./pages/BiodensityUnderwaterBlog"));
 const SoloTravelFemaleBlog = lazy(() => import("./pages/SoloTravelFemaleBlog"));
-const FamilyTravelBlog = lazy(() => import("./pages/FamilyTravelBlog"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
-const ArenalTimelessWonderBlog = lazy(() => import("./pages/ArenalTimelessWonderBlog"));
 // ToucansArenalBlog and TreehouseDreamsBlog deleted — stubs removed
 const StargazingAtacamaBlog = lazy(() => import("./pages/StargazingAtacamaBlog"));
 const EdgeHabitabilityBlog = lazy(() => import("./pages/EdgeHabitabilityBlog"));
@@ -304,7 +299,6 @@ function Router() {
           <Route path="/blog/bocas-conde-nast" component={BocasCondeNastAwardBlog} />
           <Route path="/blog/atacama-mars" component={AtacamaMarsEarthBlog} />
           <Route path="/blog/nayara-story" component={NayaraStoryBlog} />
-          <Route path="/blog/wellness-hospitality" component={WellnessHospitalityBlog} />
           <Route path="/blog/nayara-by-night" component={NayaraByNightBlog} />
           <Route path="/blog/bocas-history-culture-nature" component={BocasHistoryCultureNatureBlog} />
           <Route path="/blog/nayara-bocas-resort-experience" component={NayaraBocasResortExperienceBlog} />
@@ -315,11 +309,8 @@ function Router() {
           <Route path="/blog/three-kitchens-one-rainforest" component={GastronomyBlog} />
 
           <Route path="/blog/sunlit-sustainability" component={SunlitSustainabilityBlog} />
-          <Route path="/blog/biodensity-underwater" component={BiodensityUnderwaterBlog} />
           <Route path="/blog/solo-travel-female" component={SoloTravelFemaleBlog} />
-          <Route path="/blog/family-travel" component={FamilyTravelBlog} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
-          <Route path="/blog/arenal-timeless-wonder" component={ArenalTimelessWonderBlog} />
           {/* /blog/toucans-arenal and /blog/treehouse-dreams removed — content merged into birdwatching blog */}
           <Route path="/blog/stargazing-atacama" component={StargazingAtacamaBlog} />
           <Route path="/blog/edge-habitability" component={EdgeHabitabilityBlog} />

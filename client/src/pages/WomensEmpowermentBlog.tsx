@@ -17,7 +17,6 @@ const TENTED_PALETTE = {
   text: "#2C2416",
   lightText: "#5A4A3A",
   background: "#F5F1ED",
-  divider: "#E8DFD5",
 };
 
 export default function WomensEmpowermentBlog() {

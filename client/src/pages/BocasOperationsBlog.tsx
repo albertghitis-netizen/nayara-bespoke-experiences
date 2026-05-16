@@ -21,7 +21,6 @@ const PALETTE = {
   light: "#FFFFFF",
   text: "#0A3A45",
   muted: "#3D5A63",
-  divider: "#D4E8F0",
 };
 
 export default function BocasOperationsBlog() {
