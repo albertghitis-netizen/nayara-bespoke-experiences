@@ -173,6 +173,7 @@ function LoggingSection({
         {showAddForm && (
           <AddEntryForm
             date={today}
+            defaultCategory={categoryId}
             onAdd={(entry) => { addEntry({ ...entry, category: categoryId }); setShowAddForm(false); }}
             onCancel={() => setShowAddForm(false)}
           />
@@ -563,12 +564,14 @@ function AddEntryForm({
   date,
   onAdd,
   onCancel,
+  defaultCategory,
 }: {
   date: string;
   onAdd: (entry: Omit<CalendarEntry, "id">) => void;
   onCancel: () => void;
+  defaultCategory?: CategoryId;
 }) {
-  const [category, setCategory] = useState<CategoryId>("mood");
+  const [category, setCategory] = useState<CategoryId>(defaultCategory || "mood");
   const [time, setTime] = useState("09:00");
   const [note, setNote] = useState("");
 
@@ -1081,32 +1084,121 @@ function SleepPage(props: CategoryPageProps) {
 
 function NutritionPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "nutrition")!;
+  const [openDessert, setOpenDessert] = useState<string | null>(null);
+
   return (
     <div className="space-y-6">
       <div className="text-center">
         <span className="text-3xl">{category.icon}</span>
         <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Nutrition</h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Fuel the brain that is healing</p>
+        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Under 20g net carbs · Equal protein & fat</p>
       </div>
 
-      <InfoSection title="Why Nutrition Matters">
-        <p>Your brain consumes 20% of your daily calories despite being only 2% of your body weight. What you eat directly impacts neurotransmitter production, inflammation levels, and gut-brain signaling. Chronic substance use depletes essential nutrients, and nutritional deficiencies worsen mood instability and increase craving intensity.</p>
+      {/* THE APPROACH */}
+      <InfoSection title="The Approach">
+        <p>This is a modified ketogenic protocol: under 20 grams of net carbs per day with roughly equal amounts of protein and fat. Unlike traditional keto, the goal is not to load up on fat. Protein is prioritized equally. No breakfast. Two meals and a snack window. Simple, repeatable, and designed for people who need stable blood sugar and stable mood without the complexity of calorie counting.</p>
       </InfoSection>
 
-      <InfoSection title="Blood Sugar, Mood, and Cravings">
-        <p>Blood sugar spikes and crashes from refined carbs and sugar can mimic or trigger mood episodes and amplify cravings. The crash after a sugar spike feels similar to the come-down from substances, which can trigger the brain's craving response. Stable blood sugar means more stable mood and fewer craving spikes. Eat protein with every meal, prioritize complex carbs, and avoid long gaps between meals.</p>
+      {/* LUNCH */}
+      <InfoSection title="Lunch — Salads with Protein">
+        <p>The base is always a large salad: romaine, spinach, or mixed greens. Top with a generous portion of protein. Dressing should be full-fat and low-sugar (ranch, blue cheese, olive oil and vinegar, Caesar).</p>
+        <div className="mt-3 space-y-2">
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Tuna salad</strong> — canned tuna mixed with mayo, celery, on a bed of greens</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Grilled chicken</strong> — sliced chicken breast or thigh over salad with avocado</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Salmon</strong> — baked or canned salmon with cucumber, tomato, and olive oil</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Steak salad</strong> — sliced steak over arugula with parmesan and lemon</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Shrimp</strong> — grilled shrimp with spinach, feta, and a squeeze of lemon</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Egg salad</strong> — hard-boiled eggs with mayo, mustard, over greens</span></div>
+        </div>
       </InfoSection>
 
-      <InfoSection title="Omega-3 Fatty Acids">
-        <p>Multiple studies show that omega-3s (EPA and DHA from fish oil) have antidepressant effects and may help stabilize mood. They reduce neuroinflammation and support cell membrane integrity in the brain. For people in recovery, omega-3s also support the brain's healing process as it recalibrates after substance use. Aim for fatty fish 2 to 3 times per week or supplement with 1 to 2 grams of EPA and DHA.</p>
+      {/* SNACKS */}
+      <InfoSection title="Snacks — Between Lunch & Dinner">
+        <p>Keep it simple. These are grab-and-go options that keep you in ketosis without spiking blood sugar.</p>
+        <div className="mt-3 space-y-2">
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Nuts</strong> — almonds, macadamias, pecans, walnuts (avoid cashews, higher carb)</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Cheese</strong> — string cheese, cheddar cubes, brie, or cream cheese on celery</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Carrot sticks</strong> — small portion (carrots have some carbs, keep to a handful)</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Celery with ranch</strong> — full-fat ranch dressing as a dip</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Pork rinds</strong> — zero carb, crunchy, satisfies the chip craving</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Olives</strong> — healthy fat, virtually zero carb</span></div>
+        </div>
       </InfoSection>
 
-      <InfoSection title="The Gut-Brain Connection">
-        <p>90% of serotonin is produced in the gut. Chronic alcohol use, poor diet, and antibiotics disrupt the microbiome, which directly impacts mood regulation and craving intensity. Fermented foods, fiber, and diverse plant intake support a healthy microbiome. Rebuilding gut health is an underappreciated part of recovery.</p>
+      {/* DINNER */}
+      <InfoSection title="Dinner — Protein & Vegetables">
+        <p>Dinner is straightforward: a solid portion of protein with a side of low-carb vegetables. Cook with butter, olive oil, or avocado oil. Season generously.</p>
+        <div className="mt-3 space-y-2">
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Proteins:</strong> chicken thighs, steak, pork chops, salmon, ground beef, shrimp, lamb</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Vegetables:</strong> broccoli, cauliflower, zucchini, green beans, asparagus, Brussels sprouts, spinach</span></div>
+          <div className="flex items-start gap-2"><span className="font-bold text-sm" style={{ color: category.color }}>•</span><span><strong>Avoid:</strong> potatoes, rice, pasta, bread, corn, peas</span></div>
+        </div>
       </InfoSection>
 
-      <InfoSection title="Food and Medication Interactions">
-        <p>Lithium levels are affected by sodium and hydration. Grapefruit interacts with many psychiatric medications. Caffeine can trigger anxiety and disrupt sleep. If you are on MAOIs, tyramine-rich foods (aged cheese, cured meats) can cause dangerous blood pressure spikes. Track what you eat to spot patterns and share logs with your prescriber.</p>
+      {/* DESSERT */}
+      <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
+        <h3 className="text-base font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Dessert — Sugar-Free Options</h3>
+        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>Having something sweet after dinner helps with adherence. These are all sugar-free and widely available. Stick to one or two pieces.</p>
+
+        {/* Russell Stover */}
+        <button
+          onClick={() => setOpenDessert(openDessert === "russell" ? null : "russell")}
+          className="w-full flex items-center justify-between py-3 border-b border-stone-300"
+        >
+          <span className="text-sm font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>Russell Stover Sugar Free</span>
+          <span className="text-xs opacity-40">{openDessert === "russell" ? "▲" : "▼"}</span>
+        </button>
+        {openDessert === "russell" && (
+          <div className="py-3 space-y-1.5 text-sm opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-xs opacity-60 mb-2">Made with Stevia extract. America's #1 sugar-free chocolate brand.</p>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Peanut Butter Cups</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Pecan Delights</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Dark Chocolate Mint Patties</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Caramel in Chocolate</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Coconut in Chocolate</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Toffee Squares in Chocolate</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Dark Chocolate Medallions</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Strawberry Flavored Crème</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Peanut, Caramel & Nougat</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Dark Chocolate Pecan Delights</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Caramel Chocolate Tiles</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Fruit Chews</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Salt Water Taffy</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Assorted Fruit Hard Candy</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Cinnamon Hard Candy</span></div>
+          </div>
+        )}
+
+        {/* Hershey's */}
+        <button
+          onClick={() => setOpenDessert(openDessert === "hershey" ? null : "hershey")}
+          className="w-full flex items-center justify-between py-3 border-b border-stone-300"
+        >
+          <span className="text-sm font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>Hershey's Zero Sugar</span>
+          <span className="text-xs opacity-40">{openDessert === "hershey" ? "▲" : "▼"}</span>
+        </button>
+        {openDessert === "hershey" && (
+          <div className="py-3 space-y-1.5 text-sm opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <p className="text-xs opacity-60 mb-2">Sweetened with sugar alcohols. About 20% fewer calories than classic versions.</p>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Reese's Zero Sugar Peanut Butter Cups</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>York Zero Sugar Peppermint Patties</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Hershey's Zero Sugar Chocolate Bars</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Hershey's Special Dark Zero Sugar</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Hershey's Zero Sugar Caramel Filled</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Jolly Rancher Zero Sugar Hard Candy</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Jolly Rancher Zero Sugar Gummies</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Twizzlers Zero Sugar Strawberry Twists</span></div>
+            <div className="flex items-start gap-2"><span style={{ color: category.color }}>•</span><span>Ice Breakers Sugar-Free Mints</span></div>
+          </div>
+        )}
+      </section>
+
+      {/* IMPORTANT NOTES */}
+      <InfoSection title="Important Notes">
+        <p><strong>No breakfast.</strong> Intermittent fasting (skipping breakfast) helps maintain ketosis and improves insulin sensitivity. Drink water, black coffee, or tea in the morning.</p>
+        <p><strong>Hydration.</strong> Drink at least 8 glasses of water per day. Low-carb diets are diuretic. Add electrolytes (sodium, potassium, magnesium) especially in the first two weeks.</p>
+        <p><strong>Sugar alcohols.</strong> The sugar-free desserts use sugar alcohols or stevia. Some people experience digestive discomfort if they eat too many. Start with one piece and see how you feel.</p>
+        <p><strong>Medication interactions.</strong> If you take lithium, changes in sodium and hydration can affect your levels. Talk to your prescriber before making major dietary changes.</p>
       </InfoSection>
 
       <LoggingSection categoryId="nutrition" categoryColor={category.color} logLabel="Log Meal" {...props} />
