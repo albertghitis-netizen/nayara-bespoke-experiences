@@ -1220,24 +1220,48 @@ function ExercisePage(props: CategoryPageProps) {
         <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Move your body, heal your brain</p>
       </div>
 
-      <InfoSection title="How Exercise Helps">
-        <p>Exercise directly impacts the neurotransmitter systems (serotonin, dopamine, norepinephrine, BDNF) that are dysregulated in both mood disorders and addiction. For depression, aerobic exercise has been shown to be as effective as antidepressants for mild-to-moderate cases. For addiction, exercise provides a natural dopamine release that helps fill the void left by substances and reduces craving intensity.</p>
+      <InfoSection title="HOTWORX">
+        <p>Infrared sauna workouts that combine heat therapy with exercise. The infrared heat penetrates deep into muscle tissue, increasing circulation and accelerating recovery. Sessions typically run 30 to 40 minutes and include isometric exercises, hot yoga, Pilates, and HIIT variations performed inside the sauna. The heat amplifies calorie burn and promotes detoxification through sweat. The controlled environment also has a calming effect on the nervous system, which can help with anxiety and mood regulation. Start with 2 to 3 sessions per week and hydrate aggressively before and after.</p>
       </InfoSection>
 
-      <InfoSection title="The Natural High">
-        <p>Exercise activates overlapping reward pathways. The endorphin release engages the same opioid receptors that substances target, just at a lower, sustainable level. Over time, regular exercise helps the brain's reward system recalibrate toward natural sources of pleasure. Studies show that people who exercise regularly in early recovery have significantly lower relapse rates.</p>
+      <InfoSection title="Pilates">
+        <p>Pilates builds core strength, flexibility, and body awareness through controlled, low-impact movements. It strengthens the deep stabilizing muscles of the trunk, improves posture, and reduces chronic pain. For mood disorders, the mind-body connection required in Pilates acts as a form of moving meditation — you have to focus on breath and alignment, which pulls attention away from rumination and anxiety. Reformer Pilates adds resistance for a more challenging workout. Mat Pilates is accessible anywhere. Aim for 2 to 3 sessions per week.</p>
       </InfoSection>
 
-      <InfoSection title="How Much is Enough">
-        <p>30 minutes of moderate aerobic exercise (walking, swimming, cycling) 3 to 5 times per week. Yoga and weight training also show benefits. The key is consistency over intensity. Showing up matters more than performance. The routine aspect of exercise is as important as the physical benefit because it anchors your daily schedule.</p>
+      <InfoSection title="Walking">
+        <p>The most underrated form of exercise. Walking requires no equipment, no gym membership, and no recovery time. A 30-minute walk elevates serotonin and BDNF (brain-derived neurotrophic factor), which supports neuroplasticity and mood regulation. Walking outdoors adds the benefit of sunlight exposure, which regulates circadian rhythm and vitamin D production. It is also a reliable tool for managing cravings — when an urge hits, a 15-minute walk can reduce its intensity significantly. Build a daily walking habit. Morning walks are especially effective for setting your internal clock.</p>
+      </InfoSection>
+
+      <InfoSection title="5K Training">
+        <p>Training for a 5K gives exercise a concrete goal and a timeline, which adds structure and accountability. A standard Couch to 5K program takes 8 to 9 weeks and alternates walking and running intervals that gradually increase in duration. The progression is designed so that anyone can complete it regardless of current fitness level. The sense of accomplishment from finishing a 5K is a powerful mood booster and builds self-efficacy — the belief that you can set a goal and follow through. Sign up for an actual race to add external accountability. Run with a friend or group if possible.</p>
+        <div className="mt-3 space-y-1">
+          <p className="font-semibold text-xs">Sample Week 1:</p>
+          <p>Alternate 60 seconds jogging / 90 seconds walking for 20 minutes, 3 days</p>
+          <p className="font-semibold text-xs mt-2">Sample Week 5:</p>
+          <p>Jog 5 minutes, walk 3 minutes, jog 5 minutes, walk 3 minutes, jog 5 minutes</p>
+          <p className="font-semibold text-xs mt-2">Race Day:</p>
+          <p>Run 3.1 miles continuously at a comfortable pace</p>
+        </div>
+      </InfoSection>
+
+      <InfoSection title="Weight Lifting">
+        <p>Resistance training is essential for bone density, which decreases with age, certain medications (like lithium and anticonvulsants), and sedentary periods during depressive episodes. Weight-bearing exercise stimulates osteoblasts — the cells that build new bone — and is one of the most effective ways to prevent osteoporosis. Beyond bone health, lifting weights increases lean muscle mass, improves insulin sensitivity, boosts resting metabolism, and has a direct antidepressant effect through increased BDNF and endorphin release.</p>
+        <div className="mt-3 space-y-1">
+          <p className="font-semibold text-xs">Getting Started:</p>
+          <p>Start with bodyweight exercises (squats, lunges, push-ups) or light dumbbells. Focus on compound movements that work multiple muscle groups. Aim for 2 to 3 sessions per week with at least one rest day between sessions. Progressive overload — gradually increasing weight or reps — is the key to continued benefit. Consider working with a trainer for the first few sessions to learn proper form and prevent injury.</p>
+          <p className="font-semibold text-xs mt-2">Key Compound Movements:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Squats — legs, glutes, core</li>
+            <li>Deadlifts — posterior chain, grip strength</li>
+            <li>Bench press — chest, shoulders, triceps</li>
+            <li>Rows — back, biceps, posture</li>
+            <li>Overhead press — shoulders, core stability</li>
+          </ul>
+        </div>
       </InfoSection>
 
       <InfoSection title="When Exercise Becomes a Problem">
-        <p>Over-exercise can trigger hypomania in people with bipolar disorder. It can also become a substitute addiction. Warning signs include working out twice a day, inability to rest, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals.</p>
-      </InfoSection>
-
-      <InfoSection title="Best Time to Exercise">
-        <p>Morning exercise is particularly effective because it reinforces your circadian clock, improves sleep onset at night, and provides a natural mood boost that carries through the day. It also fills the early morning hours, which can be a high-risk time for cravings. Whatever time you choose, keep it consistent.</p>
+        <p>Over-exercise can trigger hypomania in people with bipolar disorder. It can also become a substitute addiction. Warning signs include working out twice a day, inability to take rest days, exercising through injury, and feeling anxious or guilty when you miss a session. Moderation and consistency are the goals. Listen to your body. Rest is part of the program.</p>
       </InfoSection>
 
       <LoggingSection categoryId="exercise" categoryColor={category.color} logLabel="Log Exercise" {...props} />
