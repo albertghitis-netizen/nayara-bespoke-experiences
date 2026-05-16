@@ -24,14 +24,13 @@ const CATEGORIES = [
   { id: "meds", label: "Meds", color: "#8B6B7A", icon: "⊕" },
   { id: "social", label: "Social", color: "#6B8A9E", icon: "◇" },
   { id: "triggers", label: "Triggers", color: "#A65D5D", icon: "⚡" },
-  { id: "addiction", label: "Addiction", color: "#4A7C6B", icon: "◎" },
   { id: "faq", label: "FAQ", color: "#8A7A5A", icon: "?" },
 ] as const;
 
 type CategoryId = (typeof CATEGORIES)[number]["id"];
 
 /* Categories that can be logged in the calendar */
-const NON_LOGGABLE = new Set(["triggers", "addiction", "faq"]);
+const NON_LOGGABLE = new Set(["triggers", "faq"]);
 const LOGGABLE_CATEGORIES = CATEGORIES.filter((c) => !NON_LOGGABLE.has(c.id));
 
 interface CalendarEntry {
@@ -344,8 +343,6 @@ export default function Lexi() {
           <SocialPage {...categoryProps("social")} />
         ) : activeView === "triggers" ? (
           <TriggersPage {...categoryProps("triggers")} />
-        ) : activeView === "addiction" ? (
-          <AddictionPage {...categoryProps("addiction")} />
         ) : activeView === "faq" ? (
           <FAQPage />
         ) : (
@@ -787,34 +784,49 @@ function HomePage() {
           className="text-3xl tracking-wide mb-2"
           style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
         >
-          Living Well with Dual Diagnosis
+          Living Well with Bipolar
         </h1>
         <p className="text-sm opacity-60 max-w-md mx-auto" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          A personal tool for managing co-occurring addiction and mood disorders.
+          A personal tool for understanding, tracking, and managing your condition.
         </p>
       </div>
 
+      {/* ── BIPOLAR SECTION ── */}
+
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What is Dual Diagnosis?</h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>What is Bipolar Disorder?</h2>
+        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Bipolar disorder is a chronic condition involving extreme shifts in mood, energy, and activity levels. These shifts go far beyond normal ups and downs. Depressive episodes bring crushing fatigue, hopelessness, and an inability to function. Manic episodes bring elevated energy, reduced need for sleep, impulsivity, and sometimes psychosis. Hypomania is a milder form that can feel productive but often leads to poor decisions.
+        </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Dual diagnosis means living with both a substance use disorder and a mood disorder at the same time. Depression, bipolar disorder, anxiety, and PTSD are the most common mood conditions that co-occur with addiction. Nearly half of people with a severe mental health condition also experience substance use disorder. These are not two separate problems. They are one interconnected condition where each side feeds the other.
+          There are several types. Bipolar I involves full manic episodes that last at least seven days or require hospitalization. Bipolar II involves hypomanic episodes and major depressive episodes but never full mania. Cyclothymia involves chronic fluctuating mood with periods of hypomania and mild depression lasting at least two years. Each type requires different treatment strategies.
         </p>
       </section>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>How They Amplify Each Other</h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>The Neuroscience</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Substances change brain chemistry in the same systems that regulate mood. Alcohol suppresses serotonin and GABA over time. Stimulants flood and then deplete dopamine. Opioids hijack the brain's reward circuitry. When you already have a mood disorder, these chemical disruptions hit harder and recover slower.
+          Bipolar disorder involves dysregulation of multiple neurotransmitter systems. Dopamine surges during mania and crashes during depression. Serotonin, norepinephrine, and GABA are all affected. The prefrontal cortex, which handles impulse control and decision-making, shows reduced activity during episodes. The amygdala, which processes emotions, becomes hyperactive.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          The cycle works both ways. A depressive episode makes you reach for relief. A manic episode lowers inhibition and amplifies risk-taking. Withdrawal mimics and triggers mood episodes. Shame from relapse deepens depression. Without treating both conditions together, recovery from either one is significantly harder.
+          This is not a willpower problem. It is a brain chemistry problem. Medication stabilizes these systems. Therapy builds the skills to manage what medication cannot. Routine protects the circadian rhythms that directly influence episode cycling.
         </p>
       </section>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
-        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Why Routine is the Foundation</h2>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Early Warning Signs</h2>
         <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          Research on Interpersonal and Social Rhythm Therapy (IPSRT) shows that stabilizing daily routines is one of the most effective interventions for mood disorders. For addiction, structure is equally critical. Idle time, disrupted sleep, skipped meals, and social isolation are the environments where cravings thrive and relapse happens.
+          Episodes rarely arrive without warning. Depression often starts with sleep changes, social withdrawal, loss of interest, and difficulty concentrating days or weeks before the full episode hits. Mania often starts with decreased need for sleep, racing thoughts, increased talking, and taking on too many projects.
+        </p>
+        <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          The purpose of tracking is to catch these signals early. A mood shift from 7 to 5 over three days is information. A night of 4 hours sleep followed by feeling "great" is a red flag. Lexi helps you see these patterns before they become full episodes.
+        </p>
+      </section>
+
+      <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Why Routine Matters</h2>
+        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Research on Interpersonal and Social Rhythm Therapy (IPSRT) shows that stabilizing daily routines is one of the most effective interventions for bipolar disorder. Consistent sleep and wake times, regular meals, structured social activity, and predictable daily rhythms protect against episode cycling.
         </p>
         <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Lexi helps you track the pillars of stability:</p>
       </section>
@@ -827,6 +839,22 @@ function HomePage() {
           </div>
         ))}
       </div>
+
+      {/* ── DUAL DIAGNOSIS SECTION ── */}
+
+      <div className="pt-4">
+        <div className="w-16 h-px mx-auto" style={{ background: "#3a2a1a", opacity: 0.2 }} />
+      </div>
+
+      <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
+        <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>When Addiction Enters the Picture</h2>
+        <p className="text-sm leading-relaxed opacity-80 mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Nearly half of people with bipolar disorder also experience substance use disorder. This is called dual diagnosis. It is not a coincidence. The same brain chemistry that drives mood episodes also makes substances feel like solutions. A depressive episode makes you reach for relief. A manic episode lowers inhibition and amplifies risk-taking.
+        </p>
+        <p className="text-sm leading-relaxed opacity-80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          Substances change brain chemistry in the same systems that regulate mood. Alcohol suppresses serotonin. Stimulants flood and then deplete dopamine. Opioids hijack the reward circuitry. When you already have bipolar disorder, these chemical disruptions hit harder and recover slower. Withdrawal mimics and triggers mood episodes. Shame from relapse deepens depression. Without treating both conditions together, recovery from either one is significantly harder.
+        </p>
+      </section>
 
       <section className="rounded-xl p-6" style={{ background: "#E8E3DA" }}>
         <h2 className="text-lg font-semibold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Catch It Before It Catches You</h2>
@@ -1476,53 +1504,6 @@ function TriggersPage(props: CategoryPageProps) {
       </InfoSection>
 
       <LoggingSection categoryId="triggers" categoryColor={category.color} logLabel="Log Trigger" {...props} />
-    </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   ADDICTION PAGE — FAQ Format (substance-specific)
-   ═══════════════════════════════════════════════════════════════ */
-
-function AddictionPage(props: CategoryPageProps) {
-  const category = CATEGORIES.find((c) => c.id === "addiction")!;
-  return (
-    <div className="space-y-6">
-      <div className="text-center">
-        <span className="text-3xl">{category.icon}</span>
-        <h2 className="text-2xl mt-2" style={{ fontFamily: "'Playfair Display', serif", color: category.color }}>Addiction</h2>
-        <p className="text-xs opacity-50 mt-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>Understanding how substances interact with your mood</p>
-      </div>
-
-      <InfoSection title="Alcohol">
-        <p>Alcohol is a central nervous system depressant that initially produces relaxation and euphoria by boosting GABA and dopamine. But chronic use suppresses serotonin production and disrupts sleep architecture. For people with depression, alcohol deepens depressive episodes within days of heavy use. For bipolar disorder, alcohol can trigger rapid cycling. Withdrawal can produce anxiety, insomnia, and seizures that mimic or worsen mood episodes.</p>
-      </InfoSection>
-
-      <InfoSection title="Cocaine">
-        <p>Cocaine floods the brain with dopamine, producing intense euphoria followed by a severe crash. For people with depression, the crash is devastating because the brain was already low on dopamine. For bipolar disorder, cocaine can trigger manic episodes and psychosis. The comedown mimics a depressive episode so closely that it is often impossible to tell where the drug effect ends and the mood disorder begins. Chronic use permanently reduces the brain's ability to produce dopamine naturally.</p>
-      </InfoSection>
-
-      <InfoSection title="Marijuana">
-        <p>Marijuana affects the endocannabinoid system, which regulates mood, sleep, appetite, and stress response. Short-term use can reduce anxiety, but chronic use disrupts the brain's natural ability to regulate these functions. High-THC strains are associated with increased risk of psychosis. For depression, marijuana creates a cycle of temporary relief followed by amotivation and emotional blunting. Many people underestimate marijuana's impact because it feels less dangerous than other substances.</p>
-      </InfoSection>
-
-      <InfoSection title="Crack and Meth">
-        <p>Both are powerful stimulants that produce extreme dopamine surges. Crack delivers a shorter, more intense high than powder cocaine, leading to rapid binge cycles. Meth produces a longer high but causes severe neurotoxicity, literally damaging dopamine-producing neurons. Both can trigger psychosis, paranoia, and aggression. Meth in particular can cause permanent changes to brain structure that worsen depression and anxiety for years after the last use.</p>
-      </InfoSection>
-
-      <InfoSection title="Xanax and Benzodiazepines">
-        <p>Benzodiazepines like Xanax, Klonopin, and Valium are prescribed for anxiety but carry high addiction potential. Tolerance develops quickly. Withdrawal is medically dangerous and can include seizures, panic attacks, and rebound anxiety worse than the original condition. Benzodiazepine dependence creates a secondary layer of chemical instability. The withdrawal cycle can trigger depressive and manic episodes, and cognitive impairment from chronic use interferes with therapy and self-awareness.</p>
-      </InfoSection>
-
-      <InfoSection title="Opiates">
-        <p>Opiates including heroin, fentanyl, oxycodone, and hydrocodone hijack the brain's endorphin system. For people with depression, opiates feel like the first time they have not been in emotional pain, which makes them extraordinarily addictive. Chronic use suppresses the brain's natural endorphin production, creating a state where you cannot feel pleasure or relief without the drug. Withdrawal produces severe physical symptoms plus depression and anxiety that can last months. Medication-assisted treatment with buprenorphine or methadone is often essential.</p>
-      </InfoSection>
-
-      <InfoSection title="What to Log">
-        <p>Log your substance of concern, days since last use, craving intensity on a 1 to 10 scale, what triggered the craving, what coping strategy you used, and your mood state at the time. If you used, log that honestly without judgment. The data is for you. Over time, this log reveals which mood states precede cravings, which situations are highest risk, and which coping strategies actually work.</p>
-      </InfoSection>
-
-      <LoggingSection categoryId="addiction" categoryColor={category.color} logLabel="Log Entry" {...props} />
     </div>
   );
 }
