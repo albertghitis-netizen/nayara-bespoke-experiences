@@ -72,14 +72,14 @@ const SoloTravelFemaleBlog = lazy(() => import("./pages/SoloTravelFemaleBlog"));
 const FamilyTravelBlog = lazy(() => import("./pages/FamilyTravelBlog"));
 const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 const ArenalTimelessWonderBlog = lazy(() => import("./pages/ArenalTimelessWonderBlog"));
-const ToucansArenalBlog = lazy(() => import("./pages/ToucansArenalBlog"));
-const TreehouseDreamsBlog = lazy(() => import("./pages/TreehouseDreamsBlog"));
+// ToucansArenalBlog and TreehouseDreamsBlog deleted — stubs removed
 const StargazingAtacamaBlog = lazy(() => import("./pages/StargazingAtacamaBlog"));
 const EdgeHabitabilityBlog = lazy(() => import("./pages/EdgeHabitabilityBlog"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const TapatiFestivalBlog = lazy(() => import("./pages/TapatiFestivalBlog"));
 const CommunityBlog = lazy(() => import("./pages/CommunityBlog"));
 const BocasOperationsBlog = lazy(() => import("./pages/BocasOperationsBlog"));
+const EasterIslandOutdoorsBlog = lazy(() => import("./pages/EasterIslandOutdoorsBlog"));
 // const BrandBook = lazy(() => import("./pages/BrandBook")); // ARCHIVED: Can be restored if needed
 // const HenryStandalone = lazy(() => import("./pages/HenryStandalone")); // ARCHIVED: Can be restored if needed
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
@@ -294,6 +294,7 @@ function Router() {
           <Route path="/blog/michelin-keys" component={MichelinKeysBlog} />
           <Route path="/blog/atacama-wildlife" component={AtacamaWildlifeBlog} />
           <Route path="/blog/arenal-bocas-wildlife" component={ArenalBocasWildlifeBlog} />
+          <Route path="/blog/easter-island-outdoors" component={EasterIslandOutdoorsBlog} />
           <Route path="/blog/maya-rapa-nui">{() => { window.location.replace("/blog/maya-rapa-nui-climate"); return null; }}</Route>
           <Route path="/blog/atacama-oasis" component={AtacamaOasisBlog} />
           <Route path="/blog/travel-trends" component={TravelTrendsBlog} />
@@ -319,8 +320,7 @@ function Router() {
           <Route path="/blog/family-travel" component={FamilyTravelBlog} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           <Route path="/blog/arenal-timeless-wonder" component={ArenalTimelessWonderBlog} />
-          <Route path="/blog/toucans-arenal" component={ToucansArenalBlog} />
-          <Route path="/blog/treehouse-dreams" component={TreehouseDreamsBlog} />
+          {/* /blog/toucans-arenal and /blog/treehouse-dreams removed — content merged into birdwatching blog */}
           <Route path="/blog/stargazing-atacama" component={StargazingAtacamaBlog} />
           <Route path="/blog/edge-habitability" component={EdgeHabitabilityBlog} />
           <Route path="/blog/tapati-festival" component={TapatiFestivalBlog} />

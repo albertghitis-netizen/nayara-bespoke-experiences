@@ -112,7 +112,6 @@ export default function ReforestationWildlifeBlog() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${TENTED_PALETTE.divider}` }}
           >
             <h2
               className="text-2xl md:text-3xl mb-6"
@@ -153,7 +152,6 @@ export default function ReforestationWildlifeBlog() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${TENTED_PALETTE.divider}` }}
           >
             <h2
               className="text-2xl md:text-3xl mb-6"
@@ -194,7 +192,6 @@ export default function ReforestationWildlifeBlog() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${TENTED_PALETTE.divider}` }}
           >
             <h2
               className="text-2xl md:text-3xl mb-6"
@@ -252,7 +249,6 @@ export default function ReforestationWildlifeBlog() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${TENTED_PALETTE.divider}` }}
           >
             <h2
               className="text-2xl md:text-3xl mb-6"
@@ -310,7 +306,6 @@ export default function ReforestationWildlifeBlog() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="mb-16 pb-12"
-            style={{ borderBottom: `1px solid ${TENTED_PALETTE.divider}` }}
           >
             <h2
               className="text-2xl md:text-3xl mb-6"
@@ -415,7 +410,6 @@ export default function ReforestationWildlifeBlog() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="mt-16 pt-12"
-            style={{ borderTop: `1px solid ${TENTED_PALETTE.divider}` }}
           >
             <p
               className="text-[14px] tracking-[0.08em] uppercase mb-4"
@@ -448,6 +442,27 @@ export default function ReforestationWildlifeBlog() {
               View Full Sustainability Report
             </a>
           </motion.div>
+        </div>
+      </section>
+      {/* ── EXPLORE MORE ── */}
+      <section style={{ backgroundColor: "#E8E2D8" }}>
+        <div className="max-w-5xl mx-auto px-8 md:px-16 pt-16 pb-16">
+          <p className="uppercase tracking-[0.3em] text-[11px] mb-4 text-center" style={{ fontWeight: 600, color: "#8B6914" }}>Continue Reading</p>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>
+            Explore More
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+        { slug: "/blog/green-globe", title: "Green Globe Certification at Nayara", pillar: "Sustainability" },
+        { slug: "/blog/arenal-bocas-wildlife", title: "Wildlife Conservation in Arenal and Bocas del Toro", pillar: "Conservation" },
+        { slug: "/blog/birdwatching", title: "Birdwatching in Costa Rica: Toucans, Quetzals & More", pillar: "Wildlife" },
+            ].map((article) => (
+              <a key={article.slug} href={article.slug} className="group cursor-pointer">
+                <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: "#8B6914" }}>{article.pillar}</p>
+                <h3 className="text-lg group-hover:opacity-70 transition-opacity" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>{article.title}</h3>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -3732,3 +3732,17 @@
 - [x] Set video as hero on "How Nayara Built an Off-Grid Resort on a Private Island in Panama" blog
 - [x] Update blog subtitle: no roads, no grid, no municipal water, five environmental studies, commitment to leave ecosystem better
 - [x] Remove "$100,000 in research" reference from blog subtitle
+
+## Blog Format Standardization
+- [x] Rewrite BlogPostTemplate: stronger alternating backgrounds (cream #F7F5F0 / stone #E8E2D8), one espresso dark section, NO divider lines, sources as flat list, Explore More with 3 articles, brand espresso footer
+- [x] Images centered below body sections horizontally (like /blog/pura-vida)
+- [x] Build /blog/atacama-wildlife from scraped HubSpot content (verbatim, images, sources, no FAQ)
+- [x] Build /blog/arenal-bocas-wildlife from scraped HubSpot content (verbatim, images, sources, no FAQ)
+- [x] Scrape toucans blog from HubSpot and add big toucan section to existing birdwatching blog
+- [x] Scrape and build Easter Island outdoors blog from blog.nayararesorts.com/challenge-easter-islands-outdoors-with-nayara-hangaroa
+- [x] Delete TreehouseDreamsBlog (stub)
+- [x] Delete ToucansArenalBlog (stub)
+- [x] Standardize all existing blogs to new format (hero, key findings, body, sources flat list, explore more 3 articles, footer)
+- [x] Kill divider lines across all blogs
+- [x] Ensure all blogs end with Explore More 3 related articles section
+- [x] FAQ always separate from blog posts (permanent rule)

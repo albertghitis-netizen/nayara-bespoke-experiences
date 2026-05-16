@@ -102,7 +102,6 @@ export default function BocasCondeNastAwardBlog() {
           </motion.div>
 
           {/* Section Divider */}
-          <div className="my-12" style={{ borderTop: `2px solid ${BOCAS_PALETTE.divider}` }} />
 
           {/* Why the Conde Nast Readers' Choice Award Matters for Bocas del Toro */}
           <motion.div
@@ -133,7 +132,6 @@ export default function BocasCondeNastAwardBlog() {
           </motion.div>
 
           {/* Section Divider */}
-          <div className="my-12" style={{ borderTop: `2px solid ${BOCAS_PALETTE.divider}` }} />
 
           {/* What Sets Nayara Bocas del Toro Apart From Other Overwater Resorts */}
           <motion.div
@@ -176,7 +174,6 @@ export default function BocasCondeNastAwardBlog() {
           </motion.div>
 
           {/* Section Divider */}
-          <div className="my-12" style={{ borderTop: `2px solid ${BOCAS_PALETTE.divider}` }} />
 
           {/* What Comes Next for Nayara Bocas del Toro */}
           <motion.div
@@ -222,6 +219,27 @@ export default function BocasCondeNastAwardBlog() {
               Experience the award-winning luxury of Nayara Bocas del Toro , where innovation, nature, and hospitality converge in perfect harmony.
             </p>
           </motion.div>
+        </div>
+      </section>
+      {/* ── EXPLORE MORE ── */}
+      <section style={{ backgroundColor: "#E8E2D8" }}>
+        <div className="max-w-5xl mx-auto px-8 md:px-16 pt-16 pb-16">
+          <p className="uppercase tracking-[0.3em] text-[11px] mb-4 text-center" style={{ fontWeight: 600, color: "#8B6914" }}>Continue Reading</p>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>
+            Explore More
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+        { slug: "/blog/bocas-operations", title: "How Nayara Built an Off-Grid Resort on a Private Island", pillar: "Operations" },
+        { slug: "/blog/bocas-history-culture-nature", title: "History, Culture & Nature of Bocas del Toro", pillar: "Culture" },
+        { slug: "/blog/michelin-keys", title: "Michelin Keys: What They Mean for Luxury Hotels", pillar: "Awards" },
+            ].map((article) => (
+              <a key={article.slug} href={article.slug} className="group cursor-pointer">
+                <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: "#8B6914" }}>{article.pillar}</p>
+                <h3 className="text-lg group-hover:opacity-70 transition-opacity" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>{article.title}</h3>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
