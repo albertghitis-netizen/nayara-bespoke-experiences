@@ -98,8 +98,7 @@ export default function TravelLeisureAtacama() {
           the Catarpe Valley like a structure the desert made itself. Adobe walls
           rise from red clay. Thatched roofs follow the ridgeline. Every suite
           opens to salt flats, geysers, and a silence so complete you can hear
-          your own heartbeat. This is the driest desert on Earth, and the lodge
-          was designed to honor it, not compete with it.
+          your own heartbeat.
         </p>
 
         {/* RIGHT: second paragraph */}
@@ -115,9 +114,8 @@ export default function TravelLeisureAtacama() {
           Guests ride horseback through Moon Valley at dawn, float in salt
           lagoons at 4,000 meters, and stargaze under skies so dark the Milky
           Way casts a shadow. The kitchen works with Atacame&ntilde;o farmers who
-          have cultivated this land for centuries. Two MICHELIN Keys confirm what
-          the landscape already knew: some places do not need to be invented.
-          They only need to be revealed.
+          have cultivated this land for centuries. Two MICHELIN Keys confirm
+          what the landscape already knew: some places only need to be revealed.
         </p>
       </div>
 
