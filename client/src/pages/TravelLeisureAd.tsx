@@ -156,7 +156,7 @@ export default function TravelLeisureAd() {
               WebkitTextStroke: "0.4px #1a1a1a",
             }}
           >
-            <strong style={{ fontWeight: 900 }}>Costa Rica's First Three Michelin Key Resort</strong>
+            <strong style={{ fontWeight: 900 }}>Costa Rica's First 3-Michelin Key Resort</strong>
           </h3>
           <p
             style={{
