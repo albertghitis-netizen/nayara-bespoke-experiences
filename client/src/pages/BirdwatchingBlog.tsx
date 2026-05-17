@@ -491,7 +491,7 @@ export default function BirdwatchingBlog() {
           <ul className="space-y-3">
             {[
               { label: "Cornell Lab of Ornithology — Birds of Costa Rica", href: "https://www.birds.cornell.edu" },
-              { label: "Nayara Resorts — Meeting the Toucans of Arenal Rainforest", href: "https://blog.nayararesorts.com/meeting-the-toucans-of-arenal-rainforest-who-they-are-and-how-to-see-them" },
+              { label: "Nayara Resorts — Meeting the Toucans of Arenal Rainforest", href: "/blog/birdwatching" },
               { label: "BirdLife International — Costa Rica IBA Directory", href: "https://www.birdlife.org" },
               { label: "National Geographic — Resplendent Quetzal", href: "https://www.nationalgeographic.com/animals/birds/facts/resplendent-quetzal" },
               { label: "SINAC Costa Rica — Protected Areas & Biodiversity", href: "https://www.sinac.go.cr" },

@@ -884,8 +884,8 @@ function NayaraJournalSection() {
       label: "Read",
       title: "Forest to Table: Gastronomy Across the World of Nayara",
       image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
-      href: "/blog/adventures-in-flavor",
-      external: true,
+      href: "/blog/three-kitchens-one-rainforest",
+      external: false,
       cta: "read",
     },
     {
@@ -1144,8 +1144,20 @@ function JournalTeaserCard({
   const displayFont = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
   const isDummy = !card.image;
 
+  const handleCardClick = () => {
+    if (card.cta === "watch" && card.youtubeId) {
+      onPlay();
+    } else if (card.href) {
+      if (card.external || card.href.startsWith("http")) {
+        window.open(card.href, "_blank", "noopener,noreferrer");
+      } else {
+        window.location.href = card.href;
+      }
+    }
+  };
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col cursor-pointer" onClick={!isPlaying ? handleCardClick : undefined}>
     <div className="group relative w-full overflow-hidden rounded-lg" style={{ aspectRatio: "1/1", backgroundColor: isDummy ? "#d6d0c7" : "#1c1917" }}>
       {isPlaying && card.youtubeId ? (
         <>
@@ -1157,7 +1169,7 @@ function JournalTeaserCard({
             title={card.title}
           />
           <button
-            onClick={onClose}
+            onClick={(e) => { e.stopPropagation(); onClose(); }}
             className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-black/70 transition-colors text-sm"
           >
             ✕
