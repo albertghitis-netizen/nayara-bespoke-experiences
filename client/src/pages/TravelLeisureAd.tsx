@@ -113,10 +113,10 @@ export default function TravelLeisureAd() {
           }}
         >
           Every detail has been considered. Guests wake to the sound of
-          howler monkeys, dine under the stars at our signature restaurant,
-          and fall asleep to the chorus of the jungle. No two stays are alike
-          because no two days in the rainforest are the same. The land tells
-          its own story. This is not a hotel. This is a place.
+          howler monkeys, dine under the stars, and fall asleep to the chorus
+          of the jungle. No two stays are alike because no two days in the
+          rainforest are the same. We don't build hotels, we reveal places
+          and let the land tell its own story.
         </p>
       </div>
 
