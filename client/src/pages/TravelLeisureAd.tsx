@@ -153,15 +153,15 @@ export default function TravelLeisureAd() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h3
             style={{
-              fontSize: 12,
-              fontWeight: 800,
+              fontSize: 13,
+              fontWeight: 900,
               letterSpacing: "0.1em",
               textTransform: "uppercase" as const,
               marginBottom: 4,
               marginTop: 0,
             }}
           >
-            <strong>Our Wellness Flagship</strong>
+            <strong style={{ fontWeight: 900 }}>Our Wellness Flagship</strong>
           </h3>
           <p
             style={{
@@ -195,15 +195,15 @@ export default function TravelLeisureAd() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h3
             style={{
-              fontSize: 12,
-              fontWeight: 800,
+              fontSize: 13,
+              fontWeight: 900,
               letterSpacing: "0.1em",
               textTransform: "uppercase" as const,
               marginBottom: 4,
               marginTop: 0,
             }}
           >
-            <strong>Where Our Story Began</strong>
+            <strong style={{ fontWeight: 900 }}>Where Our Story Began</strong>
           </h3>
           <p
             style={{
