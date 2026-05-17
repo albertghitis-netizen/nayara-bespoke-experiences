@@ -212,9 +212,10 @@ export default function TravelLeisureAd() {
             }}
           >
             Nayara Gardens is where our story began more than 15 years
-            ago. This family-friendly rainforest adventure overlooks the
+            ago. This family-friendly rainforest resort overlooks the
             majestic Arenal Volcano and is surrounded by tropical gardens
-            alive with toucans, sloths, and countless other wildlife.
+            alive with toucans, sloths, and countless other wildlife. The
+            adventure of a lifetime awaits.
           </p>
 
           <img
