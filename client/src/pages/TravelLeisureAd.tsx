@@ -119,7 +119,7 @@ export default function TravelLeisureAd() {
               marginTop: 8,
             }}
           >
-            A Secluded Sanctuary
+            Our Wellness Flagship
           </h3>
           <p
             style={{
@@ -189,7 +189,7 @@ export default function TravelLeisureAd() {
               marginTop: 8,
             }}
           >
-            At One with Nature
+            Where Our Story Began
           </h3>
           <p
             style={{
