@@ -147,13 +147,14 @@ export default function TravelLeisureAd() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h3
             style={{
-              fontSize: 14,
+              fontSize: 11,
               fontWeight: 900,
               letterSpacing: "0.12em",
               textTransform: "uppercase" as const,
               marginBottom: 4,
               marginTop: 0,
               WebkitTextStroke: "0.4px #1a1a1a",
+              fontVariantNumeric: "lining-nums",
             }}
           >
             <strong style={{ fontWeight: 900 }}>Costa Rica's First 3-Michelin Key Resort</strong>
@@ -191,7 +192,7 @@ export default function TravelLeisureAd() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h3
             style={{
-              fontSize: 14,
+              fontSize: 11,
               fontWeight: 900,
               letterSpacing: "0.12em",
               textTransform: "uppercase" as const,
@@ -200,7 +201,7 @@ export default function TravelLeisureAd() {
               WebkitTextStroke: "0.4px #1a1a1a",
             }}
           >
-            <strong style={{ fontWeight: 900 }}>Where Our Story Began</strong>
+            <strong style={{ fontWeight: 900 }}>Where the Nayara Story Began</strong>
           </h3>
           <p
             style={{
