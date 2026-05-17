@@ -57,7 +57,7 @@ export default function TravelLeisureAtacama() {
             marginTop: 6,
           }}
         >
-          Nayara Alto Atacama (pictured above) holds two MICHELIN Keys and ranks among the Top 15 Resorts in South America by Cond&eacute; Nast Traveler.
+          Nayara Alto Atacama (pictured above) holds two MICHELIN Keys and an S certification, Chile's highest sustainability designation.
         </p>
       </div>
 
