@@ -153,7 +153,7 @@ export default function TravelLeisureAd2() {
               fontVariantNumeric: "lining-nums",
             }}
           >
-            <strong style={{ fontWeight: 900 }}>Costa Rica's First 3-Michelin Key Resort</strong>
+            <strong style={{ fontWeight: 900 }}>Central America's First 3-Michelin Key Resort</strong>
           </h3>
           <p
             style={{
