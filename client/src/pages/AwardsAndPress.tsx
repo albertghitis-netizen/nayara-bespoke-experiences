@@ -8,8 +8,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ShieldCheck, ChevronDown, Key, ExternalLink } from "lucide-react";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar3 from "@/components/HotelFilterBar3";
-import NativeVideo from "@/components/NativeVideo";
+import CanvasVideo from "@/components/CanvasVideo";
 
 /* ── CDN assets ── */
 const CDN = {
@@ -159,7 +158,7 @@ function getYear(date: string): string {
 
 /* ── Main Component ── */
 export default function AwardsAndPress() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
+  const isMobile = useIsMobile();
   const [expandedProperty, setExpandedProperty] = useState<string | null>("Nayara Springs");
   const [activeFilter, setActiveFilter] = useState("Nayara Resorts");
   const [activeTab, setActiveTab] = useState<"awards" | "press">("awards");
@@ -198,10 +197,17 @@ export default function AwardsAndPress() {
       {/* ── Hero Video ── */}
       <section className="relative w-full h-screen overflow-hidden bg-[#3a2a1a]">
         <div className="absolute inset-0">
-          {typeof window !== 'undefined' && window.innerWidth < 768 ? (
-            <NativeVideo src={CDN.heroVideoMobile} autoPlay muted className="w-full h-full object-cover" />
+          {isMobile ? (
+            <CanvasVideo src={CDN.heroVideoMobile} className="w-full h-full" loop />
           ) : (
-            <NativeVideo src={CDN.heroVideoDesktop} autoPlay loop muted className="w-full h-full object-cover" />
+            <video
+              src={CDN.heroVideoDesktop}
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
           )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
         </div>
@@ -250,8 +256,6 @@ export default function AwardsAndPress() {
         </div>
       </section>
 
-      {/* ── Hotel Filter ── */}
-      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
 
       {/* ── Tab Switcher + Property Filter ── */}
       <section className="py-10 md:py-14 px-6 md:px-10">
