@@ -153,12 +153,13 @@ export default function TravelLeisureAd() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h3
             style={{
-              fontSize: 13,
+              fontSize: 14,
               fontWeight: 900,
-              letterSpacing: "0.1em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase" as const,
               marginBottom: 4,
               marginTop: 0,
+              WebkitTextStroke: "0.4px #1a1a1a",
             }}
           >
             <strong style={{ fontWeight: 900 }}>Our Wellness Flagship</strong>
@@ -176,7 +177,7 @@ export default function TravelLeisureAd() {
             Rica, guests indulge in abundant space and privacy with uninterrupted
             panoramic views of the surrounding rain forest. Private plunge pools
             fed by natural mineral hot springs, hammocks, and open-air showers
-            allow guests to literally immerse themselves in nature.
+            complete the experience.
           </p>
 
           <img
@@ -195,12 +196,13 @@ export default function TravelLeisureAd() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h3
             style={{
-              fontSize: 13,
+              fontSize: 14,
               fontWeight: 900,
-              letterSpacing: "0.1em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase" as const,
               marginBottom: 4,
               marginTop: 0,
+              WebkitTextStroke: "0.4px #1a1a1a",
             }}
           >
             <strong style={{ fontWeight: 900 }}>Where Our Story Began</strong>
