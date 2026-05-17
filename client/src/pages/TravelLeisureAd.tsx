@@ -117,7 +117,7 @@ export default function TravelLeisureAd() {
           of the jungle. No two stays are alike because no two days in the
           rainforest are the same. We don't build hotels, we reveal places
           and let the land tell its own story. Our sister properties share
-          the same volcano, but each tells its own tale.
+          the same forest, but each tells its own tale.
         </p>
       </div>
 
