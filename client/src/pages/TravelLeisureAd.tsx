@@ -176,8 +176,7 @@ export default function TravelLeisureAd() {
             At the World&rsquo;s Best Award-winning Nayara Tented Camp in Costa
             Rica, guests indulge in abundant space and privacy with uninterrupted
             panoramic views of the surrounding rain forest. Private plunge pools
-            fed by natural mineral hot springs, hammocks, and open-air showers
-            complete the experience.
+            fed by natural mineral hot springs and hammocks.
           </p>
 
           <img
