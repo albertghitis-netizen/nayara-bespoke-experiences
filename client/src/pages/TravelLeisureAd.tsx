@@ -58,11 +58,8 @@ export default function TravelLeisureAd() {
             marginTop: 6,
           }}
         >
-          Escape to a world of refined luxury and breathtaking nature at Nayara
-          Resorts
-          <br />
-          award-winning properties nestled in some of the world&rsquo;s most
-          extraordinary destinations.
+          Nayara Tented Camp has won Travel + Leisure&rsquo;s Best Resort
+          in Central America five out of the last six years.
         </p>
       </div>
 
