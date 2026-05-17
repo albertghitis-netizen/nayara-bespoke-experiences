@@ -84,25 +84,23 @@ export default function TravelLeisureAd() {
         >
           <span
             style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 40,
-              float: "left",
-              lineHeight: 0.78,
+              fontSize: 36,
+              float: "left" as const,
+              lineHeight: 0.8,
+              paddingRight: 2,
               marginRight: 4,
               marginTop: 5,
               fontWeight: 400,
             }}
           >
-            A
+            W
           </span>
-          n exclusive collection of award-winning properties in Costa Rica,
-          Chile, and Panama, Nayara Resorts proudly offer unparalleled
-          experiences in spectacular landscapes where pure beauty and unbridled
-          nature reign. Nayara Resorts have consistently been voted among the
-          top 10 Central American Resorts in the{" "}
-          <em>Travel + Leisure</em> World&rsquo;s Best Awards survey over the
-          past ten years. Each resort and destination offers its own distinct
-          charm and allure.
+          here a barren cattle ranch once stood, a thriving rainforest now
+          surrounds you. Nayara Tented Camp, our flagship property, is lifted
+          on stilts and perched on a volcanic clifftop. Open-air tented suites
+          each feature a private plunge pool fed by natural hot springs, living
+          spaces that blur the line between indoors and out, and a hammock
+          built for doing absolutely nothing.
         </p>
 
         {/* RIGHT: second paragraph (no header) */}
@@ -115,11 +113,11 @@ export default function TravelLeisureAd() {
             margin: 0,
           }}
         >
-          A stay at a Nayara Resort is unlike any other. In-house destination
-          experts make the connection with nature even more real for guests by
-          sharing their passion and unparalleled knowledge. There are no set
-          itineraries, so guests enjoy the privilege of a bespoke and private
-          experience, easily adapted to suit individual needs.
+          Every detail has been considered. Guests wake to the sound of
+          howler monkeys, dine under the stars at our signature restaurant,
+          and fall asleep to the chorus of the jungle. No two stays are alike
+          because no two days in the rainforest are the same. The land tells
+          its own story. This is not a hotel. This is a place.
         </p>
       </div>
 
