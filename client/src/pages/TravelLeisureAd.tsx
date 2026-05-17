@@ -168,12 +168,11 @@ export default function TravelLeisureAd() {
               marginBottom: 12,
             }}
           >
-            Every private villa features its own private hot springs
-            plunge pool, fed by the naturally heated mineral waters of the
-            Arenal Volcano. Surrounded by lush rainforest canopy, guests
-            retreat into a world of open-air spa treatments, farm-to-table
-            dining, and uninterrupted views of one of the world&rsquo;s most
-            active volcanic landscapes.
+            At Nayara Springs, every villa features its own private hot
+            springs plunge pool, naturally heated by Arenal Volcano. Hidden
+            within the surrounding rainforest, this adults-only retreat
+            offers romance without distraction and fine dining worthy of its
+            Relais &amp; Ch&acirc;teaux designation.
           </p>
 
           <img
