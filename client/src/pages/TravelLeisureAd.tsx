@@ -99,8 +99,7 @@ export default function TravelLeisureAd() {
           surrounds you. Nayara Tented Camp, our flagship property, is lifted
           on stilts and perched on a volcanic clifftop. Open-air tented suites
           each feature a private plunge pool fed by natural hot springs, living
-          spaces that blur the line between indoors and out, and a hammock
-          built for doing absolutely nothing.
+          spaces that blur the line between indoors and out, and an oversized wraparound deck built for doing absolutely nothing.
         </p>
 
         {/* RIGHT: second paragraph (no header) */}
