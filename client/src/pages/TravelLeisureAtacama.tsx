@@ -97,7 +97,7 @@ export default function TravelLeisureAtacama() {
           uilt from the earth it sits on, Nayara Alto Atacama disappears into
           the Catarpe Valley like a structure the desert made itself. Adobe walls
           rise from red clay. Thatched roofs follow the ridgeline. Every suite
-          opens to salt flats, geysers, and a silence so complete you can hear
+          opens to Mars on earth and a silence so complete you can hear
           your own heartbeat.
         </p>
 
