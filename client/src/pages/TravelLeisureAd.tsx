@@ -147,13 +147,13 @@ export default function TravelLeisureAd() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h3
             style={{
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: 900,
-              letterSpacing: "0.12em",
+              letterSpacing: "0.06em",
               textTransform: "uppercase" as const,
               marginBottom: 4,
               marginTop: 0,
-              WebkitTextStroke: "0.4px #1a1a1a",
+              WebkitTextStroke: "0.6px #1a1a1a",
               fontVariantNumeric: "lining-nums",
             }}
           >
@@ -192,13 +192,13 @@ export default function TravelLeisureAd() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h3
             style={{
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: 900,
-              letterSpacing: "0.12em",
+              letterSpacing: "0.06em",
               textTransform: "uppercase" as const,
               marginBottom: 4,
               marginTop: 0,
-              WebkitTextStroke: "0.4px #1a1a1a",
+              WebkitTextStroke: "0.6px #1a1a1a",
             }}
           >
             <strong style={{ fontWeight: 900 }}>Where the Nayara Story Began</strong>
