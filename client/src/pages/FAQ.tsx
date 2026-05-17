@@ -227,6 +227,32 @@ const FAQ_CATEGORIES: FAQCategory[] = [
     ],
   },
   {
+    title: "Arenal Volcano",
+    description: "Questions about Arenal Volcano's history, geology, eruptions, and its connection to Nayara Resorts",
+    faqs: [
+      {
+        question: "Is Arenal Volcano still active?",
+        answer: "Arenal has been classified as dormant since October 2010, when its last eruption was recorded. Fumaroles and minor geothermal activity continue at the summit, and volcanologists monitor it closely. The volcano is not considered extinct.",
+      },
+      {
+        question: "What happened during the 1968 eruption?",
+        answer: "On July 29, 1968, Arenal erupted violently after more than 400 years of dormancy. The eruption buried three villages, killed 87 people, and affected over 232 square kilometers of land. It created three new craters and marked the beginning of a 42 year eruptive period.",
+      },
+      {
+        question: "How old is Arenal Volcano?",
+        answer: "Arenal is geologically young, estimated to be less than 7,500 years old. Its earliest known eruptions began roughly 7,000 years ago, breaking through older volcanic tuffs and sedimentary rocks.",
+      },
+      {
+        question: "Can you hike Arenal Volcano?",
+        answer: "Visitors can hike designated trails within Arenal Volcano National Park, including paths that cross the 1968 lava flow. The summit itself is closed to hikers due to ongoing volcanic monitoring and safety protocols.",
+      },
+      {
+        question: "What is the connection between Arenal and Nayara Resorts?",
+        answer: "Nayara Gardens, Nayara Springs, and Nayara Tented Camp are all located in the Arenal region, built within the rainforest that surrounds the volcano. The hot springs that feed the resort pools are heated by the same geothermal forces that power Arenal.",
+      },
+    ],
+  },
+  {
     title: "Rapa Nui: Regeneration and Culture",
     description: "Questions about Rapa Nui history, the Hito family, moai, and Nayara Hangaroa's regeneration efforts",
     faqs: [

@@ -10,7 +10,7 @@
  * - Explore More (3 related articles)
  * - Brand espresso Footer
  */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
@@ -39,28 +39,7 @@ const HERO_IMAGE = "/manus-storage/A50DCA72-3FCB-46E5-A703-DFFB62080A51_79a81ca2
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
-const FAQS = [
-  {
-    question: "Is Arenal Volcano still active?",
-    answer: "Arenal has been classified as dormant since October 2010, when its last eruption was recorded. Fumaroles and minor geothermal activity continue at the summit, and volcanologists monitor it closely. The volcano is not considered extinct.",
-  },
-  {
-    question: "What happened during the 1968 eruption?",
-    answer: "On July 29, 1968, Arenal erupted violently after more than 400 years of dormancy. The eruption buried three villages, killed 87 people, and affected over 232 square kilometers of land. It created three new craters and marked the beginning of a 42 year eruptive period.",
-  },
-  {
-    question: "How old is Arenal Volcano?",
-    answer: "Arenal is geologically young, estimated to be less than 7,500 years old. Its earliest known eruptions began roughly 7,000 years ago, breaking through older volcanic tuffs and sedimentary rocks.",
-  },
-  {
-    question: "Can you hike Arenal Volcano?",
-    answer: "Visitors can hike designated trails within Arenal Volcano National Park, including paths that cross the 1968 lava flow. The summit itself is closed to hikers due to ongoing volcanic monitoring and safety protocols.",
-  },
-  {
-    question: "What is the connection between Arenal and Nayara Resorts?",
-    answer: "Nayara Gardens, Nayara Springs, and Nayara Tented Camp are all located in the Arenal region, built within the rainforest that surrounds the volcano. The hot springs that feed the resort pools are heated by the same geothermal forces that power Arenal.",
-  },
-];
+
 
 const RELATED = [
   {
@@ -84,7 +63,6 @@ const RELATED = [
 ];
 
 export default function ArenalTimelessWonderBlog() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -387,69 +365,7 @@ export default function ArenalTimelessWonderBlog() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="px-6 md:px-12 lg:px-24 py-16" style={{ backgroundColor: PALETTE.cream }}>
-        <div className="max-w-3xl mx-auto">
-          <motion.h2
-            custom={0}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={contentEntrance}
-            className="text-2xl md:text-3xl leading-[1.1] tracking-wide mb-10"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Frequently Asked Questions
-          </motion.h2>
-          <div className="flex flex-col gap-0">
-            {FAQS.map((faq, i) => (
-              <motion.div
-                key={i}
-                custom={0.05 * i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={contentEntrance}
-                className="border-b"
-                style={{ borderColor: "rgba(90,74,58,0.15)" }}
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between py-5 text-left"
-                >
-                  <span
-                    className="text-[15px] md:text-[16px] pr-4"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.text }}
-                  >
-                    {faq.question}
-                  </span>
-                  <span
-                    className="text-lg shrink-0 transition-transform duration-300"
-                    style={{ color: PALETTE.muted, transform: openFaq === i ? "rotate(45deg)" : "rotate(0deg)" }}
-                  >
-                    +
-                  </span>
-                </button>
-                {openFaq === i && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="pb-5"
-                  >
-                    <p
-                      className="text-[15px] leading-[1.8]"
-                      style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-                    >
-                      {faq.answer}
-                    </p>
-                  </motion.div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ── SOURCES ── */}
       <section className="px-6 md:px-12 lg:px-24 py-12" style={{ backgroundColor: PALETTE.stone }}>
