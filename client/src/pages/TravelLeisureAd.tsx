@@ -167,10 +167,13 @@ export default function TravelLeisureAd() {
               marginBottom: 12,
             }}
           >
-            At the World&rsquo;s Best Award-winning Nayara Tented Camp in Costa
-            Rica, guests indulge in abundant space and privacy with uninterrupted
-            panoramic views of the surrounding rain forest. Private plunge pools
-            fed by natural mineral hot springs and hammocks.
+            Nayara Springs is the crown jewel of wellness in the Nayara
+            collection. Every villa features its own private hot springs plunge
+            pool, fed by the naturally heated mineral waters of the Arenal
+            Volcano region. Surrounded by lush rainforest canopy, guests
+            retreat into a world of open-air spa treatments, farm-to-table
+            dining, and uninterrupted views of one of the world&rsquo;s most
+            active volcanic landscapes.
           </p>
 
           <img
@@ -209,10 +212,13 @@ export default function TravelLeisureAd() {
               marginBottom: 12,
             }}
           >
-            Nayara Resorts go beyond proximity to nature; they are an integral
-            part of it. Built with eco-friendly design, the resorts preserve the
-            natural world. Through conservation efforts, the landscapes are able
-            to flourish with diverse flora, fauna, and local wildlife.
+            Nayara Gardens is where the Nayara story began&mdash;a
+            family-friendly rainforest adventure on a hillside overlooking
+            the majestic Arenal Volcano. Surrounded by tropical gardens alive
+            with toucans, sloths, and hummingbirds, it offers a signature
+            blend of Costa Rican warmth and refined hospitality. Gardens
+            remains the heart and soul of the collection, a place where
+            nature and comfort have been intertwined from the very first day.
           </p>
 
           <img
