@@ -501,18 +501,18 @@ function RestorationProcess() {
   );
 }
 
-/* ── IMAGE BREAK ──────────────────────────────────────────── */
+/* ── VIDEO BREAK ──────────────────────────────────────────── */
 function ImageBreak() {
   return (
     <section className="relative overflow-hidden" style={{ height: "65vh" }}>
-      <img
-        src="/manus-storage/Paddleboard1_cf66a34d.jpeg"
-        alt="Woman paddleboarding on the turquoise waters of Bocas del Toro with overwater bungalows in the background"
+      <video
+        src="/manus-storage/Underwater1_e83986a7.MP4"
+        autoPlay
+        loop
+        muted
+        playsInline
         className="w-full h-full object-cover object-center"
-        loading="lazy"
         style={{ transition: "transform 700ms ease-in-out" }}
-        onMouseEnter={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)")}
-        onMouseLeave={(e) => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1)")}
       />
       <div
         className="absolute inset-0"
