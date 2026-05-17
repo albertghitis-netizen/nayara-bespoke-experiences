@@ -842,8 +842,8 @@ function RoomsSection() {
           </div>
         </div>
 
-        {/* Landscape video below - hidden on mobile */}
-        <div className="hidden md:block">
+        {/* Landscape video below */}
+        <div>
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <NativeVideo src={CDN.roomsLandscape} className="w-full h-full object-cover" />

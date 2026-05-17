@@ -463,8 +463,8 @@ function SpringsVillaSection() {
         </div>
       </div>
 
-      {/* ── S4 , Full-width horizontal video (desktop only) ── */}
-      <div className="hidden md:block w-full relative">
+      {/* ── S4 , Full-width horizontal video ── */}
+      <div className="w-full relative">
         <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" /></div>
         {/* Explore pill , centered lower */}
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">

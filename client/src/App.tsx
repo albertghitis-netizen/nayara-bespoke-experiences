@@ -84,6 +84,7 @@ const Staff = lazy(() => import("./pages/Staff"));
 const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
 const Lexi = lazy(() => import("./pages/Lexi"));
 const TravelLeisureAtacama = lazy(() => import("./pages/TravelLeisureAtacama"));
+const ArenalTimelessWonderBlog = lazy(() => import("./pages/ArenalTimelessWonderBlog"));
 const TravelLeisureAd2 = lazy(() => import("./pages/TravelLeisureAd2"));
 
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
@@ -313,6 +314,7 @@ function Router() {
 
           <Route path="/blog/sunlit-sustainability" component={SunlitSustainabilityBlog} />
           <Route path="/blog/solo-travel-female" component={SoloTravelFemaleBlog} />
+          <Route path="/blog/arenal-timeless-wonder" component={ArenalTimelessWonderBlog} />
           <Route path="/blog/pura-vida" component={PuraVidaBlog} />
           {/* /blog/toucans-arenal and /blog/treehouse-dreams removed — content merged into birdwatching blog */}
           <Route path="/blog/stargazing-atacama" component={StargazingAtacamaBlog} />

@@ -253,7 +253,7 @@ function CascadeSection({
     }
   }, [section.horizontalOverlayButtons]);
   const horizontalBlock = section.horizontalSrc ? (
-    <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
+    <div className="relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
       <MediaReveal delay={0.05}>
         <div className="relative">
           {section.horizontalIsVideo && section.horizontalOverlayButtons ? (
@@ -1528,9 +1528,6 @@ export default function TentedCamp() {
         { id: "getting-here", label: "Getting Here" },
       ]} />
       <HeroSection />
-
-      {/* S1: Story (The Camp) */}
-      <CascadeSection key={SECTIONS_BEFORE_REVIEW[0].id} section={SECTIONS_BEFORE_REVIEW[0]} index={0} />
 
       {/* ── One Rainforest, Three Resorts , Three Keys, One Door ── */}
       <OneRainforestCompactTC />
