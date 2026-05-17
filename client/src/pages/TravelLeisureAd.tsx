@@ -116,7 +116,8 @@ export default function TravelLeisureAd() {
           howler monkeys, dine under the stars, and fall asleep to the chorus
           of the jungle. No two stays are alike because no two days in the
           rainforest are the same. We don't build hotels, we reveal places
-          and let the land tell its own story.
+          and let the land tell its own story. Our sister properties share
+          the same volcano but each tells its own tale.
         </p>
       </div>
 
@@ -228,20 +229,7 @@ export default function TravelLeisureAd() {
         </div>
       </div>
 
-      {/* CLOSING LINE */}
-      <p
-        style={{
-          textAlign: "center",
-          fontSize: 11,
-          fontStyle: "italic",
-          color: "#4a4a4a",
-          padding: "20px 40px 24px",
-          margin: 0,
-          letterSpacing: "0.02em",
-        }}
-      >
-        Our sister properties share the same volcano but each tells its own tale.
-      </p>
+
     </div>
   );
 }
