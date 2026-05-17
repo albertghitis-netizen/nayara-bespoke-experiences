@@ -130,7 +130,7 @@ const stargazingAtacamaPost: BlogPostData = {
       slug: "nayara-by-night",
       title: "Nayara by Night: Of Moon and Stars",
       pillar: "Experiences",
-      image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/2025/Moon.jpg",
+      image: "/manus-storage/moai-milky-way-night_73a94f15.jpg",
       date: "Sep 3, 2025",
     },
   ],

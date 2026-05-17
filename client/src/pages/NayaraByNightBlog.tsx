@@ -26,7 +26,7 @@ const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6X
 const IMG = {
   heroVideo: `${CDN}/nbn-hero-night_104e129b.mp4`,
   heroVertical: `${CDN}/nbn-hero-vertical-new_efde71a9.mp4`,
-  heroStill: `${CDN}/night-sky_hero.jpg`,
+  heroStill: "/manus-storage/moai-milky-way-night_73a94f15.jpg",
   atacamaCactus: `${CDN}/nbn-cactus-milkyway_a7dc0b5c.webp`,
   atacamaArch: `${CDN}/nbn-rock-arch-milkyway_729bcc81.webp`,
   atacamaCrater: `${CDN}/nbn-crater-milkyway_00741a91.webp`,

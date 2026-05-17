@@ -363,7 +363,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/birdwatching",
     property: "brand",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Scarlet-macaw-NA_CR_15-2048x1638.jpeg",
+    image: "/manus-storage/Untitleddesign-14_e259375b.jpg",
     excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans , a birdwatcher's paradise.",
   },
 
@@ -401,7 +401,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/nayara-by-night",
     property: "brand",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/night-sky_hero.jpg",
+    image: "/manus-storage/moai-milky-way-night_73a94f15.jpg",
     excerpt: "Discover the magic of darkness and celestial wonders , stargazing, bioluminescence, and the transformative power of the night sky at Nayara.",
   },
   {
