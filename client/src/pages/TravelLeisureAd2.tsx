@@ -26,9 +26,7 @@ export default function TravelLeisureAd2() {
           style={{
             width: "100%",
             display: "block",
-            height: 380,
-            objectFit: "cover",
-            objectPosition: "top center",
+            height: "auto",
           }}
         />
       </div>
