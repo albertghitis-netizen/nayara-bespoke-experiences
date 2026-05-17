@@ -227,6 +227,21 @@ export default function TravelLeisureAd() {
           />
         </div>
       </div>
+
+      {/* CLOSING LINE */}
+      <p
+        style={{
+          textAlign: "center",
+          fontSize: 11,
+          fontStyle: "italic",
+          color: "#4a4a4a",
+          padding: "20px 40px 24px",
+          margin: 0,
+          letterSpacing: "0.02em",
+        }}
+      >
+        Our sister properties share the same volcano but each tells its own tale.
+      </p>
     </div>
   );
 }
