@@ -50,7 +50,7 @@ export default function ConciergeChatWidget({ palette }: ConciergeChatWidgetProp
   const isCostaRica = costaRicaRoutes.includes(slug);
   const dk = "#FFFFFF";  // Bright white text for concierge button
   const isBrandHome = slug === "";
-  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : isCostaRica ? "rgba(134,139,117,0.8)" : isBrandHome ? "rgba(106,96,79,0.8)" : "rgba(59,43,38,0.8)");  // Match nav pill background
+  const bg = palette?.pillBg ?? (autoPalette ? `${autoPalette.navPillBg}B3` : isCostaRica ? "rgba(134,139,117,0.8)" : isBrandHome ? "rgba(59,43,38,0.8)" : "rgba(59,43,38,0.8)");  // Match nav pill background
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
