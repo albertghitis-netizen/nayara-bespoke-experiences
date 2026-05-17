@@ -174,8 +174,8 @@ export default function TravelLeisureAtacama() {
           </p>
 
           <img
-            src={HERO}
-            alt="Nayara Alto Atacama"
+            src="/manus-storage/IMG_4831(1)_c0075b00.jpg"
+            alt="Moai statues on Rapa Nui — Nayara Hangaroa"
             style={{
               width: "100%",
               display: "block",
