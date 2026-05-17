@@ -1,0 +1,41 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [
+    "db",
+    "server",
+    "user"
+  ],
+  "dev_command": "pnpm run dev",
+  "env_vars": {
+    "DATABASE_URL": "mysql://ue9ZztEUkWy85v9.root:DePU1n0FwtPY726KCK8J@gateway05.us-east-1.prod.aws.tidbcloud.com:4000/aPU7TBha6XBXzi9S9Q7tf2?ssl={\"rejectUnauthorized\":true}"
+  },
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2",
+    "access_key_id": "ASIAZV3A2ECZCQA7EUIH",
+    "secret_access_key": "IlX0rNbUIaimzHcK48kPLoZddZLCj5S+i1WP7MGT",
+    "session_token": "IQoJb3JpZ2luX2VjENH//////////wEaCXVzLWVhc3QtMSJHMEUCICDW7svUPo1Hwmd0Js9dzmpgmhGnJh+U4twmMX+yn0WjAiEA2nQxyD7kIFHJ1w8Sp65z1jQnR6tAn3h5pG8MqNl8zlAq/wMImv//////////ARAEGgw2NjUzODYwOTg4NjYiDG95C9ErRZhABgY6/CrTAzKsUZqrCG3PLqP1zGXu6WS1bJY/57IbsDLJhluf2RdVtIIU/ghQYCvVYkUpMErR1eGNHlXf8ue3QgBgTvBwe0wLsqY8eU1J5LdPWvN8MicbUZQs6eEbt8V8rfE0ugNH+iryvFRIcjGIlhH2FRMW2rBEjf6/ykVxqnPQATt10wssvrYrGlj8zbORMJFB37OVVuMfIl5T5y8zQKjEZGyGijY43Hfv2MxeacMW4nKtnG1zLz4AGioSkzqnF9DBc2uKCvRZC7x702yaBIWKkEcZ+OOwk8apf7L97ACrtwNMM0LFQq4aF0WR0mtfDD0gZ7WmkwWxcIZa8iBQ3/A1sR72uLN32ldf7wCdpPCjPLusepkKi04e8d12UNSUSwV1zWotN6JtLwT552xzZeQ8uIKhBXe3kwozYguLlT2HgaaA2+0FIWVEM0FFLtDHwCOrkvGd+3+P5jqLCItj0nggmM9sa/V4q0MrYPkQU97hi/9id9nhBzmevgPMvzjMFvHcT5kNH5mNkbVuZc8IK22JkCBdJAEFhetT15xC6+ZFVV6B3U0JMixaJqzBVNXuY6P+uuCY4dMytR/Gkj9dTfmMNm5KrkQOmlJ8AOBraI3ttSHgu8fPXZoxMMyXpNAGOp0B/kc4AJoIRhEF+GdYbPv+ip5YtpLceWVc0qiRgGnrhZO8hiSa/2/b79ipfw9zpg01QVUSILsheT0Nng5r1ZOs11qse0SFsuJuzjEyfZrStl+6fnZek0nkcFTQZft2btt5b7S1r595ducptKtOGmI6sm87D/1fNKpgv/ZhVpfKieb2gnR71YOu9ALF3Kg2z0zcLZGDyLlzWLMtEV+bLg==",
+    "expiration": "2026-05-17T12:29:00.000Z"
+  },
+  "name": "nayara-bespoke-experiences",
+  "path": "/home/ubuntu/nayara-bespoke-experiences",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "7VVhw9HZQFpMNX3vtME3oo",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "KuisWRESr9h2nEocfdVWDX",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Albert Ghitis",
+    "OWNER_OPEN_ID": "AFHStJqmdJhiLGYpKzRkyt",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "67162951-698d-4da9-a713-9c03581498e8",
+    "VITE_APP_ID": "aPU7TBha6XBXzi9S9Q7tf2",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/310519663090891297/qczZbDjOwUBzmXqD.png",
+    "VITE_APP_TITLE": "Henry",
+    "VITE_FRONTEND_FORGE_API_KEY": "YRs7PQcmB9WJ2NdbiNdb2F",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-db-user",
+  "test_command": "pnpm test"
+}

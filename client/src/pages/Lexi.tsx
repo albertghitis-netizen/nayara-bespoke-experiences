@@ -6,7 +6,7 @@
  * Each category uses FAQ format for educational content.
  */
 
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ═══════════════════════════════════════════════════════════════
@@ -200,7 +200,8 @@ export default function Lexi() {
     localStorage.setItem("lexi-entries", JSON.stringify(entries));
   }, [entries]);
 
-  // 5-minute-before reminder system
+  // Reminder system — fires at the exact scheduled time
+  const firedRef = useRef<Set<string>>(new Set());
   useEffect(() => {
     if (!("Notification" in window)) return;
     Notification.requestPermission();
@@ -209,19 +210,22 @@ export default function Lexi() {
       const now = new Date();
       entries.forEach((entry) => {
         if (entry.completed) return;
+        if (firedRef.current.has(entry.id)) return;
         const entryTime = new Date(`${entry.date}T${entry.time}`);
         const diff = entryTime.getTime() - now.getTime();
-        if (diff > 240000 && diff < 300000) {
+        // Fire when we're within 15 seconds of the scheduled time (checks every 10s)
+        if (diff >= -15000 && diff <= 15000) {
+          firedRef.current.add(entry.id);
+          playBeep();
           if (Notification.permission === "granted") {
             new Notification(`Lexi Reminder`, {
-              body: `${entry.note || CATEGORIES.find(c => c.id === entry.category)?.label} in 5 minutes`,
+              body: `${entry.note || CATEGORIES.find(c => c.id === entry.category)?.label} — now`,
               icon: LOGO_URL,
             });
-            playBeep();
           }
         }
       });
-    }, 30000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [entries]);
