@@ -45,7 +45,7 @@ export default function TravelLeisureAtacama() {
             margin: 0,
           }}
         >
-          Where the Driest Desert on Earth Meets the Clearest Sky in the Southern Hemisphere
+          Where the Driest Desert on Earth Meets the Clearest Sky on the Planet
         </h1>
         <p
           style={{
