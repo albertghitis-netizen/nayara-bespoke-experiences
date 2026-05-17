@@ -72,7 +72,7 @@ export default function TravelLeisureAd() {
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: 32,
-          padding: "20px 40px 0",
+          padding: "20px 40px 24px",
         }}
       >
         {/* LEFT COLUMN */}
