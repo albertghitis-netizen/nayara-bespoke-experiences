@@ -211,7 +211,7 @@ export default function TravelLeisureAd() {
               marginBottom: 12,
             }}
           >
-            Nayara Gardens is where the Nayara story began&mdash;a
+            Nayara Gardens is where it all began&mdash;a
             family-friendly rainforest adventure on a hillside overlooking
             the majestic Arenal Volcano. Surrounded by tropical gardens alive
             with toucans, sloths, and hummingbirds, it offers a signature
