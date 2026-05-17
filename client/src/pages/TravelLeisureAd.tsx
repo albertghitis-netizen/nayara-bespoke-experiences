@@ -69,9 +69,8 @@ export default function TravelLeisureAd() {
       {/* TWO-COLUMN INTRO — bone background to group as Tented Camp section */}
       <div
         style={{
-          background: "#f0ebe1",
-          margin: "0 40px",
-          padding: "20px 24px",
+        margin: "0 40px",
+        padding: "20px 0 0",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: 32,
