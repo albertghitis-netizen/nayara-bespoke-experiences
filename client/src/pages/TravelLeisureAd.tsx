@@ -211,13 +211,13 @@ export default function TravelLeisureAd() {
               marginBottom: 12,
             }}
           >
-            Nayara Gardens is where it all began&mdash;a
-            family-friendly rainforest adventure on a hillside overlooking
-            the majestic Arenal Volcano. Surrounded by tropical gardens alive
-            with toucans, sloths, and hummingbirds, it offers a signature
-            blend of Costa Rican warmth and refined hospitality. Gardens
-            remains the heart and soul of the collection, a place where
-            nature and comfort have been intertwined from the very first day.
+            Nayara Gardens is where our story began 15 years ago. This family-friendly
+            rainforest adventure overlooks the majestic Arenal Volcano.
+            Surrounded by tropical gardens alive with toucans, sloths, and
+            hummingbirds, it offers a signature blend of Costa Rican warmth
+            and refined hospitality. Gardens remains the heart and soul of
+            the collection, a place where nature and comfort have been
+            intertwined from the very first day.
           </p>
 
           <img
