@@ -140,7 +140,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/sunlit-sustainability",
     property: "brand",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/4-Aug-15-2025-06-36-01-1516-PM.png",
+    image: "/manus-storage/sunlit-sustainability-cover_e4f4d3f1.jpg",
     excerpt: "Explore how Nayara Resorts harnesses solar power for sustainable luxury, from the Atacama Desert to Easter Island, Costa Rica, and Bocas del Toro.",
   },
   {
@@ -149,7 +149,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/rooted-in-community",
     property: "brand",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
+    image: "/manus-storage/rooted-community-cover_dcdbfae8.jpg",
     excerpt: "From the volcano that changed La Fortuna to the shores of Rapa Nui, the communities around Nayara tell a shared story of commitment, dignity, and regeneration.",
   },
   {
@@ -205,13 +205,13 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/solo-travel-female",
     property: "brand",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Future%20of%20S",
+    image: "/manus-storage/hangaroa-sustainability-cover_3a8a8550.jpg",
     excerpt: "Women are leading the solo travel revolution. Discover how Nayara Resorts creates safe, empowering, and transformative experiences for solo female travelers.",
   },
   {
     id: "family-travel",
     title: "Creating Unforgettable Family Travel with Nayara",
-    url: "/blog/family-travel",
+    url: "/blog/family-bucket-list-nayara",
     property: "gardens",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(6",
@@ -247,15 +247,7 @@ const blogArticles: JournalEntry[] = [
     image: "/manus-storage/A50DCA72-3FCB-46E5-A703-DFFB62080A51_79a81ca2.jpg",
     excerpt: "Arenal Volcano has shaped the landscape and culture of northern Costa Rica for millennia. Discover the geology, ecology, and spirit of this iconic destination.",
   },
-  {
-    id: "toucans-arenal",
-    title: "Birdwatching in Costa Rica: The Best Birds to See Near Arenal Volcano",
-    url: "/blog/toucans-arenal",
-    property: "gardens",
-    type: "article",
-    image: "/manus-storage/Untitleddesign-14_e259375b.jpg",
-    excerpt: "Six species of toucans call the Arenal rainforest home. Learn who they are, where to find them, and why they matter.",
-  },
+
   {
     id: "conde-nast-bocas",
     title: "Nayara Bocas del Toro: #1 Resort in Central America, Condé Nast Traveler 2025",
@@ -388,7 +380,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "bocas-conde-nast-award",
     title: "Why Nayara Bocas del Toro Won #1 Resort in Central America",
-    url: "/blog/bocas-conde-nast-award",
+    url: "/blog/bocas-conde-nast",
     property: "bocas-del-toro",
     type: "article",
     image: "https://blog.nayararesorts.com/hubfs/8-Oct-07-2025-04-49-30-6724-AM.png",
