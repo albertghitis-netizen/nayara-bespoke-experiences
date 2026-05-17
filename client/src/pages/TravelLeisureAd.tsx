@@ -46,7 +46,7 @@ export default function TravelLeisureAd() {
             margin: 0,
           }}
         >
-          Enchanting Luxury Amidst Nature&rsquo;s Embrace
+          Award-Winning Luxury Resorts Rooted in Latin America&rsquo;s Most Pristine Ecosystems
         </h1>
         <p
           style={{
