@@ -83,6 +83,7 @@ const Staff = lazy(() => import("./pages/Staff"));
 // const Sharalynn = lazy(() => import("./pages/Sharalynn")); // ARCHIVED: Can be restored if needed
 const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
 const Lexi = lazy(() => import("./pages/Lexi"));
+const TravelLeisureAd = lazy(() => import("./pages/TravelLeisureAd"));
 
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
 /* Atacama/Bocas/Hangaroa deep pages now use the universal shared components */
@@ -173,7 +174,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/lexi"];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/lexi", "/tl"];
 
 function Router() {
   const [location] = useLocation();
@@ -326,6 +327,7 @@ function Router() {
           {/* ARCHIVED ROUTES: /internal-brandbook and /internal-henry - Component files still exist */}
           <Route path="/test-floorplan" component={FloorPlanTest} />
           <Route path="/lexi" component={Lexi} />
+          <Route path="/tl" component={TravelLeisureAd} />
           {/* ARCHIVED ROUTE: /sharalynn - Component file still exists at ./pages/Sharalynn.tsx */}
 
           <Route path="/404" component={NotFound} />
