@@ -564,6 +564,30 @@ function CalendarView({
    ADD ENTRY FORM
    ═══════════════════════════════════════════════════════════════ */
 
+function NoteInputWithVoice({ note, setNote }: { note: string; setNote: (v: string) => void }) {
+  const noteRef = useRef(note);
+  noteRef.current = note;
+  const { isListening, toggle } = useVoiceInput(
+    useCallback((text: string) => {
+      const prev = noteRef.current;
+      setNote((prev ? prev + " " : "") + text);
+    }, [setNote])
+  );
+  return (
+    <div className="flex gap-2 items-center">
+      <input
+        type="text"
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        placeholder={isListening ? "Listening..." : "Type or tap mic to speak..."}
+        className="flex-1 px-3 py-2 rounded-lg border text-sm bg-white"
+        style={{ borderColor: isListening ? "#ef4444" : "rgba(58, 42, 26, 0.15)" }}
+      />
+      <MicButton isListening={isListening} onClick={toggle} />
+    </div>
+  );
+}
+
 function AddEntryForm({
   date,
   onAdd,
@@ -620,14 +644,7 @@ function AddEntryForm({
       </div>
       <div className="mb-3">
         <label className="text-[10px] uppercase tracking-wider opacity-50 block mb-1">Note (optional)</label>
-        <input
-          type="text"
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-          placeholder="e.g., AA meeting, craving passed, mood check..."
-          className="w-full px-3 py-2 rounded-lg border text-sm bg-white"
-          style={{ borderColor: "rgba(58, 42, 26, 0.15)" }}
-        />
+        <NoteInputWithVoice note={note} setNote={setNote} />
       </div>
       <div className="flex gap-2">
         <button
@@ -757,6 +774,77 @@ function getStreak(entries: CalendarEntry[]): number {
     }
   }
   return streak;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   VOICE-TO-TEXT HOOK — Web Speech API
+   ═══════════════════════════════════════════════════════════════ */
+function useVoiceInput(onResult: (text: string) => void) {
+  const [isListening, setIsListening] = useState(false);
+  const recognitionRef = useRef<any>(null);
+
+  const startListening = useCallback(() => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Voice input is not supported in this browser. Try Chrome or Edge.");
+      return;
+    }
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.lang = "en-US";
+    recognition.onresult = (event: any) => {
+      let transcript = "";
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          transcript += event.results[i][0].transcript;
+        }
+      }
+      if (transcript) onResult(transcript.trim());
+    };
+    recognition.onerror = () => setIsListening(false);
+    recognition.onend = () => setIsListening(false);
+    recognitionRef.current = recognition;
+    recognition.start();
+    setIsListening(true);
+  }, [onResult]);
+
+  const stopListening = useCallback(() => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+    }
+    setIsListening(false);
+  }, []);
+
+  const toggle = useCallback(() => {
+    if (isListening) stopListening(); else startListening();
+  }, [isListening, startListening, stopListening]);
+
+  return { isListening, toggle };
+}
+
+function MicButton({ isListening, onClick }: { isListening: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+        isListening
+          ? "bg-red-500 text-white shadow-lg animate-pulse"
+          : "text-[#5C6B4A] hover:bg-[#5C6B4A]/10"
+      }`}
+      style={{ border: isListening ? "none" : "2px solid #5C6B4A" }}
+      title={isListening ? "Stop recording" : "Speak your entry"}
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+        <line x1="12" y1="19" x2="12" y2="23" />
+        <line x1="8" y1="23" x2="16" y2="23" />
+      </svg>
+    </button>
+  );
 }
 
 function playBeep() {
@@ -895,11 +983,25 @@ function InfoSection({ title, children }: { title: string; children: React.React
 function MoodPage(props: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === "mood")!;
   const [showAddForm, setShowAddForm] = useState(false);
+  const [voiceNote, setVoiceNote] = useState("");
   const today = new Date().toISOString().split("T")[0];
   const allEntries = props.entries
     .sort((a, b) => b.date.localeCompare(a.date) || b.time.localeCompare(a.time));
   const todayEntries = allEntries.filter((e) => e.date === today);
   const pastEntries = allEntries.filter((e) => e.date < today);
+
+  const handleVoiceResult = useCallback((text: string) => {
+    setVoiceNote((prev) => (prev ? prev + " " : "") + text);
+  }, []);
+  const { isListening, toggle: toggleVoice } = useVoiceInput(handleVoiceResult);
+
+  const saveVoiceEntry = () => {
+    if (!voiceNote.trim()) return;
+    const now = new Date();
+    const time = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+    props.addEntry({ category: "mood", date: today, time, note: voiceNote.trim(), completed: false });
+    setVoiceNote("");
+  };
 
   return (
     <div className="space-y-6">
@@ -918,7 +1020,62 @@ function MoodPage(props: CategoryPageProps) {
         </button>
       </div>
 
-      {/* Add form */}
+      {/* Voice Journal — big mic button */}
+      <div className="rounded-xl p-5" style={{ background: `${category.color}10`, border: `1px solid ${category.color}30` }}>
+        <div className="flex items-center gap-3 mb-3">
+          <button
+            onClick={toggleVoice}
+            className={`w-14 h-14 rounded-full flex items-center justify-center transition-all shadow-md ${
+              isListening
+                ? "bg-red-500 text-white animate-pulse shadow-red-200"
+                : "bg-[#5C6B4A] text-white hover:bg-[#4a5a3a]"
+            }`}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              <line x1="12" y1="19" x2="12" y2="23" />
+              <line x1="8" y1="23" x2="16" y2="23" />
+            </svg>
+          </button>
+          <div className="flex-1">
+            <p className="text-sm font-medium" style={{ color: "#3a2a1a" }}>
+              {isListening ? "Listening... speak now" : "Tap to speak your journal entry"}
+            </p>
+            <p className="text-[10px] opacity-40 mt-0.5">Voice entries are saved with the current time</p>
+          </div>
+        </div>
+        {(voiceNote || isListening) && (
+          <div className="mt-3">
+            <textarea
+              value={voiceNote}
+              onChange={(e) => setVoiceNote(e.target.value)}
+              placeholder={isListening ? "Listening..." : "Your voice entry will appear here..."}
+              rows={3}
+              className="w-full px-3 py-2 rounded-lg border text-sm bg-white resize-none"
+              style={{ borderColor: isListening ? "#ef4444" : "rgba(58, 42, 26, 0.15)" }}
+            />
+            <div className="flex gap-2 mt-2">
+              <button
+                onClick={saveVoiceEntry}
+                disabled={!voiceNote.trim()}
+                className="flex-1 py-2 rounded-lg text-sm uppercase tracking-wider text-white transition disabled:opacity-30"
+                style={{ background: "#5C6B4A" }}
+              >
+                Save Entry
+              </button>
+              <button
+                onClick={() => { setVoiceNote(""); }}
+                className="px-4 py-2 rounded-lg text-sm uppercase tracking-wider opacity-50 hover:opacity-80 transition"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Add form (manual) */}
       <AnimatePresence>
         {showAddForm && (
           <AddEntryForm
@@ -1806,3 +1963,4 @@ function FAQPage() {
     </div>
   );
 }
+
