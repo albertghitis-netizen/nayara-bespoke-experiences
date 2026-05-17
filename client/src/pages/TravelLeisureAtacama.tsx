@@ -113,9 +113,8 @@ export default function TravelLeisureAtacama() {
         >
           Guests ride horseback through Moon Valley at dawn, float in salt
           lagoons at 4,000 meters, and stargaze under skies so dark the Milky
-          Way casts a shadow. The kitchen works with Atacame&ntilde;o farmers who
-          have cultivated this land for centuries. Two MICHELIN Keys confirm
-          what the landscape already knew: some places only need to be revealed.
+          Way casts a shadow. Two MICHELIN Keys confirm what the landscape
+          already knew: some places only need to be revealed.
         </p>
       </div>
 
