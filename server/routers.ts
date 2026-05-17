@@ -6,6 +6,8 @@ import { invokeLLM } from "./_core/llm";
 import { NAYARA_CONCIERGE_SYSTEM_PROMPT } from "./conciergePrompt";
 import { z } from "zod";
 import { saveLead } from "./db";
+import { transcribeAudio } from "./_core/voiceTranscription";
+import { storagePut } from "./storage";
 
 /* ── Message schema for the chat endpoint ── */
 const messageSchema = z.object({
@@ -135,6 +137,48 @@ export const appRouter = router({
         }
 
         return { reply: content };
+      }),
+  }),
+
+  /* ═══════════════════════════════════════════
+     VOICE TRANSCRIPTION
+     ═══════════════════════════════════════════ */
+  voice: router({
+    transcribe: publicProcedure
+      .input(
+        z.object({
+          audioBase64: z.string(),
+          mimeType: z.string().default("audio/webm"),
+          language: z.string().optional().default("en"),
+        })
+      )
+      .mutation(async ({ input }) => {
+        // Decode base64 audio
+        const audioBuffer = Buffer.from(input.audioBase64, "base64");
+
+        // Check size (16MB limit)
+        const sizeMB = audioBuffer.length / (1024 * 1024);
+        if (sizeMB > 16) {
+          throw new Error("Audio file too large (max 16MB)");
+        }
+
+        // Upload to S3
+        const ext = input.mimeType.includes("webm") ? "webm" : input.mimeType.includes("mp4") ? "m4a" : "wav";
+        const key = `voice/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+        const { url } = await storagePut(key, audioBuffer, input.mimeType);
+
+        // Transcribe
+        const result = await transcribeAudio({
+          audioUrl: url,
+          language: input.language,
+          prompt: "Transcribe this journal entry",
+        });
+
+        if ("error" in result) {
+          throw new Error(result.error);
+        }
+
+        return { text: result.text, language: result.language };
       }),
   }),
 

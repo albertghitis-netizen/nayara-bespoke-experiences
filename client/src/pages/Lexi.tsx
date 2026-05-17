@@ -7,6 +7,7 @@
  */
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { trpc } from "@/lib/trpc";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ═══════════════════════════════════════════════════════════════
@@ -777,42 +778,91 @@ function getStreak(entries: CalendarEntry[]): number {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   VOICE-TO-TEXT HOOK — Web Speech API
+   VOICE-TO-TEXT HOOK — MediaRecorder + Whisper (works on iOS Safari & Chrome)
    ═══════════════════════════════════════════════════════════════ */
 function useVoiceInput(onResult: (text: string) => void) {
   const [isListening, setIsListening] = useState(false);
-  const recognitionRef = useRef<any>(null);
+  const [isTranscribing, setIsTranscribing] = useState(false);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+  const streamRef = useRef<MediaStream | null>(null);
 
-  const startListening = useCallback(() => {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      alert("Voice input is not supported in this browser. Try Chrome or Edge.");
-      return;
-    }
-    const recognition = new SpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = false;
-    recognition.lang = "en-US";
-    recognition.onresult = (event: any) => {
-      let transcript = "";
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        if (event.results[i].isFinal) {
-          transcript += event.results[i][0].transcript;
+  const transcribeMutation = trpc.voice.transcribe.useMutation({
+    onSuccess: (data) => {
+      if (data.text) onResult(data.text);
+      setIsTranscribing(false);
+    },
+    onError: (err) => {
+      console.error("Transcription failed:", err);
+      alert("Transcription failed. Please try again.");
+      setIsTranscribing(false);
+    },
+  });
+
+  const startListening = useCallback(async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      streamRef.current = stream;
+      chunksRef.current = [];
+
+      // Use audio/mp4 for Safari, audio/webm for Chrome
+      const mimeType = MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
+        ? "audio/webm;codecs=opus"
+        : MediaRecorder.isTypeSupported("audio/mp4")
+          ? "audio/mp4"
+          : "audio/webm";
+
+      const recorder = new MediaRecorder(stream, { mimeType });
+      mediaRecorderRef.current = recorder;
+
+      recorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunksRef.current.push(e.data);
+      };
+
+      recorder.onstop = async () => {
+        // Stop all tracks
+        stream.getTracks().forEach((t) => t.stop());
+        streamRef.current = null;
+
+        if (chunksRef.current.length === 0) return;
+
+        const blob = new Blob(chunksRef.current, { type: mimeType });
+        chunksRef.current = [];
+
+        // Convert to base64
+        const arrayBuffer = await blob.arrayBuffer();
+        const uint8 = new Uint8Array(arrayBuffer);
+        let binary = "";
+        for (let i = 0; i < uint8.length; i++) {
+          binary += String.fromCharCode(uint8[i]);
         }
-      }
-      if (transcript) onResult(transcript.trim());
-    };
-    recognition.onerror = () => setIsListening(false);
-    recognition.onend = () => setIsListening(false);
-    recognitionRef.current = recognition;
-    recognition.start();
-    setIsListening(true);
-  }, [onResult]);
+        const base64 = btoa(binary);
+
+        setIsTranscribing(true);
+        transcribeMutation.mutate({
+          audioBase64: base64,
+          mimeType: mimeType.split(";")[0],
+          language: "en",
+        });
+      };
+
+      recorder.start(1000); // collect in 1s chunks
+      setIsListening(true);
+      playBeep();
+    } catch (err) {
+      console.error("Microphone access denied:", err);
+      alert("Please allow microphone access to use voice input.");
+    }
+  }, [transcribeMutation]);
 
   const stopListening = useCallback(() => {
-    if (recognitionRef.current) {
-      recognitionRef.current.stop();
-      recognitionRef.current = null;
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+      mediaRecorderRef.current.stop();
+      mediaRecorderRef.current = null;
+    }
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach((t) => t.stop());
+      streamRef.current = null;
     }
     setIsListening(false);
   }, []);
@@ -821,7 +871,7 @@ function useVoiceInput(onResult: (text: string) => void) {
     if (isListening) stopListening(); else startListening();
   }, [isListening, startListening, stopListening]);
 
-  return { isListening, toggle };
+  return { isListening: isListening || isTranscribing, toggle };
 }
 
 function MicButton({ isListening, onClick }: { isListening: boolean; onClick: () => void }) {
