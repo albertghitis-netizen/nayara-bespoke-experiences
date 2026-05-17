@@ -65,7 +65,7 @@ export default function TravelLeisureAtacama() {
       <div
         style={{
           margin: "0 40px",
-          padding: "20px 0 0",
+          padding: "20px 0 24px",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: 32,
