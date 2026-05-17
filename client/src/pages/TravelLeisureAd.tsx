@@ -66,13 +66,15 @@ export default function TravelLeisureAd() {
         </p>
       </div>
 
-      {/* TWO-COLUMN INTRO PARAGRAPH */}
+      {/* TWO-COLUMN INTRO — bone background to group as Tented Camp section */}
       <div
         style={{
+          background: "#f0ebe1",
+          margin: "0 40px",
+          padding: "20px 24px",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: 32,
-          padding: "20px 40px 0",
         }}
       >
         {/* LEFT: intro with drop cap */}
@@ -108,36 +110,33 @@ export default function TravelLeisureAd() {
           charm and allure.
         </p>
 
-        {/* RIGHT: Unforgettable Experiences */}
-        <div>
-          <h3
-            style={{
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase" as const,
-              marginBottom: 4,
-              marginTop: 0,
-            }}
-          >
-            Unforgettable Experiences
-          </h3>
-          <p
-            style={{
-              fontSize: 11,
-              lineHeight: 1.75,
-              color: "#2a2a2a",
-              fontWeight: 300,
-              margin: 0,
-            }}
-          >
-            A stay at a Nayara Resort is unlike any other. In-house destination
-            experts make the connection with nature even more real for guests by
-            sharing their passion and unparalleled knowledge. There are no set
-            itineraries, so guests enjoy the privilege of a bespoke and private
-            experience, easily adapted to suit individual needs.
-          </p>
-        </div>
+        {/* RIGHT: second paragraph (no header) */}
+        <p
+          style={{
+            fontSize: 11,
+            lineHeight: 1.75,
+            color: "#2a2a2a",
+            fontWeight: 300,
+            margin: 0,
+          }}
+        >
+          A stay at a Nayara Resort is unlike any other. In-house destination
+          experts make the connection with nature even more real for guests by
+          sharing their passion and unparalleled knowledge. There are no set
+          itineraries, so guests enjoy the privilege of a bespoke and private
+          experience, easily adapted to suit individual needs.
+        </p>
+      </div>
+
+      {/* DEMARCATING LINE */}
+      <div style={{ padding: "0 40px" }}>
+        <hr
+          style={{
+            border: "none",
+            borderTop: "1px solid #c5b9a8",
+            margin: "20px 0 0",
+          }}
+        />
       </div>
 
       {/* TWO-COLUMN: Sub-headers aligned side by side, then images */}
