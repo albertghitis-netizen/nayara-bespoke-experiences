@@ -58,7 +58,7 @@ export default function TravelLeisureAd() {
             marginTop: 6,
           }}
         >
-          Nayara Tented Camp has won Travel + Leisure&rsquo;s Best Resort
+          Nayara Tented Camp (pictured above) has won Travel + Leisure&rsquo;s Best Resort
           in Central America five out of the last six years.
         </p>
       </div>
