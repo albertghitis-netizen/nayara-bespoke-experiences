@@ -167,13 +167,9 @@ export default function TravelLeisureAd() {
               marginBottom: 12,
             }}
           >
-            Nayara Springs is the crown jewel of wellness in the Nayara
-            collection. Every villa features its own private hot springs plunge
-            pool, fed by the naturally heated mineral waters of the Arenal
-            Volcano region. Surrounded by lush rainforest canopy, guests
-            retreat into a world of open-air spa treatments, farm-to-table
-            dining, and uninterrupted views of one of the world&rsquo;s most
-            active volcanic landscapes.
+            Every private villa features its own private hot springs
+            plunge pool, fed by the naturally heated mineral waters of the
+            Arenal Volcano.
           </p>
 
           <img
