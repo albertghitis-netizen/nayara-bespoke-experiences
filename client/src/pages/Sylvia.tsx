@@ -138,7 +138,7 @@ function Navigation() {
           <img
             src={LOGO_URL}
             alt="Towards Living"
-            className="h-12 md:h-14 object-contain"
+            className="h-20 md:h-24 object-contain"
           />
         </div>
 
@@ -199,7 +199,7 @@ function Navigation() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative pt-28 md:pt-36 pb-16 md:pb-24 px-6 md:px-12">
+    <section className="relative pt-28 md:pt-32 pb-10 md:pb-16 px-6 md:px-12">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -217,7 +217,7 @@ function HeroSection() {
           className="mt-6 text-base md:text-lg max-w-xl mx-auto leading-relaxed"
           style={{ color: COLORS.textSecondary }}
         >
-          Because Success and Fulfillment<br className="hidden md:block" /> don't always arrive together.
+          Because success and fulfillment<br className="hidden md:block" /> don't always arrive together.
         </motion.p>
       </div>
 
@@ -226,7 +226,7 @@ function HeroSection() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.8 }}
-        className="mt-12 md:mt-16 max-w-4xl mx-auto"
+        className="mt-8 md:mt-10 max-w-4xl mx-auto"
       >
         <img
           src={IMAGES.hero}
@@ -243,7 +243,7 @@ function HeroSection() {
    ═══════════════════════════════════════════════════════════════ */
 function ValuePropSection() {
   return (
-    <section id="who-i-help" className="py-20 md:py-32 px-6 md:px-12">
+    <section id="who-i-help" className="py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
           <div>
@@ -289,7 +289,7 @@ function ServicesSection() {
   return (
     <section
       id="services"
-      className="py-20 md:py-32 px-6 md:px-12"
+      className="py-14 md:py-20 px-6 md:px-12"
       style={{ backgroundColor: COLORS.accent }}
     >
       <div className="max-w-5xl mx-auto">
@@ -373,7 +373,7 @@ function ServicesSection() {
    ═══════════════════════════════════════════════════════════════ */
 function TestimonialSection() {
   return (
-    <section id="testimonials" className="py-24 md:py-36 px-6 md:px-12">
+    <section id="testimonials" className="py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-3xl mx-auto text-center">
         <div
           className="w-12 h-px mx-auto mb-10"
@@ -420,7 +420,7 @@ function AboutSection() {
   return (
     <section
       id="approach"
-      className="py-20 md:py-32 px-6 md:px-12"
+      className="py-14 md:py-20 px-6 md:px-12"
       style={{ backgroundColor: COLORS.accent }}
     >
       <div className="max-w-5xl mx-auto">
@@ -481,7 +481,7 @@ function AboutSection() {
    ═══════════════════════════════════════════════════════════════ */
 function PhilosophySection() {
   return (
-    <section className="py-20 md:py-32 px-6 md:px-12">
+    <section className="py-14 md:py-20 px-6 md:px-12">
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Image */}
@@ -525,7 +525,7 @@ function PhilosophySection() {
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   return (
-    <section id="contact" className="relative py-24 md:py-36 px-6 md:px-12">
+    <section id="contact" className="relative py-16 md:py-24 px-6 md:px-12">
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <img
@@ -565,13 +565,13 @@ function CTASection() {
    ═══════════════════════════════════════════════════════════════ */
 function FooterSection() {
   return (
-    <footer className="py-16 md:py-20 px-6 md:px-12" style={{ backgroundColor: COLORS.bone }}>
+    <footer className="py-12 md:py-16 px-6 md:px-12" style={{ backgroundColor: COLORS.bone }}>
       <div className="max-w-4xl mx-auto text-center">
         {/* Logo */}
         <img
           src={LOGO_URL}
           alt="Towards Living"
-          className="h-16 mx-auto mb-8 object-contain"
+          className="h-20 mx-auto mb-6 object-contain"
         />
 
         <p
