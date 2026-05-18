@@ -3813,3 +3813,13 @@
 - [x] Link Maya blog companion content to archaeologist podcast entry (renamed Video → Podcast)
 - [x] Global rename: Video/Watch → Podcast for all non-sustainability-video entries (journal.ts type system, Journal.tsx, Home.tsx, CostaRicaSustainability.tsx, BocasDelToro.tsx placeholders)
 - [x] Keep atacama-sustainability and hangaroa-sustainability as type "video" with "Watch" label
+
+## Revert Podcast → Watch + Blog Rebuild
+- [x] Revert all Podcast labels back to Watch everywhere (journal.ts, Journal.tsx, Home.tsx, CostaRicaSustainability.tsx, BocasDelToro.tsx, MayaRapaNuiClimateBlog.tsx)
+- [x] Restore Watch button on every Journal card + keep EN/ES language pills at top left
+- [x] Add Rainforest Pool Villa images to GardensRooms page (vertical mobile + horizontal desktop)
+- [x] Rebuild "Luxury Resorts Rooted in Nature" blog with all 11 elements via BlogPostTemplate
+- [x] 21:9 desktop hero (RESIDENCE-copy.jpg cropped to 21:9)
+- [x] Mobile hero (Arenal volcano 3:4 — Untitleddesign-15(1).JPG)
+- [x] Square journal card (Arenal volcano 1:1 — Untitleddesign-15.jpg)
+- [x] Author tab, key findings, 7 sections with centered images, pull quote, FAQ, sources, related articles, CTA properties

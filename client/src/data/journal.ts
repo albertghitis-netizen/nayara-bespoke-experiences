@@ -110,7 +110,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/nayara-story",
     property: "brand",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
+    image: "/manus-storage/luxury-rooted-square-card_7de12369.jpg",
     excerpt: "Nayara Resorts is recognized as one of Latin America's leading luxury hotel brands, defined by nature, cultural connection, and place-based hospitality.",
     featured: true,
   },
