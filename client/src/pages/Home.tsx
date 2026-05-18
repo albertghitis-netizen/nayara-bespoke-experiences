@@ -873,7 +873,7 @@ function NayaraJournalSection() {
       id: "atacama-sustainability",
       label: "Watch",
       title: "Nayara Alto Atacama Sustainability",
-      image: "/manus-storage/leo-ghitis-formal-square_5914426f.jpg",
+      image: "/manus-storage/leo-ghitis-formal-square_eadb0855.jpg",
       href: null,
       youtubeId: "6cfkWsqWWc8",
       external: false,
