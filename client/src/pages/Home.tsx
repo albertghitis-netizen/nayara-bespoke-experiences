@@ -850,8 +850,9 @@ interface JournalCardData {
   href: string | null;
   youtubeId?: string;
   listenUrl?: string;
+  languageVariants?: { en: string; enDuration?: string; es: string; esDuration?: string };
   external: boolean;
-  cta: "read" | "listen" | "watch-listen" | "watch";
+  cta: "read" | "listen" | "watch-listen" | "watch" | "lang-toggle";
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -869,9 +870,9 @@ const HOMEPAGE_CURATED_IDS: string[] = [
   "conde-nast-bocas",
   "leo-luxury-travel-innovators",
   "three-kitchens-one-rainforest",
-  "leo-suite-success",
-  "7-michelin-keys",
   "hangaroa-sustainability",
+  "7-michelin-keys",
+  "leo-suite-success",
   "arenal-timeless-wonder",
   "stargazing-atacama",
   "treehouse-dreams",
@@ -907,6 +908,7 @@ function buildHomepageJournalCards(): JournalCardData[] {
     let cta: JournalCardData["cta"] = "read";
     if (isVideo) cta = "watch";
     else if (isAudio) cta = "listen";
+    if (isVideo && entry.languageVariants) cta = "lang-toggle" as any;
     return {
       id: entry.id,
       label: isVideo ? "Watch" : isAudio ? "Listen" : "Read",
@@ -914,6 +916,7 @@ function buildHomepageJournalCards(): JournalCardData[] {
       image: entry.image,
       href: entry.url || null,
       youtubeId: entry.youtubeId,
+      languageVariants: entry.languageVariants,
       external: entry.url ? entry.url.startsWith("http") : false,
       cta,
     };
@@ -923,7 +926,7 @@ function buildHomepageJournalCards(): JournalCardData[] {
 const HOMEPAGE_JOURNAL_CARDS = buildHomepageJournalCards();
 
 function NayaraJournalSection() {
-  const [playingId, setPlayingId] = useState<string | null>(null);
+  const [playingId, setPlayingId] = useState<string | null>(null); // can be "id" or "id-en" or "id-es"
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [mobileCard, setMobileCard] = useState(0);
@@ -1040,7 +1043,10 @@ function NayaraJournalSection() {
                   <div key={card.id}>
                     <JournalTeaserCard
                       card={card}
-                      isPlaying={playingId === card.id}
+                      isPlaying={playingId === card.id || playingId === `${card.id}-en` || playingId === `${card.id}-es`}
+                      playingLang={playingId === `${card.id}-es` ? "es" : playingId === `${card.id}-en` || playingId === card.id ? "en" : undefined}
+                      onPlayEN={() => setPlayingId(`${card.id}-en`)}
+                      onPlayES={() => setPlayingId(`${card.id}-es`)}
                       onPlay={() => setPlayingId(card.id)}
                       onClose={() => setPlayingId(null)}
                     />
@@ -1062,7 +1068,10 @@ function NayaraJournalSection() {
               <div key={card.id} className="flex-shrink-0 w-full px-1" style={{ scrollSnapAlign: "start" }}>
                 <JournalTeaserCard
                   card={card}
-                  isPlaying={playingId === card.id}
+                  isPlaying={playingId === card.id || playingId === `${card.id}-en` || playingId === `${card.id}-es`}
+                  playingLang={playingId === `${card.id}-es` ? "es" : playingId === `${card.id}-en` || playingId === card.id ? "en" : undefined}
+                  onPlayEN={() => setPlayingId(`${card.id}-en`)}
+                  onPlayES={() => setPlayingId(`${card.id}-es`)}
                   onPlay={() => setPlayingId(card.id)}
                   onClose={() => setPlayingId(null)}
                 />
@@ -1103,12 +1112,18 @@ function NayaraJournalSection() {
 function JournalTeaserCard({
   card,
   isPlaying,
+  playingLang,
   onPlay,
+  onPlayEN,
+  onPlayES,
   onClose,
 }: {
   card: JournalCardData;
   isPlaying: boolean;
+  playingLang?: "en" | "es";
   onPlay: () => void;
+  onPlayEN?: () => void;
+  onPlayES?: () => void;
   onClose: () => void;
 }) {
   const pillBase = "inline-flex items-center gap-2 h-9 px-6 rounded-full text-[11px] tracking-[0.12em] uppercase hover:opacity-80 transition-all cursor-pointer font-medium";
@@ -1118,6 +1133,10 @@ function JournalTeaserCard({
   const isDummy = !card.image;
 
   const handleCardClick = () => {
+    if (card.cta === "lang-toggle" && card.languageVariants) {
+      onPlayEN?.(); // default to EN
+      return;
+    }
     if (card.cta === "watch" && card.youtubeId) {
       onPlay();
     } else if (card.href) {
@@ -1132,10 +1151,10 @@ function JournalTeaserCard({
   return (
     <div className="flex flex-col cursor-pointer" onClick={!isPlaying ? handleCardClick : undefined}>
     <div className="group relative w-full overflow-hidden rounded-lg" style={{ aspectRatio: "1/1", backgroundColor: isDummy ? "#d6d0c7" : "#1c1917" }}>
-      {isPlaying && card.youtubeId ? (
+      {isPlaying && (card.youtubeId || card.languageVariants) ? (
         <>
           <iframe
-            src={`https://www.youtube.com/embed/${card.youtubeId}?autoplay=1&rel=0`}
+            src={`https://www.youtube.com/embed/${card.languageVariants ? (playingLang === "es" ? card.languageVariants.es : card.languageVariants.en) : card.youtubeId}?autoplay=1&rel=0`}
             className="absolute inset-0 w-full h-full"
             allow="autoplay; encrypted-media"
             allowFullScreen
@@ -1171,18 +1190,38 @@ function JournalTeaserCard({
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           {/* Type label + share icon , bottom-left, matching Journal page style */}
           <div className="absolute bottom-4 left-4 flex items-center gap-2">
-            <span
-              className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase"
-              style={bodyFont}
-            >
-              {card.cta === "watch" ? (
-                <Play className="w-2.5 h-2.5 fill-current" />
-              ) : (
-                <ArrowUpRight className="w-3 h-3" />
-              )}
-              {card.label}
-            </span>
-
+            {card.cta === "lang-toggle" && card.languageVariants ? (
+              <>
+                <button
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onPlayEN?.(); }}
+                  className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+                  style={bodyFont}
+                >
+                  <span className="text-[11px]">🇺🇸</span>
+                  English
+                </button>
+                <button
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onPlayES?.(); }}
+                  className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+                  style={bodyFont}
+                >
+                  <span className="text-[11px]">🇪🇸</span>
+                  Español
+                </button>
+              </>
+            ) : (
+              <span
+                className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase"
+                style={bodyFont}
+              >
+                {card.cta === "watch" ? (
+                  <Play className="w-2.5 h-2.5 fill-current" />
+                ) : (
+                  <ArrowUpRight className="w-3 h-3" />
+                )}
+                {card.label}
+              </span>
+            )}
           </div>
         </>
       )}

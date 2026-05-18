@@ -65,10 +65,10 @@ const CURATED_IDS: string[] = [
   // Row 3: Watch · Read · Watch
   "leo-luxury-travel-innovators",
   "three-kitchens-one-rainforest",
-  "leo-suite-success",
+  "hangaroa-sustainability",
   // Row 4: Read · Watch · Read
   "7-michelin-keys",
-  "hangaroa-sustainability",
+  "leo-suite-success",
   "arenal-timeless-wonder",
   // Row 5
   "stargazing-atacama",
