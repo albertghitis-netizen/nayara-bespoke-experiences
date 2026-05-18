@@ -134,11 +134,11 @@ function Navigation() {
         </button>
 
         {/* Logo center */}
-        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-2">
+        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-3">
           <img
             src={LOGO_URL}
             alt="Sylvia"
-            className="h-18 object-contain"
+            className="h-13 object-contain"
           />
         </div>
 
