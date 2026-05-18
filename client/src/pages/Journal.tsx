@@ -120,7 +120,7 @@ export default function Journal() {
       <BrandNavigation pageType="brand" hideCenterLabel />
 
       {/* ── Hero ── */}
-      <section className="relative w-full overflow-hidden bg-[#3a2a1a] -mt-1" style={{ aspectRatio: '16/9', maxHeight: '100vh' }}>
+      <section className="relative w-full overflow-hidden bg-[#3a2a1a] -mt-1 aspect-[3/4] md:aspect-video" style={{ maxHeight: '100vh' }}>
         <div className="absolute inset-0">
           {JOURNAL_CDN.heroVideoDesktop && (
             <>
