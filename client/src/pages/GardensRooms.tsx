@@ -33,6 +33,11 @@ const CDN = {
   landscapeImg: `${CDN_BASE}/gardens-casita-aerial_e2fb1f8e.jpeg`,
 };
 
+const VILLA_IMAGES = {
+  vertical: "/manus-storage/IMG_8452(1)_505df4d5.jpg",
+  horizontal: "/manus-storage/99C2B6AF-D79E-432E-9596-A58F80B594C9_2b808a3a.jpg",
+};
+
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
@@ -48,6 +53,12 @@ const roomTypes = [
     description:
       "Spacious two-bedroom casitas designed for families exploring the Arenal rainforest together. Connected rooms with a shared living area, private garden, and plunge pool make this the perfect base for multi-generational adventures.",
     features: ["Two bedrooms", "Family-friendly", "Private garden", "Plunge pool"],
+  },
+  {
+    name: "Rainforest Pool Villa",
+    description:
+      "Secluded villas hidden within the rainforest canopy, each with a private plunge pool fed by natural volcanic springs. Floor-to-ceiling windows dissolve the boundary between indoors and the living jungle, while a hammock-draped terrace invites you to simply be.",
+    features: ["Private plunge pool", "Rainforest canopy", "Hammock terrace", "139 m²"],
   },
   {
     name: "Royal Villa",
@@ -136,12 +147,25 @@ function RoomsContent() {
           ))}
         </div>
 
+        {/* Rainforest Pool Villa showcase — mobile vertical, desktop horizontal */}
+        <div className="md:hidden">
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+              <img
+                src={VILLA_IMAGES.vertical}
+                alt="Rainforest Pool Villa — private plunge pool surrounded by tropical canopy"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </MediaReveal>
+        </div>
         <div className="hidden md:block">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
               <img
-                src={CDN.landscapeImg}
-                alt="Aerial view of Nayara Gardens casitas surrounded by tropical gardens"
+                src={VILLA_IMAGES.horizontal}
+                alt="Rainforest Pool Villa — private plunge pool surrounded by tropical canopy"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
