@@ -201,6 +201,13 @@ export const familyBucketListPost: BlogPostData = {
       image: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
       date: "April 2026",
     },
+    {
+      slug: "birdwatching",
+      title: "Birdwatching in Costa Rica: The Best Birds to See Near Arenal Volcano",
+      pillar: "Nature & Wildlife",
+      image: "/manus-storage/birdwatching-card-aracari-square_616da216.jpg",
+      date: "September 2024",
+    },
   ],
   ctaProperties: [],
   seo: {

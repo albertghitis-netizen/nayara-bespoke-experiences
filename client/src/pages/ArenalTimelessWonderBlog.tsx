@@ -15,6 +15,8 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
+import BrandNavigation from "@/components/BrandNavigation";
+import BlogAuthorReadTime from "@/components/BlogAuthorReadTime";
 
 const PALETTE = {
   espresso: "#3B2B26",
@@ -71,9 +73,12 @@ export default function ArenalTimelessWonderBlog() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.cream }}>
       <Helmet>
-        <title>Arenal, Costa Rica: A Timeless Natural Wonder | Nayara Journal</title>
+        <title>Arenal Volcano, Costa Rica: A Timeless Natural Wonder | Nayara Journal</title>
         <meta name="description" content="The complete history of Arenal Volcano, from its geological origins 7,500 years ago through the catastrophic 1968 eruption to its current dormancy. Discover the force that shaped northern Costa Rica." />
       </Helmet>
+
+      {/* ── BRAND NAVIGATION ── */}
+      <BrandNavigation pageType="content" />
 
       {/* ── HERO ── */}
       <section className="relative w-full" style={{ aspectRatio: "21/9", minHeight: 320 }}>
@@ -108,26 +113,42 @@ export default function ArenalTimelessWonderBlog() {
             className="text-3xl md:text-4xl lg:text-[2.8rem] leading-[1.1] tracking-wide mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
           >
-            Arenal, Costa Rica: A Timeless Natural Wonder
+            Arenal Volcano, Costa Rica: A Timeless Natural Wonder
           </motion.h1>
-          <motion.div
-            custom={0.2}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={contentEntrance}
-            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px]"
-            style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}
-          >
-            <span>Nayara Journal</span>
-            <span>May 2026</span>
-            <span>8 min read</span>
-          </motion.div>
+        </div>
+      </section>
+
+      {/* ── AUTHOR BAND ── */}
+      <BlogAuthorReadTime
+        author="Albert Ghitis"
+        authorRole="Editorial"
+        date="May 12, 2026"
+        readingTime={8}
+      />
+
+      {/* ── KEY FINDINGS ── */}
+      <section className="px-6 md:px-12 lg:px-24 pt-12 pb-8" style={{ backgroundColor: PALETTE.stone }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="border border-stone-300 p-6 md:p-8">
+            <h3
+              className="text-[11px] tracking-[0.2em] uppercase mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: PALETTE.accent }}
+            >
+              Key Findings
+            </h3>
+            <ul className="flex flex-col gap-3 text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.text }}>
+              <li>• Arenal Volcano is less than 7,500 years old, making it one of the youngest and most studied volcanoes in Central America.</li>
+              <li>• The catastrophic 1968 eruption ended over 400 years of dormancy, destroying three villages and claiming 87 lives.</li>
+              <li>• From 1968 to 2010, Arenal was continuously active for 42 years, the tenth longest volcanic eruption on Earth since 1750.</li>
+              <li>• The volcano’s geothermal energy heats the natural hot springs that have drawn visitors for decades and powers Costa Rica’s largest hydroelectric reservoir.</li>
+              <li>• Since entering dormancy in 2010, the rainforest has regenerated across former lava flows, supporting 500+ bird species and half the world’s butterfly species.</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       {/* ── INTRO ── */}
-      <section className="px-6 md:px-12 lg:px-24 pb-16" style={{ backgroundColor: PALETTE.cream }}>
+      <section className="px-6 md:px-12 lg:px-24 pt-12 pb-16" style={{ backgroundColor: PALETTE.cream }}>
         <div className="max-w-3xl mx-auto">
           <motion.p
             custom={0.1}
@@ -367,22 +388,46 @@ export default function ArenalTimelessWonderBlog() {
 
 
 
-      {/* ── SOURCES ── */}
-      <section className="px-6 md:px-12 lg:px-24 py-12" style={{ backgroundColor: PALETTE.stone }}>
+      {/* ── SOURCES & FURTHER READING ── */}
+      <section className="px-6 md:px-12 lg:px-24 py-16" style={{ backgroundColor: PALETTE.stone }}>
         <div className="max-w-3xl mx-auto">
           <h3
-            className="text-[11px] tracking-[0.2em] uppercase mb-6"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.muted }}
+            className="text-[11px] tracking-[0.25em] uppercase mb-8 text-center"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}
           >
-            Sources
+            Sources &amp; Further Reading
           </h3>
-          <ul className="flex flex-col gap-2 text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
-            <li>Smithsonian Institution, Global Volcanism Program: Arenal Volcano Profile</li>
-            <li>Soto, G.J. (2006). "Eruptive history of Arenal Volcano, Costa Rica, 7 ka to present." Journal of Volcanology and Geothermal Research.</li>
-            <li>Mora, M.M. et al. (2022). "Evolution and dynamics of the open-vent eruption at Arenal volcano." Bulletin of Volcanology.</li>
-            <li>OVISCORI, Volcanological and Seismological Observatory of Costa Rica, National University of Costa Rica.</li>
-            <li>PBS, The Living Edens: Costa Rica, "Breathing Mountain."</li>
-            <li>Arenal Observatory Lodge, "40 Years of Eruption, The Arenal Volcano."</li>
+          <ul className="flex flex-col gap-3 text-[14px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+            <li>
+              <a href="https://volcano.si.edu/volcano.cfm?vn=345033" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">
+                Smithsonian Institution, Global Volcanism Program: Arenal Volcano Profile
+              </a>
+            </li>
+            <li>
+              <a href="https://www.sciencedirect.com/science/article/abs/pii/S0377027305003380" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">
+                Soto, G.J. (2006). "Eruptive history of Arenal Volcano, Costa Rica, 7 ka to present." Journal of Volcanology and Geothermal Research.
+              </a>
+            </li>
+            <li>
+              <a href="https://link.springer.com/article/10.1007/s00445-022-01585-3" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">
+                Mora, M.M. et al. (2022). "Evolution and dynamics of the open-vent eruption at Arenal volcano." Bulletin of Volcanology.
+              </a>
+            </li>
+            <li>
+              <a href="https://www.ovsicori.una.ac.cr/" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">
+                OVSICORI, Volcanological and Seismological Observatory of Costa Rica, National University of Costa Rica.
+              </a>
+            </li>
+            <li>
+              <a href="https://www.pbs.org/edens/costarica/" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">
+                PBS, The Living Edens: Costa Rica, "Breathing Mountain."
+              </a>
+            </li>
+            <li>
+              <a href="https://www.arenalobservatorylodge.com/" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">
+                Arenal Observatory Lodge, "40 Years of Eruption, The Arenal Volcano."
+              </a>
+            </li>
           </ul>
         </div>
       </section>
@@ -390,9 +435,15 @@ export default function ArenalTimelessWonderBlog() {
       {/* ── EXPLORE MORE ── */}
       <section className="px-6 md:px-12 lg:px-24 py-16" style={{ backgroundColor: PALETTE.cream }}>
         <div className="max-w-5xl mx-auto">
-          <h3
-            className="text-[11px] tracking-[0.25em] uppercase mb-10 text-center"
+          <p
+            className="text-[10px] tracking-[0.3em] uppercase mb-2 text-center"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}
+          >
+            Continue Reading
+          </p>
+          <h3
+            className="text-2xl md:text-3xl tracking-wide mb-10 text-center"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
           >
             Explore More
           </h3>
