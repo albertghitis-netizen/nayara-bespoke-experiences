@@ -100,7 +100,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/three-kitchens-one-rainforest",
     property: "gardens",
     type: "article",
-    image: "/manus-storage/journal-three-kitchens_3e02f35f.jpg",
+    image: "/manus-storage/family-bucket-list-card-kebab_e71e0ff7.png",
     excerpt: "Three restaurants, one rainforest. How Nayara's kitchens at Ayla, Nostalgia, and Nayara Springs define Costa Rican-Mediterranean cuisine.",
     featured: true,
   },
@@ -403,7 +403,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/family-bucket-list-nayara",
     property: "gardens",
     type: "article",
-    image: "/manus-storage/family-bucket-list-card-kebab_e71e0ff7.png",
+    image: "/manus-storage/journal-family-cover-v2_8d8fbf0a.jpg",
     excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
   },
 
@@ -464,7 +464,7 @@ const videoEpisodes: JournalEntry[] = [
     },
     duration: "2:13 min",
     guest: "Nayara Resorts",
-    image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
+    image: "/manus-storage/podcast-cover-atacama-couple_b93a50c8.png",
     excerpt: "How Nayara Alto Atacama operates sustainably in the driest desert on Earth — solar energy, adobe architecture, and 100% water reuse.",
   },
   {
@@ -486,7 +486,7 @@ const videoEpisodes: JournalEntry[] = [
     youtubeId: "xRlF3yCrIK4",
     duration: "12 min",
     guest: "Leo Ghitis, CEO & Co-Founder",
-    image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
+    image: "/manus-storage/podcast-cover-suite-success_56bbedc7.jpg",
     excerpt: "Leo Ghitis discusses entrepreneurship in Costa Rica, the challenges and rewards of building a luxury hospitality brand rooted in sustainability and community.",
   },
   // ─── Sustainability (2 videos, EN/ES) ───

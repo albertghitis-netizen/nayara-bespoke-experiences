@@ -162,7 +162,7 @@ const mayaRapaNuiClimatePost: BlogPostData = {
       slug: "wellness-by-colors",
       title: "Nature-Based Wellness at Nayara Resorts",
       pillar: "Wellness",
-      image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+      image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
       date: "2025",
     },
   ],

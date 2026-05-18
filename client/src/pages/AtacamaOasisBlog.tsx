@@ -135,7 +135,7 @@ const atacamaOasisPost: BlogPostData = {
       slug: "edge-habitability",
       title: "The Atacama Desert: At the Edge of Habitability",
       pillar: "Experiences",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg",
+      image: "/manus-storage/edge-habitability-cover_1b054538.jpg",
       date: "Jan 8, 2024",
     },
     {

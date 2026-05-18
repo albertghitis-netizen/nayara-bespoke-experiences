@@ -42,7 +42,7 @@ const RELATED_ARTICLES = [
     slug: "/blog/atacama-wildlife",
     title: "Wildlife Conservation in Chile's Atacama Desert and Easter Island",
     pillar: "Conservation",
-    image: "/manus-storage/hero-horses-moai-sunset_46de4b8e.webp",
+    image: "/manus-storage/atacama-wildlife-cover_ebe00ac5.jpg",
   },
   {
     slug: "/blog/birdwatching",
@@ -52,9 +52,9 @@ const RELATED_ARTICLES = [
   },
   {
     slug: "/blog/pura-vida",
-    title: "Pura Vida: The Science of Why Costa Rica is the Healthiest Country on Earth",
+    title: "Pura Vida and the Science of Why Costa Rica Feels Different",
     pillar: "Wellness",
-    image: "/manus-storage/hero-sloth-underwater_ca1291f5.webp",
+    image: "/manus-storage/pura-vida-hero_9a138a66.jpeg",
   },
 ];
 
@@ -282,7 +282,7 @@ export default function ArenalBocasWildlifeBlog() {
             {RELATED_ARTICLES.map((article) => (
               <Link key={article.slug} href={article.slug}>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="group cursor-pointer">
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                   </div>
                   <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: PALETTE.accent }}>{article.pillar}</p>

@@ -464,7 +464,7 @@ export default function SoloTravelFemaleBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4">
+                  <div className="aspect-square overflow-hidden mb-4">
                     <img
                       src={article.image}
                       alt={article.title}
@@ -507,7 +507,7 @@ export default function SoloTravelFemaleBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg"
                       alt="Women's Empowerment Through Housing at Nayara"
@@ -531,7 +531,7 @@ export default function SoloTravelFemaleBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/pura-vida-hero_9a138a66.jpeg"
                       alt="Pura Vida: Why Costa Rica Feels Different"
@@ -555,7 +555,7 @@ export default function SoloTravelFemaleBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/experiential-travel-cover_1cb55e5b.jpg"
                       alt="Experiential Travel at Nayara"

@@ -43,7 +43,7 @@ const RELATED_ARTICLES = [
     slug: "/blog/arenal-bocas-wildlife",
     title: "Wildlife Conservation in Arenal and Bocas del Toro",
     pillar: "Conservation",
-    image: "/manus-storage/flamingos-salt-flat_49cfd041.webp",
+    image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
   },
   {
     slug: "/blog/birdwatching",
@@ -53,9 +53,9 @@ const RELATED_ARTICLES = [
   },
   {
     slug: "/blog/pura-vida",
-    title: "Pura Vida: The Science of Why Costa Rica is the Healthiest Country on Earth",
+    title: "Pura Vida and the Science of Why Costa Rica Feels Different",
     pillar: "Wellness",
-    image: "/manus-storage/flamingos-salt-flat_49cfd041.webp",
+    image: "/manus-storage/pura-vida-hero_9a138a66.jpeg",
   },
 ];
 
@@ -325,7 +325,7 @@ export default function AtacamaWildlifeBlog() {
             {RELATED_ARTICLES.map((article) => (
               <Link key={article.slug} href={article.slug}>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="group cursor-pointer">
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                   </div>
                   <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: PALETTE.accent }}>{article.pillar}</p>

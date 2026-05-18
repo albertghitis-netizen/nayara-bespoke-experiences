@@ -66,7 +66,7 @@ export default function BocasHistoryCultureNatureBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/bocas-aerial-island_34b68171.jpg"
                       alt="How Nayara Built an Off-Grid Resort on a Private Island"
@@ -90,7 +90,7 @@ export default function BocasHistoryCultureNatureBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg"
                       alt="A Day at Nayara Bocas del Toro"
@@ -114,7 +114,7 @@ export default function BocasHistoryCultureNatureBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/rooted-community-cover_dcdbfae8.jpg"
                       alt="Rooted in Community: People First at Nayara"

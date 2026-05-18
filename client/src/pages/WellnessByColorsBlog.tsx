@@ -148,14 +148,14 @@ const wellnessByColorsPost: BlogPostData = {
       slug: "nayara-by-night",
       title: "Nayara by Night: Of Moon and Stars",
       pillar: "Experiences",
-      image: "https://blog.nayararesorts.com/hubfs/iotw2334a_crop.jpg",
+      image: "/manus-storage/moai-milky-way-night_73a94f15.jpg",
       date: "Sep 27, 2025",
     },
     {
       slug: "hot-springs",
       title: "Private Villas and Hot Springs Plunge Pools: The History and Science",
       pillar: "Wellness",
-      image: "https://blog.nayararesorts.com/hubfs/3-Nov-26-2025-02-34-59-4966-AM.png",
+      image: "/manus-storage/hotsprings-card-tented-plunge_5d997c52.jpg",
       date: "Dec 6, 2025",
     },
     {

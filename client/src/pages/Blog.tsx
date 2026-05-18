@@ -233,7 +233,7 @@ function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
       transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.2) }}
       className="group block"
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-stone-100 rounded-lg mb-4">
+      <div className="relative aspect-square overflow-hidden bg-stone-100 rounded-lg mb-4">
         <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
       </div>
       <div className="flex items-center gap-2 mb-2">

@@ -3797,3 +3797,10 @@
 ## Author Rule (all blogs)
 - [ ] All blogs: author = "Albert Ghitis" EXCEPT maya blog = "Kenneth Sleigson"
 - [ ] Update BirdwatchingBlog author to "Albert Ghitis"
+
+## Image & Podcast Fixes
+- [ ] Move kebab image to three-kitchens-one-rainforest journal card (was wrongly placed on family-bucket-list)
+- [ ] Restore family-bucket-list journal card to original image
+- [ ] Update podcast cover to Atacama couple photo
+- [ ] Add Spanish/English tabs to podcast page
+- [x] Fix all blog Explore More cards to use correct square images from journal.ts and aspect-square containers

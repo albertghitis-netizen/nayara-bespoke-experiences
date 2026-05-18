@@ -99,10 +99,10 @@ const michelinKeysPost: BlogPostData = {
       date: "Jun 11, 2024",
     },
     {
-      slug: "wildlife-conservation",
+      slug: "arenal-bocas-wildlife",
       title: "Wildlife Conservation in Arenal and Bocas del Toro",
       pillar: "Sustainability",
-      image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+      image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
       date: "Feb 28, 2026",
     },
   ],

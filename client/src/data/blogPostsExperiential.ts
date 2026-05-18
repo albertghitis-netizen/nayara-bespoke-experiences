@@ -81,23 +81,23 @@ export const experientialTravelPost: BlogPostData = {
   relatedArticles: [
     {
       slug: "family-bucket-list-nayara",
-      title: "The Family Bucket List: Adventures Across Nayara Resorts",
+      title: "The World as a Classroom: A Family Guide to Every Nayara Destination",
       pillar: "Experiences",
-      image: "/manus-storage/family-tent-volcano_02f91f57.jpeg",
+      image: "/manus-storage/journal-family-cover-v2_8d8fbf0a.jpg",
       date: "May 2026",
     },
     {
       slug: "in-house-activities-three-hotels-infinite-experiences",
-      title: "Forest to Table: Three Kitchens, One Rainforest",
+      title: "Three Hotels, One Rainforest, Infinite Experiences",
       pillar: "Experiences",
-      image: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
+      image: "/manus-storage/family-bucket-list-card-kebab_e71e0ff7.png",
       date: "April 2026",
     },
     {
       slug: "travel-trends",
-      title: "The Top 10 Travel Trends of 2026",
+      title: "Top 10 Luxury Travel Trends of 2026 and How Nayara Leads Them",
       pillar: "Experiences",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
+      image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
       date: "January 2026",
     },
   ],
@@ -191,7 +191,7 @@ export const familyBucketListPost: BlogPostData = {
       slug: "experiential-travel-nayara-2026",
       title: "Experiential Travel at Nayara: Where Every Destination is a Discovery",
       pillar: "Experiences",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg",
+      image: "/manus-storage/experiential-travel-cover_1cb55e5b.jpg",
       date: "May 2026",
     },
     {

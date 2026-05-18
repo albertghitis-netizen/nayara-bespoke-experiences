@@ -531,7 +531,7 @@ export default function BirdwatchingBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src={article.image}
                       alt={article.title}

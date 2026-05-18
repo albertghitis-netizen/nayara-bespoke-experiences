@@ -66,7 +66,7 @@ export default function BocasCondeNastAwardBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/bocas-aerial-island_34b68171.jpg"
                       alt="How Nayara Built an Off-Grid Resort on a Private Island"
@@ -90,7 +90,7 @@ export default function BocasCondeNastAwardBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/bocas-history-culture-cover_21d14dc5.jpg"
                       alt="History, Culture & Nature of Bocas del Toro"
@@ -114,7 +114,7 @@ export default function BocasCondeNastAwardBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg"
                       alt="Green Globe Certification at Nayara"

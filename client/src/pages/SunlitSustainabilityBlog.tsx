@@ -98,7 +98,7 @@ const sunlitSustainabilityPost: BlogPostData = {
       slug: "nayara-by-night",
       title: "Nayara by Night: Of Moon and Stars",
       pillar: "Experiences",
-      image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20by%20Night%20Of%20Moon%20%26%20Stars%20(1).jpg",
+      image: "/manus-storage/moai-milky-way-night_73a94f15.jpg",
       date: "Sep 3, 2025",
     },
     {
@@ -112,7 +112,7 @@ const sunlitSustainabilityPost: BlogPostData = {
       slug: "nayara-story",
       title: "Luxury Resorts Rooted in Nature: The Nayara Story",
       pillar: "Experiences",
-      image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Luxury%20Resorts%20Rooted%20in%20Nature%20The%20Nayara%20Story%20(1).jpg",
+      image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
       date: "Sep 3, 2025",
     },
   ],

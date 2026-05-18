@@ -62,7 +62,7 @@ export default function BocasOperationsBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg"
                       alt="Green Globe Certification at Nayara"
@@ -86,7 +86,7 @@ export default function BocasOperationsBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/bocas-history-culture-cover_21d14dc5.jpg"
                       alt="History, Culture & Nature of Bocas del Toro"
@@ -110,7 +110,7 @@ export default function BocasOperationsBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/reforestation-wildlife-cover_d766bbf9.jpg"
                       alt="Reforestation and Wildlife Corridors at Nayara"

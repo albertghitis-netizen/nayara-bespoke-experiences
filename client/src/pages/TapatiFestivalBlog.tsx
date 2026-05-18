@@ -105,7 +105,7 @@ const tapatiFestivalPost: BlogPostData = {
       slug: "hangaroa-regeneration",
       title: "Nayara Hangaroa and the Regeneration of Rapa Nui",
       pillar: "Sustainability",
-      image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/The%20Tapati%20Rapa%20Nui%20Festival%20at%20Nayara%20Hangaroa%20(6).jpg",
+      image: "https://blog.nayararesorts.com/hubfs/9-Aug-11-2025-08-40-19-5669-PM.png",
       date: "2025",
     },
     {
@@ -119,7 +119,7 @@ const tapatiFestivalPost: BlogPostData = {
       slug: "nayara-story",
       title: "Luxury Resorts Rooted in Nature: The Nayara Story",
       pillar: "Experiences",
-      image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Luxury%20Resorts%20Rooted%20in%20Nature%20The%20Nayara%20Story%20(1).jpg",
+      image: "https://blog.nayararesorts.com/hubfs/2-Nov-05-2025-03-44-38-2049-AM.png",
       date: "Sep 3, 2025",
     },
   ],

@@ -64,7 +64,7 @@ export default function WomensEmpowermentBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/rooted-community-cover_dcdbfae8.jpg"
                       alt="Rooted in Community: People First at Nayara"
@@ -88,7 +88,7 @@ export default function WomensEmpowermentBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/hangaroa-sustainability-cover_3a8a8550.jpg"
                       alt="Solo Female Travel in Latin America at Nayara"
@@ -112,7 +112,7 @@ export default function WomensEmpowermentBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg"
                       alt="Green Globe Certification at Nayara"

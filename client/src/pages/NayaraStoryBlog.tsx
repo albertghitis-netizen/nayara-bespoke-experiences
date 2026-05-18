@@ -859,7 +859,7 @@ export default function NayaraStoryBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/rooted-community-cover_dcdbfae8.jpg"
                       alt="Rooted in Community: People First at Nayara"
@@ -883,7 +883,7 @@ export default function NayaraStoryBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg"
                       alt="Green Globe Certification at Nayara"
@@ -907,7 +907,7 @@ export default function NayaraStoryBlog() {
                   viewport={{ once: true }}
                   className="group cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                  <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
                       src="/manus-storage/A50DCA72-3FCB-46E5-A703-DFFB62080A51_79a81ca2.jpg"
                       alt="Arenal: A Timeless Natural Wonder"
