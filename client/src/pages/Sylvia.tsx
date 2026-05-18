@@ -28,7 +28,7 @@ const IMAGES = {
   cta: "/manus-storage/sylvia-cta_94ab69d7.jpg",
 };
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/sylvia-tree-logo-VJbFwQRgYvPpDDhSMMAxWS.png?locale=en";
+const LOGO_URL = "/manus-storage/sylvia-tree-logo-transparent_8c492d3d.png";
 
 /* ─── Services Data ─── */
 const SERVICES = [
@@ -134,12 +134,18 @@ function Navigation() {
         </button>
 
         {/* Logo center */}
-        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-4">
+        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-3 flex flex-col items-center">
           <img
             src={LOGO_URL}
-            alt="Towards Living"
-            className="h-20 md:h-24 object-contain"
+            alt="Sylvia"
+            className="h-14 md:h-16 object-contain"
           />
+          <span
+            className="text-[10px] tracking-[0.25em] uppercase mt-1"
+            style={{ color: COLORS.olive, fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Sylvia
+          </span>
         </div>
 
         {/* Book a Free Consult pill */}
@@ -208,7 +214,7 @@ function HeroSection() {
           className="text-3xl md:text-5xl lg:text-6xl leading-tight tracking-tight"
           style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
         >
-          Towards Living
+          Sylvia
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -570,7 +576,7 @@ function FooterSection() {
         {/* Logo */}
         <img
           src={LOGO_URL}
-          alt="Towards Living"
+          alt="Sylvia"
           className="h-20 mx-auto mb-6 object-contain"
         />
 
