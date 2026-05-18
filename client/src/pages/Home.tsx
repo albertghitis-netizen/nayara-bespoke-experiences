@@ -383,7 +383,7 @@ function PropertiesSection() {
             {allProps.map((prop) => (
               <motion.div key={prop.route} variants={fadeUp} className="group">
                 <Link href={prop.route} className="block">
-                  <div className="relative overflow-hidden mb-3" style={{ aspectRatio: "4/3" }}>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                     <img
                       src={prop.image}
                       alt={prop.name}
@@ -391,26 +391,30 @@ function PropertiesSection() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
-                    <div className="absolute top-4 left-4 z-10">
-                      <span
-                        className="inline-block px-4 py-1.5 rounded-full text-[11px] tracking-[0.18em] uppercase backdrop-blur-sm"
-                        style={{ fontFamily: "var(--font-display)", fontWeight: 700, color: "#3B2B26", backgroundColor: "rgba(247,245,240,0.85)", letterSpacing: "0.18em" }}
-                      >
-                        {prop.name}
-                      </span>
-                    </div>
                   </div>
                 </Link>
-                <div className="flex items-center justify-between gap-2">
-                  <div>
-                    <p
-                      className="text-[13px] tracking-[0.04em]"
-                      style={{ fontFamily: "var(--font-body)", color: "#0D0604" }}
+                <div className="pt-4 pb-2">
+                  <Link href={prop.route} className="block">
+                    <h3
+                      className="text-[15px] md:text-[16px] tracking-[0.06em] uppercase"
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
                     >
-                      {prop.tagline}
-                    </p>
-                  </div>
-                  <div className="flex gap-2 flex-shrink-0">
+                      {prop.name}
+                    </h3>
+                  </Link>
+                  <p
+                    className="text-[12px] tracking-[0.02em] mt-1"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: PALETTE.textSecondary }}
+                  >
+                    {prop.tagline}
+                  </p>
+                  <p
+                    className="text-[10px] tracking-[0.1em] uppercase mt-1.5"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary, opacity: 0.7 }}
+                  >
+                    {prop.location}
+                  </p>
+                  <div className="flex gap-2 mt-3">
                     <a
                       href={BOOKING_URLS[prop.bookingId]}
                       target="_blank"
@@ -429,12 +433,6 @@ function PropertiesSection() {
                     </Link>
                   </div>
                 </div>
-                <p
-                  className="text-[10px] tracking-[0.12em] uppercase mt-1.5"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.textSecondary }}
-                >
-                  {prop.location}
-                </p>
               </motion.div>
             ))}
           </StaggerOnScroll>
