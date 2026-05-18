@@ -134,18 +134,12 @@ function Navigation() {
         </button>
 
         {/* Logo center */}
-        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-3 flex flex-col items-center">
+        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-2">
           <img
             src={LOGO_URL}
             alt="Sylvia"
-            className="h-14 md:h-16 object-contain"
+            className="h-24 md:h-28 object-contain"
           />
-          <span
-            className="text-[10px] tracking-[0.25em] uppercase mt-1"
-            style={{ color: COLORS.olive, fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Sylvia
-          </span>
         </div>
 
         {/* Book a Free Consult pill */}
