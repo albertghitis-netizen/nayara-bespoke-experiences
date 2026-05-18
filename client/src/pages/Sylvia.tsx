@@ -28,7 +28,7 @@ const IMAGES = {
   cta: "/manus-storage/sylvia-cta_94ab69d7.jpg",
 };
 
-const LOGO_URL = "/manus-storage/sylvia-tree-only_1dee64a4.png";
+const LOGO_URL = "/manus-storage/sylvia-tree-tight_941e8ed9.png";
 
 /* ─── Services Data ─── */
 const SERVICES = [
@@ -138,7 +138,7 @@ function Navigation() {
           <img
             src={LOGO_URL}
             alt="Sylvia"
-            className="h-13 object-contain"
+            className="w-13 object-contain"
           />
         </div>
 
