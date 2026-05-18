@@ -84,6 +84,7 @@ const Staff = lazy(() => import("./pages/Staff"));
 const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
 const Lexi = lazy(() => import("./pages/Lexi"));
 const Sylvia = lazy(() => import("./pages/Sylvia"));
+const SylviaComingSoon = lazy(() => import("./pages/SylviaComingSoon"));
 const TravelLeisureAtacama = lazy(() => import("./pages/TravelLeisureAtacama"));
 const ArenalTimelessWonderBlog = lazy(() => import("./pages/ArenalTimelessWonderBlog"));
 const TravelLeisureAd2 = lazy(() => import("./pages/TravelLeisureAd2"));
@@ -332,6 +333,12 @@ function Router() {
           <Route path="/test-floorplan" component={FloorPlanTest} />
           <Route path="/lexi" component={Lexi} />
           <Route path="/sylvia" component={Sylvia} />
+          <Route path="/sylvia/blog" component={SylviaComingSoon} />
+          <Route path="/sylvia/faq" component={SylviaComingSoon} />
+          <Route path="/sylvia/my-story" component={SylviaComingSoon} />
+          <Route path="/sylvia/trauma" component={SylviaComingSoon} />
+          <Route path="/sylvia/addiction" component={SylviaComingSoon} />
+          <Route path="/sylvia/mood-disorders" component={SylviaComingSoon} />
           <Route path="/tl" component={TravelLeisureAd2} />
           <Route path="/tl-atacama" component={TravelLeisureAtacama} />
           {/* ARCHIVED ROUTE: /sharalynn - Component file still exists at ./pages/Sharalynn.tsx */}

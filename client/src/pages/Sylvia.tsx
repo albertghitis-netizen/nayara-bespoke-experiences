@@ -101,10 +101,21 @@ function Navigation() {
     { label: "Me & My Approach", href: "#approach" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "Contact", href: "#contact" },
+    { label: "Blog", href: "/sylvia/blog", isRoute: true },
+    { label: "FAQ", href: "/sylvia/faq", isRoute: true },
+    { label: "My Story", href: "/sylvia/my-story", isRoute: true },
+    { label: "Trauma", href: "/sylvia/trauma", isRoute: true },
+    { label: "Addiction", href: "/sylvia/addiction", isRoute: true },
+    { label: "Mood Disorders", href: "/sylvia/mood-disorders", isRoute: true },
+    { label: "Lexi", href: "/lexi", isRoute: true },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, isRoute?: boolean) => {
     setMenuOpen(false);
+    if (isRoute) {
+      window.location.href = href;
+      return;
+    }
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -175,7 +186,7 @@ function Navigation() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08, duration: 0.4 }}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={() => handleNavClick(item.href, (item as any).isRoute)}
                   className="block w-full text-left py-5 border-b transition-colors hover:opacity-70"
                   style={{ borderColor: COLORS.divider }}
                 >

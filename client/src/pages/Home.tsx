@@ -29,6 +29,7 @@ import {
 } from "@/components/motion";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Play, ArrowUpRight } from "lucide-react";
+import { journalEntries, type JournalEntry } from "@/data/journal";
 
 /* ─── Type definitions ─── */
 interface Milestone {
@@ -854,108 +855,82 @@ interface JournalCardData {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NAYARA JOURNAL , Horizontal slider: 9 cards, 3 visible at a time
-   First 3 are real content, next 6 are dummy placeholders
+   JOURNAL , Horizontal slider: dynamically pulls from shared journal data
+   Same order as the /journal page (CURATED_IDS first, then remainder)
    ═══════════════════════════════════════════════════════════════ */
+
+// Same curated order as the Journal page
+const HOMEPAGE_CURATED_IDS: string[] = [
+  "hitorangi-rapanui",
+  "experiential-travel-2026",
+  "atacama-sustainability",
+  "family-bucket-list",
+  "archaeologist-rapanui",
+  "conde-nast-bocas",
+  "leo-luxury-travel-innovators",
+  "three-kitchens-one-rainforest",
+  "leo-suite-success",
+  "7-michelin-keys",
+  "hangaroa-sustainability",
+  "arenal-timeless-wonder",
+  "stargazing-atacama",
+  "treehouse-dreams",
+  "nature-based-wellness-colors",
+  "mars-atacama",
+  "toucans-arenal",
+  "pura-vida",
+  "edge-habitability",
+  "wildlife-arenal-bocas",
+  "sunlit-sustainability",
+  "solo-travel-female",
+  "oasis-atacama",
+  "nayara-by-night",
+  "green-globe",
+];
+
+function buildHomepageJournalCards(): JournalCardData[] {
+  const map = new Map(journalEntries.map((e) => [e.id, e]));
+  const seen = new Set<string>();
+  const result: JournalEntry[] = [];
+  for (const id of HOMEPAGE_CURATED_IDS) {
+    if (seen.has(id)) continue;
+    const entry = map.get(id);
+    if (entry) { result.push(entry); seen.add(id); }
+  }
+  for (const entry of journalEntries) {
+    if (!seen.has(entry.id)) { result.push(entry); seen.add(entry.id); }
+  }
+  // Map JournalEntry to JournalCardData
+  return result.map((entry) => {
+    const isVideo = entry.type === "video";
+    const isAudio = entry.type === "audio";
+    let cta: JournalCardData["cta"] = "read";
+    if (isVideo) cta = "watch";
+    else if (isAudio) cta = "listen";
+    return {
+      id: entry.id,
+      label: isVideo ? "Watch" : isAudio ? "Listen" : "Read",
+      title: entry.title,
+      image: entry.image,
+      href: entry.url || null,
+      youtubeId: entry.youtubeId,
+      external: entry.url ? entry.url.startsWith("http") : false,
+      cta,
+    };
+  });
+}
+
+const HOMEPAGE_JOURNAL_CARDS = buildHomepageJournalCards();
+
 function NayaraJournalSection() {
   const [playingId, setPlayingId] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [mobileCard, setMobileCard] = useState(0);
   const mobileScrollRef = useRef<HTMLDivElement>(null);
-  const totalPages = 2; // 6 cards / 3 per page
 
-  // 6 curated cards: Watch · Read · Watch · Read · Watch · Read
-  const teaserCards: JournalCardData[] = [
-    {
-      id: "atacama-sustainability",
-      label: "Watch",
-      title: "Nayara Alto Atacama Sustainability",
-      image: "/manus-storage/leo-ghitis-formal-square_eadb0855.jpg",
-      href: null,
-      youtubeId: "6cfkWsqWWc8",
-      external: false,
-      cta: "watch",
-    },
-    {
-      id: "gastronomy",
-      label: "Read",
-      title: "Forest to Table: Gastronomy Across the World of Nayara",
-      image: "/manus-storage/journal-cover-gastronomy-fire_a510d2d4.webp",
-      href: "/blog/three-kitchens-one-rainforest",
-      external: false,
-      cta: "read",
-    },
-    {
-      id: "hitorangi-rapanui",
-      label: "Watch",
-      title: "The Guardians of Rapa Nui: The Hitorangi Family",
-      image: "/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg",
-      href: null,
-      youtubeId: "FRPVRcUTNmk",
-      external: false,
-      cta: "watch",
-    },
-    {
-      id: "wellness-colors",
-      label: "Read",
-      title: "Nature-Based Wellness by Colors: Brown, Black, Green, Blue",
-      image: "https://blog.nayararesorts.com/hubfs/NAYARA%20BOCAS%20DEL%20TORO-42.jpg",
-      href: "/blog/wellness-by-colors",
-      external: false,
-      cta: "read",
-    },
-    {
-      id: "archaeologist-rapanui",
-      label: "Watch",
-      title: "Uncovering Rapa Nui: An Archaeologist's Perspective",
-      image: "/manus-storage/podcast-cover-ancient-worlds_a64d1b7e.png",
-      href: null,
-      youtubeId: "qFVLTTJa7hE",
-      external: false,
-      cta: "watch",
-    },
-    {
-      id: "conde-nast-bocas",
-      label: "Read",
-      title: "Nayara Bocas del Toro: #1 Resort in Central America — Condé Nast Traveler 2025",
-      image: "/manus-storage/bocas-aerial-cover_46f0bbf4.jpg",
-      href: "/blog/bocas-conde-nast",
-      external: false,
-      cta: "read",
-    },
-    {
-      id: "leo-luxury-travel",
-      label: "Watch",
-      title: "The Allure of Sustainability in Luxury Travel",
-      image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
-      href: null,
-      youtubeId: "7l072Yr__pE",
-      external: false,
-      cta: "watch",
-    },
-    {
-      id: "experiential-travel-2026",
-      label: "Read",
-      title: "Experiential Travel at Nayara: Where Every Destination is a Discovery",
-      image: "/manus-storage/3E487026-8F2B-41DB-A34D-0A5F0265A62D(1)_f2a614f0.jpg",
-      href: "/blog/experiential-travel-nayara-2026",
-      external: false,
-      cta: "read",
-    },
-    {
-      id: "hangaroa-sustainability",
-      label: "Watch",
-      title: "Nayara Hangaroa Sustainability",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-sunset_1238744f.jpg",
-      href: null,
-      youtubeId: "_M3ATv4I0B8",
-      external: false,
-      cta: "watch",
-    },
-  ];
-
-  const allCards = [...teaserCards];
+  const allCards = HOMEPAGE_JOURNAL_CARDS;
+  const totalPages = Math.ceil(allCards.length / 3);
 
   const scrollToPage = (page: number) => {
     const el = scrollRef.current;
@@ -1021,7 +996,7 @@ function NayaraJournalSection() {
             className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}
           >
-            Nayara Journal
+            Journal
           </span>
         </TextReveal>
 
@@ -1055,7 +1030,7 @@ function NayaraJournalSection() {
             className="flex overflow-x-auto scrollbar-hide"
             style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
           >
-            {[0, 1, 2].map((pageIdx) => (
+            {Array.from({ length: totalPages }, (_, i) => i).map((pageIdx) => (
               <div
                 key={pageIdx}
                 className="flex-shrink-0 w-full grid grid-cols-3 gap-5"
