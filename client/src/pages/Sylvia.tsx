@@ -28,7 +28,7 @@ const IMAGES = {
   cta: "/manus-storage/sylvia-cta_94ab69d7.jpg",
 };
 
-const LOGO_URL = "/manus-storage/sylvia-tree-tight_941e8ed9.png";
+const LOGO_URL = "/manus-storage/sylvia-badge-100_dd58ef89.png";
 
 /* ─── Services Data ─── */
 const SERVICES = [
@@ -138,7 +138,8 @@ function Navigation() {
           <img
             src={LOGO_URL}
             alt="Sylvia"
-            className="w-13 object-contain"
+            style={{ width: '80px' }}
+            className="object-contain"
           />
         </div>
 
@@ -199,14 +200,14 @@ function Navigation() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative pt-28 md:pt-32 pb-10 md:pb-16 px-6 md:px-12">
+    <section className="relative pt-36 md:pt-40 pb-10 md:pb-16 px-6 md:px-12">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-3xl md:text-5xl lg:text-6xl leading-tight tracking-tight"
-          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
+          className="text-4xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight"
+          style={{ fontFamily: "'Playfair Display', serif", color: COLORS.olive }}
         >
           Towards Living
         </motion.h1>
@@ -214,8 +215,8 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-6 text-base md:text-lg max-w-xl mx-auto leading-relaxed"
-          style={{ color: COLORS.textSecondary }}
+          className="mt-5 text-sm md:text-base tracking-[0.15em] uppercase max-w-xl mx-auto"
+          style={{ color: COLORS.olive, fontFamily: "'DM Sans', sans-serif", fontWeight: 400 }}
         >
           Because success and fulfillment<br className="hidden md:block" /> don't always arrive together.
         </motion.p>
