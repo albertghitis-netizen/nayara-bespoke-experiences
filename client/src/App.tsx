@@ -59,8 +59,6 @@ const HangaroaRegenerationBlog = lazy(() => import("./pages/HangaroaRegeneration
 const AtacamaMarsEarthBlog = lazy(() => import("./pages/AtacamaMarsEarthBlog"));
 const NayaraStoryBlog = lazy(() => import("./pages/NayaraStoryBlog"));
 const NayaraByNightBlog = lazy(() => import("./pages/NayaraByNightBlog"));
-const BocasHistoryCultureNatureBlog = lazy(() => import("./pages/BocasHistoryCultureNatureBlog"));
-const NayaraBocasResortExperienceBlog = lazy(() => import("./pages/NayaraBocasResortExperienceBlog"));
 const BocasCondeNastAwardBlog = lazy(() => import("./pages/BocasCondeNastAwardBlog"));
 // CaribbeanCoralReefBlog removed — content lives on /bocas-del-toro/sustainability
 const MayaRapaNuiClimateBlog = lazy(() => import("./pages/MayaRapaNuiClimateBlog"));
@@ -306,8 +304,6 @@ function Router() {
           <Route path="/blog/atacama-mars" component={AtacamaMarsEarthBlog} />
           <Route path="/blog/nayara-story" component={NayaraStoryBlog} />
           <Route path="/blog/nayara-by-night" component={NayaraByNightBlog} />
-          <Route path="/blog/bocas-history-culture-nature" component={BocasHistoryCultureNatureBlog} />
-          <Route path="/blog/nayara-bocas-resort-experience" component={NayaraBocasResortExperienceBlog} />
           <Route path="/blog/caribbean-coral-reef">{() => { window.location.replace("/bocas-del-toro/sustainability"); return null; }}</Route>
           <Route path="/blog/maya-rapa-nui-climate" component={MayaRapaNuiClimateBlog} />
           <Route path="/blog/experiential-travel-nayara-2026" component={ExperientialTravelBlog} />

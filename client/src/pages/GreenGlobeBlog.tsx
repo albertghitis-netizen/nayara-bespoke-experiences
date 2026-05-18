@@ -40,7 +40,7 @@ const contentEntrance = {
 };
 
 /* Hero image */
-const HERO_IMAGE = "/manus-storage/greenglobe-hero-pool-arenal_4cd9622b.jpg";
+const HERO_IMAGE = "/manus-storage/hotsprings-hero-tented-plunge_8e27e79e.jpg";
 
 /* Related articles for Explore More */
 const RELATED_ARTICLES = [

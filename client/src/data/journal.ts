@@ -167,7 +167,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/hot-springs",
     property: "springs",
     type: "article",
-    image: "/manus-storage/hotsprings-card-tented-plunge_5d997c52.jpg",
+    image: "/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg",
     excerpt: "From Roman thermae to Nayara Springs , the science and history behind private hot springs plunge pools and their profound wellness benefits.",
   },
 
@@ -196,7 +196,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/maya-rapa-nui-climate",
     property: "hangaroa",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/2-Aug-18-2025-09-54-44-4739-PM.png",
+    image: "/manus-storage/hangaroa-sustainability-cover_3a8a8550.jpg",
     excerpt: "The Maya and Rapa Nui civilizations didn't collapse, they adapted. What their resilience teaches us about climate, survival, and cultural continuity.",
   },
   {
@@ -205,7 +205,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/solo-travel-female",
     property: "brand",
     type: "article",
-    image: "/manus-storage/hangaroa-sustainability-cover_3a8a8550.jpg",
+    image: "/manus-storage/solo-travel-card-square_44a51559.jpg",
     excerpt: "Women are leading the solo travel revolution. Discover how Nayara Resorts creates safe, empowering, and transformative experiences for solo female travelers.",
   },
 
@@ -319,16 +319,16 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/green-globe-certification",
     property: "brand",
     type: "article",
-    image: "/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg",
+    image: "/manus-storage/hotsprings-card-tented-plunge_5d997c52.jpg",
     excerpt: "Discover how Nayara Resorts' Green Globe Certification underscores our commitment to sustainability across every property.",
   },
   {
     id: "s-certification",
     title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
-    url: "/journal/s-certification",
+    url: "/blog/s-certification",
     property: "alto-atacama",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-aerial_9e07a82e.jpg",
+    image: "/manus-storage/s-cert-card-square_faf590a2.jpg",
     excerpt: "Nayara Alto Atacama and Nayara Hangaroa are the only luxury hotels in their destinations to hold Chile's government-backed S Certification for sustainable tourism.",
   },
   {
@@ -351,34 +351,9 @@ const blogArticles: JournalEntry[] = [
     excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans , a birdwatcher's paradise.",
   },
 
-  {
-    id: "bocas-history-culture-nature",
-    title: "Bocas del Toro Panama: History, Culture, and Nature of the Archipelago",
-    url: "/blog/bocas-history-culture-nature",
-    property: "bocas-del-toro",
-    type: "article",
-    image: "/manus-storage/bocas-history-culture-cover_21d14dc5.jpg",
-    excerpt: "Discover the rich history, vibrant culture, and pristine natural beauty of Bocas del Toro , from its colonial heritage to bioluminescent bays.",
-  },
-  {
-    id: "nayara-bocas-resort-experience",
-    title: "A Day at Nayara Bocas del Toro: Your Private Island in Panama",
-    url: "/blog/nayara-bocas-resort-experience",
-    property: "bocas-del-toro",
-    type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg",
-    excerpt: "Experience the architectural innovation and natural beauty of Nayara Bocas , from overwater villas to treehouses to the world's first aerial beach.",
-  },
-  {
-    id: "bocas-conde-nast-award",
-    title: "Why Nayara Bocas del Toro Won #1 Resort in Central America",
-    url: "/blog/bocas-conde-nast",
-    property: "bocas-del-toro",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/8-Oct-07-2025-04-49-30-6724-AM.png",
-    excerpt: "Celebrating our 2025 award as the top luxury resort in Central America , a testament to innovation, sustainability, and unparalleled hospitality.",
-    featured: true,
-  },
+
+
+
   {
     id: "nayara-by-night",
     title: "Nayara by Night: Stargazing, Bioluminescence, and the Rainforest After Dark",
@@ -478,17 +453,7 @@ const videoEpisodes: JournalEntry[] = [
     image: "/manus-storage/podcast-cover-suite-success_56bbedc7.jpg",
     excerpt: "Leo Ghitis traces his journey from real estate to hospitality and reveals how Nayara is setting the standard for regenerative travel.",
   },
-  {
-    id: "leo-costa-rica-entrepreneurship",
-    title: "Leo Ghitis on Costa Rica Entrepreneurship",
-    type: "video",
-    property: "brand",
-    youtubeId: "xRlF3yCrIK4",
-    duration: "12 min",
-    guest: "Leo Ghitis, CEO & Co-Founder",
-    image: "/manus-storage/podcast-cover-suite-success_56bbedc7.jpg",
-    excerpt: "Leo Ghitis discusses entrepreneurship in Costa Rica, the challenges and rewards of building a luxury hospitality brand rooted in sustainability and community.",
-  },
+
   // ─── Sustainability (2 videos, EN/ES) ───
   {
     id: "hangaroa-sustainability",
