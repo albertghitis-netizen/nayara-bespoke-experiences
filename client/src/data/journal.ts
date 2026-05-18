@@ -508,7 +508,7 @@ const videoEpisodes: JournalEntry[] = [
   },
   {
     id: "leo-luxury-travel-innovators",
-    title: "The Allure of Sustainability in Luxury Travel",
+    title: "The Allure of Sustainability in Luxury Travel with Leo Ghitis",
     type: "video",
     property: "brand",
     youtubeId: "7l072Yr__pE",
