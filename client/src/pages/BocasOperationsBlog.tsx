@@ -538,7 +538,7 @@ export default function BocasOperationsBlog() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { slug: "/blog/green-globe-certification", title: "Green Globe Certification at Nayara", pillar: "Sustainability", image: "/manus-storage/hotsprings-card-tented-plunge_5d997c52.jpg" },
-              { slug: "/blog/nayara-bocas-resort-experience", title: "A Day at Nayara Bocas del Toro", pillar: "Experiences", image: `${CDN}/bocas-aerial-villas-boardwalk_94eb4b4f.jpg` },
+              { slug: "/blog/bocas-conde-nast", title: "#1 Resort in Central America — Condé Nast Traveler 2025", pillar: "Press", image: "/manus-storage/bocas-aerial-cover_46f0bbf4.jpg" },
               { slug: "/blog/reforestation-wildlife", title: "Reforestation and Wildlife Corridors", pillar: "Sustainability", image: "/manus-storage/reforestation-wildlife-cover_d766bbf9.jpg" },
             ].map((article) => (
               <Link key={article.slug} href={article.slug}>
