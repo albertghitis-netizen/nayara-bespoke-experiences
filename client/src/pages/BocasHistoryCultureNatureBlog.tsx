@@ -70,7 +70,7 @@ export default function BocasHistoryCultureNatureBlog() {
                     <img
                       src="/manus-storage/bocas-aerial-island_34b68171.jpg"
                       alt="How Nayara Built an Off-Grid Resort on a Private Island"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
@@ -94,7 +94,7 @@ export default function BocasHistoryCultureNatureBlog() {
                     <img
                       src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-aerial-villas-boardwalk_94eb4b4f.jpg"
                       alt="A Day at Nayara Bocas del Toro"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
@@ -118,7 +118,7 @@ export default function BocasHistoryCultureNatureBlog() {
                     <img
                       src="/manus-storage/rooted-community-cover_dcdbfae8.jpg"
                       alt="Rooted in Community: People First at Nayara"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>

@@ -468,7 +468,7 @@ export default function SoloTravelFemaleBlog() {
                     <img
                       src={article.image}
                       alt={article.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                     />
                   </div>
                   <p
@@ -511,7 +511,7 @@ export default function SoloTravelFemaleBlog() {
                     <img
                       src="https://blog.nayararesorts.com/hubfs/PHOTO-2026-03-02-19-55-27.jpg"
                       alt="Women's Empowerment Through Housing at Nayara"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
@@ -535,7 +535,7 @@ export default function SoloTravelFemaleBlog() {
                     <img
                       src="/manus-storage/pura-vida-hero_9a138a66.jpeg"
                       alt="Pura Vida: Why Costa Rica Feels Different"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
@@ -559,7 +559,7 @@ export default function SoloTravelFemaleBlog() {
                     <img
                       src="/manus-storage/experiential-travel-cover_1cb55e5b.jpg"
                       alt="Experiential Travel at Nayara"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>

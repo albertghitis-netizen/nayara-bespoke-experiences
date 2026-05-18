@@ -71,7 +71,7 @@ export default function NayaraBocasResortExperienceBlog() {
                     <img
                       src="/manus-storage/bocas-aerial-island_34b68171.jpg"
                       alt="How Nayara Built an Off-Grid Resort on a Private Island"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
@@ -95,7 +95,7 @@ export default function NayaraBocasResortExperienceBlog() {
                     <img
                       src="/manus-storage/bocas-history-culture-cover_21d14dc5.jpg"
                       alt="History, Culture & Nature of Bocas del Toro"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
@@ -119,7 +119,7 @@ export default function NayaraBocasResortExperienceBlog() {
                     <img
                       src="/manus-storage/hangaroa-sustainability-cover_3a8a8550.jpg"
                       alt="Solo Female Travel in Latin America at Nayara"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>

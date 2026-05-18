@@ -161,7 +161,7 @@ function FeaturedArticle({ post }: { post: BlogPost }) {
         <a href={post.url} target="_blank" rel="noopener noreferrer" className="group block">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden bg-white/60 rounded-xl">
             <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
-              <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="eager" />
+              <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" loading="eager" />
               <div className="absolute top-4 left-4">
                 <span className="inline-block bg-[#3B2B26]/70 backdrop-blur-sm text-white text-[9px] tracking-[0.2em] px-3 py-1.5 rounded-full" style={{ ...body, fontWeight: 500 }}>Featured</span>
               </div>
@@ -234,7 +234,7 @@ function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
       className="group block"
     >
       <div className="relative aspect-square overflow-hidden bg-stone-100 rounded-lg mb-4">
-        <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+        <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" loading="lazy" />
       </div>
       <div className="flex items-center gap-2 mb-2">
         <span className="text-[#3B2B26]/25 text-[9px] tracking-[0.15em]" style={{ ...body, fontWeight: 500 }}>{post.pillar}</span>

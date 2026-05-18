@@ -69,7 +69,7 @@ export default function ReforestationWildlifeBlog() {
                     <img
                       src="/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg"
                       alt="Green Globe Certification at Nayara"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
@@ -93,7 +93,7 @@ export default function ReforestationWildlifeBlog() {
                     <img
                       src="https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg"
                       alt="Wildlife Conservation in Arenal and Bocas del Toro"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
@@ -117,7 +117,7 @@ export default function ReforestationWildlifeBlog() {
                     <img
                       src="/manus-storage/birdwatching-card-aracari-square_616da216.jpg"
                       alt="Birdwatching in Costa Rica: Toucans, Quetzals & More"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
