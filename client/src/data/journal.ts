@@ -514,7 +514,7 @@ const videoEpisodes: JournalEntry[] = [
     youtubeId: "7l072Yr__pE",
     duration: "8 min",
     guest: "Leo Ghitis, CEO & Co-Founder",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
+    image: "/manus-storage/leo-sustainability-cover_4b43a1c8.png",
     excerpt: "Leo Ghitis explores the journey of building Nayara Resorts — a brand that seamlessly blends ultra-luxury with profound environmental stewardship across Costa Rica, Panama, and Chile.",
   },
 ];

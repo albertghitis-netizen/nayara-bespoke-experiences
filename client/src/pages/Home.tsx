@@ -873,7 +873,7 @@ function NayaraJournalSection() {
       id: "atacama-sustainability",
       label: "Watch",
       title: "Nayara Alto Atacama Sustainability",
-      image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
+      image: "/manus-storage/leo-sustainability-cover_4b43a1c8.png",
       href: null,
       youtubeId: "6cfkWsqWWc8",
       external: false,
