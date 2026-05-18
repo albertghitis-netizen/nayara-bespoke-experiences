@@ -841,6 +841,92 @@ export default function NayaraStoryBlog() {
           </div>
         </div>
       </section>
+      {/* ── EXPLORE MORE ── */}
+      <section style={{ backgroundColor: PALETTE.cream }}>
+        <div className="max-w-5xl mx-auto px-8 md:px-16 pt-16 pb-16">
+          <p className="uppercase tracking-[0.3em] text-[11px] mb-4 text-center" style={{ fontWeight: 600, color: PALETTE.accent }}>
+            Continue Reading
+          </p>
+          <h2 className="text-3xl md:text-4xl mb-12 text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}>
+            Explore More
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Link key="/blog/rooted-in-community" href="/blog/rooted-in-community">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="group cursor-pointer"
+                >
+                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                    <img
+                      src="/manus-storage/rooted-community-cover_dcdbfae8.jpg"
+                      alt="Rooted in Community: People First at Nayara"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: PALETTE.accent }}>
+                    Culture
+                  </p>
+                  <h3 className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}>
+                    Rooted in Community: People First at Nayara
+                  </h3>
+                </motion.div>
+              </Link>
+              <Link key="/blog/green-globe-certification" href="/blog/green-globe-certification">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="group cursor-pointer"
+                >
+                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                    <img
+                      src="/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg"
+                      alt="Green Globe Certification at Nayara"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: PALETTE.accent }}>
+                    Sustainability
+                  </p>
+                  <h3 className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}>
+                    Green Globe Certification at Nayara
+                  </h3>
+                </motion.div>
+              </Link>
+              <Link key="/blog/arenal-timeless-wonder" href="/blog/arenal-timeless-wonder">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="group cursor-pointer"
+                >
+                  <div className="aspect-[4/3] overflow-hidden mb-4 rounded-lg">
+                    <img
+                      src="/manus-storage/A50DCA72-3FCB-46E5-A703-DFFB62080A51_79a81ca2.jpg"
+                      alt="Arenal: A Timeless Natural Wonder"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: PALETTE.accent }}>
+                    Geology
+                  </p>
+                  <h3 className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}>
+                    Arenal: A Timeless Natural Wonder
+                  </h3>
+                </motion.div>
+              </Link>
+          </div>
+        </div>
+      </section>
+
 
       <Footer bgColor={PALETTE.espresso} textColor={PALETTE.white} />
     </div>

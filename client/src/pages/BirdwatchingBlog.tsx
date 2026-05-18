@@ -17,6 +17,8 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
+import BrandNavigation from "@/components/BrandNavigation";
+import BlogAuthorReadTime from "@/components/BlogAuthorReadTime";
 
 const PALETTE = {
   espresso: "#3B2B26",
@@ -37,7 +39,7 @@ const contentEntrance = {
 };
 
 /* Hero image */
-const HERO_IMAGE = "/manus-storage/toucan-hero-ultrawide_9046d457.webp";
+const HERO_IMAGE = "/manus-storage/birdwatching-hero-aracari-v2_61c0425d.jpg";
 
 /* Related articles for Explore More */
 const RELATED_ARTICLES = [
@@ -45,19 +47,19 @@ const RELATED_ARTICLES = [
     slug: "/blog/atacama-wildlife",
     title: "Wildlife Conservation in Chile's Atacama Desert and Easter Island",
     pillar: "Conservation",
-    image: "/manus-storage/hero-horses-moai-sunset_d6f2b577.webp",
+    image: "/manus-storage/atacama-wildlife-cover_ebe00ac5.jpg",
   },
   {
     slug: "/blog/arenal-bocas-wildlife",
     title: "Wildlife Conservation in Arenal and Bocas del Toro",
     pillar: "Conservation",
-    image: "/manus-storage/flamingos-salt-flat_018bb536.webp",
+    image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
   },
   {
     slug: "/blog/pura-vida",
     title: "Pura Vida: The Science of Why Costa Rica is the Healthiest Country on Earth",
     pillar: "Wellness",
-    image: "/manus-storage/flamingos-salt-flat_018bb536.webp",
+    image: "/manus-storage/pura-vida-hero_9a138a66.jpeg",
   },
 ];
 
@@ -71,7 +73,7 @@ export default function BirdwatchingBlog() {
     "@type": "BlogPosting",
     headline: "Birdwatching in Costa Rica: The Best Birds to See Near Arenal Volcano",
     description: "A comprehensive guide to birdwatching in Costa Rica's Arenal region. Meet the Toucans, Quetzals, Macaws, and Hummingbirds that define the canopy at Nayara Resorts.",
-    author: { "@type": "Organization", name: "Nayara Resorts" },
+    author: { "@type": "Person", name: "Albert Ghitis" },
     publisher: { "@type": "Organization", name: "Nayara Resorts" },
     datePublished: "2024-09-10",
     dateModified: "2025-03-15",
@@ -82,6 +84,9 @@ export default function BirdwatchingBlog() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.cream, color: PALETTE.text, fontFamily: "var(--font-body)" }}>
+      {/* ── BRAND NAVIGATION ── */}
+      <BrandNavigation pageType="brand" hideCenterLabel />
+
       {/* SEO HEAD */}
       <Helmet>
         <title>Birdwatching in Costa Rica: Toucans, Quetzals & More Near Arenal | Nayara Resorts</title>
@@ -101,7 +106,7 @@ export default function BirdwatchingBlog() {
         <img
           src={HERO_IMAGE}
           alt="Keel-billed Toucan perched in the Arenal rainforest canopy"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top"
           loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
@@ -134,16 +139,16 @@ export default function BirdwatchingBlog() {
           >
             Birdwatching in Costa Rica: The Best Birds to See Near Arenal Volcano
           </h1>
-
-          <div className="flex items-center gap-3 text-[13px] tracking-[0.05em] mb-6 flex-wrap" style={{ color: PALETTE.muted }}>
-            <span>Nayara Resorts</span>
-            <span style={{ color: PALETTE.stone }}>&middot;</span>
-            <span>September 10, 2024</span>
-            <span style={{ color: PALETTE.stone }}>&middot;</span>
-            <span>12 min read</span>
-          </div>
         </div>
       </motion.section>
+
+      {/* ── AUTHOR / READING TIME BAND ── */}
+      <BlogAuthorReadTime
+        author="Albert Ghitis"
+        authorRole="Editorial"
+        date="September 10, 2024"
+        wordCount={3000}
+      />
 
       {/* ── KEY FINDINGS ── */}
       <motion.section

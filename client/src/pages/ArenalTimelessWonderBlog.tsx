@@ -35,7 +35,7 @@ const contentEntrance = {
   }),
 };
 
-const HERO_IMAGE = "/manus-storage/A50DCA72-3FCB-46E5-A703-DFFB62080A51_79a81ca2.jpg";
+const HERO_IMAGE = "/manus-storage/arenal-volcano-hero-pool_efca46f1.jpg";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
 
@@ -45,19 +45,19 @@ const RELATED = [
   {
     title: "Birdwatching in Costa Rica: The Best Birds Near Arenal",
     url: "/blog/birdwatching",
-    image: "/manus-storage/toucan-hero-ultrawide_9046d457.webp",
+    image: "/manus-storage/birdwatching-card-aracari-square_616da216.jpg",
     tag: "Wildlife",
   },
   {
-    title: "The Healing Power of Hot Springs",
+    title: "Private Villas and Hot-Springs Plunge Pools",
     url: "/blog/hot-springs",
-    image: `${CDN}/hot-springs-hero_a60a0e92.jpg`,
+    image: "/manus-storage/hotsprings-card-tented-plunge_5d997c52.jpg",
     tag: "Wellness",
   },
   {
     title: "Nayara by Night: Of Moon and Stars",
     url: "/blog/nayara-by-night",
-    image: `${CDN}/nbn-atacama-dusk_9201508f.webp`,
+    image: "/manus-storage/moai-milky-way-night_73a94f15.jpg",
     tag: "Experiences",
   },
 ];
@@ -80,7 +80,7 @@ export default function ArenalTimelessWonderBlog() {
         <img
           src={HERO_IMAGE}
           alt="Arenal Volcano rising above the Costa Rican rainforest"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
       </section>

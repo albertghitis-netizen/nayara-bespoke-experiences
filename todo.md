@@ -3788,3 +3788,12 @@
 - [x] Homepage explains dual diagnosis, amplification cycle, and routine importance
 - [x] MedsPage includes addiction-relevant medications (Naltrexone, Gabapentin, Buprenorphine)
 - [x] TriggersPage includes HALT framework for dual diagnosis
+
+## Blog-by-Blog BrandNavigation + BlogAuthorReadTime Rollout
+- [ ] BirdwatchingBlog.tsx — add BrandNavigation + BlogAuthorReadTime
+- [ ] Green Globe blog — add BrandNavigation + BlogAuthorReadTime
+- [ ] Continue remaining blogs one by one (user confirms each before next)
+
+## Author Rule (all blogs)
+- [ ] All blogs: author = "Albert Ghitis" EXCEPT maya blog = "Kenneth Sleigson"
+- [ ] Update BirdwatchingBlog author to "Albert Ghitis"

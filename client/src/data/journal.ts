@@ -167,7 +167,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/hot-springs",
     property: "springs",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/6-Dec-07-2025-04-10-58-5077-AM.png",
+    image: "/manus-storage/hotsprings-card-tented-plunge_5d997c52.jpg",
     excerpt: "From Roman thermae to Nayara Springs , the science and history behind private hot springs plunge pools and their profound wellness benefits.",
   },
 
@@ -186,7 +186,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/atacama-wildlife",
     property: "alto-atacama",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Imported_Blog_Media/Hangaroa-Horses-2048x13",
+    image: "/manus-storage/atacama-wildlife-cover_ebe00ac5.jpg",
     excerpt: "Vicuñas, flamingos, and endemic species , conservation efforts protecting Chile's most fragile ecosystems.",
   },
 
@@ -208,15 +208,7 @@ const blogArticles: JournalEntry[] = [
     image: "/manus-storage/hangaroa-sustainability-cover_3a8a8550.jpg",
     excerpt: "Women are leading the solo travel revolution. Discover how Nayara Resorts creates safe, empowering, and transformative experiences for solo female travelers.",
   },
-  {
-    id: "family-travel",
-    title: "Creating Unforgettable Family Travel with Nayara",
-    url: "/blog/family-bucket-list-nayara",
-    property: "gardens",
-    type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/Nayara%20Resorts%20(6",
-    excerpt: "From volcano hikes to wildlife encounters , how Nayara creates family vacations that inspire wonder and connection across generations.",
-  },
+
 
   {
     id: "pura-vida",
@@ -307,7 +299,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/edge-habitability",
     property: "alto-atacama",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg",
+    image: "/manus-storage/edge-habitability-cover_1b054538.jpg",
     excerpt: "Understanding the Atacama Desert: landscape, climate, and extremes. How life persists at the edge of habitability.",
   },
 
@@ -327,7 +319,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/green-globe-certification",
     property: "brand",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Green%20globe-3-1.png",
+    image: "/manus-storage/greenglobe-card-pool-arenal_9ba2f8e8.jpg",
     excerpt: "Discover how Nayara Resorts' Green Globe Certification underscores our commitment to sustainability across every property.",
   },
   {
@@ -355,7 +347,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/birdwatching",
     property: "brand",
     type: "article",
-    image: "/manus-storage/Untitleddesign-14_e259375b.jpg",
+    image: "/manus-storage/birdwatching-card-aracari-square_616da216.jpg",
     excerpt: "Costa Rica is home to over 900 bird species. From resplendent quetzals to six species of toucans , a birdwatcher's paradise.",
   },
 
@@ -365,7 +357,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/bocas-history-culture-nature",
     property: "bocas-del-toro",
     type: "article",
-    image: "https://blog.nayararesorts.com/hubfs/Im%C3%A1genes%20BLOGS/5%20Interesting%20Fac",
+    image: "/manus-storage/bocas-history-culture-cover_21d14dc5.jpg",
     excerpt: "Discover the rich history, vibrant culture, and pristine natural beauty of Bocas del Toro , from its colonial heritage to bioluminescent bays.",
   },
   {
@@ -402,7 +394,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/experiential-travel-nayara-2026",
     property: "brand",
     type: "article",
-    image: "/manus-storage/3E487026-8F2B-41DB-A34D-0A5F0265A62D(1)_f2a614f0.jpg",
+    image: "/manus-storage/experiential-travel-cover_1cb55e5b.jpg",
     excerpt: "From volcano hikes to jungle immersion, discover why Nayara defines experiential luxury in 2026.",
   },
   {
@@ -424,7 +416,7 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/reforestation-wildlife",
     property: "gardens",
     type: "article",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/11_576297a8.jpg",
+    image: "/manus-storage/reforestation-wildlife-cover_d766bbf9.jpg",
     excerpt: "How Nayara's reforestation efforts create vital wildlife corridors in Costa Rica's Arenal region.",
   },
   // wellness-hospitality: removed from journal feed (stub page, no real content yet)
@@ -460,15 +452,20 @@ const videoEpisodes: JournalEntry[] = [
   },
   // ─── Leo Ghitis (3 videos) ───
   {
-    id: "leo-luxury-travel-innovators",
-    title: "The Allure of Sustainability in Luxury Travel",
+    id: "atacama-sustainability",
+    title: "Nayara Alto Atacama Sustainability",
     type: "video",
-    property: "brand",
-    youtubeId: "7l072Yr__pE",
-    duration: "8 min",
-    guest: "Leo Ghitis, CEO & Co-Founder",
+    property: "alto-atacama",
+    languageVariants: {
+      en: "6cfkWsqWWc8",
+      enDuration: "2:13 min",
+      es: "H9VxyDgv31U",
+      esDuration: "1 min",
+    },
+    duration: "2:13 min",
+    guest: "Nayara Resorts",
     image: "/manus-storage/podcast-cover-luxury-travel-innovators_b1ec891f.jpg",
-    excerpt: "Leo Ghitis explores the journey of building Nayara Resorts — a brand that seamlessly blends ultra-luxury with profound environmental stewardship across Costa Rica, Panama, and Chile.",
+    excerpt: "How Nayara Alto Atacama operates sustainably in the driest desert on Earth — solar energy, adobe architecture, and 100% water reuse.",
   },
   {
     id: "leo-suite-success",
@@ -506,24 +503,19 @@ const videoEpisodes: JournalEntry[] = [
     },
     duration: "3:34 min",
     guest: "Nayara Resorts",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hangaroa-sunset_1238744f.jpg",
+    image: "/manus-storage/hangaroa-sustainability-video-cover_0ffa9cb7.jpg",
     excerpt: "Nayara Hangaroa's commitment to sustainability on Rapa Nui — renewable energy, water conservation, plastic elimination, cultural preservation, and community support.",
   },
   {
-    id: "atacama-sustainability",
-    title: "Nayara Alto Atacama Sustainability",
+    id: "leo-luxury-travel-innovators",
+    title: "The Allure of Sustainability in Luxury Travel",
     type: "video",
-    property: "alto-atacama",
-    languageVariants: {
-      en: "6cfkWsqWWc8",
-      enDuration: "2:13 min",
-      es: "H9VxyDgv31U",
-      esDuration: "1 min",
-    },
-    duration: "2:13 min",
-    guest: "Nayara Resorts",
+    property: "brand",
+    youtubeId: "7l072Yr__pE",
+    duration: "8 min",
+    guest: "Leo Ghitis, CEO & Co-Founder",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/piedras-rojas-atacama_8f1c8c28.webp",
-    excerpt: "How Nayara Alto Atacama operates sustainably in the driest desert on Earth — solar energy, adobe architecture, and 100% water reuse.",
+    excerpt: "Leo Ghitis explores the journey of building Nayara Resorts — a brand that seamlessly blends ultra-luxury with profound environmental stewardship across Costa Rica, Panama, and Chile.",
   },
 ];
 

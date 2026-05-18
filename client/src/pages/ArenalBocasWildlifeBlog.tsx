@@ -48,7 +48,7 @@ const RELATED_ARTICLES = [
     slug: "/blog/birdwatching",
     title: "Birdwatching in Costa Rica: Toucans, Quetzals & More Near Arenal",
     pillar: "Wildlife & Nature",
-    image: "/manus-storage/toucan-hero-ultrawide_9046d457.webp",
+    image: "/manus-storage/birdwatching-card-aracari-square_616da216.jpg",
   },
   {
     slug: "/blog/pura-vida",
