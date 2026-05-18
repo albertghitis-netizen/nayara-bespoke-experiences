@@ -852,7 +852,7 @@ interface JournalCardData {
   listenUrl?: string;
   languageVariants?: { en: string; enDuration?: string; es: string; esDuration?: string };
   external: boolean;
-  cta: "read" | "listen" | "watch-listen" | "watch" | "podcast" | "lang-toggle";
+  cta: "read" | "listen" | "watch-listen" | "watch" | "lang-toggle";
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -904,16 +904,14 @@ function buildHomepageJournalCards(): JournalCardData[] {
   // Map JournalEntry to JournalCardData
   return result.map((entry) => {
     const isVideo = entry.type === "video";
-    const isPodcast = entry.type === "podcast";
     const isAudio = entry.type === "audio";
     let cta: JournalCardData["cta"] = "read";
     if (isVideo) cta = "watch";
-    else if (isPodcast) cta = "podcast";
     else if (isAudio) cta = "listen";
-    if ((isVideo || isPodcast) && entry.languageVariants) cta = "lang-toggle" as any;
+    if (isVideo && entry.languageVariants) cta = "lang-toggle" as any;
     return {
       id: entry.id,
-      label: isVideo ? "Watch" : isPodcast ? "Podcast" : isAudio ? "Listen" : "Read",
+      label: isVideo ? "Watch" : isAudio ? "Listen" : "Read",
       title: entry.title,
       image: entry.image,
       href: entry.url || null,
@@ -1139,7 +1137,7 @@ function JournalTeaserCard({
       onPlayEN?.(); // default to EN
       return;
     }
-    if ((card.cta === "watch" || card.cta === "podcast") && card.youtubeId) {
+    if (card.cta === "watch" && card.youtubeId) {
       onPlay();
     } else if (card.href) {
       if (card.external || card.href.startsWith("http")) {
@@ -1216,7 +1214,7 @@ function JournalTeaserCard({
                 className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase"
                 style={bodyFont}
               >
-                {(card.cta === "watch" || card.cta === "podcast") ? (
+                {card.cta === "watch" ? (
                   <Play className="w-2.5 h-2.5 fill-current" />
                 ) : (
                   <ArrowUpRight className="w-3 h-3" />

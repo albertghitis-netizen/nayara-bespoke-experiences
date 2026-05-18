@@ -702,10 +702,10 @@ const BOCAS_JOURNAL_CARDS: BocasJournalCard[] = [
     href: "/blog/treehouse-dreams",
   },
 
-  { id: "placeholder-1", label: "Podcast", title: "Coming Soon", image: "", href: null, placeholder: true },
+  { id: "placeholder-1", label: "Watch", title: "Coming Soon", image: "", href: null, placeholder: true },
   { id: "placeholder-2", label: "Listen", title: "Coming Soon", image: "", href: null, placeholder: true },
   { id: "placeholder-3", label: "Read", title: "Coming Soon", image: "", href: null, placeholder: true },
-  { id: "placeholder-4", label: "Podcast", title: "Coming Soon", image: "", href: null, placeholder: true },
+  { id: "placeholder-4", label: "Watch", title: "Coming Soon", image: "", href: null, placeholder: true },
   { id: "placeholder-5", label: "Read", title: "Coming Soon", image: "", href: null, placeholder: true },
 ];
 

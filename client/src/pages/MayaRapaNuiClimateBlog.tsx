@@ -9,8 +9,8 @@
  *   1. /blog/maya-rapa-nui-climate — A Collapse That Wasn't (Dr. Kenneth Seligson)
  *   2. /blog/hangaroa-regeneration — How Nayara Hangaroa Leads Regeneration (Albert Ghitis)
  *   3. /blog/tapati-festival — What Is Tapati Rapa Nui and Why It Matters
- *   4. Podcast: Guardians of Rapa Nui (Hitorangi family conversation)
- *   5. Podcast: Uncovering Rapa Nui (Archaeologist's Perspective with Dr. Seligson)
+ *   4. Watch: Guardians of Rapa Nui (Hitorangi family conversation)
+ *   5. Watch: Uncovering Rapa Nui (Archaeologist's Perspective with Dr. Seligson)
  */
 import BlogPostTemplate from "./BlogPostTemplate";
 import type { BlogPostData } from "@/data/blogPosts";
@@ -122,8 +122,8 @@ const mayaRapaNuiClimatePost: BlogPostData = {
 <li><strong>Part 1 (This Article):</strong> A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us About Climate and Survival</li>
 <li><strong>Part 2:</strong> <a href="/blog/hangaroa-regeneration">How Nayara Hangaroa Leads Regeneration on Rapa Nui</a></li>
 <li><strong>Part 3:</strong> <a href="/blog/tapati-festival">What Is Tapati Rapa Nui and Why It Matters</a></li>
-<li><strong>Podcast:</strong> <a href="/journal#hitorangi-rapanui">The Guardians of Rapa Nui: A Conversation with the Hitorangi Family</a></li>
-<li><strong>Podcast:</strong> <a href="/journal#archaeologist-rapanui">Uncovering Rapa Nui: An Archaeologist's Perspective</a> (featuring Dr. Kenneth Seligson)</li>
+<li><strong>Watch:</strong> <a href="/journal#hitorangi-rapanui">The Guardians of Rapa Nui: A Conversation with the Hitorangi Family</a></li>
+<li><strong>Watch:</strong> <a href="/journal#archaeologist-rapanui">Uncovering Rapa Nui: An Archaeologist's Perspective</a> (featuring Dr. Kenneth Seligson)</li>
 </ul>`,
     },
   ],

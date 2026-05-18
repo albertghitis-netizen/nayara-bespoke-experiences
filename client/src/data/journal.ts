@@ -14,11 +14,11 @@ export interface JournalEntry {
   image: string;
   /** Property filter tag , matches property slug or "brand" for cross-property content */
   property: JournalProperty;
-  /** "article" links to internal /blog/ routes; "video" plays inline with YouTube embed; "podcast" plays inline like video; "audio" links to podcast player */
-  type: "article" | "video" | "podcast" | "audio";
+  /** "article" links to internal /blog/ routes; "video" plays inline with YouTube embed; "audio" links to podcast player */
+  type: "article" | "video" | "audio";
   /** External URL for articles */
   url?: string;
-  /** YouTube video ID for podcast/video episodes */
+  /** YouTube video ID for video episodes (Watch CTA) */
   youtubeId?: string;
   /** Duration label for video episodes */
   duration?: string;
@@ -42,7 +42,7 @@ export interface JournalEntry {
   podcastUrl?: string;
   /**
    * Listen URL , when present alongside youtubeId, the card shows dual CTAs:
-   * ▶ Podcast (opens YouTube) and 🎧 Listen (opens this URL).
+   * ▶ Watch (opens YouTube) and 🎧 Listen (opens this URL).
    * For audio-only entries, use podcastUrl instead.
    */
   listenUrl?: string;
@@ -406,7 +406,7 @@ const videoEpisodes: JournalEntry[] = [
   {
     id: "hitorangi-rapanui",
     title: "The Guardians of Rapa Nui: A Conversation with the Hitorangi Family",
-    type: "podcast",
+    type: "video",
     property: "hangaroa",
     youtubeId: "FRPVRcUTNmk",
     duration: "10 min",
@@ -417,7 +417,7 @@ const videoEpisodes: JournalEntry[] = [
   {
     id: "archaeologist-rapanui",
     title: "Uncovering Rapa Nui: An Archaeologist's Perspective",
-    type: "podcast",
+    type: "video",
     property: "hangaroa",
     youtubeId: "qFVLTTJa7hE",
     duration: "15 min",
@@ -445,7 +445,7 @@ const videoEpisodes: JournalEntry[] = [
   {
     id: "leo-suite-success",
     title: "Leo Ghitis on Suite Success",
-    type: "podcast",
+    type: "video",
     property: "brand",
     youtubeId: "X_lTp6Jh8ag",
     duration: "26 min",
@@ -474,7 +474,7 @@ const videoEpisodes: JournalEntry[] = [
   {
     id: "leo-luxury-travel-innovators",
     title: "The Allure of Sustainability in Luxury Travel with Leo Ghitis",
-    type: "podcast",
+    type: "video",
     property: "brand",
     youtubeId: "7l072Yr__pE",
     duration: "8 min",
