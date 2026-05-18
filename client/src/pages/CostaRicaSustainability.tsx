@@ -1319,7 +1319,7 @@ function StoriesOfStewardshipSection({
               </p>
             </div>
 
-            {/* Leo Pioneering - Watch */}
+            {/* Leo Pioneering - Podcast */}
             <div
               className="flex-shrink-0 w-full md:w-1/3 p-6 md:p-8 rounded-lg transition-all duration-300 hover:translate-y-[-2px] snap-start"
               style={{
@@ -1332,7 +1332,7 @@ function StoriesOfStewardshipSection({
                   className="text-[11px] tracking-[0.2em] uppercase px-3 py-1 rounded-full"
                   style={{ backgroundColor: "rgba(255,255,255,0.15)", fontFamily: "var(--font-body)", fontWeight: 600 }}
                 >
-                  Watch
+                  Podcast
                 </span>
               </div>
               <h3
@@ -1413,7 +1413,7 @@ function StoriesOfStewardshipSection({
               </p>
             </div>
 
-            {/* Leo Pioneering Sustainable Luxury - Watch */}
+            {/* Leo Pioneering Sustainable Luxury - Podcast */}
             <div
               className="flex-shrink-0 w-full md:w-1/3 p-6 md:p-8 rounded-lg transition-all duration-300 hover:translate-y-[-2px] snap-start"
               style={{
@@ -1426,7 +1426,7 @@ function StoriesOfStewardshipSection({
                   className="text-[11px] tracking-[0.2em] uppercase px-3 py-1 rounded-full"
                   style={{ backgroundColor: "rgba(255,255,255,0.15)", fontFamily: "var(--font-body)", fontWeight: 600 }}
                 >
-                  Watch
+                  Podcast
                 </span>
               </div>
               <h3

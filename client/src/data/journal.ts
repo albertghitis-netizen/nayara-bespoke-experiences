@@ -14,11 +14,11 @@ export interface JournalEntry {
   image: string;
   /** Property filter tag , matches property slug or "brand" for cross-property content */
   property: JournalProperty;
-  /** "article" links to internal /blog/ routes; "video" plays inline with YouTube embed; "audio" links to podcast player */
-  type: "article" | "video" | "audio";
+  /** "article" links to internal /blog/ routes; "video" plays inline with YouTube embed; "podcast" plays inline like video; "audio" links to podcast player */
+  type: "article" | "video" | "podcast" | "audio";
   /** External URL for articles */
   url?: string;
-  /** YouTube video ID for video episodes (Watch CTA) */
+  /** YouTube video ID for podcast/video episodes */
   youtubeId?: string;
   /** Duration label for video episodes */
   duration?: string;
@@ -42,7 +42,7 @@ export interface JournalEntry {
   podcastUrl?: string;
   /**
    * Listen URL , when present alongside youtubeId, the card shows dual CTAs:
-   * ▶ Watch (opens YouTube) and 🎧 Listen (opens this URL).
+   * ▶ Podcast (opens YouTube) and 🎧 Listen (opens this URL).
    * For audio-only entries, use podcastUrl instead.
    */
   listenUrl?: string;
@@ -400,13 +400,13 @@ const blogArticles: JournalEntry[] = [
 // ─── Audio Episodes (Podcasts) ───────────────────────────────
 const audioEpisodes: JournalEntry[] = [];
 
-// ─── Video Episodes (Nayara Horizons + Sustainability Videos) ─
+// ─── Podcast & Video Episodes (Nayara Horizons + Sustainability Videos) ─
 const videoEpisodes: JournalEntry[] = [
-  // ─── Albert Ghitis (2 videos) ───
+  // ─── Albert Ghitis (2 podcasts) ───
   {
     id: "hitorangi-rapanui",
     title: "The Guardians of Rapa Nui: A Conversation with the Hitorangi Family",
-    type: "video",
+    type: "podcast",
     property: "hangaroa",
     youtubeId: "FRPVRcUTNmk",
     duration: "10 min",
@@ -417,7 +417,7 @@ const videoEpisodes: JournalEntry[] = [
   {
     id: "archaeologist-rapanui",
     title: "Uncovering Rapa Nui: An Archaeologist's Perspective",
-    type: "video",
+    type: "podcast",
     property: "hangaroa",
     youtubeId: "qFVLTTJa7hE",
     duration: "15 min",
@@ -425,7 +425,7 @@ const videoEpisodes: JournalEntry[] = [
     image: "/manus-storage/podcast-cover-ancient-worlds_a64d1b7e.png",
     excerpt: "A deep dive into the archaeological mysteries of Easter Island — from moai construction techniques to new discoveries that challenge everything we thought we knew about Rapa Nui civilization.",
   },
-  // ─── Leo Ghitis (3 videos) ───
+  // ─── Leo Ghitis (3 podcasts) ───
   {
     id: "atacama-sustainability",
     title: "Nayara Alto Atacama Sustainability",
@@ -445,7 +445,7 @@ const videoEpisodes: JournalEntry[] = [
   {
     id: "leo-suite-success",
     title: "Leo Ghitis on Suite Success",
-    type: "video",
+    type: "podcast",
     property: "brand",
     youtubeId: "X_lTp6Jh8ag",
     duration: "26 min",
@@ -454,7 +454,7 @@ const videoEpisodes: JournalEntry[] = [
     excerpt: "Leo Ghitis traces his journey from real estate to hospitality and reveals how Nayara is setting the standard for regenerative travel.",
   },
 
-  // ─── Sustainability (2 videos, EN/ES) ───
+  // ─── Sustainability (2 videos, EN/ES — these stay as "video" type) ───
   {
     id: "hangaroa-sustainability",
     title: "Nayara Hangaroa Sustainability",
@@ -474,7 +474,7 @@ const videoEpisodes: JournalEntry[] = [
   {
     id: "leo-luxury-travel-innovators",
     title: "The Allure of Sustainability in Luxury Travel with Leo Ghitis",
-    type: "video",
+    type: "podcast",
     property: "brand",
     youtubeId: "7l072Yr__pE",
     duration: "8 min",

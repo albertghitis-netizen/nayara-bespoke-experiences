@@ -320,13 +320,18 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
 
               {/* In-body image: centered below body text, horizontal */}
               {section.image && (
-                <figure className="my-10 flex justify-center">
+                <figure className="my-10 flex flex-col items-center">
                   <img
                     src={section.image.src}
                     alt={section.image.alt}
                     className="w-full max-w-2xl rounded-lg shadow-md object-contain"
                     loading="lazy"
                   />
+                  {section.image.caption && (
+                    <figcaption className="mt-3 text-sm text-center max-w-2xl" style={{ fontFamily: "var(--font-body)", color: PALETTE.muted }}>
+                      {section.image.caption}
+                    </figcaption>
+                  )}
                 </figure>
               )}
 

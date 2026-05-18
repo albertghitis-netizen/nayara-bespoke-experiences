@@ -3806,3 +3806,10 @@
 - [x] Fix all blog Explore More cards to use correct square images from journal.ts and aspect-square containers
 - [x] Add subtle zoom-in hover effect to Explore More card images (scale-110 with 500ms ease-out transition)
 - [x] Add vertical mobile hero video to Journal page (autoplay, no pop-out)
+
+## Content Updates — May 2026
+- [x] Add caption to Kenny Seligson photo in Maya Rapa Nui blog ("Dr. Kenneth Seligson at a Maya archaeological site in the Yucatán Peninsula")
+- [x] Update BlogPostTemplate to render figcaption when section image has caption field
+- [x] Link Maya blog companion content to archaeologist podcast entry (renamed Video → Podcast)
+- [x] Global rename: Video/Watch → Podcast for all non-sustainability-video entries (journal.ts type system, Journal.tsx, Home.tsx, CostaRicaSustainability.tsx, BocasDelToro.tsx placeholders)
+- [x] Keep atacama-sustainability and hangaroa-sustainability as type "video" with "Watch" label

@@ -9,8 +9,8 @@
  *   1. /blog/maya-rapa-nui-climate — A Collapse That Wasn't (Dr. Kenneth Seligson)
  *   2. /blog/hangaroa-regeneration — How Nayara Hangaroa Leads Regeneration (Albert Ghitis)
  *   3. /blog/tapati-festival — What Is Tapati Rapa Nui and Why It Matters
- *   4. Video: Guardians of Rapa Nui (Hitorangi family conversation)
- *   5. Video: Uncovering Rapa Nui (Archaeologist's Perspective with Dr. Seligson)
+ *   4. Podcast: Guardians of Rapa Nui (Hitorangi family conversation)
+ *   5. Podcast: Uncovering Rapa Nui (Archaeologist's Perspective with Dr. Seligson)
  */
 import BlogPostTemplate from "./BlogPostTemplate";
 import type { BlogPostData } from "@/data/blogPosts";
@@ -110,6 +110,7 @@ const mayaRapaNuiClimatePost: BlogPostData = {
     },
     {
       heading: "About the Author",
+      image: { src: "/manus-storage/kenny-seligson-maya_a91dd654.jpg", alt: "Dr. Kenneth Seligson documenting Maya ruins in the Yucatán", caption: "Dr. Kenneth Seligson at a Maya archaeological site in the Yucatán Peninsula" },
       content: `<p>Ken Seligson, PhD, is an anthropological archaeologist whose research focuses on human-environment relationships in the northern Maya lowlands of the Yucatan Peninsula. He is Chair and Associate Professor of Anthropology at California State University Dominguez Hills.</p>
 <p>His work examines how Maya communities managed resources, adapted to environmental stress, and reorganized political and economic systems over time, with particular emphasis on the Puuc region of northern Yucatan. Since 2021, he has directed the Proyecto Arqueologico de Sitios de Pequena Escala en el Puuc Oriental (PASPEPO), investigating early agricultural communities, water-management strategies, and small-scale settlement patterns.</p>
 <p>His research demonstrates that Maya technologies during periods of climatic stress were often fuel-efficient and conservation-oriented, challenging collapse-based interpretations of Maya history. His work has been supported by the National Science Foundation and other academic institutions, and his work contributes to ongoing scholarly reassessment of collapse narratives applied to ancient societies.</p>`,
@@ -121,8 +122,8 @@ const mayaRapaNuiClimatePost: BlogPostData = {
 <li><strong>Part 1 (This Article):</strong> A Collapse That Wasn't: What the Maya and Rapa Nui Teach Us About Climate and Survival</li>
 <li><strong>Part 2:</strong> <a href="/blog/hangaroa-regeneration">How Nayara Hangaroa Leads Regeneration on Rapa Nui</a></li>
 <li><strong>Part 3:</strong> <a href="/blog/tapati-festival">What Is Tapati Rapa Nui and Why It Matters</a></li>
-<li><strong>Video:</strong> <a href="/journal#hitorangi-rapanui">The Guardians of Rapa Nui: A Conversation with the Hitorangi Family</a></li>
-<li><strong>Video:</strong> <a href="/journal#archaeologist-rapanui">Uncovering Rapa Nui: An Archaeologist's Perspective</a> (featuring Dr. Kenneth Seligson)</li>
+<li><strong>Podcast:</strong> <a href="/journal#hitorangi-rapanui">The Guardians of Rapa Nui: A Conversation with the Hitorangi Family</a></li>
+<li><strong>Podcast:</strong> <a href="/journal#archaeologist-rapanui">Uncovering Rapa Nui: An Archaeologist's Perspective</a> (featuring Dr. Kenneth Seligson)</li>
 </ul>`,
     },
   ],

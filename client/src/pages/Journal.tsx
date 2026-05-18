@@ -230,10 +230,11 @@ function GalleryCard({
 }) {
   const isAudio = entry.type === "audio";
   const isVideo = entry.type === "video";
+  const isPodcast = entry.type === "podcast";
 
   // Determine card variant
-  const hasDualCTA = isVideo && !entry.languageVariants;
-  const hasLangToggle = isVideo && !!entry.languageVariants;
+  const hasDualCTA = (isVideo || isPodcast) && !entry.languageVariants;
+  const hasLangToggle = (isVideo || isPodcast) && !!entry.languageVariants;
   const isListenOnly = isAudio && !entry.youtubeId;
 
   // Active playing state , for EN/ES we track which variant is playing
@@ -275,7 +276,7 @@ function GalleryCard({
 
   // ── Listen-only cards removed (no more audio-only entries) ──
 
-  // ── EN/ES language toggle card ──
+  // ── EN/ES language toggle card (sustainability videos stay as "Watch") ──
   if (hasLangToggle) {
     return (
       <motion.div {...motionProps} onClick={() => !isAnyPlaying && setActiveVideo(`${entry.id}-en`)}>
@@ -289,7 +290,7 @@ function GalleryCard({
                 />
               </div>
               <CardOverlay entry={entry}>
-                <SinglePill icon={<Play className="w-2.5 h-2.5 fill-current" />} label="Watch" />
+                <SinglePill icon={<Play className="w-2.5 h-2.5 fill-current" />} label={isVideo ? "Watch" : "Podcast"} />
               </CardOverlay>
             </>
           )}
@@ -298,14 +299,15 @@ function GalleryCard({
     );
   }
 
-  // ── Watch card (video with YouTube embed) ──
+  // ── Podcast / Watch card (YouTube embed) ──
   if (hasDualCTA) {
+    const pillLabel = isPodcast ? "Podcast" : "Watch";
     return (
       <motion.div {...motionProps} onClick={() => !isPlaying && setActiveVideo(entry.id)}>
         <CardShell entry={entry} index={index} isPlaying={isPlaying} embedId={embedId} onClose={() => setActiveVideo(null)}>
           {!isPlaying && (
             <CardOverlay entry={entry}>
-              <SinglePill icon={<Play className="w-2.5 h-2.5 fill-current" />} label="Watch" />
+              <SinglePill icon={<Play className="w-2.5 h-2.5 fill-current" />} label={pillLabel} />
             </CardOverlay>
           )}
         </CardShell>
