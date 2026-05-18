@@ -57,13 +57,13 @@ const CURATED_IDS: string[] = [
   // Row 1: Watch · Read · Watch
   "hitorangi-rapanui",
   "experiential-travel-2026",
-  "leo-luxury-travel-innovators",
+  "atacama-sustainability",
   // Row 2: Read · Watch · Read
   "family-bucket-list",
   "archaeologist-rapanui",
   "conde-nast-bocas",
   // Row 3: Watch · Read · Watch
-  "atacama-sustainability",
+  "leo-luxury-travel-innovators",
   "three-kitchens-one-rainforest",
   "leo-suite-success",
   // Row 4: Read · Watch · Read
