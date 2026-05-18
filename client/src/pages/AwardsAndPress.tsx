@@ -3,9 +3,10 @@
  * Awards, Michelin Keys, certifications + press clips, all filterable by property
  */
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ShieldCheck, ChevronDown, Key, ExternalLink } from "lucide-react";
+import { Link } from "wouter";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import CanvasVideo from "@/components/CanvasVideo";
@@ -233,6 +234,9 @@ export default function AwardsAndPress() {
         </div>
       </section>
 
+
+      {/* ── Award Video Cards Grid (same as brand homepage) ── */}
+      <AwardVideoCardsSection />
 
       {/* ── Brand Story Intro ── */}
       <section className="py-16 md:py-24 px-6 md:px-10 bg-[#f4f1eb]">
@@ -466,4 +470,234 @@ function AnimatedStat({ value, className, style }: { value: string; className?: 
   }, [isInView, value]);
 
   return <p ref={ref} className={className} style={style}>{display}</p>;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AWARD VIDEO CARDS , Journal-style grid (identical to brand homepage)
+   ═══════════════════════════════════════════════════════════════ */
+const awardVideoCards = [
+  {
+    stat: "#1",
+    accolade: "Best Resort in Central America",
+    property: "Nayara Bocas del Toro — Condé Nast",
+    route: "/blog/conde-nast-bocas-del-toro",
+    videoSrc: "/manus-storage/award-bocas_5eedc0d2.mp4",
+  },
+  {
+    stat: "#1",
+    accolade: "Best Resort in Central America",
+    property: "Nayara Tented Camp — Travel + Leisure",
+    route: "/tented-camp",
+    videoSrc: "/manus-storage/award-tented_e44f4b7d.mp4",
+  },
+  {
+    stat: "Top 15",
+    accolade: "Top 15 Resort Brands in the World",
+    property: "Nayara Resorts — Travel + Leisure",
+    route: "/awards",
+    videoSrc: "/manus-storage/award-resorts_e26bf391.mp4",
+  },
+  {
+    stat: "3",
+    accolade: "Only 3 Michelin Key Hotel in Costa Rica",
+    property: "Nayara Springs — MICHELIN Guide",
+    route: "/blog/michelin-keys",
+    videoSrc: "/manus-storage/award-springs_33c98f30.mp4",
+  },
+  {
+    stat: "Top 15",
+    accolade: "Top 15 Resorts in South America",
+    property: "Nayara Alto Atacama — Condé Nast",
+    route: "https://www.cntraveler.com/gallery/top-resorts-in-south-america",
+    videoSrc: "/manus-storage/award-atacama_d55d15fa.mp4",
+  },
+  {
+    stat: "Hall of Fame",
+    accolade: "World's Best Awards Hall of Fame",
+    property: "Nayara Gardens — Travel + Leisure",
+    route: "/gardens",
+    videoSrc: "/manus-storage/award-gardens_5eb1e82c.mp4",
+  },
+];
+
+function AwardVideoCardsSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const desktopRef = useRef<HTMLDivElement>(null);
+  const [mobilePage, setMobilePage] = useState(0);
+  const [desktopPage, setDesktopPage] = useState(0);
+  const totalCards = awardVideoCards.length;
+  const desktopPages = Math.ceil(totalCards / 3);
+
+  const scrollToMobile = (idx: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollTo({ left: idx * el.clientWidth, behavior: "smooth" });
+    setMobilePage(idx);
+  };
+  const scrollToDesktop = (page: number) => {
+    const el = desktopRef.current;
+    if (!el) return;
+    el.scrollTo({ left: page * el.clientWidth, behavior: "smooth" });
+    setDesktopPage(page);
+  };
+  const handleMobileScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setMobilePage(Math.round(el.scrollLeft / el.clientWidth));
+  }, []);
+  const handleDesktopScroll = useCallback(() => {
+    const el = desktopRef.current;
+    if (!el) return;
+    setDesktopPage(Math.round(el.scrollLeft / el.clientWidth));
+  }, []);
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.addEventListener("scroll", handleMobileScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleMobileScroll);
+  }, [handleMobileScroll]);
+  useEffect(() => {
+    const el = desktopRef.current;
+    if (el) el.addEventListener("scroll", handleDesktopScroll, { passive: true });
+    return () => el?.removeEventListener("scroll", handleDesktopScroll);
+  }, [handleDesktopScroll]);
+
+  const renderCard = (award: typeof awardVideoCards[0]) => {
+    const isExternal = award.route.startsWith("http");
+    const Wrapper = isExternal ? "a" : Link;
+    const wrapperProps = isExternal
+      ? { href: award.route, target: "_blank", rel: "noopener noreferrer" }
+      : { href: award.route };
+    return (
+      <Wrapper
+        {...wrapperProps}
+        className="group relative flex flex-col p-6 md:p-8 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] hover:z-10 overflow-hidden rounded-lg"
+        style={{ aspectRatio: "1/1", backgroundColor: "#3B2B26" }}
+      >
+        {/* Video background */}
+        <video
+          src={award.videoSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/55 group-hover:bg-black/40 transition-all duration-700" />
+        {/* Content */}
+        <div className="relative z-10 flex flex-col h-full">
+          <span
+            className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 h-[48px] md:h-[56px] lg:h-[64px] flex items-end ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#E1D1BA" }}
+          >
+            {award.stat}
+          </span>
+          <div className="w-8 h-px mb-5 group-hover:w-16 group-hover:h-[2px] transition-all duration-500 ease-out" style={{ backgroundColor: "#E1D1BA" }} />
+          <h3
+            className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-all duration-500 min-h-[46px] flex items-start group-hover:text-[#E1D1BA] group-hover:scale-[1.02] origin-left"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#FFFFFF" }}
+          >
+            {award.accolade}
+          </h3>
+          <p
+            className="text-[14px] md:text-[15px] tracking-[0.04em] transition-all duration-500 mt-auto group-hover:text-white group-hover:tracking-[0.06em]"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.5)" }}
+          >
+            {award.property}
+          </p>
+          <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
+            <svg className="w-4 h-4 translate-x-[-8px] group-hover:translate-x-0 opacity-0 group-hover:opacity-60 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="#E1D1BA" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </div>
+        </div>
+      </Wrapper>
+    );
+  };
+
+  return (
+    <section className="py-20 md:py-28 px-6 md:px-10 bg-[#f7f5f0]">
+      <div className="max-w-6xl mx-auto">
+        <FadeIn>
+          <p className="text-[10px] tracking-[0.25em] mb-4" style={{ ...body, fontWeight: 500, color: "#3B2B26", opacity: 0.4 }}>Recognition</p>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide mb-14 md:mb-20" style={{ ...heading, color: "#3B2B26" }}>
+            Recognized by the Most Trusted Voices in Travel
+          </h2>
+        </FadeIn>
+
+        {/* Desktop: 3-column grid with pagination */}
+        <div className="hidden md:block relative">
+          <button
+            onClick={() => scrollToDesktop(desktopPage - 1)}
+            disabled={desktopPage === 0}
+            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: "#3B2B26" }}
+            aria-label="Previous"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button
+            onClick={() => scrollToDesktop(desktopPage + 1)}
+            disabled={desktopPage >= desktopPages - 1}
+            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            style={{ backgroundColor: "#3B2B26" }}
+            aria-label="Next"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+          <div
+            ref={desktopRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {Array.from({ length: desktopPages }).map((_, pageIdx) => (
+              <div
+                key={pageIdx}
+                className="flex-shrink-0 w-full grid grid-cols-3 gap-5"
+                style={{ scrollSnapAlign: "start" }}
+              >
+                {awardVideoCards.slice(pageIdx * 3, pageIdx * 3 + 3).map((award) => (
+                  <div key={award.property + award.stat}>
+                    {renderCard(award)}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: 1 card at a time, swipeable */}
+        <div className="md:hidden relative">
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto scrollbar-hide"
+            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          >
+            {awardVideoCards.map((award) => (
+              <div key={award.property + award.stat} className="flex-shrink-0 w-full px-1" style={{ scrollSnapAlign: "start" }}>
+                {renderCard(award)}
+              </div>
+            ))}
+          </div>
+          {/* Progress bar */}
+          <div className="mt-6 mx-auto w-32 h-[3px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
+            <div
+              className="h-full rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: "#3B2B26",
+                width: `${100 / totalCards}%`,
+                marginLeft: `${(mobilePage / totalCards) * 100}%`,
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
