@@ -214,7 +214,7 @@ function HeroSection() {
           className="text-3xl md:text-5xl lg:text-6xl leading-tight tracking-tight"
           style={{ fontFamily: "'Playfair Display', serif", color: COLORS.text }}
         >
-          Sylvia
+          Towards Living
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -577,15 +577,8 @@ function FooterSection() {
         <img
           src={LOGO_URL}
           alt="Sylvia"
-          className="h-20 mx-auto mb-6 object-contain"
+          className="h-20 mx-auto mb-8 object-contain"
         />
-
-        <p
-          className="text-sm leading-relaxed max-w-md mx-auto mb-8"
-          style={{ color: COLORS.textSecondary }}
-        >
-          Hum Being is a space where you don't have to figure it out alone. We make sense of things — together.
-        </p>
 
         <div className="space-y-1 mb-8">
           <p className="text-xs tracking-[0.04em]" style={{ color: COLORS.textSecondary }}>
