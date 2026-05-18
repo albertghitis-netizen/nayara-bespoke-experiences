@@ -138,7 +138,7 @@ function Navigation() {
           <img
             src={LOGO_URL}
             alt="Sylvia"
-            className="h-24 md:h-28 object-contain"
+            className="h-36 md:h-40 object-contain"
           />
         </div>
 
