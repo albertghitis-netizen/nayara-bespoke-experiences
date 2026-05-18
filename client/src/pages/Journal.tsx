@@ -38,7 +38,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 const JOURNAL_CDN = {
   heroVideoDesktop: "/manus-storage/journal-hero-noaudio_863733fa.mp4",
-  heroVideoMobile: "/manus-storage/journal-mobile-hero-v2-hq_3c7654fa.mp4",
+  heroVideoMobile: "/manus-storage/journal-hero-vertical_e1c9cda6.mp4",
 };
 
 /*
@@ -138,8 +138,11 @@ export default function Journal() {
             <video
               src={JOURNAL_CDN.heroVideoMobile}
               autoPlay
+              loop
               muted
-              className="md:hidden w-full h-full object-contain"
+              playsInline
+              webkit-playsinline="true"
+              className="md:hidden w-full h-full object-cover"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />

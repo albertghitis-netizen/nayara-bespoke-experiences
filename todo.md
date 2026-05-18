@@ -3805,3 +3805,4 @@
 - [ ] Add Spanish/English tabs to podcast page
 - [x] Fix all blog Explore More cards to use correct square images from journal.ts and aspect-square containers
 - [x] Add subtle zoom-in hover effect to Explore More card images (scale-110 with 500ms ease-out transition)
+- [x] Add vertical mobile hero video to Journal page (autoplay, no pop-out)
