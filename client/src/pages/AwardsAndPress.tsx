@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { ShieldCheck, ChevronDown, Key, ExternalLink } from "lucide-react";
+import { ChevronDown, Key, ExternalLink } from "lucide-react";
 import { Link } from "wouter";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
@@ -104,11 +104,6 @@ const allAwards: PropertyAwards[] = [
   },
 ];
 
-const certifications = [
-  { name: "Green Globe", properties: "Nayara Gardens, Nayara Springs, Nayara Tented Camp, Nayara Bocas del Toro", description: "International sustainability certification recognizing best practices in environmental management, social responsibility, and economic viability in the travel and tourism industry." },
-  { name: "S Certification", properties: "Nayara Alto Atacama, Nayara Hangaroa", description: "Chile's national sustainability certification from Sernatur, recognizing the highest standards of environmental, social, and economic responsibility in tourism operations." },
-  { name: "Carbon Neutral", properties: "Nayara Gardens, Nayara Springs, Nayara Tented Camp", description: "All three Costa Rica properties have achieved carbon-neutral certification, offsetting 100% of their carbon emissions through verified conservation and reforestation programs." },
-];
 
 const brandStats = [
   { number: "7", label: "Michelin Keys", sublabel: "Across 3 properties" },
@@ -238,27 +233,7 @@ export default function AwardsAndPress() {
       {/* ── Award Video Cards Grid (same as brand homepage) ── */}
       <AwardVideoCardsSection />
 
-      {/* ── Brand Story Intro ── */}
-      <section className="py-16 md:py-24 px-6 md:px-10 bg-[#f4f1eb]">
-        <div className="max-w-5xl mx-auto">
-          <FadeIn>
-            <p className="text-[10px] tracking-[0.25em] mb-4" style={{ ...body, fontWeight: 500, color: "#3B2B26", opacity: 0.4 }}>The Nayara Story</p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h2 className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide mb-8" style={{ ...heading, color: "#3B2B26" }}>
-              Award-Winning Properties Defined by Destination
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="text-[15px] leading-[1.8] mb-5 max-w-3xl" style={{ ...body, color: "#5a4a3a" }}>
-              Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef.
-            </p>
-            <p className="text-[15px] leading-[1.8] max-w-3xl" style={{ ...body, color: "#5a4a3a" }}>
-              Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
+
 
 
       {/* ── Tab Switcher + Property Filter ── */}
@@ -369,25 +344,7 @@ export default function AwardsAndPress() {
             </div>
           </section>
 
-          {/* Certifications */}
-          <section className="py-16 md:py-24 px-6 md:px-10">
-            <div className="max-w-5xl mx-auto">
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
-                <p className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>Sustainability</p>
-                <h2 className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl" style={heading}>Certifications</h2>
-              </motion.div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                {certifications.map((cert, i) => (
-                  <motion.div key={cert.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.06 }} className="bg-white p-8 md:p-10 border border-stone-100">
-                    <ShieldCheck className="w-8 h-8 text-emerald-700/60 mb-5" />
-                    <h3 className="text-[#3B2B26] text-xl mb-2" style={heading}>{cert.name}</h3>
-                    <p className="text-emerald-700/60 text-[10px] tracking-[0.1em] mb-4" style={{ ...body, fontWeight: 500 }}>{cert.properties}</p>
-                    <p className="text-[#3B2B26]/50 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{cert.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+
         </>
       )}
 

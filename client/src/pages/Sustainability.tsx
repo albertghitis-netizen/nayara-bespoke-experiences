@@ -12,10 +12,17 @@ import { Link } from "wouter";
 import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
-import HotelFilterBar3 from "@/components/HotelFilterBar3";
+
+import { ShieldCheck } from "lucide-react";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
+
+const certifications = [
+  { name: "Green Globe", properties: "Nayara Gardens, Nayara Springs, Nayara Tented Camp, Nayara Bocas del Toro", description: "International sustainability certification recognizing best practices in environmental management, social responsibility, and economic viability in the travel and tourism industry." },
+  { name: "S Certification", properties: "Nayara Alto Atacama, Nayara Hangaroa", description: "Chile\u2019s national sustainability certification from Sernatur, recognizing the highest standards of environmental, social, and economic responsibility in tourism operations." },
+  { name: "Carbon Neutral", properties: "Nayara Gardens, Nayara Springs, Nayara Tented Camp", description: "All three Costa Rica properties have achieved carbon-neutral certification, offsetting 100% of their carbon emissions through verified conservation and reforestation programs." },
+];
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -47,21 +54,16 @@ const brandPillars = [
 /* ─── Subcategories ─── */
 type SubCategory = "flora-fauna" | "certification" | "community" | "operations";
 
-const SUBCATEGORIES: { id: SubCategory; label: string }[] = [
-  { id: "flora-fauna", label: "Flora & Fauna" },
-  { id: "certification", label: "Certification" },
-  { id: "community", label: "Community" },
-  { id: "operations", label: "Operations" },
-];
+
 
 /* ─── Properties ─── */
 const PROPERTIES = [
-  { id: "alto-atacama", label: "Alto Atacama" },
-  { id: "bocas-del-toro", label: "Bocas del Toro" },
-  { id: "gardens", label: "Gardens" },
-  { id: "hangaroa", label: "Hangaroa" },
-  { id: "springs", label: "Springs" },
-  { id: "tented-camp", label: "Tented Camp" },
+  { id: "alto-atacama", label: "Alto Atacama", image: "/manus-storage/sustainability-atacama_653b7536.jpg", sustainabilityRoute: "/alto-atacama" },
+  { id: "bocas-del-toro", label: "Bocas del Toro", image: "/manus-storage/sustainability-bocas_ccedb62a.jpg", sustainabilityRoute: "/bocas-del-toro" },
+  { id: "gardens", label: "Gardens", image: "/manus-storage/sustainability-gardens_b4aec415.jpeg", sustainabilityRoute: "/gardens" },
+  { id: "hangaroa", label: "Hangaroa", image: "/manus-storage/sustainability-hangaroa_6db7bd22.jpg", sustainabilityRoute: "/hangaroa" },
+  { id: "springs", label: "Springs", image: "/manus-storage/sustainability-springs_91d7dfca.jpeg", sustainabilityRoute: "/springs" },
+  { id: "tented-camp", label: "Tented Camp", image: "/manus-storage/sustainability-tented_4f5ca0f9.jpeg", sustainabilityRoute: "/tented-camp" },
 ];
 
 /* ─── Initiative data: each tagged with property + category ─── */
@@ -84,6 +86,8 @@ const allInitiatives: Initiative[] = [
   { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "community", text: "Local artisan marketplace supporting 30+ indigenous craftspeople" },
   { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "operations", text: "Solar energy powers 60% of resort operations in the world's highest-radiation desert" },
   { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "operations", text: "Greywater recycling system irrigating native plant gardens throughout the property" },
+  { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "community", text: "Archaeological site stewardship program protecting pre-Columbian heritage across the Atacama" },
+  { property: "alto-atacama", propertyName: "Nayara Alto Atacama", location: "Atacama Desert, Chile", route: "/alto-atacama", category: "operations", text: "Zero-waste kitchen initiative diverting 90% of food waste from landfill through composting" },
 
   /* ── Bocas del Toro ── */
   { property: "bocas-del-toro", propertyName: "Nayara Bocas del Toro", location: "Bocas del Toro, Panama", route: "/bocas-del-toro", category: "flora-fauna", text: "Coral reef restoration program in partnership with Smithsonian Tropical Research Institute" },
@@ -94,6 +98,8 @@ const allInitiatives: Initiative[] = [
   { property: "bocas-del-toro", propertyName: "Nayara Bocas del Toro", location: "Bocas del Toro, Panama", route: "/bocas-del-toro", category: "community", text: "Local fishing cooperative supply agreements supporting sustainable livelihoods" },
   { property: "bocas-del-toro", propertyName: "Nayara Bocas del Toro", location: "Bocas del Toro, Panama", route: "/bocas-del-toro", category: "operations", text: "Overwater villa construction designed to minimize seabed disturbance" },
   { property: "bocas-del-toro", propertyName: "Nayara Bocas del Toro", location: "Bocas del Toro, Panama", route: "/bocas-del-toro", category: "operations", text: "Desalination and rainwater harvesting reducing freshwater extraction by 60%" },
+  { property: "bocas-del-toro", propertyName: "Nayara Bocas del Toro", location: "Bocas del Toro, Panama", route: "/bocas-del-toro", category: "flora-fauna", text: "Dolphin and manatee monitoring program tracking marine mammal populations in Almirante Bay" },
+  { property: "bocas-del-toro", propertyName: "Nayara Bocas del Toro", location: "Bocas del Toro, Panama", route: "/bocas-del-toro", category: "operations", text: "Solar-powered water taxis replacing diesel boats for guest transportation between islands" },
 
   /* ── Gardens ── */
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "flora-fauna", text: "Native plant nursery propagating 200+ species for habitat restoration" },
@@ -104,6 +110,8 @@ const allInitiatives: Initiative[] = [
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "community", text: "On-site organic farm supplying 40% of restaurant produce and training local farmers" },
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "operations", text: "Composting program converting 100% of organic waste into garden fertilizer" },
   { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "operations", text: "LED lighting retrofit and smart HVAC reducing energy consumption by 35%" },
+  { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "flora-fauna", text: "Sloth rehabilitation and release program in partnership with local wildlife rescue" },
+  { property: "gardens", propertyName: "Nayara Gardens", location: "Arenal Volcano, Costa Rica", route: "/gardens", category: "community", text: "Staff housing and education benefits program with 95% local employment rate" },
 
   /* ── Hangaroa ── */
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "flora-fauna", text: "Invasive species removal program restoring native toromiro habitat" },
@@ -113,6 +121,9 @@ const allInitiatives: Initiative[] = [
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "community", text: "Rapanui artisan employment program , 80% of staff from local community" },
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "operations", text: "Rainwater harvesting system reducing freshwater demand by 45%" },
   { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "operations", text: "Zero single-use plastic policy with biodegradable alternatives island-wide" },
+  { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "flora-fauna", text: "Native plant propagation nursery growing endemic species for island-wide reforestation" },
+  { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "community", text: "Rapa Nui youth mentorship program training the next generation in sustainable hospitality" },
+  { property: "hangaroa", propertyName: "Nayara Hangaroa", location: "Easter Island, Chile", route: "/hangaroa", category: "operations", text: "Waste reduction program shipping recyclables to mainland Chile for proper processing" },
 
   /* ── Springs ── */
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "flora-fauna", text: "Butterfly garden sanctuary supporting 30+ native species year-round" },
@@ -122,6 +133,9 @@ const allInitiatives: Initiative[] = [
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "community", text: "Local wellness practitioner partnerships for authentic spa experiences" },
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "operations", text: "Geothermal hot spring water recycled through natural filtration systems" },
   { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "operations", text: "Energy-efficient villa design with natural ventilation reducing AC usage by 50%" },
+  { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "flora-fauna", text: "Hummingbird garden with 20+ feeder stations attracting 12 native species" },
+  { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "operations", text: "Natural mineral spring water bottling on-site eliminating plastic bottle imports" },
+  { property: "springs", propertyName: "Nayara Springs", location: "Arenal Volcano, Costa Rica", route: "/springs", category: "community", text: "Local artisan spa product line generating income for 15+ women-owned businesses" },
 
   /* ── Tented Camp ── */
   { property: "tented-camp", propertyName: "Nayara Tented Camp", location: "Arenal Volcano, Costa Rica", route: "/tented-camp", category: "flora-fauna", text: "Wildlife monitoring cameras tracking 40+ species on property grounds" },
@@ -131,18 +145,19 @@ const allInitiatives: Initiative[] = [
   { property: "tented-camp", propertyName: "Nayara Tented Camp", location: "Arenal Volcano, Costa Rica", route: "/tented-camp", category: "community", text: "Revenue-sharing model directing 5% of excursion fees to community projects" },
   { property: "tented-camp", propertyName: "Nayara Tented Camp", location: "Arenal Volcano, Costa Rica", route: "/tented-camp", category: "operations", text: "Elevated platform construction preserving 100% of ground-level ecosystem" },
   { property: "tented-camp", propertyName: "Nayara Tented Camp", location: "Arenal Volcano, Costa Rica", route: "/tented-camp", category: "operations", text: "Canvas tent structures with minimal permanent footprint on the land" },
+  { property: "tented-camp", propertyName: "Nayara Tented Camp", location: "Arenal Volcano, Costa Rica", route: "/tented-camp", category: "flora-fauna", text: "Nocturnal wildlife corridor connecting primary forest patches across the property" },
+  { property: "tented-camp", propertyName: "Nayara Tented Camp", location: "Arenal Volcano, Costa Rica", route: "/tented-camp", category: "certification", text: "Green Globe certified for comprehensive environmental management systems" },
+  { property: "tented-camp", propertyName: "Nayara Tented Camp", location: "Arenal Volcano, Costa Rica", route: "/tented-camp", category: "operations", text: "Rainwater collection system providing 70% of non-potable water needs across camp" },
 ];
 
 export default function Sustainability() {
   const [activeHotel, setActiveHotel] = useState("alto-atacama");
-  const [activeCategory, setActiveCategory] = useState<SubCategory>("flora-fauna");
 
   const filtered = allInitiatives.filter(
-    (i) => i.category === activeCategory && i.property === activeHotel
+    (i) => i.property === activeHotel
   );
 
   /* Get property info for the header of the card */
-  const currentProp = PROPERTIES.find((p) => p.id === activeHotel);
   const currentInitiative = allInitiatives.find((i) => i.property === activeHotel);
 
   return (
@@ -150,18 +165,16 @@ export default function Sustainability() {
       <BrandNavigation pageType="brand" hideCenterLabel />
       <HeroSection />
       <IntroSection />
-      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
       <BrandPillarsSection />
       <PropertyInitiativesSection
-        activeCategory={activeCategory}
         activeProperty={activeHotel}
-        onCategoryChange={setActiveCategory}
         onPropertyChange={setActiveHotel}
         filtered={filtered}
         propertyName={currentInitiative?.propertyName || ""}
         propertyLocation={currentInitiative?.location || ""}
         propertyRoute={currentInitiative?.route || "/"}
       />
+      <CertificationsSection />
       <CTASection />
       <Footer textColor="#FFFFFF" />
     </div>
@@ -270,6 +283,36 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   CERTIFICATIONS , Sustainability credentials
+   ═══════════════════════════════════════════════════════════════ */
+function CertificationsSection() {
+  return (
+    <section className="py-16 md:py-20 px-6 md:px-10 bg-white/50">
+      <div className="max-w-[1100px] mx-auto">
+        <FadeIn>
+          <p className="text-[#3B2B26]/35 text-[10px] tracking-[0.3em] mb-4" style={{ ...body, fontWeight: 600 }}>Certifications</p>
+          <h2 className="text-[#4B4A4A] mb-10" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
+            Recognized Standards of Excellence
+          </h2>
+        </FadeIn>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {certifications.map((cert, i) => (
+            <FadeIn key={cert.name} delay={i * 0.08}>
+              <div className="bg-[#f7f5f0] p-8 md:p-10 border border-stone-100">
+                <ShieldCheck className="w-7 h-7 text-emerald-700/60 mb-5" />
+                <h3 className="text-[#3B2B26] text-lg mb-2" style={heading}>{cert.name}</h3>
+                <p className="text-emerald-700/60 text-[10px] tracking-[0.1em] mb-4" style={{ ...body, fontWeight: 500 }}>{cert.properties}</p>
+                <p className="text-[#3B2B26]/50 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{cert.description}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    BRAND PILLARS , 6 key metrics
    ═══════════════════════════════════════════════════════════════ */
 function BrandPillarsSection() {
@@ -299,27 +342,25 @@ function BrandPillarsSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTY INITIATIVES , Two-axis filter: Category × Property
+   PROPERTY INITIATIVES , Filter by Hotel
    ═══════════════════════════════════════════════════════════════ */
 function PropertyInitiativesSection({
-  activeCategory,
   activeProperty,
-  onCategoryChange,
   onPropertyChange,
   filtered,
   propertyName,
   propertyLocation,
   propertyRoute,
 }: {
-  activeCategory: SubCategory;
   activeProperty: string;
-  onCategoryChange: (c: SubCategory) => void;
   onPropertyChange: (id: string) => void;
   filtered: Initiative[];
   propertyName: string;
   propertyLocation: string;
   propertyRoute: string;
 }) {
+  const currentProp = PROPERTIES.find((p) => p.id === activeProperty);
+
   return (
     <section className="py-16 md:py-24 px-6 md:px-10">
       <div className="max-w-[1100px] mx-auto">
@@ -330,63 +371,83 @@ function PropertyInitiativesSection({
           </h2>
         </FadeIn>
 
-        {/* Subcategory filter */}
-        <div className="mb-4">
-          <p className="text-[#3B2B26]/25 text-[9px] tracking-[0.2em] mb-2" style={{ ...body, fontWeight: 600 }}>Category</p>
+        {/* Hotel filter pills */}
+        <div className="mb-8">
           <div className="flex flex-wrap gap-2">
-            {SUBCATEGORIES.map((cat) => (
+            {PROPERTIES.map((prop) => (
               <button
-                key={cat.id}
-                onClick={() => onCategoryChange(cat.id)}
+                key={prop.id}
+                onClick={() => onPropertyChange(prop.id)}
                 className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
-                  activeCategory === cat.id
+                  activeProperty === prop.id
                     ? "bg-[#3B2B26] text-white border-[#3B2B26]"
                     : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
                 }`}
                 style={{ ...body, fontWeight: 500 }}
               >
-                {cat.label}
+                {prop.label}
               </button>
             ))}
           </div>
         </div>
 
-
-
-        {/* Results */}
+        {/* Results — two-column layout */}
         <AnimatePresence mode="popLayout">
           {filtered.length > 0 ? (
             <motion.div
-              key={`${activeCategory}-${activeProperty}`}
+              key={activeProperty}
               layout
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="bg-white/50 rounded-xl p-8"
+              className="grid grid-cols-1 md:grid-cols-[1fr_420px] gap-8 items-stretch"
             >
-              <Link href={propertyRoute} className="group">
-                <h3 className="text-[#3B2B26] text-[18px] mb-1 group-hover:text-[#5a4a3a] transition-colors" style={{ ...heading, fontWeight: 500 }}>
-                  {propertyName}
-                </h3>
-                <p className="text-[#3B2B26]/30 text-[11px] tracking-[0.1em] mb-5" style={{ ...body, fontWeight: 500 }}>
-                  {propertyLocation}
-                </p>
-              </Link>
-              <ul className="space-y-3">
-                {filtered.map((init, j) => (
-                  <motion.li
-                    key={j}
-                    initial={{ opacity: 0, x: -5 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: j * 0.08 }}
-                    className="flex gap-3 items-start"
-                  >
-                    <span className="text-[#3B2B26]/20 text-[10px] mt-1.5">●</span>
-                    <span className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>{init.text}</span>
-                  </motion.li>
-                ))}
-              </ul>
+              {/* Left: property info + bullets */}
+              <div className="bg-white/50 rounded-xl p-8">
+                <div className="flex items-center gap-4 mb-5">
+                  <div>
+                    <h3 className="text-[#3B2B26] text-[18px] mb-1" style={{ ...heading, fontWeight: 500 }}>
+                      {propertyName}
+                    </h3>
+                    <p className="text-[#3B2B26]/30 text-[11px] tracking-[0.1em]" style={{ ...body, fontWeight: 500 }}>
+                      {propertyLocation}
+                    </p>
+                  </div>
+                </div>
+                <ul className="space-y-3">
+                  {filtered.map((init, j) => (
+                    <motion.li
+                      key={j}
+                      initial={{ opacity: 0, x: -5 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: j * 0.08 }}
+                      className="flex gap-3 items-start"
+                    >
+                      <span className="text-[#3B2B26]/20 text-[10px] mt-1.5">●</span>
+                      <span className="text-[#4B4A4A]/60 text-[13px] leading-relaxed" style={body}>{init.text}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+
+                {/* Explore Sustainability pill */}
+                <Link
+                  href={propertyRoute}
+                  className="inline-block mt-6 px-5 py-2 rounded-full border border-[#3B2B26] text-[#3B2B26] text-[11px] tracking-[0.15em] uppercase hover:bg-[#3B2B26] hover:text-white transition-all duration-300"
+                  style={{ ...body, fontWeight: 500 }}
+                >
+                  Explore Sustainability
+                </Link>
+              </div>
+
+              {/* Right: 3:4 image */}
+              <div className="relative overflow-hidden rounded-xl">
+                <img
+                  src={currentProp?.image}
+                  alt={`${propertyName} sustainability`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </motion.div>
           ) : (
             <motion.div
@@ -397,7 +458,7 @@ function PropertyInitiativesSection({
               className="bg-white/30 rounded-xl p-8 text-center"
             >
               <p className="text-[#4B4A4A]/40 text-[14px]" style={body}>
-                No initiatives found for this combination. Select a different category or property.
+                No initiatives found. Select a different property.
               </p>
             </motion.div>
           )}
@@ -411,19 +472,33 @@ function PropertyInitiativesSection({
    CTA
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
+  const pillars = [
+    { label: "Experiences", route: "/experiences" },
+    { label: "Wellness", route: "/wellness" },
+    { label: "Gastronomy", route: "/gastronomy" },
+    { label: "Romance", route: "/romance" },
+    { label: "Family", route: "/family" },
+  ];
+
   return (
     <section className="py-16 md:py-24 px-6 md:px-10 bg-white/30">
       <div className="max-w-[800px] mx-auto text-center">
         <FadeIn>
           <h2 className="text-[#4B4A4A] mb-4" style={{ ...heading, fontSize: "clamp(22px, 3vw, 32px)", lineHeight: 1.2 }}>
-            Travel That Gives Back
+            Explore Our Other Pillars
           </h2>
-          <p className="text-[#4B4A4A]/50 text-[14px] leading-relaxed mb-8" style={body}>
-            Every stay at a Nayara property directly funds conservation, community development, and ecosystem restoration.
-          </p>
-          <Link href="/" className="inline-block px-8 py-3 bg-[#3B2B26] text-white/80 text-[13px] tracking-[0.1em] rounded-full hover:bg-[#4a3a2a] transition-colors" style={{ ...body, fontWeight: 500 }}>
-            Explore Nayara
-          </Link>
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            {pillars.map((p) => (
+              <Link
+                key={p.label}
+                href={p.route}
+                className="px-6 py-2.5 rounded-full border border-[#3B2B26] text-[#3B2B26] text-[11px] tracking-[0.15em] uppercase hover:bg-[#3B2B26] hover:text-white transition-all duration-300"
+                style={{ ...body, fontWeight: 500 }}
+              >
+                {p.label}
+              </Link>
+            ))}
+          </div>
         </FadeIn>
       </div>
     </section>

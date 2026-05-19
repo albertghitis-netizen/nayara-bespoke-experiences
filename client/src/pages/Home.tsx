@@ -161,6 +161,7 @@ export default function Home() {
       </div>
       <AwardsHighlightSection />
       <NayaraJournalSection />
+      <NayaraStorySection />
       <Footer textColor="#FFFFFF" bgColor="#3B2B26" />
     </div>
   );
@@ -1908,6 +1909,82 @@ function BrandCTA() {
 
         {/* Decorative line */}
         <div className="w-16 h-px mx-auto mt-16" style={{ backgroundColor: "rgba(176,141,87,0.2)" }} />
+      </div>
+    </section>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   NAYARA STORY — Brand statement + Plan Your Stay CTA
+   Placed between Journal section and Footer
+   ═══════════════════════════════════════════════════════════════ */
+function NayaraStorySection() {
+  return (
+    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
+      <div className="max-w-4xl mx-auto text-center">
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[10px] tracking-[0.3em] uppercase mb-5"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#3B2B26", opacity: 0.4 }}
+          >
+            The Nayara Story
+          </p>
+        </AnimateOnScroll>
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <h2
+            className="text-2xl md:text-4xl lg:text-[42px] leading-[1.15] tracking-wide mb-8"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}
+          >
+            Award-Winning Properties Defined by Destination
+          </h2>
+        </AnimateOnScroll>
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <p
+            className="text-[15px] leading-[1.8] mb-5 max-w-3xl mx-auto"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#5a4a3a" }}
+          >
+            Our resorts belong to the land. In Costa Rica, lush rainforest and mineral hot springs greet you at the foot of Arenal Volcano. In Chile's Atacama, the world's driest desert becomes a place of stillness and discovery. On Easter Island, silent giants stand guard and Rapa Nui culture is ever-present. On a private island on Panama's Caribbean coast, overwater villas rise above the reef.
+          </p>
+          <p
+            className="text-[15px] leading-[1.8] max-w-3xl mx-auto"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#5a4a3a" }}
+          >
+            Six properties. Three countries. All designed to bring guests back to nature and leave every ecosystem stronger than we found it.
+          </p>
+        </AnimateOnScroll>
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mt-12 mb-6"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#3B2B26", opacity: 0.5 }}
+          >
+            Plan Your Stay
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+            {[
+              { label: "Nayara Gardens", id: "gardens" },
+              { label: "Nayara Springs", id: "springs" },
+              { label: "Nayara Tented Camp", id: "tented-camp" },
+              { label: "Nayara Alto Atacama", id: "alto-atacama" },
+              { label: "Nayara Hangaroa", id: "hangaroa" },
+              { label: "Nayara Bocas del Toro", id: "bocas-del-toro" },
+            ].map((prop) => (
+              <a
+                key={prop.id}
+                href={BOOKING_URLS[prop.id]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] tracking-[0.1em] uppercase border transition-all duration-400 hover:bg-[#3B2B26] hover:text-[#F7F5F0] hover:border-[#3B2B26]"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#3B2B26", borderColor: "#3B2B26" }}
+              >
+                {prop.label}
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

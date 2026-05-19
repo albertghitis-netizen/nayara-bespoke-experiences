@@ -16,7 +16,7 @@ export const experientialTravelPost: BlogPostData = {
   pillar: "",
   tags: [],
   readingTime: 9,
-  heroImage: "/manus-storage/experiential-travel-hero-21x9_9976cf8a.jpg",
+  heroImage: "/manus-storage/experiential-travel-hero-exact-21x9-bottom_325436b4.jpg",
   keyFindings: [
     "The global experiences sector reached $271 billion in 2025 and is projected to surge past $342 billion by 2029, growing at 8% annually and outpacing the wider travel industry by more than 60%.",
     "70% of travelers now say checking off bucket-list experiences is their top priority, even cutting back on luxury goods to fund them.",
