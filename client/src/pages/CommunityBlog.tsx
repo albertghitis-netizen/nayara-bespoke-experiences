@@ -54,7 +54,7 @@ export default function CommunityBlog() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.cream }}>
       <EnhancedArticleSchema
-        image="/manus-storage/community-hero-ultrawide_6075f665.jpg"
+        image="/manus-storage/community-hero-21x9_84024aed.jpg"
         headline="Rooted in Community: How Nayara Supports Local People Across Four Destinations: Human Hospitality"
         description="At the heart of Nayara's approach to regenerative travel is not just the environment, but the people who care for it, depend on it, and shape the guest experience."
         author={{ name: "Nayara Resorts", expertise: ["Luxury Hospitality", "Sustainable Tourism", "Community Development"] }}
@@ -70,7 +70,7 @@ export default function CommunityBlog() {
         style={{ aspectRatio: "21/9", minHeight: "400px", maxHeight: "70vh" }}
       >
         <img
-          src="/manus-storage/community-hero-ultrawide_6075f665.jpg"
+          src="/manus-storage/community-hero-21x9_84024aed.jpg"
           alt="Nayara kitchen team celebrating together"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"

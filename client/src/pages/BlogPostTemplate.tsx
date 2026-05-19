@@ -78,6 +78,9 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
   // Track the last body section bg so Sources always contrasts
   const lastSectionBg = post.sections.length > 0 ? bgColors[(post.sections.length - 1) % 2] : PALETTE.cream;
   const sourcesBg = lastSectionBg === PALETTE.stone ? PALETTE.cream : PALETTE.stone;
+  // Share and Explore More must each be different from Sources and from each other
+  const shareBg = sourcesBg === PALETTE.cream ? PALETTE.stone : PALETTE.cream;
+  const exploreBg = PALETTE.espresso;
 
   // Pull quotes render as standalone espresso dark blocks within their section
 
@@ -304,10 +307,10 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
                 dangerouslySetInnerHTML={{ __html: section.content }}
               />
 
-              {/* Pull quote — standalone espresso dark block */}
+              {/* Pull quote — standalone espresso dark block, same width as text */}
               {section.pullQuote && (
-                <div className="my-10 -mx-8 md:-mx-16 px-8 md:px-16 py-10" style={{ backgroundColor: PALETTE.espresso }}>
-                  <blockquote className="max-w-2xl mx-auto text-center">
+                <div className="my-10 py-10 rounded-lg" style={{ backgroundColor: PALETTE.espresso }}>
+                  <blockquote className="max-w-2xl mx-auto text-center px-8">
                     <p
                       className="text-lg md:text-xl italic leading-relaxed"
                       style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "rgba(247,245,240,0.9)" }}
@@ -428,7 +431,7 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
       )}
 
       {/* ── SHARE THIS POST ── */}
-      <section style={{ backgroundColor: PALETTE.cream }}>
+      <section style={{ backgroundColor: shareBg }}>
         <div className="max-w-3xl mx-auto px-8 md:px-16 pt-12 pb-12 text-center">
           <p
             className="uppercase tracking-[0.3em] text-[11px] mb-6"
@@ -489,7 +492,7 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          style={{ backgroundColor: PALETTE.cream }}
+          style={{ backgroundColor: exploreBg }}
         >
           <div className="max-w-5xl mx-auto px-8 md:px-16 pt-16 pb-16">
             <p
@@ -500,7 +503,7 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
             </p>
             <h2
               className="text-3xl md:text-4xl mb-12 text-center"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFFFFF" }}
             >
               Explore More
             </h2>
@@ -530,7 +533,7 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
                     </p>
                     <h3
                       className="text-lg"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}
+                      style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#FFFFFF" }}
                     >
                       {article.title}
                     </h3>
