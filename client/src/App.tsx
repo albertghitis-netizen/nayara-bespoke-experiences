@@ -12,6 +12,7 @@ import "./index.css";
 
 /* ── Eagerly loaded (homepage) ── */
 import Home from "./pages/Home";
+import ComingSoonVenue from "./components/ComingSoonVenue";
 
 /* ── Lazy-loaded pages ── */
 const AltoAtacama = lazy(() => import("./pages/AltoAtacama"));
@@ -200,7 +201,7 @@ function Router() {
           {/* Individual restaurant pages removed — all on /alto-atacama/gastronomy */}
           <Route path="/alto-atacama/experiences">{() => <CostaRicaExperiences propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/wellness">{() => <CostaRicaWellness propertySlug="alto-atacama" />}</Route>
-          <Route path="/alto-atacama/gastronomy">{() => <CostaRicaGastronomy propertySlug="alto-atacama" />}</Route>
+          <Route path="/alto-atacama/gastronomy">{() => <ComingSoonVenue venue={{ name: "Gastronomy", tagline: "A culinary journey through the Atacama Desert", description: "From ancient Atacameño ingredients to contemporary desert cuisine, our restaurants celebrate the flavors of the driest place on Earth. Full dining experience details coming soon.", category: "gastronomy", categoryLabel: "Culinary Arts", property: "Nayara Alto Atacama", backLink: "/alto-atacama", backLabel: "Alto Atacama" }} />}</Route>
           <Route path="/alto-atacama/sustainability">{() => <CostaRicaSustainability propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/stargazing" component={Stargazing} />
           {/* Costa Rica is now a dropdown menu only, not a page */}

@@ -673,7 +673,7 @@ const CASCADE_SECTIONS = [
     label: "Wellness",
     headline: "Desert Renewal",
     description: "Our spa draws on ancestral Atacameño healing traditions and the desert's mineral-rich waters. Surrender to treatments designed around the rhythms of this ancient landscape.",
-    vSrc: ASSETS.clip8V,
+    vSrc: "/manus-storage/atacama-desert-renewal-new_82a80306.mov",
     hSrc: ASSETS.wellH2,
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
