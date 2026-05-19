@@ -171,9 +171,6 @@ function HeroSection() {
           </button>
         </motion.div>
       </div>
-
-
-      </div>
     </section>
   );
 }
