@@ -88,7 +88,7 @@ const PALETTE = {
 const ASSETS = {
   // Hero (clip 1 , horizontal 16:9)
   heroDesktop: "/manus-storage/atacama-hero-new_e54af64d.mp4",
-  heroMobile: "/manus-storage/atacama-mobile-hero_800c3b57.mov",
+  heroMobile: "/manus-storage/atacama-mobile-hero_ace3858c.mp4",
 
   // Clip 2 , vertical 3:4
   clip2V: "/manus-storage/atacama-s1-vertical-v3_b6fd3496.mp4",
@@ -673,7 +673,7 @@ const CASCADE_SECTIONS = [
     label: "Wellness",
     headline: "Desert Renewal",
     description: "Our spa draws on ancestral Atacameño healing traditions and the desert's mineral-rich waters. Surrender to treatments designed around the rhythms of this ancient landscape.",
-    vSrc: "/manus-storage/atacama-desert-renewal-new_82a80306.mov",
+    vSrc: "/manus-storage/atacama-desert-renewal-new_915f749c.mp4",
     hSrc: ASSETS.wellH2,
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
@@ -1228,7 +1228,7 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/atacama-mobile-hero_800c3b57.mov";
+  const mobileHeroImage = "/manus-storage/atacama-mobile-hero_ace3858c.mp4";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
