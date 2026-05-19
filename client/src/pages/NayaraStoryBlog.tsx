@@ -142,7 +142,7 @@ const nayaraStoryPost: BlogPostData = {
     {
       slug: "rooted-in-community",
       title: "Rooted in Community: People First at Nayara",
-      pillar: "Culture",
+      pillar: "Sustainability",
       image: "/manus-storage/rooted-community-cover_dcdbfae8.jpg",
       date: "April 2026",
     },
@@ -156,7 +156,7 @@ const nayaraStoryPost: BlogPostData = {
     {
       slug: "arenal-timeless-wonder",
       title: "Arenal: A Timeless Natural Wonder",
-      pillar: "Geology",
+      pillar: "Sustainability",
       image: "/manus-storage/A50DCA72-3FCB-46E5-A703-DFFB62080A51_79a81ca2.jpg",
       date: "March 2026",
     },

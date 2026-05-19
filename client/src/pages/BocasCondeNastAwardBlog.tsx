@@ -104,7 +104,7 @@ const bocasCondeNastPost: BlogPostData = {
     {
       slug: "bocas-history-culture-nature",
       title: "History, Culture & Nature of Bocas del Toro",
-      pillar: "Culture",
+      pillar: "Sustainability",
       image: "/manus-storage/bocas-history-culture-cover_21d14dc5.jpg",
       date: "Oct 6, 2025",
     },
