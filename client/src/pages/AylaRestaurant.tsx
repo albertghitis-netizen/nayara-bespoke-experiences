@@ -28,7 +28,6 @@ export default function AylaRestaurant() {
       <BrandNavigation pageType="property" backLink={{ label: "Nayara Tented Camp", href: "/tented-camp" }} />
       <HeroSection restaurant={restaurant} />
       <IntroSection restaurant={restaurant} />
-      <GallerySection restaurant={restaurant} />
       <CTASection />
       <Footer pageType="property" bgColor={palette.primary} textColor="#FFFFFF" propertyName="Tented Camp" />
     </div>
@@ -47,7 +46,7 @@ function HeroSection({ restaurant }: { restaurant: any }) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60" />
       </div>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 md:pb-16 px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -92,13 +91,13 @@ function IntroSection({ restaurant }: { restaurant: any }) {
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
             style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            Perched above the rainforest canopy at Nayara Tented Camp, Ayla brings Mediterranean-inspired cuisine to the heart of Costa Rica's Arenal region. The open-air restaurant celebrates the biodiversity of the surrounding landscape with seasonal menus that change with the harvest — ingredients sourced from local farms, the resort's own gardens, and the volcanic terroir that defines this corner of the world.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
             style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            From wood-fired preparations to delicate ceviches, every dish tells the story of the land it comes from. The dining experience is refined yet relaxed — barefoot elegance with the volcano as your backdrop and the sounds of the forest as your soundtrack.
           </p>
         </AnimateOnScroll>
       </div>

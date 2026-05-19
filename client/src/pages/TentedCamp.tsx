@@ -204,7 +204,7 @@ type CascadeSectionData = {
   verticalLoop?: boolean;
   mobileVerticalSrc?: string;
   mobileVerticalIsVideo?: boolean;
-  verticalOverlayButtons?: { top: { explore: string; reserve: string; exploreLink?: string }; bottom: { explore: string; reserve: string; exploreLink?: string } };
+  verticalOverlayButtons?: { top: { explore: string; reserve: string; exploreLink?: string; transparent?: boolean }; bottom: { explore: string; reserve: string; exploreLink?: string; transparent?: boolean } };
   horizontalOverlayButtons?: { labels: { label: string; link: string; switchAt: number }[]; reserveLabel: string };
   stats?: { label: string; value: string }[];
   roomCards?: { label: string; route: string; sqm: string; guests: string }[];
@@ -435,11 +435,11 @@ function CascadeSection({
               >
                 <a
                   href={section.verticalOverlayButtons.bottom.exploreLink || "#"}
-                  className="pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: (!section.verticalOverlayButtons.top.explore || section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore || showBottomPill) ? "auto" : "none" }}
+                  className={`pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-[1.03] ${(section.verticalOverlayButtons.bottom.transparent || section.verticalOverlayButtons.bottom.explore.includes("Beyond")) ? "border border-white/70 hover:bg-white/20" : ""}`}
+                  style={{ backgroundColor: (section.verticalOverlayButtons.bottom.transparent || section.verticalOverlayButtons.bottom.explore.includes("Beyond")) ? "transparent" : "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: (!section.verticalOverlayButtons.top.explore || section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore || showBottomPill) ? "auto" : "none" }}
                 >
                   <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
-                    Explore {section.verticalOverlayButtons.bottom.explore}
+                    {section.verticalOverlayButtons.bottom.explore.includes("Beyond") ? section.verticalOverlayButtons.bottom.explore : `Explore ${section.verticalOverlayButtons.bottom.explore}`}
                   </span>
                   <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -526,11 +526,13 @@ function CascadeSection({
             <AnimateOnScroll variants={fadeUp} delay={0.24}>
               <a
                 href={section.textLink}
-                className="inline-flex items-center gap-1.5 mt-8 text-[12px] tracking-[0.08em] transition-colors hover:opacity-70"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 400, color: accentColor }}
+                className="inline-flex items-center gap-2 mt-8 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg text-white"
+                style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
               >
                 {section.textLinkLabel || "Explore More"}
-                <span className="text-[10px]">→</span>
+                <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
               </a>
             </AnimateOnScroll>
           )}
@@ -1056,17 +1058,17 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Discover the Magic\nof the Rainforest",
     body: "Hike through pristine rainforest to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the indigenous Maleku people.",
     verticalSrc: "",
-    horizontalSrc: "/manus-storage/gardens-experience-horizontal-v3_3ad62308.mp4",
+    horizontalSrc: "/manus-storage/tented-experiences-horizontal-combined_a7ea2fb6.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
-    link: "/tented-camp/experiences",
+    link: "/curated-excursions",
     linkLabel: "Explore Experiences",
     overlayOnVideo: true,
-    textLink: "/tented-camp/experiences",
+    textLink: "/curated-excursions",
     textLinkLabel: "Explore Bespoke Experiences",
   },
   {
@@ -1094,7 +1096,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     blogTitle: "Pioneering Sustainable Luxury",
     verticalOverlayButtons: {
       top: { explore: "", reserve: "", exploreLink: "" },
-      bottom: { explore: "Our Sloth Sanctuary", reserve: "", exploreLink: "/tented-camp-sustainability" },
+      bottom: { explore: "Explore Beyond Sustainability", reserve: "", exploreLink: "/sustainability" },
     },
   },
   {
@@ -1103,7 +1105,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Volcanic\nHealing",
     body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.\n\nSurrender to the rhythm of the rainforest , from mineral-rich thermal soaks at dawn to guided breathwork sessions as the howler monkeys call through the canopy. Here, healing is not a treatment but a way of being.",
     verticalSrc: "/manus-storage/tented-wellness-vertical-v3_f9c311f7.mp4",
-    horizontalSrc: "/manus-storage/tented-wellness-16x9_d70aeb22.mp4",
+    horizontalSrc: "/manus-storage/tented-wellness-horizontal-v4_89daad2c.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
     verticalRatio: "720/960",
@@ -1144,8 +1146,8 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     textLink: "/tented-camp/gastronomy",
     textLinkLabel: "Explore Forest to Table",
     verticalOverlayButtons: {
-      top: { explore: "Ayla", reserve: "", exploreLink: "#" },
-      bottom: { explore: "Ayla", reserve: "", exploreLink: "#" },
+      top: { explore: "", reserve: "", exploreLink: "" },
+      bottom: { explore: "Ayla", reserve: "", exploreLink: "/tented-camp/gastronomy/ayla", transparent: true },
     },
   },
   {

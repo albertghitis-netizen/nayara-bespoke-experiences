@@ -13,7 +13,7 @@ import NativeVideo from "@/components/NativeVideo";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Compass, Sparkles, UtensilsCrossed, Heart, Users } from "lucide-react";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -473,11 +473,11 @@ function PropertyInitiativesSection({
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   const pillars = [
-    { label: "Experiences", route: "/experiences" },
-    { label: "Wellness", route: "/wellness" },
-    { label: "Gastronomy", route: "/gastronomy" },
-    { label: "Romance", route: "/romance" },
-    { label: "Family", route: "/family" },
+    { label: "Experiences", route: "/experiences", icon: Compass },
+    { label: "Wellness", route: "/wellness", icon: Sparkles },
+    { label: "Gastronomy", route: "/gastronomy", icon: UtensilsCrossed },
+    { label: "Romance", route: "/romance", icon: Heart },
+    { label: "Family", route: "/family", icon: Users },
   ];
 
   return (
@@ -492,9 +492,10 @@ function CTASection() {
               <Link
                 key={p.label}
                 href={p.route}
-                className="px-6 py-2.5 rounded-full border border-[#3B2B26] text-[#3B2B26] text-[11px] tracking-[0.15em] uppercase hover:bg-[#3B2B26] hover:text-white transition-all duration-300"
+                className="group flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#3B2B26] text-[#3B2B26] text-[11px] tracking-[0.15em] uppercase hover:bg-[#3B2B26] hover:text-white hover:scale-105 hover:shadow-md transition-all duration-300"
                 style={{ ...body, fontWeight: 500 }}
               >
+                <p.icon className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
                 {p.label}
               </Link>
             ))}

@@ -166,6 +166,16 @@ const ASSETS = {
 
 const ATACAMA_ROOMS: RoomSliderCard[] = [
   {
+    id: "quitor",
+    label: "Quitor",
+    tagline: "Adobe-walled retreat nestled against ancient red rock cliffs",
+    guests: "2 Adults",
+    video: "",
+    photo: "/manus-storage/quitor-room_6867de44.jpg",
+    exploreLink: "/alto-atacama/rooms",
+    bookingUrl: BOOKING_URLS["alto-atacama"],
+  },
+  {
     id: "catarpe",
     label: "Catarpe",
     tagline: "Panoramic desert views with private heated infinity pool",
@@ -213,6 +223,7 @@ function MediaBlock({
   isVideo: boolean;
   aspectRatio: string;
 }) {
+  if (!src) return null;
   return (
     <div className="overflow-hidden w-full block leading-[0]" style={{ aspectRatio }}>
       <div className="w-full h-full" style={{ transform: 'scale(1.02)' }}>
@@ -587,8 +598,8 @@ const CASCADE_SECTIONS = [
     description: `${atacama.heroSubtitle} Nayara Alto Atacama is an otherworldly sanctuary in the world's driest desert, where the landscape resembles Mars itself. Surrounded by multicolored mountains, salt flats, and endless horizons, this luxury oasis offers stargazing, desert adventures, and world-class wellness.`,
     secondDescription: "A desert lodge in the driest desert on Earth, where salt flats, geysers, and the clearest night skies in the Southern Hemisphere converge. Two Michelin Keys.",
     vSrc: ASSETS.clip2V,
-    hSrc: "/manus-storage/atacama-s2-drone-trimmed_54c02da9.mp4",
-    vVideo: true, hVideo: true,
+    hSrc: "",
+    vVideo: true, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
 
     textSide: "left" as const,
