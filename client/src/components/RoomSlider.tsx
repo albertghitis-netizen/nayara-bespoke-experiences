@@ -38,10 +38,12 @@ interface RoomSliderProps {
   rooms: RoomSliderCard[];
   forceVideoLeft?: boolean;
   startVideoLeft?: boolean;
+  hideArrows?: boolean;
   palette: {
     bg: string;
     text: string;
     textSecondary: string;
+    textTertiary?: string;
     primary: string;
     cardBg: string;
     cardBorder?: string;
@@ -57,6 +59,7 @@ export default function RoomSlider({
   rooms,
   forceVideoLeft,
   startVideoLeft,
+  hideArrows = false,
   palette,
 }: RoomSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -445,8 +448,8 @@ export default function RoomSlider({
         </AnimatePresence>
       </div>
 
-      {/* Navigation arrows , always visible */}
-      {rooms.length > 1 && (
+      {/* Navigation arrows or swipe hint */}
+      {rooms.length > 1 && !hideArrows && (
       <>
       <button
         onClick={handlePrev}
@@ -469,6 +472,35 @@ export default function RoomSlider({
         <ChevronRight className="w-7 h-7" strokeWidth={2.5} />
       </button>
       </>
+      )}
+      {/* Subtle swipe hint (arrowless mode) */}
+      {rooms.length > 1 && hideArrows && currentIndex === 0 && (
+        <motion.div
+          className="hidden md:flex absolute bottom-8 right-8 md:right-12 z-20 items-center gap-2"
+          style={{ color: `${palette.textSecondary}80` }}
+          animate={{ x: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <span
+            className="text-[10px] tracking-[0.15em] uppercase"
+            style={body}
+          >
+            Swipe
+          </span>
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+            />
+          </svg>
+        </motion.div>
       )}
 
       {/* ─── MOBILE LAYOUT (full-screen video with overlay) ─── */}
@@ -545,8 +577,8 @@ export default function RoomSlider({
           </motion.div>
         </AnimatePresence>
 
-        {/* Mobile arrows */}
-        {rooms.length > 1 && (
+        {/* Mobile arrows (hidden in arrowless mode) */}
+        {rooms.length > 1 && !hideArrows && (
         <>
         <button onClick={handlePrev} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95" style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.3)" }}>
           <ChevronLeft className="w-6 h-6" strokeWidth={2.5} />
@@ -554,14 +586,16 @@ export default function RoomSlider({
         <button onClick={handleNext} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95" style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.3)" }}>
           <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
         </button>
+        </>
+        )}
 
         {/* Mobile dots */}
+        {rooms.length > 1 && (
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {rooms.map((_, i) => (
             <button key={i} onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); }} className="h-2 rounded-full transition-all" style={{ backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.4)", width: i === currentIndex ? "24px" : "8px" }} />
           ))}
         </div>
-        </>
         )}
       </div>
     </section>

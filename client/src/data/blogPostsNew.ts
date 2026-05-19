@@ -11,7 +11,7 @@ export const gastronomyBlogPost: BlogPostData = {
   title: "Forest to Table: Three Kitchens, One Rainforest",
 
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "April 22, 2026",
   pillar: "Gastronomy",
   tags: [],
@@ -155,7 +155,7 @@ export const inHouseActivitiesBlogPost: BlogPostData = {
   title: "Three Hotels, One Rainforest, Infinite Experiences",
   subtitle: "Experiences",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "April 22, 2026",
   pillar: "Experiences",
   tags: ["Experiences", "Wellness", "Nature", "Costa Rica", "Yoga", "Birdwatching", "Hot Springs"],

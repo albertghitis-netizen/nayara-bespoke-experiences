@@ -11,7 +11,7 @@ const atacamaMarsPost: BlogPostData = {
   slug: "atacama-mars",
   title: "Why the Atacama Desert is Mars on Earth",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "September 27, 2025",
   pillar: "Experiences",
   tags: ["Atacama Desert", "Mars", "Astronomy", "Space", "Nayara Alto Atacama", "Astrobiology", "Sustainability"],

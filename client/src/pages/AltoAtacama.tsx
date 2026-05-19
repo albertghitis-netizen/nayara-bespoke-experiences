@@ -120,7 +120,7 @@ const ASSETS = {
   roomsH: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
   // Section 3 , Experiences: cascade salt flat (cropped, no black bars)
-  expV: "/manus-storage/atacama-cascade-2-vertical_00d76fc3.mp4",
+  expV: "/manus-storage/mars-on-earth-vertical_48a5e41e.mov",
   expH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
 
   // Section 4 , Sustainability: cascade flamingos (cropped, no black bars)
@@ -631,7 +631,7 @@ const CASCADE_SECTIONS = [
     label: "Experiences",
     headline: "Mars on Earth",
     description: "NASA scientists have trained here. Geologists call it the closest thing on Earth to the surface of Mars. The Atacama Desert , hyper-arid, mineral-rich, and ancient beyond reckoning , is not a backdrop. It is the experience itself. At Nayara Alto Atacama, every excursion is guided by local experts who have spent lifetimes reading this landscape: its salt crusts, its volcanic craters, its silence.",
-    vSrc: ASSETS.clip6V,
+    vSrc: ASSETS.expV,
     hSrc: "/manus-storage/mars-on-earth-horizontal_8827fcd2.mp4",
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
@@ -673,7 +673,7 @@ const CASCADE_SECTIONS = [
     label: "Wellness",
     headline: "Desert Renewal",
     description: "Our spa draws on ancestral Atacameño healing traditions and the desert's mineral-rich waters. Surrender to treatments designed around the rhythms of this ancient landscape.",
-    vSrc: "/manus-storage/atacama-desert-renewal-new_915f749c.mp4",
+    vSrc: "/manus-storage/atacama-wellness-vertical_d05c2f9f.mov",
     hSrc: ASSETS.wellH2,
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
@@ -923,6 +923,7 @@ export default function AltoAtacama() {
                   description="Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape."
                   rooms={ATACAMA_ROOMS}
                   forceVideoLeft={true}
+                  hideArrows={true}
                   palette={{
                     bg: COLOR_A,
                     text: PALETTE.text,
@@ -992,42 +993,34 @@ export default function AltoAtacama() {
                   </div>
                 </div>
 
-                {/* MOBILE: Video with text overlay */}
-                <div className="md:hidden relative">
-                  <MediaReveal delay={0.1}>
-                    <MediaBlock
-                      src={section.hSrc}
-                      alt={section.headline}
-                      isVideo={section.hVideo}
-                      aspectRatio="16/9"
+                {/* MOBILE: Text then vertical (no overlay) */}
+                <div className="md:hidden px-5">
+                  <div className="pt-10 pb-6">
+                    <CascadeTextBlock
+                      label={section.label}
+                      headline={section.headline}
+                      description={section.description}
+                      secondDescription={(section as any).secondDescription}
+                      link={section.link}
+                      linkLabel={section.linkLabel}
+                      blogLink={(section as any).blogLink}
+                      blogLinkLabel={(section as any).blogLinkLabel}
+                      blogLinkOnVideo={false}
+                      badges={section.badges}
+                      badgeImage={(section as any).badgeImage}
+                      isDark={isDarkSection}
+                      stats={(section as any).stats}
                     />
-                  </MediaReveal>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5 pointer-events-none">
-                    <p className="text-[10px] tracking-[0.2em] mb-2" style={{ ...body, fontWeight: 500, color: MIDDLE }}>
-                      {section.label}
-                    </p>
-                    <h2
-                      className="text-xl leading-[1.1] tracking-wide mb-2"
-                      style={{ ...display, color: BONE }}
-                    >
-                      {section.headline}
-                    </h2>
-                    <p
-                      className="text-[13px] leading-[1.6] mb-4"
-                      style={{ ...body, color: `${BONE}BB` }}
-                    >
-                      {section.description}
-                    </p>
-                    {section.link && (
-                      <a
-                        href={section.link}
-                        className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm w-fit"
-                        style={{ ...body, fontWeight: 500, fontSize: "10px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: BONE, backgroundColor: "rgba(255,255,255,0.08)", borderColor: "rgba(255,255,255,0.35)" }}
-                      >
-                        {section.linkLabel || "Explore More"}
-                      </a>
-                    )}
+                  </div>
+                  <div className="relative">
+                    <MediaReveal delay={0.1}>
+                      <MediaBlock
+                        src={section.vSrc}
+                        alt={section.headline}
+                        isVideo={section.vVideo}
+                        aspectRatio={section.vRatio}
+                      />
+                    </MediaReveal>
                   </div>
                 </div>
               </section>

@@ -11,7 +11,7 @@ const michelinKeysPost: BlogPostData = {
   slug: "michelin-keys",
   title: "7 MICHELIN Keys. 3 Countries. 1 Standard of Excellence",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "March 1, 2026",
   pillar: "Experiences",
   tags: ["MICHELIN Keys", "Awards", "Nayara Springs", "Nayara Bocas del Toro", "Nayara Alto Atacama", "Luxury Travel"],

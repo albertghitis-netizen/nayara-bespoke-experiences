@@ -10,7 +10,7 @@ const tapatiFestivalPost: BlogPostData = {
   slug: "tapati-festival",
   title: "The Tapati Rapa Nui Festival at Nayara Hangaroa",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "February 2025",
   pillar: "Experiences",
   tags: ["Tapati", "Rapa Nui", "Easter Island", "Nayara Hangaroa", "Culture", "Indigenous", "Festival"],

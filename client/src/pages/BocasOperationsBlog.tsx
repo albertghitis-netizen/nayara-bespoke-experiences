@@ -92,7 +92,7 @@ export default function BocasOperationsBlog() {
       {/* ── AUTHOR TAB ── */}
       <BlogAuthorReadTime
         author="Albert Ghitis"
-        authorRole="Head of Digital Marketing, Nayara Resorts"
+        authorRole="Head of Digital Marketing"
         date="May 15, 2025"
         wordCount={1600}
       />

@@ -13,7 +13,7 @@ const wellnessByColorsPost: BlogPostData = {
   slug: "wellness-by-colors",
   title: "Nature-Based Wellness by Colors: Brown, Black, Green, Blue",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "December 6, 2025",
   pillar: "Wellness",
   tags: ["Wellness", "Nature", "Atacama", "Rainforest", "Bocas del Toro", "Dark Sky", "Forest Bathing", "Blue Space", "Nayara Resorts"],

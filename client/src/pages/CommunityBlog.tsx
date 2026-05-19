@@ -104,7 +104,7 @@ export default function CommunityBlog() {
       {/* AUTHOR + READING TIME */}
       <BlogAuthorReadTime
         author="Albert Ghitis"
-        authorRole="Head of Digital Marketing, Nayara Resorts"
+        authorRole="Head of Digital Marketing"
         date="September 3, 2025"
         wordCount={2800}
       />

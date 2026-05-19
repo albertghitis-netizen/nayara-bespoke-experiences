@@ -302,7 +302,7 @@ function StorySection() {
             </p>
             {/* Blog Link */}
             <a
-              href="/journal/stargazing-atacama"
+              href="/blog/stargazing-atacama"
               className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md backdrop-blur-md"
               style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#ffffff", backgroundColor: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
             >

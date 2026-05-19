@@ -13,7 +13,7 @@ const sunlitSustainabilityPost: BlogPostData = {
   slug: "sunlit-sustainability",
   title: "Sunlit Sustainability: Nature-Powered",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "September 3, 2025",
   pillar: "Sustainability",
   tags: ["Solar Energy", "Sustainability", "Renewable Energy", "Nayara Alto Atacama", "Nayara Hangaroa", "Nayara Bocas del Toro", "Green Globe", "Reforestation", "Off-Grid"],

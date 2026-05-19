@@ -13,7 +13,7 @@ const bocasCondeNastPost: BlogPostData = {
   slug: "bocas-conde-nast",
   title: "Why Condé Nast Traveler Named Nayara Bocas del Toro #1",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "October 6, 2025",
   pillar: "Awards",
   tags: ["Awards", "Bocas del Toro", "Condé Nast Traveler", "Overwater Villas", "Romance", "Sustainability"],

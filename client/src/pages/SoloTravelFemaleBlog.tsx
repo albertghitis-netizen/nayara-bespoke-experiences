@@ -13,7 +13,7 @@ const soloTravelFemalePost: BlogPostData = {
   title: "The Future of Solo Travel is Female",
   subtitle: "Luxury Tailored for Personal Discovery",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "May 19, 2025",
   pillar: "Experiences",
   tags: ["Solo Travel", "Female Travel", "Wellness", "Empowerment", "Costa Rica", "Chile", "Panama", "Nayara Resorts"],

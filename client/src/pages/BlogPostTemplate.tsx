@@ -237,7 +237,7 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
       {/* ── 3b. AUTHOR + READING TIME ── */}
       <BlogAuthorReadTime
         author={post.author}
-        authorRole={post.authorRole || "Head of Digital Marketing, Nayara Resorts"}
+        authorRole={post.authorRole || "Head of Digital Marketing"}
         date={post.date}
         wordCount={post.sections.reduce((acc, s) => acc + countWordsInHTML(s.content), 0)}
         readingTime={post.readingTime}

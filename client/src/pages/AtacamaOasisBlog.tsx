@@ -12,7 +12,7 @@ const atacamaOasisPost: BlogPostData = {
   slug: "atacama-oasis",
   title: "What Defines The Best Place to Stay in the Atacama Desert: The Oasis Factor",
   author: "Albert Ghitis",
-  authorRole: "Head of Digital Marketing, Nayara Resorts",
+  authorRole: "Head of Digital Marketing",
   date: "January 27, 2026",
   pillar: "Experiences",
   tags: ["Atacama Desert", "Nayara Alto Atacama", "Oasis", "Architecture", "Indigenous Culture", "Sustainability", "Wellness"],
