@@ -962,7 +962,7 @@ const TENTED_CAMP_ROOMS: RoomSliderCard[] = [
     sqft: "1,700",
     sqm: "158",
     guests: "2 adults + 2 children",
-    video: "/manus-storage/tented-camp-nayara-tent-reel_9f5988c9.mp4",
+    video: "/manus-storage/tented-accom-slider_18c6b738.mov",
     exploreLink: "/tented-camp/rooms/nayara-tent",
     bookingUrl: BOOKING_URLS["tented-camp"],
   },

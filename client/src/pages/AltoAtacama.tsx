@@ -253,6 +253,7 @@ function CascadeTextBlock({
   linkLabel = "Explore More",
   blogLink,
   blogLinkLabel,
+  blogLinkOnVideo = false,
   badges,
   badgeImage,
   isDark = false,
@@ -267,6 +268,7 @@ function CascadeTextBlock({
   linkLabel?: string;
   blogLink?: string;
   blogLinkLabel?: string;
+  blogLinkOnVideo?: boolean;
   badges?: boolean;
   badgeImage?: string;
   isDark?: boolean;
@@ -309,7 +311,7 @@ function CascadeTextBlock({
             ))}
           </div>
         )}
-        {blogLink && (
+        {blogLink && !blogLinkOnVideo && (
           isDark ? (
             /* Starfield pill , black, white outline, twinkling stars */
             <a
@@ -654,6 +656,7 @@ const CASCADE_SECTIONS = [
     linkLabel: "Explore Beyond Sustainability",
     blogLink: "https://www.youtube.com/watch?v=6cfkWsqWWc8",
     blogLinkLabel: "Watch Atacama Sustainability",
+    blogLinkOnVideo: true,
     blogLinkVariants: [
       { label: "🇺🇸 English", url: "https://www.youtube.com/watch?v=6cfkWsqWWc8" },
       { label: "🇪🇸 Español", url: "https://www.youtube.com/watch?v=H9VxyDgv31U" },
@@ -789,6 +792,7 @@ export default function AltoAtacama() {
                         linkLabel={section.linkLabel}
                         blogLink={(section as any).blogLink}
                         blogLinkLabel={(section as any).blogLinkLabel}
+                        blogLinkOnVideo={!!(section as any).blogLinkOnVideo}
                         badges={section.badges}
                         badgeImage={(section as any).badgeImage}
                         isDark={isDarkSection}
@@ -796,30 +800,60 @@ export default function AltoAtacama() {
                       />
                     </div>
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-1/2 relative">
                     <MediaReveal delay={0.2}>
                       <MediaBlock
                         src={section.vSrc}
                         alt={section.headline}
                         isVideo={section.vVideo}
                         aspectRatio={section.vRatio}
-
                       />
                     </MediaReveal>
+                    {(section as any).blogLinkOnVideo && (section as any).blogLink && (
+                      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-6 pointer-events-none z-10">
+                        <a
+                          href={(section as any).blogLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pointer-events-auto inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02]"
+                          style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, background: "transparent", border: `1px solid ${BONE}60` }}
+                        >
+                          <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                          </svg>
+                          {(section as any).blogLinkLabel || "Watch the Film"}
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="w-1/2">
+                  <div className="w-1/2 relative">
                     <MediaReveal delay={0.2}>
                       <MediaBlock
                         src={section.vSrc}
                         alt={section.headline}
                         isVideo={section.vVideo}
                         aspectRatio={section.vRatio}
-
                       />
                     </MediaReveal>
+                    {(section as any).blogLinkOnVideo && (section as any).blogLink && (
+                      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-6 pointer-events-none z-10">
+                        <a
+                          href={(section as any).blogLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pointer-events-auto inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02]"
+                          style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, background: "transparent", border: `1px solid ${BONE}60` }}
+                        >
+                          <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                          </svg>
+                          {(section as any).blogLinkLabel || "Watch the Film"}
+                        </a>
+                      </div>
+                    )}
                   </div>
                   <div className="w-1/2 flex items-center relative overflow-hidden">
                     {isDarkSection && <NightSky />}
@@ -833,6 +867,7 @@ export default function AltoAtacama() {
                         linkLabel={section.linkLabel}
                         blogLink={(section as any).blogLink}
                         blogLinkLabel={(section as any).blogLinkLabel}
+                        blogLinkOnVideo={!!(section as any).blogLinkOnVideo}
                         badges={section.badges}
                         badgeImage={(section as any).badgeImage}
                         isDark={isDarkSection}
@@ -1021,6 +1056,7 @@ export default function AltoAtacama() {
                     linkLabel={section.linkLabel}
                     blogLink={(section as any).blogLink}
                     blogLinkLabel={(section as any).blogLinkLabel}
+                    blogLinkOnVideo={!!(section as any).blogLinkOnVideo}
                     badges={section.badges}
                     badgeImage={(section as any).badgeImage}
                     isDark={isDarkSection}
@@ -1028,14 +1064,32 @@ export default function AltoAtacama() {
                   />
                 </div>
                 {!(section as any).hideMobileV && !isHideV && (
-                  <MediaReveal delay={0.1}>
-                    <MediaBlock
-                      src={section.vSrc}
-                      alt={section.headline}
-                      isVideo={section.vVideo}
-                      aspectRatio={section.vRatio}
-                    />
-                  </MediaReveal>
+                  <div className="relative">
+                    <MediaReveal delay={0.1}>
+                      <MediaBlock
+                        src={section.vSrc}
+                        alt={section.headline}
+                        isVideo={section.vVideo}
+                        aspectRatio={section.vRatio}
+                      />
+                    </MediaReveal>
+                    {(section as any).blogLinkOnVideo && (section as any).blogLink && (
+                      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-4 pointer-events-none z-10">
+                        <a
+                          href={(section as any).blogLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pointer-events-auto inline-flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300 hover:scale-[1.02]"
+                          style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.08em", color: BONE, background: "transparent", border: `1px solid ${BONE}60` }}
+                        >
+                          <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                          </svg>
+                          {(section as any).blogLinkLabel || "Watch the Film"}
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 )}
                 {isHideV && !isHidden && (
                   <MediaReveal delay={0.1}>
