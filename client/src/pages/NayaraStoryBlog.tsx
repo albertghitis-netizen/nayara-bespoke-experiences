@@ -16,7 +16,7 @@ const nayaraStoryPost: BlogPostData = {
   title: "Luxury Resorts Rooted in Nature: The Nayara Story",
   subtitle: "Time is the highest currency. At Nayara, luxury is not speed, excess, or opulence. It is belonging fully to place.",
   author: "Albert Ghitis",
-  authorRole: "Nayara Resorts",
+  authorRole: "Head of Digital Marketing, Nayara Resorts",
   date: "September 3, 2025",
   pillar: "THE NAYARA PHILOSOPHY",
   tags: ["Brand", "Sustainability", "Wellness", "Experiences"],

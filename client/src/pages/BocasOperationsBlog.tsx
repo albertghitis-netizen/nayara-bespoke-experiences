@@ -38,7 +38,7 @@ export default function BocasOperationsBlog() {
         image={`${CDN}/bocas-aerial-island_34b68171.jpg`}
         headline="How Nayara Built an Off Grid Resort on a Private Island in Panama"
         description="The story of building Nayara Bocas del Toro entirely off-grid on a private island in Panama. No roads, no grid, no municipal water. Five environmental studies and a commitment to leave the ecosystem better than we found it."
-        author={{ name: "Dan Behm", expertise: ["Luxury Travel", "Sustainable Tourism", "Off-Grid Architecture"] }}
+        author={{ name: "Albert Ghitis", expertise: ["Luxury Travel", "Sustainable Tourism", "Off-Grid Architecture"] }}
         datePublished="2025-05-15"
         url="https://nayararesorts.manus.space/blog/how-we-built-a-hotel-on-an-island"
       />
@@ -91,8 +91,8 @@ export default function BocasOperationsBlog() {
 
       {/* ── AUTHOR TAB ── */}
       <BlogAuthorReadTime
-        author="Dan Behm"
-        authorRole="Nayara Resorts"
+        author="Albert Ghitis"
+        authorRole="Head of Digital Marketing, Nayara Resorts"
         date="May 15, 2025"
         wordCount={1600}
       />

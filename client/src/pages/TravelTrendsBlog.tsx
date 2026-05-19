@@ -10,7 +10,7 @@ const travelTrendsPost: BlogPostData = {
   slug: "travel-trends",
   title: "The Top 10 Travel Trends of 2026",
   author: "Albert Ghitis",
-  authorRole: "Nayara Resorts",
+  authorRole: "Head of Digital Marketing, Nayara Resorts",
   date: "January 7, 2026",
   pillar: "Experiences",
   tags: ["Travel Trends", "Luxury Travel", "Wellness", "Astro-tourism", "Regenerative Travel", "Solo Travel", "Sustainability", "Latin America"],

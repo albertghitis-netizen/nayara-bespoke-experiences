@@ -170,28 +170,7 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Back pill , top right */}
-      <div className="absolute top-24 md:top-28 right-6 md:right-16">
-        <a
-          href="/tented-camp"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
-          style={{
-            ...body,
-            fontWeight: 500,
-            fontSize: "10px",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase" as const,
-            color: P.white,
-            backgroundColor: "rgba(134,139,117,0.5)",
-            borderColor: PILL_BORDER,
-          }}
-        >
-          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-          </svg>
-          Tented Camp
-        </a>
-      </div>
+
     </section>
   );
 }
@@ -827,24 +806,6 @@ function CTASection() {
               </svg>
             </button>
 
-            <a
-              href="/tented-camp"
-              onMouseEnter={() => setHovered2(true)}
-              onMouseLeave={() => setHovered2(false)}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border transition-all duration-300 hover:scale-[1.03]"
-              style={{
-                ...body,
-                fontWeight: 500,
-                fontSize: "11px",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase" as const,
-                color: hovered2 ? P.secondary : P.bone,
-                backgroundColor: hovered2 ? P.bone : "transparent",
-                borderColor: `${P.bone}40`,
-              }}
-            >
-              Explore All Rooms
-            </a>
           </div>
         </motion.div>
       </div>

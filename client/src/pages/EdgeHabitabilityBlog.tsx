@@ -12,7 +12,7 @@ const edgeHabitabilityPost: BlogPostData = {
   slug: "edge-habitability",
   title: "The Atacama Desert: At the Edge of Habitability",
   author: "Albert Ghitis",
-  authorRole: "Nayara Resorts",
+  authorRole: "Head of Digital Marketing, Nayara Resorts",
   date: "January 8, 2024",
   pillar: "Experiences",
   tags: ["Atacama Desert", "Nayara Alto Atacama", "Wildlife", "Geology", "Ecology", "Astronomy", "Sustainability"],

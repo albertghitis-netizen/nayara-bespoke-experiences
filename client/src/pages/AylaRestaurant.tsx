@@ -185,15 +185,14 @@ function CTASection() {
           >
             Ready to Experience This?
           </h2>
-          <Link href="/tented-camp/gastronomy">
-            <a
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
-              style={{ backgroundColor: palette.primary }}
-            >
-              <span style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
-                Back to Gastronomy
-              </span>
-            </a>
+          <Link
+            href="/tented-camp/gastronomy"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
+            style={{ backgroundColor: palette.primary }}
+          >
+            <span style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+              Back to Gastronomy
+            </span>
           </Link>
         </AnimateOnScroll>
       </div>

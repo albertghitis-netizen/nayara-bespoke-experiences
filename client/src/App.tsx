@@ -211,7 +211,6 @@ function Router() {
           <Route path="/family-expeditions" component={FamilyExpeditions} />
           <Route path="/romance" component={RainforestRomance} />
           <Route path="/tented-camp" component={TentedCamp} />
-          <Route path="/tented-camp/rooms" component={TentedRooms} />
           <Route path="/tented-camp/rooms/nayara-tent" component={NayaraTent} />
           <Route path="/tented-camp/rooms/family-tent" component={FamilyTent} />
           <Route path="/tented-camp/rooms/residence" component={TentedResidencePage} />

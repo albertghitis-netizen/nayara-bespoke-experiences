@@ -19,7 +19,7 @@ const hangaroaRegenerationPost: BlogPostData = {
   slug: "hangaroa-regeneration",
   title: "How Nayara Hangaroa Leads Regeneration on Rapa Nui",
   author: "Albert Ghitis",
-  authorRole: "Nayara Resorts",
+  authorRole: "Head of Digital Marketing, Nayara Resorts",
   date: "November 5, 2025",
   pillar: "Sustainability",
   tags: ["Rapa Nui", "Easter Island", "Nayara Hangaroa", "Regeneration", "Hito Family", "Moai", "Sustainability", "Reforestation", "Coral Restoration"],

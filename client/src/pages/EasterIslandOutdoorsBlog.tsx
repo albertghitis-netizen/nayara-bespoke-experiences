@@ -72,7 +72,7 @@ export default function EasterIslandOutdoorsBlog() {
     "@type": "BlogPosting",
     headline: "Challenge Easter Island's Outdoors with Nayara Hangaroa",
     description: "From volcano treks and cave explorations to scuba diving the Sunken Moai and horseback riding to Terevaka's summit — every outdoor adventure available on the world's most remote inhabited island.",
-    author: { "@type": "Organization", name: "Nayara Resorts" },
+    author: { "@type": "Person", name: "Albert Ghitis" },
     publisher: { "@type": "Organization", name: "Nayara Resorts" },
     datePublished: "2025-05-12",
     image: IMAGES.hero,

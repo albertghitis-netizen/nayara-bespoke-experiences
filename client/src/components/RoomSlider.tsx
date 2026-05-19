@@ -20,6 +20,7 @@ export interface RoomSliderCard {
   id: string;
   label: string;
   tagline?: string;
+  description?: string;
   sqft?: string;
   sqm?: string;
   guests: string;
@@ -123,10 +124,18 @@ export default function RoomSlider({
       </h2>
       {currentRoom.tagline && (
         <p
-          className="text-sm lg:text-base tracking-[0.03em] mb-6 max-w-[400px]"
+          className="text-sm lg:text-base tracking-[0.03em] mb-3 max-w-[400px]"
           style={{ ...body, color: palette.textSecondary }}
         >
           {currentRoom.tagline}
+        </p>
+      )}
+      {currentRoom.description && (
+        <p
+          className="text-xs lg:text-sm leading-relaxed mb-6 max-w-[400px]"
+          style={{ ...body, color: palette.textTertiary || palette.textSecondary }}
+        >
+          {currentRoom.description}
         </p>
       )}
 
@@ -288,10 +297,18 @@ export default function RoomSlider({
                   </h2>
                   {currentRoom.tagline && (
                     <p
-                      className="text-sm lg:text-base tracking-[0.03em] mb-6 max-w-[400px]"
+                      className="text-sm lg:text-base tracking-[0.03em] mb-3 max-w-[400px]"
                       style={{ ...body, color: palette.textSecondary }}
                     >
                       {currentRoom.tagline}
+                    </p>
+                  )}
+                  {currentRoom.description && (
+                    <p
+                      className="text-xs lg:text-sm leading-relaxed mb-6 max-w-[400px]"
+                      style={{ ...body, color: palette.textTertiary || palette.textSecondary }}
+                    >
+                      {currentRoom.description}
                     </p>
                   )}
                   <div className="flex flex-wrap gap-2 mb-8">
@@ -359,10 +376,18 @@ export default function RoomSlider({
                   </h2>
                   {currentRoom.tagline && (
                     <p
-                      className="text-sm lg:text-base tracking-[0.03em] mb-6 max-w-[400px]"
+                      className="text-sm lg:text-base tracking-[0.03em] mb-3 max-w-[400px]"
                       style={{ ...body, color: palette.textSecondary }}
                     >
                       {currentRoom.tagline}
+                    </p>
+                  )}
+                  {currentRoom.description && (
+                    <p
+                      className="text-xs lg:text-sm leading-relaxed mb-6 max-w-[400px]"
+                      style={{ ...body, color: palette.textTertiary || palette.textSecondary }}
+                    >
+                      {currentRoom.description}
                     </p>
                   )}
                   <div className="flex flex-wrap gap-2 mb-8">
@@ -484,8 +509,13 @@ export default function RoomSlider({
                 {currentRoom.label}
               </h2>
               {currentRoom.tagline && (
-                <p className="text-white/80 text-sm mb-4" style={{ ...body }}>
+                <p className="text-white/80 text-sm mb-2" style={{ ...body }}>
                   {currentRoom.tagline}
+                </p>
+              )}
+              {currentRoom.description && (
+                <p className="text-white/60 text-xs leading-relaxed mb-4" style={{ ...body }}>
+                  {currentRoom.description}
                 </p>
               )}
               <div className="flex flex-wrap gap-2 mb-4">

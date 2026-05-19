@@ -33,7 +33,7 @@ const mayaRapaNuiClimatePost: BlogPostData = {
   sections: [
     {
       heading: "Why Diamond's Collapse Template Took Hold",
-      image: { src: "/manus-storage/maya-rapa-nui-pyramid-moai_425c64ac.jpeg", alt: "Maya pyramid at Chichén Itzá alongside moai statues of Rapa Nui" },
+      image: { src: "/manus-storage/maya-rapa-nui-pyramid-moai_425c64ac.jpeg", alt: "Maya pyramid at Chichén Itzá alongside moai statues of Rapa Nui", aiGenerated: true },
       content: `<p>For more than two decades, Rapa Nui and the Maya have been framed as cautionary tales. In popular culture and academic shorthand alike, they are presented as societies that exceeded environmental limits, triggered their own collapse, and vanished as warnings to the modern world.</p>
 <p>That framing entered public consciousness most forcefully through Jared Diamond's <em>Collapse</em>, which cast Rapa Nui as an extreme case of ecological self-destruction and extended the same logic to the Maya. The argument is elegant. It is memorable. It is also incorrect.</p>
 <p>Its durability has less to do with evidence than with psychology. Collapse narratives satisfy modern anxieties about climate, consumption, and limits. They reduce complex histories into moral lessons. They make the past feel manageable.</p>
@@ -100,7 +100,6 @@ const mayaRapaNuiClimatePost: BlogPostData = {
     },
     {
       heading: "What the Maya and Rapa Nui Actually Share",
-      image: { src: "/manus-storage/maya-rapa-nui-archaeologist_6dc20fe6.jpeg", alt: "Dr. Kenneth Seligson at a Maya archaeological site in the Yucatán" },
       content: `<p>They do not share a time period. They do not share ecology. They do not share political structure.</p>
 <p>What they share is how they have been turned into parables.</p>
 <p>Both are treated as mysteries. Both are treated as vanished. Both are treated as proof that Indigenous societies were careless stewards of their environments.</p>

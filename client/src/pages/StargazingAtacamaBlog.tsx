@@ -12,7 +12,7 @@ const stargazingAtacamaPost: BlogPostData = {
   slug: "stargazing-atacama",
   title: "Why Nayara Alto Atacama Is the Best Stargazing Resort in the Atacama Desert",
   author: "Albert Ghitis",
-  authorRole: "Nayara Resorts",
+  authorRole: "Head of Digital Marketing, Nayara Resorts",
   date: "June 11, 2024",
   pillar: "Experiences",
   tags: ["Atacama Desert", "Stargazing", "Astronomy", "Nayara Alto Atacama", "Dark Skies", "Indigenous Culture", "Milky Way"],

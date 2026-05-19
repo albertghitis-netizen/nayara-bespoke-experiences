@@ -57,7 +57,7 @@ export default function CommunityBlog() {
         image="/manus-storage/community-hero-21x9_84024aed.jpg"
         headline="Rooted in Community: How Nayara Supports Local People Across Four Destinations: Human Hospitality"
         description="At the heart of Nayara's approach to regenerative travel is not just the environment, but the people who care for it, depend on it, and shape the guest experience."
-        author={{ name: "Nayara Resorts", expertise: ["Luxury Hospitality", "Sustainable Tourism", "Community Development"] }}
+        author={{ name: "Albert Ghitis", expertise: ["Luxury Hospitality", "Sustainable Tourism", "Community Development"] }}
         datePublished="2025-09-03"
         url="https://nayararesorts.manus.space/blog/rooted-in-community"
       />
@@ -104,7 +104,7 @@ export default function CommunityBlog() {
       {/* AUTHOR + READING TIME */}
       <BlogAuthorReadTime
         author="Albert Ghitis"
-        authorRole="Nayara Resorts"
+        authorRole="Head of Digital Marketing, Nayara Resorts"
         date="September 3, 2025"
         wordCount={2800}
       />

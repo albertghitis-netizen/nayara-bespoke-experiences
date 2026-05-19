@@ -12,8 +12,8 @@ import type { BlogPostData } from "@/data/blogPosts";
 const sunlitSustainabilityPost: BlogPostData = {
   slug: "sunlit-sustainability",
   title: "Sunlit Sustainability: Nature-Powered",
-  author: "Nayara Resorts",
-  authorRole: "Nayara Resorts",
+  author: "Albert Ghitis",
+  authorRole: "Head of Digital Marketing, Nayara Resorts",
   date: "September 3, 2025",
   pillar: "Sustainability",
   tags: ["Solar Energy", "Sustainability", "Renewable Energy", "Nayara Alto Atacama", "Nayara Hangaroa", "Nayara Bocas del Toro", "Green Globe", "Reforestation", "Off-Grid"],

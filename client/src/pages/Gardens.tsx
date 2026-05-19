@@ -240,7 +240,7 @@ export default function Gardens() {
         textLinkLabel=""
         hideButton={false}
         buttonLabel="Explore Nostalgia"
-        buttonHref="/gardens/by-night"
+        buttonHref="/gardens/gastronomy/nostalgia"
         overlayOnVideo={true}
       />
 
@@ -1523,11 +1523,11 @@ function GardensGastronomyCascade() {
           <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
               href="#night-frog-tour"
-              className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-              style={{ backgroundColor: "#F5E4ED", fontFamily: "var(--font-body)" }}
+              className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
+              style={{ backgroundColor: "transparent", fontFamily: "var(--font-body)" }}
             >
-              <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Lyla's Gelato</span>
-              <svg className="w-3.5 h-3.5 text-[#3a2a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Lyla's Gelato</span>
+              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </div>
         </div>

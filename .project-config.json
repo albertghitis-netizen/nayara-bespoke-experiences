@@ -12,10 +12,10 @@
   "experiments": null,
   "git_remote": {
     "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2",
-    "access_key_id": "ASIAZV3A2ECZEUCIDM7Q",
-    "secret_access_key": "lfK6sybf8QS4eOmjVub/MVbkWqfDYVMSKoe2ShRB",
-    "session_token": "IQoJb3JpZ2luX2VjEN7//////////wEaCXVzLWVhc3QtMSJGMEQCIDeVyq+OTEcVdhU2e9bnyJYxWPxHv+5BvZ96CEErYqnqAiBb0zP3AwikccvWpBSEYz9/2ELjGQY1AGV66tfKbp9gmSr/Awim//////////8BEAQaDDY2NTM4NjA5ODg2NiIMbmNB7JurNOA1o1ZYKtMDLG3ka9nrutGIDB02CcTZ+CYDhiOYrPyOWJPF8X2001qGvMsd6p/rPS4XFNNb8oGXL8Y9mSPrMceKjZ6cZbmERdkSvnS1lagW77Wnsa57RgmGpivnx3OgkJ0vHWdt42AC5zhu6YTbVQbTpVuQME2a1uZfyg4pHMog8iklzJzziEm8E/fupEpYX3gge+S9sV4MiZ6YBlLFV0bGPkqg5nsgJcZhkAqkvvFFdZiRbvpdjZrjbfLpqLK+8u9EN/bHrfjRmpfHMS+8Inutx7CJUu/8fRTKyzeNr2PLHo+OUh4sLN4X2OQEYpiM7zBlJIAxKs++5nNjEWO/DwlAW39jmxLnZbvDgMp4vzvctRQjonYjeE1TxIWGbDfn68dhNALkBZ2OBGMSO1GloT0e1tmcN7zhGoIqreU5+59XfzqbeEwA7EOuo8heSnA/F8ziAZZb6eZo5uzklnLqJ+BAHOgvcLwMnEn0y52oMNPDrB3YkYA/+FR73LFMYv6FOquFitxc44LziBhWYziRlv9rGx7Jjli/yWcgckv9OwHvgAfmF44UwsCWEtCC85uJpFYgUqT4oFDoJwKrl0zpiYm+ZaPMHFrCGD+BkYReL2pQ1sYc0Wedyx9qgpMw3/2m0AY6ngG3Z7jPI1TkdthH7jEIlygeL+oPbjNb6wRLZdHgTt7mJyqhH6jbn8yfFycAGYwa5IdyJGo9tF7SqrJIhBD8igqJedpVCFNSAl9tkEsYl6YISLfN6REYjvjVT8v/Pr0R15GwOWOlZFnhvyercJpsKxk1NlAAgzLd5wfsISv+sQsH6nY+PfU6nah895C8l43uEV9YKxBULTwr9ZmAbj5hSw==",
-    "expiration": "2026-05-18T01:13:03.000Z"
+    "access_key_id": "ASIAZV3A2ECZORXBXZ2V",
+    "secret_access_key": "aHOiYR1d97Z3I5c9SN86T17S12MXaoXNggqkh9Jn",
+    "session_token": "IQoJb3JpZ2luX2VjEA4aCXVzLWVhc3QtMSJIMEYCIQDKGD5x4eYKxOT6vzSwuCepBBEEtOCNyIXFPi5m9GrH0AIhANmefw+IZk9z07DJAP+UrBFXQLNucrSjBaaCIQCCjXjZKv8DCNf//////////wEQBBoMNjY1Mzg2MDk4ODY2IgxXqMbiF9EyH0KPqKMq0wMF9zbl878+lnjaAZFp0aTNDdoDL/kcf34iaRxhB/sCok2DQtLCBzEKCw7f6Fvid3yVxC/FuHv2mzC7G9AVh0Q+d6RfiQnBHXm92xO1FyoTm3pVsxH5S5ihlf7JYJjcA0OWrgBbhQkZ9vk9VErg3JqrTuDRdh15+L5UlRb6Jk58dWvKJl+v2BLivh3YEeyIL16GOUZKCaEQhis+5aDyps7s6sMIA7vhtQCTd7RzNDeHmXtQeEK8OG72F69hdFAMOl080XnkNtrVVBUWyoEyPn8jQZV9NySeo2NehwRsBE3soZ6w1fnDBdxUo45CNYOheVQ2hcDYzRbx/ymzNgM8ej46lIT0xX+0MXd2Lmz6NDgJdNB/7mkmuRjLav3Fwqo6ps9nXY/zhrSC6acCVmaOEzHJWxxbfxuSjy1DN8mVxFMBLCvk308Eih8BPFHRg7+e5FCUNMZ1qujDyiwGbOsL0LA4NLC3GLSgeLTw8/6Guu4Au+vI0nCDaJkuP4yow6QswfFcqhrPILQaOUjw03rzJKRipCTsbAyU0GaPdJpjm+JsnOKZFKIT3QFzEof3SYQs2CUG/3rcVPYi1tMlEle4Ptag7IJvqyGgHdn8Ye0vRsHDWs46mTD+zbHQBjqcAWGX8zFNE8Rjorpc0Z9rmi8eAPpBxKtVWePCxuzVL8fYmJcHaeBImAOU67fTyvx4eDgD6CKZhf8+EWOf+zdQTz64yM9r+445i+KAoKxzkpHYQozSRgpX8TK6eVWCK9oaveFTLIhk8fgrJemkjAT7siDltNCQDyW7+IIaCbDjAVflfkwvIlAxIzkl4xiMNV29sDTI4PaLeGZ5B4QUkg==",
+    "expiration": "2026-05-20T01:34:54.000Z"
   },
   "name": "nayara-bespoke-experiences",
   "path": "/home/ubuntu/nayara-bespoke-experiences",

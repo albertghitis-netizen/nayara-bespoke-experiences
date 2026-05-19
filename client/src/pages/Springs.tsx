@@ -204,19 +204,7 @@ export default function Springs() {
       <SustainabilitySection />
       <WellnessSection />
       <GastronomySection />
-      <ByNightCTA
-        verticalSrc="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio(1)_9a4dccd8.jpeg"
-        verticalIsVideo={false}
-        verticalRatio="3/4"
-        horizontalSrc="/manus-storage/springs-by-night-horizontal_2c67894f.mp4"
-        horizontalIsVideo={true}
-        horizontalRatio="16/9"
-        bgColor="#0D0704"
-        headline={"Night Frog Tour"}
-        bodyText="As darkness descends on the rainforest, a hidden world reveals itself. Join our naturalist guides on an intimate nocturnal expedition through the volcanic trails, where dozens of rare frog species emerge under the canopy , their calls creating a symphony that can only be heard after nightfall."
-        textSide="left"
-        overlayOnVideo={true}
-      />
+
       <ReviewsSection />
       <GettingHereSection />
       <ReserveCTA />
