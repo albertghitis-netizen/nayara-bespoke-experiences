@@ -120,7 +120,7 @@ const ASSETS = {
   roomsH: "/manus-storage/atacama-accommodations-h_ce136480.mp4",
 
   // Section 3 , Experiences: cascade salt flat (cropped, no black bars)
-  expV: "/manus-storage/mars-on-earth-vertical_48a5e41e.mov",
+  expV: "/manus-storage/mars-on-earth-vertical-v2_5bb7b544.mp4",
   expH: "/manus-storage/atacama-cascade-3-accom-h_3c07c09a.mp4",
 
   // Section 4 , Sustainability: cascade flamingos (cropped, no black bars)
@@ -640,6 +640,7 @@ const CASCADE_SECTIONS = [
     linkLabel: "Explore Experiences",
     blogLink: "/blog/atacama-mars",
     blogLinkLabel: "Read: Why the Atacama Is Mars on Earth",
+    blogLinkOnVideo: true,
     badges: false,
     overlayOnVideo: true,
   },
@@ -673,7 +674,7 @@ const CASCADE_SECTIONS = [
     label: "Wellness",
     headline: "Desert Renewal",
     description: "Our spa draws on ancestral Atacameño healing traditions and the desert's mineral-rich waters. Surrender to treatments designed around the rhythms of this ancient landscape.",
-    vSrc: "/manus-storage/atacama-wellness-vertical_d05c2f9f.mov",
+    vSrc: "/manus-storage/atacama-wellness-vertical_7c5980de.mp4",
     hSrc: ASSETS.wellH2,
     vVideo: true, hVideo: true,
     vRatio: "3/4", hRatio: "16/9",
@@ -1021,6 +1022,22 @@ export default function AltoAtacama() {
                         aspectRatio={section.vRatio}
                       />
                     </MediaReveal>
+                    {(section as any).blogLinkOnVideo && (section as any).blogLink && (
+                      <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-4 pointer-events-none z-10">
+                        <a
+                          href={(section as any).blogLink}
+                          target={(section as any).blogLink.startsWith("http") ? "_blank" : undefined}
+                          rel={(section as any).blogLink.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="pointer-events-auto inline-flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300 hover:scale-[1.02]"
+                          style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.08em", color: BONE, background: "transparent", border: `1px solid ${BONE}60` }}
+                        >
+                          <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                          </svg>
+                          {(section as any).blogLinkLabel || "Read More"}
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </section>

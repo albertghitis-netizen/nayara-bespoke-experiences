@@ -1535,6 +1535,9 @@ export default function TentedCamp() {
       ]} />
       <HeroSection />
 
+      {/* ── Story/Intro section with badges ── */}
+      <CascadeSection section={SECTIONS_BEFORE_REVIEW[0]} index={0} />
+
       {/* ── One Rainforest, Three Resorts , Three Keys, One Door ── */}
       <OneRainforestCompactTC />
 

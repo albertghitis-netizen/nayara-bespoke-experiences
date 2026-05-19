@@ -103,7 +103,7 @@ const SPRINGS_RESTAURANTS: RestaurantEntry[] = [
     route: "/springs/gastronomy/amor-loco",
   },
   {
-    name: "Nysa Morris",
+    name: "Mis Amores",
     cuisine: "Italian Bistro",
     description: "Simplicity executed perfectly: house-made focaccia, burrata with heirloom tomatoes, seasonal risottos, grilled meats and seafood. The atmosphere is warm and unhurried — the kind of restaurant where you come for a quick lunch and stay for two hours.",
     image: "/manus-storage/mis-amores-3_58c06b2d.jpg",

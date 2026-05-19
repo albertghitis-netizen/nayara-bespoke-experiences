@@ -350,6 +350,10 @@ export default function AwardsAndPress() {
 
       {/* ── Press Tab ── */}
       {activeTab === "press" && (
+        <>
+        {/* ── Featured Press Cards ── */}
+        <PressCardsSection />
+
         <section className="px-6 md:px-10 pb-24">
           <div className="max-w-4xl mx-auto">
             {sortedYears.length === 0 && (
@@ -391,6 +395,7 @@ export default function AwardsAndPress() {
             ))}
           </div>
         </section>
+        </>
       )}
 
       <Footer textColor="#FFFFFF" />
@@ -427,6 +432,168 @@ function AnimatedStat({ value, className, style }: { value: string; className?: 
   }, [isInView, value]);
 
   return <p ref={ref} className={className} style={style}>{display}</p>;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PRESS CARDS , Visual cards for external press articles
+   ═══════════════════════════════════════════════════════════════ */
+interface PressCard {
+  title: string;
+  publication: string;
+  date: string;
+  url: string;
+  property: string;
+}
+
+const externalPressCards: PressCard[] = [
+  {
+    title: "Michelin Key Hotels: Top Luxury Stays",
+    publication: "Inspirato",
+    date: "January 2026",
+    url: "https://www.inspirato.com/details/general/michelin-key-hotels-luxury-travel/",
+    property: "Nayara Springs",
+  },
+  {
+    title: "Nayara Resorts Named Top 15 Hotel Brand in the World",
+    publication: "Travel + Leisure",
+    date: "December 2025",
+    url: "https://www.travelandleisure.com/",
+    property: "Nayara Resorts",
+  },
+  {
+    title: "Nayara Resorts Plans Eco-Friendly Beach Hotel in Manuel Antonio",
+    publication: "Tico Times",
+    date: "December 2025",
+    url: "https://ticotimes.net/2025/12/09/costa-ricas-nayara-resorts-plans-eco-friendly-beach-hotel-in-manuel-antonio",
+    property: "Nayara Resorts",
+  },
+  {
+    title: "Nayara Springs Named Among World's Best Hotels by Michelin",
+    publication: "Tico Times",
+    date: "October 2025",
+    url: "https://ticotimes.net/2025/10/10/costa-ricas-nayara-springs-named-among-worlds-best-hotels-by-michelin",
+    property: "Nayara Springs",
+  },
+  {
+    title: "Michelin, Condé Nast, Travel + Leisure: The World's Top Awards Choose Nayara",
+    publication: "Travel World News",
+    date: "October 2025",
+    url: "https://www.travelworldnews.com/michelin-conde-nast-travel-leisure-the-worlds-top-awards-choose-nayara-resorts/",
+    property: "Nayara Resorts",
+  },
+  {
+    title: "Nayara Alto Atacama Review: A Smart Pick for Adventurous Couples",
+    publication: "Travel Market Report",
+    date: "October 2025",
+    url: "https://www.travelmarketreport.com/hotels-resorts/articles/nayara-alto-atacama-review-a-smart-pick-for-adventurous-couples-visiting-the-north-of-chile",
+    property: "Nayara Alto Atacama",
+  },
+  {
+    title: "Nayara Alto Atacama Hotel Review",
+    publication: "The Telegraph",
+    date: "July 2025",
+    url: "https://www.telegraph.co.uk/travel/destinations/south-america/chile/atacama/san-pedro-de-atacama/hotels/nayara-alto-atacama-hotel/",
+    property: "Nayara Alto Atacama",
+  },
+  {
+    title: "How to Plan the Perfect Trip to Easter Island",
+    publication: "Travel + Leisure",
+    date: "June 2025",
+    url: "https://www.travelandleisure.com/trip-ideas/vacationing-in-easter-island",
+    property: "Nayara Hangaroa",
+  },
+  {
+    title: "An Intentional Oasis Meant for Slowing Down",
+    publication: "Condé Nast Traveler",
+    date: "2024",
+    url: "https://www.cntraveler.com/hotels/nayara-alto-atacama",
+    property: "Nayara Alto Atacama",
+  },
+  {
+    title: "Sukha Spa Named Among World's 12 Best Spas",
+    publication: "Galerie Magazine",
+    date: "2024",
+    url: "https://galeriemagazine.com/best-spas-in-the-world/",
+    property: "Nayara Springs",
+  },
+];
+
+/* Publication color mapping */
+const pubColors: Record<string, { bg: string; text: string }> = {
+  "Travel + Leisure": { bg: "#1a1a1a", text: "#ffffff" },
+  "Condé Nast Traveler": { bg: "#8B0000", text: "#ffffff" },
+  "Tico Times": { bg: "#1B5E20", text: "#ffffff" },
+  "Travel World News": { bg: "#1565C0", text: "#ffffff" },
+  "Travel Market Report": { bg: "#4A148C", text: "#ffffff" },
+  "The Telegraph": { bg: "#0D47A1", text: "#ffffff" },
+  "Galerie Magazine": { bg: "#3E2723", text: "#ffffff" },
+  "Inspirato": { bg: "#263238", text: "#ffffff" },
+};
+
+function PressCardsSection() {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#f7f5f0]">
+      <div className="max-w-6xl mx-auto">
+        <FadeIn>
+          <p className="text-[10px] tracking-[0.25em] mb-4" style={{ ...body, fontWeight: 500, color: "#3B2B26", opacity: 0.4 }}>Featured In</p>
+        </FadeIn>
+        <FadeIn delay={0.1}>
+          <h2 className="text-2xl md:text-3xl lg:text-[36px] leading-[1.15] tracking-wide mb-12 md:mb-16" style={{ ...heading, color: "#3B2B26" }}>
+            What the Press Is Saying
+          </h2>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {externalPressCards.map((card, i) => {
+            const colors = pubColors[card.publication] || { bg: "#3B2B26", text: "#ffffff" };
+            return (
+              <motion.a
+                key={i}
+                href={card.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.04 }}
+                className="group relative flex flex-col justify-between p-7 md:p-8 rounded-sm transition-all duration-500 hover:translate-y-[-4px] hover:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.2)] overflow-hidden"
+                style={{ backgroundColor: colors.bg, minHeight: "220px" }}
+              >
+                {/* Publication name — top */}
+                <div>
+                  <span
+                    className="text-[10px] tracking-[0.2em] uppercase opacity-50 group-hover:opacity-80 transition-opacity"
+                    style={{ ...body, fontWeight: 600, color: colors.text }}
+                  >
+                    {card.publication}
+                  </span>
+                </div>
+
+                {/* Article title — center/bottom */}
+                <div className="mt-auto">
+                  <h3
+                    className="text-[15px] md:text-[16px] leading-[1.4] mb-3 group-hover:opacity-90 transition-opacity"
+                    style={{ ...heading, fontWeight: 400, color: colors.text }}
+                  >
+                    {card.title}
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <span
+                      className="text-[11px] opacity-40 group-hover:opacity-60 transition-opacity"
+                      style={{ ...body, color: colors.text }}
+                    >
+                      {card.date} · {card.property}
+                    </span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-30 group-hover:opacity-70 transition-all duration-300 group-hover:translate-x-0.5" style={{ color: colors.text }} />
+                  </div>
+                </div>
+              </motion.a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 /* ═══════════════════════════════════════════════════════════════
