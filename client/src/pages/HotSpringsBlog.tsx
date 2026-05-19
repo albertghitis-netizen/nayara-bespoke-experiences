@@ -483,7 +483,12 @@ export default function HotSpringsBlog() {
       </section>
 
       {/* ── EXPLORE MORE (3 related articles) ── */}
-      <section style={{ backgroundColor: PALETTE.cream }}>
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+        style={{ backgroundColor: PALETTE.cream }}>
         <div className="max-w-5xl mx-auto px-8 md:px-16 pt-16 pb-16">
           <p className="uppercase tracking-[0.3em] text-[11px] mb-4 text-center" style={{ fontWeight: 600, color: PALETTE.accent }}>
             Continue Reading
@@ -520,7 +525,7 @@ export default function HotSpringsBlog() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ── BRAND ESPRESSO FOOTER ── */}
       <Footer textColor="#FFFFFF" />

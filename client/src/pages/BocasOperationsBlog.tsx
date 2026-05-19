@@ -529,7 +529,13 @@ export default function BocasOperationsBlog() {
       </section>
 
       {/* ── EXPLORE MORE ── */}
-      <section style={{ backgroundColor: "#E8E2D8" }}>
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+        style={{ backgroundColor: "#E8E2D8" }}
+      >
         <div className="max-w-5xl mx-auto px-8 md:px-16 pt-16 pb-16">
           <p className="uppercase tracking-[0.3em] text-[11px] mb-4 text-center" style={{ fontWeight: 600, color: "#8B6914" }}>Continue Reading</p>
           <h2 className="text-3xl md:text-4xl mb-12 text-center" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>
@@ -564,7 +570,7 @@ export default function BocasOperationsBlog() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer bgColor="#1E3A8A" textColor="#FFFFFF" propertyName="Bocas del Toro" />
     </div>

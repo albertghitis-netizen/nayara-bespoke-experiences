@@ -433,7 +433,12 @@ export default function ArenalTimelessWonderBlog() {
       </section>
 
       {/* ── EXPLORE MORE ── */}
-      <section className="px-6 md:px-12 lg:px-24 py-16" style={{ backgroundColor: PALETTE.cream }}>
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="px-6 md:px-12 lg:px-24 py-16" style={{ backgroundColor: PALETTE.cream }}>
         <div className="max-w-5xl mx-auto">
           <p
             className="text-[10px] tracking-[0.3em] uppercase mb-2 text-center"
@@ -475,7 +480,7 @@ export default function ArenalTimelessWonderBlog() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </div>
