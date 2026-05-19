@@ -25,6 +25,7 @@ export interface RoomSliderCard {
   guests: string;
   video: string;
   photo?: string;
+  mediaLeft?: boolean;
   exploreLink: string;
   bookingUrl: string;
 }
@@ -88,7 +89,7 @@ export default function RoomSlider({
   const pillBg = palette.pillBg || palette.primary;
   const pillText = palette.pillText || "#ffffff";
   const currentRoom = rooms[currentIndex];
-  const isVideoLeft = forceVideoLeft !== undefined ? forceVideoLeft : startVideoLeft ? currentIndex % 2 === 0 : currentIndex % 2 === 1;
+  const isVideoLeft = currentRoom.mediaLeft !== undefined ? currentRoom.mediaLeft : forceVideoLeft !== undefined ? forceVideoLeft : startVideoLeft ? currentIndex % 2 === 0 : currentIndex % 2 === 1;
 
   const slideVariants = {
     enter: (dir: number) => ({ x: dir > 0 ? 150 : -150, opacity: 0 }),

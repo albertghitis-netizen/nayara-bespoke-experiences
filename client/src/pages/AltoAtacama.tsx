@@ -172,6 +172,7 @@ const ATACAMA_ROOMS: RoomSliderCard[] = [
     guests: "2 Adults",
     video: "",
     photo: "/manus-storage/quitor-room_6867de44.jpg",
+    mediaLeft: true,
     exploreLink: "/alto-atacama/rooms",
     bookingUrl: BOOKING_URLS["alto-atacama"],
   },
@@ -180,7 +181,9 @@ const ATACAMA_ROOMS: RoomSliderCard[] = [
     label: "Catarpe",
     tagline: "Panoramic desert views with private heated infinity pool",
     guests: "2 Adults",
-    video: ASSETS.roomsV,
+    video: "",
+    photo: "/manus-storage/catarpe-terrace_66c1354d.jpg",
+    mediaLeft: false,
     exploreLink: "/alto-atacama/rooms",
     bookingUrl: BOOKING_URLS["alto-atacama"],
   },
@@ -881,6 +884,7 @@ export default function AltoAtacama() {
                   headline="Desert Suites"
                   description="Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape."
                   rooms={ATACAMA_ROOMS}
+                  forceVideoLeft={true}
                   palette={{
                     bg: COLOR_A,
                     text: PALETTE.text,
