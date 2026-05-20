@@ -486,7 +486,7 @@ const exploreNayaraExperiences: Excursion[] = [
     weeklySchedule: ["Open daily, all hours"],
     description: "Immerse yourself in natural hot springs fed by Arenal\u2019s volcanic activity. Multiple pools at varying temperatures are nestled among tropical gardens, offering a restorative experience that has drawn visitors to this region for generations.",
     highlights: ["Natural volcanic hot springs", "Multiple temperature pools", "Tropical garden setting"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/hot-springs-hero_a60a0e92.jpg",
+    image: "/manus-storage/hot-springs-new_87b5b16b.jpg",
     videoDesktop: "/manus-storage/1E4627BF-0E06-4BF5-9ACB-9FCD6C848139_d16033fc_f9f04cf0.mp4",
     verticalVideo: "/manus-storage/1E4627BF-0E06-4BF5-9ACB-9FCD6C848139_d16033fc_f9f04cf0.mp4",
     featured: true,
