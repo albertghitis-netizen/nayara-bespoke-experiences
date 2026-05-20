@@ -266,10 +266,13 @@ function PropertyIntro() {
 function WithinOurGroundsSection() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  // Filter nature and wellness on-property experiences
+  // Filter nature and wellness on-property experiences, exclude Rio Celeste (moved to Explore Arenal)
   const onPropertyNature = exploreNayaraExperiences.filter(
-    (e) => e.category === "nature" || e.category === "wellness"
+    (e) => (e.category === "nature" || e.category === "wellness") && e.id !== "celeste-river"
   );
+  // Split into top row (first 3) and bottom row (remaining, centered)
+  const topRow = onPropertyNature.slice(0, 3);
+  const bottomRow = onPropertyNature.slice(3);
 
   return (
     <section
@@ -304,10 +307,10 @@ function WithinOurGroundsSection() {
         </FadeIn>
       </div>
 
-      {/* Experience Cards */}
+      {/* Experience Cards — Top Row (3 cards) */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {onPropertyNature.map((excursion, i) => (
+          {topRow.map((excursion, i) => (
             <FadeIn key={excursion.id} delay={i * 0.1}>
               <div
                 className="group cursor-pointer border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/20 transition-all duration-500"
@@ -404,6 +407,108 @@ function WithinOurGroundsSection() {
             </FadeIn>
           ))}
         </div>
+
+        {/* Bottom Row (2 cards centered) */}
+        {bottomRow.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8 max-w-[900px] mx-auto">
+            {bottomRow.map((excursion, i) => (
+              <FadeIn key={excursion.id} delay={(i + 3) * 0.1}>
+                <div
+                  className="group cursor-pointer border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/20 transition-all duration-500"
+                  onClick={() =>
+                    setExpandedId(
+                      expandedId === excursion.id ? null : excursion.id
+                    )
+                  }
+                >
+                  {/* Media */}
+                  <div className="relative overflow-hidden h-72 md:h-80">
+                    {excursion.image ? (
+                      <img
+                        src={excursion.image}
+                        alt={excursion.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                    ) : excursion.verticalVideo ? (
+                      <video
+                        src={excursion.verticalVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#3a2a1a]/40 to-[#2a1f14]/60">
+                        <MapPin className="w-8 h-8 text-[#f7f5f0]/15" />
+                      </div>
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3
+                      className="text-[#f7f5f0] text-xl md:text-2xl mb-2"
+                      style={heading}
+                    >
+                      {excursion.name}
+                    </h3>
+                    <p
+                      className="text-[#f7f5f0]/40 text-sm italic mb-3"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      {excursion.subtitle}
+                    </p>
+
+                    {/* Expand/collapse detail */}
+                    <AnimatePresence>
+                      {expandedId === excursion.id && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.4 }}
+                          className="overflow-hidden"
+                        >
+                          <p
+                            className="text-[#f7f5f0]/50 text-sm leading-relaxed mb-4"
+                            style={bodyLight}
+                          >
+                            {excursion.description}
+                          </p>
+                          <div className="flex flex-wrap gap-4 text-xs text-[#f7f5f0]/30" style={body}>
+                            <span>{excursion.duration}</span>
+                            <span>{excursion.difficulty}</span>
+                            {excursion.suggestedTime && (
+                              <span>{excursion.suggestedTime}</span>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Toggle hint */}
+                    <div className="mt-4 flex items-center gap-2">
+                      <span
+                        className="text-[#f7f5f0]/50 text-xs tracking-[0.2em]"
+                        style={bodyMedium}
+                      >
+                        {expandedId === excursion.id ? "Less" : "Learn More"}
+                      </span>
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 text-[#f7f5f0]/40 transition-transform duration-300 ${
+                          expandedId === excursion.id ? "rotate-180" : ""
+                        }`}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
