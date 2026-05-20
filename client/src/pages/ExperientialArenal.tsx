@@ -384,6 +384,16 @@ function WithinOurGroundsSection() {
                             <span>{excursion.suggestedTime}</span>
                           )}
                         </div>
+                        {excursion.weeklySchedule && excursion.weeklySchedule.length > 0 && (
+                          <div className="mt-4 pt-4 border-t border-[#f7f5f0]/10">
+                            <span className="text-[#f7f5f0]/50 text-xs tracking-[0.15em] uppercase block mb-2" style={bodyMedium}>Weekly Schedule</span>
+                            <div className="flex flex-wrap gap-2">
+                              {excursion.weeklySchedule.map((slot, idx) => (
+                                <span key={idx} className="text-[#f7f5f0]/70 text-xs bg-[#f7f5f0]/8 px-3 py-1.5 rounded-sm" style={body}>{slot}</span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -485,6 +495,16 @@ function WithinOurGroundsSection() {
                               <span>{excursion.suggestedTime}</span>
                             )}
                           </div>
+                          {excursion.weeklySchedule && excursion.weeklySchedule.length > 0 && (
+                            <div className="mt-4 pt-4 border-t border-[#f7f5f0]/10">
+                              <span className="text-[#f7f5f0]/50 text-xs tracking-[0.15em] uppercase block mb-2" style={bodyMedium}>Weekly Schedule</span>
+                              <div className="flex flex-wrap gap-2">
+                                {excursion.weeklySchedule.map((slot, idx) => (
+                                  <span key={idx} className="text-[#f7f5f0]/70 text-xs bg-[#f7f5f0]/8 px-3 py-1.5 rounded-sm" style={body}>{slot}</span>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>

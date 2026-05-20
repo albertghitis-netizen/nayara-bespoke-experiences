@@ -43,6 +43,7 @@ export interface Excursion {
   distance?: string;
   acclimatization?: string;
   suggestedTime?: string;
+  weeklySchedule?: string[];
 }
 
 export interface Treatment {
@@ -388,6 +389,8 @@ const exploreNayaraExperiences: Excursion[] = [
     subtitle: "In a pavilion perched above the rainforest",
     duration: "60 min",
     difficulty: "All levels",
+    suggestedTime: "8:15 AM",
+    weeklySchedule: ["Monday 8:15 AM — Hatha", "Tuesday 8:15 AM — Vinyasa", "Wednesday 8:15 AM — Hatha", "Thursday 8:15 AM — Hatha", "Friday 8:15 AM — Vinyasa", "Saturday 8:15 AM — Hatha", "Sunday 8:15 AM — Vinyasa"],
     description: "Instructor-led yoga tailored to your level and goals, in a pavilion perched above the Arenal rainforest. Whether sunrise vinyasa or restorative evening flow, our instructors create a practice that connects you to the energy of this place.",
     highlights: ["Personalized to your level", "Rainforest setting", "Sunrise or sunset sessions available"],
     image: "/manus-storage/yoga-pavilion-new_7be1e0bb.jpg",
@@ -403,7 +406,8 @@ const exploreNayaraExperiences: Excursion[] = [
     subtitle: "Into the living gardens of Arenal",
     duration: "1.5–2 hours",
     difficulty: "Easy (all ages)",
-    suggestedTime: "9:00 AM",
+    suggestedTime: "3:30 PM",
+    weeklySchedule: ["Thursday 3:30 PM", "Sunday 3:30 PM"],
     description: "A guided walk through the curated botanical gardens that connect the three Nayara properties. Your naturalist identifies medicinal plants, orchids, heliconias, and the layered architecture of a tropical rainforest , from forest floor to emergent canopy. A gentle, unhurried experience through one of Costa Rica's most biodiverse private reserves.",
     highlights: ["Orchid and heliconia gardens", "Medicinal plants and hidden wildlife", "Family-friendly, all ages welcome"],
     image: "/manus-storage/botanical-purple-leaf-4x3_879cc19a.jpg",
@@ -418,7 +422,8 @@ const exploreNayaraExperiences: Excursion[] = [
     subtitle: "The gardens and their slowest residents",
     duration: "1–1.5 hours",
     difficulty: "Easy (all ages)",
-    suggestedTime: "9:00 AM",
+    suggestedTime: "4:00 PM",
+    weeklySchedule: ["Tuesday 4:00 PM", "Saturday 4:00 PM"],
     description: "Tony, our head gardener and resident sloth-spotter, leads you through the cecropia trees and canopy corridors where two- and three-toed sloths are almost always found. He knows their habits, their favorite trees, and exactly where to look. A gentle, unhurried experience , at sloth pace.",
     highlights: ["Resident sloth-spotting expert", "Two- and three-toed sloths", "Family-friendly, all ages welcome"],
     image: "/manus-storage/sloth-tony_4db44261.jpg",
@@ -524,7 +529,8 @@ const exploreNayaraExperiences: Excursion[] = [
     subtitle: "Dawn chorus through the canopy",
     duration: "2–3 hours",
     difficulty: "Easy",
-    suggestedTime: "5:30 AM",
+    suggestedTime: "6:00 AM",
+    weeklySchedule: ["Monday 6:00 AM", "Wednesday 6:00 AM", "Friday 6:00 AM"],
     description: "Join our resident naturalist before sunrise and walk the trails that thread through 380 acres of primary and secondary rainforest. Arenal is home to over 500 bird species , toucans, motmots, trogons, tanagers, and hummingbirds. The early light and quiet trails make this the best time to see and hear them.",
     highlights: ["Over 500 bird species in the Arenal region", "Expert naturalist guide", "Binoculars and field guide provided"],
     image: "/manus-storage/bird-toucan_dfaf76b1.jpg",
