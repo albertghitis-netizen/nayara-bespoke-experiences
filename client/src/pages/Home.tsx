@@ -979,7 +979,7 @@ function NayaraJournalSection() {
 
       <div className="relative z-10 max-w-[1200px] mx-auto">
         {/* Header with arrows on right, same as Recognition */}
-        <div className="flex items-end justify-between mb-14 md:mb-20">
+        <div className="flex items-end justify-between mb-10 md:mb-14">
           <div>
             <AnimateOnScroll variants={fadeUp}>
               <SectionLabel>Stories</SectionLabel>
