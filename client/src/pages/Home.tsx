@@ -1507,40 +1507,40 @@ function JournalTeaserCard({
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          {/* Type label + share icon , bottom-left, matching Journal page style */}
-          <div className="absolute bottom-4 left-4 flex items-center gap-2">
-            {card.cta === "lang-toggle" && card.languageVariants ? (
-              <>
-                <button
-                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onPlayEN?.(); }}
-                  className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
-                  style={bodyFont}
-                >
-                  <span className="text-[11px]">🇺🇸</span>
-                  English
-                </button>
-                <button
-                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onPlayES?.(); }}
-                  className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
-                  style={bodyFont}
-                >
-                  <span className="text-[11px]">🇪🇸</span>
-                  Español
-                </button>
-              </>
-            ) : (
-              <span
-                className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase"
+          {/* Language toggle — top-left for lang-toggle cards */}
+          {card.cta === "lang-toggle" && card.languageVariants && (
+            <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+              <button
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); onPlayEN?.(); }}
+                className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
                 style={bodyFont}
               >
-                {card.cta === "watch" ? (
-                  <Play className="w-2.5 h-2.5 fill-current" />
-                ) : (
-                  <ArrowUpRight className="w-3 h-3" />
-                )}
-                {card.label}
-              </span>
-            )}
+                <span className="text-[11px]">🇺🇸</span>
+                English
+              </button>
+              <button
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); onPlayES?.(); }}
+                className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] tracking-[0.12em] uppercase hover:bg-white/20 transition-all"
+                style={bodyFont}
+              >
+                <span className="text-[11px]">🇪🇸</span>
+                Español
+              </button>
+            </div>
+          )}
+          {/* Type label — bottom-left */}
+          <div className="absolute bottom-4 left-4 flex items-center gap-2">
+            <span
+              className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase"
+              style={bodyFont}
+            >
+              {card.cta === "watch" || card.cta === "lang-toggle" ? (
+                <Play className="w-2.5 h-2.5 fill-current" />
+              ) : (
+                <ArrowUpRight className="w-3 h-3" />
+              )}
+              {card.cta === "lang-toggle" ? "Watch" : card.label}
+            </span>
           </div>
         </>
       )}
