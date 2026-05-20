@@ -718,35 +718,37 @@ function AwardsHighlightSection() {
   return (
     <section className="py-20 md:py-28" style={{ backgroundColor: PALETTE.bg }}>
       <div className="max-w-7xl mx-auto">
-        <div className="px-6 md:px-10 mb-10 md:mb-14">
-          {/* Arrows — top left, espresso */}
-          <div className="hidden md:flex items-center gap-2 mb-5">
+        <div className="px-6 md:px-10 flex items-end justify-between mb-10 md:mb-14">
+          <div>
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>Recognition</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" delay={0.1}>
+              <span
+                className="text-2xl md:text-3xl lg:text-[36px] leading-[1.15] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+              >
+                Recognized by the Most Trusted Voices in Travel
+              </span>
+            </TextReveal>
+          </div>
+          {/* Desktop arrows — permanently espresso, always visible */}
+          <div className="hidden md:flex items-center gap-2">
             <button
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
-              className="w-9 h-9 flex items-center justify-center border border-[#3B2B26]/30 text-[#3B2B26] hover:bg-[#3B2B26] hover:text-[#F7F5F0] transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all disabled:cursor-default"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
             </button>
             <button
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
-              className="w-9 h-9 flex items-center justify-center border border-[#3B2B26]/30 text-[#3B2B26] hover:bg-[#3B2B26] hover:text-[#F7F5F0] transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all disabled:cursor-default"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>
-          <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Recognition</SectionLabel>
-          </AnimateOnScroll>
-          <TextReveal as="h2" delay={0.1}>
-            <span
-              className="text-2xl md:text-3xl lg:text-[36px] leading-[1.15] tracking-wide"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-            >
-              Recognized by the Most Trusted Voices in Travel
-            </span>
-          </TextReveal>
         </div>
 
         {/* Horizontal scroll container — editorial magazine-cover cards */}
@@ -995,7 +997,7 @@ function NayaraJournalSection() {
           <button
             onClick={() => scrollToPage(currentPage - 1)}
             disabled={currentPage === 0}
-            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:cursor-default"
             style={{ backgroundColor: "#3B2B26" }}
             aria-label="Previous"
           >
@@ -1006,7 +1008,7 @@ function NayaraJournalSection() {
           <button
             onClick={() => scrollToPage(currentPage + 1)}
             disabled={currentPage >= totalPages - 1}
-            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
+            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:cursor-default"
             style={{ backgroundColor: "#3B2B26" }}
             aria-label="Next"
           >
