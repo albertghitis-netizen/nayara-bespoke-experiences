@@ -390,7 +390,7 @@ const exploreNayaraExperiences: Excursion[] = [
     difficulty: "All levels",
     description: "Instructor-led yoga tailored to your level and goals, in a pavilion perched above the Arenal rainforest. Whether sunrise vinyasa or restorative evening flow, our instructors create a practice that connects you to the energy of this place.",
     highlights: ["Personalized to your level", "Rainforest setting", "Sunrise or sunset sessions available"],
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/yoga-photo_3b789b60.jpg",
+    image: "/manus-storage/yoga-pavilion-new_7be1e0bb.jpg",
     videoDesktop: "/manus-storage/yoga-springs-new_34c33445.mp4",
     featured: true,
     placeholder: false,
