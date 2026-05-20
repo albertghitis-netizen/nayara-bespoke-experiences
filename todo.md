@@ -3829,3 +3829,5 @@
 - [x] Horizontal scroll with cover images, publication names, article titles, dates, and external links
 - [x] Navigation arrows for desktop, swipeable on mobile
 - [x] "View All Awards & Press" CTA button
+- [x] Fix generic/missing links on homepage & awards press cards (T+L #13, CNT #1 Central America, AFAR Best New Hotels)
+- [x] Fix broken route for Bocas Condé Nast award video card (/blog/conde-nast-bocas-del-toro → /blog/bocas-conde-nast)
