@@ -117,13 +117,6 @@ export const gastronomyBlogPost: BlogPostData = {
   sources: [],
   relatedArticles: [
     {
-      slug: "/blog/wellness-hospitality",
-      title: "Wellness in Luxury Hospitality",
-      pillar: "Wellness",
-      image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
-      date: "2025-08-11",
-    },
-    {
       slug: "/blog/pura-vida",
       title: "Pura Vida and the Science of Why Costa Rica Feels Different",
       pillar: "Wellness",
@@ -134,7 +127,7 @@ export const gastronomyBlogPost: BlogPostData = {
       slug: "/blog/in-house-activities-three-hotels-infinite-experiences",
       title: "Three Hotels, One Rainforest, Infinite Experiences",
       pillar: "Experiences",
-      image: "/manus-storage/experiential-travel-cover_1cb55e5b.jpg",
+      image: "/manus-storage/Yoga2_0b4e1207.jpg",
       date: "2026-04-22",
     },
   ],
@@ -234,13 +227,6 @@ export const inHouseActivitiesBlogPost: BlogPostData = {
       pillar: "Wellness",
       image: "/manus-storage/pura-vida-hero_9a138a66.jpeg",
       date: "2026-03-15",
-    },
-    {
-      slug: "/blog/wellness-hospitality",
-      title: "Wellness in Luxury Hospitality",
-      pillar: "Wellness",
-      image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
-      date: "2025-08-11",
     },
   ],
   ctaProperties: [

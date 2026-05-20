@@ -41,7 +41,7 @@ const DynamicBlogPost = lazy(() => import("./pages/DynamicBlogPost"));
 const ExperientialTravelBlog = lazy(() => import("./pages/ExperientialTravelBlog"));
 const FamilyBucketListBlog = lazy(() => import("./pages/FamilyBucketListBlog"));
 const GastronomyBlog = lazy(() => import("./pages/GastronomyBlog"));
-
+const InHouseActivitiesBlog = lazy(() => import("./pages/InHouseActivitiesBlog"));
 
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
@@ -177,7 +177,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/lexi", "/sylvia", "/tl", "/tl-atacama"];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia", "/tl", "/tl-atacama"];
 
 function Router() {
   const [location] = useLocation();
@@ -206,7 +206,6 @@ function Router() {
           <Route path="/alto-atacama/stargazing" component={Stargazing} />
           {/* Costa Rica is now a dropdown menu only, not a page */}
           <Route path="/curated-excursions" component={CuratedExcursions} />
-          <Route path="/experiential-arenal">{() => { window.location.replace("/curated-excursions"); return null; }}</Route>
 
           <Route path="/family-expeditions" component={FamilyExpeditions} />
           <Route path="/romance" component={RainforestRomance} />
@@ -309,6 +308,7 @@ function Router() {
           <Route path="/blog/experiential-travel-nayara-2026" component={ExperientialTravelBlog} />
           <Route path="/blog/family-bucket-list-nayara" component={FamilyBucketListBlog} />
           <Route path="/blog/three-kitchens-one-rainforest" component={GastronomyBlog} />
+          <Route path="/blog/in-house-activities-three-hotels-infinite-experiences" component={InHouseActivitiesBlog} />
 
           <Route path="/blog/sunlit-sustainability" component={SunlitSustainabilityBlog} />
           <Route path="/blog/solo-travel-female" component={SoloTravelFemaleBlog} />

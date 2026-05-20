@@ -90,7 +90,7 @@ export const experientialTravelPost: BlogPostData = {
       slug: "in-house-activities-three-hotels-infinite-experiences",
       title: "Three Hotels, One Rainforest, Infinite Experiences",
       pillar: "Experiences",
-      image: "/manus-storage/family-bucket-list-card-kebab_e71e0ff7.png",
+      image: "/manus-storage/Yoga2_0b4e1207.jpg",
       date: "April 2026",
     },
     {
@@ -196,9 +196,9 @@ export const familyBucketListPost: BlogPostData = {
     },
     {
       slug: "in-house-activities-three-hotels-infinite-experiences",
-      title: "Forest to Table: Three Kitchens, One Rainforest",
+      title: "Three Hotels, One Rainforest, Infinite Experiences",
       pillar: "Experiences",
-      image: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
+      image: "/manus-storage/Yoga2_0b4e1207.jpg",
       date: "April 2026",
     },
     {

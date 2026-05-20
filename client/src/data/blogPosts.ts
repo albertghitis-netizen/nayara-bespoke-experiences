@@ -186,13 +186,6 @@ export const puraVidaPost: BlogPostData = {
   ],
   relatedArticles: [
     {
-      slug: "/blog/wellness-hospitality",
-      title: "Wellness in Luxury Hospitality",
-      pillar: "Wellness",
-      image: "https://blog.nayararesorts.com/hubfs/1-Aug-11-2025-06-16-39-9925-PM.png",
-      date: "2025",
-    },
-    {
       slug: "/blog/hot-springs",
       title: "Private Villas and Hot-Springs Plunge Pools: The History & Science",
       pillar: "Wellness",

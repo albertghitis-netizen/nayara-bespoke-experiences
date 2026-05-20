@@ -694,7 +694,7 @@ function SharedAccessSection({ palette }: { palette: PropertyPalette }) {
         <AnimateOnScroll variants={fadeUp} delay={0.2}>
           <div className="flex justify-center mt-10">
             <a
-              href="/journal/in-house-activities-three-hotels-infinite-experiences"
+              href="/blog/in-house-activities-three-hotels-infinite-experiences"
               className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
               style={{
                 ...body,

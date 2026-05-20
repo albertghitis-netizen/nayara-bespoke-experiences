@@ -1267,7 +1267,6 @@ export const properties: Property[] = [
     blogLinks: [
       { title: "Pura Vida: The Science of Why Costa Rica Feels Different", url: "/blog/pura-vida" },
       { title: "Nature-Based Wellness: Rainforests, Oceans & Night Skies", url: "/blog/wellness-by-colors" },
-      { title: "Wellness in Luxury Hospitality", url: "/blog/wellness-hospitality" },
       { title: "Meeting the Toucans of Arenal Rainforest", url: "/blog/toucans-arenal" },
       { title: "Window to the Wild: Arenal Volcano Family Vacations", url: "/blog/family-travel" },
       { title: "Wildlife Conservation in Arenal and Bocas del Toro", url: "/blog/arenal-bocas-wildlife" },
@@ -1327,7 +1326,6 @@ export const properties: Property[] = [
     blogLinks: [
       { title: "Pura Vida: The Science of Why Costa Rica Feels Different", url: "/blog/pura-vida" },
       { title: "Nature-Based Wellness: Rainforests, Oceans & Night Skies", url: "/blog/wellness-by-colors" },
-      { title: "Wellness in Luxury Hospitality", url: "/blog/wellness-hospitality" },
       { title: "Meeting the Toucans of Arenal Rainforest", url: "/blog/toucans-arenal" },
       { title: "Window to the Wild: Arenal Volcano Family Vacations", url: "/blog/family-travel" },
       { title: "Wildlife Conservation in Arenal and Bocas del Toro", url: "/blog/arenal-bocas-wildlife" },
@@ -1387,7 +1385,6 @@ export const properties: Property[] = [
     blogLinks: [
       { title: "Pura Vida: The Science of Why Costa Rica Feels Different", url: "/blog/pura-vida" },
       { title: "The History and Science of Private Hot Springs & Plunge Pools", url: "/blog/hot-springs" },
-      { title: "Wellness in Luxury Hospitality", url: "/blog/wellness-hospitality" },
       { title: "Nature-Based Wellness: Rainforests, Oceans & Night Skies", url: "/blog/wellness-by-colors" },
       { title: "Birdwatching in Costa Rica", url: "/blog/birdwatching" },
       { title: "Meeting the Toucans of Arenal Rainforest", url: "/blog/toucans-arenal" },
