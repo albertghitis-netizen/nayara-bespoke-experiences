@@ -242,26 +242,16 @@ function PropertyIntro() {
             your villa.
           </p>
           <p
-            className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed mb-5"
+            className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed"
             style={body}
           >
             A 7,500-year-old stratovolcano rising 5,437 feet from the rainforest
             floor, Arenal shapes everything around it. Its geothermal energy
-            feeds the mineral springs. Its eruption history created the lava
-            fields you walk through today. Its mass generates the microclimate
-            that keeps this pocket of Costa Rica impossibly green, impossibly
-            alive. The volcano hikes, the dawn birdwatching, the hanging bridges
-            through the canopy , these are not amenities added to a room rate.
-            They are the story itself.
-          </p>
-          <p
-            className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed"
-            style={body}
-          >
-            Travelers no longer plan a trip and then look for things to do ,
-            they find the experience first, and build the journey around it.
-            Every excursion below exists because someone asked a deeper question:
-            not "what is there to do?" but "what will I become by doing it?"
+            feeds the mineral springs, its eruption history created the lava
+            fields you walk through today, and its mass generates the microclimate
+            that keeps this pocket of Costa Rica impossibly green. Every excursion
+            below exists because someone asked a deeper question: not "what is
+            there to do?" but "what will I become by doing it?"
           </p>
         </FadeIn>
       </div>
@@ -327,21 +317,22 @@ function WithinOurGroundsSection() {
                   )
                 }
               >
-                {/* Media , vertical video or image */}
+                {/* Media , image preferred over vertical video */}
                 <div className="relative overflow-hidden h-72 md:h-80">
-                  {excursion.verticalVideo ? (
+                  {excursion.image ? (
+                    <img
+                      src={excursion.image}
+                      alt={excursion.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                  ) : excursion.verticalVideo ? (
                     <video
                       src={excursion.verticalVideo}
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  ) : excursion.image ? (
-                    <img
-                      src={excursion.image}
-                      alt={excursion.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
@@ -457,8 +448,12 @@ function ExploreArenalSection() {
                 transition={{ duration: 0.4, delay: Math.min(i * 0.05, 0.3) }}
                 className="group bg-white/50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
-                {/* Media , horizontal video (videoDesktop) preferred, then image */}
-                {ex.videoDesktop ? (
+                {/* Media , image preferred over horizontal video */}
+                {ex.image ? (
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img src={ex.image} alt={ex.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+                  </div>
+                ) : ex.videoDesktop ? (
                   <div className="aspect-[4/3] overflow-hidden">
                     <video
                       src={ex.videoDesktop}
@@ -468,10 +463,6 @@ function ExploreArenalSection() {
                       playsInline
                       className="w-full h-full object-cover"
                     />
-                  </div>
-                ) : ex.image ? (
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img src={ex.image} alt={ex.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
                   </div>
                 ) : (
                   <div className="aspect-[4/3] overflow-hidden bg-[#EDEEE2] flex items-center justify-center">
@@ -563,21 +554,22 @@ function FeaturedExcursionCard({
           }`}
           onClick={onToggle}
         >
-          {/* Photo / Video thumbnail */}
+          {/* Photo / Video thumbnail — image preferred */}
           <div className="relative overflow-hidden h-64 md:h-80">
-            {excursion.verticalVideo ? (
+            {cardImageSrc ? (
+              <img
+                src={cardImageSrc}
+                alt={excursion.name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="lazy"
+              />
+            ) : excursion.verticalVideo ? (
               <video
                 src={excursion.verticalVideo}
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            ) : cardImageSrc ? (
-              <img
-                src={cardImageSrc}
-                alt={excursion.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             ) : (
