@@ -67,6 +67,24 @@ export default function Gallery() {
     return cols;
   }, [visibleItems, columns]);
 
+  // Measure columns and clip to shortest for a straight bottom edge
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [clipHeight, setClipHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!gridRef.current) return;
+    const colEls = gridRef.current.children;
+    if (colEls.length === 0) return;
+    let minH = Infinity;
+    for (let i = 0; i < colEls.length; i++) {
+      const h = (colEls[i] as HTMLElement).scrollHeight;
+      if (h < minH) minH = h;
+    }
+    if (minH !== Infinity && minH > 0) {
+      setClipHeight(minH);
+    }
+  }, [columnItems]);
+
   const openLightbox = useCallback((item: GalleryItem) => {
     const idx = galleryImages.indexOf(item);
     setLightboxIndex(idx);
@@ -116,7 +134,14 @@ export default function Gallery() {
       <div className="pt-14"></div>
 
       <div className="pb-4 px-1 sm:px-2">
-        <div className="flex" style={{ gap: `${GAP}px` }}>
+        <div
+          ref={gridRef}
+          className="flex"
+          style={{
+            gap: `${GAP}px`,
+            ...(clipHeight ? { maxHeight: `${clipHeight}px`, overflow: "hidden" } : {}),
+          }}
+        >
           {columnItems.map((col, colIdx) => (
             <div
               key={colIdx}
