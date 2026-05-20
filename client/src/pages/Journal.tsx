@@ -290,6 +290,7 @@ function GalleryCard({
               </div>
               <CardOverlay entry={entry}>
                 <SinglePill icon={<Play className="w-2.5 h-2.5 fill-current" />} label="Watch" />
+                <DurationPill duration={entry.duration} />
               </CardOverlay>
             </>
           )}
@@ -306,6 +307,7 @@ function GalleryCard({
           {!isPlaying && (
             <CardOverlay entry={entry}>
               <SinglePill icon={<Play className="w-2.5 h-2.5 fill-current" />} label="Watch" />
+              <DurationPill duration={entry.duration} />
             </CardOverlay>
           )}
         </CardShell>
@@ -420,6 +422,16 @@ function SinglePill({ icon, label }: { icon: React.ReactNode; label: string }) {
     <span className="inline-flex items-center gap-1.5 h-7 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/60 text-[10px] tracking-[0.12em] uppercase group-hover:bg-[#E1D1BA]/25 group-hover:border-[#E1D1BA]/40 group-hover:text-[#E1D1BA] transition-all duration-500" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
       {label}
       {icon}
+    </span>
+  );
+}
+
+/* ── Duration pill (small indicator next to Watch) ── */
+function DurationPill({ duration }: { duration?: string }) {
+  if (!duration) return null;
+  return (
+    <span className="inline-flex items-center h-7 px-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/50 text-[9px] tracking-[0.08em] group-hover:text-[#E1D1BA]/70 transition-all duration-500" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>
+      {duration}
     </span>
   );
 }

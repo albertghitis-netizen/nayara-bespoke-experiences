@@ -1171,6 +1171,7 @@ interface JournalCardData {
   href: string | null;
   youtubeId?: string;
   listenUrl?: string;
+  duration?: string;
   languageVariants?: { en: string; enDuration?: string; es: string; esDuration?: string };
   external: boolean;
   cta: "read" | "listen" | "watch-listen" | "watch" | "lang-toggle";
@@ -1237,6 +1238,7 @@ function buildHomepageJournalCards(): JournalCardData[] {
       image: entry.image,
       href: entry.url || null,
       youtubeId: entry.youtubeId,
+      duration: entry.duration,
       languageVariants: entry.languageVariants,
       external: entry.url ? entry.url.startsWith("http") : false,
       cta,
@@ -1541,6 +1543,14 @@ function JournalTeaserCard({
               )}
               {card.cta === "lang-toggle" ? "Watch" : card.label}
             </span>
+            {card.duration && (card.cta === "watch" || card.cta === "lang-toggle") && (
+              <span
+                className="inline-flex items-center h-7 px-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/50 text-[9px] tracking-[0.08em]"
+                style={bodyFont}
+              >
+                {card.duration}
+              </span>
+            )}
           </div>
         </>
       )}
