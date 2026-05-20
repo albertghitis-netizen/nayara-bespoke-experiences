@@ -978,44 +978,42 @@ function NayaraJournalSection() {
       </svg>
 
       <div className="relative z-10 max-w-[1200px] mx-auto">
-        {/* Header , matches Awards pattern: label → heading */}
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Stories</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-14 md:mb-20" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}
-          >
-            Journal
-          </span>
-        </TextReveal>
+        {/* Header with arrows on right, same as Recognition */}
+        <div className="flex items-end justify-between mb-14 md:mb-20">
+          <div>
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>Stories</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" delay={0.1}>
+              <span
+                className="text-2xl md:text-4xl lg:text-[42px] leading-[1.1] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}
+              >
+                Journal
+              </span>
+            </TextReveal>
+          </div>
+          {/* Desktop arrows — permanently espresso, always visible */}
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={() => scrollToPage(currentPage - 1)}
+              disabled={currentPage === 0}
+              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all disabled:cursor-default"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            </button>
+            <button
+              onClick={() => scrollToPage(currentPage + 1)}
+              disabled={currentPage >= totalPages - 1}
+              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all disabled:cursor-default"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
 
         {/* Desktop: Horizontal slider , 3 cards visible at a time */}
         <div className="hidden md:block relative">
-          {/* Filled espresso square + white chevron arrows */}
-          <button
-            onClick={() => scrollToPage(currentPage - 1)}
-            disabled={currentPage === 0}
-            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:cursor-default"
-            style={{ backgroundColor: "#3B2B26" }}
-            aria-label="Previous"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button
-            onClick={() => scrollToPage(currentPage + 1)}
-            disabled={currentPage >= totalPages - 1}
-            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:cursor-default"
-            style={{ backgroundColor: "#3B2B26" }}
-            aria-label="Next"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
           <div
             ref={scrollRef}
             className="flex overflow-x-auto scrollbar-hide"
