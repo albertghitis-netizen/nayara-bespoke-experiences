@@ -270,9 +270,11 @@ function WithinOurGroundsSection() {
   const onPropertyNature = exploreNayaraExperiences.filter(
     (e) => (e.category === "nature" || e.category === "wellness") && e.id !== "celeste-river"
   );
-  // Split into top row (first 3) and bottom row (remaining, centered)
-  const topRow = onPropertyNature.slice(0, 3);
-  const bottomRow = onPropertyNature.slice(3);
+  // Top row: nature (sloth, botanical, bird) — Bottom row: wellness (hatha, vinyasa, hot springs)
+  const natureOrder = ["finding-tony-the-sloth", "botanical-hike", "birdwatching"];
+  const wellnessOrder = ["hatha-yoga", "vinyasa-yoga", "hot-springs"];
+  const topRow = natureOrder.map(id => onPropertyNature.find(e => e.id === id)!).filter(Boolean);
+  const bottomRow = wellnessOrder.map(id => onPropertyNature.find(e => e.id === id)!).filter(Boolean);
 
   return (
     <section
@@ -420,7 +422,7 @@ function WithinOurGroundsSection() {
 
         {/* Bottom Row (2 cards centered) */}
         {bottomRow.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8 max-w-[900px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-6 md:mt-8">
             {bottomRow.map((excursion, i) => (
               <FadeIn key={excursion.id} delay={(i + 3) * 0.1}>
                 <div
