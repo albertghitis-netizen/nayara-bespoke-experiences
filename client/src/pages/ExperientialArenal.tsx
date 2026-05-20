@@ -6,7 +6,7 @@
  * Structure:
  *   1. Hero video (desktop/mobile)
  *   2. Property Intro , "Three Resorts. One Rainforest."
- *   3. On-Property Nature Experiences (dark espresso bg)
+ *   3. On-Property Nature & Wellness Experiences (dark espresso bg)
  *   4. Explore Arenal , Off-property excursions (bone bg)
  *   5. Footer
  *
@@ -264,7 +264,6 @@ function PropertyIntro() {
    Dark espresso background for contrast
    ═══════════════════════════════════════════════════════════════ */
 function WithinOurGroundsSection() {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   // Filter nature and wellness on-property experiences, exclude Rio Celeste (moved to Explore Arenal)
   const onPropertyNature = exploreNayaraExperiences.filter(
@@ -272,7 +271,7 @@ function WithinOurGroundsSection() {
   );
   // Top row: nature (sloth, botanical, bird) — Bottom row: wellness (hatha, vinyasa, hot springs)
   const natureOrder = ["finding-tony-the-sloth", "botanical-hike", "birdwatching"];
-  const wellnessOrder = ["hatha-yoga", "vinyasa-yoga", "hot-springs"];
+  const wellnessOrder = ["vinyasa-yoga", "hatha-yoga", "hot-springs"];
   const topRow = natureOrder.map(id => onPropertyNature.find(e => e.id === id)!).filter(Boolean);
   const bottomRow = wellnessOrder.map(id => onPropertyNature.find(e => e.id === id)!).filter(Boolean);
 
@@ -295,7 +294,7 @@ function WithinOurGroundsSection() {
             className="text-[#f7f5f0]/40 text-lg md:text-xl tracking-wide"
             style={bodyLight}
           >
-            On-Property Nature Experiences
+            On-Property Nature & Wellness Experiences
           </p>
           <p
             className="text-[#f7f5f0]/50 text-sm md:text-base leading-relaxed mt-6 max-w-2xl"
@@ -311,19 +310,14 @@ function WithinOurGroundsSection() {
 
       {/* Experience Cards — Top Row (3 cards) */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 md:items-stretch">
           {topRow.map((excursion, i) => (
-            <FadeIn key={excursion.id} delay={i * 0.1}>
+            <FadeIn key={excursion.id} delay={i * 0.1} className="flex">
               <div
-                className="group cursor-pointer border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/20 transition-all duration-500"
-                onClick={() =>
-                  setExpandedId(
-                    expandedId === excursion.id ? null : excursion.id
-                  )
-                }
+                className="group border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/20 transition-all duration-500 flex flex-col w-full"
               >
                 {/* Media , image preferred over vertical video */}
-                <div className="relative overflow-hidden h-72 md:h-80">
+                <div className="relative overflow-hidden h-72 md:h-80 shrink-0">
                   {excursion.image ? (
                     <img
                       src={excursion.image}
@@ -348,8 +342,8 @@ function WithinOurGroundsSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                {/* Content */}
-                <div className="p-6">
+                {/* Content — always visible, flex column to align schedule */}
+                <div className="p-6 flex flex-col flex-grow">
                   <h3
                     className="text-[#f7f5f0] text-xl md:text-2xl mb-2"
                     style={heading}
@@ -363,57 +357,32 @@ function WithinOurGroundsSection() {
                     {excursion.subtitle}
                   </p>
 
-                  {/* Expand/collapse detail */}
-                  <AnimatePresence>
-                    {expandedId === excursion.id && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="overflow-hidden"
-                      >
-                        <p
-                          className="text-[#f7f5f0]/50 text-sm leading-relaxed mb-4"
-                          style={bodyLight}
-                        >
-                          {excursion.description}
-                        </p>
-                        <div className="flex flex-wrap gap-4 text-xs text-[#f7f5f0]/30" style={body}>
-                          <span>{excursion.duration}</span>
-                          <span>{excursion.difficulty}</span>
-                          {excursion.suggestedTime && (
-                            <span>{excursion.suggestedTime}</span>
-                          )}
-                        </div>
-                        {excursion.weeklySchedule && excursion.weeklySchedule.length > 0 && (
-                          <div className="mt-4 pt-4 border-t border-[#f7f5f0]/10">
-                            <span className="text-[#f7f5f0]/50 text-xs tracking-[0.15em] uppercase block mb-2" style={bodyMedium}>Weekly Schedule</span>
-                            <div className="flex flex-wrap gap-2">
-                              {excursion.weeklySchedule.map((slot, idx) => (
-                                <span key={idx} className="text-[#f7f5f0]/70 text-xs bg-[#f7f5f0]/8 px-3 py-1.5 rounded-sm" style={body}>{slot}</span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  {/* Toggle hint */}
-                  <div className="mt-4 flex items-center gap-2">
-                    <span
-                      className="text-[#f7f5f0]/50 text-xs tracking-[0.2em]"
-                      style={bodyMedium}
+                  {/* Description area — flex-grow pushes schedule to bottom */}
+                  <div className="flex-grow">
+                    <p
+                      className="text-[#f7f5f0]/50 text-sm leading-relaxed mb-4"
+                      style={bodyLight}
                     >
-                      {expandedId === excursion.id ? "Less" : "Learn More"}
-                    </span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 text-[#f7f5f0]/40 transition-transform duration-300 ${
-                        expandedId === excursion.id ? "rotate-180" : ""
-                      }`}
-                    />
+                      {excursion.description}
+                    </p>
+                    <div className="flex flex-wrap gap-4 text-xs text-[#f7f5f0]/30" style={body}>
+                      <span>{excursion.duration}</span>
+                      <span>{excursion.difficulty}</span>
+                      {excursion.suggestedTime && (
+                        <span>{excursion.suggestedTime}</span>
+                      )}
+                    </div>
                   </div>
+                  {excursion.weeklySchedule && excursion.weeklySchedule.length > 0 && (
+                    <div className="mt-4 pt-4 border-t border-[#f7f5f0]/10">
+                      <span className="text-[#f7f5f0]/50 text-xs tracking-[0.15em] uppercase block mb-2" style={bodyMedium}>Weekly Schedule</span>
+                      <div className="flex flex-wrap gap-2">
+                        {excursion.weeklySchedule.map((slot, idx) => (
+                          <span key={idx} className="text-[#f7f5f0]/70 text-xs bg-[#f7f5f0]/8 px-3 py-1.5 rounded-sm" style={body}>{slot}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </FadeIn>
@@ -422,19 +391,14 @@ function WithinOurGroundsSection() {
 
         {/* Bottom Row (2 cards centered) */}
         {bottomRow.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-6 md:mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-6 md:mt-8 md:items-stretch">
             {bottomRow.map((excursion, i) => (
-              <FadeIn key={excursion.id} delay={(i + 3) * 0.1}>
+              <FadeIn key={excursion.id} delay={(i + 3) * 0.1} className="flex">
                 <div
-                  className="group cursor-pointer border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/20 transition-all duration-500"
-                  onClick={() =>
-                    setExpandedId(
-                      expandedId === excursion.id ? null : excursion.id
-                    )
-                  }
+                  className="group border border-[#f7f5f0]/8 hover:border-[#f7f5f0]/20 transition-all duration-500 flex flex-col w-full"
                 >
                   {/* Media */}
-                  <div className="relative overflow-hidden h-72 md:h-80">
+                  <div className="relative overflow-hidden h-72 md:h-80 shrink-0">
                     {excursion.image ? (
                       <img
                         src={excursion.image}
@@ -459,8 +423,8 @@ function WithinOurGroundsSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6">
+                  {/* Content — always visible, flex column to align schedule */}
+                  <div className="p-6 flex flex-col flex-grow">
                     <h3
                       className="text-[#f7f5f0] text-xl md:text-2xl mb-2"
                       style={heading}
@@ -474,57 +438,32 @@ function WithinOurGroundsSection() {
                       {excursion.subtitle}
                     </p>
 
-                    {/* Expand/collapse detail */}
-                    <AnimatePresence>
-                      {expandedId === excursion.id && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.4 }}
-                          className="overflow-hidden"
-                        >
-                          <p
-                            className="text-[#f7f5f0]/50 text-sm leading-relaxed mb-4"
-                            style={bodyLight}
-                          >
-                            {excursion.description}
-                          </p>
-                          <div className="flex flex-wrap gap-4 text-xs text-[#f7f5f0]/30" style={body}>
-                            <span>{excursion.duration}</span>
-                            <span>{excursion.difficulty}</span>
-                            {excursion.suggestedTime && (
-                              <span>{excursion.suggestedTime}</span>
-                            )}
-                          </div>
-                          {excursion.weeklySchedule && excursion.weeklySchedule.length > 0 && (
-                            <div className="mt-4 pt-4 border-t border-[#f7f5f0]/10">
-                              <span className="text-[#f7f5f0]/50 text-xs tracking-[0.15em] uppercase block mb-2" style={bodyMedium}>Weekly Schedule</span>
-                              <div className="flex flex-wrap gap-2">
-                                {excursion.weeklySchedule.map((slot, idx) => (
-                                  <span key={idx} className="text-[#f7f5f0]/70 text-xs bg-[#f7f5f0]/8 px-3 py-1.5 rounded-sm" style={body}>{slot}</span>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
-                    {/* Toggle hint */}
-                    <div className="mt-4 flex items-center gap-2">
-                      <span
-                        className="text-[#f7f5f0]/50 text-xs tracking-[0.2em]"
-                        style={bodyMedium}
+                    {/* Description area — flex-grow pushes schedule to bottom */}
+                    <div className="flex-grow">
+                      <p
+                        className="text-[#f7f5f0]/50 text-sm leading-relaxed mb-4"
+                        style={bodyLight}
                       >
-                        {expandedId === excursion.id ? "Less" : "Learn More"}
-                      </span>
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 text-[#f7f5f0]/40 transition-transform duration-300 ${
-                          expandedId === excursion.id ? "rotate-180" : ""
-                        }`}
-                      />
+                        {excursion.description}
+                      </p>
+                      <div className="flex flex-wrap gap-4 text-xs text-[#f7f5f0]/30" style={body}>
+                        <span>{excursion.duration}</span>
+                        <span>{excursion.difficulty}</span>
+                        {excursion.suggestedTime && (
+                          <span>{excursion.suggestedTime}</span>
+                        )}
+                      </div>
                     </div>
+                    {excursion.weeklySchedule && excursion.weeklySchedule.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-[#f7f5f0]/10">
+                        <span className="text-[#f7f5f0]/50 text-xs tracking-[0.15em] uppercase block mb-2" style={bodyMedium}>Weekly Schedule</span>
+                        <div className="flex flex-wrap gap-2">
+                          {excursion.weeklySchedule.map((slot, idx) => (
+                            <span key={idx} className="text-[#f7f5f0]/70 text-xs bg-[#f7f5f0]/8 px-3 py-1.5 rounded-sm" style={body}>{slot}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </FadeIn>
