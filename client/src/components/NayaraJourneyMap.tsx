@@ -499,7 +499,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                       x={labelX}
                       y={labelY}
                       fill={ACCENT_GOLD}
-                      fontSize="11"
+                      fontSize="15"
                       fontFamily="var(--font-display)"
                       fontWeight="400"
                       letterSpacing="0.04em"

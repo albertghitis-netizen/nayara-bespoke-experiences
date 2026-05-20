@@ -3823,3 +3823,9 @@
 - [x] Mobile hero (Arenal volcano 3:4 — Untitleddesign-15(1).JPG)
 - [x] Square journal card (Arenal volcano 1:1 — Untitleddesign-15.jpg)
 - [x] Author tab, key findings, 7 sections with centered images, pull quote, FAQ, sources, related articles, CTA properties
+
+## Homepage Awards Section Redesign
+- [x] Replace video-based awards cards with editorial magazine-cover card carousel (matching Press & Awards page style)
+- [x] Horizontal scroll with cover images, publication names, article titles, dates, and external links
+- [x] Navigation arrows for desktop, swipeable on mobile
+- [x] "View All Awards & Press" CTA button

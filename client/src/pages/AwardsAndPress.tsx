@@ -13,8 +13,8 @@ import CanvasVideo from "@/components/CanvasVideo";
 
 /* ── CDN assets ── */
 const CDN = {
-  heroVideoDesktop: "/manus-storage/press-awards-desktop-hero_c0e12e48.mp4",
-  heroVideoMobile: "/manus-storage/press-awards-mobile-hero_f0779957.mp4",
+  heroVideoDesktop: "/manus-storage/press-awards-hero-trimmed_df484cfc.mp4",
+  heroVideoMobile: "/manus-storage/press-awards-hero-trimmed_df484cfc.mp4",
 };
 
 function useIsMobile() {
@@ -155,36 +155,6 @@ function getYear(date: string): string {
 /* ── Main Component ── */
 export default function AwardsAndPress() {
   const isMobile = useIsMobile();
-  const [expandedProperty, setExpandedProperty] = useState<string | null>("Nayara Springs");
-  const [activeFilter, setActiveFilter] = useState("Nayara Resorts");
-  const [activeTab, setActiveTab] = useState<"awards" | "press">("awards");
-
-  const filteredAwards = allAwards.filter(a => a.property === activeFilter);
-
-  const filteredPress = useMemo(() => {
-    return pressClips.filter((c) => {
-      return c.property === activeFilter || c.property === "Multiple Properties";
-    });
-  }, [activeFilter]);
-
-  const groupedPress = useMemo(() => {
-    return filteredPress.reduce<Record<string, PressClip[]>>((acc, clip) => {
-      const year = getYear(clip.date);
-      if (!acc[year]) acc[year] = [];
-      acc[year].push(clip);
-      return acc;
-    }, {});
-  }, [filteredPress]);
-
-  const sortedYears = Object.keys(groupedPress).sort((a, b) => {
-    if (a === "Other") return 1;
-    if (b === "Other") return -1;
-    return parseInt(b) - parseInt(a);
-  });
-
-  const toggleProperty = (property: string) => {
-    setExpandedProperty(expandedProperty === property ? null : property);
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -230,173 +200,62 @@ export default function AwardsAndPress() {
       </section>
 
 
-      {/* ── Award Video Cards Grid (same as brand homepage) ── */}
-      <AwardVideoCardsSection />
-
-
-
-
-      {/* ── Tab Switcher + Property Filter ── */}
-      <section className="py-10 md:py-14 px-6 md:px-10">
-        <div className="max-w-5xl mx-auto">
-          {/* Tabs */}
-          <div className="flex justify-center gap-1 mb-8">
-            {(["awards", "press"] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2.5 text-[12px] tracking-[0.12em] transition-all duration-300 border-b-2 ${
-                  activeTab === tab
-                    ? "text-[#3B2B26] border-[#3B2B26]"
-                    : "text-[#3B2B26]/30 border-transparent hover:text-[#3B2B26]/60"
-                }`}
-                style={{ ...body, fontWeight: 500 }}
-              >
-                {tab === "awards" ? "Awards & Recognition" : "Press & Media"}
-              </button>
-            ))}
-          </div>
-
-
+      {/* ── Intro Paragraph ── */}
+      <section className="py-16 md:py-20 px-6 md:px-10 bg-[#f7f5f0]">
+        <div className="max-w-3xl mx-auto text-center">
+          <FadeIn>
+            <p className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>NAYARA RESORTS</p>
+            <h2 className="text-[#3B2B26] text-2xl md:text-3xl lg:text-4xl mb-6" style={heading}>The Most Recognized Luxury Hotel Brand in Latin America</h2>
+            <p className="text-[#3B2B26]/60 text-sm md:text-base leading-relaxed" style={{ ...body, fontWeight: 300 }}>
+              From the volcanic rainforests of Costa Rica to the driest desert on Earth, Nayara Resorts has earned the trust of the world's most respected travel authorities. With 7 Michelin Keys, consecutive No. 1 rankings from Condé Nast Traveler, and recognition from Travel + Leisure, AFAR, and The Telegraph, Nayara stands as the most awarded luxury hotel collection in Latin America.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
-      {/* ── Awards Tab ── */}
-      {activeTab === "awards" && (
-        <>
-          {/* Michelin Keys Explainer */}
-          <section className="pb-16 md:pb-24 px-6 md:px-10">
-            <div className="max-w-5xl mx-auto">
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12 md:mb-16">
-                <p className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>The Michelin Guide</p>
-                <h2 className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl mb-6" style={heading}>7 Michelin Keys</h2>
-                <p className="text-[#3B2B26]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed" style={{ ...body, fontWeight: 300 }}>
-                  Michelin Keys are the hotel equivalent of Michelin Stars for restaurants. Awarded to properties that deliver an exceptional stay defined by outstanding architecture, interior design, quality of service, character, and a genuine sense of place. Three Keys is the highest distinction.
-                </p>
-              </motion.div>
+      {/* ── Unified Editorial Cards Section ── */}
+      <PressCardsSection />
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                {[
-                  { keys: 3, property: "Nayara Springs", location: "Costa Rica", description: "The first hotel in Costa Rica to earn three Michelin Keys , the highest recognition. Adults-only, private hot spring plunge pools, and world-class wellness." },
-                  { keys: 2, property: "Nayara Bocas del Toro", location: "Panama", description: "An overwater paradise in the Caribbean. Off-grid solar power, coral restoration, and the most biodiverse marine ecosystem in the region." },
-                  { keys: 2, property: "Nayara Alto Atacama", location: "Chile", description: "The only luxury hotel in an actual desert oasis. Private observatory, 40+ curated excursions, and the clearest skies on Earth." },
-                ].map((item, i) => (
-                  <motion.div key={item.property} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.06 }} className="bg-white p-8 md:p-10 border border-stone-100">
-                    <div className="flex gap-1.5 mb-6">
-                      {Array.from({ length: item.keys }).map((_, ki) => (
-                        <Key key={ki} className="w-5 h-5 text-amber-600" />
-                      ))}
-                    </div>
-                    <h3 className="text-[#3B2B26] text-xl md:text-2xl mb-1" style={heading}>{item.property}</h3>
-                    <p className="text-[#3B2B26]/40 text-[10px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 500 }}>{item.location} · {item.keys} Keys</p>
-                    <p className="text-[#3B2B26]/60 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+      {/* ── Michelin Keys Section ── */}
+      <section className="py-16 md:py-24 px-6 md:px-10 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <FadeIn className="text-center mb-12 md:mb-16">
+            <p className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>THE MICHELIN GUIDE</p>
+            <h2 className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl mb-6" style={heading}>7 Michelin Keys</h2>
+            <p className="text-[#3B2B26]/60 text-sm md:text-base max-w-2xl mx-auto leading-relaxed" style={{ ...body, fontWeight: 300 }}>
+              Michelin Keys are the hotel equivalent of Michelin Stars for restaurants — awarded to properties that deliver an exceptional stay defined by outstanding architecture, interior design, quality of service, and a genuine sense of place.
+            </p>
+          </FadeIn>
 
-          {/* Awards by Property */}
-          <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3B2B26]/[0.03]">
-            <div className="max-w-4xl mx-auto">
-              <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-12">
-                <p className="text-[#3B2B26]/40 text-[10px] md:text-xs tracking-[0.4em] mb-4" style={{ ...body, fontWeight: 500 }}>By Property</p>
-                <h2 className="text-[#3B2B26] text-3xl md:text-4xl lg:text-5xl" style={heading}>Awards & Accolades</h2>
-              </motion.div>
-
-              <div className="space-y-0">
-                {filteredAwards.map((section, si) => (
-                  <motion.div key={section.property} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: si * 0.05 }} className="border-b border-[#3B2B26]/10">
-                    <button onClick={() => toggleProperty(section.property)} className="flex items-center justify-between w-full py-5 md:py-6 text-left group">
-                      <div className="flex items-center gap-3">
-                        {section.michelinKeys && (
-                          <div className="flex gap-0.5">
-                            {Array.from({ length: section.michelinKeys }).map((_, ki) => (
-                              <Key key={ki} className="w-3.5 h-3.5 text-amber-600" />
-                            ))}
-                          </div>
-                        )}
-                        <span className="text-[#3B2B26] text-base md:text-lg group-hover:text-[#3B2B26]/70 transition-colors" style={heading}>{section.property}</span>
-                      </div>
-                      <motion.div animate={{ rotate: expandedProperty === section.property ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                        <ChevronDown className="w-5 h-5 text-[#3B2B26]/30" />
-                      </motion.div>
-                    </button>
-                    <AnimatePresence>
-                      {expandedProperty === section.property && (
-                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
-                          <div className="pb-6 pl-4 md:pl-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {section.awards.map((award, ai) => (
-                              <div key={ai}>
-                                <h4 className="text-amber-700/80 text-[10px] md:text-xs tracking-[0.15em] mb-2" style={{ ...body, fontWeight: 600 }}>{award.source}</h4>
-                                {award.accolades.map((accolade, aci) => (
-                                  <p key={aci} className="text-[#3B2B26]/60 text-sm py-1.5 border-b border-[#3B2B26]/5 last:border-0" style={body}>{accolade}</p>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-
-        </>
-      )}
-
-      {/* ── Press Tab ── */}
-      {activeTab === "press" && (
-        <>
-        {/* ── Featured Press Cards ── */}
-        <PressCardsSection />
-
-        <section className="px-6 md:px-10 pb-24">
-          <div className="max-w-4xl mx-auto">
-            {sortedYears.length === 0 && (
-              <div className="text-center py-16">
-                <p className="text-[#3B2B26]/25 text-[14px]" style={body}>No press clips match the current filters.</p>
-              </div>
-            )}
-            {sortedYears.map((year) => (
-              <FadeIn key={year} className="mb-14">
-                <div className="flex items-center gap-4 mb-6">
-                  <h2 className="text-[#3B2B26] text-xl md:text-2xl" style={heading}>{year}</h2>
-                  <div className="flex-1 h-px bg-[#3B2B26]/8" />
-                  <span className="text-[#3B2B26]/20 text-[11px] tracking-[0.08em]" style={body}>
-                    {groupedPress[year].length} {groupedPress[year].length === 1 ? "article" : "articles"}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  {groupedPress[year].map((clip, i) => (
-                    <a key={i} href={clip.url} target="_blank" rel="noopener noreferrer" className={`group flex items-start gap-4 py-4 px-4 -mx-4 rounded-lg transition-all duration-300 hover:bg-[#3B2B26]/[0.03] ${clip.highlight ? "border-l-2 border-[#3B2B26]/15 pl-5" : ""}`}>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-[#3B2B26] text-sm md:text-base leading-snug group-hover:text-[#3B2B26]/70 transition-colors" style={heading}>{clip.title}</h3>
-                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5">
-                          <span className="text-[#3B2B26]/40 text-[11px] tracking-[0.04em]" style={{ ...body, fontWeight: 500 }}>{clip.publication}</span>
-                          <span className="text-[#3B2B26]/15 text-[10px]">|</span>
-                          <span className="text-[#3B2B26]/25 text-[11px]" style={body}>{clip.date}</span>
-                          {clip.property !== "Multiple Properties" && (
-                            <>
-                              <span className="text-[#3B2B26]/15 text-[10px]">|</span>
-                              <span className="text-[#3B2B26]/25 text-[10px] tracking-[0.08em]" style={body}>{clip.property}</span>
-                            </>
-                          )}
-                        </div>
-                      </div>
-                      <ExternalLink className="w-4 h-4 text-[#3B2B26]/12 group-hover:text-[#3B2B26]/35 transition-colors flex-shrink-0 mt-1" />
-                    </a>
-                  ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {[
+              { keys: 3, property: "Nayara Springs", location: "Costa Rica", description: "The only Three Key hotel in Central America. Adults-only, private hot spring plunge pools, and world-class wellness in the shadow of Arenal Volcano." },
+              { keys: 2, property: "Nayara Alto Atacama", location: "Chile", description: "Two Michelin Keys in the world's driest desert. A luxury oasis with a private observatory, 40+ curated excursions, and the clearest skies on Earth." },
+              { keys: 2, property: "Nayara Bocas del Toro", location: "Panama", description: "Two Michelin Keys over the Caribbean. Off-grid solar power, coral restoration, and the most biodiverse marine ecosystem in the region." },
+            ].map((item, i) => (
+              <FadeIn key={item.property} delay={i * 0.06}>
+                <div className="bg-[#f7f5f0] p-8 md:p-10 border border-stone-100">
+                  <div className="flex gap-1.5 mb-6">
+                    {Array.from({ length: item.keys }).map((_, ki) => (
+                      <Key key={ki} className="w-5 h-5 text-amber-600" />
+                    ))}
+                  </div>
+                  <h3 className="text-[#3B2B26] text-xl md:text-2xl mb-1" style={heading}>{item.property}</h3>
+                  <p className="text-[#3B2B26]/40 text-[10px] tracking-[0.2em] mb-4" style={{ ...body, fontWeight: 500 }}>{item.location} · {item.keys} {item.keys === 1 ? "Key" : "Keys"}</p>
+                  <p className="text-[#3B2B26]/60 text-sm leading-relaxed" style={{ ...body, fontWeight: 300 }}>{item.description}</p>
                 </div>
               </FadeIn>
             ))}
           </div>
-        </section>
-        </>
-      )}
+
+          <FadeIn className="text-center mt-10">
+            <a href="/blog/michelin-keys" className="inline-flex items-center gap-2 text-[#3B2B26]/60 text-sm hover:text-[#3B2B26] transition-colors" style={{ ...body, fontWeight: 400 }}>
+              Read: What Are Michelin Keys?
+              <span className="text-xs">→</span>
+            </a>
+          </FadeIn>
+        </div>
+      </section>
 
       <Footer textColor="#FFFFFF" />
     </div>
@@ -435,44 +294,55 @@ function AnimatedStat({ value, className, style }: { value: string; className?: 
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PRESS CARDS , Visual cards for external press articles
+   PRESS CARDS — Editorial magazine-cover style cards
    ═══════════════════════════════════════════════════════════════ */
-interface PressCard {
+interface EditorialCard {
   title: string;
   publication: string;
   date: string;
   url: string;
   property: string;
+  coverImage: string;
+  type: "award" | "press";
 }
 
-const externalPressCards: PressCard[] = [
+const editorialCards: EditorialCard[] = [
+
+  {
+    title: "No. 13 Resort Brand in the World",
+    publication: "Travel + Leisure",
+    date: "2025",
+    url: "https://www.travelandleisure.com/",
+    property: "Nayara Resorts",
+    coverImage: "/manus-storage/tl-worlds-best-2025_d7a4781b.jpg",
+    type: "award",
+  },
+  {
+    title: "No. 1 Resort in Central America",
+    publication: "Condé Nast Traveler",
+    date: "2025",
+    url: "https://www.cntraveler.com/",
+    property: "Nayara Bocas del Toro",
+    coverImage: "/manus-storage/cnt-gold-list-2025_3f071380.jpg",
+    type: "award",
+  },
+  {
+    title: "Best New Hotels in the World",
+    publication: "AFAR",
+    date: "2023",
+    url: "https://www.afar.com/",
+    property: "Nayara Bocas del Toro",
+    coverImage: "/manus-storage/afar-where-to-go-2024_a290bf6d.jpg",
+    type: "award",
+  },
   {
     title: "Michelin Key Hotels: Top Luxury Stays",
     publication: "Inspirato",
     date: "January 2026",
     url: "https://www.inspirato.com/details/general/michelin-key-hotels-luxury-travel/",
     property: "Nayara Springs",
-  },
-  {
-    title: "Nayara Resorts Named Top 15 Hotel Brand in the World",
-    publication: "Travel + Leisure",
-    date: "December 2025",
-    url: "https://www.travelandleisure.com/",
-    property: "Nayara Resorts",
-  },
-  {
-    title: "Nayara Resorts Plans Eco-Friendly Beach Hotel in Manuel Antonio",
-    publication: "Tico Times",
-    date: "December 2025",
-    url: "https://ticotimes.net/2025/12/09/costa-ricas-nayara-resorts-plans-eco-friendly-beach-hotel-in-manuel-antonio",
-    property: "Nayara Resorts",
-  },
-  {
-    title: "Nayara Springs Named Among World's Best Hotels by Michelin",
-    publication: "Tico Times",
-    date: "October 2025",
-    url: "https://ticotimes.net/2025/10/10/costa-ricas-nayara-springs-named-among-worlds-best-hotels-by-michelin",
-    property: "Nayara Springs",
+    coverImage: "/manus-storage/inspirato-magazine_4f30cbc1.jpg",
+    type: "press",
   },
   {
     title: "Michelin, Condé Nast, Travel + Leisure: The World's Top Awards Choose Nayara",
@@ -480,27 +350,8 @@ const externalPressCards: PressCard[] = [
     date: "October 2025",
     url: "https://www.travelworldnews.com/michelin-conde-nast-travel-leisure-the-worlds-top-awards-choose-nayara-resorts/",
     property: "Nayara Resorts",
-  },
-  {
-    title: "Nayara Alto Atacama Review: A Smart Pick for Adventurous Couples",
-    publication: "Travel Market Report",
-    date: "October 2025",
-    url: "https://www.travelmarketreport.com/hotels-resorts/articles/nayara-alto-atacama-review-a-smart-pick-for-adventurous-couples-visiting-the-north-of-chile",
-    property: "Nayara Alto Atacama",
-  },
-  {
-    title: "Nayara Alto Atacama Hotel Review",
-    publication: "The Telegraph",
-    date: "July 2025",
-    url: "https://www.telegraph.co.uk/travel/destinations/south-america/chile/atacama/san-pedro-de-atacama/hotels/nayara-alto-atacama-hotel/",
-    property: "Nayara Alto Atacama",
-  },
-  {
-    title: "How to Plan the Perfect Trip to Easter Island",
-    publication: "Travel + Leisure",
-    date: "June 2025",
-    url: "https://www.travelandleisure.com/trip-ideas/vacationing-in-easter-island",
-    property: "Nayara Hangaroa",
+    coverImage: "/manus-storage/destinations-world-news_14994318.jpg",
+    type: "press",
   },
   {
     title: "An Intentional Oasis Meant for Slowing Down",
@@ -508,6 +359,17 @@ const externalPressCards: PressCard[] = [
     date: "2024",
     url: "https://www.cntraveler.com/hotels/nayara-alto-atacama",
     property: "Nayara Alto Atacama",
+    coverImage: "/manus-storage/travel-luxury-atacama_35ec689b.jpg",
+    type: "press",
+  },
+  {
+    title: "Nayara Alto Atacama Hotel Review",
+    publication: "The Telegraph",
+    date: "July 2025",
+    url: "https://www.telegraph.co.uk/travel/destinations/south-america/chile/atacama/san-pedro-de-atacama/hotels/nayara-alto-atacama-hotel/",
+    property: "Nayara Alto Atacama",
+    coverImage: "/manus-storage/telegraph-logo_899d8ec6.jpg",
+    type: "press",
   },
   {
     title: "Sukha Spa Named Among World's 12 Best Spas",
@@ -515,81 +377,149 @@ const externalPressCards: PressCard[] = [
     date: "2024",
     url: "https://galeriemagazine.com/best-spas-in-the-world/",
     property: "Nayara Springs",
+    coverImage: "/manus-storage/galerie-summer-2024_549588f0.png",
+    type: "press",
+  },
+  {
+    title: "How to Plan the Perfect Trip to Easter Island",
+    publication: "Travel + Leisure",
+    date: "June 2025",
+    url: "https://www.travelandleisure.com/trip-ideas/vacationing-in-easter-island",
+    property: "Nayara Hangaroa",
+    coverImage: "/manus-storage/tl-worlds-best-2025_d7a4781b.jpg",
+    type: "press",
+  },
+  {
+    title: "Nayara Resorts Plans Eco-Friendly Beach Hotel",
+    publication: "Tico Times",
+    date: "December 2025",
+    url: "https://ticotimes.net/2025/12/09/costa-ricas-nayara-resorts-plans-eco-friendly-beach-hotel-in-manuel-antonio",
+    property: "Nayara Resorts",
+    coverImage: "/manus-storage/tico-times-logo_20ac5840.png",
+    type: "press",
+  },
+  {
+    title: "Nayara Alto Atacama Review: A Smart Pick for Adventurous Couples",
+    publication: "Travel Market Report",
+    date: "October 2025",
+    url: "https://www.travelmarketreport.com/hotels-resorts/articles/nayara-alto-atacama-review-a-smart-pick-for-adventurous-couples-visiting-the-north-of-chile",
+    property: "Nayara Alto Atacama",
+    coverImage: "/manus-storage/destinations-world-news_14994318.jpg",
+    type: "press",
   },
 ];
 
-/* Publication color mapping */
-const pubColors: Record<string, { bg: string; text: string }> = {
-  "Travel + Leisure": { bg: "#1a1a1a", text: "#ffffff" },
-  "Condé Nast Traveler": { bg: "#8B0000", text: "#ffffff" },
-  "Tico Times": { bg: "#1B5E20", text: "#ffffff" },
-  "Travel World News": { bg: "#1565C0", text: "#ffffff" },
-  "Travel Market Report": { bg: "#4A148C", text: "#ffffff" },
-  "The Telegraph": { bg: "#0D47A1", text: "#ffffff" },
-  "Galerie Magazine": { bg: "#3E2723", text: "#ffffff" },
-  "Inspirato": { bg: "#263238", text: "#ffffff" },
-};
-
 function PressCardsSection() {
-  return (
-    <section className="py-16 md:py-24 px-6 md:px-10 bg-[#f7f5f0]">
-      <div className="max-w-6xl mx-auto">
-        <FadeIn>
-          <p className="text-[10px] tracking-[0.25em] mb-4" style={{ ...body, fontWeight: 500, color: "#3B2B26", opacity: 0.4 }}>Featured In</p>
-        </FadeIn>
-        <FadeIn delay={0.1}>
-          <h2 className="text-2xl md:text-3xl lg:text-[36px] leading-[1.15] tracking-wide mb-12 md:mb-16" style={{ ...heading, color: "#3B2B26" }}>
-            What the Press Is Saying
-          </h2>
-        </FadeIn>
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {externalPressCards.map((card, i) => {
-            const colors = pubColors[card.publication] || { bg: "#3B2B26", text: "#ffffff" };
-            return (
-              <motion.a
-                key={i}
-                href={card.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="group relative flex flex-col justify-between p-7 md:p-8 rounded-sm transition-all duration-500 hover:translate-y-[-4px] hover:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.2)] overflow-hidden"
-                style={{ backgroundColor: colors.bg, minHeight: "220px" }}
-              >
-                {/* Publication name — top */}
-                <div>
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    return () => el.removeEventListener("scroll", checkScroll);
+  }, [checkScroll]);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = el.querySelector("a")?.offsetWidth || 300;
+    el.scrollBy({ left: dir === "right" ? cardWidth + 20 : -(cardWidth + 20), behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-16 md:py-24 bg-[#f7f5f0]">
+      <div className="max-w-7xl mx-auto">
+        <div className="px-6 md:px-10 flex items-end justify-between mb-10 md:mb-14">
+          <FadeIn>
+            <h2 className="text-2xl md:text-3xl lg:text-[36px] leading-[1.15] tracking-wide" style={{ ...heading, color: "#3B2B26" }}>
+              Recognized by the Most Trusted Voices in Travel
+            </h2>
+          </FadeIn>
+          {/* Desktop arrows */}
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={() => scroll("left")}
+              disabled={!canScrollLeft}
+              className="w-10 h-10 flex items-center justify-center border border-[#3B2B26]/15 text-[#3B2B26]/50 hover:text-[#3B2B26] hover:border-[#3B2B26]/40 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              disabled={!canScrollRight}
+              className="w-10 h-10 flex items-center justify-center border border-[#3B2B26]/15 text-[#3B2B26]/50 hover:text-[#3B2B26] hover:border-[#3B2B26]/40 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Horizontal scroll container */}
+        <div
+          ref={scrollRef}
+          className="flex gap-5 overflow-x-auto px-6 md:px-10 pb-4 scrollbar-hide"
+          style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
+        >
+          {editorialCards.map((card, i) => (
+            <motion.a
+              key={i}
+              href={card.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="group relative flex-shrink-0 w-[260px] md:w-[280px] overflow-hidden transition-all duration-500 hover:translate-y-[-6px]"
+              style={{ scrollSnapAlign: "start" }}
+            >
+              {/* Cover image — portrait ratio */}
+              <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#e8e4de]">
+                <img
+                  src={card.coverImage}
+                  alt={card.publication}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                {/* Publication name — bottom of image */}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
                   <span
-                    className="text-[10px] tracking-[0.2em] uppercase opacity-50 group-hover:opacity-80 transition-opacity"
-                    style={{ ...body, fontWeight: 600, color: colors.text }}
+                    className="text-[9px] tracking-[0.2em] uppercase text-white/70"
+                    style={{ ...body, fontWeight: 600 }}
                   >
                     {card.publication}
                   </span>
-                </div>
-
-                {/* Article title — center/bottom */}
-                <div className="mt-auto">
                   <h3
-                    className="text-[15px] md:text-[16px] leading-[1.4] mb-3 group-hover:opacity-90 transition-opacity"
-                    style={{ ...heading, fontWeight: 400, color: colors.text }}
+                    className="text-white text-[14px] md:text-[15px] leading-[1.35] mt-1.5"
+                    style={{ ...heading, fontWeight: 400 }}
                   >
                     {card.title}
                   </h3>
-                  <div className="flex items-center justify-between">
-                    <span
-                      className="text-[11px] opacity-40 group-hover:opacity-60 transition-opacity"
-                      style={{ ...body, color: colors.text }}
-                    >
-                      {card.date} · {card.property}
-                    </span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-30 group-hover:opacity-70 transition-all duration-300 group-hover:translate-x-0.5" style={{ color: colors.text }} />
-                  </div>
                 </div>
-              </motion.a>
-            );
-          })}
+              </div>
+              {/* Meta below image */}
+              <div className="pt-3 pb-1 flex items-center justify-between">
+                <span
+                  className="text-[10px] text-[#3B2B26]/40"
+                  style={{ ...body, fontWeight: 400 }}
+                >
+                  {card.date} · {card.property}
+                </span>
+                <ExternalLink className="w-3 h-3 text-[#3B2B26]/25 group-hover:text-[#3B2B26]/60 transition-colors" />
+              </div>
+            </motion.a>
+          ))}
         </div>
       </div>
     </section>

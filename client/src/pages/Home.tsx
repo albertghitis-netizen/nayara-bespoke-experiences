@@ -28,7 +28,7 @@ import {
   EASE_CINEMATIC,
 } from "@/components/motion";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Play, ArrowUpRight } from "lucide-react";
+import { Play, ArrowUpRight, ExternalLink } from "lucide-react";
 import { journalEntries, type JournalEntry } from "@/data/journal";
 
 /* ─── Type definitions ─── */
@@ -585,241 +585,228 @@ function TimelineSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AWARDS HIGHLIGHT , 4 key accolades before By Night
+   AWARDS HIGHLIGHT — Editorial magazine-cover card carousel
+   Same style as Press & Awards page PressCardsSection
    ═══════════════════════════════════════════════════════════════ */
-const awardsData = [
+interface EditorialCardHome {
+  title: string;
+  publication: string;
+  date: string;
+  url: string;
+  property: string;
+  coverImage: string;
+}
+
+const editorialCardsHome: EditorialCardHome[] = [
   {
-    stat: "#1",
-    accolade: "Best Resort in Central America",
-    property: "Nayara Bocas del Toro \u2014 Cond\u00e9 Nast",
-    route: "/blog/conde-nast-bocas-del-toro",
-    videoSrc: "/manus-storage/award-bocas_5eedc0d2.mp4",
+    title: "No. 13 Resort Brand in the World",
+    publication: "Travel + Leisure",
+    date: "2025",
+    url: "https://www.travelandleisure.com/",
+    property: "Nayara Resorts",
+    coverImage: "/manus-storage/tl-worlds-best-2025_d7a4781b.jpg",
   },
   {
-    stat: "#1",
-    accolade: "Best Resort in Central America",
-    property: "Nayara Tented Camp \u2014 Travel + Leisure",
-    route: "/tented-camp",
-    videoSrc: "/manus-storage/award-tented_e44f4b7d.mp4",
+    title: "No. 1 Resort in Central America",
+    publication: "Cond\u00e9 Nast Traveler",
+    date: "2025",
+    url: "https://www.cntraveler.com/",
+    property: "Nayara Bocas del Toro",
+    coverImage: "/manus-storage/cnt-gold-list-2025_3f071380.jpg",
   },
   {
-    stat: "Top 15",
-    accolade: "Top 15 Resort Brands in the World",
-    property: "Nayara Resorts \u2014 Travel + Leisure",
-    route: "/awards",
-    videoSrc: "/manus-storage/award-resorts_e26bf391.mp4",
+    title: "Best New Hotels in the World",
+    publication: "AFAR",
+    date: "2023",
+    url: "https://www.afar.com/",
+    property: "Nayara Bocas del Toro",
+    coverImage: "/manus-storage/afar-where-to-go-2024_a290bf6d.jpg",
   },
   {
-    stat: "3",
-    accolade: "Only 3 Michelin Key Hotel in Costa Rica",
-    property: "Nayara Springs \u2014 MICHELIN Guide",
-    route: "/blog/michelin-keys",
-    videoSrc: "/manus-storage/award-springs_33c98f30.mp4",
+    title: "Michelin Key Hotels: Top Luxury Stays",
+    publication: "Inspirato",
+    date: "January 2026",
+    url: "https://www.inspirato.com/details/general/michelin-key-hotels-luxury-travel/",
+    property: "Nayara Springs",
+    coverImage: "/manus-storage/inspirato-magazine_4f30cbc1.jpg",
   },
   {
-    stat: "Top 15",
-    accolade: "Top 15 Resorts in South America",
-    property: "Nayara Alto Atacama \u2014 Cond\u00e9 Nast",
-    route: "https://www.cntraveler.com/gallery/top-resorts-in-south-america",
-    videoSrc: "/manus-storage/award-atacama_d55d15fa.mp4",
+    title: "Michelin, Cond\u00e9 Nast, Travel + Leisure: The World\u2019s Top Awards Choose Nayara",
+    publication: "Travel World News",
+    date: "October 2025",
+    url: "https://www.travelworldnews.com/michelin-conde-nast-travel-leisure-the-worlds-top-awards-choose-nayara-resorts/",
+    property: "Nayara Resorts",
+    coverImage: "/manus-storage/destinations-world-news_14994318.jpg",
   },
   {
-    stat: "Hall of Fame",
-    accolade: "World's Best Awards Hall of Fame",
-    property: "Nayara Gardens \u2014 Travel + Leisure",
-     route: "/gardens",
-    videoSrc: "/manus-storage/award-gardens_5eb1e82c.mp4",
+    title: "An Intentional Oasis Meant for Slowing Down",
+    publication: "Cond\u00e9 Nast Traveler",
+    date: "2024",
+    url: "https://www.cntraveler.com/hotels/nayara-alto-atacama",
+    property: "Nayara Alto Atacama",
+    coverImage: "/manus-storage/travel-luxury-atacama_35ec689b.jpg",
+  },
+  {
+    title: "Nayara Alto Atacama Hotel Review",
+    publication: "The Telegraph",
+    date: "July 2025",
+    url: "https://www.telegraph.co.uk/travel/destinations/south-america/chile/atacama/san-pedro-de-atacama/hotels/nayara-alto-atacama-hotel/",
+    property: "Nayara Alto Atacama",
+    coverImage: "/manus-storage/telegraph-logo_899d8ec6.jpg",
+  },
+  {
+    title: "Sukha Spa Named Among World\u2019s 12 Best Spas",
+    publication: "Galerie Magazine",
+    date: "2024",
+    url: "https://galeriemagazine.com/best-spas-in-the-world/",
+    property: "Nayara Springs",
+    coverImage: "/manus-storage/galerie-summer-2024_549588f0.png",
+  },
+  {
+    title: "How to Plan the Perfect Trip to Easter Island",
+    publication: "Travel + Leisure",
+    date: "June 2025",
+    url: "https://www.travelandleisure.com/trip-ideas/vacationing-in-easter-island",
+    property: "Nayara Hangaroa",
+    coverImage: "/manus-storage/tl-worlds-best-2025_d7a4781b.jpg",
+  },
+  {
+    title: "Nayara Resorts Plans Eco-Friendly Beach Hotel",
+    publication: "Tico Times",
+    date: "December 2025",
+    url: "https://ticotimes.net/2025/12/09/costa-ricas-nayara-resorts-plans-eco-friendly-beach-hotel-in-manuel-antonio",
+    property: "Nayara Resorts",
+    coverImage: "/manus-storage/tico-times-logo_20ac5840.png",
+  },
+  {
+    title: "Nayara Alto Atacama Review: A Smart Pick for Adventurous Couples",
+    publication: "Travel Market Report",
+    date: "October 2025",
+    url: "https://www.travelmarketreport.com/hotels-resorts/articles/nayara-alto-atacama-review-a-smart-pick-for-adventurous-couples-visiting-the-north-of-chile",
+    property: "Nayara Alto Atacama",
+    coverImage: "/manus-storage/destinations-world-news_14994318.jpg",
   },
 ];
 
 function AwardsHighlightSection() {
-  /* Dark espresso cards with warm gold accents */
-  const cardBg = "#3B2B26";
-  const cardText = "#F7F5F0";
-  const cardTextSoft = "#D4C8B8";
-  const cardAccent = "#E1D1BA";
-  const isMobile = useIsMobile();
-    const awardsScrollRef = useRef<HTMLDivElement>(null);
-  const awardsDesktopRef = useRef<HTMLDivElement>(null);
-  const [awardsPage, setAwardsPage] = useState(0);
-  const [awardsDesktopPage, setAwardsDesktopPage] = useState(0);
-  const totalAwards = awardsData.length; // 6
-  const awardsDesktopPages = Math.ceil(totalAwards / 3); // 2 pages of 3
-  const scrollToAward = (idx: number) => {
-    const el = awardsScrollRef.current;
-    if (!el) return;
-    el.scrollTo({ left: idx * el.clientWidth, behavior: "smooth" });
-    setAwardsPage(idx);
-  };
-  const scrollToAwardsDesktopPage = (page: number) => {
-    const el = awardsDesktopRef.current;
-    if (!el) return;
-    el.scrollTo({ left: page * el.clientWidth, behavior: "smooth" });
-    setAwardsDesktopPage(page);
-  };
-  const handleAwardsScroll = useCallback(() => {
-    const el = awardsScrollRef.current;
-    if (!el) return;
-    const newPage = Math.round(el.scrollLeft / el.clientWidth);
-    setAwardsPage(newPage);
-  }, []);
-  const handleAwardsDesktopScroll = useCallback(() => {
-    const el = awardsDesktopRef.current;
-    if (!el) return;
-    const newPage = Math.round(el.scrollLeft / el.clientWidth);
-    setAwardsDesktopPage(newPage);
-  }, []);
-  useEffect(() => {
-    const el = awardsScrollRef.current;
-    if (el) el.addEventListener("scroll", handleAwardsScroll, { passive: true });
-    return () => el?.removeEventListener("scroll", handleAwardsScroll);
-  }, [handleAwardsScroll]);
-  useEffect(() => {
-    const el = awardsDesktopRef.current;
-    if (el) el.addEventListener("scroll", handleAwardsDesktopScroll, { passive: true });
-    return () => el?.removeEventListener("scroll", handleAwardsDesktopScroll);
-  }, [handleAwardsDesktopScroll]);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const renderAwardCard = (award: typeof awardsData[0]) => {
-    const isExternal = award.route.startsWith("http");
-    const Wrapper = isExternal ? "a" : Link;
-    const wrapperProps = isExternal
-      ? { href: award.route, target: "_blank", rel: "noopener noreferrer" }
-      : { href: award.route };
-    return (
-      <Wrapper
-        {...wrapperProps}
-        className="group relative flex flex-col p-6 md:p-8 transition-all duration-500 ease-out hover:translate-y-[-6px] hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] hover:z-10 overflow-hidden"
-        style={{ aspectRatio: "1/1", backgroundColor: cardBg }}
-      >
-        {/* Video background */}
-        <video
-          src={award.videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        {/* Dark overlay , lightens on hover */}
-        <div className="absolute inset-0 bg-black/55 group-hover:bg-black/40 transition-all duration-700" />
-        {/* Content */}
-        <div className="relative z-10 flex flex-col h-full">
-          <span
-            className={`block leading-none mb-4 transition-all duration-500 group-hover:scale-110 group-hover:translate-x-1 h-[48px] md:h-[56px] lg:h-[64px] flex items-end ${award.stat.length > 6 ? 'text-[32px] md:text-[40px] lg:text-[48px] whitespace-nowrap' : 'text-[48px] md:text-[56px] lg:text-[64px]'}`}
-            style={{ fontFamily: "var(--font-display)", fontWeight: 300, color: "#E1D1BA" }}
-          >
-            {award.stat}
-          </span>
-          <div className="w-8 h-px mb-5 group-hover:w-16 group-hover:h-[2px] transition-all duration-500 ease-out" style={{ backgroundColor: "#E1D1BA" }} />
-          <h3
-            className="text-[16px] md:text-[17px] leading-[1.35] mb-2 transition-all duration-500 min-h-[46px] flex items-start group-hover:text-[#E1D1BA] group-hover:scale-[1.02] origin-left"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: "#FFFFFF" }}
-          >
-            {award.accolade}
-          </h3>
-          <p
-            className="text-[14px] md:text-[15px] tracking-[0.04em] transition-all duration-500 mt-auto group-hover:text-white group-hover:tracking-[0.06em]"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.5)" }}
-          >
-            {award.property}
-          </p>
-          <div className="mt-5 overflow-hidden h-0 group-hover:h-6 transition-all duration-500 ease-out">
-            <svg className="w-4 h-4 translate-x-[-8px] group-hover:translate-x-0 opacity-0 group-hover:opacity-60 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="#E1D1BA" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </div>
-        </div>
-      </Wrapper>
-    );
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    return () => el.removeEventListener("scroll", checkScroll);
+  }, [checkScroll]);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = el.querySelector("a")?.offsetWidth || 280;
+    el.scrollBy({ left: dir === "right" ? cardWidth + 20 : -(cardWidth + 20), behavior: "smooth" });
   };
 
   return (
-    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Recognition</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-14 md:mb-20" delay={0.1}>
-          <span
-            className="text-2xl md:text-4xl lg:text-[38px] leading-[1.15] tracking-wide"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-          >
-            Recognized by the Most Trusted Voices in Travel
-          </span>
-        </TextReveal>
-
-        {/* Desktop: Horizontal slider , 3 cards visible at a time (matches Journal) */}
-        <div className="hidden md:block relative">
-          {/* Filled espresso square + white chevron arrows */}
-          <button
-            onClick={() => scrollToAwardsDesktopPage(awardsDesktopPage - 1)}
-            disabled={awardsDesktopPage === 0}
-            className="absolute -left-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
-            style={{ backgroundColor: "#3B2B26" }}
-            aria-label="Previous"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button
-            onClick={() => scrollToAwardsDesktopPage(awardsDesktopPage + 1)}
-            disabled={awardsDesktopPage >= awardsDesktopPages - 1}
-            className="absolute -right-16 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 disabled:opacity-0 disabled:pointer-events-none hover:opacity-80"
-            style={{ backgroundColor: "#3B2B26" }}
-            aria-label="Next"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#F7F5F0" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
-          <div
-            ref={awardsDesktopRef}
-            className="flex overflow-x-auto scrollbar-hide"
-            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
-          >
-            {Array.from({ length: awardsDesktopPages }).map((_, pageIdx) => (
-              <div
-                key={pageIdx}
-                className="flex-shrink-0 w-full grid grid-cols-3 gap-5"
-                style={{ scrollSnapAlign: "start" }}
+    <section className="py-20 md:py-28" style={{ backgroundColor: PALETTE.bg }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="px-6 md:px-10 flex items-end justify-between mb-10 md:mb-14">
+          <div>
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>Recognition</SectionLabel>
+            </AnimateOnScroll>
+            <TextReveal as="h2" delay={0.1}>
+              <span
+                className="text-2xl md:text-3xl lg:text-[36px] leading-[1.15] tracking-wide"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
               >
-                {awardsData.slice(pageIdx * 3, pageIdx * 3 + 3).map((award) => (
-                  <div key={award.property}>
-                    {renderAwardCard(award)}
-                  </div>
-                ))}
-              </div>
-            ))}
+                Recognized by the Most Trusted Voices in Travel
+              </span>
+            </TextReveal>
           </div>
-
+          {/* Desktop arrows */}
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={() => scroll("left")}
+              disabled={!canScrollLeft}
+              className="w-10 h-10 flex items-center justify-center border border-[#3B2B26]/15 text-[#3B2B26]/50 hover:text-[#3B2B26] hover:border-[#3B2B26]/40 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              disabled={!canScrollRight}
+              className="w-10 h-10 flex items-center justify-center border border-[#3B2B26]/15 text-[#3B2B26]/50 hover:text-[#3B2B26] hover:border-[#3B2B26]/40 transition-all disabled:opacity-20 disabled:cursor-not-allowed"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
 
-        {/* Mobile: 1 card at a time, swipeable */}
-        <div className="md:hidden relative">
-          <div
-            ref={awardsScrollRef}
-            className="flex overflow-x-auto scrollbar-hide"
-            style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
-          >
-            {awardsData.map((award) => (
-              <div key={award.property} className="flex-shrink-0 w-full px-1" style={{ scrollSnapAlign: "start" }}>
-                {renderAwardCard(award)}
+        {/* Horizontal scroll container — editorial magazine-cover cards */}
+        <div
+          ref={scrollRef}
+          className="flex gap-5 overflow-x-auto px-6 md:px-10 pb-4 scrollbar-hide"
+          style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
+        >
+          {editorialCardsHome.map((card, i) => (
+            <motion.a
+              key={i}
+              href={card.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="group relative flex-shrink-0 w-[260px] md:w-[280px] overflow-hidden transition-all duration-500 hover:translate-y-[-6px]"
+              style={{ scrollSnapAlign: "start" }}
+            >
+              {/* Cover image — portrait ratio */}
+              <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#e8e4de]">
+                <img
+                  src={card.coverImage}
+                  alt={card.publication}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                {/* Publication name — bottom of image */}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <span
+                    className="text-[9px] tracking-[0.2em] uppercase text-white/70"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 600 }}
+                  >
+                    {card.publication}
+                  </span>
+                  <h3
+                    className="text-white text-[14px] md:text-[15px] leading-[1.35] mt-1.5"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                  >
+                    {card.title}
+                  </h3>
+                </div>
               </div>
-            ))}
-          </div>
-          {/* Progress bar */}
-          <div className="mt-6 mx-auto w-32 h-[3px] rounded-full overflow-hidden" style={{ backgroundColor: "rgba(59,43,38,0.15)" }}>
-            <div
-              className="h-full rounded-full transition-all duration-300"
-              style={{
-                backgroundColor: "#3B2B26",
-                width: `${100 / awardsData.length}%`,
-                marginLeft: `${(awardsPage / awardsData.length) * 100}%`,
-              }}
-            />
-          </div>
+              {/* Meta below image */}
+              <div className="pt-3 pb-1 flex items-center justify-between">
+                <span
+                  className="text-[10px] text-[#3B2B26]/40"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                >
+                  {card.date} · {card.property}
+                </span>
+                <ExternalLink className="w-3 h-3 text-[#3B2B26]/25 group-hover:text-[#3B2B26]/60 transition-colors" />
+              </div>
+            </motion.a>
+          ))}
         </div>
 
         {/* CTA to full awards page */}

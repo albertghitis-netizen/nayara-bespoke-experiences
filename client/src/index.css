@@ -229,6 +229,8 @@ html {
 /* Hide scrollbar for horizontal property strip */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* Vine grow animation , starts fully off-screen left, slides in naturally */
 @keyframes vineGrow {

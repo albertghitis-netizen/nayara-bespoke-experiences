@@ -36,6 +36,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/newgal-005-DBBC01CA-795B-472C-8172-EE2AD876687E_1__5b089e23.jpeg", w: 1538, h: 1920, type: "image" },
   // 10. Infinity pool sunset (SQUARE, pink/blue sky) , second square
   { src: "/manus-storage/gal-new-infinity-pool_fc7be1aa.jpeg", w: 1920, h: 1920, type: "image" },
+  // AWARD VIDEO: Bocas del Toro (SQUARE)
+  { src: "/manus-storage/award-bocas_5eedc0d2.mp4", w: 1080, h: 1080, type: "video" },
   // 11. Food/drink (VERT, warm) [swapped from G50]
   { src: "/manus-storage/newgal-033-Untitleddesign-18_af394d5d.JPG", w: 1440, h: 1920, type: "image" },
   // 12. VIDEO , Atacama square (SQUARE, 8.2s) [new]
@@ -56,6 +58,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/gal-new-treehouse-walkway_6d7687be.jpeg", w: 1442, h: 1920, type: "image" },
   // 20. Landscape with green hills (HORIZ, bright green)
   { src: "/manus-storage/newgal-011-3ebfa54d-69b4-4274-bc93-fc60642536c9_1__067f8b01.JPG", w: 1280, h: 853, type: "image" },
+  // AWARD VIDEO: Tented Camp (SQUARE)
+  { src: "/manus-storage/award-tented_e44f4b7d.mp4", w: 1080, h: 1080, type: "video" },
   // 21. Woman in white dress by pool (VERT, blue/green) [swapped from G2]
   { src: "/manus-storage/newgal-001-90BD7E91-B497-4CF2-B9B4-4F7929DFB687_1__747bee1e.jpeg", w: 1536, h: 1920, type: "image" },
   // 22. Couple by pool (VERT, blue water)
@@ -74,6 +78,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/gal-vid-11-sloths_2b7857d0_757ee0b6.mp4", w: 1256, h: 706, type: "video" },
   // 29. Tented camp exterior (VERT, green/tent)
   { src: "/manus-storage/newgal-018-Ayla_NayaraTentedCamp_11_8d494b88.jpeg", w: 1280, h: 1920, type: "image" },
+  // AWARD VIDEO: Nayara Resorts (SQUARE)
+  { src: "/manus-storage/award-resorts_e26bf391.mp4", w: 1080, h: 1080, type: "video" },
   // 30. Mi Cafecito (HORIZ, warm coffee tones)
   { src: "/manus-storage/newgal-028-MiCafecito_9fe2ebc5.jpeg", w: 1920, h: 1281, type: "image" },
   // 31. Dolphins (VERT, blue ocean) , ANIMAL
@@ -94,6 +100,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/gal-vid-08_1a39cf78_9d44e162.mp4", w: 1440, h: 810, type: "video" },
   // 39. Flamingos (VERT, pink/blue) , ANIMAL
   { src: "/manus-storage/newgal-022-6F47449D-76D3-464F-9095-1480197434EC_2e1247b6.jpeg", w: 1538, h: 1920, type: "image" },
+  // AWARD VIDEO: Nayara Springs (SQUARE)
+  { src: "/manus-storage/award-springs_33c98f30.mp4", w: 1080, h: 1080, type: "video" },
   // 40. Resort room detail (VERT, warm)
   { src: "/manus-storage/newgal-023-3a94f88f-2a69-457a-bc18-fae9946d8f0c_2__8fc1c10d.jpg", w: 602, h: 802, type: "image" },
   // 41. Springs pool (VERT, green/blue)
@@ -114,6 +122,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/newgal-032-02472240-7796-42F8-B9F3-B955D66EAD89_062baa07.jpeg", w: 1538, h: 1920, type: "image" },
   // 49. VIDEO , vid-02 (HORIZ, 1.6s)
   { src: "/manus-storage/gal-vid-02_ec251b26_d0c081fa.mp4", w: 1096, h: 616, type: "video" },
+  // AWARD VIDEO: Alto Atacama (SQUARE)
+  { src: "/manus-storage/award-atacama_d55d15fa.mp4", w: 1080, h: 1080, type: "video" },
   // 50. Milky way stargazing (VERT, dark blue/purple) , NIGHT [swapped from G11]
   { src: "/manus-storage/newgal-007-D7AC6CFD-2329-4619-B8C9-447268366C3F_a35005f7.jpeg", w: 1440, h: 1920, type: "image" },
   // 51. Toucan (VERT, green/colorful) , ANIMAL
@@ -134,6 +144,8 @@ export const galleryImages: GalleryItem[] = [
   { src: "/manus-storage/gal-vid-03_2cfe9be8_4b06cc90.mp4", w: 720, h: 960, type: "video" },
   // 59. Layla's gardens (VERT, green/bright)
   { src: "/manus-storage/newgal-044-Layla_s_NayaraGardens_1_1__f7b01cbf.jpg", w: 3406, h: 4541, type: "image" },
+  // AWARD VIDEO: Nayara Gardens (SQUARE)
+  { src: "/manus-storage/award-gardens_5eb1e82c.mp4", w: 1080, h: 1080, type: "video" },
   // 60. Pool/resort scene (SQUARE, blue/green) , sixth square
   { src: "/manus-storage/newgal-046-4DC1F65C-1FF5-4B24-8A46-0CEDDFB666F3_4ecd2ef9.jpeg", w: 1920, h: 1906, type: "image" },
   // 61. Amor Loco restaurant (VERT, warm/romantic)
