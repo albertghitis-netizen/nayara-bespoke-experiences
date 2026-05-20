@@ -13,7 +13,7 @@
  */
 import { useState, useRef, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
-import { Play, ArrowUpRight } from "lucide-react";
+import { Play, ArrowUpRight, Headphones, X } from "lucide-react";
 import BrandNavigation from "@/components/BrandNavigation";
 import HotelFilterBar3 from "@/components/HotelFilterBar3";
 import Footer from "@/components/Footer";
@@ -54,6 +54,8 @@ const JOURNAL_CDN = {
  * Row 9: Read · Read         · Read
  */
 const CURATED_IDS: string[] = [
+  // Row 0: Podcast (first listing)
+  "history-of-travel-albert-gittis",
   // Row 1: Watch · Read · Watch
   "hitorangi-rapanui",
   "experiential-travel-2026",
@@ -273,7 +275,40 @@ function GalleryCard({
     );
   }
 
-  // ── Listen-only cards removed (no more audio-only entries) ──
+  // ── Listen-only (audio/podcast) card ──
+  if (isListenOnly && entry.podcastUrl) {
+    const isAudioPlaying = activeVideo === entry.id;
+    return (
+      <motion.div {...motionProps} onClick={() => !isAudioPlaying && setActiveVideo(entry.id)}>
+        <CardShell entry={entry} index={index}>
+          {isAudioPlaying ? (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-20 p-6">
+              <button
+                onClick={(e) => { e.stopPropagation(); setActiveVideo(null); }}
+                className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+              <img src={entry.image} alt="" className="w-20 h-20 rounded-lg object-cover mb-4 opacity-80" />
+              <p className="text-white/80 text-xs tracking-wide text-center mb-4 line-clamp-2" style={{ fontFamily: "var(--font-body)" }}>{entry.title}</p>
+              <audio
+                src={entry.podcastUrl}
+                autoPlay
+                controls
+                className="w-full max-w-[280px]"
+                style={{ filter: "invert(1) hue-rotate(180deg) opacity(0.85)" }}
+              />
+            </div>
+          ) : (
+            <CardOverlay entry={entry}>
+              <SinglePill icon={<Headphones className="w-2.5 h-2.5" />} label="Listen" />
+              <DurationPill duration={entry.duration} />
+            </CardOverlay>
+          )}
+        </CardShell>
+      </motion.div>
+    );
+  }
 
   // ── EN/ES language toggle card (sustainability videos stay as "Watch") ──
   if (hasLangToggle) {

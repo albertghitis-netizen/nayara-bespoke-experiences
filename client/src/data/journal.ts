@@ -398,7 +398,21 @@ const blogArticles: JournalEntry[] = [
 ];
 
 // ─── Audio Episodes (Podcasts) ───────────────────────────────
-const audioEpisodes: JournalEntry[] = [];
+const audioEpisodes: JournalEntry[] = [
+  {
+    id: "history-of-travel-albert-gittis",
+    title: "The History of Travel with Albert Gittis",
+    excerpt: "From microbes to modern tourism — Albert Gittis traces four billion years of human movement, exploring why we travel, what it costs, and how regenerative travel might be our way forward. The inaugural episode of Nayara Horizons: Beyond Travel.",
+    image: "/manus-storage/podcast-history-of-travel-cover_2ebe6af1.jpg",
+    property: "brand",
+    type: "audio",
+    podcastUrl: "/manus-storage/albert-is-the-man-podcast_33b757b6.mp3",
+    duration: "15 min",
+    guest: "Albert Gittis",
+    sortPriority: 0,
+    date: "2025-05-20",
+  },
+];
 
 // ─── Podcast & Video Episodes (Nayara Horizons + Sustainability Videos) ─
 const videoEpisodes: JournalEntry[] = [
