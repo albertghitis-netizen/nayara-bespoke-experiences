@@ -737,14 +737,14 @@ function AwardsHighlightSection() {
             <button
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
-              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all disabled:cursor-default"
+              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all duration-200 hover:opacity-80 hover:scale-105 disabled:cursor-default"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
             </button>
             <button
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
-              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all disabled:cursor-default"
+              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all duration-200 hover:opacity-80 hover:scale-105 disabled:cursor-default"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
@@ -998,14 +998,14 @@ function NayaraJournalSection() {
             <button
               onClick={() => scrollToPage(currentPage - 1)}
               disabled={currentPage === 0}
-              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all disabled:cursor-default"
+              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all duration-200 hover:opacity-80 hover:scale-105 disabled:cursor-default"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
             </button>
             <button
               onClick={() => scrollToPage(currentPage + 1)}
               disabled={currentPage >= totalPages - 1}
-              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all disabled:cursor-default"
+              className="w-10 h-10 flex items-center justify-center bg-[#3B2B26] text-[#F7F5F0] transition-all duration-200 hover:opacity-80 hover:scale-105 disabled:cursor-default"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
