@@ -791,17 +791,17 @@ function AwardsHighlightSection() {
                     className="text-white text-[14px] md:text-[15px] leading-[1.35] mt-1.5"
                     style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                   >
-                    {card.title}
+                    {card.title} {card.date}
                   </h3>
                 </div>
               </div>
-              {/* Meta below image */}
+              {/* Property name below image — prominent */}
               <div className="pt-3 pb-1 flex items-center justify-between">
                 <span
-                  className="text-[10px] text-[#3B2B26]/40"
-                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                  className="text-[13px] text-[#3B2B26]/80 tracking-[0.02em]"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
-                  {card.date} · {card.property}
+                  {card.property}
                 </span>
                 <ExternalLink className="w-3 h-3 text-[#3B2B26]/25 group-hover:text-[#3B2B26]/60 transition-colors" />
               </div>
