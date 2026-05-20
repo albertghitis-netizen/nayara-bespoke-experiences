@@ -448,30 +448,30 @@ export default function RoomSlider({
         </AnimatePresence>
       </div>
 
-      {/* Navigation arrows or swipe hint */}
+      {/* Navigation arrows — two square buttons at top-right (homepage carousel style) */}
       {rooms.length > 1 && !hideArrows && (
-      <>
-      <button
-        onClick={handlePrev}
-        className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group"
-        style={{
-          backgroundColor: palette.primary,
-          color: "white",
-        }}
-      >
-        <ChevronLeft className="w-7 h-7" strokeWidth={2.5} />
-      </button>
-      <button
-        onClick={handleNext}
-        className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 group"
-        style={{
-          backgroundColor: palette.primary,
-          color: "white",
-        }}
-      >
-        <ChevronRight className="w-7 h-7" strokeWidth={2.5} />
-      </button>
-      </>
+      <div className="hidden md:flex absolute top-8 right-8 md:right-12 z-20 items-center gap-2">
+        <button
+          onClick={handlePrev}
+          className="w-10 h-10 flex items-center justify-center transition-all duration-200 hover:opacity-80 hover:scale-105"
+          style={{
+            backgroundColor: palette.primary,
+            color: "white",
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        </button>
+        <button
+          onClick={handleNext}
+          className="w-10 h-10 flex items-center justify-center transition-all duration-200 hover:opacity-80 hover:scale-105"
+          style={{
+            backgroundColor: palette.primary,
+            color: "white",
+          }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
       )}
       {/* Subtle swipe hint (arrowless mode) */}
       {rooms.length > 1 && hideArrows && currentIndex === 0 && (

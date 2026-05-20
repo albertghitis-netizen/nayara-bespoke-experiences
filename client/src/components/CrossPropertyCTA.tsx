@@ -84,7 +84,7 @@ export default function CrossPropertyCTA({
                   {/* Audience tag overlay */}
                   {prop.audienceTag && (
                     <span
-                      className="absolute top-4 right-4 text-[9px] tracking-[0.15em] uppercase px-2.5 py-1 backdrop-blur-sm"
+                      className="absolute top-4 right-4 text-[9px] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full backdrop-blur-sm"
                       style={{
                         fontFamily: "var(--font-body)",
                         fontWeight: 500,

@@ -204,7 +204,22 @@ export default function Springs() {
       <SustainabilitySection />
       <WellnessSection />
       <GastronomySection />
-
+      <ByNightCTA
+        verticalSrc="/manus-storage/AmorLocoNayaraSprings-R5_26625-byBriceFerreStudio(1)_9a4dccd8.jpeg"
+        verticalIsVideo={false}
+        verticalRatio="3/4"
+        horizontalSrc="/manus-storage/6519cc26-f89d-45e9-bff5-08a3a6728e3a_af227a5e.MP4"
+        horizontalIsVideo={true}
+        horizontalRatio="16/9"
+        bgColor="#0D0704"
+        headline={"Night Frog\nTour"}
+        bodyText="As darkness descends on the rainforest, a hidden world reveals itself. Join our naturalist guides on an intimate nocturnal expedition through the volcanic trails, where dozens of rare frog species emerge under the canopy — their calls creating a symphony that can only be heard after nightfall."
+        textSide="left"
+        overlayOnVideo={true}
+        hideButton={false}
+        buttonLabel="Explore Night Frog Tour"
+        buttonHref="/springs/experiences"
+      />
       <ReviewsSection />
       <GettingHereSection />
       <ReserveCTA />
@@ -400,15 +415,16 @@ function SpringsVillaSection() {
           <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
               href="/springs/rooms/springs-villa"
-              className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
               style={{
-                backgroundColor: "rgba(75,99,88,0.8)",
+                backgroundColor: "rgba(255,255,255,0.12)",
                 fontFamily: "var(--font-body)",
               }}
             >
               <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
                 Explore Springs Villa
               </span>
+              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </div>
         </div>
@@ -458,15 +474,16 @@ function SpringsVillaSection() {
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
             href="/springs/rooms/springs-villa"
-            className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
             style={{
-              backgroundColor: "rgba(75,99,88,0.8)",
+              backgroundColor: "rgba(255,255,255,0.12)",
               fontFamily: "var(--font-body)",
             }}
           >
             <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
               Explore Springs Villa
             </span>
+            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
       </div>
@@ -628,7 +645,7 @@ function GastronomySection() {
       {/* ── Row: Vertical image (bar) left + Text right ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: "#FFFFFF" }}>
         {/* Vertical video left */}
-        <div className="w-full md:w-1/2 md:order-1">
+        <div className="w-full md:w-1/2 md:order-1 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <NativeVideo
@@ -637,6 +654,26 @@ function GastronomySection() {
               />
             </div>
           </MediaReveal>
+          {/* Explore Amor Loco — transparent oval overlaid on image */}
+          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+            <a
+              href="/springs/gastronomy"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-[1.03] w-fit"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 500,
+                fontSize: "11px",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase" as const,
+                color: "#fff",
+                backgroundColor: "rgba(255,255,255,0.12)",
+                border: "1px solid rgba(255,255,255,0.25)",
+              }}
+            >
+              Explore Amor Loco
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
         </div>
 
         {/* Text column right */}
@@ -674,10 +711,10 @@ function GastronomySection() {
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
               href="/springs/gastronomy"
-              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
+              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] w-fit"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(255,255,255,0.12)" }}
             >
-              Explore Amor Loco
+              Explore Forest Table
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
@@ -1049,8 +1086,8 @@ function SpringsPanoramaPanel({
       {panel.badge && (
         <div className="absolute top-5 right-5 z-10">
           <span
-            className="text-[9px] tracking-[0.18em] uppercase px-3 py-1.5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${panel.accent}CC`, backdropFilter: "blur(6px)" }}
+            className="text-[9px] tracking-[0.18em] uppercase px-3 py-1.5 rounded-full"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC`, backdropFilter: "blur(6px)" }}
           >
             {panel.badge}
           </span>
@@ -1122,7 +1159,7 @@ function OneRainforestCompactSprings() {
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
               {panel.badge && (
                 <div className="absolute top-4 right-4">
-                  <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${panel.accent}CC` }}>{panel.badge}</span>
+                  <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}>{panel.badge}</span>
                 </div>
               )}
               <div className="absolute bottom-0 left-0 right-0 p-5">

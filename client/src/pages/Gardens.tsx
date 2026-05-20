@@ -570,8 +570,8 @@ function GardensPanoramaPanel({
       {panel.badge && (
         <div className="absolute top-5 right-5 z-10">
           <span
-            className="text-[9px] tracking-[0.18em] uppercase px-3 py-1.5"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${panel.accent}CC`, backdropFilter: "blur(6px)" }}
+            className="text-[9px] tracking-[0.18em] uppercase px-3 py-1.5 rounded-full"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC`, backdropFilter: "blur(6px)" }}
           >
             {panel.badge}
           </span>
@@ -631,7 +631,7 @@ function OneRainforestCompact() {
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
               {panel.badge && (
                 <div className="absolute top-4 right-4">
-                  <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${panel.accent}CC` }}>{panel.badge}</span>
+                  <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}>{panel.badge}</span>
                 </div>
               )}
               <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -684,15 +684,16 @@ function AccommodationsExperiment() {
           <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
               href="/gardens/rooms/arenal-pool-casita"
-              className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
               style={{
-                backgroundColor: "#E8F3EF",
+                backgroundColor: "rgba(255,255,255,0.12)",
                 fontFamily: "var(--font-body)",
               }}
             >
-              <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
                 Explore Arenal Pool Casita
               </span>
+              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </div>
         </div>
@@ -788,15 +789,16 @@ function AccommodationsExperiment() {
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
           <a
             href="/gardens/rooms/rainforest-pool-villa"
-            className="flex items-center justify-center px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-colors hover:scale-[1.03] transition-transform"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
             style={{
-              backgroundColor: "#E8F3EF",
+              backgroundColor: "rgba(255,255,255,0.12)",
               fontFamily: "var(--font-body)",
             }}
           >
-            <span className="text-[#3a2a1a] text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
               Explore Rainforest Pool Villa
             </span>
+            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
       </div>

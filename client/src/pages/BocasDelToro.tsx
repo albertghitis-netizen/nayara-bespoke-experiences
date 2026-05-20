@@ -428,7 +428,7 @@ function CascadeSection({
   const textSecondaryColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
   const accentColor = isDark ? BONE : PALETTE.primary;
   const textLeft = index % 2 === 0;
-  const PILL_BG = isDark ? "rgba(0,0,0,0.45)" : "rgba(30,58,138,0.72)";
+  const PILL_BG = isDark ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.12)";
   const PILL_BORDER = isDark ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.25)";
   const display = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
   const body = { fontFamily: "var(--font-body)" } as const;
@@ -534,9 +534,9 @@ function CascadeSection({
               fillHeight={true}
             />
             {section.verticalOverlayLabel && (
-              <div className="absolute bottom-6 left-6 z-10">
+              <div className="absolute bottom-6 left-0 right-0 z-10 flex justify-center">
                 <span
-                  className="inline-flex items-center gap-2 px-4 py-2.5 text-[11px] tracking-[0.14em] uppercase"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] tracking-[0.14em] uppercase"
                   style={{
                     fontFamily: "var(--font-body)",
                     fontWeight: 500,
@@ -601,8 +601,8 @@ function CascadeSection({
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
                 href={section.link}
-                className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
-                style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
+                className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] w-fit"
+                style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(255,255,255,0.12)" }}
               >
                 {section.linkLabel || "Explore More"}
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

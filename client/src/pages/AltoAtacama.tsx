@@ -896,8 +896,8 @@ export default function AltoAtacama() {
               <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pb-10 pointer-events-none">
                 <a
                   href={section.link}
-                  className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.03] hover:shadow-lg w-fit"
-                  style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", color: BONE, backgroundColor: MIDDLE, textTransform: "uppercase" }}
+                  className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-full border backdrop-blur-md transition-all duration-300 hover:scale-[1.03] w-fit"
+                  style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", color: "#fff", backgroundColor: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.25)", textTransform: "uppercase" }}
                 >
                   {section.linkLabel || "Explore More"}
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -924,7 +924,7 @@ export default function AltoAtacama() {
                   description="Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape."
                   rooms={ATACAMA_ROOMS}
                   forceVideoLeft={true}
-                  hideArrows={true}
+                  hideArrows={false}
                   palette={{
                     bg: COLOR_A,
                     text: PALETTE.text,
@@ -1271,7 +1271,7 @@ function ProgramsSection() {
                 </ul>
                 <button
                   onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 hover:scale-[1.02]"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02]"
                   style={{
                     ...body,
                     fontWeight: 500,
@@ -1279,8 +1279,8 @@ function ProgramsSection() {
                     letterSpacing: "0.15em",
                     textTransform: "uppercase" as const,
                     color: "#FFFFFF",
-                    backgroundColor: MIDDLE,
-                    borderColor: MIDDLE,
+                    backgroundColor: "rgba(255,255,255,0.12)",
+                    borderColor: "rgba(255,255,255,0.25)",
                   }}
                 >
                   Reserve

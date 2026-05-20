@@ -227,7 +227,7 @@ function CascadeSection({
   const accentColor = isDark ? BONE : PALETTE.primary;
   const textLeft = index % 2 === 0;
 
-  const PILL_BG = isDark ? "rgba(0,0,0,0.45)" : "rgba(134,139,117,0.82)";
+  const PILL_BG = isDark ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.12)";
   const PILL_BORDER = isDark ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.25)";
   /* Track which label index is active for horizontal overlay crossfade */
   const [hLabelIdx, setHLabelIdx] = useState(0);
@@ -597,8 +597,8 @@ function CascadeSection({
             <AnimateOnScroll variants={fadeUp} delay={0.3}>
               <a
                 href={section.link}
-                className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
-                style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
+                className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] w-fit"
+                style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(255,255,255,0.12)" }}
               >
                 {section.linkLabel || "Explore More"}
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -1771,12 +1771,12 @@ function PanoramaPanel({
       {panel.badge && (
         <div className="absolute top-5 right-5 z-10">
           <span
-            className="text-[9px] tracking-[0.18em] uppercase px-3 py-1.5"
+            className="text-[9px] tracking-[0.18em] uppercase px-3 py-1.5 rounded-full"
             style={{
               fontFamily: "var(--font-body)",
               fontWeight: 600,
               color: "#fff",
-              backgroundColor: `${panel.accent}CC`,
+              backgroundColor: `${PALETTE.primary}CC`,
               backdropFilter: "blur(6px)",
             }}
           >
@@ -1880,8 +1880,8 @@ function OneRainforestCompactTC() {
               {panel.badge && (
                 <div className="absolute top-4 right-4">
                   <span
-                    className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${panel.accent}CC` }}
+                    className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}
                   >
                     {panel.badge}
                   </span>
