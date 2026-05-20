@@ -795,15 +795,20 @@ function AwardsHighlightSection() {
                   </h3>
                 </div>
               </div>
-              {/* Property name below image — prominent */}
-              <div className="pt-3 pb-1 flex items-center justify-between">
+              {/* Property name below image — prominent + See Article pill */}
+              <div className="pt-4 pb-1 flex items-center justify-between">
                 <span
-                  className="text-[13px] text-[#3B2B26]/80 tracking-[0.02em]"
+                  className="text-[18px] md:text-[20px] text-[#3B2B26] tracking-[0.01em]"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
                 >
                   {card.property}
                 </span>
-                <ExternalLink className="w-3 h-3 text-[#3B2B26]/25 group-hover:text-[#3B2B26]/60 transition-colors" />
+                <span
+                  className="text-[9px] tracking-[0.12em] uppercase px-3 py-1.5 rounded-full border border-[#3B2B26]/30 text-[#3B2B26]/70 group-hover:bg-[#3B2B26] group-hover:text-[#F7F5F0] group-hover:border-[#3B2B26] transition-all duration-300"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                >
+                  See Article
+                </span>
               </div>
             </motion.a>
           ))}
