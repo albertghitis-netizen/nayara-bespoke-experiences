@@ -101,8 +101,8 @@ function HeroSection() {
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
-          src="/manus-storage/grand-tent-hero-lastframe_c9803e76.jpg"
-          alt="Nayara Grand Tent aerial view"
+          src="/manus-storage/grand-tent-new-hero_7b4e9772.jpg"
+          alt="Nayara Grand Tent pool and pavilion"
           className="w-full h-full object-cover"
         />
       </motion.div>
