@@ -919,7 +919,7 @@ function GastronomySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img src={CDN.moaiPukao} alt="Moai with pukao hats" className="w-full h-full object-cover" loading="lazy" />
+              <img src="/manus-storage/hangaroa-gastronomy-dessert_440503bd.jpeg" alt="Pacific island dessert with raspberry meringue" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </MediaReveal>
         </div>
