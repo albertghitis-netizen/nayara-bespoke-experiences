@@ -130,54 +130,41 @@ function HeroSection() {
         style={{ opacity: heroOpacity }}
       />
 
-      {/* Centered editorial title */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-        <motion.div
+      {/* Bottom-aligned title + CTA */}
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 px-6 text-center">
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
+          className="text-white text-3xl md:text-5xl lg:text-6xl mb-6"
+          style={display}
         >
-          <p
-            className="text-white/50 text-[10px] md:text-[11px] tracking-[0.4em] uppercase mb-4"
-            style={{ ...body, fontWeight: 500 }}
-          >
-            Nayara Gardens
-          </p>
-          <h1
-            className="text-white text-5xl md:text-7xl lg:text-8xl mb-4"
-            style={display}
-          >
-            Arenal Pool Casita
-          </h1>
-          <div className="w-16 h-px mx-auto mb-5" style={{ backgroundColor: "rgba(255,255,255,0.4)" }} />
-          <p
-            className="text-white/70 text-sm md:text-base max-w-md mx-auto mb-8"
-            style={body}
-          >
-            Your private garden sanctuary
-          </p>
-          <button
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
-            style={{
-              ...body,
-              fontWeight: 500,
-              fontSize: "11px",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase" as const,
-              color: P.white,
-              backgroundColor: hovered ? PILL_BG_HOVER : PILL_BG,
-              borderColor: PILL_BORDER,
-            }}
-          >
-            Check Availability
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </button>
-        </motion.div>
+          Arenal Pool Casita
+        </motion.h1>
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+          style={{
+            ...body,
+            fontWeight: 500,
+            fontSize: "11px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase" as const,
+            color: P.white,
+            backgroundColor: hovered ? PILL_BG_HOVER : PILL_BG,
+            borderColor: PILL_BORDER,
+          }}
+        >
+          Check Availability
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </motion.button>
       </div>
 
 
