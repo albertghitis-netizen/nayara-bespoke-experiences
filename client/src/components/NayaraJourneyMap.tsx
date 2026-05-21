@@ -397,29 +397,30 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                   animation: `travelDot ${pathDuration}s ${EASE_CSS} ${staggerDelay}s forwards`,
                 }}
               />
-              {/* Airplane icon traveling along the path */}
-              <motion.g
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.9 }}
-                transition={{ duration: 0.5, delay: staggerDelay }}
-                style={{
-                  offsetPath: `path('${fp.path}')`,
-                  offsetDistance: "100%",
-                  offsetRotate: "auto",
-                  animation: `travelDot ${pathDuration}s ${EASE_CSS} ${staggerDelay}s forwards`,
-                }}
-              >
-                {/* Proper airplane silhouette — nose points right (direction of travel) */}
-                <g transform="translate(-10, -10) scale(0.85)">
-                  <path
-                    d="M22 12 L18 10 L12 10 L8 4 L6 4 L8 10 L3 10 L1 8 L0 8 L1 11 L0 14 L0 14 L1 14 L3 12 L8 12 L6 18 L8 18 L12 12 L18 12 Z"
-                    fill={ACCENT_GOLD}
-                    stroke="rgba(255,255,255,0.6)"
-                    strokeWidth="0.4"
-                    strokeLinejoin="round"
-                  />
-                </g>
-              </motion.g>
+              {/* Single airplane — only on the LATEST active flight path */}
+              {i === activeFlightPaths.length - 1 && (
+                <motion.g
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.9 }}
+                  transition={{ duration: 0.5, delay: staggerDelay }}
+                  style={{
+                    offsetPath: `path('${fp.path}')`,
+                    offsetDistance: "100%",
+                    offsetRotate: "auto",
+                    animation: `travelDot ${pathDuration}s ${EASE_CSS} ${staggerDelay}s forwards`,
+                  }}
+                >
+                  <g transform="translate(-14, -14) scale(1.3)">
+                    <path
+                      d="M22 12 L18 10 L12 10 L8 4 L6 4 L8 10 L3 10 L1 8 L0 8 L1 11 L0 14 L0 14 L1 14 L3 12 L8 12 L6 18 L8 18 L12 12 L18 12 Z"
+                      fill={ACCENT_GOLD}
+                      stroke="rgba(255,255,255,0.6)"
+                      strokeWidth="0.4"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                </motion.g>
+              )}
             </g>
           );
         })}
@@ -512,20 +513,20 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 />
               )}
 
-              {/* Iconic emoji that pops up when plane arrives */}
+              {/* Iconic emoji that pops up when plane arrives — positioned fully in ocean water */}
               <AnimatePresence>
                 {isCurrent && (
                   <motion.g
-                    initial={{ opacity: 0, y: 10, scale: 0.3 }}
+                    initial={{ opacity: 0, y: 14, scale: 0.2 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.3 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
+                    exit={{ opacity: 0, scale: 0.2 }}
+                    transition={{ duration: 0.8, delay: 0.8, ease: EASE }}
                     style={{ pointerEvents: "none" }}
                   >
                     <text
-                      x={loc.x + 18}
-                      y={loc.y - 18}
-                      fontSize="32"
+                      x={loc.id === "easter-island" ? loc.x - 70 : loc.id === "costa-rica" ? loc.x - 80 : loc.id === "bocas" ? loc.x - 70 : loc.x - 80}
+                      y={loc.id === "easter-island" ? loc.y + 60 : loc.id === "costa-rica" ? loc.y + 70 : loc.id === "bocas" ? loc.y + 65 : loc.y + 70}
+                      fontSize="64"
                       textAnchor="middle"
                       dominantBaseline="middle"
                     >
