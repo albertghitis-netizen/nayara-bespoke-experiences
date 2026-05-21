@@ -482,7 +482,7 @@ function CascadeSection({
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? BONE : PALETTE.text, backgroundColor: "transparent", border: isDark ? `1px solid ${BONE}50` : `1px solid ${PALETTE.text}40` }}
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: PALETTE.text, backgroundColor: "transparent", border: `1px solid ${PALETTE.text}40` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />

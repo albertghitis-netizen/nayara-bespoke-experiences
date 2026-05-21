@@ -161,6 +161,7 @@ export default function Home() {
       </div>
       <AwardsHighlightSection />
       <NayaraJournalSection />
+      <ContinueExploringSection />
       <NayaraStorySection />
       <Footer textColor="#FFFFFF" bgColor="#3B2B26" />
     </div>
@@ -2246,9 +2247,123 @@ function BrandCTA() {
         <div className="w-16 h-px mx-auto mt-16" style={{ backgroundColor: "rgba(176,141,87,0.2)" }} />
       </div>
     </section>
-  );
+    );
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   CONTINUE EXPLORING — 6 Pillar Cards (Experiences, Wellness,
+   Sustainability, Gastronomy, Family, Romance)
+   ═══════════════════════════════════════════════════════════════ */
+const EXPLORE_PILLARS = [
+  {
+    title: "Experiences",
+    subtitle: "Journeys Beyond the Ordinary",
+    image: "/manus-storage/explore-experiences_8233266e.jpg",
+    route: "/experiences",
+  },
+  {
+    title: "Wellness",
+    subtitle: "Rituals of Restoration",
+    image: "/manus-storage/explore-wellness_8b730376.jpg",
+    route: "/wellness",
+  },
+  {
+    title: "Sustainability",
+    subtitle: "Rooted in the Land",
+    image: "/manus-storage/explore-sustainability_d467f3c6.jpg",
+    route: "/sustainability",
+  },
+  {
+    title: "Gastronomy",
+    subtitle: "Terroir on Every Plate",
+    image: "/manus-storage/explore-gastronomy_4e1774ab.jpg",
+    route: "/gastronomy",
+  },
+  {
+    title: "Family",
+    subtitle: "Adventures for All Ages",
+    image: "/manus-storage/explore-family_c1600154.jpg",
+    route: "/family-expeditions",
+  },
+  {
+    title: "Romance",
+    subtitle: "Moments Made for Two",
+    image: "/manus-storage/explore-romance_f85918e2.png",
+    route: "/romance",
+  },
+];
+
+function ContinueExploringSection() {
+  return (
+    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#f7f5f0" }}>
+      <div className="max-w-7xl mx-auto">
+        {/* Section header */}
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.3em] uppercase mb-3 text-[#5a4a3a]/60"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+          >
+            Continue Exploring
+          </p>
+          <h2
+            className="text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.1] tracking-wide text-[#3a2a1a] mb-12 md:mb-16"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+          >
+            Discover Our World
+          </h2>
+        </AnimateOnScroll>
+
+        {/* Card grid — 2 cols mobile, 3 cols desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          {EXPLORE_PILLARS.map((pillar, idx) => (
+            <AnimateOnScroll
+              key={pillar.title}
+              variants={fadeUp}
+              delay={idx * 0.08}
+            >
+              <Link href={pillar.route} className="group block">
+                {/* Square image container */}
+                <div className="relative aspect-square overflow-hidden mb-4">
+                  <img
+                    src={pillar.image}
+                    alt={pillar.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  {/* Subtle gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+
+                {/* Title + subtitle */}
+                <h3
+                  className="text-base md:text-lg tracking-wide text-[#3a2a1a] mb-1"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+                >
+                  {pillar.title}
+                </h3>
+                <p
+                  className="text-xs md:text-sm text-[#5a4a3a]/60 mb-3"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+                >
+                  {pillar.subtitle}
+                </p>
+
+                {/* Transparent pill */}
+                <span
+                  className="inline-block px-4 py-1.5 rounded-full border border-[#3a2a1a]/30 text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-[#3a2a1a]/70 group-hover:border-[#3a2a1a]/60 group-hover:text-[#3a2a1a] transition-all duration-300"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+                >
+                  Explore
+                </span>
+              </Link>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ═══════════════════════════════════════════════════════════════
    NAYARA STORY — Brand statement + Plan Your Stay CTA
