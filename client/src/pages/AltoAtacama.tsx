@@ -14,6 +14,7 @@ import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import CrossPropertyCTA from "@/components/CrossPropertyCTA";
+import { MapView } from "@/components/Map";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
 import {
@@ -334,7 +335,7 @@ function CascadeTextBlock({
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? BONE : PALETTE.text, backgroundColor: "transparent", border: isDark ? `1px solid ${BONE}50` : `1px solid ${PALETTE.text}40` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
@@ -481,7 +482,7 @@ function CascadeSection({
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, backgroundColor: PALETTE.accent }}
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? BONE : PALETTE.text, backgroundColor: "transparent", border: isDark ? `1px solid ${BONE}50` : `1px solid ${PALETTE.text}40` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
@@ -1485,15 +1486,78 @@ function GettingHereSection() {
             </AnimateOnScroll>
           ))}
         </div>
+        {/* Google Maps Embed */}
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <div className="mt-12 md:mt-16 rounded-xl overflow-hidden" style={{ border: `1px solid ${BONE}20` }}>
+            <MapView
+              className="w-full h-[280px] md:h-[360px]"
+              initialCenter={{ lat: -23.1833, lng: -68.1833 }}
+              initialZoom={12}
+              onMapReady={(map) => {
+                new google.maps.marker.AdvancedMarkerElement({
+                  map,
+                  position: { lat: -23.1833, lng: -68.1833 },
+                  title: "Nayara Alto Atacama",
+                });
+              }}
+            />
+            <div className="px-5 py-4" style={{ backgroundColor: `${BONE}08` }}>
+              <p className="text-[12px] tracking-wide" style={{ ...body, color: `${BONE}BB` }}>
+                Camino Pukará s/n, Ayllu de Quitor, San Pedro de Atacama, Antofagasta Region, Chile
+              </p>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
           <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${BONE}10`, border: `1px solid ${BONE}20` }}>
             <p className="text-[13px] leading-relaxed" style={{ ...body, color: `${BONE}CC` }}>
               <span style={{ fontWeight: 500, color: BONE }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
-              <a href="mailto:reservations@nayararesorts.com" style={{ color: MIDDLE, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
-              or call <a href="tel:+18448652002" style={{ color: MIDDLE, textDecoration: "underline" }}>844-865-2002</a>.
+              <a href="mailto:reservations@nayararesorts.com" style={{ color: BONE, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
+              or call <a href="tel:+18448652002" style={{ color: BONE, textDecoration: "underline" }}>844-865-2002</a>.
             </p>
           </div>
         </AnimateOnScroll>
+
+        {/* LocalBusiness Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LodgingBusiness",
+              name: "Nayara Alto Atacama",
+              description: "Luxury desert lodge in Chile's Atacama Desert offering all-inclusive experiences with guided excursions, gourmet dining, and stargazing.",
+              url: "https://nayararesorts.manus.space/alto-atacama",
+              telephone: "+1-844-865-2002",
+              email: "reservations@nayararesorts.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Camino Pukará s/n, Ayllu de Quitor",
+                addressLocality: "San Pedro de Atacama",
+                addressRegion: "Antofagasta",
+                addressCountry: "CL",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: -23.1833,
+                longitude: -68.1833,
+              },
+              starRating: {
+                "@type": "Rating",
+                ratingValue: "5",
+              },
+              priceRange: "$$$$",
+              image: "https://nayararesorts.manus.space/manus-storage/atacama-hero.jpg",
+              amenityFeature: [
+                { "@type": "LocationFeatureSpecification", name: "All-Inclusive Dining", value: true },
+                { "@type": "LocationFeatureSpecification", name: "Guided Excursions", value: true },
+                { "@type": "LocationFeatureSpecification", name: "Airport Transfers", value: true },
+                { "@type": "LocationFeatureSpecification", name: "Spa & Wellness", value: true },
+              ],
+            }),
+          }}
+        />
       </div>
     </section>
   );
