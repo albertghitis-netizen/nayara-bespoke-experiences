@@ -45,10 +45,10 @@ const HERO_IMAGE = "/manus-storage/hotsprings-hero-tented-plunge_8e27e79e.jpg";
 /* Related articles for Explore More */
 const RELATED_ARTICLES = [
   {
-    slug: "/blog/reforestation-wildlife",
-    title: "Reforestation and Wildlife Corridors at Nayara Arenal",
+    slug: "/blog/arenal-bocas-wildlife",
+    title: "Wildlife Conservation in Arenal and Bocas del Toro",
     pillar: "Sustainability",
-    image: "/manus-storage/reforestation-wildlife-cover_d766bbf9.jpg",
+    image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg",
   },
   {
     slug: "/blog/rooted-in-community",

@@ -1621,7 +1621,7 @@ function EnvironmentalPillarsSection({ palette, pillars }: { palette: PropertyPa
             {/* Blog link for Reforestation pillar */}
             {current.id === "reforestation" && (
               <a
-                href="/blog/reforestation-wildlife"
+                href="/blog/arenal-bocas-wildlife"
                 className="inline-flex items-center gap-2 text-[14px] tracking-[0.08em] uppercase transition-all duration-300 hover:gap-3 mt-4"
                 style={{
                   fontFamily: "var(--font-body)",

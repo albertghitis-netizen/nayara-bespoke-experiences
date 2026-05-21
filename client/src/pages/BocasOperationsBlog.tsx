@@ -602,7 +602,7 @@ export default function BocasOperationsBlog() {
             {[
               { slug: "/blog/green-globe-certification", title: "Green Globe Certification at Nayara", pillar: "Sustainability", image: "/manus-storage/hotsprings-card-tented-plunge_5d997c52.jpg" },
               { slug: "/blog/bocas-conde-nast", title: "#1 Resort in Central America — Condé Nast Traveler 2025", pillar: "Press", image: "/manus-storage/bocas-aerial-cover_46f0bbf4.jpg" },
-              { slug: "/blog/reforestation-wildlife", title: "Reforestation and Wildlife Corridors", pillar: "Sustainability", image: "/manus-storage/reforestation-wildlife-cover_d766bbf9.jpg" },
+              { slug: "/blog/arenal-bocas-wildlife", title: "Wildlife Conservation in Arenal and Bocas del Toro", pillar: "Sustainability", image: "https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg" },
             ].map((article) => (
               <Link key={article.slug} href={article.slug}>
                 <motion.div

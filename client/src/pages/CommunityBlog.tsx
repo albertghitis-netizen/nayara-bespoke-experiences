@@ -726,7 +726,7 @@ export default function CommunityBlog() {
                   </h3>
                 </motion.div>
               </Link>
-              <Link key="/blog/reforestation-wildlife" href="/blog/reforestation-wildlife">
+              <Link key="/blog/arenal-bocas-wildlife" href="/blog/arenal-bocas-wildlife">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -736,8 +736,8 @@ export default function CommunityBlog() {
                 >
                   <div className="aspect-square overflow-hidden mb-4 rounded-lg">
                     <img
-                      src="/manus-storage/reforestation-wildlife-cover_d766bbf9.jpg"
-                      alt="Reforestation and Wildlife Corridors at Nayara"
+                      src="https://blog.nayararesorts.com/hubfs/Swimming-Sloth-1024x683.jpg"
+                      alt="Wildlife Conservation in Arenal and Bocas del Toro"
                       className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       loading="lazy"
                     />
@@ -746,7 +746,7 @@ export default function CommunityBlog() {
                     Conservation
                   </p>
                   <h3 className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}>
-                    Reforestation and Wildlife Corridors at Nayara
+                    Wildlife Conservation in Arenal and Bocas del Toro
                   </h3>
                 </motion.div>
               </Link>

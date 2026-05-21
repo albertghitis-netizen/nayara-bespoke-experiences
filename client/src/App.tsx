@@ -45,7 +45,6 @@ const InHouseActivitiesBlog = lazy(() => import("./pages/InHouseActivitiesBlog")
 
 const GreenGlobeBlog = lazy(() => import("./pages/GreenGlobeBlog"));
 const WomensEmpowermentBlog = lazy(() => import("./pages/WomensEmpowermentBlog"));
-const ReforestationWildlifeBlog = lazy(() => import("./pages/ReforestationWildlifeBlog"));
 const BirdwatchingBlog = lazy(() => import("./pages/BirdwatchingBlog"));
 const Stargazing = lazy(() => import("./pages/Stargazing"));
 const MichelinKeysBlog = lazy(() => import("./pages/MichelinKeysBlog"));
@@ -287,7 +286,6 @@ function Router() {
 
           <Route path="/blog/green-globe-certification" component={GreenGlobeBlog} />
           <Route path="/blog/womens-empowerment" component={WomensEmpowermentBlog} />
-          <Route path="/blog/reforestation-wildlife" component={ReforestationWildlifeBlog} />
           <Route path="/blog/birdwatching" component={BirdwatchingBlog} />
           <Route path="/blog/michelin-keys" component={MichelinKeysBlog} />
           <Route path="/blog/atacama-wildlife" component={AtacamaWildlifeBlog} />

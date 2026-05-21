@@ -385,15 +385,6 @@ const blogArticles: JournalEntry[] = [
   // Caribbean Coral Reef blog removed, content now lives on /bocas-del-toro/sustainability
 
   // maya-rapa-nui-climate: consolidated into single entry above (was duplicate)
-  {
-    id: "reforestation-wildlife",
-    title: "Reforestation and Wildlife Corridors at Nayara Arenal in Costa Rica",
-    url: "/blog/reforestation-wildlife",
-    property: "gardens",
-    type: "article",
-    image: "/manus-storage/reforestation-wildlife-cover_d766bbf9.jpg",
-    excerpt: "How Nayara's reforestation efforts create vital wildlife corridors in Costa Rica's Arenal region.",
-  },
   // wellness-hospitality: removed from journal feed (stub page, no real content yet)
 ];
 

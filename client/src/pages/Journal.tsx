@@ -81,7 +81,6 @@ const CURATED_IDS: string[] = [
   // Row 7
   "latin-america-luxury-brand",
   "pura-vida",
-  "reforestation-wildlife",
   // Row 8
   "edge-habitability",
   "wildlife-arenal-bocas",
