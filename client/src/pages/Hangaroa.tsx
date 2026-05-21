@@ -278,7 +278,7 @@ function HeroSection() {
         </button>
       )}
       {/* H1 at bottom */}
-      <div className="absolute bottom-10 md:bottom-16 left-6 md:left-10 right-6 md:right-10 z-10 flex justify-center">
+      <div className="absolute bottom-10 md:bottom-16 left-6 md:left-10 right-6 md:right-10 z-10 flex flex-col items-center justify-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -288,6 +288,15 @@ function HeroSection() {
         >
           Where Stone Giants Stand Sentinel Over the Pacific
         </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Easter Island, Chile
+        </motion.p>
       </div>
     </section>
   );
