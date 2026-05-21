@@ -83,9 +83,7 @@ const FloorPlanTest = lazy(() => import("./pages/FloorPlanTest"));
 const Lexi = lazy(() => import("./pages/Lexi"));
 const Sylvia = lazy(() => import("./pages/Sylvia"));
 const SylviaComingSoon = lazy(() => import("./pages/SylviaComingSoon"));
-const TravelLeisureAtacama = lazy(() => import("./pages/TravelLeisureAtacama"));
 const ArenalTimelessWonderBlog = lazy(() => import("./pages/ArenalTimelessWonderBlog"));
-const TravelLeisureAd2 = lazy(() => import("./pages/TravelLeisureAd2"));
 
 const AtacamaRooms = lazy(() => import("./pages/AtacamaRooms"));
 /* Atacama/Bocas/Hangaroa deep pages now use the universal shared components */
@@ -176,7 +174,7 @@ function ScrollToTop() {
 
 /* Pages where the floating chat widget should be hidden (DM simulators have their own chat) */
 // ARCHIVED: Sharalynn paths removed from HIDE_WIDGET_PATHS
-const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia", "/tl", "/tl-atacama"];
+const HIDE_WIDGET_PATHS: string[] = ["/blog/experiential-travel-nayara-2026", "/blog/family-bucket-list-nayara", "/blog/three-kitchens-one-rainforest", "/blog/in-house-activities-three-hotels-infinite-experiences", "/lexi", "/sylvia"];
 
 function Router() {
   const [location] = useLocation();
@@ -333,8 +331,6 @@ function Router() {
           <Route path="/sylvia/trauma" component={SylviaComingSoon} />
           <Route path="/sylvia/addiction" component={SylviaComingSoon} />
           <Route path="/sylvia/mood-disorders" component={SylviaComingSoon} />
-          <Route path="/tl" component={TravelLeisureAd2} />
-          <Route path="/tl-atacama" component={TravelLeisureAtacama} />
           {/* ARCHIVED ROUTE: /sharalynn - Component file still exists at ./pages/Sharalynn.tsx */}
 
           <Route path="/404" component={NotFound} />
