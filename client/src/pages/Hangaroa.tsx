@@ -576,8 +576,8 @@ function ExperiencesSection() {
     <section style={{ backgroundColor: PALETTE.gradientStart }}>
       {/* Horizontal hero image */}
       <MediaReveal>
-        <div className="relative overflow-hidden" style={{ aspectRatio: "21/9" }}>
-          <img src={CDN.moaiHorses} alt="Moai at sunset with horses" className="w-full h-full object-cover" loading="lazy" />
+        <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+          <img src="/manus-storage/hangaroa-experiences-horizontal-16x9_41a3fdec.jpg" alt="Easter Island cultural experience with Nayara Hangaroa" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <h2 className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
