@@ -119,8 +119,9 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <BlobVideo
-          src={heroVideo}
+        <img
+          src="/manus-storage/arenal-pool-casita-hero-new_5d8c3249.jpg"
+          alt="Arenal Pool Casita aerial view with private pool in rainforest"
           className="w-full h-full object-cover"
         />
       </motion.div>
