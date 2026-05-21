@@ -104,8 +104,9 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <BlobVideo
-          src={IMG.heroVideo}
+        <img
+          src="/manus-storage/residence-hero-lastframe_1e66e610.jpg"
+          alt="Nayara Residence aerial view"
           className="w-full h-full object-cover"
         />
       </motion.div>

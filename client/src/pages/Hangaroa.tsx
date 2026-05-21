@@ -52,7 +52,7 @@ const PALETTE = {
    CDN ASSETS
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
-  heroVideo: "/manus-storage/hangaroa-hero-new_d5dc227b.mp4",
+  heroVideo: "/manus-storage/hangaroa-hero-new_4c1513ff.mp4",
   heroVertical: "/manus-storage/hangaroa-s1-vertical_db0be629.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-20_b052852b.jpg",
