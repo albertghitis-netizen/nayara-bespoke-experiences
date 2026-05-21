@@ -16,7 +16,7 @@
  * - Subtle topographic texture via noise
  */
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ─── Accurate SVG paths from Natural Earth 110m ─── */
@@ -159,6 +159,8 @@ interface NayaraJourneyMapProps {
 }
 
 export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourneyMapProps) {
+  const [popupLocationId, setPopupLocationId] = useState<string | null>(null);
+
   const activeLocationIds = useMemo(() => {
     const ids = new Set<string>();
     locations.forEach((loc) => {
@@ -413,22 +415,27 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                   fill={ACCENT_GOLD}
                   stroke="#fff"
                   strokeWidth="0.3"
-                  transform="scale(1.4)"
+                  transform="scale(2.2)"
                 />
               </motion.g>
             </g>
           );
         })}
 
-        {/* ─── Location pins , refined gold design ─── */}
+        {/* ─── Location pins , clickable with popup ─── */}
         {locations.map((loc) => {
           const isActive = activeLocationIds.has(loc.id);
           const isCurrent = currentLocationId === loc.id;
+          const isPopupOpen = popupLocationId === loc.id;
 
           /* Label positioning */
           const labelWidth = 160;
           const labelX = loc.labelSide === "left" ? loc.x - labelWidth - 20 : loc.x + 20;
           const labelY = loc.id === "easter-island" ? loc.y - 30 : loc.y - 22;
+
+          /* Popup card positioning */
+          const cardX = loc.x + (loc.cardOffset?.dx ?? 25);
+          const cardY = loc.y + (loc.cardOffset?.dy ?? -55);
 
           return (
             <g key={loc.id}>
@@ -467,7 +474,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 style={{ transformOrigin: `${loc.x}px ${loc.y}px` }}
               />
 
-              {/* Pin dot , gold gradient */}
+              {/* Pin dot , gold gradient — CLICKABLE */}
               <motion.circle
                 cx={loc.x} cy={loc.y}
                 r={isCurrent ? 5 : 3.5}
@@ -476,8 +483,20 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 transition={{ duration: 0.8, ease: EASE }}
                 fill={isCurrent ? "url(#pinGoldGrad)" : PIN_ACTIVE}
                 filter={isCurrent ? "url(#pinGlow)" : undefined}
-                style={{ transformOrigin: `${loc.x}px ${loc.y}px` }}
+                style={{ transformOrigin: `${loc.x}px ${loc.y}px`, cursor: isActive ? "pointer" : "default" }}
+                onClick={() => isActive && setPopupLocationId(isPopupOpen ? null : loc.id)}
               />
+
+              {/* Clickable hit area (larger invisible circle for easier clicking) */}
+              {isActive && (
+                <circle
+                  cx={loc.x} cy={loc.y}
+                  r="14"
+                  fill="transparent"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setPopupLocationId(isPopupOpen ? null : loc.id)}
+                />
+              )}
 
               {/* Inner highlight dot */}
               {isActive && (
@@ -487,12 +506,13 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 0.8 }}
                   transition={{ duration: 0.4, delay: 0.3 }}
+                  style={{ pointerEvents: "none" }}
                 />
               )}
 
-              {/* Location label — only shows for current milestone, always gold, disappears after */}
+              {/* Location label — only shows for current milestone */}
               <AnimatePresence>
-                {isCurrent && (
+                {isCurrent && !isPopupOpen && (
                   <motion.g
                     initial={{ opacity: 0, x: loc.labelSide === "left" ? 8 : -8 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -511,6 +531,127 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                     >
                       {loc.label}
                     </text>
+                  </motion.g>
+                )}
+              </AnimatePresence>
+
+              {/* Popup card on click */}
+              <AnimatePresence>
+                {isPopupOpen && (
+                  <motion.g
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3, ease: EASE }}
+                    style={{ transformOrigin: `${loc.x}px ${loc.y}px` }}
+                  >
+                    {/* Card background */}
+                    <rect
+                      x={cardX}
+                      y={cardY}
+                      width="180"
+                      height="110"
+                      rx="6"
+                      fill="rgba(26,26,26,0.95)"
+                      stroke={ACCENT_GOLD}
+                      strokeWidth="0.8"
+                      strokeOpacity="0.5"
+                    />
+                    {/* Connector line from pin to card */}
+                    <line
+                      x1={loc.x}
+                      y1={loc.y}
+                      x2={cardX}
+                      y2={cardY + 55}
+                      stroke={ACCENT_GOLD}
+                      strokeWidth="0.5"
+                      strokeOpacity="0.4"
+                      strokeDasharray="3 2"
+                    />
+                    {/* Photo thumbnail */}
+                    <clipPath id={`clip-${loc.id}`}>
+                      <rect x={cardX + 8} y={cardY + 8} width="70" height="50" rx="3" />
+                    </clipPath>
+                    <image
+                      href={loc.image}
+                      x={cardX + 8}
+                      y={cardY + 8}
+                      width="70"
+                      height="50"
+                      clipPath={`url(#clip-${loc.id})`}
+                      preserveAspectRatio="xMidYMid slice"
+                    />
+                    {/* Location name */}
+                    <text
+                      x={cardX + 86}
+                      y={cardY + 26}
+                      fill="#fff"
+                      fontSize="9"
+                      fontFamily="var(--font-display)"
+                      fontWeight="500"
+                    >
+                      {loc.label.split(",")[0]}
+                    </text>
+                    {/* Country */}
+                    <text
+                      x={cardX + 86}
+                      y={cardY + 40}
+                      fill="rgba(255,255,255,0.6)"
+                      fontSize="7"
+                      fontFamily="var(--font-body)"
+                      fontWeight="400"
+                    >
+                      {loc.label.split(",")[1]?.trim() || ""}
+                    </text>
+                    {/* Tagline */}
+                    <text
+                      x={cardX + 86}
+                      y={cardY + 54}
+                      fill={ACCENT_GOLD}
+                      fontSize="7"
+                      fontFamily="var(--font-body)"
+                      fontWeight="500"
+                      letterSpacing="0.02em"
+                    >
+                      {loc.tagline}
+                    </text>
+                    {/* Close button */}
+                    <g
+                      style={{ cursor: "pointer" }}
+                      onClick={(e) => { e.stopPropagation(); setPopupLocationId(null); }}
+                    >
+                      <circle cx={cardX + 170} cy={cardY + 10} r="7" fill="rgba(255,255,255,0.1)" />
+                      <text
+                        x={cardX + 167}
+                        y={cardY + 14}
+                        fill="rgba(255,255,255,0.6)"
+                        fontSize="9"
+                        fontFamily="var(--font-body)"
+                      >
+                        ×
+                      </text>
+                    </g>
+                    {/* "Explore" link text at bottom */}
+                    <text
+                      x={cardX + 10}
+                      y={cardY + 80}
+                      fill="rgba(255,255,255,0.5)"
+                      fontSize="7"
+                      fontFamily="var(--font-body)"
+                      fontWeight="400"
+                      letterSpacing="0.08em"
+                    >
+                      CLICK TO EXPLORE
+                    </text>
+                    {/* Bottom accent line */}
+                    <rect
+                      x={cardX + 8}
+                      y={cardY + 95}
+                      width="164"
+                      height="1"
+                      fill={ACCENT_GOLD}
+                      fillOpacity="0.2"
+                    />
                   </motion.g>
                 )}
               </AnimatePresence>
@@ -547,7 +688,14 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
         </g>
       </svg>
 
-
+      {/* Click outside to close popup */}
+      {popupLocationId && (
+        <div
+          className="absolute inset-0"
+          style={{ cursor: "default" }}
+          onClick={() => setPopupLocationId(null)}
+        />
+      )}
     </div>
   );
 }
