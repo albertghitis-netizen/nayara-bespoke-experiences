@@ -1014,7 +1014,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "The Camp",
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.\n\nClifftop tents and suites perched above the rainforest canopy with unobstructed volcano views. Best Resort in Central America, four of the last five years \u2014 Travel + Leisure.",
-    verticalSrc: "/manus-storage/panorama-tented_5635516f.mp4",
+    verticalSrc: "/manus-storage/tented-camp-vertical-reel_8ae527eb.mp4",
     horizontalSrc: "",
     verticalIsVideo: true,
     horizontalIsVideo: false,

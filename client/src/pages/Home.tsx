@@ -172,7 +172,7 @@ export default function Home() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const heroVideo = "/manus-storage/brand-hero-v2_6ba8a331.mp4";
+  const heroVideo = "/manus-storage/brand-hero-new_374487a8.mp4";
   const mobileHeroVideo = "/manus-storage/mobile-hero-web_9f66d743.mp4";
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -342,7 +342,7 @@ function BrandStorySection() {
       <div className="hidden md:block w-full" style={{ marginTop: 0 }}>
         <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <video
-            src="/manus-storage/brand-s2-horizontal-v3_49dc9248.mp4"
+            src="/manus-storage/atacama-horizontal-new_94dd4c24.mp4"
             autoPlay
             muted
             loop
@@ -2304,7 +2304,7 @@ function NayaraStorySection() {
                 href={BOOKING_URLS[prop.id]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] tracking-[0.1em] uppercase border transition-all duration-400 hover:bg-[#3B2B26] hover:!text-white hover:border-[#3B2B26]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] tracking-[0.1em] uppercase border transition-all duration-400 hover:bg-[#3B2B26] hover:!text-white hover:border-[#3B2B26] active:scale-90 active:opacity-80"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#3B2B26", borderColor: "#3B2B26" }}
               >
                 {prop.label}
