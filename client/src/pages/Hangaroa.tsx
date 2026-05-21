@@ -228,7 +228,6 @@ function HeroSection() {
             ref={heroVideoRef}
             className="w-full h-full object-cover"
             playsInline
-            preload="metadata"
             autoPlay
             muted={isMuted}
             loop
