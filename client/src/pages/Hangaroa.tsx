@@ -52,7 +52,7 @@ const PALETTE = {
    CDN ASSETS
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
-  heroVideo: "/manus-storage/hangaroa-hero-new_00c65985.mp4",
+  heroVideo: "/manus-storage/hangaroa-hero-new_02515776.mp4",
   heroVertical: "/manus-storage/hangaroa-s1-vertical_db0be629.mp4",
   s1: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
   s2: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-20_b052852b.jpg",
@@ -233,15 +233,15 @@ function HeroSection() {
         </>
       )}
       {/* H1 at bottom */}
-      <div className="absolute bottom-10 md:bottom-16 left-6 md:left-10 right-6 md:right-10 z-10">
+      <div className="absolute bottom-10 md:bottom-16 left-6 md:left-10 right-6 md:right-10 z-10 flex justify-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-2xl md:text-4xl lg:text-5xl leading-[0.95] tracking-wide"
+          className="text-white text-xl md:text-3xl lg:text-4xl leading-[0.95] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          Where Moai & Rapa Nui Culture Meet the Pacific
+          Where Stone Giants Stand Sentinel Over the Pacific
         </motion.h1>
       </div>
     </section>
