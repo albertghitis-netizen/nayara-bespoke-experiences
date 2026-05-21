@@ -2251,7 +2251,7 @@ function BrandCTA() {
    ═══════════════════════════════════════════════════════════════ */
 function NayaraStorySection() {
   return (
-    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#f4f1eb" }}>
+    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="max-w-4xl mx-auto text-center">
         <AnimateOnScroll variants={fadeUp}>
           <p
@@ -2304,7 +2304,7 @@ function NayaraStorySection() {
                 href={BOOKING_URLS[prop.id]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] tracking-[0.1em] uppercase border transition-all duration-400 hover:bg-[#3B2B26] hover:text-[#F7F5F0] hover:border-[#3B2B26]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] tracking-[0.1em] uppercase border transition-all duration-400 hover:bg-[#3B2B26] hover:!text-white hover:border-[#3B2B26]"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#3B2B26", borderColor: "#3B2B26" }}
               >
                 {prop.label}
