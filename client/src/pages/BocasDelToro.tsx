@@ -224,7 +224,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     label: "The Property",
     headline: "Rainforest to Reef",
     body: "Nayara Bocas del Toro is an adults-only sanctuary on a private Caribbean island, where overwater villas float above crystal-clear turquoise waters. Each villa features direct ocean access, private plunge pools, and unobstructed views of pristine beaches and jungle-covered islands.\n\nOverwater villas and rainforest treehouses on a private island in Panama’s Caribbean archipelago. Adults-only, solar-powered, and surrounded by coral reef. Two Michelin Keys. Number one in Central America — Condé Nast Traveler.",
-    verticalSrc: "/manus-storage/bocas-story-v-new_107d5bb2.mp4",
+    verticalSrc: "/manus-storage/bocas-s1-vertical_545d3429.mp4",
     horizontalSrc: "",
     verticalIsVideo: true,
     horizontalIsVideo: false,
