@@ -41,6 +41,7 @@ const IMG = {
   tentExterior: "/manus-storage/65_9a53e6a2.jpg",
   droneAngle: "/manus-storage/1.Familytentviewoftheroofs-DJI_0123_44ada3fa.jpeg",
   droneTopDown: "/manus-storage/3.Familytentfromabovehorizontal.DJI_0092_f30281b4.jpeg",
+  interior: "/manus-storage/family-tent-interior_cacba9ae.jpg",
   kidsRoom: "/manus-storage/8.Familytentkidsroom.4O1A0231_f12fc400.jpeg",
   familyOnDeck: "/manus-storage/10.Familytentbackviewwithfamily.DJI_0074_708c3db6.jpeg",
   tentsFromAbove: "/manus-storage/69.FamilyTentsfromabovejpg_5f2905ac.jpeg",
@@ -121,55 +122,41 @@ function HeroSection() {
         style={{ opacity: heroOpacity }}
       />
 
-      {/* Centered editorial title */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-        <motion.div
+      {/* Bottom-aligned title + CTA */}
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 px-6 text-center">
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
+          className="text-white text-3xl md:text-5xl lg:text-6xl mb-6"
+          style={display}
         >
-          <p
-            className="text-white/50 text-[10px] md:text-[11px] tracking-[0.4em] uppercase mb-4"
-            style={{ ...body, fontWeight: 500 }}
-          >
-            Nayara Tented Camp
-          </p>
-          <h1
-            className="text-white text-5xl md:text-7xl lg:text-8xl mb-4"
-            style={display}
-          >
-            Family Tent
-          </h1>
-          {/* Thin horizontal rule */}
-          <div className="w-16 h-px mx-auto mb-5" style={{ backgroundColor: "rgba(255,255,255,0.4)" }} />
-          <p
-            className="text-white/70 text-sm md:text-base max-w-md mx-auto mb-8"
-            style={body}
-          >
-            Adventure for every generation
-          </p>
-          <button
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            onClick={() => import("sonner").then(({ toast }) => toast("Reservation , Coming Soon"))}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
-            style={{
-              ...body,
-              fontWeight: 500,
-              fontSize: "11px",
-              letterSpacing: "0.18em",
-              textTransform: "uppercase" as const,
-              color: P.white,
-              backgroundColor: hovered ? PILL_BG_HOVER : PILL_BG,
-              borderColor: PILL_BORDER,
-            }}
-          >
-            Check Availability
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </button>
-        </motion.div>
+          Family Tent
+        </motion.h1>
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onClick={() => import("sonner").then(({ toast }) => toast("Reservation — Coming Soon"))}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+          style={{
+            ...body,
+            fontWeight: 500,
+            fontSize: "11px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase" as const,
+            color: P.white,
+            backgroundColor: hovered ? PILL_BG_HOVER : PILL_BG,
+            borderColor: PILL_BORDER,
+          }}
+        >
+          Check Availability
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </motion.button>
       </div>
     </section>
   );
@@ -282,8 +269,8 @@ function FullBleedBreak() {
     <section ref={ref} className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
-          src={IMG.droneTopDown}
-          alt="Family Tent from above , full footprint with pool and teak decks"
+          src={IMG.interior}
+          alt="Family Tent interior with luxurious bedroom"
           className="w-full h-[120%] object-cover"
           loading="lazy"
         />

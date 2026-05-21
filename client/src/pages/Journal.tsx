@@ -54,8 +54,6 @@ const JOURNAL_CDN = {
  * Row 9: Read · Read         · Read
  */
 const CURATED_IDS: string[] = [
-  // Row 0: Podcast (first listing)
-  "history-of-travel-albert-gittis",
   // Row 1: Watch · Read · Watch
   "hitorangi-rapanui",
   "experiential-travel-2026",
