@@ -398,21 +398,7 @@ const blogArticles: JournalEntry[] = [
 ];
 
 // ─── Audio Episodes (Podcasts) ───────────────────────────────
-const audioEpisodes: JournalEntry[] = [
-  {
-    id: "history-of-travel-albert-gittis",
-    title: "The History of Travel with Albert Gittis",
-    excerpt: "From microbes to modern tourism — Albert Gittis traces four billion years of human movement, exploring why we travel, what it costs, and how regenerative travel might be our way forward. The inaugural episode of Nayara Horizons: Beyond Travel.",
-    image: "/manus-storage/podcast-history-of-travel-cover_2ebe6af1.jpg",
-    property: "brand",
-    type: "audio",
-    podcastUrl: "/manus-storage/albert-is-the-man-podcast_33b757b6.mp3",
-    duration: "15 min",
-    guest: "Albert Gittis",
-    sortPriority: 0,
-    date: "2025-05-20",
-  },
-];
+const audioEpisodes: JournalEntry[] = [];
 
 // ─── Podcast & Video Episodes (Nayara Horizons + Sustainability Videos) ─
 const videoEpisodes: JournalEntry[] = [
@@ -502,13 +488,11 @@ const videoEpisodes: JournalEntry[] = [
 /** All journal entries , articles first (featured at top), then videos */
 /** Interleave videos among articles so podcasts are spaced out, not clumped */
 function interleaveEntries(): JournalEntry[] {
-  // Audio episodes with sortPriority 0 always go first
-  const pinnedAudio = audioEpisodes.filter(e => (e.sortPriority ?? 99) === 0);
   const featured = blogArticles.filter(e => e.featured);
   const nonFeatured = blogArticles.filter(e => !e.featured);
   const videos = [...videoEpisodes];
-  // Start with pinned audio, then featured articles
-  const result: JournalEntry[] = [...pinnedAudio, ...featured];
+  // Start with featured articles
+  const result: JournalEntry[] = [...featured];
 
   // Interleave: insert one video every ~5 articles
   const spacing = Math.max(1, Math.floor(nonFeatured.length / (videos.length + 1)));
