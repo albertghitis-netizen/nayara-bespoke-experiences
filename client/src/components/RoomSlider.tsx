@@ -448,9 +448,9 @@ export default function RoomSlider({
         </AnimatePresence>
       </div>
 
-      {/* Navigation arrows — two square buttons at top-right (homepage carousel style) */}
+      {/* Navigation arrows — positioned opposite to video side */}
       {rooms.length > 1 && !hideArrows && (
-      <div className="hidden md:flex absolute top-8 right-8 md:right-12 z-20 items-center gap-2">
+      <div className={`hidden md:flex absolute top-8 z-20 items-center gap-2 ${isVideoLeft ? 'right-8 md:right-12' : 'left-8 md:left-12'}`}>
         <button
           onClick={handlePrev}
           className="w-10 h-10 flex items-center justify-center transition-all duration-200 hover:opacity-80 hover:scale-105"
@@ -577,16 +577,19 @@ export default function RoomSlider({
           </motion.div>
         </AnimatePresence>
 
-        {/* Mobile arrows (hidden in arrowless mode) */}
-        {rooms.length > 1 && !hideArrows && (
-        <>
-        <button onClick={handlePrev} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95" style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.3)" }}>
-          <ChevronLeft className="w-6 h-6" strokeWidth={2.5} />
-        </button>
-        <button onClick={handleNext} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95" style={{ backgroundColor: "rgba(255,255,255,0.2)", color: "white", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.3)" }}>
-          <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
-        </button>
-        </>
+        {/* Mobile: swipe hint on first slide */}
+        {rooms.length > 1 && currentIndex === 0 && (
+          <motion.div
+            className="absolute top-1/2 right-4 -translate-y-1/2 z-20 flex items-center gap-1.5"
+            style={{ color: "rgba(255,255,255,0.7)" }}
+            animate={{ x: [0, -8, 0] }}
+            transition={{ duration: 1.8, repeat: 3, ease: "easeInOut" }}
+          >
+            <span className="text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>Swipe</span>
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+          </motion.div>
         )}
 
         {/* Mobile dots */}

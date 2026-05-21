@@ -347,15 +347,16 @@ function CascadeTextBlock({
       {link && (
         <a
           href={link}
-          className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+          className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] w-fit"
           style={{
             fontFamily: "var(--font-body)",
             fontWeight: 500,
             fontSize: "11px",
             letterSpacing: "0.15em",
             textTransform: "uppercase" as const,
-            color: BONE,
-            backgroundColor: PALETTE.accent,
+            color: isDark ? BONE : PALETTE.text,
+            backgroundColor: "transparent",
+            border: isDark ? `1px solid ${BONE}50` : `1px solid ${PALETTE.text}40`,
           }}
         >
           {linkLabel}
@@ -686,9 +687,9 @@ const CASCADE_SECTIONS = [
   },
   {
     label: "Gastronomy",
-    headline: "A Taste of the Desert",
+    headline: "Desert to Table",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients , quinoa, chañar, rica-rica herbs, and Andean potatoes , our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
-    vSrc: "/manus-storage/5178CD9B-559F-438F-BDFC-144084EAE0C2_9fb87b69.jpeg",
+    vSrc: "/manus-storage/atacama-gastronomy-vertical_7882b831.jpeg",
     hSrc: "/manus-storage/atacama-restaurant-interior_b3e2536a.jpg",
     vVideo: false, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
@@ -697,7 +698,6 @@ const CASCADE_SECTIONS = [
     linkLabel: "Explore Desert to Table",
     badges: false,
     hFirst: false,
-    hideMobileV: true,
     hideH: true,
   },
   {
@@ -1006,7 +1006,7 @@ export default function AltoAtacama() {
                       linkLabel={section.linkLabel}
                       blogLink={(section as any).blogLink}
                       blogLinkLabel={(section as any).blogLinkLabel}
-                      blogLinkOnVideo={false}
+                      blogLinkOnVideo={!!(section as any).blogLinkOnVideo}
                       badges={section.badges}
                       badgeImage={(section as any).badgeImage}
                       isDark={isDarkSection}
@@ -1437,10 +1437,10 @@ function GettingHereSection() {
     { title: "Altitude Guidance", description: "At 2,400m elevation, we schedule excursions progressively. Coca tea available throughout the property.", icon: "⛰" },
   ];
   return (
-    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#E8D5C4" }}>
+    <section id="getting-here" className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: DARK }}>
       <div className="max-w-[1200px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Getting Here</SectionLabel>
+          <SectionLabel color={MIDDLE}>Getting Here</SectionLabel>
         </AnimateOnScroll>
         <TextReveal as="h2" className="mb-3" delay={0.1}>
           <span className="inline-flex items-center gap-3">
@@ -1449,7 +1449,7 @@ function GettingHereSection() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="shrink-0"
-              style={{ width: "clamp(1.6rem, 2.8vw, 2.2rem)", height: "clamp(1.6rem, 2.8vw, 2.2rem)", color: DARK, opacity: 0.7 }}
+              style={{ width: "clamp(1.6rem, 2.8vw, 2.2rem)", height: "clamp(1.6rem, 2.8vw, 2.2rem)", color: BONE, opacity: 0.7 }}
               aria-hidden="true"
             >
               <path d="M7 12L16 8.5L28 15L37 11.5V35L28 38.5L16 32L7 35.5V12Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
@@ -1457,13 +1457,13 @@ function GettingHereSection() {
               <line x1="28" y1="15" x2="28" y2="38.5" stroke="currentColor" strokeWidth="1.2" strokeDasharray="2.5 2.5"/>
               <circle cx="22" cy="22" r="2.2" fill="currentColor" opacity="0.55"/>
             </svg>
-            <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: PALETTE.text }}>
+            <span className="text-2xl md:text-4xl tracking-wide" style={{ ...display, color: BONE }}>
               Your Journey to the Desert
             </span>
           </span>
         </TextReveal>
         <AnimateOnScroll variants={fadeUp} delay={0.2}>
-          <p className="text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={{ ...body, color: PALETTE.textSecondary }}>
+          <p className="text-[14px] leading-relaxed mb-10 md:mb-14 max-w-xl" style={{ ...body, color: `${BONE}CC` }}>
             Nayara Alto Atacama operates on a full-board basis including all meals, open bar, daily guided excursions, and airport transfers.
           </p>
         </AnimateOnScroll>
@@ -1473,24 +1473,24 @@ function GettingHereSection() {
               <div className="flex gap-4">
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: "#F9EBE0", color: DARK }}
+                  style={{ backgroundColor: `${BONE}15`, color: BONE }}
                 >
                   {route.icon}
                 </div>
                 <div>
-                  <h3 className="text-[16px] mb-2" style={{ ...display, fontWeight: 500, color: PALETTE.text }}>{route.title}</h3>
-                  <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>{route.description}</p>
+                  <h3 className="text-[16px] mb-2" style={{ ...display, fontWeight: 500, color: BONE }}>{route.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ ...body, color: `${BONE}AA` }}>{route.description}</p>
                 </div>
               </div>
             </AnimateOnScroll>
           ))}
         </div>
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
-          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: "#F9EBE0" }}>
-            <p className="text-[13px] leading-relaxed" style={{ ...body, color: PALETTE.textSecondary }}>
-              <span style={{ fontWeight: 500, color: PALETTE.text }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
-              <a href="mailto:reservations@nayararesorts.com" style={{ color: PALETTE.accent, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
-              or call <a href="tel:+18448652002" style={{ color: PALETTE.accent, textDecoration: "underline" }}>844-865-2002</a>.
+          <div className="mt-10 md:mt-14 p-6 rounded-xl" style={{ backgroundColor: `${BONE}10`, border: `1px solid ${BONE}20` }}>
+            <p className="text-[13px] leading-relaxed" style={{ ...body, color: `${BONE}CC` }}>
+              <span style={{ fontWeight: 500, color: BONE }}>Need help planning your journey?</span> Our reservations team can arrange all transfers and domestic flights. Contact us at{" "}
+              <a href="mailto:reservations@nayararesorts.com" style={{ color: MIDDLE, textDecoration: "underline" }}>reservations@nayararesorts.com</a>{" "}
+              or call <a href="tel:+18448652002" style={{ color: MIDDLE, textDecoration: "underline" }}>844-865-2002</a>.
             </p>
           </div>
         </AnimateOnScroll>
