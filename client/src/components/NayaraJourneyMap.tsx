@@ -409,14 +409,16 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                   animation: `travelDot ${pathDuration}s ${EASE_CSS} ${staggerDelay}s forwards`,
                 }}
               >
-                {/* Airplane SVG icon */}
-                <path
-                  d="M-6,0 L-2,-1.5 L0,-6 L1,0 L6,-1 L1,1.5 L1.5,5 L0,3 L-1.5,5 L-1,1.5 L-6,1 Z"
-                  fill={ACCENT_GOLD}
-                  stroke="#fff"
-                  strokeWidth="0.3"
-                  transform="scale(2.2)"
-                />
+                {/* Proper airplane silhouette — nose points right (direction of travel) */}
+                <g transform="translate(-10, -10) scale(0.85)">
+                  <path
+                    d="M22 12 L18 10 L12 10 L8 4 L6 4 L8 10 L3 10 L1 8 L0 8 L1 11 L0 14 L0 14 L1 14 L3 12 L8 12 L6 18 L8 18 L12 12 L18 12 Z"
+                    fill={ACCENT_GOLD}
+                    stroke="rgba(255,255,255,0.6)"
+                    strokeWidth="0.4"
+                    strokeLinejoin="round"
+                  />
+                </g>
               </motion.g>
             </g>
           );
