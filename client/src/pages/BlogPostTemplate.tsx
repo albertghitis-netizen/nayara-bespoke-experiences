@@ -151,7 +151,7 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
       >
         {isMobile && post.mobileHeroVideo ? (
           /\.(jpe?g|png|webp|avif|gif)$/i.test(post.mobileHeroVideo) ? (
-            <img src={post.mobileHeroVideo} alt={post.title} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+            <img src={post.mobileHeroVideo} alt={post.title} className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="eager" />
           ) : (
             <BlobVideo src={post.mobileHeroVideo} className="absolute inset-0 w-full h-full object-cover" />
           )

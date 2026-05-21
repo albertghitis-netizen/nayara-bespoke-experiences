@@ -173,6 +173,7 @@ export default function AwardsAndPress() {
               loop
               muted
               playsInline
+              preload="metadata"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
@@ -634,6 +635,7 @@ function AwardVideoCardsSection() {
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark overlay */}

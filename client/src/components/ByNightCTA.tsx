@@ -79,7 +79,7 @@ export default function ByNightCTA({
             {overlayIsVideo ? (
               <NativeVideo src={overlaySrc} className="w-full h-full object-cover" loop />
             ) : (
-              <img src={overlaySrc} alt="Nayara by Night" className="w-full h-full object-cover" loading="lazy" />
+              <img src={overlaySrc} alt="Nayara by Night" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             )}
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
@@ -145,7 +145,7 @@ export default function ByNightCTA({
               {verticalIsVideo ? (
                 <NativeVideo src={verticalSrc} className="w-full h-full object-cover" />
               ) : (
-                <img src={verticalSrc} alt="Nayara by Night" className="w-full h-full object-cover" loading="lazy" />
+                <img src={verticalSrc} alt="Nayara by Night" className="w-full h-full object-cover" decoding="async" loading="lazy" />
               )}
             </div>
           </MediaReveal>
@@ -233,7 +233,7 @@ export default function ByNightCTA({
               {horizontalIsVideo ? (
                 <NativeVideo src={horizontalSrc} className="w-full h-full object-cover" />
               ) : (
-                <img src={horizontalSrc} alt="Nayara by Night , landscape" className="w-full h-full object-cover" loading="lazy" />
+                <img src={horizontalSrc} alt="Nayara by Night , landscape" className="w-full h-full object-cover" decoding="async" loading="lazy" />
               )}
             </div>
           </MediaReveal>

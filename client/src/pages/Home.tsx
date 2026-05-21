@@ -199,6 +199,7 @@ function HeroSection() {
             autoPlay
             loop
             playsInline
+            preload="metadata"
             muted
             controls={false}
           />
@@ -309,6 +310,7 @@ function BrandStorySection() {
                 autoPlay
                 muted
                 playsInline
+                preload="metadata"
                 className="w-full h-auto"
                 style={{ maxWidth: "600px" }}
               />
@@ -325,6 +327,7 @@ function BrandStorySection() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute bottom-8 left-0 right-0 flex justify-center">
@@ -347,6 +350,7 @@ function BrandStorySection() {
             muted
             loop
             playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
           />
           <div className="absolute bottom-8 left-0 right-0 flex justify-center">
@@ -2082,6 +2086,7 @@ function InstagramGrid() {
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                 />
               ) : (
                 <img

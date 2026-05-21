@@ -94,7 +94,7 @@ export default function EasterIslandOutdoorsBlog() {
 
       {/* ── HERO (21:9) ── */}
       <section className="relative w-full overflow-hidden" style={{ aspectRatio: "21/9", minHeight: "400px", maxHeight: "70vh" }}>
-        <img src={IMAGES.hero} alt="Row of moai statues on Easter Island at sunrise with dramatic sky" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <img src={IMAGES.hero} alt="Row of moai statues on Easter Island at sunrise with dramatic sky" className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
       </section>
 
@@ -169,7 +169,7 @@ export default function EasterIslandOutdoorsBlog() {
           </div>
           {/* Image centered below */}
           <div className="mt-8 flex justify-center">
-            <img src={IMAGES.trekking} alt="Panoramic view of Easter Island's green volcanic landscape with moai row and ocean" className="w-full max-w-2xl h-auto rounded-lg object-contain" loading="lazy" />
+            <img src={IMAGES.trekking} alt="Panoramic view of Easter Island's green volcanic landscape with moai row and ocean" className="w-full max-w-2xl h-auto rounded-lg object-contain" decoding="async" loading="lazy" />
           </div>
         </div>
       </motion.section>
@@ -208,7 +208,7 @@ export default function EasterIslandOutdoorsBlog() {
           </div>
           {/* Image centered below */}
           <div className="mt-8 flex justify-center">
-            <img src={IMAGES.birdman} alt="Dramatic coastal cliffs of Easter Island with motus visible in the Pacific Ocean" className="w-full max-w-2xl h-auto rounded-lg object-contain" loading="lazy" />
+            <img src={IMAGES.birdman} alt="Dramatic coastal cliffs of Easter Island with motus visible in the Pacific Ocean" className="w-full max-w-2xl h-auto rounded-lg object-contain" decoding="async" loading="lazy" />
           </div>
         </div>
       </motion.section>
@@ -262,7 +262,7 @@ export default function EasterIslandOutdoorsBlog() {
           </div>
           {/* Image centered below */}
           <div className="mt-8 flex justify-center">
-            <img src={IMAGES.diving} alt="Scuba diver exploring crystal-clear waters and coral formations near Easter Island" className="w-full max-w-2xl h-auto rounded-lg object-contain" loading="lazy" />
+            <img src={IMAGES.diving} alt="Scuba diver exploring crystal-clear waters and coral formations near Easter Island" className="w-full max-w-2xl h-auto rounded-lg object-contain" decoding="async" loading="lazy" />
           </div>
         </div>
       </motion.section>
@@ -279,7 +279,7 @@ export default function EasterIslandOutdoorsBlog() {
           </div>
           {/* Image centered below */}
           <div className="mt-8 flex justify-center">
-            <img src={IMAGES.horsebackGroup} alt="Group horseback riding on Easter Island with moai statues in the background" className="w-full max-w-2xl h-auto rounded-lg object-contain" loading="lazy" />
+            <img src={IMAGES.horsebackGroup} alt="Group horseback riding on Easter Island with moai statues in the background" className="w-full max-w-2xl h-auto rounded-lg object-contain" decoding="async" loading="lazy" />
           </div>
         </div>
       </motion.section>
@@ -391,7 +391,7 @@ export default function EasterIslandOutdoorsBlog() {
               <Link key={article.slug} href={article.slug}>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="group cursor-pointer">
                   <div className="aspect-square overflow-hidden mb-4 rounded-lg">
-                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" loading="lazy" />
+                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" decoding="async" loading="lazy" />
                   </div>
                   <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: PALETTE.accent }}>{article.pillar}</p>
                   <h3 className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}>{article.title}</h3>

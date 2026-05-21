@@ -84,7 +84,7 @@ export default function RainforestRomance() {
 function HeroSection() {
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/8dpwq5bjqlfty4anpr4pj/Laguna_Lejia_NAA00013.jpg?rlkey=4f7n50ads9slrvnn5xoq3s5sg&st=mzs521te&dl=1" alt="Laguna Lejia" className="absolute inset-0 w-full h-full object-cover" />
+      <img src="https://dl.dropboxusercontent.com/scl/fi/8dpwq5bjqlfty4anpr4pj/Laguna_Lejia_NAA00013.jpg?rlkey=4f7n50ads9slrvnn5xoq3s5sg&st=mzs521te&dl=1" alt="Laguna Lejia" className="absolute inset-0 w-full h-full object-cover"  decoding="async" loading="lazy" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10" />
 
       {/* Title */}
@@ -229,7 +229,7 @@ function GallerySection() {
             transition={{ duration: 0.6 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img01} alt="Romantic moment" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img01} alt="Romantic moment" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -239,7 +239,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img02} alt="Couple in nature" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img02} alt="Couple in nature" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -249,7 +249,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img03} alt="Sunset romance" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img03} alt="Sunset romance" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           {/* Row 2 */}
@@ -260,7 +260,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img04} alt="Intimate moment" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img04} alt="Intimate moment" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -270,7 +270,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img05} alt="Nature romance" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img05} alt="Nature romance" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -280,7 +280,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img06} alt="Rainforest romance" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img06} alt="Rainforest romance" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           {/* Row 3 */}
@@ -291,7 +291,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img07} alt="Couple adventure" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img07} alt="Couple adventure" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -301,7 +301,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img08} alt="Romantic getaway" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img08} alt="Romantic getaway" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -311,7 +311,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img09} alt="Sunset moment" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img09} alt="Sunset moment" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           {/* Row 4 */}
@@ -322,7 +322,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 0.9 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img10} alt="Intimate setting" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img10} alt="Intimate setting" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -332,7 +332,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 1.0 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img11} alt="Nature connection" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img11} alt="Nature connection" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -342,7 +342,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 1.1 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img12} alt="Romantic escape" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img12} alt="Romantic escape" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           {/* Row 5 */}
@@ -353,7 +353,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 1.2 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img13} alt="Couple moment" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img13} alt="Couple moment" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -363,7 +363,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 1.3 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img14} alt="Rainforest beauty" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img14} alt="Rainforest beauty" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           <motion.div
@@ -373,7 +373,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 1.4 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img15} alt="Intimate experience" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img15} alt="Intimate experience" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
 
           {/* Row 6 */}
@@ -384,7 +384,7 @@ function GallerySection() {
             transition={{ duration: 0.6, delay: 1.5 }}
             className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
           >
-            <img src={ROMANTIC_CDN.img16} alt="Final moment" className="w-full h-64 object-cover" />
+            <img src={ROMANTIC_CDN.img16} alt="Final moment" className="w-full h-64 object-cover"  decoding="async" loading="lazy" />
           </motion.div>
         </div>
       </div>

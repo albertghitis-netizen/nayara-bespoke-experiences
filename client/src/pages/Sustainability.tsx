@@ -208,6 +208,7 @@ function HeroSection() {
             autoPlay
             loop
             playsInline
+            preload="metadata"
             muted
             controls={false}
           />

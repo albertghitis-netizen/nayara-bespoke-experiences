@@ -204,6 +204,7 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
           muted
           loop
           playsInline
+          preload="metadata"
           poster={hero.src}
           className="w-full h-full object-cover"
         />
@@ -224,7 +225,7 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   const aspectRatio = isMobile ? "9/16" : "16/9";
   return (
     <section className="relative w-full overflow-hidden" style={{ aspectRatio }}>
-      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover" />
+      <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover"  decoding="async" loading="lazy" />
     </section>
   );
 

@@ -148,6 +148,7 @@ function ExperiencesHero({ propertySlug }: { propertySlug: string }) {
           loop
           muted
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
@@ -195,7 +196,7 @@ function ExperiencesHero({ propertySlug }: { propertySlug: string }) {
   // Fallback: static image for properties without a video
   return (
     <section className="relative aspect-[16/9] w-full overflow-hidden">
-      <img src={fallbackImage?.src || ''} alt={fallbackImage?.alt || ''} className="w-full h-full object-cover" />
+      <img src={fallbackImage?.src || ''} alt={fallbackImage?.alt || ''} className="w-full h-full object-cover"  decoding="async" loading="lazy" />
     </section>
   );
 }
@@ -514,6 +515,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
               muted
               loop
               playsInline
+              preload="metadata"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />

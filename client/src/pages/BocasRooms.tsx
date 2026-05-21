@@ -71,7 +71,7 @@ export default function BocasRooms() {
 function RoomsHero() {
   return (
     <section className="relative aspect-[16/9] w-full overflow-hidden">
-      <img src="/manus-storage/bocas-rooms-hero_510c4197.jpg" alt="Aerial view of Nayara Bocas del Toro overwater villas" className="w-full h-full object-cover" />
+      <img src="/manus-storage/bocas-rooms-hero_510c4197.jpg" alt="Aerial view of Nayara Bocas del Toro overwater villas" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
     </section>
   );
 }

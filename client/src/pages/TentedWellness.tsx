@@ -160,7 +160,7 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nature-Based Wellness" className="w-full h-full object-cover" />
+          <img src={mobileHeroImage} alt="Nature-Based Wellness" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
         ) : (
           <video
             ref={videoRef}
@@ -169,6 +169,7 @@ function HeroSection() {
             autoPlay
             loop
             playsInline
+            preload="metadata"
             muted
             controls={false}
           />
@@ -266,7 +267,7 @@ function EcosystemRow({ ecosystem, reversed, index, palette }: { ecosystem: Well
         <motion.div initial={{ opacity: 0, y: 14 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className={reversed ? "md:order-2" : "md:order-1"}>
             <div className="aspect-[4/5] overflow-hidden">
-              <img src={ecosystem.image} alt={ecosystem.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" />
+              <img src={ecosystem.image} alt={ecosystem.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" decoding="async" loading="lazy" />
             </div>
           </div>
           <div className={reversed ? "md:order-1" : "md:order-2"}>

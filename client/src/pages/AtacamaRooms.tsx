@@ -568,7 +568,7 @@ function Lightbox({
               i === currentIndex ? "border-white scale-110" : "border-transparent opacity-50 hover:opacity-80"
             }`}
           >
-            <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" />
+            <img src={img} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
           </button>
         ))}
       </div>

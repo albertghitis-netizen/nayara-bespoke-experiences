@@ -235,7 +235,7 @@ function MediaBlock({
         {isVideo ? (
           <NativeVideo src={src} className="w-full h-full object-cover" />
         ) : (
-          <img src={src} alt={alt} className="w-full h-full object-cover block" loading="lazy" />
+          <img src={src} alt={alt} className="w-full h-full object-cover block" decoding="async" loading="lazy" />
         )}
       </div>
     </div>
@@ -366,12 +366,12 @@ function CascadeTextBlock({
       )}
       {badgeImage && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
            {badges && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -492,7 +492,7 @@ function CascadeSection({
       </AnimateOnScroll>
       {badgeImage && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
       {link && (
@@ -511,7 +511,7 @@ function CascadeSection({
       )}
       {badges && (
         <div className="mt-8 hidden md:block">
-          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          <video src="/manus-storage/badge-atacama-correct_054a7823.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -1387,7 +1387,7 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <video src={mobileHeroImage} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+          <video src={mobileHeroImage} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
         ) : (
           <BlobVideo
           src={heroVideo}

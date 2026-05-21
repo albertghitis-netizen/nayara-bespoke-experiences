@@ -85,9 +85,9 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={IMG.mobileHeroImage} alt="Nayara Wellness" className="w-full h-full object-cover" />
+          <img src={IMG.mobileHeroImage} alt="Nayara Wellness" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
         ) : (
-          <video src={IMG.heroVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+          <video src={IMG.heroVideo} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
@@ -136,7 +136,7 @@ function PrivatePlungPoolsSection({ palette }: { palette: PropertyPalette }) {
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn>
             <div className="aspect-[4/5] overflow-hidden rounded-lg">
-              <img src={IMG.privatePlungePools} alt="Private plunge pool at Nayara Springs" className="w-full h-full object-cover" loading="lazy" />
+              <img src={IMG.privatePlungePools} alt="Private plunge pool at Nayara Springs" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -191,10 +191,10 @@ function LasThermasSection({ palette }: { palette: PropertyPalette }) {
           <FadeIn delay={0.2}>
             <div className="space-y-6">
               <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "9/16" }}>
-                <video src={IMG.termasVertical} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+                <video src={IMG.termasVertical} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
               </div>
               <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
-                <img src={IMG.termasImage} alt="Las Thermas geothermal pools" className="w-full h-full object-cover" loading="lazy" />
+                <img src={IMG.termasImage} alt="Las Thermas geothermal pools" className="w-full h-full object-cover" decoding="async" loading="lazy" />
               </div>
             </div>
           </FadeIn>
@@ -217,7 +217,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-8">
           <FadeIn>
             <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "9/16" }}>
-              <img src={IMG.yogaVertical} alt="Yoga in the rainforest pavilion" className="w-full h-full object-cover" loading="lazy" />
+              <img src={IMG.yogaVertical} alt="Yoga in the rainforest pavilion" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -258,7 +258,7 @@ function SukhaSpaSection({ palette }: { palette: PropertyPalette }) {
         {/* Sukha Spa Banner */}
         <FadeIn>
           <div className="relative overflow-hidden rounded-lg mb-12" style={{ aspectRatio: "16/9" }}>
-            <img src={IMG.sukhaSpaBanner} alt="Sukha Spa treatment hut" className="w-full h-full object-cover" loading="lazy" />
+            <img src={IMG.sukhaSpaBanner} alt="Sukha Spa treatment hut" className="w-full h-full object-cover" decoding="async" loading="lazy" />
           </div>
         </FadeIn>
 
@@ -278,7 +278,7 @@ function SukhaSpaSection({ palette }: { palette: PropertyPalette }) {
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "9/16" }}>
-              <video src={IMG.sukhaSpaVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+              <video src={IMG.sukhaSpaVideo} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
             </div>
           </FadeIn>
         </div>

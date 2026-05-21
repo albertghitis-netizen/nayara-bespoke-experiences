@@ -210,6 +210,7 @@ function GalleryCell({
           muted
           loop
           playsInline
+          preload="metadata"
           onLoadedData={() => setLoaded(true)}
         />
       ) : (
@@ -311,6 +312,7 @@ function Lightbox({
             muted
             loop
             playsInline
+            preload="metadata"
             controls
           />
         ) : (

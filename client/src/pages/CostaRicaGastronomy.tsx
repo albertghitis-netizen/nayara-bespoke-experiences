@@ -264,7 +264,7 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
 function HeroSection() {
   return (
     <section className="relative aspect-[16/9] w-full overflow-hidden">
-      <img src={HERO_IMAGE} alt="Honeycomb dessert — Costa Rica gastronomy" className="w-full h-full object-cover" />
+      <img src={HERO_IMAGE} alt="Honeycomb dessert — Costa Rica gastronomy" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
       <div className="absolute bottom-8 md:bottom-12 left-0 right-0 text-center">
         <motion.h1
@@ -439,6 +439,7 @@ function RestaurantGridSection() {
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                       />
                     ) : (
@@ -618,6 +619,7 @@ function ClassesSection() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : (

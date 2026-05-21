@@ -91,7 +91,7 @@ export default function AtacamaWildlifeBlog() {
 
       {/* ── HERO (21:9) ── */}
       <section className="relative w-full overflow-hidden" style={{ aspectRatio: "21/9", minHeight: "400px", maxHeight: "70vh" }}>
-        <img src={IMAGES.hero} alt="Wild horses grazing in front of moai statues at sunset on Easter Island" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <img src={IMAGES.hero} alt="Wild horses grazing in front of moai statues at sunset on Easter Island" className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
       </section>
 
@@ -161,7 +161,7 @@ export default function AtacamaWildlifeBlog() {
             <p>It is the thing that makes the experience possible year after year.</p>
           </div>
           <figure className="my-10 flex justify-center">
-            <img src={IMAGES.flamingos} alt="Flamingos in Atacama salt flat lagoon with mountain reflections" className="w-full max-w-2xl rounded-lg shadow-md object-contain" loading="lazy" />
+            <img src={IMAGES.flamingos} alt="Flamingos in Atacama salt flat lagoon with mountain reflections" className="w-full max-w-2xl rounded-lg shadow-md object-contain" decoding="async" loading="lazy" />
           </figure>
         </div>
       </motion.section>
@@ -194,7 +194,7 @@ export default function AtacamaWildlifeBlog() {
             <p>Conservation that focuses only on flagship species while degrading the habitat conditions that support everything else is not conservation. It is decoration.</p>
           </div>
           <figure className="my-10 flex justify-center">
-            <img src={IMAGES.llama} alt="Guest interacting with a llama at Nayara Alto Atacama" className="w-full max-w-2xl rounded-lg shadow-md object-contain" loading="lazy" />
+            <img src={IMAGES.llama} alt="Guest interacting with a llama at Nayara Alto Atacama" className="w-full max-w-2xl rounded-lg shadow-md object-contain" decoding="async" loading="lazy" />
           </figure>
         </div>
       </motion.section>
@@ -244,7 +244,7 @@ export default function AtacamaWildlifeBlog() {
             <p>Holding both truths at once is the only honest position.</p>
           </div>
           <figure className="my-10 flex justify-center">
-            <img src={IMAGES.horses} alt="Wild horses with riders on Easter Island coastline" className="w-full max-w-2xl rounded-lg shadow-md object-contain" loading="lazy" />
+            <img src={IMAGES.horses} alt="Wild horses with riders on Easter Island coastline" className="w-full max-w-2xl rounded-lg shadow-md object-contain" decoding="async" loading="lazy" />
           </figure>
         </div>
       </motion.section>
@@ -280,7 +280,7 @@ export default function AtacamaWildlifeBlog() {
             <p>That is what World Wildlife Day actually means. Not a calendar date. A decision repeated every morning in places most people will never see.</p>
           </div>
           <figure className="my-10 flex justify-center">
-            <img src={IMAGES.turtle} alt="Green sea turtle swimming underwater near Rapa Nui" className="w-full max-w-2xl rounded-lg shadow-md object-contain" loading="lazy" />
+            <img src={IMAGES.turtle} alt="Green sea turtle swimming underwater near Rapa Nui" className="w-full max-w-2xl rounded-lg shadow-md object-contain" decoding="async" loading="lazy" />
           </figure>
         </div>
       </motion.section>
@@ -388,7 +388,7 @@ export default function AtacamaWildlifeBlog() {
               <Link key={article.slug} href={article.slug}>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="group cursor-pointer">
                   <div className="aspect-square overflow-hidden mb-4 rounded-lg">
-                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" loading="lazy" />
+                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" decoding="async" loading="lazy" />
                   </div>
                   <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: PALETTE.accent }}>{article.pillar}</p>
                   <h3 className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}>{article.title}</h3>

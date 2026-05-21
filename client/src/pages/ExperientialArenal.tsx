@@ -332,6 +332,7 @@ function WithinOurGroundsSection() {
                       loop
                       muted
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
@@ -413,6 +414,7 @@ function WithinOurGroundsSection() {
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     ) : (
@@ -517,7 +519,7 @@ function ExploreArenalSection() {
                 {/* Media , image preferred over horizontal video */}
                 {ex.image ? (
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img src={ex.image} alt={ex.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+                    <img src={ex.image} alt={ex.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" decoding="async" loading="lazy" />
                   </div>
                 ) : ex.videoDesktop ? (
                   <div className="aspect-[4/3] overflow-hidden">
@@ -527,6 +529,7 @@ function ExploreArenalSection() {
                       loop
                       muted
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -636,6 +639,7 @@ function FeaturedExcursionCard({
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             ) : (
@@ -737,6 +741,7 @@ function FeaturedExcursionCard({
                           muted
                           loop
                           playsInline
+                          preload="metadata"
                           className="w-full h-full object-cover"
                         >
                           <source

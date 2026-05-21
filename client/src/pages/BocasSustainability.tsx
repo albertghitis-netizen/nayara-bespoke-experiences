@@ -511,6 +511,7 @@ function ImageBreak() {
         loop
         muted
         playsInline
+        preload="metadata"
         className="w-full h-full object-cover object-center"
         style={{ transition: "transform 700ms ease-in-out" }}
       />

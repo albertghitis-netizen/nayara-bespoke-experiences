@@ -106,7 +106,7 @@ function HeroSection() {
       {isMobile ? (
         <BlobVideo src={FAMILY_CDN.rainbowValley} className="absolute inset-0 w-full h-full object-cover" />
       ) : (
-        <img src={FAMILY_CDN.tentVolcano} alt="Family tent deck overlooking Arenal Volcano" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={FAMILY_CDN.tentVolcano} alt="Family tent deck overlooking Arenal Volcano" className="absolute inset-0 w-full h-full object-cover"  decoding="async" loading="lazy" />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-black/10" />
 
@@ -190,7 +190,7 @@ function WithinOurGroundsSection() {
           {/* Garden Exploration */}
           <FadeIn delay={0.1}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.family02} alt="Garden Boardwalk" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.family02} alt="Garden Boardwalk" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: C.espresso }}>
                 Garden Exploration
               </h4>
@@ -203,7 +203,7 @@ function WithinOurGroundsSection() {
           {/* Getting Around */}
           <FadeIn delay={0.2}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.family05} alt="Golf Cart Adventure" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.family05} alt="Golf Cart Adventure" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: C.espresso }}>
                 Getting Around
               </h4>
@@ -216,7 +216,7 @@ function WithinOurGroundsSection() {
           {/* Nature Discovery */}
           <FadeIn delay={0.3}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.family08} alt="Nature Discovery" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.family08} alt="Nature Discovery" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: C.espresso }}>
                 Nature Discovery
               </h4>
@@ -241,7 +241,7 @@ function RainforestAdventuresSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <FadeIn>
-            <img src={FAMILY_CDN.hangingBridge} alt="Children in yellow raincoats crossing hanging bridges" className="w-full h-96 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.hangingBridge} alt="Children in yellow raincoats crossing hanging bridges" className="w-full h-96 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
 
           {/* Content */}
@@ -293,7 +293,7 @@ function FamilyDiningSection() {
           {/* Sunset Dining */}
           <FadeIn delay={0.1}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.family07} alt="Sunset Dining" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.family07} alt="Sunset Dining" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: C.espresso }}>
                 Sunset Dining
               </h4>
@@ -306,7 +306,7 @@ function FamilyDiningSection() {
           {/* Poolside Breakfast */}
           <FadeIn delay={0.2}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.family09} alt="Poolside Breakfast" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.family09} alt="Poolside Breakfast" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: C.espresso }}>
                 Poolside Breakfast
               </h4>
@@ -319,7 +319,7 @@ function FamilyDiningSection() {
           {/* Fresh Flavors */}
           <FadeIn delay={0.3}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.family12} alt="Fresh Watermelon" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.family12} alt="Fresh Watermelon" className="w-full h-64 md:h-72 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: C.espresso }}>
                 Fresh Flavors
               </h4>
@@ -356,7 +356,7 @@ function AtacamaFamilySection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           {/* Atacama biking image */}
           <FadeIn>
-            <img src={FAMILY_CDN.atacamaBiking} alt="Family mountain biking through Atacama canyons" className="w-full h-80 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.atacamaBiking} alt="Family mountain biking through Atacama canyons" className="w-full h-80 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
 
           {/* Content */}
@@ -379,7 +379,7 @@ function AtacamaFamilySection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <FadeIn delay={0.1}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.lifestyle07} alt="Family at salt flats" className="w-full h-64 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.lifestyle07} alt="Family at salt flats" className="w-full h-64 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: "white" }}>
                 Salt Flat Sunrise
               </h4>
@@ -391,7 +391,7 @@ function AtacamaFamilySection() {
 
           <FadeIn delay={0.2}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.lifestyle11} alt="Family hiking in desert" className="w-full h-64 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.lifestyle11} alt="Family hiking in desert" className="w-full h-64 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: "white" }}>
                 Desert Trekking
               </h4>
@@ -403,7 +403,7 @@ function AtacamaFamilySection() {
 
           <FadeIn delay={0.3}>
             <div className="flex flex-col">
-              <img src={FAMILY_CDN.lifestyle09} alt="Family at rock formation" className="w-full h-64 object-cover rounded-lg mb-6" />
+              <img src={FAMILY_CDN.lifestyle09} alt="Family at rock formation" className="w-full h-64 object-cover rounded-lg mb-6"  decoding="async" loading="lazy" />
               <h4 className="text-lg mb-3" style={{ ...bodyMedium, color: "white" }}>
                 Stargazing
               </h4>
@@ -460,14 +460,14 @@ function RapaNuiFamilySection() {
 
           {/* Image */}
           <FadeIn delay={0.1}>
-            <img src={FAMILY_CDN.rapaNuiMoai} alt="Family before the Moai statues on Rapa Nui" className="w-full h-96 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.rapaNuiMoai} alt="Family before the Moai statues on Rapa Nui" className="w-full h-96 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
         </div>
 
         {/* Additional Rapa Nui image */}
         <FadeIn delay={0.2} className="mt-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <img src={FAMILY_CDN.lifestyle10} alt="Family at Moai site" className="w-full h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.lifestyle10} alt="Family at Moai site" className="w-full h-64 object-cover rounded-lg"  decoding="async" loading="lazy" />
             <div className="flex flex-col justify-center">
               <h4 className="text-lg mb-4" style={{ ...bodyMedium, color: C.espresso }}>
                 The Rapa Nui Bucket List
@@ -513,22 +513,22 @@ function YourPrivateRetreatSection() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           <FadeIn delay={0.1}>
-            <img src={FAMILY_CDN.family01} alt="Infinity Pool" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.family01} alt="Infinity Pool" className="w-full h-48 md:h-64 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
           <FadeIn delay={0.15}>
-            <img src={FAMILY_CDN.poolToss} alt="Pool Play" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.poolToss} alt="Pool Play" className="w-full h-48 md:h-64 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
           <FadeIn delay={0.2}>
-            <img src={FAMILY_CDN.family03} alt="Hammock Retreat" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.family03} alt="Hammock Retreat" className="w-full h-48 md:h-64 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
           <FadeIn delay={0.25}>
-            <img src={FAMILY_CDN.family04} alt="Tented Comfort" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.family04} alt="Tented Comfort" className="w-full h-48 md:h-64 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
           <FadeIn delay={0.3}>
-            <img src={FAMILY_CDN.family11} alt="Family Pool" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.family11} alt="Family Pool" className="w-full h-48 md:h-64 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
           <FadeIn delay={0.35}>
-            <img src={FAMILY_CDN.lifestyle01} alt="Family Bonding" className="w-full h-48 md:h-64 object-cover rounded-lg" />
+            <img src={FAMILY_CDN.lifestyle01} alt="Family Bonding" className="w-full h-48 md:h-64 object-cover rounded-lg"  decoding="async" loading="lazy" />
           </FadeIn>
         </div>
 

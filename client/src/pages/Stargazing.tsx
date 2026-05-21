@@ -76,7 +76,7 @@ function MediaBlock({
       {isVideo ? (
         <NativeVideo src={src} className="w-full h-full object-cover" />
       ) : (
-        <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
+        <img src={src} alt={alt || ""} className="w-full h-full object-cover" decoding="async" loading="lazy" />
       )}
     </div>
   );

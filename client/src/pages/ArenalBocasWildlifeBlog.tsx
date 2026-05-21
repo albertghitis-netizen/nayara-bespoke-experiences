@@ -90,7 +90,7 @@ export default function ArenalBocasWildlifeBlog() {
 
       {/* ── HERO (21:9) ── */}
       <section className="relative w-full overflow-hidden" style={{ aspectRatio: "21/9", minHeight: "400px", maxHeight: "70vh" }}>
-        <img src={IMAGES.hero} alt="Sloth swimming underwater in Costa Rica's tropical waters" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <img src={IMAGES.hero} alt="Sloth swimming underwater in Costa Rica's tropical waters" className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
       </section>
 
@@ -159,7 +159,7 @@ export default function ArenalBocasWildlifeBlog() {
             <p>The sloths came back on their own. That is the only outcome that matters. When the right trees are planted in the right way, wildlife follows the food. Two species now live here year-round, monitored by resident naturalists tracking movement, condition, and habitat use. The sloth is not a symbol. It is a living measure of whether the forest is functioning.</p>
           </div>
           <figure className="my-10 flex justify-center">
-            <img src={IMAGES.infographic} alt="Infographic showing the Isthmus of Panama, Central America's biodiversity concentration, and the Arenal Conservation Area" className="w-full max-w-2xl rounded-lg shadow-md object-contain" loading="lazy" />
+            <img src={IMAGES.infographic} alt="Infographic showing the Isthmus of Panama, Central America's biodiversity concentration, and the Arenal Conservation Area" className="w-full max-w-2xl rounded-lg shadow-md object-contain" decoding="async" loading="lazy" />
           </figure>
         </div>
       </motion.section>
@@ -192,7 +192,7 @@ export default function ArenalBocasWildlifeBlog() {
             <p>Conservation strategies that treat any one of these components in isolation are not conservation strategies. They are delay. At Nayara Bocas del Toro, we operate with a whole-system awareness that shapes decisions about where boats travel, how lighting is managed, what materials enter the water, and when and how guests access sensitive zones.</p>
           </div>
           <figure className="my-10 flex justify-center">
-            <img src={IMAGES.toucan} alt="Keel-billed toucan perched in the Arenal rainforest canopy" className="w-full max-w-2xl rounded-lg shadow-md object-contain" loading="lazy" />
+            <img src={IMAGES.toucan} alt="Keel-billed toucan perched in the Arenal rainforest canopy" className="w-full max-w-2xl rounded-lg shadow-md object-contain" decoding="async" loading="lazy" />
           </figure>
         </div>
       </motion.section>
@@ -236,7 +236,7 @@ export default function ArenalBocasWildlifeBlog() {
             <p>That is the standard. Everything else is narrative.</p>
           </div>
           <figure className="my-10 flex justify-center">
-            <img src={IMAGES.dolphins} alt="Pod of dolphins swimming in the waters of Bocas del Toro, Panama" className="w-full max-w-2xl rounded-lg shadow-md object-contain" loading="lazy" />
+            <img src={IMAGES.dolphins} alt="Pod of dolphins swimming in the waters of Bocas del Toro, Panama" className="w-full max-w-2xl rounded-lg shadow-md object-contain" decoding="async" loading="lazy" />
           </figure>
         </div>
       </motion.section>
@@ -345,7 +345,7 @@ export default function ArenalBocasWildlifeBlog() {
               <Link key={article.slug} href={article.slug}>
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="group cursor-pointer">
                   <div className="aspect-square overflow-hidden mb-4 rounded-lg">
-                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" loading="lazy" />
+                    <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" decoding="async" loading="lazy" />
                   </div>
                   <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ fontWeight: 600, color: PALETTE.accent }}>{article.pillar}</p>
                   <h3 className="text-lg" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.espresso }}>{article.title}</h3>

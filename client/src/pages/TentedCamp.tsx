@@ -170,7 +170,7 @@ function MediaBlock({
       {isVideo ? (
         <NativeVideo src={src} className="w-full h-full object-cover" loop={loop} />
       ) : (
-        <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
+        <img src={src} alt={alt || ""} className="w-full h-full object-cover" decoding="async" loading="lazy" />
       )}
     </div>
   );
@@ -668,7 +668,7 @@ function CascadeSection({
                   Listen: Nayara Co-Founder & CEO, Leo Ghitis,<br />on Sustainability with AFAR Podcast
                 </span>
               </a>
-              <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
+              <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
             </div>
           )}
 
@@ -1421,7 +1421,7 @@ function GallerySection() {
                 {item.isVideo ? (
                   <NativeVideo src={item.src} className="w-full h-full object-cover" />
                 ) : (
-                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" decoding="async" loading="lazy" />
                 )}
               </div>
             </MediaReveal>

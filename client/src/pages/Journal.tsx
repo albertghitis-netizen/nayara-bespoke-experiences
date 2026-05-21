@@ -144,6 +144,7 @@ export default function Journal() {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="hidden md:block w-full h-full object-cover"
               />
             </>
@@ -155,6 +156,7 @@ export default function Journal() {
               loop
               muted
               playsInline
+              preload="metadata"
               webkit-playsinline="true"
               className="md:hidden w-full h-full object-cover"
             />
@@ -312,7 +314,7 @@ function GalleryCard({
               >
                 <X className="w-4 h-4" />
               </button>
-              <img src={entry.image} alt="" className="w-20 h-20 rounded-lg object-cover mb-4 opacity-80" />
+              <img src={entry.image} alt="" className="w-20 h-20 rounded-lg object-cover mb-4 opacity-80"  decoding="async" loading="lazy" />
               <p className="text-white/80 text-xs tracking-wide text-center mb-4 line-clamp-2" style={{ fontFamily: "var(--font-body)" }}>{entry.title}</p>
               <audio
                 src={entry.podcastUrl}
@@ -437,6 +439,7 @@ function CardShell({
               muted
               loop
               playsInline
+              preload={index < 3 ? "auto" : "none"}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
@@ -444,6 +447,7 @@ function CardShell({
               src={entry.image}
               alt={entry.title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              decoding="async"
               loading={index < 6 ? "eager" : "lazy"}
             />
           )}

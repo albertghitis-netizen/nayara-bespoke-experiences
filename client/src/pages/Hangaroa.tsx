@@ -219,7 +219,7 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       {isMobile ? (
         <>
-          <img src={mobileHeroImage} alt="Nayara Hangaroa" className="w-full h-full object-cover" />
+          <img src={mobileHeroImage} alt="Nayara Hangaroa" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
         </>
       ) : (
@@ -228,6 +228,7 @@ function HeroSection() {
             ref={heroVideoRef}
             className="w-full h-full object-cover"
             playsInline
+            preload="metadata"
             autoPlay
             muted={isMuted}
             loop
@@ -476,7 +477,7 @@ function AccommodationsSection() {
               {activeRoom.isVideo ? (
                 <NativeVideo src={activeRoom.media} className="w-full h-full object-cover" />
               ) : (
-                <img src={activeRoom.media} alt={activeRoom.title} className="w-full h-full object-cover" loading="lazy" />
+                <img src={activeRoom.media} alt={activeRoom.title} className="w-full h-full object-cover" decoding="async" loading="lazy" />
               )}
             </motion.div>
           </AnimatePresence>
@@ -577,7 +578,7 @@ function ExperiencesSection() {
       {/* Horizontal hero image */}
       <MediaReveal>
         <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
-          <img src="/manus-storage/hangaroa-experiences-horizontal-16x9_41a3fdec.jpg" alt="Easter Island cultural experience with Nayara Hangaroa" className="w-full h-full object-cover" loading="lazy" />
+          <img src="/manus-storage/hangaroa-experiences-horizontal-16x9_41a3fdec.jpg" alt="Easter Island cultural experience with Nayara Hangaroa" className="w-full h-full object-cover" decoding="async" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <h2 className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
@@ -631,7 +632,7 @@ function SustainabilitySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img src={CDN.warriorPortrait} alt="Rapa Nui warrior" className="w-full h-full object-cover" loading="lazy" />
+              <img src={CDN.warriorPortrait} alt="Rapa Nui warrior" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </MediaReveal>
         </div>
@@ -702,7 +703,7 @@ function WellnessSection() {
       {/* Horizontal hero */}
       <MediaReveal>
         <div className="relative overflow-hidden" style={{ aspectRatio: "21/9" }}>
-          <img src={CDN.rapaNuiWarrior} alt="Rapa Nui wellness" className="w-full h-full object-cover" loading="lazy" />
+          <img src={CDN.rapaNuiWarrior} alt="Rapa Nui wellness" className="w-full h-full object-cover" decoding="async" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <h2 className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
@@ -801,7 +802,7 @@ function GastronomySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/hangaroa-gastronomy-dessert_440503bd.jpeg" alt="Pacific island dessert with raspberry meringue" className="w-full h-full object-cover" loading="lazy" />
+              <img src="/manus-storage/hangaroa-gastronomy-dessert_440503bd.jpeg" alt="Pacific island dessert with raspberry meringue" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </MediaReveal>
         </div>
@@ -864,6 +865,7 @@ function ByNightSection() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover"
               />
             </div>

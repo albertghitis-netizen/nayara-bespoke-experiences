@@ -45,16 +45,43 @@ export default function BlobVideo({
   onEnded,
 }: BlobVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [showPulse, setShowPulse] = useState(true);
+  const [isNearViewport, setIsNearViewport] = useState(false);
 
   // Enable audio on all devices (mobile + desktop)
   const effectiveHasAudio = hasAudio;
 
+  // IntersectionObserver: only load video when within 400px of viewport
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setIsNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsNearViewport(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px", threshold: 0 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   // Main autoplay logic with mobile-specific handling
   useEffect(() => {
+    if (!isNearViewport) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -89,7 +116,7 @@ export default function BlobVideo({
       video.removeEventListener("playing", tryPlay);
       clearTimeout(timer);
     };
-  }, [src, autoPlay]);
+  }, [src, autoPlay, isNearViewport]);
 
   // Stop the attention pulse after 6 seconds
   useEffect(() => {
@@ -123,6 +150,7 @@ export default function BlobVideo({
 
   return (
     <div 
+      ref={containerRef}
       className="relative w-full h-full" 
       style={{ WebkitTouchCallout: 'none' } as any}
     >

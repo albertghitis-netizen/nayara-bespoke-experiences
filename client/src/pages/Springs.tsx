@@ -264,7 +264,7 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Springs" className="w-full h-full object-cover" />
+          <img src={mobileHeroImage} alt="Nayara Springs" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
         ) : (
           <BlobVideo
           src={CDN.heroDesktop}
@@ -373,6 +373,7 @@ function StorySection() {
               autoPlay
               muted
               playsInline
+              preload="metadata"
               className="h-32 lg:h-40 w-auto -ml-3 lg:-ml-6"
             />
           </div>
@@ -1155,7 +1156,7 @@ function OneRainforestCompactSprings() {
         {SPRINGS_PANORAMA_PANELS.map((panel, i) => {
           const inner = (
             <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
-              <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="lazy" />
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
               {panel.badge && (
                 <div className="absolute top-4 right-4">

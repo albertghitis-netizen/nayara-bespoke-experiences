@@ -82,7 +82,7 @@ export default function GardensRooms() {
 function RoomsHero() {
   return (
     <section className="relative aspect-[16/9] w-full overflow-hidden">
-      <img src="/manus-storage/gardens-rooms-hero_f4a206d2.jpg" alt="Nayara Gardens casita interior with tropical mural" className="w-full h-full object-cover" />
+      <img src="/manus-storage/gardens-rooms-hero_f4a206d2.jpg" alt="Nayara Gardens casita interior with tropical mural" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
     </section>
   );
 }

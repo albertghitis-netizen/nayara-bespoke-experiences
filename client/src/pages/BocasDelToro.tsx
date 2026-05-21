@@ -406,7 +406,7 @@ function MediaBlock({
       {isVideo ? (
         <NativeVideo src={src} className="w-full h-full object-cover" />
       ) : (
-        <img src={src} alt={alt || ""} className="w-full h-full object-cover" loading="lazy" />
+        <img src={src} alt={alt || ""} className="w-full h-full object-cover" decoding="async" loading="lazy" />
       )}
     </div>
   );
@@ -615,7 +615,7 @@ function CascadeSection({
           {section.badges && (
             <div className="mt-8 hidden md:block">
               <div className="hidden md:block">
-                <video src="/manus-storage/badge-bocas-final_15068a56.mp4" autoPlay muted playsInline className="h-32 lg:h-40 w-auto -ml-16 lg:-ml-20" />
+                <video src="/manus-storage/badge-bocas-final_15068a56.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-16 lg:-ml-20" />
               </div>
             </div>
           )}
@@ -638,7 +638,7 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Bocas del Toro" className="w-full h-full object-cover" />
+          <img src={mobileHeroImage} alt="Nayara Bocas del Toro" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
         ) : (
           <BlobVideo
           src={heroVideo}

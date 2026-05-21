@@ -93,6 +93,7 @@ function HeroSection() {
             autoPlay
             loop
             playsInline
+            preload="metadata"
             muted
             controls={false}
           />
@@ -205,12 +206,13 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
                         loop
                         muted
                         playsInline
+                        preload="metadata"
                         className="w-full h-full object-cover"
                       />
                     </div>
                   ) : ex.image ? (
                     <div className="aspect-[4/3] overflow-hidden">
-                      <img src={ex.image} alt={ex.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" loading="lazy" />
+                      <img src={ex.image} alt={ex.name} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" decoding="async" loading="lazy" />
                     </div>
                   ) : null}
                   {/* Content */}

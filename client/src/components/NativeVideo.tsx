@@ -50,11 +50,41 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     getVideoElement: () => videoRef.current,
   }));
 
+  const [isNearViewport, setIsNearViewport] = useState(false);
+
   /**
-   * MOUNT EFFECT: Start buffering
+   * INTERSECTION OBSERVER: Only start buffering when within 600px of viewport.
+   * This prevents all videos on the page from downloading simultaneously.
+   */
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setIsNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsNearViewport(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "600px", threshold: 0 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  /**
+   * MOUNT EFFECT: Start buffering only when near viewport
    * Does NOT play , just loads data into the buffer
    */
   useEffect(() => {
+    if (!isNearViewport) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -64,7 +94,7 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     video.autoplay = false;
     video.muted = true; // Always muted , audio from cascadeAudio
     video.preload = "auto";
-    video.load(); // Start buffering immediately , does NOT play
+    video.load(); // Start buffering , does NOT play
 
     const onLoaded = () => {
       setIsLoaded(true);
@@ -75,7 +105,7 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     return () => {
       video.removeEventListener("loadeddata", onLoaded);
     };
-  }, [src]);
+  }, [src, isNearViewport]);
 
   /* ── TIME UPDATE CALLBACK ── */
   useEffect(() => {

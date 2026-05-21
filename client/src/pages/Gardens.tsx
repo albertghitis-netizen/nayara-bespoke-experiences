@@ -294,7 +294,7 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Gardens" className="w-full h-full object-cover" />
+          <img src={mobileHeroImage} alt="Nayara Gardens" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
         ) : (
           <BlobVideo
           src={CDN.heroDesktop}
@@ -388,6 +388,7 @@ function StorySection() {
               autoPlay
               muted
               playsInline
+              preload="metadata"
               className="h-32 lg:h-40 w-auto -ml-10 lg:-ml-14"
             />
           </div>
@@ -397,7 +398,7 @@ function StorySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/gardens-s1-toucan-v2_75cc661b.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover" />
+              <img src="/manus-storage/gardens-s1-toucan-v2_75cc661b.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
             </div>
           </MediaReveal>
         </div>
@@ -627,7 +628,7 @@ function OneRainforestCompact() {
         {GARDENS_PANORAMA_PANELS.map((panel, i) => {
           const inner = (
             <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
-              <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="lazy" />
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
               {panel.badge && (
                 <div className="absolute top-4 right-4">
@@ -857,7 +858,7 @@ function RoomsSection() {
         <div className="mt-10 md:mt-16">
           <MediaReveal delay={0.15}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <img src={CDN.roomsAerial} alt="Aerial view of a Nayara Gardens casita with private plunge pool" className="w-full h-full object-cover" />
+              <img src={CDN.roomsAerial} alt="Aerial view of a Nayara Gardens casita with private plunge pool" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
             </div>
           </MediaReveal>
         </div>
@@ -1148,7 +1149,7 @@ function GalleryIntegratedSections() {
                     {section.verticalIsVideo ? (
                       <NativeVideo src={section.verticalSrc} className="w-full h-full object-cover" />
                     ) : (
-                      <img src={section.verticalSrc} alt="" className="w-full h-full object-cover" loading="lazy" />
+                      <img src={section.verticalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
                     )}
                   </div>
                 </MediaReveal>
@@ -1177,7 +1178,7 @@ function GalleryIntegratedSections() {
                 {section.horizontalIsVideo ? (
                   <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
                 ) : (
-                  <img src={section.horizontalSrc} alt="" className="w-full h-full object-cover" loading="lazy" />
+                  <img src={section.horizontalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
                 )}
               </div>
             </MediaReveal>
@@ -1518,7 +1519,7 @@ function GardensGastronomyCascade() {
         <div className="w-full md:w-1/2 md:order-2 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/gardens-gastronomy-vertical_e3c5f76c.jpg" alt="Lyla's Gelato" className="w-full h-full object-cover" />
+              <img src="/manus-storage/gardens-gastronomy-vertical_e3c5f76c.jpg" alt="Lyla's Gelato" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
             </div>
           </MediaReveal>
           {/* Explore pill */}

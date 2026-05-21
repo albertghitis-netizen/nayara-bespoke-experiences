@@ -51,6 +51,7 @@ export default function BocasOperationsBlog() {
           muted
           loop
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover object-center"
           poster={`${CDN}/bocas-aerial-island_34b68171.jpg`}
         >
