@@ -320,9 +320,10 @@ function BrandStorySection() {
           <div className="md:w-1/2">
             <div className="relative overflow-hidden w-full h-full">
               <video
-                src="/manus-storage/brand-s1-vertical-v3_bf4a2032.mp4"
+                src="/manus-storage/homepage-philosophy-vertical_3c021d72.mp4"
                 autoPlay
                 muted
+                loop
                 playsInline
                 className="w-full h-full object-cover"
               />
@@ -344,6 +345,7 @@ function BrandStorySection() {
             src="/manus-storage/brand-s2-horizontal-v3_49dc9248.mp4"
             autoPlay
             muted
+            loop
             playsInline
             className="w-full h-full object-cover"
           />
