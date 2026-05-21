@@ -340,17 +340,12 @@ function S1Section() {
           </p>
           <AwardBadgeStrip property="hangaroa" />
         </div>
-        <div className="w-full aspect-[9/16] max-h-[70vh]">
-          <video
-            ref={videoRef}
+        <div className="w-full" style={{ aspectRatio: "3/4" }}>
+          <img
+            src="/manus-storage/hangaroa-s1-stargazing_9a62d361.jpg"
+            alt="Couple stargazing with Moai silhouettes"
             className="w-full h-full object-cover"
-            playsInline
-            muted
-            loop
-            preload="auto"
-          >
-            <source src={CDN.heroVertical} type="video/mp4" />
-          </video>
+          />
         </div>
       </section>
     );
@@ -403,19 +398,14 @@ function S1Section() {
           </motion.div>
         </div>
 
-        {/* RIGHT — Vertical video */}
+        {/* RIGHT — Vertical still image */}
         <div className="w-1/2 relative">
-          <video
-            ref={videoRef}
+          <img
+            src="/manus-storage/hangaroa-s1-stargazing_9a62d361.jpg"
+            alt="Couple stargazing with Moai silhouettes"
             className="w-full h-full object-cover"
             style={{ minHeight: "100vh" }}
-            playsInline
-            muted
-            loop
-            preload="auto"
-          >
-            <source src={CDN.heroVertical} type="video/mp4" />
-          </video>
+          />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/10 pointer-events-none" />
         </div>
 
@@ -571,14 +561,7 @@ function AccommodationsSection() {
         </div>
       </div>
 
-      {/* Horizontal landscape below */}
-      <div className="hidden md:block">
-        <MediaReveal delay={0.1}>
-          <div className="overflow-hidden" style={{ aspectRatio: "21/9" }}>
-            <img src={CDN.s2} alt="Easter Island landscape" className="w-full h-full object-cover" loading="lazy" />
-          </div>
-        </MediaReveal>
-      </div>
+
     </section>
   );
 }
