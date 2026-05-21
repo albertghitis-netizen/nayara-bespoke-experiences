@@ -325,7 +325,7 @@ const blogArticles: JournalEntry[] = [
   {
     id: "s-certification",
     title: "Chile S Certification: How Nayara Alto Atacama and Hangaroa Lead Sustainable Tourism",
-    url: "/blog/s-certification",
+    url: "/journal/s-certification",
     property: "alto-atacama",
     type: "article",
     image: "/manus-storage/s-cert-card-square_faf590a2.jpg",

@@ -72,13 +72,16 @@ const CURATED_IDS: string[] = [
   "arenal-timeless-wonder",
   // Row 5
   "stargazing-atacama",
-  "treehouse-dreams",
+  "s-certification",
+  "hot-springs-plunge-pools",
   // Row 6
   "nature-based-wellness-colors",
   "mars-atacama",
+  "birdwatching-costa-rica",
   // Row 7
-  "toucans-arenal",
+  "latin-america-luxury-brand",
   "pura-vida",
+  "reforestation-wildlife",
   // Row 8
   "edge-habitability",
   "wildlife-arenal-bocas",
@@ -89,6 +92,16 @@ const CURATED_IDS: string[] = [
   "nayara-by-night",
   // Row 10
   "green-globe",
+  "travel-trends-2026",
+  "rooted-in-community",
+  // Row 11
+  "wildlife-atacama-easter-island",
+  "maya-rapa-nui-climate",
+  "womens-empowerment",
+  // Row 12
+  "how-we-built-a-hotel-on-an-island",
+  "hito-family-rapanui",
+  "tapati-festival",
 ];
 
 function buildGallery(): JournalEntry[] {
