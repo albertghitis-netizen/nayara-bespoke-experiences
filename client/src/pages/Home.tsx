@@ -265,8 +265,8 @@ function BrandStorySection() {
   const isMobile = useIsMobile();
   return (
     <section id="philosophy" style={{ backgroundColor: "#f4f1eb" }}>
-      {/* S1: Text left + Portrait image right , full bleed */}
-      <div className="flex flex-col md:flex-row">
+      {/* S1: Text left + Portrait video right , full bleed, no gaps */}
+      <div className="flex flex-col md:flex-row" style={{ margin: 0, padding: 0 }}>
         <div className={`${isMobile ? 'w-full' : 'md:w-1/2'} px-6 md:px-10 lg:px-16 py-16 md:py-28 flex flex-col justify-center`}>
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel>Our Philosophy</SectionLabel>
@@ -315,17 +315,17 @@ function BrandStorySection() {
             </div>
           )}
         </div>
-        {/* Vertical video , desktop only */}
+        {/* Vertical video (3:4) , desktop only — fills height of left column */}
         {!isMobile && (
-          <div className="md:w-1/2">
-            <div className="relative overflow-hidden w-full h-full">
+          <div className="md:w-1/2" style={{ margin: 0, padding: 0 }}>
+            <div className="relative overflow-hidden w-full h-full" style={{ minHeight: "100%" }}>
               <video
                 src="/manus-storage/homepage-philosophy-vertical_3c021d72.mp4"
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute bottom-8 left-0 right-0 flex justify-center">
                 <span className="px-6 py-2.5 rounded-full border border-white/60 backdrop-blur-sm bg-white/10 text-white text-[11px] tracking-[0.2em] uppercase inline-flex items-center gap-2" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
@@ -338,8 +338,8 @@ function BrandStorySection() {
         )}
       </div>
 
-      {/* S2: Horizontal video , full bleed, connected below S1 (desktop only) */}
-      <div className="hidden md:block w-full">
+      {/* S2: Horizontal video , full bleed, flush against S1 above (desktop only) */}
+      <div className="hidden md:block w-full" style={{ marginTop: 0 }}>
         <div className="relative overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
           <video
             src="/manus-storage/brand-s2-horizontal-v3_49dc9248.mp4"
