@@ -282,8 +282,8 @@ function FullBleedBreak() {
     <section ref={ref} className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
-          src={IMG.drone}
-          alt="Nayara Tented Camp from above , Arenal Volcano and rainforest canopy"
+          src="/manus-storage/nayara-tent-dropbox_537f710a.jpg"
+          alt="Nayara Tent infinity pool overlooking Arenal rainforest valley"
           className="w-full h-[120%] object-cover"
           loading="lazy"
         />
