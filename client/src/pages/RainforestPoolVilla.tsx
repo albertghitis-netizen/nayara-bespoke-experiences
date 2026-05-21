@@ -98,10 +98,10 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <BlobVideo
-          src={IMG.heroVideo}
+        <img
+          src="/manus-storage/rainforest-pool-villa-hero-new_0a79d834.jpg"
+          alt="Rainforest Pool Villa with private pool surrounded by jungle"
           className="w-full h-full object-cover"
-          loop={false}
         />
       </motion.div>
       <motion.div

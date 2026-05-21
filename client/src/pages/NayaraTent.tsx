@@ -109,9 +109,9 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <BlobVideo
-          src={IMG.heroVideo}
-          poster={IMG.heroFallback}
+        <img
+          src="/manus-storage/nayara-tent-hero-new_ef04defd.jpg"
+          alt="Nayara Tented Camp villa with pool at sunset"
           className="w-full h-full object-cover"
         />
       </motion.div>

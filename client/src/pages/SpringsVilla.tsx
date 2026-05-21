@@ -113,8 +113,8 @@ function HeroSection() {
     <section ref={heroRef} className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
-          src="/manus-storage/NayaraSprings-R5_21255-byBriceFerreStudio_0e51902a.jpg"
-          alt="Nayara Springs Villa"
+          src="/manus-storage/springs-villa-hero-new_9f77a818.jpg"
+          alt="Nayara Springs Villa aerial view with private pool in jungle"
           className="w-full h-full object-cover"
         />
       </motion.div>
@@ -262,8 +262,8 @@ function FullBleedBreak() {
     <section ref={ref} className="relative h-[50vh] md:h-[65vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
-          src={IMG.aerialDomes}
-          alt="Aerial view of Springs villas with Arenal Volcano in the background"
+          src="/manus-storage/NayaraSprings-R5_21255-byBriceFerreStudio_0e51902a.jpg"
+          alt="Nayara Springs Villa interior with rainforest views"
           className="w-full h-full object-cover scale-110"
         />
       </motion.div>

@@ -110,10 +110,10 @@ function HeroSection() {
   return (
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
-        <BlobVideo
-          src={IMG.heroVideo}
+        <img
+          src="/manus-storage/family-tent-hero-new_f4b21ace.jpg"
+          alt="Nayara Family Tent aerial view with connecting tents and pool"
           className="w-full h-full object-cover"
-          loop={false}
         />
       </motion.div>
       <motion.div
