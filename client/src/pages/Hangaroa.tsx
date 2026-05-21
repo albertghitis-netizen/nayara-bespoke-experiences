@@ -697,10 +697,6 @@ function SustainabilitySection() {
    Full-width landscape + content below
    ═══════════════════════════════════════════════════════════════ */
 function WellnessSection() {
-  const [activeCategory, setActiveCategory] = useState("all");
-  const categories = hangaroa.spaCategories || [];
-  const filtered = activeCategory === "all" ? hangaroa.treatments : hangaroa.treatments.filter((t: Treatment) => t.category === activeCategory);
-
   return (
     <section style={{ backgroundColor: PALETTE.gradientStart }}>
       {/* Horizontal hero */}
@@ -725,60 +721,10 @@ function WellnessSection() {
             </p>
           </AnimateOnScroll>
 
-          {categories.length > 0 && (
-            <AnimateOnScroll variants={fadeUp}>
-              <div className="flex flex-wrap gap-2 mb-10 md:mb-14">
-                {categories.map((cat: { id: string; label: string }) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setActiveCategory(cat.id)}
-                    className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.1em] transition-all duration-500"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontWeight: 500,
-                      backgroundColor: activeCategory === cat.id ? PALETTE.primary : "transparent",
-                      color: activeCategory === cat.id ? "#F7F5F0" : PALETTE.textSecondary,
-                      border: `1px solid ${activeCategory === cat.id ? PALETTE.primary : PALETTE.divider}`,
-                    }}
-                  >
-                    {cat.label}
-                  </button>
-                ))}
-              </div>
-            </AnimateOnScroll>
-          )}
-
-          <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((treatment: Treatment) => (
-              <motion.div
-                key={treatment.id}
-                variants={fadeUp}
-                className="p-6 md:p-8 transition-all duration-500 hover:translate-y-[-2px]"
-                style={{
-                  backgroundColor: "rgba(255,255,255,0.4)",
-                  backdropFilter: "blur(8px)",
-                  borderRadius: "12px",
-                  borderBottom: `2px solid ${PALETTE.divider}`,
-                }}
-                whileHover={{ borderBottomColor: PALETTE.primary }}
-              >
-                <h3 className="text-[17px] mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
-                  {treatment.name}
-                </h3>
-                <p className="text-[11px] tracking-[0.1em] mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.accent }}>
-                  {treatment.duration}{treatment.price ? ` · ${treatment.price}` : ""}
-                </p>
-                <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                  {treatment.description}
-                </p>
-              </motion.div>
-            ))}
-          </StaggerOnScroll>
-
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="/hangaroa/wellness"
-              className="inline-block mt-10 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+              className="inline-block mt-2 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >
               Explore Wellness →
