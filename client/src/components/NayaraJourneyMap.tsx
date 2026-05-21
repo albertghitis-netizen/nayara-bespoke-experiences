@@ -512,6 +512,71 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                 />
               )}
 
+              {/* Iconic animal/landmark that pops up when plane arrives */}
+              <AnimatePresence>
+                {isCurrent && (
+                  <motion.g
+                    initial={{ opacity: 0, y: 8, scale: 0.5 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
+                    style={{ pointerEvents: "none" }}
+                  >
+                    {loc.id === "easter-island" && (
+                      /* Moai statue silhouette */
+                      <g transform={`translate(${loc.x + 16}, ${loc.y - 28}) scale(0.7)`}>
+                        <path
+                          d="M0,0 L2,-4 L3,-12 L4,-18 L3,-22 L5,-24 L5,-28 L3,-30 L-3,-30 L-5,-28 L-5,-24 L-3,-22 L-4,-18 L-3,-12 L-2,-4 Z M-6,-28 L-8,-26 L-8,-22 L-6,-22 Z M6,-28 L8,-26 L8,-22 L6,-22 Z M-3,-30 L-2,-34 L-1,-36 L1,-36 L2,-34 L3,-30 Z"
+                          fill={ACCENT_GOLD}
+                          fillOpacity="0.85"
+                          stroke="rgba(255,255,255,0.4)"
+                          strokeWidth="0.5"
+                        />
+                      </g>
+                    )}
+                    {loc.id === "costa-rica" && (
+                      /* Sloth silhouette hanging */
+                      <g transform={`translate(${loc.x + 16}, ${loc.y - 22}) scale(0.65)`}>
+                        <path
+                          d="M0,-2 C-3,-2 -5,0 -5,3 C-5,6 -3,8 0,8 C3,8 5,6 5,3 C5,0 3,-2 0,-2 Z M-5,3 L-9,1 L-12,-2 L-14,-2 M5,3 L9,1 L12,-2 L14,-2 M-14,-2 L-14,-5 L-12,-5 M14,-2 L14,-5 L12,-5 M0,-2 C-1,-4 -1,-6 0,-7 C1,-6 1,-4 0,-2 M-2,-7 C-2,-9 -1,-10 0,-10 C1,-10 2,-9 2,-7 C2,-6 1,-5 0,-5 C-1,-5 -2,-6 -2,-7"
+                          fill="none"
+                          stroke={ACCENT_GOLD}
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                        />
+                        <circle cx="-1" cy="-8" r="0.6" fill={ACCENT_GOLD} />
+                        <circle cx="1" cy="-8" r="0.6" fill={ACCENT_GOLD} />
+                      </g>
+                    )}
+                    {loc.id === "bocas" && (
+                      /* Dolphin jumping */
+                      <g transform={`translate(${loc.x + 16}, ${loc.y - 22}) scale(0.7)`}>
+                        <path
+                          d="M-12,2 C-10,-2 -6,-6 -2,-6 C2,-6 4,-4 6,-2 C8,0 10,0 12,-1 L10,1 C8,2 6,3 4,2 C2,1 0,2 -2,4 C-4,6 -8,6 -10,4 Z M-2,-6 C-1,-8 0,-9 1,-8 L0,-6 M10,-2 L13,-4 L12,-1"
+                          fill={ACCENT_GOLD}
+                          fillOpacity="0.85"
+                          stroke="rgba(255,255,255,0.4)"
+                          strokeWidth="0.4"
+                        />
+                      </g>
+                    )}
+                    {loc.id === "atacama" && (
+                      /* Flamingo standing */
+                      <g transform={`translate(${loc.x + 16}, ${loc.y - 28}) scale(0.65)`}>
+                        <path
+                          d="M0,0 C0,-4 1,-8 2,-12 C3,-16 2,-20 0,-22 C-1,-24 -1,-26 0,-27 C1,-28 2,-27 2,-26 C3,-25 3,-23 2,-22 M0,0 L-1,8 L-2,14 L-1,14 L0,8 M0,0 L1,8 L2,14 L3,14 L2,8 M2,-26 C3,-26 3,-25 3,-24 C3,-23 2,-23 2,-24"
+                          fill="none"
+                          stroke={ACCENT_GOLD}
+                          strokeWidth="1.1"
+                          strokeLinecap="round"
+                        />
+                        <ellipse cx="0" cy="-1" rx="3" ry="2.5" fill={ACCENT_GOLD} fillOpacity="0.7" />
+                      </g>
+                    )}
+                  </motion.g>
+                )}
+              </AnimatePresence>
+
               {/* Location label — only shows for current milestone */}
               <AnimatePresence>
                 {isCurrent && !isPopupOpen && (
