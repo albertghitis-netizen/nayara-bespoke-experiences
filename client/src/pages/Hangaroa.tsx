@@ -203,12 +203,17 @@ function HeroSection() {
   const isMobile = useIsMobile();
   const mobileHeroImage = "/manus-storage/hangaroa-mobile-hero_dc503ce8.png";
   const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     const video = heroVideoRef.current;
     if (!video) return;
     video.play().catch(() => {});
   }, []);
+
+  useEffect(() => {
+    if (heroVideoRef.current) heroVideoRef.current.muted = isMuted;
+  }, [isMuted]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -231,6 +236,35 @@ function HeroSection() {
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
         </>
+      )}
+      {/* Sound pill — circular, top right */}
+      {!isMobile && (
+        <button
+          onClick={() => setIsMuted(!isMuted)}
+          aria-label={isMuted ? "Unmute" : "Mute"}
+          className="absolute top-6 right-6 z-50 flex items-center justify-center rounded-full backdrop-blur-md shadow-sm border cursor-pointer hover:opacity-90 transition-all duration-300 h-9 w-9"
+          style={{
+            backgroundColor: "rgba(58,42,26,0.55)",
+            borderColor: "rgba(247,245,240,0.2)",
+          }}
+        >
+          {isMuted && (
+            <>
+              <span className="absolute -inset-1 rounded-full border-2 animate-ping" style={{ borderColor: "rgba(247,245,240,0.37)" }} />
+              <span className="absolute -inset-2 rounded-full border animate-ping" style={{ borderColor: "rgba(247,245,240,0.18)", animationDelay: "0.3s" }} />
+            </>
+          )}
+          <svg className="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke="#f7f5f0" strokeWidth={1.5}>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d={isMuted
+                ? "M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 14.25H3.75a.75.75 0 01-.75-.75v-3a.75.75 0 01.75-.75h3z"
+                : "M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-3.72a.75.75 0 011.28.53v14.88a.75.75 0 01-1.28.53L6.75 15.75H3.75a.75.75 0 01-.75-.75v-6a.75.75 0 01.75-.75h3z"
+              }
+            />
+          </svg>
+        </button>
       )}
       {/* H1 at bottom */}
       <div className="absolute bottom-10 md:bottom-16 left-6 md:left-10 right-6 md:right-10 z-10 flex justify-center">
