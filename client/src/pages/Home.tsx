@@ -1046,7 +1046,7 @@ function AwardsHighlightSection() {
   };
 
   return (
-    <section className="py-20 md:py-28" style={{ backgroundColor: PALETTE.bg }}>
+    <section className="py-14 md:py-20" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="max-w-7xl mx-auto">
         <div className="px-6 md:px-10 flex items-end justify-between mb-10 md:mb-14">
           <div>
@@ -1302,8 +1302,8 @@ function NayaraJournalSection() {
 
   return (
     <section
-      className="relative py-20 md:py-28 px-6 md:px-10 overflow-hidden"
-      style={{ backgroundColor: "#F7F5F0" }}
+      className="relative py-14 md:py-20 px-6 md:px-10 overflow-hidden"
+      style={{ backgroundColor: "#f7f5f0" }}
     >
       {/* Grain overlay */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.035]" xmlns="http://www.w3.org/2000/svg">
