@@ -524,8 +524,8 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                     style={{ pointerEvents: "none" }}
                   >
                     <text
-                      x={loc.id === "easter-island" ? loc.x - 15 : loc.id === "costa-rica" ? loc.x - 20 : loc.id === "bocas" ? loc.x + 55 : loc.x + 60}
-                      y={loc.id === "easter-island" ? loc.y - 10 : loc.id === "costa-rica" ? loc.y + 10 : loc.id === "bocas" ? loc.y + 10 : loc.y - 10}
+                      x={loc.id === "easter-island" ? loc.x - 47 : loc.id === "costa-rica" ? loc.x - 57 : loc.id === "bocas" ? loc.x - 47 : loc.x - 57}
+                      y={loc.id === "easter-island" ? loc.y + 37 : loc.id === "costa-rica" ? loc.y + 47 : loc.id === "bocas" ? loc.y + 42 : loc.y + 47}
                       fontSize="64"
                       textAnchor="middle"
                       dominantBaseline="middle"
