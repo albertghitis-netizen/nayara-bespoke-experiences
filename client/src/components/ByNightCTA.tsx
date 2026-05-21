@@ -68,22 +68,26 @@ export default function ByNightCTA({
 }: ByNightCTAProps) {
   const isTextLeft = textSide === "left";
 
-  /* ── Overlay mode: full-width horizontal video with text overlay ── */
+  /* ── Overlay mode: horizontal (desktop) / vertical (mobile) with text overlay ── */
   if (overlayOnVideo) {
-    const overlaySrc = horizontalSrc || verticalSrc;
-    const overlayIsVideo = horizontalSrc ? horizontalIsVideo : verticalIsVideo;
+    const desktopSrc = horizontalSrc || verticalSrc;
+    const desktopIsVideo = horizontalSrc ? horizontalIsVideo : verticalIsVideo;
+    /* Mobile: use verticalSrc if available, otherwise placeholder */
+    const mobileSrc = verticalSrc;
+    const mobileIsVid = verticalIsVideo;
     return (
       <section id="by-night-cta" style={{ backgroundColor: bgColor }}>
-        <div className="relative w-full">
+        {/* Desktop: horizontal */}
+        <div className="relative w-full hidden md:block">
           <div style={{ aspectRatio: horizontalRatio || "16/9" }}>
-            {overlayIsVideo ? (
-              <NativeVideo src={overlaySrc} className="w-full h-full object-cover" loop />
+            {desktopIsVideo ? (
+              <NativeVideo src={desktopSrc} className="w-full h-full object-cover" loop />
             ) : (
-              <img src={overlaySrc} alt="Nayara by Night" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+              <img src={desktopSrc} alt="Nayara by Night" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             )}
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
+          <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
             <AnimateOnScroll variants={fadeUp}>
               <span
                 className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70"
@@ -93,11 +97,11 @@ export default function ByNightCTA({
               </span>
             </AnimateOnScroll>
             <AnimateOnScroll variants={fadeUp} delay={0.1}>
-              <h2 className="mb-4 md:mb-6">
+              <h2 className="mb-6">
                 {headline.split("\n").map((line, i) => (
                   <span
                     key={i}
-                    className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white"
+                    className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white"
                     style={heading}
                   >
                     {line}
@@ -126,6 +130,60 @@ export default function ByNightCTA({
                   </svg>
                 </a>
               </AnimateOnScroll>
+            )}
+          </div>
+        </div>
+        {/* Mobile: vertical 3/4 with text overlay */}
+        <div className="relative w-full md:hidden">
+          {mobileSrc ? (
+            <div style={{ aspectRatio: verticalRatio || "3/4" }}>
+              {mobileIsVid ? (
+                <NativeVideo src={mobileSrc} className="w-full h-full object-cover" loop />
+              ) : (
+                <img src={mobileSrc} alt="Nayara by Night" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+              )}
+            </div>
+          ) : (
+            <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
+              <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
+            <span
+              className="text-[11px] tracking-[0.2em] uppercase mb-3 block text-white/70"
+              style={{ ...body, fontWeight: 500 }}
+            >
+              Nayara by Night
+            </span>
+            <h2 className="mb-3">
+              {headline.split("\n").map((line, i) => (
+                <span
+                  key={i}
+                  className="block text-2xl leading-[1.05] tracking-wide text-white"
+                  style={heading}
+                >
+                  {line}
+                </span>
+              ))}
+            </h2>
+            <p
+              className="text-[14px] leading-[1.75] text-white/85"
+              style={body}
+            >
+              {bodyText.split("\n\n")[0]}
+            </p>
+            {!hideButton && (
+              <a
+                href={buttonHref}
+                className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                {buttonLabel}
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
             )}
           </div>
         </div>

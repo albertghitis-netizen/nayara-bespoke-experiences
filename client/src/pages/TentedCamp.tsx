@@ -253,7 +253,7 @@ function CascadeSection({
     }
   }, [section.horizontalOverlayButtons]);
   const horizontalBlock = section.horizontalSrc ? (
-    <div className="relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
+    <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
       <MediaReveal delay={0.05}>
         <div className="relative">
           {section.horizontalIsVideo && section.horizontalOverlayButtons ? (
@@ -356,25 +356,26 @@ function CascadeSection({
     </div>
   ) : null;
 
-  /* ── Overlay mode: text overlaid on full-width horizontal ── */
+  /* ── Overlay mode: text overlaid on horizontal (desktop) / vertical (mobile) ── */
   if (section.overlayOnVideo && section.horizontalSrc) {
+    const mobileVertSrc = section.mobileVerticalSrc || section.verticalSrc || "";
+    const mobileIsVideo = section.mobileVerticalIsVideo ?? section.verticalIsVideo;
     return (
       <section id={section.id} style={{ backgroundColor: section.bgColor }}>
-        <div className="relative w-full">
+        {/* Desktop: horizontal 16/9 */}
+        <div className="relative w-full hidden md:block">
           <div style={{ aspectRatio: section.horizontalRatio || "16/9" }}>
             <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" loop={section.horizontalLoop} />
           </div>
-          {/* Dark gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-          {/* Text overlay */}
-          <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
+          <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
             <AnimateOnScroll variants={fadeUp}>
               <span className="[&_p]:!text-white/70"><SectionLabel>{section.label}</SectionLabel></span>
             </AnimateOnScroll>
             <AnimateOnScroll variants={fadeUp} delay={0.1}>
-              <h2 className="mb-4 md:mb-6">
+              <h2 className="mb-6">
                 {section.headline.split("\n").map((line, i) => (
-                  <span key={i} className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ ...display }}>{line}</span>
+                  <span key={i} className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ ...display }}>{line}</span>
                 ))}
               </h2>
             </AnimateOnScroll>
@@ -394,6 +395,44 @@ function CascadeSection({
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
                 </a>
               </AnimateOnScroll>
+            )}
+          </div>
+        </div>
+        {/* Mobile: vertical 3/4 with text overlay */}
+        <div className="relative w-full md:hidden">
+          {mobileVertSrc ? (
+            <div style={{ aspectRatio: section.verticalRatio || "3/4" }}>
+              {mobileIsVideo ? (
+                <NativeVideo src={mobileVertSrc} className="w-full h-full object-cover" loop={section.verticalLoop} />
+              ) : (
+                <img src={mobileVertSrc} alt={section.label} className="w-full h-full object-cover" decoding="async" loading="lazy" />
+              )}
+            </div>
+          ) : (
+            <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
+              <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
+            <span className="[&_p]:!text-white/70"><SectionLabel>{section.label}</SectionLabel></span>
+            <h2 className="mb-3">
+              {section.headline.split("\n").map((line, i) => (
+                <span key={i} className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ ...display }}>{line}</span>
+              ))}
+            </h2>
+            <p className="text-[14px] leading-[1.75] text-white/85" style={{ ...body }}>
+              {section.body.split("\n\n")[0]}
+            </p>
+            {(section.link || section.textLink) && (
+              <a
+                href={section.textLink || section.link || "#"}
+                className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                {section.textLinkLabel || section.linkLabel || "Explore"}
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
             )}
           </div>
         </div>
@@ -1062,6 +1101,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Discover the Magic\nof the Rainforest",
     body: "Hike through pristine rainforest to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the indigenous Maleku people.",
     verticalSrc: "",
+    mobileVerticalSrc: "/manus-storage/32CB37E7-9715-4225-B3AD-21966E999728_b8cae891.mov",
+    mobileVerticalIsVideo: true,
     horizontalSrc: "/manus-storage/tented-experiences-h_246513df.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
@@ -1538,8 +1579,10 @@ export default function TentedCamp() {
       {/* ── Story/Intro section with badges ── */}
       <CascadeSection section={SECTIONS_BEFORE_REVIEW[0]} index={0} />
 
-      {/* ── One Rainforest, Three Resorts , Three Keys, One Door ── */}
-      <OneRainforestCompactTC />
+      {/* ── One Rainforest, Three Resorts , Three Keys, One Door (hidden on mobile) ── */}
+      <div className="hidden md:block">
+        <OneRainforestCompactTC />
+      </div>
 
       {/* ── Rooms: Horizontal Slider ── */}
       <RoomSlider

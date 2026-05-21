@@ -404,8 +404,10 @@ function StorySection() {
         </div>
       </div>
 
-      {/* S2 , One Rainforest, Three Resorts (compact) */}
-      <OneRainforestCompact />
+      {/* S2 , One Rainforest, Three Resorts (compact) — hidden on mobile */}
+      <div className="hidden md:block">
+        <OneRainforestCompact />
+      </div>
 
       {/* ── Rooms: Horizontal Slider ── */}
       <div id="rooms">
@@ -1022,19 +1024,20 @@ function WellnessSection() {
 
   return (
     <section id="wellness" style={{ backgroundColor: "#000" }}>
-      {/* Wellness: horizontal overlay (rule: wellness = horizontal only) */}
-      <div className="relative w-full">
+      {/* Wellness: desktop horizontal, mobile vertical placeholder */}
+      {/* Desktop */}
+      <div className="relative w-full hidden md:block">
         <div style={{ aspectRatio: "16/9" }}>
           <NativeVideo src="/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4" className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
+        <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
             <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
-            <h2 className="mb-4 md:mb-6">
-              <span className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+            <h2 className="mb-6">
+              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
                 {gardens.theme.spaHeadline.replace("\n", " ")}
               </span>
             </h2>
@@ -1045,15 +1048,33 @@ function WellnessSection() {
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <a
-              href="/costa-rica-wellness"
-              className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
+            <a href="/costa-rica-wellness" className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
               Nurtured by Nature
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
+        </div>
+      </div>
+      {/* Mobile: placeholder vertical */}
+      <div className="relative w-full md:hidden">
+        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
+          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
+          <span className="text-[11px] tracking-[0.2em] uppercase mb-3 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
+          <h2 className="mb-3">
+            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+              {gardens.theme.spaHeadline.replace("\n", " ")}
+            </span>
+          </h2>
+          <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
+            Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy.
+          </p>
+          <a href="/costa-rica-wellness" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)" }}>
+            Nurtured by Nature
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
         </div>
       </div>
 
@@ -1173,15 +1194,17 @@ function GalleryIntegratedSections() {
                 </AnimateOnScroll>
               </div>
             </div>
-            <MediaReveal delay={0.15}>
-              <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                {section.horizontalIsVideo ? (
-                  <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
-                ) : (
-                  <img src={section.horizontalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-                )}
-              </div>
-            </MediaReveal>
+            <div className="hidden md:block">
+              <MediaReveal delay={0.15}>
+                <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                  {section.horizontalIsVideo ? (
+                    <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
+                  ) : (
+                    <img src={section.horizontalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+                  )}
+                </div>
+              </MediaReveal>
+            </div>
           </section>
         );
       })}
@@ -1409,51 +1432,52 @@ function ReserveCTA() {
 function GardensExperiencesSection() {
   return (
     <section id="experiences" style={{ backgroundColor: "#000" }}>
-      {/* ── Full-width horizontal video with text overlay ── */}
-      <div className="relative w-full">
+      {/* Desktop: horizontal 16/9 */}
+      <div className="relative w-full hidden md:block">
         <div style={{ aspectRatio: "16/9" }}>
           <NativeVideo src="/manus-storage/gardens-experiences-horizontal_6240ba44.mp4" className="w-full h-full object-cover" />
         </div>
-        {/* Dark gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-        {/* Text overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-16 lg:pb-20 px-8 md:px-16 lg:px-24">
+        <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <span
-              className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
-            >
-              Experiences
-            </span>
+            <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</span>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
-            <h2 className="mb-4 md:mb-6">
-              <span
-                className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
-              >
-                Rainforest Adventures
-              </span>
+            <h2 className="mb-6">
+              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Rainforest Adventures</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <p
-              className="text-[15px] leading-[1.85] max-w-[480px] text-white/85"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
+            <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
               Arenal Volcano , a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor , shapes everything around it. Its geothermal energy feeds the mineral springs, its eruption history created the lava fields you walk through today, and its mass generates the microclimate that keeps this pocket of Costa Rica impossibly green.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <a
-              href="/gardens/experiences"
-              className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
+            <a href="/gardens/experiences" className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
               Explore Experiences
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
+        </div>
+      </div>
+      {/* Mobile: placeholder vertical 3/4 */}
+      <div className="relative w-full md:hidden">
+        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
+          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
+          <span className="text-[11px] tracking-[0.2em] uppercase mb-3 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</span>
+          <h2 className="mb-3">
+            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Rainforest Adventures</span>
+          </h2>
+          <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
+            Arenal Volcano , a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor , shapes everything around it.
+          </p>
+          <a href="/gardens/experiences" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)" }}>
+            Explore Experiences
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
         </div>
       </div>
     </section>

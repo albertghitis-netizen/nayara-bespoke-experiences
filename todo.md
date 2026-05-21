@@ -3831,3 +3831,11 @@
 - [x] "View All Awards & Press" CTA button
 - [x] Fix generic/missing links on homepage & awards press cards (T+L #13, CNT #1 Central America, AFAR Best New Hotels)
 - [x] Fix broken route for Bocas Condé Nast award video card (/blog/conde-nast-bocas-del-toro → /blog/bocas-conde-nast)
+
+## Mobile Cleanup — Tented Camp, Gardens, Springs
+- [x] Remove "One Rainforest, Three Doors" section on mobile (all 3 pages)
+- [x] Tented Camp: Switch overlayOnVideo sections to vertical on mobile (Experiences=waterfall drone, Wellness=existing, By Night=existing)
+- [x] Gardens: Switch overlayOnVideo sections to vertical on mobile (Experiences=placeholder, Wellness=placeholder, By Night=existing frog image)
+- [x] Springs: Switch overlayOnVideo sections to vertical on mobile (Experiences=placeholder, Wellness=placeholder, By Night=frog reel video)
+- [x] Remove all remaining horizontal videos from mobile view (hidden md:block on non-overlay horizontals)
+- [x] Remove room slider arrows on mobile (already hidden md:flex — confirmed)
