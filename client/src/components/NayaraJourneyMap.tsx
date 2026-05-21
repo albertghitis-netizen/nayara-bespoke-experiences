@@ -5,7 +5,7 @@
  * flight paths arc between destinations, and the current pin pulses.
  *
  * Desktop widescreen only. Editorial cartography aesthetic.
- * ViewBox: 0 0 800 680 , covers ~125°W–20°W, 30°N–60°S
+ * ViewBox: 0 -80 800 760 , covers ~125°W–20°W, 40°N–60°S (extended north for Central America)
  *
  * v3 improvements:
  * - Warmer parchment/sand tones for land
@@ -213,7 +213,7 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
         }
       `}</style>
       <svg
-        viewBox="0 0 800 680"
+        viewBox="0 -80 800 760"
         className="w-full h-full"
         style={{ overflow: "visible" }}
       >
@@ -268,17 +268,17 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
           </radialGradient>
         </defs>
 
-        {/* ─── Ocean background ─── */}
-        <rect x="0" y="0" width="800" height="680" fill="url(#oceanGrad)" />
+        {/* ─── Ocean background ─── extended higher to cover all Central America */}
+        <rect x="0" y="-80" width="800" height="760" fill="url(#oceanGrad)" />
 
         {/* ─── Subtle latitude/longitude grid ─── */}
         <g opacity="0.04">
-          {[100, 200, 300, 400, 500, 600].map((y) => (
+          {[-50, 50, 150, 250, 350, 450, 550, 650].map((y) => (
             <line key={`lat-${y}`} x1="0" y1={y} x2="800" y2={y}
               stroke={GRID_COLOR} strokeWidth="0.5" strokeDasharray="2 8" />
           ))}
           {[100, 200, 300, 400, 500, 600, 700].map((x) => (
-            <line key={`lng-${x}`} x1={x} y1="0" x2={x} y2="680"
+            <line key={`lng-${x}`} x1={x} y1="-80" x2={x} y2="680"
               stroke={GRID_COLOR} strokeWidth="0.5" strokeDasharray="2 8" />
           ))}
         </g>
@@ -395,23 +395,27 @@ export default function NayaraJourneyMap({ activeMilestoneIndex }: NayaraJourney
                   animation: `travelDot ${pathDuration}s ${EASE_CSS} ${staggerDelay}s forwards`,
                 }}
               />
-              {/* Small sparkle icon for Easter Island path */}
-              {isEasterIslandPath && (
-                <motion.text
-                  fontSize="10"
+              {/* Airplane icon traveling along the path */}
+              <motion.g
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.9 }}
+                transition={{ duration: 0.5, delay: staggerDelay }}
+                style={{
+                  offsetPath: `path('${fp.path}')`,
+                  offsetDistance: "100%",
+                  offsetRotate: "auto",
+                  animation: `travelDot ${pathDuration}s ${EASE_CSS} ${staggerDelay}s forwards`,
+                }}
+              >
+                {/* Airplane SVG icon */}
+                <path
+                  d="M-6,0 L-2,-1.5 L0,-6 L1,0 L6,-1 L1,1.5 L1.5,5 L0,3 L-1.5,5 L-1,1.5 L-6,1 Z"
                   fill={ACCENT_GOLD}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 0.6, 0.6, 0] }}
-                  transition={{ duration: 3.5, ease: EASE, delay: staggerDelay }}
-                  style={{
-                    offsetPath: `path('${fp.path}')`,
-                    offsetDistance: "100%",
-                    animation: `travelDot 3.5s ${EASE_CSS} ${staggerDelay}s forwards`,
-                  }}
-                >
-                  ✦
-                </motion.text>
-              )}
+                  stroke="#fff"
+                  strokeWidth="0.3"
+                  transform="scale(1.4)"
+                />
+              </motion.g>
             </g>
           );
         })}
