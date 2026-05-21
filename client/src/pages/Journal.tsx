@@ -125,8 +125,10 @@ const INITIAL_COUNT = 9;
 export default function Journal() {
   const [activeHotel, setActiveHotel] = useState("alto-atacama");
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
 
-  const visibleEntries = ALL_ENTRIES;
+  const visibleEntries = ALL_ENTRIES.slice(0, visibleCount);
+  const hasMore = visibleCount < ALL_ENTRIES.length;
 
   return (
     <div className="min-h-screen bg-[#F7F5F0]">
@@ -193,6 +195,17 @@ export default function Journal() {
             ))}
           </div>
 
+          {hasMore && (
+            <div className="flex justify-center mt-10 md:mt-14">
+              <button
+                onClick={() => setVisibleCount((c) => Math.min(c + 9, ALL_ENTRIES.length))}
+                className="px-10 py-3.5 border border-[#3B2B26]/20 text-[#3B2B26] text-[11px] tracking-[0.2em] uppercase hover:bg-[#3B2B26] hover:text-white transition-all duration-300"
+                style={{ ...body, fontWeight: 500 }}
+              >
+                Load More
+              </button>
+            </div>
+          )}
 
         </div>
       </section>
