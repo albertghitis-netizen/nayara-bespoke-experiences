@@ -253,7 +253,7 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          We Don’t Build Hotels. We Reveal Places.
+          <span className="block md:inline">We Don't Build Hotels,</span>{" "}<span className="block md:inline">We Reveal Places</span>
         </motion.h1>
       </div>
     </section>
