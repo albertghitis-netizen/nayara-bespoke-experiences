@@ -440,15 +440,184 @@ function CascadeSection({
     );
   }
 
+  /* ── Vertical media element for reuse ── */
+  const verticalMediaElement = section.mobileVerticalSrc ? (
+    <>
+      <div className="block md:hidden">
+        <MediaReveal delay={0.1}>
+          <MediaBlock
+            src={section.mobileVerticalSrc}
+            isVideo={section.mobileVerticalIsVideo ?? false}
+            ratio={section.verticalRatio}
+            alt={`${section.label} , Nayara Tented Camp`}
+            loop={section.verticalLoop}
+          />
+        </MediaReveal>
+      </div>
+      <div className="hidden md:block">
+        <MediaReveal delay={0.1}>
+          <MediaBlock
+            src={section.verticalSrc}
+            isVideo={section.verticalIsVideo}
+            ratio={section.verticalRatio}
+            alt={`${section.label} , Nayara Tented Camp`}
+            loop={section.verticalLoop}
+          />
+        </MediaReveal>
+      </div>
+    </>
+  ) : (
+    <MediaReveal delay={0.1}>
+      <MediaBlock
+        src={section.verticalSrc}
+        isVideo={section.verticalIsVideo}
+        ratio={section.verticalRatio}
+        alt={`${section.label} , Nayara Tented Camp`}
+        loop={section.verticalLoop}
+      />
+    </MediaReveal>
+  );
+
+  /* ── Text block element for reuse ── */
+  const textBlockElement = (
+    <div
+      className="flex flex-col justify-center px-6 py-10 md:px-10 md:py-16 lg:px-16 xl:px-20"
+      style={{ backgroundColor: section.bgColor }}
+    >
+      <AnimateOnScroll variants={fadeUp}>
+        <SectionLabel>{section.label}</SectionLabel>
+      </AnimateOnScroll>
+      <AnimateOnScroll variants={fadeUp} delay={0.1}>
+        <h2 className="mb-6 md:mb-8">
+          {section.headline.split("\n").map((line, i) => (
+            <span
+              key={i}
+              className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+              style={{ ...display, color: textColor }}
+            >
+              {line}
+            </span>
+          ))}
+        </h2>
+      </AnimateOnScroll>
+      <AnimateOnScroll variants={fadeUp} delay={0.2}>
+        <p
+          className="text-[15px] leading-[1.85] max-w-[480px] whitespace-pre-line"
+          style={{ ...body, color: textSecondaryColor }}
+        >
+          {section.body}
+        </p>
+      </AnimateOnScroll>
+      {section.textLink && (
+        <AnimateOnScroll variants={fadeUp} delay={0.24}>
+          <a
+            href={section.textLink}
+            className="inline-flex items-center gap-2 mt-8 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg text-white"
+            style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+          >
+            {section.textLinkLabel || "Explore More"}
+            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </AnimateOnScroll>
+      )}
+      {section.stats && section.stats.length > 0 && (
+        <AnimateOnScroll variants={fadeUp} delay={0.28}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 mb-2">
+            {section.stats.map((stat, i) => (
+              <div key={i} className="flex flex-col">
+                <span className="text-[18px] font-light tracking-tight" style={{ fontFamily: "var(--font-display)", color: accentColor }}>{stat.value}</span>
+                <span className="text-[10px] tracking-[0.14em] uppercase mt-0.5" style={{ ...body, fontWeight: 500, color: textSecondaryColor, opacity: 0.65 }}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
+      )}
+      {section.roomCards && section.roomCards.length > 0 && (
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <div className="grid grid-cols-2 gap-3 max-w-[480px] mt-6">
+            {section.roomCards.map((room) => (
+              <div key={room.label} className="flex flex-col gap-3">
+                <a
+                  href={room.route}
+                  className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]"
+                  style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+                >
+                  <span className="block text-[13px] tracking-[0.12em] uppercase mb-1" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: textColor }}>{room.label}</span>
+                  <span className="block text-[11px] tracking-[0.04em]" style={{ fontFamily: "var(--font-body)", color: textSecondaryColor }}>{room.sqm} sqm · {room.guests} guests</span>
+                  <span className="absolute bottom-3 right-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: textSecondaryColor }}>Explore →</span>
+                </a>
+                <a href="/tented-camp" className="pl-[18px] text-[11px] tracking-[0.15em] uppercase font-medium underline underline-offset-4 hover:opacity-70 transition-opacity" style={{ fontFamily: "var(--font-body)", color: accentColor }}>Reserve {room.label}</a>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
+      )}
+      {section.link && !section.horizontalSrc && (
+        <AnimateOnScroll variants={fadeUp} delay={0.3}>
+          <a
+            href={section.link}
+            className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] w-fit"
+            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(255,255,255,0.12)" }}
+          >
+            {section.linkLabel || "Explore More"}
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </AnimateOnScroll>
+      )}
+      {section.blogUrl && section.blogTitle && (
+        <AnimateOnScroll variants={fadeUp} delay={0.35}>
+          <a
+            href={section.blogUrl}
+            target={section.blogUrl.startsWith("http") ? "_blank" : undefined}
+            rel={section.blogUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", borderColor: "#868B75", backgroundColor: "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)" }}
+          >
+            {section.blogIsRead ? (
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+            ) : (
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" /></svg>
+            )}
+            {section.blogIsRead ? "Read" : "Watch"}: {section.blogTitle}
+          </a>
+        </AnimateOnScroll>
+      )}
+      {section.badges && (
+        <div className="mt-8 hidden md:block">
+          <a
+            href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 mb-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", borderColor: "#868B75", backgroundColor: "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)" }}
+          >
+            {section.blogIsRead ? (
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+            ) : (
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" /></svg>
+            )}
+            <span style={{ display: "inline-block", textAlign: "center", maxWidth: "300px", lineHeight: "1.6", fontSize: "10px", letterSpacing: "0.06em" }}>
+              Listen: Nayara Co-Founder & CEO, Leo Ghitis,<br/>on Sustainability with AFAR Podcast
+            </span>
+          </a>
+          <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <section id={section.id}>
-      {/* ── Horizontal FIRST if flagged ── */}
-      {section.horizontalFirst && !section.hideH && horizontalBlock}
+      {/* ═══ DESKTOP LAYOUT ═══ */}
+      <div className="hidden md:block">
+        {/* Horizontal FIRST if flagged */}
+        {section.horizontalFirst && !section.hideH && horizontalBlock}
 
-      {/* ── Row: Vertical media + Text column ── */}
-      <div className="flex flex-col md:flex-row md:items-stretch" style={{ backgroundColor: section.bgColor }}>
-        {/* Vertical media , on mobile: always after text (order-2), on desktop: alternates */}
-        <div className={`w-full md:w-1/2 relative z-[2] order-2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
+        {/* Row: Vertical media + Text column */}
+        <div className="flex" style={{ backgroundColor: section.bgColor }}>
+          <div className={`w-1/2 relative z-[2] ${textLeft ? "order-2" : "order-1"}`}>
           {/* Explore pills on vertical media */}
           {section.verticalOverlayButtons && (
             <>
@@ -487,34 +656,6 @@ function CascadeSection({
               </div>
             </>
           )}
-          {section.mobileVerticalSrc ? (
-            <>
-              {/* Mobile: use mobile-specific vertical */}
-              <div className="block md:hidden">
-                <MediaReveal delay={0.1}>
-                  <MediaBlock
-                    src={section.mobileVerticalSrc}
-                    isVideo={section.mobileVerticalIsVideo ?? false}
-                    ratio={section.verticalRatio}
-                    alt={`${section.label} , Nayara Tented Camp`}
-                    loop={section.verticalLoop}
-                  />
-                </MediaReveal>
-              </div>
-              {/* Desktop: use original vertical */}
-              <div className="hidden md:block">
-                <MediaReveal delay={0.1}>
-                  <MediaBlock
-                    src={section.verticalSrc}
-                    isVideo={section.verticalIsVideo}
-                    ratio={section.verticalRatio}
-                    alt={`${section.label} , Nayara Tented Camp`}
-                    loop={section.verticalLoop}
-                  />
-                </MediaReveal>
-              </div>
-            </>
-          ) : (
             <MediaReveal delay={0.1}>
               <MediaBlock
                 src={section.verticalSrc}
@@ -524,199 +665,23 @@ function CascadeSection({
                 loop={section.verticalLoop}
               />
             </MediaReveal>
-          )}
+          </div>
+
+          {/* Desktop: Text column */}
+          <div className={`w-1/2 flex flex-col justify-center h-full px-10 py-16 lg:px-16 xl:px-20 ${textLeft ? "order-1" : "order-2"}`} style={{ backgroundColor: section.bgColor }}>
+            {textBlockElement}
+          </div>
         </div>
 
-        {/* Text column */}
-        <div
-          className={`w-full md:w-1/2 flex flex-col justify-center h-full px-10 py-16 lg:px-16 xl:px-20 order-1 ${
-            textLeft ? "md:order-1" : "md:order-2"
-          }`}
-          style={{ backgroundColor: section.bgColor }}
-        >
-          <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>{section.label}</SectionLabel>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variants={fadeUp} delay={0.1}>
-            <h2 className="mb-6 md:mb-8">
-              {section.headline.split("\n").map((line, i) => (
-                <span
-                  key={i}
-                  className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
-                  style={{ ...display, color: textColor }}
-                >
-                  {line}
-                </span>
-              ))}
-            </h2>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <p
-              className="text-[15px] leading-[1.85] max-w-[480px] whitespace-pre-line"
-              style={{ ...body, color: textSecondaryColor }}
-            >
-              {section.body}
-            </p>
-          </AnimateOnScroll>
-
-          {section.textLink && (
-            <AnimateOnScroll variants={fadeUp} delay={0.24}>
-              <a
-                href={section.textLink}
-                className="inline-flex items-center gap-2 mt-8 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg text-white"
-                style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
-              >
-                {section.textLinkLabel || "Explore More"}
-                <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </a>
-            </AnimateOnScroll>
-          )}
-
-          {section.stats && section.stats.length > 0 && (
-            <AnimateOnScroll variants={fadeUp} delay={0.28}>
-              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 mb-2">
-                {section.stats.map((stat, i) => (
-                  <div key={i} className="flex flex-col">
-                    <span className="text-[18px] font-light tracking-tight" style={{ fontFamily: "var(--font-display)", color: accentColor }}>{stat.value}</span>
-                    <span className="text-[10px] tracking-[0.14em] uppercase mt-0.5" style={{ ...body, fontWeight: 500, color: textSecondaryColor, opacity: 0.65 }}>{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-            </AnimateOnScroll>
-          )}
-          {section.roomCards && section.roomCards.length > 0 && (
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <div className="grid grid-cols-2 gap-3 max-w-[480px] mt-6">
-                {section.roomCards.map((room) => (
-                  <div key={room.label} className="flex flex-col gap-3">
-                    <a
-                      href={room.route}
-                      className="group relative overflow-hidden rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]"
-                      style={{ backgroundColor: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
-                    >
-                      <span
-                        className="block text-[13px] tracking-[0.12em] uppercase mb-1"
-                        style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: textColor }}
-                      >
-                        {room.label}
-                      </span>
-                      <span
-                        className="block text-[11px] tracking-[0.04em]"
-                        style={{ fontFamily: "var(--font-body)", color: textSecondaryColor }}
-                      >
-                        {room.sqm} sqm · {room.guests} guests
-                      </span>
-                      <span
-                        className="absolute bottom-3 right-3 text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"
-                        style={{ color: textSecondaryColor }}
-                      >
-                        Explore →
-                      </span>
-                    </a>
-                    <a
-                      href="/tented-camp"
-                      className="pl-[18px] text-[11px] tracking-[0.15em] uppercase font-medium underline underline-offset-4 hover:opacity-70 transition-opacity"
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        color: accentColor,
-                      }}
-                    >
-                      Reserve {room.label}
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </AnimateOnScroll>
-          )}
-          {section.link && !section.horizontalSrc && (
-            <AnimateOnScroll variants={fadeUp} delay={0.3}>
-              <a
-                href={section.link}
-                className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] w-fit"
-                style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(255,255,255,0.12)" }}
-              >
-                {section.linkLabel || "Explore More"}
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </a>
-            </AnimateOnScroll>
-          )}
-
-          {section.blogUrl && section.blogTitle && (
-            <AnimateOnScroll variants={fadeUp} delay={0.35}>
-              <a
-                href={section.blogUrl}
-                target={section.blogUrl.startsWith("http") ? "_blank" : undefined}
-                rel={section.blogUrl.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
-                style={{
-                  ...body,
-                  fontWeight: 500,
-                  fontSize: "12px",
-                  letterSpacing: "0.08em",
-                  color: "#fff",
-                  borderColor: "#868B75",
-                  backgroundColor: "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)",
-                }}
-              >
-                {section.blogIsRead ? (
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                  </svg>
-                ) : (
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
-                  </svg>
-                )}
-                {section.blogIsRead ? "Read" : "Watch"}: {section.blogTitle}
-              </a>
-            </AnimateOnScroll>
-          )}
-
-          {section.badges && (
-            <div className="mt-8 hidden md:block">
-              <a
-                href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 mb-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
-                style={{
-                  ...body,
-                  fontWeight: 500,
-                  fontSize: "12px",
-                  letterSpacing: "0.08em",
-                  color: "#fff",
-                  borderColor: "#868B75",
-                  backgroundColor: "rgba(134,139,117,0.7)",
-                  backdropFilter: "blur(8px)",
-                }}
-              >
-                {section.blogIsRead ? (
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                  </svg>
-                ) : (
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
-                  </svg>
-                )}
-                <span style={{ display: "inline-block", textAlign: "center", maxWidth: "300px", lineHeight: "1.6", fontSize: "10px", letterSpacing: "0.06em" }}>
-                  Listen: Nayara Co-Founder & CEO, Leo Ghitis,<br />on Sustainability with AFAR Podcast
-                </span>
-              </a>
-              <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
-            </div>
-          )}
-
-
-        </div>
+        {/* Desktop: Full-width horizontal media AFTER (default) */}
+        {!section.horizontalFirst && !section.hideH && horizontalBlock}
       </div>
 
-      {/* ── Full-width horizontal media AFTER (default) , hidden on mobile ── */}
-      {!section.horizontalFirst && !section.hideH && horizontalBlock}
+      {/* ═══ MOBILE LAYOUT: Text → Vertical (Atacama pattern) ═══ */}
+      <div className="md:hidden" style={{ backgroundColor: section.bgColor }}>
+        <div className="px-5 pt-10 pb-6">{textBlockElement}</div>
+        {verticalMediaElement}
+      </div>
     </section>
   );
 }

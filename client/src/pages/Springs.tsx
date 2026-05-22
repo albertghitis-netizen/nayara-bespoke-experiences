@@ -470,8 +470,8 @@ function SpringsVillaSection() {
         </div>
       </div>
 
-      {/* ── S4 , Full-width horizontal video ── */}
-      <div className="w-full relative">
+      {/* ── S4 , Full-width horizontal video (desktop only) ── */}
+      <div className="w-full relative hidden md:block">
         <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" /></div>
         {/* Explore pill , centered lower */}
         <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
@@ -528,24 +528,23 @@ function ExperiencesSection() {
           </AnimateOnScroll>
         </div>
       </div>
-      {/* Mobile: placeholder vertical 3/4 */}
-      <div className="relative w-full md:hidden">
-        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
-          <p className="text-[11px] tracking-[0.25em] uppercase mb-3 text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</p>
-          <h2 className="mb-3">
+      {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
+      <div className="md:hidden" style={{ backgroundColor: "#000" }}>
+        <div className="px-5 pt-10 pb-6">
+          <p className="text-[11px] tracking-[0.25em] uppercase mb-4 text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</p>
+          <h2 className="mb-4">
             <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Arenal Adventures</span>
           </h2>
           <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
-            From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you.
+            From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
           </p>
           <a href="/springs/experiences" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)" }}>
             Explore Experiences
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
+        </div>
+        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
+          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
         </div>
       </div>
     </section>
@@ -643,24 +642,23 @@ function WellnessSection() {
           </AnimateOnScroll>
         </div>
       </div>
-      {/* Mobile: placeholder vertical 3/4 */}
-      <div className="relative w-full md:hidden">
-        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
-          <span className="text-[11px] tracking-[0.2em] uppercase mb-3 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
-          <h2 className="mb-3">
+      {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
+      <div className="md:hidden" style={{ backgroundColor: "#000" }}>
+        <div className="px-5 pt-10 pb-6">
+          <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
+          <h2 className="mb-4">
             <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Nurtured by Nature</span>
           </h2>
           <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
-            The spa at Nayara Springs draws its rituals from the geothermal earth and forest botanicals that surround it.
+            The spa at Nayara Springs draws its rituals from the geothermal earth and forest botanicals that surround it. Volcanic mineral waters, indigenous healing traditions, and the stillness of the rainforest converge to create an experience that restores from the inside out.
           </p>
           <a href="/costa-rica-wellness" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)" }}>
             Nurtured by Nature
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
+        </div>
+        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
+          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
         </div>
       </div>
     </section>

@@ -3839,3 +3839,6 @@
 - [x] Springs: Switch overlayOnVideo sections to vertical on mobile (Experiences=placeholder, Wellness=placeholder, By Night=frog reel video)
 - [x] Remove all remaining horizontal videos from mobile view (hidden md:block on non-overlay horizontals)
 - [x] Remove room slider arrows on mobile (already hidden md:flex — confirmed)
+- [ ] Tented Camp: Restructure mobile CascadeSection to text → vertical (match Atacama pattern)
+- [ ] Gardens: Restructure mobile cascade sections to text → vertical (match Atacama pattern)
+- [ ] Springs: Restructure mobile cascade sections to text → vertical (match Atacama pattern)

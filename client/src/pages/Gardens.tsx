@@ -1055,26 +1055,25 @@ function WellnessSection() {
           </AnimateOnScroll>
         </div>
       </div>
-      {/* Mobile: placeholder vertical */}
-      <div className="relative w-full md:hidden">
-        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
-          <span className="text-[11px] tracking-[0.2em] uppercase mb-3 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
-          <h2 className="mb-3">
+      {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
+      <div className="md:hidden" style={{ backgroundColor: "#000" }}>
+        <div className="px-5 pt-10 pb-6">
+          <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
+          <h2 className="mb-4">
             <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
               {gardens.theme.spaHeadline.replace("\n", " ")}
             </span>
           </h2>
           <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
-            Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy.
+            Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Surrender to the rhythm of the rainforest.
           </p>
           <a href="/costa-rica-wellness" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)" }}>
             Nurtured by Nature
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
+        </div>
+        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
+          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
         </div>
       </div>
 
@@ -1161,40 +1160,47 @@ function GalleryIntegratedSections() {
     <>
       {sections.map((section, i) => {
         const textLeft = i % 2 === 0;
+        const TextBlock = (
+          <div className="flex flex-col justify-center">
+            <AnimateOnScroll variants={fadeUp}>
+              <SectionLabel>{section.label}</SectionLabel>
+            </AnimateOnScroll>
+            <div style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}>
+              <MultiLineReveal
+                lines={section.headline.split("\n")}
+                className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-6"
+              />
+            </div>
+            <AnimateOnScroll variants={fadeUp} delay={0.3}>
+              <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
+                {section.body}
+              </p>
+            </AnimateOnScroll>
+          </div>
+        );
+        const VerticalMedia = (
+          <MediaReveal delay={0.1}>
+            <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
+              {section.verticalIsVideo ? (
+                <NativeVideo src={section.verticalSrc} className="w-full h-full object-cover" />
+              ) : (
+                <img src={section.verticalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+              )}
+            </div>
+          </MediaReveal>
+        );
         return (
           <section key={i} style={{ backgroundColor: section.bg }}>
-            <div className="flex flex-col md:flex-row">
-              <div className={`w-full md:w-1/2 ${textLeft ? "md:order-2" : "md:order-1"}`}>
-                <MediaReveal delay={0.1}>
-                  <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                    {section.verticalIsVideo ? (
-                      <NativeVideo src={section.verticalSrc} className="w-full h-full object-cover" />
-                    ) : (
-                      <img src={section.verticalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-                    )}
-                  </div>
-                </MediaReveal>
-              </div>
-              <div
-                className={`w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 py-16 md:py-0 ${textLeft ? "md:order-1" : "md:order-2"}`}
-              >
-                <AnimateOnScroll variants={fadeUp}>
-                  <SectionLabel>{section.label}</SectionLabel>
-                </AnimateOnScroll>
-                <div style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}>
-                  <MultiLineReveal
-                    lines={section.headline.split("\n")}
-                    className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-6"
-                  />
-                </div>
-                <AnimateOnScroll variants={fadeUp} delay={0.3}>
-                  <p className="text-[15px] leading-[1.8]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-                    {section.body}
-                  </p>
-                </AnimateOnScroll>
-              </div>
-            </div>
+            {/* Desktop */}
             <div className="hidden md:block">
+              <div className="flex">
+                <div className={`w-1/2 ${textLeft ? "order-2" : "order-1"}`}>
+                  {VerticalMedia}
+                </div>
+                <div className={`w-1/2 flex flex-col justify-center px-16 py-16 ${textLeft ? "order-1" : "order-2"}`}>
+                  {TextBlock}
+                </div>
+              </div>
               <MediaReveal delay={0.15}>
                 <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
                   {section.horizontalIsVideo ? (
@@ -1204,6 +1210,11 @@ function GalleryIntegratedSections() {
                   )}
                 </div>
               </MediaReveal>
+            </div>
+            {/* Mobile: Text → Vertical */}
+            <div className="md:hidden">
+              <div className="px-5 pt-10 pb-6">{TextBlock}</div>
+              {VerticalMedia}
             </div>
           </section>
         );
@@ -1460,24 +1471,23 @@ function GardensExperiencesSection() {
           </AnimateOnScroll>
         </div>
       </div>
-      {/* Mobile: placeholder vertical 3/4 */}
-      <div className="relative w-full md:hidden">
-        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
-          <span className="text-[11px] tracking-[0.2em] uppercase mb-3 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</span>
-          <h2 className="mb-3">
+      {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
+      <div className="md:hidden" style={{ backgroundColor: "#000" }}>
+        <div className="px-5 pt-10 pb-6">
+          <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</span>
+          <h2 className="mb-4">
             <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Rainforest Adventures</span>
           </h2>
           <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
-            Arenal Volcano , a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor , shapes everything around it.
+            Arenal Volcano , a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor , shapes everything around it. Its geothermal energy feeds the mineral springs, its eruption history created the lava fields you walk through today.
           </p>
           <a href="/gardens/experiences" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)" }}>
             Explore Experiences
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
+        </div>
+        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
+          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
         </div>
       </div>
     </section>
