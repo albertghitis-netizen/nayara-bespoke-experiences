@@ -359,7 +359,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: "#000000",
     nextBgColor: "#000000",
     link: "/blog/nayara-by-night",
-    verticalOverlayLabel: "Explore Nayara by Night",
+    linkLabel: "Explore Nayara by Night",
   },
   /* ── TRIMMED: Extended cascade sections hidden for performance ──
    * Island Cocktails, Island Brunch, Marine Life, Island Life, Golden Hour,
