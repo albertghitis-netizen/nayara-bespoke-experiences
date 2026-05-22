@@ -1066,7 +1066,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Discover the Magic\nof the Rainforest",
     body: "Hike through pristine rainforest to Rio Celeste, where two rivers merge to create an impossibly turquoise waterfall sacred to the indigenous Maleku people.",
     verticalSrc: "",
-    mobileVerticalSrc: "/manus-storage/32CB37E7-9715-4225-B3AD-21966E999728_b8cae891.mov",
+    mobileVerticalSrc: "/manus-storage/waterfall-vertical_4c68b6dd.mp4",
     mobileVerticalIsVideo: true,
     horizontalSrc: "/manus-storage/tented-experiences-h_246513df.mp4",
     verticalIsVideo: true,

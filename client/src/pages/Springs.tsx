@@ -205,7 +205,7 @@ export default function Springs() {
       <WellnessSection />
       <GastronomySection />
       <ByNightCTA
-        verticalSrc="/manus-storage/Lookingforfrogs.REEL5_8d3e8e1b.mov"
+        verticalSrc="/manus-storage/frog-reel-vertical_3c7ea7a6.mp4"
         verticalIsVideo={true}
         verticalRatio="3/4"
         horizontalSrc="/manus-storage/6519cc26-f89d-45e9-bff5-08a3a6728e3a_af227a5e.MP4"
