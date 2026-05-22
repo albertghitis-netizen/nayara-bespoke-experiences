@@ -161,7 +161,6 @@ export default function Home() {
       </div>
       <AwardsHighlightSection />
       <NayaraJournalSection />
-      <ContinueExploringSection />
       <NayaraStorySection />
       <Footer textColor="#FFFFFF" bgColor="#3B2B26" />
     </div>
