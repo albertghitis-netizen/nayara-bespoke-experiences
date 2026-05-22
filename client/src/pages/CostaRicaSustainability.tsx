@@ -194,7 +194,7 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   // Use mobile video on mobile, desktop video on desktop
   if (videos) {
     const videoSrc = isMobile && videos.mobile ? videos.mobile : videos.desktop;
-    const aspectRatio = isMobile ? "9/16" : "16/9";
+    const aspectRatio = isMobile ? "3/4" : "16/9";
     
     return (
       <section className="relative w-full overflow-hidden" style={{ aspectRatio }}>
@@ -222,7 +222,7 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
   }
 
   // Fallback: static image
-  const aspectRatio = isMobile ? "9/16" : "16/9";
+  const aspectRatio = isMobile ? "3/4" : "16/9";
   return (
     <section className="relative w-full overflow-hidden" style={{ aspectRatio }}>
       <img src={hero.src} alt={hero.alt} className="w-full h-full object-cover"  decoding="async" loading="lazy" />

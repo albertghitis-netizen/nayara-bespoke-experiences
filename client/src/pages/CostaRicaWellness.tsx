@@ -228,7 +228,7 @@ function LasTermas({ palette }: { palette: PropertyPalette }) {
             </div>
             {/* Vertical video */}
             <div>
-              <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "9/16" }}>
+              <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "3/4" }}>
                 <NativeVideo
                   src="/manus-storage/537195DB-9898-40EA-9014-7AF3FFF321D7(2)_bd2835d1_eebdd27f.mp4"
                   className="w-full h-full"
@@ -335,7 +335,7 @@ function SukhaSpaBanner({ palette }: { palette: PropertyPalette }) {
       <div className="w-full py-12 md:py-16 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
         <div className={maxW}>
           <div className="flex justify-center">
-            <div className="w-full md:w-96" style={{ aspectRatio: "9/16" }}>
+            <div className="w-full md:w-96" style={{ aspectRatio: "3/4" }}>
               <div className="w-full h-full rounded-lg overflow-hidden">
                 <NativeVideo
                   src="/manus-storage/62AE1541-E12D-4033-AFB5-E763C09F93D5_75b0518e.MP4"

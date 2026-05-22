@@ -1152,7 +1152,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalSrc: "/manus-storage/tented-camp-wellness-horizontal-new_c6e1da97.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
-    verticalRatio: "720/960",
+    verticalRatio: "3/4",
     horizontalRatio: "16/9",
     verticalLoop: true,
     bgColor: SECTION_COLORS[6],

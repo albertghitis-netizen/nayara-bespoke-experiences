@@ -190,7 +190,7 @@ function LasThermasSection({ palette }: { palette: PropertyPalette }) {
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="space-y-6">
-              <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "9/16" }}>
+              <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "3/4" }}>
                 <video src={IMG.termasVertical} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
               </div>
               <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
@@ -216,7 +216,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
         </FadeIn>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mt-8">
           <FadeIn>
-            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "9/16" }}>
+            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "3/4" }}>
               <img src={IMG.yogaVertical} alt="Yoga in the rainforest pavilion" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </FadeIn>
@@ -277,7 +277,7 @@ function SukhaSpaSection({ palette }: { palette: PropertyPalette }) {
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "9/16" }}>
+            <div className="relative overflow-hidden rounded-lg" style={{ aspectRatio: "3/4" }}>
               <video src={IMG.sukhaSpaVideo} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
             </div>
           </FadeIn>

@@ -144,7 +144,7 @@ export default function BlogPostTemplate({ post, hideNav, heroAspect }: BlogPost
       <section
         className="relative w-full overflow-hidden"
         style={{
-          aspectRatio: isMobile && post.mobileHeroVideo ? "9/16" : heroAspect || (post.hasAudio ? "16/9" : "21/9"),
+          aspectRatio: isMobile && post.mobileHeroVideo ? "3/4" : heroAspect || (post.hasAudio ? "16/9" : "21/9"),
           minHeight: "400px",
           maxHeight: isMobile && post.mobileHeroVideo ? "85vh" : (heroAspect === "16/9" || post.hasAudio) ? "100vh" : "70vh",
         }}
