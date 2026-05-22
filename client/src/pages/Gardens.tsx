@@ -404,9 +404,45 @@ function StorySection() {
         </div>
       </div>
 
-      {/* S2 , One Rainforest, Three Resorts (compact) — hidden on mobile */}
+      {/* S2 , One Rainforest, Three Resorts — vertical cards on mobile, panorama on desktop */}
       <div className="hidden md:block">
         <OneRainforestCompact />
+      </div>
+      {/* Mobile: Vertical stacked cards (Atacama Programs style) */}
+      <div className="md:hidden py-12 px-5" style={{ backgroundColor: "#0a0a0a" }}>
+        <AnimateOnScroll variants={fadeUp}>
+          <h2 className="text-center mb-8">
+            <span className="block text-xl tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>One Rainforest, Three Resorts</span>
+          </h2>
+        </AnimateOnScroll>
+        <div className="flex flex-col gap-6">
+          {GARDENS_PANORAMA_PANELS.map((panel, i) => (
+            <AnimateOnScroll key={panel.name} variants={fadeUp} delay={i * 0.1}>
+              {panel.route ? (
+                <Link href={panel.route} className="block">
+                  <div className="relative rounded-lg overflow-hidden">
+                    <img src={panel.image} alt={panel.name} className="w-full" style={{ aspectRatio: "4/3", objectFit: "cover" }} decoding="async" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 block mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.tagline}</span>
+                      <span className="text-lg tracking-wide text-white block" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>{panel.name}</span>
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <div className="relative rounded-lg overflow-hidden">
+                  <img src={panel.image} alt={panel.name} className="w-full" style={{ aspectRatio: "4/3", objectFit: "cover" }} decoding="async" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 block mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.tagline}</span>
+                    <span className="text-lg tracking-wide text-white block" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>{panel.name}</span>
+                    {panel.badge && <span className="inline-block mt-2 px-2 py-0.5 text-[9px] tracking-[0.15em] uppercase border border-white/40 text-white/80 rounded" style={{ fontFamily: "var(--font-body)" }}>{panel.badge}</span>}
+                  </div>
+                </div>
+              )}
+            </AnimateOnScroll>
+          ))}
+        </div>
       </div>
 
       {/* ── Rooms: Horizontal Slider ── */}

@@ -398,43 +398,58 @@ function CascadeSection({
             )}
           </div>
         </div>
-        {/* Mobile: vertical 3/4 with text overlay */}
-        <div className="relative w-full md:hidden">
+        {/* Mobile: text → vertical (Atacama pattern, no overlay) */}
+        <div className="md:hidden" style={{ backgroundColor: section.bgColor }}>
+          {(() => {
+            const isDark = DARK_SECTION_IDS.includes(section.id) || section.bgColor === "#000000" || section.bgColor === "#000";
+            const textColor = isDark ? "#FFFFFF" : PALETTE.text;
+            const subtleColor = isDark ? "rgba(255,255,255,0.6)" : PALETTE.textTertiary;
+            const borderColor = isDark ? "rgba(255,255,255,0.4)" : `${PALETTE.text}40`;
+            return (
+              <div className="px-5 pt-10 pb-6">
+                <AnimateOnScroll variants={fadeUp}>
+                  <span className={isDark ? "[&_p]:!text-white/70" : ""}><SectionLabel>{section.label}</SectionLabel></span>
+                </AnimateOnScroll>
+                <AnimateOnScroll variants={fadeUp} delay={0.1}>
+                  <h2 className="mb-4">
+                    {section.headline.split("\n").map((line, i) => (
+                      <span key={i} className="block text-2xl leading-[1.05] tracking-wide" style={{ ...display, color: textColor }}>{line}</span>
+                    ))}
+                  </h2>
+                </AnimateOnScroll>
+                <AnimateOnScroll variants={fadeUp} delay={0.15}>
+                  <p className="text-[14px] leading-[1.85]" style={{ ...body, color: subtleColor }}>
+                    {section.body.split("\n\n")[0]}
+                  </p>
+                </AnimateOnScroll>
+                {(section.link || section.textLink) && (
+                  <AnimateOnScroll variants={fadeUp} delay={0.2}>
+                    <a
+                      href={section.textLink || section.link || "#"}
+                      className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border text-[11px] tracking-[0.15em] uppercase font-medium w-fit"
+                      style={{ fontFamily: "var(--font-body)", color: textColor, borderColor }}
+                    >
+                      {section.textLinkLabel || section.linkLabel || "Explore"}
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                    </a>
+                  </AnimateOnScroll>
+                )}
+              </div>
+            );
+          })()}
           {mobileVertSrc ? (
-            <div style={{ aspectRatio: section.verticalRatio || "3/4" }}>
-              {mobileIsVideo ? (
+            mobileIsVideo ? (
+              <div style={{ aspectRatio: section.verticalRatio || "3/4" }}>
                 <NativeVideo src={mobileVertSrc} className="w-full h-full object-cover" loop={section.verticalLoop} />
-              ) : (
-                <img src={mobileVertSrc} alt={section.label} className="w-full h-full object-cover" decoding="async" loading="lazy" />
-              )}
-            </div>
+              </div>
+            ) : (
+              <img src={mobileVertSrc} alt={section.label} className="w-full" style={{ aspectRatio: section.verticalRatio || "3/4", objectFit: "cover" }} decoding="async" loading="lazy" />
+            )
           ) : (
             <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
               <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
-            <span className="[&_p]:!text-white/70"><SectionLabel>{section.label}</SectionLabel></span>
-            <h2 className="mb-3">
-              {section.headline.split("\n").map((line, i) => (
-                <span key={i} className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ ...display }}>{line}</span>
-              ))}
-            </h2>
-            <p className="text-[14px] leading-[1.75] text-white/85" style={{ ...body }}>
-              {section.body.split("\n\n")[0]}
-            </p>
-            {(section.link || section.textLink) && (
-              <a
-                href={section.textLink || section.link || "#"}
-                className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {section.textLinkLabel || section.linkLabel || "Explore"}
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-              </a>
-            )}
-          </div>
         </div>
       </section>
     );

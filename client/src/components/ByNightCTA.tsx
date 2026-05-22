@@ -133,59 +133,66 @@ export default function ByNightCTA({
             )}
           </div>
         </div>
-        {/* Mobile: vertical 3/4 with text overlay */}
-        <div className="relative w-full md:hidden">
+        {/* Mobile: text → vertical (Atacama pattern, no overlay) */}
+        <div className="md:hidden" style={{ backgroundColor: bgColor }}>
+          <div className="px-5 pt-10 pb-6">
+            <AnimateOnScroll variants={fadeUp}>
+              <span
+                className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70"
+                style={{ ...body, fontWeight: 500 }}
+              >
+                Nayara by Night
+              </span>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.1}>
+              <h2 className="mb-4">
+                {headline.split("\n").map((line, i) => (
+                  <span
+                    key={i}
+                    className="block text-2xl leading-[1.05] tracking-wide text-white"
+                    style={heading}
+                  >
+                    {line}
+                  </span>
+                ))}
+              </h2>
+            </AnimateOnScroll>
+            <AnimateOnScroll variants={fadeUp} delay={0.15}>
+              <p
+                className="text-[14px] leading-[1.85] text-white/60"
+                style={body}
+              >
+                {bodyText.split("\n\n")[0]}
+              </p>
+            </AnimateOnScroll>
+            {!hideButton && (
+              <AnimateOnScroll variants={fadeUp} delay={0.2}>
+                <a
+                  href={buttonHref}
+                  className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {buttonLabel}
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
+              </AnimateOnScroll>
+            )}
+          </div>
           {mobileSrc ? (
-            <div style={{ aspectRatio: verticalRatio || "3/4" }}>
-              {mobileIsVid ? (
+            mobileIsVid ? (
+              <div style={{ aspectRatio: verticalRatio || "3/4" }}>
                 <NativeVideo src={mobileSrc} className="w-full h-full object-cover" loop />
-              ) : (
-                <img src={mobileSrc} alt="Nayara by Night" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-              )}
-            </div>
+              </div>
+            ) : (
+              <img src={mobileSrc} alt="Nayara by Night" className="w-full" style={{ aspectRatio: verticalRatio || "3/4", objectFit: "cover" }} decoding="async" loading="lazy" />
+            )
           ) : (
             <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
               <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6">
-            <span
-              className="text-[11px] tracking-[0.2em] uppercase mb-3 block text-white/70"
-              style={{ ...body, fontWeight: 500 }}
-            >
-              Nayara by Night
-            </span>
-            <h2 className="mb-3">
-              {headline.split("\n").map((line, i) => (
-                <span
-                  key={i}
-                  className="block text-2xl leading-[1.05] tracking-wide text-white"
-                  style={heading}
-                >
-                  {line}
-                </span>
-              ))}
-            </h2>
-            <p
-              className="text-[14px] leading-[1.75] text-white/85"
-              style={body}
-            >
-              {bodyText.split("\n\n")[0]}
-            </p>
-            {!hideButton && (
-              <a
-                href={buttonHref}
-                className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {buttonLabel}
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </a>
-            )}
-          </div>
         </div>
       </section>
     );
