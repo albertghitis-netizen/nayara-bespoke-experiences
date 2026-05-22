@@ -14,7 +14,6 @@ import NativeVideo from "@/components/NativeVideo";
 import { useIsMobile } from "@/hooks/useMobile";
 import Footer from "@/components/Footer";
 import CrossPropertyCTA from "@/components/CrossPropertyCTA";
-import { MapView } from "@/components/Map";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property } from "@/data/properties";
 import {
@@ -1489,17 +1488,14 @@ function GettingHereSection() {
         {/* Google Maps Embed */}
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <div className="mt-12 md:mt-16 rounded-xl overflow-hidden" style={{ border: `1px solid ${BONE}20` }}>
-            <MapView
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.8!2d-68.1833!3d-23.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a4b5e5f5f5f5f5%3A0x1234567890abcdef!2sNayara+Alto+Atacama!5e0!3m2!1sen!2scl!4v1700000000000!5m2!1sen!2scl"
               className="w-full h-[280px] md:h-[360px]"
-              initialCenter={{ lat: -23.1833, lng: -68.1833 }}
-              initialZoom={12}
-              onMapReady={(map) => {
-                new google.maps.marker.AdvancedMarkerElement({
-                  map,
-                  position: { lat: -23.1833, lng: -68.1833 },
-                  title: "Nayara Alto Atacama",
-                });
-              }}
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Nayara Alto Atacama Location"
             />
             <div className="px-5 py-4" style={{ backgroundColor: `${BONE}08` }}>
               <p className="text-[12px] tracking-wide" style={{ ...body, color: `${BONE}BB` }}>
