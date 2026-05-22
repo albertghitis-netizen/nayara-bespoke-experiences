@@ -96,9 +96,9 @@ export default function RoomSlider({
   const isVideoLeft = currentRoom.mediaLeft !== undefined ? currentRoom.mediaLeft : forceVideoLeft !== undefined ? forceVideoLeft : startVideoLeft ? currentIndex % 2 === 0 : currentIndex % 2 === 1;
 
   const slideVariants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 150 : -150, opacity: 0 }),
+    enter: (dir: number) => ({ x: dir > 0 ? "8%" : "-8%", opacity: 0 }),
     center: { zIndex: 1, x: 0, opacity: 1 },
-    exit: (dir: number) => ({ zIndex: 0, x: dir < 0 ? 150 : -150, opacity: 0 }),
+    exit: (dir: number) => ({ zIndex: 0, x: dir < 0 ? "8%" : "-8%", opacity: 0 }),
   };
 
   /* ── Shared text content block ── */
@@ -259,7 +259,7 @@ export default function RoomSlider({
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              transition={{ type: "tween", duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               className="absolute inset-0 flex"
             >
               {/* Video/Image half */}
@@ -356,7 +356,7 @@ export default function RoomSlider({
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              transition={{ type: "tween", duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               className="absolute inset-0 flex"
             >
               {/* Text half */}
@@ -448,30 +448,38 @@ export default function RoomSlider({
         </AnimatePresence>
       </div>
 
-      {/* Navigation arrows — positioned opposite to video side */}
+      {/* Navigation arrows — vertically centered on the media side */}
       {rooms.length > 1 && !hideArrows && (
-      <div className={`hidden md:flex absolute top-8 z-20 items-center gap-2 ${isVideoLeft ? 'right-8 md:right-12' : 'left-8 md:left-12'}`}>
+      <>
         <button
           onClick={handlePrev}
-          className="w-10 h-10 flex items-center justify-center transition-all duration-200 hover:opacity-80 hover:scale-105"
+          className="hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-lg"
           style={{
-            backgroundColor: palette.primary,
-            color: "white",
+            left: isVideoLeft ? '24px' : 'auto',
+            right: isVideoLeft ? 'auto' : '24px',
+            backgroundColor: `${palette.bg}cc`,
+            color: palette.text,
+            border: `1px solid ${palette.textSecondary}30`,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
           }}
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          <ChevronLeft className="w-5 h-5" strokeWidth={1.5} />
         </button>
         <button
           onClick={handleNext}
-          className="w-10 h-10 flex items-center justify-center transition-all duration-200 hover:opacity-80 hover:scale-105"
+          className="hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-lg"
           style={{
-            backgroundColor: palette.primary,
-            color: "white",
+            left: isVideoLeft ? '80px' : 'auto',
+            right: isVideoLeft ? 'auto' : '80px',
+            backgroundColor: `${palette.bg}cc`,
+            color: palette.text,
+            border: `1px solid ${palette.textSecondary}30`,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
           }}
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <ChevronRight className="w-5 h-5" strokeWidth={1.5} />
         </button>
-      </div>
+      </>
       )}
       {/* Subtle swipe hint (arrowless mode) */}
       {rooms.length > 1 && hideArrows && currentIndex === 0 && (
@@ -513,7 +521,7 @@ export default function RoomSlider({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{ type: "tween", duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             className="absolute inset-0"
           >
             {currentRoom.video ? (
