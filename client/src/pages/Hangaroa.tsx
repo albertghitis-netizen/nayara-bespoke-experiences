@@ -1035,6 +1035,21 @@ function HangaroaGettingHere() {
           ))}
         </div>
 
+        <AnimateOnScroll variants={fadeUp} delay={0.45}>
+          <div className="mt-12 md:mt-16 rounded-lg overflow-hidden" style={{ border: `1px solid ${PALETTE.primary}20` }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.5!2d-109.4390029!3d-27.1509399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9947fba5ecd79cf7%3A0x90a95c1c2cccc4a1!2sNayara%20Hangaroa!5e0!3m2!1sen!2scl!4v1700000000000!5m2!1sen!2scl"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Nayara Hangaroa Location"
+            />
+          </div>
+        </AnimateOnScroll>
+
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
           <div
             className="mt-12 md:mt-16 p-6"

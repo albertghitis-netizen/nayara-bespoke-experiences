@@ -1418,6 +1418,21 @@ function GettingHereSection() {
           ))}
         </div>
 
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <div className="mt-12 md:mt-16 rounded-lg overflow-hidden" style={{ border: `1px solid ${PALETTE.primary}15` }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.5!2d-84.688747!3d10.5033502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa00be176806861%3A0x5e479b6bbb7545d8!2sNayara%20Gardens%20Hotel%20and%20Spa!5e0!3m2!1sen!2scr!4v1700000000000!5m2!1sen!2scr"
+              width="100%"
+              height="280"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Nayara Gardens Location"
+            />
+          </div>
+        </AnimateOnScroll>
+
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
           <div
             className="mt-12 md:mt-16 p-6"
