@@ -899,6 +899,25 @@ function GettingHereBreak({ bgColor }: { bgColor: string }) {
           ))}
         </div>
 
+        <AnimateOnScroll variants={fadeUp} delay={0.4}>
+          <div className="mt-12 md:mt-16 rounded-xl overflow-hidden" style={{ border: `1px solid ${PALETTE.primary}20` }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.5!2d-84.6887954!3d10.5051463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa00be17451f0fd%3A0x3cbc5bcd3f94e296!2sNayara%20Tented%20Camp!5e0!3m2!1sen!2scr!4v1700000000000!5m2!1sen!2scr"
+              className="w-full h-[280px] md:h-[360px]"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Nayara Tented Camp Location"
+            />
+            <div className="px-5 py-4" style={{ backgroundColor: `${PALETTE.primary}08` }}>
+              <p className="text-[12px] tracking-wide" style={{ ...body, color: PALETTE.textSecondary }}>
+                Arenal Volcano National Park, 702 Road, La Fortuna, Alajuela Province, Costa Rica
+              </p>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
         <AnimateOnScroll variants={fadeUp} delay={0.5}>
           <div
             className="mt-12 md:mt-16 p-6"
