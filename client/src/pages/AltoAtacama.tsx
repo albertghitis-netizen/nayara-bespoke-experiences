@@ -1489,7 +1489,7 @@ function GettingHereSection() {
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <div className="mt-12 md:mt-16 rounded-xl overflow-hidden" style={{ border: `1px solid ${BONE}20` }}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.8!2d-68.1833!3d-23.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a4b5e5f5f5f5f5%3A0x1234567890abcdef!2sNayara+Alto+Atacama!5e0!3m2!1sen!2scl!4v1700000000000!5m2!1sen!2scl"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.8!2d-68.2177055!3d-22.8895687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a9741453570e25%3A0x26ac7784d2e7b34e!2sNayara%20Alto%20Atacama!5e0!3m2!1sen!2scl!4v1700000000000!5m2!1sen!2scl"
               className="w-full h-[280px] md:h-[360px]"
               style={{ border: 0 }}
               allowFullScreen
