@@ -1563,9 +1563,84 @@ export default function TentedCamp() {
       {/* ── Story/Intro section with badges ── */}
       <CascadeSection section={SECTIONS_BEFORE_REVIEW[0]} index={0} />
 
-      {/* ── One Rainforest, Three Resorts , Three Keys, One Door (hidden on mobile) ── */}
+      {/* ── One Rainforest, Three Resorts ── */}
+      {/* Desktop: panorama panels */}
       <div className="hidden md:block">
         <OneRainforestCompactTC />
+      </div>
+      {/* Mobile: vertical cards (Atacama Programs style) */}
+      <div className="md:hidden py-12 px-5" style={{ backgroundColor: '#1a1a1a' }}>
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[10px] tracking-[0.25em] uppercase mb-3 text-center"
+            style={{ ...body, fontWeight: 500, color: 'rgba(255,255,255,0.5)' }}
+          >
+            One Rainforest
+          </p>
+          <h2
+            className="text-2xl text-center mb-8"
+            style={{ ...display, color: '#fff' }}
+          >
+            Three Resorts
+          </h2>
+        </AnimateOnScroll>
+        <div className="flex flex-col gap-4">
+          {PANORAMA_PANELS.map((panel, i) => {
+            const inner = (
+              <div
+                key={panel.name}
+                className="relative overflow-hidden rounded-lg"
+                style={{ backgroundColor: '#262626' }}
+              >
+                <img
+                  src={panel.image}
+                  alt={`Nayara ${panel.name}`}
+                  className="w-full h-[180px] object-cover"
+                  loading="lazy"
+                />
+                <div className="p-5">
+                  <p
+                    className="text-[9px] tracking-[0.2em] uppercase mb-1.5"
+                    style={{ ...body, fontWeight: 500, color: 'rgba(255,255,255,0.5)' }}
+                  >
+                    {panel.tagline}
+                  </p>
+                  <h3
+                    className="text-lg mb-2"
+                    style={{ ...display, color: '#fff' }}
+                  >
+                    Nayara {panel.name}
+                  </h3>
+                  <p
+                    className="text-[12px] leading-relaxed"
+                    style={{ ...body, color: 'rgba(255,255,255,0.6)' }}
+                  >
+                    {panel.description}
+                  </p>
+                  {panel.badge && (
+                    <span
+                      className="inline-block mt-3 text-[9px] tracking-[0.15em] uppercase px-3 py-1 rounded-full"
+                      style={{ fontFamily: 'var(--font-body)', fontWeight: 600, color: '#fff', backgroundColor: `${PALETTE.primary}CC` }}
+                    >
+                      {panel.badge}
+                    </span>
+                  )}
+                </div>
+              </div>
+            );
+            return panel.route ? (
+              <Link key={panel.name} href={panel.route} className="block">
+                <AnimateOnScroll variants={fadeUp} delay={i * 0.08}>
+                  {inner}
+                </AnimateOnScroll>
+              </Link>
+            ) : (
+              <AnimateOnScroll key={panel.name} variants={fadeUp} delay={i * 0.08}>
+                {inner}
+              </AnimateOnScroll>
+            );
+          })}
+        </div>
       </div>
 
       {/* ── Rooms: Horizontal Slider ── */}
