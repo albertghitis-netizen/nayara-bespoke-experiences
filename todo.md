@@ -3842,3 +3842,11 @@
 - [ ] Tented Camp: Restructure mobile CascadeSection to text → vertical (match Atacama pattern)
 - [ ] Gardens: Restructure mobile cascade sections to text → vertical (match Atacama pattern)
 - [ ] Springs: Restructure mobile cascade sections to text → vertical (match Atacama pattern)
+
+## Hangaroa Gastronomy Fix + Chilean Gastronomy Blog + Atacama Wellness + Hangaroa Blue Water Wellness
+- [x] Fix Hangaroa gastronomy page broken restaurant images (Poerava, Kaloa Lounge, Vaikoa Bar) — re-uploaded to CDN
+- [x] Create Chilean gastronomy blog post (/blog/chile-gastronomy) covering Atacama + Hangaroa dining
+- [x] Build dedicated Alto Atacama wellness page (/alto-atacama/wellness) with Spa Puri content, four elements, signature treatments
+- [x] Replace sustainability vertical on Hangaroa homepage with "Blue Water Wellness" section using Motu Nui aerial photo
+- [x] Update Hangaroa section nav labels (Sustainability → Wellness, Wellness → Spa)
+- [x] Add AtacamaWellness lazy import to App.tsx

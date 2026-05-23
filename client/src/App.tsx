@@ -14,9 +14,11 @@ import "./index.css";
 import Home from "./pages/Home";
 import ComingSoonVenue from "./components/ComingSoonVenue";
 import AtacamaGastronomy from "./pages/AtacamaGastronomy";
+import HangaroaGastronomy from "./pages/HangaroaGastronomy";
 
 /* ── Lazy-loaded pages ── */
 const AltoAtacama = lazy(() => import("./pages/AltoAtacama"));
+const AtacamaWellness = lazy(() => import("./pages/AtacamaWellness"));
 const CuratedExcursions = lazy(() => import("./pages/ExperientialArenal"));
 const FamilyExpeditions = lazy(() => import("./pages/FamilyExpeditions"));
 const RainforestRomance = lazy(() => import("./pages/RainforestRomance"));
@@ -69,6 +71,7 @@ const PuraVidaBlog = lazy(() => import("./pages/PuraVidaBlog"));
 // ToucansArenalBlog and TreehouseDreamsBlog deleted — stubs removed
 const StargazingAtacamaBlog = lazy(() => import("./pages/StargazingAtacamaBlog"));
 const EdgeHabitabilityBlog = lazy(() => import("./pages/EdgeHabitabilityBlog"));
+const ChileGastronomyBlog = lazy(() => import("./pages/ChileGastronomyBlog"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const TapatiFestivalBlog = lazy(() => import("./pages/TapatiFestivalBlog"));
 const CommunityBlog = lazy(() => import("./pages/CommunityBlog"));
@@ -198,7 +201,7 @@ function Router() {
           <Route path="/alto-atacama/rooms/suite-tilo" component={SuiteTilo} />
           {/* Individual restaurant pages removed — all on /alto-atacama/gastronomy */}
           <Route path="/alto-atacama/experiences">{() => <CostaRicaExperiences propertySlug="alto-atacama" />}</Route>
-          <Route path="/alto-atacama/wellness">{() => <CostaRicaWellness propertySlug="alto-atacama" />}</Route>
+          <Route path="/alto-atacama/wellness" component={AtacamaWellness} />
           <Route path="/alto-atacama/gastronomy" component={AtacamaGastronomy} />
           <Route path="/alto-atacama/sustainability">{() => <CostaRicaSustainability propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/stargazing" component={Stargazing} />
@@ -249,12 +252,12 @@ function Router() {
           <Route path="/hangaroa/rooms" component={Hangaroa} />
           <Route path="/hangaroa/rooms/kainga" component={Hangaroa} />
           <Route path="/hangaroa/rooms/maunga" component={Hangaroa} />
-          <Route path="/hangaroa/gastronomy/poerava" component={Hangaroa} />
-          <Route path="/hangaroa/gastronomy/kaloa-lounge" component={Hangaroa} />
-          <Route path="/hangaroa/gastronomy/vaikoa-bar" component={Hangaroa} />
+          <Route path="/hangaroa/gastronomy/poerava" component={HangaroaGastronomy} />
+          <Route path="/hangaroa/gastronomy/kaloa-lounge" component={HangaroaGastronomy} />
+          <Route path="/hangaroa/gastronomy/vaikoa-bar" component={HangaroaGastronomy} />
           <Route path="/hangaroa/experiences" component={Hangaroa} />
           <Route path="/hangaroa/wellness" component={Hangaroa} />
-          <Route path="/hangaroa/gastronomy" component={Hangaroa} />
+          <Route path="/hangaroa/gastronomy" component={HangaroaGastronomy} />
           <Route path="/hangaroa/sustainability" component={Hangaroa} />
           <Route path="/bocas-del-toro" component={BocasDelToro} />
           <Route path="/bocas-del-toro/rooms" component={BocasRooms} />
@@ -314,6 +317,7 @@ function Router() {
           {/* /blog/toucans-arenal and /blog/treehouse-dreams removed — content merged into birdwatching blog */}
           <Route path="/blog/stargazing-atacama" component={StargazingAtacamaBlog} />
           <Route path="/blog/edge-habitability" component={EdgeHabitabilityBlog} />
+          <Route path="/blog/chile-gastronomy" component={ChileGastronomyBlog} />
           <Route path="/blog/tapati-festival" component={TapatiFestivalBlog} />
           <Route path="/blog/rooted-in-community" component={CommunityBlog} />
           <Route path="/blog/how-we-built-a-hotel-on-an-island" component={BocasOperationsBlog} />

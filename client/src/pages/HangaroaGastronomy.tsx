@@ -1,7 +1,7 @@
-/**
- * NAYARA ALTO ATACAMA — GASTRONOMY: "Desert to Table"
- * Single page for all three dining venues: Ckelar, Quincho, Bar Puri
- * Palette: Atacama terracotta system (warm sand bg, terracotta accents)
+/*
+ * NAYARA HANGAROA — GASTRONOMY: "Island to Table"
+ * Single page for all three dining venues: Poerava, Kaloa Lounge, Vaikoa Bar
+ * Palette: Hangaroa stone/steel-grey system
  */
 
 import { useRef } from "react";
@@ -17,14 +17,14 @@ import {
   staggerContainer,
 } from "@/components/motion";
 
-/* ── Palette (Atacama — terracotta system) ── */
+/* ── Palette (Hangaroa — stone/steel-grey system) ── */
 const PALETTE = {
-  bg: "#F9EBE0",
-  bgAlt: "#F3E2D4",
-  dark: "#6F463D",
-  accent: "#B85C3C",
-  text: "#0D0604",
-  textMuted: "#0D060499",
+  bg: "#F4F1ED",
+  bgAlt: "#EBE7E1",
+  dark: "#2C3E50",
+  accent: "#536878",
+  text: "#1A1A1A",
+  textMuted: "#1A1A1A99",
   bone: "#FFFFFF",
 };
 
@@ -35,7 +35,7 @@ const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
 /* ── Hero ── */
-const HERO_IMAGE = "/manus-storage/atacama-gastronomy-hero_39394203.jpg";
+const HERO_IMAGE = "/manus-storage/hangaroa-poerava-interior_d9d7d536.jpg";
 
 /* ── Restaurant data ── */
 interface RestaurantEntry {
@@ -50,68 +50,58 @@ interface RestaurantEntry {
 
 const RESTAURANTS: RestaurantEntry[] = [
   {
-    name: "Ckelar",
+    name: "Poerava",
     subtitle: "Restaurant",
-    cuisine: "Chilean Desert Cuisine",
+    cuisine: "Polynesian-Chilean Fusion",
     description:
-      "Our gastronomy is deeply connected to the surroundings — most of our vegetables come from our Andean Garden. Whether you are a wine aficionado or a connoisseur, you will enjoy Chile's unique grapes and our collection of top-of-the-line local wines.",
+      "Poerava is the culinary heart of Nayara Hangaroa, where Polynesian traditions meet Chilean gastronomy. Our chefs draw inspiration from the island's ancestral cooking methods — the umu earth oven, fresh Pacific catches, and tropical produce — to create dishes that honor Rapa Nui's heritage while embracing contemporary technique.",
     details: [
-      "Corn Cake with Goat Cheese and Chañar — a variety of corn unique to this region",
-      "Classic Charquicán — a dish native to the Atacama people",
-      "Seasonal tasting menus with Andean Garden produce",
-      "Chile's finest wines from boutique vineyards",
+      "Fresh Pacific tuna and mahi-mahi prepared daily",
+      "Umu-inspired slow-cooked meats and root vegetables",
+      "Tropical fruits and herbs from the island's gardens",
+      "Chilean wines paired with Polynesian flavors",
     ],
-    image: "/manus-storage/atacama-ckelar_a3c85758.jpg",
+    image: "/manus-storage/hangaroa-poerava-restaurant_5cd86124.jpg",
     note: "Reservations Suggested",
   },
   {
-    name: "Quincho",
-    subtitle: "South American Asado",
-    cuisine: "Open-Fire Grilling",
+    name: "Kaloa",
+    subtitle: "Lounge",
+    cuisine: "Pacific Tapas & Cocktails",
     description:
-      "Our Atacamenian Quincho is an outdoor barbecue pavilion where we grill different cuts of meat, corn, and potatoes. The 'Asado,' as this way of cooking is generally called, is a cooking tradition of South America. Eating outdoors in the shade overlooking the Andes mountains and the Atacama Desert is an extraordinary experience.",
+      "Kaloa Lounge offers a relaxed atmosphere where guests gather to share small plates inspired by the Pacific. With panoramic views of the island's volcanic landscape, it's the perfect setting for sunset cocktails and light bites that celebrate the ocean's bounty.",
     details: [
-      "Traditional South American grilling techniques",
-      "Prime cuts of meat over native hardwoods",
-      "Grilled corn and Andean potatoes",
-      "Outdoor dining overlooking the Andes",
+      "Pacific-inspired tapas and sharing plates",
+      "Craft cocktails with tropical botanicals",
+      "Panoramic views of Easter Island's coastline",
+      "Live Rapa Nui music on select evenings",
     ],
-    image: "/manus-storage/atacama-quincho_17000290.jpg",
-    note: "Reservations Required",
-  },
-  {
-    name: "Bar Puri",
-    subtitle: "An Intimate Bar",
-    cuisine: "Wine & Cocktails",
-    description:
-      "The highlight of your gastronomic experience in the Atacama Desert can be a Wine Pairing dinner with our hand-picked collection of Chile's top wines. This can be a wonderful introduction to the best vineyards in the area.",
-    details: [
-      "Wine Pairing dinners with Chile's top wines",
-      "Sommelier-curated tasting experiences",
-      "Freshly squeezed desert juices",
-      "Timeless cocktails with local botanicals",
-    ],
-    image: "/manus-storage/atacama-bar-puri_b5445a8c.jpg",
+    image: "/manus-storage/hangaroa-kaloa-lounge_b0992660.jpg",
     note: "Open Daily",
   },
-];
-
-/* ── Food Gallery ── */
-const FOOD_GALLERY = [
-  { src: "/manus-storage/atacama-food-avocado-mousse_7e4fbe5a.jpg", alt: "Avocado mousse with desert herbs" },
-  { src: "/manus-storage/atacama-food-empanadas_eb2761b8.jpeg", alt: "Atacama empanadas with native corn" },
-  { src: "/manus-storage/atacama-food-tuna-tiradito_2a318978.jpeg", alt: "Tuna tiradito with aji amarillo" },
-  { src: "/manus-storage/atacama-food-seared-meat_d5d1e3f4.jpeg", alt: "Seared meat with Andean vegetables" },
-  { src: "/manus-storage/atacama-food-corn-cake_e632b851.jpeg", alt: "Corn cake with wine pairing" },
-  { src: "/manus-storage/atacama-food-honeycomb_16b441ea.jpg", alt: "Honeycomb dessert with native botanicals" },
+  {
+    name: "Vaikoa",
+    subtitle: "Bar",
+    cuisine: "Craft Cocktails & Island Spirits",
+    description:
+      "Vaikoa Bar is an intimate space where the island's spirit comes alive through craft cocktails. Our bartenders blend local ingredients — guava, passion fruit, native herbs — with premium spirits to create drinks that capture the essence of Rapa Nui's volcanic terroir.",
+    details: [
+      "Signature cocktails with island-foraged ingredients",
+      "Premium pisco and Chilean wine selection",
+      "Tropical fruit infusions and fresh juices",
+      "Intimate setting with Polynesian-inspired décor",
+    ],
+    image: "/manus-storage/hangaroa-vaikoa-bar_90e298e5.jpg",
+    note: "Open Nightly",
+  },
 ];
 
 /* ── Culinary Experiences ── */
 const EXPERIENCES = [
-  { label: "Wine Pairing", desc: "Chile's top wines 'Grandes Terruños'" },
-  { label: "Sommelier Tastings", desc: "Curated selections from boutique vineyards" },
-  { label: "Desert Cocktails", desc: "Timeless drinks with local botanicals" },
-  { label: "Andean Garden Tour", desc: "Farm-to-table at 2,400 meters" },
+  { label: "Umu Earth Oven", desc: "Traditional Polynesian underground cooking ceremony" },
+  { label: "Pacific Tasting", desc: "Fresh catches paired with island-grown produce" },
+  { label: "Sunset Cocktails", desc: "Craft drinks overlooking the Moai coastline" },
+  { label: "Island Garden Tour", desc: "Tropical herbs and fruits of Rapa Nui" },
 ];
 
 /* ── Utility ── */
@@ -128,14 +118,13 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 /* ═══════════════════════════════════════════════════════════════
    MAIN COMPONENT
    ═══════════════════════════════════════════════════════════════ */
-export default function AtacamaGastronomy() {
+export default function HangaroaGastronomy() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
-      <BrandNavigation pageType="property" backLink={{ label: "Alto Atacama", href: "/alto-atacama" }} />
+      <BrandNavigation pageType="property" backLink={{ label: "Hangaroa", href: "/hangaroa" }} />
       <HeroSection />
       <IntroSection />
       <RestaurantsSection />
-      <FoodGallerySection />
       <CulinaryExperiencesSection />
       <CTASection />
       <Footer pageType="property" bgColor={PALETTE.dark} textColor="#FFFFFF" />
@@ -144,14 +133,14 @@ export default function AtacamaGastronomy() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   HERO — Full-bleed image with "Desert to Table" title at bottom
+   HERO — Full-bleed image with "Island to Table" title at bottom
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
     <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <img
         src={HERO_IMAGE}
-        alt="Ckelar Restaurant interior with Atacama cliffs at golden hour"
+        alt="Poerava Restaurant interior at Nayara Hangaroa"
         className="w-full h-full object-cover"
         decoding="async"
       />
@@ -164,7 +153,7 @@ function HeroSection() {
           className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
           style={heading}
         >
-          Desert to Table
+          Island to Table
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -173,7 +162,7 @@ function HeroSection() {
           className="text-white/50 text-[11px] tracking-[0.25em] uppercase mt-3"
           style={{ ...body, fontWeight: 500 }}
         >
-          San Pedro de Atacama, Chile
+          Rapa Nui, Easter Island
         </motion.p>
       </div>
     </section>
@@ -201,7 +190,7 @@ function IntroSection() {
                 className="text-2xl md:text-3xl leading-tight"
                 style={{ ...heading, color: PALETTE.text }}
               >
-                An Unexpected Wine & Culinary Journey in the Chilean Desert
+                Where Polynesian Heritage Meets Pacific Bounty
               </h2>
             </div>
             <div className="flex flex-col justify-end">
@@ -209,7 +198,7 @@ function IntroSection() {
                 className="text-[15px] leading-[1.9]"
                 style={{ ...body, color: PALETTE.textMuted }}
               >
-                At Alto Atacama we take the base of North Chilean food — corn, wheat and meat — and combine it with root vegetables, edible grasses and grains to offer a fresh, light and tasteful cuisine that goes hand-in-hand with the sublime terrain of the desert. Our cuisine will delight you with a menu of sophisticated techniques and delicious flavors.
+                On the world's most remote inhabited island, our cuisine tells the story of Rapa Nui — ancient Polynesian cooking traditions, the freshest Pacific seafood, and tropical ingredients cultivated in volcanic soil. Every dish at Nayara Hangaroa connects you to the island's living culture and the vast ocean that surrounds it.
               </p>
             </div>
           </div>
@@ -319,55 +308,11 @@ function RestaurantBlock({ restaurant, index }: { restaurant: RestaurantEntry; i
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   FOOD GALLERY — Signature dishes showcase
-   ═══════════════════════════════════════════════════════════════ */
-function FoodGallerySection() {
-  return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: PALETTE.bgAlt }}>
-      <div className={maxW}>
-        <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={PALETTE.accent} className="mb-8" />
-          <span
-            className="text-[10px] tracking-[0.3em] uppercase block mb-4"
-            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
-          >
-            From Our Kitchen
-          </span>
-          <h2
-            className="text-2xl md:text-3xl mb-12"
-            style={{ ...heading, color: PALETTE.text }}
-          >
-            Signature Dishes
-          </h2>
-        </AnimateOnScroll>
-
-        <StaggerOnScroll variants={staggerContainer} className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {FOOD_GALLERY.map((img, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              className="aspect-square overflow-hidden"
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                loading="lazy"
-              />
-            </motion.div>
-          ))}
-        </StaggerOnScroll>
-      </div>
-    </section>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   CULINARY EXPERIENCES — Wine, Sommelier, Cocktails, Garden
+   CULINARY EXPERIENCES — Umu, Pacific Tasting, Sunset, Garden
    ═══════════════════════════════════════════════════════════════ */
 function CulinaryExperiencesSection() {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
+    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bgAlt }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <DrawLine color={PALETTE.accent} className="mb-8" />
@@ -381,7 +326,7 @@ function CulinaryExperiencesSection() {
             className="text-[15px] leading-[1.9] max-w-[600px] mb-14"
             style={{ ...body, color: PALETTE.textMuted }}
           >
-            Beyond the restaurants, Alto Atacama offers immersive culinary moments that connect you to the land, its wines, and its ancient traditions.
+            Beyond the restaurants, Nayara Hangaroa offers immersive culinary moments that connect you to the island's Polynesian heritage and the Pacific Ocean.
           </p>
         </AnimateOnScroll>
 
@@ -415,11 +360,11 @@ function CulinaryExperiencesSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CTA — Reserve
+   CTA — Return to Hangaroa
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   return (
-    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: PALETTE.bgAlt }}>
+    <section className="py-20 md:py-28 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
       <div className={`${maxW} text-center`}>
         <FadeIn>
           <span
@@ -432,17 +377,17 @@ function CTASection() {
             className="text-2xl md:text-3xl mb-6"
             style={{ ...heading, color: PALETTE.text }}
           >
-            Taste the Desert
+            Taste the Island
           </h2>
           <p
             className="text-[15px] leading-[1.9] max-w-[500px] mx-auto mb-10"
             style={{ ...body, color: PALETTE.textMuted }}
           >
-            All-inclusive dining with locally sourced ingredients, Andean Garden produce, and Chile's finest wines — every meal tells the story of this ancient landscape.
+            All-inclusive dining with the freshest Pacific seafood, Polynesian-inspired cuisine, and craft cocktails — every meal tells the story of Rapa Nui.
           </p>
-          <Link href="/alto-atacama">
+          <Link href="/hangaroa">
             <span
-              className="inline-block text-[11px] tracking-[0.2em] uppercase px-8 py-3 rounded-full border transition-all duration-300 cursor-pointer atacama-pill-hover"
+              className="inline-block text-[11px] tracking-[0.2em] uppercase px-8 py-3 rounded-full border transition-all duration-300 cursor-pointer hover:bg-[#536878] hover:border-[#536878] hover:text-white"
               style={{
                 ...body,
                 fontWeight: 500,
@@ -450,7 +395,7 @@ function CTASection() {
                 borderColor: PALETTE.accent,
               }}
             >
-              Back to Alto Atacama
+              Back to Hangaroa
             </span>
           </Link>
         </FadeIn>

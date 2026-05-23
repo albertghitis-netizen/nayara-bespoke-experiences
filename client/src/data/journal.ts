@@ -299,8 +299,19 @@ const blogArticles: JournalEntry[] = [
     url: "/blog/edge-habitability",
     property: "alto-atacama",
     type: "article",
-    image: "/manus-storage/edge-habitability-cover_1b054538.jpg",
+    image: "/manus-storage/atacama-extremes-hero_4cfb5bfb.jpg",
     excerpt: "Understanding the Atacama Desert: landscape, climate, and extremes. How life persists at the edge of habitability.",
+  },
+
+  {
+    id: "chile-gastronomy",
+    title: "From Desert to Ocean: A Culinary Journey Through Chile's Two Extremes",
+    url: "/blog/chile-gastronomy",
+    property: "alto-atacama",
+    type: "article",
+    image: "/manus-storage/atacama-gastronomy-hero_39394203.jpg",
+    excerpt: "From Andean desert cuisine at 2,400 meters to Polynesian-Pacific fusion on Easter Island, discover Chile's gastronomic extremes at Nayara Alto Atacama and Nayara Hangaroa.",
+    featured: true,
   },
 
   {

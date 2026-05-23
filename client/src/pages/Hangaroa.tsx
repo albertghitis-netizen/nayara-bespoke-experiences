@@ -152,8 +152,8 @@ export default function Hangaroa() {
       <BrandNavigation pageType="property" sectionNav={[
         { id: "rooms", label: "Rooms" },
         { id: "experiences", label: "Experiences" },
-        { id: "sustainability", label: "Sustainability" },
-        { id: "wellness", label: "Wellness" },
+        { id: "sustainability", label: "Wellness" },
+        { id: "wellness", label: "Spa" },
         { id: "gastronomy", label: "Gastronomy" },
         { id: "by-night", label: "By Night" },
       ]} />
@@ -187,9 +187,9 @@ export default function Hangaroa() {
         <ExperiencesSection />
       </div>
 
-      {/* ★ SUSTAINABILITY — Vertical layout */}
+      {/* ★ WELLNESS VERTICAL — Blue Water Wellness */}
       <div id="sustainability">
-        <SustainabilitySection />
+        <BlueWaterWellnessSection />
       </div>
 
       {/* ★ WELLNESS — Horizontal layout */}
@@ -510,22 +510,22 @@ function ExperiencesSection() {
    4. SUSTAINABILITY — Vertical layout
    Vertical image/video on one side, text on other
    ═══════════════════════════════════════════════════════════════ */
-function SustainabilitySection() {
-  const initiatives = [
-    { title: "Cultural Preservation", desc: "Supporting Rapa Nui cultural traditions through partnerships with local communities and educational programs." },
-    { title: "Island Stewardship", desc: "Protecting Easter Island's unique ecosystem and archaeological heritage through sustainable tourism practices." },
-    { title: "Native Reforestation", desc: "Replanting native species across the island to restore ecosystems degraded over centuries." },
-    { title: "Renewable Energy", desc: "Leading the island's transition to renewable energy with solar installations and energy-efficient operations." },
+function BlueWaterWellnessSection() {
+  const highlights = [
+    { title: "Ocean Immersion", desc: "Polynesian-inspired water rituals drawing from the Pacific's restorative power and ancient island healing traditions." },
+    { title: "Volcanic Thermal Pools", desc: "Heated pools fed by the island's geothermal energy, overlooking the endless Pacific horizon." },
+    { title: "Rapa Nui Bodywork", desc: "Traditional massage techniques passed down through generations, using native oils and volcanic stones." },
+    { title: "Sound & Stillness", desc: "Guided meditation sessions at sunrise, where the ocean's rhythm becomes the only soundtrack." },
   ];
 
   return (
     <section style={{ backgroundColor: PALETTE.gradientEnd }}>
       <div className="flex flex-col md:flex-row">
-        {/* RIGHT — Vertical image */}
+        {/* RIGHT — Vertical image: Motu Nui from Orongo */}
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img src={CDN.facePaint} alt="Rapa Nui cultural heritage" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+              <img src="/manus-storage/hangaroa-motu-nui-wellness_4580060a.jpg" alt="Motu Nui islets from Orongo, Easter Island — Blue Water Wellness" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </MediaReveal>
         </div>
@@ -533,14 +533,14 @@ function SustainabilitySection() {
         {/* LEFT — Text content */}
         <div className="w-full md:w-1/2 md:order-1 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Sustainability</SectionLabel>
+            <SectionLabel>Wellness</SectionLabel>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2
               className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
             >
-              Guardians of Rapa Nui
+              Blue Water Wellness
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
@@ -548,12 +548,12 @@ function SustainabilitySection() {
               className="text-[15px] leading-[1.8] mb-8 max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              Preserving the island's archaeological heritage, restoring native ecosystems, and leading the transition to renewable energy on one of the world's most remote inhabited islands.
+              Where the Pacific Ocean becomes your sanctuary. On the most remote inhabited island on Earth, wellness is not a program — it is the island itself. The rhythm of the waves, the warmth of volcanic stone, and the vastness of blue in every direction.
             </p>
           </AnimateOnScroll>
 
           <StaggerOnScroll variants={staggerContainer} className="space-y-6">
-            {initiatives.map((item, i) => (
+            {highlights.map((item, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
@@ -572,11 +572,11 @@ function SustainabilitySection() {
 
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/hangaroa/sustainability"
+              href="/hangaroa/wellness"
               className="inline-block mt-10 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >
-              Explore Sustainability →
+              Explore Wellness →
             </a>
           </AnimateOnScroll>
         </div>

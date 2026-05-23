@@ -81,7 +81,7 @@ const atacamaMarsPost: BlogPostData = {
       slug: "edge-habitability",
       title: "The Atacama Desert: At the Edge of Habitability",
       pillar: "Experiences",
-      image: "/manus-storage/edge-habitability-cover_1b054538.jpg",
+      image: "/manus-storage/atacama-extremes-hero_4cfb5bfb.jpg",
       date: "Jan 8, 2024",
     },
     {
