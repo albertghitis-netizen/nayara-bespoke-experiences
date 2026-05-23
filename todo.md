@@ -3850,3 +3850,9 @@
 - [x] Replace sustainability vertical on Hangaroa homepage with "Blue Water Wellness" section using Motu Nui aerial photo
 - [x] Update Hangaroa section nav labels (Sustainability → Wellness, Wellness → Spa)
 - [x] Add AtacamaWellness lazy import to App.tsx
+
+## Mobile Hamburger Menu — Overlay Style (Waldorf Astoria reference)
+- [x] Convert mobile hamburger menu from dropdown to full-screen subtle overlay (like Hilton/Waldorf Astoria)
+- [x] Keep all existing categories/sections unchanged
+- [x] Light/subtle background overlay with clean list of menu items separated by thin lines
+- [x] Only affects mobile view — desktop behavior unchanged
