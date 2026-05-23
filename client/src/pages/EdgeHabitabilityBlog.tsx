@@ -17,7 +17,7 @@ const edgeHabitabilityPost: BlogPostData = {
   pillar: "Experiences",
   tags: ["Atacama Desert", "Nayara Alto Atacama", "Wildlife", "Geology", "Ecology", "Astronomy", "Sustainability"],
   readingTime: 14,
-  heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/98_97f443ac.jpg",
+  heroImage: "/manus-storage/4O1A0731-NayaraAltoAtacama-Geysers-byBriceFerreStudio_30961d6d.jpg",
   keyFindings: [
     "The Atacama is the oldest and most stable non-polar desert on Earth, with some regions experiencing virtually no measurable rainfall for millions of years.",
     "Oases like the Catarpe Valley are not luxuries but requirements for human habitation, where groundwater, vegetation, and landform combine to soften one of the harshest environments on Earth.",

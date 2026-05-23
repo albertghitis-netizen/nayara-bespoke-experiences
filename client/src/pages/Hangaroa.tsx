@@ -474,7 +474,7 @@ function ExperiencesSection() {
       {/* Horizontal hero image */}
       <MediaReveal>
         <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
-          <img src="/manus-storage/hangaroa-experiences-horizontal-16x9_41a3fdec.jpg" alt="Easter Island cultural experience with Nayara Hangaroa" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+          <img src="/manus-storage/4O1A8442-NayaraHangaroa-EasterIsland-withMischellRodriguezbyBriceFerreStudio_84e439c2.jpeg" alt="Moai statues at Ahu Tongariki, Easter Island" className="w-full h-full object-cover" decoding="async" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <h2 className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
@@ -714,36 +714,25 @@ function GastronomySection() {
    ═══════════════════════════════════════════════════════════════ */
 function ByNightSection() {
   const DARK = "#000000";
-  const BONE = "#FFFFFF";
   const MIDDLE = "#536878";
 
   return (
     <section style={{ backgroundColor: DARK }}>
-      {/* Horizontal landscape */}
-      <MediaReveal>
-        <div className="relative overflow-hidden" style={{ aspectRatio: "21/9" }}>
-          <img
-            src={CDN.byNightLandscape}
-            alt="Rano Kau crater beneath the Milky Way"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 pointer-events-none" />
-          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-            <h2 className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-              Moai Beneath the Milky Way
-            </h2>
-          </div>
-        </div>
-      </MediaReveal>
-
-      {/* Content row */}
       <div className="flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
+        {/* LEFT — Text content */}
+        <div className="w-full md:w-1/2 md:order-1 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
             <SectionLabel color={MIDDLE}>Nayara by Night</SectionLabel>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2
+              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+            >
+              Moai Beneath the Milky Way
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
               className="text-[15px] leading-[1.8] max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: "#FFFFFFCC" }}
@@ -752,7 +741,9 @@ function ByNightSection() {
             </p>
           </AnimateOnScroll>
         </div>
-        <div className="w-full md:w-1/2">
+
+        {/* RIGHT — Vertical video */}
+        <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
               <video
