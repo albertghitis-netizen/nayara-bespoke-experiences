@@ -67,8 +67,11 @@ const CDN = {
   facePaint: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-16_aa3fc296.JPG",
   womanMoai: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-21_c15d07fa.JPG",
   culturalAdornment: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-22_3f8e6011.JPG",
-  rapaNuiWarrior: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/rapa-nui-warrior-portrait_60af8ef4.jpg",
+  wellnessHorizontal: "/manus-storage/hangaroa-wellness-horizontal_bbaade94.jpg",
+  ourStoryVideo: "/manus-storage/hangaroa-rapa-nui-partnership_d8787869.mp4",
+  sustainabilityImage: "/manus-storage/hangaroa-rapa-nui-taumana_97b1e9e4.jpg",
   byNightVideo: "/manus-storage/772E29FE-4AF3-446F-A8F1-D8BA15DACE44_f5a81bf8_0615fffd.mp4",
+  byNightHorizontal: "/manus-storage/hangaroa-bynight-horizontal_2ae3f628.mp4",
   byNightLandscape: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-crater-milkyway_00741a91.webp",
 };
 
@@ -150,16 +153,22 @@ export default function Hangaroa() {
         { name: "Nayara Hangaroa", url: "https://nayarahangaroa.com" },
       ]} />
       <BrandNavigation pageType="property" sectionNav={[
+        { id: "our-story", label: "Our Story" },
         { id: "rooms", label: "Rooms" },
         { id: "experiences", label: "Experiences" },
-        { id: "sustainability", label: "Wellness" },
-        { id: "wellness", label: "Spa" },
+        { id: "sustainability", label: "Sustainability" },
+        { id: "wellness", label: "Wellness" },
         { id: "gastronomy", label: "Gastronomy" },
         { id: "by-night", label: "By Night" },
       ]} />
 
       {/* ★ HERO — Full-screen hero video */}
       <HeroSection />
+
+      {/* ★ OUR STORY — Video left, text right */}
+      <div id="our-story">
+        <OurStorySection />
+      </div>
 
       {/* ★ ACCOMMODATIONS — RoomSlider with horizontal scroll */}
       <div id="rooms">
@@ -187,9 +196,9 @@ export default function Hangaroa() {
         <ExperiencesSection />
       </div>
 
-      {/* ★ WELLNESS VERTICAL — Blue Water Wellness */}
+      {/* ★ SUSTAINABILITY — Rapa Nui Partnership (vertical) */}
       <div id="sustainability">
-        <BlueWaterWellnessSection />
+        <SustainabilitySection />
       </div>
 
       {/* ★ WELLNESS — Horizontal layout */}
@@ -507,76 +516,66 @@ function ExperiencesSection() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   4. SUSTAINABILITY — Vertical layout
-   Vertical image/video on one side, text on other
+   OUR STORY — Video left, text right
+   Primer about Hangaroa: coastal location, Rapa Nui ownership
    ═══════════════════════════════════════════════════════════════ */
-function BlueWaterWellnessSection() {
-  const highlights = [
-    { title: "Ocean Immersion", desc: "Polynesian-inspired water rituals drawing from the Pacific's restorative power and ancient island healing traditions." },
-    { title: "Volcanic Thermal Pools", desc: "Heated pools fed by the island's geothermal energy, overlooking the endless Pacific horizon." },
-    { title: "Rapa Nui Bodywork", desc: "Traditional massage techniques passed down through generations, using native oils and volcanic stones." },
-    { title: "Sound & Stillness", desc: "Guided meditation sessions at sunrise, where the ocean's rhythm becomes the only soundtrack." },
-  ];
-
+function OurStorySection() {
   return (
     <section style={{ backgroundColor: PALETTE.gradientEnd }}>
       <div className="flex flex-col md:flex-row">
-        {/* RIGHT — Vertical image: Motu Nui from Orongo */}
-        <div className="w-full md:w-1/2 md:order-2">
-          <MediaReveal delay={0.1}>
+        {/* LEFT — Vertical video */}
+        <div className="w-full md:w-1/2 md:order-1">
+          <MediaReveal>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/hangaroa-motu-nui-wellness_4580060a.jpg" alt="Motu Nui islets from Orongo, Easter Island — Blue Water Wellness" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+              <video
+                src={CDN.ourStoryVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover"
+              />
             </div>
           </MediaReveal>
         </div>
 
-        {/* LEFT — Text content */}
-        <div className="w-full md:w-1/2 md:order-1 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
+        {/* RIGHT — Text content */}
+        <div className="w-full md:w-1/2 md:order-2 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Wellness</SectionLabel>
+            <SectionLabel>Our Story</SectionLabel>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2
               className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-8"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
             >
-              Blue Water Wellness
+              Rooted in Rapa Nui
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
             <p
-              className="text-[15px] leading-[1.8] mb-8 max-w-[480px]"
+              className="text-[15px] leading-[1.8] mb-6 max-w-[480px]"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              Where the Pacific Ocean becomes your sanctuary. On the most remote inhabited island on Earth, wellness is not a program — it is the island itself. The rhythm of the waves, the warmth of volcanic stone, and the vastness of blue in every direction.
+              On the coast of Hanga Roa — the island's only town and capital — Nayara Hangaroa sits where the Pacific meets volcanic stone. We are the only hotel on Easter Island with Rapa Nui ownership, a partnership that ensures the island's culture, traditions, and community remain at the heart of every guest experience.
             </p>
           </AnimateOnScroll>
-
-          <StaggerOnScroll variants={staggerContainer} className="space-y-6">
-            {highlights.map((item, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                className="pl-5"
-                style={{ borderLeft: `2px solid ${PALETTE.primary}40` }}
-              >
-                <h3 className="text-[16px] mb-1" style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}>
-                  {item.title}
-                </h3>
-                <p className="text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", color: PALETTE.textTertiary }}>
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </StaggerOnScroll>
-
+          <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p
+              className="text-[15px] leading-[1.8] mb-10 max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Built with respect for the land and its people, our lodge honors ancestral Polynesian architecture — green-roofed structures supported by hand-carved wooden pillars, surrounded by native gardens and the endless blue of the South Pacific.
+            </p>
+          </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/hangaroa/wellness"
-              className="inline-block mt-10 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+              href="/hangaroa/sustainability"
+              className="inline-block text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >
-              Explore Wellness →
+              Our Commitment →
             </a>
           </AnimateOnScroll>
         </div>
@@ -587,45 +586,106 @@ function BlueWaterWellnessSection() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   5. WELLNESS — Horizontal layout
-   Full-width landscape + content below
+   4. SUSTAINABILITY — Rapa Nui Partnership (vertical)
+   Text left, Taumana warrior image right
    ═══════════════════════════════════════════════════════════════ */
-function WellnessSection() {
+function SustainabilitySection() {
   return (
-    <section style={{ backgroundColor: PALETTE.gradientStart }}>
-      {/* Horizontal hero */}
-      <MediaReveal>
-        <div className="relative overflow-hidden" style={{ aspectRatio: "21/9" }}>
-          <img src={CDN.rapaNuiWarrior} alt="Rapa Nui wellness" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
-          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-            <h2 className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-              {hangaroa.theme.spaHeadline.replace("\n", " ")}
-            </h2>
-          </div>
-        </div>
-      </MediaReveal>
-
-      {/* Content */}
-      <div className={sectionPadding}>
-        <div className={maxW}>
+    <section style={{ backgroundColor: PALETTE.gradientEnd }}>
+      <div className="flex flex-col md:flex-row">
+        {/* LEFT — Text content */}
+        <div className="w-full md:w-1/2 md:order-1 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <p className="text-[15px] leading-[1.8] mb-10 max-w-2xl" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-              Ancient Polynesian healing traditions meet modern wellness in a sanctuary where the Pacific Ocean provides the soundtrack and volcanic minerals nourish the body.
+            <SectionLabel>Rapa Nui Partnership</SectionLabel>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+            <h2
+              className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-8"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Guardians of the Island
+            </h2>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.2}>
+            <p
+              className="text-[15px] leading-[1.8] mb-6 max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Our partnership with the Rapa Nui community goes beyond hospitality. Through renewable energy, water conservation, plastic elimination, and cultural preservation programs, we work alongside island leaders to protect this UNESCO World Heritage Site for future generations.
             </p>
           </AnimateOnScroll>
-
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
+            <p
+              className="text-[15px] leading-[1.8] mb-10 max-w-[480px]"
+              style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+            >
+              Taumana, a Rapa Nui cultural ambassador, carries forward the traditions of his ancestors — sharing the stories, dances, and spiritual practices that have defined this island for over a thousand years.
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/hangaroa/wellness"
-              className="inline-block mt-2 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
+              href="/hangaroa/sustainability"
+              className="inline-block text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
             >
-              Explore Wellness →
+              Explore Sustainability →
             </a>
           </AnimateOnScroll>
         </div>
+
+        {/* RIGHT — Vertical image with transparent pill overlay */}
+        <div className="w-full md:w-1/2 md:order-2 relative">
+          <MediaReveal delay={0.1}>
+            <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+              <img
+                src={CDN.sustainabilityImage}
+                alt="Taumana, Rapa Nui cultural ambassador in traditional ceremonial dress"
+                className="w-full h-full object-cover"
+                decoding="async"
+                loading="lazy"
+              />
+              {/* Transparent pill CTA on image */}
+              <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
+                <a
+                  href="/journal/hangaroa-sustainability"
+                  className="inline-block px-6 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
+                  style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", border: "1px solid rgba(255,255,255,0.5)" }}
+                >
+                  Watch Taumana's Story
+                </a>
+              </div>
+            </div>
+          </MediaReveal>
+        </div>
       </div>
+    </section>
+  );
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   5. WELLNESS — Horizontal (full-width image with overlaid pill)
+   Touches sustainability above and gastronomy below
+   ═══════════════════════════════════════════════════════════════ */
+function WellnessSection() {
+  return (
+    <section>
+      <MediaReveal>
+        <div className="relative overflow-hidden" style={{ aspectRatio: "21/9" }}>
+          <img src={CDN.wellnessHorizontal} alt="Hangaroa spa courtyard" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40 pointer-events-none" />
+          {/* Transparent pill CTA overlaid on image */}
+          <div className="absolute bottom-8 md:bottom-12 left-0 right-0 flex justify-center z-10">
+            <a
+              href="/hangaroa/wellness"
+              className="inline-block px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", border: "1px solid rgba(255,255,255,0.5)" }}
+            >
+              Explore Wellness
+            </a>
+          </div>
+        </div>
+      </MediaReveal>
     </section>
   );
 }
@@ -706,56 +766,41 @@ function GastronomySection() {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   7. BY NIGHT — Horizontal layout
-   Full-width landscape + text below or vertical video + landscape
+   7. BY NIGHT — Horizontal (full-width video with overlaid text)
+   Touches gastronomy above
    ═══════════════════════════════════════════════════════════════ */
 function ByNightSection() {
-  const DARK = "#000000";
-  const MIDDLE = "#536878";
-
   return (
-    <section style={{ backgroundColor: DARK }}>
-      <div className="flex flex-col md:flex-row">
-        {/* LEFT — Text content */}
-        <div className="w-full md:w-1/2 md:order-1 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
-          <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel color={MIDDLE}>Nayara by Night</SectionLabel>
-          </AnimateOnScroll>
-          <AnimateOnScroll variants={fadeUp} delay={0.1}>
+    <section>
+      <MediaReveal>
+        <div className="relative overflow-hidden" style={{ aspectRatio: "21/9" }}>
+          <video
+            src={CDN.byNightHorizontal}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
+          {/* Overlaid text */}
+          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
+            <p
+              className="text-[11px] tracking-[0.2em] mb-3 uppercase"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}
+            >
+              Nayara by Night
+            </p>
             <h2
-              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide mb-8"
+              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               Moai Beneath the Milky Way
             </h2>
-          </AnimateOnScroll>
-          <AnimateOnScroll variants={fadeUp} delay={0.2}>
-            <p
-              className="text-[15px] leading-[1.8] max-w-[480px]"
-              style={{ fontFamily: "var(--font-body)", color: "#FFFFFFCC" }}
-            >
-              On Easter Island, the ancient Moai stand as silent witnesses to the cosmos. At Hangaroa, the night sky is a living canvas — the Milky Way stretches from horizon to horizon above these monolithic guardians. Sunrise and sunset paint the stone figures in gold, while after dark, the stars claim the island entirely.
-            </p>
-          </AnimateOnScroll>
+          </div>
         </div>
-
-        {/* RIGHT — Vertical video */}
-        <div className="w-full md:w-1/2 md:order-2">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <video
-                src={CDN.byNightVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </MediaReveal>
-        </div>
-      </div>
+      </MediaReveal>
     </section>
   );
 }

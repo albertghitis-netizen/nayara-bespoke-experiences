@@ -297,7 +297,7 @@ export default function BrandNavigation({
 
             <AnimatePresence>
               {menuOpen && (
-                <motion.div {...dropdownAnim} className={`${dropdownCls} left-0 top-full w-56`}>
+                <motion.div {...dropdownAnim} className={`${dropdownCls} left-0 top-full w-64`}>
                   {renderMenuContent()}
                 </motion.div>
               )}
