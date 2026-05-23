@@ -4,7 +4,7 @@
  * Layout: Text LEFT, Video/Image RIGHT (consistent, no alternating)
  * Navigation: Elegant thin-line arrows + slide counter
  */
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ── Typography ── */
@@ -62,8 +62,9 @@ export default function RoomSlider({
   const [direction, setDirection] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
-  const mouseStartX = useRef(0);
-  const isDragging = useRef(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const dragStartX = useRef(0);
+  const dragging = useRef(false);
 
   const handlePrev = () => {
     setDirection(-1);
@@ -74,6 +75,12 @@ export default function RoomSlider({
     setDirection(1);
     setCurrentIndex((prev) => (prev === rooms.length - 1 ? 0 : prev + 1));
   };
+
+  // Store latest handlers in refs so the effect closure always calls current versions
+  const handlePrevRef = useRef(handlePrev);
+  const handleNextRef = useRef(handleNext);
+  handlePrevRef.current = handlePrev;
+  handleNextRef.current = handleNext;
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.changedTouches[0].clientX;
@@ -88,28 +95,37 @@ export default function RoomSlider({
     }
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    // Don't hijack clicks on buttons/links
-    const target = e.target as HTMLElement;
-    if (target.closest('button') || target.closest('a')) return;
-    e.preventDefault();
-    mouseStartX.current = e.clientX;
-    isDragging.current = true;
-  };
+  // Mouse drag — native DOM listeners for reliability
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
 
-  const handleMouseUp = (e: React.MouseEvent) => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
-    const diff = mouseStartX.current - e.clientX;
-    if (Math.abs(diff) > 60) {
-      if (diff > 0) handleNext();
-      else handlePrev();
-    }
-  };
+    const onMouseDown = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('button') || target.closest('a')) return;
+      e.preventDefault();
+      dragStartX.current = e.clientX;
+      dragging.current = true;
+    };
 
-  const handleMouseLeave = () => {
-    isDragging.current = false;
-  };
+    const onMouseUp = (e: MouseEvent) => {
+      if (!dragging.current) return;
+      dragging.current = false;
+      const diff = dragStartX.current - e.clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) handleNextRef.current();
+        else handlePrevRef.current();
+      }
+    };
+
+    el.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mouseup', onMouseUp);
+
+    return () => {
+      el.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mouseup', onMouseUp);
+    };
+  }, []);
 
   const pillBg = palette.pillBg || palette.primary;
   const pillText = palette.pillText || "#ffffff";
@@ -129,13 +145,11 @@ export default function RoomSlider({
 
   return (
     <section
+      ref={sectionRef}
       className="relative w-full h-screen overflow-hidden cursor-grab active:cursor-grabbing"
       style={{ backgroundColor: palette.bg }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
     >
       {/* ─── DESKTOP LAYOUT ─── */}
       <div className="hidden md:flex w-full h-full">
