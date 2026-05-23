@@ -77,24 +77,24 @@ const CDN = {
    ═══════════════════════════════════════════════════════════════ */
 const HANGAROA_ROOMS: RoomSliderCard[] = [
   {
-    id: "rapa-nui-suite",
-    label: "Rapa Nui Suite",
+    id: "kainga-room",
+    label: "Kainga",
     tagline: "Polynesian-inspired with panoramic ocean views",
-    description: "Spacious suites inspired by the island's volcanic landscape, with panoramic ocean views, private terraces, and locally crafted furnishings that honor Polynesian heritage.",
+    description: "Organic curves and volcanic stone frame a sanctuary inspired by Rapa Nui's ancient dwellings. Handcrafted wood columns, ambient lighting, and open-plan design connect you to the island's elemental beauty.",
     guests: "2 Adults",
     video: "",
-    photo: CDN.s3,
+    photo: "/manus-storage/NayaraHangaroa-KaingaRoom(67)_2136573a.jpg",
     exploreLink: "/hangaroa/rooms",
     bookingUrl: BOOKING_URLS.hangaroa,
   },
   {
-    id: "ariki-suite",
-    label: "Ariki Suite",
-    tagline: "Named after the ancient Rapa Nui chiefs",
-    description: "Our premium accommodations with spacious living areas, a private garden with outdoor shower, and direct access to native gardens. Each suite tells the island's story through local art and traditional motifs.",
+    id: "maunga-room",
+    label: "Maunga",
+    tagline: "Spacious living inspired by the island's volcanic peaks",
+    description: "Named after the island's sacred mountains, the Maunga suite offers a generous living area with built-in stone seating, driftwood art, and natural textures that echo the raw beauty of Easter Island's landscape.",
     guests: "2 Adults + 1 Child",
     video: "",
-    photo: CDN.facePaint,
+    photo: "/manus-storage/Hotel_Rooms_Suite_NH00009_73995641.jpeg",
     exploreLink: "/hangaroa/rooms",
     bookingUrl: BOOKING_URLS.hangaroa,
   },
@@ -538,7 +538,7 @@ function SustainabilitySection() {
         <div className="w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img src={CDN.warriorPortrait} alt="Rapa Nui warrior" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+              <img src={CDN.facePaint} alt="Rapa Nui cultural heritage" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </MediaReveal>
         </div>
