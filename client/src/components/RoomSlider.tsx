@@ -262,21 +262,21 @@ export default function RoomSlider({
               transition={{ type: "tween", duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               className="absolute inset-0 flex"
             >
-              {/* Video/Image half — flush top to bottom */}
-              <div className="w-1/2 h-full">
+              {/* Video/Image half — no crop, starts at left edge */}
+              <div className="w-1/2 h-full overflow-visible flex justify-start">
                 {currentRoom.video ? (
                   <video
                     src={currentRoom.video}
                     autoPlay
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="h-full w-auto max-w-none"
                   />
                 ) : currentRoom.photo ? (
                   <img
                     src={currentRoom.photo}
                     alt={currentRoom.label}
-                    className="w-full h-full object-cover"
+                    className="h-full w-auto max-w-none"
                   />
                 ) : null}
               </div>
@@ -425,21 +425,21 @@ export default function RoomSlider({
                   )}
                 </div>
               </div>
-              {/* Video/Image half — flush top to bottom */}
-              <div className="w-1/2 h-full">
+              {/* Video/Image half — no crop, starts at right edge */}
+              <div className="w-1/2 h-full overflow-visible flex justify-end">
                 {currentRoom.video ? (
                   <video
                     src={currentRoom.video}
                     autoPlay
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="h-full w-auto max-w-none"
                   />
                 ) : currentRoom.photo ? (
                   <img
                     src={currentRoom.photo}
                     alt={currentRoom.label}
-                    className="w-full h-full object-cover"
+                    className="h-full w-auto max-w-none"
                   />
                 ) : null}
               </div>
