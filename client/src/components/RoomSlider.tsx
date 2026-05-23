@@ -62,6 +62,8 @@ export default function RoomSlider({
   const [direction, setDirection] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const mouseStartX = useRef(0);
+  const isDragging = useRef(false);
 
   const handlePrev = () => {
     setDirection(-1);
@@ -86,6 +88,25 @@ export default function RoomSlider({
     }
   };
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    mouseStartX.current = e.clientX;
+    isDragging.current = true;
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    const diff = mouseStartX.current - e.clientX;
+    if (Math.abs(diff) > 60) {
+      if (diff > 0) handleNext();
+      else handlePrev();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+  };
+
   const pillBg = palette.pillBg || palette.primary;
   const pillText = palette.pillText || "#ffffff";
   const currentRoom = rooms[currentIndex];
@@ -104,10 +125,13 @@ export default function RoomSlider({
 
   return (
     <section
-      className="relative w-full h-screen overflow-hidden"
+      className="relative w-full h-screen overflow-hidden cursor-grab active:cursor-grabbing"
       style={{ backgroundColor: palette.bg }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
     >
       {/* ─── DESKTOP LAYOUT ─── */}
       <div className="hidden md:flex w-full h-full">
