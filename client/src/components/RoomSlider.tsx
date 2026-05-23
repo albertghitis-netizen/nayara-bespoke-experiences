@@ -262,8 +262,8 @@ export default function RoomSlider({
               transition={{ type: "tween", duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               className="absolute inset-0 flex"
             >
-              {/* Video/Image half */}
-              <div className="relative w-1/2 h-full overflow-hidden">
+              {/* Video/Image half — flush top to bottom */}
+              <div className="w-1/2 h-full">
                 {currentRoom.video ? (
                   <video
                     src={currentRoom.video}
@@ -425,8 +425,8 @@ export default function RoomSlider({
                   )}
                 </div>
               </div>
-              {/* Video/Image half */}
-              <div className="relative w-1/2 h-full overflow-hidden">
+              {/* Video/Image half — flush top to bottom */}
+              <div className="w-1/2 h-full">
                 {currentRoom.video ? (
                   <video
                     src={currentRoom.video}
