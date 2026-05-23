@@ -89,6 +89,10 @@ export default function RoomSlider({
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
+    // Don't hijack clicks on buttons/links
+    const target = e.target as HTMLElement;
+    if (target.closest('button') || target.closest('a')) return;
+    e.preventDefault();
     mouseStartX.current = e.clientX;
     isDragging.current = true;
   };
@@ -307,7 +311,7 @@ export default function RoomSlider({
         </div>
 
         {/* Video/Image half */}
-        <div className="relative w-1/2 h-full overflow-hidden">
+        <div className="relative w-1/2 h-full overflow-hidden cursor-grab active:cursor-grabbing select-none">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={`media-${currentIndex}`}
