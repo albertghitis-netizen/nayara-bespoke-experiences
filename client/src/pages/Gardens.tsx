@@ -133,6 +133,8 @@ const GARDENS_ROOMS: RoomSliderCard[] = [
     id: "arenal-pool-casita",
     label: "Arenal Pool Casita",
     tagline: "Private plunge pool villas in the rainforest canopy",
+    description: "Freestanding casitas nestled within tropical gardens, each with a heated plunge pool, open-air garden shower, and handcrafted furnishings. Floor-to-ceiling windows frame Arenal Volcano while howler monkeys call from the canopy above.",
+    sqft: "1,001",
     sqm: "93",
     guests: "2 Adults + 1 Child",
     video: "/manus-storage/arenal-pool-casita-reel_223077fb.mp4",
@@ -144,6 +146,8 @@ const GARDENS_ROOMS: RoomSliderCard[] = [
     id: "rainforest-pool-villa",
     label: "Rainforest Pool Villa",
     tagline: "Expansive villas with panoramic volcano views",
+    description: "Our most spacious accommodation features a separate living area, wraparound terrace with daybed, and an oversized infinity plunge pool overlooking the rainforest canopy. Deep soaking tubs, dual vanities, and bespoke Costa Rican artwork complete the experience.",
+    sqft: "2,002",
     sqm: "186",
     guests: "2 Adults + 2 Children",
     video: "/manus-storage/gardens-rpv-vertical-916_94afded7.mp4",
@@ -452,6 +456,7 @@ function StorySection() {
           headline="Private Pool Villas"
           description="Each villa is a private retreat with its own heated plunge pool, open-air garden shower, and panoramic views of Arenal Volcano."
           rooms={GARDENS_ROOMS}
+          forceVideoLeft={true}
           palette={{
             bg: PALETTE.gradientStart,
             text: PALETTE.text,

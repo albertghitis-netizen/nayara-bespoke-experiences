@@ -169,6 +169,9 @@ const ATACAMA_ROOMS: RoomSliderCard[] = [
     id: "quitor",
     label: "Quitor",
     tagline: "Adobe-walled retreat nestled against ancient red rock cliffs",
+    description: "Intimate adobe-walled rooms inspired by the ancient Quitor fortress, featuring handcrafted furnishings, heated floors, and private terraces facing the Andes. Natural materials and earth tones create a seamless connection between interior and desert landscape.",
+    sqft: "538",
+    sqm: "50",
     guests: "2 Adults",
     video: "",
     photo: "/manus-storage/quitor-room_6867de44.jpg",
@@ -180,6 +183,9 @@ const ATACAMA_ROOMS: RoomSliderCard[] = [
     id: "catarpe",
     label: "Catarpe",
     tagline: "Panoramic desert views with private heated infinity pool",
+    description: "Elevated rooms with floor-to-ceiling windows capturing the vast Atacama horizon. Each Catarpe features a private heated plunge pool, outdoor shower, and a terrace designed for stargazing under the world's clearest skies.",
+    sqft: "753",
+    sqm: "70",
     guests: "2 Adults",
     video: "",
     photo: "/manus-storage/tilo-bedroom_0dc2bdea.jpeg",
@@ -191,6 +197,9 @@ const ATACAMA_ROOMS: RoomSliderCard[] = [
     id: "tilo-suite",
     label: "Tilo Suite",
     tagline: "Premium suites with expansive terraces and desert panoramas",
+    description: "Our most spacious desert accommodation, the Tilo Suite offers a separate living area, oversized heated infinity pool, and a wraparound terrace with unobstructed 180-degree views of the Andes and salt flats. Handwoven textiles and local art honour Atacameño heritage.",
+    sqft: "1,184",
+    sqm: "110",
     guests: "2 Adults + 1 Child",
     video: "",
     photo: "/manus-storage/tilo-pool_8ad0bd6b.jpg",
@@ -333,7 +342,7 @@ function CascadeTextBlock({
             <a
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
-              className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              className="atacama-pill-hover inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300"
               style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? BONE : PALETTE.text, backgroundColor: "transparent", border: isDark ? `1px solid ${BONE}50` : `1px solid ${PALETTE.text}40` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -347,7 +356,7 @@ function CascadeTextBlock({
       {link && (
         <a
           href={link}
-          className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] w-fit"
+          className={`${isDark ? '' : 'atacama-pill-hover'} inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-full transition-all duration-300 w-fit`}
           style={{
             fontFamily: "var(--font-body)",
             fontWeight: 500,
@@ -480,7 +489,7 @@ function CascadeSection({
             <a
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
-              className="inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              className="atacama-pill-hover inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300"
               style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: PALETTE.text, backgroundColor: "transparent", border: `1px solid ${PALETTE.text}40` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -500,7 +509,7 @@ function CascadeSection({
         <AnimateOnScroll variants={fadeUp} delay={0.4}>
           <a
             href={link}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] w-fit"
+            className="atacama-pill-hover inline-flex items-center gap-2 px-4 py-2.5 rounded-full border backdrop-blur-sm transition-all duration-300 w-fit"
             style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: PALETTE.text, backgroundColor: "rgba(58,42,26,0.08)", borderColor: "rgba(58,42,26,0.25)" }}
           >
             {linkLabel || "Explore"}
@@ -610,7 +619,7 @@ const CASCADE_SECTIONS = [
     vVideo: true, hVideo: false,
     vRatio: "3/4", hRatio: "16/9",
 
-    textSide: "left" as const,
+    textSide: "right" as const,
     blogLink: "/blog/atacama-oasis",
     blogLinkLabel: "Read: Atacama Desert's True Oasis",
     badges: false,

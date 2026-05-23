@@ -435,3 +435,22 @@ footer .newsletter-cta:hover {
 footer .newsletter-cta:hover .newsletter-text {
   opacity: 0.6 !important;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   ATACAMA — Transparent pills on background hover to terracotta
+   ═══════════════════════════════════════════════════════════ */
+.atacama-pill-hover {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease !important;
+}
+
+.atacama-pill-hover:hover {
+  background-color: #B85C3C !important;
+  border-color: #B85C3C !important;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+  transform: scale(1.02) !important;
+}
+
+.atacama-pill-hover:hover svg {
+  stroke: #FFFFFF !important;
+}

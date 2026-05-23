@@ -109,7 +109,10 @@ const SPRINGS_ROOMS: RoomSliderCard[] = [
   {
     id: "springs-villa",
     label: "Springs Villa",
-    tagline: "with its own hot springs plunge pool",
+    tagline: "Private hot spring pool fed by volcanic mineral water",
+    description: "Freestanding villas with private natural hot spring-fed plunge pools, outdoor garden showers, and floor-to-ceiling windows framing the Arenal Volcano. Each villa is a secluded sanctuary in the rainforest canopy, designed exclusively for adults seeking the ultimate in privacy and relaxation.",
+    sqft: "1,076",
+    sqm: "100",
     guests: "2 Adults",
     video: "",
     photo: "/manus-storage/springs-r5-28782-edited_dbb6870b.jpg",

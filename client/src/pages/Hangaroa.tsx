@@ -81,6 +81,8 @@ const HANGAROA_ROOMS: RoomSliderCard[] = [
     label: "Kainga",
     tagline: "Polynesian-inspired with panoramic ocean views",
     description: "Organic curves and volcanic stone frame a sanctuary inspired by Rapa Nui's ancient dwellings. Handcrafted wood columns, ambient lighting, and open-plan design connect you to the island's elemental beauty.",
+    sqft: "484",
+    sqm: "45",
     guests: "2 Adults",
     video: "",
     photo: "/manus-storage/NayaraHangaroa-KaingaRoom(67)_2136573a.jpg",
@@ -92,6 +94,8 @@ const HANGAROA_ROOMS: RoomSliderCard[] = [
     label: "Maunga",
     tagline: "Spacious living inspired by the island's volcanic peaks",
     description: "Named after the island's sacred mountains, the Maunga suite offers a generous living area with built-in stone seating, driftwood art, and natural textures that echo the raw beauty of Easter Island's landscape.",
+    sqft: "646",
+    sqm: "60",
     guests: "2 Adults + 1 Child",
     video: "",
     photo: "/manus-storage/Hotel_Rooms_Suite_NH00009_73995641.jpeg",
@@ -157,9 +161,6 @@ export default function Hangaroa() {
       {/* ★ HERO — Full-screen hero video */}
       <HeroSection />
 
-      {/* ★ S1 — Vertical video right, badges left */}
-      <S1Section />
-
       {/* ★ ACCOMMODATIONS — RoomSlider with horizontal scroll */}
       <div id="rooms">
         <RoomSlider
@@ -167,6 +168,7 @@ export default function Hangaroa() {
           headline={"Island Suites"}
           description="Each suite is a private sanctuary inspired by Rapa Nui's volcanic landscape and Polynesian heritage, with ocean views, private terraces, and locally crafted furnishings."
           rooms={HANGAROA_ROOMS}
+          forceVideoLeft={true}
           palette={{
             bg: PALETTE.gradientEnd,
             text: PALETTE.text,
@@ -471,39 +473,34 @@ function S1Section() {
 function ExperiencesSection() {
   return (
     <section style={{ backgroundColor: PALETTE.gradientStart }}>
-      {/* Horizontal hero image */}
+      {/* Horizontal hero image with overlay text */}
       <MediaReveal>
         <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
           <img src="/manus-storage/4O1A8442-NayaraHangaroa-EasterIsland-withMischellRodriguezbyBriceFerreStudio_84e439c2.jpeg" alt="Moai statues at Ahu Tongariki, Easter Island" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
-          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
-            <h2 className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
-              Cultural Journeys
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/60 pointer-events-none" />
+          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10 max-w-xl">
+            <p
+              className="text-[10px] tracking-[0.2em] uppercase mb-3 text-white/70"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
+            >
+              Experiences
+            </p>
+            <h2 className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide mb-4" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+              Walking with Giants
             </h2>
+            <p className="text-white/80 text-sm md:text-[15px] leading-[1.7] mb-6" style={{ fontFamily: "var(--font-body)" }}>
+              From sacred Moai sites to volcanic crater lakes and hidden caves, every experience on Easter Island connects you to one of the world's most mysterious civilizations.
+            </p>
+            <a
+              href="/hangaroa/experiences"
+              className="inline-block px-5 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", border: "1px solid rgba(255,255,255,0.5)" }}
+            >
+              Explore Experiences
+            </a>
           </div>
         </div>
       </MediaReveal>
-
-      {/* Content below */}
-      <div className={sectionPadding}>
-        <div className={maxW}>
-          <AnimateOnScroll variants={fadeUp}>
-            <p className="text-[15px] leading-[1.8] mb-10 max-w-2xl" style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}>
-              From sacred Moai sites to volcanic crater lakes and hidden caves, every experience on Easter Island connects you to one of the world's most mysterious civilizations.
-            </p>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <a
-              href="/hangaroa/experiences"
-              className="inline-block mt-2 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
-            >
-              Explore All Experiences →
-            </a>
-          </AnimateOnScroll>
-        </div>
-      </div>
     </section>
   );
 }
