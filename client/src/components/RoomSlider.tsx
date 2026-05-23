@@ -1,11 +1,11 @@
 /**
- * ROOM SLIDER — Full-screen layout
+ * ROOM SLIDER — Full-screen horizontal scroll with snap
  *
- * Layout: Text LEFT, Video/Image RIGHT (consistent, no alternating)
- * Navigation: Elegant thin-line arrows + slide counter
+ * Layout: Each room is a full-width panel (Text LEFT, Video/Image RIGHT)
+ * Navigation: CSS scroll-snap + arrows + synced counter
+ * Scroll naturally sideways (trackpad, shift+wheel) OR use arrows — both stay in sync.
  */
-import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 /* ── Typography ── */
 const display: React.CSSProperties = { fontFamily: "var(--font-display)", fontWeight: 400 };
@@ -59,417 +59,458 @@ export default function RoomSlider({
   palette,
 }: RoomSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const dragStartX = useRef(0);
-  const dragging = useRef(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isScrolling = useRef(false);
+  const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const pillBg = palette.pillBg || palette.primary;
+  const pillText = palette.pillText || "#ffffff";
+
+  // Detect which slide is visible based on scroll position
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el || isScrolling.current) return;
+
+    const scrollLeft = el.scrollLeft;
+    const width = el.clientWidth;
+    const index = Math.round(scrollLeft / width);
+    
+    if (index !== currentIndex && index >= 0 && index < rooms.length) {
+      setCurrentIndex(index);
+    }
+  }, [currentIndex, rooms.length]);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const onScroll = () => {
+      handleScroll();
+    };
+
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [handleScroll]);
+
+  // Convert vertical scroll to horizontal scroll within the section
+  // Attach to the scroll container itself — this catches wheel events when
+  // the mouse is over the section.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const onWheel = (e: WheelEvent) => {
+      // If there's horizontal delta (trackpad side-swipe), let it work naturally
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+
+      // Convert vertical scroll to horizontal
+      if (Math.abs(e.deltaY) > 5) {
+        e.preventDefault();
+        e.stopPropagation();
+        el.scrollBy({ left: e.deltaY * 2, behavior: "auto" });
+      }
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
+
+  // Programmatic scroll to index (for arrows)
+  const scrollToIndex = useCallback((index: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    isScrolling.current = true;
+    setCurrentIndex(index);
+
+    el.scrollTo({
+      left: index * el.clientWidth,
+      behavior: "smooth",
+    });
+
+    // Reset the flag after animation completes
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    scrollTimeout.current = setTimeout(() => {
+      isScrolling.current = false;
+    }, 500);
+  }, []);
 
   const handlePrev = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev === 0 ? rooms.length - 1 : prev - 1));
+    const newIndex = currentIndex === 0 ? rooms.length - 1 : currentIndex - 1;
+    scrollToIndex(newIndex);
   };
 
   const handleNext = () => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev === rooms.length - 1 ? 0 : prev + 1));
+    const newIndex = currentIndex === rooms.length - 1 ? 0 : currentIndex + 1;
+    scrollToIndex(newIndex);
   };
 
-  // Store latest handlers in refs so the effect closure always calls current versions
-  const handlePrevRef = useRef(handlePrev);
-  const handleNextRef = useRef(handleNext);
-  handlePrevRef.current = handlePrev;
-  handleNextRef.current = handleNext;
+  return (
+    <section className="relative w-full h-screen" style={{ backgroundColor: palette.bg }}>
+      {/* ─── DESKTOP: Horizontal scroll container ─── */}
+      <div className="hidden md:block w-full h-full">
+        {/* The scrollable track */}
+        <style>{`
+          .room-scroll-container::-webkit-scrollbar { display: none; }
+        `}</style>
+        <div
+          ref={scrollRef}
+          className="room-scroll-container w-full h-full overflow-x-auto overflow-y-hidden"
+          style={{
+            scrollSnapType: "x mandatory",
+            scrollBehavior: "auto",
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
+          <div
+            className="flex h-full"
+            style={{ width: `${rooms.length * 100}%` }}
+          >
+            {rooms.map((room, i) => (
+              <div
+                key={room.id}
+                className="flex h-full"
+                style={{
+                  width: `${100 / rooms.length}%`,
+                  scrollSnapAlign: "start",
+                }}
+              >
+                {/* Text half */}
+                <div
+                  className="w-1/2 h-full flex items-center px-12 lg:px-16 xl:px-20"
+                  style={{ backgroundColor: palette.bg }}
+                >
+                  <div className="w-full">
+                    <p
+                      className="text-[10px] tracking-[0.2em] uppercase mb-4"
+                      style={{ ...body, fontWeight: 500, color: palette.primary }}
+                    >
+                      {sectionLabel}
+                    </p>
+                    <h2
+                      className="text-3xl lg:text-4xl xl:text-5xl tracking-wide mb-3"
+                      style={{ ...display, color: palette.text }}
+                    >
+                      {room.label}
+                    </h2>
+                    {room.tagline && (
+                      <p
+                        className="text-sm lg:text-base tracking-[0.03em] mb-3 max-w-[400px]"
+                        style={{ ...body, color: palette.textSecondary }}
+                      >
+                        {room.tagline}
+                      </p>
+                    )}
+                    {room.description && (
+                      <p
+                        className="text-xs lg:text-sm leading-relaxed mb-6 max-w-[400px]"
+                        style={{ ...body, color: palette.textTertiary || palette.textSecondary }}
+                      >
+                        {room.description}
+                      </p>
+                    )}
+
+                    {/* Stats */}
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {room.sqft && (
+                        <span
+                          className="text-[11px] tracking-[0.08em] px-3 py-1.5 rounded-full"
+                          style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}20` }}
+                        >
+                          {room.sqft} sqft
+                        </span>
+                      )}
+                      {room.sqm && (
+                        <span
+                          className="text-[11px] tracking-[0.08em] px-3 py-1.5 rounded-full"
+                          style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}20` }}
+                        >
+                          {room.sqm} m²
+                        </span>
+                      )}
+                      <span
+                        className="text-[11px] tracking-[0.08em] px-3 py-1.5 rounded-full"
+                        style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}20` }}
+                      >
+                        {room.guests}
+                      </span>
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="flex gap-4">
+                      <a
+                        href={room.exploreLink}
+                        className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit"
+                        style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}
+                      >
+                        Explore
+                      </a>
+                      <a
+                        href={room.bookingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit"
+                        style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: palette.text, border: `1px solid ${palette.textSecondary}40` }}
+                      >
+                        Reserve
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Video/Image half */}
+                <div className="w-1/2 h-full overflow-hidden">
+                  {room.video ? (
+                    <video
+                      src={room.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : room.photo ? (
+                    <img
+                      src={room.photo}
+                      alt={room.label}
+                      className="w-full h-full object-cover"
+                      draggable={false}
+                    />
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation arrows + counter — fixed overlay */}
+        {rooms.length > 1 && !hideArrows && (
+          <div className="absolute bottom-12 left-12 lg:left-16 xl:left-20 z-20 flex items-center gap-5">
+            {/* Prev arrow */}
+            <button
+              onClick={handlePrev}
+              className="group relative w-12 h-12 flex items-center justify-center transition-all duration-300"
+            >
+              <span
+                className="absolute inset-0 rounded-full transition-all duration-300 group-hover:scale-110"
+                style={{ backgroundColor: "#868B75" }}
+              />
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="relative z-10 transition-transform duration-300 group-hover:-translate-x-0.5"
+              >
+                <path
+                  d="M20 12H4M4 12L10 6M4 12L10 18"
+                  stroke="#ffffff"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {/* Counter */}
+            <div className="flex items-center gap-2">
+              <span
+                className="text-lg tabular-nums"
+                style={{ ...display, color: palette.text }}
+              >
+                {String(currentIndex + 1).padStart(2, "0")}
+              </span>
+              <span
+                className="w-6 h-px"
+                style={{ backgroundColor: `${palette.textSecondary}50` }}
+              />
+              <span
+                className="text-sm tabular-nums"
+                style={{ ...body, color: `${palette.textSecondary}80` }}
+              >
+                {String(rooms.length).padStart(2, "0")}
+              </span>
+            </div>
+
+            {/* Next arrow */}
+            <button
+              onClick={handleNext}
+              className="group relative w-12 h-12 flex items-center justify-center transition-all duration-300"
+            >
+              <span
+                className="absolute inset-0 rounded-full transition-all duration-300 group-hover:scale-110"
+                style={{ backgroundColor: "#868B75" }}
+              />
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="relative z-10 transition-transform duration-300 group-hover:translate-x-0.5"
+              >
+                <path
+                  d="M4 12H20M20 12L14 6M20 12L14 18"
+                  stroke="#ffffff"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* ─── MOBILE LAYOUT (swipeable full-screen) ─── */}
+      <MobileSlider
+        rooms={rooms}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
+        sectionLabel={sectionLabel}
+        palette={palette}
+        pillBg={pillBg}
+        pillText={pillText}
+      />
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE SLIDER — touch swipe with AnimatePresence
+   ═══════════════════════════════════════════════════════════════ */
+function MobileSlider({
+  rooms,
+  currentIndex,
+  setCurrentIndex,
+  sectionLabel,
+  palette,
+  pillBg,
+  pillText,
+}: {
+  rooms: RoomSliderCard[];
+  currentIndex: number;
+  setCurrentIndex: (i: number) => void;
+  sectionLabel: string;
+  palette: RoomSliderProps["palette"];
+  pillBg: string;
+  pillText: string;
+}) {
+  const touchStartX = useRef(0);
+  const [direction, setDirection] = useState(0);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.changedTouches[0].clientX;
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    touchEndX.current = e.changedTouches[0].clientX;
-    const diff = touchStartX.current - touchEndX.current;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) {
-      if (diff > 0) handleNext();
-      else handlePrev();
+      if (diff > 0) {
+        setDirection(1);
+        setCurrentIndex(currentIndex === rooms.length - 1 ? 0 : currentIndex + 1);
+      } else {
+        setDirection(-1);
+        setCurrentIndex(currentIndex === 0 ? rooms.length - 1 : currentIndex - 1);
+      }
     }
   };
 
-  // Mouse drag — native DOM listeners for reliability
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const onMouseDown = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest('button') || target.closest('a')) return;
-      e.preventDefault();
-      dragStartX.current = e.clientX;
-      dragging.current = true;
-    };
-
-    const onMouseUp = (e: MouseEvent) => {
-      if (!dragging.current) return;
-      dragging.current = false;
-      const diff = dragStartX.current - e.clientX;
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) handleNextRef.current();
-        else handlePrevRef.current();
-      }
-    };
-
-    el.addEventListener('mousedown', onMouseDown);
-    window.addEventListener('mouseup', onMouseUp);
-
-    return () => {
-      el.removeEventListener('mousedown', onMouseDown);
-      window.removeEventListener('mouseup', onMouseUp);
-    };
-  }, []);
-
-  const pillBg = palette.pillBg || palette.primary;
-  const pillText = palette.pillText || "#ffffff";
   const currentRoom = rooms[currentIndex];
 
   const slideVariants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
-    center: { zIndex: 1, x: 0, opacity: 1 },
-    exit: (dir: number) => ({ zIndex: 0, x: dir < 0 ? 80 : -80, opacity: 0 }),
-  };
-
-  const mediaVariants = {
-    enter: (dir: number) => ({ opacity: 0, scale: 1.03 }),
-    center: { zIndex: 1, opacity: 1, scale: 1 },
-    exit: (dir: number) => ({ zIndex: 0, opacity: 0, scale: 0.97 }),
+    enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir < 0 ? "100%" : "-100%", opacity: 0 }),
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full h-screen overflow-hidden cursor-grab active:cursor-grabbing"
-      style={{ backgroundColor: palette.bg }}
+    <div
+      className="md:hidden w-full h-full relative overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* ─── DESKTOP LAYOUT ─── */}
-      <div className="hidden md:flex w-full h-full">
-        {/* Text half */}
-        <div
-          className="w-1/2 h-full flex items-center px-12 lg:px-16 xl:px-20"
-          style={{ backgroundColor: palette.bg }}
-        >
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={`text-${currentIndex}`}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="w-full"
-            >
-              <p
-                className="text-[10px] tracking-[0.2em] uppercase mb-4"
-                style={{ ...body, fontWeight: 500, color: palette.primary }}
-              >
-                {sectionLabel}
-              </p>
-              <h2
-                className="text-3xl lg:text-4xl xl:text-5xl tracking-wide mb-3"
-                style={{ ...display, color: palette.text }}
-              >
-                {currentRoom.label}
-              </h2>
-              {currentRoom.tagline && (
-                <p
-                  className="text-sm lg:text-base tracking-[0.03em] mb-3 max-w-[400px]"
-                  style={{ ...body, color: palette.textSecondary }}
-                >
-                  {currentRoom.tagline}
-                </p>
-              )}
-              {currentRoom.description && (
-                <p
-                  className="text-xs lg:text-sm leading-relaxed mb-6 max-w-[400px]"
-                  style={{ ...body, color: palette.textTertiary || palette.textSecondary }}
-                >
-                  {currentRoom.description}
-                </p>
-              )}
+      <div className="absolute inset-0">
+        {currentRoom.video ? (
+          <video
+            key={`mv-${currentIndex}`}
+            src={currentRoom.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        ) : currentRoom.photo ? (
+          <img
+            key={`mi-${currentIndex}`}
+            src={currentRoom.photo}
+            alt={currentRoom.label}
+            className="w-full h-full object-cover"
+          />
+        ) : null}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
+      </div>
 
-              {/* Stats */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {currentRoom.sqft && (
-                  <span
-                    className="text-[11px] tracking-[0.08em] px-3 py-1.5 rounded-full"
-                    style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}20` }}
-                  >
-                    {currentRoom.sqft} sqft
-                  </span>
-                )}
-                {currentRoom.sqm && (
-                  <span
-                    className="text-[11px] tracking-[0.08em] px-3 py-1.5 rounded-full"
-                    style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}20` }}
-                  >
-                    {currentRoom.sqm} m²
-                  </span>
-                )}
-                <span
-                  className="text-[11px] tracking-[0.08em] px-3 py-1.5 rounded-full"
-                  style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}20` }}
-                >
-                  {currentRoom.guests}
-                </span>
-              </div>
-
-              {/* Buttons */}
-              <div className="flex gap-4">
-                <a
-                  href={currentRoom.exploreLink}
-                  className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit"
-                  style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}
-                >
-                  Explore
-                </a>
-                <a
-                  href={currentRoom.bookingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:shadow-md w-fit"
-                  style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: palette.text, border: `1px solid ${palette.textSecondary}40` }}
-                >
-                  Reserve
-                </a>
-              </div>
-
-              {/* Navigation arrows + counter */}
-              {rooms.length > 1 && !hideArrows && (
-                <div className="flex items-center gap-5 mt-12">
-                  {/* Prev arrow */}
-                  <button
-                    onClick={handlePrev}
-                    className="group relative w-12 h-12 flex items-center justify-center transition-all duration-300"
-                  >
-                    <span
-                      className="absolute inset-0 rounded-full transition-all duration-300 group-hover:scale-110"
-                      style={{ backgroundColor: "#868B75" }}
-                    />
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="relative z-10 transition-transform duration-300 group-hover:-translate-x-0.5"
-                    >
-                      <path
-                        d="M20 12H4M4 12L10 6M4 12L10 18"
-                        stroke="#ffffff"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-
-                  {/* Counter */}
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="text-lg tabular-nums"
-                      style={{ ...display, color: palette.text }}
-                    >
-                      {String(currentIndex + 1).padStart(2, "0")}
-                    </span>
-                    <span
-                      className="w-6 h-px"
-                      style={{ backgroundColor: `${palette.textSecondary}50` }}
-                    />
-                    <span
-                      className="text-sm tabular-nums"
-                      style={{ ...body, color: `${palette.textSecondary}80` }}
-                    >
-                      {String(rooms.length).padStart(2, "0")}
-                    </span>
-                  </div>
-
-                  {/* Next arrow */}
-                  <button
-                    onClick={handleNext}
-                    className="group relative w-12 h-12 flex items-center justify-center transition-all duration-300"
-                  >
-                    <span
-                      className="absolute inset-0 rounded-full transition-all duration-300 group-hover:scale-110"
-                      style={{ backgroundColor: "#868B75" }}
-                    />
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="relative z-10 transition-transform duration-300 group-hover:translate-x-0.5"
-                    >
-                      <path
-                        d="M4 12H20M20 12L14 6M20 12L14 18"
-                        stroke="#ffffff"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
+      <div className="absolute bottom-0 left-0 right-0 p-6 pb-16 z-10">
+        <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ ...body, fontWeight: 500, color: palette.primary }}>
+          {sectionLabel}
+        </p>
+        <h2 className="text-white text-2xl tracking-wide mb-1" style={{ ...display }}>
+          {currentRoom.label}
+        </h2>
+        {currentRoom.tagline && (
+          <p className="text-white/80 text-sm mb-2" style={{ ...body }}>
+            {currentRoom.tagline}
+          </p>
+        )}
+        {currentRoom.description && (
+          <p className="text-white/60 text-xs leading-relaxed mb-4" style={{ ...body }}>
+            {currentRoom.description}
+          </p>
+        )}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {currentRoom.sqft && (
+            <span className="text-[10px] tracking-[0.08em] px-2 py-1 rounded-full" style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}30` }}>
+              {currentRoom.sqft} sqft
+            </span>
+          )}
+          {currentRoom.sqm && (
+            <span className="text-[10px] tracking-[0.08em] px-2 py-1 rounded-full" style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}30` }}>
+              {currentRoom.sqm} m²
+            </span>
+          )}
+          <span className="text-[10px] tracking-[0.08em] px-2 py-1 rounded-full" style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}30` }}>
+            {currentRoom.guests}
+          </span>
         </div>
-
-        {/* Video/Image half */}
-        <div className="relative w-1/2 h-full overflow-hidden cursor-grab active:cursor-grabbing select-none">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={`media-${currentIndex}`}
-              custom={direction}
-              variants={mediaVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 pointer-events-none"
-            >
-              {currentRoom.video ? (
-                <video
-                  src={currentRoom.video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              ) : currentRoom.photo ? (
-                <img
-                  src={currentRoom.photo}
-                  alt={currentRoom.label}
-                  className="w-full h-full object-cover"
-                  draggable={false}
-                />
-              ) : null}
-            </motion.div>
-          </AnimatePresence>
-          {/* Invisible click zones — left half = prev, right half = next */}
-          <div className="absolute inset-0 z-10 flex">
-            <button
-              onClick={handlePrev}
-              className="w-1/2 h-full cursor-w-resize opacity-0"
-              aria-label="Previous room"
-            />
-            <button
-              onClick={handleNext}
-              className="w-1/2 h-full cursor-e-resize opacity-0"
-              aria-label="Next room"
-            />
-          </div>
+        <div className="flex gap-3">
+          <a href={currentRoom.exploreLink} className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
+            Explore
+          </a>
+          <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border border-white/50" style={{ ...body, fontWeight: 500, color: "white" }}>
+            Reserve
+          </a>
         </div>
       </div>
 
-      {/* ─── MOBILE LAYOUT (full-screen video with overlay) ─── */}
-      <div className="md:hidden w-full h-full relative">
-        <AnimatePresence initial={false} custom={direction} mode="wait">
-          <motion.div
-            key={`mobile-${currentIndex}`}
-            custom={direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0"
-          >
-            {currentRoom.video ? (
-              <video
-                src={currentRoom.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            ) : currentRoom.photo ? (
-              <img
-                src={currentRoom.photo}
-                alt={currentRoom.label}
-                className="w-full h-full object-cover"
-              />
-            ) : null}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 pb-16">
-              <p className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ ...body, fontWeight: 500, color: palette.primary }}>
-                {sectionLabel}
-              </p>
-              <h2 className="text-white text-2xl tracking-wide mb-1" style={{ ...display }}>
-                {currentRoom.label}
-              </h2>
-              {currentRoom.tagline && (
-                <p className="text-white/80 text-sm mb-2" style={{ ...body }}>
-                  {currentRoom.tagline}
-                </p>
-              )}
-              {currentRoom.description && (
-                <p className="text-white/60 text-xs leading-relaxed mb-4" style={{ ...body }}>
-                  {currentRoom.description}
-                </p>
-              )}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {currentRoom.sqft && (
-                  <span className="text-[10px] tracking-[0.08em] px-2 py-1 rounded-full" style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}30` }}>
-                    {currentRoom.sqft} sqft
-                  </span>
-                )}
-                {currentRoom.sqm && (
-                  <span className="text-[10px] tracking-[0.08em] px-2 py-1 rounded-full" style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}30` }}>
-                    {currentRoom.sqm} m²
-                  </span>
-                )}
-                <span className="text-[10px] tracking-[0.08em] px-2 py-1 rounded-full" style={{ ...body, fontWeight: 500, color: palette.primary, backgroundColor: `${palette.primary}30` }}>
-                  {currentRoom.guests}
-                </span>
-              </div>
-              <div className="flex gap-3">
-                <a href={currentRoom.exploreLink} className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
-                  Explore
-                </a>
-                <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border border-white/50" style={{ ...body, fontWeight: 500, color: "white" }}>
-                  Reserve
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Mobile: swipe hint on first slide */}
-        {rooms.length > 1 && currentIndex === 0 && (
-          <motion.div
-            className="absolute top-1/2 right-4 -translate-y-1/2 z-20 flex items-center gap-1.5"
-            style={{ color: "rgba(255,255,255,0.7)" }}
-            animate={{ x: [0, -8, 0] }}
-            transition={{ duration: 1.8, repeat: 3, ease: "easeInOut" }}
-          >
-            <span className="text-[9px] tracking-[0.15em] uppercase" style={{ ...body, fontWeight: 500 }}>Swipe</span>
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-            </svg>
-          </motion.div>
-        )}
-
-        {/* Mobile dots */}
-        {rooms.length > 1 && (
+      {/* Mobile dots */}
+      {rooms.length > 1 && (
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {rooms.map((_, i) => (
-            <button key={i} onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); }} className="h-2 rounded-full transition-all" style={{ backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.4)", width: i === currentIndex ? "24px" : "8px" }} />
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className="h-2 rounded-full transition-all"
+              style={{
+                backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.4)",
+                width: i === currentIndex ? "24px" : "8px",
+              }}
+            />
           ))}
         </div>
-        )}
-      </div>
-    </section>
+      )}
+    </div>
   );
 }
