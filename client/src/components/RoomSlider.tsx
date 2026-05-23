@@ -95,6 +95,8 @@ export default function RoomSlider({
   // Convert vertical scroll to horizontal scroll within the section
   // Attach to the scroll container itself — this catches wheel events when
   // the mouse is over the section.
+  // Key behavior: when at the start and scrolling up, or at the end and
+  // scrolling down, let the page scroll normally (don't trap the user).
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -103,12 +105,21 @@ export default function RoomSlider({
       // If there's horizontal delta (trackpad side-swipe), let it work naturally
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
 
-      // Convert vertical scroll to horizontal
-      if (Math.abs(e.deltaY) > 5) {
-        e.preventDefault();
-        e.stopPropagation();
-        el.scrollBy({ left: e.deltaY * 2, behavior: "auto" });
-      }
+      // Only act on meaningful vertical scroll
+      if (Math.abs(e.deltaY) <= 5) return;
+
+      const atStart = el.scrollLeft <= 0;
+      const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 2;
+
+      // If at the start and trying to scroll up (go back), let page scroll
+      if (atStart && e.deltaY < 0) return;
+      // If at the end and trying to scroll down (go forward), let page scroll
+      if (atEnd && e.deltaY > 0) return;
+
+      // Otherwise hijack: convert vertical to horizontal
+      e.preventDefault();
+      e.stopPropagation();
+      el.scrollBy({ left: e.deltaY * 2, behavior: "auto" });
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });
