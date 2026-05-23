@@ -306,7 +306,7 @@ export default function RoomSlider({
             >
               <span
                 className="absolute inset-0 rounded-full transition-all duration-300 group-hover:scale-110"
-                style={{ backgroundColor: "#868B75" }}
+                style={{ backgroundColor: palette.primary }}
               />
               <svg
                 width="20"
@@ -352,7 +352,7 @@ export default function RoomSlider({
             >
               <span
                 className="absolute inset-0 rounded-full transition-all duration-300 group-hover:scale-110"
-                style={{ backgroundColor: "#868B75" }}
+                style={{ backgroundColor: palette.primary }}
               />
               <svg
                 width="20"
