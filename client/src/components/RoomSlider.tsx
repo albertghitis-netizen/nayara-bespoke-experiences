@@ -448,36 +448,32 @@ export default function RoomSlider({
         </AnimatePresence>
       </div>
 
-      {/* Navigation arrows — vertically centered on the media side */}
+      {/* Navigation arrows — positioned on text side, top area */}
       {rooms.length > 1 && !hideArrows && (
       <>
         <button
           onClick={handlePrev}
-          className="hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-lg"
+          className="hidden md:flex absolute top-8 z-20 w-9 h-9 items-center justify-center transition-all duration-200 hover:opacity-70"
           style={{
-            left: isVideoLeft ? '24px' : 'auto',
-            right: isVideoLeft ? 'auto' : '24px',
-            backgroundColor: `${palette.bg}cc`,
+            left: isVideoLeft ? 'auto' : '24px',
+            right: isVideoLeft ? '24px' : 'auto',
             color: palette.text,
-            border: `1px solid ${palette.textSecondary}30`,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            border: `1px solid ${palette.textSecondary}40`,
           }}
         >
-          <ChevronLeft className="w-5 h-5" strokeWidth={1.5} />
+          <ChevronLeft className="w-4 h-4" strokeWidth={1.5} />
         </button>
         <button
           onClick={handleNext}
-          className="hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-lg"
+          className="hidden md:flex absolute top-8 z-20 w-9 h-9 items-center justify-center transition-all duration-200 hover:opacity-70"
           style={{
-            left: isVideoLeft ? '80px' : 'auto',
-            right: isVideoLeft ? 'auto' : '80px',
-            backgroundColor: `${palette.bg}cc`,
+            left: isVideoLeft ? 'auto' : '68px',
+            right: isVideoLeft ? '68px' : 'auto',
             color: palette.text,
-            border: `1px solid ${palette.textSecondary}30`,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            border: `1px solid ${palette.textSecondary}40`,
           }}
         >
-          <ChevronRight className="w-5 h-5" strokeWidth={1.5} />
+          <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
         </button>
       </>
       )}
