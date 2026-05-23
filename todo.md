@@ -3862,3 +3862,18 @@
 - [x] Mobile: Add "Our Resorts" as collapsible dropdown listing all hotels
 - [x] Desktop: Add "Our Resorts" as collapsible dropdown in hamburger menu (replaces flat resort list)
 - [x] Both: Consistent "Our Resorts" collapsible section
+
+## Performance Optimization — Video Compression & Gallery
+- [x] Gallery videos: convert from autoPlay to poster stills (last frame) with play-on-click
+- [x] Compress costa-rica-toucan (25MB → 3.7MB, 86% reduction)
+- [x] Compress bocas-drone-overwater (18MB → 2.1MB, 88% reduction)
+- [x] Compress nayara-horizons-hero-v2 (13MB → 1.9MB, 86% reduction)
+- [x] Compress bocas-delfines-vertical (11MB → 3.9MB, 63% reduction)
+- [x] Compress bocas-nbn-cascade-shared (8.3MB → 2.8MB, 67% reduction)
+- [x] Compress press-awards-hero-v2 (6.5MB → 3.4MB, 48% reduction)
+- [x] Compress press-awards-vertical (6.4MB → 2.0MB, 69% reduction)
+- [x] Compress bocas-cascade-extra (5.6MB → 2.3MB, 60% reduction)
+- [x] Compress supersale-2 (5.3MB → 1.3MB, 76% reduction)
+- [x] Upload all compressed videos to CDN and update code references
+- [x] Verify hamburger menu hotel order: Tented Camp, Alto Atacama, Gardens, Bocas, Springs, Hangaroa, Resorts
+- [x] Verify footer hotel order matches hamburger

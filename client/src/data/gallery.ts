@@ -190,7 +190,7 @@ export const brandGallery: GalleryItem[] = [
   { id: "brand-sust", src: `${CDN}/sustainability-hero-new_df03d599.mp4`, alt: "Sustainability hero", type: "video", orientation: "landscape", tags: ["hero", "sustainability"] },
   { id: "brand-well", src: `${CDN}/wellness-hero-v2_25839541.mp4`, alt: "Wellness hero", type: "video", orientation: "landscape", tags: ["hero", "wellness"] },
   { id: "brand-gast", src: `${CDN}/gastronomy-hero-edited_3e0a63fa.mp4`, alt: "Gastronomy hero", type: "video", orientation: "landscape", tags: ["hero", "gastronomy"] },
-  { id: "brand-pod", src: `${CDN}/nayara-horizons-hero-v2_63287f40.mp4`, alt: "Podcast hero", type: "video", orientation: "landscape", tags: ["hero", "podcast"] },
+  { id: "brand-pod", src: `${CDN}/nayara-horizons-hero-v2_cd497d7a.mp4`, alt: "Podcast hero", type: "video", orientation: "landscape", tags: ["hero", "podcast"] },
 ];
 
 /* ═══════════════════════════════════════════════════════════════

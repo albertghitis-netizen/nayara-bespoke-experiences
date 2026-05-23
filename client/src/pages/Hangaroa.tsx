@@ -69,7 +69,7 @@ const CDN = {
   culturalAdornment: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-22_3f8e6011.JPG",
   wellnessHorizontal: "/manus-storage/hangaroa-wellness-horizontal_bbaade94.jpg",
   ourStoryVideo: "/manus-storage/hangaroa-rapa-nui-partnership_d8787869.mp4",
-  sustainabilityImage: "/manus-storage/hangaroa-rapa-nui-taumana_97b1e9e4.jpg",
+  sustainabilityImage: "/manus-storage/hangaroa-sustainability-warrior-v2_808a959a.jpg",
   byNightVideo: "/manus-storage/772E29FE-4AF3-446F-A8F1-D8BA15DACE44_f5a81bf8_0615fffd.mp4",
   byNightHorizontal: "/manus-storage/hangaroa-bynight-horizontal_2ae3f628.mp4",
   byNightLandscape: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-crater-milkyway_00741a91.webp",

@@ -29,7 +29,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const BLOG_CDN = {
-  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-horizons-hero-v2_63287f40.mp4",
+  heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-horizons-hero-v2_cd497d7a.mp4",
   heroMobile: "/manus-storage/journal-hero-vertical_e1c9cda6.mp4",
 };
 

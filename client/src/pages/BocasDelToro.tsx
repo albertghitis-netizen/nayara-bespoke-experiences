@@ -130,7 +130,7 @@ const ASSETS = {
   storyH: `${CDN}/74_be6f8cb4.jpg`,
 
   // Section 2 , Rooms: new drone overwater video V + aerial curved villas H
-  roomsV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-drone-overwater_deda9dc1.mp4",
+  roomsV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-drone-overwater_4a64d0f7.mp4",
   roomsH: `${CDN}/80_57ce5c18.jpg`,
 
   // Section 3 , Experiences: gallery video1 V + resort aerial sunset H
@@ -190,10 +190,10 @@ const ASSETS = {
   finalH: `${CDN}/bocas-aerial-sunset-panorama_a979b5b2.jpg`,
 
   // New videos
-  delfinesV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-delfines-vertical_6069e867.mp4",
-  cascadeSharedV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_9db0b65c.mp4",
+  delfinesV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-delfines-vertical_d9792965.mp4",
+  cascadeSharedV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-nbn-cascade-shared_318064ee.mp4",
   cascadeBgV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/cascade-bg-video_dccee724.mp4",
-  cascadeExtraV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-cascade-extra_d5268ba9.mp4",
+  cascadeExtraV: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-cascade-extra_f211fce8.mp4",
 };
 
 /* ═══════════════════════════════════════════════════════════════

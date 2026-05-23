@@ -322,7 +322,7 @@ export const greenGlobePost: BlogPostData = {
   readingTime: 8,
   heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/IMG_5354_8a9b536e.PNG",
   heroVideo: {
-    desktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-2_500e97e2.mp4",
+    desktop: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/supersale-2_aff0ac2b.mp4",
   },
   keyFindings: [
     "Green Globe certification requires compliance with 44 criteria across 400+ indicators, covering sustainable management, social and economic impact, cultural heritage, and environmental performance - with annual independent audits.",

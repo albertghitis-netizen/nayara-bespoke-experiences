@@ -55,9 +55,9 @@ const maxW = "max-w-[1200px] mx-auto";
 
 /** Hero videos per property */
 const HERO_VIDEOS: Record<string, string> = {
-  "tented-camp": `${CDN_BASE}/costa-rica-toucan_a70ad74a.mp4`,
-  gardens: `${CDN_BASE}/costa-rica-toucan_a70ad74a.mp4`,
-  springs: `${CDN_BASE}/costa-rica-toucan_a70ad74a.mp4`,
+  "tented-camp": `${CDN_BASE}/costa-rica-toucan_1c677859.mp4`,
+  gardens: `${CDN_BASE}/costa-rica-toucan_1c677859.mp4`,
+  springs: `${CDN_BASE}/costa-rica-toucan_1c677859.mp4`,
   "alto-atacama": `${CDN_BASE}/Video_Nayara_Atacama00007_8576aa55.MP4`,
   "bocas-del-toro": `${CDN_BASE}/bocas-drone-vertical_e44907ce.mp4`,
   hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
