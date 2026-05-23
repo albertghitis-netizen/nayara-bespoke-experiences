@@ -30,6 +30,8 @@ import {
   EASE_CINEMATIC,
 } from "@/components/motion";
 import { LocalBusinessSchema, BreadcrumbListSchema } from "@/components/SEOSchemaEnhanced";
+import RoomSlider, { RoomSliderCard } from "@/components/RoomSlider";
+import { BOOKING_URLS } from "@/data/booking";
 
 const hangaroa = properties.find((p: Property) => p.id === "hangaroa")!;
 
@@ -69,6 +71,45 @@ const CDN = {
   byNightVideo: "/manus-storage/772E29FE-4AF3-446F-A8F1-D8BA15DACE44_f5a81bf8_0615fffd.mp4",
   byNightLandscape: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nbn-crater-milkyway_00741a91.webp",
 };
+
+/* ═══════════════════════════════════════════════════════════════
+   ROOM SLIDER DATA
+   ═══════════════════════════════════════════════════════════════ */
+const HANGAROA_ROOMS: RoomSliderCard[] = [
+  {
+    id: "rapa-nui-suite",
+    label: "Rapa Nui Suite",
+    tagline: "Polynesian-inspired with panoramic ocean views",
+    description: "Spacious suites inspired by the island's volcanic landscape, with panoramic ocean views, private terraces, and locally crafted furnishings that honor Polynesian heritage.",
+    guests: "2 Adults",
+    video: "",
+    photo: CDN.s3,
+    exploreLink: "/hangaroa/rooms",
+    bookingUrl: BOOKING_URLS.hangaroa,
+  },
+  {
+    id: "ariki-suite",
+    label: "Ariki Suite",
+    tagline: "Named after the ancient Rapa Nui chiefs",
+    description: "Our premium accommodations with spacious living areas, a private garden with outdoor shower, and direct access to native gardens. Each suite tells the island's story through local art and traditional motifs.",
+    guests: "2 Adults + 1 Child",
+    video: "",
+    photo: CDN.facePaint,
+    exploreLink: "/hangaroa/rooms",
+    bookingUrl: BOOKING_URLS.hangaroa,
+  },
+  {
+    id: "hangaroa-suite",
+    label: "Hangaroa Suite",
+    tagline: "Standalone villa with panoramic bay views",
+    description: "The most exclusive suite on the island — a standalone villa with panoramic views of Hanga Roa Bay, private plunge pool, and dedicated concierge for the ultimate Easter Island experience.",
+    guests: "2 Adults + 2 Children",
+    video: "",
+    photo: CDN.culturalAdornment,
+    exploreLink: "/hangaroa/rooms",
+    bookingUrl: BOOKING_URLS.hangaroa,
+  },
+];
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
@@ -129,9 +170,24 @@ export default function Hangaroa() {
       {/* ★ S1 — Vertical video right, badges left */}
       <S1Section />
 
-      {/* ★ ACCOMMODATIONS — Vertical video left (switching), text right */}
+      {/* ★ ACCOMMODATIONS — RoomSlider with horizontal scroll */}
       <div id="rooms">
-        <AccommodationsSection />
+        <RoomSlider
+          sectionLabel="Accommodations"
+          headline={"Island Suites"}
+          description="Each suite is a private sanctuary inspired by Rapa Nui's volcanic landscape and Polynesian heritage, with ocean views, private terraces, and locally crafted furnishings."
+          rooms={HANGAROA_ROOMS}
+          palette={{
+            bg: PALETTE.gradientEnd,
+            text: PALETTE.text,
+            textSecondary: PALETTE.textSecondary,
+            primary: PALETTE.primary,
+            cardBg: PALETTE.gradientStart,
+            cardBorder: `${PALETTE.primary}20`,
+            pillBg: PALETTE.primary,
+            pillText: "#FFFFFF",
+          }}
+        />
       </div>
 
       {/* ★ EXPERIENCES — Horizontal layout */}
@@ -416,155 +472,6 @@ function S1Section() {
 }
 
 
-/* ═══════════════════════════════════════════════════════════════
-   2. ACCOMMODATIONS — Vertical video LEFT (switching), text RIGHT
-   Video cycles through room types on a timer
-   ═══════════════════════════════════════════════════════════════ */
-function AccommodationsSection() {
-  const rooms = [
-    {
-      title: "Rapa Nui Suite",
-      description: "Spacious suites inspired by the island's volcanic landscape, with panoramic ocean views, private terraces, and locally crafted furnishings that honor Polynesian heritage.",
-      tags: ["Ocean views", "Private terrace", "Cultural design"],
-      // Placeholder — replace with actual room video/image
-      media: CDN.s3,
-      isVideo: false,
-    },
-    {
-      title: "Moai Suite",
-      description: "Our most expansive accommodations, offering separate living areas with floor-to-ceiling windows framing the Pacific horizon. Each suite features a private garden and outdoor soaking tub.",
-      tags: ["Separate living area", "Garden", "Soaking tub"],
-      media: CDN.facePaint,
-      isVideo: false,
-    },
-    {
-      title: "Ahu Suite",
-      description: "Intimate retreats with direct garden access, handwoven textiles, and volcanic stone accents. Perfect for those seeking a deeply immersive connection to Rapa Nui culture.",
-      tags: ["Garden access", "Cultural immersion", "Volcanic stone"],
-      media: CDN.culturalAdornment,
-      isVideo: false,
-    },
-  ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Auto-cycle every 6 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % rooms.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [rooms.length]);
-
-  const activeRoom = rooms[activeIndex];
-
-  return (
-    <section style={{ backgroundColor: PALETTE.gradientEnd }}>
-      <div className="flex flex-col md:flex-row">
-        {/* LEFT — Vertical media (switching) */}
-        <div className="w-full md:w-1/2 md:order-1 relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="overflow-hidden"
-              style={{ aspectRatio: "3/4" }}
-            >
-              {activeRoom.isVideo ? (
-                <NativeVideo src={activeRoom.media} className="w-full h-full object-cover" />
-              ) : (
-                <img src={activeRoom.media} alt={activeRoom.title} className="w-full h-full object-cover" decoding="async" loading="lazy" />
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* RIGHT — Text content */}
-        <div className="w-full md:w-1/2 md:order-2 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
-          <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Accommodations</SectionLabel>
-          </AnimateOnScroll>
-          <AnimateOnScroll variants={fadeUp} delay={0.1}>
-            <h2
-              className="text-2xl md:text-4xl lg:text-5xl tracking-wide mb-8"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
-            >
-              Island Suites
-            </h2>
-          </AnimateOnScroll>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h3
-                className="text-[20px] mb-3"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500, color: PALETTE.text }}
-              >
-                {activeRoom.title}
-              </h3>
-              <p
-                className="text-[15px] leading-[1.8] mb-5 max-w-[480px]"
-                style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
-              >
-                {activeRoom.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {activeRoom.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] tracking-[0.1em] px-3 py-1.5 rounded-full border"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary, borderColor: PALETTE.divider }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Room selector dots */}
-          <div className="flex gap-3 mt-4">
-            {rooms.map((room, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIndex(i)}
-                className="transition-all duration-300"
-                aria-label={room.title}
-              >
-                <div
-                  className="rounded-full transition-all duration-300"
-                  style={{
-                    width: i === activeIndex ? "32px" : "8px",
-                    height: "8px",
-                    backgroundColor: i === activeIndex ? PALETTE.primary : PALETTE.divider,
-                  }}
-                />
-              </button>
-            ))}
-          </div>
-
-          <a
-            href="/hangaroa/rooms"
-            className="inline-block mt-10 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
-          >
-            Explore All Rooms →
-          </a>
-        </div>
-      </div>
-
-
-    </section>
-  );
-}
 
 
 /* ═══════════════════════════════════════════════════════════════
