@@ -321,7 +321,7 @@ export default function RoomSlider({
               animate="center"
               exit="exit"
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0"
+              className="absolute inset-0 pointer-events-none"
             >
               {currentRoom.video ? (
                 <video
@@ -337,10 +337,13 @@ export default function RoomSlider({
                   src={currentRoom.photo}
                   alt={currentRoom.label}
                   className="w-full h-full object-cover"
+                  draggable={false}
                 />
               ) : null}
             </motion.div>
           </AnimatePresence>
+          {/* Invisible drag overlay */}
+          <div className="absolute inset-0 z-10" />
         </div>
       </div>
 
