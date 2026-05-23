@@ -67,11 +67,11 @@ export type JournalProperty =
 export const JOURNAL_PROPERTIES: { id: JournalProperty | "all"; label: string }[] = [
   { id: "all", label: "All" },
   { id: "tented-camp", label: "Tented Camp" },
-  { id: "gardens", label: "Gardens" },
-  { id: "springs", label: "Springs" },
   { id: "alto-atacama", label: "Atacama" },
-  { id: "hangaroa", label: "Hangaroa" },
+  { id: "gardens", label: "Gardens" },
   { id: "bocas-del-toro", label: "Bocas del Toro" },
+  { id: "springs", label: "Springs" },
+  { id: "hangaroa", label: "Hangaroa" },
 ];
 
 // ─── Fallback image for posts without og:image ───────────────

@@ -30,12 +30,12 @@ export interface MenuSection {
 }
 
 export const PROPERTIES = [
-  { id: "alto-atacama", name: "Nayara Alto Atacama", shortName: "Alto Atacama", route: "/alto-atacama" },
-  { id: "bocas-del-toro", name: "Nayara Bocas del Toro", shortName: "Bocas del Toro", route: "/bocas-del-toro" },
-  { id: "gardens", name: "Nayara Gardens", shortName: "Gardens", route: "/gardens" },
-  { id: "hangaroa", name: "Nayara Hangaroa", shortName: "Hangaroa", route: "/hangaroa" },
-  { id: "springs", name: "Nayara Springs", shortName: "Springs", route: "/springs" },
   { id: "tented-camp", name: "Nayara Tented Camp", shortName: "Tented Camp", route: "/tented-camp" },
+  { id: "alto-atacama", name: "Nayara Alto Atacama", shortName: "Alto Atacama", route: "/alto-atacama" },
+  { id: "gardens", name: "Nayara Gardens", shortName: "Gardens", route: "/gardens" },
+  { id: "bocas-del-toro", name: "Nayara Bocas del Toro", shortName: "Bocas del Toro", route: "/bocas-del-toro" },
+  { id: "springs", name: "Nayara Springs", shortName: "Springs", route: "/springs" },
+  { id: "hangaroa", name: "Nayara Hangaroa", shortName: "Hangaroa", route: "/hangaroa" },
 ] as const;
 
 export const PILLARS = [
@@ -85,7 +85,13 @@ export const EXPLORE_MENU_ITEMS: MenuItem[] = [
    SECTION 2: OUR RESORTS , All hotels
    ═══════════════════════════════════════════════════════════════ */
 export const RESORTS_ITEMS: MenuItem[] = [
-  ...PROPERTIES.map((p) => ({ label: p.name, route: p.route })),
+  { label: "Nayara Tented Camp", route: "/tented-camp" },
+  { label: "Nayara Alto Atacama", route: "/alto-atacama" },
+  { label: "Nayara Gardens", route: "/gardens" },
+  { label: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
+  { label: "Nayara Springs", route: "/springs" },
+  { label: "Nayara Hangaroa", route: "/hangaroa" },
+  { label: "Nayara Resorts", route: "/" },
 ];
 
 /* Nayara Resorts brand home , shown at the very bottom of nav */
@@ -166,7 +172,6 @@ const RESORTS_COLUMN: FooterColumn = {
   title: "Our Resorts",
   links: [
     ...RESORTS_ITEMS.map((item) => ({ ...item })),
-    { label: "Nayara Resorts", route: "/", separatorBefore: true },
   ],
 };
 

@@ -145,7 +145,7 @@ const pressClips: PressClip[] = [
   { title: "Sukha Spa Named Among World's 12 Best Spas", publication: "Galerie Magazine", date: "2024", url: "https://galeriemagazine.com/best-spas-in-the-world/", property: "Nayara Springs", topic: "Wellness" },
 ];
 
-const PROPERTY_FILTERS = ["Nayara Resorts", "Nayara Alto Atacama", "Nayara Bocas del Toro", "Nayara Gardens", "Nayara Hangaroa", "Nayara Springs", "Nayara Tented Camp"];
+const PROPERTY_FILTERS = ["Nayara Tented Camp", "Nayara Alto Atacama", "Nayara Gardens", "Nayara Bocas del Toro", "Nayara Springs", "Nayara Hangaroa", "Nayara Resorts"];
 
 function getYear(date: string): string {
   const match = date.match(/\d{4}/);

@@ -127,7 +127,7 @@ export default function Awards() {
   const [expandedProperty, setExpandedProperty] = useState<string | null>("Nayara Springs");
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const PROPERTY_FILTERS = ["All", "Nayara Resorts", "Nayara Alto Atacama", "Nayara Bocas del Toro", "Nayara Gardens", "Nayara Hangaroa", "Nayara Springs", "Nayara Tented Camp"];
+  const PROPERTY_FILTERS = ["All", "Nayara Tented Camp", "Nayara Alto Atacama", "Nayara Gardens", "Nayara Bocas del Toro", "Nayara Springs", "Nayara Hangaroa", "Nayara Resorts"];
 
   const filteredAwards = activeFilter === "All" ? allAwards : allAwards.filter(a => a.property === activeFilter);
 

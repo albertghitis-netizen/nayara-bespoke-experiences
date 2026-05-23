@@ -272,12 +272,7 @@ export default function BrandNavigation({
       {/* Our Resorts — collapsible dropdown */}
       {renderDropdownSection('resorts', 'Our Resorts', resortsWithSeparator)}
 
-      <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
 
-      {/* Nayara Resorts , brand home at the very bottom */}
-      <button type="button" onClick={() => handleNavigate(BRAND_HOME_ITEM.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
-        <span className="text-[13px]" style={menuText}>{BRAND_HOME_ITEM.label}</span>
-      </button>
     </div>
   );
 
@@ -581,10 +576,10 @@ export default function BrandNavigation({
                 exit={{ x: '-100%', opacity: 0 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="fixed top-0 left-0 bottom-0 z-50 md:hidden overflow-y-auto"
-                style={{ width: '72%', background: 'rgba(247, 245, 240, 0.92)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
+                style={{ width: '72%', background: 'rgba(247, 245, 240, 0.67)' }}
               >
                 {/* Close button row */}
-                <div className="flex items-center justify-between px-5 pt-5 pb-3">
+                <div className="flex items-center px-5 pt-5 pb-3">
                   <button
                     onClick={() => closeAll()}
                     className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-[#d4c9b8]/40 transition-colors"
@@ -593,14 +588,6 @@ export default function BrandNavigation({
                     <svg className="w-5 h-5 text-[#3B2B26]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
-                  </button>
-                  {/* Reserve button */}
-                  <button
-                    onClick={() => { closeAll(); setReserveOpen(true); }}
-                    className="text-[11px] tracking-[0.15em] uppercase px-4 py-2 rounded-full transition-colors"
-                    style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: '#3B2B26', border: '1px solid rgba(59,43,38,0.2)' }}
-                  >
-                    Reserve
                   </button>
                 </div>
 
@@ -685,21 +672,7 @@ export default function BrandNavigation({
                     </AnimatePresence>
                   </motion.div>
 
-                  {/* Brand home link at bottom */}
-                  <motion.button
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: (EXPLORE_MENU_ITEMS.length + 1) * 0.025, duration: 0.2 }}
-                    onClick={() => handleNavigate(BRAND_HOME_ITEM.route)}
-                    className="flex items-center w-full text-left py-3.5 mt-3"
-                  >
-                    <span
-                      className="text-[12px] tracking-[0.03em]"
-                      style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: 'rgba(59,43,38,0.4)' }}
-                    >
-                      {BRAND_HOME_ITEM.label}
-                    </span>
-                  </motion.button>
+
                 </div>
               </motion.div>
             </>

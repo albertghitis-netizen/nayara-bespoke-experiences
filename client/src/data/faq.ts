@@ -26,12 +26,12 @@ export const PILLARS = [
 
 export const PROPERTIES = [
   { id: "all", label: "All Properties" },
-  { id: "springs", label: "Nayara Springs" },
-  { id: "gardens", label: "Nayara Gardens" },
   { id: "tented-camp", label: "Nayara Tented Camp" },
   { id: "alto-atacama", label: "Nayara Alto Atacama" },
-  { id: "hangaroa", label: "Nayara Hangaroa" },
+  { id: "gardens", label: "Nayara Gardens" },
   { id: "bocas-del-toro", label: "Nayara Bocas del Toro" },
+  { id: "springs", label: "Nayara Springs" },
+  { id: "hangaroa", label: "Nayara Hangaroa" },
 ] as const;
 
 export const FAQ_DATA: FAQItem[] = [
