@@ -269,12 +269,8 @@ export default function BrandNavigation({
 
       <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
 
-      {/* Flat list , hotels */}
-      {RESORTS_ITEMS.map((item) => (
-        <button key={item.label} type="button" onClick={() => handleNavigate(item.route)} className={`${menuItem} hover:bg-[#d4c9b8]/60`}>
-          <span className="text-[13px]" style={menuText}>{item.label}</span>
-        </button>
-      ))}
+      {/* Our Resorts — collapsible dropdown */}
+      {renderDropdownSection('resorts', 'Our Resorts', resortsWithSeparator)}
 
       <div className="mx-4 my-1.5" style={{height: '1px', backgroundColor: `${textColor}14`}} />
 
@@ -564,113 +560,149 @@ export default function BrandNavigation({
           </div>
         </div>
 
-        {/* ── MOBILE FULL-SCREEN OVERLAY MENU (Waldorf Astoria style) ── */}
+        {/* ── MOBILE OVERLAY MENU — Two-thirds, semi-transparent ── */}
         <AnimatePresence>
           {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-40 md:hidden overflow-y-auto"
-              style={{ background: "rgba(247, 245, 240, 0.98)" }}
-            >
-              {/* Close button row */}
-              <div className="flex items-center justify-between px-6 pt-5 pb-3">
-                <button
-                  onClick={() => closeAll()}
-                  className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-[#d4c9b8]/40 transition-colors"
-                  aria-label="Close menu"
-                >
-                  <svg className="w-5 h-5 text-[#3B2B26]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-                {/* Reserve button inside overlay */}
-                <button
-                  onClick={() => { closeAll(); setReserveOpen(true); }}
-                  className="text-[11px] tracking-[0.15em] uppercase px-4 py-2 rounded-full transition-colors"
-                  style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: '#3B2B26', border: '1px solid rgba(59,43,38,0.2)' }}
-                >
-                  Reserve
-                </button>
-              </div>
-
-              {/* Menu items — Waldorf Astoria style: full-width rows with thin dividers */}
-              <div className="px-6 pt-4">
-                {/* Explore section */}
-                {EXPLORE_MENU_ITEMS.map((item, idx) => (
-                  <motion.button
-                    key={item.label}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.03, duration: 0.25 }}
-                    onClick={() => handleNavigate(item.route)}
-                    className="flex items-center w-full text-left py-4 border-b"
-                    style={{ borderColor: 'rgba(59,43,38,0.08)' }}
+            <>
+              {/* Backdrop — tap to close */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="fixed inset-0 z-40 md:hidden"
+                style={{ background: 'rgba(0,0,0,0.15)' }}
+                onClick={() => closeAll()}
+              />
+              {/* Panel — covers left two-thirds, semi-transparent */}
+              <motion.div
+                initial={{ x: '-100%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: '-100%', opacity: 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="fixed top-0 left-0 bottom-0 z-50 md:hidden overflow-y-auto"
+                style={{ width: '72%', background: 'rgba(247, 245, 240, 0.92)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
+              >
+                {/* Close button row */}
+                <div className="flex items-center justify-between px-5 pt-5 pb-3">
+                  <button
+                    onClick={() => closeAll()}
+                    className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-[#d4c9b8]/40 transition-colors"
+                    aria-label="Close menu"
                   >
-                    <span
-                      className="text-[15px] tracking-[0.02em]"
-                      style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: '#3B2B26' }}
+                    <svg className="w-5 h-5 text-[#3B2B26]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                  {/* Reserve button */}
+                  <button
+                    onClick={() => { closeAll(); setReserveOpen(true); }}
+                    className="text-[11px] tracking-[0.15em] uppercase px-4 py-2 rounded-full transition-colors"
+                    style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: '#3B2B26', border: '1px solid rgba(59,43,38,0.2)' }}
+                  >
+                    Reserve
+                  </button>
+                </div>
+
+                {/* Menu items */}
+                <div className="px-5 pt-3">
+                  {/* Explore items */}
+                  {EXPLORE_MENU_ITEMS.map((item, idx) => (
+                    <motion.button
+                      key={item.label}
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.025, duration: 0.2 }}
+                      onClick={() => handleNavigate(item.route)}
+                      className="flex items-center w-full text-left py-3.5 border-b"
+                      style={{ borderColor: 'rgba(59,43,38,0.06)' }}
                     >
-                      {item.label}
-                    </span>
-                    {/* Chevron for items with sub-pages */}
-                    {(item.label === "Experiences" || item.label === "Wellness" || item.label === "Gastronomy") && (
-                      <svg className="w-4 h-4 ml-auto text-[#3B2B26]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      <span
+                        className="text-[14px] tracking-[0.01em]"
+                        style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: '#3B2B26' }}
+                      >
+                        {item.label}
+                      </span>
+                    </motion.button>
+                  ))}
+
+                  {/* Divider */}
+                  <div className="h-5" />
+
+                  {/* Our Resorts — collapsible */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: EXPLORE_MENU_ITEMS.length * 0.025, duration: 0.2 }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => toggleDropdown('resorts')}
+                      className="flex items-center justify-between w-full text-left py-3.5 border-b"
+                      style={{ borderColor: 'rgba(59,43,38,0.06)' }}
+                    >
+                      <span
+                        className="text-[14px] tracking-[0.01em]"
+                        style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: '#3B2B26' }}
+                      >
+                        Our Resorts
+                      </span>
+                      <svg
+                        className={`w-3.5 h-3.5 text-[#3B2B26]/40 transition-transform duration-300 ${expandedMenus.resorts ? 'rotate-90' : ''}`}
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                       </svg>
-                    )}
-                  </motion.button>
-                ))}
+                    </button>
+                    <AnimatePresence>
+                      {expandedMenus.resorts && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pl-3 pt-1 pb-2">
+                            {RESORTS_ITEMS.map((item) => (
+                              <button
+                                key={item.label}
+                                type="button"
+                                onClick={() => handleNavigate(item.route)}
+                                className="block w-full text-left py-2.5"
+                              >
+                                <span
+                                  className="text-[13px]"
+                                  style={{ fontFamily: 'var(--font-body)', fontWeight: 400, color: 'rgba(59,43,38,0.7)' }}
+                                >
+                                  {item.label}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
 
-                {/* Divider between sections */}
-                <div className="h-6" />
-
-                {/* Resorts section header */}
-                <span
-                  className="block text-[10px] tracking-[0.2em] uppercase mb-2"
-                  style={{ fontFamily: 'var(--font-body)', fontWeight: 600, color: 'rgba(59,43,38,0.4)' }}
-                >
-                  Our Resorts
-                </span>
-
-                {RESORTS_ITEMS.map((item, idx) => (
+                  {/* Brand home link at bottom */}
                   <motion.button
-                    key={item.label}
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: (EXPLORE_MENU_ITEMS.length + idx) * 0.03, duration: 0.25 }}
-                    onClick={() => handleNavigate(item.route)}
-                    className="flex items-center w-full text-left py-4 border-b"
-                    style={{ borderColor: 'rgba(59,43,38,0.08)' }}
+                    transition={{ delay: (EXPLORE_MENU_ITEMS.length + 1) * 0.025, duration: 0.2 }}
+                    onClick={() => handleNavigate(BRAND_HOME_ITEM.route)}
+                    className="flex items-center w-full text-left py-3.5 mt-3"
                   >
                     <span
-                      className="text-[15px] tracking-[0.02em]"
-                      style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: '#3B2B26' }}
+                      className="text-[12px] tracking-[0.03em]"
+                      style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: 'rgba(59,43,38,0.4)' }}
                     >
-                      {item.label}
+                      {BRAND_HOME_ITEM.label}
                     </span>
                   </motion.button>
-                ))}
-
-                {/* Brand home link at bottom */}
-                <motion.button
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: (EXPLORE_MENU_ITEMS.length + RESORTS_ITEMS.length) * 0.03, duration: 0.25 }}
-                  onClick={() => handleNavigate(BRAND_HOME_ITEM.route)}
-                  className="flex items-center w-full text-left py-4 mt-4"
-                >
-                  <span
-                    className="text-[13px] tracking-[0.04em]"
-                    style={{ fontFamily: 'var(--font-body)', fontWeight: 500, color: 'rgba(59,43,38,0.5)' }}
-                  >
-                    {BRAND_HOME_ITEM.label}
-                  </span>
-                </motion.button>
-              </div>
-            </motion.div>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </nav>

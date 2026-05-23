@@ -3856,3 +3856,9 @@
 - [x] Keep all existing categories/sections unchanged
 - [x] Light/subtle background overlay with clean list of menu items separated by thin lines
 - [x] Only affects mobile view — desktop behavior unchanged
+
+## Hamburger Menu Redesign — Semi-Transparent Two-Thirds Overlay
+- [x] Mobile: Change overlay from full-screen opaque to two-thirds coverage (72% width, slides from left) with semi-transparency and backdrop blur
+- [x] Mobile: Add "Our Resorts" as collapsible dropdown listing all hotels
+- [x] Desktop: Add "Our Resorts" as collapsible dropdown in hamburger menu (replaces flat resort list)
+- [x] Both: Consistent "Our Resorts" collapsible section
