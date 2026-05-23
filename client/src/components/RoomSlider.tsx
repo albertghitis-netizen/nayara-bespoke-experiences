@@ -211,12 +211,8 @@ export default function RoomSlider({
                     className="group relative w-12 h-12 flex items-center justify-center transition-all duration-300"
                   >
                     <span
-                      className="absolute inset-0 rounded-full border transition-all duration-300 group-hover:scale-110"
-                      style={{ borderColor: "#868B75" }}
-                    />
-                    <span
-                      className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100"
-                      style={{ backgroundColor: "#868B7518" }}
+                      className="absolute inset-0 rounded-full transition-all duration-300 group-hover:scale-110"
+                      style={{ backgroundColor: "#868B75" }}
                     />
                     <svg
                       width="20"
@@ -227,7 +223,7 @@ export default function RoomSlider({
                     >
                       <path
                         d="M20 12H4M4 12L10 6M4 12L10 18"
-                        stroke="#868B75"
+                        stroke="#ffffff"
                         strokeWidth="1.2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -261,12 +257,8 @@ export default function RoomSlider({
                     className="group relative w-12 h-12 flex items-center justify-center transition-all duration-300"
                   >
                     <span
-                      className="absolute inset-0 rounded-full border transition-all duration-300 group-hover:scale-110"
-                      style={{ borderColor: "#868B75" }}
-                    />
-                    <span
-                      className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100"
-                      style={{ backgroundColor: "#868B7518" }}
+                      className="absolute inset-0 rounded-full transition-all duration-300 group-hover:scale-110"
+                      style={{ backgroundColor: "#868B75" }}
                     />
                     <svg
                       width="20"
@@ -277,7 +269,7 @@ export default function RoomSlider({
                     >
                       <path
                         d="M4 12H20M20 12L14 6M20 12L14 18"
-                        stroke="#868B75"
+                        stroke="#ffffff"
                         strokeWidth="1.2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
