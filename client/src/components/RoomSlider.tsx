@@ -262,21 +262,21 @@ export default function RoomSlider({
               transition={{ type: "tween", duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
               className="absolute inset-0 flex"
             >
-              {/* Video/Image half — no crop, starts at left edge */}
-              <div className="w-1/2 h-full overflow-visible flex justify-start">
+              {/* Video/Image half — full image, even padding, overflows past center */}
+              <div className="w-1/2 h-full flex items-center justify-start py-6">
                 {currentRoom.video ? (
                   <video
                     src={currentRoom.video}
                     autoPlay
                     muted
                     playsInline
-                    className="h-full w-auto max-w-none"
+                    style={{ height: 'calc(100% - 48px)', width: 'auto', maxWidth: 'none' }}
                   />
                 ) : currentRoom.photo ? (
                   <img
                     src={currentRoom.photo}
                     alt={currentRoom.label}
-                    className="h-full w-auto max-w-none"
+                    style={{ height: 'calc(100% - 48px)', width: 'auto', maxWidth: 'none' }}
                   />
                 ) : null}
               </div>
@@ -425,21 +425,21 @@ export default function RoomSlider({
                   )}
                 </div>
               </div>
-              {/* Video/Image half — no crop, starts at right edge */}
-              <div className="w-1/2 h-full overflow-visible flex justify-end">
+              {/* Video/Image half — full image, even padding, overflows past center */}
+              <div className="w-1/2 h-full flex items-center justify-end py-6">
                 {currentRoom.video ? (
                   <video
                     src={currentRoom.video}
                     autoPlay
                     muted
                     playsInline
-                    className="h-full w-auto max-w-none"
+                    style={{ height: 'calc(100% - 48px)', width: 'auto', maxWidth: 'none' }}
                   />
                 ) : currentRoom.photo ? (
                   <img
                     src={currentRoom.photo}
                     alt={currentRoom.label}
-                    className="h-full w-auto max-w-none"
+                    style={{ height: 'calc(100% - 48px)', width: 'auto', maxWidth: 'none' }}
                   />
                 ) : null}
               </div>
