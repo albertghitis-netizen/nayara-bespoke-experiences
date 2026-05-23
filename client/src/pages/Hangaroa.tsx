@@ -98,17 +98,7 @@ const HANGAROA_ROOMS: RoomSliderCard[] = [
     exploreLink: "/hangaroa/rooms",
     bookingUrl: BOOKING_URLS.hangaroa,
   },
-  {
-    id: "hangaroa-suite",
-    label: "Hangaroa Suite",
-    tagline: "Standalone villa with panoramic bay views",
-    description: "The most exclusive suite on the island — a standalone villa with panoramic views of Hanga Roa Bay, private plunge pool, and dedicated concierge for the ultimate Easter Island experience.",
-    guests: "2 Adults + 2 Children",
-    video: "",
-    photo: CDN.culturalAdornment,
-    exploreLink: "/hangaroa/rooms",
-    bookingUrl: BOOKING_URLS.hangaroa,
-  },
+
 ];
 
 const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
