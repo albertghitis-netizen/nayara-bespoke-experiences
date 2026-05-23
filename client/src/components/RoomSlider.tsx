@@ -356,8 +356,19 @@ export default function RoomSlider({
               ) : null}
             </motion.div>
           </AnimatePresence>
-          {/* Invisible drag overlay */}
-          <div className="absolute inset-0 z-10" />
+          {/* Invisible click zones — left half = prev, right half = next */}
+          <div className="absolute inset-0 z-10 flex">
+            <button
+              onClick={handlePrev}
+              className="w-1/2 h-full cursor-w-resize opacity-0"
+              aria-label="Previous room"
+            />
+            <button
+              onClick={handleNext}
+              className="w-1/2 h-full cursor-e-resize opacity-0"
+              aria-label="Next room"
+            />
+          </div>
         </div>
       </div>
 
