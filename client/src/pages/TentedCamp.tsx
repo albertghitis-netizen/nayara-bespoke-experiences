@@ -1370,11 +1370,11 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/tented-camp-mobile-hero-v2-hq_26d05de5.mp4";
+  const mobileHeroImage = "/manus-storage/reel-nayara-tented-camp-vertical_630915e8.mp4";
   const mobileHeroIsVideo = true;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '3/4' } : undefined}>
       <div className="absolute inset-0">
         {isMobile ? (
           <NativeVideo src={mobileHeroImage} className="w-full h-full object-cover" loop={false} />

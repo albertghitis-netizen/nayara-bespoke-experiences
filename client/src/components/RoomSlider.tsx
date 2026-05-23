@@ -93,7 +93,7 @@ export default function RoomSlider({
   const pillBg = palette.pillBg || palette.primary;
   const pillText = palette.pillText || "#ffffff";
   const currentRoom = rooms[currentIndex];
-  const isVideoLeft = currentRoom.mediaLeft !== undefined ? currentRoom.mediaLeft : forceVideoLeft !== undefined ? forceVideoLeft : startVideoLeft ? currentIndex % 2 === 0 : currentIndex % 2 === 1;
+  const isVideoLeft = false; // All slides: Text LEFT, Video RIGHT
 
   const slideVariants = {
     enter: (dir: number) => ({ x: dir > 0 ? 150 : -150, opacity: 0 }),
@@ -450,7 +450,7 @@ export default function RoomSlider({
 
       {/* Navigation arrows — positioned opposite to video side */}
       {rooms.length > 1 && !hideArrows && (
-      <div className={`hidden md:flex absolute top-8 z-20 items-center gap-2 ${isVideoLeft ? 'right-8 md:right-12' : 'left-8 md:left-12'}`}>
+      <div className="hidden md:flex absolute top-14 z-20 items-center gap-2 left-12 lg:left-16 xl:left-20">
         <button
           onClick={handlePrev}
           className="w-10 h-10 flex items-center justify-center transition-all duration-200 hover:opacity-80 hover:scale-105"
