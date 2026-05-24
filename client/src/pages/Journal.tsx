@@ -149,18 +149,13 @@ export default function Journal() {
               />
             </>
           )}
-          {JOURNAL_CDN.heroVideoMobile && (
-            <video
-              src={JOURNAL_CDN.heroVideoMobile}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              webkit-playsinline="true"
-              className="md:hidden w-full h-full object-cover"
-            />
-          )}
+          <img
+            src="/manus-storage/journal-mobile-hero-still_561749b9.jpg"
+            alt="Nayara Journal"
+            className="md:hidden w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />
         </div>
 

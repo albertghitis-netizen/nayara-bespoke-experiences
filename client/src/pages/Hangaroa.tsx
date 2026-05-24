@@ -258,7 +258,7 @@ export default function Hangaroa() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/hangaroa-mobile-hero_dc503ce8.png";
+  const mobileHeroImage = "/manus-storage/hangaroa-mobile-hero-still_23f2d368.jpg";
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -276,7 +276,7 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       {isMobile ? (
         <>
-          <img src={mobileHeroImage} alt="Nayara Hangaroa" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
+          <img src={mobileHeroImage} alt="Nayara Hangaroa" className="w-full h-full object-cover" decoding="async" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
         </>
       ) : (

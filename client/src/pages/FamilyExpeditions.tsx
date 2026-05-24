@@ -104,7 +104,13 @@ function HeroSection() {
   return (
     <section className="relative h-[85vh] min-h-[600px] overflow-hidden">
       {isMobile ? (
-        <BlobVideo src={FAMILY_CDN.rainbowValley} className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src="/manus-storage/family-mobile-hero-still_3ec98fc3.jpg"
+          alt="Family at Nayara Tented Camp"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+        />
       ) : (
         <img src={FAMILY_CDN.tentVolcano} alt="Family tent deck overlooking Arenal Volcano" className="absolute inset-0 w-full h-full object-cover"  decoding="async" loading="lazy" />
       )}

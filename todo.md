@@ -3887,3 +3887,17 @@
 - [x] Split framer-motion into separate vendor chunk via Vite rollupOptions
 - [x] Split react/react-dom into separate vendor chunk
 - [x] Add loading="lazy" to 98 img tags that were missing it (306 total now)
+
+## Mobile Hero Videos → Static Stills (Performance)
+- [ ] Bocas del Toro: swap mobile video for still image (NAYARABOCASDELTORO-8.jpeg)
+- [ ] Tented Camp: swap mobile video for still image
+- [ ] Gardens: swap mobile video for still image
+- [ ] Springs: swap mobile video for still image
+- [ ] Alto Atacama: swap mobile video for still image
+- [ ] Hangaroa: swap mobile video for still image
+- [ ] Homepage: swap mobile video for still image
+- [ ] Awards: swap mobile video for still image
+- [ ] Journal: swap mobile video for still image
+- [ ] Experiences: swap mobile video for still image
+- [ ] Sustainability: swap mobile video for still image
+- [ ] Gastronomy: swap mobile video for still image

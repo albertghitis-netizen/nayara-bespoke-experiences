@@ -1390,13 +1390,13 @@ function ReviewsBreak({ bgColor }: { bgColor: string }) {
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/atacama-mobile-hero_ace3858c.mp4";
+  const mobileHeroStill = "/manus-storage/tented-mobile-hero-still_544c22e9.jpeg";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <video src={mobileHeroImage} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" />
+          <img src={mobileHeroStill} alt="Nayara Alto Atacama" className="w-full h-full object-cover" loading="eager" decoding="async" />
         ) : (
           <BlobVideo
           src={heroVideo}

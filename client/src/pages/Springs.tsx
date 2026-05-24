@@ -262,12 +262,12 @@ export default function Springs() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/springs-mobile-hero_572a69ce.png";
+  const mobileHeroImage = "/manus-storage/springs-mobile-hero-still_4af3365b.jpg";
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Springs" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
+          <img src={mobileHeroImage} alt="Nayara Springs" className="w-full h-full object-cover" decoding="async" loading="eager" />
         ) : (
           <BlobVideo
           src={CDN.heroDesktop}

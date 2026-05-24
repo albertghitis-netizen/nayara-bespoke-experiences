@@ -642,13 +642,13 @@ function CascadeSection({
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/bocas-mobile-hero_580b7cd5.jpg";
+  const mobileHeroImage = "/manus-storage/bocas-mobile-hero-still_a319eda6.jpeg";
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Bocas del Toro" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
+          <img src={mobileHeroImage} alt="Nayara Bocas del Toro" className="w-full h-full object-cover" decoding="async" loading="eager" />
         ) : (
           <BlobVideo
           src={heroVideo}

@@ -185,11 +185,12 @@ function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0" data-hero-video>
         {isMobile ? (
-          <CanvasVideo
-            src={mobileHeroVideo}
-            poster="/manus-storage/mobile-hero-poster_8227be2e.jpg"
-            className="w-full h-full"
-            loop
+          <img
+            src="/manus-storage/home-mobile-hero-still_84fbf7bb.jpeg"
+            alt="Nayara Resorts"
+            className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
           />
         ) : (
           <video

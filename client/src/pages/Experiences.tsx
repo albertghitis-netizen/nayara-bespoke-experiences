@@ -84,7 +84,13 @@ function HeroSection() {
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <NativeVideo src={CDN.heroVertical} className="w-full h-full object-cover" />
+          <img
+            src="/manus-storage/experiences-mobile-hero-still_7e0e3d8e.jpg"
+            alt="Nayara Experiences"
+            className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
         ) : (
           <video
             ref={videoRef}
