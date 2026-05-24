@@ -15,7 +15,7 @@ export interface GalleryItem {
  * - Colors varied for visual diversity
  * - Mix of horizontal, vertical, square throughout
  */
-export const galleryImages: GalleryItem[] = [
+const _allGalleryItems: GalleryItem[] = [
   // 1. Sunset wide (HORIZ, golden) [swapped from G63]
   { src: "/manus-storage/newgal-049-IMG_6906_d3bd3949.JPG", w: 1920, h: 1080, type: "image" },
   // 2. VIDEO , Nayara reel (VERT, 3.7s) [swapped from G21]
@@ -163,3 +163,6 @@ export const galleryImages: GalleryItem[] = [
   // 67. VIDEO , vid-05 AI generated (VERT, 6s) , closer
   { src: "/manus-storage/gal-vid-05_7e0f1a1e.MP4", w: 848, h: 1072, type: "video" },
 ];
+
+// Export only images — videos removed for performance (no canvas extraction needed)
+export const galleryImages: GalleryItem[] = _allGalleryItems.filter(item => item.type === "image");

@@ -194,43 +194,7 @@ function GalleryCell({
   onClick: () => void;
 }) {
   const [loaded, setLoaded] = useState(false);
-  const [posterUrl, setPosterUrl] = useState<string | null>(null);
   const aspectRatio = item.w / item.h;
-
-  // For videos: extract a still frame (last frame) as a static image
-  useEffect(() => {
-    if (item.type !== "video") return;
-    const video = document.createElement("video");
-    video.crossOrigin = "anonymous";
-    video.preload = "metadata";
-    video.muted = true;
-    video.playsInline = true;
-
-    video.onloadedmetadata = () => {
-      video.currentTime = Math.max(0, video.duration - 0.1);
-    };
-
-    video.onseeked = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      const ctx = canvas.getContext("2d");
-      if (ctx) {
-        ctx.drawImage(video, 0, 0);
-        const dataUrl = canvas.toDataURL("image/jpeg", 0.85);
-        setPosterUrl(dataUrl);
-        setLoaded(true);
-      }
-      video.src = "";
-      video.load();
-    };
-
-    video.onerror = () => {
-      setLoaded(true);
-    };
-
-    video.src = item.src;
-  }, [item.src, item.type]);
 
   return (
     <div
@@ -238,29 +202,15 @@ function GalleryCell({
       style={{ aspectRatio: `${aspectRatio}` }}
       onClick={onClick}
     >
-      {item.type === "video" ? (
-        posterUrl ? (
-          <img
-            src={posterUrl}
-            alt=""
-            className={`w-full h-full object-cover transition-opacity duration-500 ${
-              loaded ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ) : (
-          <div className="w-full h-full bg-neutral-800" />
-        )
-      ) : (
-        <img
-          src={item.src}
-          alt=""
-          loading="lazy"
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
-          onLoad={() => setLoaded(true)}
-        />
-      )}
+      <img
+        src={item.src}
+        alt=""
+        loading="lazy"
+        className={`w-full h-full object-cover transition-opacity duration-500 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+        onLoad={() => setLoaded(true)}
+      />
 
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
 
@@ -333,68 +283,17 @@ function Lightbox({
         className="max-w-[90vw] max-h-[85vh] flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
-        {item.type === "video" ? (
-          <LightboxVideoStill src={item.src} />
-        ) : (
-          <motion.img
-            key={item.src}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-            src={item.src}
-            alt=""
-            className="max-w-full max-h-[85vh] object-contain"
-          />
-        )}
+        <motion.img
+          key={item.src}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          src={item.src}
+          alt=""
+          className="max-w-full max-h-[85vh] object-contain"
+        />
       </div>
     </motion.div>
   );
 }
 
-/** Renders a still frame (last frame) from a video source — no video playback */
-function LightboxVideoStill({ src }: { src: string }) {
-  const [posterUrl, setPosterUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    const video = document.createElement("video");
-    video.crossOrigin = "anonymous";
-    video.preload = "metadata";
-    video.muted = true;
-    video.playsInline = true;
-
-    video.onloadedmetadata = () => {
-      video.currentTime = Math.max(0, video.duration - 0.1);
-    };
-
-    video.onseeked = () => {
-      const canvas = document.createElement("canvas");
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      const ctx = canvas.getContext("2d");
-      if (ctx) {
-        ctx.drawImage(video, 0, 0);
-        setPosterUrl(canvas.toDataURL("image/jpeg", 0.9));
-      }
-      video.src = "";
-      video.load();
-    };
-
-    video.onerror = () => {};
-    video.src = src;
-  }, [src]);
-
-  if (!posterUrl) {
-    return <div className="w-[60vw] h-[60vh] bg-neutral-800 animate-pulse rounded" />;
-  }
-
-  return (
-    <motion.img
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.3 }}
-      src={posterUrl}
-      alt=""
-      className="max-w-full max-h-[85vh] object-contain"
-    />
-  );
-}
