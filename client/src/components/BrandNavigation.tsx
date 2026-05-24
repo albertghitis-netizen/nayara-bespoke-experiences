@@ -569,19 +569,19 @@ export default function BrandNavigation({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className="fixed inset-0 z-40 md:hidden"
+                className="fixed inset-0 z-40 md:hidden pointer-events-auto"
                 style={{ background: 'rgba(0,0,0,0.15)' }}
                 onClick={() => closeAll()}
               />
-              {/* Panel — covers left two-thirds, semi-transparent */}
+              {/* Panel — covers left half, solid background */}
               <motion.div
                 ref={mobileMenuRef}
                 initial={{ x: '-100%', opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: '-100%', opacity: 0 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="fixed top-0 left-0 bottom-0 z-50 md:hidden overflow-y-auto"
-                style={{ width: '72%', background: 'rgba(247, 245, 240, 0.92)' }}
+                className="fixed top-0 left-0 bottom-0 z-50 md:hidden overflow-y-auto pointer-events-auto"
+                style={{ width: '50%', background: '#f7f5f0' }}
               >
                 {/* Close button row */}
                 <div className="flex items-center px-5 pt-5 pb-3">
