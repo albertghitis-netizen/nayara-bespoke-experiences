@@ -197,7 +197,7 @@ function GalleryCell({
   const [posterUrl, setPosterUrl] = useState<string | null>(null);
   const aspectRatio = item.w / item.h;
 
-  // For videos: load metadata, seek to last frame, capture as poster image
+  // For videos: extract a still frame (last frame) as a static image
   useEffect(() => {
     if (item.type !== "video") return;
     const video = document.createElement("video");
@@ -207,7 +207,6 @@ function GalleryCell({
     video.playsInline = true;
 
     video.onloadedmetadata = () => {
-      // Seek to near the end (last 0.1s)
       video.currentTime = Math.max(0, video.duration - 0.1);
     };
 
@@ -222,13 +221,11 @@ function GalleryCell({
         setPosterUrl(dataUrl);
         setLoaded(true);
       }
-      // Clean up
       video.src = "";
       video.load();
     };
 
     video.onerror = () => {
-      // Fallback: just show a dark placeholder
       setLoaded(true);
     };
 
@@ -266,16 +263,6 @@ function GalleryCell({
       )}
 
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-
-      {item.type === "video" && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all">
-            <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
-      )}
 
       {!loaded && (
         <div className="absolute inset-0 bg-neutral-900 animate-pulse" />
@@ -347,16 +334,7 @@ function Lightbox({
         onClick={(e) => e.stopPropagation()}
       >
         {item.type === "video" ? (
-          <video
-            src={item.src}
-            className="max-w-full max-h-[85vh] object-contain"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            controls
-          />
+          <LightboxVideoStill src={item.src} />
         ) : (
           <motion.img
             key={item.src}
@@ -370,5 +348,53 @@ function Lightbox({
         )}
       </div>
     </motion.div>
+  );
+}
+
+/** Renders a still frame (last frame) from a video source — no video playback */
+function LightboxVideoStill({ src }: { src: string }) {
+  const [posterUrl, setPosterUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const video = document.createElement("video");
+    video.crossOrigin = "anonymous";
+    video.preload = "metadata";
+    video.muted = true;
+    video.playsInline = true;
+
+    video.onloadedmetadata = () => {
+      video.currentTime = Math.max(0, video.duration - 0.1);
+    };
+
+    video.onseeked = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        ctx.drawImage(video, 0, 0);
+        setPosterUrl(canvas.toDataURL("image/jpeg", 0.9));
+      }
+      video.src = "";
+      video.load();
+    };
+
+    video.onerror = () => {};
+    video.src = src;
+  }, [src]);
+
+  if (!posterUrl) {
+    return <div className="w-[60vw] h-[60vh] bg-neutral-800 animate-pulse rounded" />;
+  }
+
+  return (
+    <motion.img
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3 }}
+      src={posterUrl}
+      alt=""
+      className="max-w-full max-h-[85vh] object-contain"
+    />
   );
 }
