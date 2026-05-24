@@ -149,7 +149,7 @@ export default function Press() {
         <div className="absolute inset-0">
           {isMobile ? (
             <img
-              src="/manus-storage/press-awards-mobile-hero_59b5e69b.jpg"
+              src="/manus-storage/press-awards-mobile-hero_2ce5c674.jpg"
               alt="Nayara Press"
               className="w-full h-full object-cover"
               loading="eager"

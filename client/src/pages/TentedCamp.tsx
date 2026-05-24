@@ -1052,9 +1052,9 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "The Camp",
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.\n\nClifftop tents and suites perched above the rainforest canopy with unobstructed volcano views. Best Resort in Central America, four of the last five years \u2014 Travel + Leisure.",
-    verticalSrc: "/manus-storage/tented-camp-vertical-reel_8ae527eb.mp4",
+    verticalSrc: "",
     horizontalSrc: "",
-    verticalIsVideo: true,
+    verticalIsVideo: false,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -1370,13 +1370,13 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroStill = "/manus-storage/tented-mobile-hero-still_61d51c11.jpg";
+  const mobileHeroVideo = "/manus-storage/tented-camp-mobile-hero-video_baa54598.mov";
 
   return (
     <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '9/16' } : undefined}>
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroStill} alt="Nayara Tented Camp" className="w-full h-full object-cover" loading="eager" decoding="async" />
+          <NativeVideo src={mobileHeroVideo} loop className="w-full h-full object-cover" />
         ) : (
           <BlobVideo
             src={heroVideo}
