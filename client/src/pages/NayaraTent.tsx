@@ -110,6 +110,7 @@ function HeroSection() {
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
+          loading="lazy"
           src="/manus-storage/nayara-tent-hero-new_ef04defd.jpg"
           alt="Nayara Tented Camp villa with pool at sunset"
           className="w-full h-full object-cover"
@@ -736,6 +737,7 @@ function CTASection() {
       {/* Full background image */}
       <div className="absolute inset-0">
         <img
+          loading="lazy"
           src={IMG.resortExterior}
           alt=""
           className="w-full h-full object-cover"

@@ -710,6 +710,7 @@ function WellnessRetreatsSection({ palette }: { palette: PropertyPalette }) {
                   {/* Image */}
                   <div className="relative aspect-[3/4] overflow-hidden mb-5">
                     <img
+          loading="lazy"
                       src={dest.image}
                       alt={dest.label}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

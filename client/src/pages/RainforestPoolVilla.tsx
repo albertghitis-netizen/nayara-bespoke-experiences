@@ -99,6 +99,7 @@ function HeroSection() {
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
+          loading="lazy"
           src="/manus-storage/rainforest-pool-villa-hero-new_0a79d834.jpg"
           alt="Rainforest Pool Villa with private pool surrounded by jungle"
           className="w-full h-full object-cover"
@@ -449,6 +450,7 @@ function PhotoGrid() {
               &times;
             </button>
             <img
+          loading="lazy"
               src={gridImages[lightbox]}
               alt="Enlarged view"
               className="max-w-full max-h-[90vh] object-contain"
@@ -471,6 +473,7 @@ function CTASection() {
     >
       <div className="absolute inset-0 opacity-10">
         <img
+          loading="lazy"
           src={IMG.hero}
           alt=""
           className="w-full h-full object-cover"

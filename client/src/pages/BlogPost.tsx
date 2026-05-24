@@ -18,6 +18,7 @@ export default function BlogPost() {
       {/* ── HERO IMAGE ── */}
       <div className="px-8 md:px-16 pt-10">
         <img
+          loading="lazy"
           src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/pura-vida-hero_567b6d5c.jpeg"
           alt="Two people relaxing by the water at Nayara"
           className="w-full object-cover rounded"

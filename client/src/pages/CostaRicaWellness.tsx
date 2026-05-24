@@ -242,6 +242,7 @@ function LasTermas({ palette }: { palette: PropertyPalette }) {
         <AnimateOnScroll variants={fadeUp} delay={0.15}>
           <div className="mb-12">
             <img
+          loading="lazy"
               src="/manus-storage/pasted_file_537KZK_image_f092b2e7.png"
               alt="Las Termas hot springs pool in rainforest"
               className="w-full rounded-lg overflow-hidden object-cover"
@@ -295,6 +296,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <div className="mb-12">
             <img
+          loading="lazy"
               src="/manus-storage/yoga-vertical_2984cb95.jpg"
               alt="Yoga practice in the rainforest"
               className="w-full rounded-lg overflow-hidden object-cover"
@@ -327,6 +329,7 @@ function SukhaSpaBanner({ palette }: { palette: PropertyPalette }) {
   return (
     <section className="py-0 px-0 w-full">
       <img
+          loading="lazy"
         src="/manus-storage/sukha-spa-header_f45f904f.jpg"
         alt="Sukha Spa"
         className="w-full h-auto object-cover"

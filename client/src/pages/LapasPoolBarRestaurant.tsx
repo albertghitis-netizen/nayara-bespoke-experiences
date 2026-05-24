@@ -134,6 +134,7 @@ function GallerySection({ restaurant }: { restaurant: any }) {
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <div className="mb-8">
             <img
+          loading="lazy"
               src={images[selectedIndex]}
               alt={`${restaurant.name} - Image ${selectedIndex + 1}`}
               className="w-full h-auto rounded-lg object-cover"
@@ -156,6 +157,7 @@ function GallerySection({ restaurant }: { restaurant: any }) {
                 }}
               >
                 <img
+          loading="lazy"
                   src={image}
                   alt={`Thumbnail ${index + 1}`}
                   className="w-full h-24 object-cover"

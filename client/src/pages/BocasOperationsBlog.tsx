@@ -437,6 +437,7 @@ export default function BocasOperationsBlog() {
       {/* ── TREEHOUSE STILL IMAGE BREAK ────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ height: "60vh" }}>
         <img
+          loading="lazy"
           src="/manus-storage/bocas-ibuku-treehouses-lastframe_3e0ff35a.jpg"
           alt="IBUKU treehouses at Nayara Bocas del Toro, 50 feet above the rainforest"
           className="w-full h-full object-cover object-center"

@@ -139,6 +139,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <img
+          loading="lazy"
         src={HERO_IMAGE}
         alt="Poerava Restaurant interior at Nayara Hangaroa"
         className="w-full h-full object-cover"

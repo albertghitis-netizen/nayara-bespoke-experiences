@@ -83,6 +83,7 @@ export default function ArenalTimelessWonderBlog() {
       {/* ── HERO ── */}
       <section className="relative w-full" style={{ aspectRatio: "21/9", minHeight: 320 }}>
         <img
+          loading="lazy"
           src={HERO_IMAGE}
           alt="Arenal Volcano rising above the Costa Rican rainforest"
           className="absolute inset-0 w-full h-full object-cover object-top"
@@ -515,6 +516,7 @@ export default function ArenalTimelessWonderBlog() {
                 <div className="cursor-pointer group">
                   <div className="overflow-hidden mb-4" style={{ aspectRatio: "4/3" }}>
                     <img
+          loading="lazy"
                       src={r.image}
                       alt={r.title}
                       className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"

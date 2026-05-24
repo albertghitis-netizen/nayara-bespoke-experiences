@@ -18,6 +18,7 @@ export default function Newsletter() {
       {/* ── HEADER LOGO ── */}
       <div className="px-8 md:px-16 pt-10 pb-4 text-center">
         <img
+          loading="lazy"
           src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg"
           alt="Nayara Resorts"
           className="mx-auto h-12 md:h-14 w-auto"
@@ -54,6 +55,7 @@ export default function Newsletter() {
           </p>
 
           <img
+          loading="lazy"
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/340C7D71-BAF3-4215-B25E-98878C4B65F6_48b343e5.JPEG"
             alt="Rainforest canopy at Nayara Tented Camp"
             className="w-full object-cover rounded mb-8"
@@ -100,6 +102,7 @@ export default function Newsletter() {
           </p>
 
           <img
+          loading="lazy"
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-7_cc61b8d2.jpg"
             alt="Atacama desert landscape"
             className="w-full object-cover rounded mb-8"
@@ -156,6 +159,7 @@ export default function Newsletter() {
           </p>
 
           <img
+          loading="lazy"
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Supersale-8_43b2ae73.jpg"
             alt="Aerial view of rainforest hot springs"
             className="w-full object-cover rounded mb-8"

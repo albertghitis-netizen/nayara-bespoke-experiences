@@ -147,6 +147,7 @@ function Navigation() {
         {/* Logo center */}
         <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-3">
           <img
+          loading="lazy"
             src={LOGO_URL}
             alt="Sylvia"
             style={{ width: '80px' }}
@@ -241,6 +242,7 @@ function HeroSection() {
         className="mt-8 md:mt-10 max-w-4xl mx-auto"
       >
         <img
+          loading="lazy"
           src={IMAGES.hero}
           alt="Sylvia Bischoff"
           className="w-full h-[50vh] md:h-[65vh] object-cover rounded-sm"
@@ -309,6 +311,7 @@ function ServicesSection() {
           {/* Image */}
           <div className="order-2 md:order-1">
             <img
+          loading="lazy"
               src={IMAGES.services}
               alt="Therapeutic space"
               className="w-full h-[400px] md:h-[550px] object-cover rounded-sm"
@@ -477,6 +480,7 @@ function AboutSection() {
           {/* Image */}
           <div>
             <img
+          loading="lazy"
               src={IMAGES.about}
               alt="Therapeutic environment"
               className="w-full h-[400px] md:h-[550px] object-cover rounded-sm"
@@ -499,6 +503,7 @@ function PhilosophySection() {
           {/* Image */}
           <div>
             <img
+          loading="lazy"
               src={IMAGES.philosophy}
               alt="Calm interior"
               className="w-full h-[400px] md:h-[500px] object-cover rounded-sm"
@@ -541,6 +546,7 @@ function CTASection() {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <img
+          loading="lazy"
           src={IMAGES.cta}
           alt=""
           className="w-full h-full object-cover"
@@ -581,6 +587,7 @@ function FooterSection() {
       <div className="max-w-4xl mx-auto text-center">
         {/* Logo */}
         <img
+          loading="lazy"
           src={LOGO_URL}
           alt="Sylvia"
           className="h-20 mx-auto mb-8 object-contain"

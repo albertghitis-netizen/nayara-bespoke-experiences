@@ -755,6 +755,7 @@ function FeaturedExcursionCard({
                       <div className="aspect-[3/4] overflow-hidden">
                         {cardImageSrc ? (
                           <img
+          loading="lazy"
                             src={cardImageSrc}
                             alt={`${excursion.name}`}
                             className="w-full h-full object-cover"
@@ -804,6 +805,7 @@ function FeaturedExcursionCard({
                     <div className="aspect-[16/10] overflow-hidden">
                       {cardImageSrc ? (
                         <img
+          loading="lazy"
                           src={cardImageSrc}
                           alt={`${excursion.name} , landscape`}
                           className="w-full h-full object-cover"
@@ -832,6 +834,7 @@ function FeaturedExcursionCard({
                     <div className="aspect-square overflow-hidden">
                       {excursion.detailSquarePhoto ? (
                         <img
+          loading="lazy"
                           src={excursion.detailSquarePhoto}
                           alt={`${excursion.name} , detail`}
                           className="w-full h-full object-cover"
@@ -929,6 +932,7 @@ function FeaturedExcursionCard({
                     {excursion.detailVerticalPhoto ? (
                       <div className="aspect-[3/4] overflow-hidden">
                         <img
+          loading="lazy"
                           src={excursion.detailVerticalPhoto}
                           alt={`${excursion.name} , vertical`}
                           className="w-full h-full object-cover"

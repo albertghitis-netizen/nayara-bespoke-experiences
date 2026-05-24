@@ -43,6 +43,7 @@ export default function ComingSoonVenue({ venue }: { venue: VenueInfo }) {
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         {venue.heroImage ? (
           <img
+          loading="lazy"
             src={venue.heroImage}
             alt={venue.name}
             className="absolute inset-0 w-full h-full object-cover"

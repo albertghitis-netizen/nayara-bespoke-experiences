@@ -150,6 +150,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <img
+          loading="lazy"
         src={HERO_IMAGE}
         alt="Ckelar Restaurant interior with Atacama cliffs at golden hour"
         className="w-full h-full object-cover"

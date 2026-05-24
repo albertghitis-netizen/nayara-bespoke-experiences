@@ -399,6 +399,7 @@ function S1Section() {
         </div>
         <div className="w-full" style={{ aspectRatio: "3/4" }}>
           <img
+          loading="lazy"
             src="/manus-storage/hangaroa-s1-stargazing_9a62d361.jpg"
             alt="Couple stargazing with Moai silhouettes"
             className="w-full h-full object-cover"
@@ -458,6 +459,7 @@ function S1Section() {
         {/* RIGHT — Vertical still image */}
         <div className="w-1/2 relative">
           <img
+          loading="lazy"
             src="/manus-storage/hangaroa-s1-stargazing_9a62d361.jpg"
             alt="Couple stargazing with Moai silhouettes"
             className="w-full h-full object-cover"

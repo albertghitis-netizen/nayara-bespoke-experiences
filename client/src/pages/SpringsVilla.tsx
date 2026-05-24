@@ -113,6 +113,7 @@ function HeroSection() {
     <section ref={heroRef} className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
+          loading="lazy"
           src="/manus-storage/springs-villa-hero-new_9f77a818.jpg"
           alt="Nayara Springs Villa aerial view with private pool in jungle"
           className="w-full h-full object-cover"
@@ -262,6 +263,7 @@ function FullBleedBreak() {
     <section ref={ref} className="relative h-[50vh] md:h-[65vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
+          loading="lazy"
           src="/manus-storage/NayaraSprings-R5_21255-byBriceFerreStudio_0e51902a.jpg"
           alt="Nayara Springs Villa interior with rainforest views"
           className="w-full h-full object-cover scale-110"
@@ -459,6 +461,7 @@ function GallerySlideshow() {
         onMouseLeave={() => setDragStart(null)}
       >
         <img
+          loading="lazy"
           src={GALLERY[current].src}
           alt={GALLERY[current].alt}
           className="w-full h-full object-cover transition-all duration-500 pointer-events-none"
@@ -711,6 +714,7 @@ function CTASection() {
     <section className="relative py-24 md:py-36 px-6 md:px-16 overflow-hidden">
       <div className="absolute inset-0">
         <img
+          loading="lazy"
           src={IMG.poolVolcano}
           alt=""
           className="w-full h-full object-cover"

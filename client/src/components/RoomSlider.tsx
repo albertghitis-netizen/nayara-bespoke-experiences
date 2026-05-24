@@ -252,6 +252,7 @@ export default function RoomSlider({
                     />
                   ) : room.photo ? (
                     <img
+          loading="lazy"
                       src={room.photo}
                       alt={room.label}
                       className="w-full h-full object-cover"
@@ -423,6 +424,7 @@ function MobileSlider({
           />
         ) : currentRoom.photo ? (
           <img
+          loading="lazy"
             key={`mi-${currentIndex}`}
             src={currentRoom.photo}
             alt={currentRoom.label}

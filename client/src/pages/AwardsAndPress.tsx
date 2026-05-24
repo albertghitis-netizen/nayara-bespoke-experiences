@@ -487,6 +487,7 @@ function PressCardsSection() {
               {/* Cover image — portrait ratio */}
               <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#e8e4de]">
                 <img
+          loading="lazy"
                   src={card.coverImage}
                   alt={card.publication}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

@@ -404,6 +404,7 @@ function ExcursionCard({
           </video>
         ) : excursion.image ? (
           <img
+          loading="lazy"
             src={excursion.image}
             alt={excursion.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

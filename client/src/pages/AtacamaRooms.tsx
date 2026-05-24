@@ -222,6 +222,7 @@ function HeroSection() {
   return (
     <section className="relative aspect-[2/1] w-full overflow-hidden">
       <img
+          loading="lazy"
         src="/manus-storage/atacama-rooms-hero_36b6d5d0.jpg"
         alt="Nayara Alto Atacama at sunset"
         className="w-full h-full object-cover"
@@ -532,6 +533,7 @@ function Lightbox({
         onClick={(e) => e.stopPropagation()}
       >
         <img
+          loading="lazy"
           src={images[currentIndex]}
           alt={`${roomName} , ${currentIndex + 1}`}
           className="max-w-full max-h-[85vh] object-contain"

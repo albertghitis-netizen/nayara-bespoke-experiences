@@ -769,6 +769,7 @@ function CTASection() {
       {/* Full background image */}
       <div className="absolute inset-0">
         <img
+          loading="lazy"
           src={IMG.canopyView}
           alt=""
           className="w-full h-full object-cover"

@@ -105,6 +105,7 @@ function HeroSection() {
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
+          loading="lazy"
           src="/manus-storage/residence-hero-lastframe_1e66e610.jpg"
           alt="Nayara Residence aerial view"
           className="w-full h-full object-cover"
@@ -710,6 +711,7 @@ function CTASection() {
     <section className="relative py-24 md:py-36 px-6 md:px-16 overflow-hidden">
       <div className="absolute inset-0">
         <img
+          loading="lazy"
           src={IMG.tentsFromAbove}
           alt=""
           className="w-full h-full object-cover"

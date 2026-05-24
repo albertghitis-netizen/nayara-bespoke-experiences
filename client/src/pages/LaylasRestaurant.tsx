@@ -40,6 +40,7 @@ function HeroSection({ restaurant }: { restaurant: any }) {
     <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden" style={ { backgroundColor: palette.primary }}>
       <div className="absolute inset-0">
         <img
+          loading="lazy"
           src={restaurant.hero}
           alt={restaurant.name}
           className="w-full h-full object-cover"
@@ -130,6 +131,7 @@ function GallerySection({ restaurant }: { restaurant: any }) {
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
           <div className="mb-8">
             <img
+          loading="lazy"
               src={images[selectedIndex]}
               alt={`${restaurant.name} - Image ${selectedIndex + 1}`}
               className="w-full h-auto rounded-lg object-cover"
@@ -152,6 +154,7 @@ function GallerySection({ restaurant }: { restaurant: any }) {
                 }}
               >
                 <img
+          loading="lazy"
                   src={image}
                   alt={`Thumbnail ${index + 1}`}
                   className="w-full h-24 object-cover"

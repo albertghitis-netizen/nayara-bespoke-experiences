@@ -120,6 +120,7 @@ function HeroSection() {
     <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
+          loading="lazy"
           src="/manus-storage/APCHero_998d4938.jpg"
           alt="Arenal Pool Casita aerial view with private pool in rainforest"
           className="w-full h-full object-cover"
@@ -273,6 +274,7 @@ function FullBleedBreak() {
     <section ref={ref} className="relative h-[50vh] md:h-[65vh] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
+          loading="lazy"
           src={IMG.aerial}
           alt="Aerial view of Arenal Pool Casitas nestled in rainforest canopy"
           className="w-full h-full object-cover scale-110"
@@ -675,6 +677,7 @@ function CTASection() {
     <section className="relative py-24 md:py-36 px-6 md:px-16 overflow-hidden">
       <div className="absolute inset-0">
         <img
+          loading="lazy"
           src={IMG.sunset1}
           alt=""
           className="w-full h-full object-cover"

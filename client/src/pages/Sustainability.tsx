@@ -444,6 +444,7 @@ function PropertyInitiativesSection({
               {/* Right: 3:4 image */}
               <div className="relative overflow-hidden rounded-xl">
                 <img
+          loading="lazy"
                   src={currentProp?.image}
                   alt={`${propertyName} sustainability`}
                   className="w-full h-full object-cover"

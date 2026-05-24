@@ -3882,3 +3882,8 @@
 - [x] Write romantic blog post about Nayara Springs and Nayara Bocas del Toro
 - [x] Register romantic blog in allBlogPosts registry and journal entries
 - [x] Gardens mobile hero: new 9:16 video uploaded and applied
+
+## Performance Optimization - Bundle & Images
+- [x] Split framer-motion into separate vendor chunk via Vite rollupOptions
+- [x] Split react/react-dom into separate vendor chunk
+- [x] Add loading="lazy" to 98 img tags that were missing it (306 total now)

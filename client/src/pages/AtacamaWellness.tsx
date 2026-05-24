@@ -164,6 +164,7 @@ function HeroSection() {
   return (
     <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
       <img
+          loading="lazy"
         src={MEDIA.hero}
         alt="Spa Puri at Nayara Alto Atacama, desert wellness oasis"
         className="w-full h-full object-cover"
@@ -315,6 +316,7 @@ function VideoSection() {
             {/* Vertical still — 1 col */}
             <div className="hidden md:block aspect-[3/4] overflow-hidden">
               <img
+          loading="lazy"
                 src={MEDIA.verticalStill}
                 alt="Spa treatment at Nayara Alto Atacama"
                 className="w-full h-full object-cover"

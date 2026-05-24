@@ -17,6 +17,7 @@ export default function NewsletterMay() {
       {/* ── HEADER LOGO ── */}
       <div className="px-8 md:px-16 pt-10 pb-4 text-center">
         <img
+          loading="lazy"
           src="https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/nayara-logo-mobile_b4d2ae65.svg"
           alt="Nayara Resorts"
           className="mx-auto h-12 md:h-14 w-auto"

@@ -101,6 +101,7 @@ export default function TentedRooms() {
       {/* Hero */}
       <section className="relative aspect-[2/1] w-full overflow-hidden">
         <img
+          loading="lazy"
           src="/manus-storage/ntc-aerial-connecting_6479275a.jpg"
           alt="Aerial view of Nayara Tented Camp"
           className="w-full h-full object-cover"

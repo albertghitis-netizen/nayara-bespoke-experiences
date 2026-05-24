@@ -318,6 +318,7 @@ function StorySection() {
         <div className="w-full md:w-1/2">
           <FadeIn delay={0.1}>
             <img
+          loading="lazy"
               src={CDN.observatoryVertical}
               alt="Observatory telescope beneath the Milky Way arch"
               className="w-full h-full object-cover"

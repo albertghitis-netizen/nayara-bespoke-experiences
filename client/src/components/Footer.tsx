@@ -89,6 +89,7 @@ function AnimatedLeaf({ propertyName, textColor = "#FFFFFF", nameFontSize = "16p
         }}
       >
         <img
+          loading="lazy"
           src="/manus-storage/nayara-leaf-logo_382a5427.svg"
           alt="Nayara"
           className="w-full h-full object-contain"
@@ -149,6 +150,7 @@ export default function Footer({ pageType = "brand", bgColor, textColor = "#FFFF
       {nightSkyBg && (
         <>
           <img
+          loading="lazy"
             src="/manus-storage/milky-way-footer_c702320f.jpg"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"

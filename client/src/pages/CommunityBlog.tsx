@@ -583,6 +583,7 @@ export default function CommunityBlog() {
                 >
                   <div className="aspect-square overflow-hidden mb-4">
                     <img
+          loading="lazy"
                       src={article.image}
                       alt={article.title}
                       className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
