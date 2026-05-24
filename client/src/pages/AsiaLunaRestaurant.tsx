@@ -13,6 +13,7 @@ import BrandNavigation from "@/components/BrandNavigation";
 import { restaurants } from "@/data/culinaryImages";
 import { getPalette, BRAND } from "@/data/propertyPalettes";
 import { AnimateOnScroll, fadeUp } from "@/components/motion";
+import { useIsMobile } from "@/hooks/useMobile";
 
 const palette = getPalette("tented-camp");
 
@@ -36,12 +37,14 @@ export default function AsiaLunaRestaurant() {
 }
 
 function HeroSection({ restaurant }: { restaurant: any }) {
+  const isMobile = useIsMobile();
+  const mobileHeroStill = "/manus-storage/asia-luna-mobile-hero-sushi_dc60e5e1.jpg";
   return (
-    <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden" style={ { backgroundColor: palette.primary }}>
+    <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-[75vh]'}`} style={isMobile ? { aspectRatio: '9/16', backgroundColor: palette.primary } : { backgroundColor: palette.primary }}>
       <div className="absolute inset-0">
         <img
-          loading="lazy"
-          src={restaurant.hero}
+          loading="eager"
+          src={isMobile ? mobileHeroStill : restaurant.hero}
           alt={restaurant.name}
           className="w-full h-full object-cover"
         />

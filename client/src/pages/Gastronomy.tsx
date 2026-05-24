@@ -1,8 +1,7 @@
 /**
  * NAYARA , THE TABLE , Brand-Level Pillar Page
  * Dining across all 6 properties
- * One-axis filter: property selector
- * Hero → Intro → Filter → Restaurant Cards → CTA → Footer
+ * Structure: Hero → Intro → Restaurants by Hotel → Food Porn Gallery → Zero Km → CTA → Footer
  */
 
 import { useState, useRef } from "react";
@@ -63,6 +62,43 @@ const propertyRoutes: Record<string, string> = {
   "bocas-del-toro": "/bocas-del-toro",
 };
 
+/* ── Food Porn images ── */
+const FOOD_PORN_IMAGES = [
+  { src: "/manus-storage/food-porn-01_4b02f347.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-02_7bc4d276.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-03_f31720af.jpg", w: 1200, h: 1499 },
+  { src: "/manus-storage/food-porn-04_c3c7c50a.jpg", w: 1200, h: 1499 },
+  { src: "/manus-storage/food-porn-05_2d800ad9.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-06_8e706736.jpg", w: 1200, h: 1499 },
+  { src: "/manus-storage/food-porn-07_6c1c4ca2.jpg", w: 1200, h: 1599 },
+  { src: "/manus-storage/food-porn-08_50857183.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-09_3ab23301.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-10_a6fb80e6.jpg", w: 1200, h: 1499 },
+  { src: "/manus-storage/food-porn-11_6ac631cc.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-12_744ae022.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-13_fe10c306.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-14_c4982e88.jpg", w: 1200, h: 1500 },
+  { src: "/manus-storage/food-porn-15_4e8ec7a8.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-16_79d3b98d.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-17_88386c34.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-18_ffdfa128.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-19_b8f88b9c.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-20_fed34208.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-21_672369b8.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-22_96238ec4.jpg", w: 1200, h: 1499 },
+  { src: "/manus-storage/food-porn-23_4c97f107.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-24_663d686d.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-25_8131cf04.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-26_37c1a9f3.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-27_216ad47c.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-28_fa8f5881.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-29_19160c2c.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-30_8acdb10b.jpg", w: 1200, h: 1499 },
+  { src: "/manus-storage/food-porn-31_29c71f37.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-32_2dc0a1eb.jpg", w: 1200, h: 674 },
+  { src: "/manus-storage/food-porn-33_94eee8a3.jpg", w: 1200, h: 2132 },
+];
+
 export default function Gastronomy() {
   const [activeHotel, setActiveHotel] = useState("alto-atacama");
   const [, navigate] = useLocation();
@@ -78,6 +114,8 @@ export default function Gastronomy() {
       <IntroSection />
       <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} label="Explore Dining" />
       <PropertySections filtered={filtered} navigate={navigate} />
+      <FoodPornGallery />
+      <ZeroKilometers />
       <CTASection />
       <Footer textColor="#FFFFFF" />
     </div>
@@ -115,7 +153,7 @@ function HeroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   INTRO
+   INTRO — Culinary Philosophy (shortened)
    ═══════════════════════════════════════════════════════════════ */
 function IntroSection() {
   return (
@@ -127,27 +165,8 @@ function IntroSection() {
             Every Dish Tells the Story of Its Land
           </h2>
           <p className="text-[#4B4A4A]/70 text-[15px] leading-[1.8]" style={body}>
-            From Michelin-recognized kitchens in the Costa Rican rainforest to Pacific Island cuisine on Easter Island, from desert-adapted Chilean fare in the Atacama to Caribbean-Panamanian fusion over the water in Bocas del Toro , every Nayara restaurant sources locally, cooks seasonally, and honors the culinary traditions of its place. Seventy percent of our ingredients come from within 100 kilometers of each property.
+            From Michelin-recognized kitchens in the Costa Rican rainforest to Pacific Island cuisine on Easter Island, from desert-adapted Chilean fare in the Atacama to Caribbean-Panamanian fusion over the water in Bocas del Toro — every Nayara restaurant sources locally, cooks seasonally, and honors the culinary traditions of its place. Seventy percent of our ingredients come from within 100 kilometers of each property.
           </p>
-        </FadeIn>
-
-        {/* Zero-Kilometer / Taste of Place editorial narrative */}
-        <FadeIn delay={0.15}>
-          <div className="mt-12 md:mt-16 pt-10 border-t border-[#3B2B26]/8">
-            <p className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>A Taste of Place</p>
-            <p className="text-[#4B4A4A] text-xl md:text-2xl leading-snug mb-6" style={{ ...heading, lineHeight: 1.2 }}>
-              Zero-kilometer dining means the distance between earth and plate is measured in footsteps, not freight miles.
-            </p>
-            <p className="text-[#4B4A4A]/65 text-[15px] leading-[1.85] mb-5" style={body}>
-              The concept is simple but its implications are profound: source ingredients from the land you stand on, cook with what the season provides, and let the place itself become the flavor. In Costa Rica, that means coffee from the Tarraz\u00fa and Dota Valley highlands roasted for your morning cup at Mi Cafecito. It means tropical fruits , guan\u00e1bana, passion fruit, mango , picked from local farms and churned into gelato the same afternoon. It means cocktails at Terraza built from Cacique Guaro and Dota Valley apples, drinks that could not exist anywhere else because they are made from ingredients that belong to this soil.
-            </p>
-            <p className="text-[#4B4A4A]/65 text-[15px] leading-[1.85] mb-5" style={body}>
-              This is not farm-to-table as marketing language. It is a culinary philosophy rooted in a deeper truth: that food is identity. Recipes and traditions are passed down through generations, shaped by altitude and rainfall, by volcanic soil and tropical seasons. When Amor Loco prepares ceviche with Costa Rican ingredients from our organic gardens, or Asia Luna reinterprets Thai and Japanese techniques through locally sourced produce, they are not simply reducing food miles , they are telling the story of a place through flavor. The kitchen becomes a form of cartography.
-            </p>
-            <p className="text-[#4B4A4A]/65 text-[15px] leading-[1.85]" style={body}>
-              Every Friday, guests join our staff at the local market in La Fortuna , meeting the vendors, discovering regional products, understanding the human chain that connects seed to plate. This is what zero-kilometer dining truly means: not just proximity, but relationship. Not just freshness, but belonging. When you eat at Nayara, you are not consuming a meal prepared for tourists. You are participating in the food culture of a place , and that place is participating in you.
-            </p>
-          </div>
         </FadeIn>
       </div>
     </section>
@@ -155,7 +174,7 @@ function IntroSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PROPERTY SECTIONS , Grouped by property
+   PROPERTY SECTIONS — Grouped by property
    ═══════════════════════════════════════════════════════════════ */
 function PropertySections({ filtered, navigate }: { filtered: PropertyDining[]; navigate: (path: string) => void }) {
   return (
@@ -233,7 +252,7 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
             <span className="text-[#3B2B26]/20 text-[11px] italic" style={body}>Menu coming soon</span>
           )}
           <button onClick={() => onNavigate(route)} className="text-[#c9b99a] text-[11px] tracking-[0.08em] hover:text-[#3B2B26] transition-colors" style={{ ...body, fontWeight: 500 }}>
-            View Property \u2192
+            View Property →
           </button>
         </div>
       </div>
@@ -242,9 +261,85 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CTA
+   FOOD PORN — Pinterest-style masonry, no gaps, no sorting
+   ═══════════════════════════════════════════════════════════════ */
+function FoodPornGallery() {
+  const isMobile = useIsMobile();
+  const cols = isMobile ? 2 : 3;
+
+  // Distribute images into columns for masonry
+  const columns: typeof FOOD_PORN_IMAGES[] = Array.from({ length: cols }, () => []);
+  const colHeights = new Array(cols).fill(0);
+
+  FOOD_PORN_IMAGES.forEach((img) => {
+    const shortestCol = colHeights.indexOf(Math.min(...colHeights));
+    columns[shortestCol].push(img);
+    colHeights[shortestCol] += img.h / img.w;
+  });
+
+  return (
+    <section className="px-0">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-6">
+        <FadeIn>
+          <p className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em] uppercase mb-2" style={{ ...body, fontWeight: 600 }}>The Art of Plating</p>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl" style={heading}>Food Porn</h2>
+        </FadeIn>
+      </div>
+      <div className="flex gap-0">
+        {columns.map((col, ci) => (
+          <div key={ci} className="flex-1 flex flex-col gap-0">
+            {col.map((img, ii) => (
+              <div key={ii} className="relative w-full" style={{ aspectRatio: `${img.w} / ${img.h}` }}>
+                <img
+                  src={img.src}
+                  alt="Nayara cuisine"
+                  className="w-full h-full object-cover block"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ZERO KILOMETERS — One paragraph at the bottom
+   ═══════════════════════════════════════════════════════════════ */
+function ZeroKilometers() {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10">
+      <div className="max-w-[900px] mx-auto">
+        <FadeIn>
+          <p className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em] uppercase mb-4" style={{ ...body, fontWeight: 600 }}>Zero Kilometers</p>
+          <p className="text-[#4B4A4A] text-xl md:text-2xl leading-snug mb-6" style={{ ...heading, lineHeight: 1.2 }}>
+            The distance between earth and plate is measured in footsteps, not freight miles.
+          </p>
+          <p className="text-[#4B4A4A]/65 text-[15px] leading-[1.85]" style={body}>
+            Zero-kilometer dining is not farm-to-table as marketing language — it is a culinary philosophy rooted in identity. In Costa Rica, coffee from the Tarrazú highlands is roasted for your morning cup at Mi Cafecito. Tropical fruits are picked from local farms and churned into gelato the same afternoon. In the Atacama, quinoa and herbs from oasis gardens become the foundation of every plate. In Bocas del Toro, the Caribbean sea delivers its catch directly to the kitchen. Every Friday in La Fortuna, guests join our staff at the local market — meeting vendors, discovering regional products, understanding the human chain that connects seed to plate. This is what zero-kilometer dining truly means: not just proximity, but relationship. Not just freshness, but belonging.
+          </p>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA — All 6 hotels listed individually
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
+  const hotels = [
+    { label: "Nayara Tented Camp", route: "/tented-camp" },
+    { label: "Nayara Gardens", route: "/gardens" },
+    { label: "Nayara Springs", route: "/springs" },
+    { label: "Nayara Alto Atacama", route: "/alto-atacama" },
+    { label: "Nayara Bocas del Toro", route: "/bocas-del-toro" },
+    { label: "Nayara Hangaroa", route: "/hangaroa" },
+  ];
+
   return (
     <section className="py-16 md:py-24 px-6 md:px-10 bg-[#3B2B26]">
       <div className="max-w-[800px] mx-auto text-center">
@@ -256,14 +351,11 @@ function CTASection() {
             From rainforest fine dining to overwater Caribbean kitchens, every meal at Nayara is a destination.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {Object.entries(propertyRoutes).map(([slug, route]) => {
-              const label = slug === "arenal" ? "Costa Rica" : slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-              return (
-                <Link key={slug} href={route} className="px-5 py-2.5 border border-white/15 rounded-full text-white/60 text-[12px] tracking-[0.08em] hover:border-white/40 hover:text-white/90 hover:bg-white/5 transition-all" style={{ ...body, fontWeight: 500 }}>
-                  {label}
-                </Link>
-              );
-            })}
+            {hotels.map((hotel) => (
+              <Link key={hotel.route} href={hotel.route} className="px-5 py-2.5 border border-white/15 rounded-full text-white/60 text-[12px] tracking-[0.08em] hover:border-white/40 hover:text-white/90 hover:bg-white/5 transition-all" style={{ ...body, fontWeight: 500 }}>
+                {hotel.label}
+              </Link>
+            ))}
           </div>
         </FadeIn>
       </div>

@@ -3916,3 +3916,13 @@
 - [x] Press page: mobile hero updated to Tented Camp drone shot
 - [x] Awards page: mobile hero updated to Tented Camp drone shot
 - [x] Experiences brand page: mobile hero updated to Rainbow Valley
+
+## Brand Gastronomy Page Restructure
+- [x] Download all food porn images from Dropbox folder
+- [x] Upload food porn images to CDN
+- [x] Restructure page order: Intro → Restaurants by hotel → Food Porn → Zero Km
+- [x] Sort restaurants by hotel (group by property)
+- [x] Add Pinterest-style Food Porn gallery (masonry, no gaps, no sorting)
+- [x] Shorten Zero Kilometers section to one paragraph
+- [x] Asia Luna restaurant: mobile hero updated to sushi image
+- [x] CTA lists all 6 individual hotels (not just Costa Rica)
