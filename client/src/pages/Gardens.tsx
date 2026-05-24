@@ -293,12 +293,12 @@ export default function Gardens() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroImage = "/manus-storage/gardens-mobile-hero-v2_ff0c36d3.jpg";
+  const mobileHeroVideo = "/manus-storage/gardens-hero-mobile_08b02898.mp4";
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '9/16' } : undefined}>
       <div className="absolute inset-0">
         {isMobile ? (
-          <img src={mobileHeroImage} alt="Nayara Gardens" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
+          <NativeVideo src={mobileHeroVideo} className="w-full h-full object-cover" loop={false} />
         ) : (
           <BlobVideo
           src={CDN.heroDesktop}
