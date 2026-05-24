@@ -5,6 +5,7 @@
  */
 import { gastronomyBlogPost, inHouseActivitiesBlogPost } from "./blogPostsNew";
 import { experientialTravelPost, familyBucketListPost } from "./blogPostsExperiential";
+import { romanticBlogPost } from "./blogPostRomantic";
 
 // ─── Types ────────────────────────────────────────────────────
 
@@ -898,6 +899,7 @@ export const allBlogPosts: Record<string, BlogPostData> = {
   "in-house-activities-three-hotels-infinite-experiences": inHouseActivitiesBlogPost,
   "experiential-travel-nayara-2026": experientialTravelPost,
   "family-bucket-list-nayara": familyBucketListPost,
+  "romance-at-nayara-springs-and-bocas-del-toro": romanticBlogPost,
 };
 
 /** Helper to get a blog post by slug */

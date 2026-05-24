@@ -3877,3 +3877,8 @@
 - [x] Upload all compressed videos to CDN and update code references
 - [x] Verify hamburger menu hotel order: Tented Camp, Alto Atacama, Gardens, Bocas, Springs, Hangaroa, Resorts
 - [x] Verify footer hotel order matches hamburger
+
+## Romantic Blog Post
+- [x] Write romantic blog post about Nayara Springs and Nayara Bocas del Toro
+- [x] Register romantic blog in allBlogPosts registry and journal entries
+- [x] Gardens mobile hero: new 9:16 video uploaded and applied

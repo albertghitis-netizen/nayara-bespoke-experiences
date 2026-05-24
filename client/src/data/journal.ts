@@ -392,6 +392,15 @@ const blogArticles: JournalEntry[] = [
     image: "/manus-storage/journal-family-cover-v2_8d8fbf0a.jpg",
     excerpt: "Create unforgettable family memories with wildlife encounters, chocolate-making, and volcano adventures.",
   },
+  {
+    id: "romance-springs-bocas",
+    title: "Two Worlds, One Love: Romance at Nayara Springs and Nayara Bocas del Toro",
+    url: "/blog/romance-at-nayara-springs-and-bocas-del-toro",
+    property: "springs",
+    type: "article",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/bocas-couple-villa-pool_42fafe14.jpg",
+    excerpt: "Volcanic hot springs in Costa Rica and overwater villas on a private Caribbean island. Two adults-only sanctuaries designed for love.",
+  },
 
   // Caribbean Coral Reef blog removed, content now lives on /bocas-del-toro/sustainability
 
