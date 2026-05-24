@@ -3926,3 +3926,23 @@
 - [x] Shorten Zero Kilometers section to one paragraph
 - [x] Asia Luna restaurant: mobile hero updated to sushi image
 - [x] CTA lists all 6 individual hotels (not just Costa Rica)
+
+## Tented Camp Leo Ghitis Pill Fix
+- [x] Remove "Watch" from Leo Ghitis pill text
+- [x] Split text into 3 balanced lines: "CEO & Co-Founder Leo Ghitis / Discusses Sustainability on the / Luxury Travel Podcast"
+
+## Hangaroa Tau Mana Podcast Pill
+- [x] Add Taumana circular avatar (Rapa Nui warrior from journal entry 1)
+- [x] Update text to "Watch Tau Mana's Story on the Nayara Podcast"
+- [x] Split into two balanced lines
+
+## Hangaroa By Night Image Fix
+- [x] Replace cropped milky way image with proper 16:9 crop showing full moai silhouettes
+- [x] Change aspect ratio from 21/9 to 16/9
+
+## Pill Label Standardization (All Property Pages)
+- [x] All wellness pills → "Explore Wellness" (TentedCamp, Gardens, Springs, AltoAtacama, BocasDelToro, Hangaroa)
+- [x] Costa Rica gastronomy pills → "Forest to Table" (TentedCamp, Gardens, Springs)
+- [x] Alto Atacama gastronomy pill → "Desert to Table"
+- [x] Bocas del Toro gastronomy pill → "Ocean to Table"
+- [x] Hangaroa gastronomy pill → "Ocean to Table"

@@ -67,7 +67,7 @@ const CDN = {
   facePaint: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-16_aa3fc296.JPG",
   womanMoai: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-21_c15d07fa.JPG",
   culturalAdornment: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/Untitleddesign-22_3f8e6011.JPG",
-  wellnessHorizontal: "/manus-storage/hangaroa-wellness-horizontal_bbaade94.jpg",
+  wellnessHorizontal: "/manus-storage/hangaroa-wellness-spa-courtyard_931bd3a4.jpeg",
   ourStoryVideo: "/manus-storage/hangaroa-rapa-nui-partnership_d8787869.mp4",
   sustainabilityImage: "/manus-storage/hangaroa-sustainability-warrior-v2_808a959a.jpg",
   byNightVideo: "/manus-storage/772E29FE-4AF3-446F-A8F1-D8BA15DACE44_f5a81bf8_0615fffd.mp4",
@@ -504,10 +504,13 @@ function ExperiencesSection() {
             </p>
             <a
               href="/hangaroa/experiences"
-              className="inline-block px-5 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", border: "1px solid rgba(255,255,255,0.5)" }}
             >
               Explore Experiences
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
             </a>
           </div>
         </div>
@@ -574,10 +577,13 @@ function OurStorySection() {
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
               href="/hangaroa/sustainability"
-              className="inline-block text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02]"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
-              Our Commitment →
+              Our Commitment
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
             </a>
           </AnimateOnScroll>
         </div>
@@ -627,10 +633,13 @@ function SustainabilitySection() {
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
               href="/hangaroa/sustainability"
-              className="inline-block text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02]"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
-              Explore Sustainability →
+              Explore Sustainability
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
             </a>
           </AnimateOnScroll>
         </div>
@@ -650,10 +659,14 @@ function SustainabilitySection() {
               <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
                 <a
                   href="/journal/hangaroa-sustainability"
-                  className="inline-block px-6 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
                   style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", border: "1px solid rgba(255,255,255,0.5)" }}
                 >
-                  Watch Taumana's Story
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                  </svg>
+                  <img src="/manus-storage/podcast-cover-rapanui-warrior_9ff96565.jpg" alt="Tau Mana" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+                  <span style={{ display: "inline-block", textAlign: "left", lineHeight: "1.6" }}>Watch Tau Mana's Story<br/>on the Nayara Podcast</span>
                 </a>
               </div>
             </div>
@@ -680,10 +693,13 @@ function WellnessSection() {
           <div className="absolute bottom-8 md:bottom-12 left-0 right-0 flex justify-center z-10">
             <a
               href="/hangaroa/wellness"
-              className="inline-block px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02] hover:bg-white/20"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", border: "1px solid rgba(255,255,255,0.5)" }}
             >
               Explore Wellness
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
             </a>
           </div>
         </div>
@@ -745,10 +761,13 @@ function GastronomySection() {
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
               href="/hangaroa/gastronomy"
-              className="inline-block mt-10 text-[11px] tracking-[0.15em] transition-opacity hover:opacity-70"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: PALETTE.primary }}
+              className="inline-flex items-center gap-2 mt-10 px-5 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02]"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
-              Explore Dining →
+              Ocean to Table
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
             </a>
           </AnimateOnScroll>
         </div>
@@ -775,19 +794,17 @@ function ByNightSection() {
   return (
     <section>
       <MediaReveal>
-        <div className="relative overflow-hidden" style={{ aspectRatio: "21/9" }}>
-          <video
-            src={CDN.byNightHorizontal}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+        <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+          <img
+            src="/manus-storage/hangaroa-milkyway-moai-16x9_d1d1f81d.jpg"
+            alt="Moai silhouettes beneath the Milky Way on Easter Island"
             className="w-full h-full object-cover"
+            decoding="async"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
           {/* Overlaid text */}
-          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
+          <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10 max-w-xl">
             <p
               className="text-[11px] tracking-[0.2em] mb-3 uppercase"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}
@@ -795,11 +812,17 @@ function ByNightSection() {
               Nayara by Night
             </p>
             <h2
-              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide"
+              className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide mb-4"
               style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
             >
               Moai Beneath the Milky Way
             </h2>
+            <p
+              className="text-white/80 text-sm md:text-[15px] leading-[1.7]"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              As darkness falls over Rapa Nui, the ancient Moai stand sentinel beneath one of the clearest night skies on Earth. Far from light pollution, the Milky Way arcs overhead in breathtaking clarity — a celestial spectacle shared with only the island's ancestral guardians.
+            </p>
           </div>
         </div>
       </MediaReveal>

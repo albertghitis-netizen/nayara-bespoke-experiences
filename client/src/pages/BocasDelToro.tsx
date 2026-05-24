@@ -328,7 +328,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
     link: "/bocas-del-toro/wellness",
-    linkLabel: "Explore Nature-Based Wellness",
+    linkLabel: "Explore Wellness",
     verticalOverlayLabel: "Explore Treehouse Spa",
     stats: [
       { value: "Overwater", label: "Spa Pavilion" },
@@ -351,7 +351,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
     link: "/bocas-del-toro/gastronomy",
-    linkLabel: "Explore A Taste of Place",
+    linkLabel: "Ocean to Table",
     verticalOverlayLabel: "Explore Elephant House",
   },
   {

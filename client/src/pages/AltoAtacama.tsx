@@ -343,7 +343,7 @@ function CascadeTextBlock({
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="atacama-pill-hover inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300"
-              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? BONE : PALETTE.text, backgroundColor: "transparent", border: isDark ? `1px solid ${BONE}50` : `1px solid ${PALETTE.text}40` }}
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? BONE : "#FFFFFF", backgroundColor: isDark ? "transparent" : MIDDLE, border: isDark ? `1px solid ${BONE}50` : `1px solid ${MIDDLE}` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
@@ -363,9 +363,9 @@ function CascadeTextBlock({
             fontSize: "11px",
             letterSpacing: "0.15em",
             textTransform: "uppercase" as const,
-            color: isDark ? BONE : PALETTE.text,
-            backgroundColor: "transparent",
-            border: isDark ? `1px solid ${BONE}50` : `1px solid ${PALETTE.text}40`,
+            color: isDark ? BONE : "#FFFFFF",
+            backgroundColor: isDark ? "transparent" : MIDDLE,
+            border: isDark ? `1px solid ${BONE}50` : `1px solid ${MIDDLE}`,
           }}
         >
           {linkLabel}
@@ -490,7 +490,7 @@ function CascadeSection({
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="atacama-pill-hover inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300"
-              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: PALETTE.text, backgroundColor: "transparent", border: `1px solid ${PALETTE.text}40` }}
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#FFFFFF", backgroundColor: MIDDLE, border: `1px solid ${MIDDLE}` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
@@ -510,7 +510,7 @@ function CascadeSection({
           <a
             href={link}
             className="atacama-pill-hover inline-flex items-center gap-2 px-4 py-2.5 rounded-full border backdrop-blur-sm transition-all duration-300 w-fit"
-            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: PALETTE.text, backgroundColor: "rgba(58,42,26,0.08)", borderColor: "rgba(58,42,26,0.25)" }}
+            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: MIDDLE, borderColor: MIDDLE }}
           >
             {linkLabel || "Explore"}
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -690,7 +690,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "16/9",
     textSide: "right" as const,
     link: "/alto-atacama/wellness",
-    linkLabel: "Explore Nature-Based Wellness",
+    linkLabel: "Explore Wellness",
     badges: false,
     overlayOnVideo: true,
   },
@@ -704,7 +704,7 @@ const CASCADE_SECTIONS = [
     vRatio: "3/4", hRatio: "16/9",
     textSide: "left" as const,
     link: "/alto-atacama/gastronomy",
-    linkLabel: "Explore Desert to Table",
+    linkLabel: "Desert to Table",
     badges: false,
     hFirst: false,
     hideH: true,

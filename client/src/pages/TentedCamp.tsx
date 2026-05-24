@@ -613,8 +613,9 @@ function CascadeSection({
             ) : (
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" /></svg>
             )}
-            <span style={{ display: "inline-block", textAlign: "center", maxWidth: "300px", lineHeight: "1.6", fontSize: "10px", letterSpacing: "0.06em" }}>
-              Listen: Nayara Co-Founder & CEO, Leo Ghitis,<br/>on Sustainability with AFAR Podcast
+            <img src="/manus-storage/leo-ghitis-formal-square_eadb0855.jpg" alt="Leo Ghitis, CEO & Co-Founder" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+            <span style={{ display: "inline-block", textAlign: "left", maxWidth: "300px", lineHeight: "1.6", fontSize: "10px", letterSpacing: "0.06em" }}>
+              CEO & Co-Founder Leo Ghitis<br/>Discusses Sustainability on the<br/>Luxury Travel Podcast
             </span>
           </a>
           <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
@@ -1052,9 +1053,9 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     label: "The Camp",
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.\n\nClifftop tents and suites perched above the rainforest canopy with unobstructed volcano views. Best Resort in Central America, four of the last five years \u2014 Travel + Leisure.",
-    verticalSrc: "",
+    verticalSrc: "/manus-storage/tented-camp-mobile-hero-video_1b87ea0d.mp4",
     horizontalSrc: "",
-    verticalIsVideo: false,
+    verticalIsVideo: true,
     horizontalIsVideo: false,
     verticalRatio: "3/4",
     horizontalRatio: "16/9",
@@ -1158,7 +1159,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[6],
     nextBgColor: SECTION_COLORS[7],
     link: "/costa-rica-wellness",
-    linkLabel: "Nurtured by Nature",
+    linkLabel: "Explore Wellness",
     overlayOnVideo: true,
     stats: [
       { value: "7", label: "Thermal Springs" },
@@ -1186,7 +1187,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
     link: "/tented-camp/gastronomy",
-    linkLabel: "Explore Henry's Bar",
+    linkLabel: "Forest to Table",
     textLink: "/tented-camp/gastronomy",
     textLinkLabel: "Explore Forest to Table",
     verticalOverlayButtons: {
@@ -1370,7 +1371,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroVideo = "/manus-storage/tented-camp-mobile-hero-video_baa54598.mov";
+  const mobileHeroVideo = "/manus-storage/tented-camp-mobile-hero-video_1b87ea0d.mp4";
 
   return (
     <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '9/16' } : undefined}>
