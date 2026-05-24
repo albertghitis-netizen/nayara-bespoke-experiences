@@ -1370,14 +1370,13 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroImage = "/manus-storage/reel-nayara-tented-camp-vertical_630915e8.mp4";
-  const mobileHeroIsVideo = true;
+  const mobileHeroVideo = ASSETS.heroMobile;
 
   return (
-    <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '3/4' } : undefined}>
+    <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '9/16' } : undefined}>
       <div className="absolute inset-0">
         {isMobile ? (
-          <NativeVideo src={mobileHeroImage} className="w-full h-full object-cover" loop={false} />
+          <NativeVideo src={mobileHeroVideo} className="w-full h-full object-cover" loop={false} />
         ) : (
           <BlobVideo
             src={heroVideo}
