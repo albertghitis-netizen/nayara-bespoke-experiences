@@ -98,7 +98,7 @@ export default function BrandNavigation({
   const sectionNavRef = useRef<HTMLDivElement>(null);
   const [expandedMenus, setExpandedMenus] = useState<Record<MenuKey, boolean>>({
     explore: false,
-    resorts: false,
+    resorts: true,
   });
   const [scrolled, setScrolled] = useState(false);
 
@@ -242,7 +242,7 @@ export default function BrandNavigation({
 
   /* ── Hamburger menu content (shared between desktop & mobile) ── */
   const renderMenuContent = () => (
-    <div className="py-2 max-h-[75vh] overflow-y-auto">
+    <div className="py-2">
       {/* Property section anchors (only on property pages) */}
       {propertyItems.length > 0 && (
         <>
@@ -576,7 +576,7 @@ export default function BrandNavigation({
                 exit={{ x: '-100%', opacity: 0 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="fixed top-0 left-0 bottom-0 z-50 md:hidden overflow-y-auto"
-                style={{ width: '72%', background: 'rgba(247, 245, 240, 0.67)' }}
+                style={{ width: '72%', background: 'rgba(247, 245, 240, 0.92)' }}
               >
                 {/* Close button row */}
                 <div className="flex items-center px-5 pt-5 pb-3">
