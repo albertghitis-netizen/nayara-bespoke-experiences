@@ -85,7 +85,7 @@ function HeroSection() {
       <div className="absolute inset-0">
         {isMobile ? (
           <img
-            src="/manus-storage/experiences-mobile-hero-still_7e0e3d8e.jpg"
+            src="/manus-storage/experiences-brand-mobile-hero_6400d2eb.jpg"
             alt="Nayara Experiences"
             className="w-full h-full object-cover"
             loading="eager"

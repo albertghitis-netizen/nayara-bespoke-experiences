@@ -184,27 +184,17 @@ function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0" data-hero-video>
-        {isMobile ? (
-          <img
-            src="/manus-storage/home-mobile-hero-still_84fbf7bb.jpeg"
-            alt="Nayara Resorts"
-            className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
-          />
-        ) : (
-          <video
-            ref={videoRef}
-            src={heroVideo}
-            className="w-full h-full object-cover"
-            autoPlay
-            loop
-            playsInline
-            preload="metadata"
-            muted
-            controls={false}
-          />
-        )}
+        <video
+          ref={videoRef}
+          src={isMobile ? mobileHeroVideo : heroVideo}
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          playsInline
+          preload="metadata"
+          muted
+          controls={false}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 pointer-events-none" />
       </div>
       

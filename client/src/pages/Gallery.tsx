@@ -139,7 +139,6 @@ export default function Gallery() {
           className="flex"
           style={{
             gap: `${GAP}px`,
-            ...(clipHeight ? { maxHeight: `${clipHeight}px`, overflow: "hidden" } : {}),
           }}
         >
           {columnItems.map((col, colIdx) => (
@@ -198,8 +197,8 @@ function GalleryCell({
 
   return (
     <div
-      className="relative cursor-pointer overflow-hidden group"
-      style={{ aspectRatio: `${aspectRatio}` }}
+      className="relative cursor-pointer overflow-hidden group shrink-0 w-full"
+      style={{ aspectRatio: `${item.w} / ${item.h}` }}
       onClick={onClick}
     >
       <img

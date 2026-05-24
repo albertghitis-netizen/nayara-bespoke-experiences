@@ -151,7 +151,7 @@ const GARDENS_ROOMS: RoomSliderCard[] = [
     sqm: "186",
     guests: "2 Adults + 2 Children",
     video: "/manus-storage/gardens-rpv-vertical-916_94afded7.mp4",
-    photo: "/manus-storage/gardens-rpv-landscape_0f7db594.jpg",
+    photo: "/manus-storage/gardens-mobile-hero-still_61f8ec33.jpg",
     exploreLink: "/gardens/rooms/rainforest-pool-villa",
     bookingUrl: BOOKING_URLS.gardens,
   },
@@ -293,7 +293,7 @@ export default function Gardens() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroStill = "/manus-storage/gardens-mobile-hero-still_61f8ec33.jpg";
+  const mobileHeroStill = "/manus-storage/gardens-mobile-hero-lilypad_d3755866.jpg";
   return (
     <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '9/16' } : undefined}>
       <div className="absolute inset-0">

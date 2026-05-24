@@ -144,7 +144,7 @@ export default function Awards() {
         <div className="absolute inset-0">
           {isMobile ? (
             <img
-              src="/manus-storage/awards-mobile-hero-still_08a2797a.jpeg"
+              src="/manus-storage/press-awards-mobile-hero_59b5e69b.jpg"
               alt="Nayara Awards"
               className="w-full h-full object-cover"
               loading="eager"

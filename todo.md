@@ -3889,15 +3889,30 @@
 - [x] Add loading="lazy" to 98 img tags that were missing it (306 total now)
 
 ## Mobile Hero Videos → Static Stills (Performance)
-- [ ] Bocas del Toro: swap mobile video for still image (NAYARABOCASDELTORO-8.jpeg)
-- [ ] Tented Camp: swap mobile video for still image
-- [ ] Gardens: swap mobile video for still image
-- [ ] Springs: swap mobile video for still image
-- [ ] Alto Atacama: swap mobile video for still image
-- [ ] Hangaroa: swap mobile video for still image
-- [ ] Homepage: swap mobile video for still image
-- [ ] Awards: swap mobile video for still image
-- [ ] Journal: swap mobile video for still image
-- [ ] Experiences: swap mobile video for still image
-- [ ] Sustainability: swap mobile video for still image
-- [ ] Gastronomy: swap mobile video for still image
+- [x] Bocas del Toro: swap mobile video for still image (NAYARABOCASDELTORO-8.jpeg)
+- [x] Tented Camp: swap mobile video for still image
+- [x] Gardens: swap mobile video for still image
+- [x] Springs: swap mobile video for still image
+- [x] Alto Atacama: swap mobile video for still image
+- [x] Hangaroa: swap mobile video for still image
+- [x] Homepage: reverted back to video (brand homepage keeps video)
+- [x] Awards: swap mobile video for still image (Tented Camp drone shot)
+- [x] Journal: swap mobile video for still image
+- [x] Experiences: swap mobile video for still image (Rainbow Valley brand-level)
+- [x] Sustainability: swap mobile video for still image (Atacama flamingos)
+- [x] Gastronomy: swap mobile video for still image (Henry's Bar)
+- [x] Press: swap mobile video for still image (Tented Camp drone shot)
+- [x] Family Expeditions: swap mobile video for still image
+
+## Gallery Mobile Fix
+- [ ] Fix gallery images being smushed horizontal on mobile (should show natural aspect ratios)
+
+## Brand Wellness Page Fix
+- [x] Remove "Back to Nayara Tented Camp" pill from brand-level Wellness page
+
+## Gardens Mobile Hero + Room Update
+- [x] New Gardens mobile hero: lily pad boardwalk image (gardens-mobile-hero-lilypad)
+- [x] Old Gardens mobile hero still moved to Rainforest Pool Villa room category photo
+- [x] Press page: mobile hero updated to Tented Camp drone shot
+- [x] Awards page: mobile hero updated to Tented Camp drone shot
+- [x] Experiences brand page: mobile hero updated to Rainbow Valley
