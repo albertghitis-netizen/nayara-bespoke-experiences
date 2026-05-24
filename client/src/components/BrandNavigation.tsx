@@ -116,11 +116,15 @@ export default function BrandNavigation({
   }, []);
 
   /* Close dropdowns on outside click */
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const target = e.target as Node;
       const isDropdownToggle = (target as Element)?.closest('[data-dropdown-toggle]');
-      if (menuRef.current && !menuRef.current.contains(target) && !isDropdownToggle) setMenuOpen(false);
+      // Don't close menu if click is inside the mobile overlay panel
+      const isInsideMobileMenu = mobileMenuRef.current && mobileMenuRef.current.contains(target);
+      if (menuRef.current && !menuRef.current.contains(target) && !isDropdownToggle && !isInsideMobileMenu) setMenuOpen(false);
       if (reserveRef.current && !reserveRef.current.contains(target) && !isDropdownToggle) setReserveOpen(false);
       if (sectionNavRef.current && !sectionNavRef.current.contains(target) && !isDropdownToggle) setSectionNavOpen(false);
     };
@@ -571,6 +575,7 @@ export default function BrandNavigation({
               />
               {/* Panel — covers left two-thirds, semi-transparent */}
               <motion.div
+                ref={mobileMenuRef}
                 initial={{ x: '-100%', opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: '-100%', opacity: 0 }}
