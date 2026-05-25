@@ -429,7 +429,7 @@ function StorySection() {
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 block mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.tagline}</span>
                     <span className="text-lg tracking-wide text-white block" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>{panel.name}</span>
-                    {panel.badge && <span className="inline-block mt-2 px-2 py-0.5 text-[9px] tracking-[0.15em] uppercase border border-white/40 text-white/80 rounded" style={{ fontFamily: "var(--font-body)" }}>{panel.badge}</span>}
+                    {panel.badge && <span className="inline-block mt-2 px-3 py-1 text-[9px] tracking-[0.15em] uppercase border border-white/40 text-white/80 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.badge}</span>}
                   </div>
                 </div>
               )}
@@ -1045,16 +1045,6 @@ function ReserveCTA() {
    ═══════════════════════════════════════════════════════════════ */
 const SPRINGS_PANORAMA_PANELS = [
   {
-    name: "Tented Camp",
-    tagline: "Clifftop Tents & Suites",
-    description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
-    badge: null,
-    video: "/manus-storage/panel-tented-16x9-v2_0a79914b.mp4",
-    image: "/manus-storage/poster-tented_0bb4a3c9.jpg",
-    route: "/tented-camp",
-    accent: "#868B75",
-  },
-  {
     name: "Springs",
     tagline: "Private Hot Springs Villas · Adults Only",
     description: "The world's only Three-Key MICHELIN hotel in Costa Rica. Private volcanic hot spring pools, a floating breakfast, and the most intimate luxury in the rainforest.",
@@ -1063,6 +1053,16 @@ const SPRINGS_PANORAMA_PANELS = [
     image: "/manus-storage/poster-springs_42fdf73b.jpg",
     route: null,
     accent: "#4B6358",
+  },
+  {
+    name: "Tented Camp",
+    tagline: "Clifftop Tents & Suites",
+    description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
+    badge: null,
+    video: "/manus-storage/panel-tented-16x9-v2_0a79914b.mp4",
+    image: "/manus-storage/poster-tented_0bb4a3c9.jpg",
+    route: "/tented-camp",
+    accent: "#868B75",
   },
   {
     name: "Gardens",

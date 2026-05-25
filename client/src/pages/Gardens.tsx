@@ -294,7 +294,7 @@ export default function Gardens() {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   const isMobile = useIsMobile();
-  const mobileHeroStill = "/manus-storage/gardens-mobile-hero-lilypad_d3755866.jpg";
+  const mobileHeroStill = "/manus-storage/gardens-mobile-hero-pool-volcano_f98a5521.jpg";
   return (
     <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '9/16' } : undefined}>
       <div className="absolute inset-0">
@@ -420,9 +420,12 @@ function StorySection() {
       ) : (
       <div className="py-12 px-5" style={{ backgroundColor: "#f7f5f0" }}>
         <AnimateOnScroll variants={fadeUp}>
-          <h2 className="text-center mb-8">
+          <h2 className="text-center mb-3">
             <span className="block text-xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>One Rainforest, Three Resorts</span>
           </h2>
+          <p className="text-[13px] leading-[1.8] text-center max-w-[360px] mx-auto mb-8" style={{ fontFamily: "var(--font-body)", color: "#3B2B26CC" }}>
+            Stay at Gardens and the restaurants, spa, hot springs, and experiences of Tented Camp and Springs are all yours.
+          </p>
         </AnimateOnScroll>
         <div className="flex flex-col gap-6">
           {GARDENS_PANORAMA_PANELS.map((panel, i) => (
@@ -445,7 +448,7 @@ function StorySection() {
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 block mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.tagline}</span>
                     <span className="text-lg tracking-wide text-white block" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>{panel.name}</span>
-                    {panel.badge && <span className="inline-block mt-2 px-2 py-0.5 text-[9px] tracking-[0.15em] uppercase border border-white/40 text-white/80 rounded" style={{ fontFamily: "var(--font-body)" }}>{panel.badge}</span>}
+                    {panel.badge && <span className="inline-block mt-2 px-3 py-1 text-[9px] tracking-[0.15em] uppercase border border-white/40 text-white/80 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.badge}</span>}
                   </div>
                 </div>
               )}
@@ -484,16 +487,6 @@ function StorySection() {
    ═══════════════════════════════════════════════════════════════ */
 const GARDENS_PANORAMA_PANELS = [
   {
-    name: "Tented Camp",
-    tagline: "Clifftop Tents & Suites",
-    description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
-    badge: null,
-    video: "/manus-storage/panel-tented-16x9-v2_0a79914b.mp4",
-    image: "/manus-storage/poster-tented_0bb4a3c9.jpg",
-    route: "/tented-camp",
-    accent: "#868B75",
-  },
-  {
     name: "Gardens",
     tagline: "Rainforest Casitas & Villas",
     description: "Intimate casitas and rainforest villas nestled in a 1,400-acre private reserve. Plunge pools, canopy walks, and the sounds of the jungle at your doorstep.",
@@ -504,10 +497,20 @@ const GARDENS_PANORAMA_PANELS = [
     accent: "#286241",
   },
   {
+    name: "Tented Camp",
+    tagline: "Clifftop Tents & Suites",
+    description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
+    badge: null,
+    video: "/manus-storage/panel-tented-16x9-v2_0a79914b.mp4",
+    image: "/manus-storage/poster-tented_0bb4a3c9.jpg",
+    route: "/tented-camp",
+    accent: "#868B75",
+  },
+  {
     name: "Springs",
     tagline: "Private Hot Springs Villas · Adults Only",
     description: "The world's only Three-Key MICHELIN hotel in Costa Rica. Private volcanic hot spring pools, a floating breakfast, and the most intimate luxury in the rainforest.",
-    badge: null,
+    badge: "Adults Only",
     video: "/manus-storage/panel-springs-16x9_1ad9b29e.mp4",
     image: "/manus-storage/poster-springs_42fdf73b.jpg",
     route: "/springs",

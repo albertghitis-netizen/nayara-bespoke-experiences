@@ -1622,75 +1622,37 @@ function OneRainforestTC() {
   return (
       <div className="py-12 px-5" style={{ backgroundColor: '#f7f5f0' }}>
         <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="text-[10px] tracking-[0.25em] uppercase mb-3 text-center"
-            style={{ ...body, fontWeight: 500, color: 'rgba(59,43,38,0.5)' }}
-          >
-            One Rainforest
-          </p>
-          <h2
-            className="text-2xl text-center mb-8"
-            style={{ ...display, color: '#3B2B26' }}
-          >
-            Three Resorts
+          <h2 className="text-center mb-8">
+            <span className="block text-xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>One Rainforest, Three Resorts</span>
           </h2>
         </AnimateOnScroll>
-        <div className="flex flex-col gap-4">
-          {PANORAMA_PANELS.map((panel, i) => {
-            const inner = (
-              <div
-                key={panel.name}
-                className="relative overflow-hidden rounded-lg"
-                style={{ backgroundColor: '#EDEEE2' }}
-              >
-                <img
-                  src={panel.image}
-                  alt={`Nayara ${panel.name}`}
-                  className="w-full h-[180px] object-cover"
-                  loading="lazy"
-                />
-                <div className="p-5">
-                  <p
-                    className="text-[9px] tracking-[0.2em] uppercase mb-1.5"
-                    style={{ ...body, fontWeight: 500, color: 'rgba(59,43,38,0.5)' }}
-                  >
-                    {panel.tagline}
-                  </p>
-                  <h3
-                    className="text-lg mb-2"
-                    style={{ ...display, color: '#3B2B26' }}
-                  >
-                    Nayara {panel.name}
-                  </h3>
-                  <p
-                    className="text-[12px] leading-relaxed"
-                    style={{ ...body, color: 'rgba(59,43,38,0.6)' }}
-                  >
-                    {panel.description}
-                  </p>
-                  {panel.badge && (
-                    <span
-                      className="inline-block mt-3 text-[9px] tracking-[0.15em] uppercase px-3 py-1 rounded-full"
-                      style={{ fontFamily: 'var(--font-body)', fontWeight: 600, color: '#fff', backgroundColor: `${PALETTE.primary}CC` }}
-                    >
-                      {panel.badge}
-                    </span>
-                  )}
+        <div className="flex flex-col gap-6">
+          {PANORAMA_PANELS.map((panel, i) => (
+            <AnimateOnScroll key={panel.name} variants={fadeUp} delay={i * 0.1}>
+              {panel.route ? (
+                <Link href={panel.route} className="block">
+                  <div className="relative rounded-lg overflow-hidden">
+                    <img src={panel.image} alt={panel.name} className="w-full" style={{ aspectRatio: "4/3", objectFit: "cover" }} decoding="async" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 block mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.tagline}</span>
+                      <span className="text-lg tracking-wide text-white block" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>{panel.name}</span>
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <div className="relative rounded-lg overflow-hidden">
+                  <img src={panel.image} alt={panel.name} className="w-full" style={{ aspectRatio: "4/3", objectFit: "cover" }} decoding="async" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="text-[10px] tracking-[0.2em] uppercase text-white/60 block mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.tagline}</span>
+                    <span className="text-lg tracking-wide text-white block" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>{panel.name}</span>
+                    {panel.badge && <span className="inline-block mt-2 px-3 py-1 text-[9px] tracking-[0.15em] uppercase border border-white/40 text-white/80 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>{panel.badge}</span>}
+                  </div>
                 </div>
-              </div>
-            );
-            return panel.route ? (
-              <Link key={panel.name} href={panel.route} className="block">
-                <AnimateOnScroll variants={fadeUp} delay={i * 0.08}>
-                  {inner}
-                </AnimateOnScroll>
-              </Link>
-            ) : (
-              <AnimateOnScroll key={panel.name} variants={fadeUp} delay={i * 0.08}>
-                {inner}
-              </AnimateOnScroll>
-            );
-          })}
+              )}
+            </AnimateOnScroll>
+          ))}
         </div>
       </div>
   );
@@ -1708,16 +1670,6 @@ const CDN_TC = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBh
 
 const PANORAMA_PANELS = [
   {
-    name: "Gardens",
-    tagline: "Rainforest Casitas & Villas",
-    description: "Intimate casitas and rainforest villas nestled in a 1,400-acre private reserve. Plunge pools, canopy walks, and the sounds of the jungle at your doorstep.",
-    badge: null,
-    video: "/manus-storage/panel-gardens-16x9_1756d5d5.mp4",
-    image: "/manus-storage/poster-gardens_cd7a149e.jpg",
-    route: "/gardens",
-    accent: "#286241",
-  },
-  {
     name: "Tented Camp",
     tagline: "Clifftop Tents & Suites",
     description: "Open-air tented suites perched on a volcanic clifftop, each with a private plunge pool fed by natural hot springs and unobstructed views of Arenal Volcano.",
@@ -1728,10 +1680,20 @@ const PANORAMA_PANELS = [
     accent: "#868B75",
   },
   {
+    name: "Gardens",
+    tagline: "Rainforest Casitas & Villas",
+    description: "Intimate casitas and rainforest villas nestled in a 1,400-acre private reserve. Plunge pools, canopy walks, and the sounds of the jungle at your doorstep.",
+    badge: null,
+    video: "/manus-storage/panel-gardens-16x9_1756d5d5.mp4",
+    image: "/manus-storage/poster-gardens_cd7a149e.jpg",
+    route: "/gardens",
+    accent: "#286241",
+  },
+  {
     name: "Springs",
     tagline: "Private Hot Springs Villas · Adults Only",
     description: "The world's only Three-Key MICHELIN hotel in Costa Rica. Private volcanic hot spring pools, a floating breakfast, and the most intimate luxury in the rainforest.",
-    badge: null,
+    badge: "Adults Only",
     video: "/manus-storage/panel-springs-16x9_1ad9b29e.mp4",
     image: "/manus-storage/poster-springs_42fdf73b.jpg",
     route: "/springs",
