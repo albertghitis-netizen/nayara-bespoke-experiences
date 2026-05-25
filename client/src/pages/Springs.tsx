@@ -443,6 +443,7 @@ function StorySection() {
    On tinted background (gradient end)
    ═══════════════════════════════════════════════════════════════ */
 function SpringsVillaSection() {
+  const isMobile = useIsMobile();
   return (
     <section id="accommodations">
       {/* ── Row: S3 vertical video left + Text right ── */}
@@ -451,7 +452,11 @@ function SpringsVillaSection() {
         <div className="w-full md:w-1/2 md:order-1 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/springs-s3-accommodation_9a2a14f0.mp4" className="w-full h-full object-cover" />
+              {isMobile ? (
+                <img src={CDN.s3} alt="Springs Villa" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+              ) : (
+                <NativeVideo src="/manus-storage/springs-s3-accommodation_9a2a14f0.mp4" className="w-full h-full object-cover" />
+              )}
             </div>
           </MediaReveal>
           {/* Explore pill , centered lower */}

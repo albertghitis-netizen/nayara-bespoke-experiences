@@ -3957,3 +3957,5 @@
 - [ ] Make all non-reserve pills transparent on mobile (border only, no solid bg) across TentedCamp, Gardens, Springs
 - [ ] RoomSlider: make Explore pill transparent on mobile (border only)
 - [x] Fix desktop video preloading on mobile — conditionally not render video elements on mobile to prevent bandwidth waste
+- [x] Gardens: replace all non-accommodation videos with stills on mobile (experiences, sustainability, gastronomy, gallery, rooms)
+- [x] Springs: replace S3 accommodation video with still on mobile (NO video anywhere on Springs mobile)

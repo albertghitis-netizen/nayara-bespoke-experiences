@@ -856,6 +856,7 @@ function AccommodationsExperiment() {
    On tinted background (gradient end)
    ═══════════════════════════════════════════════════════════════ */
 function RoomsSection() {
+  const isMobile = useIsMobile();
   return (
     <TintedSection backgroundColor={PALETTE.gradientEnd} className={sectionPadding}>
       <div className={maxW}>
@@ -864,7 +865,11 @@ function RoomsSection() {
           <div className="md:flex-1 order-2 md:order-1">
             <MediaReveal delay={0.1}>
               <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <NativeVideo src={CDN.roomsVideo} className="w-full h-full object-cover" />
+                {isMobile ? (
+                  <img src={CDN.roomsAerial} alt="Arenal Casitas" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                ) : (
+                  <NativeVideo src={CDN.roomsVideo} className="w-full h-full object-cover" />
+                )}
               </div>
             </MediaReveal>
           </div>
@@ -893,7 +898,11 @@ function RoomsSection() {
         <div>
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <NativeVideo src={CDN.roomsLandscape} className="w-full h-full object-cover" />
+              {isMobile ? (
+                <img src={CDN.s3} alt="Arenal Casitas landscape" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+              ) : (
+                <NativeVideo src={CDN.roomsLandscape} className="w-full h-full object-cover" />
+              )}
             </div>
           </MediaReveal>
         </div>
@@ -919,12 +928,18 @@ function ExperiencesSection() {
   const categories = gardens.excursionCategories || [];
   const filtered = activeCategory === "all" ? gardens.excursions : gardens.excursions.filter((e: Excursion) => e.category === activeCategory);
 
+  const isMobile = useIsMobile();
+
   return (
     <section id="experiences" className="overflow-hidden">
       {/* Cinematic video header */}
       <Parallax offset={60} className="w-full" style={{ aspectRatio: "2/1" }}>
         <div className="relative w-full aspect-[2/1]">
-          <NativeVideo src={CDN.experiencesVideo} className="w-full h-full object-cover" />
+          {isMobile ? (
+            <img src={CDN.s1} alt="Arenal Adventures" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+          ) : (
+            <NativeVideo src={CDN.experiencesVideo} className="w-full h-full object-cover" />
+          )}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
@@ -999,6 +1014,7 @@ function ExperiencesSection() {
    SUSTAINABILITY - Video background with overlay cards
    ═══════════════════════════════════════════════════════════════ */
 function SustainabilitySection() {
+  const isMobile = useIsMobile();
   const initiatives = [
     { title: "Rainforest Conservation", desc: "Over 70 acres of protected primary and secondary rainforest surrounding the resort, providing habitat for hundreds of bird species and wildlife." },
     { title: "Organic Gardens", desc: "On-site organic gardens supply our five restaurants with fresh herbs, vegetables, and fruits, reducing food miles to nearly zero." },
@@ -1009,9 +1025,13 @@ function SustainabilitySection() {
   return (
     <TintedSection backgroundColor={PALETTE.gradientEnd}>
       <div className="relative overflow-hidden">
-        {/* Background video with heavy overlay */}
+        {/* Background video with heavy overlay — skip video on mobile */}
         <div className="absolute inset-0">
-          <NativeVideo src={CDN.sustainabilityVideo} className="w-full h-full object-cover" />
+          {isMobile ? (
+            <div className="w-full h-full" style={{ backgroundColor: "rgba(75, 94, 60, 1)" }} />
+          ) : (
+            <NativeVideo src={CDN.sustainabilityVideo} className="w-full h-full object-cover" />
+          )}
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(75, 94, 60, 0.85)" }} />
         </div>
 
@@ -1130,6 +1150,7 @@ function WellnessSection() {
    GASTRONOMY - Video + restaurant cards
    ═══════════════════════════════════════════════════════════════ */
 function GastronomySection() {
+  const isMobile = useIsMobile();
   const restaurants = Array.isArray(costaRicaDining) ? costaRicaDining : [costaRicaDining];
 
   return (
@@ -1137,7 +1158,11 @@ function GastronomySection() {
       {/* Cinematic video header */}
       <Parallax offset={50} className="w-full" style={{ aspectRatio: "2/1" }}>
         <div className="relative w-full aspect-[2/1]">
-          <NativeVideo src={CDN.gastronomyVideo} className="w-full h-full object-cover" />
+          {isMobile ? (
+            <img src={CDN.s4} alt="Forest to Table" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+          ) : (
+            <NativeVideo src={CDN.gastronomyVideo} className="w-full h-full object-cover" />
+          )}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
           <div className="absolute bottom-8 md:bottom-12 left-6 md:left-10 z-10">
             <TextReveal as="h2" delay={0.2}>
@@ -1177,6 +1202,7 @@ function GastronomySection() {
    GALLERY - All video grid
    ═══════════════════════════════════════════════════════════════ */
 function GalleryIntegratedSections() {
+  const isMobile = useIsMobile();
   const sections = [
     {
       label: "Wildlife",
@@ -1225,10 +1251,10 @@ function GalleryIntegratedSections() {
         const VerticalMedia = (
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              {section.verticalIsVideo ? (
+              {section.verticalIsVideo && !isMobile ? (
                 <NativeVideo src={section.verticalSrc} className="w-full h-full object-cover" />
               ) : (
-                <img src={section.verticalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+                <img src={section.verticalIsVideo ? CDN.s2 : section.verticalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
               )}
             </div>
           </MediaReveal>
@@ -1247,10 +1273,10 @@ function GalleryIntegratedSections() {
               </div>
               <MediaReveal delay={0.15}>
                 <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                  {section.horizontalIsVideo ? (
+                  {section.horizontalIsVideo && !isMobile ? (
                     <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
                   ) : (
-                    <img src={section.horizontalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+                    <img src={section.horizontalIsVideo ? CDN.s3 : section.horizontalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
                   )}
                 </div>
               </MediaReveal>
