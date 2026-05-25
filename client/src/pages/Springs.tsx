@@ -700,7 +700,7 @@ function WellnessSection() {
           </a>
         </div>
         <div style={{ aspectRatio: "3/4" }}>
-          <img src="/manus-storage/springs-wellness-aerial_850d2ed9.jpg" alt="Mineral Hot Springs Wellness" className="w-full h-full object-cover" loading="lazy" />
+          <img src="/manus-storage/springs-wellness-hotsprings-vertical_01f52de6.jpg" alt="Mineral Hot Springs Wellness" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
     </section>
