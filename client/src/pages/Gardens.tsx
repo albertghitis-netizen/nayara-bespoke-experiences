@@ -414,10 +414,10 @@ function StorySection() {
         <OneRainforestCompact />
       </div>
       {/* Mobile: Vertical stacked cards (Atacama Programs style) */}
-      <div className="md:hidden py-12 px-5" style={{ backgroundColor: "#0a0a0a" }}>
+      <div className="md:hidden py-12 px-5" style={{ backgroundColor: "#f7f5f0" }}>
         <AnimateOnScroll variants={fadeUp}>
           <h2 className="text-center mb-8">
-            <span className="block text-xl tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>One Rainforest, Three Resorts</span>
+            <span className="block text-xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>One Rainforest, Three Resorts</span>
           </h2>
         </AnimateOnScroll>
         <div className="flex flex-col gap-6">

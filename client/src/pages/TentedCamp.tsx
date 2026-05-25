@@ -1602,17 +1602,17 @@ export default function TentedCamp() {
         <OneRainforestCompactTC />
       </div>
       {/* Mobile: vertical cards (Atacama Programs style) */}
-      <div className="md:hidden py-12 px-5" style={{ backgroundColor: '#1a1a1a' }}>
+      <div className="md:hidden py-12 px-5" style={{ backgroundColor: '#f7f5f0' }}>
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[10px] tracking-[0.25em] uppercase mb-3 text-center"
-            style={{ ...body, fontWeight: 500, color: 'rgba(255,255,255,0.5)' }}
+            style={{ ...body, fontWeight: 500, color: 'rgba(59,43,38,0.5)' }}
           >
             One Rainforest
           </p>
           <h2
             className="text-2xl text-center mb-8"
-            style={{ ...display, color: '#fff' }}
+            style={{ ...display, color: '#3B2B26' }}
           >
             Three Resorts
           </h2>
@@ -1623,7 +1623,7 @@ export default function TentedCamp() {
               <div
                 key={panel.name}
                 className="relative overflow-hidden rounded-lg"
-                style={{ backgroundColor: '#262626' }}
+                style={{ backgroundColor: '#EDEEE2' }}
               >
                 <img
                   src={panel.image}
@@ -1634,19 +1634,19 @@ export default function TentedCamp() {
                 <div className="p-5">
                   <p
                     className="text-[9px] tracking-[0.2em] uppercase mb-1.5"
-                    style={{ ...body, fontWeight: 500, color: 'rgba(255,255,255,0.5)' }}
+                    style={{ ...body, fontWeight: 500, color: 'rgba(59,43,38,0.5)' }}
                   >
                     {panel.tagline}
                   </p>
                   <h3
                     className="text-lg mb-2"
-                    style={{ ...display, color: '#fff' }}
+                    style={{ ...display, color: '#3B2B26' }}
                   >
                     Nayara {panel.name}
                   </h3>
                   <p
                     className="text-[12px] leading-relaxed"
-                    style={{ ...body, color: 'rgba(255,255,255,0.6)' }}
+                    style={{ ...body, color: 'rgba(59,43,38,0.6)' }}
                   >
                     {panel.description}
                   </p>
