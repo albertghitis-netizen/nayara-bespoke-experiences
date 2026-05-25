@@ -1098,18 +1098,18 @@ function WellnessSection() {
         </div>
       </div>
       {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
-      <div className="md:hidden" style={{ backgroundColor: "#000" }}>
+      <div className="md:hidden" style={{ backgroundColor: "#F6FFEE" }}>
         <div className="px-5 pt-10 pb-6">
-          <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
+          <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(59,43,38,0.6)" }}>Wellness</span>
           <h2 className="mb-4">
-            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>
+            <span className="block text-2xl leading-[1.05] tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>
               {gardens.theme.spaHeadline.replace("\n", " ")}
             </span>
           </h2>
-          <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
+          <p className="text-[14px] leading-[1.75]" style={{ fontFamily: "var(--font-body)", color: "#5a4a3a" }}>
             Thermal springs heated by the volcano, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Surrender to the rhythm of the rainforest.
           </p>
-          <a href="/costa-rica-wellness" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)" }}>
+          <a href="/costa-rica-wellness" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-[#286241]/40 text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)", color: "#286241" }}>
             Explore Wellness
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
@@ -1529,16 +1529,16 @@ function GardensExperiencesSection() {
         </div>
       </div>
       {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
-      <div className="md:hidden" style={{ backgroundColor: "#000" }}>
+      <div className="md:hidden" style={{ backgroundColor: "#F6FFEE" }}>
         <div className="px-5 pt-10 pb-6">
-          <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</span>
+          <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(59,43,38,0.6)" }}>Experiences</span>
           <h2 className="mb-4">
-            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>In the Shadow of Arenal Volcano</span>
+            <span className="block text-2xl leading-[1.05] tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>In the Shadow of Arenal Volcano</span>
           </h2>
-          <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
+          <p className="text-[14px] leading-[1.75]" style={{ fontFamily: "var(--font-body)", color: "#5a4a3a" }}>
             Arenal Volcano , a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor , shapes everything around it. Its geothermal energy feeds the mineral springs, its eruption history created the lava fields you walk through today.
           </p>
-          <a href="/gardens/experiences" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)" }}>
+          <a href="/gardens/experiences" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-[#286241]/40 text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)", color: "#286241" }}>
             Explore Experiences
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
@@ -1736,7 +1736,7 @@ function GardensSustainabilityCascade() {
         </div>
         {/* Sustainability still */}
         <div style={{ aspectRatio: "3/4" }}>
-          <img src="/manus-storage/gardens-sustainability-mobile-still_47be99ee.jpg" alt="Creating Wildlife Corridors" className="w-full h-full object-cover" loading="lazy" />
+          <img src="/manus-storage/gardens-sustainability-monkey_b437e752.jpg" alt="Spider monkey in wildlife corridor" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
 
