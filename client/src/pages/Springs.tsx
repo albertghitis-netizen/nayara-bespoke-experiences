@@ -308,6 +308,7 @@ function HeroSection() {
    STORY , Text left, image right, landscape image below
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
+  const isMobile = useIsMobile();
   return (
     <section id="story">
       {/* ── Row: Text left + S1 vertical video right ── */}
@@ -371,34 +372,37 @@ function StorySection() {
             </a>
           </AnimateOnScroll>
 
-          <div className="mt-8 hidden md:block">
-            <video
-              src="/manus-storage/springs-badges-v2_0c3ef9e3.webm"
-              autoPlay
-              muted
-              playsInline
-              preload="metadata"
-              className="h-32 lg:h-40 w-auto -ml-3 lg:-ml-6"
-            />
-          </div>
+          {!isMobile && (
+            <div className="mt-8">
+              <video
+                src="/manus-storage/springs-badges-v2_0c3ef9e3.webm"
+                autoPlay
+                muted
+                playsInline
+                preload="metadata"
+                className="h-32 lg:h-40 w-auto -ml-3 lg:-ml-6"
+              />
+            </div>
+          )}
         </div>
 
         {/* S1 , Vertical video right (desktop only) */}
-        <div className="hidden md:block w-full md:w-1/2 md:order-2">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/springs-s1-new_c5f05977.mp4" className="w-full h-full object-cover" />
-            </div>
-          </MediaReveal>
-        </div>
+        {!isMobile && (
+          <div className="w-full md:w-1/2 md:order-2">
+            <MediaReveal delay={0.1}>
+              <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+                <NativeVideo src="/manus-storage/springs-s1-new_c5f05977.mp4" className="w-full h-full object-cover" />
+              </div>
+            </MediaReveal>
+          </div>
+        )}
       </div>
 
-      {/* ── S2 , One Rainforest, Three Resorts — vertical cards on mobile, panorama on desktop ── */}
-      <div className="hidden md:block">
+      {/* ── S2 , One Rainforest, Three Resorts ── */}
+      {!isMobile ? (
         <OneRainforestCompactSprings />
-      </div>
-      {/* Mobile: Vertical stacked cards (Atacama Programs style) */}
-      <div className="md:hidden py-12 px-5" style={{ backgroundColor: "#f7f5f0" }}>
+      ) : (
+      <div className="py-12 px-5" style={{ backgroundColor: "#f7f5f0" }}>
         <AnimateOnScroll variants={fadeUp}>
           <h2 className="text-center mb-8">
             <span className="block text-xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>One Rainforest, Three Resorts</span>
@@ -433,7 +437,7 @@ function StorySection() {
           ))}
         </div>
       </div>
-
+      )}
     </section>
   );
 }
@@ -516,25 +520,26 @@ function SpringsVillaSection() {
       </div>
 
       {/* ── S4 , Full-width horizontal video (desktop only) ── */}
-      <div className="w-full relative hidden md:block">
-        <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" /></div>
-        {/* Explore pill , centered lower */}
-        <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
-          <a
-            href="/springs/rooms/springs-villa"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
-            style={{
-              backgroundColor: "rgba(255,255,255,0.12)",
-              fontFamily: "var(--font-body)",
-            }}
-          >
-            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
-              Explore Springs Villa
-            </span>
-            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-          </a>
+      {!isMobile && (
+        <div className="w-full relative">
+          <div style={{ aspectRatio: "16/9" }}><NativeVideo src="/manus-storage/springs-s4-accommodation-horizontal_8d844f9e.mp4" className="w-full h-full object-cover" /></div>
+          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+            <a
+              href="/springs/rooms/springs-villa"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.12)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                Explore Springs Villa
+              </span>
+              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
@@ -543,11 +548,11 @@ function SpringsVillaSection() {
    EXPERIENCES , Card grid with category filters
    ═══════════════════════════════════════════════════════════════ */
 function ExperiencesSection() {
+  const isMobile = useIsMobile();
   return (
-    <section id="experiences">
-      <style>{`#experiences { background-color: #F6FFEE } @media(min-width:768px){ #experiences { background-color: #000 !important } }`}</style>
-      {/* Desktop: horizontal 16/9 */}
-      <div className="relative w-full hidden md:block">
+    <section id="experiences" style={{ backgroundColor: isMobile ? "#F6FFEE" : "#000" }}>
+      {!isMobile ? (
+      <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
           <NativeVideo src="/manus-storage/springs-s6-experiences-horizontal_4ae41545.mp4" className="w-full h-full object-cover" />
         </div>
@@ -574,8 +579,8 @@ function ExperiencesSection() {
           </AnimateOnScroll>
         </div>
       </div>
-      {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
-      <div className="md:hidden" style={{ backgroundColor: "#F6FFEE" }}>
+      ) : (
+      <div style={{ backgroundColor: "#F6FFEE" }}>
         <div className="px-5 pt-10 pb-6">
           <p className="text-[11px] tracking-[0.25em] uppercase mb-4" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(59,43,38,0.6)" }}>Experiences</p>
           <h2 className="mb-4">
@@ -593,6 +598,7 @@ function ExperiencesSection() {
           <img src="/manus-storage/springs-experiences-rio-celeste-still_650afe4f.jpg" alt="Rio Celeste Waterfall" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
+      )}
     </section>
   );
 }
@@ -658,11 +664,11 @@ function SustainabilitySection() {
    WELLNESS , Treatment cards with category filters
    ═══════════════════════════════════════════════════════════════ */
 function WellnessSection() {
+  const isMobile = useIsMobile();
   return (
-    <section id="wellness">
-      <style>{`#wellness { background-color: #F6FFEE } @media(min-width:768px){ #wellness { background-color: #000 !important } }`}</style>
-      {/* Desktop: horizontal 16/9 */}
-      <div className="relative w-full hidden md:block">
+    <section id="wellness" style={{ backgroundColor: isMobile ? "#F6FFEE" : "#000" }}>
+      {!isMobile ? (
+      <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
           <NativeVideo src="/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4" className="w-full h-full object-cover" />
         </div>
@@ -689,8 +695,8 @@ function WellnessSection() {
           </AnimateOnScroll>
         </div>
       </div>
-      {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
-      <div className="md:hidden" style={{ backgroundColor: "#F6FFEE" }}>
+      ) : (
+      <div style={{ backgroundColor: "#F6FFEE" }}>
         <div className="px-5 pt-10 pb-6">
           <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(59,43,38,0.6)" }}>Wellness</span>
           <h2 className="mb-4">
@@ -708,6 +714,7 @@ function WellnessSection() {
           <img src="/manus-storage/springs-wellness-hotsprings-vertical_01f52de6.jpg" alt="Mineral Hot Springs Wellness" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
+      )}
     </section>
   );
 }
@@ -1209,7 +1216,8 @@ function SpringsPanoramaPanel({
 }
 
 function OneRainforestCompactSprings() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1); // Springs (middle) starts expanded
+  const isMobile = useIsMobile();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
 
@@ -1226,43 +1234,46 @@ function OneRainforestCompactSprings() {
 
   return (
     <div ref={sectionRef} style={{ backgroundColor: "#000" }}>
-      <div className="hidden md:flex" style={{ height: "580px" }}>
-        {SPRINGS_PANORAMA_PANELS.map((panel, i) => (
-          <SpringsPanoramaPanel
-            key={panel.name}
-            panel={panel}
-            index={i}
-            isHovered={hoveredIndex === i}
-            anyHovered={hoveredIndex !== null}
-            onEnter={() => setHoveredIndex(i)}
-            onLeave={() => setHoveredIndex(1)} // Reset to middle (Springs) when mouse leaves
-          />
-        ))}
-      </div>
-      <div className="flex flex-col md:hidden">
-        {SPRINGS_PANORAMA_PANELS.map((panel, i) => {
-          const inner = (
-            <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
-              <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="lazy" />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
-              {panel.badge && (
-                <div className="absolute top-4 right-4">
-                  <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}>{panel.badge}</span>
+      {!isMobile ? (
+        <div className="flex" style={{ height: "580px" }}>
+          {SPRINGS_PANORAMA_PANELS.map((panel, i) => (
+            <SpringsPanoramaPanel
+              key={panel.name}
+              panel={panel}
+              index={i}
+              isHovered={hoveredIndex === i}
+              anyHovered={hoveredIndex !== null}
+              onEnter={() => setHoveredIndex(i)}
+              onLeave={() => setHoveredIndex(1)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col">
+          {SPRINGS_PANORAMA_PANELS.map((panel, i) => {
+            const inner = (
+              <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
+                <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="lazy" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
+                {panel.badge && (
+                  <div className="absolute top-4 right-4">
+                    <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}>{panel.badge}</span>
+                  </div>
+                )}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-[9px] tracking-[0.2em] uppercase mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>{panel.tagline}</p>
+                  <h3 className="text-lg tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>Nayara {panel.name}</h3>
                 </div>
-              )}
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <p className="text-[9px] tracking-[0.2em] uppercase mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>{panel.tagline}</p>
-                <h3 className="text-lg tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>Nayara {panel.name}</h3>
               </div>
-            </div>
-          );
-          return panel.route ? (
-            <Link key={panel.name} href={panel.route} className="block">{inner}</Link>
-          ) : (
-            <div key={panel.name}>{inner}</div>
-          );
-        })}
-      </div>
+            );
+            return panel.route ? (
+              <Link key={panel.name} href={panel.route} className="block">{inner}</Link>
+            ) : (
+              <div key={panel.name}>{inner}</div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

@@ -340,6 +340,7 @@ function HeroSection() {
    Text left + S1 vertical video right, S2 horizontal video below
    ═══════════════════════════════════════════════════════════════ */
 function StorySection() {
+  const isMobile = useIsMobile();
   return (
     <section id="story">
       {/* ── Row: Text left + Vertical video right ── */}
@@ -387,34 +388,37 @@ function StorySection() {
               The original Nayara , a village of private villas and casitas woven into the rainforest canopy at the foot of Arenal Volcano. Family-friendly, with bespoke excursions from hanging bridges to chocolate tours.
             </p>
           </AnimateOnScroll>
-          <div className="mt-6 hidden md:block">
-            <video
-              src="/manus-storage/badge-gardens-final_d47f3adb.mp4"
-              autoPlay
-              muted
-              playsInline
-              preload="metadata"
-              className="h-32 lg:h-40 w-auto -ml-10 lg:-ml-14"
-            />
-          </div>
+          {!isMobile && (
+            <div className="mt-6">
+              <video
+                src="/manus-storage/badge-gardens-final_d47f3adb.mp4"
+                autoPlay
+                muted
+                playsInline
+                preload="metadata"
+                className="h-32 lg:h-40 w-auto -ml-10 lg:-ml-14"
+              />
+            </div>
+          )}
         </div>
 
         {/* S1 - Toucan still image right (desktop only) */}
-        <div className="hidden md:block w-full md:w-1/2 md:order-2">
-          <MediaReveal delay={0.1}>
-            <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/gardens-s1-toucan-v2_75cc661b.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
-            </div>
-          </MediaReveal>
-        </div>
+        {!isMobile && (
+          <div className="w-full md:w-1/2 md:order-2">
+            <MediaReveal delay={0.1}>
+              <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
+                <img src="/manus-storage/gardens-s1-toucan-v2_75cc661b.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
+              </div>
+            </MediaReveal>
+          </div>
+        )}
       </div>
 
-      {/* S2 , One Rainforest, Three Resorts — vertical cards on mobile, panorama on desktop */}
-      <div className="hidden md:block">
+      {/* S2 , One Rainforest, Three Resorts */}
+      {!isMobile ? (
         <OneRainforestCompact />
-      </div>
-      {/* Mobile: Vertical stacked cards (Atacama Programs style) */}
-      <div className="md:hidden py-12 px-5" style={{ backgroundColor: "#f7f5f0" }}>
+      ) : (
+      <div className="py-12 px-5" style={{ backgroundColor: "#f7f5f0" }}>
         <AnimateOnScroll variants={fadeUp}>
           <h2 className="text-center mb-8">
             <span className="block text-xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>One Rainforest, Three Resorts</span>
@@ -449,6 +453,7 @@ function StorySection() {
           ))}
         </div>
       </div>
+      )}
 
       {/* ── Rooms: Horizontal Slider ── */}
       <div id="rooms">
@@ -650,48 +655,52 @@ function GardensPanoramaPanel({
 }
 
 function OneRainforestCompact() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1); // Gardens (middle) starts expanded
+  const isMobile = useIsMobile();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
     <div ref={sectionRef} style={{ backgroundColor: "#000" }}>
-      <div className="hidden md:flex" style={{ height: "580px" }}>
-        {GARDENS_PANORAMA_PANELS.map((panel, i) => (
-          <GardensPanoramaPanel
-            key={panel.name}
-            panel={panel}
-            index={i}
-            isHovered={hoveredIndex === i}
-            anyHovered={hoveredIndex !== null}
-            onEnter={() => setHoveredIndex(i)}
-            onLeave={() => setHoveredIndex(1)}
-          />
-        ))}
-      </div>
-      <div className="flex flex-col md:hidden">
-        {GARDENS_PANORAMA_PANELS.map((panel, i) => {
-          const inner = (
-            <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
-              <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="lazy" />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
-              {panel.badge && (
-                <div className="absolute top-4 right-4">
-                  <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}>{panel.badge}</span>
+      {!isMobile ? (
+        <div className="flex" style={{ height: "580px" }}>
+          {GARDENS_PANORAMA_PANELS.map((panel, i) => (
+            <GardensPanoramaPanel
+              key={panel.name}
+              panel={panel}
+              index={i}
+              isHovered={hoveredIndex === i}
+              anyHovered={hoveredIndex !== null}
+              onEnter={() => setHoveredIndex(i)}
+              onLeave={() => setHoveredIndex(1)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col">
+          {GARDENS_PANORAMA_PANELS.map((panel, i) => {
+            const inner = (
+              <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
+                <img src={panel.image} alt={`Nayara ${panel.name}`} className="absolute inset-0 w-full h-full object-cover" decoding="async" loading="lazy" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
+                {panel.badge && (
+                  <div className="absolute top-4 right-4">
+                    <span className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full" style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}>{panel.badge}</span>
+                  </div>
+                )}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-[9px] tracking-[0.2em] uppercase mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>{panel.tagline}</p>
+                  <h3 className="text-lg tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>Nayara {panel.name}</h3>
                 </div>
-              )}
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <p className="text-[9px] tracking-[0.2em] uppercase mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>{panel.tagline}</p>
-                <h3 className="text-lg tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>Nayara {panel.name}</h3>
               </div>
-            </div>
-          );
-          return panel.route ? (
-            <Link key={panel.name} href={panel.route} className="block">{inner}</Link>
-          ) : (
-            <div key={panel.name}>{inner}</div>
-          );
-        })}
-      </div>
+            );
+            return panel.route ? (
+              <Link key={panel.name} href={panel.route} className="block">{inner}</Link>
+            ) : (
+              <div key={panel.name}>{inner}</div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
@@ -1080,17 +1089,16 @@ function SustainabilitySection() {
    WELLNESS - Video header + treatment cards
    ═══════════════════════════════════════════════════════════════ */
 function WellnessSection() {
+  const isMobile = useIsMobile();
   const [activeCategory, setActiveCategory] = useState("all");
   const categories = gardens.spaCategories || [];
   const filtered = activeCategory === "all" ? gardens.treatments : gardens.treatments.filter((t: Treatment) => t.category === activeCategory);
 
   return (
-    <section id="wellness" className="bg-black md:bg-black" style={{ backgroundColor: undefined as any }}>
-      {/* Desktop keeps black bg via the video; mobile sections below override */}
-      <style>{`#wellness { background-color: #F6FFEE } @media(min-width:768px){ #wellness { background-color: #000 !important } }`}</style>
-      {/* Wellness: desktop horizontal, mobile vertical placeholder */}
-      {/* Desktop */}
-      <div className="relative w-full hidden md:block">
+    <section id="wellness" style={{ backgroundColor: isMobile ? "#F6FFEE" : "#000" }}>
+      {/* Wellness: desktop horizontal video, mobile still */}
+      {!isMobile ? (
+      <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
           <NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full h-full object-cover" />
         </div>
@@ -1119,8 +1127,8 @@ function WellnessSection() {
           </AnimateOnScroll>
         </div>
       </div>
-      {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
-      <div className="md:hidden" style={{ backgroundColor: "#F6FFEE" }}>
+      ) : (
+      <div style={{ backgroundColor: "#F6FFEE" }}>
         <div className="px-5 pt-10 pb-6">
           <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(59,43,38,0.6)" }}>Wellness</span>
           <h2 className="mb-4">
@@ -1140,8 +1148,7 @@ function WellnessSection() {
           <img src="/manus-storage/gardens-wellness-mobile-still_b52b4b25.jpg" alt="Wellness at Nayara Gardens" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
-
-
+      )}
     </section>
   );
 }
@@ -1261,31 +1268,28 @@ function GalleryIntegratedSections() {
         );
         return (
           <section key={i} style={{ backgroundColor: section.bg }}>
-            {/* Desktop */}
-            <div className="hidden md:block">
-              <div className="flex">
-                <div className={`w-1/2 ${textLeft ? "order-2" : "order-1"}`}>
-                  {VerticalMedia}
+            {!isMobile ? (
+              <>
+                <div className="flex">
+                  <div className={`w-1/2 ${textLeft ? "order-2" : "order-1"}`}>
+                    {VerticalMedia}
+                  </div>
+                  <div className={`w-1/2 flex flex-col justify-center px-16 py-16 ${textLeft ? "order-1" : "order-2"}`}>
+                    {TextBlock}
+                  </div>
                 </div>
-                <div className={`w-1/2 flex flex-col justify-center px-16 py-16 ${textLeft ? "order-1" : "order-2"}`}>
-                  {TextBlock}
-                </div>
-              </div>
-              <MediaReveal delay={0.15}>
-                <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                  {section.horizontalIsVideo && !isMobile ? (
+                <MediaReveal delay={0.15}>
+                  <div className="overflow-hidden" style={{ aspectRatio: "16/9" }}>
                     <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" />
-                  ) : (
-                    <img src={section.horizontalIsVideo ? CDN.s3 : section.horizontalSrc} alt="" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-                  )}
-                </div>
-              </MediaReveal>
-            </div>
-            {/* Mobile: Text → Vertical */}
-            <div className="md:hidden">
-              <div className="px-5 pt-10 pb-6">{TextBlock}</div>
-              {VerticalMedia}
-            </div>
+                  </div>
+                </MediaReveal>
+              </>
+            ) : (
+              <>
+                <div className="px-5 pt-10 pb-6">{TextBlock}</div>
+                {VerticalMedia}
+              </>
+            )}
           </section>
         );
       })}
@@ -1526,11 +1530,11 @@ function ReserveCTA() {
    Alternates from Accommodations (which was image left, text right)
    ═══════════════════════════════════════════════════════════════ */
 function GardensExperiencesSection() {
+  const isMobile = useIsMobile();
   return (
-    <section id="experiences">
-      <style>{`#experiences { background-color: #F6FFEE } @media(min-width:768px){ #experiences { background-color: #000 !important } }`}</style>
-      {/* Desktop: horizontal 16/9 */}
-      <div className="relative w-full hidden md:block">
+    <section id="experiences" style={{ backgroundColor: isMobile ? "#F6FFEE" : "#000" }}>
+      {!isMobile ? (
+      <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
           <NativeVideo src="/manus-storage/gardens-experiences-horizontal_6240ba44.mp4" className="w-full h-full object-cover" />
         </div>
@@ -1557,8 +1561,8 @@ function GardensExperiencesSection() {
           </AnimateOnScroll>
         </div>
       </div>
-      {/* Mobile: Text → Vertical placeholder (Atacama pattern) */}
-      <div className="md:hidden" style={{ backgroundColor: "#F6FFEE" }}>
+      ) : (
+      <div style={{ backgroundColor: "#F6FFEE" }}>
         <div className="px-5 pt-10 pb-6">
           <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(59,43,38,0.6)" }}>Experiences</span>
           <h2 className="mb-4">
@@ -1576,6 +1580,7 @@ function GardensExperiencesSection() {
           <img src="/manus-storage/gardens-experiences-mobile-still_57d20356.jpg" alt="Arenal Volcano Experiences" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
+      )}
     </section>
   );
 }
@@ -1665,10 +1670,11 @@ function GardensGastronomyCascade() {
    Alternates from Experiences (text left → now image left)
    ═══════════════════════════════════════════════════════════════ */
 function GardensSustainabilityCascade() {
+  const isMobile = useIsMobile();
   return (
     <section id="sustainability">
-      {/* ── Desktop: Vertical video left + Text right ── */}
-      <div className="hidden md:flex flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      {!isMobile ? (
+      <div className="flex flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
         {/* Vertical video left */}
         <div className="w-1/2 order-1">
           <MediaReveal delay={0.1}>
@@ -1728,9 +1734,8 @@ function GardensSustainabilityCascade() {
           </AnimateOnScroll>
         </div>
       </div>
-
-      {/* ── Mobile: Text BETWEEN two stills (not sandwiched) ── */}
-      <div className="md:hidden" style={{ backgroundColor: PALETTE.gradientStart }}>
+      ) : (
+      <div style={{ backgroundColor: PALETTE.gradientStart }}>
         {/* Sustainability text */}
         <div className="px-5 pt-10 pb-6">
           <SectionLabel>Sustainability</SectionLabel>
@@ -1768,7 +1773,7 @@ function GardensSustainabilityCascade() {
           <img src="/manus-storage/gardens-sustainability-monkey_b437e752.jpg" alt="Spider monkey in wildlife corridor" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
-
+      )}
     </section>
   );
 }

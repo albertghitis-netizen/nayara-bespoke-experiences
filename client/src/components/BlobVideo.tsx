@@ -1,5 +1,10 @@
 /**
- * BlobVideo , Reliable cross-platform video component
+ * BlobVideo — Reliable cross-platform video component
+ *
+ * KEY MOBILE OPTIMIZATION:
+ * The <source> tag is NOT rendered until the IntersectionObserver confirms
+ * the element is both visible (not display:none) AND near the viewport.
+ * This prevents ALL hidden desktop videos from downloading on mobile.
  *
  * Features:
  * - Direct <video> tag with mobile-optimized attributes
@@ -56,13 +61,16 @@ export default function BlobVideo({
   const [hasError, setHasError] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [showPulse, setShowPulse] = useState(true);
-  const [isNearViewport, setIsNearViewport] = useState(false);
+  const [shouldLoadSource, setShouldLoadSource] = useState(false);
 
   // Enable audio on all devices (mobile + desktop)
   const effectiveHasAudio = hasAudio;
 
-  // IntersectionObserver: only load video when within 400px of viewport
-  // Also checks visibility — hidden elements (display:none from CSS) never load
+  /**
+   * IntersectionObserver: only inject <source> when within 400px of viewport
+   * AND element is actually visible (not display:none from CSS hiding).
+   * No source = no download. This is the ONLY gate.
+   */
   useEffect(() => {
     if (skipVideo) return;
     const container = containerRef.current;
@@ -74,14 +82,17 @@ export default function BlobVideo({
     }
 
     if (!("IntersectionObserver" in window)) {
-      setIsNearViewport(true);
+      setShouldLoadSource(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsNearViewport(true);
+          // Double-check visibility at intersection time
+          if (container.offsetParent !== null || getComputedStyle(container).position === 'fixed') {
+            setShouldLoadSource(true);
+          }
           observer.disconnect();
         }
       },
@@ -92,9 +103,9 @@ export default function BlobVideo({
     return () => observer.disconnect();
   }, [skipVideo]);
 
-  // Main autoplay logic with mobile-specific handling
+  // Main autoplay logic — only runs after source is loaded
   useEffect(() => {
-    if (!isNearViewport) return;
+    if (!shouldLoadSource) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -110,7 +121,7 @@ export default function BlobVideo({
     const tryPlay = () => {
       if (autoPlay && video.paused) {
         video.play().catch(() => {
-          // Autoplay blocked , that's fine on mobile
+          // Autoplay blocked — that's fine on mobile
         });
       }
     };
@@ -129,7 +140,7 @@ export default function BlobVideo({
       video.removeEventListener("playing", tryPlay);
       clearTimeout(timer);
     };
-  }, [src, autoPlay, isNearViewport]);
+  }, [src, autoPlay, shouldLoadSource]);
 
   // Stop the attention pulse after 6 seconds
   useEffect(() => {
@@ -157,7 +168,7 @@ export default function BlobVideo({
     return "video/mp4";
   };
 
-  /* Pill styling , use provided colors or fall back to brand espresso */
+  /* Pill styling — use provided colors or fall back to brand espresso */
   const bgStyle = pillBg || "rgba(59,43,38,0.8)";
   const fgStyle = pillColor || "#F7F5F0";
 
@@ -191,9 +202,14 @@ export default function BlobVideo({
             WebkitTouchCallout: 'none',
           } as any}
         >
-          <source src={src} type={getVideoType(src)} />
-          {getVideoType(src) !== "video/mp4" && (
-            <source src={src} type="video/mp4" />
+          {/* SOURCE ONLY INJECTED WHEN VISIBLE + NEAR VIEWPORT */}
+          {shouldLoadSource && (
+            <>
+              <source src={src} type={getVideoType(src)} />
+              {getVideoType(src) !== "video/mp4" && (
+                <source src={src} type="video/mp4" />
+              )}
+            </>
           )}
         </video>
       )}
@@ -233,7 +249,7 @@ export default function BlobVideo({
         />
       )}
 
-      {/* Mute / Unmute pill , FIXED, aligned with BrandNavigation hamburger */}
+      {/* Mute / Unmute pill — FIXED, aligned with BrandNavigation hamburger */}
       {effectiveHasAudio && (
         <button
           onClick={toggleMute}
@@ -246,7 +262,7 @@ export default function BlobVideo({
             borderColor: "rgba(255,255,255,0.1)",
           }}
         >
-          {/* Pulse ring , draws attention, then fades */}
+          {/* Pulse ring — draws attention, then fades */}
           {isMuted && (
             <>
               <span className="absolute -inset-1 rounded-full border-2 animate-ping" style={{ borderColor: `${fgStyle}60` }} />

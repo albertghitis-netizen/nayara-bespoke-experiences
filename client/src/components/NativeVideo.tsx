@@ -1,15 +1,20 @@
 /**
- * NativeVideo , Lightweight native <video> wrapper
+ * NativeVideo — Lightweight native <video> wrapper
+ *
+ * KEY MOBILE OPTIMIZATION:
+ * The <source> tag is NOT rendered until the IntersectionObserver confirms
+ * the element is both visible (not display:none) AND near the viewport.
+ * This prevents ALL hidden desktop videos from downloading on mobile.
  *
  * Sequential playback rules:
- * 1. On mount: preload="auto" + video.load() , buffers silently, stays paused at frame 0
- * 2. START playing: when the previous video is almost gone , this video's top edge
- *    reaches -80px above the viewport top (a sliver of previous still showing)
- * 3. FREEZE on last frame: no loop, no reset , video.ended leaves it on last frame
- * 4. PAUSE when off screen: when fully above (rect.bottom <= 0) or fully below (rect.top >= vh)
+ * 1. On mount: video has NO source — nothing downloads
+ * 2. When IntersectionObserver fires AND element is visible: source is injected, video.load() starts
+ * 3. START playing: when top edge reaches -80px above viewport top
+ * 4. FREEZE on last frame: no loop, no reset
+ * 5. PAUSE when off screen
  *
  * Audio: All cascade videos are ALWAYS muted. Audio comes from cascadeAudio's single
- * HTMLAudioElement playing the merged MP3 track. The hasAudio prop has been removed.
+ * HTMLAudioElement playing the merged MP3 track.
  */
 import { useRef, useState, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
 import { useIsMobile } from "@/hooks/useMobile";
@@ -50,20 +55,21 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [shouldLoadSource, setShouldLoadSource] = useState(false);
 
-  // Don't render video at all on mobile if desktopOnly OR if container is hidden (display:none)
+  // Don't render video at all on mobile if desktopOnly
   const skipVideo = desktopOnly && isMobile;
 
   useImperativeHandle(ref, () => ({
     getVideoElement: () => videoRef.current,
   }));
 
-  const [isNearViewport, setIsNearViewport] = useState(false);
-
   /**
-   * INTERSECTION OBSERVER: Only start buffering when within 600px of viewport.
-   * Also checks if the element is actually visible (not display:none from CSS hiding).
-   * This prevents hidden desktop videos from downloading on mobile.
+   * INTERSECTION OBSERVER: Only inject <source> when:
+   * 1. Element is within 600px of viewport
+   * 2. Element is actually visible (not display:none from CSS hiding like hidden md:block)
+   *
+   * This is the ONLY gate for video downloads. No source = no download.
    */
   useEffect(() => {
     if (skipVideo) return;
@@ -71,19 +77,24 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     if (!container) return;
 
     // Check if element or any ancestor is display:none (e.g. hidden md:block on mobile)
+    // offsetParent is null for display:none elements (except position:fixed)
     if (container.offsetParent === null && getComputedStyle(container).position !== 'fixed') {
-      return; // Don't observe hidden elements — they should never load
+      // Element is hidden — never load the video
+      return;
     }
 
     if (!("IntersectionObserver" in window)) {
-      setIsNearViewport(true);
+      setShouldLoadSource(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsNearViewport(true);
+          // Double-check visibility at intersection time (handles dynamic show/hide)
+          if (container.offsetParent !== null || getComputedStyle(container).position === 'fixed') {
+            setShouldLoadSource(true);
+          }
           observer.disconnect();
         }
       },
@@ -95,11 +106,10 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
   }, [skipVideo]);
 
   /**
-   * MOUNT EFFECT: Start buffering only when near viewport
-   * Does NOT play , just loads data into the buffer
+   * LOAD EFFECT: Once source is injected into DOM, call video.load()
    */
   useEffect(() => {
-    if (!isNearViewport) return;
+    if (!shouldLoadSource) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -107,20 +117,14 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     setHasError(false);
 
     video.autoplay = false;
-    video.muted = true; // Always muted , audio from cascadeAudio
+    video.muted = true;
     video.preload = "auto";
-    video.load(); // Start buffering , does NOT play
+    video.load();
 
-    const onLoaded = () => {
-      setIsLoaded(true);
-    };
-
+    const onLoaded = () => setIsLoaded(true);
     video.addEventListener("loadeddata", onLoaded);
-
-    return () => {
-      video.removeEventListener("loadeddata", onLoaded);
-    };
-  }, [src, isNearViewport]);
+    return () => video.removeEventListener("loadeddata", onLoaded);
+  }, [src, shouldLoadSource]);
 
   /* ── TIME UPDATE CALLBACK ── */
   useEffect(() => {
@@ -132,18 +136,12 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     };
 
     video.addEventListener("timeupdate", handleTimeUpdate);
-    return () => {
-      video.removeEventListener("timeupdate", handleTimeUpdate);
-    };
+    return () => video.removeEventListener("timeupdate", handleTimeUpdate);
   }, [src, onTimeUpdate]);
 
-  /* ── SCROLL-BASED PLAY/PAUSE ──
-     START: when this video's top edge is within 80px above the viewport top.
-            This means the previous video has almost completely scrolled off ,
-            just a sliver remains , giving a seamless handoff.
-     STOP:  when fully off screen (above or below viewport).
-     FREEZE: video.ended , no loop, no reset, stays on last frame. */
+  /* ── SCROLL-BASED PLAY/PAUSE ── */
   useEffect(() => {
+    if (!shouldLoadSource) return;
     const video = videoRef.current;
     const container = containerRef.current;
     if (!video || !container) return;
@@ -155,10 +153,7 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
       const rect = container.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      // Fully off screen , pause (but don't reset)
       const isOffScreen = rect.bottom <= 0 || rect.top >= vh;
-
-      // Start when top edge is 80px above viewport top (sliver of previous still showing)
       const shouldStart = rect.top <= 80 && rect.bottom > 0;
 
       if (shouldStart && !isPlaying && !video.ended) {
@@ -183,13 +178,13 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    checkPosition(); // Check immediately on mount
+    checkPosition();
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       if (rafId !== null) cancelAnimationFrame(rafId);
     };
-  }, [src]);
+  }, [src, shouldLoadSource]);
 
   const getVideoType = (url: string): string => {
     const lower = url.toLowerCase();
@@ -229,9 +224,14 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
           setHasError(true);
         }}
       >
-        <source src={src} type={getVideoType(src)} />
-        {getVideoType(src) !== "video/mp4" && (
-          <source src={src} type="video/mp4" />
+        {/* SOURCE ONLY INJECTED WHEN VISIBLE + NEAR VIEWPORT */}
+        {shouldLoadSource && (
+          <>
+            <source src={src} type={getVideoType(src)} />
+            {getVideoType(src) !== "video/mp4" && (
+              <source src={src} type="video/mp4" />
+            )}
+          </>
         )}
       </video>
 

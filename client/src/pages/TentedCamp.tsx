@@ -156,6 +156,7 @@ function MediaBlock({
   alt,
   className = "",
   loop = false,
+  mobileSrc,
 }: {
   src: string;
   isVideo: boolean;
@@ -163,20 +164,26 @@ function MediaBlock({
   alt?: string;
   className?: string;
   loop?: boolean;
+  mobileSrc?: string;
 }) {
   const isMobile = useIsMobile();
   if (!src) return null;
 
-  // On mobile, non-looping videos just freeze on last frame — pointless.
-  // Skip them entirely and show a gradient placeholder instead of downloading MB of video.
-  const shouldSkipVideo = isVideo && !loop && isMobile;
+  // RULE: Zero videos on mobile. Period.
+  if (isMobile) {
+    const imgSrc = mobileSrc || (!isVideo ? src : "");
+    if (!imgSrc) return null;
+    return (
+      <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
+        <img src={imgSrc} alt={alt || ""} className="w-full h-full object-cover" decoding="async" loading="lazy" />
+      </div>
+    );
+  }
 
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
-      {isVideo && !shouldSkipVideo ? (
+      {isVideo ? (
         <NativeVideo src={src} className="w-full h-full object-cover" loop={loop} />
-      ) : shouldSkipVideo ? (
-        <div className="w-full h-full bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900" />
       ) : (
         <img src={src} alt={alt || ""} className="w-full h-full object-cover" decoding="async" loading="lazy" />
       )}
@@ -230,6 +237,7 @@ function CascadeSection({
   section: CascadeSectionData;
   index: number;
 }) {
+  const isMobile = useIsMobile();
   const isDark = DARK_SECTION_IDS.includes(section.id);
   const textColor = isDark ? BONE : PALETTE.text;
   const textSecondaryColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
@@ -262,7 +270,7 @@ function CascadeSection({
     }
   }, [section.horizontalOverlayButtons]);
   const horizontalBlock = section.horizontalSrc ? (
-    <div className="hidden md:block relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
+    <div className="relative z-[2]" style={{ backgroundColor: section.horizontalFirst ? section.bgColor : section.nextBgColor }}>
       <MediaReveal delay={0.05}>
         <div className="relative">
           {section.horizontalIsVideo && section.horizontalOverlayButtons ? (
@@ -367,108 +375,111 @@ function CascadeSection({
 
   /* ── Overlay mode: text overlaid on horizontal (desktop) / vertical (mobile) ── */
   if (section.overlayOnVideo && section.horizontalSrc) {
-    const mobileVertSrc = section.mobileVerticalSrc || section.verticalSrc || "";
-    const mobileIsVideo = section.mobileVerticalIsVideo ?? section.verticalIsVideo;
+    const mobileVertSrc = section.mobileVerticalSrc || (!section.verticalIsVideo ? section.verticalSrc : "");
     return (
       <section id={section.id} style={{ backgroundColor: section.bgColor }}>
-        {/* Desktop: horizontal 16/9 */}
-        <div className="relative w-full hidden md:block">
-          <div style={{ aspectRatio: section.horizontalRatio || "16/9" }}>
-            <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" loop={section.horizontalLoop} />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
-            <AnimateOnScroll variants={fadeUp}>
-              <span className="[&_p]:!text-white/70"><SectionLabel>{section.label}</SectionLabel></span>
-            </AnimateOnScroll>
-            <AnimateOnScroll variants={fadeUp} delay={0.1}>
-              <h2 className="mb-6">
-                {section.headline.split("\n").map((line, i) => (
-                  <span key={i} className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ ...display }}>{line}</span>
-                ))}
-              </h2>
-            </AnimateOnScroll>
-            <AnimateOnScroll variants={fadeUp} delay={0.2}>
-              <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ ...body }}>
-                {section.body.split("\n\n")[0]}
-              </p>
-            </AnimateOnScroll>
-            {section.link && (
-              <AnimateOnScroll variants={fadeUp} delay={0.3}>
-                <a
-                  href={section.link}
-                  className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
-                  style={{ fontFamily: "var(--font-body)" }}
-                >
-                  {section.linkLabel || "Explore"}
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </a>
+        {/* Desktop: horizontal 16/9 — only renders on desktop */}
+        {!isMobile && (
+          <div className="relative w-full">
+            <div style={{ aspectRatio: section.horizontalRatio || "16/9" }}>
+              <NativeVideo src={section.horizontalSrc} className="w-full h-full object-cover" loop={section.horizontalLoop} />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+            <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
+              <AnimateOnScroll variants={fadeUp}>
+                <span className="[&_p]:!text-white/70"><SectionLabel>{section.label}</SectionLabel></span>
               </AnimateOnScroll>
+              <AnimateOnScroll variants={fadeUp} delay={0.1}>
+                <h2 className="mb-6">
+                  {section.headline.split("\n").map((line, i) => (
+                    <span key={i} className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ ...display }}>{line}</span>
+                  ))}
+                </h2>
+              </AnimateOnScroll>
+              <AnimateOnScroll variants={fadeUp} delay={0.2}>
+                <p className="text-[15px] leading-[1.85] max-w-[480px] text-white/85" style={{ ...body }}>
+                  {section.body.split("\n\n")[0]}
+                </p>
+              </AnimateOnScroll>
+              {section.link && (
+                <AnimateOnScroll variants={fadeUp} delay={0.3}>
+                  <a
+                    href={section.link}
+                    className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    {section.linkLabel || "Explore"}
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                  </a>
+                </AnimateOnScroll>
+              )}
+            </div>
+          </div>
+        )}
+        {/* Mobile: text → still (zero videos) */}
+        {isMobile && (
+          <div style={{ backgroundColor: section.bgColor }}>
+            {(() => {
+              const isDark = DARK_SECTION_IDS.includes(section.id) || section.bgColor === "#000000" || section.bgColor === "#000";
+              const textColor = isDark ? "#FFFFFF" : PALETTE.text;
+              const subtleColor = isDark ? "rgba(255,255,255,0.6)" : PALETTE.textTertiary;
+              const borderColor = isDark ? "rgba(255,255,255,0.4)" : `${PALETTE.text}40`;
+              return (
+                <div className="px-5 pt-10 pb-6">
+                  <AnimateOnScroll variants={fadeUp}>
+                    <span className={isDark ? "[&_p]:!text-white/70" : ""}><SectionLabel>{section.label}</SectionLabel></span>
+                  </AnimateOnScroll>
+                  <AnimateOnScroll variants={fadeUp} delay={0.1}>
+                    <h2 className="mb-4">
+                      {section.headline.split("\n").map((line, i) => (
+                        <span key={i} className="block text-2xl leading-[1.05] tracking-wide" style={{ ...display, color: textColor }}>{line}</span>
+                      ))}
+                    </h2>
+                  </AnimateOnScroll>
+                  <AnimateOnScroll variants={fadeUp} delay={0.15}>
+                    <p className="text-[14px] leading-[1.85]" style={{ ...body, color: subtleColor }}>
+                      {section.body.split("\n\n")[0]}
+                    </p>
+                  </AnimateOnScroll>
+                  {(section.link || section.textLink) && (
+                    <AnimateOnScroll variants={fadeUp} delay={0.2}>
+                      <a
+                        href={section.textLink || section.link || "#"}
+                        className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border text-[11px] tracking-[0.15em] uppercase font-medium w-fit"
+                        style={{ fontFamily: "var(--font-body)", color: textColor, borderColor }}
+                      >
+                        {section.textLinkLabel || section.linkLabel || "Explore"}
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                      </a>
+                    </AnimateOnScroll>
+                  )}
+                </div>
+              );
+            })()}
+            {mobileVertSrc && (
+              <img src={mobileVertSrc} alt={section.label} className="w-full" style={{ aspectRatio: section.verticalRatio || "3/4", objectFit: "cover" }} decoding="async" loading="lazy" />
             )}
           </div>
-        </div>
-        {/* Mobile: text → vertical (Atacama pattern, no overlay) */}
-        <div className="md:hidden" style={{ backgroundColor: section.bgColor }}>
-          {(() => {
-            const isDark = DARK_SECTION_IDS.includes(section.id) || section.bgColor === "#000000" || section.bgColor === "#000";
-            const textColor = isDark ? "#FFFFFF" : PALETTE.text;
-            const subtleColor = isDark ? "rgba(255,255,255,0.6)" : PALETTE.textTertiary;
-            const borderColor = isDark ? "rgba(255,255,255,0.4)" : `${PALETTE.text}40`;
-            return (
-              <div className="px-5 pt-10 pb-6">
-                <AnimateOnScroll variants={fadeUp}>
-                  <span className={isDark ? "[&_p]:!text-white/70" : ""}><SectionLabel>{section.label}</SectionLabel></span>
-                </AnimateOnScroll>
-                <AnimateOnScroll variants={fadeUp} delay={0.1}>
-                  <h2 className="mb-4">
-                    {section.headline.split("\n").map((line, i) => (
-                      <span key={i} className="block text-2xl leading-[1.05] tracking-wide" style={{ ...display, color: textColor }}>{line}</span>
-                    ))}
-                  </h2>
-                </AnimateOnScroll>
-                <AnimateOnScroll variants={fadeUp} delay={0.15}>
-                  <p className="text-[14px] leading-[1.85]" style={{ ...body, color: subtleColor }}>
-                    {section.body.split("\n\n")[0]}
-                  </p>
-                </AnimateOnScroll>
-                {(section.link || section.textLink) && (
-                  <AnimateOnScroll variants={fadeUp} delay={0.2}>
-                    <a
-                      href={section.textLink || section.link || "#"}
-                      className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border text-[11px] tracking-[0.15em] uppercase font-medium w-fit"
-                      style={{ fontFamily: "var(--font-body)", color: textColor, borderColor }}
-                    >
-                      {section.textLinkLabel || section.linkLabel || "Explore"}
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                    </a>
-                  </AnimateOnScroll>
-                )}
-              </div>
-            );
-          })()}
-          {mobileVertSrc ? (
-            mobileIsVideo && section.verticalLoop ? (
-              <div style={{ aspectRatio: section.verticalRatio || "3/4" }}>
-                <NativeVideo src={mobileVertSrc} className="w-full h-full object-cover" loop={true} />
-              </div>
-            ) : mobileIsVideo && !section.verticalLoop ? (
-              <div style={{ aspectRatio: section.verticalRatio || "3/4" }} className="bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900" />
-            ) : (
-              <img src={mobileVertSrc} alt={section.label} className="w-full" style={{ aspectRatio: section.verticalRatio || "3/4", objectFit: "cover" }} decoding="async" loading="lazy" />
-            )
-          ) : (
-            <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-              <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
-            </div>
-          )}
-        </div>
+        )}
       </section>
     );
   }
 
-  /* ── Vertical media element for reuse ── */
-  const verticalMediaElement = section.hideMobileVertical ? (
-    <div className="hidden md:block">
+  /* ── Vertical media element for reuse (isMobile ternary — zero video DOM on mobile) ── */
+  const verticalMediaElement = (() => {
+    if (isMobile) {
+      if (section.hideMobileVertical) return null;
+      const mobileSrc = section.mobileVerticalSrc || (!section.verticalIsVideo ? section.verticalSrc : "");
+      if (!mobileSrc) return null;
+      return (
+        <MediaReveal delay={0.1}>
+          <div className="overflow-hidden" style={{ aspectRatio: section.verticalRatio }}>
+            <img src={mobileSrc} alt={`${section.label} , Nayara Tented Camp`} className="w-full h-full object-cover" decoding="async" loading="lazy" />
+          </div>
+        </MediaReveal>
+      );
+    }
+    return (
       <MediaReveal delay={0.1}>
         <MediaBlock
           src={section.verticalSrc}
@@ -478,43 +489,8 @@ function CascadeSection({
           loop={section.verticalLoop}
         />
       </MediaReveal>
-    </div>
-  ) : section.mobileVerticalSrc ? (
-    <>
-      <div className="block md:hidden">
-        <MediaReveal delay={0.1}>
-          <MediaBlock
-            src={section.mobileVerticalSrc}
-            isVideo={section.mobileVerticalIsVideo ?? false}
-            ratio={section.verticalRatio}
-            alt={`${section.label} , Nayara Tented Camp`}
-            loop={section.verticalLoop}
-          />
-        </MediaReveal>
-      </div>
-      <div className="hidden md:block">
-        <MediaReveal delay={0.1}>
-          <MediaBlock
-            src={section.verticalSrc}
-            isVideo={section.verticalIsVideo}
-            ratio={section.verticalRatio}
-            alt={`${section.label} , Nayara Tented Camp`}
-            loop={section.verticalLoop}
-          />
-        </MediaReveal>
-      </div>
-    </>
-  ) : (
-    <MediaReveal delay={0.1}>
-      <MediaBlock
-        src={section.verticalSrc}
-        isVideo={section.verticalIsVideo}
-        ratio={section.verticalRatio}
-        alt={`${section.label} , Nayara Tented Camp`}
-        loop={section.verticalLoop}
-      />
-    </MediaReveal>
-  );
+    );
+  })();
 
   /* ── Text block element for reuse ── */
   const textBlockElement = (
@@ -624,8 +600,8 @@ function CascadeSection({
           </a>
         </AnimateOnScroll>
       )}
-      {section.badges && (
-        <div className="mt-8 hidden md:block">
+      {section.badges && !isMobile && (
+        <div className="mt-8">
           <a
             href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 mb-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
@@ -641,7 +617,7 @@ function CascadeSection({
               CEO & Co-Founder Leo Ghitis<br/>Discusses Sustainability on the<br/>Luxury Travel Podcast
             </span>
           </a>
-          <div className="hidden md:block"><video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" /></div>
+          <video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
         </div>
       )}
     </div>
@@ -649,78 +625,82 @@ function CascadeSection({
 
   return (
     <section id={section.id}>
-      {/* ═══ DESKTOP LAYOUT ═══ */}
-      <div className="hidden md:block">
-        {/* Horizontal FIRST if flagged */}
-        {section.horizontalFirst && !section.hideH && horizontalBlock}
+      {/* ═══ DESKTOP LAYOUT (only renders on desktop) ═══ */}
+      {!isMobile && (
+        <div>
+          {/* Horizontal FIRST if flagged */}
+          {section.horizontalFirst && !section.hideH && horizontalBlock}
 
-        {/* Row: Vertical media + Text column */}
-        <div className="flex" style={{ backgroundColor: section.bgColor }}>
-          <div className={`w-1/2 relative z-[2] ${textLeft ? "order-2" : "order-1"}`}>
-          {/* Explore pills on vertical media */}
-          {section.verticalOverlayButtons && (
-            <>
-              {section.verticalOverlayButtons.top.explore && section.verticalOverlayButtons.top.explore !== section.verticalOverlayButtons.bottom.explore && (
-              <div className="absolute top-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none">
-                <a
-                  href={section.verticalOverlayButtons.top.exploreLink || "#"}
-                  className="pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
-                  style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+          {/* Row: Vertical media + Text column */}
+          <div className="flex" style={{ backgroundColor: section.bgColor }}>
+            <div className={`w-1/2 relative z-[2] ${textLeft ? "order-2" : "order-1"}`}>
+            {/* Explore pills on vertical media */}
+            {section.verticalOverlayButtons && (
+              <>
+                {section.verticalOverlayButtons.top.explore && section.verticalOverlayButtons.top.explore !== section.verticalOverlayButtons.bottom.explore && (
+                <div className="absolute top-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none">
+                  <a
+                    href={section.verticalOverlayButtons.top.exploreLink || "#"}
+                    className="pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-transform hover:scale-[1.03]"
+                    style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+                  >
+                    <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                      Explore {section.verticalOverlayButtons.top.explore}
+                    </span>
+                    <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
+                </div>
+                )}
+                <div
+                  className="absolute bottom-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none transition-opacity duration-700"
+                  style={{ opacity: !section.verticalOverlayButtons.top.explore || section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore ? 1 : (showBottomPill ? 1 : 0) }}
                 >
-                  <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
-                    Explore {section.verticalOverlayButtons.top.explore}
-                  </span>
-                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </a>
-              </div>
-              )}
-              <div
-                className="absolute bottom-[6%] left-0 right-0 z-10 flex items-center justify-center pointer-events-none transition-opacity duration-700"
-                style={{ opacity: !section.verticalOverlayButtons.top.explore || section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore ? 1 : (showBottomPill ? 1 : 0) }}
-              >
-                <a
-                  href={section.verticalOverlayButtons.bottom.exploreLink || "#"}
-                  className={`pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-[1.03] ${(section.verticalOverlayButtons.bottom.transparent || section.verticalOverlayButtons.bottom.explore.includes("Beyond")) ? "border border-white/70 hover:bg-white/20" : ""}`}
-                  style={{ backgroundColor: (section.verticalOverlayButtons.bottom.transparent || section.verticalOverlayButtons.bottom.explore.includes("Beyond")) ? "transparent" : "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: (!section.verticalOverlayButtons.top.explore || section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore || showBottomPill) ? "auto" : "none" }}
-                >
-                  <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
-                    {section.verticalOverlayButtons.bottom.explore.includes("Beyond") ? section.verticalOverlayButtons.bottom.explore : `Explore ${section.verticalOverlayButtons.bottom.explore}`}
-                  </span>
-                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </a>
-              </div>
-            </>
-          )}
-            <MediaReveal delay={0.1}>
-              <MediaBlock
-                src={section.verticalSrc}
-                isVideo={section.verticalIsVideo}
-                ratio={section.verticalRatio}
-                alt={`${section.label} , Nayara Tented Camp`}
-                loop={section.verticalLoop}
-              />
-            </MediaReveal>
+                  <a
+                    href={section.verticalOverlayButtons.bottom.exploreLink || "#"}
+                    className={`pointer-events-auto flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-[1.03] ${(section.verticalOverlayButtons.bottom.transparent || section.verticalOverlayButtons.bottom.explore.includes("Beyond")) ? "border border-white/70 hover:bg-white/20" : ""}`}
+                    style={{ backgroundColor: (section.verticalOverlayButtons.bottom.transparent || section.verticalOverlayButtons.bottom.explore.includes("Beyond")) ? "transparent" : "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)", pointerEvents: (!section.verticalOverlayButtons.top.explore || section.verticalOverlayButtons.top.explore === section.verticalOverlayButtons.bottom.explore || showBottomPill) ? "auto" : "none" }}
+                  >
+                    <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                      {section.verticalOverlayButtons.bottom.explore.includes("Beyond") ? section.verticalOverlayButtons.bottom.explore : `Explore ${section.verticalOverlayButtons.bottom.explore}`}
+                    </span>
+                    <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
+                </div>
+              </>
+            )}
+              <MediaReveal delay={0.1}>
+                <MediaBlock
+                  src={section.verticalSrc}
+                  isVideo={section.verticalIsVideo}
+                  ratio={section.verticalRatio}
+                  alt={`${section.label} , Nayara Tented Camp`}
+                  loop={section.verticalLoop}
+                />
+              </MediaReveal>
+            </div>
+
+            {/* Desktop: Text column */}
+            <div className={`w-1/2 flex flex-col justify-center h-full px-10 py-16 lg:px-16 xl:px-20 ${textLeft ? "order-1" : "order-2"}`} style={{ backgroundColor: section.bgColor }}>
+              {textBlockElement}
+            </div>
           </div>
 
-          {/* Desktop: Text column */}
-          <div className={`w-1/2 flex flex-col justify-center h-full px-10 py-16 lg:px-16 xl:px-20 ${textLeft ? "order-1" : "order-2"}`} style={{ backgroundColor: section.bgColor }}>
-            {textBlockElement}
-          </div>
+          {/* Desktop: Full-width horizontal media AFTER (default) */}
+          {!section.horizontalFirst && !section.hideH && horizontalBlock}
         </div>
+      )}
 
-        {/* Desktop: Full-width horizontal media AFTER (default) */}
-        {!section.horizontalFirst && !section.hideH && horizontalBlock}
-      </div>
-
-      {/* ═══ MOBILE LAYOUT: Text → Vertical (Atacama pattern) ═══ */}
-      <div className="md:hidden" style={{ backgroundColor: section.bgColor }}>
-        <div className="px-5 pt-10 pb-6">{textBlockElement}</div>
-        {verticalMediaElement}
-      </div>
+      {/* ═══ MOBILE LAYOUT: Text → Still (zero videos) ═══ */}
+      {isMobile && (
+        <div style={{ backgroundColor: section.bgColor }}>
+          <div className="px-5 pt-10 pb-6">{textBlockElement}</div>
+          {verticalMediaElement}
+        </div>
+      )}
     </section>
   );
 }
@@ -1095,8 +1075,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Life Under\nCanvas",
     body: "Each tented suite is a private sanctuary suspended in the canopy , featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.\n\nFrom the intimate Nayara Tent for couples to the expansive Residence accommodating up to twelve guests, every option is designed with multigenerational travel in mind. The Family Tent and Grand Tent offer generous living spaces for families, while the Residence brings everyone together under one roof , private pools, shared terraces, and room for three generations to create memories side by side.",
     verticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
-    mobileVerticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
-    mobileVerticalIsVideo: true,
+    mobileVerticalSrc: "/manus-storage/tented-accommodations-mobile_c0375a49.jpg",
+    mobileVerticalIsVideo: false,
     horizontalSrc: "/manus-storage/tented-camp-horizontal-v2_973b7121.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
@@ -1390,13 +1370,13 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
 function HeroSection() {
   const isMobile = useIsMobile();
   const heroVideo = ASSETS.heroDesktop;
-  const mobileHeroVideo = "/manus-storage/tented-camp-mobile-hero-video_1b87ea0d.mp4";
+  const mobileHeroStill = "/manus-storage/tented-hero-mobile_098e8881.jpg";
 
   return (
     <section className={`relative w-full overflow-hidden ${isMobile ? '' : 'h-screen'}`} style={isMobile ? { aspectRatio: '9/16' } : undefined}>
       <div className="absolute inset-0">
         {isMobile ? (
-          <NativeVideo src={mobileHeroVideo} loop className="w-full h-full object-cover" />
+          <img src={mobileHeroStill} alt="Nayara Tented Camp" className="w-full h-full object-cover" />
         ) : (
           <BlobVideo
             src={heroVideo}
@@ -1435,61 +1415,7 @@ function HeroSection() {
   );
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   GALLERY , Remaining assets
-   ═══════════════════════════════════════════════════════════════ */
-function GallerySection() {
-  const media = [
-    { src: ASSETS.galleryVideo1, alt: "Tented Camp experience", isVideo: true },
-    { src: ASSETS.galleryVideo2, alt: "Residence tour", isVideo: true },
-    { src: ASSETS.galleryVideo3, alt: "Camp overview", isVideo: true },
-    { src: ASSETS.galleryImg1, alt: "Tented suite", isVideo: false },
-    { src: ASSETS.galleryImg2, alt: "Henry's Bar", isVideo: false },
-    { src: ASSETS.galleryImg3, alt: "Residence", isVideo: false },
-    { src: ASSETS.galleryImg4, alt: "Residence suite", isVideo: false },
-    { src: ASSETS.galleryImg5, alt: "Tent detail", isVideo: false },
-    { src: ASSETS.galleryImg6, alt: "Grand tent", isVideo: false },
-    { src: ASSETS.galleryImg7, alt: "New area", isVideo: false },
-    { src: ASSETS.galleryImg8, alt: "Camp grounds", isVideo: false },
-    { src: ASSETS.galleryImg9, alt: "Resort exterior", isVideo: false },
-  ];
 
-  return (
-    <section
-      id="gallery"
-      className="py-20 md:py-32 px-6 md:px-10"
-      style={{ backgroundColor: SECTION_COLORS[SECTION_COLORS.length - 1] }}
-    >
-      <div className="max-w-[1200px] mx-auto">
-        <AnimateOnScroll variants={fadeUp}>
-          <SectionLabel>Gallery</SectionLabel>
-        </AnimateOnScroll>
-        <TextReveal as="h2" className="mb-12 md:mb-16" delay={0.1}>
-          <span
-            className="text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide"
-            style={{ ...display, color: PALETTE.text }}
-          >
-            Life in the Canopy
-          </span>
-        </TextReveal>
-
-        <div className="hidden md:grid grid-cols-3 gap-4 md:gap-6">
-          {media.map((item, i) => (
-            <MediaReveal key={i} delay={i * 0.05}>
-              <div className="overflow-hidden" style={{ aspectRatio: "16/10" }}>
-                {item.isVideo ? (
-                  <NativeVideo src={item.src} className="w-full h-full object-cover" />
-                ) : (
-                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" decoding="async" loading="lazy" />
-                )}
-              </div>
-            </MediaReveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════════
    MAIN PAGE , Option C: Cascade with functional breaks woven in
@@ -1598,12 +1524,84 @@ export default function TentedCamp() {
       <CascadeSection section={SECTIONS_BEFORE_REVIEW[0]} index={0} />
 
       {/* ── One Rainforest, Three Resorts ── */}
-      {/* Desktop: panorama panels */}
-      <div className="hidden md:block">
-        <OneRainforestCompactTC />
-      </div>
-      {/* Mobile: vertical cards (Atacama Programs style) */}
-      <div className="md:hidden py-12 px-5" style={{ backgroundColor: '#f7f5f0' }}>
+      <OneRainforestTC />
+
+      {/* ── Rooms: Horizontal Slider ── */}
+      <RoomSlider
+        sectionLabel="Accommodations"
+        headline="Luxury Tented Suites"
+        description="From intimate canopy retreats to expansive private estates , each tent is a world unto itself."
+        rooms={TENTED_CAMP_ROOMS}
+        palette={{
+          bg: COLOR_A,
+          text: PALETTE.text,
+          textSecondary: PALETTE.textSecondary,
+          primary: PALETTE.primary,
+          cardBg: COLOR_B,
+          cardBorder: `${PALETTE.primary}20`,
+          pillBg: PALETTE.primary,
+          pillText: "#FFFFFF",
+        }}
+      />
+
+      {/* Remaining cascade sections: Experiences → Sustainability → Wellness (skip rooms at index 1) */}
+      {SECTIONS_BEFORE_REVIEW.slice(2).map((section, i) => (
+        <React.Fragment key={section.id}>
+          <CascadeSection section={section} index={i + 2} />
+        </React.Fragment>
+      ))}
+      {SECTIONS_AFTER_REVIEW.map((section, i) => (
+        <React.Fragment key={section.id}>
+          <CascadeSection
+            section={section}
+            index={i + SECTIONS_BEFORE_REVIEW.length}
+          />
+        </React.Fragment>
+      ))}
+
+      {/* ★ Reviews below Gastronomy */}
+      <ReviewsBreak bgColor={SECTION_COLORS[7]} />
+
+      {/* ★ Getting Here below Reviews */}
+      <GettingHereBreak bgColor="#D5D9C4" />
+      <ReserveCTA />
+      <CrossPropertyCTA
+        suggestions={[
+          {
+            name: "Nayara Alto Atacama",
+            chapter: "Where Desert Meets Sky",
+            tagline: "From canopy to cosmos , trade rainforest glamping for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
+            route: "/alto-atacama",
+            image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
+            video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",
+            audienceTag: "Families Welcome",
+          },
+          {
+            name: "Nayara Hangaroa",
+            chapter: "The Land of Giants",
+            tagline: "Two edges of the world , from the rainforest canopy to Easter Island's monumental Moai and Polynesian culture.",
+            route: "/hangaroa",
+            image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
+            video: "/manus-storage/cta-hangaroa-ultrawide_ed5ffb72.mp4",
+            audienceTag: "Families Welcome",
+          },
+        ]}
+        bgColor="#D5D9C4"
+        textColor={PALETTE.text}
+        textSecondaryColor={PALETTE.textTertiary}
+        accentColor={PALETTE.primary}
+        dividerColor={PALETTE.divider}
+      />
+      <Footer bgColor="#868B75" textColor="#FFFFFF" propertyName="Tented Camp" />
+    </div>
+  );
+}
+
+function OneRainforestTC() {
+  const isMobile = useIsMobile();
+  if (!isMobile) return <OneRainforestCompactTC />;
+  return (
+      <div className="py-12 px-5" style={{ backgroundColor: '#f7f5f0' }}>
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[10px] tracking-[0.25em] uppercase mb-3 text-center"
@@ -1676,75 +1674,6 @@ export default function TentedCamp() {
           })}
         </div>
       </div>
-
-      {/* ── Rooms: Horizontal Slider ── */}
-      <RoomSlider
-        sectionLabel="Accommodations"
-        headline="Luxury Tented Suites"
-        description="From intimate canopy retreats to expansive private estates , each tent is a world unto itself."
-        rooms={TENTED_CAMP_ROOMS}
-        palette={{
-          bg: COLOR_A,
-          text: PALETTE.text,
-          textSecondary: PALETTE.textSecondary,
-          primary: PALETTE.primary,
-          cardBg: COLOR_B,
-          cardBorder: `${PALETTE.primary}20`,
-          pillBg: PALETTE.primary,
-          pillText: "#FFFFFF",
-        }}
-      />
-
-      {/* Remaining cascade sections: Experiences → Sustainability → Wellness (skip rooms at index 1) */}
-      {SECTIONS_BEFORE_REVIEW.slice(2).map((section, i) => (
-        <React.Fragment key={section.id}>
-          <CascadeSection section={section} index={i + 2} />
-        </React.Fragment>
-      ))}
-      {SECTIONS_AFTER_REVIEW.map((section, i) => (
-        <React.Fragment key={section.id}>
-          <CascadeSection
-            section={section}
-            index={i + SECTIONS_BEFORE_REVIEW.length}
-          />
-        </React.Fragment>
-      ))}
-
-      {/* ★ Reviews below Gastronomy */}
-      <ReviewsBreak bgColor={SECTION_COLORS[7]} />
-
-      {/* ★ Getting Here below Reviews */}
-      <GettingHereBreak bgColor="#D5D9C4" />
-      <ReserveCTA />
-      <CrossPropertyCTA
-        suggestions={[
-          {
-            name: "Nayara Alto Atacama",
-            chapter: "Where Desert Meets Sky",
-            tagline: "From canopy to cosmos , trade rainforest glamping for the driest desert on Earth, with salt flats, geysers, and unmatched stargazing.",
-            route: "/alto-atacama",
-            image: "/manus-storage/NayaraAltoAtacama_1_38075f4a.jpg",
-            video: "/manus-storage/cta-atacama-ultrawide-v2_7749e836.mp4",
-            audienceTag: "Families Welcome",
-          },
-          {
-            name: "Nayara Hangaroa",
-            chapter: "The Land of Giants",
-            tagline: "Two edges of the world , from the rainforest canopy to Easter Island's monumental Moai and Polynesian culture.",
-            route: "/hangaroa",
-            image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/RapaNui2(1)_179dfb19.jpeg",
-            video: "/manus-storage/cta-hangaroa-ultrawide_ed5ffb72.mp4",
-            audienceTag: "Families Welcome",
-          },
-        ]}
-        bgColor="#D5D9C4"
-        textColor={PALETTE.text}
-        textSecondaryColor={PALETTE.textTertiary}
-        accentColor={PALETTE.primary}
-        dividerColor={PALETTE.divider}
-      />
-      <Footer bgColor="#868B75" textColor="#FFFFFF" propertyName="Tented Camp" />
-    </div>
   );
 }
 
@@ -1981,66 +1910,66 @@ function PanoramaPanel({
 }
 
 function OneRainforestCompactTC() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1); // Tented Camp (middle) starts expanded
+  const isMobile = useIsMobile();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
     <div ref={sectionRef} style={{ backgroundColor: "#000" }}>
-      {/* Desktop: side-by-side flex */}
-      <div className="hidden md:flex" style={{ height: "580px" }}>
-        {PANORAMA_PANELS.map((panel, i) => (
-          <PanoramaPanel
-            key={panel.name}
-            panel={panel}
-            index={i}
-            isHovered={hoveredIndex === i}
-            anyHovered={hoveredIndex !== null}
-            onEnter={() => setHoveredIndex(i)}
-            onLeave={() => setHoveredIndex(1)}
-          />
-        ))}
-      </div>
-
-      {/* Mobile: stacked vertically */}
-      <div className="flex flex-col md:hidden">
-        {PANORAMA_PANELS.map((panel, i) => {
-          const inner = (
-            <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
-              <img
-                src={panel.image}
-                alt={`Nayara ${panel.name}`}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
-              {panel.badge && (
-                <div className="absolute top-4 right-4">
-                  <span
-                    className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
-                    style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}
-                  >
-                    {panel.badge}
-                  </span>
+      {!isMobile ? (
+        <div className="flex" style={{ height: "580px" }}>
+          {PANORAMA_PANELS.map((panel, i) => (
+            <PanoramaPanel
+              key={panel.name}
+              panel={panel}
+              index={i}
+              isHovered={hoveredIndex === i}
+              anyHovered={hoveredIndex !== null}
+              onEnter={() => setHoveredIndex(i)}
+              onLeave={() => setHoveredIndex(1)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col">
+          {PANORAMA_PANELS.map((panel, i) => {
+            const inner = (
+              <div key={panel.name} className="relative overflow-hidden" style={{ height: "260px" }}>
+                <img
+                  src={panel.image}
+                  alt={`Nayara ${panel.name}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)" }} />
+                {panel.badge && (
+                  <div className="absolute top-4 right-4">
+                    <span
+                      className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
+                      style={{ fontFamily: "var(--font-body)", fontWeight: 600, color: "#fff", backgroundColor: `${PALETTE.primary}CC` }}
+                    >
+                      {panel.badge}
+                    </span>
+                  </div>
+                )}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-[9px] tracking-[0.2em] uppercase mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>
+                    {panel.tagline}
+                  </p>
+                  <h3 className="text-lg tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
+                    Nayara {panel.name}
+                  </h3>
                 </div>
-              )}
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <p className="text-[9px] tracking-[0.2em] uppercase mb-1" style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "rgba(255,255,255,0.6)" }}>
-                  {panel.tagline}
-                </p>
-                <h3 className="text-lg tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#fff" }}>
-                  Nayara {panel.name}
-                </h3>
               </div>
-            </div>
-          );
-          return panel.route ? (
-            <Link key={panel.name} href={panel.route} className="block">{inner}</Link>
-          ) : (
-            <div key={panel.name}>{inner}</div>
-          );
-        })}
-      </div>
-
+            );
+            return panel.route ? (
+              <Link key={panel.name} href={panel.route} className="block">{inner}</Link>
+            ) : (
+              <div key={panel.name}>{inner}</div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
