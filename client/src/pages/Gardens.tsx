@@ -399,8 +399,8 @@ function StorySection() {
           </div>
         </div>
 
-        {/* S1 - Toucan still image right */}
-        <div className="w-full md:w-1/2 md:order-2">
+        {/* S1 - Toucan still image right (desktop only) */}
+        <div className="hidden md:block w-full md:w-1/2 md:order-2">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
               <img src="/manus-storage/gardens-s1-toucan-v2_75cc661b.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
@@ -1065,7 +1065,9 @@ function WellnessSection() {
   const filtered = activeCategory === "all" ? gardens.treatments : gardens.treatments.filter((t: Treatment) => t.category === activeCategory);
 
   return (
-    <section id="wellness" style={{ backgroundColor: "#000" }}>
+    <section id="wellness" className="bg-black md:bg-black" style={{ backgroundColor: undefined as any }}>
+      {/* Desktop keeps black bg via the video; mobile sections below override */}
+      <style>{`#wellness { background-color: #F6FFEE } @media(min-width:768px){ #wellness { background-color: #000 !important } }`}</style>
       {/* Wellness: desktop horizontal, mobile vertical placeholder */}
       {/* Desktop */}
       <div className="relative w-full hidden md:block">
@@ -1499,7 +1501,8 @@ function ReserveCTA() {
    ═══════════════════════════════════════════════════════════════ */
 function GardensExperiencesSection() {
   return (
-    <section id="experiences" style={{ backgroundColor: "#000" }}>
+    <section id="experiences">
+      <style>{`#experiences { background-color: #F6FFEE } @media(min-width:768px){ #experiences { background-color: #000 !important } }`}</style>
       {/* Desktop: horizontal 16/9 */}
       <div className="relative w-full hidden md:block">
         <div style={{ aspectRatio: "16/9" }}>
