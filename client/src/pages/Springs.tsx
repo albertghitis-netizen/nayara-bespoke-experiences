@@ -404,9 +404,12 @@ function StorySection() {
       ) : (
       <div className="py-12 px-5" style={{ backgroundColor: "#f7f5f0" }}>
         <AnimateOnScroll variants={fadeUp}>
-          <h2 className="text-center mb-8">
+          <h2 className="text-center mb-3">
             <span className="block text-xl tracking-wide" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#3B2B26" }}>One Rainforest, Three Resorts</span>
           </h2>
+          <p className="text-[13px] leading-[1.8] text-center max-w-[360px] mx-auto mb-8" style={{ fontFamily: "var(--font-body)", color: "#3B2B26CC" }}>
+            Stay at Springs and the restaurants, spa, experiences, and adventures of Tented Camp and Gardens are all yours.
+          </p>
         </AnimateOnScroll>
         <div className="flex flex-col gap-6">
           {SPRINGS_PANORAMA_PANELS.map((panel, i) => (
