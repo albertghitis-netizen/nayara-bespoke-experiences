@@ -283,6 +283,7 @@ function CascadeTextBlock({
   isDark?: boolean;
   stats?: { value: string; label: string }[];
 }) {
+  const isMobile = useIsMobile();
   const headlineColor = isDark ? BONE : PALETTE.text;
   const bodyColor = isDark ? `${BONE}CC` : PALETTE.textSecondary;
   const labelColor = isDark ? MIDDLE : PALETTE.accent;
@@ -371,9 +372,9 @@ function CascadeTextBlock({
             fontSize: "11px",
             letterSpacing: "0.15em",
             textTransform: "uppercase" as const,
-            color: isDark ? BONE : "#FFFFFF",
-            backgroundColor: isDark ? "transparent" : MIDDLE,
-            border: isDark ? `1px solid ${BONE}50` : `1px solid ${MIDDLE}`,
+            color: isMobile ? PALETTE.text : (isDark ? BONE : "#FFFFFF"),
+            backgroundColor: isMobile ? "transparent" : (isDark ? "transparent" : MIDDLE),
+            border: isMobile ? `1px solid ${PALETTE.text}40` : (isDark ? `1px solid ${BONE}50` : `1px solid ${MIDDLE}`),
           }}
         >
           {linkLabel}
@@ -439,6 +440,7 @@ function CascadeSection({
   order?: "h-first" | "v-first";
   badgeImage?: string;
 }) {
+  const isMobile = useIsMobile();
   const VerticalMedia = (
     <MediaBlock
       src={verticalSrc}
@@ -502,7 +504,7 @@ function CascadeSection({
               href={blogLink}
               {...(blogLink.startsWith('/') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
               className="atacama-pill-hover inline-flex items-center gap-2.5 mt-2 mb-6 px-4 py-2.5 rounded-full transition-all duration-300"
-              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#FFFFFF", backgroundColor: MIDDLE, border: `1px solid ${MIDDLE}` }}
+              style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isMobile ? PALETTE.text : "#FFFFFF", backgroundColor: isMobile ? "transparent" : MIDDLE, border: isMobile ? `1px solid ${PALETTE.text}40` : `1px solid ${MIDDLE}` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 {(blogLinkLabel || "").toLowerCase().startsWith("read") ? (
@@ -526,7 +528,7 @@ function CascadeSection({
           <a
             href={link}
             className="atacama-pill-hover inline-flex items-center gap-2 px-4 py-2.5 rounded-full border backdrop-blur-sm transition-all duration-300 w-fit"
-            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: MIDDLE, borderColor: MIDDLE }}
+            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: isMobile ? PALETTE.text : "#FFFFFF", backgroundColor: isMobile ? "transparent" : MIDDLE, borderColor: isMobile ? `${PALETTE.text}40` : MIDDLE }}
           >
             {linkLabel || "Explore"}
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

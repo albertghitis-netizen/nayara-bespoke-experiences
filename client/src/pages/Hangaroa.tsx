@@ -524,6 +524,7 @@ function ExperiencesSection() {
    Primer about Hangaroa: coastal location, Rapa Nui ownership
    ═══════════════════════════════════════════════════════════════ */
 function OurStorySection() {
+  const isMobile = useIsMobile();
   return (
     <section style={{ backgroundColor: PALETTE.gradientEnd }}>
       <div className="flex flex-col md:flex-row">
@@ -577,7 +578,7 @@ function OurStorySection() {
             <a
               href="/hangaroa/sustainability"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02]"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: isMobile ? PALETTE.text : "#FFFFFF", backgroundColor: isMobile ? "transparent" : PALETTE.primary, border: isMobile ? `1px solid ${PALETTE.text}40` : "none" }}
             >
               Our Commitment
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -597,6 +598,7 @@ function OurStorySection() {
    Text left, Taumana warrior image right
    ═══════════════════════════════════════════════════════════════ */
 function SustainabilitySection() {
+  const isMobile = useIsMobile();
   return (
     <section style={{ backgroundColor: PALETTE.gradientEnd }}>
       <div className="flex flex-col md:flex-row">
@@ -633,7 +635,7 @@ function SustainabilitySection() {
             <a
               href="/hangaroa/sustainability"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:scale-[1.02]"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: isMobile ? PALETTE.text : "#FFFFFF", backgroundColor: isMobile ? "transparent" : PALETTE.primary, border: isMobile ? `1px solid ${PALETTE.text}40` : "none" }}
             >
               Explore Sustainability
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
