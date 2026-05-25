@@ -543,11 +543,11 @@ function CascadeSection({
         <AnimateOnScroll variants={fadeUp} delay={0.24}>
           <a
             href={section.textLink}
-            className="inline-flex items-center gap-2 mt-8 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg text-white border border-white/40 md:border-0 bg-transparent md:bg-[rgba(134,139,117,0.9)]"
-            style={{ fontFamily: "var(--font-body)" }}
+            className="inline-flex items-center gap-2 mt-8 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg border"
+            style={{ fontFamily: "var(--font-body)", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : "transparent", backgroundColor: isMobile ? "transparent" : "rgba(134,139,117,0.9)" }}
           >
             {section.textLinkLabel || "Explore More"}
-            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
           </a>
@@ -589,8 +589,8 @@ function CascadeSection({
         <AnimateOnScroll variants={fadeUp} delay={0.3}>
           <a
             href={section.link}
-            className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] w-fit"
-            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(255,255,255,0.12)" }}
+            className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] w-fit"
+            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: isMobile ? textColor : "#FFFFFF", borderColor: isMobile ? `${textColor}40` : "rgba(255,255,255,0.4)", backgroundColor: isMobile ? "transparent" : "rgba(255,255,255,0.12)" }}
           >
             {section.linkLabel || "Explore More"}
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -605,8 +605,8 @@ function CascadeSection({
             href={section.blogUrl}
             target={section.blogUrl.startsWith("http") ? "_blank" : undefined}
             rel={section.blogUrl.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full border border-white/40 md:border-[#868B75] transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit bg-transparent md:bg-[rgba(134,139,117,0.7)]"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backdropFilter: "blur(8px)" }}
+            className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.06em", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : "#868B75", backgroundColor: isMobile ? "transparent" : "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)" }}
           >
             {section.blogIsRead ? (
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
@@ -617,24 +617,22 @@ function CascadeSection({
           </a>
         </AnimateOnScroll>
       )}
-      {section.badges && !isMobile && (
+      {section.badges && (
         <div className="mt-8">
           <a
             href="https://www.youtube.com/watch?v=FPxFzOkKhbw" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 mb-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", borderColor: "#868B75", backgroundColor: "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)" }}
+            style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.06em", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : "#868B75", backgroundColor: isMobile ? "transparent" : "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)" }}
           >
-            {section.blogIsRead ? (
-              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-            ) : (
-              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" /></svg>
-            )}
-            <img src="/manus-storage/leo-ghitis-formal-square_eadb0855.jpg" alt="Leo Ghitis, CEO & Co-Founder" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
-            <span style={{ display: "inline-block", textAlign: "left", maxWidth: "300px", lineHeight: "1.6", fontSize: "10px", letterSpacing: "0.06em" }}>
-              CEO & Co-Founder Leo Ghitis<br/>Discusses Sustainability on the<br/>Luxury Travel Podcast
+            <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" /></svg>
+            <img src="/manus-storage/leo-ghitis-formal-square_eadb0855.jpg" alt="Leo Ghitis, CEO & Co-Founder" className="w-7 h-7 md:w-8 md:h-8 rounded-full object-cover flex-shrink-0" loading="lazy" />
+            <span style={{ display: "inline-block", textAlign: "left", maxWidth: "300px", lineHeight: "1.5", fontSize: "10px", letterSpacing: "0.04em" }}>
+              CEO & Co-Founder Leo Ghitis<br/>Sustainability on the Luxury Travel Podcast
             </span>
           </a>
-          <video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          {!isMobile && (
+            <video src="/manus-storage/badge-tented-new_2ae8f267.mp4" autoPlay muted playsInline preload="metadata" className="h-32 lg:h-40 w-auto -ml-8 lg:-ml-10" />
+          )}
         </div>
       )}
     </div>

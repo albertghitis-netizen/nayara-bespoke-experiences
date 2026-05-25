@@ -459,10 +459,10 @@ function MobileSlider({
           </span>
         </div>
         <div className="flex gap-3">
-          <a href={currentRoom.exploreLink} className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border border-white/50" style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: "white" }}>
+          <a href={currentRoom.exploreLink} className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border" style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: palette.text, borderColor: palette.text }}>
             Explore
           </a>
-          <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit" style={{ ...body, fontWeight: 500, backgroundColor: "#3B2B26", color: "#ffffff" }}>
+          <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit" style={{ ...body, fontWeight: 500, backgroundColor: palette.primary, color: "#ffffff" }}>
             Reserve
           </a>
         </div>
