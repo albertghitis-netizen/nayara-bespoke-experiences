@@ -453,6 +453,23 @@ function CascadeSection({
                       </a>
                     </AnimateOnScroll>
                   )}
+                  {section.badges && (
+                    <AnimateOnScroll variants={fadeUp} delay={0.25}>
+                      <a
+                        href="https://www.youtube.com/watch?v=FPxFzOkKhbw"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2.5 mt-6 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] w-fit"
+                        style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.06em", color: textColor, borderColor, backgroundColor: "transparent" }}
+                      >
+                        <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" /></svg>
+                        <img src="/manus-storage/leo-ghitis-formal-square_eadb0855.jpg" alt="Leo Ghitis" className="w-7 h-7 rounded-full object-cover flex-shrink-0" loading="lazy" />
+                        <span style={{ display: "inline-block", textAlign: "left", lineHeight: "1.5", fontSize: "10px", letterSpacing: "0.04em" }}>
+                          CEO & Co-Founder Leo Ghitis<br/>Sustainability on the Luxury Travel Podcast
+                        </span>
+                      </a>
+                    </AnimateOnScroll>
+                  )}
                 </div>
               );
             })()}

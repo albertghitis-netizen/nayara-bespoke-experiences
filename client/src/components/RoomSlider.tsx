@@ -462,7 +462,7 @@ function MobileSlider({
           <a href={currentRoom.exploreLink} className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border border-white/50" style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: "white" }}>
             Explore
           </a>
-          <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border border-white/50" style={{ ...body, fontWeight: 500, color: "white" }}>
+          <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit" style={{ ...body, fontWeight: 500, backgroundColor: "#3B2B26", color: "#ffffff" }}>
             Reserve
           </a>
         </div>
