@@ -231,7 +231,7 @@ export default function Gardens() {
       {/* ══ NAYARA BY NIGHT ══ */}
       <div id="by-night" />
       <ByNightCTA
-        verticalSrc="/manus-storage/gardens-bynight-frog_51f8e4f1.jpg"
+        verticalSrc="/manus-storage/gardens-nostalgia-vertical_acbc8bea.jpeg"
         verticalIsVideo={false}
         verticalRatio="3/4"
         horizontalSrc="/manus-storage/Nostalgia_ea4fd458.jpeg"
