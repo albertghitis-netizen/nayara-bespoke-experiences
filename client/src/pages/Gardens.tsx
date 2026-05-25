@@ -138,7 +138,7 @@ const GARDENS_ROOMS: RoomSliderCard[] = [
     sqm: "93",
     guests: "2 Adults + 1 Child",
     video: "/manus-storage/arenal-pool-casita-reel_223077fb.mp4",
-    photo: "/manus-storage/gardens-casita-square_c0e6674c.jpg",
+    photo: "/manus-storage/DJI_0220-NayaraGardens-CasitabyBriceFerreStudio_daf7a7e8.jpg",
     exploreLink: "/gardens/rooms/arenal-pool-casita",
     bookingUrl: BOOKING_URLS.gardens,
   },
