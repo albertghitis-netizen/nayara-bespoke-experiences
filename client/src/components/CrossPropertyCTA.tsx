@@ -7,6 +7,7 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { AnimateOnScroll, TextReveal, StaggerOnScroll, fadeUp, staggerContainer } from "@/components/motion";
+import { useIsMobile } from "@/hooks/useMobile";
 
 export interface CrossPropertySuggestion {
   name: string;
@@ -35,6 +36,7 @@ export default function CrossPropertyCTA({
   accentColor = "#3a2a1a",
   dividerColor = "#E6DFD5",
 }: CrossPropertyCTAProps) {
+  const isMobile = useIsMobile();
   return (
     <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: bgColor }}>
       <div className="max-w-[1200px] mx-auto">
@@ -63,9 +65,9 @@ export default function CrossPropertyCTA({
                 className="group block overflow-hidden"
                 style={{ border: `1px solid ${dividerColor}` }}
               >
-                {/* Media , video or image */}
+                {/* Media , video or image — no video on mobile */}
                 <div className="relative h-[200px] md:h-[240px] overflow-hidden">
-                  {prop.video ? (
+                  {prop.video && !isMobile ? (
                     <video
                       src={prop.video}
                       autoPlay

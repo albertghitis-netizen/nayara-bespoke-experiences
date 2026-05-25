@@ -14,6 +14,7 @@ import {
   MediaReveal,
   fadeUp,
 } from "@/components/motion";
+import { useIsMobile } from "@/hooks/useMobile";
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -66,6 +67,7 @@ export default function ByNightCTA({
   buttonHref = "/by-night",
   overlayOnVideo = false,
 }: ByNightCTAProps) {
+  const isMobile = useIsMobile();
   const isTextLeft = textSide === "left";
 
   /* ── Overlay mode: horizontal (desktop) / vertical (mobile) with text overlay ── */
@@ -181,13 +183,7 @@ export default function ByNightCTA({
             )}
           </div>
           {mobileSrc ? (
-            mobileIsVid ? (
-              <div style={{ aspectRatio: verticalRatio || "3/4" }}>
-                <NativeVideo src={mobileSrc} className="w-full h-full object-cover" loop />
-              </div>
-            ) : (
-              <img src={mobileSrc} alt="Nayara by Night" className="w-full" style={{ aspectRatio: verticalRatio || "3/4", objectFit: "cover" }} decoding="async" loading="lazy" />
-            )
+            <img src={mobileSrc} alt="Nayara by Night" className="w-full" style={{ aspectRatio: verticalRatio || "3/4", objectFit: "cover" }} decoding="async" loading="lazy" />
           ) : (
             <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
               <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
@@ -207,7 +203,7 @@ export default function ByNightCTA({
         <div className={`w-full md:w-1/2 ${isTextLeft ? "md:order-2" : "md:order-1"}`}>
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: verticalRatio }}>
-              {verticalIsVideo ? (
+              {verticalIsVideo && !isMobile ? (
                 <NativeVideo src={verticalSrc} className="w-full h-full object-cover" />
               ) : (
                 <img src={verticalSrc} alt="Nayara by Night" className="w-full h-full object-cover" decoding="async" loading="lazy" />

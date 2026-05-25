@@ -711,6 +711,7 @@ function OneRainforestCompact() {
    S4: Horizontal video with timed overlays below
    ═══════════════════════════════════════════════════════════════ */
 function AccommodationsExperiment() {
+  const isMobile = useIsMobile();
   const verticalRef = useRef<NativeVideoHandle>(null);
   const horizontalRef = useRef<NativeVideoHandle>(null);
 
@@ -727,11 +728,15 @@ function AccommodationsExperiment() {
         {/* S3 vertical video with timed overlay */}
         <div className="w-full md:w-1/2 md:order-1 relative">
           <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-            <NativeVideo
-              ref={verticalRef}
-              src="/manus-storage/gardens-accom-vertical-trimmed_212a6993.mp4"
-              className="w-full h-full object-cover"
-            />
+            {isMobile ? (
+              <img src="/manus-storage/DJI_0220-NayaraGardens-CasitabyBriceFerreStudio_daf7a7e8.jpg" alt="Arenal Pool Casita" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+            ) : (
+              <NativeVideo
+                ref={verticalRef}
+                src="/manus-storage/gardens-accom-vertical-trimmed_212a6993.mp4"
+                className="w-full h-full object-cover"
+              />
+            )}
           </div>
 
           {/* Explore pill , centered lower */}
@@ -829,33 +834,33 @@ function AccommodationsExperiment() {
         </div>
       </div>
 
-      {/* ── S4: Horizontal video with timed overlay ── */}
-      <div className="relative" style={{ backgroundColor: PALETTE.gradientStart }}>
-        <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-          <NativeVideo
-            ref={horizontalRef}
+      {/* ── S4: Horizontal video with timed overlay (desktop only) ── */}
+      {!isMobile && (
+        <div className="relative" style={{ backgroundColor: PALETTE.gradientStart }}>
+          <div className="overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+            <NativeVideo
+              ref={horizontalRef}
               src="/manus-storage/gardens-accom-h_3741079f.mp4"
-            className="w-full h-full object-cover"
-          />
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+            <a
+              href="/gardens/rooms/rainforest-pool-villa"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.12)",
+                fontFamily: "var(--font-body)",
+              }}
+            >
+              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
+                Explore Rainforest Pool Villa
+              </span>
+              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+            </a>
+          </div>
         </div>
-
-        {/* Explore pill , centered lower */}
-        <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
-          <a
-            href="/gardens/rooms/rainforest-pool-villa"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
-            style={{
-              backgroundColor: "rgba(255,255,255,0.12)",
-              fontFamily: "var(--font-body)",
-            }}
-          >
-            <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">
-              Explore Rainforest Pool Villa
-            </span>
-            <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-          </a>
-        </div>
-      </div>
+      )}
     </>
   );
 }
