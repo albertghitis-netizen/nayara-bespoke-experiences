@@ -164,11 +164,19 @@ function MediaBlock({
   className?: string;
   loop?: boolean;
 }) {
+  const isMobile = useIsMobile();
   if (!src) return null;
+
+  // On mobile, non-looping videos just freeze on last frame — pointless.
+  // Skip them entirely and show a gradient placeholder instead of downloading MB of video.
+  const shouldSkipVideo = isVideo && !loop && isMobile;
+
   return (
     <div className={`overflow-hidden ${className}`} style={{ aspectRatio: ratio }}>
-      {isVideo ? (
+      {isVideo && !shouldSkipVideo ? (
         <NativeVideo src={src} className="w-full h-full object-cover" loop={loop} />
+      ) : shouldSkipVideo ? (
+        <div className="w-full h-full bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900" />
       ) : (
         <img src={src} alt={alt || ""} className="w-full h-full object-cover" decoding="async" loading="lazy" />
       )}
@@ -439,10 +447,12 @@ function CascadeSection({
             );
           })()}
           {mobileVertSrc ? (
-            mobileIsVideo ? (
+            mobileIsVideo && section.verticalLoop ? (
               <div style={{ aspectRatio: section.verticalRatio || "3/4" }}>
-                <NativeVideo src={mobileVertSrc} className="w-full h-full object-cover" loop={section.verticalLoop} />
+                <NativeVideo src={mobileVertSrc} className="w-full h-full object-cover" loop={true} />
               </div>
+            ) : mobileIsVideo && !section.verticalLoop ? (
+              <div style={{ aspectRatio: section.verticalRatio || "3/4" }} className="bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900" />
             ) : (
               <img src={mobileVertSrc} alt={section.label} className="w-full" style={{ aspectRatio: section.verticalRatio || "3/4", objectFit: "cover" }} decoding="async" loading="lazy" />
             )
@@ -1357,20 +1367,7 @@ const SECTIONS_GALLERY: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[16],
     nextBgColor: SECTION_COLORS[17],
   },
-  {
-    id: "looking-for-frogs",
-    label: "Looking for Frogs",
-    headline: "Night Safari\nby Torchlight",
-    body: "When darkness falls, the real show begins. Armed with headlamps and guided by expert naturalists, guests venture into the rainforest to find red-eyed tree frogs, glass frogs, and the elusive poison dart frog \u2014 tiny jewels glowing against the wet leaves.",
-    verticalSrc: `${CDN}/tented-frogs-vertical_3f5476ee.mp4`,
-    horizontalSrc: ASSETS.advH,
-    verticalIsVideo: true,
-    horizontalIsVideo: false,
-    verticalRatio: "3/4",
-    horizontalRatio: "16/9",
-    bgColor: SECTION_COLORS[17],
-    nextBgColor: SECTION_COLORS[18],
-  },
+
   {
     id: "return",
     label: "Until We Return",
