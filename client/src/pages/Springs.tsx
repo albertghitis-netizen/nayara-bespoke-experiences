@@ -175,18 +175,19 @@ export default function Springs() {
         { name: "Nayara Springs", url: "https://nayarasprings.com" },
       ]} />
       <BrandNavigation pageType="property" sectionNav={[
-        { id: "accommodations", label: "Rooms" },
+        { id: "accommodations", label: "Private Villas" },
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "Gastronomy" },
+        { id: "gastronomy", label: "The Table" },
+        { id: "by-night", label: "By Night" },
       ]} />
       <HeroSection />
       <StorySection />
       {/* ── Rooms: Horizontal Slider ── */}
       <div id="accommodations">
         <RoomSlider
-          sectionLabel="Accommodations"
+          sectionLabel="Private Villas"
           headline="Springs Villa"
           description="Each Springs Villa features a private natural hot spring pool fed by volcanic mineral water. Designed for ultimate privacy and relaxation."
           rooms={SPRINGS_ROOMS}
@@ -351,7 +352,7 @@ function StorySection() {
               className="text-[15px] leading-[1.85] max-w-[480px] mt-4"
               style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
             >
-              An adults-only retreat where every villa has its own private thermal plunge pool fed by volcanic hot springs. Three Michelin Keys. The first hotel in Costa Rica to earn that distinction.
+              An adults-only retreat where every villa has its own private thermal plunge pool fed by volcanic hot springs. <strong>The only three Michelin Key resort in Central America.</strong>
             </p>
           </AnimateOnScroll>
 
@@ -360,7 +361,7 @@ function StorySection() {
               href="/blog/michelin-keys"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 mt-4 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              className="inline-flex items-center gap-2.5 mt-8 mb-6 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: PALETTE.primary }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -477,7 +478,7 @@ function SpringsVillaSection() {
           style={{ backgroundColor: PALETTE.gradientEnd }}
         >
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Accommodations</SectionLabel>
+            <SectionLabel>Private Villas</SectionLabel>
           </AnimateOnScroll>
           <TextReveal as="h2" className="mb-8" delay={0.1}>
             <span
@@ -551,7 +552,7 @@ function ExperiencesSection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2 className="mb-6">
-              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Arenal Adventures</span>
+              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Rio Celeste Waterfall</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
@@ -572,7 +573,7 @@ function ExperiencesSection() {
         <div className="px-5 pt-10 pb-6">
           <p className="text-[11px] tracking-[0.25em] uppercase mb-4 text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</p>
           <h2 className="mb-4">
-            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Arenal Adventures</span>
+            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Rio Celeste Waterfall</span>
           </h2>
           <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
             From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
@@ -582,8 +583,8 @@ function ExperiencesSection() {
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
-        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
+        <div style={{ aspectRatio: "3/4" }}>
+          <img src="/manus-storage/springs-experiences-rio-celeste-still_650afe4f.jpg" alt="Rio Celeste Waterfall" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
     </section>
@@ -598,11 +599,11 @@ function SustainabilitySection() {
     <section id="sustainability">
       {/* ── Row: S7 vertical video left + Text right ── */}
       <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientEnd }}>
-        {/* S7 , Vertical video left */}
+        {/* S7 , Vertical image left */}
         <div className="w-full md:w-1/2 md:order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/springs-s7-sustainability-vertical_e4e0d280.mp4" className="w-full h-full object-cover" />
+              <img src="/manus-storage/springs-bridge-white-dress_b908dee5.jpg" alt="Woman in white dress on rainforest bridge at Nayara Springs" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </MediaReveal>
         </div>
@@ -656,7 +657,7 @@ function WellnessSection() {
       {/* Desktop: horizontal 16/9 */}
       <div className="relative w-full hidden md:block">
         <div style={{ aspectRatio: "16/9" }}>
-          <NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full h-full object-cover" />
+          <NativeVideo src="/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4" className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
@@ -665,7 +666,7 @@ function WellnessSection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2 className="mb-6">
-              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Nurtured by Nature</span>
+              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Mineral Hot Springs Wellness</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
@@ -686,7 +687,7 @@ function WellnessSection() {
         <div className="px-5 pt-10 pb-6">
           <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Wellness</span>
           <h2 className="mb-4">
-            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Nurtured by Nature</span>
+            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Mineral Hot Springs Wellness</span>
           </h2>
           <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
             The spa at Nayara Springs draws its rituals from the geothermal earth and forest botanicals that surround it. Volcanic mineral waters, indigenous healing traditions, and the stillness of the rainforest converge to create an experience that restores from the inside out.
@@ -696,8 +697,8 @@ function WellnessSection() {
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
-        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
+        <div style={{ aspectRatio: "3/4" }}>
+          <img src="/manus-storage/springs-wellness-aerial_850d2ed9.jpg" alt="Mineral Hot Springs Wellness" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
     </section>
@@ -782,7 +783,7 @@ function GastronomySection() {
               className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] w-fit"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(255,255,255,0.12)" }}
             >
-              Forest to Table
+              Explore Forest to Table
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>

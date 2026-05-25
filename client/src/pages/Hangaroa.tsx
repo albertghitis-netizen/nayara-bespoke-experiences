@@ -153,12 +153,11 @@ export default function Hangaroa() {
         { name: "Nayara Hangaroa", url: "https://nayarahangaroa.com" },
       ]} />
       <BrandNavigation pageType="property" sectionNav={[
-        { id: "our-story", label: "Our Story" },
-        { id: "rooms", label: "Rooms" },
+        { id: "rooms", label: "Private Villas" },
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "Gastronomy" },
+        { id: "gastronomy", label: "The Table" },
         { id: "by-night", label: "By Night" },
       ]} />
 
@@ -173,7 +172,7 @@ export default function Hangaroa() {
       {/* ★ ACCOMMODATIONS — RoomSlider with horizontal scroll */}
       <div id="rooms">
         <RoomSlider
-          sectionLabel="Accommodations"
+          sectionLabel="Private Villas"
           headline={"Island Suites"}
           description="Each suite is a private sanctuary inspired by Rapa Nui's volcanic landscape and Polynesian heritage, with ocean views, private terraces, and locally crafted furnishings."
           rooms={HANGAROA_ROOMS}
@@ -722,7 +721,7 @@ function GastronomySection() {
         {/* LEFT — Text + restaurant list */}
         <div className="w-full md:w-1/2 md:order-1 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Forest to Table</SectionLabel>
+            <SectionLabel>The Table</SectionLabel>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2
@@ -773,12 +772,31 @@ function GastronomySection() {
         </div>
 
         {/* RIGHT — Vertical image */}
-        <div className="w-full md:w-1/2 md:order-2">
+        <div className="w-full md:w-1/2 md:order-2 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden" style={{ aspectRatio: "3/4" }}>
               <img src="/manus-storage/hangaroa-gastronomy-dessert_440503bd.jpeg" alt="Pacific island dessert with raspberry meringue" className="w-full h-full object-cover" decoding="async" loading="lazy" />
             </div>
           </MediaReveal>
+          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
+            <a
+              href="/blog/chile-gastronomy"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-[1.03] w-fit"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 500,
+                fontSize: "11px",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase" as const,
+                color: "#fff",
+                backgroundColor: "rgba(255,255,255,0.12)",
+                border: "1px solid rgba(255,255,255,0.25)",
+              }}
+            >
+              <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>
+              Read: Chilean Gastronomy
+            </a>
+          </div>
         </div>
       </div>
     </section>

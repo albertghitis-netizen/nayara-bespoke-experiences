@@ -64,17 +64,16 @@ const propertyRoutes: Record<string, string> = {
 
 /* ── Food Porn images ── */
 const FOOD_PORN_IMAGES = [
+  { src: "/manus-storage/food-porn-34_6fb51f28.jpeg", w: 1200, h: 1200 },
   { src: "/manus-storage/food-porn-01_4b02f347.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-02_7bc4d276.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-03_f31720af.jpg", w: 1200, h: 1499 },
   { src: "/manus-storage/food-porn-04_c3c7c50a.jpg", w: 1200, h: 1499 },
   { src: "/manus-storage/food-porn-05_2d800ad9.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-33_94eee8a3.jpg", w: 1200, h: 2132 },
   { src: "/manus-storage/food-porn-06_8e706736.jpg", w: 1200, h: 1499 },
   { src: "/manus-storage/food-porn-07_6c1c4ca2.jpg", w: 1200, h: 1599 },
   { src: "/manus-storage/food-porn-08_50857183.jpg", w: 1200, h: 1600 },
-  { src: "/manus-storage/food-porn-09_3ab23301.jpg", w: 1200, h: 1600 },
-  { src: "/manus-storage/food-porn-10_a6fb80e6.jpg", w: 1200, h: 1499 },
-  { src: "/manus-storage/food-porn-11_6ac631cc.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-12_744ae022.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-13_fe10c306.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-14_c4982e88.jpg", w: 1200, h: 1500 },
@@ -83,20 +82,15 @@ const FOOD_PORN_IMAGES = [
   { src: "/manus-storage/food-porn-17_88386c34.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-18_ffdfa128.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-19_b8f88b9c.jpg", w: 1200, h: 1600 },
-  { src: "/manus-storage/food-porn-20_fed34208.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-21_672369b8.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-22_96238ec4.jpg", w: 1200, h: 1499 },
   { src: "/manus-storage/food-porn-23_4c97f107.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-24_663d686d.jpg", w: 1200, h: 1600 },
-  { src: "/manus-storage/food-porn-25_8131cf04.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-26_37c1a9f3.jpg", w: 1200, h: 1600 },
-  { src: "/manus-storage/food-porn-27_216ad47c.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-28_fa8f5881.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-29_19160c2c.jpg", w: 1200, h: 1600 },
-  { src: "/manus-storage/food-porn-30_8acdb10b.jpg", w: 1200, h: 1499 },
   { src: "/manus-storage/food-porn-31_29c71f37.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-32_2dc0a1eb.jpg", w: 1200, h: 674 },
-  { src: "/manus-storage/food-porn-33_94eee8a3.jpg", w: 1200, h: 2132 },
 ];
 
 export default function Gastronomy() {
@@ -265,13 +259,14 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
    ═══════════════════════════════════════════════════════════════ */
 function FoodPornGallery() {
   const isMobile = useIsMobile();
-  const cols = isMobile ? 2 : 3;
+  const cols = isMobile ? 2 : 4;
 
-  // Distribute images into columns for masonry
-  const columns: typeof FOOD_PORN_IMAGES[] = Array.from({ length: cols }, () => []);
+  // Distribute images into columns for masonry (with original index)
+  const indexedImages = FOOD_PORN_IMAGES.map((img, i) => ({ ...img, idx: i + 1 }));
+  const columns: typeof indexedImages[] = Array.from({ length: cols }, () => []);
   const colHeights = new Array(cols).fill(0);
 
-  FOOD_PORN_IMAGES.forEach((img) => {
+  indexedImages.forEach((img) => {
     const shortestCol = colHeights.indexOf(Math.min(...colHeights));
     columns[shortestCol].push(img);
     colHeights[shortestCol] += img.h / img.w;
@@ -281,22 +276,23 @@ function FoodPornGallery() {
     <section className="px-0">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 mb-6">
         <FadeIn>
-          <p className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em] uppercase mb-2" style={{ ...body, fontWeight: 600 }}>The Art of Plating</p>
-          <h2 className="text-[#3B2B26] text-xl md:text-2xl" style={heading}>Food Porn</h2>
+          <p className="text-[#3B2B26]/30 text-[10px] tracking-[0.35em] uppercase mb-2" style={{ ...body, fontWeight: 600 }}>The Table</p>
+          <h2 className="text-[#3B2B26] text-xl md:text-2xl" style={heading}>The Art of Plating</h2>
         </FadeIn>
       </div>
-      <div className="flex gap-0">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex gap-2 md:gap-3">
         {columns.map((col, ci) => (
-          <div key={ci} className="flex-1 flex flex-col gap-0">
+          <div key={ci} className="flex-1 flex flex-col gap-2 md:gap-3">
             {col.map((img, ii) => (
               <div key={ii} className="relative w-full" style={{ aspectRatio: `${img.w} / ${img.h}` }}>
                 <img
                   src={img.src}
                   alt="Nayara cuisine"
-                  className="w-full h-full object-cover block"
+                  className="w-full h-full object-cover block rounded-sm"
                   loading="lazy"
                   decoding="async"
                 />
+                <span className="absolute top-1 left-1 bg-black/70 text-white text-[9px] px-1.5 py-0.5 rounded font-mono">{img.idx}</span>
               </div>
             ))}
           </div>

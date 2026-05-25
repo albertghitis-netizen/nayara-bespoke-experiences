@@ -251,7 +251,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   },
   {
     id: "rooms",
-    label: "Accommodations",
+    label: "Private Villas",
     headline: "Overwater Villas\n& Treehouse Villas",
     body: "Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views, these accommodations redefine tropical luxury. Wake to the gentle sound of waves and spend your days exploring pristine beaches and vibrant coral reefs.",
     verticalSrc: "/manus-storage/bocas-accommodations-v_4bd2aaa9.mp4",
@@ -338,8 +338,8 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   },
   {
     id: "gastronomy",
-    label: "A Taste of Place",
-    headline: "Elephant\nHouse",
+    label: "The Table",
+    headline: "A Taste of\nthe Caribbean",
     body: "Our fine dining restaurant, the majestic Elephant House, is a 100-year-old structure shipped halfway around the world from Bali, Indonesia. Take in the moon glistening on the water and spot a stingray gliding by as you delight in lobster paired with the perfect chilled white wine. By day, the poolside Coral Café offers a cheerful alfresco setting for a leisurely breakfast or lunch.\n\nAn unexpected culinary journey in the middle of the Caribbean Sea. Our chef creates a new meticulously crafted dinner menu every night of the week, using the finest hand-selected meats, local seafood directly from the sea, and fresh organic vegetables and ingredients.",
     verticalSrc: "/manus-storage/fb12-bocas-gastronomy_8f3f15ff.jpg",
     horizontalSrc: "",
@@ -356,7 +356,7 @@ const CASCADE_SECTIONS: CascadeSectionData[] = [
   },
   {
     id: "nayara-by-night",
-    label: "Nayara by Night",
+    label: "By Night",
     headline: "Bioluminescent\nWaters",
     body: "In the warm Caribbean waters surrounding Bocas del Toro, microscopic dinoflagellates create one of nature's most magical phenomena. Every movement in the water triggers an electric blue glow , kayak through bioluminescent bays, swim in liquid starlight, or simply watch the waves illuminate the shoreline after dark.",
     verticalSrc: "/manus-storage/bocas-bynight-bioluminescence_628c75d7.jpg",
@@ -1124,19 +1124,17 @@ export default function BocasDelToro() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "Gastronomy" },
+        { id: "gastronomy", label: "The Table" },
         { id: "night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />
       <HeroSection />
 
-      {/* Story section */}
-      <CascadeSection key={CASCADE_SECTIONS[0].id} section={CASCADE_SECTIONS[0]} index={0} />
 
       {/* ── Rooms: Horizontal Slider ── */}
       <div id="rooms">
         <RoomSlider
-          sectionLabel="Accommodations"
+          sectionLabel="Private Villas"
           headline={"Overwater Villas\n& Treehouse Villas"}
           description="Each overwater villa is a private escape suspended above the Caribbean Sea. With direct ocean access, private plunge pools, and panoramic water views."
           rooms={BOCAS_ROOMS}

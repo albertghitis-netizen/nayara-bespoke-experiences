@@ -209,7 +209,7 @@ export default function Gardens() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "Gastronomy" },
+        { id: "gastronomy", label: "The Table" },
         { id: "by-night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />
@@ -229,6 +229,7 @@ export default function Gardens() {
       <GardensGastronomyCascade />
 
       {/* ══ NAYARA BY NIGHT ══ */}
+      <div id="by-night" />
       <ByNightCTA
         verticalSrc="/manus-storage/gardens-bynight-frog_51f8e4f1.jpg"
         verticalIsVideo={false}
@@ -452,7 +453,7 @@ function StorySection() {
       {/* ── Rooms: Horizontal Slider ── */}
       <div id="rooms">
         <RoomSlider
-          sectionLabel="Accommodations"
+          sectionLabel="Private Villas"
           headline="Private Pool Villas"
           description="Each villa is a private retreat with its own heated plunge pool, open-air garden shower, and panoramic views of Arenal Volcano."
           rooms={GARDENS_ROOMS}
@@ -748,7 +749,7 @@ function AccommodationsExperiment() {
           style={{ backgroundColor: PALETTE.gradientStart }}
         >
           <AnimateOnScroll variants={fadeUp}>
-            <SectionLabel>Accommodations</SectionLabel>
+            <SectionLabel>Private Villas</SectionLabel>
           </AnimateOnScroll>
 
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
@@ -870,7 +871,7 @@ function RoomsSection() {
           {/* Text right */}
           <div className="md:flex-1 order-1 md:order-2">
             <AnimateOnScroll variants={fadeUp}>
-              <SectionLabel>Accommodations</SectionLabel>
+              <SectionLabel>Private Villas</SectionLabel>
             </AnimateOnScroll>
             <TextReveal as="h2" className="mb-8" delay={0.1}>
               <span
@@ -1069,7 +1070,7 @@ function WellnessSection() {
       {/* Desktop */}
       <div className="relative w-full hidden md:block">
         <div style={{ aspectRatio: "16/9" }}>
-          <NativeVideo src="/manus-storage/tented-wellness-horizontal-new_9bb43043.mp4" className="w-full h-full object-cover" />
+          <NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
@@ -1113,8 +1114,8 @@ function WellnessSection() {
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
-        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
+        <div style={{ aspectRatio: "3/4" }}>
+          <img src="/manus-storage/gardens-wellness-mobile-still_b52b4b25.jpg" alt="Wellness at Nayara Gardens" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
 
@@ -1511,7 +1512,7 @@ function GardensExperiencesSection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2 className="mb-6">
-              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Rainforest Adventures</span>
+              <span className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>In the Shadow of Arenal Volcano</span>
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.2}>
@@ -1532,7 +1533,7 @@ function GardensExperiencesSection() {
         <div className="px-5 pt-10 pb-6">
           <span className="text-[11px] tracking-[0.2em] uppercase mb-4 block text-white/70" style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}>Experiences</span>
           <h2 className="mb-4">
-            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>Rainforest Adventures</span>
+            <span className="block text-2xl leading-[1.05] tracking-wide text-white" style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>In the Shadow of Arenal Volcano</span>
           </h2>
           <p className="text-[14px] leading-[1.75] text-white/85" style={{ fontFamily: "var(--font-body)" }}>
             Arenal Volcano , a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor , shapes everything around it. Its geothermal energy feeds the mineral springs, its eruption history created the lava fields you walk through today.
@@ -1542,8 +1543,8 @@ function GardensExperiencesSection() {
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
         </div>
-        <div style={{ aspectRatio: "3/4", backgroundColor: "#1a1a1a" }} className="flex items-center justify-center">
-          <span className="text-white/30 text-xs tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-body)" }}>Vertical needed</span>
+        <div style={{ aspectRatio: "3/4" }}>
+          <img src="/manus-storage/gardens-experiences-mobile-still_57d20356.jpg" alt="Arenal Volcano Experiences" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
     </section>
@@ -1569,7 +1570,7 @@ function GardensGastronomyCascade() {
               className="text-[11px] tracking-[0.2em] uppercase mb-6 block"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: "#6b4a3a" }}
             >
-              Gastronomy
+              The Table
             </span>
           </AnimateOnScroll>
 
@@ -1596,8 +1597,8 @@ function GardensGastronomyCascade() {
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
               href="/tented-camp/gastronomy"
-              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
+              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full border border-[#3a2a1a]/40 transition-all duration-300 hover:scale-[1.02] w-fit"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#3a2a1a", backgroundColor: "transparent" }}
             >
               Forest to Table
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -1616,8 +1617,8 @@ function GardensGastronomyCascade() {
           <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
             <a
               href="#night-frog-tour"
-              className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border border-white/40 transition-transform hover:scale-[1.03] hover:bg-white/10"
-              style={{ backgroundColor: "transparent", fontFamily: "var(--font-body)" }}
+              className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border border-pink-300/60 transition-transform hover:scale-[1.03]"
+              style={{ backgroundColor: "rgba(219, 112, 147, 0.75)", fontFamily: "var(--font-body)" }}
             >
               <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Lyla's Gelato</span>
               <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
@@ -1637,20 +1638,20 @@ function GardensGastronomyCascade() {
 function GardensSustainabilityCascade() {
   return (
     <section id="sustainability">
-      {/* ── Row: Vertical video left + Text right ── */}
-      <div className="flex flex-col md:flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
+      {/* ── Desktop: Vertical video left + Text right ── */}
+      <div className="hidden md:flex flex-row" style={{ backgroundColor: PALETTE.gradientStart }}>
         {/* Vertical video left */}
-        <div className="w-full md:w-1/2 md:order-1">
+        <div className="w-1/2 order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/gardens-sustainability-vertical-v2_a1236efc.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/gardens-wildlife-corridors_18fd83dc.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
 
         {/* Text column right */}
         <div
-          className="w-full md:w-1/2 flex flex-col justify-center px-8 py-12 md:px-16 lg:px-24 md:order-2"
+          className="w-1/2 flex flex-col justify-center px-16 lg:px-24 py-12 order-2"
           style={{ backgroundColor: PALETTE.gradientStart }}
         >
           <AnimateOnScroll variants={fadeUp}>
@@ -1660,10 +1661,10 @@ function GardensSustainabilityCascade() {
           <AnimateOnScroll variants={fadeUp} delay={0.1}>
             <h2 className="mb-6 md:mb-8">
               <span
-                className="block text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
+                className="block text-[2rem] lg:text-[2.5rem] leading-[1.05] tracking-wide"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
               >
-                Beyond Reforestation
+                Creating Wildlife Corridors
               </span>
             </h2>
           </AnimateOnScroll>
@@ -1696,6 +1697,46 @@ function GardensSustainabilityCascade() {
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
           </AnimateOnScroll>
+        </div>
+      </div>
+
+      {/* ── Mobile: Text BETWEEN two stills (not sandwiched) ── */}
+      <div className="md:hidden" style={{ backgroundColor: PALETTE.gradientStart }}>
+        {/* Sustainability text */}
+        <div className="px-5 pt-10 pb-6">
+          <SectionLabel>Sustainability</SectionLabel>
+          <h2 className="mb-4 mt-4">
+            <span
+              className="block text-2xl leading-[1.05] tracking-wide"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: PALETTE.text }}
+            >
+              Creating Wildlife Corridors
+            </span>
+          </h2>
+          <p
+            className="text-[14px] leading-[1.75]"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            From geothermal energy to rainforest stewardship, every decision at Nayara Gardens is guided by our commitment to protect the extraordinary ecosystem that makes this place possible.
+          </p>
+          <p
+            className="text-[14px] leading-[1.75] mt-3"
+            style={{ fontFamily: "var(--font-body)", color: PALETTE.textSecondary }}
+          >
+            Our wildlife corridors connect fragmented habitats across the Arenal region, allowing sloths, kinkajous, and howler monkeys to move safely between forest patches.
+          </p>
+          <a
+            href="/tented-camp-sustainability"
+            className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full w-fit"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
+          >
+            Explore Sustainability
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+          </a>
+        </div>
+        {/* Sustainability still */}
+        <div style={{ aspectRatio: "3/4" }}>
+          <img src="/manus-storage/gardens-sustainability-mobile-still_47be99ee.jpg" alt="Creating Wildlife Corridors" className="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
 

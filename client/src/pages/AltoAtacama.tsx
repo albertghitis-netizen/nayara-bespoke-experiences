@@ -334,7 +334,11 @@ function CascadeTextBlock({
                 <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity: 0.4 + (idx % 4) * 0.15, animationDelay: delay, animationDuration: dur }} />
               ))}
               <svg className="relative w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                {(blogLinkLabel || "").toLowerCase().startsWith("read") ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                )}
               </svg>
               <span className="relative">{blogLinkLabel || "Watch the Film"}</span>
             </a>
@@ -346,7 +350,11 @@ function CascadeTextBlock({
               style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: isDark ? BONE : "#FFFFFF", backgroundColor: isDark ? "transparent" : MIDDLE, border: isDark ? `1px solid ${BONE}50` : `1px solid ${MIDDLE}` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                {(blogLinkLabel || "").toLowerCase().startsWith("read") ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                )}
               </svg>
               {blogLinkLabel || "Watch the Film"}
             </a>
@@ -481,7 +489,11 @@ function CascadeSection({
                 <span key={idx} className="absolute rounded-full animate-pulse" style={{ top, left, width: size, height: size, background: "white", opacity: 0.4 + (idx % 4) * 0.15, animationDelay: delay, animationDuration: dur }} />
               ))}
               <svg className="relative w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                {(blogLinkLabel || "").toLowerCase().startsWith("read") ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                )}
               </svg>
               <span className="relative">{blogLinkLabel || "Watch the Film"}</span>
             </a>
@@ -493,7 +505,11 @@ function CascadeSection({
               style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#FFFFFF", backgroundColor: MIDDLE, border: `1px solid ${MIDDLE}` }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                {(blogLinkLabel || "").toLowerCase().startsWith("read") ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                )}
               </svg>
               {blogLinkLabel || "Watch the Film"}
             </a>
@@ -626,7 +642,7 @@ const CASCADE_SECTIONS = [
     badgeImage: "/manus-storage/badge-atacama-correct_054a7823.mp4",
   },
   {
-    label: "Accommodations",
+    label: "Private Villas",
     headline: "Desert Suites",
     description: "Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape. Designed for ultimate comfort and contemplation.",
     vSrc: ASSETS.clip4V,
@@ -666,7 +682,7 @@ const CASCADE_SECTIONS = [
     link: "/alto-atacama/sustainability",
     linkLabel: "Explore Beyond Sustainability",
     blogLink: "https://www.youtube.com/watch?v=6cfkWsqWWc8",
-    blogLinkLabel: "Watch Atacama Sustainability",
+    blogLinkLabel: "Watch Atacama Sustainability Long-Form Video",
     blogLinkOnVideo: true,
     blogLinkVariants: [
       { label: "🇺🇸 English", url: "https://www.youtube.com/watch?v=6cfkWsqWWc8" },
@@ -695,7 +711,7 @@ const CASCADE_SECTIONS = [
     overlayOnVideo: true,
   },
   {
-    label: "Gastronomy",
+    label: "The Table",
     headline: "Desert to Table",
     description: "Alto Atacama's culinary program transforms the Atacama's ancient terroir into an extraordinary dining experience. Using indigenous ingredients , quinoa, chañar, rica-rica herbs, and Andean potatoes , our chefs craft dishes that honor the land and its people. Every meal is a journey through flavor, altitude, and tradition.",
     vSrc: "/manus-storage/atacama-gastronomy-vertical_7882b831.jpeg",
@@ -705,6 +721,9 @@ const CASCADE_SECTIONS = [
     textSide: "left" as const,
     link: "/alto-atacama/gastronomy",
     linkLabel: "Desert to Table",
+    blogLink: "/blog/chile-gastronomy",
+    blogLinkLabel: "Read: Chilean Gastronomy",
+    blogLinkOnVideo: true,
     badges: false,
     hFirst: false,
     hideH: true,
@@ -763,7 +782,7 @@ export default function AltoAtacama() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "Gastronomy" },
+        { id: "gastronomy", label: "The Table" },
         { id: "by-night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />
@@ -829,7 +848,11 @@ export default function AltoAtacama() {
                           style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, background: "transparent", border: `1px solid ${BONE}60` }}
                         >
                           <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                            {((section as any).blogLinkLabel || "").toLowerCase().startsWith("read") ? (
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                            ) : (
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                            )}
                           </svg>
                           {(section as any).blogLinkLabel || "Watch the Film"}
                         </a>
@@ -858,7 +881,11 @@ export default function AltoAtacama() {
                           style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: BONE, background: "transparent", border: `1px solid ${BONE}60` }}
                         >
                           <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                            {((section as any).blogLinkLabel || "").toLowerCase().startsWith("read") ? (
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                            ) : (
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                            )}
                           </svg>
                           {(section as any).blogLinkLabel || "Watch the Film"}
                         </a>
@@ -928,7 +955,7 @@ export default function AltoAtacama() {
               <ProgramsSection />
               <div id="accommodations">
                 <RoomSlider
-                  sectionLabel="Accommodations"
+                  sectionLabel="Private Villas"
                   headline="Desert Suites"
                   description="Each suite is a private sanctuary with panoramic desert views, heated infinity pools, and direct access to the Atacama landscape."
                   rooms={ATACAMA_ROOMS}
@@ -1041,7 +1068,11 @@ export default function AltoAtacama() {
                           style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.08em", color: BONE, background: "transparent", border: `1px solid ${BONE}60` }}
                         >
                           <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                            {((section as any).blogLinkLabel || "").toLowerCase().startsWith("read") ? (
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                            ) : (
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                            )}
                           </svg>
                           {(section as any).blogLinkLabel || "Read More"}
                         </a>
@@ -1103,7 +1134,11 @@ export default function AltoAtacama() {
                           style={{ ...body, fontWeight: 500, fontSize: "11px", letterSpacing: "0.08em", color: BONE, background: "transparent", border: `1px solid ${BONE}60` }}
                         >
                           <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                            {((section as any).blogLinkLabel || "").toLowerCase().startsWith("read") ? (
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                            ) : (
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                            )}
                           </svg>
                           {(section as any).blogLinkLabel || "Watch the Film"}
                         </a>

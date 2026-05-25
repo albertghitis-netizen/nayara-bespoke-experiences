@@ -204,6 +204,7 @@ type CascadeSectionData = {
   verticalLoop?: boolean;
   mobileVerticalSrc?: string;
   mobileVerticalIsVideo?: boolean;
+  hideMobileVertical?: boolean;
   verticalOverlayButtons?: { top: { explore: string; reserve: string; exploreLink?: string; transparent?: boolean }; bottom: { explore: string; reserve: string; exploreLink?: string; transparent?: boolean } };
   horizontalOverlayButtons?: { labels: { label: string; link: string; switchAt: number }[]; reserveLabel: string };
   stats?: { label: string; value: string }[];
@@ -456,7 +457,19 @@ function CascadeSection({
   }
 
   /* ── Vertical media element for reuse ── */
-  const verticalMediaElement = section.mobileVerticalSrc ? (
+  const verticalMediaElement = section.hideMobileVertical ? (
+    <div className="hidden md:block">
+      <MediaReveal delay={0.1}>
+        <MediaBlock
+          src={section.verticalSrc}
+          isVideo={section.verticalIsVideo}
+          ratio={section.verticalRatio}
+          alt={`${section.label} , Nayara Tented Camp`}
+          loop={section.verticalLoop}
+        />
+      </MediaReveal>
+    </div>
+  ) : section.mobileVerticalSrc ? (
     <>
       <div className="block md:hidden">
         <MediaReveal delay={0.1}>
@@ -1054,6 +1067,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Lifted On Stilts\nEye to Eye with Arenal Volcano",
     body: "Where a barren cattle ranch once stood, a thriving rainforest now surrounds you. Open-air tented suites perch on a volcanic clifftop, each with a private plunge pool fed by natural hot springs. The land tells its own story.\n\nClifftop tents and suites perched above the rainforest canopy with unobstructed volcano views. Best Resort in Central America, four of the last five years \u2014 Travel + Leisure.",
     verticalSrc: "/manus-storage/tented-camp-mobile-hero-video_1b87ea0d.mp4",
+    hideMobileVertical: true,
     horizontalSrc: "",
     verticalIsVideo: true,
     horizontalIsVideo: false,
@@ -1067,7 +1081,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
   },
   {
     id: "rooms",
-    label: "Accommodations",
+    label: "Private Villas",
     headline: "Life Under\nCanvas",
     body: "Each tented suite is a private sanctuary suspended in the canopy , featuring outdoor rain showers, handcrafted furnishings, and a plunge pool overlooking the volcano. The architecture honors the rainforest while delivering every modern luxury.\n\nFrom the intimate Nayara Tent for couples to the expansive Residence accommodating up to twelve guests, every option is designed with multigenerational travel in mind. The Family Tent and Grand Tent offer generous living spaces for families, while the Residence brings everyone together under one roof , private pools, shared terraces, and room for three generations to create memories side by side.",
     verticalSrc: "/manus-storage/tented-camp-vertical_90bb91f2.mp4",
@@ -1122,6 +1136,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Rooted in\nResponsibility",
     body: "What began as a barren cattle ranch is now a thriving 1,400-acre rainforest reserve. Every decision at Tented Camp , from solar-heated pools to zero single-use plastics , is guided by a simple principle: leave the land better than we found it.\n\nOver the past two decades, Nayara has reforested more than 600 acres of degraded pastureland, creating wildlife corridors that allow jaguars, tapirs, and scarlet macaws to move freely between protected areas. The property holds Costa Rica's highest CST 5 sustainability certification and generates 100% of its energy from renewable sources. Guests don't just witness this transformation , they become part of it.",
     verticalSrc: "/manus-storage/tented-sustainability-vertical_51ad5d43.mp4",
+    mobileVerticalSrc: "/manus-storage/tented-sustainability-sloth_57cf81f4.jpg",
+    mobileVerticalIsVideo: false,
     horizontalSrc: "/manus-storage/tented-sustainability-h2_e4fd711d.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
@@ -1150,6 +1166,8 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     headline: "Volcanic\nHealing",
     body: "Thermal springs heated by the volcano itself, open-air spa treatments surrounded by birdsong, and yoga platforms overlooking the forest canopy. Wellness at Tented Camp is powered by the earth beneath your feet.\n\nSurrender to the rhythm of the rainforest , from mineral-rich thermal soaks at dawn to guided breathwork sessions as the howler monkeys call through the canopy. Here, healing is not a treatment but a way of being.",
     verticalSrc: "/manus-storage/tented-wellness-vertical-v3_f9c311f7.mp4",
+    mobileVerticalSrc: "/manus-storage/tented-wellness-vertical-still_b11d928c.jpg",
+    mobileVerticalIsVideo: false,
     horizontalSrc: "/manus-storage/tented-camp-wellness-horizontal-new_c6e1da97.mp4",
     verticalIsVideo: true,
     horizontalIsVideo: true,
@@ -1174,7 +1192,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
 const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
   {
     id: "gastronomy",
-    label: "Forest to Table",
+    label: "The Table",
     headline: "Forest\nto Table",
     body: "From Mediterranean-inspired cuisine to the freshest local ingredients, Ayla brings a refined yet relaxed dining experience to the heart of the rainforest. Each dish celebrates Costa Rica's biodiversity with seasonal menus that change with the harvest.\n\nAt Henry's Bar, craft cocktails made with local spirits and tropical botanicals set the tone for unforgettable evenings. Small plates from the garden, a terrace floating above the treetops, and the warm glow of the volcano at sunset , this is where stories are shared and memories are made.",
     verticalSrc: "/manus-storage/Ayla_NayaraTentedCamp_11_ff056724.jpeg",
@@ -1189,7 +1207,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     link: "/tented-camp/gastronomy",
     linkLabel: "Forest to Table",
     textLink: "/tented-camp/gastronomy",
-    textLinkLabel: "Explore Forest to Table",
+    textLinkLabel: "Forest to Table",
     verticalOverlayButtons: {
       top: { explore: "", reserve: "", exploreLink: "" },
       bottom: { explore: "Ayla", reserve: "", exploreLink: "/tented-camp/gastronomy/ayla", transparent: true },
@@ -1197,7 +1215,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
   },
   {
     id: "nayara-by-night",
-    label: "Nayara by Night",
+    label: "By Night",
     headline: "The Jungle\nAfter Dark",
     body: "Join our resident naturalists on a nocturnal frog safari through the rainforest canopy, where red-eyed tree frogs, glass frogs, and poison dart frogs emerge under torchlight. Then follow the fireflies along volcanic trails as the jungle reveals its most intimate secrets , a world that only comes alive after dark.",
     verticalSrc: "/manus-storage/ntc-frogs-reel_6640cdae.mp4",
@@ -1569,7 +1587,7 @@ export default function TentedCamp() {
         { id: "experiences", label: "Experiences" },
         { id: "sustainability", label: "Sustainability" },
         { id: "wellness", label: "Wellness" },
-        { id: "gastronomy", label: "Gastronomy" },
+        { id: "gastronomy", label: "The Table" },
         { id: "nayara-by-night", label: "By Night" },
         { id: "getting-here", label: "Getting Here" },
       ]} />

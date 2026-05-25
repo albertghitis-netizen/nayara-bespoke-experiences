@@ -3946,3 +3946,9 @@
 - [x] Alto Atacama gastronomy pill → "Desert to Table"
 - [x] Bocas del Toro gastronomy pill → "Ocean to Table"
 - [x] Hangaroa gastronomy pill → "Ocean to Table"
+
+## Gardens Homepage — Mobile Verticals
+- [x] Experiences mobile vertical: first-frame still from arenal vertical video
+- [x] Sustainability mobile vertical: first-frame still from wildlife corridors video
+- [x] Wellness mobile vertical: last-frame still from trim.mov
+- [x] Sustainability text placed BETWEEN experiences still and sustainability still (not sandwiched)
