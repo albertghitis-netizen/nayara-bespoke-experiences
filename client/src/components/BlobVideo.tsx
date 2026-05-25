@@ -10,6 +10,7 @@
  * - Transparent overlay to block native play button clicks on mobile
  */
 import { useRef, useState, useEffect, useCallback } from "react";
+import { useIsMobile } from "@/hooks/useMobile";
 
 interface BlobVideoProps {
   src: string;
@@ -28,6 +29,8 @@ interface BlobVideoProps {
   pillColor?: string;
   /** Callback when video playback ends (only fires if loop=false) */
   onEnded?: () => void;
+  /** When true, don't render video at all on mobile (prevents download) */
+  desktopOnly?: boolean;
 }
 
 export default function BlobVideo({
@@ -43,7 +46,10 @@ export default function BlobVideo({
   pillBg,
   pillColor,
   onEnded,
+  desktopOnly = false,
 }: BlobVideoProps) {
+  const isMobileDevice = useIsMobile();
+  const skipVideo = desktopOnly && isMobileDevice;
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -56,9 +62,16 @@ export default function BlobVideo({
   const effectiveHasAudio = hasAudio;
 
   // IntersectionObserver: only load video when within 400px of viewport
+  // Also checks visibility — hidden elements (display:none from CSS) never load
   useEffect(() => {
+    if (skipVideo) return;
     const container = containerRef.current;
     if (!container) return;
+
+    // If container or ancestor is display:none, don't load
+    if (container.offsetParent === null && getComputedStyle(container).position !== 'fixed') {
+      return;
+    }
 
     if (!("IntersectionObserver" in window)) {
       setIsNearViewport(true);
@@ -77,7 +90,7 @@ export default function BlobVideo({
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, []);
+  }, [skipVideo]);
 
   // Main autoplay logic with mobile-specific handling
   useEffect(() => {
@@ -154,34 +167,36 @@ export default function BlobVideo({
       className="relative w-full h-full" 
       style={{ WebkitTouchCallout: 'none' } as any}
     >
-      <video
-        ref={videoRef}
-        className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700 block`}
-        autoPlay={autoPlay}
-        muted={muted}
-        loop={loop}
-        playsInline={playsInline}
-        poster={poster}
-        preload="metadata"
-        controls={false}
-        disablePictureInPicture
-        controlsList="nofullscreen nodownload"
-        onLoadedData={() => setIsLoaded(true)}
-        onError={() => {
-          console.error("Video load error:", src);
-          setHasError(true);
-        }}
-        onEnded={onEnded}
-        style={{
-          WebkitUserSelect: 'none',
-          WebkitTouchCallout: 'none',
-        } as any}
-      >
-        <source src={src} type={getVideoType(src)} />
-        {getVideoType(src) !== "video/mp4" && (
-          <source src={src} type="video/mp4" />
-        )}
-      </video>
+      {!skipVideo && (
+        <video
+          ref={videoRef}
+          className={`${className} ${isLoaded ? "" : "opacity-0"} transition-opacity duration-700 block`}
+          autoPlay={autoPlay}
+          muted={muted}
+          loop={loop}
+          playsInline={playsInline}
+          poster={poster}
+          preload="none"
+          controls={false}
+          disablePictureInPicture
+          controlsList="nofullscreen nodownload"
+          onLoadedData={() => setIsLoaded(true)}
+          onError={() => {
+            console.error("Video load error:", src);
+            setHasError(true);
+          }}
+          onEnded={onEnded}
+          style={{
+            WebkitUserSelect: 'none',
+            WebkitTouchCallout: 'none',
+          } as any}
+        >
+          <source src={src} type={getVideoType(src)} />
+          {getVideoType(src) !== "video/mp4" && (
+            <source src={src} type="video/mp4" />
+          )}
+        </video>
+      )}
 
       {/* Loading placeholder */}
       {!isLoaded && !hasError && (

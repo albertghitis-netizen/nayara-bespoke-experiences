@@ -540,8 +540,8 @@ function CascadeSection({
         <AnimateOnScroll variants={fadeUp} delay={0.24}>
           <a
             href={section.textLink}
-            className="inline-flex items-center gap-2 mt-8 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg text-white"
-            style={{ backgroundColor: "rgba(134,139,117,0.9)", fontFamily: "var(--font-body)" }}
+            className="inline-flex items-center gap-2 mt-8 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg text-white border border-white/40 md:border-0 bg-transparent md:bg-[rgba(134,139,117,0.9)]"
+            style={{ fontFamily: "var(--font-body)" }}
           >
             {section.textLinkLabel || "Explore More"}
             <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -602,8 +602,8 @@ function CascadeSection({
             href={section.blogUrl}
             target={section.blogUrl.startsWith("http") ? "_blank" : undefined}
             rel={section.blogUrl.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full border transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", borderColor: "#868B75", backgroundColor: "rgba(134,139,117,0.7)", backdropFilter: "blur(8px)" }}
+            className="inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 rounded-full border border-white/40 md:border-[#868B75] transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit bg-transparent md:bg-[rgba(134,139,117,0.7)]"
+            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backdropFilter: "blur(8px)" }}
           >
             {section.blogIsRead ? (
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>

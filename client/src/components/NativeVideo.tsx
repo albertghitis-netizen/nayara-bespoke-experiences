@@ -12,6 +12,7 @@
  * HTMLAudioElement playing the merged MP3 track. The hasAudio prop has been removed.
  */
 import { useRef, useState, useEffect, useCallback, forwardRef, useImperativeHandle } from "react";
+import { useIsMobile } from "@/hooks/useMobile";
 
 interface NativeVideoProps {
   src: string;
@@ -23,6 +24,8 @@ interface NativeVideoProps {
   poster?: string;
   controls?: boolean;
   onTimeUpdate?: (currentTime: number, duration: number) => void;
+  /** When true, don't render video at all on mobile (prevents download) */
+  desktopOnly?: boolean;
 }
 
 export interface NativeVideoHandle {
@@ -38,13 +41,18 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     poster,
     controls = false,
     onTimeUpdate,
+    desktopOnly = false,
   },
   ref
 ) {
+  const isMobile = useIsMobile();
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+
+  // Don't render video at all on mobile if desktopOnly OR if container is hidden (display:none)
+  const skipVideo = desktopOnly && isMobile;
 
   useImperativeHandle(ref, () => ({
     getVideoElement: () => videoRef.current,
@@ -54,11 +62,18 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
 
   /**
    * INTERSECTION OBSERVER: Only start buffering when within 600px of viewport.
-   * This prevents all videos on the page from downloading simultaneously.
+   * Also checks if the element is actually visible (not display:none from CSS hiding).
+   * This prevents hidden desktop videos from downloading on mobile.
    */
   useEffect(() => {
+    if (skipVideo) return;
     const container = containerRef.current;
     if (!container) return;
+
+    // Check if element or any ancestor is display:none (e.g. hidden md:block on mobile)
+    if (container.offsetParent === null && getComputedStyle(container).position !== 'fixed') {
+      return; // Don't observe hidden elements — they should never load
+    }
 
     if (!("IntersectionObserver" in window)) {
       setIsNearViewport(true);
@@ -77,7 +92,7 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
 
     observer.observe(container);
     return () => observer.disconnect();
-  }, []);
+  }, [skipVideo]);
 
   /**
    * MOUNT EFFECT: Start buffering only when near viewport
@@ -190,6 +205,10 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
     video.play().catch(() => {});
   }, []);
 
+  if (skipVideo) {
+    return <div className={`${className} relative w-full h-full`} />;
+  }
+
   return (
     <div ref={containerRef} className="relative w-full h-full block leading-[0]" onClick={handleTapToPlay}>
       <video
@@ -200,7 +219,7 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
         loop={loop}
         playsInline={playsInline}
         poster={poster}
-        preload="auto"
+        preload="none"
         controls={controls}
         webkit-playsinline="true"
         x-webkit-airplay="allow"

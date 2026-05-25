@@ -412,25 +412,17 @@ function MobileSlider({
       onTouchEnd={handleTouchEnd}
     >
       <div className="absolute inset-0">
-        {currentRoom.video ? (
-          <video
-            key={`mv-${currentIndex}`}
-            src={currentRoom.video}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          />
-        ) : currentRoom.photo ? (
+        {currentRoom.photo ? (
           <img
-          loading="lazy"
+            loading="lazy"
             key={`mi-${currentIndex}`}
             src={currentRoom.photo}
             alt={currentRoom.label}
             className="w-full h-full object-cover"
           />
-        ) : null}
+        ) : (
+          <div className="w-full h-full bg-black/40" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
       </div>
 
@@ -467,7 +459,7 @@ function MobileSlider({
           </span>
         </div>
         <div className="flex gap-3">
-          <a href={currentRoom.exploreLink} className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit" style={{ ...body, fontWeight: 500, backgroundColor: pillBg, color: pillText }}>
+          <a href={currentRoom.exploreLink} className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border border-white/50" style={{ ...body, fontWeight: 500, backgroundColor: "transparent", color: "white" }}>
             Explore
           </a>
           <a href={currentRoom.bookingUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-[11px] tracking-[0.12em] uppercase font-medium w-fit border border-white/50" style={{ ...body, fontWeight: 500, color: "white" }}>

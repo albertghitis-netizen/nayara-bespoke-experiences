@@ -3952,3 +3952,8 @@
 - [x] Sustainability mobile vertical: first-frame still from wildlife corridors video
 - [x] Wellness mobile vertical: last-frame still from trim.mov
 - [x] Sustainability text placed BETWEEN experiences still and sustainability still (not sandwiched)
+
+## Mobile Pill Consistency + Video Preloading Fix
+- [ ] Make all non-reserve pills transparent on mobile (border only, no solid bg) across TentedCamp, Gardens, Springs
+- [ ] RoomSlider: make Explore pill transparent on mobile (border only)
+- [x] Fix desktop video preloading on mobile — conditionally not render video elements on mobile to prevent bandwidth waste
