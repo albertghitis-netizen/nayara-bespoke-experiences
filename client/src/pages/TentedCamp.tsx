@@ -1196,6 +1196,8 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     headline: "Forest\nto Table",
     body: "Two distinct culinary experiences define Tented Camp. Ayla brings Mediterranean-inspired cuisine to the rainforest canopy , seasonal menus that celebrate Costa Rica's biodiversity with ingredients harvested from the resort's own gardens.\n\nLapas Pool Bar offers a relaxed open-air setting where fresh ceviches, tropical plates, and handcrafted cocktails are served poolside beneath the volcano. From sunrise smoothies to sunset aperitivos, every meal becomes a moment framed by nature.",
     verticalSrc: "/manus-storage/tented-gastronomy-desktop-video_0c8f7338.mp4",
+    mobileVerticalSrc: "/manus-storage/tented-gastronomy-mobile-ayla_7c7c6335.jpg",
+    mobileVerticalIsVideo: false,
     horizontalSrc: "/manus-storage/HenrysBar(1)_189a43b4.jpg",
     verticalIsVideo: true,
     horizontalIsVideo: false,
