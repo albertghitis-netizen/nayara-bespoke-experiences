@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
 import BlobVideo from "@/components/BlobVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 
 /* ── Palette (same tented camp olive) ── */
 const P = {
@@ -99,6 +100,7 @@ export default function FamilyTent() {
    S1 , HERO: Full-bleed image with centered editorial title
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
   const [hovered, setHovered] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -109,11 +111,11 @@ function HeroSection() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
 
   return (
-    <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
+    <section ref={heroRef} className="relative w-full overflow-hidden" style={isMobile ? { aspectRatio: "9/16" } : { height: "85vh" }}>
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
-          loading="lazy"
-          src="/manus-storage/family-tent-hero-new_f4b21ace.jpg"
+          loading="eager"
+          src={isMobile ? "/manus-storage/family-tent-mobile-hero_065bc944.jpg" : "/manus-storage/family-tent-hero-new_f4b21ace.jpg"}
           alt="Nayara Family Tent aerial view with connecting tents and pool"
           className="w-full h-full object-cover"
         />

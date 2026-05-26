@@ -10,6 +10,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import BlobVideo from "@/components/BlobVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 
 /* ── Palette ── */
 const P = {
@@ -87,6 +88,7 @@ export default function RainforestPoolVilla() {
    S1 , HERO: Canopy bed bedroom shot
    ════════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
   const [hovered, setHovered] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -96,11 +98,11 @@ function HeroSection() {
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
   return (
-    <section ref={heroRef} className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
+    <section ref={heroRef} className="relative w-full overflow-hidden" style={isMobile ? { aspectRatio: "9/16" } : { height: "85vh" }}>
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
-          loading="lazy"
-          src="/manus-storage/rainforest-pool-villa-hero-new_0a79d834.jpg"
+          loading="eager"
+          src={isMobile ? "/manus-storage/rainforest-pool-villa-mobile-hero_d3dfa405.jpg" : "/manus-storage/rainforest-pool-villa-hero-new_0a79d834.jpg"}
           alt="Rainforest Pool Villa with private pool surrounded by jungle"
           className="w-full h-full object-cover"
         />

@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import FloorPlanExplorer from "@/components/FloorPlanExplorer";
 import BlobVideo from "@/components/BlobVideo";
+import { useIsMobile } from "@/hooks/useMobile";
 
 const heroVideo = "/manus-storage/springs-villa-hero_d2119010.mp4";
 
@@ -100,6 +101,7 @@ export default function SpringsVilla() {
    S1 , HERO: Full-bleed video with centered editorial title
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
+  const isMobile = useIsMobile();
   const [hovered, setHovered] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -110,11 +112,11 @@ function HeroSection() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
 
   return (
-    <section ref={heroRef} className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+    <section ref={heroRef} className={`relative w-full overflow-hidden ${isMobile ? '' : ''}`} style={isMobile ? { aspectRatio: "9/16" } : { aspectRatio: "16/9" }}>
       <motion.div className="absolute inset-0" style={{ scale: heroScale }}>
         <img
-          loading="lazy"
-          src="/manus-storage/springs-villa-hero-new_9f77a818.jpg"
+          loading="eager"
+          src={isMobile ? "/manus-storage/springs-villa-mobile-hero_8f48323b.jpg" : "/manus-storage/springs-villa-hero-new_9f77a818.jpg"}
           alt="Nayara Springs Villa aerial view with private pool in jungle"
           className="w-full h-full object-cover"
         />
