@@ -712,14 +712,55 @@ const bocasDining: Restaurant = {
   sections: [],
 };
 
+// ─── Besame Mucho (Springs) ──────────────────────────────────
+const besameMucho: Restaurant = {
+  id: "besame-mucho",
+  name: "Besame Mucho",
+  property: "Nayara Springs",
+  propertySlug: "springs",
+  tagline: "Passionate Latin Flavors in the Rainforest",
+  description:
+    "Besame Mucho brings the bold, passionate flavors of Latin America to life in the Arenal rainforest. From Peruvian ceviche to Mexican mole, Argentine asado to Brazilian churrasco — each dish celebrates the diversity of Latin culinary traditions. Romantic volcano-view terrace dining for an unforgettable evening.",
+  cuisine: "Latin American",
+  atmosphere: "Romantic volcano-view terrace",
+  sections: [],
+};
+
 // ─── Property Dining Collections ─────────────────────────────
+export const gardensDining: PropertyDining = {
+  propertyName: "Nayara Gardens",
+  propertySlug: "gardens",
+  headline: "Where It All Begins",
+  description:
+    "Nayara Gardens offers a diverse culinary journey — from Pan-Asian fusion at Asia Luna to artisanal gelato at Lyla's, fine wines at Nostalgia, and Italian classics at La Terraza. All restaurants source from our organic gardens and local farms.",
+  restaurants: [asiaLuna, terraza, nostalgia, lylasGelato],
+};
+
+export const springsDining: PropertyDining = {
+  propertyName: "Nayara Springs",
+  propertySlug: "springs",
+  headline: "Elevated Dining for Discerning Palates",
+  description:
+    "Nayara Springs delivers an adults-only culinary experience — from the celebrated Amor Loco to romantic fine dining at Mis Amores, passionate Latin flavors at Besame Mucho, and artisanal coffee rituals at Mi Cafecito.",
+  restaurants: [amorLoco, misAmores, besameMucho, miCafecito],
+};
+
+export const tentedCampDining: PropertyDining = {
+  propertyName: "Nayara Tented Camp",
+  propertySlug: "tented-camp",
+  headline: "Fire, Earth, and Open Air",
+  description:
+    "Dining at Nayara Tented Camp is an immersive experience — Modern Mediterranean cuisine at Ayla cooked over open flame, craft cocktails at Henry's Bar, and tropical refreshments at Lapas Pool Bar. Every meal celebrates the volcanic landscape.",
+  restaurants: [ayla, henrysBar, lapasBar],
+};
+
 export const costaRicaDining: PropertyDining = {
   propertyName: "Nayara Costa Rica",
   propertySlug: "arenal",
   headline: "Five Restaurants, One Volcanic Landscape",
   description:
     "Across Nayara Gardens, Nayara Springs, and Nayara Tented Camp, guests enjoy access to five distinct dining venues , from Pan-Asian fusion at Asia Luna to Latin American soul food at Amor Loco, craft cocktails at Lapas Bar and Terraza, and artisanal coffee at Café Campesino. All restaurants source from our organic gardens and local farms.",
-  restaurants: [ayla, henrysBar, misAmores, miCafecito, amorLoco, asiaLuna, lylasGelato, terraza, nostalgia],
+  restaurants: [ayla, henrysBar, misAmores, miCafecito, amorLoco, asiaLuna, lylasGelato, terraza, nostalgia, besameMucho],
 };
 
 export const hangaroaDining: PropertyDining = {
@@ -751,7 +792,9 @@ export const atacamaDiningCollection: PropertyDining = {
 
 // ─── All Dining Data ─────────────────────────────────────────
 export const allDining: PropertyDining[] = [
-  costaRicaDining,
+  gardensDining,
+  springsDining,
+  tentedCampDining,
   hangaroaDining,
   atacamaDiningCollection,
   bocasDiningCollection,
@@ -768,6 +811,7 @@ export const allRestaurants: Restaurant[] = [
   lapasBar,
   terraza,
   nostalgia,
+  besameMucho,
   poerava,
   atacamaDining,
   bocasDining,

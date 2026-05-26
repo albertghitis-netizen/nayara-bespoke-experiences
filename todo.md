@@ -3970,4 +3970,9 @@
 - [x] Update family viewBox to show full terrace and pool
 
 ## Gastronomy Pillar Page — Add All Restaurants
-- [ ] Add all restaurants from Gardens, Tented Camp, and Springs Costa Rica gastronomy pages
+- [x] Split Costa Rica dining into separate Gardens, Springs, and Tented Camp collections
+- [x] Add Besame Mucho restaurant to Springs collection
+- [x] Update /gastronomy page filters to work with individual property slugs (gardens, springs, tented-camp)
+- [x] Remove numbers from Art of Plating food porn gallery
+- [x] Add route mappings for gardens, springs, tented-camp
+- [x] Bars and restaurants unified (not separated) in each property filter

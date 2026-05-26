@@ -32,13 +32,7 @@ const GASTRO_CDN = {
   heroVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gastronomy-hero-edited_3e0a63fa.mp4",
 };
 
-/* ── Property filter tabs ── */
-const FILTERS = [
-  { label: "Alto Atacama", slug: "alto-atacama" },
-  { label: "Bocas del Toro", slug: "bocas-del-toro" },
-  { label: "Costa Rica", slug: "arenal" },
-  { label: "Hangaroa", slug: "hangaroa" },
-];
+/* ── Property filter tabs (now handled by HotelFilterBar3) ── */
 
 /* ── Cuisine badge colors ── */
 const cuisineColors: Record<string, string> = {
@@ -57,6 +51,9 @@ const cuisineColors: Record<string, string> = {
 /* ── Route map for property slugs ── */
 const propertyRoutes: Record<string, string> = {
   arenal: "/gardens",
+  gardens: "/gardens",
+  springs: "/springs",
+  "tented-camp": "/tented-camp",
   "alto-atacama": "/alto-atacama",
   hangaroa: "/hangaroa",
   "bocas-del-toro": "/bocas-del-toro",
@@ -92,7 +89,7 @@ const FOOD_PORN_IMAGES = [
 ];
 
 export default function Gastronomy() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
+  const [activeHotel, setActiveHotel] = useState("gardens");
   const [, navigate] = useLocation();
 
   const filtered: PropertyDining[] = activeHotel
@@ -290,7 +287,7 @@ function FoodPornGallery() {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="absolute top-1 left-1 bg-black/70 text-white text-[9px] px-1.5 py-0.5 rounded font-mono">{img.idx}</span>
+
               </div>
             ))}
           </div>
