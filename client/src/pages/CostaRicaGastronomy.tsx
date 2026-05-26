@@ -38,7 +38,7 @@ const PALETTE = {
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
-const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
+const sectionPadding = "py-14 md:py-20 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
 /* ── Hero video ── */
@@ -240,10 +240,12 @@ interface Props {
 }
 
 export default function CostaRicaGastronomy({ propertySlug }: Props) {
-  const propertyName = PROPERTIES.find(p => p.id === propertySlug)?.name || "Nayara";
+  /* Resolve back link from the route's property slug */
+  const resolvedSlug = propertySlug || "tented-camp";
+  const propertyName = PROPERTIES.find(p => p.id === resolvedSlug)?.name || "Nayara";
   return (
     <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
-      <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${propertySlug}` }} />
+      <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${resolvedSlug}` }} />
       <HeroSection />
       <ByTheNumbers />
       <PhilosophySection />
@@ -251,8 +253,7 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
       <SweetMomentsSection />
       <BarSceneSection />
       <ClassesSection />
-      <NayaraDifferenceSection />
-      <BlogCrossLink />
+
       <Footer pageType="property" bgColor={PALETTE.footerBg} textColor="#FFFFFF" />
     </div>
   );
@@ -263,24 +264,24 @@ export default function CostaRicaGastronomy({ propertySlug }: Props) {
    ═══════════════════════════════════════════════════════════════ */
 function HeroSection() {
   return (
-    <section className="relative aspect-[16/9] w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden">
       <img src={HERO_IMAGE} alt="Honeycomb dessert — Costa Rica gastronomy" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none" />
-      <div className="absolute bottom-8 md:bottom-12 left-0 right-0 text-center">
+      <div className="absolute bottom-12 md:bottom-20 left-0 right-0 text-center px-6">
         <motion.h1
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-xl md:text-3xl lg:text-4xl tracking-wide"
+          className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide"
           style={heading}
         >
-          Forest to Table
+          A Taste of Place
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-white/50 text-[12px] tracking-[0.2em] uppercase mt-3"
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="text-white/50 text-[12px] tracking-[0.2em] uppercase mt-4"
           style={{ ...body, fontWeight: 500 }}
         >
           Arenal Volcano National Park, Costa Rica
@@ -344,7 +345,7 @@ function PhilosophySection() {
                 className="text-[10px] tracking-[0.3em] uppercase block mb-4"
                 style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
               >
-                Farm to Table
+                Forest to Table
               </span>
               <h2
                 className="text-2xl md:text-3xl leading-tight"
@@ -435,8 +436,6 @@ function RestaurantGridSection() {
                     {r.isVideo ? (
                       <video
                         src={r.image}
-                        autoPlay
-                        loop
                         muted
                         playsInline
                         preload="metadata"
@@ -602,21 +601,19 @@ function ClassesSection() {
           </p>
         </AnimateOnScroll>
 
-        {/* Masonry grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[200px]">
+        {/* Uniform grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {CLASSES.map((cls, i) => {
             const isVideo = cls.type === "video";
             return (
               <AnimateOnScroll
                 key={i}
                 variants={fadeUp}
-                className={`group relative overflow-hidden rounded-sm ${isVideo ? "row-span-2" : ""}`}
+                className="group relative overflow-hidden rounded-sm aspect-[4/3]"
               >
                 {isVideo ? (
                   <video
                     src={cls.media}
-                    autoPlay
-                    loop
                     muted
                     playsInline
                     preload="metadata"

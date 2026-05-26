@@ -1,52 +1,26 @@
 /*
- * UNIVERSAL WELLNESS , Shared deep page for ALL properties
- * Renders in the color palette of whichever property the user came from.
- * RESTRUCTURED: Private Hot Springs → Las Termas → Yoga → Sukha Spa → Treatments
+ * COSTA RICA SPA & WELLNESS — Sukha Spa focused page
+ * Non-spa content (hot springs, yoga, nature) now lives on the Experiences page.
+ * This page: philosophy, facilities, signature treatments, couples, treatment menu.
  */
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import NativeVideo from "@/components/NativeVideo";
+import { Link } from "wouter";
 import Footer from "@/components/Footer";
 import BrandNavigation from "@/components/BrandNavigation";
 import { properties, type Property, type Treatment } from "@/data/properties";
-import { getPalette, BRAND, type PropertyPalette } from "@/data/propertyPalettes";
-import PillarCrossLink from "@/components/PillarCrossLink";
+import { getPalette, type PropertyPalette } from "@/data/propertyPalettes";
 import {
   AnimateOnScroll,
   StaggerOnScroll,
-  TextReveal,
-  Parallax,
   fadeUp,
   staggerContainer,
 } from "@/components/motion";
+import { useIsMobile } from "@/hooks/useMobile";
 
-const CDN_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2";
-
-const sectionPadding = "py-20 md:py-32 px-6 md:px-10";
 const maxW = "max-w-[1200px] mx-auto";
 
-/** Hero videos per property */
-const HERO_VIDEOS: Record<string, string> = {
-  "tented-camp": `${CDN_BASE}/wellness-hero-meter-audio_f24ab2c6.mp4`,
-  gardens: `${CDN_BASE}/wellness-hero-meter-audio_f24ab2c6.mp4`,
-  springs: `${CDN_BASE}/wellness-hero-meter-audio_f24ab2c6.mp4`,
-  "alto-atacama": `${CDN_BASE}/cfnetwork_b9ae0ca4.mp4`,
-  "bocas-del-toro": `${CDN_BASE}/bocas-gallery-video2_1dd3d81d.mp4`,
-  hangaroa: `${CDN_BASE}/hangaroa-hero-audio_f26eed73.mp4`,
-};
-
-/** Location subtitles per property */
-const LOCATIONS: Record<string, string> = {
-  "tented-camp": "Arenal Volcano National Park, Costa Rica",
-  gardens: "Arenal Volcano National Park, Costa Rica",
-  springs: "Arenal Volcano National Park, Costa Rica",
-  "alto-atacama": "San Pedro de Atacama, Chile",
-  "bocas-del-toro": "Bocas del Toro, Panamá",
-  hangaroa: "Rapa Nui, Easter Island, Chile",
-};
-
-/** CR properties share tented-camp data */
 const DATA_PROPERTY_MAP: Record<string, string> = {
   "tented-camp": "tented-camp",
   gardens: "tented-camp",
@@ -61,53 +35,107 @@ interface Props {
 }
 
 export default function CostaRicaWellness({ propertySlug }: Props) {
-  // Use tented-camp palette for tented-camp and gardens; springs uses its own palette
   const CR_SLUGS = new Set(["tented-camp", "gardens", "springs"]);
-  const paletteSlug = (propertySlug === "springs") ? "springs" : (CR_SLUGS.has(propertySlug) ? "tented-camp" : propertySlug);
+  const paletteSlug = propertySlug === "springs" ? "springs" : CR_SLUGS.has(propertySlug) ? "tented-camp" : propertySlug;
   const palette = getPalette(paletteSlug);
   const dataSlug = DATA_PROPERTY_MAP[propertySlug] || propertySlug;
   const property = properties.find((p: Property) => p.id === dataSlug)!;
   const propertyDisplay = properties.find((p: Property) => p.id === propertySlug);
   const propertyName = propertyDisplay?.name || "Nayara";
-  const location = LOCATIONS[propertySlug] || "";
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${propertySlug}` }} />
-      <WellnessHero propertySlug={propertySlug} />
-      <WellnessIntro palette={palette} spaSubheadline={property.theme.spaSubheadline} />
-      {CR_SLUGS.has(propertySlug) && <PrivateHotSprings palette={palette} />}
-      {CR_SLUGS.has(propertySlug) && <LasTermas palette={palette} />}
-      {CR_SLUGS.has(propertySlug) && <YogaSection palette={palette} />}
-      {CR_SLUGS.has(propertySlug) && <SukhaSpaBanner palette={palette} />}
-      <WellnessContent property={property} palette={palette} />
+      <SpaHero />
+      <SpaIntro palette={palette} />
+      {CR_SLUGS.has(propertySlug) && <SukhaSpaSectionEditorial palette={palette} />}
+      {CR_SLUGS.has(propertySlug) && <SignatureTreatments palette={palette} />}
+      {CR_SLUGS.has(propertySlug) && <CouplesExperiences palette={palette} />}
+      {CR_SLUGS.has(propertySlug) && <SpaFacilities palette={palette} />}
+      <TreatmentMenu property={property} palette={palette} />
+      {CR_SLUGS.has(propertySlug) && <NatureWellnessTeaser palette={palette} propertySlug={propertySlug} />}
       <Footer pageType="property" bgColor={palette.footerBg} textColor="#FFFFFF" propertyName={propertySlug === "gardens" ? "Gardens" : propertySlug === "tented-camp" ? "Tented Camp" : propertySlug === "springs" ? "Springs" : propertySlug === "bocas-del-toro" ? "Bocas del Toro" : undefined} />
     </div>
   );
 }
 
-function WellnessHero({ propertySlug }: { propertySlug: string }) {
+/* ═══════════════════════════════════════════════════════════════
+   HERO — Full-bleed image with responsive desktop/mobile
+   ═══════════════════════════════════════════════════════════════ */
+function SpaHero() {
+  const isMobile = useIsMobile();
+
   return (
-    <section className="relative aspect-[16/9] w-full overflow-hidden">
-      <NativeVideo
-        src="/manus-storage/AC144F9B-1C57-4187-8ABE-9F160B2F40AD_2b771883_f3c4a5ea.mp4"
-        className="w-full h-full"
+    <section className="relative w-full overflow-hidden">
+      {/* Desktop hero */}
+      <img
+        src="/manus-storage/DJI_0479-Treatmentpavilionhorizontal-NayaraTentedCamp-SukhaSpa-byBriceFerreStudiocopy_38b4783f.webp"
+        alt="Sukha Spa treatment pavilion nestled in the rainforest"
+        className="hidden md:block w-full h-auto object-cover"
+        style={{ maxHeight: "75vh" }}
       />
+      {/* Mobile hero */}
+      <img
+        src="/manus-storage/DJI_0466-Treatmentpavilionverticalwithmodel-NayaraTentedCamp-SukhaSpa-byBriceFerreStudiocopy_c3b741db.webp"
+        alt="Sukha Spa treatment pavilion"
+        className="block md:hidden w-full h-auto object-cover"
+        style={{ maxHeight: "85vh" }}
+      />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 pointer-events-none" />
+      {/* Title overlay */}
+      <div className="absolute inset-0 flex flex-col justify-end items-center pb-12 md:pb-16 px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center"
+          style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+        >
+          Sukha Spa
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="text-white/70 text-[12px] md:text-[13px] tracking-[0.2em] uppercase mt-4"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 400 }}
+        >
+          Where the Rainforest Heals
+        </motion.p>
+      </div>
     </section>
   );
 }
 
-function WellnessIntro({ palette, spaSubheadline }: { palette: PropertyPalette; spaSubheadline: string }) {
+/* ═══════════════════════════════════════════════════════════════
+   SPA INTRO — Philosophy statement
+   ═══════════════════════════════════════════════════════════════ */
+function SpaIntro({ palette }: { palette: PropertyPalette }) {
   return (
     <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#E6DFD5" }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <p
-            className="text-[15px] md:text-[17px] leading-[1.9] max-w-[720px]"
-            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
-          >
-            {spaSubheadline}
-          </p>
+          <div className="max-w-[780px]">
+            <p
+              className="text-[11px] tracking-[0.2em] uppercase mb-6"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+            >
+              The Spa Philosophy
+            </p>
+            <p
+              className="text-[17px] md:text-[19px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+            >
+              Sukha is a Sanskrit word meaning "ease" or "bliss" — the state that arises when nothing is forced. At Sukha Spa, we believe that healing is not something imposed upon the body but something the body already knows how to do, given the right conditions.
+            </p>
+            <p
+              className="text-[15px] md:text-[16px] leading-[1.9]"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+            >
+              Set within the canopy of the Arenal rainforest, each treatment pavilion is a world unto itself — open to the sounds of the forest, the warmth of volcanic earth below, and the stillness that only deep seclusion can provide. Here, the spa is not separate from nature. It is nature, refined into ritual.
+            </p>
+          </div>
         </AnimateOnScroll>
       </div>
     </section>
@@ -115,12 +143,11 @@ function WellnessIntro({ palette, spaSubheadline }: { palette: PropertyPalette; 
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PRIVATE HOT SPRINGS PLUNGE POOLS
-   Editorial narrative with blog content about volcanic springs
+   SUKHA SPA EDITORIAL — The full story with imagery
    ═══════════════════════════════════════════════════════════════ */
-function PrivateHotSprings({ palette }: { palette: PropertyPalette }) {
+function SukhaSpaSectionEditorial({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         {/* Section header */}
         <AnimateOnScroll variants={fadeUp}>
@@ -128,58 +155,86 @@ function PrivateHotSprings({ palette }: { palette: PropertyPalette }) {
             className="text-[11px] tracking-[0.2em] uppercase mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
           >
-            Private Sanctuary
+            The Treatment Pavilions
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
           >
-            Private Hot Springs Plunge Pools
+            A Sanctuary Within a Sanctuary
           </h2>
           <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
         </AnimateOnScroll>
 
-        {/* Main narrative */}
+        {/* Two-column: Image + Text */}
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-14 mb-20">
-            <div>
-              <p
-                className="text-[15px] md:text-[16px] leading-[1.9] mb-6"
-                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
-              >
-                Private hot spring plunge pools sit at the crossroads of geology, history, and modern wellness science, combining volcanic heat, environmental seclusion, and behavioral privacy. When guests enter a private plunge pool in the rainforest, they experience a reversal of an ancient pattern: landscape and water no longer force communal gathering; instead, they restore the autonomy early humans once had.
-              </p>
-              <p
-                className="text-[15px] md:text-[16px] leading-[1.9]"
-                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
-              >
-                The water that feeds every private plunge pool at Nayara Springs and Nayara Tented Camp is heated by the magmatic systems beneath Arenal Volcano, carrying a mineral profile of calcium, magnesium, bicarbonate, and silica that has been restoring human beings in this region long before anyone built a hotel above it.
-              </p>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-14 mb-16">
+            <div className="overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
+              <img
+                loading="lazy"
+                src="/manus-storage/4O1A0991-NayaraTentedCamp-Treatmentpavilion2SukhaSpa-byBriceFerreStudiocopy_d64fea93.jpg"
+                alt="Sukha Spa treatment pavilion with bamboo ceiling and rainforest views"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div>
+            <div className="flex flex-col justify-center">
               <p
                 className="text-[15px] md:text-[16px] leading-[1.9] mb-6"
                 style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
               >
-                Privacy at Nayara is engineered. Villas and tents are oriented using controlled sightlines so no terrace overlooks another. Dense rainforest vegetation acts as living screening, while elevation changes and setbacks eliminate cross-visibility. When a guest steps into warm water, no one else can see. This combination of topography, landscaping, and spatial orientation is considered one of the strongest architectural mechanisms for behavioral privacy.
+                Each treatment pavilion at Sukha Spa is a circular, open-air structure elevated above the forest floor. The thatched roofs are hand-woven from local palm, the floors are laid in rich tropical hardwood, and the walls simply do not exist — replaced instead by the living green of the rainforest canopy that surrounds you on every side.
               </p>
               <p
                 className="text-[15px] md:text-[16px] leading-[1.9]"
                 style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
               >
-                The result is not simply a nicer pool. It is a different category of stay,where warmth, silence, nature, solitude, and geology converge into a direct encounter with the place itself.
+                This is not a spa that happens to be in nature. It is a spa that could not exist anywhere else. The architecture was designed so that every treatment unfolds within the sights, sounds, and scents of the living forest — howler monkeys overhead, the distant murmur of volcanic streams below, and the particular quality of light that only filters through a triple-canopy rainforest.
               </p>
             </div>
           </div>
         </AnimateOnScroll>
 
-        {/* Video section */}
+        {/* Full-width image: Treatment beds with jacuzzi */}
         <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <div className="mb-12">
-            <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <NativeVideo
-                src="/manus-storage/NayaraResorts-HeroVideobyBriceFerreStudio_42eb4d15_b9969174.mp4"
-                className="w-full h-full"
+          <div className="mb-16 overflow-hidden rounded-lg" style={{ aspectRatio: "16/9" }}>
+            <img
+              loading="lazy"
+              src="/manus-storage/4O1A1015-NayaraTentedCamp-TreatmentpavilionSukhaSpa-byBriceFerreStudiocopy_01021477.jpg"
+              alt="Couples treatment room with private jacuzzi overlooking the rainforest"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </AnimateOnScroll>
+
+        {/* Text block: The Private Jacuzzi */}
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-14">
+            <div className="flex flex-col justify-center">
+              <h3
+                className="text-xl md:text-2xl tracking-wide mb-4"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+              >
+                Private Hydrotherapy
+              </h3>
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9] mb-6"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                Every treatment pavilion includes its own private plunge pool or jacuzzi, fed by the same geothermally heated water that flows beneath the Arenal volcano. Before or after your treatment, you are invited to soak in mineral-rich warmth while the forest breathes around you — a hydrotherapy ritual that has been practiced in this region for centuries.
+              </p>
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9]"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                The combination of volcanic heat, mineral absorption, and complete privacy creates something that no urban spa can replicate: a return to the elemental relationship between the human body and the earth itself.
+              </p>
+            </div>
+            <div className="overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
+              <img
+                loading="lazy"
+                src="/manus-storage/4O1A1006-NayaraTentedCamp-TreatmentpaviilionjacuzziSukhaSpa-byBriceFerreStudiocopy_ab762114.jpg"
+                alt="Private jacuzzi in treatment pavilion surrounded by rainforest"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -190,76 +245,114 @@ function PrivateHotSprings({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   LAS TERMAS
-   Thermal springs experience with video and imagery
+   SIGNATURE TREATMENTS — Body rituals, sound healing, herbal
    ═══════════════════════════════════════════════════════════════ */
-function LasTermas({ palette }: { palette: PropertyPalette }) {
+function SignatureTreatments({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: "#F5F3F0" }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#F5F3F0" }}>
       <div className={maxW}>
-        {/* Section header */}
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.2em] uppercase mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
           >
-            Thermal Experience
+            Signature Experiences
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
           >
-            Las Termas
+            Rituals of the Rainforest
           </h2>
           <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
         </AnimateOnScroll>
 
-        {/* Grid layout: Video left, Image right on desktop; stacked on mobile */}
+        {/* Full-width herbal compress image */}
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-16">
-            {/* Horizontal video */}
-            <div>
-              <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
-                <NativeVideo
-                  src="/manus-storage/NayaraResorts-HeroVideobyBriceFerreStudio_42eb4d15_b9969174.mp4"
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-            {/* Vertical video */}
-            <div>
-              <div className="w-full rounded-lg overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                <NativeVideo
-                  src="/manus-storage/537195DB-9898-40EA-9014-7AF3FFF321D7(2)_bd2835d1_eebdd27f.mp4"
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-          </div>
-        </AnimateOnScroll>
-
-        {/* Image below videos */}
-        <AnimateOnScroll variants={fadeUp} delay={0.15}>
-          <div className="mb-12">
+          <div className="mb-12 overflow-hidden rounded-lg" style={{ aspectRatio: "21/9" }}>
             <img
-          loading="lazy"
-              src="/manus-storage/pasted_file_537KZK_image_f092b2e7.png"
-              alt="Las Termas hot springs pool in rainforest"
-              className="w-full rounded-lg overflow-hidden object-cover"
-              style={{ aspectRatio: "16/9" }}
+              loading="lazy"
+              src="/manus-storage/wellness-1-horinzontal-1_43777dc8.jpg"
+              alt="Traditional herbal compress treatment with warm poultices"
+              className="w-full h-full object-cover"
             />
           </div>
         </AnimateOnScroll>
 
-        {/* Description text */}
-        <AnimateOnScroll variants={fadeUp} delay={0.2}>
-          <div className="max-w-[780px]">
-            <p
-              className="text-[15px] md:text-[16px] leading-[1.9]"
-              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
-            >
-              Las Termas represent the heart of thermal wellness at Nayara. Fed by geothermal springs heated by Arenal Volcano's magmatic systems, these pools offer a gentle, mineral-rich immersion that has been recognized for centuries as a source of restoration and healing. The combination of warm water, rainforest seclusion, and natural beauty creates a sanctuary where the body and mind can truly recalibrate.
-            </p>
+        {/* Three-column grid: Sound Healing, Body Rituals, Massage */}
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+            {/* Sound Healing */}
+            <div>
+              <div className="overflow-hidden rounded-lg mb-6" style={{ aspectRatio: "3/4" }}>
+                <img
+                  loading="lazy"
+                  src="/manus-storage/4O1A1569-Spa-NayaraTentedCampwithLivLawbyBriceFerreStudio-VancouverPortraitAdventureandAthletePhotographer_9ffffb98.webp"
+                  alt="Sound healing with Tibetan singing bowls"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3
+                className="text-lg mb-2"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+              >
+                Sound Healing
+              </h3>
+              <p
+                className="text-[13px] leading-[1.8]"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                Tibetan singing bowls and crystal resonance guide the body into deep parasympathetic rest. The vibrations travel through tissue and bone, releasing tension that hands alone cannot reach — a practice rooted in 2,500 years of Himalayan tradition, now offered within the acoustic chamber of the rainforest canopy.
+              </p>
+            </div>
+
+            {/* Body Rituals */}
+            <div>
+              <div className="overflow-hidden rounded-lg mb-6" style={{ aspectRatio: "3/4" }}>
+                <img
+                  loading="lazy"
+                  src="/manus-storage/4O1A1183-Spa-NayaraTentedCampwithLivLawbyBriceFerreStudio-VancouverPortraitAdventureandAthletePhotographer_6da896aa.webp"
+                  alt="Volcanic clay body wrap treatment"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3
+                className="text-lg mb-2"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+              >
+                Volcanic Body Rituals
+              </h3>
+              <p
+                className="text-[13px] leading-[1.8]"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                Drawing on the mineral wealth of the Arenal volcanic soil, our body rituals use locally sourced clay, thermal mud, and botanical infusions to detoxify, nourish, and restore. Each wrap and scrub is designed to work with the body's own systems — encouraging circulation, lymphatic flow, and deep cellular renewal.
+              </p>
+            </div>
+
+            {/* Deep Tissue Massage */}
+            <div>
+              <div className="overflow-hidden rounded-lg mb-6" style={{ aspectRatio: "3/4" }}>
+                <img
+                  loading="lazy"
+                  src="/manus-storage/wellness04-9x16_f71c6bff.png"
+                  alt="Volcanic mud self-application ritual"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3
+                className="text-lg mb-2"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+              >
+                Earth & Clay
+              </h3>
+              <p
+                className="text-[13px] leading-[1.8]"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                Some of our most transformative rituals invite you to participate in your own healing. The volcanic clay ceremony is one such offering — a guided self-application of mineral-rich earth, followed by a soak in thermal waters. It is both ancient and immediate, connecting you to the land beneath your feet in the most literal way possible.
+              </p>
+            </div>
           </div>
         </AnimateOnScroll>
       </div>
@@ -268,40 +361,114 @@ function LasTermas({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   YOGA
-   Rainforest yoga and movement practices
+   COUPLES EXPERIENCES — Shared spa journeys
    ═══════════════════════════════════════════════════════════════ */
-function YogaSection({ palette }: { palette: PropertyPalette }) {
+function CouplesExperiences({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className="py-20 md:py-32 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
-        {/* Section header */}
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.2em] uppercase mb-4"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
           >
-            Movement & Mindfulness
+            Shared Journeys
           </p>
           <h2
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
           >
-            Yoga in the Rainforest
+            Couples Experiences
           </h2>
           <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
         </AnimateOnScroll>
 
-        {/* Yoga image */}
+        {/* Full-width couples massage */}
         <AnimateOnScroll variants={fadeUp} delay={0.1}>
-          <div className="mb-12">
+          <div className="mb-12 overflow-hidden rounded-lg" style={{ aspectRatio: "16/9" }}>
             <img
-          loading="lazy"
-              src="/manus-storage/yoga-vertical_2984cb95.jpg"
-              alt="Yoga practice in the rainforest"
-              className="w-full rounded-lg overflow-hidden object-cover"
-              style={{ maxHeight: "600px" }}
+              loading="lazy"
+              src="/manus-storage/1Couplesexperiences_207b529d.jpg"
+              alt="Couples massage in private treatment pavilion"
+              className="w-full h-full object-cover"
             />
+          </div>
+        </AnimateOnScroll>
+
+        {/* Two-column: Text + Walking image */}
+        <AnimateOnScroll variants={fadeUp} delay={0.15}>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-14">
+            <div className="flex flex-col justify-center">
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9] mb-6"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                The most meaningful spa experiences are often the ones shared. At Sukha Spa, every treatment pavilion is designed for two — side-by-side tables, a shared jacuzzi, and a private canopy that belongs only to you. Whether celebrating an anniversary, a honeymoon, or simply the pleasure of being together in a beautiful place, the couples experience transforms a treatment into a memory.
+              </p>
+              <p
+                className="text-[15px] md:text-[16px] leading-[1.9]"
+                style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+              >
+                The journey begins on the forest path — a winding walk through the canopy that serves as a transition from the world of schedules and screens into the world of stillness. By the time you arrive at your pavilion, the forest has already begun its work.
+              </p>
+            </div>
+            <div className="overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
+              <img
+                loading="lazy"
+                src="/manus-storage/3Walkingthespa_9753728e.jpg"
+                alt="Couple walking the forest path to the spa"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SPA FACILITIES — Relaxation rooms and spaces
+   ═══════════════════════════════════════════════════════════════ */
+function SpaFacilities({ palette }: { palette: PropertyPalette }) {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#F5F3F0" }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+          >
+            Before & After
+          </p>
+          <h2
+            className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+          >
+            The Relaxation Pavilion
+          </h2>
+          <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
+        </AnimateOnScroll>
+
+        {/* Two relaxation room images side by side */}
+        <AnimateOnScroll variants={fadeUp} delay={0.1}>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
+            <div className="overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
+              <img
+                loading="lazy"
+                src="/manus-storage/4O1A0862-NayaraTentedCamp-Relaxationroom3SukhaSpa-byBriceFerreStudiocopy_a0e2ac80.jpg"
+                alt="Relaxation room with woven loungers overlooking the rainforest"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="overflow-hidden rounded-lg" style={{ aspectRatio: "4/3" }}>
+              <img
+                loading="lazy"
+                src="/manus-storage/4O1A0880-NayaraTentedCamp-RelaxationRoomSukhaSpa-byBriceFerreStudiocopy_4f9b2074.jpg"
+                alt="Relaxation room detail with tropical foliage"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </AnimateOnScroll>
 
@@ -309,11 +476,29 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
         <AnimateOnScroll variants={fadeUp} delay={0.15}>
           <div className="max-w-[780px]">
             <p
+              className="text-[15px] md:text-[16px] leading-[1.9] mb-6"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+            >
+              The relaxation pavilion is where time dissolves. Woven loungers sit beneath a bamboo-lattice roof, open on all sides to the forest. There is no music, no television, no agenda — only the sound of birds, the rustle of leaves, and the particular quality of stillness that comes from being held within something ancient and alive.
+            </p>
+            <p
               className="text-[15px] md:text-[16px] leading-[1.9]"
               style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
             >
-              Yoga in the rainforest is not a performance or a class checklist. It is a practice that unfolds within the living presence of the forest itself. The canopy becomes your ceiling, the earth beneath you becomes your foundation, and the sounds of the jungle become your soundtrack. Movement slows, breath deepens, and the boundary between your body and the landscape begins to dissolve. This is where yoga becomes what it was always meant to be: a direct conversation between your nervous system and the intelligence of nature.
+              Guests are invited to arrive early and linger long after their treatment. Herbal teas, infused waters, and light bites are offered throughout the day. The intention is simple: to extend the feeling of ease beyond the treatment room and into the hours that follow.
             </p>
+          </div>
+        </AnimateOnScroll>
+
+        {/* Massage image — full width */}
+        <AnimateOnScroll variants={fadeUp} delay={0.2}>
+          <div className="mt-12 overflow-hidden rounded-lg" style={{ aspectRatio: "21/9" }}>
+            <img
+              loading="lazy"
+              src="/manus-storage/4O1A4347-NayaraAltoAtacama-Spa-byBriceFerreStudio_b420729c.webp"
+              alt="Deep tissue massage by candlelight"
+              className="w-full h-full object-cover"
+            />
           </div>
         </AnimateOnScroll>
       </div>
@@ -322,44 +507,15 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SUKHA SPA BANNER
-   Header image before spa menu
+   TREATMENT MENU — Category-filtered treatment cards
    ═══════════════════════════════════════════════════════════════ */
-function SukhaSpaBanner({ palette }: { palette: PropertyPalette }) {
-  return (
-    <section className="py-0 px-0 w-full">
-      <img
-          loading="lazy"
-        src="/manus-storage/sukha-spa-header_f45f904f.jpg"
-        alt="Sukha Spa"
-        className="w-full h-auto object-cover"
-        style={{ display: "block" }}
-      />
-      <div className="w-full py-12 md:py-16 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
-        <div className={maxW}>
-          <div className="flex justify-center">
-            <div className="w-full md:w-96" style={{ aspectRatio: "3/4" }}>
-              <div className="w-full h-full rounded-lg overflow-hidden">
-                <NativeVideo
-                  src="/manus-storage/62AE1541-E12D-4033-AFB5-E763C09F93D5_75b0518e.MP4"
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function WellnessContent({ property, palette }: { property: Property; palette: PropertyPalette }) {
-  const categories = property.spaCategories.filter(c => c.id !== "all");
+function TreatmentMenu({ property, palette }: { property: Property; palette: PropertyPalette }) {
+  const categories = property.spaCategories.filter((c: { id: string; label: string }) => c.id !== "all");
   const [activeCategory, setActiveCategory] = useState(categories[0]?.id || "massage");
   const filtered = property.treatments.filter((t: Treatment) => t.category === activeCategory);
 
   return (
-    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         {/* Section header */}
         <AnimateOnScroll variants={fadeUp}>
@@ -373,7 +529,7 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
             className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-6"
             style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
           >
-            Sukha Spa Treatments
+            Treatments & Rituals
           </h2>
           <div className="w-16 h-px mb-12" style={{ backgroundColor: palette.accent }} />
         </AnimateOnScroll>
@@ -415,7 +571,6 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
                 borderRadius: "12px",
                 borderBottom: `2px solid ${palette.primary}`,
               }}
-              whileHover={{ borderBottomColor: palette.primary }}
             >
               <h3
                 className="text-[17px] mb-2"
@@ -439,11 +594,55 @@ function WellnessContent({ property, palette }: { property: Property; palette: P
             </motion.div>
           ))}
         </StaggerOnScroll>
+      </div>
+    </section>
+  );
+}
 
-        {/* Cross link */}
-        <AnimateOnScroll variants={fadeUp} delay={0.3}>
-          <div className="mt-16">
-            <PillarCrossLink pillar="wellness" />
+/* ═══════════════════════════════════════════════════════════════
+   NATURE WELLNESS TEASER — Brief mention + link to experiences
+   ═══════════════════════════════════════════════════════════════ */
+function NatureWellnessTeaser({ palette, propertySlug }: { palette: PropertyPalette; propertySlug: string }) {
+  return (
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: "#E6DFD5" }}>
+      <div className={maxW}>
+        <AnimateOnScroll variants={fadeUp}>
+          <div className="max-w-[800px] mx-auto text-center">
+            <p
+              className="text-[11px] tracking-[0.2em] uppercase mb-4"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, color: palette.accent }}
+            >
+              Beyond the Spa
+            </p>
+            <h2
+              className="text-2xl md:text-3xl tracking-wide mb-6"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.secondary }}
+            >
+              Hot Springs, Yoga & Nature
+            </h2>
+            <p
+              className="text-[15px] leading-[1.9] mb-8"
+              style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
+            >
+              Wellness at Nayara extends far beyond the treatment room. Private volcanic hot springs plunge pools, daily yoga in the rainforest canopy, Las Termas thermal experience, and guided nature immersions are all part of the on-site offering — available to every guest, every day.
+            </p>
+            <Link
+              href={`/${propertySlug}/experiences`}
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontWeight: 500,
+                fontSize: "12px",
+                letterSpacing: "0.08em",
+                color: "#fff",
+                backgroundColor: palette.primary,
+              }}
+            >
+              Explore On-Site Nature & Wellness
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
           </div>
         </AnimateOnScroll>
       </div>

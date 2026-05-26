@@ -203,55 +203,65 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
   const colorClass = CUISINE_BADGE_CLASS;
   const route = propertyRoutes[restaurant.propertySlug] || `/${restaurant.propertySlug}`;
 
+  const handleNavigate = () => {
+    const individualRoutes: Record<string, string> = {
+      "ayla": "/tented-camp/gastronomy/ayla",
+      "henrys-bar": "/tented-camp/gastronomy/henrys-bar",
+      "lapas-bar": "/tented-camp/gastronomy/lapas-pool-bar",
+      "asia-luna": "/gardens/gastronomy/asia-luna",
+      "la-terraza": "/gardens/gastronomy/la-terraza",
+      "lylas-gelato": "/gardens/gastronomy/lylas-gelato",
+      "nostalgia": "/gardens/gastronomy/nostalgia",
+      "mis-amores": "/springs/gastronomy/mis-amores",
+      "mi-cafecito": "/springs/gastronomy/mi-cafecito",
+      "amor-loco": "/springs/gastronomy/amor-loco",
+      "besame-mucho": "/springs/gastronomy/besame-mucho",
+      "cielito-lindo": "/springs/gastronomy/cielito-lindo",
+    };
+    const gastroRoutes: Record<string, string> = {
+      "alto-atacama": "/alto-atacama/gastronomy",
+      hangaroa: "/hangaroa/gastronomy",
+      "bocas-del-toro": "/bocas-del-toro/gastronomy",
+    };
+    const target = individualRoutes[restaurant.id] || gastroRoutes[restaurant.propertySlug] || route;
+    onNavigate(target);
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group bg-white/60 rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 border border-[#3B2B26]/5 flex flex-col"
+      transition={{ duration: 0.5, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -4, transition: { duration: 0.25, ease: "easeOut" } }}
+      onClick={handleNavigate}
+      className="group cursor-pointer bg-white/60 rounded-xl overflow-hidden border border-[#3B2B26]/5 flex flex-col"
+      style={{ boxShadow: "0 1px 3px rgba(59,43,38,0.04)" }}
     >
-      <div className="h-0.5 bg-gradient-to-r from-[#c9b99a]/40 to-transparent" />
+      {/* Top accent bar with hover width animation */}
+      <div className="relative h-0.5 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#c9b99a]/20 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-0 group-hover:w-full bg-gradient-to-r from-[#c9b99a]/70 to-[#c9b99a]/30 transition-all duration-500 ease-out" />
+      </div>
       <div className="p-6 flex-1 flex flex-col">
-        <h3 className="text-[#3B2B26] text-lg mb-1" style={{ ...heading, fontWeight: 500 }}>{restaurant.name}</h3>
-        <p className="text-[#c9b99a] text-[11px] tracking-[0.04em] italic mb-3" style={body}>{restaurant.tagline}</p>
+        {/* Restaurant name with subtle hover color shift */}
+        <h3 className="text-[#3B2B26] text-lg mb-1 group-hover:text-[#5a4a3a] transition-colors duration-300" style={{ ...heading, fontWeight: 500 }}>{restaurant.name}</h3>
+        <p className="text-[#c9b99a] text-[11px] tracking-[0.04em] italic mb-3 group-hover:text-[#b8a585] transition-colors duration-300" style={body}>{restaurant.tagline}</p>
         <p className="text-[#4B4A4A]/55 text-[13px] leading-relaxed mb-4 flex-1 line-clamp-3" style={body}>
           {restaurant.description}
         </p>
         {restaurant.atmosphere && (
           <p className="text-[#4B4A4A]/30 text-[11px] mb-4" style={body}>{restaurant.atmosphere}</p>
         )}
-        <div className="flex items-center justify-between pt-4 border-t border-[#3B2B26]/5">
+        <div className="flex items-center justify-between pt-4 border-t border-[#3B2B26]/5 group-hover:border-[#c9b99a]/20 transition-colors duration-300">
           {hasMenu ? (
             <span className="text-[#3B2B26]/30 text-[11px]" style={body}>{totalItems} menu items</span>
           ) : (
             <span className="text-[#3B2B26]/20 text-[11px] italic" style={body}>Menu coming soon</span>
           )}
-          <button onClick={() => {
-            // Costa Rica restaurants link to individual pages; others link to property gastronomy page
-            const individualRoutes: Record<string, string> = {
-              "ayla": "/tented-camp/gastronomy/ayla",
-              "henrys-bar": "/tented-camp/gastronomy/henrys-bar",
-              "lapas-bar": "/tented-camp/gastronomy/lapas-pool-bar",
-              "asia-luna": "/gardens/gastronomy/asia-luna",
-              "la-terraza": "/gardens/gastronomy/la-terraza",
-              "lylas-gelato": "/gardens/gastronomy/lylas-gelato",
-              "nostalgia": "/gardens/gastronomy/nostalgia",
-              "mis-amores": "/springs/gastronomy/mis-amores",
-              "mi-cafecito": "/springs/gastronomy/mi-cafecito",
-              "amor-loco": "/springs/gastronomy/amor-loco",
-              "besame-mucho": "/springs/gastronomy/besame-mucho",
-              "cielito-lindo": "/springs/gastronomy/cielito-lindo",
-            };
-            const gastroRoutes: Record<string, string> = {
-              "alto-atacama": "/alto-atacama/gastronomy",
-              hangaroa: "/hangaroa/gastronomy",
-              "bocas-del-toro": "/bocas-del-toro/gastronomy",
-            };
-            const target = individualRoutes[restaurant.id] || gastroRoutes[restaurant.propertySlug] || route;
-            onNavigate(target);
-          }} className="text-[#c9b99a] text-[11px] tracking-[0.08em] hover:text-[#3B2B26] transition-colors" style={{ ...body, fontWeight: 500 }}>
-            Explore More →
-          </button>
+          <span className="text-[#c9b99a] text-[11px] tracking-[0.08em] group-hover:text-[#3B2B26] transition-all duration-300 flex items-center gap-1" style={{ ...body, fontWeight: 500 }}>
+            Explore More
+            <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </span>
         </div>
       </div>
     </motion.div>
