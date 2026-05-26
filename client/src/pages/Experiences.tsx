@@ -30,7 +30,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 /* ─── CDN Assets ─── */
 const CDN = {
-  heroVertical: "/manus-storage/experiences-mobile-hero_3641d7ed.mp4",
+  heroVertical: "/manus-storage/experiences-vertical_5d371868.mp4",
   heroHorizontal: "/manus-storage/experiences-horizontal_ba5ab42b.mp4",
 };
 
@@ -84,12 +84,14 @@ function HeroSection() {
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0">
         {isMobile ? (
-          <img
-            src="/manus-storage/experiences-brand-mobile-hero_6400d2eb.jpg"
-            alt="Nayara Experiences"
+          <video
+            src={CDN.heroVertical}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
             className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
           />
         ) : (
           <video

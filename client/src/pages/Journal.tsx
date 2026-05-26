@@ -38,7 +38,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 const JOURNAL_CDN = {
   heroVideoDesktop: "/manus-storage/journal-horizontal_7e87c4c6.mp4",
-  heroVideoMobile: "/manus-storage/journal-hero-vertical-final_f0f7697e.mp4",
+  heroVideoMobile: "/manus-storage/journal-vertical-v2_95ac2aeb.mp4",
 };
 
 /*
@@ -134,7 +134,7 @@ export default function Journal() {
       <BrandNavigation pageType="brand" hideCenterLabel />
 
       {/* ── Hero ── */}
-      <section className="relative w-full overflow-hidden bg-[#3a2a1a] -mt-1 aspect-[3/4] md:aspect-video" style={{ maxHeight: '100vh' }}>
+      <section className="relative w-full overflow-hidden bg-[#3a2a1a] -mt-1 aspect-[9/16] md:aspect-video" style={{ maxHeight: '100vh' }}>
         <div className="absolute inset-0">
           {JOURNAL_CDN.heroVideoDesktop && (
             <>
@@ -149,12 +149,14 @@ export default function Journal() {
               />
             </>
           )}
-          <img
-            src="/manus-storage/journal-mobile-hero-still_561749b9.jpg"
-            alt="Nayara Journal"
+          <video
+            src={JOURNAL_CDN.heroVideoMobile}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
             className="md:hidden w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/65 pointer-events-none" />
         </div>
