@@ -228,6 +228,7 @@ type CascadeSectionData = {
   overlayOnVideo?: boolean;
   textLink?: string;
   textLinkLabel?: string;
+  textLinkTransparent?: boolean;
 };
 
 function CascadeSection({
@@ -539,20 +540,6 @@ function CascadeSection({
           {section.body}
         </p>
       </AnimateOnScroll>
-      {section.textLink && (
-        <AnimateOnScroll variants={fadeUp} delay={0.24}>
-          <a
-            href={section.textLink}
-            className="inline-flex items-center gap-2 mt-8 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg border"
-            style={{ fontFamily: "var(--font-body)", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : "transparent", backgroundColor: isMobile ? "transparent" : "rgba(134,139,117,0.9)" }}
-          >
-            {section.textLinkLabel || "Explore More"}
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </a>
-        </AnimateOnScroll>
-      )}
       {section.stats && section.stats.length > 0 && (
         <AnimateOnScroll variants={fadeUp} delay={0.28}>
           <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 mb-2">
@@ -563,6 +550,20 @@ function CascadeSection({
               </div>
             ))}
           </div>
+        </AnimateOnScroll>
+      )}
+      {section.textLink && (
+        <AnimateOnScroll variants={fadeUp} delay={0.32}>
+          <a
+            href={section.textLink}
+            className="inline-flex items-center gap-2 mt-6 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg border"
+            style={{ fontFamily: "var(--font-body)", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : (section.textLinkTransparent ? "rgba(255,255,255,0.5)" : "transparent"), backgroundColor: isMobile ? "transparent" : (section.textLinkTransparent ? "transparent" : "rgba(134,139,117,0.9)") }}
+          >
+            {section.textLinkLabel || "Explore More"}
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
         </AnimateOnScroll>
       )}
       {section.roomCards && section.roomCards.length > 0 && (
@@ -1155,19 +1156,13 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     hideH: true,
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
-    link: "/tented-camp-sustainability",
-    linkLabel: "Explore Beyond Reforestation",
+    textLink: "/sustainability",
+    textLinkLabel: "Explore Beyond Sustainability",
     stats: [
       { value: "100%", label: "Renewable Energy" },
       { value: "CST 5", label: "Certified" },
       { value: "Zero", label: "Single-Use Plastic" },
     ],
-    blogUrl: "/journal",
-    blogTitle: "Pioneering Sustainable Luxury",
-    verticalOverlayButtons: {
-      top: { explore: "", reserve: "", exploreLink: "" },
-      bottom: { explore: "Explore Beyond Sustainability", reserve: "", exploreLink: "/sustainability" },
-    },
   },
   {
     id: "wellness",
@@ -1216,13 +1211,10 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
     link: "/tented-camp/gastronomy",
-    linkLabel: "Forest to Table",
+    linkLabel: "Explore Forest to Table",
     textLink: "/tented-camp/gastronomy",
-    textLinkLabel: "Forest to Table",
-    verticalOverlayButtons: {
-      top: { explore: "", reserve: "", exploreLink: "" },
-      bottom: { explore: "Ayla", reserve: "", exploreLink: "/tented-camp/gastronomy/ayla", transparent: true },
-    },
+    textLinkLabel: "Explore Forest to Table",
+
   },
   {
     id: "nayara-by-night",
@@ -1244,6 +1236,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     nextBgColor: "#000000",
     textLink: "/curated-excursions",
     textLinkLabel: "Explore Henry's Bar",
+    textLinkTransparent: true,
   },
 ];
 
@@ -1401,7 +1394,7 @@ function HeroSection() {
             src={heroVideo}
             className="w-full h-full object-cover"
             hasAudio={true}
-            loop={false}
+            loop={true}
             pillBg="#868B75B3"
             pillColor="#F7F5F0"
           />

@@ -216,6 +216,21 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
                         </>
                       )}
                     </div>
+                    <Link
+                      href={i < 5 ? "/tented-camp/experiences" : "#"}
+                      className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                      style={{
+                        ...body,
+                        fontWeight: 500,
+                        color: "#fff",
+                        backgroundColor: "#3a2a1a",
+                      }}
+                    >
+                      Explore More
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </Link>
                   </div>
                 </motion.div>
               ))}

@@ -41,7 +41,7 @@ const NativeVideo = forwardRef<NativeVideoHandle, NativeVideoProps>(function Nat
   {
     src,
     className = "",
-    loop = false,
+    loop = true,
     playsInline = true,
     poster,
     controls = false,

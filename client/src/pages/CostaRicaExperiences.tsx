@@ -60,9 +60,9 @@ const LOCATIONS: Record<string, string> = {
 
 /** H1 headlines per property */
 const HEADLINES: Record<string, string> = {
-  "tented-camp": "Rainforest Adventures",
-  gardens: "Rainforest Adventures",
-  springs: "Rainforest Adventures",
+  "tented-camp": "Rainforest Life",
+  gardens: "Rainforest Life",
+  springs: "Rainforest Life",
   "alto-atacama": "Stand on Another Planet",
   "bocas-del-toro": "Caribbean Adventures",
   hangaroa: "Rapa Nui Explorations",
@@ -100,7 +100,7 @@ export default function CostaRicaExperiences({ propertySlug }: Props) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
-      <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${propertySlug}` }} />
+      <BrandNavigation pageType="property" />
       <ExperiencesHero propertySlug={propertySlug} />
       {isCR ? (
         <CRExperiencesDeep property={property} palette={palette} />
@@ -215,11 +215,11 @@ function CRExperiencesDeep({ property, palette }: { property: Property; palette:
       {/* ── Philosophy: One Interconnected Destination ── */}
       <PhilosophySection palette={palette} />
 
-      {/* ── Wellness: Yoga in the Rainforest ── */}
-      <YogaSection palette={palette} />
-
       {/* ── Nature: Three Ways to Explore ── */}
       <NatureSection palette={palette} />
+
+      {/* ── Wellness: Yoga in the Rainforest ── */}
+      <YogaSection palette={palette} />
 
       {/* ── Las Thermas: Where Earth Meets Wellness ── */}
       <ThermasSection palette={palette} />
@@ -227,46 +227,7 @@ function CRExperiencesDeep({ property, palette }: { property: Property; palette:
       {/* ── Shared Access: The Beauty of It ── */}
       <SharedAccessSection palette={palette} />
 
-      {/* ── Divider ── */}
-      <div className="px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
-        <div className={maxW}>
-          <div style={{ borderTop: `1px solid ${BRAND.divider}` }} />
-        </div>
-      </div>
 
-      {/* ── Explore Arenal: Card Grid ── */}
-      <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
-        <div className={maxW}>
-          <AnimateOnScroll variants={fadeUp}>
-            <p
-              className="text-[11px] tracking-[0.2em] mb-4"
-              style={{ ...body, fontWeight: 500, color: palette.primary }}
-            >
-              Explore Arenal
-            </p>
-            <h2
-              className="text-2xl md:text-3xl lg:text-4xl tracking-wide mb-4"
-              style={{ ...display, color: "#3B2B26" }}
-            >
-              Beyond the Resort
-            </h2>
-            <p
-              className="text-[15px] leading-[1.8] max-w-[700px] mb-10"
-              style={{ ...body, color: "#3B2B26" }}
-            >
-              Hanging bridges, turquoise rivers, volcanic lava fields, and white-water rapids , the Arenal
-              region is one of the most biodiverse corners of Costa Rica. Every excursion is guided by
-              local experts who know this landscape intimately.
-            </p>
-          </AnimateOnScroll>
-
-          <FilteredCardGrid
-            excursions={arenalExperiences}
-            categories={arenalCategories}
-            palette={palette}
-          />
-        </div>
-      </section>
 
       {/* ── Cross-link ── */}
       <section className="pb-16 md:pb-24 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
@@ -368,7 +329,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
   const yogaImage = `${CDN_BASE}/yoga-photo_3b789b60.jpg`;
 
   return (
-    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <p
@@ -459,7 +420,7 @@ function YogaSection({ palette }: { palette: PropertyPalette }) {
    ═══════════════════════════════════════════════════════════════ */
 
 function NatureSection({ palette }: { palette: PropertyPalette }) {
-  const birdVideo = "/manus-storage/gardens-birdwatching-new_c9a2c125.mp4";
+  const birdVideo = "/manus-storage/bird-video-new_f435a9f4.mp4";
 
   const experiences = [
     {
@@ -483,7 +444,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
   ];
 
   return (
-    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <p
@@ -508,7 +469,7 @@ function NatureSection({ palette }: { palette: PropertyPalette }) {
 
         {/* Bird watching video */}
         <AnimateOnScroll variants={fadeUp}>
-          <div className="relative overflow-hidden rounded-xl mb-16" style={{ aspectRatio: "21/9" }}>
+          <div className="relative overflow-hidden rounded-xl mb-16" style={{ aspectRatio: "16/9" }}>
             <video
               src={birdVideo}
               autoPlay
@@ -592,16 +553,9 @@ function ThermasSection({ palette }: { palette: PropertyPalette }) {
     <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
       <div className={maxW}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Video / Image */}
-          <AnimateOnScroll variants={slideFromLeft}>
-            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
-              <NativeVideo src={thermasVideoH} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-            </div>
-          </AnimateOnScroll>
-
           {/* Content */}
-          <AnimateOnScroll variants={slideFromRight}>
+          <AnimateOnScroll variants={slideFromLeft}>
+
             <p
               className="text-[11px] tracking-[0.2em] mb-4"
               style={{ ...body, fontWeight: 500, color: palette.primary }}
@@ -640,7 +594,7 @@ function ThermasSection({ palette }: { palette: PropertyPalette }) {
                 fontSize: "12px",
                 letterSpacing: "0.08em",
                 color: "#fff",
-                backgroundColor: "#3a2a1a",
+                backgroundColor: "#556B2F",
               }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -648,6 +602,14 @@ function ThermasSection({ palette }: { palette: PropertyPalette }) {
               </svg>
               Read: The History & Science of Hot-Springs Plunge Pools
             </a>
+          </AnimateOnScroll>
+
+          {/* Video / Image */}
+          <AnimateOnScroll variants={slideFromRight}>
+            <div className="relative overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
+              <NativeVideo src={thermasVideoH} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+            </div>
           </AnimateOnScroll>
         </div>
       </div>
@@ -704,7 +666,7 @@ function SharedAccessSection({ palette }: { palette: PropertyPalette }) {
                 fontSize: "12px",
                 letterSpacing: "0.08em",
                 color: "#fff",
-                backgroundColor: "#3a2a1a",
+                backgroundColor: "#556B2F",
               }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -902,7 +864,7 @@ function ExcursionCard({ excursion, palette }: { excursion: Excursion; palette: 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 mt-4 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#3a2a1a" }}
+            style={{ ...body, fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#fff", backgroundColor: "#556B2F" }}
           >
             <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />

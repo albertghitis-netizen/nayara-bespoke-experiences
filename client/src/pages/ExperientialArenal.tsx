@@ -271,7 +271,7 @@ function WithinOurGroundsSection() {
   );
   // Top row: nature (sloth, botanical, bird) — Bottom row: wellness (hatha, vinyasa, hot springs)
   const natureOrder = ["finding-tony-the-sloth", "botanical-hike", "birdwatching"];
-  const wellnessOrder = ["vinyasa-yoga", "hatha-yoga", "hot-springs"];
+  const wellnessOrder = ["vinyasa-yoga", "hatha-yoga", "breathwork-meditation", "hot-springs"];
   const topRow = natureOrder.map(id => onPropertyNature.find(e => e.id === id)!).filter(Boolean);
   const bottomRow = wellnessOrder.map(id => onPropertyNature.find(e => e.id === id)!).filter(Boolean);
 

@@ -67,7 +67,7 @@ const PALETTE = {
    ═══════════════════════════════════════════════════════════════ */
 const CDN = {
   // Hero
-  heroDesktop: "/manus-storage/gardens-hero-with-audio_68878e2b.mp4",
+  heroDesktop: "/manus-storage/gardens-hero-trimmed_5a74caed.mp4",
 
   // Rooms - video replaces s3 photo
   roomsVideo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663090891297/aPU7TBha6XBXzi9S9Q7tf2/gallery-residence-video-v2_2ca0004b.mp4",
@@ -407,7 +407,14 @@ function StorySection() {
           <div className="w-full md:w-1/2 md:order-2">
             <MediaReveal delay={0.1}>
               <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-                <img src="/manus-storage/gardens-s1-toucan-v2_75cc661b.jpg" alt="Toucan in the rainforest canopy" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
+                <video
+                  src="/manus-storage/A0E052E9-90C5-4E5D-8058-DB9FE83089E72_b9f627be.mov"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
             </MediaReveal>
           </div>
