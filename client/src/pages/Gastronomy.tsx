@@ -69,7 +69,7 @@ const FOOD_PORN_IMAGES = [
   { src: "/manus-storage/food-porn-02_7bc4d276.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-03_f31720af.jpg", w: 1200, h: 1499 },
   { src: "/manus-storage/food-porn-04_c3c7c50a.jpg", w: 1200, h: 1499 },
-  { src: "/manus-storage/food-porn-05_2d800ad9.jpg", w: 1200, h: 1600 },
+  { src: "/manus-storage/food-porn-17_88386c34.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-33_94eee8a3.jpg", w: 1200, h: 2132 },
   { src: "/manus-storage/food-porn-06_8e706736.jpg", w: 1200, h: 1499 },
   { src: "/manus-storage/food-porn-07_6c1c4ca2.jpg", w: 1200, h: 1599 },
@@ -79,7 +79,6 @@ const FOOD_PORN_IMAGES = [
   { src: "/manus-storage/food-porn-14_c4982e88.jpg", w: 1200, h: 1500 },
   { src: "/manus-storage/food-porn-15_4e8ec7a8.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-16_79d3b98d.jpg", w: 1200, h: 1600 },
-  { src: "/manus-storage/food-porn-17_88386c34.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-18_ffdfa128.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-19_b8f88b9c.jpg", w: 1200, h: 1600 },
   { src: "/manus-storage/food-porn-21_672369b8.jpg", w: 1200, h: 1600 },
@@ -139,7 +138,7 @@ function HeroSection() {
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end items-center pb-10 md:pb-16 px-6">
         <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }} className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide text-center" style={heading}>
-          Sur la Table
+          A Taste of Place
         </motion.h1>
       </div>
     </section>
@@ -259,7 +258,7 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
    ═══════════════════════════════════════════════════════════════ */
 function FoodPornGallery() {
   const isMobile = useIsMobile();
-  const cols = isMobile ? 2 : 4;
+  const cols = isMobile ? 2 : 5;
 
   // Distribute images into columns for masonry (with original index)
   const indexedImages = FOOD_PORN_IMAGES.map((img, i) => ({ ...img, idx: i + 1 }));

@@ -183,20 +183,11 @@ export default function AwardsAndPress() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
+            className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide text-center"
             style={{ fontFamily: 'var(--font-display)', fontWeight: 400, lineHeight: 1 }}
           >
             Press & Awards
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="text-white/60 text-[11px] md:text-xs tracking-[0.25em] uppercase mt-3"
-            style={{ fontFamily: 'var(--font-body)', fontWeight: 400 }}
-          >
-            Two Decades of Excellence
-          </motion.p>
         </div>
       </section>
 

@@ -208,10 +208,10 @@ function HeroSection() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-xl md:text-3xl lg:text-4xl tracking-wide text-center"
+          className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide text-center"
           style={{ ...heading, fontWeight: 400 }}
         >
-          Nature-Based Wellness
+          Nurtured by Nature
         </motion.h1>
       </div>
     </section>
