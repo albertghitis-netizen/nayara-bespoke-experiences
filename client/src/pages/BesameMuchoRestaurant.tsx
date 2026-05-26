@@ -80,26 +80,26 @@ function HeroSection({ restaurant }: { restaurant: any }) {
 
 function IntroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={ { backgroundColor: BRAND.pageBackground }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
       <div className="max-w-[900px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-3xl md:text-4xl mb-8"
-            style={ { fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
           >
             {restaurant.name}
           </h2>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            Besame Mucho brings passionate Latin flavors to the heart of the Arenal rainforest at Nayara Springs. The restaurant celebrates the bold, soulful cooking traditions of Latin America — from slow-braised meats to vibrant ceviches — all prepared with ingredients from our organic gardens and local farms.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            The name means 'kiss me a lot' — and the dining experience lives up to its promise. Every plate is crafted with love and fire, every cocktail shaken with tropical passion. The volcano-view terrace sets the stage for evenings that linger long after the last course, where the warmth of the food matches the warmth of the volcanic springs below.
           </p>
         </AnimateOnScroll>
       </div>
@@ -189,7 +189,7 @@ function CTASection() {
           >
             Ready to Experience This?
           </h2>
-          <Link href="/tented-camp/gastronomy">
+          <Link href="/springs/gastronomy">
             <a
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
               style={ { backgroundColor: palette.primary }}

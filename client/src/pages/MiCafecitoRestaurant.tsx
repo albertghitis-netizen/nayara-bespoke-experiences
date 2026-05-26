@@ -80,26 +80,26 @@ function HeroSection({ restaurant }: { restaurant: any }) {
 
 function IntroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={ { backgroundColor: BRAND.pageBackground }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
       <div className="max-w-[900px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-3xl md:text-4xl mb-8"
-            style={ { fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
           >
             {restaurant.name}
           </h2>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            Mi Cafecito is where mornings begin at Nayara Springs — with single-origin Costa Rican coffee, fresh pastries, and the quiet sounds of the rainforest. Beans are sourced from the Tarrazú and Dota Valley highlands and roasted with care. Pair your cup with a tropical fruit plate or a traditional gallo pinto.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            This is more than a coffee house — it is a ritual. The baristas are trained in the art of pour-over, espresso, and cold brew, each method designed to bring out the unique character of Costa Rica's highland beans. The morning menu features locally baked pastries, tropical fruit bowls, and traditional breakfast dishes that honor the country's culinary heritage.
           </p>
         </AnimateOnScroll>
       </div>
@@ -189,7 +189,7 @@ function CTASection() {
           >
             Ready to Experience This?
           </h2>
-          <Link href="/tented-camp/gastronomy">
+          <Link href="/springs/gastronomy">
             <a
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
               style={ { backgroundColor: palette.primary }}

@@ -14,7 +14,7 @@ import { restaurants } from "@/data/culinaryImages";
 import { getPalette, BRAND } from "@/data/propertyPalettes";
 import { AnimateOnScroll, fadeUp } from "@/components/motion";
 
-const palette = getPalette("tented-camp");
+const palette = getPalette("gardens");
 
 export default function LaTerrazaRestaurant() {
   const restaurant = restaurants.find((r) => r.slug === "la-terraza");
@@ -80,26 +80,26 @@ function HeroSection({ restaurant }: { restaurant: any }) {
 
 function IntroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={ { backgroundColor: BRAND.pageBackground }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
       <div className="max-w-[900px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-3xl md:text-4xl mb-8"
-            style={ { fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
           >
             {restaurant.name}
           </h2>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            La Terraza celebrates the spirit of Costa Rica through cocktails that tell the story of the land. Every signature drink is rooted in local ingredients, traditions, and the Tico way of life — from Cacique Guaro to Dota Valley apples to market-stall caramels. The elevated terrace offers panoramic views of Arenal Volcano.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            More than a bar, La Terraza is a culinary terrace where Costa Rican terroir meets the art of the cocktail. The food menu features Italian-inspired dishes made with local ingredients — wood-fired pizzas, handmade pastas, and antipasti designed for sharing under the stars. It is the place where the day's adventures become the evening's stories.
           </p>
         </AnimateOnScroll>
       </div>
@@ -189,7 +189,7 @@ function CTASection() {
           >
             Ready to Experience This?
           </h2>
-          <Link href="/tented-camp/gastronomy">
+          <Link href="/gardens/gastronomy">
             <a
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
               style={ { backgroundColor: palette.primary }}

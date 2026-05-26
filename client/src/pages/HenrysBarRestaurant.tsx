@@ -80,26 +80,26 @@ function HeroSection({ restaurant }: { restaurant: any }) {
 
 function IntroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={ { backgroundColor: BRAND.pageBackground }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
       <div className="max-w-[900px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-3xl md:text-4xl mb-8"
-            style={ { fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
           >
             {restaurant.name}
           </h2>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            Named after the legendary explorer who first mapped the trails around Arenal, Henry's Bar is where adventure meets mixology. Handcrafted cocktails made with Costa Rican spirits, tropical fruits, and herbs from our garden — served in a setting that feels like a well-appointed explorer's club deep in the rainforest.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            The bar's atmosphere evokes the golden age of tropical exploration — leather-bound journals, botanical illustrations, and the warm glow of lanterns against the jungle night. Every cocktail tells a story: of the volcanic soil that grows the sugarcane, the highland coffee that infuses the liqueurs, the wild herbs foraged from the forest floor. This is not just a bar — it is a ritual of place.
           </p>
         </AnimateOnScroll>
       </div>

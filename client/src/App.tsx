@@ -111,24 +111,8 @@ const SuiteTilo = lazy(() => import("./pages/SuiteTilo"));
 const Kainga = lazy(() => import("./pages/Kainga"));
 const Maunga = lazy(() => import("./pages/Maunga"));
 
-/* ── Individual restaurant pages ── */
-const Ayla = lazy(() => import("./pages/restaurants/Ayla"));
-const HenrysBar = lazy(() => import("./pages/restaurants/HenrysBar"));
-const MisAmores = lazy(() => import("./pages/restaurants/MisAmores"));
-const MiCafecito = lazy(() => import("./pages/restaurants/MiCafecito"));
-const AmorLoco = lazy(() => import("./pages/restaurants/AmorLoco"));
-const LylasGelato = lazy(() => import("./pages/restaurants/LylasGelato"));
-const AsiaLuna = lazy(() => import("./pages/restaurants/AsiaLuna"));
-const LaTerraza = lazy(() => import("./pages/restaurants/LaTerraza"));
-const Nostalgia = lazy(() => import("./pages/restaurants/Nostalgia"));
-const CkelarRestaurant = lazy(() => import("./pages/CkelarRestaurant"));
-const QuinchoRestaurant = lazy(() => import("./pages/QuinchoRestaurant"));
-const BarPuriRestaurant = lazy(() => import("./pages/BarPuriRestaurant"));
-const ElephantHouseRestaurant = lazy(() => import("./pages/ElephantHouseRestaurant"));
-const CoralCafeRestaurant = lazy(() => import("./pages/CoralCafeRestaurant"));
-const PoeavaRestaurant = lazy(() => import("./pages/PoeavaRestaurant"));
-const KaloaLoungeRestaurant = lazy(() => import("./pages/KaloaLoungeRestaurant"));
-const VaikoaBarRestaurant = lazy(() => import("./pages/VaikoaBarRestaurant"));
+/* ── Individual restaurant pages (Costa Rica) ── */
+
 
 /* ── Shared Costa Rica deep pages (palette-swapped per property) ── */
 const CostaRicaExperiences = lazy(() => import("./pages/CostaRicaExperiences"));
@@ -201,7 +185,7 @@ function Router() {
           <Route path="/alto-atacama/rooms/catarpe" component={Catarpe} />
           <Route path="/alto-atacama/rooms/quitor" component={Quitor} />
           <Route path="/alto-atacama/rooms/suite-tilo" component={SuiteTilo} />
-          {/* Individual restaurant pages removed — all on /alto-atacama/gastronomy */}
+
           <Route path="/alto-atacama/experiences">{() => <CostaRicaExperiences propertySlug="alto-atacama" />}</Route>
           <Route path="/alto-atacama/wellness" component={AtacamaWellness} />
           <Route path="/alto-atacama/gastronomy" component={AtacamaGastronomy} />
@@ -253,9 +237,7 @@ function Router() {
           <Route path="/hangaroa/rooms" component={Hangaroa} />
           <Route path="/hangaroa/rooms/kainga" component={Hangaroa} />
           <Route path="/hangaroa/rooms/maunga" component={Hangaroa} />
-          <Route path="/hangaroa/gastronomy/poerava" component={HangaroaGastronomy} />
-          <Route path="/hangaroa/gastronomy/kaloa-lounge" component={HangaroaGastronomy} />
-          <Route path="/hangaroa/gastronomy/vaikoa-bar" component={HangaroaGastronomy} />
+
           <Route path="/hangaroa/experiences" component={Hangaroa} />
           <Route path="/hangaroa/wellness" component={Hangaroa} />
           <Route path="/hangaroa/gastronomy" component={HangaroaGastronomy} />
@@ -266,8 +248,7 @@ function Router() {
           <Route path="/bocas-del-toro/rooms/deluxe-overwater-villa" component={DeluxeOverwaterVilla} />
           <Route path="/bocas-del-toro/rooms/treehouse" component={Treehouse} />
           <Route path="/bocas-del-toro/rooms/premium-villa" component={PremiumVilla} />
-          <Route path="/bocas-del-toro/gastronomy/elephant-house" component={ElephantHouseRestaurant} />
-          <Route path="/bocas-del-toro/gastronomy/coral-cafe" component={CoralCafeRestaurant} />
+
           <Route path="/bocas-del-toro/experiences">{() => <CostaRicaExperiences propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/wellness">{() => <CostaRicaWellness propertySlug="bocas-del-toro" />}</Route>
           <Route path="/bocas-del-toro/gastronomy" component={BocasGastronomy} />

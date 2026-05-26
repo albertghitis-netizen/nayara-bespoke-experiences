@@ -688,6 +688,19 @@ const besameMucho: Restaurant = {
   sections: [],
 };
 
+const cielitoLindo: Restaurant = {
+  id: "cielito-lindo",
+  name: "Cielito Lindo",
+  property: "Nayara Springs",
+  propertySlug: "springs",
+  tagline: "Authentic Mexican Flavors in the Rainforest",
+  description:
+    "Cielito Lindo brings authentic Mexican flavors to Nayara Springs \u2014 from handmade tortillas and slow-cooked moles to fresh guacamole prepared tableside. The restaurant honors the rich culinary traditions of Mexico while embracing the tropical ingredients of Costa Rica's Arenal region.",
+  cuisine: "Mexican",
+  atmosphere: "Vibrant cantina with volcano views",
+  sections: [],
+};
+
 // ─── Property Dining Collections ─────────────────────────────
 export const gardensDining: PropertyDining = {
   propertyName: "Nayara Gardens",
@@ -704,7 +717,7 @@ export const springsDining: PropertyDining = {
   headline: "Elevated Dining for Discerning Palates",
   description:
     "Nayara Springs delivers an adults-only culinary experience — from the celebrated Amor Loco to romantic fine dining at Mis Amores, passionate Latin flavors at Besame Mucho, and artisanal coffee rituals at Mi Cafecito.",
-  restaurants: [amorLoco, misAmores, besameMucho, miCafecito],
+  restaurants: [amorLoco, misAmores, besameMucho, cielitoLindo, miCafecito],
 };
 
 export const tentedCampDining: PropertyDining = {
@@ -802,6 +815,7 @@ export const allRestaurants: Restaurant[] = [
   terraza,
   nostalgia,
   besameMucho,
+  cielitoLindo,
   poerava,
   kaloaLounge,
   vaikoaBar,

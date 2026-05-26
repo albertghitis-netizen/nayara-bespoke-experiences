@@ -37,14 +37,18 @@ export default function CielitoLindoRestaurant() {
 
 function HeroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden" style={ { backgroundColor: palette.primary }}>
+    <section className="relative w-full h-[60vh] md:h-[75vh] overflow-hidden" style={{ backgroundColor: palette.primary }}>
       <div className="absolute inset-0">
-        <img
-          loading="lazy"
-          src={restaurant.hero}
-          alt={restaurant.name}
-          className="w-full h-full object-cover"
-        />
+        {restaurant.hero ? (
+          <img
+            loading="lazy"
+            src={restaurant.hero}
+            alt={restaurant.name}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full" style={{ background: `linear-gradient(135deg, ${palette.primary}, ${palette.gradientStart || palette.primary})` }} />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60" />
       </div>
 
@@ -80,26 +84,26 @@ function HeroSection({ restaurant }: { restaurant: any }) {
 
 function IntroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={ { backgroundColor: BRAND.pageBackground }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
       <div className="max-w-[900px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-3xl md:text-4xl mb-8"
-            style={ { fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
           >
             {restaurant.name}
           </h2>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            Cielito Lindo brings authentic Mexican flavors to Nayara Springs — from handmade tortillas and slow-cooked moles to fresh guacamole prepared tableside. The restaurant honors the rich culinary traditions of Mexico while embracing the tropical ingredients of Costa Rica's Arenal region.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            Named after the beloved Mexican folk song, Cielito Lindo is a celebration of joy, color, and flavor. The menu spans the regional cuisines of Mexico — Oaxacan moles, Yucatecan cochinita, Baja-style fish tacos — each dish reinterpreted with local ingredients. Paired with mezcal flights and craft margaritas, this is Mexican cuisine as it was meant to be experienced: with soul, fire, and a view of the volcano.
           </p>
         </AnimateOnScroll>
       </div>
@@ -189,7 +193,7 @@ function CTASection() {
           >
             Ready to Experience This?
           </h2>
-          <Link href="/tented-camp/gastronomy">
+          <Link href="/springs/gastronomy">
             <a
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
               style={ { backgroundColor: palette.primary }}

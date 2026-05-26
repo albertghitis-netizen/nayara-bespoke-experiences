@@ -14,7 +14,7 @@ import { restaurants } from "@/data/culinaryImages";
 import { getPalette, BRAND } from "@/data/propertyPalettes";
 import { AnimateOnScroll, fadeUp } from "@/components/motion";
 
-const palette = getPalette("tented-camp");
+const palette = getPalette("gardens");
 
 export default function LaylasRestaurant() {
   const restaurant = restaurants.find((r) => r.slug === "laylas");
@@ -80,26 +80,26 @@ function HeroSection({ restaurant }: { restaurant: any }) {
 
 function IntroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={ { backgroundColor: BRAND.pageBackground }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
       <div className="max-w-[900px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-3xl md:text-4xl mb-8"
-            style={ { fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
           >
             {restaurant.name}
           </h2>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            Lyla's Gelato brings the Italian tradition of handcrafted gelato to the Arenal rainforest. Made fresh daily with tropical fruits from local farms — guanábana, passion fruit, mango, and Costa Rican chocolate — each scoop is a celebration of the land. The perfect pause between adventures.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            The gelato is churned in small batches using traditional Italian methods, but the flavors are unmistakably Costa Rican. Seasonal specials draw from whatever is ripest at the local farms — from Tarrazú coffee to volcanic honey to wild berries from the cloud forest. A charming garden-side counter where indulgence meets simplicity.
           </p>
         </AnimateOnScroll>
       </div>
@@ -189,7 +189,7 @@ function CTASection() {
           >
             Ready to Experience This?
           </h2>
-          <Link href="/tented-camp/gastronomy">
+          <Link href="/gardens/gastronomy">
             <a
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
               style={ { backgroundColor: palette.primary }}

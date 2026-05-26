@@ -14,7 +14,7 @@ import { restaurants } from "@/data/culinaryImages";
 import { getPalette, BRAND } from "@/data/propertyPalettes";
 import { AnimateOnScroll, fadeUp } from "@/components/motion";
 
-const palette = getPalette("tented-camp");
+const palette = getPalette("gardens");
 
 export default function NostalgiaRestaurant() {
   const restaurant = restaurants.find((r) => r.slug === "nostalgia");
@@ -80,26 +80,26 @@ function HeroSection({ restaurant }: { restaurant: any }) {
 
 function IntroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={ { backgroundColor: BRAND.pageBackground }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
       <div className="max-w-[900px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-3xl md:text-4xl mb-8"
-            style={ { fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
           >
             {restaurant.name}
           </h2>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            Nostalgia is an intimate wine bar offering a curated selection of Latin American and Old World wines paired with artisanal tapas. The setting is candlelit and unhurried — the perfect place for a quiet evening after a day of adventure in the Arenal rainforest.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            The wine list spans from the high-altitude vineyards of Argentina and Chile to the storied estates of Spain and France, each bottle selected for its story as much as its flavor. Paired with tapas crafted from local cheeses, cured meats, and seasonal produce from our gardens, Nostalgia transforms a glass of wine into a journey across continents.
           </p>
         </AnimateOnScroll>
       </div>
@@ -189,7 +189,7 @@ function CTASection() {
           >
             Ready to Experience This?
           </h2>
-          <Link href="/tented-camp/gastronomy">
+          <Link href="/gardens/gastronomy">
             <a
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
               style={ { backgroundColor: palette.primary }}

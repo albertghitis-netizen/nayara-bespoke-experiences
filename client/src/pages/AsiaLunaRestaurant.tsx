@@ -15,7 +15,7 @@ import { getPalette, BRAND } from "@/data/propertyPalettes";
 import { AnimateOnScroll, fadeUp } from "@/components/motion";
 import { useIsMobile } from "@/hooks/useMobile";
 
-const palette = getPalette("tented-camp");
+const palette = getPalette("gardens");
 
 export default function AsiaLunaRestaurant() {
   const restaurant = restaurants.find((r) => r.slug === "asia-luna");
@@ -83,26 +83,26 @@ function HeroSection({ restaurant }: { restaurant: any }) {
 
 function IntroSection({ restaurant }: { restaurant: any }) {
   return (
-    <section className="py-16 md:py-24 px-6 md:px-10" style={ { backgroundColor: BRAND.pageBackground }}>
+    <section className="py-16 md:py-24 px-6 md:px-10" style={{ backgroundColor: BRAND.pageBackground }}>
       <div className="max-w-[900px] mx-auto">
         <AnimateOnScroll variants={fadeUp}>
           <h2
             className="text-3xl md:text-4xl mb-8"
-            style={ { fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: palette.primary }}
           >
             {restaurant.name}
           </h2>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9] mb-6"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.cuisine}
+            Asia Luna brings the bold flavors of Thailand, Japan, and Vietnam to the Arenal rainforest. Dishes are crafted with locally sourced ingredients and presented in an open-air setting surrounded by tropical gardens. This is a Michelin-recognized dining experience — one of the few in Central America — where the precision of Asian technique meets the abundance of Costa Rican terroir.
           </p>
           <p
             className="text-[15px] md:text-[17px] leading-[1.9]"
-            style={ { fontFamily: "var(--font-body)", color: palette.secondary }}
+            style={{ fontFamily: "var(--font-body)", color: palette.secondary }}
           >
-            {restaurant.tagline}
+            The menu changes with the seasons, drawing from the morning harvest of our organic gardens and the daily catch from Pacific and Caribbean coasts. From delicate sashimi to fiery Thai curries, every plate is a bridge between two worlds — the ancient culinary traditions of Asia and the volcanic biodiversity of Arenal.
           </p>
         </AnimateOnScroll>
       </div>
@@ -192,7 +192,7 @@ function CTASection() {
           >
             Ready to Experience This?
           </h2>
-          <Link href="/tented-camp/gastronomy">
+          <Link href="/gardens/gastronomy">
             <a
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:scale-105"
               style={ { backgroundColor: palette.primary }}

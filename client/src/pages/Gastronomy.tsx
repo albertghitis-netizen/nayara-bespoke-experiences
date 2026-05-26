@@ -228,9 +228,9 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
           )}
           <button onClick={() => {
             const gastroRoutes: Record<string, string> = {
-              gardens: "/gardens/gastronomy",
-              springs: "/springs/gastronomy",
-              "tented-camp": "/tented-camp/gastronomy",
+              gardens: "/gardens",
+              springs: "/springs",
+              "tented-camp": "/tented-camp",
               "alto-atacama": "/alto-atacama/gastronomy",
               hangaroa: "/hangaroa/gastronomy",
               "bocas-del-toro": "/bocas-del-toro/gastronomy",
