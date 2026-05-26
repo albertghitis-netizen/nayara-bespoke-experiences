@@ -227,15 +227,28 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
             <span className="text-[#3B2B26]/20 text-[11px] italic" style={body}>Menu coming soon</span>
           )}
           <button onClick={() => {
+            // Costa Rica restaurants link to individual pages; others link to property gastronomy page
+            const individualRoutes: Record<string, string> = {
+              "ayla": "/tented-camp/gastronomy/ayla",
+              "henrys-bar": "/tented-camp/gastronomy/henrys-bar",
+              "lapas-bar": "/tented-camp/gastronomy/lapas-pool-bar",
+              "asia-luna": "/gardens/gastronomy/asia-luna",
+              "la-terraza": "/gardens/gastronomy/la-terraza",
+              "lylas-gelato": "/gardens/gastronomy/lylas-gelato",
+              "nostalgia": "/gardens/gastronomy/nostalgia",
+              "mis-amores": "/springs/gastronomy/mis-amores",
+              "mi-cafecito": "/springs/gastronomy/mi-cafecito",
+              "amor-loco": "/springs/gastronomy/amor-loco",
+              "besame-mucho": "/springs/gastronomy/besame-mucho",
+              "cielito-lindo": "/springs/gastronomy/cielito-lindo",
+            };
             const gastroRoutes: Record<string, string> = {
-              gardens: "/gardens",
-              springs: "/springs",
-              "tented-camp": "/tented-camp",
               "alto-atacama": "/alto-atacama/gastronomy",
               hangaroa: "/hangaroa/gastronomy",
               "bocas-del-toro": "/bocas-del-toro/gastronomy",
             };
-            onNavigate(gastroRoutes[restaurant.propertySlug] || route);
+            const target = individualRoutes[restaurant.id] || gastroRoutes[restaurant.propertySlug] || route;
+            onNavigate(target);
           }} className="text-[#c9b99a] text-[11px] tracking-[0.08em] hover:text-[#3B2B26] transition-colors" style={{ ...body, fontWeight: 500 }}>
             Explore More →
           </button>
