@@ -150,7 +150,7 @@ const GARDENS_ROOMS: RoomSliderCard[] = [
     sqft: "2,002",
     sqm: "186",
     guests: "2 Adults + 2 Children",
-    video: "/manus-storage/gardens-rpv-smooth_88331597.mp4",
+    video: "/manus-storage/gardens-rpv-smooth-hq_70cbd697.mp4",
     photo: "/manus-storage/gardens-mobile-hero-still_61f8ec33.jpg",
     exploreLink: "/gardens/rooms/rainforest-pool-villa",
     bookingUrl: BOOKING_URLS.gardens,
