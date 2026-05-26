@@ -37,7 +37,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const JOURNAL_CDN = {
-  heroVideoDesktop: "/manus-storage/journal-hero-noaudio_863733fa.mp4",
+  heroVideoDesktop: "/manus-storage/journal-horizontal_7e87c4c6.mp4",
   heroVideoMobile: "/manus-storage/journal-hero-vertical-final_f0f7697e.mp4",
 };
 
