@@ -34,19 +34,8 @@ const GASTRO_CDN = {
 
 /* ── Property filter tabs (now handled by HotelFilterBar3) ── */
 
-/* ── Cuisine badge colors ── */
-const cuisineColors: Record<string, string> = {
-  "Cocktail Bar": "bg-amber-100 text-amber-800",
-  "Cocktail Bar & Terrace": "bg-amber-100 text-amber-800",
-  "Pan-Asian Fusion": "bg-rose-100 text-rose-800",
-  "Latin American": "bg-orange-100 text-orange-800",
-  "Coffee House & Breakfast": "bg-yellow-100 text-yellow-800",
-  "Wine Bar & Tapas": "bg-purple-100 text-purple-800",
-  "Pacific Island & Chilean": "bg-teal-100 text-teal-800",
-  "Chilean Desert Cuisine": "bg-red-100 text-red-800",
-  "Caribbean & Panamanian": "bg-cyan-100 text-cyan-800",
-  "Spa & Wellness": "bg-emerald-100 text-emerald-800",
-};
+/* ── Cuisine badge color — unified grey for all ── */
+const CUISINE_BADGE_CLASS = "bg-stone-100 text-stone-600";
 
 /* ── Route map for property slugs ── */
 const propertyRoutes: Record<string, string> = {
@@ -211,7 +200,7 @@ function PropertySections({ filtered, navigate }: { filtered: PropertyDining[]; 
 function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaurant; index: number; onNavigate: (path: string) => void }) {
   const hasMenu = restaurant.sections.length > 0;
   const totalItems = restaurant.sections.reduce((acc, s) => acc + s.items.length, 0);
-  const colorClass = cuisineColors[restaurant.cuisine] || "bg-stone-100 text-stone-700";
+  const colorClass = CUISINE_BADGE_CLASS;
   const route = propertyRoutes[restaurant.propertySlug] || `/${restaurant.propertySlug}`;
 
   return (
@@ -223,9 +212,6 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
     >
       <div className="h-0.5 bg-gradient-to-r from-[#c9b99a]/40 to-transparent" />
       <div className="p-6 flex-1 flex flex-col">
-        <span className={`inline-block self-start px-3 py-1 rounded-full text-[10px] tracking-[0.08em] mb-4 ${colorClass}`} style={{ ...body, fontWeight: 500 }}>
-          {restaurant.cuisine}
-        </span>
         <h3 className="text-[#3B2B26] text-lg mb-1" style={{ ...heading, fontWeight: 500 }}>{restaurant.name}</h3>
         <p className="text-[#c9b99a] text-[11px] tracking-[0.04em] italic mb-3" style={body}>{restaurant.tagline}</p>
         <p className="text-[#4B4A4A]/55 text-[13px] leading-relaxed mb-4 flex-1 line-clamp-3" style={body}>
@@ -240,8 +226,18 @@ function RestaurantCard({ restaurant, index, onNavigate }: { restaurant: Restaur
           ) : (
             <span className="text-[#3B2B26]/20 text-[11px] italic" style={body}>Menu coming soon</span>
           )}
-          <button onClick={() => onNavigate(route)} className="text-[#c9b99a] text-[11px] tracking-[0.08em] hover:text-[#3B2B26] transition-colors" style={{ ...body, fontWeight: 500 }}>
-            View Property →
+          <button onClick={() => {
+            const gastroRoutes: Record<string, string> = {
+              gardens: "/gardens/gastronomy",
+              springs: "/springs/gastronomy",
+              "tented-camp": "/tented-camp/gastronomy",
+              "alto-atacama": "/alto-atacama/gastronomy",
+              hangaroa: "/hangaroa/gastronomy",
+              "bocas-del-toro": "/bocas-del-toro/gastronomy",
+            };
+            onNavigate(gastroRoutes[restaurant.propertySlug] || route);
+          }} className="text-[#c9b99a] text-[11px] tracking-[0.08em] hover:text-[#3B2B26] transition-colors" style={{ ...body, fontWeight: 500 }}>
+            Explore More →
           </button>
         </div>
       </div>

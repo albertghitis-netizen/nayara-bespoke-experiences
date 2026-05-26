@@ -1,17 +1,18 @@
 /**
  * HotelFilterBar Variant 3 , Pill-style filter for all brand pages
  * For: Journal, Gastronomy, Gallery, Sustainability, Wellness, Experiences, Press & Awards
+ * Uses brand colors for each property's active state
  */
 
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 const HOTEL_OPTIONS = [
-  { id: "gardens", label: "Gardens" },
-  { id: "bocas-del-toro", label: "Bocas del Toro" },
-  { id: "springs", label: "Springs" },
-  { id: "hangaroa", label: "Hangaroa" },
-  { id: "alto-atacama", label: "Alto Atacama" },
-  { id: "tented-camp", label: "Tented Camp" },
+  { id: "gardens", label: "Gardens", color: "#286241" },         // Clover Green
+  { id: "bocas-del-toro", label: "Bocas del Toro", color: "#1E3A8A" }, // Navy
+  { id: "springs", label: "Springs", color: "#0E6B7E" },         // Teal
+  { id: "hangaroa", label: "Hangaroa", color: "#536878" },       // Steel Grey
+  { id: "alto-atacama", label: "Alto Atacama", color: "#B85C3C" }, // Middle Terracotta
+  { id: "tented-camp", label: "Tented Camp", color: "#868B75" }, // Olive Green
 ];
 
 interface HotelFilterBarProps {
@@ -34,10 +35,14 @@ export default function HotelFilterBar3({ activeHotel, onHotelChange, label = "F
               onClick={() => onHotelChange(opt.id)}
               className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase transition-all duration-300 ${
                 activeHotel === opt.id
-                  ? "bg-[#3B2B26] text-white"
+                  ? "text-white"
                   : "bg-stone-100 text-[#3B2B26]/60 hover:bg-stone-200 hover:text-[#3B2B26]"
               }`}
-              style={{ ...body, fontWeight: 500 }}
+              style={{
+                ...body,
+                fontWeight: 500,
+                ...(activeHotel === opt.id ? { backgroundColor: opt.color } : {}),
+              }}
             >
               {opt.label}
             </button>

@@ -1,18 +1,18 @@
 /**
  * HotelFilterBar , Shared filter component for all brand pages
  * Displays 6 hotel options without "All" option
+ * Uses brand colors for each property's active state
  */
 
-const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 const HOTEL_OPTIONS = [
-  { id: "alto-atacama", label: "Alto Atacama" },
-  { id: "bocas-del-toro", label: "Bocas del Toro" },
-  { id: "gardens", label: "Gardens" },
-  { id: "hangaroa", label: "Hangaroa" },
-  { id: "springs", label: "Springs" },
-  { id: "tented-camp", label: "Tented Camp" },
+  { id: "alto-atacama", label: "Alto Atacama", color: "#B85C3C" },   // Middle Terracotta
+  { id: "bocas-del-toro", label: "Bocas del Toro", color: "#1E3A8A" }, // Navy
+  { id: "gardens", label: "Gardens", color: "#286241" },             // Clover Green
+  { id: "hangaroa", label: "Hangaroa", color: "#536878" },           // Steel Grey
+  { id: "springs", label: "Springs", color: "#0E6B7E" },             // Teal
+  { id: "tented-camp", label: "Tented Camp", color: "#868B75" },     // Olive Green
 ];
 
 interface HotelFilterBarProps {
@@ -34,10 +34,14 @@ export default function HotelFilterBar({ activeHotel, onHotelChange }: HotelFilt
               onClick={() => onHotelChange(opt.id)}
               className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
                 activeHotel === opt.id
-                  ? "bg-[#3B2B26] text-white border-[#3B2B26]"
+                  ? "text-white border-transparent"
                   : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
               }`}
-              style={{ ...body, fontWeight: 500 }}
+              style={{
+                ...body,
+                fontWeight: 500,
+                ...(activeHotel === opt.id ? { backgroundColor: opt.color } : {}),
+              }}
             >
               {opt.label}
             </button>

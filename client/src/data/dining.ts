@@ -603,112 +603,74 @@ const poerava: Restaurant = {
   ],
 };
 
-// ─── Bocas del Toro , Spa & Wellness Menu ────────────────────
-const bocasSpa: Restaurant = {
-  id: "bocas-spa",
-  name: "Nayara Spa",
+// ─── Bocas del Toro , The Coral Cafe ────────────────────
+const coralCafe: Restaurant = {
+  id: "coral-cafe",
+  name: "The Coral Cafe",
   property: "Nayara Bocas del Toro",
   propertySlug: "bocas-del-toro",
-  tagline: "Caribbean Wellness Over the Water",
+  tagline: "Laid-back Al Fresco Dining",
   description:
-    "The overwater spa at Nayara Bocas del Toro offers treatments inspired by the Caribbean jungle and sea. With the sound of waves beneath you and the jungle canopy above, each treatment is a journey into deep relaxation.",
-  cuisine: "Spa & Wellness",
-  atmosphere: "Overwater pavilion surrounded by Caribbean waters",
-  hours: "Daily 9:00 AM – 7:00 PM",
-  sections: [
-    {
-      title: "Massage Treatments",
-      items: [
-        {
-          name: "Bliss Massage",
-          description:
-            "There is no better way to enhance your experience in Bocas del Toro than with a full body Swedish relaxation massage to soothe your body and mind.",
-          price: "1 hour , $120 · 90 minutes , $180",
-        },
-        {
-          name: "The Jungle Rub",
-          description:
-            "Deep in the Jungle , utilizing deep-tissue techniques to knead away built-up tension. Your seasoned massage therapist will apply pressure to specific points. Perfect for precise relaxation.",
-          price: "1 hour , $120 · 90 minutes , $180",
-        },
-      ],
-    },
-    {
-      title: "Face & Body",
-      items: [
-        {
-          name: "Deep Cleansing Facial",
-          description:
-            'This facial is perfect for that deep-cleaning experience to detoxify and rejuvenate. This treatment offers you the chance to "clean house" on your face, cleansing and hydrating your skin. Scalp, neck, and hand massages are included in this indulgent experience.',
-          price: "1 hour , $120 · 90 minutes , $180",
-        },
-        {
-          name: "Reflexology",
-          description:
-            "Reflexology is a massage that works on the points found in the feet which connect to the body. At the same time it helps you to relax the whole body.",
-          price: "1 hour , $120 · 90 minutes , $180",
-        },
-      ],
-    },
-  ],
+    "The Coral Cafe is where mornings and afternoons unfold at Nayara Bocas del Toro — casual poolside dining with locally sourced ingredients, fresh seafood from Bocas fishermen, tropical fruits, and Caribbean flavors. Breakfast and lunch served al fresco with views over the turquoise Caribbean.",
+  cuisine: "Caribbean & Panamanian",
+  atmosphere: "Casual poolside al fresco dining",
+  hours: "Daily 7:00 AM – 3:00 PM",
+  sections: [],
 };
 
-// ─── Alto Atacama , Dining ───────────────────────────────────
-const atacamaDining: Restaurant = {
-  id: "atacama-dining",
-  name: "Alto Atacama Restaurant",
+// ─── Alto Atacama , Ckelar Restaurant ────────────────────────
+const ckelar: Restaurant = {
+  id: "ckelar",
+  name: "Ckelar",
   property: "Nayara Alto Atacama",
   propertySlug: "alto-atacama",
-  tagline: "Desert Dining Under the Clearest Skies on Earth",
+  tagline: "Chilean Desert Cuisine",
   description:
-    "The restaurant at Nayara Alto Atacama celebrates the flavors of northern Chile and the Atacama region. Using ingredients from the desert oasis , quinoa, local herbs, llama, and fresh produce from the resort's own gardens , the culinary team creates dishes that honor the land. Paired with Chilean wines from the nearby valleys, every meal is a journey through the desert's hidden abundance.",
+    "Our gastronomy is deeply connected to the surroundings — most of our vegetables come from our Andean Garden. Whether you are a wine aficionado or a connoisseur, you will enjoy Chile's unique grapes and our collection of top-of-the-line local wines.",
   cuisine: "Chilean Desert Cuisine",
   atmosphere: "Adobe-walled dining room with canyon and Andes views",
-  sections: [
-    {
-      title: "Signature Dishes",
-      subtitle: "Highlights from the Atacama kitchen",
-      items: [
-        {
-          name: "Atacama Ceviche",
-          description:
-            "Fresh fish cured in citrus with Atacama herbs, quinoa crisps, and ají amarillo.",
-          isLocal: true,
-        },
-        {
-          name: "Desert Garden Salad",
-          description:
-            "Greens from our oasis garden, toasted quinoa, goat cheese, and prickly pear vinaigrette.",
-          isVegetarian: true,
-          isLocal: true,
-        },
-        {
-          name: "Llama Tenderloin",
-          description:
-            "Grilled llama with Andean potatoes, chimichurri, and roasted desert vegetables.",
-          isLocal: true,
-        },
-        {
-          name: "Chilean Sea Bass",
-          description:
-            "Pan-seared sea bass with saffron risotto and a reduction of Chilean Carménère.",
-        },
-      ],
-    },
-  ],
+  sections: [],
 };
 
-// ─── Bocas del Toro , Dining ─────────────────────────────────
-const bocasDining: Restaurant = {
-  id: "bocas-dining",
-  name: "Overwater Restaurant",
+// ─── Alto Atacama , Quincho ───────────────────────────────
+const quincho: Restaurant = {
+  id: "quincho",
+  name: "Quincho",
+  property: "Nayara Alto Atacama",
+  propertySlug: "alto-atacama",
+  tagline: "South American Asado",
+  description:
+    "Our Atacameño Quincho is an outdoor barbecue pavilion where we grill different cuts of meat, corn, and potatoes. The 'Asado,' as this way of cooking is generally called, is a cooking tradition of South America. Eating outdoors in the shade overlooking the Andes mountains and the Atacama Desert is an extraordinary experience.",
+  cuisine: "Open-Fire Grilling",
+  atmosphere: "Outdoor barbecue pavilion overlooking the Andes",
+  sections: [],
+};
+
+// ─── Alto Atacama , Bar Puri ─────────────────────────────
+const barPuri: Restaurant = {
+  id: "bar-puri",
+  name: "Bar Puri",
+  property: "Nayara Alto Atacama",
+  propertySlug: "alto-atacama",
+  tagline: "An Intimate Bar",
+  description:
+    "The highlight of your gastronomic experience in the Atacama Desert can be a Wine Pairing dinner with our hand-picked collection of Chile's top wines. This can be a wonderful introduction to the best vineyards in the area.",
+  cuisine: "Wine & Cocktails",
+  atmosphere: "Intimate poolside bar",
+  sections: [],
+};
+
+// ─── Bocas del Toro , Elephant House ─────────────────────────
+const elephantHouse: Restaurant = {
+  id: "elephant-house",
+  name: "The Elephant House",
   property: "Nayara Bocas del Toro",
   propertySlug: "bocas-del-toro",
-  tagline: "Caribbean Flavors Above the Coral Reef",
+  tagline: "Our Signature Fine Dining",
   description:
-    "Dining at Nayara Bocas del Toro is an all-inclusive Caribbean experience. The overwater restaurant serves fresh seafood caught daily, tropical fruits, and dishes inspired by Afro-Caribbean, Ngäbe-Buglé indigenous, and Panamanian culinary traditions. With the turquoise Caribbean visible through the glass floor beneath your table, every meal is unforgettable.",
-  cuisine: "Caribbean & Panamanian",
-  atmosphere: "Overwater dining pavilion with glass floor panels",
+    "The majestic Elephant House is a 100-year-old structure shipped halfway around the world from Bali, Indonesia. Led by executive chef Joseph Archbold — a Bocas del Toro native with international training — the menu changes daily, featuring world cuisine crafted from locally sourced ingredients and fresh seafood from Bocas fishermen. Overwater fine dining where every evening is unforgettable.",
+  cuisine: "World Cuisine",
+  atmosphere: "Historic Balinese overwater fine dining",
   sections: [],
 };
 
@@ -763,22 +725,50 @@ export const costaRicaDining: PropertyDining = {
   restaurants: [ayla, henrysBar, misAmores, miCafecito, amorLoco, asiaLuna, lylasGelato, terraza, nostalgia, besameMucho],
 };
 
+// ─── Hangaroa , Kaloa Lounge ────────────────────────────
+const kaloaLounge: Restaurant = {
+  id: "kaloa-lounge",
+  name: "Kaloa",
+  property: "Nayara Hangaroa",
+  propertySlug: "hangaroa",
+  tagline: "Lounge",
+  description:
+    "Kaloa Lounge offers a relaxed atmosphere where guests gather to share small plates inspired by the Pacific. With panoramic views of the island's volcanic landscape, it's the perfect setting for sunset cocktails and light bites that celebrate the ocean's bounty.",
+  cuisine: "Pacific Tapas & Cocktails",
+  atmosphere: "Relaxed lounge with panoramic volcanic views",
+  sections: [],
+};
+
+// ─── Hangaroa , Vaikoa Bar ──────────────────────────────
+const vaikoaBar: Restaurant = {
+  id: "vaikoa-bar",
+  name: "Vaikoa",
+  property: "Nayara Hangaroa",
+  propertySlug: "hangaroa",
+  tagline: "Bar",
+  description:
+    "Vaikoa Bar is an intimate space where the island's spirit comes alive through craft cocktails. Our bartenders blend local ingredients — guava, passion fruit, native herbs — with premium spirits to create drinks that capture the essence of Rapa Nui's volcanic terroir.",
+  cuisine: "Craft Cocktails & Island Spirits",
+  atmosphere: "Intimate cocktail bar",
+  sections: [],
+};
+
 export const hangaroaDining: PropertyDining = {
   propertyName: "Nayara Hangaroa",
   propertySlug: "hangaroa",
   headline: "Pacific Island Cuisine with Rapa Nui Soul",
   description:
-    "Poerava is the culinary heart of Nayara Hangaroa, where every dish carries a name in both Spanish and Rapa Nui. The menu celebrates local seafood, Chilean wines, and island traditions , from Ceviche Rapa Nui to homemade pasta and traditional desserts.",
-  restaurants: [poerava],
+    "Poerava is the culinary heart of Nayara Hangaroa, where Polynesian traditions meet Chilean gastronomy. Kaloa Lounge offers Pacific tapas with volcanic views, and Vaikoa Bar captures the island's spirit through craft cocktails.",
+  restaurants: [poerava, kaloaLounge, vaikoaBar],
 };
 
 export const bocasDiningCollection: PropertyDining = {
   propertyName: "Nayara Bocas del Toro",
   propertySlug: "bocas-del-toro",
-  headline: "All-Inclusive Caribbean Dining & Overwater Spa",
+  headline: "An Unexpected Culinary Journey",
   description:
-    "At Nayara Bocas del Toro, dining is all-inclusive. Fresh Caribbean seafood, tropical fruits, and Panamanian flavors are served in an overwater setting above the coral reef. The spa offers treatments inspired by the jungle and sea.",
-  restaurants: [bocasDining, bocasSpa],
+    "At Nayara Bocas del Toro, dining is an all-inclusive experience. The Elephant House offers signature fine dining in a century-old Balinese structure over the water, while The Coral Cafe serves laid-back al fresco meals poolside with Caribbean flavors and locally sourced ingredients.",
+  restaurants: [elephantHouse, coralCafe],
 };
 
 export const atacamaDiningCollection: PropertyDining = {
@@ -786,8 +776,8 @@ export const atacamaDiningCollection: PropertyDining = {
   propertySlug: "alto-atacama",
   headline: "Desert Dining in the Driest Place on Earth",
   description:
-    "The culinary program at Nayara Alto Atacama draws from the hidden abundance of the Atacama Desert , quinoa, local herbs, llama, and produce from the resort's oasis gardens. Paired with wines from Chile's finest valleys, every meal tells the story of this extraordinary landscape.",
-  restaurants: [atacamaDining],
+    "The culinary program at Nayara Alto Atacama draws from the hidden abundance of the Atacama Desert — from Ckelar's Chilean cuisine rooted in the Andean Garden, to Quincho's open-fire South American asado, to Bar Puri's intimate wine pairings with Chile's finest.",
+  restaurants: [ckelar, quincho, barPuri],
 };
 
 // ─── All Dining Data ─────────────────────────────────────────
@@ -813,7 +803,11 @@ export const allRestaurants: Restaurant[] = [
   nostalgia,
   besameMucho,
   poerava,
-  atacamaDining,
-  bocasDining,
-  bocasSpa,
+  kaloaLounge,
+  vaikoaBar,
+  ckelar,
+  quincho,
+  barPuri,
+  elephantHouse,
+  coralCafe,
 ];
