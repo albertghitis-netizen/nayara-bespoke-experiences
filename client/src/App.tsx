@@ -31,6 +31,7 @@ const Experiences = lazy(() => import("./pages/Experiences"));
 const Wellness = lazy(() => import("./pages/TentedWellness"));
 const CostaRicaWellnessBrand = lazy(() => import("./pages/NurturedByNature"));
 
+const ExploreArenal = lazy(() => import("./pages/ExploreArenal"));
 const Gastronomy = lazy(() => import("./pages/Gastronomy"));
 const TentedCamp = lazy(() => import("./pages/TentedCamp"));
 const TentedExperiences = lazy(() => import("./pages/TentedExperiences"));
@@ -207,6 +208,7 @@ function Router() {
           <Route path="/alto-atacama/stargazing" component={Stargazing} />
           {/* Costa Rica is now a dropdown menu only, not a page */}
           <Route path="/curated-excursions" component={CuratedExcursions} />
+          <Route path="/explore-arenal" component={ExploreArenal} />
 
           <Route path="/family-expeditions" component={FamilyExpeditions} />
           <Route path="/romance" component={RainforestRomance} />
@@ -228,7 +230,6 @@ function Router() {
           {/* ARCHIVED ROUTE: /gardens/rooms - Component file still exists */}
           <Route path="/gardens/rooms/arenal-pool-casita" component={ArenalPoolCasita} />
           <Route path="/gardens/rooms/rainforest-pool-villa" component={RainforestPoolVilla} />
-          <Route path="/gardens/experiences">{() => <CostaRicaExperiences propertySlug="gardens" />}</Route>
           <Route path="/gardens/wellness">{() => <CostaRicaWellness propertySlug="gardens" />}</Route>
           <Route path="/gardens/sustainability">{() => <CostaRicaSustainability propertySlug="gardens" />}</Route>
           <Route path="/gardens/gastronomy/lylas-gelato" component={LaylasRestaurant} />
@@ -239,7 +240,6 @@ function Router() {
           <Route path="/springs" component={Springs} />
           {/* ARCHIVED ROUTE: /springs/rooms - Component file still exists */}
           <Route path="/springs/rooms/springs-villa" component={SpringsVilla} />
-          <Route path="/springs/experiences">{() => <CostaRicaExperiences propertySlug="springs" />}</Route>
           <Route path="/springs/wellness">{() => <CostaRicaWellness propertySlug="springs" />}</Route>
           <Route path="/springs/sustainability">{() => <CostaRicaSustainability propertySlug="springs" />}</Route>
           <Route path="/springs/gastronomy/mis-amores" component={MisAmoresRestaurant} />

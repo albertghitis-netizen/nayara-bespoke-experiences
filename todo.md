@@ -3959,3 +3959,15 @@
 - [x] Fix desktop video preloading on mobile — conditionally not render video elements on mobile to prevent bandwidth waste
 - [x] Gardens: replace all non-accommodation videos with stills on mobile (experiences, sustainability, gastronomy, gallery, rooms)
 - [x] Springs: replace S3 accommodation video with still on mobile (NO video anywhere on Springs mobile)
+
+## Blueprint Updates (Nayara Tent + Family Tent)
+- [x] Rewrite TentBP: bathroom at top (indoor shower near roof, vanities below, "Bathroom" label centered), king bed center, daybeds flanking, terrace at bottom with plunge pool inside
+- [x] Add useInView grow animation to FloorPlanExplorer (elements draw in on scroll)
+- [x] Move FloorPlanExplorer higher on NayaraTent page (after FullBleedBreak)
+- [x] Swap NayaraTent S1 image to aerial tent/volcano photo
+- [x] Rewrite FamilyBP with same inline motion/grow style (primary tent + connecting room with 2 queens)
+- [x] Move FloorPlanExplorer higher on FamilyTent page (after FullBleedBreak)
+- [x] Update family viewBox to show full terrace and pool
+
+## Gastronomy Pillar Page — Add All Restaurants
+- [ ] Add all restaurants from Gardens, Tented Camp, and Springs Costa Rica gastronomy pages

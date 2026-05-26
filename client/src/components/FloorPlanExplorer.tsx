@@ -22,7 +22,7 @@
  * Olive/bone palette with hand-drawn feel.
  */
 import { useState, useRef, useCallback, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 
 /* ── Palette (matches Tented Camp olive) ── */
 const C = {
@@ -88,9 +88,10 @@ const TIERS: TierInfo[] = [
     features: [
       "4-poster king bed with mosquito net",
       "2 twin-size daybeds",
-      "Private plunge pool from hot springs",
-      "Outdoor rain shower",
-      "Large bathtub & dual vanity",
+      "Private hot springs plunge pool",
+      "Oversized bathroom with dual vanities",
+      "Indoor & outdoor double-head showers",
+      "Private terrace with volcano views",
     ],
   },
   {
@@ -593,87 +594,525 @@ function Compass({ x, y }: { x: number; y: number }) {
 /* ══════════════════════════════════════════════════════════════════
    NAYARA TENT BLUEPRINT
    ══════════════════════════════════════════════════════════════════ */
-function TentBP() {
-  const tx = 100, ty = 80, tw = 200, th = 180;
+function TentBP({ isInView = true }: { isInView?: boolean }) {
+  // Unified tent layout: bathroom (top) → bed+daybeds (middle) → terrace with pool (bottom)
+  const tx = 100, ty = 60, tw = 200, th = 260;
+  // Bathroom occupies top ~90px of tent
+  const bathY = ty + 12;
+  // Divider between bath and bedroom
+  const dividerY = ty + 100;
+  // Bed zone
+  const bedY = dividerY + 15;
+  // Terrace (full deck below tent, pool inside)
+  const terrY = ty + th + 10;
+  const terrW = tw + 20;
+  const terrH = 90;
+  const terrX = tx - 10;
+
+  // Grow helpers — only animate when in view
+  const draw = (delay: number) => ({
+    initial: { pathLength: 0, opacity: 0 },
+    animate: isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 },
+    transition: { duration: 0.9, delay, ease: "easeOut" as const },
+  });
+  const fade = (delay: number, op = 1) => ({
+    initial: { opacity: 0 },
+    animate: isInView ? { opacity: op } : { opacity: 0 },
+    transition: { duration: 0.6, delay, ease: "easeOut" as const },
+  });
+  const grow = (delay: number) => ({
+    initial: { opacity: 0, scale: 0.8 },
+    animate: isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 },
+    transition: { duration: 0.7, delay, ease: EASE },
+  });
+
   return (
     <g>
-      {/* Terrace , left side */}
-      <Terrace x={tx - 35} y={ty + 20} w={30} h={120} delay={0.2} />
-      {/* Tent outline */}
-      <Room path={rr(tx, ty, tw, th, 8)} delay={0} fill={`${C.paper}90`} hover />
-      {/* Tent peak detail */}
-      <motion.line x1={tx + tw / 2} y1={ty - 6} x2={tx + tw / 2} y2={ty + 6}
-        stroke={C.wallLight} strokeWidth={0.6} strokeDasharray="4 3"
-        initial={{ opacity: 0 }} animate={{ opacity: 0.2 }}
-        transition={{ duration: 0.6, delay: 0.6 }} />
-      <motion.line x1={tx + 20} y1={ty - 3} x2={tx + tw - 20} y2={ty - 3}
-        stroke={C.wallLight} strokeWidth={0.4}
-        initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }} />
+      {/* ═══ TENT OUTLINE (single unified structure) ═══ */}
+      <motion.path
+        d={rr(tx, ty, tw, th, 6)}
+        fill={`${C.paper}90`}
+        stroke={C.wall}
+        strokeWidth={1.5}
+        strokeLinejoin="round"
+        {...draw(0)}
+      />
+
+      {/* ── BATHROOM (top zone) ── */}
+      {/* Divider line */}
+      <motion.line x1={tx + 12} y1={dividerY} x2={tx + tw - 12} y2={dividerY}
+        stroke={C.wallLight} strokeWidth={0.8} strokeDasharray="5 3"
+        {...draw(0.8)} />
+
+      {/* Indoor Double-Head Shower (top, near tent outline) */}
+      <motion.g {...fade(1.0, 0.5)}>
+        <rect x={tx + tw / 2 - 24} y={bathY + 4} width={48} height={24} rx={3}
+          fill={`${C.pool}12`} stroke={C.pool} strokeWidth={0.7} />
+        <circle cx={tx + tw / 2 - 8} cy={bathY + 16} r={5}
+          fill="none" stroke={C.pool} strokeWidth={0.5} />
+        <circle cx={tx + tw / 2 + 8} cy={bathY + 16} r={5}
+          fill="none" stroke={C.pool} strokeWidth={0.5} />
+        <text x={tx + tw / 2} y={bathY + 34} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.3} style={mono}>Indoor Shower</text>
+      </motion.g>
+
+      {/* Left Vanity */}
+      <motion.g {...fade(1.2, 0.55)}>
+        <rect x={tx + 12} y={bathY + 42} width={40} height={20} rx={3}
+          fill={C.bath} stroke={C.bathStroke} strokeWidth={0.6} />
+        <circle cx={tx + 22} cy={bathY + 38} r={6}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.5} />
+        <circle cx={tx + 42} cy={bathY + 38} r={6}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.5} />
+        <text x={tx + 32} y={bathY + 68} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.35} style={mono}>Vanity</text>
+      </motion.g>
+
+      {/* Right Vanity */}
+      <motion.g {...fade(1.3, 0.55)}>
+        <rect x={tx + tw - 52} y={bathY + 42} width={40} height={20} rx={3}
+          fill={C.bath} stroke={C.bathStroke} strokeWidth={0.6} />
+        <circle cx={tx + tw - 42} cy={bathY + 38} r={6}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.5} />
+        <circle cx={tx + tw - 22} cy={bathY + 38} r={6}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.5} />
+        <text x={tx + tw - 32} y={bathY + 68} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.35} style={mono}>Vanity</text>
+      </motion.g>
+
+      {/* Bathroom label (centered between vanities) */}
+      <motion.text x={tx + tw / 2} y={bathY + 56} textAnchor="middle"
+        fill={C.text} fontSize={7} fontWeight={400}
+        style={{ fontFamily: "var(--font-display)", letterSpacing: "0.05em" }}
+        {...fade(1.5, 0.45)}>
+        Bathroom
+      </motion.text>
+
+      {/* Outdoor Double-Head Shower (dashed = outdoor) */}
+      <motion.g {...fade(1.7, 0.4)}>
+        <rect x={tx + tw / 2 - 26} y={ty - 30} width={52} height={24} rx={3}
+          fill={`${C.pool}08`} stroke={C.pool} strokeWidth={0.6} strokeDasharray="3 2" />
+        <circle cx={tx + tw / 2 - 8} cy={ty - 18} r={5}
+          fill="none" stroke={C.pool} strokeWidth={0.4} strokeDasharray="2 1.5" />
+        <circle cx={tx + tw / 2 + 8} cy={ty - 18} r={5}
+          fill="none" stroke={C.pool} strokeWidth={0.4} strokeDasharray="2 1.5" />
+        <text x={tx + tw / 2} y={ty - 36} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.25} style={mono}>Outdoor Shower</text>
+      </motion.g>
+
+      {/* ── BEDROOM (center zone) ── */}
       {/* King Bed */}
-      <Bed x={tx + 60} y={ty + 100} w={80} h={60} label="King Bed" delay={0.3} isKing showRug />
-      {/* Day beds */}
-      <Daybed x={tx + 15} y={ty + 20} w={55} h={42} delay={0.5} />
-      <Daybed x={tx + 130} y={ty + 20} w={55} h={42} delay={0.55} />
-      {/* Bathroom */}
-      <BathRoom x={tx + tw - 65} y={ty + th - 55} w={55} h={45} delay={0.4} />
-      {/* Door arcs */}
-      <DoorArc cx={tx} cy={ty + th / 2} r={14} startAngle={-90} delay={0.3} />
-      <DoorArc cx={tx + tw - 65} cy={ty + th - 55} r={10} startAngle={180} delay={0.5} />
-      {/* Pool */}
-      <Pool cx={tx + tw / 2} cy={ty - 42} w={65} h={65} delay={0.6} />
-      {/* Labels */}
-      <Label x={tx + tw / 2} y={ty + th + 22} text="Nayara Tent" sub="157.9 sqm · 1,700 sq ft" delay={0.2} />
-      {/* Dimension lines */}
-      <Dim x1={tx} y1={ty + th + 38} x2={tx + tw} y2={ty + th + 38} label="14.5m" delay={0.4} />
-      {/* Vegetation */}
-      <Tree cx={tx - 50} cy={ty - 20} r={10} delay={0} />
-      <Tree cx={tx + tw + 30} cy={ty - 10} r={7} delay={0.1} />
-      <Tree cx={tx + tw + 40} cy={ty + th - 20} r={9} delay={0.2} />
-      <Tree cx={tx - 55} cy={ty + th + 10} r={8} delay={0.15} />
-      <Tree cx={tx + tw / 2 + 60} cy={ty - 75} r={6} delay={0.25} />
+      <motion.g
+        style={{ transformOrigin: `${tx + tw / 2}px ${bedY + 30}px` }}
+        {...grow(0.4)}>
+        <rect x={tx + 60} y={bedY} width={80} height={60} rx={4}
+          fill={C.bed} stroke={C.bedStroke} strokeWidth={1} />
+        <rect x={tx + 61} y={bedY} width={78} height={5} rx={2}
+          fill={C.bedStroke} opacity={0.5} />
+        <rect x={tx + 63} y={bedY + 6} width={36} height={9} rx={3}
+          fill={C.bone} stroke={C.bedStroke} strokeWidth={0.4} opacity={0.8} />
+        <rect x={tx + 101} y={bedY + 6} width={36} height={9} rx={3}
+          fill={C.bone} stroke={C.bedStroke} strokeWidth={0.4} opacity={0.8} />
+        <line x1={tx + 64} y1={bedY + 35} x2={tx + 136} y2={bedY + 35}
+          stroke={C.bedStroke} strokeWidth={0.4} opacity={0.3} />
+        <text x={tx + tw / 2} y={bedY + 52} textAnchor="middle"
+          fill={C.text} fontSize={7} opacity={0.45} style={mono}>King Bed</text>
+      </motion.g>
+
+      {/* Left Daybed */}
+      <motion.g
+        style={{ transformOrigin: `${tx + 30}px ${bedY + 25}px` }}
+        {...grow(0.6)}>
+        <rect x={tx + 8} y={bedY + 5} width={42} height={45} rx={4}
+          fill={C.bedLight} stroke={C.bedStroke} strokeWidth={0.7} opacity={0.8} />
+        <rect x={tx + 11} y={bedY + 8} width={36} height={5} rx={2}
+          fill={C.bone} stroke={C.bedStroke} strokeWidth={0.3} opacity={0.6} />
+        <text x={tx + 29} y={bedY + 42} textAnchor="middle"
+          fill={C.text} fontSize={5.5} opacity={0.35} style={mono}>Daybed</text>
+      </motion.g>
+
+      {/* Right Daybed */}
+      <motion.g
+        style={{ transformOrigin: `${tx + tw - 30}px ${bedY + 25}px` }}
+        {...grow(0.65)}>
+        <rect x={tx + tw - 50} y={bedY + 5} width={42} height={45} rx={4}
+          fill={C.bedLight} stroke={C.bedStroke} strokeWidth={0.7} opacity={0.8} />
+        <rect x={tx + tw - 47} y={bedY + 8} width={36} height={5} rx={2}
+          fill={C.bone} stroke={C.bedStroke} strokeWidth={0.3} opacity={0.6} />
+        <text x={tx + tw - 29} y={bedY + 42} textAnchor="middle"
+          fill={C.text} fontSize={5.5} opacity={0.35} style={mono}>Daybed</text>
+      </motion.g>
+
+      {/* Door arc at tent front */}
+      <motion.g {...fade(0.5, 0.2)}>
+        <path
+          d={`M${tx + tw / 2 - 14},${ty + th} A14,14 0 0,1 ${tx + tw / 2 + 14},${ty + th}`}
+          fill={C.door} opacity={0.08} stroke={C.door} strokeWidth={0.4}
+        />
+      </motion.g>
+
+      {/* ═══ TERRACE (full deck, pool inside) ═══ */}
+      <motion.g {...fade(0.3)}>
+        <rect x={terrX} y={terrY} width={terrW} height={terrH} rx={4}
+          fill={`${C.terrace}30`} stroke={C.terraceStroke} strokeWidth={0.6}
+          strokeDasharray="6 3" />
+        {/* Wood plank lines */}
+        {Array.from({ length: 12 }, (_, i) => (
+          <line key={i} x1={terrX + 3} y1={terrY + 5 + i * 7} x2={terrX + terrW - 3} y2={terrY + 5 + i * 7}
+            stroke={C.terraceStroke} strokeWidth={0.25} opacity={0.2} />
+        ))}
+        <text x={terrX + terrW / 2} y={terrY + 14} textAnchor="middle"
+          fill={C.text} fontSize={5.5} opacity={0.3} style={mono}>Terrace</text>
+      </motion.g>
+
+      {/* Hot Springs Plunge Pool (inside terrace) */}
+      <motion.g {...grow(0.8)}>
+        <rect x={tx + tw / 2 - 32} y={terrY + 22} width={64} height={52} rx={6}
+          fill={C.poolFill} stroke={C.pool} strokeWidth={1.2} />
+        {/* Water shimmer */}
+        <motion.g
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: [0, 0.35, 0.15, 0.35] } : { opacity: 0 }}
+          transition={{ duration: 4, repeat: Infinity, delay: 2 }}>
+          <line x1={tx + tw / 2 - 15} y1={terrY + 42} x2={tx + tw / 2} y2={terrY + 42}
+            stroke={C.poolLight} strokeWidth={0.7} strokeLinecap="round" />
+          <line x1={tx + tw / 2 + 5} y1={terrY + 50} x2={tx + tw / 2 + 18} y2={terrY + 50}
+            stroke={C.poolLight} strokeWidth={0.5} strokeLinecap="round" />
+        </motion.g>
+        <text x={tx + tw / 2} y={terrY + 18} textAnchor="middle"
+          fill={C.pool} fontSize={6} fontWeight={500} opacity={0.6}
+          style={{ fontFamily: "var(--font-display)" }}>
+          Plunge Pool
+        </text>
+      </motion.g>
+
+      {/* ═══ LABELS & DIMENSIONS ═══ */}
+      <motion.g {...fade(2.0, 0.7)}>
+        <text x={tx + tw / 2} y={terrY + terrH + 22} textAnchor="middle"
+          fill={C.text} fontSize={10} fontWeight={500}
+          style={{ fontFamily: "var(--font-display)" }}>
+          Nayara Tent
+        </text>
+        <text x={tx + tw / 2} y={terrY + terrH + 36} textAnchor="middle"
+          fill={C.text} fontSize={6} opacity={0.4} style={mono}>
+          157.9 sqm · 1,700 sq ft
+        </text>
+      </motion.g>
+
+      {/* Dimension line */}
+      <motion.g {...fade(2.2, 0.3)}>
+        <line x1={tx} y1={terrY + terrH + 50} x2={tx + tw} y2={terrY + terrH + 50}
+          stroke={C.text} strokeWidth={0.4} />
+        <line x1={tx} y1={terrY + terrH + 46} x2={tx} y2={terrY + terrH + 54}
+          stroke={C.text} strokeWidth={0.4} />
+        <line x1={tx + tw} y1={terrY + terrH + 46} x2={tx + tw} y2={terrY + terrH + 54}
+          stroke={C.text} strokeWidth={0.4} />
+        <text x={tx + tw / 2} y={terrY + terrH + 62} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.35} style={mono}>14.5m</text>
+      </motion.g>
+
+      {/* ═══ VEGETATION ═══ */}
+      <motion.g {...fade(2.5, 0.4)}>
+        <circle cx={tx - 30} cy={ty + 50} r={10} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={tx + tw + 25} cy={ty + 70} r={7} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={tx + tw + 30} cy={ty + th - 20} r={9} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={tx - 35} cy={ty + th - 40} r={8} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={tx - 25} cy={ty + 10} r={6} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={tx + tw + 20} cy={terrY + 40} r={8} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={tx - 20} cy={terrY + 30} r={6} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+      </motion.g>
     </g>
   );
 }
 
 /* ══════════════════════════════════════════════════════════════════
    FAMILY TENT BLUEPRINT
+   Same as Nayara Tent + connected children's room
    ══════════════════════════════════════════════════════════════════ */
-function FamilyBP() {
-  const tx = 45, ty = 80, tw = 180, th = 170;
-  const cx = tx + tw + 22, cy = ty + 15, cw = 150, ch = 135;
+function FamilyBP({ isInView = true }: { isInView?: boolean }) {
+  // Main tent (same as TentBP but shifted left to make room for connecting room)
+  const tx = 50, ty = 60, tw = 180, th = 230;
+  const bathY = ty + 12;
+  const dividerY = ty + 90;
+  const bedY = dividerY + 12;
+  // Terrace + pool at bottom
+  const terrY = ty + th + 10;
+  const terrW = tw + 16;
+  const terrH = 80;
+  const terrX = tx - 8;
+  // Connecting room (to the right)
+  const cx = tx + tw + 30, cy = ty + 40, cw = 130, ch = 160;
+  // Connector walkway between tents
+  const connX = tx + tw, connY = ty + th / 2 - 12, connW = 30, connH = 24;
+
+  const mono = { fontFamily: "var(--font-body)" } as const;
+
+  const draw = (delay: number) => ({
+    initial: { pathLength: 0, opacity: 0 },
+    animate: isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 },
+    transition: { duration: 0.9, delay, ease: "easeOut" as const },
+  });
+  const fade = (delay: number, op = 1) => ({
+    initial: { opacity: 0 },
+    animate: isInView ? { opacity: op } : { opacity: 0 },
+    transition: { duration: 0.6, delay, ease: "easeOut" as const },
+  });
+  const grow = (delay: number) => ({
+    initial: { opacity: 0, scale: 0.8 },
+    animate: isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 },
+    transition: { duration: 0.7, delay, ease: EASE },
+  });
+
   return (
     <g>
-      {/* Terrace */}
-      <Terrace x={tx - 32} y={ty + 15} w={28} h={110} delay={0.15} />
-      {/* Main tent */}
-      <Room path={rr(tx, ty, tw, th, 8)} delay={0} fill={`${C.paper}90`} hover />
-      <Bed x={tx + 50} y={ty + 95} w={80} h={58} label="King Bed" delay={0.3} isKing showRug />
-      <Daybed x={tx + 12} y={ty + 18} w={50} h={40} delay={0.45} />
-      <Daybed x={tx + 118} y={ty + 18} w={50} h={40} delay={0.5} />
-      <BathRoom x={tx + tw - 60} y={ty + th - 50} w={50} h={40} delay={0.35} compact />
-      <DoorArc cx={tx} cy={ty + th / 2} r={12} startAngle={-90} delay={0.25} />
-      {/* Pool , shared */}
-      <Pool cx={tx + tw / 2 + 20} cy={ty - 40} w={65} h={65} delay={0.55}
-        label="Shared Plunge Pool" />
-      {/* Connector walkway */}
-      <Connector x={tx + tw} y={ty + 55} w={22} h={28} delay={0.65} />
-      <DoorArc cx={cx} cy={cy + ch / 2 - 10} r={10} startAngle={180} delay={0.7} />
-      {/* Connecting room */}
-      <Room path={rr(cx, cy, cw, ch, 6)} delay={0.6} fill={`${C.paper}70`} hover />
-      <Bed x={cx + 12} y={cy + 22} w={55} h={48} label="Queen" delay={0.75} />
-      <Bed x={cx + 82} y={cy + 22} w={55} h={48} label="Queen" delay={0.8} />
-      <BathRoom x={cx + 10} y={cy + ch - 42} w={50} h={32} delay={0.7} compact />
-      {/* Labels */}
-      <Label x={tx + tw / 2} y={ty + th + 20} text="Nayara Tent" sub="Primary Suite" delay={0.2} />
-      <Label x={cx + cw / 2} y={cy + ch + 20} text="Connecting Room" sub="2 Queen Beds" delay={0.65} />
-      {/* Dimensions */}
-      <Dim x1={tx} y1={ty + th + 36} x2={cx + cw} y2={ty + th + 36} label="24.8m" delay={0.5} />
-      {/* Vegetation */}
-      <Tree cx={tx - 48} cy={ty - 15} r={9} delay={0} />
-      <Tree cx={cx + cw + 25} cy={cy + 20} r={8} delay={0.1} />
-      <Tree cx={cx + cw + 20} cy={cy + ch + 10} r={7} delay={0.2} />
-      <Tree cx={tx - 45} cy={ty + th + 5} r={7} delay={0.15} />
+      {/* ═══ MAIN TENT OUTLINE ═══ */}
+      <motion.path
+        d={rr(tx, ty, tw, th, 6)}
+        fill={`${C.paper}90`}
+        stroke={C.wall}
+        strokeWidth={1.5}
+        strokeLinejoin="round"
+        {...draw(0)}
+      />
+
+      {/* ── BATHROOM (top zone) ── */}
+      <motion.line x1={tx + 10} y1={dividerY} x2={tx + tw - 10} y2={dividerY}
+        stroke={C.wallLight} strokeWidth={0.8} strokeDasharray="5 3"
+        {...draw(0.8)} />
+
+      {/* Indoor Double-Head Shower (top) */}
+      <motion.g {...fade(1.0, 0.5)}>
+        <rect x={tx + tw / 2 - 22} y={bathY + 4} width={44} height={20} rx={3}
+          fill={`${C.pool}12`} stroke={C.pool} strokeWidth={0.7} />
+        <circle cx={tx + tw / 2 - 7} cy={bathY + 14} r={4}
+          fill="none" stroke={C.pool} strokeWidth={0.5} />
+        <circle cx={tx + tw / 2 + 7} cy={bathY + 14} r={4}
+          fill="none" stroke={C.pool} strokeWidth={0.5} />
+        <text x={tx + tw / 2} y={bathY + 30} textAnchor="middle"
+          fill={C.text} fontSize={4.5} opacity={0.3} style={mono}>Indoor Shower</text>
+      </motion.g>
+
+      {/* Left Vanity */}
+      <motion.g {...fade(1.2, 0.55)}>
+        <rect x={tx + 10} y={bathY + 38} width={36} height={16} rx={3}
+          fill={C.bath} stroke={C.bathStroke} strokeWidth={0.6} />
+        <circle cx={tx + 20} cy={bathY + 35} r={5}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.5} />
+        <circle cx={tx + 38} cy={bathY + 35} r={5}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.5} />
+        <text x={tx + 28} y={bathY + 60} textAnchor="middle"
+          fill={C.text} fontSize={4.5} opacity={0.35} style={mono}>Vanity</text>
+      </motion.g>
+
+      {/* Right Vanity */}
+      <motion.g {...fade(1.3, 0.55)}>
+        <rect x={tx + tw - 46} y={bathY + 38} width={36} height={16} rx={3}
+          fill={C.bath} stroke={C.bathStroke} strokeWidth={0.6} />
+        <circle cx={tx + tw - 36} cy={bathY + 35} r={5}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.5} />
+        <circle cx={tx + tw - 18} cy={bathY + 35} r={5}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.5} />
+        <text x={tx + tw - 28} y={bathY + 60} textAnchor="middle"
+          fill={C.text} fontSize={4.5} opacity={0.35} style={mono}>Vanity</text>
+      </motion.g>
+
+      {/* Bathroom label */}
+      <motion.text x={tx + tw / 2} y={bathY + 50} textAnchor="middle"
+        fill={C.text} fontSize={6} fontWeight={400}
+        style={{ fontFamily: "var(--font-display)", letterSpacing: "0.05em" }}
+        {...fade(1.4, 0.45)}>
+        Bathroom
+      </motion.text>
+
+      {/* Outdoor Shower (dashed, above tent) */}
+      <motion.g {...fade(1.6, 0.4)}>
+        <rect x={tx + tw / 2 - 22} y={ty - 26} width={44} height={20} rx={3}
+          fill={`${C.pool}08`} stroke={C.pool} strokeWidth={0.6} strokeDasharray="3 2" />
+        <circle cx={tx + tw / 2 - 7} cy={ty - 16} r={4}
+          fill="none" stroke={C.pool} strokeWidth={0.4} strokeDasharray="2 1.5" />
+        <circle cx={tx + tw / 2 + 7} cy={ty - 16} r={4}
+          fill="none" stroke={C.pool} strokeWidth={0.4} strokeDasharray="2 1.5" />
+        <text x={tx + tw / 2} y={ty - 32} textAnchor="middle"
+          fill={C.text} fontSize={4.5} opacity={0.25} style={mono}>Outdoor Shower</text>
+      </motion.g>
+
+      {/* ── BEDROOM (center zone) ── */}
+      {/* King Bed */}
+      <motion.g
+        style={{ transformOrigin: `${tx + tw / 2}px ${bedY + 25}px` }}
+        {...grow(0.4)}>
+        <rect x={tx + 52} y={bedY} width={76} height={52} rx={4}
+          fill={C.bed} stroke={C.bedStroke} strokeWidth={1} />
+        <rect x={tx + 53} y={bedY} width={74} height={4} rx={2}
+          fill={C.bedStroke} opacity={0.5} />
+        <rect x={tx + 55} y={bedY + 5} width={34} height={8} rx={3}
+          fill={C.bone} stroke={C.bedStroke} strokeWidth={0.4} opacity={0.8} />
+        <rect x={tx + 91} y={bedY + 5} width={34} height={8} rx={3}
+          fill={C.bone} stroke={C.bedStroke} strokeWidth={0.4} opacity={0.8} />
+        <text x={tx + tw / 2} y={bedY + 44} textAnchor="middle"
+          fill={C.text} fontSize={6} opacity={0.45} style={mono}>King Bed</text>
+      </motion.g>
+
+      {/* Left Daybed */}
+      <motion.g
+        style={{ transformOrigin: `${tx + 26}px ${bedY + 20}px` }}
+        {...grow(0.6)}>
+        <rect x={tx + 6} y={bedY + 4} width={38} height={38} rx={4}
+          fill={C.bedLight} stroke={C.bedStroke} strokeWidth={0.7} opacity={0.8} />
+        <rect x={tx + 9} y={bedY + 7} width={32} height={4} rx={2}
+          fill={C.bone} stroke={C.bedStroke} strokeWidth={0.3} opacity={0.6} />
+        <text x={tx + 25} y={bedY + 36} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.35} style={mono}>Daybed</text>
+      </motion.g>
+
+      {/* Right Daybed */}
+      <motion.g
+        style={{ transformOrigin: `${tx + tw - 26}px ${bedY + 20}px` }}
+        {...grow(0.65)}>
+        <rect x={tx + tw - 44} y={bedY + 4} width={38} height={38} rx={4}
+          fill={C.bedLight} stroke={C.bedStroke} strokeWidth={0.7} opacity={0.8} />
+        <rect x={tx + tw - 41} y={bedY + 7} width={32} height={4} rx={2}
+          fill={C.bone} stroke={C.bedStroke} strokeWidth={0.3} opacity={0.6} />
+        <text x={tx + tw - 25} y={bedY + 36} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.35} style={mono}>Daybed</text>
+      </motion.g>
+
+      {/* ═══ TERRACE (full deck, pool inside) ═══ */}
+      <motion.g {...fade(0.3)}>
+        <rect x={terrX} y={terrY} width={terrW} height={terrH} rx={4}
+          fill={`${C.terrace}30`} stroke={C.terraceStroke} strokeWidth={0.6}
+          strokeDasharray="6 3" />
+        {Array.from({ length: 10 }, (_, i) => (
+          <line key={i} x1={terrX + 3} y1={terrY + 5 + i * 7} x2={terrX + terrW - 3} y2={terrY + 5 + i * 7}
+            stroke={C.terraceStroke} strokeWidth={0.25} opacity={0.2} />
+        ))}
+        <text x={terrX + terrW / 2} y={terrY + 12} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.3} style={mono}>Terrace</text>
+      </motion.g>
+
+      {/* Plunge Pool (inside terrace) */}
+      <motion.g {...grow(0.8)}>
+        <rect x={tx + tw / 2 - 28} y={terrY + 20} width={56} height={44} rx={5}
+          fill={C.poolFill} stroke={C.pool} strokeWidth={1.2} />
+        <motion.g
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: [0, 0.35, 0.15, 0.35] } : { opacity: 0 }}
+          transition={{ duration: 4, repeat: Infinity, delay: 2 }}>
+          <line x1={tx + tw / 2 - 12} y1={terrY + 38} x2={tx + tw / 2} y2={terrY + 38}
+            stroke={C.poolLight} strokeWidth={0.7} strokeLinecap="round" />
+          <line x1={tx + tw / 2 + 4} y1={terrY + 46} x2={tx + tw / 2 + 14} y2={terrY + 46}
+            stroke={C.poolLight} strokeWidth={0.5} strokeLinecap="round" />
+        </motion.g>
+        <text x={tx + tw / 2} y={terrY + 16} textAnchor="middle"
+          fill={C.pool} fontSize={5} fontWeight={500} opacity={0.6}
+          style={{ fontFamily: "var(--font-display)" }}>
+          Plunge Pool
+        </text>
+      </motion.g>
+
+      {/* ═══ CONNECTOR WALKWAY ═══ */}
+      <motion.g {...fade(1.8, 0.6)}>
+        <rect x={connX} y={connY} width={connW} height={connH} rx={2}
+          fill={`${C.terrace}40`} stroke={C.terraceStroke} strokeWidth={0.5}
+          strokeDasharray="4 2" />
+        {Array.from({ length: 4 }, (_, i) => (
+          <line key={i} x1={connX + 3 + i * 7} y1={connY + 2} x2={connX + 3 + i * 7} y2={connY + connH - 2}
+            stroke={C.terraceStroke} strokeWidth={0.2} opacity={0.3} />
+        ))}
+      </motion.g>
+
+      {/* ═══ CONNECTING CHILDREN'S ROOM ═══ */}
+      <motion.path
+        d={rr(cx, cy, cw, ch, 6)}
+        fill={`${C.paper}70`}
+        stroke={C.wall}
+        strokeWidth={1.2}
+        strokeLinejoin="round"
+        {...draw(1.5)}
+      />
+
+      {/* Queen Bed 1 */}
+      <motion.g
+        style={{ transformOrigin: `${cx + 35}px ${cy + 50}px` }}
+        {...grow(1.8)}>
+        <rect x={cx + 10} y={cy + 20} width={50} height={42} rx={4}
+          fill={C.bed} stroke={C.bedStroke} strokeWidth={0.8} />
+        <rect x={cx + 12} y={cy + 22} width={46} height={4} rx={2}
+          fill={C.bedStroke} opacity={0.4} />
+        <text x={cx + 35} y={cy + 55} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.4} style={mono}>Queen</text>
+      </motion.g>
+
+      {/* Queen Bed 2 */}
+      <motion.g
+        style={{ transformOrigin: `${cx + cw - 35}px ${cy + 50}px` }}
+        {...grow(1.9)}>
+        <rect x={cx + cw - 60} y={cy + 20} width={50} height={42} rx={4}
+          fill={C.bed} stroke={C.bedStroke} strokeWidth={0.8} />
+        <rect x={cx + cw - 58} y={cy + 22} width={46} height={4} rx={2}
+          fill={C.bedStroke} opacity={0.4} />
+        <text x={cx + cw - 35} y={cy + 55} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.4} style={mono}>Queen</text>
+      </motion.g>
+
+      {/* Children's room bathroom (compact) */}
+      <motion.g {...fade(2.0, 0.5)}>
+        <rect x={cx + cw / 2 - 22} y={cy + ch - 45} width={44} height={30} rx={3}
+          fill={C.bath} stroke={C.bathStroke} strokeWidth={0.5} />
+        <circle cx={cx + cw / 2 - 8} cy={cy + ch - 35} r={4}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.4} />
+        <circle cx={cx + cw / 2 + 8} cy={cy + ch - 35} r={4}
+          fill="none" stroke={C.bathStroke} strokeWidth={0.4} />
+        <text x={cx + cw / 2} y={cy + ch - 18} textAnchor="middle"
+          fill={C.text} fontSize={4.5} opacity={0.35} style={mono}>Bathroom</text>
+      </motion.g>
+
+      {/* ═══ LABELS & DIMENSIONS ═══ */}
+      <motion.g {...fade(2.2, 0.7)}>
+        <text x={tx + tw / 2} y={terrY + terrH + 18} textAnchor="middle"
+          fill={C.text} fontSize={9} fontWeight={500}
+          style={{ fontFamily: "var(--font-display)" }}>
+          Nayara Tent
+        </text>
+        <text x={tx + tw / 2} y={terrY + terrH + 30} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.4} style={mono}>
+          Primary Suite
+        </text>
+      </motion.g>
+
+      <motion.g {...fade(2.3, 0.7)}>
+        <text x={cx + cw / 2} y={cy + ch + 18} textAnchor="middle"
+          fill={C.text} fontSize={8} fontWeight={500}
+          style={{ fontFamily: "var(--font-display)" }}>
+          Connecting Room
+        </text>
+        <text x={cx + cw / 2} y={cy + ch + 30} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.4} style={mono}>
+          2 Queen Beds
+        </text>
+      </motion.g>
+
+      {/* Dimension line */}
+      <motion.g {...fade(2.5, 0.3)}>
+        <line x1={tx} y1={terrY + terrH + 45} x2={cx + cw} y2={terrY + terrH + 45}
+          stroke={C.text} strokeWidth={0.4} />
+        <line x1={tx} y1={terrY + terrH + 41} x2={tx} y2={terrY + terrH + 49}
+          stroke={C.text} strokeWidth={0.4} />
+        <line x1={cx + cw} y1={terrY + terrH + 41} x2={cx + cw} y2={terrY + terrH + 49}
+          stroke={C.text} strokeWidth={0.4} />
+        <text x={(tx + cx + cw) / 2} y={terrY + terrH + 58} textAnchor="middle"
+          fill={C.text} fontSize={5} opacity={0.35} style={mono}>24.8m</text>
+      </motion.g>
+
+      {/* ═══ VEGETATION ═══ */}
+      <motion.g {...fade(2.6, 0.4)}>
+        <circle cx={tx - 25} cy={ty + 40} r={8} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={tx - 20} cy={ty + th - 30} r={6} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={cx + cw + 20} cy={cy + 30} r={7} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={cx + cw + 18} cy={cy + ch - 20} r={6} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={tx - 18} cy={terrY + 30} r={5} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+        <circle cx={cx + cw + 22} cy={cy + ch + 20} r={8} fill={C.vegetationLight} stroke={C.vegetation} strokeWidth={0.4} />
+      </motion.g>
     </g>
   );
 }
@@ -829,6 +1268,8 @@ export default function FloorPlanExplorer({
   const [activeTier, setActiveTier] = useState<RoomTier>(initialTier);
   const [animKey, setAnimKey] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(svgRef, { once: true, amount: 0.25 });
 
   const tiers = TIERS.filter((t) => availableTiers.includes(t.id));
   const activeInfo = TIERS.find((t) => t.id === activeTier)!;
@@ -840,8 +1281,8 @@ export default function FloorPlanExplorer({
   }, [activeTier]);
 
   const viewBoxes: Record<RoomTier, string> = {
-    tent: "-70 -100 510 360",
-    family: "-50 -100 500 340",
+    tent: "-60 -10 500 480",
+    family: "-40 -50 440 500",
     grand: "-50 -120 580 380",
     residence: "-30 -70 650 320",
   };
@@ -904,7 +1345,7 @@ export default function FloorPlanExplorer({
         {/* Blueprint + Info */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-start">
           {/* SVG */}
-          <motion.div className="w-full lg:w-3/5 relative"
+          <motion.div ref={svgRef} className="w-full lg:w-3/5 relative"
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
             <div className="relative rounded-lg overflow-hidden border"
@@ -923,8 +1364,8 @@ export default function FloorPlanExplorer({
                     <Compass
                       x={activeTier === "residence" ? 590 : activeTier === "grand" ? 500 : 400}
                       y={activeTier === "residence" ? -40 : -70} />
-                    {activeTier === "tent" && <TentBP />}
-                    {activeTier === "family" && <FamilyBP />}
+                    {activeTier === "tent" && <TentBP isInView={isInView} />}
+                    {activeTier === "family" && <FamilyBP isInView={isInView} />}
                     {activeTier === "grand" && <GrandBP />}
                     {activeTier === "residence" && <ResidenceBP />}
                   </svg>

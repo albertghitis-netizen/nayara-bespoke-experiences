@@ -19,6 +19,7 @@ import CrossPropertyCTA from "@/components/CrossPropertyCTA";
 import { AwardBadgeStrip } from "@/components/AwardBadges";
 import PropertySlider from "@/components/PropertySlider";
 import RoomSlider, { RoomSliderCard } from "@/components/RoomSlider";
+import SpringsFloorPlan from "@/components/SpringsFloorPlan";
 import { BOOKING_URLS } from "@/data/booking";
 import PropertySorter from "@/components/PropertySorter";
 import {
@@ -110,7 +111,7 @@ const SPRINGS_ROOMS: RoomSliderCard[] = [
     id: "springs-villa",
     label: "Springs Villa",
     tagline: "Private hot spring pool fed by volcanic mineral water",
-    description: "Freestanding villas with private natural hot spring-fed plunge pools, outdoor garden showers, and floor-to-ceiling windows framing the Arenal Volcano. Each villa is a secluded sanctuary in the rainforest canopy, designed exclusively for adults seeking the ultimate in privacy and relaxation.",
+    description: "",
     sqft: "1,076",
     sqm: "100",
     guests: "2 Adults",
@@ -118,6 +119,7 @@ const SPRINGS_ROOMS: RoomSliderCard[] = [
     photo: "/manus-storage/springs-r5-28782-edited_dbb6870b.jpg",
     exploreLink: "/springs/rooms/springs-villa",
     bookingUrl: BOOKING_URLS.springs,
+    customContent: <SpringsFloorPlan />,
   },
 ];
 
@@ -575,7 +577,7 @@ function ExperiencesSection() {
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <a href="/springs/experiences" className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
+            <a href="/curated-excursions?from=springs" className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
               Explore Experiences
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
@@ -592,7 +594,7 @@ function ExperiencesSection() {
           <p className="text-[14px] leading-[1.75]" style={{ fontFamily: "var(--font-body)", color: "#5a4a3a" }}>
             From hanging bridges suspended above the rainforest canopy to volcanic hot springs hidden in ancient lava flows, every experience at Nayara Springs connects you to the extraordinary natural forces that shape this land.
           </p>
-          <a href="/springs/experiences" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-[#0E6B7E]/40 text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)", color: "#0E6B7E" }}>
+          <a href="/curated-excursions?from=springs" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-[#0E6B7E]/40 text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)", color: "#0E6B7E" }}>
             Explore Experiences
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>

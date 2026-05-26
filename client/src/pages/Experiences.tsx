@@ -217,8 +217,8 @@ function ExcursionGrid({ excursions }: { excursions: Array<Excursion & { propert
                       )}
                     </div>
                     <Link
-                      href={i < 5 ? "/tented-camp/experiences" : "#"}
-                      className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
+                      href={ex.section === "explore-arenal" ? "/explore-arenal" : "/tented-camp/experiences"}
+                      className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full text-[11px] tracking-[0.1em] uppercase transition-all duration-500 ease-out hover:scale-[1.05] hover:shadow-lg hover:bg-[#556B2F] hover:tracking-[0.14em] hover:gap-3"
                       style={{
                         ...body,
                         fontWeight: 500,

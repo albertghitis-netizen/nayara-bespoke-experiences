@@ -84,9 +84,8 @@ export default function NayaraTent() {
       <HeroSection />
       <IntroSection />
       <FullBleedBreak />
-      <FeaturesGrid />
-      <HorizontalGallery />
       <FloorPlanExplorer initialTier="tent" availableTiers={["tent"]} />
+      <FeaturesGrid />
       <TentExperience />
       <CTASection />
       <Footer pageType="property" bgColor={P.primary} textColor="#FFFFFF" propertyName="Tented Camp" />
@@ -182,8 +181,8 @@ function IntroSection() {
         >
           <div className="relative overflow-hidden rounded-sm aspect-[4/3]">
             <img
-              src={IMG.tentPool}
-              alt="Nayara Tent private plunge pool surrounded by tropical gardens"
+              src="/manus-storage/nayara-tent-aerial-volcano_e6baa0c9.png"
+              alt="Aerial view of Nayara Tent with Arenal Volcano in the background"
               className="w-full h-full object-cover"
               loading="lazy"
             />

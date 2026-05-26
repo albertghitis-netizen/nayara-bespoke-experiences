@@ -1569,7 +1569,7 @@ function GardensExperiencesSection() {
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <a href="/gardens/experiences" className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
+            <a href="/curated-excursions?from=gardens" className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
               Explore Experiences
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
             </a>
@@ -1586,7 +1586,7 @@ function GardensExperiencesSection() {
           <p className="text-[14px] leading-[1.75]" style={{ fontFamily: "var(--font-body)", color: "#5a4a3a" }}>
             Arenal Volcano , a 7,500-year-old stratovolcano rising 5,437 feet from the rainforest floor , shapes everything around it. Its geothermal energy feeds the mineral springs, its eruption history created the lava fields you walk through today.
           </p>
-          <a href="/gardens/experiences" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-[#286241]/40 text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)", color: "#286241" }}>
+          <a href="/curated-excursions?from=gardens" className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full border border-[#286241]/40 text-[11px] tracking-[0.15em] uppercase font-medium w-fit" style={{ fontFamily: "var(--font-body)", color: "#286241" }}>
             Explore Experiences
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
           </a>
@@ -1659,20 +1659,17 @@ function GardensGastronomyCascade() {
         <div className="w-full md:w-1/2 md:order-2 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/gardens-gastronomy-vertical_e3c5f76c.jpg" alt="Lyla's Gelato" className="w-full h-full object-cover"  decoding="async" loading="lazy" />
+              <video
+                src="/manus-storage/gastro-gardens_fc40a406.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
             </div>
           </MediaReveal>
-          {/* Explore pill */}
-          <div className="absolute bottom-[6%] left-0 right-0 flex items-center justify-center z-10">
-            <a
-              href="#night-frog-tour"
-              className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border border-pink-300/60 transition-transform hover:scale-[1.03]"
-              style={{ backgroundColor: "rgba(219, 112, 147, 0.75)", fontFamily: "var(--font-body)" }}
-            >
-              <span className="text-white text-[11px] tracking-[0.15em] uppercase font-medium whitespace-nowrap">Explore Lyla's Gelato</span>
-              <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-            </a>
-          </div>
+
         </div>
       </div>
 
@@ -1694,7 +1691,7 @@ function GardensSustainabilityCascade() {
         <div className="w-1/2 order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <NativeVideo src="/manus-storage/gardens-wildlife-corridors_18fd83dc.mp4" className="w-full h-full object-cover" />
+              <NativeVideo src="/manus-storage/gardens-sustainability-wildlife_fafa0941.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>

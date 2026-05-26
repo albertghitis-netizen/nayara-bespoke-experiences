@@ -426,7 +426,7 @@ const exploreNayaraExperiences: Excursion[] = [
     weeklySchedule: ["Monday 7:00 AM", "Wednesday 7:00 AM", "Friday 7:00 AM"],
     description: "A guided session combining conscious breathing techniques with seated meditation. Begin with pranayama to calm the nervous system, then settle into stillness as the sounds of the rainforest become your anchor. A powerful way to start the day with clarity and presence.",
     highlights: ["Pranayama breathing techniques", "Guided meditation", "Shala Sukha rainforest pavilion"],
-    image: "/manus-storage/Yoga3_e43b3588.JPG",
+    image: "/manus-storage/spa_5204eb23.webp",
     featured: true,
     placeholder: false,
     category: "wellness",

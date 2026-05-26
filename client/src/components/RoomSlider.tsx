@@ -25,6 +25,7 @@ export interface RoomSliderCard {
   mediaLeft?: boolean;
   exploreLink: string;
   bookingUrl: string;
+  customContent?: React.ReactNode;
 }
 
 interface RoomSliderProps {
@@ -236,6 +237,13 @@ export default function RoomSlider({
                         Reserve
                       </a>
                     </div>
+
+                    {/* Custom content (e.g. floor plan) */}
+                    {room.customContent && (
+                      <div className="mt-6">
+                        {room.customContent}
+                      </div>
+                    )}
                   </div>
                 </div>
 

@@ -13,9 +13,9 @@
  * Wellness & Culinary removed , those have their own Pura Vida sub-pages.
  */
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "wouter";
+import { Link, useSearch } from "wouter";
 import BrandNavigation from "@/components/BrandNavigation";
 import {
   ChevronDown,
@@ -77,13 +77,23 @@ function FadeIn({
    PAGE ROOT
    ═══════════════════════════════════════════════════════════════ */
 export default function ExperientialArenal() {
+  const searchString = useSearch();
+  const backLink = useMemo(() => {
+    const params = new URLSearchParams(searchString);
+    const from = params.get("from");
+    if (from === "tented-camp") return { label: "Nayara Tented Camp", href: "/tented-camp" };
+    if (from === "springs") return { label: "Nayara Springs", href: "/springs" };
+    if (from === "gardens") return { label: "Nayara Gardens", href: "/gardens" };
+    return undefined;
+  }, [searchString]);
+
   return (
     <div className="min-h-screen bg-[#f7f5f0]">
-      <BrandNavigation pageType="content" />
+      <BrandNavigation pageType="content" backLink={backLink} />
       <ArenalHero />
       <PropertyIntro />
       <WithinOurGroundsSection />
-      <ExploreArenalSection />
+      <OffSiteCTA />
       <Footer bgColor="#868B75"  textColor="#FFFFFF" />
     </div>
   );
@@ -204,55 +214,68 @@ function PropertyIntro() {
         }}
       />
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
-        {/* Main heading */}
-        <FadeIn className="max-w-xl">
-          <h2
-            className="text-[#525642] text-3xl md:text-4xl lg:text-[42px] mb-5"
-            style={headingLight}
-          >
-            Three Resorts. One Rainforest.
-          </h2>
-          <p
-            className="text-[#525642]/70 text-base md:text-[17px] leading-relaxed"
-            style={body}
-          >
-            Across Nayara Gardens, Nayara Springs, and Nayara Tented Camp, the
-            rainforest becomes a shared landscape of experiences. Guests move
-            freely between the three, opening access to a broader range of
-            guided nature tours, curated adventure, and immersive wildlife
-            encounters.
-          </p>
-        </FadeIn>
-
-        {/* Experiential hospitality editorial narrative */}
-        <FadeIn className="mt-14 md:mt-20 max-w-3xl" delay={0.2}>
+        {/* Philosophy: One Interconnected Destination */}
+        <FadeIn className="max-w-3xl">
           <p
             className="text-[#868B75] text-[10px] md:text-[11px] tracking-[0.35em] uppercase mb-4"
             style={bodyMedium}
           >
-            The Volcano at the Center
+            The Philosophy
           </p>
           <p
             className="text-[#525642] text-xl md:text-2xl lg:text-[26px] leading-snug mb-6"
             style={headingLight}
           >
-            Arenal is not a backdrop. It is the reason everything here exists ,
-            the hot springs, the biodiversity, the fertile soil, the weather
-            patterns that sustain 500 bird species within walking distance of
-            your villa.
+            One Interconnected Destination
+          </p>
+          <p
+            className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed mb-6"
+            style={body}
+          >
+            Imagine a vacation where you get the intimacy and privacy of your own secluded hotel, but with access to the amenities and experiences of three world-class properties. That is exactly what awaits at Nayara Gardens, Nayara Springs, and Nayara Tented Camp in Costa Rica's Arenal region.
           </p>
           <p
             className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed"
             style={body}
           >
-            A 7,500-year-old stratovolcano rising 5,437 feet from the rainforest
-            floor, Arenal shapes everything around it. Its geothermal energy
-            feeds the mineral springs, its eruption history created the lava
-            fields you walk through today, and its mass generates the microclimate
-            that keeps this pocket of Costa Rica impossibly green. Every excursion
-            below exists because someone asked a deeper question: not "what is
-            there to do?" but "what will I become by doing it?"
+            While each property maintains its own distinct character and peaceful sanctuary, guests enjoy seamless access to a shared ecosystem of wellness and adventure that transforms a stay into an unforgettable journey through one magical rainforest. Whether you are seeking wellness rejuvenation or nature immersion, everything you need exists within reach.
           </p>
+        </FadeIn>
+
+        {/* Stats row */}
+        <FadeIn className="mt-16" delay={0.3}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { value: "3", label: "Properties, One Ecosystem" },
+              { value: "1,400", label: "Acres of Rainforest Reserve" },
+              { value: "900+", label: "Bird Species in Costa Rica" },
+              { value: "2", label: "Yoga Disciplines Daily" },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="text-center p-6"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.4)",
+                  backdropFilter: "blur(8px)",
+                  borderRadius: "12px",
+                  borderBottom: "2px solid #868B75",
+                }}
+              >
+                <p
+                  className="text-3xl md:text-4xl mb-2"
+                  style={{ ...headingLight, color: "#868B75" }}
+                >
+                  {stat.value}
+                </p>
+                <p
+                  className="text-[11px] tracking-[0.1em]"
+                  style={{ ...bodyMedium, color: "#525642" }}
+                >
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </FadeIn>
       </div>
     </section>
@@ -271,7 +294,7 @@ function WithinOurGroundsSection() {
   );
   // Top row: nature (sloth, botanical, bird) — Bottom row: wellness (hatha, vinyasa, hot springs)
   const natureOrder = ["finding-tony-the-sloth", "botanical-hike", "birdwatching"];
-  const wellnessOrder = ["vinyasa-yoga", "hatha-yoga", "breathwork-meditation", "hot-springs"];
+  const wellnessOrder = ["vinyasa-yoga", "breathwork-meditation", "hatha-yoga"];
   const topRow = natureOrder.map(id => onPropertyNature.find(e => e.id === id)!).filter(Boolean);
   const bottomRow = wellnessOrder.map(id => onPropertyNature.find(e => e.id === id)!).filter(Boolean);
 
@@ -384,6 +407,14 @@ function WithinOurGroundsSection() {
                       </div>
                     </div>
                   )}
+                  <a
+                    href="/tented-camp/experiences"
+                    className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full border border-[#f7f5f0]/30 text-[#f7f5f0] text-[11px] tracking-[0.12em] uppercase transition-all duration-500 ease-out hover:scale-[1.05] hover:bg-[#556B2F] hover:border-[#556B2F] w-fit"
+                    style={bodyMedium}
+                  >
+                    Explore
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                  </a>
                 </div>
               </div>
             </FadeIn>
@@ -466,6 +497,14 @@ function WithinOurGroundsSection() {
                         </div>
                       </div>
                     )}
+                    <a
+                      href="/tented-camp/experiences"
+                      className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full border border-[#f7f5f0]/30 text-[#f7f5f0] text-[11px] tracking-[0.12em] uppercase transition-all duration-500 ease-out hover:scale-[1.05] hover:bg-[#556B2F] hover:border-[#556B2F] w-fit"
+                      style={bodyMedium}
+                    >
+                      Explore
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                    </a>
                   </div>
                 </div>
               </FadeIn>
@@ -1083,5 +1122,47 @@ function FeaturedExcursionCard({
         )}
       </AnimatePresence>
     </motion.div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   OFF-SITE CTA — Links to /explore-arenal
+   ═══════════════════════════════════════════════════════════════ */
+function OffSiteCTA() {
+  return (
+    <section className="relative py-20 md:py-28 bg-[#EDEEE2]">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 text-center">
+        <FadeIn>
+          <p
+            className="text-[#868B75] text-[10px] md:text-[11px] tracking-[0.35em] uppercase mb-4"
+            style={bodyMedium}
+          >
+            Beyond Our Grounds
+          </p>
+          <h2
+            className="text-[#525642] text-2xl md:text-3xl lg:text-4xl mb-6"
+            style={headingLight}
+          >
+            Discover the Arenal Region
+          </h2>
+          <p
+            className="text-[#525642]/65 text-base md:text-[17px] leading-relaxed max-w-2xl mx-auto mb-10"
+            style={body}
+          >
+            From volcanic hot springs and hanging bridges to river adventures and local community encounters — explore the extraordinary natural wonders that surround Nayara.
+          </p>
+          <a
+            href="/explore-arenal?from=curated-excursions"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#556B2F] text-white text-[12px] tracking-[0.2em] uppercase rounded-full transition-all duration-500 ease-out hover:scale-[1.05] hover:shadow-lg"
+            style={bodyMedium}
+          >
+            Explore Our Off-Site Activities
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </FadeIn>
+      </div>
+    </section>
   );
 }

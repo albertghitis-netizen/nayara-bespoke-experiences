@@ -86,9 +86,8 @@ export default function FamilyTent() {
       <HeroSection />
       <IntroSection />
       <FullBleedBreak />
-      <FeaturesGrid />
-      <HorizontalGallery />
       <FloorPlanExplorer initialTier="family" availableTiers={["family"]} />
+      <FeaturesGrid />
       <FamilyExperience />
       <CTASection />
       <Footer pageType="property" bgColor={P.primary} textColor="#FFFFFF" propertyName="Tented Camp" />

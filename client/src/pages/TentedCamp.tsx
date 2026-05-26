@@ -155,7 +155,7 @@ function MediaBlock({
   ratio,
   alt,
   className = "",
-  loop = false,
+  loop = true,
   mobileSrc,
 }: {
   src: string;
@@ -1134,10 +1134,10 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     horizontalRatio: "16/9",
     bgColor: SECTION_COLORS[4],
     nextBgColor: SECTION_COLORS[5],
-    link: "/curated-excursions",
+    link: "/curated-excursions?from=tented-camp",
     linkLabel: "Explore Experiences",
     overlayOnVideo: true,
-    textLink: "/curated-excursions",
+    textLink: "/curated-excursions?from=tented-camp",
     textLinkLabel: "Explore Bespoke Experiences",
   },
   {
@@ -1199,7 +1199,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     label: "The Table",
     headline: "Forest\nto Table",
     body: "Two distinct culinary experiences define Tented Camp. Ayla brings Mediterranean-inspired cuisine to the rainforest canopy , seasonal menus that celebrate Costa Rica's biodiversity with ingredients harvested from the resort's own gardens.\n\nLapas Pool Bar offers a relaxed open-air setting where fresh ceviches, tropical plates, and handcrafted cocktails are served poolside beneath the volcano. From sunrise smoothies to sunset aperitivos, every meal becomes a moment framed by nature.",
-    verticalSrc: "/manus-storage/tented-gastronomy-desktop-video_0c8f7338.mp4",
+    verticalSrc: "/manus-storage/gastro-tented_785fdd5f.mp4",
     mobileVerticalSrc: "/manus-storage/tented-gastronomy-mobile-ayla_7c7c6335.jpg",
     mobileVerticalIsVideo: false,
     horizontalSrc: "/manus-storage/HenrysBar(1)_189a43b4.jpg",
@@ -1210,8 +1210,6 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     hideH: true,
     bgColor: SECTION_COLORS[7],
     nextBgColor: SECTION_COLORS[8],
-    link: "/tented-camp/gastronomy",
-    linkLabel: "Explore Forest to Table",
     textLink: "/tented-camp/gastronomy",
     textLinkLabel: "Explore Forest to Table",
 
@@ -1234,7 +1232,7 @@ const SECTIONS_AFTER_REVIEW: CascadeSectionData[] = [
     overlayOnVideo: false,
     bgColor: "#000000",
     nextBgColor: "#000000",
-    textLink: "/curated-excursions",
+    textLink: "/curated-excursions?from=tented-camp",
     textLinkLabel: "Explore Henry's Bar",
     textLinkTransparent: true,
   },
