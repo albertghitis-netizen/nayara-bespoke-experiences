@@ -122,20 +122,11 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-3xl md:text-5xl lg:text-6xl tracking-wide text-center leading-[1.1]"
+          className="text-white text-2xl md:text-4xl lg:text-5xl tracking-wide text-center leading-[1.1]"
           style={heading}
         >
           The World as a Classroom
         </motion.h1>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-4 text-white/60 text-sm md:text-base tracking-[0.1em] uppercase text-center"
-          style={body}
-        >
-          Family adventures across three countries
-        </motion.p>
       </div>
     </section>
   );
