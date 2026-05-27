@@ -135,24 +135,7 @@ const chileGastronomyPost: BlogPostData = {
     { name: "Nayara Alto Atacama", route: "/alto-atacama" },
     { name: "Nayara Hangaroa", route: "/hangaroa" },
   ],
-  faq: [
-    {
-      question: "What type of cuisine does Nayara Alto Atacama serve?",
-      answer: "Nayara Alto Atacama serves Chilean desert cuisine rooted in local traditions. The kitchen sources most vegetables from an on-site Andean Garden at 2,400 meters, featuring dishes like Corn Cake with Goat Cheese and Chanar, classic Charquican, and seasonal tasting menus paired with Chile's finest wines.",
-    },
-    {
-      question: "What is the dining experience like at Nayara Hangaroa on Easter Island?",
-      answer: "Nayara Hangaroa offers Polynesian-Chilean fusion cuisine centered on fresh Pacific seafood, traditional umu earth oven cooking, and tropical ingredients grown in volcanic soil. The three venues span fine dining at Poerava, Pacific tapas at Kaloa Lounge, and craft cocktails at Vaikoa Bar.",
-    },
-    {
-      question: "Are wine experiences available at both Chilean properties?",
-      answer: "Yes. Both properties feature curated wine programs showcasing Chile's diverse terroir. Nayara Alto Atacama offers Wine Pairing dinners and sommelier-led tastings, while Nayara Hangaroa pairs Chilean wines with Polynesian-inspired cuisine.",
-    },
-    {
-      question: "Can guests participate in culinary experiences beyond dining?",
-      answer: "Absolutely. Nayara Alto Atacama offers Andean Garden tours, sommelier tastings, and desert cocktail workshops. Nayara Hangaroa features traditional Umu Earth Oven ceremonies, Pacific tasting experiences, and sunset cocktail sessions overlooking the Moai coastline.",
-    },
-  ],
+
   seo: {
     metaTitle: "Chilean Gastronomy at Nayara: Desert to Ocean Dining | Nayara Resorts",
     metaDescription: "Discover the culinary programs at Nayara Alto Atacama and Nayara Hangaroa. From Andean desert cuisine to Polynesian-Pacific fusion, experience Chile's gastronomic extremes.",

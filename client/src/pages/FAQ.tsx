@@ -282,6 +282,152 @@ const FAQ_CATEGORIES: FAQCategory[] = [
       },
     ],
   },
+  {
+    title: "Hot Springs and Thermal Bathing",
+    description: "Questions about the geothermal hot springs at Nayara's Costa Rica properties",
+    faqs: [
+      {
+        question: "Are the hot springs at Nayara natural?",
+        answer: "Yes. The hot springs are heated by the geothermal activity of Arenal Volcano. Water rises naturally through volcanic rock, picking up minerals before reaching the surface. The pools at Nayara are designed to preserve this natural thermal flow while providing a refined guest experience.",
+      },
+      {
+        question: "What temperature are the hot springs?",
+        answer: "Temperatures vary by pool, ranging from approximately 33°C (91°F) to 41°C (106°F). Multiple pools at different temperatures allow guests to move between warm and hot immersion, which research suggests supports circulation and muscle recovery.",
+      },
+      {
+        question: "Are the hot springs private?",
+        answer: "At Nayara Springs, every villa includes a private plunge pool fed by natural thermal water. Nayara Gardens and Nayara Tented Camp share beautifully landscaped communal thermal pools set within the rainforest, designed for quiet immersion rather than crowded bathing.",
+      },
+      {
+        question: "What minerals are in the thermal water?",
+        answer: "The geothermal water contains naturally occurring minerals including sulfur, calcium, magnesium, and silica. These minerals have been associated with skin health, joint relief, and relaxation in balneotherapy research, though individual experiences vary.",
+      },
+      {
+        question: "Can children use the hot springs?",
+        answer: "Children are welcome in designated pools with lower temperatures. Parents should supervise young children and limit time in warmer pools. Staff can advise on which pools are most suitable for families.",
+      },
+      {
+        question: "What is the best time to visit the hot springs?",
+        answer: "Early morning and evening offer the most atmospheric experiences. Morning mist rising from the warm water against cool rainforest air creates a dramatic visual effect, while evening soaks under the stars provide deep relaxation before sleep.",
+      },
+    ],
+  },
+  {
+    title: "Bocas del Toro",
+    description: "Questions about Nayara Bocas del Toro, its marine ecosystem, and the Caribbean setting",
+    faqs: [
+      {
+        question: "Where is Nayara Bocas del Toro located?",
+        answer: "Nayara Bocas del Toro is located on Frangipani Island in the Bocas del Toro archipelago, Panama. The property sits within a protected marine area where mangrove forests meet coral reefs, accessible only by boat.",
+      },
+      {
+        question: "How do you get to Nayara Bocas del Toro?",
+        answer: "Guests fly into Bocas del Toro Airport (BOC) from Panama City, then transfer by private boat to the resort. The boat journey takes approximately 20 minutes and passes through mangrove channels and open Caribbean water.",
+      },
+      {
+        question: "Is Nayara Bocas del Toro off-grid?",
+        answer: "Nearly. Solar panels provide close to 100% of the resort's energy needs. Freshwater comes exclusively from collected rainwater, purified on-site through an ultraviolet filtration system. The property was designed from the ground up to minimize environmental impact on the surrounding marine ecosystem.",
+      },
+      {
+        question: "What marine life can guests see?",
+        answer: "The surrounding waters host nurse sharks, sea turtles, rays, starfish, and hundreds of tropical fish species. The coral reefs are part of an active restoration program. Dolphins are frequently spotted in the deeper channels between islands.",
+      },
+      {
+        question: "What is the coral restoration program?",
+        answer: "Nayara Bocas del Toro operates a coral nursery where fragments of resilient coral species are grown on underwater structures before being transplanted to degraded reef areas. Guests can participate in guided snorkeling sessions to observe the nursery and learn about reef ecology.",
+      },
+      {
+        question: "What activities are available at Bocas del Toro?",
+        answer: "Activities include snorkeling and diving on coral reefs, kayaking through mangrove channels, paddleboarding, starfish beach visits, bioluminescence tours (seasonal), fishing, and guided nature walks. The resort also offers spa treatments and yoga sessions overlooking the Caribbean.",
+      },
+    ],
+  },
+  {
+    title: "Costa Rica Gastronomy",
+    description: "Questions about dining, farm-to-table philosophy, and culinary experiences at the Arenal properties",
+    faqs: [
+      {
+        question: "How many restaurants are at the Nayara Costa Rica properties?",
+        answer: "The three Arenal properties share access to multiple dining venues including Amor Loco (Latin American cuisine), Asia Luna (Asian-fusion), Mis Amores (fine dining), Nostalgia Wine Bar, and several casual options. Guests at any of the three properties can dine at all venues.",
+      },
+      {
+        question: "What is the farm-to-table approach at Nayara?",
+        answer: "The kitchens source ingredients from on-site organic gardens, local farms, and regional producers. Herbs, vegetables, and edible flowers are grown steps from the kitchen. The culinary team works directly with small-scale farmers in the Arenal region to source seasonal produce, dairy, and proteins.",
+      },
+      {
+        question: "Are cooking classes available?",
+        answer: "Yes. Guests can participate in hands-on cooking classes that cover Costa Rican traditional cuisine, chocolate making from local cacao, coffee preparation from bean to cup, and seasonal menu workshops with the executive chef.",
+      },
+      {
+        question: "Can dietary restrictions be accommodated?",
+        answer: "All restaurants accommodate vegetarian, vegan, gluten-free, and other dietary requirements. Guests are encouraged to communicate preferences at booking or upon arrival so the culinary team can prepare personalized options.",
+      },
+      {
+        question: "What makes the coffee experience special?",
+        answer: "Costa Rica's Arenal region produces exceptional coffee due to volcanic soil, altitude, and rainfall patterns. Nayara offers cupping sessions, plantation visits, and barista workshops where guests learn about single-origin processing from cherry to cup.",
+      },
+      {
+        question: "Is there a wine program?",
+        answer: "Nostalgia Wine Bar houses a curated collection spanning Old and New World wines. Sommelier-led tastings, food-and-wine pairing dinners, and private cellar experiences are available. The program emphasizes South American wines alongside European classics.",
+      },
+    ],
+  },
+  {
+    title: "Chilean Gastronomy",
+    description: "Questions about dining at Nayara Alto Atacama and Nayara Hangaroa",
+    faqs: [
+      {
+        question: "What type of cuisine does Nayara Alto Atacama serve?",
+        answer: "Nayara Alto Atacama serves Chilean desert cuisine rooted in local traditions. The kitchen sources most vegetables from an on-site Andean Garden at 2,400 meters, featuring dishes like Corn Cake with Goat Cheese and Chanar, classic Charquican, and seasonal tasting menus paired with Chile's finest wines.",
+      },
+      {
+        question: "What is the dining experience like at Nayara Hangaroa on Easter Island?",
+        answer: "Nayara Hangaroa offers Polynesian-Chilean fusion cuisine centered on fresh Pacific seafood, traditional umu earth oven cooking, and tropical ingredients grown in volcanic soil. The three venues span fine dining at Poerava, Pacific tapas at Kaloa Lounge, and craft cocktails at Vaikoa Bar.",
+      },
+      {
+        question: "Are wine experiences available at both Chilean properties?",
+        answer: "Yes. Both properties feature curated wine programs showcasing Chile's diverse terroir. Nayara Alto Atacama offers Wine Pairing dinners and sommelier-led tastings, while Nayara Hangaroa pairs Chilean wines with Polynesian-inspired cuisine.",
+      },
+      {
+        question: "Can guests participate in culinary experiences beyond dining?",
+        answer: "Absolutely. Nayara Alto Atacama offers Andean Garden tours, sommelier tastings, and desert cocktail workshops. Nayara Hangaroa features traditional Umu Earth Oven ceremonies, Pacific tasting experiences, and sunset cocktail sessions overlooking the Moai coastline.",
+      },
+      {
+        question: "What is the Andean Garden at Alto Atacama?",
+        answer: "The Andean Garden is an on-site organic garden at 2,400 meters elevation where the kitchen grows vegetables, herbs, and native plants adapted to the desert climate. Guests can tour the garden with the chef and learn how extreme altitude and aridity shape the flavors of Atacameño cuisine.",
+      },
+    ],
+  },
+  {
+    title: "Sukha Spa and Wellness",
+    description: "Questions about spa treatments, yoga, and wellness programming at the Costa Rica properties",
+    faqs: [
+      {
+        question: "What is Sukha Spa?",
+        answer: "Sukha Spa is Nayara's wellness sanctuary in the Arenal rainforest, shared across the three Costa Rica properties. Open-air treatment pavilions are tucked into pockets of the forest, where the natural soundtrack of birdsong and flowing water becomes part of the healing experience.",
+      },
+      {
+        question: "What treatments are available?",
+        answer: "Treatments range from traditional massage and bodywork to signature experiences using locally grown organic coffee, volcanic mud, and Costa Rican chocolate. The spa menu includes couples treatments, facials, body wraps, and hydrotherapy circuits incorporating the natural hot springs.",
+      },
+      {
+        question: "Is yoga offered at the properties?",
+        answer: "Yes. Daily yoga sessions are held in open-air pavilions overlooking the rainforest canopy. Classes range from gentle morning flows to restorative evening sessions. Private yoga instruction and meditation sessions can also be arranged.",
+      },
+      {
+        question: "Can couples book spa experiences together?",
+        answer: "Absolutely. Couples treatment suites are available with side-by-side massage tables in private rainforest pavilions. Packages often include thermal bathing, aromatherapy, and post-treatment relaxation time with views of the volcano.",
+      },
+      {
+        question: "What natural ingredients are used in treatments?",
+        answer: "The spa sources organic coffee from local farms for exfoliating scrubs, volcanic mud rich in minerals for detoxifying wraps, Costa Rican cacao for antioxidant body treatments, and tropical botanicals including aloe, coconut, and native herbs for aromatherapy and skin care.",
+      },
+      {
+        question: "Do I need to book spa treatments in advance?",
+        answer: "Advance booking is recommended, especially for couples suites and signature treatments. The concierge team can arrange spa programming before arrival or during your stay. Walk-in availability depends on the season.",
+      },
+    ],
+  },
 ];
 
 /* All FAQs flattened for schema */

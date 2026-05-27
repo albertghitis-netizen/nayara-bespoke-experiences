@@ -1196,7 +1196,7 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     hideH: true,
     bgColor: SECTION_COLORS[5],
     nextBgColor: SECTION_COLORS[6],
-    textLink: "/sustainability",
+    textLink: "/tented-camp/sustainability",
     textLinkLabel: "Explore Beyond Sustainability",
     stats: [
       { value: "100%", label: "Renewable Energy" },

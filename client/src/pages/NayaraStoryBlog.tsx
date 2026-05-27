@@ -104,32 +104,7 @@ const nayaraStoryPost: BlogPostData = {
 <p><strong>And the adventure of a lifetime begins the moment you decide.</strong></p>`,
     },
   ],
-  faq: [
-    {
-      question: "What defines luxury at Nayara?",
-      answer: "Luxury at Nayara is rooted in nature, space, and a sense of place rather than excess. Each resort reflects local ecosystems, cultural values, and a quieter form of high-end hospitality.",
-    },
-    {
-      question: "How does Nayara bring nature into each guest experience?",
-      answer: "Every property is built within its environment. Rainforest paths, desert plateaus, and coastal mangroves shape how guests move, rest, and connect with the natural world.",
-    },
-    {
-      question: "What role does purpose play in Nayara's approach to hospitality?",
-      answer: "Purpose guides daily operations. Regeneration, cultural preservation, and community partnership define how decisions are made across Nayara Resorts.",
-    },
-    {
-      question: "How do Nayara properties express this philosophy?",
-      answer: "Each resort expresses luxury through its own landscape. Nayara Springs and Nayara Tented Camp reflect the rainforest, Nayara Bocas del Toro embodies the meeting of sea and forest, and Nayara Alto Atacama and Nayara Hangaroa honor the desert and volcanic origins of their surroundings.",
-    },
-    {
-      question: "How is Nayara redefining luxury for the future?",
-      answer: "Nayara focuses on impact, not extravagance. Future luxury is measured through cultural connection, ecological restoration, and the feeling of belonging to a place.",
-    },
-    {
-      question: "What can travelers expect across all Nayara destinations?",
-      answer: "A calm rhythm, meaningful encounters with nature, regional food traditions, and hospitality shaped by the communities who call these landscapes home.",
-    },
-  ],
+
   sources: [
     { label: "Green Globe Certification, Nayara Resorts Costa Rica", href: "https://greenglobe.com" },
     { label: "UNESCO World Heritage, Rapa Nui National Park", href: "https://whc.unesco.org/en/list/715" },

@@ -657,7 +657,7 @@ function SustainabilitySection() {
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
-              href="/tented-camp-sustainability"
+              href="/springs/sustainability"
               className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >

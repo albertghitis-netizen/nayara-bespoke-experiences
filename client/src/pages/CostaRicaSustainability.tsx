@@ -179,6 +179,14 @@ function SustainabilityHero({ propertySlug }: { propertySlug: string }) {
       desktop: "/manus-storage/sloth-horizontal-desktop-v2_3d35d812.mp4",
       mobile: "/manus-storage/sloth-vertical-mobile-v2_ac6d2b99.mp4",
     },
+    gardens: {
+      desktop: "/manus-storage/sloth-horizontal-desktop-v2_3d35d812.mp4",
+      mobile: "/manus-storage/sloth-vertical-mobile-v2_ac6d2b99.mp4",
+    },
+    springs: {
+      desktop: "/manus-storage/sloth-horizontal-desktop-v2_3d35d812.mp4",
+      mobile: "/manus-storage/sloth-vertical-mobile-v2_ac6d2b99.mp4",
+    },
   };
 
   const HERO_IMAGES: Record<string, { src: string; alt: string }> = {

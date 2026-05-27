@@ -245,7 +245,7 @@ function HeroSection() {
           className="text-white text-2xl md:text-[2rem] lg:text-[2.5rem] tracking-wide text-center"
           style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
         >
-          We Don't Build Hotels. We Reveal Places
+          We Don't Build Hotels. We Reveal Places.
         </motion.h1>
       </div>
     </section>

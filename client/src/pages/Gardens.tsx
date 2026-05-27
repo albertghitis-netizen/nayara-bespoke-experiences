@@ -1742,7 +1742,7 @@ function GardensSustainabilityCascade() {
 
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
             <a
-              href="/tented-camp-sustainability"
+              href="/gardens/sustainability"
               className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
               style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
@@ -1778,7 +1778,7 @@ function GardensSustainabilityCascade() {
             Our wildlife corridors connect fragmented habitats across the Arenal region, allowing sloths, kinkajous, and howler monkeys to move safely between forest patches.
           </p>
           <a
-            href="/tented-camp-sustainability"
+            href="/gardens/sustainability"
             className="inline-flex items-center gap-2 mt-5 px-4 py-2.5 rounded-full w-fit"
             style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
           >
