@@ -36,8 +36,7 @@ interface Props {
 
 export default function CostaRicaWellness({ propertySlug }: Props) {
   const CR_SLUGS = new Set(["tented-camp", "gardens", "springs"]);
-  const paletteSlug = propertySlug === "springs" ? "springs" : CR_SLUGS.has(propertySlug) ? "tented-camp" : propertySlug;
-  const palette = getPalette(paletteSlug);
+  const palette = getPalette(propertySlug);
   const dataSlug = DATA_PROPERTY_MAP[propertySlug] || propertySlug;
   const property = properties.find((p: Property) => p.id === dataSlug)!;
   const propertyDisplay = properties.find((p: Property) => p.id === propertySlug);

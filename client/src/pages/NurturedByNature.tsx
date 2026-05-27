@@ -30,7 +30,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 const IMG = {
-  privatePlungePools: "/manus-storage/springs-3_25b5c741.jpg",
+  privatePlungePools: "/manus-storage/BF5AE64E-74A5-4C0D-BBC4-61ECDBED362E_a5bd29f9.jpg",
   briceFerreVideo: "/manus-storage/tented-wellness-horizontal-new_b58a7ffd.mp4",
   termasVertical: "/manus-storage/tented-wellness-vertical-new_6c3d5dd4.mp4",
   termasImage: "/manus-storage/termas-87_9d60dc3f.jpg",
@@ -179,11 +179,6 @@ function PrivatePlungPoolsSection({ palette }: { palette: PropertyPalette }) {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <FadeIn>
-            <div className="aspect-[4/5] overflow-hidden rounded-lg">
-              <img src={IMG.privatePlungePools} alt="Private plunge pool at Nayara Springs" className="w-full h-full object-cover" decoding="async" loading="lazy" />
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.2}>
             <p className="text-[10px] tracking-[0.3em] mb-3" style={{ ...body, fontWeight: 600, color: palette.primary }}>Private Hot Springs</p>
             <h2 className="text-2xl md:text-3xl leading-[1.15] mb-6" style={{ ...heading, color: palette.secondary }}>
               Volcanic Waters as Healer
@@ -206,6 +201,11 @@ function PrivatePlungPoolsSection({ palette }: { palette: PropertyPalette }) {
               Learn the History & Science
               <ArrowRight className="w-4 h-4" />
             </a>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="aspect-[4/5] overflow-hidden rounded-lg">
+              <img src={IMG.privatePlungePools} alt="Private plunge pool at Nayara Springs" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+            </div>
           </FadeIn>
         </div>
 

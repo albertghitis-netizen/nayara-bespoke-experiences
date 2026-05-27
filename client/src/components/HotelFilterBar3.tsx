@@ -2,7 +2,10 @@
  * HotelFilterBar Variant 3 , Pill-style filter for all brand pages
  * For: Journal, Gastronomy, Gallery, Sustainability, Wellness, Experiences, Press & Awards
  * Uses brand colors for each property's active state
+ * Smooth hover transitions + active state scale animation
  */
+
+import { motion } from "framer-motion";
 
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
@@ -29,24 +32,29 @@ export default function HotelFilterBar3({ activeHotel, onHotelChange, label = "F
           {label}
         </p>
         <div className="flex flex-wrap gap-2">
-          {HOTEL_OPTIONS.map((opt) => (
-            <button
-              key={opt.id}
-              onClick={() => onHotelChange(opt.id)}
-              className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase transition-all duration-300 ${
-                activeHotel === opt.id
-                  ? "text-white"
-                  : "bg-stone-100 text-[#3B2B26]/60 hover:bg-stone-200 hover:text-[#3B2B26]"
-              }`}
-              style={{
-                ...body,
-                fontWeight: 500,
-                ...(activeHotel === opt.id ? { backgroundColor: opt.color } : {}),
-              }}
-            >
-              {opt.label}
-            </button>
-          ))}
+          {HOTEL_OPTIONS.map((opt) => {
+            const isActive = activeHotel === opt.id;
+            return (
+              <motion.button
+                key={opt.id}
+                onClick={() => onHotelChange(opt.id)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{
+                  backgroundColor: isActive ? opt.color : "#f5f5f4",
+                  color: isActive ? "#ffffff" : "rgba(59,43,38,0.6)",
+                  boxShadow: isActive
+                    ? `0 4px 14px ${opt.color}40`
+                    : "0 0px 0px transparent",
+                }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className="px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase cursor-pointer"
+                style={{ ...body, fontWeight: 500 }}
+              >
+                {opt.label}
+              </motion.button>
+            );
+          })}
         </div>
       </div>
     </section>

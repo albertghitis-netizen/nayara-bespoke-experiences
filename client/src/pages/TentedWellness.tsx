@@ -503,24 +503,29 @@ function SpaByHotelSection({ palette }: { palette: PropertyPalette }) {
         {/* Hotel tabs — brand colors matching HotelFilterBar3 */}
         <FadeIn delay={0.1}>
           <div className="flex flex-wrap gap-2 mb-10">
-            {SPA_HOTELS.map((hotel) => (
-              <button
-                key={hotel.id}
-                onClick={() => setActiveHotelTab(hotel.id)}
-                className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase transition-all duration-300 ${
-                  activeHotelTab === hotel.id
-                    ? "text-white"
-                    : "bg-stone-100 text-[#3B2B26]/60 hover:bg-stone-200 hover:text-[#3B2B26]"
-                }`}
-                style={{
-                  ...body,
-                  fontWeight: 500,
-                  ...(activeHotelTab === hotel.id ? { backgroundColor: hotel.color } : {}),
-                }}
-              >
-                {hotel.label}
-              </button>
-            ))}
+            {SPA_HOTELS.map((hotel) => {
+              const isActive = activeHotelTab === hotel.id;
+              return (
+                <motion.button
+                  key={hotel.id}
+                  onClick={() => setActiveHotelTab(hotel.id)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{
+                    backgroundColor: isActive ? hotel.color : "#f5f5f4",
+                    color: isActive ? "#ffffff" : "rgba(59,43,38,0.6)",
+                    boxShadow: isActive
+                      ? `0 4px 14px ${hotel.color}40`
+                      : "0 0px 0px transparent",
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase cursor-pointer"
+                  style={{ ...body, fontWeight: 500 }}
+                >
+                  {hotel.label}
+                </motion.button>
+              );
+            })}
           </div>
         </FadeIn>
 

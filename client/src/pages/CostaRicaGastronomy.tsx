@@ -23,17 +23,13 @@ import {
   fadeUp,
   staggerContainer,
 } from "@/components/motion";
+import { getPalette, type PropertyPalette, BRAND } from "@/data/propertyPalettes";
 
-/* ── Palette (Tented Camp — always) ── */
-const PALETTE = {
-  bg: "#2C3A2E",
-  bgAlt: "#253228",
-  primary: "#868B75",
-  accent: "#B8A88A",
-  text: "#E6DFD5",
-  textMuted: "#E6DFD5",
-  footerBg: "#1a2a1c",
-};
+/* ── Per-property palette helper ──
+   The page now renders in each property's brand colors.
+   Light backgrounds alternate between gradientStart (bone) and gradientEnd (tinted).
+   Accent colors come from the property palette.
+*/
 
 const heading = { fontFamily: "var(--font-display)", fontWeight: 400 } as const;
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
@@ -239,22 +235,31 @@ interface Props {
   propertySlug?: string;
 }
 
+const FOOTER_NAMES: Record<string, string> = {
+  "tented-camp": "Tented Camp",
+  gardens: "Gardens",
+  springs: "Springs",
+};
+
 export default function CostaRicaGastronomy({ propertySlug }: Props) {
   /* Resolve back link from the route's property slug */
   const resolvedSlug = propertySlug || "tented-camp";
   const propertyName = PROPERTIES.find(p => p.id === resolvedSlug)?.name || "Nayara";
+  const palette = getPalette(resolvedSlug);
+
   return (
-    <div className="min-h-screen" style={{ backgroundColor: PALETTE.bg }}>
+    <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
       <BrandNavigation pageType="property" backLink={{ label: propertyName, href: `/${resolvedSlug}` }} />
       <HeroSection />
-      <ByTheNumbers />
-      <PhilosophySection />
-      <RestaurantGridSection />
-      <SweetMomentsSection />
-      <BarSceneSection />
-      <ClassesSection />
-
-      <Footer pageType="property" bgColor={PALETTE.footerBg} textColor="#FFFFFF" />
+      <ByTheNumbers palette={palette} />
+      <PhilosophySection palette={palette} />
+      <RestaurantGridSection palette={palette} />
+      <SweetMomentsSection palette={palette} />
+      <BarSceneSection palette={palette} />
+      <ClassesSection palette={palette} />
+      <NayaraDifferenceSection palette={palette} />
+      <BlogCrossLink palette={palette} />
+      <Footer bgColor={palette.footerBg} textColor="#FFFFFF" propertyName={FOOTER_NAMES[resolvedSlug] || "Tented Camp"} />
     </div>
   );
 }
@@ -294,14 +299,14 @@ function HeroSection() {
 /* ═══════════════════════════════════════════════════════════════
    BY THE NUMBERS
    ═══════════════════════════════════════════════════════════════ */
-function ByTheNumbers() {
+function ByTheNumbers({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.3em] uppercase mb-10"
-            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+            style={{ ...body, fontWeight: 500, color: palette.primary }}
           >
             By the Numbers
           </p>
@@ -312,13 +317,13 @@ function ByTheNumbers() {
             <motion.div key={i} variants={fadeUp} className="text-center">
               <p
                 className="text-3xl md:text-4xl mb-2"
-                style={{ ...heading, color: PALETTE.primary }}
+                style={{ ...heading, color: palette.primary }}
               >
                 {stat.value}
               </p>
               <p
                 className="text-[12px] tracking-[0.05em]"
-                style={{ ...body, color: PALETTE.text }}
+                style={{ ...body, color: palette.bodyText }}
               >
                 {stat.label}
               </p>
@@ -333,23 +338,23 @@ function ByTheNumbers() {
 /* ═══════════════════════════════════════════════════════════════
    PHILOSOPHY — "Three Properties, One Culinary Ecosystem"
    ═══════════════════════════════════════════════════════════════ */
-function PhilosophySection() {
+function PhilosophySection({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={PALETTE.primary} className="mb-8" />
+          <DrawLine color={palette.primary} className="mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
             <div>
               <span
                 className="text-[10px] tracking-[0.3em] uppercase block mb-4"
-                style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+                style={{ ...body, fontWeight: 500, color: palette.primary }}
               >
                 Forest to Table
               </span>
               <h2
                 className="text-2xl md:text-3xl leading-tight"
-                style={{ ...heading, color: PALETTE.text }}
+                style={{ ...heading, color: palette.bodyText }}
               >
                 Three Properties,<br />One Culinary Ecosystem
               </h2>
@@ -357,13 +362,13 @@ function PhilosophySection() {
             <div className="space-y-5">
               <p
                 className="text-[15px] md:text-[16px] leading-[1.9]"
-                style={{ ...body, color: PALETTE.text }}
+                style={{ ...body, color: palette.bodyText }}
               >
                 You are not staying at three different hotels that happen to share some restaurants. You are entering a curated world where every meal, every glass, every class reinforces a single philosophy: that a great vacation feeds not just the body, but the mind and soul.
               </p>
               <p
                 className="text-[15px] md:text-[16px] leading-[1.9]"
-                style={{ ...body, color: PALETTE.text }}
+                style={{ ...body, color: palette.bodyText }}
               >
                 From the precision of Amor Loco's tasting menu to the warmth of La Terrazza's handmade pasta, from the inventive cocktails at Henry's Bar to the quiet ritual of Mi Cafecito's morning espresso — each experience is rooted in the volcanic soil, tropical abundance, and creative spirit of Arenal.
               </p>
@@ -378,7 +383,7 @@ function PhilosophySection() {
 /* ═══════════════════════════════════════════════════════════════
    RESTAURANT GRID — Grouped by property, with images + deep links
    ═══════════════════════════════════════════════════════════════ */
-function RestaurantGridSection() {
+function RestaurantGridSection({ palette }: { palette: PropertyPalette }) {
   const [, navigate] = useLocation();
   const propertyGroups = [
     { name: "Nayara Tented Camp", subtitle: "Fire, Earth, and Open Air", restaurants: TENTED_RESTAURANTS },
@@ -387,19 +392,19 @@ function RestaurantGridSection() {
   ];
 
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bgAlt }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={PALETTE.primary} className="mb-8" />
+          <DrawLine color={palette.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-3"
-            style={{ ...heading, color: PALETTE.text }}
+            style={{ ...heading, color: palette.bodyText }}
           >
             Our Restaurants
           </h2>
           <p
             className="text-[15px] leading-[1.9] max-w-[600px] mb-14"
-            style={{ ...body, color: PALETTE.text }}
+            style={{ ...body, color: palette.bodyText }}
           >
             From fine dining to artisan gelato, each venue tells its own story while sharing the same commitment to quality.
           </p>
@@ -410,13 +415,13 @@ function RestaurantGridSection() {
             <AnimateOnScroll variants={fadeUp}>
               <span
                 className="text-[10px] tracking-[0.25em] uppercase block mb-2"
-                style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+                style={{ ...body, fontWeight: 500, color: palette.primary }}
               >
                 {group.name}
               </span>
               <h3
                 className="text-xl md:text-2xl mb-8"
-                style={{ ...heading, color: PALETTE.text }}
+                style={{ ...heading, color: palette.bodyText }}
               >
                 {group.subtitle}
               </h3>
@@ -428,7 +433,7 @@ function RestaurantGridSection() {
                   key={r.name}
                   variants={fadeUp}
                   className="group cursor-pointer overflow-hidden rounded-sm"
-                  style={{ backgroundColor: `${PALETTE.primary}10` }}
+                  style={{ backgroundColor: `${palette.primary}10` }}
                   onClick={() => navigate(r.route)}
                 >
                   {/* Media */}
@@ -454,25 +459,25 @@ function RestaurantGridSection() {
                   <div className="p-5">
                     <p
                       className="text-[10px] tracking-[0.15em] uppercase mb-2"
-                      style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+                      style={{ ...body, fontWeight: 500, color: palette.primary }}
                     >
                       {r.cuisine}
                     </p>
                     <h4
                       className="text-[17px] mb-2"
-                      style={{ ...heading, fontWeight: 500, color: PALETTE.text }}
+                      style={{ ...heading, fontWeight: 500, color: palette.bodyText }}
                     >
                       {r.name}
                     </h4>
                     <p
                       className="text-[13px] leading-[1.75] line-clamp-3"
-                      style={{ ...body, color: `${PALETTE.text}99` }}
+                      style={{ ...body, color: `${palette.bodyText}99` }}
                     >
                       {r.description}
                     </p>
                     <span
                       className="inline-block mt-3 text-[11px] tracking-[0.08em] border-b pb-0.5 transition-colors group-hover:border-white/40"
-                      style={{ ...body, fontWeight: 500, color: PALETTE.accent, borderColor: `${PALETTE.accent}40` }}
+                      style={{ ...body, fontWeight: 500, color: palette.primary, borderColor: `${palette.primary}40` }}
                     >
                       Explore →
                     </span>
@@ -490,28 +495,28 @@ function RestaurantGridSection() {
 /* ═══════════════════════════════════════════════════════════════
    SWEET MOMENTS — Lila's Gelato + Coffee Experience
    ═══════════════════════════════════════════════════════════════ */
-function SweetMomentsSection() {
+function SweetMomentsSection({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={PALETTE.primary} className="mb-8" />
+          <DrawLine color={palette.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-6"
-            style={{ ...heading, color: PALETTE.text }}
+            style={{ ...heading, color: palette.bodyText }}
           >
             Beyond the Plate: The Simple Moments
           </h2>
           <div className="max-w-[780px] space-y-5">
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ ...body, color: PALETTE.text }}
+              style={{ ...body, color: palette.bodyText }}
             >
               Sometimes the best moments are the simple ones. <strong>Lila's Gelato</strong> at Nayara Gardens offers handcrafted flavors that capture the essence of Costa Rica — tropical fruits like guanábana and cas, local chocolate from the Caribbean coast, and seasonal inspirations churned fresh daily. Traditional Italian technique with Costa Rican ingredients, made in small batches — the result is something you cannot find anywhere else on Earth.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ ...body, color: PALETTE.text }}
+              style={{ ...body, color: palette.bodyText }}
             >
               The <strong>Coffee Experience</strong> traces the journey from cherry to cup. Costa Rica's coffee heritage spans over 200 years, and the Arenal region produces some of the country's finest beans. Guests learn to identify flavor notes — the citrus brightness of a light roast, the chocolate depth of a medium, the smoky intensity of a dark. They learn pour-over technique, the importance of water temperature, and why freshness matters more than brand. It is the kind of knowledge that changes your morning ritual forever.
             </p>
@@ -525,20 +530,20 @@ function SweetMomentsSection() {
 /* ═══════════════════════════════════════════════════════════════
    BAR SCENE
    ═══════════════════════════════════════════════════════════════ */
-function BarSceneSection() {
+function BarSceneSection({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bgAlt }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <p
             className="text-[11px] tracking-[0.3em] uppercase mb-3"
-            style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+            style={{ ...body, fontWeight: 500, color: palette.primary }}
           >
             When the Sun Sets
           </p>
           <h2
             className="text-2xl md:text-3xl mb-10"
-            style={{ ...heading, color: PALETTE.text }}
+            style={{ ...heading, color: palette.bodyText }}
           >
             The Bar Scene
           </h2>
@@ -550,23 +555,23 @@ function BarSceneSection() {
               key={i}
               variants={fadeUp}
               className="p-6 rounded-sm border"
-              style={{ borderColor: `${PALETTE.primary}25`, backgroundColor: PALETTE.bg }}
+              style={{ borderColor: `${palette.primary}25`, backgroundColor: palette.gradientStart }}
             >
               <h3
                 className="text-[18px] mb-1"
-                style={{ ...heading, fontWeight: 500, color: PALETTE.text }}
+                style={{ ...heading, fontWeight: 500, color: palette.bodyText }}
               >
                 {bar.name}
               </h3>
               <p
                 className="text-[10px] tracking-[0.15em] uppercase mb-3"
-                style={{ ...body, fontWeight: 500, color: PALETTE.accent }}
+                style={{ ...body, fontWeight: 500, color: palette.primary }}
               >
                 {bar.property}
               </p>
               <p
                 className="text-[14px] leading-[1.8]"
-                style={{ ...body, color: PALETTE.text }}
+                style={{ ...body, color: palette.bodyText }}
               >
                 {bar.description}
               </p>
@@ -581,21 +586,21 @@ function BarSceneSection() {
 /* ═══════════════════════════════════════════════════════════════
    FIVE CLASSES — Masonry grid with video/image
    ═══════════════════════════════════════════════════════════════ */
-function ClassesSection() {
+function ClassesSection({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bg }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={PALETTE.primary} className="mb-8" />
+          <DrawLine color={palette.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-3"
-            style={{ ...heading, color: PALETTE.text }}
+            style={{ ...heading, color: palette.bodyText }}
           >
             Five Classes That Go Deeper
           </h2>
           <p
             className="text-[15px] leading-[1.9] max-w-[720px] mb-12"
-            style={{ ...body, color: PALETTE.text }}
+            style={{ ...body, color: palette.bodyText }}
           >
             Why simply eat when you can learn, create, and carry the experience home? Signature classes allow you to dive deeper into Costa Rican culinary culture. These are not tourist add-ons — they are invitations to understand a culture through its flavors.
           </p>
@@ -654,28 +659,28 @@ function ClassesSection() {
 /* ═══════════════════════════════════════════════════════════════
    THE NAYARA DIFFERENCE
    ═══════════════════════════════════════════════════════════════ */
-function NayaraDifferenceSection() {
+function NayaraDifferenceSection({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className={sectionPadding} style={{ backgroundColor: PALETTE.bgAlt }}>
+    <section className={sectionPadding} style={{ backgroundColor: palette.gradientEnd }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
-          <DrawLine color={PALETTE.primary} className="mb-8" />
+          <DrawLine color={palette.primary} className="mb-8" />
           <h2
             className="text-2xl md:text-3xl mb-6"
-            style={{ ...heading, color: PALETTE.text }}
+            style={{ ...heading, color: palette.bodyText }}
           >
             The Nayara Difference
           </h2>
           <div className="max-w-[780px] space-y-5">
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ ...body, color: PALETTE.text }}
+              style={{ ...body, color: palette.bodyText }}
             >
               A single day might begin with a coffee class at 7 a.m., move to breakfast at La Terrazza, a cooking class at Ayla before lunch, an afternoon gelato at Lila's, sunset cocktails at Lapa's Pool Bar, and dinner at Amor Loco. No transfers, no logistics, no friction — just a day that flows as naturally as the forest around you, from one extraordinary culinary moment to the next.
             </p>
             <p
               className="text-[15px] md:text-[17px] leading-[1.9]"
-              style={{ ...body, color: PALETTE.text }}
+              style={{ ...body, color: palette.bodyText }}
             >
               Whether you are celebrating a special occasion, seeking a culinary education, or simply craving an escape into nature without sacrificing the pleasures of the table, the three Nayara properties offer something increasingly rare — the chance to experience Costa Rica as it should be experienced, one extraordinary meal at a time.
             </p>
@@ -689,9 +694,9 @@ function NayaraDifferenceSection() {
 /* ═══════════════════════════════════════════════════════════════
    BLOG CROSS-LINK
    ═══════════════════════════════════════════════════════════════ */
-function BlogCrossLink() {
+function BlogCrossLink({ palette }: { palette: PropertyPalette }) {
   return (
-    <section className="py-12 px-6 md:px-10" style={{ backgroundColor: PALETTE.bg }}>
+    <section className="py-12 px-6 md:px-10" style={{ backgroundColor: palette.gradientStart }}>
       <div className={maxW}>
         <AnimateOnScroll variants={fadeUp}>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
@@ -704,7 +709,7 @@ function BlogCrossLink() {
                 fontSize: "12px",
                 letterSpacing: "0.08em",
                 color: "#fff",
-                backgroundColor: "#3a2a1a",
+                backgroundColor: palette.primary,
               }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

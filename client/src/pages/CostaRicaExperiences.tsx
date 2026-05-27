@@ -86,9 +86,8 @@ interface Props {
 }
 
 export default function CostaRicaExperiences({ propertySlug }: Props) {
-  // Use tented-camp palette for tented-camp and gardens; springs uses its own palette
-  const paletteSlug = (propertySlug === "springs") ? "springs" : (CR_SLUGS.has(propertySlug) ? "tented-camp" : propertySlug);
-  const palette = getPalette(paletteSlug);
+  // Each property gets its own palette (like sustainability does)
+  const palette = getPalette(propertySlug);
   const dataSlug = DATA_PROPERTY_MAP[propertySlug] || propertySlug;
   const property = properties.find((p: Property) => p.id === dataSlug)!;
   const propertyDisplay = properties.find((p: Property) => p.id === propertySlug);
@@ -608,7 +607,7 @@ function ThermasSection({ palette }: { palette: PropertyPalette }) {
                 fontSize: "12px",
                 letterSpacing: "0.08em",
                 color: "#fff",
-                backgroundColor: "#556B2F",
+                backgroundColor: palette.primary,
               }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -680,7 +679,7 @@ function SharedAccessSection({ palette }: { palette: PropertyPalette }) {
                 fontSize: "12px",
                 letterSpacing: "0.08em",
                 color: "#fff",
-                backgroundColor: "#556B2F",
+                backgroundColor: palette.primary,
               }}
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

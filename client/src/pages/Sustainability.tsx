@@ -384,20 +384,30 @@ function PropertyInitiativesSection({
         {/* Hotel filter pills */}
         <div className="mb-8">
           <div className="flex flex-wrap gap-2">
-            {PROPERTIES.map((prop) => (
-              <button
-                key={prop.id}
-                onClick={() => onPropertyChange(prop.id)}
-                className={`px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border transition-all duration-300 ${
-                  activeProperty === prop.id
-                    ? "text-white"
-                    : "bg-transparent text-[#5a4a3a]/60 border-[#3B2B26]/15 hover:border-[#3B2B26]/40 hover:text-[#3B2B26]"
-                }`}
-                style={{ ...body, fontWeight: 500, ...(activeProperty === prop.id ? { backgroundColor: prop.color, borderColor: prop.color } : {}) }}
-              >
-                {prop.label}
-              </button>
-            ))}
+            {PROPERTIES.map((prop) => {
+              const isActive = activeProperty === prop.id;
+              return (
+                <motion.button
+                  key={prop.id}
+                  onClick={() => onPropertyChange(prop.id)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{
+                    backgroundColor: isActive ? prop.color : "transparent",
+                    color: isActive ? "#ffffff" : "rgba(90,74,58,0.6)",
+                    borderColor: isActive ? prop.color : "rgba(59,43,38,0.15)",
+                    boxShadow: isActive
+                      ? `0 4px 14px ${prop.color}40`
+                      : "0 0px 0px transparent",
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="px-4 py-1.5 text-xs tracking-[0.1em] rounded-full border cursor-pointer"
+                  style={{ ...body, fontWeight: 500 }}
+                >
+                  {prop.label}
+                </motion.button>
+              );
+            })}
           </div>
         </div>
 
