@@ -58,12 +58,12 @@ type SubCategory = "flora-fauna" | "certification" | "community" | "operations";
 
 /* ─── Properties ─── */
 const PROPERTIES = [
-  { id: "alto-atacama", label: "Alto Atacama", image: "/manus-storage/sustainability-atacama_653b7536.jpg", sustainabilityRoute: "/alto-atacama", color: "#B85C3C" },
-  { id: "bocas-del-toro", label: "Bocas del Toro", image: "/manus-storage/sustainability-bocas_ccedb62a.jpg", sustainabilityRoute: "/bocas-del-toro", color: "#1B6B5A" },
-  { id: "gardens", label: "Gardens", image: "/manus-storage/sustainability-gardens_b4aec415.jpeg", sustainabilityRoute: "/gardens", color: "#4A7C59" },
-  { id: "hangaroa", label: "Hangaroa", image: "/manus-storage/sustainability-hangaroa_6db7bd22.jpg", sustainabilityRoute: "/hangaroa", color: "#8B5E3C" },
-  { id: "springs", label: "Springs", image: "/manus-storage/sustainability-springs_91d7dfca.jpeg", sustainabilityRoute: "/springs", color: "#5B8A72" },
   { id: "tented-camp", label: "Tented Camp", image: "/manus-storage/sustainability-tented_4f5ca0f9.jpeg", sustainabilityRoute: "/tented-camp", color: "#868B75" },
+  { id: "alto-atacama", label: "Alto Atacama", image: "/manus-storage/sustainability-atacama_653b7536.jpg", sustainabilityRoute: "/alto-atacama", color: "#B85C3C" },
+  { id: "gardens", label: "Gardens", image: "/manus-storage/sustainability-gardens_b4aec415.jpeg", sustainabilityRoute: "/gardens", color: "#286241" },
+  { id: "bocas-del-toro", label: "Bocas del Toro", image: "/manus-storage/sustainability-bocas_ccedb62a.jpg", sustainabilityRoute: "/bocas-del-toro", color: "#1E3A8A" },
+  { id: "springs", label: "Springs", image: "/manus-storage/sustainability-springs_91d7dfca.jpeg", sustainabilityRoute: "/springs", color: "#0E6B7E" },
+  { id: "hangaroa", label: "Hangaroa", image: "/manus-storage/sustainability-hangaroa_6db7bd22.jpg", sustainabilityRoute: "/hangaroa", color: "#536878" },
 ];
 
 /* ─── Initiative data: each tagged with property + category ─── */
@@ -151,7 +151,7 @@ const allInitiatives: Initiative[] = [
 ];
 
 export default function Sustainability() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
+  const [activeHotel, setActiveHotel] = useState("tented-camp");
 
   const filtered = allInitiatives.filter(
     (i) => i.property === activeHotel
@@ -171,7 +171,7 @@ export default function Sustainability() {
         filtered={filtered}
         propertyName={currentInitiative?.propertyName || ""}
         propertyLocation={currentInitiative?.location || ""}
-        propertyRoute={currentInitiative?.route || "/"}
+        propertyRoute={currentInitiative?.route ? `${currentInitiative.route}/sustainability` : "/"}
       />
       <BrandPillarsSection />
       <CertificationsSection />

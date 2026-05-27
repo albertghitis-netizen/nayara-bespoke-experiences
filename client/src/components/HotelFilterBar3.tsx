@@ -7,12 +7,12 @@
 const body = { fontFamily: "var(--font-body)", fontWeight: 400 } as const;
 
 const HOTEL_OPTIONS = [
+  { id: "tented-camp", label: "Tented Camp", color: "#868B75" }, // Olive Green
+  { id: "alto-atacama", label: "Alto Atacama", color: "#B85C3C" }, // Middle Terracotta
   { id: "gardens", label: "Gardens", color: "#286241" },         // Clover Green
   { id: "bocas-del-toro", label: "Bocas del Toro", color: "#1E3A8A" }, // Navy
   { id: "springs", label: "Springs", color: "#0E6B7E" },         // Teal
   { id: "hangaroa", label: "Hangaroa", color: "#536878" },       // Steel Grey
-  { id: "alto-atacama", label: "Alto Atacama", color: "#B85C3C" }, // Middle Terracotta
-  { id: "tented-camp", label: "Tented Camp", color: "#868B75" }, // Olive Green
 ];
 
 interface HotelFilterBarProps {

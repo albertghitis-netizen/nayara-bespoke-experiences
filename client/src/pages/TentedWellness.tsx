@@ -130,11 +130,11 @@ export default function BrandWellness() {
     <div className="min-h-screen" style={{ backgroundColor: "#F7F5F0" }}>
       <BrandNavigation />
       <HeroSection />
-      <SpaByHotelSection palette={palette} />
       <IntroSection palette={palette} />
       <EcosystemsSection palette={palette} />
       <BlogLinkSection palette={palette} />
       <WellnessRetreatsSection palette={palette} />
+      <SpaByHotelSection palette={palette} />
 
       <Footer bgColor="#3B2B26" textColor="#FFFFFF" propertyName="Tented Camp" />
     </div>
@@ -421,14 +421,16 @@ function TreatmentsSection({ treatments, palette }: { treatments: Array<Treatmen
    SPA BY HOTEL — Treatments organized by destination
    ═══════════════════════════════════════════════════════════════ */
 const SPA_HOTELS = [
-  { id: "costa-rica", label: "Costa Rica", subtitle: "Springs · Tented Camp · Gardens", propertyIds: ["springs", "tented-camp", "gardens"] },
-  { id: "alto-atacama", label: "Alto Atacama", subtitle: "Atacama Desert, Chile", propertyIds: ["alto-atacama"] },
-  { id: "bocas-del-toro", label: "Bocas del Toro", subtitle: "Caribbean, Panama", propertyIds: ["bocas-del-toro"] },
-  { id: "hangaroa", label: "Hangaroa", subtitle: "Easter Island, Chile", propertyIds: ["hangaroa"] },
+  { id: "tented-camp", label: "Tented Camp", subtitle: "Arenal, Costa Rica", color: "#868B75", propertyIds: ["tented-camp"] },
+  { id: "alto-atacama", label: "Alto Atacama", subtitle: "Atacama Desert, Chile", color: "#B85C3C", propertyIds: ["alto-atacama"] },
+  { id: "gardens", label: "Gardens", subtitle: "Arenal, Costa Rica", color: "#286241", propertyIds: ["gardens"] },
+  { id: "bocas-del-toro", label: "Bocas del Toro", subtitle: "Caribbean, Panama", color: "#1E3A8A", propertyIds: ["bocas-del-toro"] },
+  { id: "springs", label: "Springs", subtitle: "Arenal, Costa Rica", color: "#0E6B7E", propertyIds: ["springs"] },
+  { id: "hangaroa", label: "Hangaroa", subtitle: "Easter Island, Chile", color: "#536878", propertyIds: ["hangaroa"] },
 ];
 
 function SpaByHotelSection({ palette }: { palette: PropertyPalette }) {
-  const [activeHotelTab, setActiveHotelTab] = useState("costa-rica");
+  const [activeHotelTab, setActiveHotelTab] = useState("tented-camp");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const currentHotel = SPA_HOTELS.find((h) => h.id === activeHotelTab)!;
@@ -498,20 +500,22 @@ function SpaByHotelSection({ palette }: { palette: PropertyPalette }) {
           </p>
         </FadeIn>
 
-        {/* Hotel tabs */}
+        {/* Hotel tabs — brand colors matching HotelFilterBar3 */}
         <FadeIn delay={0.1}>
-          <div className="flex flex-wrap gap-3 mb-10">
+          <div className="flex flex-wrap gap-2 mb-10">
             {SPA_HOTELS.map((hotel) => (
               <button
                 key={hotel.id}
                 onClick={() => setActiveHotelTab(hotel.id)}
-                className="px-5 py-2.5 rounded-full text-[11px] tracking-[0.12em] uppercase transition-all duration-400"
+                className={`px-4 py-2 rounded-full text-[12px] tracking-[0.08em] uppercase transition-all duration-300 ${
+                  activeHotelTab === hotel.id
+                    ? "text-white"
+                    : "bg-stone-100 text-[#3B2B26]/60 hover:bg-stone-200 hover:text-[#3B2B26]"
+                }`}
                 style={{
                   ...body,
                   fontWeight: 500,
-                  backgroundColor: activeHotelTab === hotel.id ? palette.primary : "transparent",
-                  color: activeHotelTab === hotel.id ? "#F7F5F0" : `${palette.primary}99`,
-                  border: `1px solid ${activeHotelTab === hotel.id ? palette.primary : `${palette.primary}33`}`,
+                  ...(activeHotelTab === hotel.id ? { backgroundColor: hotel.color } : {}),
                 }}
               >
                 {hotel.label}
