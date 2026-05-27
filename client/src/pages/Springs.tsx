@@ -577,10 +577,16 @@ function ExperiencesSection() {
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll variants={fadeUp} delay={0.3}>
-            <a href="/curated-excursions?from=springs" className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
-              Explore Experiences
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-            </a>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a href="/springs/experiences" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
+                Explore On-Site Experiences
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+              <a href="/curated-excursions?from=springs" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit" style={{ fontFamily: "var(--font-body)" }}>
+                Explore Off-Site Experiences
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
           </AnimateOnScroll>
         </div>
       </div>

@@ -229,6 +229,8 @@ type CascadeSectionData = {
   textLink?: string;
   textLinkLabel?: string;
   textLinkTransparent?: boolean;
+  secondTextLink?: string;
+  secondTextLinkLabel?: string;
 };
 
 function CascadeSection({
@@ -402,16 +404,40 @@ function CascadeSection({
                   {section.body.split("\n\n")[0]}
                 </p>
               </AnimateOnScroll>
-              {section.link && (
+              {(section.link || section.textLink) && (
                 <AnimateOnScroll variants={fadeUp} delay={0.3}>
-                  <a
-                    href={section.link}
-                    className="inline-flex items-center gap-2 mt-6 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    {section.linkLabel || "Explore"}
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                  </a>
+                  <div className="flex flex-wrap gap-3 mt-6">
+                    {section.textLink && (
+                      <a
+                        href={section.textLink}
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
+                        style={{ fontFamily: "var(--font-body)" }}
+                      >
+                        {section.textLinkLabel || "Explore"}
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                      </a>
+                    )}
+                    {section.secondTextLink && (
+                      <a
+                        href={section.secondTextLink}
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
+                        style={{ fontFamily: "var(--font-body)" }}
+                      >
+                        {section.secondTextLinkLabel || "Explore"}
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                      </a>
+                    )}
+                    {!section.textLink && section.link && (
+                      <a
+                        href={section.link}
+                        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md text-white text-[11px] tracking-[0.15em] uppercase font-medium transition-all hover:bg-white/10 w-fit"
+                        style={{ fontFamily: "var(--font-body)" }}
+                      >
+                        {section.linkLabel || "Explore"}
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                      </a>
+                    )}
+                  </div>
                 </AnimateOnScroll>
               )}
             </div>
@@ -554,16 +580,30 @@ function CascadeSection({
       )}
       {section.textLink && (
         <AnimateOnScroll variants={fadeUp} delay={0.32}>
-          <a
-            href={section.textLink}
-            className="inline-flex items-center gap-2 mt-6 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg border"
-            style={{ fontFamily: "var(--font-body)", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : (section.textLinkTransparent ? "rgba(255,255,255,0.5)" : "transparent"), backgroundColor: isMobile ? "transparent" : (section.textLinkTransparent ? "transparent" : "rgba(134,139,117,0.9)") }}
-          >
-            {section.textLinkLabel || "Explore More"}
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </a>
+          <div className="flex flex-wrap gap-3 mt-6">
+            <a
+              href={section.textLink}
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg border"
+              style={{ fontFamily: "var(--font-body)", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : (section.textLinkTransparent ? "rgba(255,255,255,0.5)" : "transparent"), backgroundColor: isMobile ? "transparent" : (section.textLinkTransparent ? "transparent" : "rgba(134,139,117,0.9)") }}
+            >
+              {section.textLinkLabel || "Explore More"}
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+            {section.secondTextLink && (
+              <a
+                href={section.secondTextLink}
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[11px] tracking-[0.15em] uppercase font-medium transition-all duration-300 hover:scale-[1.03] hover:shadow-lg border"
+                style={{ fontFamily: "var(--font-body)", color: isMobile ? textColor : "#fff", borderColor: isMobile ? `${textColor}40` : (section.textLinkTransparent ? "rgba(255,255,255,0.5)" : "transparent"), backgroundColor: isMobile ? "transparent" : (section.textLinkTransparent ? "transparent" : "rgba(134,139,117,0.9)") }}
+              >
+                {section.secondTextLinkLabel || "Explore More"}
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            )}
+          </div>
         </AnimateOnScroll>
       )}
       {section.roomCards && section.roomCards.length > 0 && (
@@ -1137,8 +1177,10 @@ const SECTIONS_BEFORE_REVIEW: CascadeSectionData[] = [
     link: "/curated-excursions?from=tented-camp",
     linkLabel: "Explore Experiences",
     overlayOnVideo: true,
-    textLink: "/curated-excursions?from=tented-camp",
-    textLinkLabel: "Explore Bespoke Experiences",
+    textLink: "/tented-camp/experiences",
+    textLinkLabel: "Explore On-Site Experiences",
+    secondTextLink: "/curated-excursions?from=tented-camp",
+    secondTextLinkLabel: "Explore Off-Site Experiences",
   },
   {
     id: "sustainability",
