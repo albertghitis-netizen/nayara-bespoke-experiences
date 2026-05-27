@@ -74,7 +74,7 @@ export default function NurturedByNature() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: palette.gradientStart }}>
-      <BrandNavigation pageType="brand" hideCenterLabel backLink={{ label: config.label, href: config.href }} navPalette={{ pill: config.navColor, pillText: "#FFFFFF" }} />
+      <BrandNavigation pageType="brand" hideCenterLabel backLink={{ label: config.label, href: config.href }} navPalette={{ dark: "#FFFFFF", pillBg: config.navColor, pillHover: `${config.navColor}dd` }} />
       <HeroSection />
       <IntroSection palette={palette} />
       <SukhaSpaBanner palette={palette} />
