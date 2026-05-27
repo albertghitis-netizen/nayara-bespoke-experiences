@@ -122,12 +122,16 @@ const ALL_ENTRIES = buildGallery();
 const INITIAL_COUNT = 9;
 
 export default function Journal() {
-  const [activeHotel, setActiveHotel] = useState("alto-atacama");
+  const [activeHotel, setActiveHotel] = useState("all");
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
 
-  const visibleEntries = ALL_ENTRIES.slice(0, visibleCount);
-  const hasMore = visibleCount < ALL_ENTRIES.length;
+  // Filter entries by property — "all" shows everything, "brand" entries always show
+  const filteredEntries = activeHotel === "all"
+    ? ALL_ENTRIES
+    : ALL_ENTRIES.filter(e => e.property === activeHotel || e.property === "brand");
+  const visibleEntries = filteredEntries.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredEntries.length;
 
   return (
     <div className="min-h-screen bg-[#F7F5F0]">
@@ -176,7 +180,7 @@ export default function Journal() {
       </section>
 
       {/* ── Hotel Filter ── */}
-      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={setActiveHotel} />
+      <HotelFilterBar3 activeHotel={activeHotel} onHotelChange={(id) => { setActiveHotel(id); setVisibleCount(INITIAL_COUNT); }} showAll />
 
       {/* ── Gallery Grid ── */}
       <section className="px-4 md:px-8 lg:px-12 py-10 md:py-14">

@@ -22,9 +22,14 @@ interface HotelFilterBarProps {
   activeHotel: string;
   onHotelChange: (hotelId: string) => void;
   label?: string;
+  showAll?: boolean;
 }
 
-export default function HotelFilterBar3({ activeHotel, onHotelChange, label = "Filter by Hotel" }: HotelFilterBarProps) {
+export default function HotelFilterBar3({ activeHotel, onHotelChange, label = "Filter by Hotel", showAll = false }: HotelFilterBarProps) {
+  const options = showAll
+    ? [{ id: "all", label: "All", color: "#3B2B26" }, ...HOTEL_OPTIONS]
+    : HOTEL_OPTIONS;
+
   return (
     <section className="px-6 md:px-10 py-8">
       <div className="max-w-[1200px] mx-auto">
@@ -32,7 +37,7 @@ export default function HotelFilterBar3({ activeHotel, onHotelChange, label = "F
           {label}
         </p>
         <div className="flex flex-wrap gap-2">
-          {HOTEL_OPTIONS.map((opt) => {
+          {options.map((opt) => {
             const isActive = activeHotel === opt.id;
             return (
               <motion.button
