@@ -148,20 +148,31 @@ export default function RoomSlider({
             className="flex h-full"
             style={{ width: `${rooms.length * 100}%` }}
           >
-            {rooms.map((room, i) => (
-              <div
-                key={room.id}
-                className="flex h-full"
-                style={{
-                  width: `${100 / rooms.length}%`,
-                  scrollSnapAlign: "start",
-                }}
-              >
-                {/* Text half */}
-                <div
-                  className="w-1/2 h-full flex items-center px-12 lg:px-16 xl:px-20"
-                  style={{ backgroundColor: palette.bg }}
-                >
+            {rooms.map((room, i) => {
+              const videoHalf = (
+                <div key="media" className="w-1/2 h-full overflow-hidden">
+                  {room.video ? (
+                    <video
+                      src={room.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : room.photo ? (
+                    <img
+                      loading="lazy"
+                      src={room.photo}
+                      alt={room.label}
+                      className="w-full h-full object-cover"
+                      draggable={false}
+                    />
+                  ) : null}
+                </div>
+              );
+              const textHalf = (
+                <div key="text" className="w-1/2 h-full flex items-center px-12 lg:px-16 xl:px-20" style={{ backgroundColor: palette.bg }}>
                   <div className="w-full">
                     <p
                       className="text-[10px] tracking-[0.2em] uppercase mb-4"
@@ -246,36 +257,26 @@ export default function RoomSlider({
                     )}
                   </div>
                 </div>
-
-                {/* Video/Image half */}
-                <div className="w-1/2 h-full overflow-hidden">
-                  {room.video ? (
-                    <video
-                      src={room.video}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-full object-cover"
-                    />
-                  ) : room.photo ? (
-                    <img
-          loading="lazy"
-                      src={room.photo}
-                      alt={room.label}
-                      className="w-full h-full object-cover"
-                      draggable={false}
-                    />
-                  ) : null}
+              );
+              return (
+                <div
+                  key={room.id}
+                  className="flex h-full"
+                  style={{
+                    width: `${100 / rooms.length}%`,
+                    scrollSnapAlign: "start",
+                  }}
+                >
+                  {forceVideoLeft ? <>{videoHalf}{textHalf}</> : <>{textHalf}{videoHalf}</>}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* Navigation arrows + counter — fixed overlay */}
+        {/* Navigation arrows + counter — aligned under text half (same padding as Explore button) */}
         {rooms.length > 1 && !hideArrows && (
-          <div className="absolute bottom-12 left-12 lg:left-16 xl:left-20 z-20 flex items-center gap-5">
+          <div className={`absolute bottom-12 z-20 flex items-center gap-5 ${forceVideoLeft ? 'left-[calc(50%+3rem)] lg:left-[calc(50%+4rem)] xl:left-[calc(50%+5rem)]' : 'left-12 lg:left-16 xl:left-20'}`}>
             {/* Prev arrow */}
             <button
               onClick={handlePrev}
