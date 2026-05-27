@@ -223,7 +223,7 @@ export default function Springs() {
         overlayOnVideo={true}
         hideButton={false}
         buttonLabel="Explore Night Frog Tour"
-        buttonHref="/springs/experiences"
+        buttonHref="/explore-arenal?from=springs"
       />
       <ReviewsSection />
       <GettingHereSection />
@@ -625,7 +625,7 @@ function SustainabilitySection() {
         <div className="w-full md:w-1/2 order-2 md:order-1">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/springs-bridge-white-dress_b908dee5.jpg" alt="Woman in white dress on rainforest bridge at Nayara Springs" className="w-full h-full object-cover" loading="lazy" decoding="async" />
+              <NativeVideo src="/manus-storage/springs-sustainability-vertical-v2_29a084e6.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
         </div>
@@ -741,7 +741,7 @@ function GastronomySection() {
         <div className="w-full md:w-1/2 order-2 md:order-1 relative">
           <MediaReveal delay={0.1}>
             <div className="overflow-hidden w-full h-full" style={{ aspectRatio: "3/4" }}>
-              <img src="/manus-storage/gardens-gastronomy-amorloco_6b48aef5.jpg" alt="Amor Loco Bar at Nayara Springs" className="w-full h-full object-cover" decoding="async" loading="lazy" />
+              <NativeVideo src="/manus-storage/springs-gastronomy-vertical_cea4bf61.mp4" className="w-full h-full object-cover" />
             </div>
           </MediaReveal>
           {/* Explore Amor Loco — transparent oval overlaid on image */}
@@ -801,8 +801,8 @@ function GastronomySection() {
           <AnimateOnScroll variants={fadeUp} delay={0.4}>
             <a
               href="/springs/gastronomy"
-              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full border border-white/40 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] w-fit"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: "rgba(255,255,255,0.12)" }}
+              className="inline-flex items-center gap-2 mt-8 px-4 py-2.5 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md w-fit"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 500, fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#FFFFFF", backgroundColor: PALETTE.primary }}
             >
               Explore Forest to Table
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>

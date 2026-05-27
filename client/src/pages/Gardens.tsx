@@ -1115,7 +1115,7 @@ function WellnessSection() {
       {!isMobile ? (
       <div className="relative w-full">
         <div style={{ aspectRatio: "16/9" }}>
-          <NativeVideo src="/manus-storage/springs-s10-wellness-horizontal_220c4487.mp4" className="w-full h-full object-cover" />
+          <NativeVideo src="/manus-storage/gardens-wellness-stitched_52dda415.mp4" className="w-full h-full object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end pb-16 lg:pb-20 px-16 lg:px-24">
